@@ -8,7 +8,7 @@
 		</relativePath>
 	</parent>
  <groupId>org.obeonetwork</groupId>
- <artifactId>dsl.cinematic.doc</artifactId>
+ <artifactId>org.obeonetwork.dsl.cinematic.doc</artifactId>
  <version>3.0.0.qualifier</version>
  <packaging>eclipse-plugin</packaging>
 </project>
