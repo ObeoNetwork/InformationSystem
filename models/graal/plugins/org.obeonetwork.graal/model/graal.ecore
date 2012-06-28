@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="graal"
+    nsURI="http://org.obeonetwork.graal/1.0" nsPrefix="graal">
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Activity #//AbstractTask #//UserStoryElement">
+    <eOperations name="getReferencedBy" upperBound="-1" eType="#//TaskReference"/>
+    <eOperations name="getUsedBy" upperBound="-1" eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" upperBound="-1" eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preconditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postconditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
+        eType="#//Actor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//NamedElement #//DomainModelRegistry #//TasksContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subSystems" upperBound="-1"
+        eType="#//System" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
+        eType="#//Actor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="useCases" upperBound="-1"
+        eType="#//UseCase" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="userStories" upperBound="-1"
+        eType="#//UserStory" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//GraalObject">
+    <eOperations name="hasChildAttachedToUserStory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="userStory" eType="#//UserStory"/>
+    </eOperations>
+    <eOperations name="getContainingTask" eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+        eType="#//Node" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
+        eType="#//Transition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subActivities" upperBound="-1"
+        eType="#//Activity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operator" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//OperatorKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//GraalObject #//UserStoryElement">
+    <eOperations name="getContainingTask" eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingTransitions" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingTransitions" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/target"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//GraalObject #//UserStoryElement">
+    <eOperations name="getContainingTask" eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Node" eOpposite="#//Node/outgoingTransitions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Node" eOpposite="#//Node/incomingTransitions"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//TransitionKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskReference" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="#//Task"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserView" eSuperTypes="#//NamedNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UserAction" eSuperTypes="#//NamedNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AppliEvent" eSuperTypes="#//NamedNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AppliAction" eSuperTypes="#//NamedNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialNode" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FinalNode" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbortNode" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="TransitionKind">
+    <eLiterals name="normal"/>
+    <eLiterals name="interrupt" value="1"/>
+    <eLiterals name="abort" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//Activity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperatorKind">
+    <eLiterals name="and"/>
+    <eLiterals name="or" value="1"/>
+    <eLiterals name="xor" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subActors" upperBound="-1"
+        eType="#//Actor" eOpposite="#//Actor/superActor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superActor" eType="#//Actor"
+        eOpposite="#//Actor/subActors"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractTask" abstract="true" eSuperTypes="#//NamedElement">
+    <eOperations name="getUseCase" eType="#//UseCase"/>
+    <eOperations name="getContainingSystem" eType="#//System"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TasksGroup" eSuperTypes="#//AbstractTask #//TasksContainer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UseCase" eSuperTypes="#//NamedElement #//DomainModelRegistry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
+        eType="#//Actor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        eType="#//AbstractTask"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
+        eType="#//UseCase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" upperBound="-1"
+        eType="#//UseCase"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//GraalObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedNode" abstract="true" eSuperTypes="#//Node #//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainModelRegistry" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dtoCategories" upperBound="-1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.soa/model/soa.ecore#//Category"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dtos" upperBound="-1" eType="ecore:EClass ../../org.obeonetwork.dsl.soa/model/soa.ecore#//ServiceDTO"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entityBlocks" upperBound="-1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.entity/model/entity.ecore#//Block"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.entity/model/entity.ecore#//Entity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TasksContainer" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        eType="#//AbstractTask" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedTasks" upperBound="-1"
+        eType="#//Task" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedGroups" upperBound="-1"
+        eType="#//TasksGroup" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserStory" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//UserStoryElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserStoryElement" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GraalObject" abstract="true" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
+    <eOperations name="attachToUserStory">
+      <eParameters name="userStory" eType="#//UserStory"/>
+    </eOperations>
+    <eOperations name="detachFromUserStory">
+      <eParameters name="userStory" eType="#//UserStory"/>
+    </eOperations>
+    <eOperations name="isConcernedByUserStory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="userStory" eType="#//UserStory"/>
+    </eOperations>
+    <eOperations name="canBeAttachedToUserStory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="userStory" eType="#//UserStory"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

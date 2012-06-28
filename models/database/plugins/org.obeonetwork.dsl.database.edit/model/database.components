@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eef-components="http://www.eclipse.org/emf/eef/components/1.0.0" xmlns:eef-mapping-navigation="http://www.eclipse.org/emf/eef/mapping/navigation/1.0.0" xmlns:eef-views="http://www.eclipse.org/emf/eef/views/1.0.0">
+  <eef-components:PropertiesEditionContext xmi:id="_9dhnUCZDEeGbPrqZPmsr5Q" documentation="Edition Context for database GenPackage">
+    <categories xmi:id="_9dhnUSZDEeGbPrqZPmsr5Q" name="database">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9dhnUiZDEeGbPrqZPmsr5Q" name="dataBase" views="_9diOhiZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnVCZDEeGbPrqZPmsr5Q" name="name" views="_9diOiSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnViZDEeGbPrqZPmsr5Q" name="url" views="_9diOiyZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DataBase/url"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnUyZDEeGbPrqZPmsr5Q" name="comments" views="_9diOiCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnWCZDEeGbPrqZPmsr5Q" name="usedLibraries" views="_9diOjSZDEeGbPrqZPmsr5Q" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypesLibraryUser/usedLibraries"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DataBase"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9dhnWSZDEeGbPrqZPmsr5Q" name="column" views="_9diOjiZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnWyZDEeGbPrqZPmsr5Q" name="name" views="_9diOkSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnXCZDEeGbPrqZPmsr5Q" name="nullable" views="_9diOkiZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/nullable"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_BpL6wCu7EeG2AflpAVU3pg" name="primaryKey" views="_tls-USu6EeG2AflpAVU3pg" helpID="">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/inPrimaryKey"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_1qctgCveEeG2AflpAVU3pg" name="unique" views="_pwdnwCveEeG2AflpAVU3pg" helpID="">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/unique"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnYyZDEeGbPrqZPmsr5Q" name="autoincrement" views="_9diOmSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/autoincrement"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnYSZDEeGbPrqZPmsr5Q" name="sequence" views="_9diOlyZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/sequence"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnXSZDEeGbPrqZPmsr5Q" name="defaultValue" views="_9diOkyZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/defaultValue"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnWiZDEeGbPrqZPmsr5Q" name="comments" views="_9diOkCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4_95ACv4EeG2AflpAVU3pg" name="type" views="_jd0mMCv4EeG2AflpAVU3pg" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance/nativeType"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_9WJ2ICv4EeG2AflpAVU3pg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/type"/>
+            <discriminatorType xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_EbSFwCv5EeG2AflpAVU3pg" name="length" views="_wVWSQCv4EeG2AflpAVU3pg" helpID="">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance/length"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_G_fH4Cv5EeG2AflpAVU3pg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/type"/>
+            <discriminatorType xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_JPYG4Cv5EeG2AflpAVU3pg" name="precision" views="_yMwf0Cv4EeG2AflpAVU3pg" helpID="">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance/precision"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_JPYG4Sv5EeG2AflpAVU3pg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/type"/>
+            <discriminatorType xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_LvlZ0Cv5EeG2AflpAVU3pg" name="literals" views="_0t1VcCv4EeG2AflpAVU3pg" helpID="">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance/literals"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_LvlZ0Sv5EeG2AflpAVU3pg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/type"/>
+            <discriminatorType xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance"/>
+          </navigation>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9dhnZCZDEeGbPrqZPmsr5Q" name="index" views="_9diOmiZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnZiZDEeGbPrqZPmsr5Q" name="name" views="_9diOnSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnZyZDEeGbPrqZPmsr5Q" name="qualifier" views="_9diOniZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Index/qualifier"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnaSZDEeGbPrqZPmsr5Q" name="unique" views="_9diOoCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Index/unique"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnaiZDEeGbPrqZPmsr5Q" name="cardinality" views="_9diOoSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Index/cardinality"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnayZDEeGbPrqZPmsr5Q" name="indexType" views="_9diOoiZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Index/indexType"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnZSZDEeGbPrqZPmsr5Q" name="comments" views="_9diOnCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_M4GhQDhTEeG1pIWKBr2sCQ" name="elements" views="_8J1NIDhSEeG1pIWKBr2sCQ" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Index/elements"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Index"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9dhnbSZDEeGbPrqZPmsr5Q" name="view" views="_9diOpCZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnbyZDEeGbPrqZPmsr5Q" name="name" views="_9diOpyZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhncSZDEeGbPrqZPmsr5Q" name="query" views="_9diOqSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//View/query"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnbiZDEeGbPrqZPmsr5Q" name="comments" views="_9diOpiZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//View"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9dhnciZDEeGbPrqZPmsr5Q" name="table" views="_9di1cCZDEeGbPrqZPmsr5Q _9di1dSZDEeGbPrqZPmsr5Q _wfTLwDhqEeGFLeGbu4zdMQ _rRNEUDhsEeGFLeGbu4zdMQ __xyzgDhsEeGFLeGbu4zdMQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOYCZDEeGbPrqZPmsr5Q" name="name" views="_9di1cyZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_644B4CgHEeGdYPWcihSfaQ" name="columns" views="_NIu78CZEEeGbPrqZPmsr5Q" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//AbstractTable/columns"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhncyZDEeGbPrqZPmsr5Q" name="comments" views="_9di1ciZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_VX4fEDhVEeG1pIWKBr2sCQ" name="pkName" views="_9di1eCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_dPiX0DhVEeG1pIWKBr2sCQ">
+            <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Table/primaryKey"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_0f3ToThpEeGFLeGbu4zdMQ" name="pkColumns" views="_9di1eSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//PrimaryKey/columns"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_06h2YDhpEeGFLeGbu4zdMQ">
+            <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Table/primaryKey"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_g923IDhqEeGFLeGbu4zdMQ" name="pkComments" views="_9di1dyZDEeGbPrqZPmsr5Q" helpID="">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_hviywDhqEeGFLeGbu4zdMQ">
+            <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Table/primaryKey"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_KLVsIDhrEeGFLeGbu4zdMQ" name="foreignKeys" views="_CRgpIDhrEeGFLeGbu4zdMQ" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Table/foreignKeys"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_0uKG8DhsEeGFLeGbu4zdMQ" name="constraints" views="_v8qt4DhsEeGFLeGbu4zdMQ" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Table/constraints"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_TTQoADhtEeGFLeGbu4zdMQ" name="indexes" views="_ON2NYDhtEeGFLeGbu4zdMQ" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Table/indexes"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Table"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9diOYiZDEeGbPrqZPmsr5Q" name="primaryKey" views="_9di1dSZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOZCZDEeGbPrqZPmsr5Q" name="name" views="_9di1eCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOZSZDEeGbPrqZPmsr5Q" name="columns" views="_9di1eSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//PrimaryKey/columns"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOYyZDEeGbPrqZPmsr5Q" name="comments" views="_9di1dyZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//PrimaryKey"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9diOZyZDEeGbPrqZPmsr5Q" name="foreignKey" views="_9di1eyZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOaSZDEeGbPrqZPmsr5Q" name="name" views="_9di1fiZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOayZDEeGbPrqZPmsr5Q" name="target" views="_9di1gCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//ForeignKey/target"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SqVJIDhUEeG1pIWKBr2sCQ" name="elements" views="_M1Z9IDhUEeG1pIWKBr2sCQ" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//ForeignKey/elements"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOaCZDEeGbPrqZPmsr5Q" name="comments" views="_9di1fSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//ForeignKey"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9diObCZDEeGbPrqZPmsr5Q" name="foreignKeyElement" views="_9di1gSZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diObSZDEeGbPrqZPmsr5Q" name="comments" views="_9di1gyZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diObiZDEeGbPrqZPmsr5Q" name="fkColumn" views="_9djcgCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//ForeignKeyElement/fkColumn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diObyZDEeGbPrqZPmsr5Q" name="pkColumn" views="_9djcgSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//ForeignKeyElement/pkColumn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_dw8DUCsxEeGDoZnN6mIKWg" name="sourceTable" views="_VlnnsCsxEeGDoZnN6mIKWg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+          <navigation xsi:type="eef-mapping-navigation:ChainedModelNavigation" xmi:id="_l05SsCsxEeGDoZnN6mIKWg">
+            <current xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_mZM5oCsxEeGDoZnN6mIKWg">
+              <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//ForeignKeyElement/fkColumn"/>
+            </current>
+            <next xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_ndzxQCsxEeGDoZnN6mIKWg">
+              <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/owner"/>
+            </next>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_pD6zcCsxEeGDoZnN6mIKWg" name="targetTable" views="_bJSroCsxEeGDoZnN6mIKWg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+          <navigation xsi:type="eef-mapping-navigation:ChainedModelNavigation" xmi:id="_pD6zcSsxEeGDoZnN6mIKWg">
+            <current xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_pD6zcisxEeGDoZnN6mIKWg">
+              <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//ForeignKeyElement/pkColumn"/>
+            </current>
+            <next xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_pD6zcysxEeGDoZnN6mIKWg">
+              <feature href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Column/owner"/>
+            </next>
+          </navigation>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//ForeignKeyElement"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9diOcCZDEeGbPrqZPmsr5Q" name="indexElement" views="_9djcgiZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOciZDEeGbPrqZPmsr5Q" name="column" views="_9djchSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//IndexElement/column"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOcyZDEeGbPrqZPmsr5Q" name="asc" views="_9djchiZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//IndexElement/asc"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOcSZDEeGbPrqZPmsr5Q" name="comments" views="_9djchCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//IndexElement"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9diOdCZDEeGbPrqZPmsr5Q" name="constraint" views="_9djchyZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOdiZDEeGbPrqZPmsr5Q" name="name" views="_9djciiZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOdyZDEeGbPrqZPmsr5Q" name="expression" views="_9djciyZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Constraint/expression"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOdSZDEeGbPrqZPmsr5Q" name="comments" views="_9djciSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Constraint"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9diOeSZDEeGbPrqZPmsr5Q" name="schema" views="_9djcjSZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOeyZDEeGbPrqZPmsr5Q" name="name" views="_9djckCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOeiZDEeGbPrqZPmsr5Q" name="comments" views="_9djcjyZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Schema"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9diOfSZDEeGbPrqZPmsr5Q" name="sequence" views="_9djckiZDEeGbPrqZPmsr5Q">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOfyZDEeGbPrqZPmsr5Q" name="name" views="_9djclSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOgCZDEeGbPrqZPmsr5Q" name="start" views="_9djcliZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Sequence/start"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOgSZDEeGbPrqZPmsr5Q" name="increment" views="_9djclyZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Sequence/increment"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOgiZDEeGbPrqZPmsr5Q" name="minValue" views="_9djcmCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Sequence/minValue"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOgyZDEeGbPrqZPmsr5Q" name="maxValue" views="_9djcmSZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Sequence/maxValue"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOfiZDEeGbPrqZPmsr5Q" name="comments" views="_9djclCZDEeGbPrqZPmsr5Q">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Sequence"/>
+      </bindings>
+    </categories>
+    <model href="platform:/resource/org.obeonetwork.dsl.database/model/database.genmodel#//database"/>
+  </eef-components:PropertiesEditionContext>
+  <eef-views:ViewsRepository xmi:id="_9diOhCZDEeGbPrqZPmsr5Q" documentation="Views repository for database GenPackage" name="database">
+    <RepositoryKind>SWT</RepositoryKind>
+    <RepositoryKind>Form</RepositoryKind>
+    <categories xmi:id="_9diOhSZDEeGbPrqZPmsr5Q" name="database">
+      <views xmi:id="_9diOhiZDEeGbPrqZPmsr5Q" name="DataBase">
+        <elements xsi:type="eef-views:Container" xmi:id="_9diOhyZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOiSZDEeGbPrqZPmsr5Q" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOiyZDEeGbPrqZPmsr5Q" name="url">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOjSZDEeGbPrqZPmsr5Q" name="usedLibraries">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.10"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOiCZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9diOjiZDEeGbPrqZPmsr5Q" name="Column">
+        <elements xsi:type="eef-views:Container" xmi:id="_9diOjyZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOkSZDEeGbPrqZPmsr5Q" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_jd0mMCv4EeG2AflpAVU3pg" name="type">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.6"/>
+          </elements>
+          <elements xsi:type="eef-views:Container" xmi:id="_e6OfMCv4EeG2AflpAVU3pg" name="typeAttributes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.6"/>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_wVWSQCv4EeG2AflpAVU3pg" name="length">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            </elements>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_yMwf0Cv4EeG2AflpAVU3pg" name="precision">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            </elements>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_0t1VcCv4EeG2AflpAVU3pg" name="literals">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:Container" xmi:id="_h-cc8CveEeG2AflpAVU3pg" name="nullablePkAndUnique">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.6"/>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOkiZDEeGbPrqZPmsr5Q" name="nullable">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+            </elements>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_tls-USu6EeG2AflpAVU3pg" name="primary key">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+            </elements>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_pwdnwCveEeG2AflpAVU3pg" name="unique">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+            </elements>
+          </elements>
+          <elements xsi:type="eef-views:Container" xmi:id="_uBTK0CveEeG2AflpAVU3pg" name="sequence">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.6"/>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOmSZDEeGbPrqZPmsr5Q" name="autoincrement">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+            </elements>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOlyZDEeGbPrqZPmsr5Q" name="sequence">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+            </elements>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOkyZDEeGbPrqZPmsr5Q" name="default value">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOkCZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9diOmiZDEeGbPrqZPmsr5Q" name="Index">
+        <elements xsi:type="eef-views:Container" xmi:id="_9diOmyZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOnSZDEeGbPrqZPmsr5Q" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOniZDEeGbPrqZPmsr5Q" name="qualifier">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOoCZDEeGbPrqZPmsr5Q" name="unique">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOoSZDEeGbPrqZPmsr5Q" name="cardinality">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOoiZDEeGbPrqZPmsr5Q" name="index type">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_8J1NIDhSEeG1pIWKBr2sCQ" name="elements">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOnCZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9diOpCZDEeGbPrqZPmsr5Q" name="View">
+        <elements xsi:type="eef-views:Container" xmi:id="_9diOpSZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOpyZDEeGbPrqZPmsr5Q" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOqSZDEeGbPrqZPmsr5Q" name="query">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOpiZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9di1cCZDEeGbPrqZPmsr5Q" name="Table">
+        <elements xsi:type="eef-views:Container" xmi:id="_9di1cSZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9di1cyZDEeGbPrqZPmsr5Q" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_NIu78CZEEeGbPrqZPmsr5Q" name="columns">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9di1ciZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_wfTLwDhqEeGFLeGbu4zdMQ" name="Foreign Keys">
+        <elements xsi:type="eef-views:Container" xmi:id="_16jTgDhqEeGFLeGbu4zdMQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_CRgpIDhrEeGFLeGbu4zdMQ" name="foreign keys">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="__xyzgDhsEeGFLeGbu4zdMQ" name="Indexes">
+        <elements xsi:type="eef-views:Container" xmi:id="_CBXCYDhtEeGFLeGbu4zdMQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ON2NYDhtEeGFLeGbu4zdMQ" name="indexes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_rRNEUDhsEeGFLeGbu4zdMQ" name="Constraints">
+        <elements xsi:type="eef-views:Container" xmi:id="_uInWUDhsEeGFLeGbu4zdMQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_v8qt4DhsEeGFLeGbu4zdMQ" name="constraints">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9di1dSZDEeGbPrqZPmsr5Q" name="Primary Key">
+        <elements xsi:type="eef-views:Container" xmi:id="_9di1diZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9di1eCZDEeGbPrqZPmsr5Q" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9di1eSZDEeGbPrqZPmsr5Q" name="columns">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.1"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9di1dyZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9di1eyZDEeGbPrqZPmsr5Q" name="Foreign Key">
+        <elements xsi:type="eef-views:Container" xmi:id="_9di1fCZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9di1fiZDEeGbPrqZPmsr5Q" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9di1gCZDEeGbPrqZPmsr5Q" name="target">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_M1Z9IDhUEeG1pIWKBr2sCQ" name="elements">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9di1fSZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9di1gSZDEeGbPrqZPmsr5Q" name="Foreign Key Element">
+        <elements xsi:type="eef-views:Container" xmi:id="_9di1giZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_VlnnsCsxEeGDoZnN6mIKWg" name="Source table" readOnly="true">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djcgCZDEeGbPrqZPmsr5Q" name="FK Column">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_bJSroCsxEeGDoZnN6mIKWg" name="Target table" readOnly="true">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djcgSZDEeGbPrqZPmsr5Q" name="PK column">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9di1gyZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9djcgiZDEeGbPrqZPmsr5Q" name="Index Element">
+        <elements xsi:type="eef-views:Container" xmi:id="_9djcgyZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djchSZDEeGbPrqZPmsr5Q" name="column">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djchiZDEeGbPrqZPmsr5Q" name="asc">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djchCZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9djchyZDEeGbPrqZPmsr5Q" name="Constraint">
+        <elements xsi:type="eef-views:Container" xmi:id="_9djciCZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djciiZDEeGbPrqZPmsr5Q" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djciyZDEeGbPrqZPmsr5Q" name="expression">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djciSZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9djcjSZDEeGbPrqZPmsr5Q" name="Schema">
+        <elements xsi:type="eef-views:Container" xmi:id="_9djcjiZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djckCZDEeGbPrqZPmsr5Q" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djcjyZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_9djckiZDEeGbPrqZPmsr5Q" name="Sequence">
+        <elements xsi:type="eef-views:Container" xmi:id="_9djckyZDEeGbPrqZPmsr5Q" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djclSZDEeGbPrqZPmsr5Q" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:Container" xmi:id="_paWrkCszEeGDoZnN6mIKWg" name="StartIncrement">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.6"/>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djcliZDEeGbPrqZPmsr5Q" name="start">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            </elements>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djclyZDEeGbPrqZPmsr5Q" name="increment">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            </elements>
+          </elements>
+          <elements xsi:type="eef-views:Container" xmi:id="_twHK4CszEeGDoZnN6mIKWg" name="MinMax">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.6"/>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djcmCZDEeGbPrqZPmsr5Q" name="min value">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            </elements>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djcmSZDEeGbPrqZPmsr5Q" name="max value">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            </elements>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djclCZDEeGbPrqZPmsr5Q" name="comments">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+    </categories>
+  </eef-views:ViewsRepository>
+</xmi:XMI>

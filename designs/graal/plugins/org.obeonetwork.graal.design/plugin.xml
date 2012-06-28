@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="fr.obeo.dsl.viewpoint.componentization">
+    <component class="org.obeonetwork.graal.design.Activator"
+               id="org.obeonetwork.graal.design"
+	       name="graal">
+    </component>
+  </extension>
+
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <decoratorProvider class="org.obeonetwork.graal.design.ui.decoration.UserStoryDecoratorProvider">
+         <Priority name="Lowest"></Priority>
+      </decoratorProvider>
+   </extension>
+   <extension
+         point="fr.obeo.dsl.viewpoint.featureExtensions">
+      <feature
+            class="org.obeonetwork.graal.design.extension.GraalFeatureExtension">
+         </feature>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.obeonetwork.od4is"
+            class="org.obeonetwork.graal.design.ui.view.UserStoriesView"
+            icon="icons/UserStoryView.gif"
+            id="org.obeonetwork.graal.design.ui.view.UserStoriesView"
+            name="User stories">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+      		id="org.obeonetwork.graal.design.ui.view.command.AddUserStory"
+            description="Add an UserStory to the current Graal Model"
+            name="AddUserStory">
+      </command>
+      <command
+            description="Edit an existing UserStory"
+            id="org.obeonetwork.graal.design.ui.view.command.EditUserStory"
+            name="EditUserStory">
+      </command>
+      <command
+            description="Delete user stories"
+            id="org.obeonetwork.graal.design.ui.view.command.DeleteUserStory"
+            name="DeleteUserStory">
+      </command>
+      <command
+            description="Highlight the current UserStory"
+            id="org.obeonetwork.graal.design.ui.view.command.HighlightUserStory"
+            name="HighlightUserStory">
+		<state class="org.eclipse.jface.commands.ToggleState"
+        	 id="org.obeonetwork.graal.design.ui.view.command.HighlightUserStoryToggleState" />
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.obeonetwork.graal.design.ui.view.UserStoriesView">
+        <command
+              commandId="org.obeonetwork.graal.design.ui.view.command.AddUserStory"
+              icon="icons/Add.gif"
+              label="Add an UserStory"
+              style="push">
+        </command>
+       <command
+              commandId="org.obeonetwork.graal.design.ui.view.command.EditUserStory"
+              icon="icons/Edit.gif"
+              label="Edit an existing UserStory"
+              style="push">
+        </command>
+        <command
+              commandId="org.obeonetwork.graal.design.ui.view.command.DeleteUserStory"
+              icon="icons/Delete.gif"
+              label="Delete UserStories"
+              style="push">
+        </command>
+        <command
+              commandId="org.obeonetwork.graal.design.ui.view.command.HighlightUserStory"
+              icon="icons/Highlight.gif"
+              label="Highlight UserStory"
+              style="toggle">
+        </command>
+     </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.obeonetwork.graal.design.ui.view.command.impl.AddUserStoryHandler"
+            commandId="org.obeonetwork.graal.design.ui.view.command.AddUserStory">
+         <enabledWhen>
+            <test
+                  property="org.obeonetwork.graal.design.ui.view.command.AddUserStoryEnablement">
+            </test></enabledWhen>
+      </handler>
+      <handler
+            class="org.obeonetwork.graal.design.ui.view.command.impl.EditUserStoryHandler"
+            commandId="org.obeonetwork.graal.design.ui.view.command.EditUserStory">
+         <enabledWhen>
+            <test
+                  property="org.obeonetwork.graal.design.ui.view.command.EditUserStoryEnablement">
+            </test>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="org.obeonetwork.graal.design.ui.view.command.impl.DeleteUserStoriesHandler"
+            commandId="org.obeonetwork.graal.design.ui.view.command.DeleteUserStory">
+         <enabledWhen>
+            <test
+                  property="org.obeonetwork.graal.design.ui.view.command.DeleteUserStoryEnablement">
+            </test>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="org.obeonetwork.graal.design.ui.view.command.impl.HighlightUserStoryHandler"
+            commandId="org.obeonetwork.graal.design.ui.view.command.HighlightUserStory">
+         <enabledWhen>
+            <test
+                  property="org.obeonetwork.graal.design.ui.view.command.HighlightUserStoryEnablement">
+            </test>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.obeonetwork.graal.design.ui.view.command.impl.tester.AddUserStoryTester"
+            id="org.obeonetwork.graal.design.ui.view.command.AddUserStoryEnablement"
+            namespace="org.obeonetwork.graal.design.ui.view.command"
+            properties="AddUserStoryEnablement"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.obeonetwork.graal.design.ui.view.command.impl.tester.EditUserStoryTester"
+            id="org.obeonetwork.graal.design.ui.view.command.EditUserStoryEnablement"
+            namespace="org.obeonetwork.graal.design.ui.view.command"
+            properties="EditUserStoryEnablement"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.obeonetwork.graal.design.ui.view.command.impl.tester.DeleteUserStoryTester"
+            id="org.obeonetwork.graal.design.ui.view.command.DeleteUserStoryEnablement"
+            namespace="org.obeonetwork.graal.design.ui.view.command"
+            properties="DeleteUserStoryEnablement"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="org.obeonetwork.graal.design.ui.view.command.impl.tester.HighlightUserStoryTester"
+            id="org.obeonetwork.graal.design.ui.view.command.HighlightUserStoryEnablement"
+            namespace="org.obeonetwork.graal.design.ui.view.command"
+            properties="HighlightUserStoryEnablement"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+        <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.obeonetwork.graal/featureextensions/1.0"
+            class="org.obeonetwork.graal.design.graalfeatureextensions.GraalfeatureextensionsPackage"
+            genModel="model/graal-featureextensions.genmodel"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="graalfeatureextensions"
+            class="org.obeonetwork.graal.design.graalfeatureextensions.util.GraalfeatureextensionsResourceFactoryImpl"/>
+   </extension>
+      
+</plugin>

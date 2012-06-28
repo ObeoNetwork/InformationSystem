@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="environment"
+    nsURI="http://www.obeonetwork.org/dsl/environment/2.0.0" nsPrefix="oenv">
+  <eClassifiers xsi:type="ecore:EClass" name="Environment" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="#//InterDSMLink" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="priorityDefinitions" eType="#//PriorityDefinition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typesDefinition" eType="#//TypesDefinition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//ObeoDSMObject #//BoundableElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeDefinition" eType="#//TypesDefinition"
+        eOpposite="#//TypesDefinition/types"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" lowerBound="1"
+        upperBound="-1" eType="#//Field" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InterDSMLink" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObeoDSMObject" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metadatas" eType="#//MetaDataContainer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keywords" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviours" upperBound="-1"
+        eType="#//Behaviour" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingRegistries" upperBound="-1"
+        eType="#//BindingRegistry"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MetaDataContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metadatas" upperBound="-1"
+        eType="#//MetaData" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//MetaData">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PriorityDefinition" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="priorities" lowerBound="1"
+        upperBound="-1" eType="#//Priority" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Priority" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MetaData" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypesDefinition" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" lowerBound="1" upperBound="-1"
+        eType="#//Type" containment="true" eOpposite="#//Type/typeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Behaviour" abstract="true" eSuperTypes="#//ObeoDSMObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuredType" abstract="true" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DTO" abstract="true" eSuperTypes="#//StructuredType">
+    <eOperations name="isSubtypeOf" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="dto" eType="#//DTO"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedContainer" eType="#//FilterContainer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associatedTypes" upperBound="-1"
+        eType="#//StructuredType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//Property" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//Reference" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedReferences" upperBound="-1"
+        eType="#//Reference" containment="true" eOpposite="#//Reference/dto"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedAttributes" upperBound="-1"
+        eType="#//Attribute" containment="true" eOpposite="#//Attribute/dto"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supertype" eType="#//DTO"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilterContainer" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedFilters" upperBound="-1"
+        eType="#//Filter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Filter" abstract="true" eSuperTypes="#//ObeoDSMObject"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="MultiplicityKind">
+    <eLiterals name="ZERO_ONE" literal="0..1"/>
+    <eLiterals name="ONE" value="1" literal="1"/>
+    <eLiterals name="ZERO_STAR" value="2" literal="0..*"/>
+    <eLiterals name="ONE_STAR" value="3" literal="1..*"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Namespace" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedNamespaces" upperBound="-1"
+        eType="#//Namespace" containment="true" eOpposite="#//Namespace/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Namespace"
+        eOpposite="#//Namespace/ownedNamespaces"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Property">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//PrimitiveType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dto" lowerBound="1" eType="#//DTO"
+        eOpposite="#//DTO/ownedAttributes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Property">
+    <eOperations name="canBeOppositeOf" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="opposite" eType="#//Reference"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isComposite" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="navigable" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oppositeOf" eType="#//Reference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//DTO"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dto" lowerBound="1" eType="#//DTO"
+        eOpposite="#//DTO/ownedReferences"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" abstract="true" eSuperTypes="#//ObeoDSMObject #//BoundableElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" eType="#//MultiplicityKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BindingInfo" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//BindingReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//BoundableElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//BoundableElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subBindingInfos" upperBound="-1"
+        eType="#//BindingInfo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
+        eType="#//BoundableElement" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//BindingElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BindingReference" eSuperTypes="#//ObeoDSMObject">
+    <eOperations name="getOppositeBindingElement" eType="#//BindingElement">
+      <eParameters name="bindingElement" lowerBound="1" eType="#//BindingElement"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//BindingElement"
+        eOpposite="#//BindingElement/referencedByAsLeft"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//BindingElement"
+        eOpposite="#//BindingElement/referencedByAsRight"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BindingElement" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundElement" eType="#//BoundableElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bindingExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedByAsLeft" upperBound="-1"
+        eType="#//BindingReference" eOpposite="#//BindingReference/left"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedByAsRight" upperBound="-1"
+        eType="#//BindingReference" eOpposite="#//BindingReference/right"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedBy" upperBound="-1"
+        eType="#//BindingReference" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pathReferences" upperBound="-1"
+        eType="#//BoundableElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BindingRegistry" eSuperTypes="#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingInfos" upperBound="-1"
+        eType="#//BindingInfo" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BoundableElement" abstract="true" interface="true">
+    <eOperations name="isPathValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="root" eType="#//BoundableElement"/>
+      <eParameters name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

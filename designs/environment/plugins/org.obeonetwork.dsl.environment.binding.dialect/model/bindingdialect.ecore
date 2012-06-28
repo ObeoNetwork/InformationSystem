@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bindingdialect"
+    nsURI="http://www.obeonetwork.org/dsl/environment/binding/dialect/1.0.0" nsPrefix="bindingdialect">
+  <eClassifiers xsi:type="ecore:EClass" name="DBindingEditor" eSuperTypes="platform:/plugin/fr.obeo.dsl.viewpoint/model/viewpoint.ecore#//DRepresentation platform:/plugin/fr.obeo.dsl.viewpoint/model/viewpoint.ecore#//DSemanticDecorator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" lowerBound="1"
+        eType="#//description/DBindingEditorDescription"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundElements" upperBound="-1"
+        eType="#//DBoundElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingEdges" upperBound="-1"
+        eType="#//DBindingEdge" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DBindingEdge" eSuperTypes="platform:/plugin/fr.obeo.dsl.viewpoint/model/viewpoint.ecore#//DRepresentationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//DBoundElement"
+        eOpposite="#//DBoundElement/edgesAsLeft"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//DBoundElement"
+        eOpposite="#//DBoundElement/edgesAsRight"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DBoundElement" eSuperTypes="platform:/plugin/fr.obeo.dsl.viewpoint/model/viewpoint.ecore#//DRepresentationElement">
+    <eOperations name="getPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DBoundElement"
+        eOpposite="#//DBoundElement/children"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//DBoundElement" eOpposite="#//DBoundElement/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edgesAsLeft" upperBound="-1"
+        eType="#//DBindingEdge" eOpposite="#//DBindingEdge/left"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edgesAsRight" upperBound="-1"
+        eType="#//DBindingEdge" eOpposite="#//DBindingEdge/right"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" upperBound="-1"
+        eType="#//DBindingEdge" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+  </eClassifiers>
+  <eSubpackages name="description" nsURI="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0"
+      nsPrefix="description">
+    <eClassifiers xsi:type="ecore:EClass" name="DBindingEditorDescription" eSuperTypes="platform:/plugin/fr.obeo.dsl.viewpoint/model/viewpoint.ecore#//description/RepresentationDescription"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DBindingEditorCreationDescription"
+        eSuperTypes="platform:/plugin/fr.obeo.dsl.viewpoint/model/viewpoint.ecore#//description/tool/RepresentationCreationDescription">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="description" lowerBound="1"
+          eType="#//description/DBindingEditorDescription"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

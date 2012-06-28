@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="graalfeatureextensions"
+    nsURI="http://org.obeonetwork.graal/featureextensions/1.0" nsPrefix="graal-feature-extensions">
+  <eClassifiers xsi:type="ecore:EClass" name="UIConfiguration" eSuperTypes="platform:/plugin/fr.obeo.dsl.viewpoint/model/viewpoint.ecore#//DFeatureExtension">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewpointAnalysis" eType="ecore:EClass platform:/plugin/fr.obeo.dsl.viewpoint/model/viewpoint.ecore#//DAnalysis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activeUserStories" upperBound="-1"
+        eType="ecore:EClass platform:/plugin/org.obeonetwork.graal/model/graal.ecore#//UserStory"/>
+  </eClassifiers>
+</ecore:EPackage>

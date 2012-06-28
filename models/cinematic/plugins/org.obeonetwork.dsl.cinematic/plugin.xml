@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2012 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+-->
+
+<plugin>
+   <extension-point id="providedToolkit" name="providedToolkit" schema="schema/org.obeonetwork.dsl.cinematic.providedToolkit.exsd"/>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.obeonetwork.org/dsl/cinematic/3.0.0"
+            class="org.obeonetwork.dsl.cinematic.CinematicPackage"
+            genModel="model/cinematic.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="cinematic"
+            class="org.obeonetwork.dsl.cinematic.util.CinematicResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0"
+            class="org.obeonetwork.dsl.cinematic.view.ViewPackage"
+            genModel="model/cinematic.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="cinematic_view"
+            class="org.obeonetwork.dsl.cinematic.view.util.ViewResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0"
+            class="org.obeonetwork.dsl.cinematic.flow.FlowPackage"
+            genModel="model/cinematic.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="cinematic_flow"
+            class="org.obeonetwork.dsl.cinematic.flow.util.FlowResourceFactoryImpl"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0"
+            class="org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage"
+            genModel="model/cinematic.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="cinematic_toolkits"
+            class="org.obeonetwork.dsl.cinematic.toolkits.util.ToolkitsResourceFactoryImpl"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://cinematic/toolkits/SWT"
+            target="platform:/plugin/org.obeonetwork.dsl.cinematic/toolkits/SWT.cinematic_toolkits">
+      </mapping>
+      <mapping
+            source="pathmap://cinematic/toolkits/Web"
+            target="platform:/plugin/org.obeonetwork.dsl.cinematic/toolkits/Web.cinematic_toolkits">
+      </mapping>
+   </extension>
+  <extension point="org.obeonetwork.dsl.cinematic.providedToolkit">
+     <toolkit
+           uri="pathmap://cinematic/toolkits/SWT">
+     </toolkit>
+     <toolkit
+           uri="pathmap://cinematic/toolkits/Web">
+     </toolkit>
+  </extension>
+</plugin>

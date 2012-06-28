@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="entityrelation"
+    nsURI="http://www.obeonetwork.org/dsl/entityrelation/1.0" nsPrefix="entityrelation">
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalModel" eSuperTypes="#//NamedElement ../../org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypesLibraryUser">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
+        eType="#//Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
+        eType="#//Relation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true" eOpposite="#//Attribute/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identifiers" upperBound="-1"
+        eType="#//Identifier" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryIdentifier" eType="#//Identifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceCardinality" eType="#//Cardinality"
+        defaultValueLiteral="0..*"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceIsComposite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetCardinality" eType="#//Cardinality"
+        defaultValueLiteral="0..1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetIsComposite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//RelationElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identifier" eType="#//Identifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationElement" eSuperTypes="#//LogicalElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceAttribute" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetAttribute" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//NamedElement">
+    <eOperations name="addToPrimaryIdentifier"/>
+    <eOperations name="removeFromPrimaryIdentifier"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Entity"
+        eOpposite="#//Entity/attributes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//Type"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usedInIdentifier" eType="#//Identifier"
+        eOpposite="#//Identifier/attributes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inPrimaryIdentifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//LogicalElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" transient="true" derived="true" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comments" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Cardinality">
+    <eLiterals name="ZERO_ONE" literal="0..1"/>
+    <eLiterals name="ZERO_STAR" value="1" literal="0..*"/>
+    <eLiterals name="ONE_ONE" value="2" literal="1..1"/>
+    <eLiterals name="ONE_STAR" value="3" literal="1..*"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Identifier" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" eOpposite="#//Attribute/usedInIdentifier"/>
+  </eClassifiers>
+</ecore:EPackage>

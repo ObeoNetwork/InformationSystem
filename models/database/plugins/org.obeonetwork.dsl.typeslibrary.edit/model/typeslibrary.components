@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eef-components="http://www.eclipse.org/emf/eef/components/1.0.0" xmlns:eef-views="http://www.eclipse.org/emf/eef/views/1.0.0">
+  <eef-components:PropertiesEditionContext xmi:id="_SxB-4CouEeGaTeM9McGXjA" documentation="Edition Context for typeslibrary GenPackage">
+    <categories xmi:id="_SxB-4SouEeGaTeM9McGXjA" name="typeslibrary">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_SxB-4iouEeGaTeM9McGXjA" name="nativeTypesLibrary" views="_SxB--iouEeGaTeM9McGXjA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-4youEeGaTeM9McGXjA" name="name" views="_SxB-_CouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//NativeTypesLibrary/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-5CouEeGaTeM9McGXjA" name="nativeTypes" views="_SxB-_SouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//NativeTypesLibrary/nativeTypes"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//NativeTypesLibrary"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_SxB-5SouEeGaTeM9McGXjA" name="typeInstance" views="_SxB-_iouEeGaTeM9McGXjA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-5iouEeGaTeM9McGXjA" name="type" views="_SxB_ACouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance/nativeType"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-5youEeGaTeM9McGXjA" name="length" views="_SxB_ASouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance/length"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-6CouEeGaTeM9McGXjA" name="precision" views="_SxB_AiouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance/precision"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-6SouEeGaTeM9McGXjA" name="literals" views="_SxB_AyouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance/literals"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypeInstance"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_SxB-6iouEeGaTeM9McGXjA" name="nativeType" views="_SxB_BCouEeGaTeM9McGXjA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-6youEeGaTeM9McGXjA" name="name" views="_SxCl8SouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//NativeType/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-7CouEeGaTeM9McGXjA" name="spec" views="_SxCl8iouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//NativeType/spec"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Y7TY8DhJEeG1pIWKBr2sCQ" name="mapsTo" views="_bhfNgDhIEeG1pIWKBr2sCQ" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//NativeType/mapsTo"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//NativeType"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_SxB-7SouEeGaTeM9McGXjA" name="complexNamedType" views="_SxCl8youEeGaTeM9McGXjA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-7iouEeGaTeM9McGXjA" name="name" views="_SxCl9SouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//UserDefinedType/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-7youEeGaTeM9McGXjA" name="types" views="_SxCl9iouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//ComplexNamedType/types"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//ComplexNamedType"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_SxB-8CouEeGaTeM9McGXjA" name="simpleNamedType" views="_SxCl9youEeGaTeM9McGXjA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-8SouEeGaTeM9McGXjA" name="name" views="_SxCl-SouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//UserDefinedType/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-8iouEeGaTeM9McGXjA" name="type" views="_SxCl-iouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//SimpleNamedType/type"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//SimpleNamedType"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_SxB-8youEeGaTeM9McGXjA" name="userDefinedTypeRef" views="_SxCl-youEeGaTeM9McGXjA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-9CouEeGaTeM9McGXjA" name="type" views="_SxCl_SouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//UserDefinedTypeRef/type"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//UserDefinedTypeRef"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_SxB-9SouEeGaTeM9McGXjA" name="userDefinedTypesLibrary" views="_SxCl_iouEeGaTeM9McGXjA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-9iouEeGaTeM9McGXjA" name="name" views="_SxCmACouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//UserDefinedTypesLibrary/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_SxB-9youEeGaTeM9McGXjA" name="userDefinedTypes" views="_SxCmASouEeGaTeM9McGXjA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//UserDefinedTypesLibrary/userDefinedTypes"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//UserDefinedTypesLibrary"/>
+      </bindings>
+    </categories>
+    <model href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.genmodel#//typeslibrary"/>
+  </eef-components:PropertiesEditionContext>
+  <eef-views:ViewsRepository xmi:id="_SxB--CouEeGaTeM9McGXjA" documentation="Views repository for typeslibrary GenPackage" name="typeslibrary">
+    <RepositoryKind>SWT</RepositoryKind>
+    <RepositoryKind>Form</RepositoryKind>
+    <categories xmi:id="_SxB--SouEeGaTeM9McGXjA" name="typeslibrary">
+      <views xmi:id="_SxB--iouEeGaTeM9McGXjA" name="NativeTypesLibrary">
+        <elements xsi:type="eef-views:Container" xmi:id="_SxB--youEeGaTeM9McGXjA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxB-_CouEeGaTeM9McGXjA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxB-_SouEeGaTeM9McGXjA" name="nativeTypes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_SxB-_iouEeGaTeM9McGXjA" name="TypeInstance">
+        <elements xsi:type="eef-views:Container" xmi:id="_SxB-_youEeGaTeM9McGXjA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxB_ACouEeGaTeM9McGXjA" name="type">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.6"/>
+          </elements>
+          <elements xsi:type="eef-views:Container" xmi:id="_9TohEThCEeG1pIWKBr2sCQ" name="typeAttributes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.6"/>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxB_ASouEeGaTeM9McGXjA" name="length">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            </elements>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxB_AiouEeGaTeM9McGXjA" name="precision">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            </elements>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxB_AyouEeGaTeM9McGXjA" name="literals">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_SxB_BCouEeGaTeM9McGXjA" name="NativeType">
+        <elements xsi:type="eef-views:Container" xmi:id="_SxCl8CouEeGaTeM9McGXjA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxCl8SouEeGaTeM9McGXjA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxCl8iouEeGaTeM9McGXjA" name="spec">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_bhfNgDhIEeG1pIWKBr2sCQ" name="mapsTo">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_SxCl8youEeGaTeM9McGXjA" name="ComplexNamedType">
+        <elements xsi:type="eef-views:Container" xmi:id="_SxCl9CouEeGaTeM9McGXjA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxCl9SouEeGaTeM9McGXjA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxCl9iouEeGaTeM9McGXjA" name="types">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_SxCl9youEeGaTeM9McGXjA" name="SimpleNamedType">
+        <elements xsi:type="eef-views:Container" xmi:id="_SxCl-CouEeGaTeM9McGXjA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxCl-SouEeGaTeM9McGXjA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxCl-iouEeGaTeM9McGXjA" name="type">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_SxCl-youEeGaTeM9McGXjA" name="UserDefinedTypeRef">
+        <elements xsi:type="eef-views:Container" xmi:id="_SxCl_CouEeGaTeM9McGXjA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxCl_SouEeGaTeM9McGXjA" name="type">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_SxCl_iouEeGaTeM9McGXjA" name="UserDefinedTypesLibrary">
+        <elements xsi:type="eef-views:Container" xmi:id="_SxCl_youEeGaTeM9McGXjA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxCmACouEeGaTeM9McGXjA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_SxCmASouEeGaTeM9McGXjA" name="userDefinedTypes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+    </categories>
+  </eef-views:ViewsRepository>
+</xmi:XMI>

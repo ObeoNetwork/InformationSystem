@@ -1,0 +1,120 @@
+__(c) Obeo 2011 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+@Authors@ Goulwen Le Fur
+@Contact@ goulwen.lefur@obeo.fr
+
+h1. Obeo Network - Outillage de gestion des exigences
+
+L'*outillage de gestion des exigences* du *Network Obeo* apporte un ensemble d'outils permettant d'intégrer la gestion d'exigences d'un projet dans le processus de modélisation. Il est composé d'un éditeur permettant de saisir ses exigences et d'une vue gérant le lien entre les modèles et les exigences du projet.
+
+h2. Création d'un modèle d'exigences
+
+h3. Initialisation d'un modèle d'exigences
+
+Un assistant permet de créer un modèle d'exigences. Il est accessible via le menu :
+
+bq. File > New > Other ... > Requirement Model (Catégorie Obeo Designer For IS)
+
+Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
+
+Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre afin de commencer l'édition.
+
+!pics/Requirements Editor.png!
+
+L'éditeur est constitué de deux parties : à gauche un arbre présente le modèle d'exigences avec les objets qui le composent, à droite les propriétés de l'élément qui est sélectionné dans l'arbre d'exigences.
+
+La création de nouveaux éléments se fait dans l'arbre des exigences par le menu contextuel _New Child_  du conteneur où l'on souhaite créer l'élément. Ainsi pour créer une nouvelle exigence dans une catégorie, il faut invoquer le menu :
+
+bq. New Child > Requirement
+
+L'élément apparaît dans l'arbre et, en le sélectionnant, ses propriétés peuvent être éditées dans la partie de droite. 
+
+h3. Concepts des modèles d'exigences
+
+Trois concepts peuvent être manipulés dans un modèle d'exigences : le _Repository_, les _Categories_ et les _Requirements_. 
+
+Le _Repository_ est l'élément racine du modèle. Il porte un nom, contient les catégories principales et peut référencer un élément de modèles.
+
+Une _Category_ est un conteneur d'exigences. Elle sert à ordonner les exigences selon différents critères. Un catégorie porte un identifiant et un nom et peut contenir des sous-catégories et des exigences. Elle peut référencer un objet de modèle.
+
+Finalement un _Requirement_ modélise une exigence. Elle est typée selon les critères _Functional_ ou _Technical_ et peut porter un sous-type. Une exigence à un identifiant, un nom, un status et une description (_Statement_ ).
+Il est possible de définir sa provenance (_Rationale_), ses critères d'acceptation (_AcceptanceCriteria_) et de référencer un objet de modèle.  
+
+h2. Édition au sein d'Obeo Designer
+
+La vue _Linked Requirements_ permet de lier les exigences aux éléments des modèles édités dans Obeo Designer. L'ouverture de la vue se fait via le menu :
+
+bq. Window > Show View > Other ... > Linked Requirement (Catégorie Obeo Designer For IS)
+
+!pics/Linked Requirements View.png! 
+
+Cette vue est synchronisée avec l'éditeur actif dans Obeo Designer. Quand un élément de modèle est sélectionné, la vue se met à jour et présente tous les exigences qui ont été liées à cet élément.
+
+Cette vue porte quatre actions permettant de manipuler rapidement les exigences sans avoir à passer par l'éditeur décrit dans la partie précédente.
+
+!pics/Linked Requirements View - Actions.png!
+
+
+h3. Création d'exigence
+
+La première action permet de créer et directement lier une nouvelle exigence à la sélection courante.
+
+!pics/Linked Requirements View - Create Action.png!
+
+Au lancement de l'action, un assistant s'ouvre permettant de créer une nouvelle exigence. Toutes les propriétés de l'exigence peuvent être renseignée sur la première page. La seconde page permet de choisir la catégorie dans laquelle l'exigence va être positionnée. Dans le cas où celle-ci n'existe pas, il est possible d'utiliser le bouton _New Category..._  pour en créer une nouvelle.
+
+!pics/Create Requirement Wizard - Page1.png! - !pics/Create Requirement Wizard - Page2.png! 
+
+Une fois l'assistant validé, l'exigence est créée à l'endroit spécifié et est liée à l'objet actuellement sélectionnée. La vue _Linked Requirements_ est mise à jour.
+
+h3. Édition d'exigence
+
+La seconde action de la vue permet d'éditer une exigence présente dans la vue.
+
+!pics/Linked Requirements View - Edit Action.png!
+
+Elle s'active en sélectionnant une exigence dans la liste des exigences liées et son lancement ouvre l'assistant d'édition de façon à pouvoir modifier les propriétés de cet objet.
+
+h3. Association d'exigence
+
+La troisième action permet de gérer l'association entre les éléments de modèle et les exigences.
+
+!pics/Linked Requirements View - Link Action.png!
+
+Le lancement de l'action ouvre une boîte de dialogue pour le choix des exigences à associer à l'élément actuellement sélectionné. 
+
+!pics/Link Requirements Dialog.png! 
+
+h3. Dissociation d'exigence
+
+Finalement la dernière action permet de supprimer l'association entre une ou plusieurs exigences et l'élément actuellement sélectionné.
+
+!pics/Linked Requirements View - Unlink Action.png! 
+
+Cette action s'active lorsqu'une ou plusieurs exigences sont sélectionnées parmi les exigences liées de la vue. En la lançant, tous les liens entre ces exigences et l'élément sélectionné.
+
+Une boîte de confirmation s'ouvre au lancement de l'action de façon à garantir tout erreur de manipulation.
+
+??L'utilisation de cette action ne supprime pas l'exigence du modèle. Seul le lien entre l'exigence et l'élément est supprimé, il est tout à fait possible de créer un lien entre l'exigence et un autre élément?? 
+
+h2. Point de vue Requirement
+
+L'outillage de gestion d'exigences embarque un point vue afin de visualiser les exigences sous forme de matrices. La création nécessite dans un premier temps l'activation du point de vue _Requirements_. Pour cela, sur une session _Viewpoint_ ouverte, lancer le menu
+
+bq. Viewpoint Selection
+
+Choisir le point de vue _Requirement_.
+
+!pics/Requirement Viewpoint Selection.png!
+
+Ce point de vue permet de créer une matrice de traçabilité d'exigence sur un _Repository_ d'exigences. La création de cette matrice se fait via le menu :
+
+bq. New > new Requirements Traceability Matrix
+
+!pics/Requirements matrix creation.png! 
+
+Une matrice de traçabilité présente les éléments d'exigences du modèle en ligne et les éléments référencés en colonnes. Une croix est présente si l'exigence de la ligne référence l'objet de la colonne.
+
+!pics/Requirement Viewpoint.png!
+
+Il est possible d'éditer les cellules. Si une cellule est vidée, la référence entre l'exigence et l'objet est supprimée.

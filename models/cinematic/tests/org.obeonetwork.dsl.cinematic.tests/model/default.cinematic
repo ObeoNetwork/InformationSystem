@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cinematic:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/2.0.0">
+  <ownedScenarios>
+    <ownedScreens name="Ecran1" next="//@ownedScenarios.0/@ownedScreens.1">
+      <ownedActions xsi:type="cinematic:ActionReference" name="Action1"/>
+      <ownedWidgets xsi:type="cinematic:Label" name="Label1"/>
+      <ownedWidgets xsi:type="cinematic:TextField" name="TextFiel1"/>
+      <ownedWidgets xsi:type="cinematic:Combobox" name="Combobox1"/>
+      <ownedWidgets xsi:type="cinematic:Password" name="Password1"/>
+      <ownedWidgets xsi:type="cinematic:Checkbox" name="Checkbox1"/>
+      <ownedWidgets xsi:type="cinematic:Radio" name="Radio1"/>
+      <ownedWidgets xsi:type="cinematic:Slider" name="Slider1"/>
+      <ownedWidgets xsi:type="cinematic:Push" name="Push1"/>
+      <ownedWidgets xsi:type="cinematic:Toggle" name="Toogle1"/>
+      <ownedWidgets xsi:type="cinematic:Button" name="Button1"/>
+      <ownedWidgets xsi:type="cinematic:DisplayList" name="DisplayList1"/>
+      <ownedWidgets xsi:type="cinematic:Canvas" name="Canvas1"/>
+      <ownedWidgets xsi:type="cinematic:Link" name="Link1"/>
+      <ownedWidgets xsi:type="cinematic:TextArea" name="TextArea"/>
+    </ownedScreens>
+    <ownedScreens name="Ecran2" next="//@ownedScenarios.0/@ownedScreens.1 //@ownedScenarios.0/@ownedScreens.2" previousScreen="//@ownedScenarios.0/@ownedScreens.0 //@ownedScenarios.0/@ownedScreens.1">
+      <ownedActions xsi:type="cinematic:ActionReference" name="Action2"/>
+      <ownedWidgets xsi:type="cinematic:Table" name="Table2">
+        <columns xsi:type="cinematic:Combobox" name="Table2_Combobox1"/>
+        <columns xsi:type="cinematic:Password" name="Table2_Password1"/>
+        <columns xsi:type="cinematic:Checkbox" name="Table2_Checkbox1"/>
+        <columns xsi:type="cinematic:Radio" name="Table2_Radio1"/>
+        <columns xsi:type="cinematic:DisplayList" name="Table2_DisplayList1"/>
+        <columns xsi:type="cinematic:TextField" name="Table2_TextField1"/>
+        <columns xsi:type="cinematic:TextArea" name="Table2_TextArea1"/>
+      </ownedWidgets>
+    </ownedScreens>
+    <ownedScreens name="Ecran3" previousScreen="//@ownedScenarios.0/@ownedScreens.1">
+      <ownedWidgets xsi:type="cinematic:Table" name="Table3">
+        <columns xsi:type="cinematic:TextField" name="Table3_TextField1"/>
+      </ownedWidgets>
+      <ownedWidgets xsi:type="cinematic:TextField" name="TextField3"/>
+    </ownedScreens>
+  </ownedScenarios>
+</cinematic:Root>

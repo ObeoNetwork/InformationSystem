@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+		<extension point="fr.obeo.dsl.viewpoint.componentization">
+			<component class="org.obeonetwork.dsl.is.design.Activator" id="org.obeonetwork.dsl.is.design" name="is">
+			</component>
+		</extension>
+		
+		<extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+	      <editpartProvider class="org.obeonetwork.dsl.is.design.ui.providers.EntityEditPartProvider">
+	         <Priority name="High"/>
+	      </editpartProvider>
+	   </extension>
+	   
+	   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+	      <editpartProvider class="org.obeonetwork.dsl.is.design.ui.providers.EnvironmentEditPartProvider">
+	         <Priority name="High"/>
+	      </editpartProvider>
+	   </extension>
+</plugin>

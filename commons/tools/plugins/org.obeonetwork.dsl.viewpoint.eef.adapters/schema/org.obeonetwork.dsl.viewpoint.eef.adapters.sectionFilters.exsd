@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.obeonetwork.dsl.viewpoint.eef.adapters" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.obeonetwork.dsl.viewpoint.eef.adapters" id="org.obeonetwork.dsl.viewpoint.eef.adapters.sectionFilters" name="Section Filters"/>
+      </appInfo>
+      <documentation>
+         This extension point allows to hide several tabs in a tabbed property sheet for a given contributor id.
+
+&lt;p&gt;To be used, as a pre-requisite, a property section contributor must be declared (see the examples section for more information).&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+         <documentation>
+            Extension point that allows to hide several tabbed property shhets for a given property contributor.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="propertyContributorFilters"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="propertyContributorFilters">
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="sectionFilter" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="contributorId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The id of the contributor whose sections have to be filtered.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="sectionFilter">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The identifier of the section that has to be hidden.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         To be used, as a pre-requisite, a property section contributor must be defined (&lt;code&gt;org.eclipse.ui.views.properties.tabbed.propertyContributor&lt;/code&gt; extension point) with the following section descriptor provider (&lt;code&gt;org.obeonetwork.dsl.viewpoint.eef.section.ViewpointFilteringSectionDescriptor&lt;/code&gt;):
+
+&lt;p&gt;&lt;pre&gt;
+   &lt;extension point=&quot;org.eclipse.ui.views.properties.tabbed.propertyContributor&quot;&gt;
+      &lt;propertyContributor 
+         contributorId=&quot;fr.obeo.dsl.viewpoint.table.ui.EditorID&quot;
+         sectionDescriptorProvider=&quot;org.obeonetwork.dsl.viewpoint.eef.section.ViewpointFilteringSectionDescriptor&quot;&gt;
+       ...
+   &lt;/propertyContributor&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;&lt;/p&gt;
+
+&lt;p&gt;At this point, it is possible to declare which section have to be hidden for which contributor id. The following example shows how to hide the &lt;i&gt;Semantic&lt;/i&gt; section from the viewpoint diagrams property sheet and the &lt;i&gt;Core&lt;/i&gt; and &lt;i&gt;Semantic&lt;/i&gt; sections from the viewpoint table property sheet :&lt;/p&gt;
+
+&lt;p&gt;
+&lt;pre&gt;
+   &lt;extension
+         point=&quot;org.obeonetwork.dsl.viewpoint.eef.adapters.sectionFilters&quot;&gt;
+      &lt;propertyContributorFilters
+            contributorId=&quot;fr.obeo.dsl.viewpoint.diagram&quot;&gt;
+         &lt;sectionFilter
+               id=&quot;property.section.semantic&quot;&gt;
+         &lt;/sectionFilter&gt;
+      &lt;/propertyContributorFilters&gt;
+      &lt;propertyContributorFilters
+            contributorId=&quot;fr.obeo.dsl.viewpoint.table.ui.EditorID&quot;&gt;
+         &lt;sectionFilter
+               id=&quot;fr.obeo.dsl.viewpoint.table.ui.section.core&quot;&gt;
+         &lt;/sectionFilter&gt;
+         &lt;sectionFilter
+               id=&quot;fr.obeo.dsl.viewpoint.table.ui.section.semantic&quot;&gt;
+         &lt;/sectionFilter&gt;
+      &lt;/propertyContributorFilters&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+
+
+
+</schema>

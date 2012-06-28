@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2011 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;    Obeo - initial API and implementation"
+    modelDirectory="/org.obeonetwork.dsl.typeslibrary/src" creationIcons="false" modelPluginID="org.obeonetwork.dsl.typeslibrary"
+    modelName="TypesLibrary" modelPluginClass="" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
+    rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" importerID="org.eclipse.emf.importer.ecore"
+    featureDelegation="Dynamic" complianceLevel="5.0" runtimeVersion="2.6">
+  <foreignModel>typeslibrary.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <genPackages prefix="TypesLibrary" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"
+      ecorePackage="typeslibrary.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="typeslibrary.ecore#//NativeTypeKind">
+      <genEnumLiterals ecoreEnumLiteral="typeslibrary.ecore#//NativeTypeKind/Simple"/>
+      <genEnumLiterals ecoreEnumLiteral="typeslibrary.ecore#//NativeTypeKind/Length"/>
+      <genEnumLiterals ecoreEnumLiteral="typeslibrary.ecore#//NativeTypeKind/LengthAndPrecision"/>
+      <genEnumLiterals ecoreEnumLiteral="typeslibrary.ecore#//NativeTypeKind/Enum"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="typeslibrary.ecore#//TypesLibraryKind">
+      <genEnumLiterals ecoreEnumLiteral="typeslibrary.ecore#//TypesLibraryKind/logicalTypes"/>
+      <genEnumLiterals ecoreEnumLiteral="typeslibrary.ecore#//TypesLibraryKind/physicalTypes"/>
+    </genEnums>
+    <genClasses ecoreClass="typeslibrary.ecore#//NativeTypesLibrary">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeslibrary.ecore#//NativeTypesLibrary/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeslibrary.ecore#//NativeTypesLibrary/nativeTypes"/>
+      <genOperations ecoreOperation="typeslibrary.ecore#//NativeTypesLibrary/findTypeByName">
+        <genParameters ecoreParameter="typeslibrary.ecore#//NativeTypesLibrary/findTypeByName/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="typeslibrary.ecore#//TypeInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference typeslibrary.ecore#//TypeInstance/nativeType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeslibrary.ecore#//TypeInstance/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeslibrary.ecore#//TypeInstance/precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeslibrary.ecore#//TypeInstance/literals"/>
+    </genClasses>
+    <genClasses ecoreClass="typeslibrary.ecore#//NativeType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeslibrary.ecore#//NativeType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeslibrary.ecore#//NativeType/spec"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference typeslibrary.ecore#//NativeType/mapsTo"/>
+    </genClasses>
+    <genClasses ecoreClass="typeslibrary.ecore#//ComplexNamedType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeslibrary.ecore#//ComplexNamedType/types"/>
+    </genClasses>
+    <genClasses ecoreClass="typeslibrary.ecore#//SimpleNamedType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference typeslibrary.ecore#//SimpleNamedType/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="typeslibrary.ecore#//Type"/>
+    <genClasses image="false" ecoreClass="typeslibrary.ecore#//UserDefinedType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeslibrary.ecore#//UserDefinedType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="typeslibrary.ecore#//UserDefinedTypeRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference typeslibrary.ecore#//UserDefinedTypeRef/type"/>
+    </genClasses>
+    <genClasses ecoreClass="typeslibrary.ecore#//UserDefinedTypesLibrary">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeslibrary.ecore#//UserDefinedTypesLibrary/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference typeslibrary.ecore#//UserDefinedTypesLibrary/userDefinedTypes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="typeslibrary.ecore#//TypesLibraryUser">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference typeslibrary.ecore#//TypesLibraryUser/usedLibraries"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="typeslibrary.ecore#//TypesLibrary">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute typeslibrary.ecore#//TypesLibrary/kind"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

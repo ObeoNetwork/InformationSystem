@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-Name: Entity Relation Designer
+Bundle-SymbolicName: org.obeonetwork.dsl.entityrelation.design;singleton=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.obeonetwork.dsl.entityrelation.design.Activator
+Require-Bundle: fr.obeo.acceleo.gen,
+ org.eclipse.ui,
+ org.eclipse.core.runtime,
+ fr.obeo.dsl.viewpoint,
+ org.obeonetwork.dsl.entityrelation,
+ fr.obeo.dsl.common,
+ fr.obeo.dsl.viewpoint.ui,
+ org.obeonetwork.dsl.viewpoint.eef.adapters,
+ org.obeonetwork.dsl.entityrelation.edit
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

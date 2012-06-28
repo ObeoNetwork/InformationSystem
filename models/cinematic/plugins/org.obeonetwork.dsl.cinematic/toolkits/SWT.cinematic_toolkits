@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cinematic-toolkits:Toolkit xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmi:id="_1xtPcIjNEeGrHN3Vq969QA" name="SWT">
+  <widgets xmi:id="_1xtPeojNEeGrHN3Vq969QA" name="Button" icon="/org.obeonetwork.dsl.cinematic/icons/Button.gif">
+    <possibleEvents xmi:id="_1xtPe4jNEeGrHN3Vq969QA" name="onClick"/>
+    <possibleEvents xmi:id="_PT-ocIjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_PT-ocYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_1xtPc4jNEeGrHN3Vq969QA" name="Checkbox" icon="/org.obeonetwork.dsl.cinematic/icons/Checkbox.gif">
+    <possibleEvents xmi:id="_G6fN8IjREeG_dvC9P_PKfA" name="onSelection"/>
+    <possibleEvents xmi:id="_PLWQ4IjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_PLWQ4YjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_1xtPdojNEeGrHN3Vq969QA" name="Combo" icon="/org.obeonetwork.dsl.cinematic/icons/Combo.gif">
+    <possibleEvents xmi:id="_ITwG8IjREeG_dvC9P_PKfA" name="onSelection"/>
+    <possibleEvents xmi:id="_PDwbIIjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_PDwbIYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_kEsycIjeEeGIXsoZxTXHQA" name="Image" icon="/org.obeonetwork.dsl.cinematic/icons/Image.gif" implementation="">
+    <possibleEvents xmi:id="_mAV_wIjeEeGIXsoZxTXHQA" name="onFocus"/>
+    <possibleEvents xmi:id="_mAV_wYjeEeGIXsoZxTXHQA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_7HoV0IjOEeGrHN3Vq969QA" name="Label" icon="/org.obeonetwork.dsl.cinematic/icons/Label.gif">
+    <possibleEvents xmi:id="_QU_ZgIjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_QU_ZgYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_8kxCMIjOEeGrHN3Vq969QA" name="Link" icon="/org.obeonetwork.dsl.cinematic/icons/Link.gif">
+    <possibleEvents xmi:id="_JB3xMIjREeG_dvC9P_PKfA" name="onClick"/>
+    <possibleEvents xmi:id="_QfG-0IjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_QfG-0YjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_1xtPeIjNEeGrHN3Vq969QA" name="Panel" icon="/org.obeonetwork.dsl.cinematic/icons/Panel.gif" isContainer="true">
+    <possibleEvents xmi:id="_N0KbgIjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_N0KbgYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_1xtPd4jNEeGrHN3Vq969QA" name="Password" icon="/org.obeonetwork.dsl.cinematic/icons/Password.gif">
+    <possibleEvents xmi:id="_Ex6X4YjREeG_dvC9P_PKfA" name="onKeyPressed"/>
+    <possibleEvents xmi:id="_Npv7QIjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_Npv7QYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_1xtPdYjNEeGrHN3Vq969QA" name="Radio" icon="/org.obeonetwork.dsl.cinematic/icons/Radio.gif" implementation="">
+    <possibleEvents xmi:id="_NimxcIjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_NimxcYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_VnC2EIjeEeGIXsoZxTXHQA" name="Table" icon="/org.obeonetwork.dsl.cinematic/icons/Table.png" isContainer="true">
+    <possibleEvents xmi:id="_fBohMIjeEeGIXsoZxTXHQA" name="onFocus"/>
+    <possibleEvents xmi:id="_fBohMYjeEeGIXsoZxTXHQA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_1xtPcYjNEeGrHN3Vq969QA" name="Text" icon="/org.obeonetwork.dsl.cinematic/icons/Text.gif">
+    <possibleEvents xmi:id="_1xtPcojNEeGrHN3Vq969QA" name="onKeyPressed"/>
+    <possibleEvents xmi:id="_NQKWkIjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_NQKWkYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_1xtPdIjNEeGrHN3Vq969QA" name="Textarea" icon="/org.obeonetwork.dsl.cinematic/icons/Textarea.gif">
+    <possibleEvents xmi:id="_FgCCIIjREeG_dvC9P_PKfA" name="onKeyPressed"/>
+    <possibleEvents xmi:id="_Kv9qsIjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_L_q_EIjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+  <widgets xmi:id="_1xtPeYjNEeGrHN3Vq969QA" name="Window" icon="/org.obeonetwork.dsl.cinematic/icons/Window.gif" isContainer="true">
+    <possibleEvents xmi:id="_OC5bEIjREeG_dvC9P_PKfA" name="onFocus"/>
+    <possibleEvents xmi:id="_OC5bEYjREeG_dvC9P_PKfA" name="onFocusLost"/>
+  </widgets>
+</cinematic-toolkits:Toolkit>

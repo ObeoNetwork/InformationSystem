@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="org.obeonetwork.tools.requirement.ui.view.LinkedRequirementsView"
+            icon="icons/Requirement.gif"
+            category="org.obeonetwork.od4is"            
+            id="org.obeonetwork.tools.requirement.views.LinkedRequirementsView"
+            name="Linked Requirements">
+      </view>
+   </extension>
+
+</plugin>

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Graal DSM Documentation
+Bundle-SymbolicName: org.obeonetwork.graal.doc;singleton:=true
+Bundle-Version: 1.1.0.qualifier
+Bundle-Activator: org.obeonetwork.graal.doc.Activator
+Bundle-Vendor: Obeo.fr
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy

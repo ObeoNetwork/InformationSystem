@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2011 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.obeonetwork.org/dsl/environment/binding/dialect/1.0.0"
+            class="org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage"
+            genModel="model/bindingdialect.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="bindingdialect"
+            class="org.obeonetwork.dsl.environment.bindingdialect.util.BindingdialectResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0"
+            class="org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage"
+            genModel="model/bindingdialect.genmodel"/>
+   </extension>
+   <extension
+         point="fr.obeo.dsl.viewpoint.dialect">
+      <dialect
+            class="org.obeonetwork.dsl.environment.binding.dialect.BindingDialect">
+      </dialect>
+   </extension>
+   
+     <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+    <propertySections contributorId="fr.obeo.dsl.viewpoint.editor.editorPlugin.ViewpointEditorContributor">
+  	  <propertySection
+               class="org.obeonetwork.dsl.environment.binding.dialect.properties.DBindingEditorCreationDescriptionDescriptionPropertySection"
+               id="description.section.bindingEditorCreationDescription.Description"
+               filter="org.obeonetwork.dsl.environment.binding.dialect.properties.DBindingEditorCreationDescriptionDescriptionFilter"
+                tab="viewpoint.tab.general">
+        <input type="org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorCreationDescription"/>
+      </propertySection>
+     </propertySections>
+    </extension>
+
+</plugin>

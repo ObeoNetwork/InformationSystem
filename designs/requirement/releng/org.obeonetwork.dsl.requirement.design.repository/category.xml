@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.obeonetwork.dsl.requirement.design.feature_0.8.0.qualifier.jar" id="org.obeonetwork.dsl.requirement.design.feature" version="0.8.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.designs"/>
+   </feature>
+   <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
+</site>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<groupId>org.obeonetwork</groupId>
+	<artifactId>model.build</artifactId>
+	<version>2.3.0.qualifier</version>
+	<packaging>pom</packaging>
+
+	<name>Information System Model Build</name>
+
+	<modules>
+		<!-- 
+		*********************************************************************************************
+		* Models
+		*********************************************************************************************
+		-->
+		<!-- models/environment/ -->
+		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment</module>
+		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.edit</module>
+		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.editor</module>
+		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.common</module>
+		
+		<module>../../models/environment/features/org.obeonetwork.dsl.feature.environment</module>
+		<module>../../models/environment/releng/org.obeonetwork.dsl.environment.repository</module>
+
+		<!-- models/entity/ -->
+		<module>../../models/entity/plugins/org.obeonetwork.dsl.entity</module>
+		<module>../../models/entity/plugins/org.obeonetwork.dsl.entity.edit</module>
+		<module>../../models/entity/plugins/org.obeonetwork.dsl.entity.editor</module>
+		
+		<module>../../models/entity/features/org.obeonetwork.dsl.feature.entity</module>
+		<module>../../models/entity/releng/org.obeonetwork.dsl.entity.repository</module>
+
+		<!-- models/database/ -->
+		<module>../../models/database/plugins/org.obeonetwork.dsl.database</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.database.edit</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.database.editor</module>
+		<module>../../models/database/features/org.obeonetwork.dsl.database.feature</module>
+		<module>../../models/database/releng/org.obeonetwork.dsl.database.repository</module>
+
+		<module>../../models/database/plugins/org.obeonetwork.dsl.entityrelation</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.entityrelation.edit</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.entityrelation.editor</module>
+		<module>../../models/database/features/org.obeonetwork.dsl.entityrelation.feature</module>
+		
+		<module>../../models/database/plugins/org.obeonetwork.dsl.typeslibrary</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.typeslibrary.edit</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.typeslibrary.editor</module>
+		<module>../../models/database/features/org.obeonetwork.dsl.typelibrary.feature</module>
+		
+		<!-- models/soa/ -->
+		<module>../../models/soa/plugins/org.obeonetwork.dsl.soa</module>
+		<module>../../models/soa/plugins/org.obeonetwork.dsl.soa.edit</module>
+		<module>../../models/soa/plugins/org.obeonetwork.dsl.soa.editor</module>
+		
+		<module>../../models/soa/features/org.obeonetwork.dsl.feature.soa</module>
+		<module>../../models/soa/releng/org.obeonetwork.dsl.soa.repository</module>
+
+		<!-- models/cinematic/ -->
+		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic</module>
+		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.edit</module>
+		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.editor</module>
+		
+		<module>../../models/cinematic/features/org.obeonetwork.dsl.feature.cinematic</module>
+		<module>../../models/cinematic/releng/org.obeonetwork.dsl.cinematic.repository</module>
+
+		<!-- models/graal/ -->
+		<module>../../models/graal/plugins/org.obeonetwork.graal</module>
+		<module>../../models/graal/plugins/org.obeonetwork.graal.edit</module>
+		<module>../../models/graal/plugins/org.obeonetwork.graal.editor</module>
+		<module>../../models/graal/plugins/org.obeonetwork.graal.doc</module>
+		
+		<module>../../models/graal/features/org.obeonetwork.graal.feature</module>
+		<module>../../models/graal/releng/org.obeonetwork.graal.repository</module>
+		
+		
+		<!-- models/requirement/ -->
+		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement</module>
+		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement.edit</module>
+		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement.editor</module>
+		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement.doc</module>
+		
+		<module>../../models/requirement/features/org.obeonetwork.dsl.feature.requirement</module>
+		<module>../../models/requirement/releng/org.obeonetwork.dsl.requirement.repository</module>
+		
+		<!-- models/statemachine/ -->
+		<module>../../models/statemachine/plugins/org.obeonetwork.dsl.statemachine</module>
+		<module>../../models/statemachine/plugins/org.obeonetwork.dsl.statemachine.edit</module>
+		<module>../../models/statemachine/plugins/org.obeonetwork.dsl.statemachine.editor</module>
+		
+		<module>../../models/statemachine/features/org.obeonetwork.dsl.feature.statemachine</module>
+		<module>../../models/statemachine/releng/org.obeonetwork.dsl.statemachine.repository</module>
+		
+		<!-- models/overview/ -->
+		<module>../../models/overview/plugins/org.obeonetwork.dsl.overview</module>
+		<module>../../models/overview/plugins/org.obeonetwork.dsl.overview.edit</module>
+		<module>../../models/overview/plugins/org.obeonetwork.dsl.overview.editor</module>
+		
+		<module>../../models/overview/features/org.obeonetwork.dsl.feature.overview</module>
+		<module>../../models/overview/releng/org.obeonetwork.dsl.overview.repository</module>
+		
+		<!-- models/interaction/ -->
+		<module>../../models/interaction/plugins/org.obeonetwork.dsl.interaction</module>
+		<module>../../models/interaction/plugins/org.obeonetwork.dsl.interaction.edit</module>
+		<module>../../models/interaction/plugins/org.obeonetwork.dsl.interaction.editor</module>
+		
+		<module>../../models/interaction/features/org.obeonetwork.dsl.feature.interaction</module>
+		<module>../../models/interaction/releng/org.obeonetwork.dsl.interaction.repository</module>
+		
+		<!-- 
+		*********************************************************************************************
+		* Tools & Commons
+		*********************************************************************************************
+		-->
+		<!-- commons/nebula/ -->
+		<module>../../commons/nebula/plugins/org.eclipse.nebula.treemapper</module>
+		<module>../../commons/nebula/features/org.eclipse.nebula.treemapper.feature</module>
+		
+		<!-- commons/is/ -->
+		<module>../../commons/is/plugins/org.obeonetwork.dsl.is</module>
+		<module>../../commons/is/features/org.obeonetwork.dsl.feature.is</module>
+		<module>../../commons/is/releng/org.obeonetwork.dsl.is.repository</module>
+		
+		<!-- commons/tools/ -->
+		<module>../../commons/tools/plugins/org.obeonetwork.dsl.viewpoint.eef.adapters</module>
+		<module>../../commons/tools/features/org.obeonetwork.dsl.viewpoint.eef.support</module>
+		
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.doc</module>
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.doc.doc</module>
+		<module>../../commons/tools/features/org.obeonetwork.tools.doc.feature</module>
+		
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.linker</module>
+		<module>../../commons/tools/features/org.obeonetwork.tools.linker.feature</module>
+		
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.requirement</module>
+
+		<!-- 
+		*********************************************************************************************
+		* Designs
+		*********************************************************************************************
+		-->
+		<!-- designs/environment/ -->
+		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.dialect</module>
+		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.dialect.ui</module>
+		
+		<module>../../designs/environment/features/org.obeonetwork.dsl.environment.binding.dialect.feature</module>
+		<module>../../designs/environment/releng/org.obeonetwork.dsl.environment.binding.dialect.repository</module>
+		
+		<!-- designs/cinematic/ -->
+		<module>../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design</module>
+		
+		<module>../../designs/cinematic/features/org.obeonetwork.dsl.cinematic.design.feature</module>
+		<module>../../designs/cinematic/releng/org.obeonetwork.dsl.cinematic.design.repository</module>
+		
+		<!-- designs/database/ -->
+		<module>../../designs/database/plugins/org.obeonetwork.dsl.entityrelation.design</module>
+		<module>../../designs/database/plugins/org.obeonetwork.dsl.database.design</module>
+		
+		<module>../../designs/database/features/org.obeonetwork.dsl.entityrelation.design.feature</module>
+		<module>../../designs/database/features/org.obeonetwork.dsl.database.design.feature</module>
+		<module>../../designs/database/releng/org.obeonetwork.dsl.database.design.repository</module>
+
+		<!-- designs/graal/ -->
+		<module>../../designs/graal/plugins/org.obeonetwork.graal.design</module>
+		
+		<module>../../designs/graal/features/org.obeonetwork.graal.design.feature</module>
+		<module>../../designs/graal/releng/org.obeonetwork.graal.design.repository</module>
+		
+		<!-- designs/interaction/ -->
+		<module>../../designs/interaction/plugins/org.obeonetwork.dsl.interaction.design</module>
+		
+		<module>../../designs/interaction/features/org.obeonetwork.dsl.interaction.design.feature</module>
+		<module>../../designs/interaction/releng/org.obeonetwork.dsl.interaction.design.repository</module>
+		
+		<!-- designs/requirement/ -->
+		<module>../../designs/requirement/plugins/org.obeonetwork.dsl.requirement.validation</module>
+		<module>../../designs/requirement/plugins/org.obeonetwork.dsl.requirement.design</module>
+		
+		<module>../../designs/requirement/features/org.obeonetwork.dsl.requirement.design.feature</module>
+		<module>../../designs/requirement/releng/org.obeonetwork.dsl.requirement.design.repository</module>
+		
+		<!-- designs/statemachine/ -->
+		<module>../../designs/statemachine/plugins/org.obeonetwork.dsl.statemachine.design</module>
+		
+		<module>../../designs/statemachine/features/org.obeonetwork.dsl.statemachine.design.feature</module>
+		<module>../../designs/statemachine/releng/org.obeonetwork.dsl.statemachine.design.repository</module>
+		
+		<!-- designs/is/ -->
+		<module>../../designs/is/plugins/org.obeonetwork.dsl.is.design</module>
+		<module>../../designs/is/plugins/org.obeonetwork.is.ui.wizards</module>
+		<module>../../designs/is/features/org.obeonetwork.dsl.feature.is.design</module>
+		<module>../../designs/is/releng/org.obeonetwork.dsl.is.design.repository</module>
+		
+		<!-- 
+		*********************************************************************************************
+		* Repository Modules Designs Commons
+		*********************************************************************************************
+		-->
+		<module>../../models/releng/org.obeonetwork.dsl.models.repository</module>
+		<module>../../commons/releng/org.obeonetwork.dsl.commons.repository</module>
+		<module>../../designs/releng/org.obeonetwork.dsl.designs.repository</module>
+		
+		<!-- 
+		*********************************************************************************************
+		* Repository Information System
+		*********************************************************************************************
+		-->
+		<module>../org.obeonetwork.informationsystem.repository</module>
+		
+	</modules>
+</project>

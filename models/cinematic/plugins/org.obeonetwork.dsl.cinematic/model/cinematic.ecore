@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cinematic"
+    nsURI="http://www.obeonetwork.org/dsl/cinematic/3.0.0" nsPrefix="cinematic">
+  <eClassifiers xsi:type="ecore:EClass" name="CinematicElement" abstract="true" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//CinematicElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractPackage" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1"
+        eType="#//flow/Flow" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainers" upperBound="-1"
+        eType="#//view/ViewContainer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subPackages" upperBound="-1"
+        eType="#//Package" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//AbstractPackage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CinematicRoot" eSuperTypes="#//AbstractPackage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toolkits" upperBound="-1"
+        eType="#//toolkits/Toolkit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" abstract="true" eSuperTypes="#//NamedElement"/>
+  <eSubpackages name="view" nsURI="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0"
+      nsPrefix="cinematic-view">
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractViewElement" abstract="true"
+        eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="widget" eType="#//toolkits/Widget"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+          eType="#//view/ViewAction" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+          eType="#//view/ViewEvent" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataBindings" upperBound="-1"
+          eType="#//view/DataBinding" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewContainer" eSuperTypes="#//view/AbstractViewElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElements" upperBound="-1"
+          eType="#//view/AbstractViewElement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainers" upperBound="-1"
+          eType="#//view/ViewContainer" changeable="false" volatile="true" transient="true"
+          derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewElements" upperBound="-1"
+          eType="#//view/ViewElement" changeable="false" volatile="true" transient="true"
+          derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainerReferences"
+          upperBound="-1" eType="#//view/ViewContainerReference" changeable="false"
+          volatile="true" transient="true" derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewElement" eSuperTypes="#//view/AbstractViewElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewAction" eSuperTypes="#//NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewEvent" eSuperTypes="#//Event">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//toolkits/WidgetEventType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EntityBinding" eSuperTypes="#//view/DataBinding">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+          eType="ecore:EClass ../../org.obeonetwork.dsl.entity/model/entity.ecore#//Entity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EntityPropertyBinding" eSuperTypes="#//view/DataBinding">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
+          eType="ecore:EClass ../../org.obeonetwork.dsl.entity/model/entity.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DTOPropertyBinding" eSuperTypes="#//view/DataBinding">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
+          eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DTOBinding" eSuperTypes="#//view/DataBinding">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dto" lowerBound="1" eType="ecore:EClass ../../org.obeonetwork.dsl.soa/model/soa.ecore#//ServiceDTO"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataBinding" abstract="true" eSuperTypes="#//CinematicElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewContainerReference" eSuperTypes="#//view/AbstractViewElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainer" lowerBound="1"
+          eType="#//view/ViewContainer"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="flow" nsURI="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0"
+      nsPrefix="cinematic-flow">
+    <eClassifiers xsi:type="ecore:EClass" name="Flow" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+          eType="#//flow/FlowState" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
+          eType="#//flow/Transition" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+          eType="#//flow/FlowEvent" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamedFlowState" abstract="true" eSuperTypes="#//flow/FlowState #//NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="guard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//flow/FlowState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//flow/FlowState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="on" upperBound="-1" eType="#//Event"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ActionState" eSuperTypes="#//flow/NamedFlowState"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ViewState" eSuperTypes="#//flow/NamedFlowState">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="newInstance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="refresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainers" upperBound="-1"
+          eType="#//view/ViewContainer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DecisionState" eSuperTypes="#//flow/NamedFlowState"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SubflowState" eSuperTypes="#//flow/FlowState">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subflow" lowerBound="1"
+          eType="#//flow/Flow"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          changeable="false" volatile="true" transient="true" derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AsyncEventState" eSuperTypes="#//flow/NamedFlowState"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InitialState" eSuperTypes="#//flow/NamedFlowState"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbortState" eSuperTypes="#//flow/NamedFlowState"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FinalState" eSuperTypes="#//flow/NamedFlowState"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FlowAction" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="calls" upperBound="-1"
+          eType="#//view/ViewAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+          eType="ecore:EClass ../../org.obeonetwork.dsl.soa/model/soa.ecore#//Operation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FlowEvent" eSuperTypes="#//Event">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="binds" upperBound="-1"
+          eType="#//view/ViewEvent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FlowState" abstract="true" eSuperTypes="#//CinematicElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+          eType="#//flow/FlowAction" containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="toolkits" nsURI="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0"
+      nsPrefix="cinematic-toolkits">
+    <eClassifiers xsi:type="ecore:EClass" name="Toolkit">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="widgets" upperBound="-1"
+          eType="#//toolkits/Widget" containment="true" eOpposite="#//toolkits/Widget/toolkit"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Widget">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="toolkit" eType="#//toolkits/Toolkit"
+          eOpposite="#//toolkits/Toolkit/widgets"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="possibleEvents" upperBound="-1"
+          eType="#//toolkits/WidgetEventType" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isContainer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WidgetEventType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

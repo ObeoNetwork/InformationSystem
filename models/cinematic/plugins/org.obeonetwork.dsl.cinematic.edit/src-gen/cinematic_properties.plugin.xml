@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+ <plugin>
+
+  <!-- EEF extensions -->
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/cinematic/3.0.0"
+            class="org.obeonetwork.dsl.cinematic.providers.CinematicEEFAdapterFactory"
+            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.cinematic.flow.providers.FlowPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.cinematic.view.providers.ViewPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.cinematic.providers.CinematicPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+
+  <!-- Tabbed properties views extension -->
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.obeonetwork.dsl.cinematic.properties"
+            labelProvider="org.eclipse.emf.eef.runtime.ui.utils.EEFLabelProvider">
+         <propertyCategory
+               category="default">
+         </propertyCategory>
+         <propertyCategory
+               category="extended">
+         </propertyCategory>
+         <propertyCategory
+               category="advanced">
+         </propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.obeonetwork.dsl.cinematic.properties">
+         <propertyTab
+               id="Package"
+               label="Package"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Metadatas"
+               label="Metadatas"
+               category="extended"
+               afterTab="Package">
+         </propertyTab>
+
+         <propertyTab
+               id="CinematicRoot"
+               label="CinematicRoot"
+               category="default">
+         </propertyTab>
+
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.obeonetwork.dsl.cinematic.properties">
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.parts.forms.Package_PropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.providers.Package_PropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.section.Package"
+               tab="Package">
+         </propertySection>
+         <propertySection
+               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.providers.Package_PropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.section.Package"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.parts.forms.CinematicRootPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.providers.CinematicRootPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.section.CinematicRoot"
+               tab="CinematicRoot">
+         </propertySection>
+         <propertySection
+               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.providers.CinematicRootPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.section.CinematicRoot"
+               tab="Metadatas">
+         </propertySection>
+      </propertySections>
+   </extension>
+ </plugin>

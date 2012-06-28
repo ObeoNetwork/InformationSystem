@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="requirement">
+  <eAnnotations source="Migration">
+    <details key="SemanticCandidatesExpressionBehaviorChange" value=""/>
+    <details key="LabelAlignmentForDNodeListElementMappingMigrationForBehaviourPresevation" value=""/>
+    <details key="SVG.BundledImageDescription.BorderColor" value=""/>
+  </eAnnotations>
+  <ownedViewpoints name="Requirements">
+    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Requirements Traceability Matrix" domainClass="requirement.Repository">
+      <ownedLineMappings name="Repository" domainClass="requirement.Repository" semanticCandidatesExpression="&lt;%self%>" headerLabelExpression="&lt;%name%>">
+        <ownedSubLines name="Category" reusedSubLines="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Traceability%20Matrix']/@ownedLineMappings[name='Repository']/@ownedSubLines[name='Category']" reusedInMappings="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Traceability%20Matrix']/@ownedLineMappings[name='Repository']/@ownedSubLines[name='Category']" domainClass="requirement.Category" semanticCandidatesExpression="&lt;%eContents()%>" headerLabelExpression="&lt;%id%> - &lt;%name%>">
+          <ownedSubLines name="Requirement" domainClass="requirement.Requirement" semanticCandidatesExpression="&lt;%requirements%>" headerLabelExpression="&lt;%id%> - &lt;%name%>"/>
+        </ownedSubLines>
+      </ownedLineMappings>
+      <ownedColumnMappings name="Referenced Object" domainClass="EObject" semanticCandidatesExpression="&lt;%eAllContents(&quot;Requirement&quot;).referencedObject[eResource != null]%>"/>
+      <intersection name="Cross" lineMapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Traceability%20Matrix']/@ownedLineMappings[name='Repository']/@ownedSubLines[name='Category']/@ownedSubLines[name='Requirement']" columnMapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Traceability%20Matrix']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="&lt;%referencedObject%>">
+        <directEdit>
+          <variables name="element" documentation="The currently edited element."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
+          <variables name="root" documentation="The semantic element of the table."/>
+          <firstModelOperation xsi:type="tool:If" conditionExpression="&lt;%$0==&quot;&quot;%>">
+            <subModelOperations xsi:type="tool:Unset" featureName="referencedObject" elementExpression="&lt;%$columnSemantic%>"/>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </directEdit>
+      </intersection>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<eef-gen:EEFGenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eef-gen="http://www.eclipse.org/emf/eef/generation/1.0.0" genDirectory="/org.obeonetwork.dsl.interaction.edit/src-gen">
+  <editionContexts basePackage="org.obeonetwork.dsl" descriptorsGenericPropertiesViews="true">
+    <PropertiesEditionContext href="interaction.components#_d_PX0GG8EeC3f8ri4v8OqA"/>
+  </editionContexts>
+  <viewsRepositories basePackage="org.obeonetwork.dsl.interaction" swtViews="true" formViews="true">
+    <viewsRepository href="interaction.components#_d_P_I2G8EeC3f8ri4v8OqA"/>
+  </viewsRepositories>
+</eef-gen:EEFGenModel>

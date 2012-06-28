@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.dsl.statemachine.presentation.StateMachineModelWizardID"
+            name="%_UI_StateMachineModelWizard_label"
+            class="org.obeonetwork.dsl.statemachine.presentation.StateMachineModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/StateMachineModelFile.gif">
+         <description>%_UI_StateMachineModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.obeonetwork.dsl.statemachine.presentation.StateMachineEditorID"
+            name="%_UI_StateMachineEditor_label"
+            icon="icons/full/obj16/StateMachineModelFile.gif"
+            extensions="statemachine"
+            class="org.obeonetwork.dsl.statemachine.presentation.StateMachineEditor"
+            contributorClass="org.obeonetwork.dsl.statemachine.presentation.StateMachineActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

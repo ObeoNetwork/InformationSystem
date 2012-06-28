@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2012 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="org.obeonetwork.dsl.cinematic.presentation.CinematicModelWizardID"
+            name="%_UI_CinematicModelWizard_label"
+            class="org.obeonetwork.dsl.cinematic.presentation.CinematicModelWizard"
+            category="org.obeonetwork.dsl.is.ui.categoryID"
+            icon="icons/full/obj16/CinematicModelFile.gif">
+         <description>%_UI_CinematicModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.obeonetwork.dsl.cinematic.presentation.CinematicEditorID"
+            name="%_UI_CinematicEditor_label"
+            icon="icons/full/obj16/CinematicModelFile.gif"
+            extensions="cinematic"
+            class="org.obeonetwork.dsl.cinematic.presentation.CinematicEditor"
+            contributorClass="org.obeonetwork.dsl.cinematic.presentation.CinematicActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="org.obeonetwork.dsl.cinematic.view.presentation.ViewModelWizardID"
+            name="%_UI_ViewModelWizard_label"
+            class="org.obeonetwork.dsl.cinematic.view.presentation.ViewModelWizard"
+            category="org.obeonetwork.dsl.is.ui.categoryID"
+            icon="icons/full/obj16/ViewModelFile.gif">
+         <description>%_UI_ViewModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.obeonetwork.dsl.cinematic.view.presentation.ViewEditorID"
+            name="%_UI_ViewEditor_label"
+            icon="icons/full/obj16/ViewModelFile.gif"
+            extensions="cinematic_view"
+            class="org.obeonetwork.dsl.cinematic.view.presentation.ViewEditor"
+            contributorClass="org.obeonetwork.dsl.cinematic.view.presentation.ViewActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="org.obeonetwork.dsl.cinematic.flow.presentation.FlowModelWizardID"
+            name="%_UI_FlowModelWizard_label"
+            class="org.obeonetwork.dsl.cinematic.flow.presentation.FlowModelWizard"
+            category="org.obeonetwork.dsl.is.ui.categoryID"
+            icon="icons/full/obj16/FlowModelFile.gif">
+         <description>%_UI_FlowModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.obeonetwork.dsl.cinematic.flow.presentation.FlowEditorID"
+            name="%_UI_FlowEditor_label"
+            icon="icons/full/obj16/FlowModelFile.gif"
+            extensions="cinematic_flow"
+            class="org.obeonetwork.dsl.cinematic.flow.presentation.FlowEditor"
+            contributorClass="org.obeonetwork.dsl.cinematic.flow.presentation.FlowActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="org.obeonetwork.dsl.cinematic.toolkits.presentation.ToolkitsModelWizardID"
+            name="%_UI_ToolkitsModelWizard_label"
+            class="org.obeonetwork.dsl.cinematic.toolkits.presentation.ToolkitsModelWizard"
+            category="org.obeonetwork.dsl.is.ui.categoryID"
+            icon="icons/full/obj16/ToolkitsModelFile.gif">
+         <description>%_UI_ToolkitsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.obeonetwork.dsl.cinematic.toolkits.presentation.ToolkitsEditorID"
+            name="%_UI_ToolkitsEditor_label"
+            icon="icons/full/obj16/ToolkitsModelFile.gif"
+            extensions="cinematic_toolkits"
+            class="org.obeonetwork.dsl.cinematic.toolkits.presentation.ToolkitsEditor"
+            contributorClass="org.obeonetwork.dsl.cinematic.toolkits.presentation.ToolkitsActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

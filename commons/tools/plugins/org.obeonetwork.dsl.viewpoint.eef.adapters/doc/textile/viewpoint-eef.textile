@@ -1,0 +1,336 @@
+
+@Authors@ Goulwen Le Fur
+@Contact@ goulwen.lefur@obeo.fr
+
+ 2011. Obeo (c). All rights reserved
+ 
+{toc:style=disc|maxLevel=3}
+
+h1. Using the Extended Editing Framework with Viewpoint
+
+The purpose of this *Quickstart* is to present how to integrate "EEF":http://www.eclipse.org/modeling/emft/?project=eef properties views and wizards with a Viewpoint diagram representation.
+
+h2. EEF Properties views and wizards generation
+
+The tutorial "EEF : First generation":http://wiki.eclipse.org/EEF/Tutorials/First_Generation describes the process to generate EEF properties views and wizards. Here is the main steps.
+
+h3. Initializing and setting up EEF models
+
+Initialize EEF generation models with the action _EEF > Initialize EEF models_ in the contextual menu of your genmodel file.
+
+!../images/1 - Initializing EEF models.png!
+
+The created files use a simple strategy to define EEF properties. You can change theses settings to improve the logic of your properties. To be able to display the generated views in Viewpoint, you have to use its contributor ID for the EEF views. Open the generated EEFGen model, under the root element   _Model_, select the _Gen Edition Context_   and set the value *fr.obeo.dsl.viewpoint.diagram* to the _Descriptors contributorID_ properties.  
+
+!../images/2 - VP Contributor ID.png!
+
+Another interesting properties can be changed in this model, the generation directory. Default initialization set this value to the folder _src-gen_  of the plug-in containing the EEF models. 
+
+h3. Generating EEF code
+
+Before lauching code generation, make sure the directory pointed by this value is in the build path of the plug-in.
+
+Add a dependency to EEF runtime *org.eclipse.emf.eef.runtime* to the plug-in where you will generate the code. 
+
+!../images/3 - EEF runtime dependency.png!
+
+h2. Setting up plugin.xml file
+
+EEF generates the java code needed for properties views and wizards. It generates also an sample _plugin.xml_ file with the extension points you have to declare.
+
+h3. Declaring AdapterFactories and PropertiesEditionPartProviders
+
+First part of the generated _plugin.xml_ file (@<!-- EEF Extensions -->@ ) declare @AdapterFactory@ and @PropertiesEditionPartProvider@ needed by the EEF runtime. Copy this settings without any changes to the _plugin.xml_ file of your plug-in.
+
+!../images/4 - Copying EEF extensions.png!
+
+h3. Declaring properties sheets
+
+Second part of the generated _plugin.xml_  file (@<!-- Tabbed properties views extension -->@) has extensions for tabbed properties sheets. The two first extensions (@org.eclipse.ui.views.properties.tabbed.propertyContributor@ and @org.eclipse.ui.views.properties.tabbed.propertyTabs@) are available with Viewpoint modelers, copy them to you _plugin.xml_ file. The third extensions (@org.eclipse.ui.views.properties.tabbed.propertySections@) is incorrect. Here is an example of generation :
+
+bc..    
+
+	<extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="fr.obeo.dsl.viewpoint.diagram">
+         <propertySection
+               class="org.eclipse.emf.eef.runtime.ui.properties.sections.PropertiesEditionSection"
+               id="org.eclipse.emf.samples.conference.section.Conference"
+               tab="Base">
+             <input
+                    type="org.eclipse.emf.samples.conference.Conference">
+             </input>
+         </propertySection>
+         <propertySection
+               class="org.eclipse.emf.eef.runtime.ui.properties.sections.PropertiesEditionSection"
+               id="org.eclipse.emf.samples.conference.section.Conference"
+               tab="Localisation">
+             <input
+                    type="org.eclipse.emf.samples.conference.Conference">
+             </input>
+         </propertySection>
+pre. 
+						...
+
+bc..          
+      </propertySections>
+   </extension>
+
+p. 
+
+Note : this configuration can be cloned to be used with viewpoint tables and trees (by using the following property contributor ids 
+@fr.obeo.dsl.viewpoint.table.ui.EditorID@ and @fr.obeo.dsl.viewpoint.tree.ui.EditorID@).
+
+A property section must be declared like that :
+
+
+bc.. 
+         <propertySection
+               class="org.eclipse.emf.eef.runtime.ui.properties.sections.PropertiesEditionSection"
+               filter="org.eclipse.emf.eef.runtime.ui.properties.sections.PropertiesEditionSection"
+               id="org.eclipse.emf.samples.conference.section.Conference"
+               tab="Base">
+         </propertySection>
+
+p. 
+
+The *input*  tag is replaced by a *filter* attribute. A @propertySection@ must be declared for each *tab* generated in the  @org.eclipse.ui.views.properties.tabbed.propertyTabs@ extension.
+
+h2. Testing properties view
+
+After this settings, the generated properties views must be available from a Viewpoint diagram. You can run an eclipse application to test it.
+
+!../images/5 - Properties view testing.png!
+
+h2. Optional tasks (tabs optimization)
+
+h3. Moving EEF property sheet tabs on top
+
+By default, the EEF property sheets tab appear at last in the properties tabs.
+
+It is possible to move them to make them appear at the top of the tab list :
+
+!../images/6 - Property sheet on top.png! 
+
+To do this, you have to modify the @org.eclipse.ui.views.properties.tabbed.propertyTabs@ section by changing the property category of your tabs. Instead of using the ones that have been created in the current @plugin.xml@ (through the @org.eclipse.ui.views.properties.tabbed.propertyContributor@ extension point), it is possible to use the ones defined by viewpoint :
+
+* @semantic & extension@
+* @semantic@
+* @extension@
+* @behaviors@
+* ...
+(please refer to the @plugin.xml@ file of @fr.obeo.dsl.viewpoint.diagram@ for a complete list).
+
+Example :
+
+bc.. 
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="fr.obeo.dsl.viewpoint.diagram">
+         <propertyTab
+               label="Base"
+               category="semantic &amp; extension"
+               id="Base">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+
+p. 
+
+It is also possible to use the @afterTab@ property to manage precisely the position of the EEF tabs (to put a tab before the first tab, use the value @top@).
+
+Example :
+
+bc.. 
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="fr.obeo.dsl.viewpoint.diagram">
+         <propertyTab
+               afterTab="top"
+               label="Base"
+               category="semantic"
+               id="Base">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+
+p. 
+
+h3. Multiple tabs 
+
+Several conditions have to be met in order to get several tabs for a given semantic @EClass@ :
+
+# First of all, *one view must exist* in the @View Repository@ of the @fs.components@ file *for each tab that has to be shown* for the given semantic @EClass@
+# The @Properties Edition Component@ associated to the semantic @Eclass@ must reference these views
+# In the @plugin.xml@ file :
+## One @propertyTab@ XML node must exist for each expected tab (@org.eclipse.ui.views.properties.tabbed.propertyTabs@ extension point). The @id@ must match the view names in the EEF @components@ file.
+## One @propertySection@ XML node must exist for each expected tab(@org.eclipse.ui.views.properties.tabbed.propertySections@ extension point), the @tab@ attribute referencing the tabs defined in the @propertyTabs@ section.
+
+To illustrate it, let's imagine that we have a semantic model that describes a filesystem in which we want to get two tabs (@File Basic@ and @File Advanced@) for the semantic @File@ @EClass@.
+
+Let's consider that we also have an @components@ file containing (at least) :
+
+# A view named @File Basic@
+# A view named @File Advanced@
+# A @Properties Edition Component@ binded to the semantic @File@ @Eclass@ and referencing both @File Basic@ and @File Advanced@ views
+
+In the @plugin.xml@ file, the tabs declaration should appear like this (notice that in this sample we use viewpoints categories in order to make our tabs appear at first as described in the previous paragraph, which is not mandatory) :
+
+bc.. 
+<extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+   <propertyTabs contributorId="fr.obeo.dsl.viewpoint.diagram">
+      <!-- 
+          Other declarations : Base, ... 
+        -->
+      <propertyTab
+            label="File Advanced"
+            category="semantic &amp; extension"
+            id="File Advanced">
+      </propertyTab>
+      <propertyTab
+            label="File Basic"
+            category="semantic &amp; extension"
+            id="File Basic">
+      </propertyTab>
+   </propertyTabs>
+</extension>
+p. 
+
+And the property sections declaration should appear like this :
+
+bc.. 
+<extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+   <propertySections contributorId="fr.obeo.dsl.viewpoint.diagram">
+      <!-- 
+          Other declarations : Base, ... 
+        -->
+      <propertySection
+            class="org.eclipse.emf.eef.runtime.ui.properties.sections.PropertiesEditionSection"
+            filter="org.eclipse.emf.eef.runtime.ui.properties.sections.PropertiesEditionSection"
+            id="fileAdvanced"
+            tab="File Advanced">
+      </propertySection>
+      <propertySection
+            class="org.eclipse.emf.eef.runtime.ui.properties.sections.PropertiesEditionSection"
+            filter="org.eclipse.emf.eef.runtime.ui.properties.sections.PropertiesEditionSection"
+            id="fileBasic"
+            tab="File Basic">
+      </propertySection>
+   </propertySections>
+</extension>
+p. 
+
+Here is the result :
+
+!../images/7 - Multiple tabs.png!
+
+h3. Programmatically hide and show EEF property sheet tabs
+
+It is possible to hide and show EEF tabbed property sheet tabs by providing a filter to the property sections (@org.eclipse.jface.viewers.IFilter@).
+
+The most simple way to do this is to create a class that extends @org.eclipse.emf.eef.runtime.ui.properties.sections.PropertiesEditionSection@ (this class brings a utility method (@resolveSemanticObject@)) that helps to retrieve the semantic object that is targeted by a viewpoint figure).
+
+Example #1 (based on a test of the semantic object) : 
+
+bc.. 
+public class SemanticBasedPropertySectionFilter extends PropertiesEditionSection {
+
+    @Override
+    public boolean select(Object toTest) {
+        EObject semanticObject = resolveSemanticObject(toTest);
+        if (semanticObject instanceof MySemanticEClass) {
+            boolean mustBeShown = true;
+            // Code here the conditional tests...
+            return mustBeShown;
+        }
+        return false;
+    }
+
+}
+p. 
+
+Example #2 (based on a test of the viewpoint diagram identifier) :
+
+bc.. 
+public class ViewpointIdBasedPropertySectionFilter extends IFilter {
+
+    @Override
+    public boolean select(Object toTest) {
+        EditPart editPart = (EditPart) toTest;
+        View view = (View) editPart.getModel();
+        Diagram diagram = view.getDiagram();
+        EObject element = diagram.getElement();
+        String diagramId = ((DDiagram) element).getDescription().getName();
+        return "<my diagram id>".equals(diagId);
+    }
+
+}
+p. 
+
+The filter has to be referenced from the @plugin.xml@ file in the *@filter@* attribute of the corresponding @propertySection@ :
+
+bc.. 
+<propertySection
+       class="org.eclipse.emf.eef.runtime.ui.properties.sections.PropertiesEditionSection"
+       filter="org.mypackage.MyPropertySectionFilter"
+       id="fileBasic"
+       tab="File Basic">
+</propertySection>
+p. 
+
+h3. Hide viewpoint built-in property sheet sections (and the corresponding tabs)
+
+The current plugin (@org.obeonetwork.dsl.viewpoint.eef.adapters@) provides an extension mechanism that allows one to hide several viewpoint built-in sections (and the corresponding tabs).
+
+To be used, as a pre-requisite, a property section contributor must be defined (org.eclipse.ui.views.properties.tabbed.propertyContributor extension point) with the following section descriptor provider (@org.obeonetwork.dsl.viewpoint.eef.section.ViewpointFilteringSectionDescriptor@):
+
+bc.. 
+<extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+   <propertyContributor 
+      contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID"
+      sectionDescriptorProvider="org.obeonetwork.dsl.viewpoint.eef.section.ViewpointFilteringSectionDescriptor">
+    ...
+   </propertyContributor>
+</extension>
+p. 
+
+At this point, it is possible to declare which section have to be hidden for which contributor id. The following example shows how to hide the Semantic section from the viewpoint diagrams property sheet and the Core and Semantic sections from the viewpoint table property sheet :
+
+bc.. 
+<extension
+      point="org.obeonetwork.dsl.viewpoint.eef.adapters.sectionFilters">
+   <propertyContributorFilters
+         contributorId="fr.obeo.dsl.viewpoint.diagram">
+      <sectionFilter
+            id="property.section.semantic">
+      </sectionFilter>
+   </propertyContributorFilters>
+   <propertyContributorFilters
+         contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID">
+      <sectionFilter
+            id="fr.obeo.dsl.viewpoint.table.ui.section.core">
+      </sectionFilter>
+      <sectionFilter
+            id="fr.obeo.dsl.viewpoint.table.ui.section.semantic">
+      </sectionFilter>
+   </propertyContributorFilters>
+</extension>
+p. 
+
+h2. Opening EEF wizard on a double click
+
+An external java call is available to open a EEF Wizard editing the current selected element. This action can be used for the double click. In a tool section, create a _Double Click Descriptor_ and name it *Open EEF Wizard*. The _operation_ of this element is only an _External Java Call_. Name it *Open EEF Wizard Action* and define the _id_ *org.obeonetwork.dsl.viewpoint.eef.actions.openPropertiesWizard*.
+
+Finally, make a reference to this descriptor from each mapping you want to have a EEF Wizard on double click.
+
+!../images/8 - Double click descriptor.png!
+
+A double click on the selected mapping must open a EEF Wizard
+
+!../images/9 - EEF Wizard on VP.png!
+
+
+        

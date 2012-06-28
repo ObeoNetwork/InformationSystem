@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+ <plugin>
+
+  <!-- EEF extensions -->
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/typeslibrary/1.0"
+            class="org.obeonetwork.dsl.typeslibrary.providers.TypeslibraryEEFAdapterFactory"
+            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.typeslibrary.providers.TypeslibraryPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+
+  <!-- Tabbed properties views extension -->
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.obeonetwork.dsl.typeslibrary.properties"
+            labelProvider="org.eclipse.emf.eef.runtime.ui.utils.EEFLabelProvider">
+         <propertyCategory
+               category="default">
+         </propertyCategory>
+         <propertyCategory
+               category="extended">
+         </propertyCategory>
+         <propertyCategory
+               category="advanced">
+         </propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.obeonetwork.dsl.typeslibrary.properties">
+         <propertyTab
+               id="NativeTypesLibrary"
+               label="NativeTypesLibrary"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="TypeInstance"
+               label="TypeInstance"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="NativeType"
+               label="NativeType"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="ComplexNamedType"
+               label="ComplexNamedType"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="SimpleNamedType"
+               label="SimpleNamedType"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="UserDefinedTypeRef"
+               label="UserDefinedTypeRef"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="UserDefinedTypesLibrary"
+               label="UserDefinedTypesLibrary"
+               category="default">
+         </propertyTab>
+
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.obeonetwork.dsl.typeslibrary.properties">
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.NativeTypesLibraryPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.providers.NativeTypesLibraryPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.typeslibrary.section.NativeTypesLibrary"
+               tab="NativeTypesLibrary">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.TypeInstancePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.providers.TypeInstancePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.typeslibrary.section.TypeInstance"
+               tab="TypeInstance">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.NativeTypePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.providers.NativeTypePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.typeslibrary.section.NativeType"
+               tab="NativeType">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.ComplexNamedTypePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.providers.ComplexNamedTypePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.typeslibrary.section.ComplexNamedType"
+               tab="ComplexNamedType">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.SimpleNamedTypePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.providers.SimpleNamedTypePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.typeslibrary.section.SimpleNamedType"
+               tab="SimpleNamedType">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.UserDefinedTypeRefPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.providers.UserDefinedTypeRefPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.typeslibrary.section.UserDefinedTypeRef"
+               tab="UserDefinedTypeRef">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.UserDefinedTypesLibraryPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.providers.UserDefinedTypesLibraryPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.typeslibrary.section.UserDefinedTypesLibrary"
+               tab="UserDefinedTypesLibrary">
+         </propertySection>
+      </propertySections>
+   </extension>
+ </plugin>

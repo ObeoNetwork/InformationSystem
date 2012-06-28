@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-Name: Cinematic Viewpoint
+Bundle-SymbolicName: org.obeonetwork.dsl.cinematic.design;singleton=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.obeonetwork.dsl.cinematic.design.Activator
+Require-Bundle: fr.obeo.acceleo.gen,
+ org.eclipse.ui,
+ org.eclipse.core.runtime,
+ fr.obeo.dsl.viewpoint,
+ fr.obeo.dsl.common,
+ fr.obeo.dsl.common.ui,
+ org.obeonetwork.dsl.cinematic,
+ org.obeonetwork.dsl.cinematic.edit
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: www.obeo.fr
+Provide-Package: org.obeonetwork.dsl.cinematic.design.services,
+ org.obeonetwork.dsl.cinematic.design.services.label,
+ org.obeonetwork.dsl.cinematic.design.services.util

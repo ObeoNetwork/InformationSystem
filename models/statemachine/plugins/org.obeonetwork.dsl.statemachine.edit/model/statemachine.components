@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eef-components="http://www.eclipse.org/emf/eef/components/1.0.0" xmlns:eef-views="http://www.eclipse.org/emf/eef/views/1.0.0">
+  <eef-components:PropertiesEditionContext xmi:id="_OHBcgGeoEeGs98LJH7FtBg" documentation="Edition Context for statemachine GenPackage">
+    <categories xmi:id="_OHBcgWeoEeGs98LJH7FtBg" name="statemachine">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_OHBcgmeoEeGs98LJH7FtBg" name="stateMachine" views="_OHBcr2eoEeGs98LJH7FtBg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcg2eoEeGs98LJH7FtBg" name="description" views="_OHBcsWeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBchGeoEeGs98LJH7FtBg" name="keywords" views="_OHBcsmeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/keywords"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBch2eoEeGs98LJH7FtBg" name="name" views="_OHBctWeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBciGeoEeGs98LJH7FtBg" name="regions" views="_OHBctmeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//StateMachine/regions"/>
+        </properties>
+        <referencedBinding xmi:id="_bVkLUamcEeGBu7fi76x3aw">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//StateMachine"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_OHBciWeoEeGs98LJH7FtBg" name="state" views="_OHBct2eoEeGs98LJH7FtBg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcimeoEeGs98LJH7FtBg" name="description" views="_OHBcuWeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBci2eoEeGs98LJH7FtBg" name="keywords" views="_OHBcumeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/keywords"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcjmeoEeGs98LJH7FtBg" name="incomingTransitions" views="_OHBcvWeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//AbstractState/incomingTransitions"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcj2eoEeGs98LJH7FtBg" name="outcomingTransitions" views="_OHBcvmeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//AbstractState/outcomingTransitions"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBckGeoEeGs98LJH7FtBg" name="name" views="_OHBcv2eoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//NamedElement/name"/>
+        </properties>
+        <referencedBinding xmi:id="_ecEpQKmcEeGBu7fi76x3aw">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//State"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_OHBckWeoEeGs98LJH7FtBg" name="region" views="_OHBcwGeoEeGs98LJH7FtBg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBckmeoEeGs98LJH7FtBg" name="description" views="_OHBcwmeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBck2eoEeGs98LJH7FtBg" name="keywords" views="_OHBcw2eoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/keywords"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBclmeoEeGs98LJH7FtBg" name="name" views="_OHCDkmeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//NamedElement/name"/>
+        </properties>
+        <referencedBinding xmi:id="_etTjMKmcEeGBu7fi76x3aw">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//Region"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_OHBcl2eoEeGs98LJH7FtBg" name="transition" views="_OHCDk2eoEeGs98LJH7FtBg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcmGeoEeGs98LJH7FtBg" name="description" views="_OHCDlWeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcmWeoEeGs98LJH7FtBg" name="keywords" views="_OHCDlmeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/keywords"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcnGeoEeGs98LJH7FtBg" name="guard" views="_OHCDmWeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//Transition/guard"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcnWeoEeGs98LJH7FtBg" name="from" views="_OHCDmmeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//Transition/from"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcnmeoEeGs98LJH7FtBg" name="to" views="_OHCDm2eoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//Transition/to"/>
+        </properties>
+        <referencedBinding xmi:id="_e8G0MKmcEeGBu7fi76x3aw">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//Transition"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_OHBcn2eoEeGs98LJH7FtBg" name="initialState" views="_OHCDnGeoEeGs98LJH7FtBg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcoGeoEeGs98LJH7FtBg" name="description" views="_OHCDnmeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcoWeoEeGs98LJH7FtBg" name="keywords" views="_OHCDn2eoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/keywords"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcpGeoEeGs98LJH7FtBg" name="incomingTransitions" views="_OHCDomeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//AbstractState/incomingTransitions"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcpWeoEeGs98LJH7FtBg" name="outcomingTransitions" views="_OHCDo2eoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//AbstractState/outcomingTransitions"/>
+        </properties>
+        <referencedBinding xmi:id="_fQGHMKmcEeGBu7fi76x3aw">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//InitialState"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_OHBcpmeoEeGs98LJH7FtBg" name="finalState" views="_OHCDpGeoEeGs98LJH7FtBg">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcp2eoEeGs98LJH7FtBg" name="description" views="_OHCDpmeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcqGeoEeGs98LJH7FtBg" name="keywords" views="_OHCDp2eoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/keywords"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcq2eoEeGs98LJH7FtBg" name="incomingTransitions" views="_OHCDqmeoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//AbstractState/incomingTransitions"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_OHBcrGeoEeGs98LJH7FtBg" name="outcomingTransitions" views="_OHCDq2eoEeGs98LJH7FtBg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//AbstractState/outcomingTransitions"/>
+        </properties>
+        <referencedBinding xmi:id="_fgkzMKmcEeGBu7fi76x3aw">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//FinalState"/>
+      </bindings>
+    </categories>
+    <model href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.genmodel#//statemachine"/>
+  </eef-components:PropertiesEditionContext>
+  <eef-views:ViewsRepository xmi:id="_OHBcrWeoEeGs98LJH7FtBg" documentation="Views repository for statemachine GenPackage" name="statemachine">
+    <RepositoryKind>SWT</RepositoryKind>
+    <RepositoryKind>Form</RepositoryKind>
+    <categories xmi:id="_OHBcrmeoEeGs98LJH7FtBg" name="statemachine">
+      <views xmi:id="_OHBcr2eoEeGs98LJH7FtBg" name="StateMachine">
+        <elements xsi:type="eef-views:Container" xmi:id="_OHBcsGeoEeGs98LJH7FtBg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBctWeoEeGs98LJH7FtBg" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBctmeoEeGs98LJH7FtBg" name="regions">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBcsmeoEeGs98LJH7FtBg" name="keywords">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBcsWeoEeGs98LJH7FtBg" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_OHBct2eoEeGs98LJH7FtBg" name="State">
+        <elements xsi:type="eef-views:Container" xmi:id="_OHBcuGeoEeGs98LJH7FtBg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBcv2eoEeGs98LJH7FtBg" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBcvWeoEeGs98LJH7FtBg" name="incomingTransitions">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBcvmeoEeGs98LJH7FtBg" name="outcomingTransitions">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBcumeoEeGs98LJH7FtBg" name="keywords">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBcuWeoEeGs98LJH7FtBg" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_OHBcwGeoEeGs98LJH7FtBg" name="Region">
+        <elements xsi:type="eef-views:Container" xmi:id="_OHBcwWeoEeGs98LJH7FtBg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDkmeoEeGs98LJH7FtBg" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBcw2eoEeGs98LJH7FtBg" name="keywords">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHBcwmeoEeGs98LJH7FtBg" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_OHCDk2eoEeGs98LJH7FtBg" name="Transition">
+        <elements xsi:type="eef-views:Container" xmi:id="_OHCDlGeoEeGs98LJH7FtBg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDmWeoEeGs98LJH7FtBg" name="guard">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDmmeoEeGs98LJH7FtBg" name="from">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDm2eoEeGs98LJH7FtBg" name="to">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDlmeoEeGs98LJH7FtBg" name="keywords">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDlWeoEeGs98LJH7FtBg" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_OHCDnGeoEeGs98LJH7FtBg" name="InitialState">
+        <elements xsi:type="eef-views:Container" xmi:id="_OHCDnWeoEeGs98LJH7FtBg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDomeoEeGs98LJH7FtBg" name="incomingTransitions">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDo2eoEeGs98LJH7FtBg" name="outcomingTransitions">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDn2eoEeGs98LJH7FtBg" name="keywords">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDnmeoEeGs98LJH7FtBg" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_OHCDpGeoEeGs98LJH7FtBg" name="FinalState">
+        <elements xsi:type="eef-views:Container" xmi:id="_OHCDpWeoEeGs98LJH7FtBg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDqmeoEeGs98LJH7FtBg" name="incomingTransitions">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDq2eoEeGs98LJH7FtBg" name="outcomingTransitions">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDp2eoEeGs98LJH7FtBg" name="keywords">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_OHCDpmeoEeGs98LJH7FtBg" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+    </categories>
+  </eef-views:ViewsRepository>
+</xmi:XMI>

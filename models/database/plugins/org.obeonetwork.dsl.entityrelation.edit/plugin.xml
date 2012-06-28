@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/entityrelation/1.0"
+            class="org.obeonetwork.dsl.entityrelation.provider.EntityRelationItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+   
+  <!-- EEF extensions -->
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/entityrelation/1.0"
+            class="org.obeonetwork.dsl.entityrelation.providers.CustomEntityrelationEEFAdapterFactory"
+            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.entityrelation.providers.EntityrelationPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+   
+   <!-- Tabbed properties views extension -->
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="fr.obeo.dsl.viewpoint.diagram">
+         <propertyCategory
+               category="default">
+         </propertyCategory>
+         <propertyCategory
+               category="extended">
+         </propertyCategory>
+         <propertyCategory
+               category="advanced">
+         </propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="fr.obeo.dsl.viewpoint.diagram">
+         <propertyTab
+               label="LogicalModel"
+               category="semantic &amp; extension"
+               id="LogicalModel"
+               afterTab="LogicalModel">
+         </propertyTab>
+         <propertyTab
+               label="Entity"
+               category="semantic &amp; extension"
+               id="Entity"
+               afterTab="Entity">
+         </propertyTab>
+         <propertyTab
+               label="Identifiers"
+               category="semantic &amp; extension"
+               id="Identifiers"
+               afterTab="Base">
+         </propertyTab>
+         <propertyTab
+               label="Relation"
+               category="semantic &amp; extension"
+               id="Relation"
+               afterTab="Relation">
+         </propertyTab>
+         <propertyTab
+               label="Relation Element"
+               category="semantic &amp; extension"
+               id="Relation Element"
+               afterTab="Relation Element">
+         </propertyTab>
+         <propertyTab
+               label="Attribute"
+               category="semantic &amp; extension"
+               id="Attribute"
+               afterTab="Attribute">
+         </propertyTab>
+         <propertyTab
+               label="Identifier"
+               category="semantic &amp; extension"
+               id="Identifier"
+               afterTab="Identifier">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="fr.obeo.dsl.viewpoint.diagram">
+         <propertySection
+               class="org.obeonetwork.dsl.entityrelation.parts.forms.LogicalModelPropertiesEditionPartForm"
+               id="org.obeonetwork.dsl.entityrelation.section.LogicalModel"
+               filter="org.obeonetwork.dsl.entityrelation.filters.LogicalModelTabPropertiesEditionSection"
+               tab="LogicalModel">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.entityrelation.parts.forms.EntityPropertiesEditionPartForm"
+               id="org.obeonetwork.dsl.entityrelation.section.Entity"
+               filter="org.obeonetwork.dsl.entityrelation.filters.EntityTabPropertiesEditionSection"
+               tab="Entity">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.entityrelation.parts.forms.IdentifiersPropertiesEditionPartForm"
+               id="org.obeonetwork.dsl.entityrelation.section.Entity"
+               filter="org.obeonetwork.dsl.entityrelation.filters.EntityTabPropertiesEditionSection"
+               tab="Identifiers">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.entityrelation.parts.forms.RelationPropertiesEditionPartForm"
+               id="org.obeonetwork.dsl.entityrelation.section.Relation"
+               filter="org.obeonetwork.dsl.entityrelation.filters.RelationTabPropertiesEditionSection"
+               tab="Relation">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.entityrelation.parts.forms.RelationElementPropertiesEditionPartForm"
+               id="org.obeonetwork.dsl.entityrelation.section.RelationElement"
+               filter="org.obeonetwork.dsl.entityrelation.filters.RelationElementTabPropertiesEditionSection"
+               tab="Relation Element">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.entityrelation.parts.forms.AttributePropertiesEditionPartForm"
+               id="org.obeonetwork.dsl.entityrelation.section.Attribute"
+               filter="org.obeonetwork.dsl.entityrelation.filters.AttributeTabPropertiesEditionSection"
+               tab="Attribute">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.entityrelation.parts.forms.IdentifierPropertiesEditionPartForm"
+               id="org.obeonetwork.dsl.entityrelation.section.Identifier"
+               filter="org.obeonetwork.dsl.entityrelation.filters.IdentifierTabPropertiesEditionSection"
+               tab="Identifier">
+         </propertySection>
+      </propertySections>
+   </extension>
+   
+</plugin>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="true"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <command
+               commandId="org.obeonetwork.dsl.requirement.validation.command.validateRequirements"
+               label="Validate requirements"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activePart">
+                  <test
+                        forcePluginActivation="true"
+                        property="org.obeonetwork.dsl.requirement.validation.shouldBeTested"
+                        value="true">
+                  </test>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.obeonetwork.dsl.requirement.validation.command.validateRequirements"
+            name="Validate requirements">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.obeonetwork.dsl.requirement.validation.ValidateRequirementsHandler"
+            commandId="org.obeonetwork.dsl.requirement.validation.command.validateRequirements">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.obeonetwork.dsl.requirement.validation.RequirementsShouldBeTested"
+            id="org.obeonetwork.dsl.requirement.validation.shouldBeTested"
+            namespace="org.obeonetwork.dsl.requirement.validation"
+            properties="shouldBeTested"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            id="org.obeonetwork.dsl.requirement.validation.category"
+            name="Requirements Constraints">
+      </category>
+      <constraintProvider
+            cache="true">
+         <package
+               namespaceUri="http://www.obeonetwork.org/dsl/requirement/1.0">
+         </package>
+         <constraints
+               categories="org.obeonetwork.dsl.requirement.validation.category">
+            <constraint
+                  class="org.obeonetwork.dsl.requirement.validation.rules.UniqueIdConstraint"
+                  id="org.obeonetwork.dsl.requirement.validation.constraint.uniqueId"
+                  lang="Java"
+                  mode="Batch"
+                  name="Unique Id"
+                  severity="ERROR"
+                  statusCode="1">
+               <message>
+                  The requirement ID "{0}" is not unique
+               </message>
+               <description>
+                  All requirements must have a unique id
+               </description>
+               <target class="Requirement"/>
+               <target class="Repository"/>
+               <target class="Category"/>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+   <extension
+         point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext
+            default="false"
+            id="org.obeonetwork.dsl.requirement.validation.clientContext">
+         <selector
+               class="org.obeonetwork.dsl.requirement.validation.ValidationDelegateClientSelector">
+         </selector>
+      </clientContext>
+      <binding
+            category="org.obeonetwork.dsl.requirement.validation.category"
+            context="org.obeonetwork.dsl.requirement.validation.clientContext">
+      </binding>
+   </extension>
+
+</plugin>

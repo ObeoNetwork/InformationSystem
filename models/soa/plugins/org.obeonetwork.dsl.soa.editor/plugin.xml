@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <!--
+    <category
+			id="org.obeonetwork.dsl.category.modelers"
+			name="Acceleo Pro">
+	</category>	
+	-->
+    <wizard
+      id = "soa.presentation.SoaModelWizardID"
+      name = "%_UI_SoaModelWizard_label"
+      class = "org.obeonetwork.dsl.soa.presentation.SoaModelWizard"
+      category = "org.obeonetwork.dsl.is.ui.categoryID"
+      icon = "icons/full/obj16/SoaModelFile.gif">
+      <description>%_UI_SoaModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "soa.presentation.SoaEditorID"
+        name = "%_UI_SoaEditor_label"
+        icon = "icons/full/obj16/SoaModelFile.gif"
+        extensions = "soa"
+        class = "org.obeonetwork.dsl.soa.presentation.SoaEditor" 
+        contributorClass="org.obeonetwork.dsl.soa.presentation.SoaActionBarContributor" >
+    </editor>
+  </extension>    
+</plugin>

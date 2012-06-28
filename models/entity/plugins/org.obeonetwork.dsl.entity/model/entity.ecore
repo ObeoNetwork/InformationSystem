@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="entity"
+    nsURI="http://www.obeonetwork.org/dsl/entity/2.0.0" nsPrefix="oent">
+  <eClassifiers xsi:type="ecore:EClass" name="Root" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
+        eType="#//Block" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
+        eType="#//Entity" containment="true" eOpposite="#//Entity/block"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subblocks" upperBound="-1"
+        eType="#//Block" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType">
+    <eOperations name="isSubtypeOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="entity" eType="#//Entity"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedAttributes" upperBound="-1"
+        eType="#//Attribute" containment="true" eOpposite="#//Attribute/entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedReferences" upperBound="-1"
+        eType="#//Reference" containment="true" eOpposite="#//Reference/entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supertype" eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//Reference" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//Property" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estimatedVolumetry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estimatedAccess" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="historized" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedFinders" upperBound="-1"
+        eType="#//Finder" containment="true" eOpposite="#//Finder/entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" lowerBound="1" eType="#//Block"
+        eOpposite="#//Block/entities"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inheritanceKind" eType="#//InheritanceKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" abstract="true" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BoundableElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" lowerBound="1"
+        eType="ecore:EEnum ../../org.obeonetwork.dsl.environment/model/environment.ecore#//MultiplicityKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPrimaryKey" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Property">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+        eType="#//Entity" eOpposite="#//Entity/ownedAttributes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//PrimitiveType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Property">
+    <eOperations name="canBeOppositeOf" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="opposite" eType="#//Reference"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+        eType="#//Entity" eOpposite="#//Entity/ownedReferences"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isComposite" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oppositeOf" eType="#//Reference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="navigable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Finder" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+        eType="#//Entity" eOpposite="#//Entity/ownedFinders"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customizedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="criterions" upperBound="-1"
+        eType="#//Criterion" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" lowerBound="1"
+        eType="ecore:EEnum ../../org.obeonetwork.dsl.environment/model/environment.ecore#//MultiplicityKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InternalCriterion" eSuperTypes="#//Criterion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Criterion" abstract="true" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalCriterion" eSuperTypes="#//Criterion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="InheritanceKind">
+    <eLiterals name="TABLE_PER_SUBCLASS"/>
+    <eLiterals name="TABLE_PER_CLASS_HIERARCHY" value="1"/>
+  </eClassifiers>
+  <eSubpackages name="extensionUtilities" nsURI="http://www.obeonetwork.org/dsl/entity/2.0.0/utilities"
+      nsPrefix="oent">
+    <eClassifiers xsi:type="ecore:EClass" name="EntityFilter" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Filter">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributeReferences"
+          upperBound="-1" eType="#//Attribute" changeable="false" volatile="true"
+          transient="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referenceReferences"
+          upperBound="-1" eType="#//Reference" changeable="false" volatile="true"
+          transient="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ownedPropertyReferences"
+          upperBound="-1" eType="#//Property"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+          eType="#//Entity"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

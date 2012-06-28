@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.obeonetwork.dsl.feature.is_2.1.0.qualifier.jar" id="org.obeonetwork.dsl.feature.is" version="2.1.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.commons"/>
+   </feature>
+   <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>
+</site>

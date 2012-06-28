@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+ <plugin>
+
+  <!-- EEF extensions -->
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/requirement/1.0"
+            class="org.obeonetwork.dsl.requirement.providers.RequirementEEFAdapterFactory"
+            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.requirement.providers.RequirementPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+
+  <!-- Tabbed properties views extension -->
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="org.obeonetwork.dsl.requirement.properties"
+            labelProvider="org.eclipse.emf.eef.runtime.ui.utils.EEFLabelProvider">
+         <propertyCategory
+               category="default">
+         </propertyCategory>
+         <propertyCategory
+               category="extended">
+         </propertyCategory>
+         <propertyCategory
+               category="advanced">
+         </propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="org.obeonetwork.dsl.requirement.properties">
+         <propertyTab
+               id="Repository"
+               label="Repository"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Category"
+               label="Category"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Requirement"
+               label="Requirement"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Advanced"
+               label="Advanced"
+               category="extended"
+               afterTab="Requirement">
+         </propertyTab>
+
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="org.obeonetwork.dsl.requirement.properties">
+         <propertySection
+               class="org.obeonetwork.dsl.requirement.parts.forms.RepositoryPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.requirement.providers.RepositoryPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.requirement.section.Repository"
+               tab="Repository">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.requirement.parts.forms.CategoryPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.requirement.providers.CategoryPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.requirement.section.Category"
+               tab="Category">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.requirement.parts.forms.RequirementPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.requirement.providers.RequirementPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.requirement.section.Requirement"
+               tab="Requirement">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.requirement.parts.forms.AdvancedPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.requirement.providers.RequirementPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.requirement.section.Requirement"
+               tab="Advanced">
+         </propertySection>
+      </propertySections>
+   </extension>
+ </plugin>

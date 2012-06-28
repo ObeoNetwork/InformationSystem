@@ -1,0 +1,343 @@
+__(c) Obeo 2011 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+@Authors@ Stéphane Thibaudeau
+@Contact@ stephane.thibaudeau@obeo.fr
+
+h1. Obeo Network - Outillage Graal
+
+*Graal* est une méthode d'analyse dont le but est la modélisation du besoin utilisateur et la description des Interfaces Homme-Machine d'un système d'information tant d'un point de vue statique que d'un point de vue dynamique.
+L'objectif de la méthode Graal est de capturer et formaliser le besoin utilisateur au travers d'une analyse de la tâche.
+
+L'*outillage Graal* du *Network Obeo* fournit un ensemble d'outils permettant l'adoption de la méthodologie Graal au sein d'Eclipse. L'outillage fournit des éditeurs graphiques, tabulaires ou arborescents ainsi que des vues Eclipse dédiées.
+
+Cette documentation a pour objectif de présenter cet outillage Graal et non pas de présenter de manière exhaustive la méthodologie Graal.
+
+h2. Création d'un modèle Graal
+ 
+Un assistant permet la création de modèles Graal. Cet assistant est accessible via le menu :
+
+bq. File > New > Other ... > Graal Model (Catégorie Obeo Designer For IS)
+
+Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
+
+Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre afin de commencer l'édition.
+
+!pics/Graal Editor.png!
+
+L'éditeur permet de visualiser le contenu d'un modèle Graal sous forme arborescente. Pour modifier les propriétés d'un élément il faut utiliser la vue _Properties_ (partie basse sur la capture d'écran précédente). Si cette vue n'est pas visible, il est possible de l'ouvrir par un clic droit sur un élément de l'arbre et sélection de _Show Properties View_.
+
+La création de nouveaux éléments se fait dans l'arbre exigences par le menu contextuel _New Child_  du conteneur où l'on souhaite créer l'élément. Ainsi pour créer une nouvelle tâche dans un système, il faut invoquer, depuis le système voulu, le menu :
+
+bq. New Child > Task
+
+Un modèle Graal peut être édité avec cet éditeur arborescent mais ce n'est pas la méthode privilégiée : les éditeurs graphiques (diagrammes) permettent de remplir cette tâche plus efficacement.
+
+h2. Point de vue Graal
+
+L'outillage Graal fournit un point de vue dédié à la méthodologie Graal. Ce point de vue permet de visualiser et modifier un modèle Graal via plusieurs types de diagrammes.
+
+h3. Ouverture d'une session _Viewpoint_ et activation du point de vue Graal
+
+L'ouverture d'une session _ViewPoint_ sur un modèle Graal se fait de manière classique :
+* En double-cliquant sur un fichier _*.aird_ existant
+* En faisant un glisser/déposer d'un fichier _*.graal_ sur la vue _Model Content_
+* En créant une nouvelle session via le menu @File > New > Local Session@
+
+Le point de vue _Graal Methodology_ doit être sélectionné sur la session ouverte. Pour vérifier si c'est bien le cas lancer le menu suivant la session :
+
+bq. Viewpoint Selection
+
+Choisir le point de vue _Graal Methodology_ :
+
+!pics/Graal Viewpoint Selection.png!
+
+Une fois le point de vue activé, il devient possible de créer ou visualiser les diagrammes Graal.
+
+h3. Création/ouverture de diagrammes
+
+Chaque type de diagramme est rattaché à un concept Graal précis. Par exemple, un _plan d'action_ est rattaché à une _Task_, un graphe de tâches est rattaché à un _System_ ou à un _TasksGroup_. 
+
+Pour créer un diagramme d'un certain type, il suffit de sélectionner l'élément du modèle auquel on veut rattacher le diagramme dans la vue _Model Content_ puis, avec un clic droit, de sélectionner le menu :
+
+bq. New... > #Nom du diagramme#
+
+puis renseigner le nom du diagramme et, enfin, valider.
+
+Par exemple sur un _System_, trois types de diagrammes peuvent être créés comme présenté sur la capture d'écran suivante :
+ 
+!pics/Graal Graphs on System.png!
+
+Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue _Model Content_. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Content_. 
+
+h3. Graphe de tâches (pour un _System_)
+
+Un graphe de tâches (ou _Tasks Graph_) peut être associé à un _System_.
+Le graphe de tâches d'un _System_ est normalement créé automatiquement à la création d'une session.
+Pour chaque _System_ un seul graphe de tâches peut être créé au maximum.
+
+!pics/diagrams/tasksgraph/Tasks Graph.png!
+
+h4. Eléments affichés et palette d'outils
+
+Les éléments suivants sont affichés sur le diagramme :
+* _Task_ : chaque tâche contenue directement par le _System_ est affichée.
+* _TasksGroup_ : les tâches peuvent être regroupées dans des _TasksGroup_. Chaque _TasksGroup_ directement contenu par le _System_ est affiché.
+* _System_ : un _System_ peut contenir d'autres _Systems_. Un découpage d'une application en plusieurs sous-modules est possible par ce biais là. Chaque _System_ contenu directement par le _System_ principal est affiché.
+* lien _Use_ : les liens d'utilisation entre tâches sont affichés. Des liens sont affichés également entre tâches, groupes et systèmes en fonction des liens d'utilisation entre tâches contenues dans les groupes et systèmes.
+* _Actor_ : chaque acteur associé à une tâche ou à un groupe de tâches du système est affiché. Les acteurs et les outils associés sont affichés uniquement quand le calque _Actors_ est activé.
+
+!pics/diagrams/tasksgraph/Tasks Graph Actors layer.png!
+
+Les outils fournis par la palette sont :
+
+| !pics/diagrams/tasksgraph/Create task.png! | Création d'une tâche. |
+| !pics/diagrams/tasksgraph/Create group.png! | Création d'un groupe. |
+| !pics/diagrams/tasksgraph/Create system.png! | Création d'un système. |
+| !pics/diagrams/tasksgraph/Create use.png! | Création de lien d'utilisation entre tâches, groupes et systèmes. Les liens d'utilisation se font normalement entre tâches, l'outil de création peut néanmoins être utilisé avec un système ou un groupe comme extrémité : dans ce cas une boîte de dialogue s'ouvre pour permettre de choisir la tâche du système ou du groupe sur laquelle le lien d'utilisation sera réellement créé. |
+| !pics/diagrams/tasksgraph/Attach actor.png! | Association entre une tâche et un acteur. Cet outil s'utilise lorsque l'acteur voulu n'est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l'acteur, une boîte de dialogue s'ouvre et permet de sélectionner un acteur. L'acteur apparaît alors sur le diagramme ainsi qu'un lien de rattachement avec la tâche. *Disponible uniquement si le calque _Actors_ est activé* |
+| !pics/diagrams/tasksgraph/Attach actor2.png! | Création d'une association entre une tâche et un acteur déjà visible sur le diagramme. *Disponible uniquement si le calque _Actors_ est activé* |
+
+h4. Menu contextuel
+
+Le menu contextuel (visible suite à un clic droit sur un élément du diagramme) permet les actions suivantes :
+
+* _Graal > Group Tasks_ : Cette action crée un nouveau groupe. Les tâches et groupes sélectionnés sont déplacés dans ce nouveau groupe. Une boîte de dialogue permet de choisir le nom du groupe à créer (un nom est proposé en fonction des éléments sélectionnés).
+* _Graal > Ungroup Tasks_ : Cette action est disponible si un et un seul groupe est sélectionné. Les éléments du groupe sont déplacés dans le système et le groupe est supprimé.
+* _Graal > Create use case_ : Cette action crée un nouveau use case en l'associant aux tâches et groupes sélectionnés. Une boîte de dialogue permet de choisir le nom du use case. Le diagramme principal présentant l'ensemble des use cases est ensuite ouvert (et créé s'il n'existe pas encore). 
+
+h4. Navigation vers d'autres diagrammes
+
+Il est possible de naviguer depuis ce diagramme vers d'autres diagrammes :
+* Depuis une tâche, un double-clic ou le menu _Navigate_ permettent de naviguer vers le plan d'action (_Actions Plan_) de la tâche. Si ce plan d'action n'existe pas, il est créé.
+* Depuis un groupe de tâches, un double-clic ou le menu _Navigate_ permettent de naviguer vers le graphe de tâches (_Tasks Graph_) du groupe. Si ce graphe de tâches n'existe pas, il est créé.
+* Depuis un système, un double-clic ou le menu _Navigate_ permettent de naviguer vers le graphe de tâches (_Tasks Graph_) du système. Si ce graphe de tâches n'existe pas, il est créé.
+
+h3. Graphe de tâches (pour un _TasksGroup_)
+
+Un graphe de tâches (ou _Tasks Graph_) peut être associé à un _TasksGroup_.
+Pour chaque _TasksGroup_ un seul graphe de tâches peut être créé au maximum.
+
+!pics/diagrams/grouptasksgraph/Group Tasks Graph.png!
+
+h4. Eléments affichés et palette d'outils
+
+Les éléments suivants sont affichés sur le diagramme :
+* _Task_ : chaque tâche contenue directement par le _TasksGroup_ est affichée.
+* _TasksGroup_ : chaque _TasksGroup_ directement contenu par le _TasksGroup_ est affiché.
+* lien _Use_ : les liens d'utilisation entre tâches sont affichés. Des liens sont affichés également entre tâches et groupes en fonction des liens d'utilisation entre tâches contenues dans les groupes.
+* _Actor_ : chaque acteur associé à une tâche ou à un groupe de tâches du système est affiché. Les acteurs et les outils associés sont affichés uniquement quand le calque _Actors_ est activé.
+
+Les outils fournis par la palette sont :
+
+| !pics/diagrams/grouptasksgraph/Import existing task.png! | Import d'une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent. |
+| !pics/diagrams/tasksgraph/Create task.png! | Création d'une nouvelle tâche. |
+| !pics/diagrams/tasksgraph/Create group.png! | Création d'un groupe. |
+| !pics/diagrams/tasksgraph/Create use.png! | Création de lien d'utilisation entre tâches, groupes. Les liens d'utilisation se font normalement entre tâches, l'outil de création peut néanmoins être utilisé avec un groupe comme extrémité : dans ce cas une boîte de dialogue s'ouvre pour permettre de choisir la tâche du groupe sur laquelle le lien d'utilisation sera réellement créé. |
+| !pics/diagrams/tasksgraph/Attach actor.png! | Association entre une tâche et un acteur. Cet outil s'utilise lorsque l'acteur voulu n'est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l'acteur, une boîte de dialogue s'ouvre et permet de sélectionner un acteur. L'acteur apparaît alors sur le diagramme ainsi qu'un lien de rattachement avec la tâche. *Disponible uniquement si le calque _Actors_ est activé* |
+| !pics/diagrams/tasksgraph/Attach actor2.png! | Création d'une association entre une tâche et un acteur déjà visible sur le diagramme. *Disponible uniquement si le calque _Actors_ est activé* |
+
+h4. Menu contextuel
+
+Le menu contextuel (visible suite à un clic droit sur un élément du diagramme) permet les actions suivantes :
+
+* _Graal > Group Tasks_ : Cette action crée un nouveau groupe. Les tâches et groupes sélectionnés sont déplacés dans ce nouveau groupe. Une boîte de dialogue permet de choisir le nom du groupe à créer (un nom est proposé en fonction des éléments sélectionnés).
+* _Graal > Ungroup Tasks_ : Cette action est disponible si un et un seul groupe est sélectionné. Les éléments du groupe sont déplacés dans le groupe principal et le groupe de départ est supprimé.
+* _Graal > Create use case_ : Cette action crée un nouveau use case en l'associant aux tâches et groupes sélectionnés. Une boîte de dialogue permet de choisir le nom du use case. Le diagramme principal présentant l'ensemble des use cases est ensuite ouvert (et créé s'il n'existe pas encore). 
+
+h4. Navigation vers d'autres diagramme
+
+Il est possible de naviguer depuis ce diagramme vers d'autres diagrammes :
+* Depuis une tâche, un double-clic ou le menu _Navigate_ permettent de naviguer vers le plan d'action (_Actions Plan_) de la tâche. Si ce plan d'action n'existe pas, il est créé.
+* Depuis un groupe de tâches, un double-clic ou le menu _Navigate_ permettent de naviguer vers le graphe de tâches (_Tasks Graph_) du groupe. Si ce graphe de tâches n'existe pas, il est créé.
+
+h3. Plan d'action
+
+Un plan d'action (ou _Actions Plan_) est associé à une _Task_.
+Pour chaque _Task_ un seul plan d'action peut être créé au maximum.
+
+!pics/diagrams/actionsplan/Actions Plan.png!
+
+h4. Eléments affichés et palette d'outils
+
+Les éléments suivants sont affichés sur le diagramme :
+* Noeud initial
+* Noeud final
+* Noeud d'abandon
+* AppliEvent
+* Appli Action 
+* UserView
+* UserAction
+* Tâche utilisée
+* Opérateur ET, OU, OU exclusif
+* Boucle
+* Transition (normale, d'interruption ou d'abandon)
+
+Les outils fournis par la palette sont :
+
+| !pics/diagrams/actionsplan/initialnode.png! | Création d'un noeud initial. Un noeud initial représente l'entrée d'un plan d'action. Un noeud initial est normalement créé pour tout nouveau plan d'action. |
+| !pics/diagrams/actionsplan/finalnode.png! | Création d'un noeud final. Un noeud final représente la fin normale d'un plan d'action. |
+| !pics/diagrams/actionsplan/abortnode.png! | Création d'un noeud d'abandon. Un noeud d'abandon représente la fin d'un plan d'action sur un abandon. |
+| !pics/diagrams/actionsplan/applievent.png! | Création d'un noeud Appli Event. |
+| !pics/diagrams/actionsplan/appliaction.png! | Création d'un noeud Appli Action. |
+| !pics/diagrams/actionsplan/userview.png! | Création d'un noeud User View. |
+| !pics/diagrams/actionsplan/useraction.png! | Création d'un noeud User Action. |
+| !pics/diagrams/actionsplan/newtask.png! | Création d'un noeud pointant vers une nouvelle tâche. La nouvelle tâche est ajoutée au système ou au groupe contenant la tâche courante : la nouvelle tâche est donc une _soeur_ de la tâche courante. |
+| !pics/diagrams/actionsplan/existingtask.png! | Création d'un noeud pointant vers une tâche existante. |
+| !pics/diagrams/actionsplan/and.png! | Création d'un opérateur ET. |
+| !pics/diagrams/actionsplan/or.png! | Création d'un opérateur OU. |
+| !pics/diagrams/actionsplan/xor.png! | Création d'un opérateur OU exclusif. |
+| !pics/diagrams/actionsplan/loop.png! | Création d'une boucle. |
+| !pics/diagrams/actionsplan/transition.png! | Création d'une transition normale entre deux noeuds. |
+| !pics/diagrams/actionsplan/interrupttransition.png! | Création d'une transition d'interruption entre deux noeuds. |
+| !pics/diagrams/actionsplan/aborttransition.png! | Création d'une transtion d'abandon entre deux noeuds. |
+
+h4. Navigation vers d'autres diagramme
+
+Il est possible de naviguer depuis ce diagramme vers d'autres diagrammes :
+* Depuis un noeud pointant vers une tâche, un double-clic ou le menu _Navigate_ permettent de naviguer vers le plan d'action (_Actions Plan_) de la tâche. Si ce plan d'action n'existe pas, il est créé.
+
+h3. Graphe des acteurs (pour un _System_)
+
+Un graphe des acteurs (ou _Actors Graph_) peut être associé à un _System_. Ce graphe permet de créer/modifier les acteurs du système.
+Le graphe des acteurs d'un _System_ est normalement créé automatiquement à la création d'une session.
+Pour chaque _System_ un seul graphe des acteurs peut être créé au maximum.
+
+!pics/diagrams/actorsgraph/Actors Graph.png!
+
+h4. Eléments affichés et palette d'outils
+
+Les éléments suivants sont affichés sur le diagramme :
+* _Actor_ : chaque acteur défini dans le _System_ est affiché.
+* lien _Inherits_ : Des liens d'héritage peuvent être définis entre acteurs. Ils apparaissent alors sur le diagramme.
+
+Les outils fournis par la palette sont :
+
+| !pics/diagrams/actorsgraph/actor.png! | Création d'un acteur dans le système. |
+| !pics/diagrams/actorsgraph/inherits.png! | Création d'un lien d'héritage entre deux acteurs. |
+
+h3. Graphe global des Use Cases (pour un _System_)
+
+Un graphe global des Use Cases (ou _Use Cases Main View_) peut être associé à un _System_. Ce graphe permet de visualiser, créer, modifier les _Use Cases_ du système.
+Le graphe global des Use Cases d'un _System_ est normalement créé automatiquement à la création d'une session.
+Pour chaque _System_ un seul graphe global des Use Cases peut être créé au maximum.
+
+!pics/diagrams/usecasesmainview/Use Cases Main View.png!
+
+h4. Eléments affichés et palette d'outils
+
+Les éléments suivants sont affichés sur le diagramme :
+* _Use Case_ : chaque use case défini dans le _System_ est affiché
+* lien _Include_ : les liens _Include_ calculés ou créés manuellement sont afifchés entre _Use Cases_.
+* lien _Extend_ : les liens _Extend_ créés manuellement entre _Use Cases_ sont affichés. 
+* _Actor_ : chaque acteur associé à un use case est affiché. Les acteurs sont affichés uniquement quand le calque _Actors_ est activé. Les liens entre acteurs et use cases sont déterminés automatiquement à partir des liens entre acteurs et tâches. 
+
+Les outils fournis par la palette sont :
+
+| !pics/diagrams/usecasesmainview/usecase.png! | Création d'un use case dans le système. |
+| !pics/diagrams/usecasesmainview/extend.png! | Création d'un lien d'extension entre deux use cases. |
+| !pics/diagrams/usecasesmainview/include.png! | Création d'un lien d'inclusion entre deux use cases. |
+
+h4. Navigation vers d'autres diagramme
+
+Il est possible de naviguer depuis ce diagramme vers d'autres diagrammes :
+* Depuis un use case, un double-clic ou le menu _Navigate_ permettent de naviguer vers le diagramme de use case (_Use Case Diagram_) du use case concerné.
+
+h3. Diagramme de Use Case (pour un _Use Case_)
+
+Un diagramme de Use Case (ou _Use Case Diagram_) peut être associé à un _Use Case_. Ce graphe permet de visualiser les tâches référencées par un Use Case.
+Le graphe global des Use Cases d'un _System_ est normalement créé automatiquement à la création d'une session.
+Pour chaque _System_ un seul graphe global des Use Cases peut être créé au maximum.
+
+!pics/diagrams/usecasediagram/Use Case Diagram.png!
+
+h4. Eléments affichés et palette d'outils
+
+Les éléments suivants sont affichés sur le diagramme :
+* _Task_ : chaque tâche référencée par le use case est affichée
+* _TasksGroup_ : chaque groupe de tâches référencé par le use case est affiché ainsi que les sous-groupes et tâches que ce groupe contient.
+* lien _Use_ : les liens d'utilisation entre tâches affichées sont représentés.
+* _Actor_ : chaque acteur associé à une tâche est affiché. Les acteurs et les outils associés sont affichés uniquement quand le calque _Actors_ est activé.
+
+Les outils fournis par la palette sont :
+
+| !pics/diagrams/usecasediagram/newtask.png! | Création d'une nouvelle tâche et ajout au use case courant. La tâche est créée dans le _System_ contenant le use case courant. |
+| !pics/diagrams/usecasediagram/existingtask.png! | Ajout d'une tâche existante au use case courant. |
+| !pics/diagrams/usecasediagram/use.png! | Création d'un lien d'utilisation entre deux tâches. |
+| !pics/diagrams/usecasediagram/attachactor.png! | Association entre une tâche et un acteur. Cet outil s'utilise lorsque l'acteur voulu n'est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l'acteur, une boîte de dialogue s'ouvre et permet de sélectionner un acteur. L'acteur apparaît alors sur le diagramme ainsi qu'un lien de rattachement avec la tâche. *Disponible uniquement si le calque _Actors_ est activé* |
+| !pics/diagrams/usecasediagram/workson.png! | Création d'une association entre une tâche et un acteur déjà visible sur le diagramme. *Disponible uniquement si le calque _Actors_ est activé* |
+
+h4. Menu contextuel
+
+Le menu contextuel (visible suite à un clic droit sur un élément du diagramme) permet les actions suivantes :
+
+* _Graal > Create use case_ : Cette action crée un nouveau use case en l'associant aux tâches et groupes sélectionnés. Une boîte de dialogue permet de choisir le nom du use case.
+* _Graal > Remove from use case_ : Cette action est disponible à partir du moment où au moins une tâche ou un groupe ont été sélectionnés. Cette action supprime les tâches et groupes sélectionnés du use case courant. Seule les associations avec le use case courant sont supprimées, les tâches et groupes ne sont pas supprimés du modèle.
+
+h4. Navigation vers d'autres diagramme
+
+Il est possible de naviguer depuis ce diagramme vers d'autres diagrammes :
+* Depuis une tâche, un double-clic ou le menu _Navigate_ permettent de naviguer vers le plan d'action (_Actions Plan_) de cette tâche.
+
+h3. Gestion des User Stories
+
+Graal permet de modéliser des _User Stories_. Une user story permet de décrire un enchaînement de tâches et un parcours dans un plan d'actions.
+
+h4. Affichage de la vue User Stories
+
+la gestion des _User Stories_ se fait via une vue Eclipse dédiée. Pour ouvrir cette vue :
+
+bq. Window > Show View > Other... > Other > User Stories
+
+Le raccourci clavier @Shift + Ctrl + 3@ permet aussi d'ouvrir cette vue plus facilement en saisissant les premiers caractères de la chaîne _user stories_. La liste des menus et vues se réduit en fonction de la saisie.
+Ce raccourci est également utilisable pour les autres vues Eclipse. 
+
+La vue peut être positionnée à l'emplacement souhaité à côté de l'éditeur de diagrammes (à droited dans l'exemple suivant) :
+
+
+
+h5. Affichage de la liste des User Stories
+
+Dès qu'un élément Graal est sélectionné sur un diagramme ou dans la vue _Model Content_, les _User Stories_ du système sont affichées dans la vue.
+
+h5. Création/modification/suppression d'une User Story
+
+Le bouton !pics/userstories/create.png! permet de créer une _User Story_.
+
+Une boîte de dialogue permettant de saisir les nom et description de la nouvelle _User Story_ s'ouvre.
+
+!pics/userstories/dialogcreate.png!
+
+Pour modifier une _User Story_, sélectionner la User Story et cliquer sur le bouton !pics/userstories/update.png! devenu actif. La boîte de dialogue semblable à celle de création d'une User Story s'affiche et permet la modification.
+
+Pour supprimer une _User Story_, sélectionner la User Story et cliquer sur le bouton !pics/userstories/delete.png!. Un message de confirmation s'affiche avant que la suppression ne soit effectuée.
+
+h5. Associer des éléments à une User Story
+
+La case à cocher devant le nom d'une _User Story_ permet de :
+* savoir si les éléments sélectionnés sont associés cette user story,
+* associer / dissocier les éléments sélectionés à cette user story.
+
+| !pics/userstories/check1.png! | Les éléments sélectionnés sur le diagramme sont tous associés à la user story *Scénario nominal*. Aucun n'est associé à la user story *Scénario d'erreur d'habilitation*. |
+| !pics/userstories/check2.png! | Certains des éléments sélectionnés sur le diagramme sont associés à la user story *Scénario nominal*. Aucun n'est associé à la user story *Scénario d'erreur d'habilitation*. |
+
+Les actions possibles sont :
+
+| !pics/userstories/checkstate2.png! | Un clic sur la case à cocher provoque l'association de tous les éléments sélectionnés avec la user story. |
+| !pics/userstories/checkstate1.png! | Un clic provoque la dissociation de tous les éléments sélectionnés de la user story. |
+| !pics/userstories/checkstate3.png! | Un clic provoque la dissociation de tous les éléments sélectionnés de la user story. Il n'y a donc aucun effet pour les éléments sélectionnés qui n'étaient pas associés à la user story. |
+
+h5. Visualisation d'une User Story
+
+Un double-clic sur une _User Story_ ou un clic sur le bouton !pics/userstories/display.png! provoque l'affichage de la user story sur les différents diagrammes : 
+
+!pics/userstories/displayuserstory.png!
+
+h2. Gestion des exigences
+
+La gestion des exigences pour un modèle Graal utilise le mécanisme transverse de gestion des exigences fourni par l'outillage.
+Se référer à la documentation *Obeo Network - Requirements Tooling* dans l'aide d'Eclipse.
+
+h2. Gestion de la documentation liée
+
+Il estpossible d'attacher de la documentation aux éléments d'un modèle Graal. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l'outillage.
+Se référer à la documentation *Obeo Network - Documentation Tooling* dans l'aide d'Eclipse.

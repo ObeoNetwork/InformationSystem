@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eef-components="http://www.eclipse.org/emf/eef/components/1.0.0" xmlns:eef-ext-edt="http://www.eclipse.org/emf/eef/extended/editor/1.0.0" xmlns:eef-views="http://www.eclipse.org/emf/eef/views/1.0.0">
+  <eef-components:PropertiesEditionContext xmi:id="_NE2I0GAzEeCk77KcMuHxlQ" documentation="Editor contribution for requirement GenPackage">
+    <categories xsi:type="eef-ext-edt:EEFEditorContributions" xmi:id="_NE7BUGAzEeCk77KcMuHxlQ" name="requirement contributions">
+      <bindings xsi:type="eef-ext-edt:StaticEEFEditorContribution" xmi:id="_NE7BUWAzEeCk77KcMuHxlQ" name="Main contribution" views="_NE7BVWAzEeCk77KcMuHxlQ">
+        <input xsi:type="eef-ext-edt:FirstResourceRootRelativeInput" xmi:id="_9RHfcGA0EeCk77KcMuHxlQ"/>
+      </bindings>
+    </categories>
+    <model href="platform:/resource/org.obeonetwork.dsl.requirement/model/requirement.genmodel#//requirement"/>
+  </eef-components:PropertiesEditionContext>
+  <eef-views:ViewsRepository xmi:id="_NE7BU2AzEeCk77KcMuHxlQ" documentation="Editor pages for requirement GenPackage" name="requirement editor">
+    <RepositoryKind>Editor</RepositoryKind>
+    <categories xsi:type="eef-ext-edt:EEFEditorPages" xmi:id="_NE7BVGAzEeCk77KcMuHxlQ" name="requirement editor pages">
+      <views xsi:type="eef-ext-edt:TreeMasterPage" xmi:id="_NE7BVWAzEeCk77KcMuHxlQ" name="main" title="requirement"/>
+    </categories>
+  </eef-views:ViewsRepository>
+</xmi:XMI>

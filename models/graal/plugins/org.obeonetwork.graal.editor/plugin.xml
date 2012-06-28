@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="org.obeonetwork.graal.presentation.GraalModelWizardID"
+            name="%_UI_GraalModelWizard_label"
+            class="org.obeonetwork.graal.presentation.GraalModelWizard"
+            category="org.obeonetwork.dsl.is.ui.categoryID"
+            icon="icons/full/obj16/graal.gif">
+         <description>%_UI_GraalModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.obeonetwork.graal.presentation.GraalEditorID"
+            name="%_UI_GraalEditor_label"
+            icon="icons/full/obj16/graal.gif"
+            extensions="graal"
+            class="org.obeonetwork.graal.presentation.GraalEditor"
+            contributorClass="org.obeonetwork.graal.presentation.GraalActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

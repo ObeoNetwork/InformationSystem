@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://www.obeo.fr">
+      Viewpoint
+   </description>
+   <feature url="features/org.obeonetwork.dsl.database.feature_0.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.feature" version="0.0.0">
+      <category name="org.obeonetwork.informationsystem.models"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.entityrelation.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.entityrelation.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.models"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.typelibrary.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.typelibrary.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.models"/>
+   </feature>
+   <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
+</site>

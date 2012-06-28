@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <!--
+    <category
+			id="org.obeonetwork.dsl.category.modelers"
+			name="Acceleo Pro">
+	</category>
+	-->	
+    <wizard
+      id = "org.obeonetwork.dsl.environment.presentation.EnvironmentModelWizardID"
+      name = "%_UI_EnvironmentModelWizard_label"
+      class = "org.obeonetwork.dsl.environment.presentation.EnvironmentModelWizard"
+      category = "org.obeonetwork.dsl.is.ui.categoryID"
+      icon = "icons/full/obj16/EnvironmentModelFile.gif">
+      <description>%_UI_EnvironmentModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "org.obeonetwork.dsl.environment.presentation.EnvironmentEditorID"
+        name = "%_UI_EnvironmentEditor_label"
+        icon = "icons/full/obj16/EnvironmentModelFile.gif"
+        extensions = "environment"
+        class = "org.obeonetwork.dsl.environment.presentation.EnvironmentEditor" 
+        contributorClass="org.obeonetwork.dsl.environment.presentation.EnvironmentActionBarContributor" >
+    </editor>
+  </extension>    
+</plugin>

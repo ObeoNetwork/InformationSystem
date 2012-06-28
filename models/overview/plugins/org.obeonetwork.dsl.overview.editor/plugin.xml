@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.dsl.overview.presentation.OverviewModelWizardID"
+            name="%_UI_OverviewModelWizard_label"
+            class="org.obeonetwork.dsl.overview.presentation.OverviewModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/OverviewModelFile.gif">
+         <description>%_UI_OverviewModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.obeonetwork.dsl.overview.presentation.OverviewEditorID"
+            name="%_UI_OverviewEditor_label"
+            icon="icons/full/obj16/OverviewModelFile.gif"
+            extensions="overview"
+            class="org.obeonetwork.dsl.overview.presentation.OverviewEditor"
+            contributorClass="org.obeonetwork.dsl.overview.presentation.OverviewActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

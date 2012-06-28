@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/statemachine/1.0.0"
+            class="org.obeonetwork.dsl.statemachine.provider.StateMachineItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/statemachine/1.0.0"
+            class="org.obeonetwork.dsl.statemachine.providers.StatemachineEEFAdapterFactory"
+            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.statemachine.providers.StatemachinePropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <extender
+            uri="http://www.obeonetwork.org/dsl/environment/2.0.0"
+            class="org.obeonetwork.dsl.statemachine.provider.StateMachineItemProviderAdapterFactory$EnvironmentChildCreationExtender"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="fr.obeo.dsl.viewpoint.diagram">
+         <propertyTab
+               category="semantic &amp; extension"
+               id="StateMachine"
+               label="StateMachine">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="State"
+               label="State">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Region"
+               label="Region">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Transition"
+               label="Transition">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="InitialState"
+               label="InitialState">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="FinalState"
+               label="FinalState">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="ServiceDTO"
+               label="ServiceDTO">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="fr.obeo.dsl.viewpoint.diagram">
+         <propertySection
+               class="org.obeonetwork.dsl.statemachine.parts.forms.StateMachinePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.statemachine.filters.StateMachineTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.statemachine.eef.section.StateMachine"
+               tab="StateMachine">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.statemachine.parts.forms.StatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.statemachine.filters.StateTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.statemachine.eef.section.State"
+               tab="State">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.statemachine.parts.forms.RegionPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.statemachine.filters.RegionTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.statemachine.eef.section.Region"
+               tab="Region">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.statemachine.parts.forms.TransitionPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.statemachine.filters.TransitionTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.statemachine.eef.section.Transition"
+               tab="Transition">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.statemachine.parts.forms.InitialStatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.statemachine.filters.InitialStateTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.statemachine.eef.section.InitialState"
+               tab="InitialState">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.statemachine.parts.forms.FinalStatePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.statemachine.filters.FinalStateTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.statemachine.eef.section.FinalState"
+               tab="FinalState">
+         </propertySection>
+      </propertySections>
+   </extension>
+
+</plugin>

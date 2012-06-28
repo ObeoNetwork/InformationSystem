@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.graal.design/src-gen"
+    creationIcons="false" editDirectory="/org.obeonetwork.graal.design/src-gen" modelPluginID="org.obeonetwork.graal.design"
+    modelName="Graal-featureextensions" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/plugin/org.obeonetwork.dsl.entity/model/entity.genmodel#//entity platform:/plugin/org.obeonetwork.dsl.environment/model/environment.genmodel#//environment platform:/plugin/org.obeonetwork.graal/model/graal.genmodel#//graal platform:/plugin/org.obeonetwork.dsl.presentation/model/presentation.genmodel#//presentation platform:/plugin/org.obeonetwork.dsl.soa/model/soa.genmodel#//soa platform:/plugin/fr.obeo.dsl.viewpoint/model/viewpoint.genmodel#//viewpoint">
+  <foreignModel>graal-featureextensions.ecore</foreignModel>
+  <genPackages prefix="Graalfeatureextensions" basePackage="org.obeonetwork.graal.design"
+      resource="XMI" disposableProviderFactory="true" ecorePackage="graal-featureextensions.ecore#/">
+    <genClasses ecoreClass="graal-featureextensions.ecore#//UIConfiguration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal-featureextensions.ecore#//UIConfiguration/viewpointAnalysis"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal-featureextensions.ecore#//UIConfiguration/activeUserStories"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

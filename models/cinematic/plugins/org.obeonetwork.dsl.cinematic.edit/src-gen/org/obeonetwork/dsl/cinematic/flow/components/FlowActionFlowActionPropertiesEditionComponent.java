@@ -1,0 +1,276 @@
+/**
+ * Generated with Acceleo
+ */
+package org.obeonetwork.dsl.cinematic.flow.components;
+
+// Start of user code for imports
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.WrappedException;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
+import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
+import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
+import org.obeonetwork.dsl.cinematic.CinematicPackage;
+import org.obeonetwork.dsl.cinematic.flow.FlowAction;
+import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
+import org.obeonetwork.dsl.cinematic.flow.parts.FlowActionPropertiesEditionPart;
+import org.obeonetwork.dsl.cinematic.flow.parts.FlowViewsRepository;
+import org.obeonetwork.dsl.cinematic.view.ViewAction;
+import org.obeonetwork.dsl.cinematic.view.ViewPackage;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.soa.Operation;
+import org.obeonetwork.dsl.soa.SoaPackage;
+
+
+// End of user code
+
+/**
+ * 
+ * 
+ */
+public class FlowActionFlowActionPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {
+
+	
+	public static String FLOWACTION_PART = "FlowAction"; //$NON-NLS-1$
+
+	
+	/**
+	 * Settings for calls ReferencesTable
+	 */
+	private ReferencesTableSettings callsSettings;
+	
+	/**
+	 * Settings for operations ReferencesTable
+	 */
+	private ReferencesTableSettings operationsSettings;
+	
+	
+	/**
+	 * Default constructor
+	 * 
+	 */
+	public FlowActionFlowActionPropertiesEditionComponent(PropertiesEditingContext editingContext, EObject flowAction, String editing_mode) {
+		super(editingContext, flowAction, editing_mode);
+		parts = new String[] { FLOWACTION_PART };
+		repositoryKey = FlowViewsRepository.class;
+		partKey = FlowViewsRepository.FlowAction.class;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent#initPart(java.lang.Object, int, org.eclipse.emf.ecore.EObject, 
+	 *      org.eclipse.emf.ecore.resource.ResourceSet)
+	 * 
+	 */
+	public void initPart(Object key, int kind, EObject elt, ResourceSet allResource) {
+		setInitializing(true);
+		if (editingPart != null && key == partKey) {
+			editingPart.setContext(elt, allResource);
+			final FlowAction flowAction = (FlowAction)elt;
+			final FlowActionPropertiesEditionPart flowActionPart = (FlowActionPropertiesEditionPart)editingPart;
+			// init values
+			if (flowAction.getDescription() != null && isAccessible(FlowViewsRepository.FlowAction.Properties.description))
+				flowActionPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, flowAction.getDescription()));
+			
+			if (flowAction.getName() != null && isAccessible(FlowViewsRepository.FlowAction.Properties.name))
+				flowActionPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, flowAction.getName()));
+			
+			if (isAccessible(FlowViewsRepository.FlowAction.Properties.calls)) {
+				callsSettings = new ReferencesTableSettings(flowAction, FlowPackage.eINSTANCE.getFlowAction_Calls());
+				flowActionPart.initCalls(callsSettings);
+			}
+			if (isAccessible(FlowViewsRepository.FlowAction.Properties.operations)) {
+				operationsSettings = new ReferencesTableSettings(flowAction, FlowPackage.eINSTANCE.getFlowAction_Operations());
+				flowActionPart.initOperations(operationsSettings);
+			}
+			// init filters
+			
+			
+			if (isAccessible(FlowViewsRepository.FlowAction.Properties.calls)) {
+				flowActionPart.addFilterToCalls(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						if (element instanceof EObject)
+							return (!flowActionPart.isContainedInCallsTable((EObject)element));
+						return element instanceof Resource;
+					}
+				
+				});
+				flowActionPart.addFilterToCalls(new EObjectFilter(ViewPackage.Literals.VIEW_ACTION));
+				// Start of user code for additional businessfilters for calls
+				// End of user code
+			}
+			if (isAccessible(FlowViewsRepository.FlowAction.Properties.operations)) {
+				flowActionPart.addFilterToOperations(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						if (element instanceof EObject)
+							return (!flowActionPart.isContainedInOperationsTable((EObject)element));
+						return element instanceof Resource;
+					}
+				
+				});
+				flowActionPart.addFilterToOperations(new EObjectFilter(SoaPackage.Literals.OPERATION));
+				// Start of user code for additional businessfilters for operations
+				// End of user code
+			}
+			// init values for referenced views
+			
+			// init filters for referenced views
+			
+		}
+		setInitializing(false);
+	}
+
+
+
+
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
+	 */
+	public EStructuralFeature associatedFeature(Object editorKey) {
+		if (editorKey == FlowViewsRepository.FlowAction.Properties.description) {
+			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
+		}
+		if (editorKey == FlowViewsRepository.FlowAction.Properties.name) {
+			return CinematicPackage.eINSTANCE.getNamedElement_Name();
+		}
+		if (editorKey == FlowViewsRepository.FlowAction.Properties.calls) {
+			return FlowPackage.eINSTANCE.getFlowAction_Calls();
+		}
+		if (editorKey == FlowViewsRepository.FlowAction.Properties.operations) {
+			return FlowPackage.eINSTANCE.getFlowAction_Operations();
+		}
+		return super.associatedFeature(editorKey);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updateSemanticModel(org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent)
+	 * 
+	 */
+	public void updateSemanticModel(final IPropertiesEditionEvent event) {
+		FlowAction flowAction = (FlowAction)semanticObject;
+		if (FlowViewsRepository.FlowAction.Properties.description == event.getAffectedEditor()) {
+			flowAction.setDescription((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
+		}
+		if (FlowViewsRepository.FlowAction.Properties.name == event.getAffectedEditor()) {
+			flowAction.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
+		}
+		if (FlowViewsRepository.FlowAction.Properties.calls == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.ADD) {
+				if (event.getNewValue() instanceof ViewAction) {
+					callsSettings.addToReference((EObject) event.getNewValue());
+				}
+			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
+				callsSettings.removeFromReference((EObject) event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
+				callsSettings.move(event.getNewIndex(), (ViewAction) event.getNewValue());
+			}
+		}
+		if (FlowViewsRepository.FlowAction.Properties.operations == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.ADD) {
+				if (event.getNewValue() instanceof Operation) {
+					operationsSettings.addToReference((EObject) event.getNewValue());
+				}
+			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
+				operationsSettings.removeFromReference((EObject) event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
+				operationsSettings.move(event.getNewIndex(), (Operation) event.getNewValue());
+			}
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
+	 */
+	public void updatePart(Notification msg) {
+		if (editingPart.isVisible()) {
+			FlowActionPropertiesEditionPart flowActionPart = (FlowActionPropertiesEditionPart)editingPart;
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && flowActionPart != null && isAccessible(FlowViewsRepository.FlowAction.Properties.description)) {
+				if (msg.getNewValue() != null) {
+					flowActionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
+				} else {
+					flowActionPart.setDescription("");
+				}
+			}
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && flowActionPart != null && isAccessible(FlowViewsRepository.FlowAction.Properties.name)) {
+				if (msg.getNewValue() != null) {
+					flowActionPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
+				} else {
+					flowActionPart.setName("");
+				}
+			}
+			if (FlowPackage.eINSTANCE.getFlowAction_Calls().equals(msg.getFeature())  && isAccessible(FlowViewsRepository.FlowAction.Properties.calls))
+				flowActionPart.updateCalls();
+			if (FlowPackage.eINSTANCE.getFlowAction_Operations().equals(msg.getFeature())  && isAccessible(FlowViewsRepository.FlowAction.Properties.operations))
+				flowActionPart.updateOperations();
+			
+		}
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent#validateValue(org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent)
+	 * 
+	 */
+	public Diagnostic validateValue(IPropertiesEditionEvent event) {
+		Diagnostic ret = Diagnostic.OK_INSTANCE;
+		if (event.getNewValue() != null) {
+			try {
+				if (FlowViewsRepository.FlowAction.Properties.description == event.getAffectedEditor()) {
+					Object newValue = event.getNewValue();
+					if (newValue instanceof String) {
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+					}
+					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
+				}
+				if (FlowViewsRepository.FlowAction.Properties.name == event.getAffectedEditor()) {
+					Object newValue = event.getNewValue();
+					if (newValue instanceof String) {
+						newValue = EEFConverterUtil.createFromString(CinematicPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
+					}
+					ret = Diagnostician.INSTANCE.validate(CinematicPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
+				}
+			} catch (IllegalArgumentException iae) {
+				ret = BasicDiagnostic.toDiagnostic(iae);
+			} catch (WrappedException we) {
+				ret = BasicDiagnostic.toDiagnostic(we);
+			}
+		}
+		return ret;
+	}
+
+}

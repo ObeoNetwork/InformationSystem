@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+    <view
+        name="%relatedDocumentation.view.name"
+        icon="icons/RelatedDoc.gif"
+        category="org.obeonetwork.od4is"
+        class="org.obeonetwork.tools.doc.ui.view.RelatedDocView"
+        id="org.obeonetwork.tools.doc.ui.view.RelatedDocView">
+      </view>         
+   </extension>
+</plugin>

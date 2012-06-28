@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+  <extension-point id="overviewModelDef" name="org.obeonetwork.dsl.overview.overviewModelDef" schema="schema/overviewModelDef.exsd"/>
+  
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.obeonetwork.org/dsl/overview/2.0.0" 
+       class = "org.obeonetwork.dsl.overview.OverviewPackage"
+       genModel = "model/overview.genmodel" /> 
+  </extension>
+  
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="ois"
+            class="org.obeonetwork.dsl.overview.util.OverviewResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

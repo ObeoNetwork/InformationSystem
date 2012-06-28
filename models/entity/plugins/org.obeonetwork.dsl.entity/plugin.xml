@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.obeonetwork.org/dsl/entity/2.0.0" 
+       class = "org.obeonetwork.dsl.entity.EntityPackage"
+       genModel = "model/entity.genmodel" /> 
+  </extension>
+  
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="entity"
+            class="org.obeonetwork.dsl.entity.util.EntityResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.obeonetwork.org/dsl/entity/2.0.0/utilities"
+            class="org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage"
+            genModel="model/entity.genmodel"/>
+   </extension>
+
+</plugin>
+

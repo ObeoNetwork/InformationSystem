@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eef-components="http://www.eclipse.org/emf/eef/components/1.0.0" xmlns:eef-views="http://www.eclipse.org/emf/eef/views/1.0.0">
+  <eef-components:PropertiesEditionContext xmi:id="_d_PX0GG8EeC3f8ri4v8OqA" documentation="Edition Context for interaction GenPackage">
+    <categories xmi:id="_d_PX0WG8EeC3f8ri4v8OqA" name="interaction">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_PX0mG8EeC3f8ri4v8OqA" name="interaction" views="_d_P_JWG8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX1mG8EeC3f8ri4v8OqA" name="name" views="_d_P_KmG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX02G8EeC3f8ri4v8OqA" name="description" views="_d_P_J2G8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_pDmOYGHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//Interaction"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_PX3mG8EeC3f8ri4v8OqA" name="participant" views="_d_P_MmG8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX4mG8EeC3f8ri4v8OqA" name="name" views="_d_P_N2G8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX42G8EeC3f8ri4v8OqA" name="type" views="_d_P_OGG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//Participant/type"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX32G8EeC3f8ri4v8OqA" name="description" views="_d_P_NGG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_qES2YGHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//Participant"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_PX5GG8EeC3f8ri4v8OqA" name="execution" views="_d_P_OWG8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX6GG8EeC3f8ri4v8OqA" name="name" views="_d_P_PmG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX5WG8EeC3f8ri4v8OqA" name="description" views="_d_P_O2G8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_qOD2YGHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//Execution"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_PX7GG8EeC3f8ri4v8OqA" name="createParticipantMessage" views="_d_P_QmG8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX8GG8EeC3f8ri4v8OqA" name="name" views="_d_P_R2G8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX7WG8EeC3f8ri4v8OqA" name="description" views="_d_P_RGG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_qYlrYGHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//CreateParticipantMessage"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_PX82G8EeC3f8ri4v8OqA" name="destroyParticipantMessage" views="_d_P_SmG8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX92G8EeC3f8ri4v8OqA" name="name" views="_d_P_T2G8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_PX9GG8EeC3f8ri4v8OqA" name="description" views="_d_P_TGG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_qiz-YGHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//DestroyParticipantMessage"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_P-4mG8EeC3f8ri4v8OqA" name="returnMessage" views="_d_P_UmG8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P-5mG8EeC3f8ri4v8OqA" name="name" views="_d_P_V2G8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P-42G8EeC3f8ri4v8OqA" name="description" views="_d_P_VGG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_qtQ64GHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//ReturnMessage"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_P-6mG8EeC3f8ri4v8OqA" name="stateInvariant" views="_d_Ql82G8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P-7mG8EeC3f8ri4v8OqA" name="name" views="_d_Ql-GG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P-62G8EeC3f8ri4v8OqA" name="description" views="_d_Ql9WG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_q6sS4GHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//StateInvariant"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_P-8mG8EeC3f8ri4v8OqA" name="interactionUse" views="_d_Ql_GG8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P-9mG8EeC3f8ri4v8OqA" name="name" views="_d_QmAWG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P--WG8EeC3f8ri4v8OqA" name="type" views="_d_QmBGG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//InteractionUse/type"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P--mG8EeC3f8ri4v8OqA" name="interaction" views="_d_QmBWG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//InteractionUse/interaction"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P-82G8EeC3f8ri4v8OqA" name="description" views="_d_Ql_mG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_rF6EYGHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//InteractionUse"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_P_A2G8EeC3f8ri4v8OqA" name="combinedFragment" views="_d_QmD2G8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P_B2G8EeC3f8ri4v8OqA" name="name" views="_d_RNA2G8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P_CmG8EeC3f8ri4v8OqA" name="operator" views="_d_RNBmG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//CombinedFragment/operator"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P_BGG8EeC3f8ri4v8OqA" name="description" views="_d_RNAGG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_rRMHUGHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//CombinedFragment"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_P_DWG8EeC3f8ri4v8OqA" name="operand" views="_d_RNCWG8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P_EWG8EeC3f8ri4v8OqA" name="name" views="_d_RNDmG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P_DmG8EeC3f8ri4v8OqA" name="description" views="_d_RNC2G8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_reAbUGHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//Operand"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_d_P_FGG8EeC3f8ri4v8OqA" name="callMessage" views="_d_RNEWG8EeC3f8ri4v8OqA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P_GGG8EeC3f8ri4v8OqA" name="name" views="_d_RNFmG8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//NamedElement/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_d_P_FWG8EeC3f8ri4v8OqA" name="description" views="_d_RNE2G8EeC3f8ri4v8OqA">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <referencedBinding xmi:id="_ro_jUGHCEeC3f8ri4v8OqA">
+          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
+        </referencedBinding>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//CallMessage"/>
+      </bindings>
+    </categories>
+    <model href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.genmodel#//interaction"/>
+  </eef-components:PropertiesEditionContext>
+  <eef-views:ViewsRepository xmi:id="_d_P_I2G8EeC3f8ri4v8OqA" documentation="Views repository for interaction GenPackage" name="interaction">
+    <RepositoryKind>SWT</RepositoryKind>
+    <RepositoryKind>Form</RepositoryKind>
+    <categories xmi:id="_d_P_JGG8EeC3f8ri4v8OqA" name="interaction">
+      <views xmi:id="_d_P_JWG8EeC3f8ri4v8OqA" name="Interaction">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_P_JmG8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_KmG8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_J2G8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_d_P_MmG8EeC3f8ri4v8OqA" name="Participant">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_P_M2G8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_N2G8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_OGG8EeC3f8ri4v8OqA" name="type">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_NGG8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_d_P_OWG8EeC3f8ri4v8OqA" name="Execution">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_P_OmG8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_PmG8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_O2G8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_d_P_QmG8EeC3f8ri4v8OqA" name="CreateParticipantMessage">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_P_Q2G8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_R2G8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_RGG8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_d_P_SmG8EeC3f8ri4v8OqA" name="DestroyParticipantMessage">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_P_S2G8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_T2G8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_TGG8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_d_P_UmG8EeC3f8ri4v8OqA" name="ReturnMessage">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_P_U2G8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_V2G8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_P_VGG8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_d_Ql82G8EeC3f8ri4v8OqA" name="StateInvariant">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_Ql9GG8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_Ql-GG8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_Ql9WG8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_d_Ql_GG8EeC3f8ri4v8OqA" name="InteractionUse">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_Ql_WG8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_QmAWG8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_QmBGG8EeC3f8ri4v8OqA" name="type">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_QmBWG8EeC3f8ri4v8OqA" name="interaction">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_Ql_mG8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_d_QmD2G8EeC3f8ri4v8OqA" name="CombinedFragment">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_QmEGG8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_RNA2G8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_RNBmG8EeC3f8ri4v8OqA" name="operator">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_RNAGG8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_d_RNCWG8EeC3f8ri4v8OqA" name="Operand">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_RNCmG8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_RNDmG8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_RNC2G8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_d_RNEWG8EeC3f8ri4v8OqA" name="CallMessage">
+        <elements xsi:type="eef-views:Container" xmi:id="_d_RNEmG8EeC3f8ri4v8OqA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_RNFmG8EeC3f8ri4v8OqA" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_d_RNE2G8EeC3f8ri4v8OqA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+    </categories>
+  </eef-views:ViewsRepository>
+</xmi:XMI>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oenv:Environment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmi:id="_s5Ev8KwKEd2XLNOhkJIazw" name="Obeo">
+  <priorityDefinitions xmi:id="_s5GlIawKEd2XLNOhkJIazw">
+    <priorities xmi:id="_s5GlIqwKEd2XLNOhkJIazw" name="Highest"/>
+    <priorities xmi:id="_s5GlI6wKEd2XLNOhkJIazw" name="High"/>
+    <priorities xmi:id="_s5HMMKwKEd2XLNOhkJIazw" name="Normal"/>
+    <priorities xmi:id="_s5HMMawKEd2XLNOhkJIazw" name="Low"/>
+    <priorities xmi:id="_s5HMMqwKEd2XLNOhkJIazw" name="Lowest"/>
+  </priorityDefinitions>
+  <typesDefinition xmi:id="_s5FXAKwKEd2XLNOhkJIazw">
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAawKEd2XLNOhkJIazw" name="Integer"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAqwKEd2XLNOhkJIazw" name="Boolean"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EKwKEd2XLNOhkJIazw" name="String"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EawKEd2XLNOhkJIazw" name="Double"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EqwKEd2XLNOhkJIazw" name="Email"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-E6wKEd2XLNOhkJIazw" name="Date"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5GlIKwKEd2XLNOhkJIazw" name="Float"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_9dnH8bGqEd2SRpTkL4GntA" name="Long"/>
+  </typesDefinition>
+</oenv:Environment>

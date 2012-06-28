@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_WWbGkREnEeGTa_JlZYBw1A" name="Logical Model">
+  <nativeTypes xmi:id="_WWeJ4BEnEeGTa_JlZYBw1A" name="Entier"/>
+  <nativeTypes xmi:id="_WWeJ4REnEeGTa_JlZYBw1A" name="Entier court"/>
+  <nativeTypes xmi:id="_WWeJ4hEnEeGTa_JlZYBw1A" name="Entier long"/>
+  <nativeTypes xmi:id="_WWeJ4xEnEeGTa_JlZYBw1A" name="Octet" spec="Length"/>
+  <nativeTypes xmi:id="_WWeJ5BEnEeGTa_JlZYBw1A" name="Numérique" spec="LengthAndPrecision"/>
+  <nativeTypes xmi:id="_WWeJ5REnEeGTa_JlZYBw1A" name="Décimal" spec="LengthAndPrecision"/>
+  <nativeTypes xmi:id="_WWeJ5hEnEeGTa_JlZYBw1A" name="Réel" spec="Length"/>
+  <nativeTypes xmi:id="_WWeJ5xEnEeGTa_JlZYBw1A" name="Réel court"/>
+  <nativeTypes xmi:id="_WWew8BEnEeGTa_JlZYBw1A" name="Réel long"/>
+  <nativeTypes xmi:id="_WWew8REnEeGTa_JlZYBw1A" name="Monnaie" spec="LengthAndPrecision"/>
+  <nativeTypes xmi:id="_WWew8hEnEeGTa_JlZYBw1A" name="Séquentiel" spec="Length"/>
+  <nativeTypes xmi:id="_WWew8xEnEeGTa_JlZYBw1A" name="Booléen"/>
+  <nativeTypes xmi:id="_WWew9BEnEeGTa_JlZYBw1A" name="Caractère" spec="Length"/>
+  <nativeTypes xmi:id="_WWew9REnEeGTa_JlZYBw1A" name="Caractère variable" spec="Length"/>
+  <nativeTypes xmi:id="_WWew9hEnEeGTa_JlZYBw1A" name="Caractère long" spec="Length"/>
+  <nativeTypes xmi:id="_WWew9xEnEeGTa_JlZYBw1A" name="Caractère long var." spec="Length"/>
+  <nativeTypes xmi:id="_WWew-BEnEeGTa_JlZYBw1A" name="Texte" spec="Length"/>
+  <nativeTypes xmi:id="_WWew-REnEeGTa_JlZYBw1A" name="Multibyte" spec="Length"/>
+  <nativeTypes xmi:id="_WWew-hEnEeGTa_JlZYBw1A" name="Multibyte variable" spec="Length"/>
+  <nativeTypes xmi:id="_WWew-xEnEeGTa_JlZYBw1A" name="Date"/>
+  <nativeTypes xmi:id="_WWew_BEnEeGTa_JlZYBw1A" name="Heure"/>
+  <nativeTypes xmi:id="_WWew_REnEeGTa_JlZYBw1A" name="Date &amp; Heure"/>
+  <nativeTypes xmi:id="_WWew_hEnEeGTa_JlZYBw1A" name="Date système"/>
+  <nativeTypes xmi:id="_WWew_xEnEeGTa_JlZYBw1A" name="Binaire" spec="Length"/>
+  <nativeTypes xmi:id="_WWexABEnEeGTa_JlZYBw1A" name="Binaire variable" spec="Length"/>
+  <nativeTypes xmi:id="_WWfYABEnEeGTa_JlZYBw1A" name="Binaire long" spec="Length"/>
+  <nativeTypes xmi:id="_WWfYAREnEeGTa_JlZYBw1A" name="Bitmap" spec="Length"/>
+  <nativeTypes xmi:id="_WWfYAhEnEeGTa_JlZYBw1A" name="Image" spec="Length"/>
+  <nativeTypes xmi:id="_WWfYAxEnEeGTa_JlZYBw1A" name="OLE" spec="Length"/>
+</typeslibrary:NativeTypesLibrary>

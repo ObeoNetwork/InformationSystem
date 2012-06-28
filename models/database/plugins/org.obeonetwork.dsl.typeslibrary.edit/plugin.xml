@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2011 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/typeslibrary/1.0"
+            class="org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+  <!-- EEF extensions -->
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://www.obeonetwork.org/dsl/typeslibrary/1.0"
+            class="org.obeonetwork.dsl.typeslibrary.providers.CustomTypeslibraryEEFAdapterFactory"
+            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.obeonetwork.dsl.typeslibrary.providers.TypeslibraryPropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="fr.obeo.dsl.viewpoint.diagram">
+         <propertyTab
+               category="semantic &amp; extension"
+               id="NativeTypesLibrary"
+               label="NativeTypesLibrary">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="TypeInstance"
+               label="TypeInstance">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="NativeType"
+               label="NativeType">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="ComplexNamedType"
+               label="ComplexNamedType">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="SimpleNamedType"
+               label="SimpleNamedType">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="UserDefinedTypesLibrary"
+               label="UserDefinedTypesLibrary">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="UserDefinedTypeRef"
+               label="UserDefinedTypeRef">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="fr.obeo.dsl.viewpoint.diagram">
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.NativeTypesLibraryPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.filters.NativeTypesLibraryTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.typesLibrary.eef.section.NativeTypesLibrary"
+               tab="NativeTypesLibrary">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.TypeInstancePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.filters.TypeInstanceTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.typesLibrary.eef.section.TypeInstance"
+               tab="TypeInstance">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.NativeTypePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.filters.NativeTypeTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.typesLibrary.eef.section.NativeType"
+               tab="NativeType">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.ComplexNamedTypePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.filters.ComplexNamedTypeTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.typesLibrary.eef.section.ComplexNamedType"
+               tab="ComplexNamedType">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.SimpleNamedTypePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.filters.SimpleNamedTypeTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.typesLibrary.eef.section.SimpleNamedType"
+               tab="SimpleNamedType">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.UserDefinedTypesLibraryPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.filters.UserDefinedTypesLibraryTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.typesLibrary.eef.section.UserDefinedTypesLibrary"
+               tab="UserDefinedTypesLibrary">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.typeslibrary.parts.forms.UserDefinedTypeRefPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.typeslibrary.filters.UserDefinedTypeRefTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.typesLibrary.eef.section.UserDefinedTypeRef"
+               tab="UserDefinedTypeRef">
+         </propertySection>
+      </propertySections>
+   </extension>
+</plugin>

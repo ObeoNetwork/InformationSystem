@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.obeonetwork.dsl.feature.is"
+      label="IS Core"
+      version="2.1.0.qualifier"
+      provider-name="Obeo.fr"
+      plugin="org.obeonetwork.dsl.designer.is">
+
+   <description url="http://www.obeonetwork.org">
+      Obeo Designer for IS.
+   </description>
+
+   <copyright url="http://www.acceleo.org/legal.php">
+      Copyright (c) 2009 - 2010 Obeo
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.environment"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.entity"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.soa"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.cinematic"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.interaction"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.statemachine"
+         version="0.0.0"/>
+
+   <requires>
+      <import feature="fr.obeo.acceleo" version="2.6.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.obeonetwork.dsl.overview"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.overview.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.overview.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.is"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.environment.binding.dialect"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.environment.binding.dialect.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.treemapper"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

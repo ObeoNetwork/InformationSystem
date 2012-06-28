@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2010 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.obeonetwork.org/dsl/requirement/1.0"
+            class="org.obeonetwork.dsl.requirement.RequirementPackage"
+            genModel="model/requirement.genmodel"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="requirement"
+            class="org.obeonetwork.dsl.requirement.util.RequirementResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

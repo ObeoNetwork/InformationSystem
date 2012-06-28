@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2010 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="org.obeonetwork.dsl.requirement.presentation.RequirementModelWizardID"
+            name="%_UI_RequirementModelWizard_label"
+            class="org.obeonetwork.dsl.requirement.presentation.RequirementModelWizard"
+            category="org.obeonetwork.dsl.is.ui.categoryID"
+            icon="icons/full/obj16/RequirementModelFile.gif">
+         <description>%_UI_RequirementModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.obeonetwork.dsl.requirement.presentation.RequirementEditorID"
+            name="%_UI_RequirementEditor_label"
+            icon="icons/full/obj16/RequirementModelFile.gif"
+            extensions="requirement"
+            class="org.obeonetwork.dsl.requirement.presentation.EnhancedRequirementEditor"
+            contributorClass="org.obeonetwork.dsl.requirement.presentation.RequirementActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

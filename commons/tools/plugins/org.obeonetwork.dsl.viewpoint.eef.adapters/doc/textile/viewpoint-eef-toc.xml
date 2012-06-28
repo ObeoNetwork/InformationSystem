@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc label="viewpoint-eef" link_to="../fr.obeo.dsl.viewpoint.doc.specifier/doc/toc.xml#moretutorial" topic="doc/textile/viewpoint-eef.html">
+	<topic href="doc/textile/viewpoint-eef.html" label="Using the Extended Editing Framework with Viewpoint">
+		<topic href="doc/textile/viewpoint-eef.html#EEFPropertiesviewsandwizardsgeneration" label="EEF Properties views and wizards generation">
+			<topic href="doc/textile/viewpoint-eef.html#InitializingandsettingupEEFmodels" label="Initializing and setting up EEF models"></topic>
+			<topic href="doc/textile/viewpoint-eef.html#GeneratingEEFcode" label="Generating EEF code"></topic>
+		</topic>
+		<topic href="doc/textile/viewpoint-eef.html#Settingupplugin.xmlfile" label="Setting up plugin.xml file">
+			<topic href="doc/textile/viewpoint-eef.html#DeclaringAdapterFactoriesandPropertiesEditionPartProviders" label="Declaring AdapterFactories and PropertiesEditionPartProviders"></topic>
+			<topic href="doc/textile/viewpoint-eef.html#Declaringpropertiessheets" label="Declaring properties sheets"></topic>
+		</topic>
+		<topic href="doc/textile/viewpoint-eef.html#Testingpropertiesview" label="Testing properties view"></topic>
+		<topic href="doc/textile/viewpoint-eef.html#Optionaltaskstabsoptimization" label="Optional tasks (tabs optimization)">
+			<topic href="doc/textile/viewpoint-eef.html#MovingEEFpropertysheettabsontop" label="Moving EEF property sheet tabs on top"></topic>
+			<topic href="doc/textile/viewpoint-eef.html#Multipletabs" label="Multiple tabs "></topic>
+			<topic href="doc/textile/viewpoint-eef.html#ProgrammaticallyhideandshowEEFpropertysheettabs" label="Programmatically hide and show EEF property sheet tabs"></topic>
+			<topic href="doc/textile/viewpoint-eef.html#Hideviewpointbuiltinpropertysheetsectionsandthecorrespondingtabs" label="Hide viewpoint built-in property sheet sections (and the corresponding tabs)"></topic>
+		</topic>
+		<topic href="doc/textile/viewpoint-eef.html#OpeningEEFwizardonadoubleclick" label="Opening EEF wizard on a double click"></topic>
+	</topic>
+</toc>

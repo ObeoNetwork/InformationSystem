@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.obeonetwork.dsl.soa; singleton:=true
+Bundle-Version: 2.3.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.obeonetwork.dsl.soa,
+ org.obeonetwork.dsl.soa.impl,
+ org.obeonetwork.dsl.soa.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.obeonetwork.dsl.environment;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
