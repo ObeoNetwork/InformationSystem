@@ -126,8 +126,7 @@ public class UIConfigurationServices {
 	 * @return Viewpoint session or null if no corresponding session has been found 
 	 */
 	private static Session getSessionFromAnalysis(DAnalysis analysis) {
-		// We try to get the session via the URI
-//		Session existingSession = SessionManager.INSTANCE.getExistingSession(analysis.eResource().getURI());
+		// Retrieve the session using EObjectQuery
 		EObjectQuery query = new EObjectQuery(analysis);
 		Session existingSession = query.getSession();
 		if (existingSession != null) {

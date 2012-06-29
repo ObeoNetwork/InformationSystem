@@ -45,7 +45,6 @@ import fr.obeo.dsl.viewpoint.diagram.edit.api.part.IDiagramElementEditPart;
  * 
  * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
  */
-@SuppressWarnings("deprecation")
 public abstract class AbstractUserStoryDecorator extends AbstractDecorator {
 	private GraalObject graalObject = null;
 	private GraalObject graalObject2 = null;
