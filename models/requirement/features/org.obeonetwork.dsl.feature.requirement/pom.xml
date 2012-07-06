@@ -4,13 +4,13 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>models.parent</artifactId>
-		<version>2.3.0.qualifier</version>
+		<version>2.3.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent.models/pom.xml
 		</relativePath>
 	</parent>
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.dsl.feature.requirement</artifactId>
-	<version>1.1.0.qualifier</version>
+	<version>1.1.0-SNAPSHOT</version>
 	<packaging>eclipse-feature</packaging>
 	<name>Requirement Feature</name>
 </project>
