@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>commons.parent</artifactId>
-		<version>2.3.0.qualifier</version>
+		<version>2.3.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent.commons/pom.xml</relativePath>
 	</parent>
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.dsl.viewpoint.eef.adapters</artifactId>
-	<version>2.1.0.qualifier</version>
+	<version>2.1.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>Obeo Designer EEF Adapters</name>
 </project>
