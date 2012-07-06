@@ -1,0 +1,86 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module springHibernateEntityDaoJUnit('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::junit::hibernateEntityDaoJUnit/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::daoHibernateCommon/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::common::daoCommon/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::springCommon/]
+
+[comment ** Generates the base Test Class Package name for the given entity.
+ * @param entity the input entity.
+ * /]
+[comment TODO put in common with spring-hibernateDAO-JUnit/]
+[template public baseTestClassPackage(entity : Entity)]
+org.springframework.test
+[/template]
+
+[comment ** Generates the base Test Class name for the given entity.
+ * @param entity the input entity.
+ * /]
+[comment TODO put in common with spring-hibernateDAO-JUnit/]
+[template public baseTestClass(entity : Entity)]
+AbstractTransactionalSpringContextTests
+[/template]
+
+[comment ** Generates the import Hibernate Transaction for the given entity.
+ * @param entity the input entity.
+ * /]
+[comment TODO put in common with spring-hibernateDAO-JUnit/]
+[template public importHibernateTransaction(entity : Entity)]
+[''/]
+[/template]
+
+[comment ** Generates the testFeatures part for the given entity.
+ * @param entity the input entity.
+ * /]
+[comment TODO put in common with spring-hibernateDAO-JUnit/]
+[template public testFeatures(entity : Entity) post(replaceAll('\r\n|\r|\n', '$0t'))]
+protected final String['[]'/] getConfigLocations(){
+    return new String['[]'/]{"[entity.testApplicationContextRelativePath()/]"};
+}
+[for (it : Entity | entity->asSequence()->union(entity.externalDAOs()))]
+
+private [it.daoInterfaceName()/] [it.DAOName()/] = ([it.daoInterfaceName()/])getApplicationContext().getBean("[it.DAOBeanID()/]");
+[/for]
+[/template]
+
+[comment ** Generates the setUp method for the given entity.
+ * @param entity the input entity.
+ * /]
+[comment TODO put in common with spring-hibernateDAO-JUnit/]
+[template public setUp(entity : Entity)]
+[''/]
+[/template]
+
+[comment ** Generates the tearDown method for the given entity.
+ * @param entity the input entity.
+ * /]
+[comment TODO put in common with spring-hibernateDAO-JUnit/]
+[template public tearDown(entity : Entity)]
+[''/]
+[/template]
+
+[comment ** Generates the import Hibernate Util for the given entity.
+ * @param entity the input entity.
+ * /]
+[comment TODO put in common with spring-hibernateDAO-JUnit/]
+[template public importHibernateUtil(entity : Entity)]
+[''/]
+[/template]
+
+[comment ** Generates the import DAO Factory for the given entity.
+ * @param entity the input entity.
+ * /]
+[template public importDAOFactory(entity : Entity)]
+[''/]
+[/template]

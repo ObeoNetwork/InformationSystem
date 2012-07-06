@@ -1,0 +1,55 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module globalTilesdef('http://www.obeonetwork.org/dsl/cinematic/3.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+
+
+[comment ** Main generator for the struts tiles def global definition
+ * @param root the Root element of the cinematic
+ * /]
+[template public globalTilesdef(root : CinematicRoot)]
+[file (root.fullFilePath(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+	
+<!-- [protected ('of global tiles-def -->')]
+
+<tiles-definitions>
+	<definition name="layout" path="/layout/layout.jsp">
+	    <put name="title"  		value=""/>
+	    <put name="scenario"  	value=""/>
+	    <put name="pageName"  	value=""/>
+	    <put name="header" 		value="/layout/header.jsp"/>
+	    <put name="body" 		value=""/>
+	    <put name="footer" 		value="/layout/footer.jsp"/>
+	</definition>
+	
+	<definition name=".view.Navigation" extends="layout">
+	    <put name="title" 		value="General Navigation"/>
+	    <put name="scenario"  	value=""/>
+	    <put name="pageName"  	value="navigation"/>
+	    <put name="body" 		value="/Navigation.jsp"/>
+	    <put name="sidebar"		value="/layout/sidebar.jsp"/>
+	</definition>
+</tiles-definitions>
+
+<!-- [/protected] -->
+[/file]
+	
+[/template]
+
+[template public fullFilePath(root : CinematicRoot) post (trim())]
+[root.pathToMainWebapp()/]/WEB-INF/conf/tiles-defs/tiles-defs.xml
+[/template]

@@ -1,0 +1,38 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module alljs('http://www.obeonetwork.org/dsl/cinematic/3.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+
+[comment ** Generates the main js
+ * @param root the Root of the cinematic
+ * /]
+[template public alljs(root : CinematicRoot)]
+	
+	[file (root.fullFilePath(), false, 'UTF-8')]
+//[protected ('for alljs')]
+<%@page contentType="text/javascript; charset=ISO-8859-1"%>
+<%@ taglib
+        uri="http://struts.apache.org/tags-html"
+        prefix="html" %>
+<html:javascript dynamicJavascript="false" />
+//[/protected]
+[/file]
+	
+[/template]
+
+[comment ** Generate main js file path
+ * @param root the Root of the cinematic
+ * /]
+[template public fullFilePath(root : CinematicRoot)]
+[root.pathToMainWebapp()/]/js/alljs.jsp
+[/template]

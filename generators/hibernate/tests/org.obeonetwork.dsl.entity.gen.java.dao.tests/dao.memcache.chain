@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<chain:Chain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:chain="http://www.obeo.fr/acceleo/chain">
+  <repository>
+    <files xsi:type="chain:Folder" path="/org.obeonetwork.dsl.entity.gen.java.dao.tests/src/memcache"/>
+    <files xsi:type="chain:Model" path="/org.obeonetwork.dsl.entity.tests/model/default.entity"/>
+    <files xsi:type="chain:EmfMetamodel" path="http://www.obeonetwork.org/dsl/entity/2.0.0"/>
+    <files xsi:type="chain:Log" path="/org.obeonetwork.dsl.entity.gen.java.dao.tests/dao.memcache.log.txt"/>
+    <files xsi:type="chain:Generator" path="/org.obeonetwork.dsl.entity.gen.java.dao/src/org/obeonetwork/dsl/entity/gen/java/dao/memcache/dao-memcache-dao.properties.mt"/>
+    <files xsi:type="chain:Generator" path="/org.obeonetwork.dsl.entity.gen.java.dao/src/org/obeonetwork/dsl/entity/gen/java/dao/memcache/dao-memcache-direct.mt"/>
+  </repository>
+  <actions>
+    <actions xsi:type="chain:Generate" documentation="Properties" log="//@repository/@files.3" model="//@repository/@files.1" metamodel="//@repository/@files.2" generator="//@repository/@files.4" folder="//@repository/@files.0"/>
+    <actions xsi:type="chain:Generate" documentation="Direct" log="//@repository/@files.3" model="//@repository/@files.1" metamodel="//@repository/@files.2" generator="//@repository/@files.5" folder="//@repository/@files.0"/>
+  </actions>
+</chain:Chain>

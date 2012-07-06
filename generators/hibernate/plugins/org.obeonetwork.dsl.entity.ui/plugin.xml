@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="org.obeonetwork.dsl.ois.popupmenu"
+            nameFilter="*.entity"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="org.obeonetwork.dsl.ois.menu"
+               label="Generation"
+               path="additions">
+         </menu>
+         <action
+               class="org.obeonetwork.dsl.entity.ui.launchers.CommonLaunchAction"
+               id="org.obeonetwork.dsl.entity.ui.entitycommon"
+               label="Generate Entity Common"
+               menubarPath="org.obeonetwork.dsl.ois.menu/entity">
+         </action>
+         <action
+               class="org.obeonetwork.dsl.entity.ui.launchers.DAOLaunchAction"
+               id="org.obeonetwork.dsl.entity.ui.entitydao"
+               label="Generate Entity DAO"
+               menubarPath="org.obeonetwork.dsl.ois.menu/entity">
+         </action>
+         <action
+               class="org.obeonetwork.dsl.entity.ui.launchers.HibernateArchitecturePackageLaunchActionorg.obeonetwork.dsl.entity.ui.launchers.HibernateLaunchAction"
+               id="org.obeonetwork.dsl.entity.ui.action2"
+               label="Generate Entity Hibernate Architecture Per Package"
+               menubarPath="org.obeonetwork.dsl.ois.menu/entity">
+         </action>
+      </objectContribution>
+      <objectContribution
+            adaptable="false"
+            id="org.obeonetwork.dsl.ois.popupmenu"
+            nameFilter="*.ois"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="org.obeonetwork.dsl.ois.menu"
+               label="Generation"
+               path="additions">
+         </menu>
+         <action
+               class="org.obeonetwork.dsl.entity.ui.launchers.CommonLaunchAction"
+               id="org.obeonetwork.dsl.entity.ui.entitycommon"
+               label="Generate Entity Common"
+               menubarPath="org.obeonetwork.dsl.ois.menu/entity">
+         </action>
+         <action
+               class="org.obeonetwork.dsl.entity.ui.launchers.DAOLaunchAction"
+               id="org.obeonetwork.dsl.entity.ui.entitydao"
+               label="Generate Entity DAO"
+               menubarPath="org.obeonetwork.dsl.ois.menu/entity">
+         </action>
+         <action
+               class="org.obeonetwork.dsl.entity.ui.launchers.HibernateArchitecturePackageLaunchAction"
+               id="org.obeonetwork.dsl.entity.ui.action.hibernate.package"
+               label="Generate Entity Hibernate Architecture Per Package"
+               menubarPath="org.obeonetwork.dsl.ois.menu/entity">
+         </action>
+         <action
+               class="org.obeonetwork.dsl.entity.ui.launchers.HibernateArchitectureEntityLaunchAction"
+               id="org.obeonetwork.dsl.entity.ui.action.hibernate.entity"
+               label="Generate Entity Hibernate Architecture Per Entity"
+               menubarPath="org.obeonetwork.dsl.ois.menu/entity">
+         </action>
+         <action
+               class="org.obeonetwork.dsl.entity.ui.launchers.HibernateSpringPackageLaunchAction"
+               id="org.obeonetwork.dsl.entity.ui.action.hibernate.package.spring"
+               label="Generate Entity Hibernate Spring Per Package"
+               menubarPath="org.obeonetwork.dsl.ois.menu/entity">
+         </action>
+         <action
+               class="org.obeonetwork.dsl.entity.ui.launchers.HibernateSpringEntityLaunchAction"
+               id="org.obeonetwork.dsl.entity.ui.action.hibernate.entity.spring"
+               label="Generate Entity Hibernate Spring Per Entity"
+               menubarPath="org.obeonetwork.dsl.ois.menu/entity">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

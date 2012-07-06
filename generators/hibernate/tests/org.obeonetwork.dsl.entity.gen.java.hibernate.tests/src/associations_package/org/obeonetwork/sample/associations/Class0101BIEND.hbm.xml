@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.associations.Class0101BIEND" 
+    	table="CLASS_01_01_BI_END"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="fakeAttr">
+            <column name="FAKE_ATTR"/>
+        </property>
+
+
+		<!-- Associations -->
+
+		<!--  ____________________             ________________
+			 | CLASS_01_01_BI_END |- 1 {-} 1 -| CLASS_01_01_BI |
+			  ____________________             ________________
+		-->
+
+        <many-to-one 
+        	name="source" 
+        	class="org.obeonetwork.sample.associations.Class0101BI" 
+            column="FK_CLASS_01_01_BI_SOURCE_ID"
+            unique="true"
+            cascade="all"
+			/>
+
+
+
+		<!-- Inheritance -->
+
+
+
+
+    </class>
+
+</hibernate-mapping>

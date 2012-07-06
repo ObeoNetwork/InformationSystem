@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.acceleo.engine.dynamic.templates">
+      <templates
+            path="src/org/obeonetwork/dsl/cinematic/gen/java/spring/struts/files/">
+      </templates>
+   </extension>
+
+</plugin>

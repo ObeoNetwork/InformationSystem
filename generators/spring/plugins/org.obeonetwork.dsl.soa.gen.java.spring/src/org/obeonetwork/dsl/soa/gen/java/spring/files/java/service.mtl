@@ -1,0 +1,66 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module service('http://www.obeonetwork.org/dsl/soa/2.0.0', 'http://www.obeonetwork.org/dsl/entity/2.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+
+[import org::obeonetwork::dsl::soa::gen::java::spring::common::names /]
+[import org::obeonetwork::dsl::soa::gen::java::spring::common::structure /]
+[import org::obeonetwork::dsl::soa::gen::java::spring::requests::common /]
+
+[import org::obeonetwork::dsl::entity::gen::java::common::common /]
+
+[comment ** Main generator for the service interface
+ * @param service the service to generate it service interface
+ * /]
+[template public genServiceInterface(service : Service) ? (service.isProvidedService())]
+[file (service.fullFilePath(), false, 'UTF-8')]
+package [service.soaPackage()/];
+
+//[protected('for import')]
+
+import [service.baseImports()/].fwk.service.exception.ServiceException;
+import java.util.Collection;
+
+//[/protected]
+
+[if (not service.ownedInterface.oclIsUndefined() and service.ownedInterface.ownedOperations->size() > 0)]
+[let parameterTypes : Set(Type) = (service.ownedInterface.ownedOperations.input->union(service.ownedInterface.ownedOperations.output)).type->asSet()]
+	[for (entity : Entity | parameterTypes->filter(Entity))]
+import [entity.entityQualifiedName()/];	
+	[/for]
+	[for (dto : ServiceDTO | parameterTypes->filter(ServiceDTO))]
+import [dto.serviceDtoQualifiedName()/];
+	[/for]
+[/let]
+[/if]
+
+public interface I[service.serviceName()/] {
+[if (not service.ownedInterface.oclIsUndefined() and service.ownedInterface.ownedOperations->size() > 0)]
+[for (operation : Operation | service.ownedInterface.ownedOperations)]
+	public [operation.generateReturn()/] [operation.name/]([operation.generateParameters()/]) throws ServiceException;	
+[/for]
+[/if]
+}
+[/file]
+	
+[/template]
+
+[comment ** Generates the file path for the service interface
+ * @param service the input service.
+ * /]
+[template private fullFilePath(service : Service) post (trim())]	
+[service.pathToMainJava()/]/[service.soaPackage().toPath()/]/I[service.serviceName().toStandardNotation().toUpperFirst()/].java	
+[/template]
+
+

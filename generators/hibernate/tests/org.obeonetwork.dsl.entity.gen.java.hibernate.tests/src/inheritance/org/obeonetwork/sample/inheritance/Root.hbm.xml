@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.inheritance.Root" 
+    	table="ROOT"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="rootProp">
+            <column name="ROOT_PROP"/>
+        </property>
+
+
+		<!-- Associations -->
+
+
+		<!-- Inheritance -->
+
+
+		<joined-subclass
+			name="org.obeonetwork.sample.inheritance.Basic" 
+    		table="BASIC"
+    	dynamic-update="true">
+    		
+    		<key column="FK_INHERITS_ROOT_ID"/>
+    		
+			<!-- Properties -->
+        <property name="myProp1">
+            <column name="MY_PROP1"/>
+        </property>
+        <property name="myProp2">
+            <column name="MY_PROP2"/>
+        </property>
+
+
+			<!-- Associations -->
+
+
+			<!-- Inheritance -->
+
+    	</joined-subclass>
+
+		<joined-subclass
+			name="org.obeonetwork.sample.inheritance.BasicWithoutAttr" 
+    		table="BASIC_WITHOUT_ATTR"
+    	dynamic-update="true">
+    		
+    		<key column="FK_INHERITS_ROOT_ID"/>
+    		
+			<!-- Properties -->
+
+
+			<!-- Associations -->
+
+
+			<!-- Inheritance -->
+
+    	</joined-subclass>
+
+
+
+    </class>
+
+</hibernate-mapping>

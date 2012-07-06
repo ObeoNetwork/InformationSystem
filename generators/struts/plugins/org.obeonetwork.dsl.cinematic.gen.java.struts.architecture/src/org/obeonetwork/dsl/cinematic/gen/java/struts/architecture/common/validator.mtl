@@ -1,0 +1,80 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module validator('http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')/]
+
+
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::services::cinematicServices /]
+
+[comment ** Generates all the validator for a given viewState.
+ * @param viewState the input viewState.
+ */]
+[template public generateValidator(viewState : ViewState)]
+[for (element : ViewElement | viewState.getViewElements()->filter(ViewElement))]
+[if (not(element.type.oclIsUndefined()))]
+[element.type.validator(viewState,element.widget)/]
+[/if]
+[/for]
+[/template]
+
+[comment ** Generates validator config for the given type.
+ * @param type type to validate.
+ * @param viewState viewState where the validation is called.
+ * @param widget widget hosting the validation. /]
+[template public validator(type : Type, viewState : ViewState, widget : Widget) /]
+
+[comment ** Generates validator config for the given type.
+ * @param type type to validate.
+ * @param viewState viewState where the validation is called.
+ * @param widget widget hosting the validation. /]
+[template public validator(type : PrimitiveType, viewState : ViewState, widget : Widget)]
+[if (type.name = 'Integer')]
+            <field property="[widget.name.toLowerFirst()/]" depends="integer">
+                <arg0 key="[viewState.name/].errors.integer.[widget.name.toLower()/]"/>
+            </field>
+[elseif (type.name = 'Double')]
+            <field property="[widget.name.toLowerFirst()/]" depends="float">
+                <arg0 key="[viewState.name/].errors.float.[widget.name.toLower()/]"/>
+            </field>
+[elseif (type.name = 'Date')]
+            <field property="[widget.name.toLowerFirst()/]" depends="date">
+                <arg0 key="[viewState.name/].errors.date.[widget.name.toLower()/]"/>
+		        <var><var-name>datePattern</var-name><var-value>dd/MM/yyyy</var-value></var>
+            </field>
+[elseif (type.name = 'Email')]
+            <field property="[widget.name.toLowerFirst()/]" depends="email">
+                <arg0 key="[viewState.name/].errors.email.[widget.name.toLower()/]"/>
+            </field>
+[/if]
+[/template]
+
+[comment ** Generates error key for the given type.
+ * @param type type to validate.
+ * @param viewState viewState where the validation is called.
+ * @param widget widget hosting the validation. /]
+[template public error(type : Type, viewState : ViewState, widget : Widget) post(trim())]
+[/template]
+
+[comment ** Generates error key for the given type.
+ * @param type type to validate.
+ * @param viewState viewState where the validation is called.
+ * @param widget widget hosting the validation. /]
+[template public error(type : PrimitiveType, viewState : ViewState, widget : Widget)]
+[if (type.name = 'Integer')]
+[viewState.name/].errors.integer.[widget.name.toLower()/]=[type.name.toUpperFirst()/]
+[elseif (type.name = 'Double')]
+[viewState.name/].errors.float.[widget.name.toLower()/]=[type.name.toUpperFirst()/]
+[elseif (type.name = 'Date')]
+[viewState.name/].errors.date.[widget.name.toLower()/]=[type.name.toUpperFirst()/]
+[elseif (type.name = 'Email')]
+[viewState.name/].errors.email.[widget.name.toLower()/]=[type.name.toUpperFirst()/]
+[/if]
+[/template]

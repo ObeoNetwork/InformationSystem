@@ -1,0 +1,63 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module hibernateMappingsContext('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common/]
+[import org::obeonetwork::dsl::entity::gen::java::common::common/]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices/]
+
+[comment ** Generates the hibernateMappingsContext relative file path for the given root.
+ * @param root the input root.
+ * /]
+[template public hibernateMappingsContextRelativeFilePath(root : Root)]
+/conf/spring/orm/hibernateMappingsContext.xml
+[/template]
+
+[comment ** Generates the hibernateMappingsContext full file path for the given root.
+ * @param root the input root.
+ * /]
+[template public hibernateMappingsContextFullFilePath(root : Root)]
+[if (getProperty('linkage.strategy') = 'spring')]
+[root.pathToMainResources()/][root.hibernateMappingsContextRelativeFilePath()/]
+[/if]
+[/template]
+
+[comment ** Generates the hibernateMappingResourcesBeanID for the given element.
+ * @param element the input element.
+ * /]
+[template public hibernateMappingResourcesBeanID(element : EObject)]
+hibernateMappingResources
+[/template]
+
+[comment ** Generates the hibernateMappingsContext for the given root.
+ * @param root the input root.
+ * /]
+[template public hibernateMappingsContext(root : Root)]
+	[file (root.hibernateMappingsContextFullFilePath(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="[root.hibernateMappingResourcesBeanID()/]" class="org.springframework.beans.factory.config.ListFactoryBean">
+	  <property name="sourceList">
+	      <list>
+	        [for (it : Entity | root.eAllContents(Entity)->select(e : Entity | e.supertype->size() = 0))]
+				<value>[it.entityPackage().toPath()/]/[it.name.toStandardNotation().toUpperFirst()/].hbm.xml</value>
+			[/for]
+				<!-- [protected ('for mapping ressources -->')]
+				<!-- [/protected] -->
+	      </list>
+	  </property>
+	</bean>
+</beans>
+	[/file]
+[/template]
+

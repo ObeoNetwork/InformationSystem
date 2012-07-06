@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.obeonetwork.dsl.soa.gen.java.spring.hibernate.feature"
+      label="Obeo DSM JEE - Spring Hibernate integration Module"
+      version="2.2.0.qualifier"
+      provider-name="Obeo.fr">
+
+   <description url="http://www.obeo.fr">
+      Acceleo Pro JEE - Spring Hibernate integration module
+   </description>
+
+   <copyright url="http://www.obeo.fr">
+      Copyright (c) 2006-2008 Obeo
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.obeonetwork.dsl.soa.gen.java.spring.hibernate"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.soa.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

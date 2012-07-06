@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.inheritance.Main" 
+    	table="MAIN"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+        <discriminator column="ROOT_TYPE" type="string"/>
+
+		<!-- Properties -->
+
+
+		<!-- Associations -->
+
+
+		<!-- Inheritance -->
+
+
+		<subclass name="org.obeonetwork.sample.inheritance.Sub1" discriminator-value="org.obeonetwork.sample.inheritance.Sub1">
+			<!-- Properties -->
+
+
+			<!-- Associations -->
+
+    	</subclass>
+		
+
+		<subclass name="org.obeonetwork.sample.inheritance.Sub2" discriminator-value="org.obeonetwork.sample.inheritance.Sub2">
+			<!-- Properties -->
+
+
+			<!-- Associations -->
+
+    	</subclass>
+		
+
+
+
+    </class>
+
+</hibernate-mapping>

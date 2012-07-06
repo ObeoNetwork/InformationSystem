@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<!-- tiles definition for scenario ScenarioDefaultName -->
+<tiles-definitions>
+
+	<definition name=".view.Ecran1" extends="layout">
+	    <put name="title" 		value="DefaultTitle"/>
+	    <put name="scenario"  	value="ScenarioDefaultName"/>
+	    <put name="pageName"  	value="Ecran1"/>
+	    <put name="body" 		value="/jsp/ScenarioDefaultName/Ecran1.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/Ecran1Sidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Ecran2" extends="layout">
+	    <put name="title" 		value="DefaultTitle"/>
+	    <put name="scenario"  	value="ScenarioDefaultName"/>
+	    <put name="pageName"  	value="Ecran2"/>
+	    <put name="body" 		value="/jsp/ScenarioDefaultName/Ecran2.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/Ecran2Sidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Ecran3" extends="layout">
+	    <put name="title" 		value="DefaultTitle"/>
+	    <put name="scenario"  	value="ScenarioDefaultName"/>
+	    <put name="pageName"  	value="Ecran3"/>
+	    <put name="body" 		value="/jsp/ScenarioDefaultName/Ecran3.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/Ecran3Sidebar.jsp"/>
+	</definition>  
+
+</tiles-definitions>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.collections.associations.bidirectional.assobidimanytomany.B" 
+    	table="B_7"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+
+
+		<!-- Associations -->
+ 
+
+		<!--  ___             ___
+			 | B |- * {-} * -| A |
+			  ___             ___
+		-->
+
+		<set name="a" inverse="true">
+			<key column="B_ID"/>
+			<many-to-many 
+				class="org.obeonetwork.sample.collections.associations.bidirectional.assobidimanytomany.A"
+				column="A_ID"/>
+	     </set>
+
+
+
+		<!-- Inheritance -->
+
+
+
+
+    </class>
+
+</hibernate-mapping>

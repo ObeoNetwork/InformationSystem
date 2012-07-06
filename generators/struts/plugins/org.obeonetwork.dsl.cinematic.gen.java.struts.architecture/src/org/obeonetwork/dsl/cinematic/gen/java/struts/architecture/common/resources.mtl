@@ -1,0 +1,66 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module resources('http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::common::names /]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::common::validator /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::services::searchservice /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::services::cinematicServices /]
+
+[comment ** Generate common properties for screen i18n.
+ * @param root the CinematicRoot element of the cinematic 
+ */]
+[template public generateCommonResources(root : CinematicRoot)]
+[for (flow : Flow | root.eAllContents(Flow))]
+
+                                #####################
+                                # flow [flow.name/]
+                                #####################
+	[for (viewState : ViewState | flow.states->filter(ViewState))]
+#[protected ('for ' + viewState.name)] 
+################################# Page [viewState.name/].jsp #################################
+#Label and text
+		[for (element : AbstractViewElement | viewState.getViewElements())]
+[element.resourceKey()/]=[element.name/][element.widget.widgetSuffix(viewState.oclAsType(EObject))/]
+		[/for]
+		[for (action : ActionState | viewState.getActionStates())]
+[action.resourceKey()/]=[action.name/][action.actionSuffix(viewState.oclAsType(EObject))/]			
+		[/for]
+#Error Messages
+		[for (element : ViewElement | viewState.getViewElements()->filter(ViewElement))]
+			[if (not (element.widget.name = 'Table' or element.widget.name = 'Label'))]
+[element.type.error(viewState, widget)/]
+			[/if]
+		[/for]
+#[/protected] for [viewState.name/]
+
+	[/for]
+[/for]
+[/template]
+
+[comment ** Generates a property key for the given widget.
+ * @param widget the input widget.
+ */]
+[template public resourceKey(element : AbstractViewElement)]
+[element.getViewState().name.toStandardNotation()/].[element.javaName()/]
+[/template]
+
+[comment ** Generates a property key for the given action.
+ * @param action the input action.
+ */]
+[template public resourceKey(action : ActionState)]	
+[action.getAssociatedViewState().name.toStandardNotation()/].[action.actionName()/]
+[/template]
+
+

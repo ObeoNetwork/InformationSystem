@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.kindofdao.ExempleDirect" 
+    	table="EXEMPLE_DIRECT"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="myAttribute">
+            <column name="MY_ATTRIBUTE"/>
+        </property>
+        <property name="myId">
+            <column name="MY_ID"/>
+        </property>
+
+
+		<!-- Associations -->
+
+
+		<!-- Inheritance -->
+
+
+
+
+    </class>
+
+</hibernate-mapping>

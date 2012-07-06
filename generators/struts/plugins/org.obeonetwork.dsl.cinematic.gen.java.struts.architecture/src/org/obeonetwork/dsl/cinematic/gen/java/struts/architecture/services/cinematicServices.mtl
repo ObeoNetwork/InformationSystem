@@ -1,0 +1,31 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module cinematicServices('http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+
+
+[query public getViewElements(viewState : ViewState) : Set(AbstractViewElement)
+ = invoke('org.obeonetwork.dsl.cinematic.gen.java.struts.architecture.services.CinematicServices', 'getViewElements(org.obeonetwork.dsl.cinematic.flow.ViewState)', Sequence{viewState}) /]
+
+[query public getActionStates(viewState : ViewState) : Set(ActionState)
+ = invoke('org.obeonetwork.dsl.cinematic.gen.java.struts.architecture.services.CinematicServices', 'getActionStates(org.obeonetwork.dsl.cinematic.flow.ViewState)', Sequence{viewState}) /]
+
+[query public getNextViewStates(viewState : ViewState) : Set(ViewState)
+ = invoke('org.obeonetwork.dsl.cinematic.gen.java.struts.architecture.services.CinematicServices', 'getNextViewStates(org.obeonetwork.dsl.cinematic.flow.ViewState)', Sequence{viewState}) /]
+
+[query public getViewState(viewElement : AbstractViewElement) : ViewState
+ = invoke('org.obeonetwork.dsl.cinematic.gen.java.struts.architecture.services.CinematicServices', 'getViewState(org.obeonetwork.dsl.cinematic.view.AbstractViewElement)', Sequence{viewElement}) /]
+
+[query public getAssociatedViewState(actionState : ActionState) : ViewState
+ = invoke('org.obeonetwork.dsl.cinematic.gen.java.struts.architecture.services.CinematicServices', 'getAssociatedViewState(org.obeonetwork.dsl.cinematic.flow.ActionState)', Sequence{actionState}) /]
+
+[query public getTriggerAction (viewElement : AbstractViewElement, transitions : Sequence(Transition)) : ActionState
+ = invoke('org.obeonetwork.dsl.cinematic.gen.java.struts.architecture.services.CinematicServices', 'getTriggerAction(org.obeonetwork.dsl.cinematic.view.AbstractViewElement, java.util.Collection)', Sequence{viewElement, transitions}) /]

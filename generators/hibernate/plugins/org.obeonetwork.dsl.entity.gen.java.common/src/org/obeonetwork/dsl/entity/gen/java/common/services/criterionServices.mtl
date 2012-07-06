@@ -1,0 +1,47 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module criterionServices('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')/]
+
+[comment ** Generates the name for the criterion. 
+ * @param criterion the input criterion.
+ */]
+[template public criterionName(criterion : Criterion)]
+[/template]
+
+[comment ** Generates the name for the internal criterion. 
+ * @param criterion the input internal criterion.
+ */]
+[template public criterionName(criterion : InternalCriterion)]
+[criterion.name/]
+[/template]
+
+[comment ** Generates the name for the external criterion. 
+ * @param criterion the input external criterion.
+ */]
+[template public criterionName(criterion : ExternalCriterion)]
+[criterion.name/]
+[/template]
+
+[comment ** Get the type of the criterion. 
+ * @param criterion the input criterion.
+ */]
+[query public criterionType(criterion : Criterion) : Type = null /]
+
+[comment ** Get the type of the internal criterion. 
+ * @param criterion the input internal criterion.
+ */]
+[query public criterionType(criterion : InternalCriterion) : Type = target.type /]
+
+[comment ** Get the type of the external criterion. 
+ * @param criterion the input external criterion.
+ */]
+[query public criterionType(criterion : ExternalCriterion) : Type = type /]

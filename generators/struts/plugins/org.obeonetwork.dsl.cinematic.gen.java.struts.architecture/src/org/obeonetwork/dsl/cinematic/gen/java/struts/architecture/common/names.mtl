@@ -1,0 +1,148 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module names('http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::services::searchservice /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::services::cinematicServices /]
+
+[comment =========================== General naming =========================== /]
+
+[comment ** Generates the UI qualified package based on the Root of the cinematic.
+ * @param root Root of the cinematic 
+ * /]
+[template public uiPackage(root : CinematicRoot)]
+[root.baseImports()/].[root.projectName()/][root.insertInPackage('ui.package')/]
+[/template]
+
+[comment ** Generates the scenario name in a java format.
+ * @param scenario input scenario.
+ * /]
+[template public normalizedName(flow : Flow) post (trim())]
+[flow.name.toStandardNotation().toLowerFirst()/]
+[/template]
+
+[comment ** Generates the scenario name in a java format.
+ * @param scenario input scenario.
+ * /]
+[template public normalizedName(pack : Package) post (trim())]
+[pack.name.toStandardNotation().toLowerFirst()/]
+[/template]
+
+[comment ** Generates the java generation package of the given viewState
+ * @param viewState input viewState.
+ * /]
+[template public scenarioPackage(viewSate : ViewState) post (trim())]
+	[if (getProperty('useUIPackage') = 'no')]
+[viewSate.eContainer(Flow).name.toStandardNotation()/][viewSate.insertInPackage('dao.hibernate.package')/]
+	[else]
+		[if (getProperty('use.functional.disposition') = 'true')]
+[viewSate.baseImports()/].[viewSate.projectName()/].[viewSate.eContainer(Package).normalizedName()/][viewSate.insertInPackage('ui.package')/]
+		[else]
+[viewSate.baseImports()/].[viewSate.projectName()/][viewSate.insertInPackage('ui.package')/].[viewSate.eContainer(Package).normalizedName()/]
+		[/if]
+	[/if]
+[/template]
+
+[comment ** Generates the name of a widget as java literal
+ * @param widget the input widget
+ * /]
+[template public javaName(element : AbstractViewElement)]
+[element.name.toStandardNotation().toLowerFirst()/][element.widget.widgetSuffix(element.getViewState())/]
+[/template]
+
+[comment =========================== Actions naming =========================== /]
+
+[comment ** Generates the suffix for action classes.
+ * @eobject input element
+ * /]
+[template public actionSuffix(eobject : OclAny)]
+[getProperty('actions.suffix')/]
+[/template]
+
+[comment ** Generates the java generation package for action class of the given viewState.
+ * @param viewState input viewState.
+ * /]
+[template public actionPackage(viewState : ViewState)]
+[viewState.scenarioPackage()/][viewState.insertInPackage('ui.actions.package')/]
+[/template]
+
+[comment ** Generates the action class name for the given viewState.
+ * @param viewState input viewState.
+ * /]
+[template public getActionClassName(viewState : ViewState)]
+[viewState.name.toClassStandardNotation().toUpperFirst()/][viewState.actionSuffix()/]
+[/template]
+
+
+[comment ** Generates the java name of an action.
+ * @param action input action
+ * /]
+[template public actionName(action : ActionState)]
+[action.name.toStandardNotation().toLowerFirst()/]
+[/template]
+
+[comment ** Generates the 'struts action' path for a given path
+ * @param viewState the input viewState.
+ * /]
+[template public actionPath(viewState : ViewState)]
+[viewState.eContainer(Flow).name.toStandardNotation().toLower()/]/[viewState.name.toStandardNotation().toLower()/]
+[/template]
+
+[comment =========================== Forms naming =========================== /]
+
+[comment ** Generates the suffix for form classes.
+ * @eobject input element
+ * /]
+[template public formSuffix(eobject : EObject)]
+[getProperty('forms.suffix')/]
+[/template]
+
+[comment ** Generates the java generation package for form class of the given viewState.
+ * @param viewState input viewState.
+ * /]
+[template public formPackage(viewState : ViewState)]	
+[viewState.scenarioPackage()/][viewState.insertInPackage('ui.forms.package')/]
+[/template]
+
+[comment ** Generates the form class name for the given viewState.
+ * @param viewState input viewState.
+ * /]
+[template public getFormClassName(viewState : ViewState)]
+[viewState.name.toClassStandardNotation().toUpperFirst()/][viewState.formSuffix()/]
+[/template]
+
+[comment =========================== Tests naming =========================== /]
+
+[comment ** Generates the java generation package for test action class of the given viewState.
+ * @param viewState input viewState.
+ * /]
+[template public testActionPackage(viewState : ViewState)]
+[viewState.scenarioPackage()/].test.htmlunit
+[/template]
+
+[comment ** Generates the test action class name for the given viewState.
+ * @param viewState input viewState.
+ * /]
+[template public testActionClass(viewState : ViewState)]
+Test[viewState.name.toClassStandardNotation().toUpperFirst()/]Action
+[/template]
+
+[comment =========================== Views naming =========================== /]
+
+[comment ** Generates the symbolic name of the struts views associated to the given viewState
+ * @param viewState input viewState.
+ * /]
+[template public definitionName(viewState : ViewState)]
+.view.[viewState.name.toStandardNotation()/]
+[/template]

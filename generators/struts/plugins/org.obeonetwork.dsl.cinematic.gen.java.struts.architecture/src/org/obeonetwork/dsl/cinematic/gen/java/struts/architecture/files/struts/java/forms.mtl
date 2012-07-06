@@ -1,0 +1,145 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module forms('http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+[import org::obeonetwork::dsl::environment::gen::java::common::datatype /]
+[import org::obeonetwork::dsl::environment::gen::java::common::logger /]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::common::names /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::common::widgets_mapping /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::services::cinematicServices /]
+
+[comment ** Main generator for the struts form classes
+ * @param viewState the viewState to generate it action class
+ * /]
+[template public forms(viewState : ViewState)]
+[file (viewState.fullFilePath(), false, 'UTF-8')]
+package [viewState.formPackage()/];
+
+// [protected ('for import')] 
+import java.util.ArrayList;
+import java.util.Collection;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.validator.ValidatorForm;
+
+// [/protected] for import
+
+/**
+ * Implementation of <strong>[viewState.name.toUpperFirst()/] Form</strong>
+ * Scenario : [viewState.eContainer(Flow).name.toUpperFirst()/]
+ *
+ */
+public class [viewState.getFormClassName()/] extends ValidatorForm {
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * Attributes
+     */
+[for (element : AbstractViewElement | viewState.getViewElements())]
+[if (element.widget.name = 'DisplayList' or element.widget.name = 'Table')]
+	public [widget.convertToJavaTypeFromStereotype()/] [element.javaName()/] = new ArrayList();		
+[elseif (widget.name = 'Combo')]
+	public Collection [element.javaName()/]Values = new ArrayList();
+	public String [element.javaName()/] = null;
+[else]
+	public [widget.convertToJavaTypeFromStereotype()/] [element.javaName()/] = null;
+[/if]
+[/for]
+
+[for (element : AbstractViewElement | viewState.getViewElements())]
+	[if (element.widget.name = 'Combo')]
+	/**
+	 * Return [element.name/] combobox values
+	 * @return all the [element.name/] combobox values
+	 */
+	public Collection get[element.javaName().toUpperFirst()/]Values() {
+		return [element.javaName()/]Values;
+	}
+	
+	/**
+	 * Set a values to [element.name/].combobox
+	 * @param the  [element.name/] combobox values
+	 */
+	 public void set[element.javaName().toUpperFirst()/]Values(Collection [element.javaName()/]Values) {
+		this.[element.javaName()/]Values = [element.javaName()/]Values;
+	}	
+
+	/**
+	 * Return [element.name/]
+	 * @return 
+	 */
+	 public String get[element.javaName().toUpperFirst()/]() {
+		return [element.javaName()/];
+	}
+	
+	/**
+	 * Set a value to parameter [element.name/].
+	 * @param [element.name/] 
+	 */
+	 public void set[element.javaName().toUpperFirst()/](String [element.javaName()/]) {
+		this.[element.javaName()/] = [element.javaName()/];
+	}
+	[else]
+	/**
+	 * Return [element.javaName()/]
+	 * @return 
+	 */
+	 public [element.widget.convertToJavaTypeFromStereotype()/] get[element.javaName().toUpperFirst()/]() {
+		return [element.javaName()/];
+	}
+	
+	/**
+	 * Set a value to parameter [element.javaName()/].
+	 * @param [element.javaName()/] 
+	 */
+	 public void set[element.javaName().toUpperFirst()/]([element.widget.convertToJavaTypeFromStereotype()/] [element.javaName()/]) {
+		this.[element.javaName()/] = [element.javaName()/];
+	}
+	[/if]
+[/for]
+
+	/**
+	 * Reset all properties to their default values.
+	 *
+	 * @param mapping The mapping used to select this instance
+	 * @param request The servlet request we are processing
+	 */
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+[for (element : AbstractViewElement | viewState.getViewElements())]
+	[if (element.widget.name = 'DisplayList' or element.widget.name = 'Table')]		
+		this.[element.javaName()/].clear();
+	[elseif (element.name = 'Combo')]
+		this.[element.javaName()/]Values.clear();
+		this.[element.javaName()/] = null;
+	[else]
+		this.[element.javaName()/] = null;
+	[/if]
+[/for]
+	}
+
+// [protected ('for other methods')]  	
+// [/protected]
+	
+}[/file]
+	
+[/template]
+
+[comment ** Generates the file path for the struts action class.
+ * @param viewState the input viewState.
+ * /]
+[template public fullFilePath(viewState : ViewState) post (trim())]	
+[viewState.pathToMainJava()/]/[viewState.formPackage().toPath()/]/[viewState.getFormClassName()/].java
+[/template]
+

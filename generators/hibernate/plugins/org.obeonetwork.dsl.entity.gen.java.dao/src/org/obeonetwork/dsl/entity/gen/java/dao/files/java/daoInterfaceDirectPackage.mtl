@@ -1,0 +1,274 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module daoInterfaceDirectPackage('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+[import org::obeonetwork::dsl::entity::gen::java::common::services::criterionServices /]
+[import org::obeonetwork::dsl::entity::gen::java::common::javaVersion /]
+[import org::obeonetwork::dsl::entity::gen::java::common::common /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::common::daoCommon /]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::datatype /]
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+
+[comment TODO: suffixe DTO ? /]
+
+[comment ** Generates the full filepath for the block.
+ * @param block the input block.
+ * /]
+[template public fullFilePath(block : Block)]
+[block.pathToMainJava()/]/[block.daoInterfacePackage().toPath()/]/[block.daoInterfaceName()/].java
+[/template]
+
+[comment **
+ * DAO interface generation
+ * /]
+[template public daoInterfaceDirect(block : Block) ? (block.entities->size() > 0)]
+	[file (block.fullFilePath(), false, 'UTF-8')]
+package [block.daoInterfacePackage()/];
+
+// [protected ('for import')]
+import java.util.Collection;
+
+[block.importDaoException()/]
+[for (it : Entity | block.entities)]
+import [it.entityQualifiedName()/];
+[/for]
+
+// [/protected]
+
+/**
+ * This class provides the data access layer to the [block.name/] entity class.<br/>
+ * This is the interface which represent the contract of the DAO access.
+ */
+public interface [block.daoInterfaceName()/] {
+
+[for (it : Entity | block.entities)]
+	/**
+	 * Create a new element.
+	 * @param [it.name.toLowerFirst()/] Element to create.[it.throwCommentDaoException('If a DAO problem occurs.')/]
+	 */
+	[it.createMethodSignature()/];
+
+	/**
+	 * Update an existing element.
+	 * @param [name.toLowerFirst()/] Element to update. 
+     *            If the element has an id, it may use it.[it.throwCommentDaoException('If a DAO problem occurs.')/]
+	 */
+	[it.updateMethodSignature()/];
+
+	/**
+	 * Delete an element.
+     * Only id can be used to find which element must be deleted.
+	 * @param [name.toLowerFirst()/] Element which will be delete. [it.throwCommentDaoException('If a DAO problem occurs.')/]
+	 */
+	[it.deleteMethodSignature()/];
+
+	/**
+	 * Find all elements.
+	 * @return A list with all elements, without any filter.[it.throwCommentDaoException('If a DAO problem occurs.')/]
+	 */
+	[it.findAllMethodSignature()/];
+
+	/**
+	 * Find one entity by its primary key.
+     * @param id The PK of the entity.
+	 * @return The entity found.[it.throwCommentDaoException('If a DAO problem occurs.')/]
+	 */
+	[it.findByIdMethodSignature()/];
+
+[comment Generate additional methods declaration /]
+[for (it2 : Finder | it.ownedFinders)]
+	/**
+	 * Find all entities by the attributes [it2.criterions.criterionName()->sep(', ')/].
+	[for (it3 : Criterion | it2.criterions)]
+	 * @param [it3.criterionName()/] 
+	[/for]
+	 * @return A collection with all matching entities.
+	 */
+	[it2.methodSignature()/];
+	
+[/for]
+[/for]
+	//[protected ('for technicals dao access api')]
+	//[/protected]
+}
+	[/file]
+[/template]
+
+[comment ** Generates the parameter type name for the criterion.
+ * @param criterion the input criterion.
+ * /]
+[template public parameterType(criterion : Criterion)]
+[criterion.criterionType().toJavaType()/]
+[/template]
+
+[comment ** Generates the parameter name for the criterion.
+ * @param criterion the input criterion.
+ * /]
+[template public parameterName(criterion : Criterion)]
+[criterion.criterionName().toLowerFirst()/]
+[/template]
+
+[comment ** Generates the parameter for the criterion.
+ * @param criterion the input criterion.
+ * /]
+[template public parameter(criterion : Criterion) post(trim())]
+[criterion.parameterType()/] [criterion.parameterName()/]
+[/template]
+
+[comment ** Generates the searched type name for the finder.
+ * @param finder the input finder.
+ * /]
+[template public seachedType(finder : Finder)]
+[finder.entity.toJavaClassName()/]
+[/template]
+
+[comment ** Generates the method return type name for the finder.
+ * @param finder the input finder.
+ * /]
+[template public methodReturnType(finder : Finder)]
+Collection[finder.toJavaVersion(finder.seachedType())/]
+[/template]
+
+[comment ** Generates the method signature for the finder.
+ * @param finder the input finder.
+ * /]
+[template public methodSignature(finder : Finder)]
+public [finder.methodReturnType()/] [finder.name.toStandardNotation()/]([finder.criterions.parameter()->sep(', ')/])[finder.throwDaoException()/]
+[/template]
+
+[comment ** Generates the java class name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public toJavaClassName(entity : Entity)]
+[entity.name.toStandardNotation().toUpperFirst()/]
+[/template]
+
+[comment ** Generates the DBModification method input parameter class name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public DBModificationMethodInputParameterClass(entity : Entity)]
+[entity.toJavaClassName()/]
+[/template]
+
+[comment ** Generates the DBModification method input parameter name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public DBModificationMethodInputParameterName(entity : Entity)]
+[entity.name.toStandardNotation().toLowerFirst()/]
+[/template]
+
+[comment ** Generates the DBModification method name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public DBModificationMethodName(entity : Entity, arg0 : String)]
+[arg0/][entity.name.toStandardNotation()/]
+[/template]
+
+[comment ** Generates the DBModification method signature for the entity.
+ * @param entity the input entity.
+ * /]
+[template public DBModificationMethodSignature(entity : Entity, arg0 : String)]
+public void [arg0/]([entity.DBModificationMethodInputParameterClass()/] [entity.DBModificationMethodInputParameterName()/])[entity.throwDaoException()/]
+[/template]
+
+[comment ** Generates the create method name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public createMethodName(entity : Entity)]
+[entity.DBModificationMethodName('create')/]
+[/template]
+
+[comment ** Generates the create method signature for the entity.
+ * @param entity the input entity.
+ * /]
+[template public createMethodSignature(entity : Entity)]
+[entity.DBModificationMethodSignature(entity.createMethodName())/]
+[/template]
+
+[comment ** Generates the update method name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public updateMethodName(entity : Entity)]
+[entity.DBModificationMethodName('update')/]
+[/template]
+
+[comment ** Generates the update method signature for the entity.
+ * @param entity the input entity.
+ * /]
+[template public updateMethodSignature(entity : Entity)]
+[entity.DBModificationMethodSignature(entity.updateMethodName())/]
+[/template]
+
+[comment ** Generates the findAll method name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public deleteMethodName(entity : Entity)]
+[entity.DBModificationMethodName('delete')/]
+[/template]
+
+[comment ** Generates the delete method signature for the entity.
+ * @param entity the input entity.
+ * /]
+[template public deleteMethodSignature(entity : Entity)]
+[entity.DBModificationMethodSignature(entity.deleteMethodName())/]
+[/template]
+
+[comment ** Generates the findAll method name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public findAllMethodName(entity : Entity)]
+findAll[entity.name.toStandardNotation()/]s
+[/template]
+
+[comment ** Generates the findAll method return type name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public findAllMethodReturnType(entity : Entity)]
+Collection[entity.toJavaVersion(entity.findMethodReturnType())/]
+[/template]
+
+[comment ** Generates the findAll method signature for the entity.
+ * @param entity the input entity.
+ * /]
+[template public findAllMethodSignature(entity : Entity)]
+public [entity.findAllMethodReturnType()/] [entity.findAllMethodName()/]()[entity.throwDaoException()/]
+[/template]
+
+[comment ** Generates the findById method name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public findByIdMethodName(entity : Entity)]
+find[entity.name.toStandardNotation()/]ById
+[/template]
+
+[comment ** Generates the findById method return type name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public findMethodReturnType(entity : Entity)]
+[entity.toJavaClassName()/]
+[/template]
+
+[comment ** Generates the findById method parameter name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public findByIdMethodParameterName(entity : Entity)]
+id
+[/template]
+
+[comment ** Generates the findById method signature for the entity.
+ * @param entity the input entity.
+ * /]
+[template public findByIdMethodSignature(entity : Entity)]
+public [entity.findMethodReturnType()/] [entity.findByIdMethodName()/](String [entity.findByIdMethodParameterName()/])[entity.throwDaoException()/]
+[/template]

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmi:id="_rmLvcL-4Ed2kBLlxbpHxBg">
+  <blocks xmi:id="_rmM9kL-4Ed2kBLlxbpHxBg" name="collections">
+    <subblocks xmi:id="_rmM9kb-4Ed2kBLlxbpHxBg" name="composition">
+      <subblocks xmi:id="_rmM9kr-4Ed2kBLlxbpHxBg" name="one_to_many_comp">
+        <entities xmi:id="_rmRPAL-4Ed2kBLlxbpHxBg" name="A">
+          <ownedReferences xmi:id="_rmeqYL-4Ed2kBLlxbpHxBg" name="b" multiplicity="0..*" isComposite="true" type="_rmeqYb-4Ed2kBLlxbpHxBg"/>
+        </entities>
+        <entities xmi:id="_rmeqYb-4Ed2kBLlxbpHxBg" name="B"/>
+      </subblocks>
+      <subblocks xmi:id="_rmeqYr-4Ed2kBLlxbpHxBg" name="one_to_one_comp">
+        <entities xmi:id="_rmeqY7-4Ed2kBLlxbpHxBg" name="A">
+          <ownedReferences xmi:id="_rmeqZL-4Ed2kBLlxbpHxBg" name="b" isComposite="true" type="_rmeqZb-4Ed2kBLlxbpHxBg"/>
+        </entities>
+        <entities xmi:id="_rmeqZb-4Ed2kBLlxbpHxBg" name="B"/>
+      </subblocks>
+    </subblocks>
+    <subblocks xmi:id="_rmeqZr-4Ed2kBLlxbpHxBg" name="associations">
+      <subblocks xmi:id="_rmeqZ7-4Ed2kBLlxbpHxBg" name="uni_directional">
+        <subblocks xmi:id="_rmeqaL-4Ed2kBLlxbpHxBg" name="asso_unidi_one_to_many">
+          <entities xmi:id="_rmeqab-4Ed2kBLlxbpHxBg" name="A">
+            <ownedReferences xmi:id="_rmeqar-4Ed2kBLlxbpHxBg" name="b" multiplicity="0..*" type="_rmeqa7-4Ed2kBLlxbpHxBg"/>
+          </entities>
+          <entities xmi:id="_rmeqa7-4Ed2kBLlxbpHxBg" name="B"/>
+        </subblocks>
+        <subblocks xmi:id="_rmeqbL-4Ed2kBLlxbpHxBg" name="asso_unidi_one_to_one">
+          <entities xmi:id="_rmeqbb-4Ed2kBLlxbpHxBg" name="A">
+            <ownedReferences xmi:id="_rmeqbr-4Ed2kBLlxbpHxBg" name="b" type="_rmeqb7-4Ed2kBLlxbpHxBg"/>
+          </entities>
+          <entities xmi:id="_rmeqb7-4Ed2kBLlxbpHxBg" name="B"/>
+        </subblocks>
+        <subblocks xmi:id="_rmfRcL-4Ed2kBLlxbpHxBg" name="asso_unidi_many_to_one">
+          <entities xmi:id="_rmfRcb-4Ed2kBLlxbpHxBg" name="A">
+            <ownedReferences xmi:id="_rmfRcr-4Ed2kBLlxbpHxBg" name="b" type="_rmfRc7-4Ed2kBLlxbpHxBg"/>
+          </entities>
+          <entities xmi:id="_rmfRc7-4Ed2kBLlxbpHxBg" name="B">
+            <ownedReferences xmi:id="_rmfRdL-4Ed2kBLlxbpHxBg" name="a" multiplicity="0..*" oppositeOf="_rmfRcr-4Ed2kBLlxbpHxBg" type="_rmfRcb-4Ed2kBLlxbpHxBg" navigable="false"/>
+          </entities>
+        </subblocks>
+        <subblocks xmi:id="_rmfRdb-4Ed2kBLlxbpHxBg" name="asso_unidi_many_to_many">
+          <entities xmi:id="_rmfRdr-4Ed2kBLlxbpHxBg" name="A">
+            <ownedReferences xmi:id="_rmfRd7-4Ed2kBLlxbpHxBg" name="b" multiplicity="0..*" type="_rmfReL-4Ed2kBLlxbpHxBg"/>
+          </entities>
+          <entities xmi:id="_rmfReL-4Ed2kBLlxbpHxBg" name="B">
+            <ownedReferences xmi:id="_rmfReb-4Ed2kBLlxbpHxBg" name="a" multiplicity="0..*" oppositeOf="_rmfRd7-4Ed2kBLlxbpHxBg" type="_rmfRdr-4Ed2kBLlxbpHxBg" navigable="false"/>
+          </entities>
+        </subblocks>
+      </subblocks>
+      <subblocks xmi:id="_rmfRer-4Ed2kBLlxbpHxBg" name="bi_directional">
+        <subblocks xmi:id="_rmfRe7-4Ed2kBLlxbpHxBg" name="asso_bidi_one_to_many">
+          <entities xmi:id="_rmfRfL-4Ed2kBLlxbpHxBg" name="A">
+            <ownedReferences xmi:id="_rmf4gL-4Ed2kBLlxbpHxBg" name="b" multiplicity="0..*" type="_rmf4gb-4Ed2kBLlxbpHxBg"/>
+          </entities>
+          <entities xmi:id="_rmf4gb-4Ed2kBLlxbpHxBg" name="B">
+            <ownedReferences xmi:id="_rmf4gr-4Ed2kBLlxbpHxBg" name="a" oppositeOf="_rmf4gL-4Ed2kBLlxbpHxBg" type="_rmfRfL-4Ed2kBLlxbpHxBg"/>
+          </entities>
+        </subblocks>
+        <subblocks xmi:id="_rmf4g7-4Ed2kBLlxbpHxBg" name="asso_bidi_many_to_many">
+          <entities xmi:id="_rmf4hL-4Ed2kBLlxbpHxBg" name="A">
+            <ownedReferences xmi:id="_rmf4hb-4Ed2kBLlxbpHxBg" name="b" multiplicity="0..*" type="_rmf4hr-4Ed2kBLlxbpHxBg"/>
+          </entities>
+          <entities xmi:id="_rmf4hr-4Ed2kBLlxbpHxBg" name="B">
+            <ownedReferences xmi:id="_rmf4h7-4Ed2kBLlxbpHxBg" name="a" multiplicity="0..*" oppositeOf="_rmf4hb-4Ed2kBLlxbpHxBg" type="_rmf4hL-4Ed2kBLlxbpHxBg"/>
+          </entities>
+        </subblocks>
+        <subblocks xmi:id="_rmf4iL-4Ed2kBLlxbpHxBg" name="asso_bidi_one_to_one">
+          <entities xmi:id="_rmf4ib-4Ed2kBLlxbpHxBg" name="A">
+            <ownedReferences xmi:id="_rmf4ir-4Ed2kBLlxbpHxBg" name="b" oppositeOf="_rmf4jL-4Ed2kBLlxbpHxBg" type="_rmf4i7-4Ed2kBLlxbpHxBg"/>
+          </entities>
+          <entities xmi:id="_rmf4i7-4Ed2kBLlxbpHxBg" name="B">
+            <ownedReferences xmi:id="_rmf4jL-4Ed2kBLlxbpHxBg" name="a" oppositeOf="_rmf4ir-4Ed2kBLlxbpHxBg" type="_rmf4ib-4Ed2kBLlxbpHxBg"/>
+          </entities>
+        </subblocks>
+        <subblocks xmi:id="_rmgfkL-4Ed2kBLlxbpHxBg" name="asso_bidi_many_to_one">
+          <entities xmi:id="_rmgfkb-4Ed2kBLlxbpHxBg" name="A">
+            <ownedReferences xmi:id="_rmgfkr-4Ed2kBLlxbpHxBg" name="b" type="_rmgfk7-4Ed2kBLlxbpHxBg"/>
+          </entities>
+          <entities xmi:id="_rmgfk7-4Ed2kBLlxbpHxBg" name="B">
+            <ownedReferences xmi:id="_rmgflL-4Ed2kBLlxbpHxBg" name="a" multiplicity="0..*" oppositeOf="_rmgfkr-4Ed2kBLlxbpHxBg" type="_rmgfkb-4Ed2kBLlxbpHxBg"/>
+          </entities>
+        </subblocks>
+      </subblocks>
+    </subblocks>
+  </blocks>
+  <blocks xmi:id="_rmgflb-4Ed2kBLlxbpHxBg" name="inheritence">
+    <subblocks xmi:id="_rmgflr-4Ed2kBLlxbpHxBg" name="table_per_hierarchy">
+      <entities xmi:id="_rmgfl7-4Ed2kBLlxbpHxBg" name="Root" inheritanceKind="TABLE_PER_CLASS_HIERARCHY">
+        <ownedAttributes xmi:id="_rmhtsL-4Ed2kBLlxbpHxBg" name="name" multiplicity="1">
+          <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </entities>
+      <entities xmi:id="_rmiUwL-4Ed2kBLlxbpHxBg" name="C1" supertype="_rmgfl7-4Ed2kBLlxbpHxBg">
+        <ownedAttributes xmi:id="_rmiUwb-4Ed2kBLlxbpHxBg" name="a1">
+          <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </entities>
+      <entities xmi:id="_rmiUwr-4Ed2kBLlxbpHxBg" name="C2" supertype="_rmgfl7-4Ed2kBLlxbpHxBg">
+        <ownedAttributes xmi:id="_rmi70L-4Ed2kBLlxbpHxBg" name="a2">
+          <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </entities>
+    </subblocks>
+    <subblocks xmi:id="_rmi70b-4Ed2kBLlxbpHxBg" name="table_per_subclass">
+      <entities xmi:id="_rmi70r-4Ed2kBLlxbpHxBg" name="Root">
+        <ownedAttributes xmi:id="_rmi707-4Ed2kBLlxbpHxBg" name="name">
+          <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </entities>
+      <entities xmi:id="_rmi71L-4Ed2kBLlxbpHxBg" name="C1" supertype="_rmi70r-4Ed2kBLlxbpHxBg">
+        <ownedAttributes xmi:id="_rmi71b-4Ed2kBLlxbpHxBg" name="a1">
+          <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </entities>
+      <entities xmi:id="_rmi71r-4Ed2kBLlxbpHxBg" name="C2" supertype="_rmi70r-4Ed2kBLlxbpHxBg">
+        <ownedAttributes xmi:id="_rmi717-4Ed2kBLlxbpHxBg" name="a2">
+          <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </entities>
+    </subblocks>
+  </blocks>
+  <blocks xmi:id="_rmi72L-4Ed2kBLlxbpHxBg" name="attributes">
+    <entities xmi:id="_rmi72b-4Ed2kBLlxbpHxBg" name="Cardinality">
+      <ownedAttributes xmi:id="_rmi72r-4Ed2kBLlxbpHxBg" name="one" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rmi727-4Ed2kBLlxbpHxBg" name="zeroOrOne">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rmji4L-4Ed2kBLlxbpHxBg" name="oneOrMany" multiplicity="1..*">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rmji4b-4Ed2kBLlxbpHxBg" name="zeroOrMany" multiplicity="0..*">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_rmji4r-4Ed2kBLlxbpHxBg" name="PrimitiveType">
+      <ownedAttributes xmi:id="_rmji47-4Ed2kBLlxbpHxBg" name="stringAttribute">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rmji5L-4Ed2kBLlxbpHxBg" name="integerAttribute">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rmji5b-4Ed2kBLlxbpHxBg" name="booleanAttribute">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rmji5r-4Ed2kBLlxbpHxBg" name="doubleAttribute">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rmji57-4Ed2kBLlxbpHxBg" name="emailAttribute">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EqwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rmji6L-4Ed2kBLlxbpHxBg" name="dateAttribute">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rmji6b-4Ed2kBLlxbpHxBg" name="floatAttribute">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5GlIKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rmkJ8L-4Ed2kBLlxbpHxBg" name="longAttribute">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+    </entities>
+  </blocks>
+</oent:Root>

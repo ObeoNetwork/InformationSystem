@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.inheritance.ClassA1" 
+    	table="CLASS_A1"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="a1">
+            <column name="A1"/>
+        </property>
+
+
+		<!-- Associations -->
+
+
+		<!-- Inheritance -->
+
+
+		<joined-subclass
+			name="org.obeonetwork.sample.inheritance.ClassA2" 
+    		table="CLASS_A2"
+    	dynamic-update="true">
+    		
+    		<key column="FK_INHERITS_CLASS_A1_ID"/>
+    		
+			<!-- Properties -->
+        <property name="a2">
+            <column name="A2"/>
+        </property>
+
+
+			<!-- Associations -->
+
+
+			<!-- Inheritance -->
+
+		<joined-subclass
+			name="org.obeonetwork.sample.inheritance.ClassA3" 
+    		table="CLASS_A3"
+    	dynamic-update="true">
+    		
+    		<key column="FK_INHERITS_CLASS_A2_ID"/>
+    		
+			<!-- Properties -->
+        <property name="a3">
+            <column name="A3"/>
+        </property>
+
+
+			<!-- Associations -->
+
+
+			<!-- Inheritance -->
+
+    	</joined-subclass>
+
+    	</joined-subclass>
+
+
+
+    </class>
+
+</hibernate-mapping>

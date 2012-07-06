@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ========== Form Bean Definitions ================================== -->
+    <form-beans type="org.apache.struts.action.ActionFormBean">
+		<form-bean name="EcranPrincipalForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.EcranPrincipalForm" />
+		<form-bean name="EcranSecondaireForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.EcranSecondaireForm" />
+		<form-bean name="LabelsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.LabelsForm" />
+		<form-bean name="TextFieldsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.TextFieldsForm" />
+		<form-bean name="ComboBoxesForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.ComboBoxesForm" />
+		<form-bean name="PasswordsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.PasswordsForm" />
+		<form-bean name="CheckBoxesForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.CheckBoxesForm" />
+		<form-bean name="RadioButtonsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.RadioButtonsForm" />
+		<form-bean name="SlideBarsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.SlideBarsForm" />
+		<form-bean name="PushButtonsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.PushButtonsForm" />
+		<form-bean name="ToggleButtonsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.ToggleButtonsForm" />
+		<form-bean name="SimpleButtonsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.SimpleButtonsForm" />
+		<form-bean name="DisplayListsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.DisplayListsForm" />
+		<form-bean name="CanvasForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.CanvasForm" />
+		<form-bean name="LinksForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.LinksForm" />
+		<form-bean name="ProgressBarsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.ProgressBarsForm" />
+		<form-bean name="TextAreasForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.TextAreasForm" />
+		<form-bean name="ActionsForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.ActionsForm" />
+		<form-bean name="AllInOneForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.AllInOneForm" />
+		<form-bean name="CircuitStartForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.CircuitStartForm" />
+		<form-bean name="CircuitReturnForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.CircuitReturnForm" />
+		<form-bean name="LoopForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.LoopForm" />
+		<form-bean name="Many1Form" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.Many1Form" />
+		<form-bean name="Many2Form" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.Many2Form" />
+		<form-bean name="ManyToOneForm" type="org.obeonetwork.sample.ui.scenarioprincipal.forms.ManyToOneForm" />
+	</form-beans>
+
+	<!-- ========== Action Mapping Definitions =============================== -->
+    <action-mappings >
+		<action	path="/scenarioprincipal/ecranprincipal" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="EcranPrincipalForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.EcranPrincipal">
+			<forward name="self" path=".view.EcranPrincipal" />
+			<forward name="ecranSecondaire" path="/pages/scenarioprincipal/ecransecondaire?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/ecransecondaire" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="EcranSecondaireForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.EcranSecondaire">
+			<forward name="self" path=".view.EcranSecondaire" />
+			<forward name="labels" path="/pages/scenarioprincipal/labels?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/labels" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="LabelsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.Labels">
+			<forward name="self" path=".view.Labels" />
+			<forward name="textFields" path="/pages/scenarioprincipal/textfields?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/textfields" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="TextFieldsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.TextFields">
+			<forward name="self" path=".view.TextFields" />
+			<forward name="comboBoxes" path="/pages/scenarioprincipal/comboboxes?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/comboboxes" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="ComboBoxesForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.ComboBoxes">
+			<forward name="self" path=".view.ComboBoxes" />
+			<forward name="passwords" path="/pages/scenarioprincipal/passwords?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/passwords" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="PasswordsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.Passwords">
+			<forward name="self" path=".view.Passwords" />
+			<forward name="checkBoxes" path="/pages/scenarioprincipal/checkboxes?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/checkboxes" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="CheckBoxesForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.CheckBoxes">
+			<forward name="self" path=".view.CheckBoxes" />
+			<forward name="radioButtons" path="/pages/scenarioprincipal/radiobuttons?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/radiobuttons" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="RadioButtonsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.RadioButtons">
+			<forward name="self" path=".view.RadioButtons" />
+			<forward name="slideBars" path="/pages/scenarioprincipal/slidebars?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/slidebars" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="SlideBarsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.SlideBars">
+			<forward name="self" path=".view.SlideBars" />
+			<forward name="pushButtons" path="/pages/scenarioprincipal/pushbuttons?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/pushbuttons" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="PushButtonsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.PushButtons">
+			<forward name="self" path=".view.PushButtons" />
+			<forward name="toggleButtons" path="/pages/scenarioprincipal/togglebuttons?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/togglebuttons" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="ToggleButtonsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.ToggleButtons">
+			<forward name="self" path=".view.ToggleButtons" />
+			<forward name="simpleButtons" path="/pages/scenarioprincipal/simplebuttons?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/simplebuttons" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="SimpleButtonsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.SimpleButtons">
+			<forward name="self" path=".view.SimpleButtons" />
+			<forward name="displayLists" path="/pages/scenarioprincipal/displaylists?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/displaylists" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="DisplayListsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.DisplayLists">
+			<forward name="self" path=".view.DisplayLists" />
+			<forward name="canvas" path="/pages/scenarioprincipal/canvas?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/canvas" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="CanvasForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.Canvas">
+			<forward name="self" path=".view.Canvas" />
+			<forward name="links" path="/pages/scenarioprincipal/links?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/links" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="LinksForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.Links">
+			<forward name="self" path=".view.Links" />
+			<forward name="progressBars" path="/pages/scenarioprincipal/progressbars?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/progressbars" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="ProgressBarsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.ProgressBars">
+			<forward name="self" path=".view.ProgressBars" />
+			<forward name="textAreas" path="/pages/scenarioprincipal/textareas?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/textareas" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="TextAreasForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.TextAreas">
+			<forward name="self" path=".view.TextAreas" />
+			<forward name="actions" path="/pages/scenarioprincipal/actions?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/actions" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="ActionsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.Actions">
+			<forward name="self" path=".view.Actions" />
+			<forward name="allInOne" path="/pages/scenarioprincipal/allinone?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/allinone" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="AllInOneForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.AllInOne">
+			<forward name="self" path=".view.AllInOne" />
+			<forward name="circuitStart" path="/pages/scenarioprincipal/circuitstart?event=init" /> 
+			<forward name="loop" path="/pages/scenarioprincipal/loop?event=init" /> 
+			<forward name="many1" path="/pages/scenarioprincipal/many1?event=init" /> 
+			<forward name="many2" path="/pages/scenarioprincipal/many2?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/circuitstart" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="CircuitStartForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.CircuitStart">
+			<forward name="self" path=".view.CircuitStart" />
+			<forward name="circuitReturn" path="/pages/scenarioprincipal/circuitreturn?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/circuitreturn" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="CircuitReturnForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.CircuitReturn">
+			<forward name="self" path=".view.CircuitReturn" />
+			<forward name="circuitStart" path="/pages/scenarioprincipal/circuitstart?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/loop" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="LoopForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.Loop">
+			<forward name="self" path=".view.Loop" />
+			<forward name="loop" path="/pages/scenarioprincipal/loop?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/many1" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="Many1Form" 
+				scope="request" 
+				validate="false" 
+				input=".view.Many1">
+			<forward name="self" path=".view.Many1" />
+			<forward name="manyToOne" path="/pages/scenarioprincipal/manytoone?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/many2" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="Many2Form" 
+				scope="request" 
+				validate="false" 
+				input=".view.Many2">
+			<forward name="self" path=".view.Many2" />
+			<forward name="manyToOne" path="/pages/scenarioprincipal/manytoone?event=init" /> 
+		</action>
+		<action	path="/scenarioprincipal/manytoone" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="ManyToOneForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.ManyToOne">
+			<forward name="self" path=".view.ManyToOne" />
+		</action>
+	</action-mappings>
+
+</struts-config>

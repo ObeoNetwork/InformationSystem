@@ -1,0 +1,188 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module daoHibernateDirectPackage('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::entity::gen::java::common::common/]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices/]
+[import org::obeonetwork::dsl::entity::gen::java::common::javaVersion/]
+[import org::obeonetwork::dsl::entity::gen::java::common::services::criterionServices/]
+[import org::obeonetwork::dsl::environment::gen::java::common::logger/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::daoHibernateCommon/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::daoCommon/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::common::daoCommon/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoInterfaceDirectPackage/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::datatype/]
+[import org::obeonetwork::dsl::environment::gen::java::common::common/]
+
+[comment ** Generates the full file path for the given block.
+ * @param block the input block.
+ * /]
+[template private fullFilePath(block : Block)]
+[block.pathToMainJava()/]/[block.hibernatePackage().toPath()/]/[block.daoHibernateImpl()/].java
+[/template]
+
+
+[template public generateDaoSpringStrategy(block : Block) ? (block.entities->size() > 0)]
+	[file (block.fullFilePath(), false, 'UTF-8')]
+package [block.hibernatePackage()/];
+
+// [protected ('for import')]
+import java.util.Collection;
+
+[block.loggerImport()/]
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
+[block.importDaoException()/]
+[importHibernateUtil()/]
+[for (it : Entity | block.entities)]
+import [it.entityQualifiedName()/];
+[/for]
+import [block.daoInterfaceQualifiedName()/];
+
+// [/protected]
+
+/**
+ * Implementation of DAO interface [block.daoInterfaceName()/] based on the hibernate
+ * persistence framework.
+ * @see [block.daoInterfaceQualifiedName()/]
+ */
+public class [block.daoHibernateImpl()/] implements [block.daoInterfaceName()/] {
+
+	/**
+     * The logger of this class.
+     */
+	[block.loggerDeclaration(block.getClassName())/]
+
+[for (it : Entity | block.entities)]
+	/**
+	 * Create a new element
+	 * @param [it.DBModificationMethodInputParameterName()/] Element to create.[it.throwCommentDaoException('If an HibernateException occurs.')/]
+     * @see [it.daoInterfaceQualifiedName()/].[it.createMethodName()/]
+     */
+	[it.createMethodSignature()/] {
+		LOG.debug("Create a new [it.DBModificationMethodInputParameterClass()/] entity");
+		[it.tryDaoException()/]
+			Session session = HibernateUtil.currentSession();
+			session.save([it.DBModificationMethodInputParameterName()/]);
+		[it.throwsDaoException()/]
+	}
+
+	/**
+	 * Update an existing element
+	 * @param [it.DBModificationMethodInputParameterName()/]
+     *            Element to update. If the element has an id,it may use it. [it.throwCommentDaoException('If an HibernateException occurs.')/]
+     * @see [it.daoInterfaceQualifiedName()/].[it.updateMethodName()/]
+     */
+	[it.updateMethodSignature()/] {
+		LOG.debug("Update the entity [it.DBModificationMethodInputParameterClass()/] with id =" + [it.DBModificationMethodInputParameterName()/].getId());
+		[it.tryDaoException()/]
+			Session session = HibernateUtil.currentSession();
+			session.update([it.DBModificationMethodInputParameterName()/]);
+		[it.throwsDaoException()/]
+	}
+
+	/**
+	 * Delete an element
+	 * Only id can be used to find which element must be deleted.
+	 * @param [it.DBModificationMethodInputParameterName()/] Element which will be deleted. [it.throwCommentDaoException('If an HibernateException occurs.')/]
+     * @see [it.daoInterfaceQualifiedName()/].[it.deleteMethodName()/]
+   	 */
+	[it.deleteMethodSignature()/] {
+		LOG.debug("Delete the entity [it.DBModificationMethodInputParameterClass()/] with id =" + [it.DBModificationMethodInputParameterName()/].getId());
+		[it.tryDaoException()/]
+			Session session = HibernateUtil.currentSession();
+			session.delete([it.DBModificationMethodInputParameterName()/]);
+		[it.throwsDaoException()/]
+	}
+
+	/**
+	 * Find all elements.
+	 * @return A list with all elements, without any filter. [it.throwCommentDaoException('If an HibernateException occurs.')/]
+     * @see [it.daoInterfaceQualifiedName()/].[it.findAllMethodName()/]
+     */
+	[it.findAllMethodSignature()/] {
+		LOG.debug("Find all instance of [it.findMethodReturnType()/] entity");
+		[it.tryDaoException()/]
+			Session session = HibernateUtil.currentSession();
+			Criteria criteria = session.createCriteria([it.findMethodReturnType()/].class);
+			[it.findAllMethodReturnType()/] resultList = criteria.list();
+			
+			LOG.debug("Found " + resultList.size() + " instances of [it.findMethodReturnType()/] entity");
+			return resultList;
+		[it.throwsDaoException()/]
+	}
+
+	/**
+	 * Find one entity by its primary key.
+     * @param id The PK of the entity
+	 * @return The entity found. [it.throwCommentDaoException('If an HibernateException occurs.')/]
+     * @see [it.daoInterfaceQualifiedName()/].[it.findByIdMethodName()/]
+     */
+	[it.findByIdMethodSignature()/] {
+		LOG.debug("Find one instance of [it.findMethodReturnType()/] entity by id : " + [it.findByIdMethodParameterName()/]);
+		[it.tryDaoException()/]
+			Session session = HibernateUtil.currentSession();
+			Criteria criteria = session.createCriteria([it.findMethodReturnType()/].class)
+				.add(Restrictions.eq("id", [it.findByIdMethodParameterName()/]));
+			[it.findMethodReturnType()/] result = ([it.findMethodReturnType()/])criteria.uniqueResult();
+			
+			return result;
+		[it.throwsDaoException()/]
+	}
+	
+
+[comment  Generate additional methods declaration /]
+	[for (it2 : Finder | it.ownedFinders)]
+	/**
+	 * Find all entities by the attributes [it2.criterions.criterionName()->sep(', ')/]
+		[for (it3 : Criterion | it2.criterions)]
+	 * @param [it3.criterionName()/] 
+		[/for]
+	 * @return A collection with all matching entities.
+	 */
+	[it2.methodSignature()/] {		
+		LOG.debug("Call [it2.name/] on [it2.entity.name/] entity");		
+		[it2.tryDaoException()/]
+			Session session = HibernateUtil.currentSession();
+			[it2.methodReturnType()/] resultList;
+			// [protected ('for ' + it2.name + ' finder')]
+			[if (it2.criterions->filter(ExternalCriterion)->size() = 0)]
+			Criteria criteria = session.createCriteria([it2.seachedType()/].class)[for (it3 : InternalCriterion | it2.criterions->filter(InternalCriterion))]
+
+				.add(Restrictions.eq("[it3.target.name.toStandardNotation()/]", [it3.parameterName()/]))[/for];
+
+			resultList = criteria.list();
+			[/if]		
+			// [/protected]
+			LOG.debug("Find " + resultList.size() + " instances of [it2.name/] entity");
+			return resultList;
+		[it2.throwsDaoException()/]
+	}
+	
+	[/for]
+[/for]
+	//[protected (' ')]
+	//[/protected]
+}['\n'/]
+	[/file]
+[/template]
+
+[comment ** Generates the class name for the given block.
+ * @param block the input block.
+ * /]
+[template public getClassName(block : Block)]
+[block.daoHibernateImpl()/]
+[/template]

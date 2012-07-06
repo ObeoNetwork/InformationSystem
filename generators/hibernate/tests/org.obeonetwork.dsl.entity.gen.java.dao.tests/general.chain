@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<chain:Chain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:chain="http://www.obeo.fr/acceleo/chain">
+  <repository/>
+  <actions>
+    <actions xsi:type="chain:ChainCall" documentation="api" chainPath="/org.obeonetwork.dsl.entity.gen.java.dao.tests/dao.api.chain"/>
+    <actions xsi:type="chain:ChainCall" documentation="jdbc" chainPath="/org.obeonetwork.dsl.entity.gen.java.dao.tests/dao.jdbc.chain"/>
+    <actions xsi:type="chain:ChainCall" documentation="memcache" chainPath="/org.obeonetwork.dsl.entity.gen.java.dao.tests/dao.memcache.chain"/>
+    <actions xsi:type="chain:ChainCall" documentation="mysql" chainPath="/org.obeonetwork.dsl.entity.gen.java.dao.tests/dao.mysql.chain"/>
+  </actions>
+</chain:Chain>

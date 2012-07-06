@@ -1,0 +1,77 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module hibernateEntityDaoJUnit('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common/]
+[import org::obeonetwork::dsl::entity::gen::java::common::requests::requests/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::junit::hibernateDaoJUnit/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::daoHibernateCommon/]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices/]
+
+[comment TODO put in common with hibernateDaoJUnit /]
+
+[comment ** Generates the DAOName for the given block. 
+ * @param block the input block.
+ * /]
+[template public DAOName(block : Block)]
+[block.name.toStandardNotation()/]Dao
+[/template]
+
+[comment ** Get the DAOScope for the given element.
+ * override
+ * @param element the input element.
+ * /]
+[query public DAOScope(element : EObject) : Entity =
+if element.oclIsKindOf(Entity) then
+	element.oclAsType(Entity)
+else
+	null
+endif
+/]
+
+[comment ** Get the scoped Entities for the given entity.
+ * override
+ * @param entity the input entity.
+ * /]
+[query public scopedEntities(entity : Entity) : Entity =
+	entity
+/]
+
+[comment ** Get the external DAOs for the given entity.
+ * override
+ * @param entity the input entity.
+ * /]
+[query public externalDAOs(entity : Entity) : Sequence(Entity) =
+	entity.references->select(r : Reference | r.isMandatory() and r.isNavigable()).type
+/]
+
+[comment ** Generates the DAOName for the given block.
+ * override
+ * @param block the input block.
+ * /]
+[template public DAOName(entity : Entity)]
+[entity.name.toStandardNotation().toLowerFirst()/]Dao
+[/template]
+
+[comment ** Generates the hibernate DAO JUnit File Path for the given entity.
+ * override
+ * @param entity the input entity.
+ * /]
+[template public hibernateDAOJUnitFilePath(anEntity : Entity)]
+[anEntity.pathToTestJava()/]/[anEntity.hibernateTestPackage().toPath()/]/[anEntity.name.toStandardNotation().toUpperFirst()/]Test.java  
+[/template]
+
+[template public hibernateDaoJUnit(anEntity : Entity) ? (getProperty('generate.tests') = 'yes')]
+[file (anEntity.hibernateDAOJUnitFilePath(), false, 'UTF-8')]
+[anEntity.generate()/]
+[/file]
+[/template]

@@ -1,0 +1,78 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module structure('http://www.obeonetwork.org/dsl/soa/2.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+
+[import org::obeonetwork::dsl::soa::gen::java::spring::common::names/]
+
+[comment =========================== General naming =========================== /]
+
+[comment ** Generates the return type of the given Operation.
+ * @param operation input Operation.
+ * /]
+[template public generateReturn(operation : Operation) post(trim())]
+[if (operation.output->size()=0)]
+void	
+[elseif (operation.output->size()>1)]
+[operation.output.parametertTypeName()/]
+[else]
+[operation.output->first().parametertTypeName()/]
+[/if]
+[/template]
+
+[comment ** Generates the type statement of the given Parameter.
+ * @param parameter input Parameter.
+ * /]
+[template public parametertTypeName(parameter : Parameter) post(trim())]
+[if (parameter.type->filter(ServiceDTO)->size()>0)]
+	[if (parameter.upper=-1)]
+        Collection<[parameter.type.oclAsType(ServiceDTO).serviceDtoName()/]>
+    [else]
+        [parameter.type.oclAsType(ServiceDTO).serviceDtoName()/]     		
+	[/if]	
+[else]
+	[if (parameter.upper=-1)]
+		Collection<[parameter.type.name/]>
+	[else]
+		[parameter.type.name/]	
+	[/if]
+[/if]
+[/template]
+
+[comment ** Generates the parameters statement of the given Operation.
+ * @param operation input Operation.
+ * /]
+[template public generateParameters(operation : Operation) post(trim())]
+[operation.input.genVariableDeclaration()->sep(', ')/]
+[/template]
+
+[comment ** Generates the return statement of the given Operation.
+ * @param operation input Operation.
+ * /]
+[template public genDummyReturn(operation : Operation) post(trim())]
+[if (operation.output->first()->size()>0)]
+	[if (operation.output->first().type.name.equalsIgnoreCase('Boolean'))]
+		return false;
+	[else]
+		return null;
+	[/if]
+[/if]
+[/template]
+
+[comment ** Generates the variable declararion statement of the given Parameter.
+ * @param parameter input Parameter.
+ * /]
+[template public genVariableDeclaration(parameter : Parameter)]
+[parameter.parametertTypeName()/] [parameter.name.toLowerFirst()/]
+[/template]

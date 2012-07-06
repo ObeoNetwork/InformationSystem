@@ -1,0 +1,120 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module common('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+
+[comment ** Generates the name of the given EObject.
+ * This use EMF's EObjects introspection ability.
+ * @param element the element to display the name.  
+ */]
+[template public getName(element : EObject)]
+[element.eGet(element.eClass().eAllStructuralFeatures->select(f : EStructuralFeature | f.name = 'name')->first())/]
+[/template]
+
+[comment ** Generates the first segments of java packages. 
+ * Behaviour of this template can be defined by the property 'useModelAsBaseImports' (yes|no).
+ * If 'no' the property 'baseImports' is generated.
+ * @param element the input element to generate the basePackage.
+ */]
+[template public baseImports(element : EObject) post (trim())]
+[if (getProperty('useModelAsBaseImports') = 'yes')]
+	[if (element.eClass().name.startsWith('Root'))]
+		[element.getName()/]
+	[else]
+		[element.ancestors()->last().getName()/]
+	[/if]
+[else]
+	[getProperty('baseImports')/]
+[/if]	
+[/template]
+
+[comment ** Generates the name of the project.
+ * This template generates the value of the 'projectName' property.
+ * @param element the input element.
+ */]
+[template public projectName(element : EObject) post (trim())]
+[getProperty('projectName').toPkgName()/]	
+[/template]
+
+[comment ** Inserts the value of a property after a qualified package.
+ * @param element the input element.
+ * @param key the key of the property to inserts.
+ */]
+[template public insertInPackage(element : EObject, key : String) post (trim())]
+[if (not getProperty(key).oclIsUndefined() and getProperty(key) <> '')]
+.[getProperty(key)/]
+[/if]
+[/template]
+
+[comment ** Generates the 'path.to.main.java' property.
+ * @param element the input element.
+ */]
+[template public pathToMainJava(element : EObject) post (trim())]
+[getProperty('path.to.main.java')/]
+[/template]
+
+[comment ** Generates the 'path.to.test.java' property.
+ * @param element the input element.
+ */]
+[template public pathToTestJava(element : EObject) post (trim())]
+[getProperty('path.to.test.java')/]
+[/template]
+
+[comment ** Generates the 'path.to.main.resources' property.
+ * @param element the input element.
+ */]
+[template public pathToMainResources(element : EObject) post (trim())]
+[getProperty('path.to.main.resources')/]
+[/template]
+
+[comment ** Generates the 'path.to.test.resources' property.
+ * @param element the input element.
+ */]
+[template public pathToTestResources(element : EObject) post (trim())]
+[getProperty('path.to.test.resources')/]
+[/template]
+
+[comment ** Generates the 'path.to.main.webapp' property.
+ * @param element the input element.
+ */]
+[template public pathToMainWebapp(element : EObject) post (trim())]
+[getProperty('path.to.main.webapp')/]
+[/template]
+
+[comment ** Generates the name of the DAO Exception.
+ * @param element the input element.
+ */]
+[template public daoExceptionName(element : EObject) post (trim())]
+[getProperty('daoException.name')/]
+[/template]
+
+[comment ** Generates the package of the DAO Exception.
+ * @param element the input element.
+ */]
+[template public daoExceptionPackage(element : EObject) post (trim())]
+[getProperty('daoException.package')/]
+[/template]
+
+[comment ** Generates the qualified name of the DAO Exception.
+ * @param element the input element.
+ */]
+[template public daoExceptionQualifiedName(element : EObject) post (trim())]
+[element.daoExceptionPackage()/].[element.daoExceptionName()/]
+[/template]
+
+[comment ** Generates the 'dao.exception.strategy' property.
+ * @param element the input element.
+ */]
+[template public daoExceptionStrategy(element : EObject) post (trim())]
+[getProperty('dao.exception.strategy')/]	
+[/template]

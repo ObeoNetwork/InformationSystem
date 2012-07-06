@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="Cp1252"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmi:id="_Ew-WwKybEd2Mj_nI6TDo3Q">
+  <blocks xmi:id="_Ew-WwaybEd2Mj_nI6TDo3Q" name="inheritance_associations">
+    <entities xmi:id="_Ew-WwqybEd2Mj_nI6TDo3Q" name="Class_01_01">
+      <ownedAttributes xmi:id="_Ew-Ww6ybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_Ew-90KybEd2Mj_nI6TDo3Q" name="target" oppositeOf="_Ew-906ybEd2Mj_nI6TDo3Q" type="_Ew-90aybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_Ew-90aybEd2Mj_nI6TDo3Q" name="Class_01_01_END">
+      <ownedAttributes xmi:id="_Ew-90qybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_Ew-906ybEd2Mj_nI6TDo3Q" name="source" oppositeOf="_Ew-90KybEd2Mj_nI6TDo3Q" type="_Ew-WwqybEd2Mj_nI6TDo3Q" navigable="false"/>
+    </entities>
+    <entities xmi:id="_Ew-91KybEd2Mj_nI6TDo3Q" name="Class_01_01_BI">
+      <ownedAttributes xmi:id="_Ew-91aybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_Ew_k4KybEd2Mj_nI6TDo3Q" name="target" oppositeOf="_Ew_k46ybEd2Mj_nI6TDo3Q" type="_Ew_k4aybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_Ew_k4aybEd2Mj_nI6TDo3Q" name="Class_01_01_BI_END">
+      <ownedAttributes xmi:id="_Ew_k4qybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_Ew_k46ybEd2Mj_nI6TDo3Q" name="source" oppositeOf="_Ew_k4KybEd2Mj_nI6TDo3Q" type="_Ew-91KybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_Ew_k5KybEd2Mj_nI6TDo3Q" name="Class_1_01">
+      <ownedAttributes xmi:id="_Ew_k5aybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExAL8KybEd2Mj_nI6TDo3Q" name="target" oppositeOf="_ExAL86ybEd2Mj_nI6TDo3Q" type="_ExAL8aybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExAL8aybEd2Mj_nI6TDo3Q" name="Class_1_01_END">
+      <ownedAttributes xmi:id="_ExAL8qybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExAL86ybEd2Mj_nI6TDo3Q" name="source" multiplicity="1" oppositeOf="_ExAL8KybEd2Mj_nI6TDo3Q" type="_Ew_k5KybEd2Mj_nI6TDo3Q" navigable="false"/>
+    </entities>
+    <entities xmi:id="_ExAL9KybEd2Mj_nI6TDo3Q" name="Class_1_01_BI">
+      <ownedReferences xmi:id="_ExAL9aybEd2Mj_nI6TDo3Q" name="target" oppositeOf="_ExAzAaybEd2Mj_nI6TDo3Q" type="_ExAzAKybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExAzAKybEd2Mj_nI6TDo3Q" name="Class_1_01_BI_END">
+      <ownedReferences xmi:id="_ExAzAaybEd2Mj_nI6TDo3Q" name="source" multiplicity="1" oppositeOf="_ExAL9aybEd2Mj_nI6TDo3Q" type="_ExAL9KybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExAzAqybEd2Mj_nI6TDo3Q" name="Class_01_1">
+      <ownedAttributes xmi:id="_ExAzA6ybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExAzBKybEd2Mj_nI6TDo3Q" name="target" multiplicity="1" oppositeOf="_ExBaEKybEd2Mj_nI6TDo3Q" type="_ExAzBaybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExAzBaybEd2Mj_nI6TDo3Q" name="Class_01_1_END">
+      <ownedAttributes xmi:id="_ExAzBqybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExBaEKybEd2Mj_nI6TDo3Q" name="source" oppositeOf="_ExAzBKybEd2Mj_nI6TDo3Q" type="_ExAzAqybEd2Mj_nI6TDo3Q" navigable="false"/>
+    </entities>
+    <entities xmi:id="_ExBaEaybEd2Mj_nI6TDo3Q" name="Class_01_1_BI">
+      <ownedAttributes xmi:id="_ExBaEqybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExBaE6ybEd2Mj_nI6TDo3Q" name="target" multiplicity="1" oppositeOf="_ExCBIKybEd2Mj_nI6TDo3Q" type="_ExBaFKybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExBaFKybEd2Mj_nI6TDo3Q" name="Class_01_1_BI_END">
+      <ownedAttributes xmi:id="_ExBaFaybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExCBIKybEd2Mj_nI6TDo3Q" name="source" oppositeOf="_ExBaE6ybEd2Mj_nI6TDo3Q" type="_ExBaEaybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExCBIaybEd2Mj_nI6TDo3Q" name="Class_1_1">
+      <ownedAttributes xmi:id="_ExCBIqybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExCBI6ybEd2Mj_nI6TDo3Q" name="target" multiplicity="1" oppositeOf="_ExCoMaybEd2Mj_nI6TDo3Q" type="_ExCBJKybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExCBJKybEd2Mj_nI6TDo3Q" name="Class_1_1_END">
+      <ownedAttributes xmi:id="_ExCoMKybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExCoMaybEd2Mj_nI6TDo3Q" name="source" multiplicity="1" oppositeOf="_ExCBI6ybEd2Mj_nI6TDo3Q" type="_ExCBIaybEd2Mj_nI6TDo3Q" navigable="false"/>
+    </entities>
+    <entities xmi:id="_ExCoMqybEd2Mj_nI6TDo3Q" name="Class_1_1_BI">
+      <ownedAttributes xmi:id="_ExCoM6ybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExCoNKybEd2Mj_nI6TDo3Q" name="target" multiplicity="1" oppositeOf="_ExDPQaybEd2Mj_nI6TDo3Q" type="_ExCoNaybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExCoNaybEd2Mj_nI6TDo3Q" name="Class_1_1_BI_END">
+      <ownedAttributes xmi:id="_ExDPQKybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExDPQaybEd2Mj_nI6TDo3Q" name="source" multiplicity="1" oppositeOf="_ExCoNKybEd2Mj_nI6TDo3Q" type="_ExCoMqybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExDPQqybEd2Mj_nI6TDo3Q" name="Class_01_Many">
+      <ownedAttributes xmi:id="_ExDPQ6ybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExDPRKybEd2Mj_nI6TDo3Q" name="target" multiplicity="0..*" oppositeOf="_ExD2UaybEd2Mj_nI6TDo3Q" type="_ExDPRaybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExDPRaybEd2Mj_nI6TDo3Q" name="Class_01_Many_END">
+      <ownedAttributes xmi:id="_ExD2UKybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExD2UaybEd2Mj_nI6TDo3Q" name="source" oppositeOf="_ExDPRKybEd2Mj_nI6TDo3Q" type="_ExDPQqybEd2Mj_nI6TDo3Q" navigable="false"/>
+    </entities>
+    <entities xmi:id="_ExD2UqybEd2Mj_nI6TDo3Q" name="Class_01_Many_BI">
+      <ownedAttributes xmi:id="_ExD2U6ybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExD2VKybEd2Mj_nI6TDo3Q" name="target" multiplicity="0..*" oppositeOf="_ExEdYaybEd2Mj_nI6TDo3Q" type="_ExD2VaybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExD2VaybEd2Mj_nI6TDo3Q" name="Class_01_Many_BI_END">
+      <ownedAttributes xmi:id="_ExEdYKybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExEdYaybEd2Mj_nI6TDo3Q" name="source" oppositeOf="_ExD2VKybEd2Mj_nI6TDo3Q" type="_ExD2UqybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExEdYqybEd2Mj_nI6TDo3Q" name="Class_Many_01">
+      <ownedAttributes xmi:id="_ExEdY6ybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExFEcKybEd2Mj_nI6TDo3Q" name="target" type="_ExFEcaybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExFEcaybEd2Mj_nI6TDo3Q" name="Class_Many_01_END">
+      <ownedAttributes xmi:id="_ExFEcqybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_ExFEc6ybEd2Mj_nI6TDo3Q" name="Class_Many_01_BI">
+      <ownedAttributes xmi:id="_ExFrgKybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExFrgaybEd2Mj_nI6TDo3Q" name="target" oppositeOf="_ExFrhKybEd2Mj_nI6TDo3Q" type="_ExFrgqybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExFrgqybEd2Mj_nI6TDo3Q" name="Class_Many_01_BI_END">
+      <ownedAttributes xmi:id="_ExFrg6ybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExFrhKybEd2Mj_nI6TDo3Q" name="source" multiplicity="0..*" oppositeOf="_ExFrgaybEd2Mj_nI6TDo3Q" type="_ExFEc6ybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExFrhaybEd2Mj_nI6TDo3Q" name="Class_Many_Many">
+      <ownedAttributes xmi:id="_ExGSkKybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExGSkaybEd2Mj_nI6TDo3Q" name="target" multiplicity="0..*" type="_ExGSkqybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExGSkqybEd2Mj_nI6TDo3Q" name="Class_Many_Many_End">
+      <ownedAttributes xmi:id="_ExGSk6ybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_ExGSlKybEd2Mj_nI6TDo3Q" name="Class_Many_Many_BI">
+      <ownedAttributes xmi:id="_ExGSlaybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExG5oKybEd2Mj_nI6TDo3Q" name="target2" multiplicity="0..*" oppositeOf="_ExG5o6ybEd2Mj_nI6TDo3Q" type="_ExG5oaybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExG5oaybEd2Mj_nI6TDo3Q" name="Class_Many_Many_BI_END">
+      <ownedAttributes xmi:id="_ExG5oqybEd2Mj_nI6TDo3Q" name="fakeAttr" multiplicity="1">
+        <type href="../../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_ExG5o6ybEd2Mj_nI6TDo3Q" name="source2" multiplicity="0..*" oppositeOf="_ExG5oKybEd2Mj_nI6TDo3Q" type="_ExGSlKybEd2Mj_nI6TDo3Q"/>
+    </entities>
+    <entities xmi:id="_ExG5pKybEd2Mj_nI6TDo3Q" name="Class_01_01_END_Sub" supertype="_Ew-90aybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExG5paybEd2Mj_nI6TDo3Q" name="Class_01_01_BI_END_Sub" supertype="_Ew_k4aybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExG5pqybEd2Mj_nI6TDo3Q" name="Class_1_01_End_Sub" supertype="_ExAL8aybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExHgsKybEd2Mj_nI6TDo3Q" name="Class_1_01_BI_END_Sub" supertype="_ExAzAKybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExHgsaybEd2Mj_nI6TDo3Q" name="Class_01_1_END_Sub" supertype="_ExAzBaybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExHgsqybEd2Mj_nI6TDo3Q" name="Class_01_1_Bi_END_Sub" supertype="_ExBaFKybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExHgs6ybEd2Mj_nI6TDo3Q" name="Class_1_1_END_Sub" supertype="_ExCBJKybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExHgtKybEd2Mj_nI6TDo3Q" name="Class_1_1_BI_END_Sub" supertype="_ExCoNaybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExHgtaybEd2Mj_nI6TDo3Q" name="Class_01_Many_END_Sub" supertype="_ExDPRaybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExHgtqybEd2Mj_nI6TDo3Q" name="Class_01_Many_BI_END_Sub" supertype="_ExD2VaybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIHwKybEd2Mj_nI6TDo3Q" name="Class_Many_01_END_Sub" supertype="_ExFEcaybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIHwaybEd2Mj_nI6TDo3Q" name="Class_Many_01_BI_END_Sub" supertype="_ExFrgqybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIHwqybEd2Mj_nI6TDo3Q" name="Class_Many_Many_End_Sub" supertype="_ExGSkqybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIHw6ybEd2Mj_nI6TDo3Q" name="Class_Many_Many_BI_END_Sub" supertype="_ExG5oaybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIHxKybEd2Mj_nI6TDo3Q" name="Class_01_01_Sub" supertype="_Ew-WwqybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIHxaybEd2Mj_nI6TDo3Q" name="Class_01_01_BI_Sub" supertype="_Ew-91KybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIHxqybEd2Mj_nI6TDo3Q" name="Class_1_01_Sub" supertype="_Ew_k5KybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIHx6ybEd2Mj_nI6TDo3Q" name="Class_1_01_BI_Sub" supertype="_ExAL9KybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIu0KybEd2Mj_nI6TDo3Q" name="Class_01_1_Sub" supertype="_ExAzAqybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIu0aybEd2Mj_nI6TDo3Q" name="Class_01_1_BI_Sub" supertype="_ExBaEaybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIu0qybEd2Mj_nI6TDo3Q" name="Class_1_1_Sub" supertype="_ExCBIaybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIu06ybEd2Mj_nI6TDo3Q" name="Class_1_1_BI_Sub" supertype="_ExCoMqybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIu1KybEd2Mj_nI6TDo3Q" name="Class_01_Many_Sub" supertype="_ExDPQqybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIu1aybEd2Mj_nI6TDo3Q" name="Class_01_Many_BI_Sub" supertype="_ExD2UqybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExIu1qybEd2Mj_nI6TDo3Q" name="Class_Many_01_Sub" supertype="_ExEdYqybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExJV4KybEd2Mj_nI6TDo3Q" name="Class_Many_01_BI_Sub" supertype="_ExFEc6ybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExJV4aybEd2Mj_nI6TDo3Q" name="Class_Many_Many_Sub" supertype="_ExFrhaybEd2Mj_nI6TDo3Q"/>
+    <entities xmi:id="_ExJV4qybEd2Mj_nI6TDo3Q" name="Class_Many_Many_BI_Sub" supertype="_ExGSlKybEd2Mj_nI6TDo3Q"/>
+  </blocks>
+</oent:Root>

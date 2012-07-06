@@ -1,0 +1,180 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module daoHibernateDirectSpringStrategy('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::entity::gen::java::common::common/]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices/]
+[import org::obeonetwork::dsl::entity::gen::java::common::javaVersion/]
+[import org::obeonetwork::dsl::entity::gen::java::common::services::criterionServices/]
+[import org::obeonetwork::dsl::environment::gen::java::common::logger/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::daoHibernateCommon/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::daoCommon/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::common::daoCommon/]
+[import org::obeonetwork::dsl::environment::gen::java::common::datatype/]
+[import org::obeonetwork::dsl::environment::gen::java::common::common/]
+
+[comment ** Generates the full file path for the given entity.
+ * @param entity the input entity.
+ * /]
+[template public fullFilePath(entity : Entity)]
+[entity.pathToMainJava()/]/[entity.hibernatePackage().toPath()/]/Hibernate[entity.name.toStandardNotation().toUpperFirst()/]Dao.java
+[/template]
+
+[template public generateDaoSpringStrategy(entity : Entity)]
+	[file (entity.fullFilePath(), false, 'UTF-8')]
+package [entity.hibernatePackage()/];
+
+// [protected ('for import')]
+import java.util.Collection;
+
+[entity.loggerImport()/]
+[if (entity.ownedFinders->select(criterions->filter(ExternalCriterion)->size() = 0)->size()>0)]import org.hibernate.Criteria;
+[/if]
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+import org.sharengo.orm.hibernate.AbstractHibernateDAO;
+
+[entity.importDaoException()/]
+import [entity.entityQualifiedName()/];
+import [entity.daoInterfaceQualifiedName()/];
+
+// [/protected]
+
+/**
+ * Implementation of DAO interface [entity.daoInterfaceName()/] based on the hibernate
+ * persistence framework.
+ * @see [entity.daoInterfaceQualifiedName()/]
+ */
+public class Hibernate[entity.name.toStandardNotation().toUpperFirst()/]Dao extends AbstractHibernateDAO[entity.toJavaVersion(entity.name.toStandardNotation().toUpperFirst())/] implements I[entity.name.toStandardNotation().toUpperFirst()/]Dao {
+
+	/**
+     * The logger of this class.
+     */
+	[entity.loggerDeclaration(entity.getClassName())/]
+
+	/**
+	 * Create a new element
+	 * @param [entity.name.toLowerFirst()/] Element to create.[entity.throwCommentDaoException('If an HibernateException occurs.')/]
+     * @see [entity.daoInterfaceQualifiedName()/].create[entity.name/]
+     */
+	public void create[entity.name.toStandardNotation()/](final [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/])[entity.throwDaoException()/] {
+		LOG.debug("Create a new [entity.name.toStandardNotation()/] entity");
+		[entity.tryDaoException()/]
+			getHibernateTemplate().save([entity.name.toStandardNotation().toLowerFirst()/]);
+			getHibernateTemplate().flush();
+		[entity.throwsDaoException()/]
+	}
+
+	/**
+	 * Update an existing element
+	 * @param [entity.name.toLowerFirst()/]
+     *            Element to update. If the element has an id,it may use it. [entity.throwCommentDaoException('If an HibernateException occurs.')/]
+     * @see [entity.daoInterfaceQualifiedName()/].update[entity.name/]
+     */
+	public void update[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/])[entity.throwDaoException()/] {
+		LOG.debug("Update the entity [entity.name/] with id =" + [entity.name.toStandardNotation().toLowerFirst()/].getId());
+		[entity.tryDaoException()/]
+			getHibernateTemplate().update([entity.name.toStandardNotation().toLowerFirst()/]);
+			getHibernateTemplate().flush();
+		[entity.throwsDaoException()/]
+	}
+
+	/**
+	 * Delete an element
+	 * Only id can be used to find which element must be deleted.
+	 * @param [entity.name.toLowerFirst()/] Element which will be deleted. [entity.throwCommentDaoException('If an HibernateException occurs.')/]
+     * @see [entity.daoInterfaceQualifiedName()/].delete[entity.name/]
+   	 */
+	public void delete[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/])[entity.throwDaoException()/] {
+		LOG.debug("Delete the entity [entity.name/] with id =" + [entity.name.toStandardNotation().toLowerFirst()/].getId());
+		[entity.tryDaoException()/]
+			getHibernateTemplate().delete([entity.name.toStandardNotation().toLowerFirst()/]);
+			getHibernateTemplate().flush();
+		[entity.throwsDaoException()/]
+	}
+
+	/**
+	 * Find all elements.
+	 * @return A list with all elements, without any filter. [entity.throwCommentDaoException('If an HibernateException occurs.')/]
+     * @see [entity.daoInterfaceQualifiedName()/].findAll[entity.name/]s
+     */
+	public Collection[entity.toJavaVersion(name.toStandardNotation().toUpperFirst())/] findAll[entity.name.toStandardNotation()/]s()[entity.throwDaoException()/] {
+		LOG.debug("Find all instance of [entity.name/] entity");
+		[entity.tryDaoException()/]
+			Collection[entity.toJavaVersion(entity.name.toStandardNotation().toUpperFirst())/] resultList = getHibernateTemplate().loadAll([entity.name.toStandardNotation().toUpperFirst()/].class);
+			LOG.debug("Found " + resultList.size() + " instances of [entity.name/] entity");
+			return resultList;
+		[entity.throwsDaoException()/]
+	}
+
+	/**
+	 * Find one entity by its primary key.
+     * @param id The PK of the entity
+	 * @return The entity found. [entity.throwCommentDaoException('If an HibernateException occurs.')/]
+     * @see [entity.daoInterfaceQualifiedName()/].find[entity.name/]ById
+     */
+	public [entity.name.toStandardNotation().toUpperFirst()/] find[entity.name.toStandardNotation()/]ById(String id)[entity.throwDaoException()/] {
+		LOG.debug("Find one instance of [entity.name/] entity by id : " + id);
+		[entity.tryDaoException()/]
+			return ([name.toStandardNotation().toUpperFirst()/]) getHibernateTemplate().load([entity.name.toStandardNotation().toUpperFirst()/].class, id);
+		[entity.throwsDaoException()/]
+	}
+	
+
+[comment Generate additional methods declaration /]
+[for (it : Finder | entity.ownedFinders)]
+	/**
+	 * Find all entities by the attributes [it.criterions.criterionName()->sep(', ')/]
+	[for (it2 : Criterion | it.criterions)]
+	 * @param [it2.criterionName()/] 
+	[/for]
+	 * @return A collection with all matching entities.
+	 */
+	public Collection[it.toJavaVersion(it.entity.toJavaType())/] [it.name/]([it.criterions.parameter()->sep(', ')/])[it.throwDaoException()/] {		
+		LOG.debug("Call [it.name/] on [it.entity.name/] entity");		
+		[it.tryDaoException()/]
+			Collection[it.toJavaVersion(it.entity.name)/] resultList;
+			// [protected ('for ' + it.name + ' finder')]
+			[if (it.criterions->filter(ExternalCriterion)->size() = 0)]
+			Criteria criteria = getSession().createCriteria([it.entity.name/].class)[for (it2 : InternalCriterion | it.criterions->filter(InternalCriterion))]
+
+				.add(Restrictions.eq("[it2.target.name/]", [it2.name.toLowerFirst()/]))[/for];
+
+			resultList = criteria.list();
+			[/if]			
+			// [/protected]
+			LOG.debug("Find " + resultList.size() + " instances of [it.name/] entity");
+			return resultList;
+		[it.throwsDaoException()/]
+	}
+	
+[/for]
+	//[protected (' ')]
+	//[/protected]
+}['\n'/]
+	[/file]
+[/template]
+
+[comment ** Generates a parameter from the given criterion.
+ * @param criterion the input criterion.
+ * /]
+[template public parameter(criterion : Criterion) post(trim())]
+[criterion.criterionType().toJavaType()/] [criterion.criterionName().toLowerFirst()/]
+[/template]
+
+[comment ** Generates the class name for the given entity.
+ * @param entity the input entity.
+ * /]
+[template public getClassName(entity : Entity)]
+Hibernate[entity.name.toStandardNotation().toUpperFirst()/]Dao
+[/template]

@@ -1,0 +1,87 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module datatype('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::datatype /]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+
+[comment ** Generates the datatype for the given property.
+ * @param property the input property.
+ * /]
+[template public datatype(property : Property)]
+[/template]
+
+[comment ** Generates the given property into java type.
+ * @param property the input property.
+ * /]
+[template public toJavaType(property : Property)]
+[/template]
+
+[comment ** Generates the given attribute into java type.
+ * @param attribute the input attribute.
+ * /]
+[template public toJavaType(attribute : Attribute)]
+[if (attribute.multiplicity = MultiplicityKind::ZERO_STAR or attribute.multiplicity = MultiplicityKind::ONE_STAR)]List[attribute.type.toJavaType()/][else][attribute.type.toJavaType()/][/if]
+[/template]
+
+[comment ** Generates the given reference into java type.
+ * @param reference the input reference.
+ * /]
+[template public toJavaType(reference : Reference)]
+[if (reference.multiplicity = MultiplicityKind::ZERO_STAR or reference.multiplicity = MultiplicityKind::ONE_STAR)]List[reference.type.toJavaType()/][else][reference.type.toJavaType()/][/if]	
+[/template]
+
+[comment ** Generates the given entity into java type.
+ * @param entity the input entity.
+ * /]
+[template public toJavaType(entity : Entity) post (trim())]
+[entity.name.toStandardNotation().toUpperFirst()/]
+[/template]
+
+[comment ** Generates the default PKType for the given element.
+ * @param element the input element.
+ * /]
+[template public defaultPKType(element : EObject)]
+[getProperty('default.pk.type')/]
+[/template]
+
+[comment ** Generates the dtoName for the given entity.
+ * @param entity the input entity.
+ * /]
+[template public dtoName(entity : Entity) post (trim())]
+[if (getProperty('useDtoPackage') = 'no' or getProperty('generate.dto.per.entity') <> 'yes')]
+	[entity.name/]
+[else]
+	[entity.name/][entity.dtoSuffix()/]
+[/if]
+[/template]
+
+[comment ** Generates the dtosuffix for the given element.
+ * @param element the input element.
+ * /]
+[template public dtoSuffix(element : EObject)]
+[getProperty('dto.suffix')/]
+[/template]
+
+[comment ** Generates the name for the given entity.
+ * @param entity the input entity.
+ * /]
+[template public entityName(entity : Entity) post (trim())]
+[entity.name.toStandardNotation().toUpperFirst()/][entity.entitySuffix()/]
+[/template]
+
+[comment ** Generates the suffix part of the given entity.
+ * @param entity the input entity.
+ * /]
+[template public entitySuffix(entity : Entity)]
+[getProperty('entity.suffix')/]
+[/template]

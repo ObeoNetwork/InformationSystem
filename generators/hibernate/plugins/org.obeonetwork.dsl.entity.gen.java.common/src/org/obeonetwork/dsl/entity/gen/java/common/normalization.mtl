@@ -1,0 +1,84 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module normalization('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+
+[comment ** Generates the java name for the given block. 
+ * @param block the input Block.
+ */]
+[template public javaName(block : Block)]
+[block.name.toStandardNotation().toLower()/]
+[/template]
+
+[comment ** Generates the objects package path for the given entity. 
+ * @param entity the input Entity.
+ */]
+[template public objectsPackage(entity : Entity) post (trim())]
+[getProperty('baseImports')/].[getProperty('projectName')/].business.[entity.block.javaName()/]
+[/template]
+
+[comment ** Generates the dao interface package path for the given root. 
+ * @param root the input Root.
+ */]
+[template public daoInterfacePackage(root : Root) post (trim())]
+[getProperty('baseImports')/].[getProperty('projectName')/].dao
+[/template]
+
+[comment ** Generates the dao interface exception package path for the given entity. 
+ * @param entity the input Entity.
+ */]
+[template public daoInterfaceExceptionPackage(entity : Entity) post (trim())]
+[getProperty('baseImports')/].[getProperty('projectName')/].dao
+[/template]
+
+[comment ** Generates the dao interface package path for the given entity. 
+ * @param entity the input Entity.
+ */]
+[template public daoInterfacePackage(entity : Entity) post (trim())]
+[getProperty('baseImports')/].[getProperty('projectName')/].dao.[entity.block.javaName()/].api
+[/template]
+
+[comment ** Generates the jdbc package path for the given entity. 
+ * @param entity the input Entity.
+ */]
+[template public jdbcPackage(entity : Entity)]
+[getProperty('baseImports')/].[getProperty('projectName')/].dao.[entity.block.javaName()/].jdbc
+[/template]
+
+[comment ** Generates the memcache package path for the given entity. 
+ * @param entity the input Entity.
+ */]
+[template public memcachePackage(entity : Entity)]
+[getProperty('baseImports')/].[getProperty('projectName')/].dao.[entity.block.javaName()/].memcache
+[/template]
+
+[comment ** Generates the hibernate package path for the given entity. 
+ * @param entity the input Entity.
+ */]
+[template public hibernatePackage(entity : Entity)]
+[getProperty('baseImports')/].[getProperty('projectName')/].dao.[entity.block.javaName()/].hibernate
+[/template]
+
+[comment ** Generates the ui hibernate package path for the given entity. 
+ * @param entity the input Entity.
+ */]
+[template public uiHibernatePackage(entity : Entity)]
+[getProperty('baseImports')/].[getProperty('projectName')/].ui
+[/template]
+
+[comment ** Generates the ui hibernate package path for the given root. 
+ * @param root the input Root.
+ */]
+[template public uiHibernatePackage(root : Root)]
+[getProperty('baseImports')/].[getProperty('projectName')/].ui
+[/template]

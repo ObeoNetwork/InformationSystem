@@ -1,0 +1,823 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse protected License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module hibernateDaoJUnit('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::entity::gen::java::common::common/]
+[import org::obeonetwork::dsl::entity::gen::java::common::requests::requests/]
+[import org::obeonetwork::dsl::entity::gen::java::common::datatype/]
+[import org::obeonetwork::dsl::entity::gen::java::common::structure/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::daoHibernateCommon/]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices/]
+[import org::obeonetwork::dsl::environment::gen::java::common::common/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::common::daoCommon/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::spring::xml::applicationContext/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoFactoryPackage/]
+
+
+[comment ** Generates the hibernate test package name for the given element.
+ * no override needed since hibernatePackage is defined both for Entity and Package
+ * @param element the input element.
+ * /]
+[template public hibernateTestPackage(aBlock : Block) post(trim())]
+[aBlock.hibernatePackage()/].test
+[/template]
+
+[template public hibernateTestPackage(anEntity : Entity) post(trim())]
+[anEntity.hibernatePackage()/].test
+[/template]
+
+[comment ** Get the scoped Entities for the given block.
+ * to override if DAO per Entity
+ * @param block the input block.
+ * /]
+[query protected scopedEntities(block : Block) : OrderedSet(Entity) =
+	block.entities->asOrderedSet()
+/]
+
+[query protected scopedEntities(entity : Entity) : OrderedSet(Entity) =
+	entity->asOrderedSet()
+	->union(entity.ownedAttributes.type->filter(Entity)->asOrderedSet())
+	->excluding(entity)
+	->asOrderedSet()
+/]
+
+[comment ** Get the external DAOs for the given block.
+ * to override if DAO per Entity
+ * @param block the input block.
+ * /]
+[query protected externalDAOs(block : Block) : Set(Block) =
+	entities.references->select(r : Reference | r.isMandatory() and r.isNavigable()).type.block->asSet()->excluding(block)
+/]
+
+[query protected externalDAOs(anEntity : Entity) : Set(Entity) =
+	references->select(r : Reference | r.isMandatory() and r.isNavigable()).type->select(oclIsKindOf(Entity))->asSet()->excluding(anEntity)
+/]
+
+[comment ** Generates the DAOName for the given entity.
+ * to override if DAO per Entity
+ * @param entity the input entity.
+ * /]
+[template protected DAOName(entity : Entity)]
+[entity.name.toStandardNotation().toLowerFirst()/]Dao
+[/template]
+
+[comment ** Generates the DAOName for the given block.
+ * @param block the input block.
+ * /]
+[template protected DAOName(block : Block)]
+[block.name.toStandardNotation().toLowerFirst()/]Dao
+[/template]
+
+[comment ** Generates the test Class Name for the given element.
+ * @param element the input element.
+ * /]
+[template public testClassName(aBlock : Block) post(trim())]
+[aBlock.name.toStandardNotation().toUpperFirst()/]Test
+[/template]
+
+[template public testClassName(anEntity : Entity) post(trim())]
+[anEntity.name.toStandardNotation().toUpperFirst()/]Test
+[/template]
+
+[comment ** Generates the import DAO Factory for the given element.
+ * @param element the input element.
+ * /]
+[template protected importDAOFactory(aBlock : Block)]
+import [aBlock.daoFactoryPackage()/].[aBlock.DAOFactoryName()/];
+[/template]
+
+[template protected importDAOFactory(anEntity : Entity)]
+import [anEntity.daoFactoryPackage()/].[anEntity.DAOFactoryName()/];
+[/template]
+
+[comment ** Generates the hibernate DAO JUnit File Path for the given block.
+ * @param block the input block.
+ * /]
+[template public hibernateDAOJUnitFilePath(block : Block)]
+[block.pathToTestJava()/]/[block.hibernateTestPackage().toPath()/]/[block.testClassName()/].java
+[/template]
+
+[template public hibernateDAOJUnitFilePath(anEntity : Entity)]
+[anEntity.pathToTestJava()/]/[anEntity.hibernateTestPackage().toPath()/]/[anEntity.testClassName()/].java
+[/template]
+
+[comment ** Generates the base Test Class Qualified Name for the given element.
+ * @param element the input element.
+ * /]
+[template protected baseTestClassQualifiedName(element : OclAny)]
+[element.baseTestClassPackage()/].[element.baseTestClass()/];
+[/template]
+
+[comment ** Generates the import Base Test Class name for the given element.
+ * @param element the input element.
+ * /]
+[template protected importBaseTestClass(element : OclAny)]
+import [element.baseTestClassQualifiedName()/]
+[/template]
+
+[template public hibernateDAOJUnit(block : Block) ? (getProperty('generate.tests') = 'yes' and entities->size() > 0)]
+[file (block.hibernateDAOJUnitFilePath(), false, 'UTF-8')]
+[block.generate()/]
+[/file]
+[/template]
+
+[template public hibernateDAOJUnitEntity(anEntity : Entity) ? (getProperty('generate.tests') = 'yes' )]
+[file (anEntity.hibernateDAOJUnitFilePath(), false, 'UTF-8')]
+[anEntity.generate()/]
+[/file]
+[/template]
+
+[template public doSomeStuff(anEntity : Entity)]
+[file (anEntity.hibernateDAOJUnitFilePath(), false, 'UTF-8')]
+[anEntity.generate()/]
+[/file]
+[/template]
+
+[query protected computeImports(aBlock : Block) : OrderedSet(String) = 
+	aBlock.daoInterfaceQualifiedName()->asSequence()
+	->union(aBlock.scopedEntities().entityQualifiedName()->asSequence())
+	->union(aBlock.scopedEntities().references->select(r : Reference | r.isNavigable() and r.isMandatory()).type.entityQualifiedName()->asSequence())
+	->union(aBlock.externalDAOs().daoInterfaceQualifiedName()->asSequence())
+	->asOrderedSet()
+/]
+
+
+[template public generate(aBlock : Block)]
+package [aBlock.hibernateTestPackage()/];
+
+// [protected ('for import ')]
+[if (aBlock.scopedEntities().ownedAttributes->select(a : Attribute | a.type.name = 'Date')->size() > 0)]
+import java.util.Date;
+[/if]
+[if (aBlock.scopedEntities().ownedAttributes->select(a : Attribute | a.isMultiValuated())->size() > 0)]
+import java.util.ArrayList;
+import java.util.List;
+[/if]
+
+[aBlock.importHibernateTransaction()/]
+[aBlock.importBaseTestClass()/]
+[aBlock.importDaoException()/]
+[aBlock.importHibernateUtil()/]
+[aBlock.importDAOFactory()/]
+import junit.framework.Assert;
+
+[for (importValue : String | aBlock.computeImports())]
+import [importValue/];
+[/for]
+
+// [/protected]
+
+/**
+ * Test class for [aBlock.name/].
+ */
+public class [aBlock.testClassName()/] extends [aBlock.baseTestClass()/] {
+	[aBlock.testFeatures()/]
+	[aBlock.setUp()/]
+	[aBlock.tearDown()/]
+	
+	[aBlock.generateTests()/]
+
+	[aBlock.generateExamples()/]
+    
+    // [protected ('of specific tests')]
+    // [/protected]
+
+}
+[/template]
+
+[template public generateTests(aBlock : Block)]
+[for (entity : Entity | aBlock.scopedEntities())]
+/**
+ * Tests the creation of the entity [entity.name/].<br/>
+ * <ul><li>Step 1 : Create an entity</li>
+ * <li>Step 2 : Search the entity and verify it exists</li></ul>
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+public final void testCreate[entity.name.toStandardNotation()/]() throws DaoException {
+    // fill attributes with example values
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/] = get[entity.name.toStandardNotation().toUpperFirst()/]Example();
+    
+    // Execute the tested code
+    [block.DAOName()/].create[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]);
+
+    // Verify result
+    boolean found = false;
+    for ([entity.name.toStandardNotation().toUpperFirst()/] current[entity.name.toStandardNotation()/] : [block.DAOName()/].findAll[entity.name.toStandardNotation()/]s()) {
+        if (current[entity.name.toStandardNotation()/].equals([entity.name.toStandardNotation().toLowerFirst()/])) {
+            found = true;
+        }
+    }
+    Assert.assertTrue("[entity.name/] not created", found);
+}
+
+/**
+ * Test the modification of an entity [entity.name/].<br/>
+ * <ul><li>Step 1 : Create an entity</li>
+ * <li>Step 2 : Modify the entity</li>
+ * <li>Step 3 : Search the entity and verify the modified values</li></ul>
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+public final void testUpdate[entity.name.toStandardNotation()/]() throws DaoException {
+    // Initialized the test
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/] = get[entity.name.toStandardNotation().toUpperFirst()/]Example();
+    [block.DAOName()/].create[name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]);
+
+    // Execute the tested code
+    [for (it : Attribute | entity.ownedAttributes)]
+        [if (it.isMonoValuated())]
+    [it.entity.name.toStandardNotation().toLowerFirst()/].set[it.name.toStandardNotation().toUpperFirst()/]([it.exampleValues2()/]);
+        [/if]
+    [/for]
+    [block.DAOName()/].update[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]);
+
+    // Verify result
+    boolean found = false;
+    for ([entity.name.toStandardNotation().toUpperFirst()/] current[entity.name.toStandardNotation()/] : [block.DAOName()/].findAll[entity.name.toStandardNotation()/]s()) {
+        if (current[entity.name.toStandardNotation()/].equals([entity.name.toStandardNotation().toLowerFirst()/])) {
+            found = true;
+            [for (it : Attribute | entity.ownedAttributes)]
+                [if (it.isMonoValuated())]
+            Assert.assertEquals("Value [it.name.toStandardNotation().toLowerFirst()/] not modified",
+                    [it.exampleValues2()/],
+                    [it.entity.name.toStandardNotation().toLowerFirst()/].get[it.name.toStandardNotation().toUpperFirst()/]());
+                [/if]
+            [/for]
+        }
+    }
+    Assert.assertTrue("[entity.name.toStandardNotation()/] not found", found);
+}
+
+/**
+ * Test the suppression of an entity [entity.name/].<br/>
+ * <ul><li>Step 1 : Create an entity</li>
+ * <li>Step 2 : Delete the entity</li>
+ * <li>Step 3 : Search the entity and verify it doesn't exist anymore</li>
+ * </ul>
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+public final void testDelete[entity.name.toStandardNotation()/]() throws DaoException {
+    // Initialized the test
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/] = get[entity.name.toStandardNotation().toUpperFirst()/]Example();
+    [block.DAOName()/].create[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]);
+    
+    // Execute the tested code
+    [block.DAOName()/].delete[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]);
+    
+    // Verify result
+    boolean found = false;
+    for ([entity.name.toStandardNotation().toUpperFirst()/] current[entity.name.toStandardNotation()/] : [block.DAOName()/].findAll[entity.name.toStandardNotation()/]s()) {
+        if (current[entity.name.toStandardNotation()/].getId().equals([entity.name.toStandardNotation().toLowerFirst()/].getId())) {
+            found = true;                
+        }
+    }
+    Assert.assertFalse("[entity.name.toStandardNotation()/] not deleted", found);
+}
+
+/**
+ * Test the search of all entities [entity.name/].<br/>
+ * <ul><li>Step 1 : Create many entities</li>
+ * <li>Step 2 : Search all entities and verify the entities created are
+ * found</li></ul>
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+public final void testFindAll[entity.name.toStandardNotation()/]s() throws DaoException {
+    // Verify number of element before testing
+    int before = [block.DAOName()/].findAll[entity.name.toStandardNotation()/]s().size();
+    Assert.assertTrue("FindAll must return at least 0", before >= 0);
+    
+    // Add two elements
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/]1 = get[entity.name.toStandardNotation().toUpperFirst()/]Example();
+    [block.DAOName()/].create[name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]1);
+            
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/]2 = get[entity.name.toStandardNotation().toUpperFirst()/]Example();
+    [block.DAOName()/].create[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]2);
+
+    // Verify result
+    int after = [block.DAOName()/].findAll[entity.name.toStandardNotation().toStandardNotation()/]s().size();
+    Assert.assertEquals(
+            "FindAll don't find the good number of elements", 
+            2,
+            after - before);
+}
+
+[/for]
+[/template]
+
+[template public generateExamples(aBlock : Block)]
+[for (entity : Entity | aBlock.scopedEntities())]
+
+/**
+ * Creates an example of [entity.name/].
+ * @return Returns a new instance of class [entity.name/], with fields filled
+ * with example values.
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+protected [entity.name.toStandardNotation().toUpperFirst()/] get[entity.name.toStandardNotation().toUpperFirst()/]Example() throws DaoException {
+    // fill attributes with example values
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.exampleVariableName()/] = new [entity.name.toStandardNotation().toUpperFirst()/]();
+    [comment  Member attributes /]
+    [entity.generatePopulateAttribute(entity.exampleVariableName())/]
+    [block.generatePopulateReference(entity, entity.exampleVariableName())/]
+    return [entity.name.toStandardNotation().toLowerFirst()/];
+}
+
+/**
+ * Creates a second example of [entity.name/] with other values.
+ * @return Returns a new instance of class [entity.name/] with fields filled
+ * with other test values.
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+protected [entity.name.toStandardNotation().toUpperFirst()/] get[entity.name.toStandardNotation().toUpperFirst()/]Example2() throws DaoException {
+    // fill attributes with example values
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.exampleVariableName()/] = new [entity.name.toStandardNotation().toUpperFirst()/]();
+    [comment  Member attributes /]
+	[generatePopulateAttribute2(entity, entity.exampleVariableName())/]
+	[block.generatePopulateReference(entity, entity.exampleVariableName())/]
+    return [entity.name.toStandardNotation().toLowerFirst()/];
+}
+[/for]
+[/template]
+
+[comment ** Generates populate reference part for the given entity.
+ * @param entity the input entity.
+ * @arg0 name of the example
+ * /]
+[template protected generatePopulateReference(aBlock : Block, entity : Entity, aString : String)]
+[for (it : Reference | entity.references->select( r : Reference | r.isNavigable() and r.isMandatory()))]
+[aBlock.generatePrincipalPopulateReference(it, aString)/]
+[/for]
+[/template]
+
+[comment ** Generates principal populate reference part for the given entity.
+ * @param entity the input entity.
+ * @arg0 name of the example
+ * /]
+[template protected generatePrincipalPopulateReference(aBlock : Block, reference : Reference, aString : String)] 
+[reference.type.name.toStandardNotation()/] [reference.exampleVariableName()/] = new [reference.type.name.toStandardNotation()/]();
+[if (reference.isMonoValuated())]
+[aString/].set[reference.name.toStandardNotation().toUpperFirst()/]([reference.exampleVariableName()/]);   
+[else]
+[aString/].get[reference.name.toStandardNotation().toUpperFirst()/]().add([reference.exampleVariableName()/]);
+[/if]
+[if (reference.isBidirectional())] 
+[if (reference.isUnique())]
+[reference.exampleVariableName()/].set[reference.oppositeOf.name.toStandardNotation().toUpperFirst()/]([aString/]); 
+[else]
+[reference.exampleVariableName()/].get[reference.oppositeOf.name.toStandardNotation().toUpperFirst()/]().add([aString/]);        
+[/if]
+[/if]
+[aBlock.DAOName()/].create[reference.type.name.toStandardNotation()/]([reference.exampleVariableName()/]);
+[/template]
+
+
+[template public generate(anEntity : Entity)]
+package [anEntity.hibernateTestPackage()/];
+
+// [protected ('for import ')]
+[if (anEntity.scopedEntities()->including(anEntity).ownedAttributes->select(a : Attribute | a.type.name = 'Date')->size() > 0)]
+import java.util.Date;
+[/if]
+[if (anEntity.scopedEntities()->including(anEntity).ownedAttributes->select(a : Attribute | a.isMultiValuated())->size() > 0)]
+import java.util.ArrayList;
+import java.util.List;
+[/if]
+
+[anEntity.importHibernateTransaction()/]
+[anEntity.importBaseTestClass()/]
+[anEntity.importDaoException()/]
+[anEntity.importHibernateUtil()/]
+[anEntity.importDAOFactory()/]
+import junit.framework.Assert;
+
+import [anEntity.daoInterfaceQualifiedName()/];
+import [anEntity.entityQualifiedName()/];
+
+[for (entity : Entity | anEntity.externalDAOs())]
+import [entity.daoInterfaceQualifiedName()/];
+import [entity.entityQualifiedName()/];
+[/for]
+// [/protected]
+
+/**
+ * Test class for [anEntity.name/].
+ */
+public class [anEntity.testClassName()/] extends [anEntity.baseTestClass()/] {
+	[anEntity.testFeatures()/]
+	[anEntity.setUp()/]
+	[anEntity.tearDown()/]
+	
+	[anEntity.generateTests()/]
+
+	[anEntity.generateExamples()/]
+    
+    // [protected ('of specific tests')]
+    // [/protected]
+
+}
+[/template]
+
+[comment ** Generates the base Test Class Package name for the given element.
+ * to override according to framework
+ * @param element the input element.
+ * /]
+[template protected baseTestClassPackage(element : OclAny)]
+junit.framework
+[/template]
+
+[comment ** Generates the base Test Class name for the given element.
+ * to override according to framework
+ * @param element the input element.
+ * /]
+[template protected baseTestClass(element : OclAny)]
+TestCase
+[/template]
+
+[comment ** Generates the import Hibernate Transaction for the given element.
+ * to override according to framework
+ * @param element the input element.
+ * /]
+[template protected importHibernateTransaction(element : OclAny)]
+import org.hibernate.Transaction;
+[/template]
+
+[comment ** Generates the test Features part for the given element.
+ * to override according to framework
+ * @param element the input element.
+ * /]
+[template protected testFeatures(aBlock : Block)]
+[for (it2 : Block | aBlock->union(aBlock.externalDAOs()))]
+
+/**
+ * The DAO for class [it2.name/].
+ */
+private [it2.daoInterfaceName()/] [it2.DAOName()/];
+[/for]
+
+/**
+ * The transaction that will be used.
+ */
+private Transaction tx;
+
+[/template]
+
+[template protected testFeatures(anEntity : Entity)]
+[for (it2 : Entity | anEntity->union(anEntity.externalDAOs()))]
+
+/**
+ * The DAO for class [it2.name/].
+ */
+private [it2.daoInterfaceName()/] [it2.DAOName()/];
+[/for]
+
+/**
+ * The transaction that will be used.
+ */
+private Transaction tx;
+
+[/template]
+
+[comment ** Generates the setUp method for the given element.
+ * to override according to framework
+ * @param element the input element.
+ * /]
+[template protected setUp(aBlock : Block)]
+/**
+ * Sets up the test before its execution, by creating the dao and the
+ * transaction.
+ * @throws Exception if an unexpected exception occurs.
+ */
+@Override
+protected void setUp() throws Exception {
+    super.setUp();
+	[for (it2 : Block | aBlock->union(aBlock.externalDAOs()))]
+	[it2.DAOName()/] = [it2.DAOFactoryName()/].[it2.DAOGetterName()/]();
+	[/for]
+	tx = HibernateUtil.currentSession().beginTransaction();
+}
+[/template]
+
+[template protected setUp(anEntity : Entity)]
+/**
+ * Sets up the test before its execution, by creating the dao and the
+ * transaction.
+ * @throws Exception if an unexpected exception occurs.
+ */
+@Override
+protected void setUp() throws Exception {
+    super.setUp();
+	[for (it2 : Entity | anEntity->union(anEntity.externalDAOs()))]
+	[it2.DAOName()/] = [it2.DAOFactoryName()/].[it2.DAOGetterName()/]();
+	[/for]
+	tx = HibernateUtil.currentSession().beginTransaction();
+}
+[/template]
+
+[comment ** Generates the tearDown method for the given element.
+ * to override according to framework
+ * @param element the input element.
+ * /]
+[template protected tearDown(element : OclAny)]
+
+/**
+ * Cleans up the test after its execution, by commiting the transaction in
+ * order for the DB changes to become visible, and closing hibernate's
+ * session.
+ * @throws Exception if an unexpected exception occurs.
+ */
+@Override
+protected void tearDown() throws Exception {
+    super.tearDown();
+	tx.commit();
+    HibernateUtil.closeSession();
+}
+[/template]
+
+[comment ** Generates the tests part for the given entity.
+ * @param entity the input entity.
+ * /]
+[template protected generateTests(entity : Entity)]
+/**
+ * Tests the creation of the entity [entity.name/].<br/>
+ * <ul><li>Step 1 : Create an entity</li>
+ * <li>Step 2 : Search the entity and verify it exists</li></ul>
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+public final void testCreate[entity.name.toStandardNotation()/]() throws DaoException {
+    // fill attributes with example values
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/] = get[entity.name.toStandardNotation().toUpperFirst()/]Example();
+    
+    // Execute the tested code
+    [entity.DAOName()/].create[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]);
+
+    // Verify result
+    boolean found = false;
+    for ([entity.name.toStandardNotation().toUpperFirst()/] current[entity.name.toStandardNotation()/] : [entity.DAOName()/].findAll[entity.name.toStandardNotation()/]s()) {
+        if (current[entity.name.toStandardNotation()/].equals([entity.name.toStandardNotation().toLowerFirst()/])) {
+            found = true;
+        }
+    }
+    Assert.assertTrue("[entity.name/] not created", found);
+}
+
+/**
+ * Test the modification of an entity [entity.name/].<br/>
+ * <ul><li>Step 1 : Create an entity</li>
+ * <li>Step 2 : Modify the entity</li>
+ * <li>Step 3 : Search the entity and verify the modified values</li></ul>
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+public final void testUpdate[entity.name.toStandardNotation()/]() throws DaoException {
+    // Initialized the test
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/] = get[entity.name.toStandardNotation().toUpperFirst()/]Example();
+    [entity.DAOName()/].create[name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]);
+
+    // Execute the tested code
+    [for (it : Attribute | entity.ownedAttributes)]
+        [if (it.isMonoValuated())]
+    [it.entity.name.toStandardNotation().toLowerFirst()/].set[it.name.toStandardNotation().toUpperFirst()/]([it.exampleValues2()/]);
+        [/if]
+    [/for]
+    [entity.DAOName()/].update[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]);
+
+    // Verify result
+    boolean found = false;
+    for ([entity.name.toStandardNotation().toUpperFirst()/] current[entity.name.toStandardNotation()/] : [entity.DAOName()/].findAll[entity.name.toStandardNotation()/]s()) {
+        if (current[entity.name.toStandardNotation()/].equals([entity.name.toStandardNotation().toLowerFirst()/])) {
+            found = true;
+            [for (it : Attribute | entity.ownedAttributes)]
+                [if (it.isMonoValuated())]
+            Assert.assertEquals("Value [it.name.toStandardNotation().toLowerFirst()/] not modified",
+                    [it.exampleValues2()/],
+                    [it.entity.name.toStandardNotation().toLowerFirst()/].get[it.name.toStandardNotation().toUpperFirst()/]());
+                [/if]
+            [/for]
+        }
+    }
+    Assert.assertTrue("[entity.name.toStandardNotation()/] not found", found);
+}
+
+/**
+ * Test the suppression of an entity [entity.name/].<br/>
+ * <ul><li>Step 1 : Create an entity</li>
+ * <li>Step 2 : Delete the entity</li>
+ * <li>Step 3 : Search the entity and verify it doesn't exist anymore</li>
+ * </ul>
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+public final void testDelete[entity.name.toStandardNotation()/]() throws DaoException {
+    // Initialized the test
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/] = get[entity.name.toStandardNotation().toUpperFirst()/]Example();
+    [entity.DAOName()/].create[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]);
+    
+    // Execute the tested code
+    [entity.DAOName()/].delete[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]);
+    
+    // Verify result
+    boolean found = false;
+    for ([entity.name.toStandardNotation().toUpperFirst()/] current[entity.name.toStandardNotation()/] : [entity.DAOName()/].findAll[entity.name.toStandardNotation()/]s()) {
+        if (current[entity.name.toStandardNotation()/].getId().equals([entity.name.toStandardNotation().toLowerFirst()/].getId())) {
+            found = true;                
+        }
+    }
+    Assert.assertFalse("[entity.name.toStandardNotation()/] not deleted", found);
+}
+
+/**
+ * Test the search of all entities [entity.name/].<br/>
+ * <ul><li>Step 1 : Create many entities</li>
+ * <li>Step 2 : Search all entities and verify the entities created are
+ * found</li></ul>
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+public final void testFindAll[entity.name.toStandardNotation()/]s() throws DaoException {
+    // Verify number of element before testing
+    int before = [entity.DAOName()/].findAll[entity.name.toStandardNotation()/]s().size();
+    Assert.assertTrue("FindAll must return at least 0", before >= 0);
+    
+    // Add two elements
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/]1 = get[entity.name.toStandardNotation().toUpperFirst()/]Example();
+    [entity.DAOName()/].create[name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]1);
+            
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/]2 = get[entity.name.toStandardNotation().toUpperFirst()/]Example();
+    [entity.DAOName()/].create[entity.name.toStandardNotation()/]([entity.name.toStandardNotation().toLowerFirst()/]2);
+
+    // Verify result
+    int after = [entity.DAOName()/].findAll[entity.name.toStandardNotation().toStandardNotation()/]s().size();
+    Assert.assertEquals(
+            "FindAll don't find the good number of elements", 
+            2,
+            after - before);
+}
+[/template]
+
+[comment ** Generates an example value for the given attribute.
+ * @param attribute the input attribute.
+ * /]
+[template protected exampleValues(attribute : Attribute) post(trim())]
+[if (attribute.type.name = 'Integer' or attribute.toJavaType() = 'Integer')]
+    new Integer([name.uniqueCode()/] + 1)
+[elseif (attribute.type.name = 'Long' or attribute.toJavaType() = 'Long')]
+    new Long([name.uniqueCode()/] + 1)
+[elseif (attribute.type.name = 'String' or attribute.type.name = 'Email' or attribute.toJavaType() = 'String')]
+    "my[name.toUpperFirst()/]"
+[elseif (attribute.type.name = 'Boolean' or attribute.toJavaType() = 'Boolean')]
+    new Boolean(false)
+[elseif (attribute.type.name = 'Date' or attribute.toJavaType() = 'Date')]
+    new Date(0)
+[elseif (attribute.type.name.equalsIgnoreCase('Double') or attribute.toJavaType() = 'Double')]
+    new Double([name.uniqueCode()/].1)
+[elseif (attribute.type.name.equalsIgnoreCase('Float') or attribute.toJavaType() = 'Float')]
+    new Float([name.uniqueCode()/].1)
+[elseif(attribute.toJavaType().size() > 0)]
+	new [attribute.toJavaType()/]()
+[else]
+    new [attribute.type.name/]()
+[/if]
+[/template]
+
+[comment ** Generates an example value for the given attribute.
+ * @param attribute the input attribute.
+ * /]
+[template protected exampleValues2(attribute : Attribute) post(trim())]
+[if (attribute.type.name = 'Integer' or attribute.toJavaType() = 'Integer')]
+    new Integer([name.uniqueCode()/])
+[elseif (attribute.type.name = 'Long' or attribute.toJavaType() = 'Long')]
+    new Long([name.uniqueCode()/])
+[elseif (attribute.type.name = 'String' or attribute.type.name = 'Email' or attribute.toJavaType() = 'String')]
+    "second[name.toUpperFirst()/]"
+[elseif (attribute.type.name = 'Boolean' or attribute.toJavaType() = 'Boolean')]
+    new Boolean(false)
+[elseif (attribute.type.name = 'Date' or attribute.toJavaType() = 'Date')]
+    new Date(1)
+[elseif (attribute.type.name.equalsIgnoreCase('Double') or attribute.toJavaType() = 'Double')]
+    new Double([name.uniqueCode()/].0)
+[elseif (attribute.type.name.equalsIgnoreCase('Float') or attribute.toJavaType() = 'Float')]
+    new Float([name.uniqueCode()/].0)
+[elseif(attribute.toJavaType().size() > 0)]
+	new [attribute.toJavaType()/]()
+[else]
+    new [attribute.type.name/]()
+[/if]
+[/template]
+
+[comment ** Generates an example variable name for the given entity.
+ * @param entity the input entity.
+ * /]
+[template protected exampleVariableName(entity : Entity)]
+[entity.name.toStandardNotation().toLowerFirst()/]
+[/template]
+
+[comment ** Generates an example variable name for the given reference.
+ * @param reference the input reference.
+ * /]
+[template protected exampleVariableName(reference : Reference)]
+[reference.name.toStandardNotation().toLowerFirst()/]Example
+[/template]
+
+[comment ** Generates the example part for the given entity.
+ * @param entity the input entity.
+ * /]
+[template protected generateExamples(entity : Entity)]
+
+/**
+ * Creates an example of [entity.name/].
+ * @return Returns a new instance of class [entity.name/], with fields filled
+ * with example values.
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+protected [entity.name.toStandardNotation().toUpperFirst()/] get[entity.name.toStandardNotation().toUpperFirst()/]Example() throws DaoException {
+    // fill attributes with example values
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.exampleVariableName()/] = new [entity.name.toStandardNotation().toUpperFirst()/]();
+    [comment  Member attributes /]
+    [entity.generatePopulateAttribute(entity.exampleVariableName())/]
+    [entity.generatePopulateReference(entity.exampleVariableName())/]
+    return [entity.name.toStandardNotation().toLowerFirst()/];
+}
+
+/**
+ * Creates a second example of [entity.name/] with other values.
+ * @return Returns a new instance of class [entity.name/] with fields filled
+ * with other test values.
+ * @throws DaoException if an unexpected DAO exception occurs.
+ */
+protected [entity.name.toStandardNotation().toUpperFirst()/] get[entity.name.toStandardNotation().toUpperFirst()/]Example2() throws DaoException {
+    // fill attributes with example values
+    [entity.name.toStandardNotation().toUpperFirst()/] [entity.exampleVariableName()/] = new [entity.name.toStandardNotation().toUpperFirst()/]();
+    [comment  Member attributes /]
+	[entity.generatePopulateAttribute2(entity.exampleVariableName())/]
+	[entity.generatePopulateReference(entity.exampleVariableName())/]
+    return [entity.name.toStandardNotation().toLowerFirst()/];
+}
+[/template]
+
+[comment ** Generates populate attribute part for the given entity.
+ * @param entity the input entity.
+ * @arg0 name of the example
+ * /]
+[template protected generatePopulateAttribute(entity : Entity, aString : String)]
+[for (it : Attribute | entity.attributes)]
+[if (it.isMonoValuated())]
+[aString/].set[it.name.toStandardNotation().toUpperFirst()/]([it.exampleValues()/]);
+[else]
+List<[it.type.name.toStandardNotation()/]> list[it.name.toUpperFirst()/] = new ArrayList<[it.type.name.toStandardNotation()/]>();
+list[it.name.toStandardNotation().toUpperFirst()/].add([it.exampleValues()/]);
+[aString/].set[it.name.toUpperFirst()/](list[it.name.toStandardNotation().toUpperFirst()/]);
+[/if]
+[/for]
+[/template]
+
+[comment ** Generates populate attribute part for the given entity.
+ * @param entity the input entity.
+ * @arg0 name of the example
+ * /]
+[template protected generatePopulateAttribute2(entity : Entity, arg0 : String)]
+[for (it : Attribute | entity.attributes)]
+[if (it.isMonoValuated())]
+[arg0/].set[it.name.toStandardNotation().toUpperFirst()/]([it.exampleValues2()/]);
+[else]
+List<[it.type.name.toStandardNotation()/]> list[it.name.toStandardNotation().toUpperFirst()/] = new ArrayList<[it.type.name.toStandardNotation()/]>();
+list[it.name.toStandardNotation().toUpperFirst()/].add([it.exampleValues2()/]);
+[arg0/].set[it.name.toStandardNotation().toUpperFirst()/](list[it.name.toStandardNotation().toUpperFirst()/]);
+[/if]
+[/for]
+[/template]
+
+[comment ** Generates populate reference part for the given entity.
+ * @param entity the input entity.
+ * @arg0 name of the example
+ * /]
+[template protected generatePopulateReference(entity : Entity, aString : String)]
+[for (it : Reference | entity.references->select( r : Reference | r.isNavigable() and r.isMandatory()))]
+[it.generatePrincipalPopulateReference(aString)/]
+[/for]
+[/template]
+
+[comment ** Generates principal populate reference part for the given entity.
+ * @param entity the input entity.
+ * @arg0 name of the example
+ * /]
+[template protected generatePrincipalPopulateReference(reference : Reference, aString : String)] 
+[reference.type.name.toStandardNotation()/] [reference.exampleVariableName()/] = new [reference.type.name.toStandardNotation()/]();
+[if (reference.isMonoValuated())]
+[aString/].set[reference.name.toStandardNotation().toUpperFirst()/]([reference.exampleVariableName()/]);   
+[else]
+[aString/].get[reference.name.toStandardNotation().toUpperFirst()/]().add([reference.exampleVariableName()/]);
+[/if]
+[if (reference.isBidirectional())] 
+[if (reference.isUnique())]
+[reference.exampleVariableName()/].set[reference.oppositeOf.name.toStandardNotation().toUpperFirst()/]([aString/]); 
+[else]
+[reference.exampleVariableName()/].get[reference.oppositeOf.name.toStandardNotation().toUpperFirst()/]().add([aString/]);        
+[/if]
+[/if]
+[reference.type.DAOName()/].create[reference.type.name.toStandardNotation()/]([reference.exampleVariableName()/]);
+[/template]

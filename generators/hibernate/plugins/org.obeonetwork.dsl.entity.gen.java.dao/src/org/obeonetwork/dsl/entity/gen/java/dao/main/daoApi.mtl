@@ -1,0 +1,27 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module daoApi('http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoException /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoFactoryPackage /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoInterfaceDirectPackage /]
+
+
+[template public daoApi(root : Root)]
+	
+	[comment @main /]
+	[root.daoException()/]
+	[root.daoFactory()/]
+	[for (it : Block | root.eAllContents(Block))]
+		[it.daoInterfaceDirect()/]
+	[/for]
+[/template]

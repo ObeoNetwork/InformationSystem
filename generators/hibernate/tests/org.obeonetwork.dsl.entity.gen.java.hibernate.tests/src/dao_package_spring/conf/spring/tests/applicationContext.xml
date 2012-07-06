@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+	<!-- Start of user code for principal applicationContext.xml -->
+	<import resource="classpath:/conf/spring/orm/applicationContext.xml"/>
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+    	<property name="url" value="jdbc:hsqldb:."/>
+	    <property name="username" value="sa"/>
+    	<property name="password" value=""/>
+  	</bean>
+  	<!-- End of user code for principal applicationContext.xml -->
+	
+	<!-- Start of user code for specific configuration -->
+	
+	<!-- End of user code for specific configuration -->
+</beans>

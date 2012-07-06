@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<!-- tiles definition for scenario ScenarioPrincipal -->
+<tiles-definitions>
+
+	<definition name=".view.EcranPrincipal" extends="layout">
+	    <put name="title" 		value="Titre Principal"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="EcranPrincipal"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/EcranPrincipal.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/EcranPrincipalSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.EcranSecondaire" extends="layout">
+	    <put name="title" 		value="Titre Deux"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="EcranSecondaire"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/EcranSecondaire.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/EcranSecondaireSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Labels" extends="layout">
+	    <put name="title" 		value="Labels"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="Labels"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/Labels.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/LabelsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.TextFields" extends="layout">
+	    <put name="title" 		value="TextFields"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="TextFields"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/TextFields.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/TextFieldsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.ComboBoxes" extends="layout">
+	    <put name="title" 		value="Combo Boxes"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="ComboBoxes"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/ComboBoxes.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/ComboBoxesSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Passwords" extends="layout">
+	    <put name="title" 		value="Passwords"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="Passwords"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/Passwords.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/PasswordsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.CheckBoxes" extends="layout">
+	    <put name="title" 		value="Check Boxes"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="CheckBoxes"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/CheckBoxes.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/CheckBoxesSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.RadioButtons" extends="layout">
+	    <put name="title" 		value="Radio Buttons"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="RadioButtons"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/RadioButtons.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/RadioButtonsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.SlideBars" extends="layout">
+	    <put name="title" 		value="Slide Bars"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="SlideBars"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/SlideBars.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/SlideBarsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.PushButtons" extends="layout">
+	    <put name="title" 		value="Push Buttons"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="PushButtons"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/PushButtons.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/PushButtonsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.ToggleButtons" extends="layout">
+	    <put name="title" 		value="Toggle Buttons"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="ToggleButtons"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/ToggleButtons.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/ToggleButtonsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.SimpleButtons" extends="layout">
+	    <put name="title" 		value="Simple Buttons"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="SimpleButtons"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/SimpleButtons.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/SimpleButtonsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.DisplayLists" extends="layout">
+	    <put name="title" 		value="Display Lists"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="DisplayLists"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/DisplayLists.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/DisplayListsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Canvas" extends="layout">
+	    <put name="title" 		value="Canvas"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="Canvas"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/Canvas.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/CanvasSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Links" extends="layout">
+	    <put name="title" 		value="Links"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="Links"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/Links.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/LinksSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.ProgressBars" extends="layout">
+	    <put name="title" 		value="Progress Bars"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="ProgressBars"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/ProgressBars.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/ProgressBarsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.TextAreas" extends="layout">
+	    <put name="title" 		value="Text Areas"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="TextAreas"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/TextAreas.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/TextAreasSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Actions" extends="layout">
+	    <put name="title" 		value="Actions"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="Actions"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/Actions.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/ActionsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.AllInOne" extends="layout">
+	    <put name="title" 		value="All In One"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="AllInOne"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/AllInOne.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/AllInOneSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.CircuitStart" extends="layout">
+	    <put name="title" 		value="Circuit Start"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="CircuitStart"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/CircuitStart.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/CircuitStartSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.CircuitReturn" extends="layout">
+	    <put name="title" 		value="Circuit Return"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="CircuitReturn"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/CircuitReturn.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/CircuitReturnSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Loop" extends="layout">
+	    <put name="title" 		value="Loop"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="Loop"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/Loop.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/LoopSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Many1" extends="layout">
+	    <put name="title" 		value="Many 1"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="Many1"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/Many1.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/Many1Sidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Many2" extends="layout">
+	    <put name="title" 		value="Many 2"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="Many2"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/Many2.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/Many2Sidebar.jsp"/>
+	</definition>  
+	<definition name=".view.ManyToOne" extends="layout">
+	    <put name="title" 		value="Many To One"/>
+	    <put name="scenario"  	value="ScenarioPrincipal"/>
+	    <put name="pageName"  	value="ManyToOne"/>
+	    <put name="body" 		value="/jsp/ScenarioPrincipal/ManyToOne.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/ManyToOneSidebar.jsp"/>
+	</definition>  
+
+</tiles-definitions>

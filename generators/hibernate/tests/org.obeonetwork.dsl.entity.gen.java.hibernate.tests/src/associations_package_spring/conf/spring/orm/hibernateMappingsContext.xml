@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="hibernateMappingResources" class="org.springframework.beans.factory.config.ListFactoryBean">
+	  <property name="sourceList">
+	      <list>
+				<value>org/obeonetwork/sample/associations/Class0101.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class0101END.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class0101BI.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class0101BIEND.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class101.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class101END.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class101BI.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class101BIEND.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class011.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class011END.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class011BI.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class011BIEND.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class11.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class11END.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class11BI.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class11BIEND.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class01Many.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class01ManyEND.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class01ManyBI.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/Class01ManyBIEND.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/ClassMany01.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/ClassMany01END.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/ClassMany01BI.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/ClassMany01BIEND.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/ClassManyMany.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/ClassManyManyEnd.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/ClassManyManyBI.hbm.xml</value>
+				<value>org/obeonetwork/sample/associations/ClassManyManyBIEND.hbm.xml</value>
+				<!-- Start of user code for mapping ressources -->
+				<!-- End of user code for mapping ressources -->
+	      </list>
+	  </property>
+	</bean>
+</beans>

@@ -1,0 +1,185 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module sqlCreate('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+
+[import org::obeonetwork::dsl::environment::gen::sql::common::sqltype /]
+[import org::obeonetwork::dsl::entity::gen::java::common::common /]
+
+[import org::obeonetwork::dsl::entity::gen::java::common::services::entityObjectServices /]
+[import org::obeonetwork::dsl::entity::gen::java::common::requests::requests /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::services::sqlTypeServices /]
+
+[comment TODO: adapt to inheritance kind /]
+
+[comment This template generates database ddl/]
+
+[comment ** Generates the full filepath for the root.
+ * @param root the input root.
+ * /]
+[template public fullFilePath(root : Root)]
+[root.pathToMainResources()/]/[root.projectName()/]-ddl.sql
+[/template]
+
+[template public generateSqlCreate(root : Root)]
+	[file (root.fullFilePath(), false, 'UTF-8')]
+-- [protected ('DB Name')]
+-- TODO specify the name of database used
+USE [root.projectName()/];
+-- [/protected]
+
+[for (it : Entity | root.eAllContents(Entity))]
+-- Tables for Entity [it.name/] 
+
+DROP TABLE IF EXISTS [it.name.toSqlNotation()/];
+CREATE TABLE [it.name.toSqlNotation()/]
+(
+	[if (it.supertype.oclIsUndefined())]
+	ID CHAR(32) NOT NULL,
+	[/if]
+	[comment Properties /]
+	[for (att : Attribute | it.ownedAttributes->select(a : Attribute | not(a.type.oclIsUndefined())))]
+	[comment TODO : Check with E. Juliot for attributes multiplicity /]
+		[comment Array of primitives types are not generated /]
+		[if (att.isMonoValuated())]
+	[att.name.toSqlNotation()/] [att.type.convertToSqlType()/] [if (att.isMandatory())]NOT NULL[/if],
+		[/if]
+	[/for]
+	[comment Direct associations/]
+	[for (ref : Reference | it.references)][comment n---n/]
+		[if (ref.isUnidirectional())][comment |n|-->n --/]
+			[if (ref.isMonoValuated())][comment |n|-->1 --/]
+				[if (ref.isUnique())][comment |1|-->1 --/]
+[ref.oneToOneUni()/]
+				[else][comment |*|-->1 --/]
+[ref.manyToOneUni()/]
+				[/if]
+			[else][comment n-->* --/]
+				[if (ref.isUnique())][comment |1|-->* --/]
+[comment the target will hold a foreign key to this entity --/]
+				[else][comment |*|-->* --/]
+[comment an intermediate table is required --/]
+				[/if]
+			[/if]
+		[else][comment |n|<-->n --/]
+			[if (ref.isMonoValuated() and ref.oppositeOf.isMultiValuated())][comment |*|<-->1 --/]
+[ref.manyToOneBi()/]
+			[else]
+				[if (ref.isMainEndPoint() = 'true')][comment |n|<-->n --/]
+					[if (ref.isMonoValuated() and ref.oppositeOf.isMonoValuated())][comment |1|<-->1 --/]
+[ref.oneToOneBi()/]
+					[/if]
+				[/if]
+			[/if]
+		[/if]
+	[/for]
+	[comment Opposite associations --/]
+	[for (ref : Reference | it.pointedAttribute(it.ancestors()->last().eAllContents(Reference)))]
+	[comment n---|n| --/]
+		[if (ref.isUnidirectional())]
+		[comment n-->|n| --/]
+			[if (ref.isMultiValuated())]
+			[comment n-->|*| --/]
+				[comment 1-->|*| --/]
+	-- 1-->|*|
+	FK_[ref.entity.name.toSqlNotation()/]_[ref.name.toSqlNotation()/]_ID CHAR(32)[if (ref.isMandatory())] NOT NULL[/if],
+			[/if]
+		[/if]
+	[/for]
+	[comment Inheritance --/]
+	[if (not(it.supertype.oclIsUndefined()))]
+	FK_INHERITS_[it.supertype.name.toSqlNotation()/]_ID CHAR(32) NOT NULL,
+	PRIMARY KEY (FK_INHERITS_[it.supertype.name.toSqlNotation()/]_ID)
+	[else]
+	PRIMARY KEY (ID)
+	[/if]
+);
+
+	[comment Join table for many to many associations --/]
+	[for (ref : Reference | it.references)]
+	[comment n---n --/]
+		[if (ref.isMultiValuated() and ref.oppositeOf.isMultiValuated())]
+		[comment *---* --/]
+			[if (ref.isUnidirectional() or ref.isMainEndPoint() = 'true')]
+			[comment *-->|*| --/]
+-- *-->|*|
+DROP TABLE IF EXISTS JOIN_[ref.entity.name.toSqlNotation()/]_[ref.type.name.toSqlNotation()/];
+CREATE TABLE JOIN_[ref.entity.name.toSqlNotation()/]_[ref.type.name.toSqlNotation()/]
+(
+	[ref.type.name.toSqlNotation()/]_ID CHAR(32) NOT NULL,
+	[ref.entity.name.toSqlNotation()/]_ID CHAR(32) NOT NULL,
+	PRIMARY KEY ([ref.entity.name.toSqlNotation()/]_ID, [ref.type.name.toSqlNotation()/]_ID)
+);
+
+			[/if]
+		[/if]
+	[/for]
+[/for]
+	[/file]
+[/template]
+
+[comment ** Generates the foreignKey for the given reference.
+ * @param reference the input reference.
+ * /]
+[template public genForeignKey(reference : Reference) post (trim())]
+FK_[reference.type.name.toSqlNotation()/]_[reference.name.toSqlNotation()/]_ID CHAR(32)[comment if (lowerMultiplicity > 0) NOT NULL[}/]
+[/template]
+
+[comment ** Checks if the the given reference a main endpoint reference.
+ * @param reference the input reference.
+ * /]
+[comment TODO: Validation by E. Juliot --/]
+[query public isMainEndPoint(reference : Reference) : Boolean =
+if (reference.isComposite or
+	 (not(reference.oppositeOf.oclIsUndefined()) and not(reference.oppositeOf.isComposite) and 
+	 	(reference.compare(reference.entity.name, reference.type.name) > 0 or 
+	 	 (reference.entity = reference.type and reference.compare(reference.name, reference.oppositeOf.name) > 0)
+	 	)
+	 )) 
+	then true 
+	else false 
+endif
+/]
+
+[comment ** Generates the oneToOneUni part for the given reference.
+ * @param reference the input reference.
+ * /]
+[template public oneToOneUni(reference : Reference)]
+	-- |1|-->1
+	[reference.genForeignKey()/] UNIQUE,
+[/template]
+
+[comment ** Generates the manyToOneBi part for the given reference.
+ * @param reference the input reference.
+ * /]
+[template public manyToOneBi(reference : Reference)]
+	-- |*|<-->1
+	[reference.genForeignKey()/],
+[/template]
+
+[comment ** Generates the oneToOneBi part for the given reference.
+ * @param reference the input reference.
+ * /]
+[template public oneToOneBi(reference : Reference)]
+	-- |1|<-->1
+	[reference.genForeignKey()/] UNIQUE,
+[/template]
+
+[comment ** Generates the manyToOneUni part for the given reference.
+ * @param reference the input reference.
+ * /]
+[template public manyToOneUni(reference : Reference)]
+	-- |*|-->1
+	[reference.genForeignKey()/],
+[/template]

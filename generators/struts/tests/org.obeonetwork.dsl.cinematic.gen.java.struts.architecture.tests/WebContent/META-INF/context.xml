@@ -1,0 +1,20 @@
+<!-- Start of user code for top of file -->
+<Context
+	path="/dsl.cinematic.gen.java.struts.architecture.tests"
+	docBase="dsl.cinematic.gen.java.struts.architecture.tests/WebContent/"
+	debug="1"
+	reloadable="true">
+    
+   <Logger className="org.apache.catalina.logger.SystemOutLogger" verbosity="4" timestamp="true"/> 
+<!-- End of user code for top of file -->
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-ScenarioDefaultName.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-ScenarioDefaultName.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-ScenarioDefaultName_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-ScenarioDefaultName.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config.xml</WatchedResource>
+    
+    <!-- Start of user code for end of file -->
+    <!-- End of user code for end of file -->
+    
+</Context>

@@ -1,0 +1,72 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module daoHibernateTestSuite('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+
+[import org::obeonetwork::dsl::entity::gen::java::common::common/]
+[import org::obeonetwork::dsl::entity::gen::java::common::requests::requests/]
+[import org::obeonetwork::dsl::entity::gen::java::common::datatype/]
+[import org::obeonetwork::dsl::entity::gen::java::common::structure/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::daoHibernateCommon/]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices/]
+[import org::obeonetwork::dsl::environment::gen::java::common::common/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::common::daoCommon/]
+
+[comment ** Generates the test package name for the given root.
+ * @param root the input root.
+ * /]
+[template public allTestPackage(root : Root)]
+[root.baseImports()/][if (not(root.projectName().oclIsUndefined()))].[root.projectName().toStandardNotation().toLower()/][/if]
+[/template]
+
+[comment ** Generates the full filepath for the given root.
+ * @param root the input root.
+ * /]
+[template public fullFilePath(root : Root)]
+[root.pathToTestJava()/]/[root.allTestPackage().toPath()/]/DAOAllTests.java  
+[/template]
+
+[template public generateHibernateTestSuite(root : Root) ? (getProperty('generate.tests') = 'yes' )]
+[file (root.fullFilePath(), false, 'UTF-8')]
+package [root.allTestPackage()/];
+
+// [protected ('for import')]
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+[for (it : Entity | root.blocks.entities)]
+import [it.hibernatePackage()/].test.[it.name.toStandardNotation().toUpperFirst()/]Test;
+[/for]
+
+// [/protected]
+
+/**
+ * Test class for All DAO Tests.
+ */
+public class DAOAllTests {
+
+	public static Test suite() {
+		TestSuite suite = new TestSuite(
+				"Tests suite for DAOAllTests");
+		
+		[for (it : Entity | root.blocks.entities)]
+		suite.addTestSuite([it.name.toStandardNotation().toUpperFirst()/]Test.class);
+		[/for]
+		//[protected ('others unit tests')]
+		
+		//[/protected]
+		return suite;
+	}
+
+}
+[/file]
+[/template]

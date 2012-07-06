@@ -1,0 +1,540 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module daoJdbcDirect('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')/]
+
+[import org::obeonetwork::dsl::entity::gen::java::common::normalization/]
+[import org::obeonetwork::dsl::entity::gen::java::common::javaVersion/]
+[import org::obeonetwork::dsl::entity::gen::java::common::datatype/]
+[import org::obeonetwork::dsl::environment::gen::java::common::logger/]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::services::sqlTypeServices/]
+[import org::obeonetwork::dsl::entity::gen::java::common::services::criterionServices/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::common::daoCommon/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::datatype/]
+[import org::obeonetwork::dsl::environment::gen::java::common::common/]
+
+[import org::obeonetwork::dsl::entity::gen::java::common::common /]
+
+
+[comment ** Generates the full filepath for the entity.
+ * @param entity the input entity.
+ * /]
+[template public fullFilePath(entity : Entity)]
+/[entity.pathToMainJava()/]/[entity.jdbcPackage().toPath()/]/Jdbc[entity.name.toStandardNotation().toUpperFirst()/]Dao.java
+[/template]
+
+[comment ** 
+ * This template generate Data Objects Access Implementation as recommended in the Sun BluePrint pattern..
+ * /]
+[template public generateDaoJdbcDirect(entity : Entity)]
+	[file (entity.fullFilePath(), false, 'UTF-8')]
+[comment DAO implementation generation /]
+package [entity.jdbcPackage()/];
+
+// [protected ('for import')]
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.UUID;
+
+[entity.loggerImport()/]
+
+[entity.importDaoException()/]
+import [entity.ancestors()->last().baseImports()/].[entity.ancestors()->last().projectName()/].fwk.dao.jdbc.[entity.ancestors()->last().projectName().toUpperFirst()/]ConnectionUtils;
+import [entity.entityPackage()/].[entity.name.toStandardNotation()/];
+[for (it : Reference | entity.ownedReferences)]
+import [it.type.entityPackage()/].[it.type.name.toStandardNotation()/];
+[/for]
+
+import [entity.daoInterfacePackage()/].I[entity.name.toStandardNotation().toUpperFirst()/]Dao;
+
+// [/protected]
+
+/**
+ * This class provides the data access layer to the [entity.name.toStandardNotation().toUpperFirst()/] entity class.
+ * This is the JDBC implementation.
+ */
+public class Jdbc[entity.name.toStandardNotation().toUpperFirst()/]Dao implements I[entity.name.toStandardNotation().toUpperFirst()/]Dao {
+    /**
+     * Commons Logging instance.
+     */
+	[entity.loggerDeclaration(entity.getClassName())/]
+
+
+[comment Generates static declaration for database fields /]
+	protected final static String TABLE_NAME = "[entity.name.toSqlNotation()/]";
+
+[for (it : Attribute | entity.ownedAttributes)]
+	[comment if (!isDerived)/]
+	protected final static String [it.name.toUpper()/] = "[it.name.toSqlNotation()/]";
+	[comment/]
+[/for]
+[for (it : Reference | entity.ownedReferences)]
+	protected final static String [it.name.toUpper()/] = "FK_[it.type.name.toSqlNotation()/]_[it.name.toSqlNotation()/]_ID";
+[/for]
+	
+	// [protected ('specifics queries')]
+	protected static final String CREATE_QUERY = 
+		"INSERT INTO " + TABLE_NAME + 
+		" ([entity.dbColumnsWithId()/]) VALUES ([entity.dbArgs()/])";
+		
+	protected static final String UPDATE_QUERY = 
+		"UPDATE " + TABLE_NAME + 
+		" SET  [entity.dbColumnsComparators()/]" +
+		" WHERE ID = ?";
+	
+	protected static final String DELETE_QUERY = 
+		"DELETE FROM " + TABLE_NAME + 
+		" WHERE ID = ?";
+		
+	protected static final String FIND_ALL_QUERY = 
+		"SELECT * FROM " + TABLE_NAME;
+		
+	protected static final String FIND_BY_ID = 
+		"SELECT * FROM " + TABLE_NAME +
+		" WHERE ID = ?";
+		
+	[for (it : Attribute | entity.ownedAttributes)]
+	protected static final String FIND_BY_[it.name.toSqlNotation()/] = 
+		"SELECT * FROM " + TABLE_NAME +
+		" WHERE [it.name.toSqlNotation()/] = ?";
+		
+	[/for]
+	[for (it : Reference | entity.ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE))]
+	protected static final String FIND_BY_[it.name.toSqlNotation()/] = 
+		"SELECT * FROM " + TABLE_NAME +
+		" WHERE FK_[it.type.name.toSqlNotation()/]_[it.name.toSqlNotation()/]_ID = ?";
+		
+	[/for]
+	[for (it : Finder | entity.ownedFinders->select(f : Finder | f.criterions->filter(ExternalCriterion)->size() = 0))]
+	protected static final String [it.name.toSqlNotation()/] = 
+		"SELECT * FROM " + TABLE_NAME +
+		[for (it2 : InternalCriterion | it.criterions->filter(InternalCriterion))][if (i = 0) ]" WHERE [it2.target.name.toSqlNotation()/] = ?"[else]
+
+      + " AND [it2.target.name.toSqlNotation()/] = ?"[/if][/for];
+		
+	[/for]
+
+
+	// [/protected]
+
+	protected Collection[entity.toJavaVersion(entity.name)/] createList(ResultSet rs)[entity.throwDaoException()/] {
+		Collection[entity.toJavaVersion(entity.name)/] result = new ArrayList[entity.toJavaVersion(entity.name)/]();
+		[entity.name.toStandardNotation().toUpperFirst()/] [entity.name.toStandardNotation().toLowerFirst()/] = null;
+		while (rs.next()) {
+			[entity.name.toStandardNotation().toLowerFirst()/] = new [entity.name.toStandardNotation().toUpperFirst()/]();
+			[entity.name.toStandardNotation().toLowerFirst()/].setId(rs.getString("ID"));
+[for (it : Attribute | entity.ownedAttributes)]
+	[comment if (!isDerived)/]
+		[if (it.multiplicity = MultiplicityKind::ZERO_ONE or it.multiplicity = MultiplicityKind::ONE)]
+			[it.entity.name.toStandardNotation().toLowerFirst()/].set[it.name.toUpperFirst()/]( rs.get[it.genRsType()/]([it.name.toUpper()/]) );
+		[/if]
+	[comment/]
+[/for]
+[for (it : Reference | entity.ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE))]
+
+			[it.type.name.toStandardNotation()/] [it.name/] = new [it.type.name.toStandardNotation()/]();
+			[it.name/].setId( rs.getString([it.name.toUpper()/]) );
+	[if (it.multiplicity = MultiplicityKind::ZERO_ONE or it.multiplicity = MultiplicityKind::ONE)]	
+			[it.entity.name.toStandardNotation().toLowerFirst()/].set[it.name.toUpperFirst()/]( [it.name/] );
+	[else]	
+			[it.entity.name.toStandardNotation().toLowerFirst()/].get[it.name.toUpperFirst()/]().add( [it.name/] );
+	[/if]
+[/for]
+
+			result.add([entity.name.toStandardNotation().toLowerFirst()/]);
+		}
+		return result;
+	}
+
+	public void create[entity.name.toStandardNotation().toUpperFirst()/]([entity.name.toStandardNotation().toUpperFirst()/] element)[entity.throwDaoException()/] {
+		LOG.debug("Creating [entity.name.toStandardNotation().toUpperFirst()/]");
+		Connection cnx = null;
+		PreparedStatement statement = null;
+
+		try {
+			cnx = [getProperty('projectName').toUpperFirst()/]ConnectionUtils.getInstance().getConnection();
+			statement = cnx.prepareStatement(CREATE_QUERY);
+			element.setId(UUID.randomUUID().toString());
+			statement.setString(1, element.getId());
+			// [protected ('create')]
+			[for (it : Attribute | entity.ownedAttributes->select(a : Attribute | a.multiplicity = MultiplicityKind::ZERO_ONE or a.multiplicity = MultiplicityKind::ONE))]
+				[comment if (!isDerived)/]
+						[if (it.type.name = 'String')]
+			statement.setString([i+2/], element.get[it.name.toUpperFirst()/]());
+						[elseif (it.type.name = 'Date')]
+			statement.setDate([i+2/], new Date(element.get[it.name.toUpperFirst()/]().getTime()));
+						[elseif (it.type.name = 'Integer')]
+			statement.setInt([i+2/], element.get[it.name.toUpperFirst()/]());
+						[elseif (it.type.name = 'Float')]
+			statement.setDouble([i+2/], element.get[it.name.toUpperFirst()/]());
+						[elseif (it.type.name = 'Boolean')]
+			statement.setBoolean([i+2/], element.get[it.name.toUpperFirst()/]());
+						[elseif (it.type.name = 'Montant')]
+			statement.setDouble([i+2/], element.get[it.name.toUpperFirst()/]());
+						[else]
+			statement.setString([i+2/], element.get[it.name.toUpperFirst()/]());			
+						[/if]
+				[comment/]
+			[/for]
+			[for (it : Reference | entity.ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE))]
+				[comment if (!isDerived)/]
+			if (element.get[it.name.toUpperFirst()/]() != null) statement.setString([i + it.entity.ownedAttributes->select(a : Attribute | a.multiplicity = MultiplicityKind::ZERO_ONE or a.multiplicity = MultiplicityKind::ONE)->size() + 2/], element.get[name.toUpperFirst()/]().getId());
+			else statement.setString([i + it.entity.ownedAttributes->size() + 2/], null);
+				[comment/]
+			[/for]
+			// [/protected]
+
+			statement.executeUpdate();
+		[if (entity.daoExceptionStrategy() <> 'noException')]
+		} catch (SQLException e) {
+			throw new [entity.daoExceptionName()/]("Erreur requete", e);
+		[/if]
+		} finally {
+			[entity.tryDaoException()/]
+				if(statement!=null){statement.close();}
+				if(cnx!=null){cnx.close();}
+			[if (entity.daoExceptionStrategy() <> 'noException')]
+			} catch (SQLException e) {
+				throw new [entity.daoExceptionName()/]("Erreur de fermeture JDBC", e);
+			}
+			[/if]
+		}
+	}
+	
+	public void update[entity.name.toStandardNotation().toUpperFirst()/]([entity.name.toStandardNotation().toUpperFirst()/] element)[entity.throwDaoException()/] {
+		LOG.debug("Updating [entity.name.toStandardNotation().toUpperFirst()/]");
+		Connection cnx = null;
+		PreparedStatement statement = null;
+
+		try {
+			cnx = [getProperty('projectName').toUpperFirst()/]ConnectionUtils.getInstance().getConnection();
+			statement = cnx.prepareStatement(UPDATE_QUERY);
+			// [protected ('update')]
+			[for (it : Attribute | ownedAttributes->select(a : Attribute | a.multiplicity = MultiplicityKind::ZERO_ONE or a.multiplicity = MultiplicityKind::ONE))]
+				[comment if (!isDerived)/]
+						[if (it.type.name = 'String')]
+			statement.setString([i+1/], element.get[it.name.toUpperFirst()/]());
+						[elseif (it.type.name = 'Date')]
+			statement.setDate([i+1/], new Date(element.get[it.name.toUpperFirst()/]().getTime()));
+						[elseif (it.type.name = 'Integer')]
+			statement.setInt([i+1/], element.get[it.name.toUpperFirst()/]());
+						[elseif (it.type.name = 'Float')]
+			statement.setDouble([i+1/], element.get[it.name.toUpperFirst()/]());
+						[elseif (it.type.name = 'Boolean')]
+			statement.setBoolean([i+1/], element.get[it.name.toUpperFirst()/]());
+						[elseif (it.type.name = 'Montant')]
+			statement.setDouble([i+1/], element.get[it.name.toUpperFirst()/]());
+						[else]
+			statement.setString([i+1/], element.get[it.name.toUpperFirst()/]());			
+						[/if]
+				[comment/]
+			[/for]
+			[for (it : Reference | entity.ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE))]
+				[comment if (!isDerived)/]
+			if (element.get[it.name.toUpperFirst()/]() != null) statement.setString([i+ it.entity.ownedAttributes->select(a : Attribute | a.multiplicity = MultiplicityKind::ZERO_ONE or a.multiplicity = MultiplicityKind::ONE)->size() + 1/], element.get[it.name.toUpperFirst()/]().getId());
+			else statement.setString([i+ it.entity.ownedAttributes->size() + 1/], null);
+				[comment}/]
+			[/for]
+			// [/protected]
+			statement.setString([(ownedAttributes->filter(Property)->union(ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE)->filter(Property)))->size() + 1/],element.getId());
+			statement.executeUpdate();
+		[if (entity.daoExceptionStrategy() <> 'noException')]
+		} catch (SQLException e) {
+			throw new [entity.daoExceptionName()/]("Erreur requete", e);
+		[/if]
+		} finally {
+			[entity.tryDaoException()/]
+				if(statement!=null){statement.close();}
+				if(cnx!=null){cnx.close();}
+			[if (entity.daoExceptionStrategy() <> 'noException')]
+			} catch (SQLException e) {
+				throw new [entity.daoExceptionName()/]("Erreur de fermeture JDBC", e);
+			}
+			[/if]
+		}
+	}
+	
+	public void delete[entity.name.toStandardNotation().toUpperFirst()/]([entity.name.toStandardNotation().toUpperFirst()/] element)[entity.throwDaoException()/] {
+		LOG.debug("Deleting [entity.name.toStandardNotation().toUpperFirst()/]");
+		Connection cnx = null;
+		PreparedStatement statement = null;
+
+		try {
+			cnx = [getProperty('projectName').toUpperFirst()/]ConnectionUtils.getInstance().getConnection();
+			statement = cnx.prepareStatement(DELETE_QUERY);
+			statement.setString(1, element.getId());
+			statement.executeUpdate();
+		[if (entity.daoExceptionStrategy() <> 'noException')]
+		} catch (SQLException e) {
+			throw new [entity.daoExceptionName()/]("Erreur requete", e);
+		[/if]
+		} finally {
+			[entity.tryDaoException()/]
+				if(statement!=null){statement.close();}
+				if(cnx!=null){cnx.close();}
+			[if (entity.daoExceptionStrategy() <>'noException')]
+			} catch (SQLException e) {
+				throw new [entity.daoExceptionName()/]("Erreur de fermeture JDBC", e);
+			}
+			[/if]
+		}
+	}
+	
+	public Collection[entity.toJavaVersion(entity.name.toUpperFirst())/] findAll[entity.name.toStandardNotation().toUpperFirst()/]s()[entity.throwDaoException()/] {
+		LOG.debug("Find all [entity.name.toStandardNotation().toUpperFirst()/]");
+		Connection cnx = null;
+		Statement statement = null;
+		ResultSet rs = null;
+
+		try {
+			cnx = [getProperty('projectName').toUpperFirst()/]ConnectionUtils.getInstance().getConnection();
+			statement = cnx.createStatement();
+			rs = statement.executeQuery(FIND_ALL_QUERY);
+
+			Collection[entity.toJavaVersion(name)/] result = createList(rs);
+			return result;
+		[if (entity.daoExceptionStrategy() <> 'noException')]
+		} catch (SQLException e) {
+			throw new [entity.daoExceptionName()/]("Erreur requete", e);
+		[/if]
+		} finally {
+			[entity.tryDaoException()/]
+				if(rs!=null){rs.close();}
+				if(statement!=null){statement.close();}
+				if(cnx!=null){cnx.close();}
+			[if (entity.daoExceptionStrategy() <> 'noException')]
+			} catch (SQLException e) {
+				throw new [entity.daoExceptionName()/]("Erreur de fermeture JDBC", e);
+			}
+			[/if]
+		}
+	}	
+	
+	public [entity.name.toStandardNotation().toUpperFirst()/] find[entity.name.toStandardNotation().toUpperFirst()/]ById(String id)[entity.throwDaoException()/] {
+		LOG.debug("Find [entity.name.toStandardNotation().toUpperFirst()/] by Id");
+		Connection cnx = null;
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+
+		try {
+			cnx = [getProperty('projectName').toUpperFirst()/]ConnectionUtils.getInstance().getConnection();
+			statement = cnx.prepareStatement(FIND_BY_ID);
+			statement.setString(1,id);			
+			rs = statement.executeQuery();
+			[entity.name.toStandardNotation().toUpperFirst()/] result = new [entity.name.toStandardNotation().toUpperFirst()/]();
+			result.setId(id);
+			if (rs.next()) {
+			[for (it : Attribute | entity.ownedAttributes->select(a : Attribute | a.multiplicity = MultiplicityKind::ZERO_ONE or a.multiplicity = MultiplicityKind::ONE))]
+				[comment if (!isDerived)/]
+				result.set[it.name.toUpperFirst()/]( rs.get[it.genRsType()/]([it.name.toUpper()/]) );
+				[comment/]
+			[/for]
+			[for (it : Reference | entity.ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE))]
+				[it.type.name.toStandardNotation()/] [it.name/] = new [it.type.toJavaType()/]();
+				[it.name/].setId(rs.getString([it.name.toUpper()/]));
+				result.set[it.name.toUpperFirst()/]([it.name/]);
+			[/for]
+			}
+			return result;
+		[if (entity.daoExceptionStrategy() <>'noException')]
+		} catch (SQLException e) {
+			throw new [entity.daoExceptionName()/]("Erreur requete", e);
+		[/if]
+		} finally {
+			[entity.tryDaoException()/]
+				if(rs!=null){rs.close();}
+				if(statement!=null){statement.close();}
+				if(cnx!=null){cnx.close();}
+			[if (entity.daoExceptionStrategy() <>'noException')]
+			} catch (SQLException e) {
+				throw new [entity.daoExceptionName()/]("Erreur de fermeture JDBC", e);
+			}
+			[/if]
+		}
+	}
+	
+	[if (entity.ownedAttributes->size() > 1)]
+		[for (it : Attribute | entity.ownedAttributes)]
+	public Collection[it.toJavaVersion(it.entity.name)/] find[it.entity.name.toStandardNotation()/]sBy[it.name.toUpperFirst()/]([it.type.toJavaType()/] [it.name/])[it.throwDaoException()/] {
+		LOG.debug("Find [it.entity.name/] by [it.name.toUpperFirst()/]");
+		Connection cnx = null;
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+
+		try {
+			cnx = [getProperty('projectName').toUpperFirst()/]ConnectionUtils.getInstance().getConnection();
+			statement = cnx.prepareStatement(FIND_BY_[it.name.toSqlNotation()/]);
+			statement.set[it.type.jdbcType()/](1,[it.name/]);
+			rs = statement.executeQuery();
+
+			Collection[it.toJavaVersion(it.entity.name)/] result = createList(rs);
+			return result;
+		[if (it.daoExceptionStrategy() <> 'noException')]
+		} catch (SQLException e) {
+			throw new [it.daoExceptionName()/]("Erreur requete", e);
+		[/if]
+		} finally {
+			[it.tryDaoException()/]
+				if(rs!=null){rs.close();}
+				if(statement!=null){statement.close();}
+				if(cnx!=null){cnx.close();}
+			[if (it.daoExceptionStrategy() <> 'noException')]
+			} catch (SQLException e) {
+				throw new [it.daoExceptionName()/]("Erreur de fermeture JDBC", e);
+			}
+			[/if]
+		}
+	}
+	
+		[/for]
+	[/if]
+
+[comment Generate additional methods declaration /]
+[for (it : Finder | entity.ownedFinders)]
+	/**
+	 * Find all entities by the attributes [it.criterions.criterionName()->sep(', ')/]
+	[for (it2 : Criterion | it.criterions)]
+	 * @param [it2.criterionName()/] 
+	[/for]
+	 * @return A collection with all matching entities.
+	 */
+	public Collection[it.toJavaVersion(it.entity.name)/] [it.name/]([it.criterions.parameter()->sep(', ')/])[it.throwDaoException()/] {
+		LOG.debug("Call [it.name/] on [it.entity.name/] entity");		
+		Connection cnx = null;
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+
+		try {
+			cnx = [getProperty('projectName').toUpperFirst()/]ConnectionUtils.getInstance().getConnection();
+			statement = cnx.prepareStatement([it.name.toSqlNotation()/]);
+			[for (it2 : Criterion | it.criterions->select(c : Criterion | c.criterionType()->filter(PrimitiveType)->size() > 0))]
+			statement.set[it2.criterionType()->filter(PrimitiveType).jdbcType()/]([i + 1/],[it2.criterionName().toLowerFirst()/]);
+			[/for]
+			rs = statement.executeQuery();
+
+			Collection[it.toJavaVersion(it.entity.name)/] result = createList(rs);
+			return result;
+		[if (it.daoExceptionStrategy() <> 'noException')]
+		} catch (SQLException e) {
+			throw new [it.daoExceptionName()/]("Erreur requete", e);
+		[/if]
+		} finally {
+			[it.tryDaoException()/]
+				if(rs!=null){rs.close();}
+				if(statement!=null){statement.close();}
+				if(cnx!=null){cnx.close();}
+			[if (it.daoExceptionStrategy() <> 'noException')]
+			} catch (SQLException e) {
+				throw new [it.daoExceptionName()/]("Erreur de fermeture JDBC", e);
+			}
+			[/if]
+		}
+	}
+	
+[/for]
+
+	//[protected (' ')]
+	//[/protected]
+}
+	[/file]
+[/template]
+
+[comment ** Generates the db columns id for the entity.
+ * @param entity the input entity.
+ * /]
+[template public dbColumnsWithId(entity : Entity)]
+ID[if ((ownedAttributes->filter(Property)->union(ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE)->filter(Property)))->size() > 0) ], [((ownedAttributes->filter(Property)->union(ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE)->filter(Property))).toSqlColumn()->sep(', '))/][/if]
+[/template]
+
+[comment ** Generates the db args for the entity.
+ * @param entity the input entity.
+ * /]
+[template public dbArgs(entity : Entity)]
+?[if ((ownedAttributes->filter(Property)->union(ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE)->filter(Property)))->size() > 0) ], [((ownedAttributes->filter(Property)->union(ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE)->filter(Property))).genArg()->sep(', '))/][/if]
+[/template]
+
+[comment ** Generates the db columns comparators for the entity.
+ * @param entity the input entity.
+ * /]
+[template public dbColumnsComparators(entity : Entity)]
+[(ownedAttributes->filter(Property)->union(ownedReferences->select(r : Reference | r.multiplicity = MultiplicityKind::ZERO_ONE or r.multiplicity = MultiplicityKind::ONE)->filter(Property))).dbComparator()->sep(', ')/]
+[/template]
+
+[comment ** Generates the db comparator for the entity.
+ * @param entity the input entity.
+ * /]
+[template public dbComparator(property : Property)]
+[property.toSqlColumn()/] = ?
+[/template]
+
+[comment ** Generates the comparator for the property.
+ * @param property the input property.
+ * /]
+[template public genComparator(property : Property)]
+[property.name.toSqlNotation()/] = ? 
+[/template]
+
+[comment ** Generates the rs type for the property.
+ * @param property the input property.
+ * /]
+[template public genRsType(property : Property)]
+[property.toJavaType().toUpperFirst()/]
+[/template]
+
+[comment ** Generates the sql column name for the property.
+ * @param property the input property.
+ * /]
+[template public toSqlColumn(property : Property)]
+[/template]
+
+[comment ** Generates the sql column name for the attribute.
+ * @param attribute the input attribute.
+ * /]
+[template public toSqlColumn(attribute : Attribute)]
+[attribute.name.toSqlNotation()/]
+[/template]
+
+[comment ** Generates the sql column name for the reference.
+ * @param reference the input reference.
+ * /]
+[template public toSqlColumn(reference : Reference)]
+FK_[reference.type.name.toSqlNotation()/]_[reference.name.toSqlNotation()/]_ID
+[/template]
+
+[comment ** Generates the arg for the property.
+ * @param property the input property.
+ * /]
+[template public genArg(Property : Property) post(trim())]
+?
+[/template]
+
+[comment ** Generates the parameter for the criterion.
+ * @param criterion the input criterion.
+ * /]
+[template public parameter(criterion : Criterion) post(trim())]
+[criterion.criterionType().toJavaType()/] [criterion.criterionName().toLowerFirst()/]
+[/template]
+
+[comment ** Generates the class name for the entity.
+ * @param entity the input entity.
+ * /]
+[template public getClassName(entity : Entity)]
+Jdbc[entity.name.toStandardNotation().toUpperFirst()/]Dao
+[/template]

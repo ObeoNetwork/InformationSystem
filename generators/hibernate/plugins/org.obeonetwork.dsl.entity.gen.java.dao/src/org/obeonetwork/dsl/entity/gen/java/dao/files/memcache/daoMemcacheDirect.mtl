@@ -1,0 +1,112 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module daoMemcacheDirect('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::entity::gen::java::common::normalization /]
+[import org::obeonetwork::dsl::entity::gen::java::common::javaVersion /]
+[import org::obeonetwork::dsl::entity::gen::java::common::datatype /]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::services::sqlTypeServices /]
+[import org::obeonetwork::dsl::entity::gen::java::common::services::criterionServices /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::common::daoCommon /]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::datatype /]
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+[import org::obeonetwork::dsl::entity::gen::java::common::common /]
+
+
+[comment ** Generates the full filepath for the entity.
+ * @param entity the input entity.
+ * /]
+[template public fullFilePath(entity : Entity)]
+[entity.pathToMainJava()/]/[entity.memcachePackage().toPkgName().toPath()/]/MemCache[entity.name.toClassStandardNotation()/]Dao.java
+[/template]
+
+[template public generateDaoMemcacheDirect(entity : Entity)]
+	[file (entity.fullFilePath(), false, 'UTF-8')]
+package [entity.memcachePackage().toPkgName()/];
+
+// [protected ('for import')]
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Hashtable;
+import java.util.Map;
+
+[entity.importDaoException()/]
+import [entity.entityPackage()/].[entity.name.toClassStandardNotation()/];
+import [entity.daoInterfacePackage()/].I[entity.name.toClassStandardNotation()/]Dao;
+
+// [/protected]
+
+public class MemCache[entity.name.toClassStandardNotation()/]Dao implements I[entity.name.toClassStandardNotation()/]Dao {
+	
+	protected static Map[entity.toJavaVersion(entity.getTypeMap())/] [entity.name.toClassStandardNotation().toLowerFirst()/]sCache = new Hashtable[entity.toJavaVersion(entity.getTypeMap())/]();
+	
+	public void create[entity.name.toClassStandardNotation()/]([entity.name.toClassStandardNotation()/] entity)[entity.throwDaoException()/] {
+		[entity.name.toClassStandardNotation().toLowerFirst()/]sCache.put(entity.getId(), entity);
+	}
+	
+	public void update[entity.name.toClassStandardNotation()/]([entity.name.toClassStandardNotation()/] entity)[entity.throwDaoException()/] {
+		if (![entity.name.toClassStandardNotation().toLowerFirst()/]sCache.containsKey(entity.getId())) {
+			throw new [entity.daoExceptionName()/]("[entity.name.toClassStandardNotation()/] (id : " + entity.getId() + ") to update doesn't exist.");
+		}
+		[entity.name.toClassStandardNotation().toLowerFirst()/]sCache.put(entity.getId(), entity);
+	}
+	
+	public void delete[entity.name.toClassStandardNotation()/]([entity.name.toClassStandardNotation()/] entity)[entity.throwDaoException()/] {
+		[entity.name.toClassStandardNotation().toLowerFirst()/]sCache.remove(entity.getId());
+	}
+	
+	public Collection[entity.toJavaVersion(entity.name)/] findAll[entity.name.toClassStandardNotation()/]s()[entity.throwDaoException()/] {
+		Collection[entity.toJavaVersion(name.toClassStandardNotation())/] allList = new ArrayList[entity.toJavaVersion(name.toClassStandardNotation())/]();
+		allList.addAll([entity.name.toClassStandardNotation().toLowerFirst()/]sCache.values());
+		return allList;
+	}
+	
+	public [entity.name.toClassStandardNotation()/] find[entity.name.toClassStandardNotation()/]ById(String id)[entity.throwDaoException()/] {
+		[entity.name.toClassStandardNotation()/] result = ([entity.name.toClassStandardNotation()/])[entity.name.toClassStandardNotation().toLowerFirst()/]sCache.get(id);
+		return result;
+	}
+	
+[comment Generate additional methods declaration /]
+[for (it : Finder | entity.ownedFinders)]
+	[comment Generate methods with find stereotypes /]
+	/**
+	 * Find all entities by the attributes [it.criterions.criterionName()->sep(', ')/]
+	[for (it2 : Criterion | it.criterions)]
+	 * @param [it2.criterionName()/] 
+	[/for]
+	 * @return A collection with all matching entities.
+	 */
+	public Collection[it.toJavaVersion(it.entity.name.toClassStandardNotation())/] [it.name/]([it.criterions.parameter()->sep(', ')/])[it.throwDaoException()/] {
+		// [protected ('of [it2.name/]')]
+		return null;
+		// [/protected]
+	}
+[/for]
+}
+	[/file]
+[/template]
+
+[comment ** Generates the parameter from the criterion.
+ * @param criterion the input criterion.
+ * /]
+[template public parameter(criterion : Criterion) post(trim())]
+[criterion.criterionType().toJavaType()/] [criterion.criterionName().toLowerFirst()/]
+[/template]
+
+[comment ** Generates the arguments of a map for the entity.
+ * @param entity the input entity.
+ * /]
+[template public getTypeMap(entity : Entity)]
+String, [entity.name.toClassStandardNotation()/]
+[/template]

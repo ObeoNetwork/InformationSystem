@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- mapping files -->
+        
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class0101.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class0101END.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class0101BI.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class0101BIEND.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class101.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class101END.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class101BI.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class101BIEND.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class011.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class011END.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class011BI.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class011BIEND.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class11.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class11END.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class11BI.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class11BIEND.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class01Many.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class01ManyEND.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class01ManyBI.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/Class01ManyBIEND.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/ClassMany01.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/ClassMany01END.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/ClassMany01BI.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/ClassMany01BIEND.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/ClassManyMany.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/ClassManyManyEnd.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/ClassManyManyBI.hbm.xml"/>
+        <mapping resource="org/obeonetwork/sample/inheritanceassociations/ClassManyManyBIEND.hbm.xml"/>
+
+		<!-- Start of user code of listeners -->
+		<!-- End of user code of listeners -->
+
+    </session-factory>
+
+	<!-- Start of user code of security parameters -->
+	<!-- End of user code of security parameters -->
+
+</hibernate-configuration>

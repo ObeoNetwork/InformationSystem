@@ -1,0 +1,130 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module applicationContext('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common/]
+[import org::obeonetwork::dsl::entity::gen::java::common::common/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::daoHibernateCommon/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::spring::xml::hibernateMappingsContext/]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices/]
+
+[comment ** Generates the ORMApplicationContext relative path for the given element.
+ * @param element the input element.
+ * /]
+[template public ORMApplicationContextRelativePath(element : EObject)]
+/conf/spring/orm/applicationContext.xml
+[/template]
+
+[comment ** Generates the full file path for the given root.
+ * @param root the input root.
+ * /]
+[template public fullFilePath(root : Root)]
+[root.pathToMainResources()/][root.ORMApplicationContextRelativePath()/]
+[/template]
+
+[template public applicationContext(root : Root) ? (getProperty('linkage.strategy') = 'spring')]
+[file (root.fullFilePath(), false, 'UTF-8')]
+[root.generate()/]
+[/file]
+[/template]
+
+[template public generate(root : Root)]
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+           http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+	
+	<!--[protected ('for start of document -->')]
+
+	<!-- [/protected] -->
+	
+	<!-- Hibernate Transaction Manager -->
+	<bean id="transactionManager"
+ 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<tx:advice id="txAdviceDAO" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:advisor pointcut="execution(* **.*Dao.*(..))" advice-ref="txAdviceDAO" />
+	</aop:config>
+	
+	<!-- Hibernate SessionFactory -->
+	<import resource="classpath:[root.hibernateMappingsContextRelativeFilePath()/]"/>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mappingResources" ref="[root.hibernateMappingResourcesBeanID()/]"/>
+		<!-- [protected ('for hibernate properties -->')]
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.generate_statistics">true</prop>
+ 				<prop key="hibernate.hbm2ddl.auto">create</prop> 
+ 				<prop key="hibernate.jdbc.batch_size">1</prop>
+			</props>
+		</property>
+		<!-- [/protected] -->
+	</bean> 
+	[root.generateDAOBeans()/]
+</beans>
+[/template]
+
+[query public allDAOs(root : Root) : Sequence(Block) =
+	root.eAllContents(Block)->select(b : Block | b.entities->size() > 0)
+/]
+
+[comment ** Generates the DAOBeans for the given root.
+ * @param root the input root.
+ * /]
+[template public generateDAOBeans(root : Root) post(trim())]
+[for (it : Block | root.eAllContents(Block)->select(b : Block | b.entities->size() > 0))]
+[it.generateDAOBean()/]
+[/for]
+[/template]
+
+[comment ** Generates the DAOBean ID for the given block.
+ * @param block the input block.
+ * /]
+[template public DAOBeanID(block : Block)]
+[block.name.toClassStandardNotation().toUpperFirst()/]DAO
+[/template]
+
+[comment ** Generates the DAOBean for the given element.
+ * @param element the input element.
+ * /]
+[template public generateDAOBean(aBlock : Block)]
+<!-- [aBlock.name.toClassStandardNotation()/] -->
+<bean id="[aBlock.DAOBeanID()/]" 
+	class="[aBlock.hibernatePackage()/].[aBlock.daoHibernateImpl()/]">
+	<property name="sessionFactory">
+		<ref bean="sessionFactory" />
+	</property>
+</bean>
+
+<!-- [protected ('for ' + aBlock.name + ' specific configuration -->')]
+<!-- [/protected] -->
+<!-- end [aBlock.name.toClassStandardNotation()/] -->
+[/template]

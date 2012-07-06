@@ -1,0 +1,49 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module hibernateArchitectureEntity('http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::entity::gen::java::common::files::java::entity /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoFactory /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoInterfaceDirect /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoException /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::mysql::sqlCreate2 /]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::xml::daoHibernateHbm /]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::java::daoHibernateDirect /]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::xml::daoHibernateCfg /]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::resources::daoHibernateDaoProperties /]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::java::hibernateUtil /]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::java::daoHibernateTestSuite /]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::springHibernateEntityDaoJUnit /]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::junit::hibernateDaoJUnit /]
+
+
+[template public hibernateArchitectureEntity(root : Root)]
+	
+	[comment @main /]
+	
+	[root.daoFactory()/]
+	[root.daoException()/]
+	[comment sql /]
+	[root.generateSqlCreate2()/]
+	[comment hibernate /]
+	[for (it : Entity | root.eAllContents(Entity))]
+		[it.generateEntity()/]
+		[it.daoInterfaceDirect()/]
+		[it.daoHibernateHbm()/]
+		[it.generateDaoSpringStrategy()/]
+		[it.hibernateDAOJUnitEntity()/]	
+	[/for]
+	[root.generatetype()/]
+	[root.generateProperties()/]
+	[root.hibernateUtil()/]
+	[root.generateHibernateTestSuite()/]
+[/template]

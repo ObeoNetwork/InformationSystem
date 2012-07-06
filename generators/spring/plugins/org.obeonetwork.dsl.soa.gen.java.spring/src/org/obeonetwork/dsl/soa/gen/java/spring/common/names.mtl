@@ -1,0 +1,114 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module names('http://www.obeonetwork.org/dsl/soa/2.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+
+[comment =========================== General naming =========================== /]
+
+[comment ** Generates the given object name in a java format.
+ * @param eobject input element.
+ * /]
+[template public normalizedName(eobject : EObject)]
+[eobject.getName().toStandardNotation().toLower()/]
+[/template]
+
+[comment TODO: I cannot translate a template like this. I adapt it]
+<%script type="EObject" name="getCompleteName"%>
+<%self().getCompleteName()%>
+[/comment]
+
+[comment ========================== Services naming ========================== /]
+
+[comment ** Generates the java generation package for service classes of the Service.
+ * @param service input service.
+ * /]
+[template public soaPackage(service : Service) post (trim())]
+[if (getProperty('useSoaPackage') = 'no')]
+	[service.eContainer(Component).normalizedName()/]
+[else]
+	[if (getProperty('use.functional.disposition') = 'true')]
+        [service.baseImports()/].[service.projectName()/].[service.normalizedName()/][service.insertInPackage('soa.package')/]
+	[else]
+        [service.baseImports()/].[service.projectName()/][service.insertInPackage('soa.package')/].[service.normalizedName()/]
+	[/if]
+[/if]
+[/template]
+
+[comment ** Generates the java name of a Service.
+ * @param service input service
+ * /]
+[template public serviceName(service : Service)]
+[service.name.toStandardNotation().toUpperFirst()/]Service
+[/template]
+
+[comment ** Generates the qualified service implementation class for the given Service.
+ * @param service input service.
+ * /]
+[template public serviceImplQualifiedName(service : Service)]
+[service.soaPackage()/].[service.serviceName()/]Impl
+[/template]
+
+[comment ** Generates the interface name of a Service.
+ * @param service input service
+ * /]
+[template public serviceInterfaceName(service : Service)]	
+I[service.serviceName()/]
+[/template]
+
+[comment ** Generates the qualified service interface for the given Service.
+ * @param service input service.
+ * /]
+[template public serviceInterfaceQualifiedName(service : Service)]	
+[service.soaPackage()/].[service.serviceInterfaceName()/]
+[/template]
+
+[comment ============================= DTO naming ============================ /]
+
+[comment ** Generates the model-based java generation package of the given DTO.
+ * @param dto input DTO
+ * /]
+[template public getCompleteName(dto : ServiceDTO)]
+[dto.ancestors(Category)->reverse().oclAsType(Category).name->sep('.')/]
+[/template]
+
+[comment ** Generates java generation package of the given DTO
+ * This use the key 'useDtoPackage' to define if the model is used to generate the package
+ * or if the generator use its own strategy. 
+ * @param dto input DTO
+ * /]
+[template public dtoPackage(dto : ServiceDTO) post (trim())]
+[if (getProperty('useDtoPackage') = 'no')]
+	[dto.getCompleteName()/]
+[else]
+	[if (getProperty('use.functional.disposition') = 'true')]
+        [dto.baseImports()/].[dto.projectName()/].[dto.normalizedName()/][dto.insertInPackage('dto.package')/]
+	[else]
+        [dto.baseImports()/].[dto.projectName()/][dto.insertInPackage('dto.package')/].[dto.normalizedName()/]
+	[/if]
+[/if]
+[/template]
+
+[comment ** Generates the java name of a DTO.
+ * @param dto input DTO
+ * /]
+[template public serviceDtoName(dto : ServiceDTO)]
+[dto.name.toStandardNotation().toUpperFirst()/]Dto
+[/template]
+
+[comment ** Generates the qualified dto class for the given DTO.
+ * @param dto input dto.
+ * /]
+[template public serviceDtoQualifiedName(dto : ServiceDTO)]
+[dto.dtoPackage()/].[dto.serviceDtoName()/]
+[/template]

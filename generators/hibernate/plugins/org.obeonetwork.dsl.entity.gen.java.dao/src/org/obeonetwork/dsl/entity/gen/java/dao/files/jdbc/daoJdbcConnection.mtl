@@ -1,0 +1,193 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module daoJdbcConnection('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices/]
+[import org::obeonetwork::dsl::entity::gen::java::common::datatype/]
+[import org::obeonetwork::dsl::entity::gen::java::common::normalization/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::common::daoCommon/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common/]
+
+[comment ** Generates the full filepath for the root.
+ * @param root the input root.
+ * /]
+[template public fullFilePath(root : Root)]
+[root.pathToMainJava()/]/[root.utilPackage().toPath()/]/[root.projectName().toUpperFirst()/]ConnectionUtils.java
+[/template]
+
+[comment ** Generates the util package name for the root.
+ * @param root the input root.
+ * /]
+[template public utilPackage(root : Root)]
+[root.baseImports()/].[root.projectName()/].fwk.dao.jdbc
+[/template]
+
+[comment **
+ * This template generate an utility class for JDBC initialisation.
+ * It can be generate only one time and be part of an internal framework.
+/]
+[template public generateCnt(root : Root)]
+[file (root.fullFilePath(), false, 'UTF-8')]
+package [root.utilPackage()/];
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+[root.importDaoException()/]
+
+/**
+ * Utility class to find a Database connection
+ */
+public class [root.projectName().toUpperFirst()/]ConnectionUtils {
+
+	/**
+	 * Prefix key used inside properties file
+	 */
+	private static final String APP_NAME = "[root.baseImports()/].[root.projectName()/]";
+	private static final String KEY_PREFIX = APP_NAME + ".dao.jdbc";
+	
+	/**
+	 * Properties file
+	 */
+	private final static String FILE_DAO_MAPPING = "dao";
+	private static ResourceBundle bundle = ResourceBundle.getBundle(FILE_DAO_MAPPING);
+
+	private static [root.projectName().toUpperFirst()/]ConnectionUtils instance;
+	private DataSource dataSource = null;
+
+	/** 
+	 * Lock to manage concurrency access
+	 */
+	private static Boolean initializationLock = new Boolean(true);
+
+
+	/**
+	 * Initialise the connection.
+	 * @return a singleton [root.throwCommentDaoException(null)/]
+	 */
+	public static [root.projectName().toUpperFirst()/]ConnectionUtils getInstance()[root.throwDaoException()/] {
+		if (instance == null) {
+			synchronized (initializationLock) {
+				if (initializationLock.equals(Boolean.TRUE)) {
+					instance = new [root.projectName().toUpperFirst()/]ConnectionUtils();
+					initializationLock = new Boolean(false);
+				}
+			}
+		}
+		return instance;
+	}
+
+	/**
+	 * Give a connection to the database.
+	 * @return [root.throwCommentDaoException(null)/]
+	 */
+	public Connection getConnection()[root.throwDaoException()/] {
+		return getConnectionJDBC();
+	}
+	
+	// ----    Privates methods ----
+	
+	/**
+	 * This constructor is private to conform singleton pattern [root.throwCommentDaoException(null)/]
+	 */
+	private [root.projectName().toUpperFirst()/]ConnectionUtils()[root.throwDaoException()/] {
+		initConnectionJDBC();
+	}
+	
+	/**
+	 * Initialisation throw JNDI (with a container).
+	 * The JNDI key search is java:comp/env/jdbc/ + APP_NAME [root.throwCommentDaoException(null)/]
+	 */
+	private void initConnectionJNDI()[root.throwDaoException()/] {
+		[root.tryDaoException()/]
+			Context initialContext;
+			initialContext = new InitialContext();
+			if (initialContext == null) {
+				throw new [root.daoExceptionName()/]("getPooledConnection: Cannot get Initial Context");
+			}
+			String dsKey = bundle.getString(KEY_PREFIX + ".dataSource");
+			dataSource = (DataSource) initialContext.lookup( dsKey );
+
+			if (dataSource == null) {
+				throw new [root.daoExceptionName()/]("Init: Cannot lookup datasource");
+			}
+		[if (root.daoExceptionStrategy() <> 'noException')]
+		} catch (NamingException e) {
+			throw new [root.daoExceptionName()/]("Init: Cannot get connection " + e);
+		}
+		[/if]
+	}
+	
+	/**
+	 * Initialisation throw JDBC.<br/>
+	 * Specify KEY_PREFIX + .driver inside properties file.<br/>
+	 * Exemple : org.obeonetwork.sample.dao.jdbc.driver=com.mysql.jdbc.Driver [root.throwCommentDaoException(null)/]
+	 */
+	private void initConnectionJDBC()[root.throwDaoException()/] {
+		[root.tryDaoException()/]
+			// Driver
+			// DriverManager.setLogWriter(new PrintWriter(System.out));
+			String driverName = bundle.getString(KEY_PREFIX + ".driver");
+			Class.forName(driverName);
+				
+		[if (root.daoExceptionStrategy() <> 'noException')]		
+		} catch (ClassNotFoundException e) {
+			throw new [root.daoExceptionName()/]("Init: Cannot init jdbc driver class " + e);
+		}
+		[/if]
+	}
+	
+	/**
+	 * Use JNDI and its container to create a connection. 
+	 * The pool strategy depends on DataSource implementation.
+	 * @return [root.throwCommentDaoException(null)/]
+	 */
+	private Connection getConnectionJNDI()[root.throwDaoException()/] {
+		[root.tryDaoException()/]
+			Connection connection = dataSource.getConnection();
+			return connection;
+		
+		[if (root.daoExceptionStrategy() <> 'noException')]
+		} catch (SQLException e) {
+			throw new [root.daoExceptionName()/]("Cannot get connection from datasource." + e);
+		}
+		[/if]
+	}
+
+	/**
+	 * Use direct JDBC API to create the connection.
+	 * @return [root.throwCommentDaoException(null)/]
+	 */
+	private Connection getConnectionJDBC()[root.throwDaoException()/] {
+		String url 		= bundle.getString(KEY_PREFIX + ".url");
+		String login 	= bundle.getString(KEY_PREFIX + ".login");
+		String password = bundle.getString(KEY_PREFIX + ".password");
+		[root.tryDaoException()/]			
+			Connection connection = DriverManager.getConnection(url, login, password);
+			return connection;
+		[if (root.daoExceptionStrategy() <> 'noException')]	
+		} catch (SQLException e) {
+			throw new [root.daoExceptionName()/]("Cannot get connection from DriverManager." + e);
+		}
+		[/if]
+	}
+}
+	[/file]
+[/template]

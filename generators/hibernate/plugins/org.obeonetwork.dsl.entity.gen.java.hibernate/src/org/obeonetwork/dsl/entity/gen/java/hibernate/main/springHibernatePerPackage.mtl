@@ -1,0 +1,58 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module springHibernatePerPackage('http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::entity::gen::java::common::files::java::entity/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoException/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoInterfaceDirectPackage/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::mysql::sqlCreate2/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::xml::daoHibernateHbm /]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::java::daoHibernateDirectPackageSpringStrategy/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::java::daoHibernateTestSuitePackage/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::hibernate::xml::daoHibernateCfg/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::spring::xml::applicationContext/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::spring::xml::applicationContextTest/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::files::spring::xml::hibernateMappingsContext/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::springHibernateDaoJUnit /]
+
+
+
+[template public springHibernatePerPackageRoot(root : Root)]
+	
+	[comment @main /]
+	[comment entity /]
+	[for (it : Entity | root.eAllContents(Entity))] 
+		[it.generateEntity()/]
+	[/for]
+	[comment dao api /]
+	[for (it : Block | root.eAllContents(Block))] 
+		[it.daoInterfaceDirect()/]
+	[/for]
+	[root.daoException()/]
+	[comment sql /]
+	[root.generateSqlCreate2()/]
+	[comment hibernate /]
+	[for (it : Entity | root.eAllContents(Entity))]
+		[it.daoHibernateHbm()/]
+	[/for]
+	[for (it : Block | root.eAllContents(Block))]
+		[it.generateDaoSpringStrategy()/]
+		[it.hibernateDAOJUnit()/]
+	[/for]
+	[root.generatetype()/]
+	[root.generateDaoHibernateTestSuitePackage()/]
+	[comment spring /]
+	[root.applicationContext()/]
+	[root.applicationContextTest()/]
+	[root.hibernateMappingsContext()/]
+	
+[/template]

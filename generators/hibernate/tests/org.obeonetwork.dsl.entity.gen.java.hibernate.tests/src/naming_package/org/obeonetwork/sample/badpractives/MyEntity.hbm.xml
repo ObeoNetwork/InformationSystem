@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.badpractives.MyEntity" 
+    	table="MY_ENTITY"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="attr1">
+            <column name="ATTR1"/>
+        </property>
+        <property name="private_">
+            <column name="PRIVATE"/>
+        </property>
+        <property name="public_">
+            <column name="PUBLIC"/>
+        </property>
+        <property name="protected_">
+            <column name="PROTECTED"/>
+        </property>
+        <property name="null_">
+            <column name="NULL1"/>
+        </property>
+        <property name="String">
+            <column name="STRING"/>
+        </property>
+        <property name="a">
+            <column name="A"/>
+        </property>
+
+
+		<!-- Associations -->
+
+
+		<!-- Inheritance -->
+
+
+
+
+    </class>
+
+</hibernate-mapping>

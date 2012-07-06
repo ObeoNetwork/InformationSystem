@@ -1,0 +1,41 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module entityObjectServices('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[comment ** Get the sub entities of the given entity for the given entity list.
+ * @param arg0 the input entity.
+ * @param arg1 the entity list
+ * /]
+[query public subEntities(anEntity : Entity, entitySequence : Sequence(Entity)) : Sequence(Entity) =
+	entitySequence->select(it : Entity | it.supertype = anEntity)
+/]
+
+[comment ** Get the references pointing to the given entity for the given reference list.
+ * @param arg0 the input entity.
+ * @param arg1 the reference list
+ * /]
+[query public pointedAttribute(anEntity : Entity, entitySequence : Sequence(Reference)) : Sequence(Reference) =
+	entitySequence->select(ref : Reference | ref.type = anEntity)
+/]
+
+[comment ** Get the hashCode for the given element.
+ * @param arg0 the input element.
+ * /]
+[query public hashCode(anEObject : EObject) : Integer
+	= invoke('org.obeonetwork.dsl.entity.gen.java.common.services.EntityObjectServices', 'hashCode(org.eclipse.emf.ecore.EObject)', Sequence{anEObject}) /]
+
+[comment ** Get the unique ID for the given element
+ * @param arg0 the input element.
+ * /]
+[query public getUuid(anEObject : EObject) : String
+	= invoke('org.obeonetwork.dsl.entity.gen.java.common.services.EntityObjectServices', 'getUuid(org.eclipse.emf.ecore.EObject)', Sequence{anEObject}) /]
+

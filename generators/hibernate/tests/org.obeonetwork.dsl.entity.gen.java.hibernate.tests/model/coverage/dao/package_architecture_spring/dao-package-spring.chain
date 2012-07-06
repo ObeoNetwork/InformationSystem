@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<chain:Chain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:chain="http://www.obeo.fr/acceleo/chain">
+  <repository>
+    <members documentation="Repository for chain call : [Ljava.lang.Object;@e79dca">
+      <files xsi:type="chain:Model" path="/&lt;%project%>/model/business.entity"/>
+    </members>
+    <files xsi:type="chain:Model" path="/org.obeonetwork.dsl.entity.gen.java.hibernate.tests/model/coverage/dao/dao.entity"/>
+  </repository>
+  <actions>
+    <actions xsi:type="chain:ChainCall" chainPath="/org.obeonetwork.dsl.entity.gen.java.hibernate/spring-hibernate-per_package.chain" argumentsFiles="//@repository/@files.0">
+      <argumentsPatterns>org.obeonetwork.dsl.entity.gen.java.hibernate.tests</argumentsPatterns>
+    </actions>
+  </actions>
+</chain:Chain>

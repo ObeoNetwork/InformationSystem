@@ -1,0 +1,94 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module jarBuild('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[comment ** Generates the full file path for the given root.
+ * @param root the input root.
+ * /]
+[template public fullFilePath(root : Root)]
+/jarBuild.xml
+[/template]
+
+[template public persistentBuild(root : Root)]
+	[file (root.fullFilePath(), false, 'UTF-8')]
+<?xml version="1.0" ?>
+
+<!-- ===================================================================
+<description>
+Build Instructions:
+   To compile
+        ant compile
+   To jar
+        ant jar
+</description>
+==================================================================== -->
+
+<!-- Build file -->
+
+<!-- If you change the location of the server, change the server_path and server_home below -->
+<project default="jar">
+
+<!-- [protected ('properties -->')]
+
+<!-- Server properties -->
+<property name="server.home" value="Set here JBoss server path"/>
+<property name="server.lib" value="${server.home}\lib"/>
+
+<!-- Project name -->
+<property name="project"  value="Set here hibernate project path"/>
+<!-- Build classes directory-->
+<property name="bin" value="build/classes"/>
+<!-- Sources directory-->
+<property name="src" value="src"/>
+<!-- Dist directory-->	
+<property name="dist"  location="dist"/>
+<!-- Libraries directory-->
+<property name="lib" value="lib"/>
+
+<!-- Server project properties -->	
+<property name="server.project"  value="Set here SOA server project path"/>
+<property name="server.project.lib"  value="${server.project}/lib" />
+
+<!-- [/protected]  -->	
+
+<target name="init">
+    <mkdir dir="${bin}" />
+    <mkdir dir="${dist}" />
+	<path id="classpath">
+           <pathelement location="build"/>
+           <!-- [protected ('libraries -->')]
+           <fileset dir="${lib}">
+	       <include name="**/*.jar"/>
+           </fileset>
+           <!-- [/protected] -->
+       </path>
+</target>
+
+<target name="compile" depends="init">
+  <javac srcdir="${src}" destdir="${bin}" debug="${debug}" fork="${javac.fork}">
+  <classpath>
+        <path refid="classpath"/>
+    </classpath>
+  </javac>
+</target>
+
+<target name="jar" depends="compile">
+	<jar destfile="${dist}/${project}.jar" basedir="${bin}"/>
+	<!-- [protected ('jar copy -->')]
+    <!--copy file="${dist}/${project}.jar" todir="${server.project.lib}" overwrite="yes"/>
+	<copy file="${dist}/${project}.jar" todir="${server.lib}" overwrite="yes"/-->   
+    <!-- [/protected] -->     
+</target>
+	
+</project>
+	[/file]
+[/template]

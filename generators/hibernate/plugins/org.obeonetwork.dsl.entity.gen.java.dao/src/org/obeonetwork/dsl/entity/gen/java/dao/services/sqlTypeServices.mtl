@@ -1,0 +1,19 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module sqlTypeServices('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[comment ** Convert a standard name to SQL convention.
+ * @param arg0 the input string.
+ * /]
+[query public toSqlNotation(arg0 : String) : String
+	= invoke('org.obeonetwork.dsl.entity.gen.java.dao.services.SqlTypeServices', 'toSqlNotation(java.lang.String)', Sequence{arg0}) /]
+

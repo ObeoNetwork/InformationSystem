@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.obeonetwork.dsl.soa.gen.java.spring.hibernate.feature_2.2.0.qualifier.jar" id="org.obeonetwork.dsl.soa.gen.java.spring.hibernate.feature" version="2.2.0.qualifier">
+      <category name="org.obeonetwork.is"/>
+   </feature>
+   <category-def name="org.obeonetwork.is" label="Obeo Designer for IS"/>
+</site>

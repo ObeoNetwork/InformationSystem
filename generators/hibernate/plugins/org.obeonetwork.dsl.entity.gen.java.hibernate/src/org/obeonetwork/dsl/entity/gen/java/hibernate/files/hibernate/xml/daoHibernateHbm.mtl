@@ -1,0 +1,308 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module daoHibernateHbm('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common/]
+
+[import org::obeonetwork::dsl::environment::gen::sql::common::sqlCommon/]
+[import org::obeonetwork::dsl::entity::gen::java::common::common/]
+[import org::obeonetwork::dsl::entity::gen::java::common::datatype/]
+[import org::obeonetwork::dsl::entity::gen::java::common::requests::requests/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::services::sqlTypeServices/]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices/]
+[import org::obeonetwork::dsl::entity::gen::java::common::services::entityObjectServices/]
+[import org::obeonetwork::dsl::entity::gen::java::hibernate::common::daoHibernateCommon/]
+
+
+[template public fullFilePath(entity : Entity)]
+[entity.pathToMainResources()/]/[entity.entityPackage().toPath()/]/[entity.name.toStandardNotation().toUpperFirst()/].hbm.xml
+[/template]
+
+[template public daoHibernateHbm(entity : Entity) ? (entity.supertype.oclIsUndefined())]
+	[file (entity.fullFilePath(), false, 'UTF-8')]
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="[entity.entityPackage()/].[entity.name.toStandardNotation().toUpperFirst()/]" 
+    	table="[entity.entityTableName()/]"
+		[entity.generateDynamicUpdateAttribute()/]>
+
+		<!-- Technical ID -->
+        <id name="id" type="[entity.defaultPKType().toLower()/]" unsaved-value="null" column="ID">
+            <generator class="[entity.generatorClass()/]"/>
+        </id>
+        [if (entity.inheritanceKind = InheritanceKind::TABLE_PER_CLASS_HIERARCHY)]
+        <discriminator column="ROOT_TYPE" type="string"/>
+        [/if]
+
+		<!-- Properties -->
+[entity.ownedAttributes.genProperties()/]
+
+		<!-- Associations -->
+[entity.references->select(r : Reference | r.isNavigable()).genAssociations()/]
+
+		<!-- Inheritance -->
+[if (entity.inheritanceKind = InheritanceKind::TABLE_PER_SUBCLASS)]
+[entity.subEntities(ancestors()->last().eAllContents(Entity)).genInheritance(entity)/]
+[else]
+[ancestors()->last().eAllContents(Entity)->select(e : Entity | e.allSuperTypes()->includes(entity)).genInheritance(entity)/]
+[/if]
+
+    </class>
+
+</hibernate-mapping>
+	[/file]
+[/template]
+
+[template public generatorClass(element : EObject)]
+[getProperty('hibernate.generator.class')/]
+[/template]
+
+[query public allSuperTypes(entity : Entity) : Sequence(Entity) =
+if (not (entity.supertype.oclIsUndefined())) then
+	entity.supertype.superTypeClosure()
+else
+	Sequence(Entity){}
+endif
+/]
+
+[query public superTypeClosure(entity : Entity) : Sequence(Entity) =
+if (not (entity.supertype.oclIsUndefined())) then
+	entity->asSequence()->union(entity.supertype.superTypeClosure())
+else
+	entity->asSequence()
+endif
+/]
+
+[template public genProperties(attribute : Attribute)]
+[if (attribute.isMonoValuated())]
+        <property name="[attribute.name.toStandardNotation()/]">
+            <column name="[attribute.attributColumnName()/]"/>
+        </property>
+[/if]
+[/template]
+
+[template public genAssociations(reference : Reference)]
+	[comment  n---n /]
+[if (reference.isUnidirectional())][comment  |n|-->n /]
+	[if (reference.isMonoValuated())][comment  |n|-->1 /]
+		[if (reference.isUnique())][comment  |1|-->1 /]
+[reference.oneToOneUni()/]
+    	[else][comment  |*|-->1 /]
+[reference.manyToOneUni()/]
+    	[/if]
+    [else][comment  n-->* /]
+		[if (reference.isUnique())][comment  |1|-->* /]
+[reference.oneToManyUni()/]
+    	[else][comment  |*|-->* /]
+[reference.manyToManyUni()/]
+	    [/if]
+	[/if]
+[else][comment  |n|<-->n /]
+	[if (reference.isMonoValuated())][comment  |n|<-->1 /]
+		[if (reference.isUnique())][comment  1<-->1 /]
+[reference.oneToOneBi()/]
+        [else][comment  |*|<-->1 /]
+[reference.manyToOneBi()/]
+		[/if]
+	[else] [comment  |n|<-->* /]
+		[if (reference.isUnique())][comment  |1|<-->* /]
+[reference.oneToManyBi()/]
+		[else][comment  *<-->* /]
+[reference.manyToManyBi()/]
+		[/if]
+	[/if]
+[/if]
+[/template]
+
+[template public genInheritance(entity : Entity, anEntity : Entity)]
+
+[if (anEntity.inheritanceKind = InheritanceKind::TABLE_PER_SUBCLASS)]
+		<joined-subclass
+			name="[entity.entityPackage()/].[entity.name.toStandardNotation().toUpperFirst()/]" 
+    		table="[entity.entityTableName()/]"
+    	    [entity.generateDynamicUpdateAttribute()/]>
+    		
+    		<key column="[entity.entityInheritanceKeyColumnName(anEntity)/]"/>
+    		
+			<!-- Properties -->
+[entity.ownedAttributes.genProperties()/]
+
+			<!-- Associations -->
+[entity.ownedReferences->select(r : Reference | r.isNavigable()).genAssociations()/]
+
+			<!-- Inheritance -->
+[if (entity.subEntities(ancestors()->last().eAllContents(Entity))->size() > 0)][entity.subEntities(ancestors()->last().eAllContents(Entity)).genInheritance(entity)/][/if]
+    	</joined-subclass>
+[else]
+		<subclass name="[entity.entityPackage()/].[name.toStandardNotation().toUpperFirst()/]" discriminator-value="[entity.entityPackage()/].[entity.name.toStandardNotation().toUpperFirst()/]">
+			<!-- Properties -->
+[entity.ownedAttributes.genProperties()/]
+
+			<!-- Associations -->
+[entity.ownedReferences.genAssociations()/]
+    	</subclass>
+		
+[/if]
+[/template]
+
+[template public genDiagram(reference : Reference, aString : String)]
+
+		<!--  _[reference.repeat('_', reference.entity.name.toSqlNotation().size())/]_     [reference.repeat(' ', aString.size())/] _[reference.repeat('_', type.name.toSqlNotation().size())/]_
+			 | [reference.entity.name.toSqlNotation()/] |- [aString/] -| [reference.type.name.toSqlNotation()/] |
+			  _[reference.repeat('_', reference.entity.name.toSqlNotation().size())/]_     [reference.repeat(' ', aString.size())/] _[reference.repeat('_', type.name.toSqlNotation().size())/]_
+		-->
+[/template]
+
+[template public manyToOneUni(reference : Reference)]
+[reference.genDiagram('* -} 1')/]
+		<many-to-one 
+			name="[reference.name.toStandardNotation()/]" 
+			class="[reference.fullyQualifiedType()/]" 
+			column="[reference.manyToOneUniReferenceKeyColumnName()/]"
+[if (reference.isComposite and not(getProperty('useCascadeConfig').oclIsUndefined()))]
+            cascade="[getProperty('composition.cascade.policy')/]"
+[/if][if (reference.isMandatory())]
+			not-null="true"
+[/if]			/>
+[/template]
+
+[template public oneToOneUni(reference : Reference)]			
+[reference.genDiagram('1 -} 1')/]
+		<many-to-one 
+			name="[reference.name/]" 
+			class="[reference.fullyQualifiedType()/]" 
+			column="[reference.oneToOneUniReferenceKeyColumnName()/]"
+			unique="true"
+[if (reference.isComposite and not(getProperty('useCascadeConfig').oclIsUndefined()))]
+			cascade="[getProperty('composition.cascade.policy')/]"
+[else]
+			cascade="persist,merge,save-update[if (reference.isComposite)],delete[/if]"
+[/if][if (reference.isMandatory())]
+			not-null="true"
+[/if]			/>
+[/template]
+
+[template public oneToManyUni(reference : Reference)]
+[reference.genDiagram('1 -} *')/]
+		<set name="[reference.name/]" lazy="true" [if (reference.isComposite and not(getProperty('useCascadeConfig').oclIsUndefined()))]cascade="[getProperty('composition.cascade.policy')/]"[else]cascade="all"[/if]> 
+	        <key column="[reference.oneToManyUniReferenceKeyColumnName()/]"/>
+	        <one-to-many class="[reference.fullyQualifiedType()/]"/>
+	    </set>
+[/template]
+
+[template public manyToManyUni(reference : Reference)]
+[reference.genDiagram('* -} *')/]
+		<set name="[reference.name/]" table="[reference.joinTableName()/]">
+			<key column="[reference.joinTableIdPart()/]"/>
+			<many-to-many 
+				class="[reference.fullyQualifiedType()/]"
+				column="[reference.joinTableIdRest()/]"/>
+	     </set>
+[/template]
+
+[template public oneToManyBi(reference : Reference)]
+[genDiagram('1 {-} *')/]
+		<set name="[reference.name/]" inverse="true">
+			<key column="[reference.oneToManyBiReferenceKeyColumnName()/]"/>
+			<one-to-many class="[reference.fullyQualifiedType()/]"/>
+	     </set>
+[/template]
+
+[template public manyToOneBi(reference : Reference)]
+[reference.genDiagram('* {-} 1')/]
+		<many-to-one 
+			class="[reference.fullyQualifiedType()/]"
+			column="[reference.manyToOneBiReferenceColumnName()/]"
+			name="[reference.name/]"
+			/>
+[/template]
+
+[template public oneToOneBi(reference : Reference)]
+[if (reference.isPositive())]
+[reference.oneToOneBiMain()/]
+[else]
+[reference.oneToOneBiSecondary()/]
+[/if]
+[/template]
+
+[template public oneToOneBiMain(reference : Reference)]
+[reference.genDiagram('1 {-} 1')/]
+        <many-to-one 
+        	name="[reference.name/]" 
+        	class="[reference.fullyQualifiedType()/]" 
+            column="[reference.oneToOneBiMainReferenceColumnName()/]"
+            unique="true"
+[if (isComposite and not(getProperty('useCascadeConfig').oclIsUndefined()))]
+            cascade="[getProperty('composition.cascade.policy')/]"
+[else]
+            cascade="all"
+[/if][if (reference.isMandatory())]
+			not-null="true"
+[/if]			/>
+[/template]
+
+[template public oneToOneBiSecondary(reference : Reference)]
+[reference.genDiagram('1 {-} 1')/]
+        <one-to-one 
+        	name="[reference.name/]" 
+        	class="[reference.fullyQualifiedType()/]" 
+        	property-ref="[oppositeOf.name/]"
+[if (reference.isComposite and not(getProperty('useCascadeConfig').oclIsUndefined()))]
+            cascade="[getProperty('composition.cascade.policy')/]"
+[else]
+            cascade="all"
+[/if]			/>
+[/template]
+
+[template public manyToManyBi(reference : Reference)]
+[if (reference.isPositive())]
+[reference.manyToManyBiMain()/]
+[else]
+[reference.manyToManyBiSecondary()/]
+[/if]
+[/template]
+
+[template public manyToManyBiMain(reference : Reference)]
+[reference.genDiagram('* {-} *')/]
+		<set name="[reference.name/]" table="[reference.joinTableName()/]">
+			<key column="[reference.joinTableIdPart()/]"/>
+			<many-to-many 
+				class="[reference.fullyQualifiedType()/]"
+				column="[reference.joinTableIdRest()/]"/>
+	     </set>
+[/template]
+
+[template public manyToManyBiSecondary(reference : Reference)]
+[reference.genDiagram('* {-} *')/]
+		<set name="[reference.name/]" inverse="true">
+			<key column="[reference.joinTableIdPart()/]"/>
+			<many-to-many 
+				class="[reference.fullyQualifiedType()/]"
+				column="[reference.joinTableIdRest()/]"/>
+	     </set>
+[/template]
+
+[template public generateDynamicUpdateAttribute(entity : Entity) post(trim())]
+[if (not(getProperty('hibernate.config.dynamic-update').oclIsUndefined()))]
+dynamic-update="true"
+[/if]
+[/template]
+
+[template public fullyQualifiedType(reference : Reference)]
+[reference.type.entityPackage()/].[reference.type.name.toStandardNotation().toUpperFirst()/]
+[/template]

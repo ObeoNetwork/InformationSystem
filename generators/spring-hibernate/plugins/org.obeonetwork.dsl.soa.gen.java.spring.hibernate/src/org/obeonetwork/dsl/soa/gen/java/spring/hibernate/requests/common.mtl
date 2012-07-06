@@ -1,0 +1,34 @@
+[comment encoding = UTF-8 /]
+[module common('http://www.obeonetwork.org/dsl/soa/2.0.0','http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+
+[comment ** Return a set of entities used by the given service
+ * @param service input service.
+ * /]
+[query public usedEntities(service : Service) : Set(Entity) = 
+if service.usedTypes->size() > 0 then
+	if not (service.serviceOperation()->size() > 0) then
+		service.usedTypes->union(service.serviceOperation().input.type->asSet())
+		->union(service.serviceOperation().output.type->asSet())
+		->filter(Entity)->asSet()
+	else
+		service.usedTypes->filter(Entity)->asSet()
+	endif
+else
+	if not (service.serviceOperation()->size() > 0) then
+		service.serviceOperation().input.type->asSet()
+		->union(service.serviceOperation().output.type->asSet())
+		->filter(Entity)->asSet()
+	else
+		Set(Entity){}
+	endif
+endif
+
+/]
+
+[query private serviceOperation(service : Service) : Set(Operation) = 
+	if service.ownedInterface->size() > 0 then
+		service.ownedInterface.ownedOperations
+	else
+		Set(Operation){}
+	endif
+/]

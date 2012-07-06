@@ -1,0 +1,315 @@
+/*Start of user code for css*/
+
+/* 
+Blogger Template Style
+Name:     TicTac (Blueberry)
+Author:   Dan Cederholm
+URL:      www.simplebits.com
+Date:     1 March 2004
+*/
+
+/* ---( page defaults )--- */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, sans-serif;
+  font-size: small;
+  text-align: center;
+  color: #333;
+  background: #e0e0e0;
+  }
+
+blockquote {
+  margin: 0 0 0 30px;
+  padding: 10px 0 0 20px;
+  font-size: 88%;
+  line-height: 1.5em;
+  color: #666;
+  background: url(../images/style1/quotes.gif) no-repeat top left;
+  }
+
+blockquote p {
+  margin-top: 0;
+  }
+
+abbr, acronymn {
+  cursor: help;
+  font-style: normal;
+  border-bottom: 1px dotted;
+  }
+
+code {
+  color: #996666;
+  }
+
+hr {
+  display: none;
+  }
+
+img {
+  border: none;
+  }
+
+/* unordered list style */
+
+ul {
+  list-style: none;
+  margin: 0 0 20px 30px;
+  padding: 0;
+  }
+
+li {
+  list-style: none;
+  padding-left: 14px;
+  margin-bottom: 3px;
+  background: url(../images/style1/tictac_blue.gif) no-repeat 0 6px;
+  }
+
+/* links */
+
+a:link {
+  color: #6699cc;
+  }
+
+a:visited {
+  color: #666699;
+  }
+
+a:hover {
+  color: #5B739C;
+  }
+
+a:active {
+  color: #5B739C;
+  text-decoration: none;
+  }
+
+/* ---( layout structure )---*/
+
+#content {
+  width: 847px;
+  margin: 0 auto;
+  text-align: left;
+  background: url(../images/style1/tile.gif) repeat-y;
+  }
+
+#main {
+  margin-left: 62px; /* to avoid the BMH */
+  }
+
+#main2 {
+  float: left;
+  width: 460px;
+  margin: 20px 0 0 0;
+  padding: 0;
+  line-height: 1.5em;
+  }
+
+#sidebar {
+  margin: 0 41px 0 547px;
+  padding: 20px 0 0 0;
+  font-size: 85%;
+  line-height: 1.4em;
+  color: #999;
+  background: url(../images/style1/sidebar_bg.gif) no-repeat 0 0;
+  }
+
+/* ---( header and site name )--- */
+
+#header {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Grande", "Trebuchet MS";
+  background: #e0e0e0 url(../images/style1/top_div_blue.gif) no-repeat top left;
+  }
+
+#header h1 {
+  margin: 0;
+  padding: 45px 60px 10px 160px;
+  font-size: 200%;
+  color: #fff;
+  text-shadow: #4F73B6 2px 2px 2px;
+  background: url(../images/style1/top_h1_blue.gif) no-repeat bottom left;
+  }
+
+#header h1 a {
+  text-decoration: none;
+  color: #fff;
+  }
+
+#header h1 a:hover {
+  color: #eee;
+  }
+
+/* ---( main column )--- */
+
+h2.date-header {
+  margin-top: 0;
+  padding-left: 14px;
+  font-size: 90%;
+  color: #999999;
+  background: url(../images/style1/date_icon_blue.gif) no-repeat 0 50%;
+  }
+
+h3.post-title {
+  margin-top: 0;
+  font-family: "Lucida Grande", "Trebuchet MS";
+  font-size: 130%;
+  letter-spacing: -1px;
+  color: #993333;
+  }
+
+.post {
+  margin: 0 0 1.5em 0;
+  padding: 0 0 1.5em 14px;
+  border-bottom: 1px solid #ddd;
+  }
+
+.post-footer {
+  margin: 0;
+  padding: 0 0 0 14px;
+  font-size: 88%;
+  color: #999;
+  background: url(../images/style1/tictac_grey.gif) no-repeat 0 8px;
+  }
+
+.post img {
+  padding: 6px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #c0c0c0;
+  border-right: 1px solid #c0c0c0;
+  }
+
+/* comment styles */
+
+#comments {
+  padding-top: 10px;
+  font-size: 85%;
+  line-height: 1.5em;
+  color: #666;
+  background: #eee url(../images/style1/comments_curve.gif) no-repeat top left;
+  }
+
+#comments h4 {
+  margin: 20px 0 15px 0;
+  padding: 8px 0 0 40px;
+  font-family: "Lucida Grande", "Trebuchet MS";
+  font-size: 130%;
+  color: #666;
+  background: url(../images/style1/bubbles.gif) no-repeat 10px 0;
+  height: 29px !important; /* for most browsers */
+  height /**/:37px; /* for IE5/Win */
+  }
+  
+#comments ul {
+  margin-left: 0;
+  }
+
+#comments li {
+  background: none;
+  padding-left: 0;
+  }
+  
+.comment-body {
+  padding: 0 10px 0 25px;
+  background: url(../images/style1/tictac_blue.gif) no-repeat 10px 5px;
+  }
+
+.comment-body p {
+  margin-bottom: 0;
+  }
+
+.comment-data {
+  margin: 4px 0 0 0;
+  padding: 0 10px 1em 60px;
+  color: #999;
+  border-bottom: 1px solid #ddd;
+  background: url(../images/style1/comment_arrow_blue.gif) no-repeat 44px 2px;
+  }
+
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+/* ---( sidebar )--- */
+
+h2.sidebar-title {
+  margin: 0 0 0 0;
+  padding: 25px 0 0 50px;
+  font-family: "Lucida Grande", "Trebuchet MS";
+  font-size: 130%;
+  color: #666;
+  height: 32px;
+  background: url(../images/style1/sidebar_icon.gif) no-repeat 20px 15px;
+  height: 32px !important; /* for most browsers */
+  height /**/:57px; /* for IE5/Win */
+  }
+
+#sidebar ul, #sidebar p {
+  margin: 0;
+  padding: 5px 20px 1em 20px;
+  border-bottom: 1px solid #ddd;
+  }
+
+#sidebar li {
+  background: url(../images/style1/tictac_blue.gif) no-repeat 0 5px;
+  }
+
+/* profile block */
+
+.profile-datablock {
+  margin: 0;
+  padding: 5px 20px 0 20px;
+  }
+
+.profile-datablock dd {
+  margin: 0;
+  padding: 0;
+  }
+
+.profile-img img {
+  float: left;
+  margin: 0 10px 0 0;
+  padding: 4px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #c0c0c0;
+  border-right: 1px solid #c0c0c0;
+  background: #fff;
+  }
+
+#sidebar p.profile-link {
+  padding-left: 36px;
+  background: url(../images/style1/profile_blue.gif) no-repeat 20px 4px;
+  }
+
+p#powered-by, #sidebar p.profile-textblock {
+  margin-top: 1em;
+  border: none;
+  }
+
+/* ---( footer )--- */
+
+.clear { /* to fix IE6 padding-top issue */
+  clear: both;
+  height: 0;
+  }
+
+#footer {
+  margin: 0;
+  padding: 0 0 9px 0;
+  font-size: 85%;
+  color: #ddd;
+  background: url(../images/style1/bottom_sill.gif) no-repeat bottom left;
+  }
+
+#footer p {
+  margin: 0;
+  padding: 20px 320px 20px 95px;
+  background: url(../images/style1/bottom_sash.gif) no-repeat top left;
+  }
+
+/*End of user code*/

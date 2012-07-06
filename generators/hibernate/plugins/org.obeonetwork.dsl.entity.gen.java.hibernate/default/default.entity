@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0">
+  <blocks name="blog">
+    <entities name="User">
+      <ownedAttributes name="email" multiplicity="1">
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#//@typesDefinition/@types.4"/>
+      </ownedAttributes>
+      <ownedAttributes name="firstName" multiplicity="1">
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#//@typesDefinition/@types.2"/>
+      </ownedAttributes>
+      <ownedAttributes name="lastName" multiplicity="1">
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#//@typesDefinition/@types.2"/>
+      </ownedAttributes>
+      <ownedAttributes name="login" multiplicity="1">
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#//@typesDefinition/@types.2"/>
+      </ownedAttributes>
+      <ownedAttributes name="password" multiplicity="1">
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#//@typesDefinition/@types.2"/>
+      </ownedAttributes>
+    </entities>
+  </blocks>
+</oent:Root>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="org.obeonetwork.dsl.ois.popupmenu"
+            nameFilter="*.cinematic"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="org.obeonetwork.dsl.ois.menu"
+               label="Generation"
+               path="additions">
+         </menu>
+         <action
+               class="org.obeonetwork.dsl.cinematic.ui.launchers.ArchitectureLaunchAction"
+               id="org.obeonetwork.dsl.cinematic.ui.strutsarchitecture"
+               label="Generate Struts Architecture"
+               menubarPath="org.obeonetwork.dsl.ois.menu/cinematic">
+         </action>
+         <action
+               class="org.obeonetwork.dsl.cinematic.ui.launchers.PresentationLaunchAction"
+               id="org.obeonetwork.dsl.cinematic.ui.strutspresentation"
+               label="Generate Struts Presentation"
+               menubarPath="org.obeonetwork.dsl.ois.menu/cinematic">
+         </action>
+       </objectContribution>
+      <objectContribution
+            adaptable="true"
+            id="org.obeonetwork.dsl.ois.popupmenu"
+            nameFilter="*.ois"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="org.obeonetwork.dsl.ois.menu"
+               label="Generation"
+               path="additions">
+         </menu>
+         <action
+               class="org.obeonetwork.dsl.cinematic.ui.launchers.ArchitectureLaunchAction"
+               id="org.obeonetwork.dsl.cinematic.ui.strutsarchitecture"
+               label="Generate Struts Architecture"
+               menubarPath="org.obeonetwork.dsl.ois.menu/cinematic">
+         </action>
+         <action
+               class="org.obeonetwork.dsl.cinematic.ui.launchers.PresentationLaunchAction"
+               id="org.obeonetwork.dsl.cinematic.ui.strutspresentation"
+               label="Generate Struts Presentation"
+               menubarPath="org.obeonetwork.dsl.ois.menu/cinematic">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

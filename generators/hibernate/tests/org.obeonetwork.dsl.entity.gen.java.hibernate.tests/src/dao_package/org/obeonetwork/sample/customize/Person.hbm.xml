@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.customize.Person" 
+    	table="PERSON"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="firstName">
+            <column name="FIRST_NAME"/>
+        </property>
+        <property name="age">
+            <column name="AGE"/>
+        </property>
+        <property name="birthDate">
+            <column name="BIRTH_DATE"/>
+        </property>
+        <property name="lastName">
+            <column name="LAST_NAME"/>
+        </property>
+
+
+		<!-- Associations -->
+
+		<!--  ________             _________
+			 | PERSON |- 1 {-} 1 -| ADDRESS |
+			  ________             _________
+		-->
+
+        <one-to-one 
+        	name="address" 
+        	class="org.obeonetwork.sample.customize.Address" 
+        	property-ref="person"
+            cascade="all"
+			/>
+
+
+
+		<!-- Inheritance -->
+
+
+
+
+    </class>
+
+</hibernate-mapping>

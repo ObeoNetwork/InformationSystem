@@ -1,0 +1,36 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2011 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module javaVersion('http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/environment/2.0.0')/]
+
+[comment ** Generates the appropriate java version of the given dsmObject.
+ * @param dsmObject the input ObeoDSMObject.
+ * @param arg0 the input String.
+ * /]
+[template public toJavaVersion(dsmObject : ObeoDSMObject, arg0 : String)]
+[if (getProperty('javaVersion') = '5')]<[arg0/]>[/if]
+[/template]
+
+[comment ** Generates the java 5 version of the given dsmObject.
+ * @param dsmObject the input ObeoDSMObject.
+ * @param arg0 the input String.
+ * /]
+[template public addJavaVersion5(dsmObject : ObeoDSMObject, arg0 : String)]
+[if (getProperty('javaVersion') = '5')][arg0/][/if]
+[/template]
+
+[comment ** Generates the java 1.4 version of the given dsmObject.
+ * @param dsmObject the input ObeoDSMObject.
+ * @param arg0 the input String.
+ * /]
+[template public addJavaVersion14(dsmObject : ObeoDSMObject, arg0 : String)]
+[if (getProperty('javaVersion') <> '5')][arg0/][/if]
+[/template]

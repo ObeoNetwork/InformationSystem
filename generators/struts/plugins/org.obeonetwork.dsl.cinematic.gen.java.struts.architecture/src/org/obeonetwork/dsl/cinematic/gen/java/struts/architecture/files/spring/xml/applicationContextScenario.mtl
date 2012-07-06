@@ -1,0 +1,48 @@
+[comment encoding = UTF-8 /]
+[comment **
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ * /]
+[module applicationContextScenario('http://www.obeonetwork.org/dsl/cinematic/3.0.0')/]
+
+[import org::obeonetwork::dsl::environment::gen::java::common::common /]
+[import org::obeonetwork::dsl::environment::gen::java::common::logger /]
+[import org::obeonetwork::dsl::environment::gen::java::common::services::stringservices /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::common::names /]
+[import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::common::widgets_mapping /]
+
+[comment ** Main generator for a scenario specific applicationContext file.
+ * @param scenario the scenario to generate it applicationContext file
+ * /]
+[template public applicationContextScenario(flow : Flow)]
+[file (flow.fullFilePath(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- C O M M U N I C A T I O N -->
+	[for (viewState : ViewState | flow.states->filter(ViewState))]
+	<bean name="/[flow.name.toStandardNotation().toLower()/]/[name.toStandardNotation().toLower()/]"
+		class="[viewState.actionPackage()/].[viewState.getActionClassName()/]">
+		<!-- [protected ('for properties definition of ' + viewState.name + ' action-->')]
+		 
+		<!-- [/protected] for properties definition of [viewState.name/] action -->
+	</bean>
+
+	[/for]
+</beans>
+[/file]
+[/template]
+
+[comment ** Generates the file path for the flow specific applicationContext file.
+ * @param flow the input flow.
+ * /]
+[template protected fullFilePath(flow : Flow) post (trim())]	
+[flow.pathToMainWebapp()/]/WEB-INF/conf/spring/[flow.name.toStandardNotation()/]/applicationContext-WEB.xml
+[/template]
+

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.attributes.PrimitiveType" 
+    	table="PRIMITIVE_TYPE"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="stringAttribute">
+            <column name="STRING_ATTRIBUTE"/>
+        </property>
+        <property name="integerAttribute">
+            <column name="INTEGER_ATTRIBUTE"/>
+        </property>
+        <property name="booleanAttribute">
+            <column name="BOOLEAN_ATTRIBUTE"/>
+        </property>
+        <property name="doubleAttribute">
+            <column name="DOUBLE_ATTRIBUTE"/>
+        </property>
+        <property name="emailAttribute">
+            <column name="EMAIL_ATTRIBUTE"/>
+        </property>
+        <property name="dateAttribute">
+            <column name="DATE_ATTRIBUTE"/>
+        </property>
+        <property name="floatAttribute">
+            <column name="FLOAT_ATTRIBUTE"/>
+        </property>
+        <property name="longAttribute">
+            <column name="LONG_ATTRIBUTE"/>
+        </property>
+
+
+		<!-- Associations -->
+
+
+		<!-- Inheritance -->
+
+
+
+
+    </class>
+
+</hibernate-mapping>

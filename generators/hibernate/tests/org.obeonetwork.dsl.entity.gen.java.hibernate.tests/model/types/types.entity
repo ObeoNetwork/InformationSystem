@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmi:id="_GB7zILDfEd21cuUr-2txvQ">
+  <blocks xmi:id="_HKnScLDfEd21cuUr-2txvQ" name="types">
+    <entities xmi:id="_IRGZYLDfEd21cuUr-2txvQ" name="Types">
+      <ownedAttributes xmi:id="_KRHwYLDfEd21cuUr-2txvQ" name="myBoolean" multiplicity="1">
+        <type href="../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAqwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_aUKrULDhEd2ClsF3wiiO9w" name="myDate" multiplicity="1">
+        <type href="../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_eFyi0LDhEd2ClsF3wiiO9w" name="myDouble" multiplicity="1">
+        <type href="../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_hDmXwLDhEd2ClsF3wiiO9w" name="myMail" multiplicity="1">
+        <type href="../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EqwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_jb0MULDhEd2ClsF3wiiO9w" name="myFloat" multiplicity="1">
+        <type href="../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5GlIKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_mGJroLDhEd2ClsF3wiiO9w" name="myInteger" multiplicity="1">
+        <type href="../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_omgIgLDhEd2ClsF3wiiO9w" name="myLong" multiplicity="1">
+        <type href="../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_9dnH8bGqEd2SRpTkL4GntA"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_rygKcLDhEd2ClsF3wiiO9w" name="myString" multiplicity="1">
+        <type href="../../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+  </blocks>
+</oent:Root>

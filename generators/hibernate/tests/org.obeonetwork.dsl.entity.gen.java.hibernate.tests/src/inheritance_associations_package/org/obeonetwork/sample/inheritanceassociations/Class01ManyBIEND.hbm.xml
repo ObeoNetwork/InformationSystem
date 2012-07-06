@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.inheritanceassociations.Class01ManyBIEND" 
+    	table="CLASS_01_MANY_BI_END"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="fakeAttr">
+            <column name="FAKE_ATTR"/>
+        </property>
+
+
+		<!-- Associations -->
+
+		<!--  ______________________             __________________
+			 | CLASS_01_MANY_BI_END |- * {-} 1 -| CLASS_01_MANY_BI |
+			  ______________________             __________________
+		-->
+
+		<many-to-one 
+			class="org.obeonetwork.sample.inheritanceassociations.Class01ManyBI"
+			column="FK_CLASS_01_MANY_BI_SOURCE_ID"
+			name="source"
+			/>
+
+
+		<!-- Inheritance -->
+
+
+		<joined-subclass
+			name="org.obeonetwork.sample.inheritanceassociations.Class01ManyBIENDSub" 
+    		table="CLASS_01_MANY_BI_END_SUB"
+    	dynamic-update="true">
+    		
+    		<key column="FK_INHERITS_CLASS_01_MANY_BI_END_ID"/>
+    		
+			<!-- Properties -->
+
+
+			<!-- Associations -->
+
+
+			<!-- Inheritance -->
+
+    	</joined-subclass>
+
+
+
+    </class>
+
+</hibernate-mapping>
