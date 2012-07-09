@@ -1,0 +1,13 @@
+<project>
+ <modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.obeonetwork</groupId>
+		<artifactId>models.parent</artifactId>
+		<version>2.3.0-SNAPSHOT</version>
+		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent.models/pom.xml</relativePath>
+	</parent>
+ <groupId>org.obeonetwork</groupId>
+ <artifactId>org.obeonetwork.acceleo.repository</artifactId>
+ <version>1.0.0-SNAPSHOT</version>
+ <packaging>eclipse-repository</packaging>
+</project>

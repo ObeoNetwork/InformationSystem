@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.obeonetwork.acceleo.feature"
+      label="Obeo Network - Common tools for Acceleo"
+      version="2.3.0.qualifier"
+      provider-name="Obeo.fr">
+
+   <description url="http://www.obeo.fr">
+      Acceleo Pro JEE - Common module
+   </description>
+
+   <copyright url="http://www.obeo.fr">
+      Copyright (c) 2006-2008 Obeo
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.obeonetwork.dsl.feature.environment" version="1.3.2" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.obeonetwork.acceleo.utils"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
