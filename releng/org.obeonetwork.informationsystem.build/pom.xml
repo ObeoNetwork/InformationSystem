@@ -209,6 +209,15 @@
 		
 		<!-- 
 		*********************************************************************************************
+		* Environment Java Generator Modules
+		*********************************************************************************************
+		-->
+		<module>../../generators/java/plugins/org.obeonetwork.dsl.environment.gen.java.common</module>		
+		<module>../../generators/java/features/org.obeonetwork.dsl.environment.gen.java.feature</module>
+		<module>../../generators/java/releng/org.obeonetwork.dsl.environment.gen.java.repository</module>
+		
+		<!-- 
+		*********************************************************************************************
 		* Repository Modules Designs Commons
 		*********************************************************************************************
 		-->

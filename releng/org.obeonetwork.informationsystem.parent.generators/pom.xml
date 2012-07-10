@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<parent>
+		<groupId>org.obeonetwork</groupId>
+		<artifactId>parent</artifactId>
+		<version>2.3.0-SNAPSHOT</version>
+		<relativePath>../org.obeonetwork.informationsystem.parent/pom.xml</relativePath>
+	</parent>
+
+
+	<groupId>org.obeonetwork</groupId>
+	<artifactId>generators.parent</artifactId>
+	<version>2.3.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Generators Parent</name>
+	
+	<repositories>
+     <repository>
+       <id>Indigo Release</id>
+       <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/releases/indigo</url>
+     </repository>
+     <repository>
+       <id>Snapshots</id>
+       <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/snapshots</url>
+     </repository>
+   </repositories>
+	
+	<pluginRepositories>
+     <pluginRepository>
+       <id>Indigo Release</id>
+       <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/releases/indigo</url>
+     </pluginRepository>
+     <pluginRepository>
+       <id>Snapshots</id>
+       <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/snapshots</url>
+     </pluginRepository>
+   </pluginRepositories>
+	
+	
+	<dependencies>
+     <dependency>
+       <groupId>org.eclipse.acceleo</groupId>
+       <artifactId>maven</artifactId>
+       <version>3.2.1</version>
+     </dependency>
+     <dependency>
+       <groupId>org.slf4j</groupId>
+       <artifactId>slf4j-simple</artifactId>
+       <version>1.6.4</version>
+     </dependency>
+   </dependencies>
+   
+   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.acceleo</groupId>
+         <artifactId>maven</artifactId>
+         <version>3.2.1</version>
+          <executions>
+            <execution>
+              <id>acceleo-compile</id>
+              <phase>compile</phase>
+              <goals>
+                <goal>acceleo-compile</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+
+</project>
