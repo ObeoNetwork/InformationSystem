@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.obeonetwork.dsl.entity.gen.java.hibernate.feature"
+      label="Obeo DSM JEE - Hibernate Module"
+      version="2.3.0.qualifier"
+      provider-name="Obeo.fr">
+
+   <description url="http://www.obeo.fr">
+      Acceleo Pro JEE - Hibernate module
+   </description>
+
+   <copyright url="http://www.obeo.fr">
+      Copyright (c) 2006-2008 Obeo
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.obeonetwork.dsl.entity.gen.java.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.entity.gen.java.dao"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.entity.gen.java.hibernate"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.dsl.entity.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

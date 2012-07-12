@@ -218,6 +218,18 @@
 		
 		<!-- 
 		*********************************************************************************************
+		* Entity Hibernate Generator Modules
+		*********************************************************************************************
+		-->
+		<module>../../generators/hibernate/plugins/org.obeonetwork.dsl.entity.gen.java.common</module>		
+		<module>../../generators/hibernate/plugins/org.obeonetwork.dsl.entity.gen.java.dao</module>		
+		<module>../../generators/hibernate/plugins/org.obeonetwork.dsl.entity.gen.java.hibernate</module>
+		<module>../../generators/hibernate/plugins/org.obeonetwork.dsl.entity.ui</module>		
+		<module>../../generators/hibernate/features/org.obeonetwork.dsl.entity.gen.java.hibernate.feature</module>
+		<module>../../generators/hibernate/releng/org.obeonetwork.dsl.entity.gen.java.hibernate.repository</module>
+		
+		<!-- 
+		*********************************************************************************************
 		* Repository Modules Designs Commons
 		*********************************************************************************************
 		-->

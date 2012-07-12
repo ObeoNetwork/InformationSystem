@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.entity.gen.java.hibernate;singleton:=true
-Bundle-Version: 2.2.0.qualifier
+Bundle-Version: 2.3.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.entity.gen.java.hibernate.EntityHibernatePlugin
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.core.runtime,
@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment.gen.java.common,
  org.obeonetwork.dsl.entity,
  org.obeonetwork.dsl.environment,
- org.obeonetwork.acceleo.utils;bundle-version="1.0.0",
+ org.obeonetwork.acceleo.utils,
  fr.obeo.traceability.connector.acceleo
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.obeonetwork.dsl.entity.gen.java.hibernate.main,

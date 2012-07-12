@@ -20,7 +20,7 @@
     <platform-version-name>indigo</platform-version-name>
     <od-site>http://www.obeo.fr/download/release/designer/6.0/latest/indigo/update/</od-site>
     <eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/1.1</eef-site>
-    <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.2</acceleo-site>
+    <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/releases/3.3</acceleo-site>
     <eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
     <orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</orbit-site>
   </properties>
