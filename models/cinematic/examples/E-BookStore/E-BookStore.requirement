@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requirement:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmi:id="_UIbdoIjLEeGrHN3Vq969QA" name="E-BookStore">
+  <mainCategories xmi:id="_VzSesIlUEeGBksR6VpbZgA" name="NewCategory">
+    <requirements xmi:id="_POjmYIlUEeGBksR6VpbZgA" name="Req1" id="R1" version="2" statement="la home page doit etre jolie" createdOn="2012-04-18T14:44:28.998+0200" modifiedOn="2012-04-20T15:58:46.028+0200">
+      <referencedObject href="E-BookStore.graal#_O8aYEEjKEeGbkNJePX2AYQ"/>
+    </requirements>
+    <requirements xmi:id="_koA3QIlUEeGBksR6VpbZgA" createdOn="2012-04-18T14:46:50.615+0200" modifiedOn="2012-04-18T14:46:50.615+0200"/>
+    <requirements xmi:id="_DBUn0IrxEeGWvox4N_yxtg" id="R1" createdOn="2012-04-20T15:59:27.376+0200" modifiedOn="2012-04-20T15:59:32.728+0200"/>
+  </mainCategories>
+</requirement:Repository>
