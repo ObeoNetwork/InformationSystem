@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.obeonetwork.dsl.soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmlns:org.obeonetwork.dsl.soa="http://www.obeonetwork.org/dsl/soa/2.0.0" xmi:id="_h6PKMYjXEeGlA5e_Ze9-Rg">
+  <ownedComponents xmi:id="_jok7UIjXEeGlA5e_Ze9-Rg" name="BookStore">
+    <ownedServices xmi:id="_9t2bEIjXEeGlA5e_Ze9-Rg" name="BookService">
+      <ownedInterface xmi:id="_D1a2QIjYEeGlA5e_Ze9-Rg" name="BookService">
+        <ownedOperations xmi:id="_D1bdUIjYEeGlA5e_Ze9-Rg" name="getHomePageBooks">
+          <output xmi:id="_HsVdcIjYEeGlA5e_Ze9-Rg" type="_OwomoIjYEeGlA5e_Ze9-Rg" name="books" lower="0" upper="-1"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_hhig4IjYEeGlA5e_Ze9-Rg" name="getAllAuthors">
+          <output xmi:id="_izXVIIjYEeGlA5e_Ze9-Rg" type="_yFpMYIjYEeGlA5e_Ze9-Rg" name="authors" lower="0" upper="-1"/>
+        </ownedOperations>
+        <ownedOperations xmi:id="_jWX7kIjYEeGlA5e_Ze9-Rg" name="getAllBookTypes">
+          <output xmi:id="_kiskwIjYEeGlA5e_Ze9-Rg" name="types" lower="0" upper="-1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_wYy58IjhEeGllIuu_i41WA" name="searchBooks">
+          <input xmi:id="_xuKxcIjhEeGllIuu_i41WA" type="_yFpMYIjYEeGlA5e_Ze9-Rg" name="author" lower="0"/>
+          <input xmi:id="_x0HocIjhEeGllIuu_i41WA" name="type" lower="0">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <input xmi:id="_x60GUIjhEeGllIuu_i41WA" name="keywords" lower="0" upper="-1">
+            <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_yOAIEIjhEeGllIuu_i41WA" type="_OwomoIjYEeGlA5e_Ze9-Rg" name="books" lower="0" upper="-1"/>
+        </ownedOperations>
+      </ownedInterface>
+    </ownedServices>
+  </ownedComponents>
+  <ownedDtoRegistry xmi:id="_8k2LoIjXEeGlA5e_Ze9-Rg">
+    <ownedCategories xmi:id="_JVvEMIjYEeGlA5e_Ze9-Rg" name="main">
+      <types xsi:type="org.obeonetwork.dsl.soa:ServiceDTO" xmi:id="_OwomoIjYEeGlA5e_Ze9-Rg" name="Book">
+        <ownedReferences xmi:id="_7Gm2kIjYEeGlA5e_Ze9-Rg" name="writtenBy" multiplicity="0..*" navigable="true" type="_yFpMYIjYEeGlA5e_Ze9-Rg"/>
+        <ownedAttributes xmi:id="_3nGp0IjYEeGlA5e_Ze9-Rg" name="title" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_yubt4IjcEeGD_4FfK_oDsg" name="price" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_qmZS8YjgEeGllIuu_i41WA" name="image" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </types>
+      <types xsi:type="org.obeonetwork.dsl.soa:ServiceDTO" xmi:id="_yFpMYIjYEeGlA5e_Ze9-Rg" name="Author">
+        <ownedReferences xmi:id="_5sZiYIjYEeGlA5e_Ze9-Rg" name="wrote" multiplicity="0..*" navigable="true" type="_OwomoIjYEeGlA5e_Ze9-Rg"/>
+        <ownedAttributes xmi:id="_zRhJoIjYEeGlA5e_Ze9-Rg" name="name" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </types>
+      <types xsi:type="org.obeonetwork.dsl.soa:ServiceDTO" xmi:id="_-BwZEIjYEeGlA5e_Ze9-Rg" name="User">
+        <ownedReferences xmi:id="_Iq7-QIjZEeGlA5e_Ze9-Rg" name="carts" multiplicity="0..*" isComposite="true" navigable="true" type="_D4-EEIjZEeGlA5e_Ze9-Rg"/>
+        <ownedAttributes xmi:id="__NhBkIjYEeGlA5e_Ze9-Rg" name="email" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_BGptcIjZEeGlA5e_Ze9-Rg" name="password" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_nY4GsIjjEeGllIuu_i41WA" name="name" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </types>
+      <types xsi:type="org.obeonetwork.dsl.soa:ServiceDTO" xmi:id="_D4-EEIjZEeGlA5e_Ze9-Rg" name="ShoppingCart">
+        <ownedReferences xmi:id="_IMCe8YjdEeGRPcmmS6YpZw" name="lines" multiplicity="0..*" isComposite="true" navigable="true" type="_9wRqsIjcEeGD_4FfK_oDsg"/>
+        <ownedAttributes xmi:id="_KavH8IjZEeGlA5e_Ze9-Rg" name="status" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </types>
+      <types xsi:type="org.obeonetwork.dsl.soa:ServiceDTO" xmi:id="_PBIEQIjZEeGlA5e_Ze9-Rg" name="PurchaseOrder">
+        <ownedReferences xmi:id="_UPGlAIjZEeGlA5e_Ze9-Rg" name="user" multiplicity="1" navigable="true" type="_-BwZEIjYEeGlA5e_Ze9-Rg"/>
+        <ownedReferences xmi:id="_V6TikIjZEeGlA5e_Ze9-Rg" name="shoppingCart" multiplicity="1" navigable="true" type="_D4-EEIjZEeGlA5e_Ze9-Rg"/>
+        <ownedAttributes xmi:id="_X5cIwIjZEeGlA5e_Ze9-Rg" name="cardNumber" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_3ZIicIjcEeGD_4FfK_oDsg" name="totalAmount" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </types>
+      <types xsi:type="org.obeonetwork.dsl.soa:ServiceDTO" xmi:id="_9wRqsIjcEeGD_4FfK_oDsg" name="ShoopingCartLine">
+        <ownedReferences xmi:id="_ISY7YIjZEeGlA5e_Ze9-Rg" name="book" multiplicity="1" navigable="true" type="_OwomoIjYEeGlA5e_Ze9-Rg"/>
+        <ownedAttributes xmi:id="_PZouEIjdEeGRPcmmS6YpZw" name="quantity" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </types>
+    </ownedCategories>
+  </ownedDtoRegistry>
+</org.obeonetwork.dsl.soa:System>
