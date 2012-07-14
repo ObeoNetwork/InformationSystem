@@ -230,6 +230,15 @@
 		
 		<!-- 
 		*********************************************************************************************
+		* SOA Spring Generator Modules
+		*********************************************************************************************
+		-->
+		<module>../../generators/spring/plugins/org.obeonetwork.dsl.soa.gen.java.spring</module>		
+		<module>../../generators/spring/features/org.obeonetwork.dsl.soa.gen.java.spring.feature</module>
+		<module>../../generators/spring/releng/org.obeonetwork.dsl.soa.gen.java.spring.repository</module>
+		
+		<!-- 
+		*********************************************************************************************
 		* Repository Modules Designs Commons
 		*********************************************************************************************
 		-->
