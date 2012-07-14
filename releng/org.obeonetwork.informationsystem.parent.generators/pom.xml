@@ -31,11 +31,6 @@
        <id>Snapshots</id>
        <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/snapshots</url>
      </repository>
-     <repository>
-       <id>Traceability</id>
-       <layout>p2</layout>
-        <url>http://update.obeo.fr/release/traceability/release-2.1.0-201205111434/</url>
-     </repository>
    </repositories>
 	
 	<pluginRepositories>

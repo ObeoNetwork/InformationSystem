@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.acceleo.utils.launch.NetworkGenerationLauncher;
 import org.obeonetwork.dsl.entity.gen.java.hibernate.main.SpringHibernatePerEntity;
 
-import fr.obeo.traceability.connector.acceleo.utils.AcceleoLaunchingUtil;
+import org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil;
 
 public class HibernateSpringEntityLauncher extends NetworkGenerationLauncher {
 
