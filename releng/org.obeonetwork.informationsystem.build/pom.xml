@@ -239,6 +239,17 @@
 		
 		<!-- 
 		*********************************************************************************************
+		* Cinematic Struts Generator Modules
+		*********************************************************************************************
+		-->
+		<module>../../generators/struts/plugins/org.obeonetwork.dsl.cinematic.gen.java.struts.architecture</module>		
+		<module>../../generators/struts/plugins/org.obeonetwork.dsl.cinematic.gen.java.struts.presentation</module>		
+		<module>../../generators/struts/plugins/org.obeonetwork.dsl.cinematic.gen.java.struts.ui</module>		
+		<module>../../generators/struts/features/org.obeonetwork.dsl.cinematic.gen.java.struts.feature</module>
+		<module>../../generators/struts/releng/org.obeonetwork.dsl.cinematic.gen.java.struts.repository</module>
+		
+		<!-- 
+		*********************************************************************************************
 		* Repository Modules Designs Commons
 		*********************************************************************************************
 		-->

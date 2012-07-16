@@ -25,11 +25,11 @@
 	<repositories>
      <repository>
        <id>Indigo Release</id>
-       <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/releases/indigo</url>
+       <url>http://raw.github.com/eclipse/acceleo/master/maven/repository/releases/indigo</url>
      </repository>
      <repository>
        <id>Snapshots</id>
-       <url>https://raw.github.com/eclipse/acceleo/master/maven/repository/snapshots</url>
+       <url>http://raw.github.com/eclipse/acceleo/master/maven/repository/snapshots</url>
      </repository>
    </repositories>
 	
