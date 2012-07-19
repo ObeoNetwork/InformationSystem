@@ -1,40 +1,78 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
  <modelVersion>4.0.0</modelVersion>
- <parent>
-  <groupId>org.obeonetwork</groupId>
-  <artifactId>is.parent.generators</artifactId>
-  <version>2.2.0-SNAPSHOT</version>
-  <relativePath>../../od4is/org.obeonetwork.is.parent/generators/pom.xml</relativePath>
- </parent>
+	<parent>
+		<groupId>org.obeonetwork</groupId>
+		<artifactId>generators.parent</artifactId>
+		<version>2.3.0-SNAPSHOT</version>
+		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent.generators/pom.xml
+		</relativePath>
+	</parent>
  <groupId>org.obeonetwork</groupId>
- <artifactId>dsl.soa.gen.java.spring.hibernate</artifactId>
- <version>2.2.0-SNAPSHOT</version>
+ <artifactId>org.obeonetwork.dsl.soa.gen.java.spring.hibernate</artifactId>
+ <version>2.3.0-SNAPSHOT</version>
  <packaging>eclipse-plugin</packaging>
+   <dependencies>
+     <dependency>
+       <groupId>org.obeonetwork</groupId>
+       <artifactId>org.obeonetwork.dsl.environment.gen.java.common</artifactId>
+       <version>2.3.0-SNAPSHOT</version>
+     </dependency>
+     <dependency>
+       <groupId>org.obeonetwork</groupId>
+       <artifactId>org.obeonetwork.dsl.entity.gen.java.common</artifactId>
+       <version>2.3.0-SNAPSHOT</version>
+     </dependency>
+     <dependency>
+       <groupId>org.obeonetwork</groupId>
+       <artifactId>org.obeonetwork.dsl.entity.gen.java.dao</artifactId>
+       <version>2.3.0-SNAPSHOT</version>
+     </dependency>
+     <dependency>
+       <groupId>org.obeonetwork</groupId>
+       <artifactId>org.obeonetwork.dsl.soa.gen.java.spring</artifactId>
+       <version>2.3.0-SNAPSHOT</version>
+     </dependency>
+   </dependencies>
  <build>
-      <plugins>
+     <plugins>
        <plugin>
-        	<groupId>org.codehaus.mojo</groupId>
-        	<artifactId>exec-maven-plugin</artifactId>
-        	<version>1.1.1</version>
-        	<executions>
-                <execution>
-                        <phase>compile</phase>
-                        <goals>  
-                                <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                                <executable>java</executable>
-                                <arguments>
-                                        <argument>-jar</argument>
-                                        <argument>${hudson-wokspace-path}/jobs/SOA_Spring_Hibernate_Generator/workspace/${acceleo-compiler-path}</argument>
-                                        <commandlineArgs>${basedir}/src/</commandlineArgs>  <!-- The source folder -->
-                                        <commandlineArgs>${basedir}/target/classes</commandlineArgs>  <!-- The output folder -->
-                                        <commandlineArgs>org.obeonetwork.dsl.environment.gen.java.common;org.obeonetwork.dsl.entity.gen.java.common;org.obeonetwork.dsl.entity.gen.java.dao;org.obeonetwork.dsl.soa.gen.java.spring</commandlineArgs>  <!-- List of Id bundles dependencies -->
-                                </arguments>
-                        </configuration>
-                </execution>
-       		</executions>
-		</plugin>
-      </plugins>
-  </build>
+         <groupId>org.eclipse.acceleo</groupId>
+         <artifactId>maven</artifactId>
+         <version>3.2.1</version>
+         <executions>
+           <execution>
+             <phase>compile</phase>
+             <goals>
+                <goal>acceleo-compile</goal>
+              </goals>
+           </execution>
+         </executions>
+         <configuration>
+           <useBinaryResources>false</useBinaryResources>
+           <usePlatformResourcePath>true</usePlatformResourcePath>
+           <acceleoProject>
+             <root>${project.basedir}</root>
+             <entries>
+               <entry>
+                 <input>src</input>
+                 <output>target/classes</output>
+               </entry>
+             </entries>
+			<jars>
+               <jar>org.obeonetwork:org.obeonetwork.dsl.environment.gen.java.common</jar>
+               <jar>org.obeonetwork:org.obeonetwork.dsl.entity.gen.java.common</jar>
+               <jar>org.obeonetwork:org.obeonetwork.dsl.entity.gen.java.dao</jar>
+               <jar>org.obeonetwork:org.obeonetwork.dsl.soa.gen.java.spring</jar>
+             </jars>
+           </acceleoProject>
+           <packagesToRegister>
+             <packageToRegister>org.eclipse.emf.ecore.EcorePackage</packageToRegister>
+             <packageToRegister>org.obeonetwork.dsl.environment.EnvironmentPackage</packageToRegister>
+             <packageToRegister>org.obeonetwork.dsl.entity.EntityPackage</packageToRegister>
+             <packageToRegister>org.obeonetwork.dsl.soa.SoaPackage</packageToRegister>
+           </packagesToRegister>
+         </configuration>
+       </plugin>
+     </plugins>
+   </build>
 </project>

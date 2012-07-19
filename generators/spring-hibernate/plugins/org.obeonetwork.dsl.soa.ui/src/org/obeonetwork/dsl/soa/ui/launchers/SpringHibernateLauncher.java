@@ -5,12 +5,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator;
+import org.eclipse.acceleo.engine.utils.AcceleoLaunchingUtil;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.acceleo.utils.launch.NetworkGenerationLauncher;
 import org.obeonetwork.dsl.soa.gen.java.spring.hibernate.main.SpringHibernate;
-
-import fr.obeo.traceability.connector.acceleo.utils.AcceleoLaunchingUtil;
 
 public class SpringHibernateLauncher extends NetworkGenerationLauncher {
 
