@@ -259,6 +259,16 @@
 
 		<!-- 
 		*********************************************************************************************
+		* Spring Hibernate Integration Generator Modules
+		*********************************************************************************************
+		-->
+		<module>../../generators/spring-hibernate/plugins/org.obeonetwork.dsl.soa.gen.java.spring.hibernate</module>		
+		<module>../../generators/spring-hibernate/plugins/org.obeonetwork.dsl.soa.ui</module>		
+		<module>../../generators/spring-hibernate/features/org.obeonetwork.dsl.soa.gen.java.spring.hibernate.feature</module>
+		<module>../../generators/spring-hibernate/releng/org.obeonetwork.dsl.soa.gen.java.spring.hibernate.repository</module>
+
+		<!-- 
+		*********************************************************************************************
 		* Repository Modules Designs Commons
 		*********************************************************************************************
 		-->
