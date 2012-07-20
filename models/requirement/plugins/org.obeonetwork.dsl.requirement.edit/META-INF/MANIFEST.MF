@@ -8,7 +8,11 @@ Bundle-Activator: org.obeonetwork.dsl.requirement.provider.RequirementEditPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.obeonetwork.dsl.requirement.provider,
+Export-Package: org.obeonetwork.dsl.requirement.components,
+ org.obeonetwork.dsl.requirement.parts,
+ org.obeonetwork.dsl.requirement.parts.forms,
+ org.obeonetwork.dsl.requirement.parts.impl,
+ org.obeonetwork.dsl.requirement.provider,
  org.obeonetwork.dsl.requirement.providers
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.requirement;visibility:=reexport,

@@ -6,7 +6,8 @@ Bundle-Activator: org.obeonetwork.dsl.requirement.design.Activator
 Require-Bundle: fr.obeo.acceleo.gen,
  org.eclipse.ui,
  org.eclipse.core.runtime,
- fr.obeo.dsl.viewpoint
+ fr.obeo.dsl.viewpoint,
+ org.obeonetwork.dsl.requirement.edit
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: Obeo.fr
