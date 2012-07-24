@@ -11,14 +11,17 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Actions Plan" titleExpression="&lt;%name%> Actions Plan" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']">
+            <initialOperation/>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Tasksgroup Graph" titleExpression="&lt;%name%> Tasksgroup Graph" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='TasksGroup%20Graph']">
+            <initialOperation/>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Tasks Graph" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']">
+            <initialOperation/>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
@@ -46,7 +49,7 @@
         <nodeMappings name="TG_TasksGroup" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Tasksgroup%20Graph']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_TasksGroup']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%tasks%>" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='Go%20To%20Tasksgroup%20Tasks%20Graph']" domainClass="graal.TasksGroup">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/tasks_group.png"/>
         </nodeMappings>
-        <edgeMappings name="TG_Use" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_TaskUse']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@containerMappings[name='TG_System']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@containerMappings[name='TG_System']" targetFinderExpression="&lt;%getUsedSystemsAndTasksAndGroups().nMinimize() - current%>" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_ReconnectSource_Use'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_ReconnectTarget_Use']">
+        <edgeMappings name="TG_Use" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_TaskUse']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@containerMappings[name='TG_System']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@containerMappings[name='TG_System']" targetFinderExpression="&lt;%getUsedSystemsAndTasksAndGroups() - current%>" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_ReconnectSource_Use'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_ReconnectTarget_Use']">
           <style sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false">
@@ -691,6 +694,7 @@
             <representationNameVariable name="diagramName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Create Actions Plan" titleExpression="&lt;%name%> Actions Plan" browseExpression="&lt;%task%>" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']">
+            <initialOperation/>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
@@ -887,6 +891,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Create Use Case Diagram" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']">
+            <initialOperation/>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>

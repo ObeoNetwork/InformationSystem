@@ -10,8 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.graal.design.services.use;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -33,7 +33,7 @@ public class UseReferencesServices {
 	 * @param container System or TasksGroup
 	 * @return list of linked elements
 	 */
-	public List<EObject> getUsedSystemsAndTasksAndGroups(TasksContainer container) {
+	public Set<EObject> getUsedSystemsAndTasksAndGroups(TasksContainer container) {
 		return getUsedSystemsAndTasksAndGroups((TasksContainer)container.eContainer(), container);
 	}
 	
@@ -43,7 +43,7 @@ public class UseReferencesServices {
 	 * @param task Using task
 	 * @return list of linked elements
 	 */
-	public List<EObject> getUsedSystemsAndTasksAndGroups(Task task) {
+	public Set<EObject> getUsedSystemsAndTasksAndGroups(Task task) {
 		return getUsedSystemsAndTasksAndGroups((TasksContainer)task.eContainer(), task);
 	}
 	
@@ -54,8 +54,8 @@ public class UseReferencesServices {
 	 * @param container System or TasksGroup
 	 * @return list of linked elements
 	 */
-	private List<EObject> getUsedSystemsAndTasksAndGroups(TasksContainer context, TasksContainer container) {
-		List<EObject> usedElements = new ArrayList<EObject>();
+	private Set<EObject> getUsedSystemsAndTasksAndGroups(TasksContainer context, TasksContainer container) {
+		Set<EObject> usedElements = new LinkedHashSet<EObject>();
 		for (Task childTask : container.getOwnedTasks()) {
 			usedElements.addAll(getUsedSystemsAndTasksAndGroups(context, childTask));
 		}
@@ -72,8 +72,8 @@ public class UseReferencesServices {
 	 * @param task Using task
 	 * @return list of linked elements
 	 */
-	private List<EObject> getUsedSystemsAndTasksAndGroups(TasksContainer context, Task task) {
-		List<EObject> usedElements = new ArrayList<EObject>();
+	private Set<EObject> getUsedSystemsAndTasksAndGroups(TasksContainer context, Task task) {
+		Set<EObject> usedElements = new LinkedHashSet<EObject>();
 		for (Task usedTask : task.getUses()) {
 			// First, check if the used task is contained by the context
 			if (EcoreUtil.isAncestor(context, task)) {
