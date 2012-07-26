@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %plugin.name
+Bundle-Name: Requirements Tooling
 Bundle-SymbolicName: org.obeonetwork.tools.requirement;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.obeonetwork.tools.requirement.RequirementLinkerPlugin
-Bundle-Vendor: Obeo Network
+Bundle-Vendor: Obeo .fr
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
