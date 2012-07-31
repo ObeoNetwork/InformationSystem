@@ -8,4 +8,10 @@
             id="org.obeonetwork.od4is">
       </category>
     </extension>
+   <extension
+         point="org.obeonetwork.dsl.environment.providedEnvironmentModel">
+      <model
+            uri="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment">
+      </model>
+   </extension>
 </plugin>

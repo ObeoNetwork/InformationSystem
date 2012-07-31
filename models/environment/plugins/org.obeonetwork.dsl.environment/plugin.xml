@@ -9,6 +9,7 @@
 -->
 
 <plugin>
+   <extension-point id="providedEnvironmentModel" name="providedEnvironmentModel" schema="schema/providedEnvironmentModel.exsd"/>
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
