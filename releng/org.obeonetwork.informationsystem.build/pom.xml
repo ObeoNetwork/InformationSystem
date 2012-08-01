@@ -266,15 +266,6 @@
 		<module>../../generators/spring-hibernate/plugins/org.obeonetwork.dsl.soa.ui</module>		
 		<module>../../generators/spring-hibernate/features/org.obeonetwork.dsl.soa.gen.java.spring.hibernate.feature</module>
 		<module>../../generators/spring-hibernate/releng/org.obeonetwork.dsl.soa.gen.java.spring.hibernate.repository</module>
-
-		<!-- 
-		*********************************************************************************************
-		* Repository Modules Designs Commons
-		*********************************************************************************************
-		-->
-		<module>../../models/releng/org.obeonetwork.dsl.models.repository</module>
-		<module>../../commons/releng/org.obeonetwork.dsl.commons.repository</module>
-		<module>../../designs/releng/org.obeonetwork.dsl.designs.repository</module>
 		
 		<!-- 
 		*********************************************************************************************
