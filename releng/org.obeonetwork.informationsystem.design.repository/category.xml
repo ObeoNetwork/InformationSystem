@@ -81,9 +81,4 @@
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>
-   <category-def name="org.obeonetwork.informationsystem.additional" label="Additional Content">
-      <description>
-         In this category, you will be able to find additional plugins necessary for the installation of Information System models like EEF or Acceleo.
-      </description>
-   </category-def>
 </site>
