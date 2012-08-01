@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,6 +68,7 @@ import org.obeonetwork.dsl.cinematic.CinematicFactory;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 
 /**
@@ -189,11 +191,14 @@ public class CinematicModelWizard extends Wizard implements INewWizard {
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
 		EClass eClass = (EClass)cinematicPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = cinematicFactory.create(eClass);
+		if (rootObject instanceof ObeoDSMObject) {
+			((ObeoDSMObject) rootObject).setCreatedOn(new Date());
+		}
 		return rootObject;
 	}
 	

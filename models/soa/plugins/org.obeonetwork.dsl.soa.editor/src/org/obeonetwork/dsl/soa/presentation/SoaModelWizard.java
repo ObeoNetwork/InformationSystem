@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,9 +60,9 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
-
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.provider.SoaEditPlugin;
 
 
@@ -195,7 +196,8 @@ public class SoaModelWizard extends Wizard implements INewWizard {
 	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
-		EObject rootObject = soaFactory.createSystem();
+		System rootObject = soaFactory.createSystem();
+		rootObject.setCreatedOn(new Date());
 		return rootObject;
 	}
 
