@@ -45,6 +45,10 @@
         eType="#//Behaviour" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindingRegistries" upperBound="-1"
         eType="#//BindingRegistry"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdOn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiedOn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MetaDataContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="metadatas" upperBound="-1"

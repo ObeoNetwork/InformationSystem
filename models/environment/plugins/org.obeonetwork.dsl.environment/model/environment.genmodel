@@ -48,6 +48,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/keywords"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//ObeoDSMObject/behaviours"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//ObeoDSMObject/bindingRegistries"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/version"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/createdOn"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/modifiedOn"/>
     </genClasses>
     <genClasses ecoreClass="environment.ecore#//MetaDataContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//MetaDataContainer/metadatas"/>
@@ -126,10 +129,10 @@
     <genClasses ecoreClass="environment.ecore#//BindingElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingElement/boundElement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//BindingElement/bindingExpression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//BindingElement/internalPath"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingElement/referencedByAsLeft"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingElement/referencedByAsRight"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//BindingElement/referencedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingElement/pathReferences"/>
     </genClasses>
     <genClasses ecoreClass="environment.ecore#//BindingRegistry">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//BindingRegistry/bindingInfos"/>

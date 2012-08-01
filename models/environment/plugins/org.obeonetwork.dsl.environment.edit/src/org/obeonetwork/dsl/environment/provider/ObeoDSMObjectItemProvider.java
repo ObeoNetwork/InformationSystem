@@ -73,6 +73,9 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 			addDescriptionPropertyDescriptor(object);
 			addKeywordsPropertyDescriptor(object);
 			addBindingRegistriesPropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
+			addCreatedOnPropertyDescriptor(object);
+			addModifiedOnPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,6 +138,66 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 								"_UI_ObeoDSMObject_type"),
 						EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BINDING_REGISTRIES,
 						true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_ObeoDSMObject_version_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ObeoDSMObject_version_feature",
+						"_UI_ObeoDSMObject_type"),
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__VERSION, false,
+				false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Created On feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCreatedOnPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_ObeoDSMObject_createdOn_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ObeoDSMObject_createdOn_feature",
+						"_UI_ObeoDSMObject_type"),
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON, false,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+				null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Modified On feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addModifiedOnPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_ObeoDSMObject_modifiedOn_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_ObeoDSMObject_modifiedOn_feature",
+						"_UI_ObeoDSMObject_type"),
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON,
+				false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -208,6 +271,9 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 		switch (notification.getFeatureID(ObeoDSMObject.class)) {
 		case EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION:
 		case EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS:
+		case EnvironmentPackage.OBEO_DSM_OBJECT__VERSION:
+		case EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON:
+		case EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
 			return;

@@ -12,6 +12,7 @@
  */
 package org.obeonetwork.dsl.environment;
 
+import java.util.Date;
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -29,6 +30,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getKeywords <em>Keywords</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getBehaviours <em>Behaviours</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getBindingRegistries <em>Binding Registries</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getCreatedOn <em>Created On</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getModifiedOn <em>Modified On</em>}</li>
  * </ul>
  * </p>
  *
@@ -144,5 +148,84 @@ public interface ObeoDSMObject extends CDOObject {
 	 * @generated
 	 */
 	EList<BindingRegistry> getBindingRegistries();
+
+	/**
+	 * Returns the value of the '<em><b>Version</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Version</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Version</em>' attribute.
+	 * @see #setVersion(int)
+	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_Version()
+	 * @model default="1"
+	 * @generated
+	 */
+	int getVersion();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getVersion <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Version</em>' attribute.
+	 * @see #getVersion()
+	 * @generated
+	 */
+	void setVersion(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Created On</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Created On</em>' attribute.
+	 * @see #setCreatedOn(Date)
+	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_CreatedOn()
+	 * @model
+	 * @generated
+	 */
+	Date getCreatedOn();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getCreatedOn <em>Created On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Created On</em>' attribute.
+	 * @see #getCreatedOn()
+	 * @generated
+	 */
+	void setCreatedOn(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Modified On</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Modified On</em>' attribute.
+	 * @see #setModifiedOn(Date)
+	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject_ModifiedOn()
+	 * @model
+	 * @generated
+	 */
+	Date getModifiedOn();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getModifiedOn <em>Modified On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Modified On</em>' attribute.
+	 * @see #getModifiedOn()
+	 * @generated
+	 */
+	void setModifiedOn(Date value);
 
 } // ObeoDSMObject
