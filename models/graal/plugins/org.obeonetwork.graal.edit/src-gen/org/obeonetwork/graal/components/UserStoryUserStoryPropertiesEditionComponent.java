@@ -19,6 +19,7 @@ import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.UserStory;
 import org.obeonetwork.graal.parts.GraalViewsRepository;
 import org.obeonetwork.graal.parts.UserStoryPropertiesEditionPart;
@@ -91,7 +92,7 @@ public class UserStoryUserStoryPropertiesEditionComponent extends SinglePartProp
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
 		}
 		if (editorKey == GraalViewsRepository.UserStory.Properties.name) {
-			return EnvironmentPackage.eINSTANCE.getNamespace_Name();
+			return GraalPackage.eINSTANCE.getNamedElement_Name();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -125,7 +126,7 @@ public class UserStoryUserStoryPropertiesEditionComponent extends SinglePartProp
 					userStoryPart.setDescription("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getNamespace_Name().equals(msg.getFeature()) && userStoryPart != null && isAccessible(GraalViewsRepository.UserStory.Properties.name)) {
+			if (GraalPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && userStoryPart != null && isAccessible(GraalViewsRepository.UserStory.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					userStoryPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -157,9 +158,9 @@ public class UserStoryUserStoryPropertiesEditionComponent extends SinglePartProp
 				if (GraalViewsRepository.UserStory.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getNamespace_Name().getEAttributeType(), (String)newValue);
+						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
 					}
-					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getNamespace_Name().getEAttributeType(), newValue);
+					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
 				}
 			} catch (IllegalArgumentException iae) {
 				ret = BasicDiagnostic.toDiagnostic(iae);

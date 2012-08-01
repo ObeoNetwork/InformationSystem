@@ -216,7 +216,7 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
 		}
 		if (editorKey == GraalViewsRepository.System.Properties.name) {
-			return EnvironmentPackage.eINSTANCE.getNamespace_Name();
+			return GraalPackage.eINSTANCE.getNamedElement_Name();
 		}
 		if (editorKey == GraalViewsRepository.System.Properties.dtoCategories) {
 			return GraalPackage.eINSTANCE.getDomainModelRegistry_DtoCategories();
@@ -306,7 +306,7 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 					systemPart.setDescription("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getNamespace_Name().equals(msg.getFeature()) && systemPart != null && isAccessible(GraalViewsRepository.System.Properties.name)) {
+			if (GraalPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && systemPart != null && isAccessible(GraalViewsRepository.System.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					systemPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -346,9 +346,9 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 				if (GraalViewsRepository.System.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getNamespace_Name().getEAttributeType(), (String)newValue);
+						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
 					}
-					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getNamespace_Name().getEAttributeType(), newValue);
+					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
 				}
 			} catch (IllegalArgumentException iae) {
 				ret = BasicDiagnostic.toDiagnostic(iae);
