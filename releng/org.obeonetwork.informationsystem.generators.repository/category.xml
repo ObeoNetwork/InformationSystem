@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.obeonetwork.dsl.feature.cinematic_3.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.cinematic" version="3.0.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.models"/>
-   </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.entity_2.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.entity" version="2.3.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.models"/>
-   </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.environment_2.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.environment" version="2.3.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.models"/>
-   </feature>
    <feature url="features/org.obeonetwork.dsl.cinematic.gen.java.struts.feature_2.3.0.qualifier.jar" id="org.obeonetwork.dsl.cinematic.gen.java.struts.feature" version="2.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.generators"/>
    </feature>
@@ -30,6 +21,5 @@
    <feature url="features/org.obeonetwork.acceleo.feature_2.3.0.qualifier.jar" id="org.obeonetwork.acceleo.feature" version="2.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.generators"/>
    </feature>
-   <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.generators" label="Information System - Generators"/>
 </site>
