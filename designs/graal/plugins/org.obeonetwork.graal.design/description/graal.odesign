@@ -11,17 +11,23 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Actions Plan" titleExpression="&lt;%name%> Actions Plan" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']">
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%current%>"/>
+            </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Tasksgroup Graph" titleExpression="&lt;%name%> Tasksgroup Graph" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='TasksGroup%20Graph']">
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%current%>"/>
+            </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Tasks Graph" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']">
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%current%>"/>
+            </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
@@ -528,7 +534,6 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.Operator" referenceName="nodes">
                 <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="and"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="And&lt;%eContainer.nodes.filter(&quot;Operator&quot;).nSize%>"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%initNodeAfterCreation(eContainer(&quot;System&quot;).userStories)%>"/>
               </firstModelOperations>
             </initialOperation>
@@ -539,7 +544,6 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.Operator" referenceName="nodes">
                 <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="or"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Or&lt;%eContainer.nodes.filter(&quot;Operator&quot;).nSize%>"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%initNodeAfterCreation(eContainer(&quot;System&quot;).userStories)%>"/>
               </firstModelOperations>
             </initialOperation>
@@ -550,7 +554,6 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.Operator" referenceName="nodes">
                 <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="xor"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Xor&lt;%eContainer.nodes.filter(&quot;Operator&quot;).nSize%>"/>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%initNodeAfterCreation(eContainer(&quot;System&quot;).userStories)%>"/>
               </firstModelOperations>
             </initialOperation>
@@ -694,7 +697,9 @@
             <representationNameVariable name="diagramName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Create Actions Plan" titleExpression="&lt;%name%> Actions Plan" browseExpression="&lt;%task%>" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']">
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%current%>"/>
+            </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
@@ -891,7 +896,9 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Create Use Case Diagram" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']">
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%current%>"/>
+            </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
