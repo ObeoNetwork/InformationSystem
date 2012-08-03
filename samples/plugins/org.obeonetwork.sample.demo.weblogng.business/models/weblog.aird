@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/1.0.0/description" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/1.0.0/description/style" xmlns:viewpoint="http://www.obeo.fr/dsl/viewpoint" xsi:schemaLocation="http://www.obeo.fr/dsl/viewpoint/1.0.0/description http://www.obeo.fr/dsl/viewpoint#//description http://www.obeo.fr/dsl/viewpoint/1.0.0/description/style http://www.obeo.fr/dsl/viewpoint#//description/style">
+  <viewpoint:DAnalysis xmi:id="_y0WicK2eEd64ibl1hQYI4A" selectedViews="_zKNdsK2eEd64ibl1hQYI4A">
+    <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_zKNdsK2eEd64ibl1hQYI4A" initialized="true">
+      <ownedRepresentations xmi:type="viewpoint:DSemanticDiagram" xmi:id="_09L3Ma2eEd64ibl1hQYI4A" name="Hierarchy Diagram">
+        <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_09TL8a2eEd64ibl1hQYI4A" name="blog" width="5" height="5">
+          <target xmi:type="oent:Block" href="weblog.entity#_fqSskBUoEd6X0LjUarKUQA"/>
+          <semanticElements xmi:type="oent:Block" href="weblog.entity#_fqSskBUoEd6X0LjUarKUQA"/>
+          <ownedStyle xmi:type="viewpoint:BundledImage" xmi:id="_09TzAK2eEd64ibl1hQYI4A" color="light_green">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']/@defaultLayer/@nodeMappings[name='BHD_Block']/@conditionnalStyles.0/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']/@defaultLayer/@nodeMappings[name='BHD_Block']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_09R90a2eEd64ibl1hQYI4A" name="informations" width="5" height="5">
+          <target xmi:type="oent:Block" href="weblog.entity#_UafikC2uEd6XeveztOovgw"/>
+          <semanticElements xmi:type="oent:Block" href="weblog.entity#_UafikC2uEd6XeveztOovgw"/>
+          <ownedStyle xmi:type="viewpoint:BundledImage" xmi:id="_09TL8K2eEd64ibl1hQYI4A" color="light_green">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']/@defaultLayer/@nodeMappings[name='BHD_Block']/@conditionnalStyles.0/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']/@defaultLayer/@nodeMappings[name='BHD_Block']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_09QIoK2eEd64ibl1hQYI4A" name="users" width="5" height="5">
+          <target xmi:type="oent:Block" href="weblog.entity#_8OFsIC2xEd6XeveztOovgw"/>
+          <semanticElements xmi:type="oent:Block" href="weblog.entity#_8OFsIC2xEd6XeveztOovgw"/>
+          <ownedStyle xmi:type="viewpoint:BundledImage" xmi:id="_09R90K2eEd64ibl1hQYI4A" color="light_green">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']/@defaultLayer/@nodeMappings[name='BHD_Block']/@conditionnalStyles.0/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']/@defaultLayer/@nodeMappings[name='BHD_Block']"/>
+        </ownedDiagramElements>
+        <description xmi:type="description:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']"/>
+        <filterVariableHistory xmi:type="viewpoint:FilterVariableHistory" xmi:id="_09L3Mq2eEd64ibl1hQYI4A"/>
+        <activatedLayers xmi:type="description:Layer" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']/@defaultLayer"/>
+        <target xmi:type="oent:Root" href="weblog.entity#_fqRecBUoEd6X0LjUarKUQA"/>
+      </ownedRepresentations>
+      <ownedRepresentations xmi:type="viewpoint:DSemanticDiagram" xmi:id="_4gwroK2eEd64ibl1hQYI4A" name="blog Entity Diagram">
+        <ownedDiagramElements xmi:type="viewpoint:DNodeContainer" xmi:id="_4g09EK2eEd64ibl1hQYI4A" name="blog">
+          <target xmi:type="oent:Block" href="weblog.entity#_fqSskBUoEd6X0LjUarKUQA"/>
+          <semanticElements xmi:type="oent:Block" href="weblog.entity#_fqSskBUoEd6X0LjUarKUQA"/>
+          <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_4g1kIK2eEd64ibl1hQYI4A" labelSize="10" labelFormat="bold" backgroundColor="light_yellow" foregroundColor="white">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@style"/>
+            <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_dJC-c-QWEd665eOtr0SLdQ" colorName="light_yellow"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']"/>
+          <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_4g2yQK2eEd64ibl1hQYI4A" name="BlogEntry" outgoingEdges="_2HwGcOQQEd6kW7cM_Lo75g _2HwGc-QQEd6kW7cM_Lo75g _2HwGduQQEd6kW7cM_Lo75g _2HwGeeQQEd6kW7cM_Lo75g">
+            <target xmi:type="oent:Entity" href="weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+            <semanticElements xmi:type="oent:Entity" href="weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+            <decorations xmi:type="viewpoint:Decoration" xmi:id="_4T-FUBDREd-306CmFpgJHQ">
+              <description xmi:type="description:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='Entity%20Mapping%20Subclass']"/>
+            </decorations>
+            <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_4g3ZUK2eEd64ibl1hQYI4A" labelSize="10" backgroundColor="light_green" backgroundStyle="GradientTopToBottom" foregroundColor="white">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@style"/>
+              <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_y1I-1eQTEd665eOtr0SLdQ" colorName="green"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']"/>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_4g4ncK2eEd64ibl1hQYI4A" name="title : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_fqW-ABUoEd6X0LjUarKUQA"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_fqW-ABUoEd6X0LjUarKUQA"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_4g5OgK2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_4g5Oga2eEd64ibl1hQYI4A" name="creationDate : Date">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_fqW-ARUoEd6X0LjUarKUQA"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_fqW-ARUoEd6X0LjUarKUQA"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_4g51kK2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_4g51ka2eEd64ibl1hQYI4A" name="content : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_fqW-AhUoEd6X0LjUarKUQA"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_fqW-AhUoEd6X0LjUarKUQA"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_4g6coK2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_9PxYcK2eEd64ibl1hQYI4A" name="users::User" incomingEdges="_2HwGduQQEd6kW7cM_Lo75g">
+          <target xmi:type="oent:Entity" href="weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+          <semanticElements xmi:type="oent:Entity" href="weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+          <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_9Px_gK2eEd64ibl1hQYI4A" showIcon="false" backgroundColor="light_orange" foregroundColor="white">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']/@style"/>
+            <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_dI5NcOQWEd665eOtr0SLdQ" colorName="orange"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_9PymkK2eEd64ibl1hQYI4A" name="informations::Category" incomingEdges="_2HwGeeQQEd6kW7cM_Lo75g">
+          <target xmi:type="oent:Entity" href="weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+          <semanticElements xmi:type="oent:Entity" href="weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+          <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_9Pymka2eEd64ibl1hQYI4A" showIcon="false" backgroundColor="light_orange" foregroundColor="white">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']/@style"/>
+            <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_dJC-cOQWEd665eOtr0SLdQ" colorName="orange"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_9Pymk62eEd64ibl1hQYI4A" name="informations::Tag" incomingEdges="_2HwGc-QQEd6kW7cM_Lo75g">
+          <target xmi:type="oent:Entity" href="weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+          <semanticElements xmi:type="oent:Entity" href="weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+          <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_9PzNoK2eEd64ibl1hQYI4A" showIcon="false" backgroundColor="light_orange" foregroundColor="white">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']/@style"/>
+            <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_dJC-cuQWEd665eOtr0SLdQ" colorName="orange"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_9PzNoq2eEd64ibl1hQYI4A" name="informations::Comment" incomingEdges="_2HwGcOQQEd6kW7cM_Lo75g">
+          <target xmi:type="oent:Entity" href="weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+          <semanticElements xmi:type="oent:Entity" href="weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+          <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_9PzNo62eEd64ibl1hQYI4A" showIcon="false" backgroundColor="light_orange" foregroundColor="white">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']/@style"/>
+            <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_dJC-ceQWEd665eOtr0SLdQ" colorName="orange"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_2HwGcOQQEd6kW7cM_Lo75g" name="comments [0..*]" sourceNode="_4g2yQK2eEd64ibl1hQYI4A" targetNode="_9PzNoq2eEd64ibl1hQYI4A">
+          <target xmi:type="oent:Reference" href="weblog.entity#_ZLlZQC8-Ed6AV-mzH71sSA"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_ZLlZQC8-Ed6AV-mzH71sSA"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_hL-M0D7MEd6HZLj_MvKS6w"/>
+          <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_2HwGceQQEd6kW7cM_Lo75g" sourceArrow="FillDiamond">
+            <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']/@conditionnalStyles.0/@style"/>
+            <strokeColor xmi:type="viewpoint:NamedColor" xmi:id="_4UBIoBDREd-306CmFpgJHQ" colorName="gray"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_2HwGc-QQEd6kW7cM_Lo75g" name="tags [0..*]" sourceNode="_4g2yQK2eEd64ibl1hQYI4A" targetNode="_9Pymk62eEd64ibl1hQYI4A">
+          <target xmi:type="oent:Reference" href="weblog.entity#_QpTPIC8-Ed6AV-mzH71sSA"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_QpTPIC8-Ed6AV-mzH71sSA"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#__m6icDPuEd6eVuTmNdt04g"/>
+          <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_2HwGdOQQEd6kW7cM_Lo75g">
+            <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']/@conditionnalStyles.1/@style"/>
+            <strokeColor xmi:type="viewpoint:NamedColor" xmi:id="_4UBvsRDREd-306CmFpgJHQ" colorName="gray"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_2HwGduQQEd6kW7cM_Lo75g" name="authorUser [1]" sourceNode="_4g2yQK2eEd64ibl1hQYI4A" targetNode="_9PxYcK2eEd64ibl1hQYI4A">
+          <target xmi:type="oent:Reference" href="weblog.entity#_fqW-AxUoEd6X0LjUarKUQA"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_fqW-AxUoEd6X0LjUarKUQA"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_fqWW8BUoEd6X0LjUarKUQA"/>
+          <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_2HwGd-QQEd6kW7cM_Lo75g">
+            <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']/@conditionnalStyles.1/@style"/>
+            <strokeColor xmi:type="viewpoint:NamedColor" xmi:id="_4UAhkBDREd-306CmFpgJHQ" colorName="gray"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_2HwGeeQQEd6kW7cM_Lo75g" name="categories [0..*]" sourceNode="_4g2yQK2eEd64ibl1hQYI4A" targetNode="_9PymkK2eEd64ibl1hQYI4A">
+          <target xmi:type="oent:Reference" href="weblog.entity#_L_fLYC8-Ed6AV-mzH71sSA"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_L_fLYC8-Ed6AV-mzH71sSA"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_MUrJITPcEd6eVuTmNdt04g"/>
+          <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_2HwGeuQQEd6kW7cM_Lo75g">
+            <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']/@conditionnalStyles.1/@style"/>
+            <strokeColor xmi:type="viewpoint:NamedColor" xmi:id="_4UBvsBDREd-306CmFpgJHQ" colorName="gray"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <description xmi:type="description:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']"/>
+        <filterVariableHistory xmi:type="viewpoint:FilterVariableHistory" xmi:id="_4gwroa2eEd64ibl1hQYI4A"/>
+        <activatedLayers xmi:type="description:Layer" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer"/>
+        <activatedLayers xmi:type="description:Layer" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']"/>
+        <target xmi:type="oent:Block" href="weblog.entity#_fqSskBUoEd6X0LjUarKUQA"/>
+      </ownedRepresentations>
+      <ownedRepresentations xmi:type="viewpoint:DSemanticDiagram" xmi:id="_5NcLcK2eEd64ibl1hQYI4A" name="informations Entity Diagram">
+        <ownedDiagramElements xmi:type="viewpoint:DNodeContainer" xmi:id="_5Ngc4K2eEd64ibl1hQYI4A" name="informations">
+          <target xmi:type="oent:Block" href="weblog.entity#_UafikC2uEd6XeveztOovgw"/>
+          <semanticElements xmi:type="oent:Block" href="weblog.entity#_UafikC2uEd6XeveztOovgw"/>
+          <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_5NhD8K2eEd64ibl1hQYI4A" labelSize="10" labelFormat="bold" backgroundColor="light_yellow" foregroundColor="white">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@style"/>
+            <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_fg4YgeQWEd665eOtr0SLdQ" colorName="light_yellow"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']"/>
+          <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_5NhrAK2eEd64ibl1hQYI4A" name="Comment" outgoingEdges="_2hrpYOQQEd6kW7cM_Lo75g">
+            <target xmi:type="oent:Entity" href="weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+            <semanticElements xmi:type="oent:Entity" href="weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+            <decorations xmi:type="viewpoint:Decoration" xmi:id="_0xPwIQzZEd-kDqGpskt7Dg">
+              <description xmi:type="description:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='Entity%20Mapping%20Subclass']"/>
+            </decorations>
+            <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_5NiSEK2eEd64ibl1hQYI4A" labelSize="10" backgroundColor="light_green" backgroundStyle="GradientTopToBottom" foregroundColor="white">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@style"/>
+              <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_fg4Yg-QWEd665eOtr0SLdQ" colorName="green"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']"/>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_5Nvtca2eEd64ibl1hQYI4A" name="name : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_xJ9-wC2uEd6XeveztOovgw"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_xJ9-wC2uEd6XeveztOovgw"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_5NwUgK2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_5Nw7ka2eEd64ibl1hQYI4A" name="email : Email">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_I_aw8C2vEd6XeveztOovgw"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_I_aw8C2vEd6XeveztOovgw"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_5NxioK2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_5NvGYa2eEd64ibl1hQYI4A" name="website : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_MVpF4C2vEd6XeveztOovgw"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_MVpF4C2vEd6XeveztOovgw"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_5NvtcK2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_5NwUga2eEd64ibl1hQYI4A" name="content : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_Pz9m4C2vEd6XeveztOovgw"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_Pz9m4C2vEd6XeveztOovgw"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_5Nw7kK2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_5Nt4QK2eEd64ibl1hQYI4A" name="creationDate : Date">
+              <target xmi:type="oent:Attribute" href="weblog.entity#__YIzQD45Ed6-J8OyiOspNg"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#__YIzQD45Ed6-J8OyiOspNg"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_5NvGYK2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_5NiSEq2eEd64ibl1hQYI4A" name="Tag" outgoingEdges="_2hrpY-QQEd6kW7cM_Lo75g">
+            <target xmi:type="oent:Entity" href="weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+            <semanticElements xmi:type="oent:Entity" href="weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+            <decorations xmi:type="viewpoint:Decoration" xmi:id="_0xPwIAzZEd-kDqGpskt7Dg">
+              <description xmi:type="description:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='Entity%20Mapping%20Subclass']"/>
+            </decorations>
+            <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_5Ni5IK2eEd64ibl1hQYI4A" labelSize="10" backgroundColor="light_green" backgroundStyle="GradientTopToBottom" foregroundColor="white">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@style"/>
+              <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_fg4YguQWEd665eOtr0SLdQ" colorName="green"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']"/>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_5NyJsK2eEd64ibl1hQYI4A" name="name : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_u69MsC2yEd6XeveztOovgw"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_u69MsC2yEd6XeveztOovgw"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_5NywwK2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_5Ni5Iq2eEd64ibl1hQYI4A" name="Category" outgoingEdges="_2hrpZuQQEd6kW7cM_Lo75g">
+            <target xmi:type="oent:Entity" href="weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+            <semanticElements xmi:type="oent:Entity" href="weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+            <decorations xmi:type="viewpoint:Decoration" xmi:id="_0xQXMAzZEd-kDqGpskt7Dg">
+              <description xmi:type="description:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='Entity%20Mapping%20Subclass']"/>
+            </decorations>
+            <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_5NjgMK2eEd64ibl1hQYI4A" labelSize="10" backgroundColor="light_green" backgroundStyle="GradientTopToBottom" foregroundColor="white">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@style"/>
+              <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_fhCJgOQWEd665eOtr0SLdQ" colorName="green"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']"/>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_5Nz-4a2eEd64ibl1hQYI4A" name="name : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_lOmcIC2yEd6XeveztOovgw"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_lOmcIC2yEd6XeveztOovgw"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_5N0l8K2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_5NzX0K2eEd64ibl1hQYI4A" name="description : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_mJL1EC2yEd6XeveztOovgw"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_mJL1EC2yEd6XeveztOovgw"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_5Nz-4K2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_74pNcK2eEd64ibl1hQYI4A" name="blog::BlogEntry" incomingEdges="_2hrpYOQQEd6kW7cM_Lo75g _2hrpY-QQEd6kW7cM_Lo75g _2hrpZuQQEd6kW7cM_Lo75g">
+          <target xmi:type="oent:Entity" href="weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          <semanticElements xmi:type="oent:Entity" href="weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_74qbkK2eEd64ibl1hQYI4A" showIcon="false" backgroundColor="light_orange" foregroundColor="white">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']/@style"/>
+            <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_fg4YgOQWEd665eOtr0SLdQ" colorName="orange"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_2hrpYOQQEd6kW7cM_Lo75g" name="isCommentOf [1]" sourceNode="_5NhrAK2eEd64ibl1hQYI4A" targetNode="_74pNcK2eEd64ibl1hQYI4A">
+          <target xmi:type="oent:Reference" href="weblog.entity#_hL-M0D7MEd6HZLj_MvKS6w"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_hL-M0D7MEd6HZLj_MvKS6w"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_ZLlZQC8-Ed6AV-mzH71sSA"/>
+          <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_2hrpYeQQEd6kW7cM_Lo75g">
+            <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']/@conditionnalStyles.1/@style"/>
+            <strokeColor xmi:type="viewpoint:NamedColor" xmi:id="_0xUooAzZEd-kDqGpskt7Dg" colorName="gray"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_2hrpY-QQEd6kW7cM_Lo75g" name="isTagOf [0..*]" sourceNode="_5NiSEq2eEd64ibl1hQYI4A" targetNode="_74pNcK2eEd64ibl1hQYI4A">
+          <target xmi:type="oent:Reference" href="weblog.entity#__m6icDPuEd6eVuTmNdt04g"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#__m6icDPuEd6eVuTmNdt04g"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_QpTPIC8-Ed6AV-mzH71sSA"/>
+          <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_2hrpZOQQEd6kW7cM_Lo75g">
+            <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']/@conditionnalStyles.1/@style"/>
+            <strokeColor xmi:type="viewpoint:NamedColor" xmi:id="_0xSzcAzZEd-kDqGpskt7Dg" colorName="gray"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_2hrpZuQQEd6kW7cM_Lo75g" name="isCategoryOf [0..*]" sourceNode="_5Ni5Iq2eEd64ibl1hQYI4A" targetNode="_74pNcK2eEd64ibl1hQYI4A">
+          <target xmi:type="oent:Reference" href="weblog.entity#_MUrJITPcEd6eVuTmNdt04g"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_MUrJITPcEd6eVuTmNdt04g"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_L_fLYC8-Ed6AV-mzH71sSA"/>
+          <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_2hrpZ-QQEd6kW7cM_Lo75g">
+            <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']/@conditionnalStyles.1/@style"/>
+            <strokeColor xmi:type="viewpoint:NamedColor" xmi:id="_0xUBkAzZEd-kDqGpskt7Dg" colorName="gray"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <description xmi:type="description:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']"/>
+        <filterVariableHistory xmi:type="viewpoint:FilterVariableHistory" xmi:id="_5NcLca2eEd64ibl1hQYI4A"/>
+        <activatedLayers xmi:type="description:Layer" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer"/>
+        <activatedLayers xmi:type="description:Layer" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']"/>
+        <target xmi:type="oent:Block" href="weblog.entity#_UafikC2uEd6XeveztOovgw"/>
+      </ownedRepresentations>
+      <ownedRepresentations xmi:type="viewpoint:DSemanticDiagram" xmi:id="_6koA0K2eEd64ibl1hQYI4A" name="users Entity Diagram">
+        <ownedDiagramElements xmi:type="viewpoint:DNodeContainer" xmi:id="_6ksSQK2eEd64ibl1hQYI4A" name="users">
+          <target xmi:type="oent:Block" href="weblog.entity#_8OFsIC2xEd6XeveztOovgw"/>
+          <semanticElements xmi:type="oent:Block" href="weblog.entity#_8OFsIC2xEd6XeveztOovgw"/>
+          <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_6ks5UK2eEd64ibl1hQYI4A" labelSize="10" labelFormat="bold" backgroundColor="light_yellow" foregroundColor="white">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@style"/>
+            <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_qQDpUAzZEd-kDqGpskt7Dg" colorName="light_yellow"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']"/>
+          <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_6kuHcK2eEd64ibl1hQYI4A" name="Admin" outgoingEdges="__XnvUOQQEd6kW7cM_Lo75g">
+            <target xmi:type="oent:Entity" href="weblog.entity#_-ZfMsC2xEd6XeveztOovgw"/>
+            <semanticElements xmi:type="oent:Entity" href="weblog.entity#_-ZfMsC2xEd6XeveztOovgw"/>
+            <decorations xmi:type="viewpoint:Decoration" xmi:id="_qQvl0gzZEd-kDqGpskt7Dg">
+              <description xmi:type="description:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='Entity%20Mapping%20Subclass']"/>
+            </decorations>
+            <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_6kuHca2eEd64ibl1hQYI4A" labelSize="10" backgroundColor="light_green" backgroundStyle="GradientTopToBottom" foregroundColor="white">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@style"/>
+              <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_qQGFkAzZEd-kDqGpskt7Dg" colorName="green"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_6kuugK2eEd64ibl1hQYI4A" name="User" outgoingEdges="__XxgUOQQEd6kW7cM_Lo75g" incomingEdges="__XnvUOQQEd6kW7cM_Lo75g __XnvU-QQEd6kW7cM_Lo75g">
+            <target xmi:type="oent:Entity" href="weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+            <semanticElements xmi:type="oent:Entity" href="weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+            <decorations xmi:type="viewpoint:Decoration" xmi:id="_qQvl0QzZEd-kDqGpskt7Dg">
+              <description xmi:type="description:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='Entity%20Mapping%20Subclass']"/>
+            </decorations>
+            <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_6kuuga2eEd64ibl1hQYI4A" labelSize="10" backgroundColor="light_green" backgroundStyle="GradientTopToBottom" foregroundColor="white">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@style"/>
+              <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_qQFegQzZEd-kDqGpskt7Dg" colorName="green"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']"/>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_6kznAK2eEd64ibl1hQYI4A" name="email : Email">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_fqTToRUoEd6X0LjUarKUQA"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_fqTToRUoEd6X0LjUarKUQA"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_6kznAa2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_6kxKwK2eEd64ibl1hQYI4A" name="firstName : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_fqT6sBUoEd6X0LjUarKUQA"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_fqT6sBUoEd6X0LjUarKUQA"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_6kxx0K2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_6kyY4K2eEd64ibl1hQYI4A" name="lastName : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_fqUhwBUoEd6X0LjUarKUQA"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_fqUhwBUoEd6X0LjUarKUQA"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_6kyY4a2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_6k0OEK2eEd64ibl1hQYI4A" name="login : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_fqUhwRUoEd6X0LjUarKUQA"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_fqUhwRUoEd6X0LjUarKUQA"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_6k0OEa2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_6k01IK2eEd64ibl1hQYI4A" name="password : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_fqUhwhUoEd6X0LjUarKUQA"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_fqUhwhUoEd6X0LjUarKUQA"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_6k01Ia2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+            <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_6ky_8K2eEd64ibl1hQYI4A" name="telephone : String">
+              <target xmi:type="oent:Attribute" href="weblog.entity#_qUx-sBU7Ed6MJuZ1DgufpA"/>
+              <semanticElements xmi:type="oent:Attribute" href="weblog.entity#_qUx-sBU7Ed6MJuZ1DgufpA"/>
+              <ownedStyle xmi:type="viewpoint:Square" xmi:id="_6ky_8a2eEd64ibl1hQYI4A">
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']"/>
+            </ownedElements>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_6kvVkK2eEd64ibl1hQYI4A" name="Moderator" outgoingEdges="__XnvU-QQEd6kW7cM_Lo75g">
+            <target xmi:type="oent:Entity" href="weblog.entity#_30ohwC_kEd6O96u4zmprBw"/>
+            <semanticElements xmi:type="oent:Entity" href="weblog.entity#_30ohwC_kEd6O96u4zmprBw"/>
+            <decorations xmi:type="viewpoint:Decoration" xmi:id="_qQvl0AzZEd-kDqGpskt7Dg">
+              <description xmi:type="description:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='Entity%20Mapping%20Subclass']"/>
+            </decorations>
+            <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_6kvVka2eEd64ibl1hQYI4A" labelSize="10" backgroundColor="light_green" backgroundStyle="GradientTopToBottom" foregroundColor="white">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']/@style"/>
+              <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_qQFegAzZEd-kDqGpskt7Dg" colorName="green"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity']"/>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DNodeList" xmi:id="_7CwuUK2eEd64ibl1hQYI4A" name="blog::BlogEntry" incomingEdges="__XxgUOQQEd6kW7cM_Lo75g">
+          <target xmi:type="oent:Entity" href="weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          <semanticElements xmi:type="oent:Entity" href="weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          <ownedStyle xmi:type="viewpoint:FlatContainerStyle" xmi:id="_7CzKkK2eEd64ibl1hQYI4A" showIcon="false" backgroundColor="light_orange" foregroundColor="white">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']/@style"/>
+            <borderColor xmi:type="viewpoint:NamedColor" xmi:id="_qPm9YQzZEd-kDqGpskt7Dg" colorName="orange"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="__XnvUOQQEd6kW7cM_Lo75g" sourceNode="_6kuHcK2eEd64ibl1hQYI4A" targetNode="_6kuugK2eEd64ibl1hQYI4A" routingStyle="manhattan">
+          <target xmi:type="oent:Entity" href="weblog.entity#_-ZfMsC2xEd6XeveztOovgw"/>
+          <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="__XnvUeQQEd6kW7cM_Lo75g" targetArrow="InputClosedArrow">
+            <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Inheritance_Entity_Entity']/@style"/>
+            <strokeColor xmi:type="viewpoint:NamedColor" xmi:id="_qQzQMQzZEd-kDqGpskt7Dg" colorName="gray"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Inheritance_Entity_Entity']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="__XnvU-QQEd6kW7cM_Lo75g" sourceNode="_6kvVkK2eEd64ibl1hQYI4A" targetNode="_6kuugK2eEd64ibl1hQYI4A" routingStyle="manhattan">
+          <target xmi:type="oent:Entity" href="weblog.entity#_30ohwC_kEd6O96u4zmprBw"/>
+          <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="__XnvVOQQEd6kW7cM_Lo75g" targetArrow="InputClosedArrow">
+            <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Inheritance_Entity_Entity']/@style"/>
+            <strokeColor xmi:type="viewpoint:NamedColor" xmi:id="_qQzQMAzZEd-kDqGpskt7Dg" colorName="gray"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Inheritance_Entity_Entity']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="__XxgUOQQEd6kW7cM_Lo75g" name="entries [0..*]" sourceNode="_6kuugK2eEd64ibl1hQYI4A" targetNode="_7CwuUK2eEd64ibl1hQYI4A">
+          <target xmi:type="oent:Reference" href="weblog.entity#_fqWW8BUoEd6X0LjUarKUQA"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_fqWW8BUoEd6X0LjUarKUQA"/>
+          <semanticElements xmi:type="oent:Reference" href="weblog.entity#_fqW-AxUoEd6X0LjUarKUQA"/>
+          <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="__XxgUeQQEd6kW7cM_Lo75g">
+            <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']/@conditionnalStyles.1/@style"/>
+            <strokeColor xmi:type="viewpoint:NamedColor" xmi:id="_qQ1FYAzZEd-kDqGpskt7Dg" colorName="gray"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:EdgeMapping" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@edgeMappings[name='ED_Refererence_Entity_Referenced_Entity_External']"/>
+        </ownedDiagramElements>
+        <description xmi:type="description:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']"/>
+        <filterVariableHistory xmi:type="viewpoint:FilterVariableHistory" xmi:id="_6kon4K2eEd64ibl1hQYI4A"/>
+        <activatedLayers xmi:type="description:Layer" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer"/>
+        <target xmi:type="oent:Block" href="weblog.entity#_8OFsIC2xEd6XeveztOovgw"/>
+      </ownedRepresentations>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']"/>
+      <diagramSet xmi:type="viewpoint:DDiagramSet" xmi:id="_09L3MK2eEd64ibl1hQYI4A" diagrams="_09L3Ma2eEd64ibl1hQYI4A">
+        <description xmi:type="description:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']"/>
+      </diagramSet>
+      <diagramSet xmi:type="viewpoint:DDiagramSet" xmi:id="_4gwEkK2eEd64ibl1hQYI4A" diagrams="_4gwroK2eEd64ibl1hQYI4A _5NcLcK2eEd64ibl1hQYI4A _6koA0K2eEd64ibl1hQYI4A">
+        <description xmi:type="description:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.is.design/description/is.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']"/>
+      </diagramSet>
+    </ownedViews>
+    <models xmi:type="oent:Root" href="weblog.entity#_fqRecBUoEd6X0LjUarKUQA"/>
+    <models xmi:type="oenv:Environment" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5Ev8KwKEd2XLNOhkJIazw"/>
+  </viewpoint:DAnalysis>
+  <notation:Diagram xmi:id="_09MeQK2eEd64ibl1hQYI4A" type="Viewpoint" element="_09L3Ma2eEd64ibl1hQYI4A" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_09XdYK2eEd64ibl1hQYI4A" type="2001" element="_09QIoK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_09Z5oK2eEd64ibl1hQYI4A" type="5002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_09Z5oa2eEd64ibl1hQYI4A" y="5"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_09fZMK2eEd64ibl1hQYI4A" type="3004" element="_09R90K2eEd64ibl1hQYI4A">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_09fZMa2eEd64ibl1hQYI4A" fontName="Sans"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_09fZMq2eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_09XdYa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="8"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_09XdYq2eEd64ibl1hQYI4A" x="52" y="28" width="50" height="50"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_09bHwK2eEd64ibl1hQYI4A" type="2001" element="_09R90a2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_09bu0K2eEd64ibl1hQYI4A" type="5002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_09bu0a2eEd64ibl1hQYI4A" y="5"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_09gnUK2eEd64ibl1hQYI4A" type="3004" element="_09TL8K2eEd64ibl1hQYI4A">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_09gnUa2eEd64ibl1hQYI4A" fontName="Sans"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_09gnUq2eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_09bHwa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="8"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_09bHwq2eEd64ibl1hQYI4A" x="40" y="144" width="50" height="50"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_09cV4K2eEd64ibl1hQYI4A" type="2001" element="_09TL8a2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_09c88K2eEd64ibl1hQYI4A" type="5002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_09c88a2eEd64ibl1hQYI4A" y="5"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_09h1cK2eEd64ibl1hQYI4A" type="3004" element="_09TzAK2eEd64ibl1hQYI4A">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_09h1ca2eEd64ibl1hQYI4A" fontName="Sans"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_09h1cq2eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_09cV4a2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="8"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_09cV4q2eEd64ibl1hQYI4A" x="240" y="32" width="50" height="50"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_09MeQa2eEd64ibl1hQYI4A"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_4gxSsK2eEd64ibl1hQYI4A" type="Viewpoint" element="_4gwroK2eEd64ibl1hQYI4A" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_4g9f8K2eEd64ibl1hQYI4A" type="2002" element="_4g09EK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_4g-HAK2eEd64ibl1hQYI4A" type="5006"/>
+      <children xmi:type="notation:Node" xmi:id="_4g-uEK2eEd64ibl1hQYI4A" type="7001">
+        <children xmi:type="notation:Node" xmi:id="_4g_VIK2eEd64ibl1hQYI4A" type="3009" element="_4g2yQK2eEd64ibl1hQYI4A">
+          <children xmi:type="notation:Node" xmi:id="_4hAjQK2eEd64ibl1hQYI4A" type="5004"/>
+          <children xmi:type="notation:Node" xmi:id="_4hAjQa2eEd64ibl1hQYI4A" type="7003">
+            <children xmi:type="notation:Node" xmi:id="_4hBxYK2eEd64ibl1hQYI4A" type="3010" element="_4g4ncK2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_4hBxYa2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_4hCYcK2eEd64ibl1hQYI4A" type="3010" element="_4g5Oga2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_4hCYca2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_4hC_gK2eEd64ibl1hQYI4A" type="3010" element="_4g51ka2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_4hC_ga2eEd64ibl1hQYI4A"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_4hAjQq2eEd64ibl1hQYI4A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_4hAjQ62eEd64ibl1hQYI4A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_4g_VIa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="10"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4g_VIq2eEd64ibl1hQYI4A" x="30" y="30"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_4g-uEa2eEd64ibl1hQYI4A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_4g-uEq2eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_4g9f8a2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="10" bold="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4g9f8q2eEd64ibl1hQYI4A" x="32" y="32" width="404" height="189"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9P-z0K2eEd64ibl1hQYI4A" type="2003" element="_9PxYcK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_9P_a4K2eEd64ibl1hQYI4A" type="5007"/>
+      <children xmi:type="notation:Node" xmi:id="_9P_a4a2eEd64ibl1hQYI4A" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_9P_a4q2eEd64ibl1hQYI4A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_9P_a462eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_9P-z0a2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="8"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9P-z0q2eEd64ibl1hQYI4A" x="85" y="330"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9P_a5K2eEd64ibl1hQYI4A" type="2003" element="_9PymkK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_9P_a562eEd64ibl1hQYI4A" type="5007"/>
+      <children xmi:type="notation:Node" xmi:id="_9QAB8K2eEd64ibl1hQYI4A" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_9QAB8a2eEd64ibl1hQYI4A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_9QAB8q2eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_9P_a5a2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="8"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9P_a5q2eEd64ibl1hQYI4A" x="225" y="355"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9QAB862eEd64ibl1hQYI4A" type="2003" element="_9Pymk62eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_9QAB9q2eEd64ibl1hQYI4A" type="5007"/>
+      <children xmi:type="notation:Node" xmi:id="_9QAB962eEd64ibl1hQYI4A" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_9QAB-K2eEd64ibl1hQYI4A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_9QAB-a2eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_9QAB9K2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="8"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9QAB9a2eEd64ibl1hQYI4A" x="595" y="310"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_9QApAK2eEd64ibl1hQYI4A" type="2003" element="_9PzNoq2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_9QApA62eEd64ibl1hQYI4A" type="5007"/>
+      <children xmi:type="notation:Node" xmi:id="_9QApBK2eEd64ibl1hQYI4A" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_9QApBa2eEd64ibl1hQYI4A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_9QApBq2eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_9QApAa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="8"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9QApAq2eEd64ibl1hQYI4A" x="665" y="165"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_4gxSsa2eEd64ibl1hQYI4A"/>
+    <edges xmi:type="notation:Edge" xmi:id="_2H5QYOQQEd6kW7cM_Lo75g" type="4001" element="_2HwGcOQQEd6kW7cM_Lo75g" source="_4g_VIK2eEd64ibl1hQYI4A" target="_9QApAK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_2H5QZOQQEd6kW7cM_Lo75g" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2H5QZeQQEd6kW7cM_Lo75g" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_2H5QYeQQEd6kW7cM_Lo75g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_2H5QYuQQEd6kW7cM_Lo75g" fontHeight="8"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2H5QY-QQEd6kW7cM_Lo75g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_2H5QZuQQEd6kW7cM_Lo75g" type="4001" element="_2HwGc-QQEd6kW7cM_Lo75g" source="_4g_VIK2eEd64ibl1hQYI4A" target="_9QAB862eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_2H5QauQQEd6kW7cM_Lo75g" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2H5Qa-QQEd6kW7cM_Lo75g" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_2H5QZ-QQEd6kW7cM_Lo75g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_2H5QaOQQEd6kW7cM_Lo75g" fontHeight="8"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2H5QaeQQEd6kW7cM_Lo75g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_2H5QbOQQEd6kW7cM_Lo75g" type="4001" element="_2HwGduQQEd6kW7cM_Lo75g" source="_4g_VIK2eEd64ibl1hQYI4A" target="_9P-z0K2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_2H5QcOQQEd6kW7cM_Lo75g" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2H5QceQQEd6kW7cM_Lo75g" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_2H5QbeQQEd6kW7cM_Lo75g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_2H5QbuQQEd6kW7cM_Lo75g" fontHeight="8"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2H5Qb-QQEd6kW7cM_Lo75g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_2H5QcuQQEd6kW7cM_Lo75g" type="4001" element="_2HwGeeQQEd6kW7cM_Lo75g" source="_4g_VIK2eEd64ibl1hQYI4A" target="_9P_a5K2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_2H5QduQQEd6kW7cM_Lo75g" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2H5Qd-QQEd6kW7cM_Lo75g" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_2H5Qc-QQEd6kW7cM_Lo75g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_2H5QdOQQEd6kW7cM_Lo75g" fontHeight="8"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2H5QdeQQEd6kW7cM_Lo75g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_5NcygK2eEd64ibl1hQYI4A" type="Viewpoint" element="_5NcLcK2eEd64ibl1hQYI4A" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_5N3pQK2eEd64ibl1hQYI4A" type="2002" element="_5Ngc4K2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_5N4QUK2eEd64ibl1hQYI4A" type="5006"/>
+      <children xmi:type="notation:Node" xmi:id="_5N43YK2eEd64ibl1hQYI4A" type="7001">
+        <children xmi:type="notation:Node" xmi:id="_5N6FgK2eEd64ibl1hQYI4A" type="3009" element="_5NhrAK2eEd64ibl1hQYI4A">
+          <children xmi:type="notation:Node" xmi:id="_5N6skK2eEd64ibl1hQYI4A" type="5004"/>
+          <children xmi:type="notation:Node" xmi:id="_5N7ToK2eEd64ibl1hQYI4A" type="7003">
+            <children xmi:type="notation:Node" xmi:id="_5OAMIK2eEd64ibl1hQYI4A" type="3010" element="_5Nt4QK2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_5OAMIa2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_5OAzMK2eEd64ibl1hQYI4A" type="3010" element="_5NvGYa2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_5OAzMa2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_5OBaQK2eEd64ibl1hQYI4A" type="3010" element="_5Nvtca2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_5OBaQa2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_5OCBUK2eEd64ibl1hQYI4A" type="3010" element="_5NwUga2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_5OCBUa2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_5OCoYK2eEd64ibl1hQYI4A" type="3010" element="_5Nw7ka2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_5OCoYa2eEd64ibl1hQYI4A"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_5N7Toa2eEd64ibl1hQYI4A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_5N7Toq2eEd64ibl1hQYI4A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_5N6Fga2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="10"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5N6Fgq2eEd64ibl1hQYI4A" x="30" y="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_5N76sK2eEd64ibl1hQYI4A" type="3009" element="_5NiSEq2eEd64ibl1hQYI4A">
+          <children xmi:type="notation:Node" xmi:id="_5N8hwK2eEd64ibl1hQYI4A" type="5004"/>
+          <children xmi:type="notation:Node" xmi:id="_5N9I0K2eEd64ibl1hQYI4A" type="7003">
+            <children xmi:type="notation:Node" xmi:id="_5OLLQK2eEd64ibl1hQYI4A" type="3010" element="_5NyJsK2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_5OLLQa2eEd64ibl1hQYI4A"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_5N9I0a2eEd64ibl1hQYI4A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_5N9I0q2eEd64ibl1hQYI4A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_5N76sa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="10"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5N76sq2eEd64ibl1hQYI4A" x="247" y="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_5N9v4K2eEd64ibl1hQYI4A" type="3009" element="_5Ni5Iq2eEd64ibl1hQYI4A">
+          <children xmi:type="notation:Node" xmi:id="_5N-W8K2eEd64ibl1hQYI4A" type="5004"/>
+          <children xmi:type="notation:Node" xmi:id="_5N-W8a2eEd64ibl1hQYI4A" type="7003">
+            <children xmi:type="notation:Node" xmi:id="_5OMZYK2eEd64ibl1hQYI4A" type="3010" element="_5NzX0K2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_5OMZYa2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_5ONAcK2eEd64ibl1hQYI4A" type="3010" element="_5Nz-4a2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_5ONAca2eEd64ibl1hQYI4A"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_5N--AK2eEd64ibl1hQYI4A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_5N--Aa2eEd64ibl1hQYI4A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_5N9v4a2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="10"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5N9v4q2eEd64ibl1hQYI4A" x="425" y="30"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_5N43Ya2eEd64ibl1hQYI4A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_5N43Yq2eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_5N3pQa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="10" bold="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5N3pQq2eEd64ibl1hQYI4A" x="32" y="32"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_741asK2eEd64ibl1hQYI4A" type="2003" element="_74pNcK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_742BwK2eEd64ibl1hQYI4A" type="5007"/>
+      <children xmi:type="notation:Node" xmi:id="_742Bwa2eEd64ibl1hQYI4A" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_742Bwq2eEd64ibl1hQYI4A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_742Bw62eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_741asa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="8"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_741asq2eEd64ibl1hQYI4A" x="276" y="284"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_5Ncyga2eEd64ibl1hQYI4A"/>
+    <edges xmi:type="notation:Edge" xmi:id="_2h0zUOQQEd6kW7cM_Lo75g" type="4001" element="_2hrpYOQQEd6kW7cM_Lo75g" source="_5N6FgK2eEd64ibl1hQYI4A" target="_741asK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_2h0zVOQQEd6kW7cM_Lo75g" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2h0zVeQQEd6kW7cM_Lo75g" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_2h0zUeQQEd6kW7cM_Lo75g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_2h0zUuQQEd6kW7cM_Lo75g" fontHeight="8"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2h0zU-QQEd6kW7cM_Lo75g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_2h0zVuQQEd6kW7cM_Lo75g" type="4001" element="_2hrpY-QQEd6kW7cM_Lo75g" source="_5N76sK2eEd64ibl1hQYI4A" target="_741asK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_2h0zWuQQEd6kW7cM_Lo75g" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2h0zW-QQEd6kW7cM_Lo75g" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_2h0zV-QQEd6kW7cM_Lo75g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_2h0zWOQQEd6kW7cM_Lo75g" fontHeight="8"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2h0zWeQQEd6kW7cM_Lo75g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_2h0zXOQQEd6kW7cM_Lo75g" type="4001" element="_2hrpZuQQEd6kW7cM_Lo75g" source="_5N9v4K2eEd64ibl1hQYI4A" target="_741asK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_2h0zYOQQEd6kW7cM_Lo75g" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2h0zYeQQEd6kW7cM_Lo75g" x="-33" y="-48"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_2h0zXeQQEd6kW7cM_Lo75g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_2h0zXuQQEd6kW7cM_Lo75g" fontHeight="8"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2h0zX-QQEd6kW7cM_Lo75g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_6kon4a2eEd64ibl1hQYI4A" type="Viewpoint" element="_6koA0K2eEd64ibl1hQYI4A" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_6k4fgK2eEd64ibl1hQYI4A" type="2002" element="_6ksSQK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_6k5toK2eEd64ibl1hQYI4A" type="5006"/>
+      <children xmi:type="notation:Node" xmi:id="_6k5toa2eEd64ibl1hQYI4A" type="7001">
+        <children xmi:type="notation:Node" xmi:id="_6k9YAK2eEd64ibl1hQYI4A" type="3009" element="_6kuHcK2eEd64ibl1hQYI4A">
+          <children xmi:type="notation:Node" xmi:id="_6k9_EK2eEd64ibl1hQYI4A" type="5004"/>
+          <children xmi:type="notation:Node" xmi:id="_6k-mIK2eEd64ibl1hQYI4A" type="7003">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_6k-mIa2eEd64ibl1hQYI4A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_6k-mIq2eEd64ibl1hQYI4A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6k9YAa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="10"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6k9YAq2eEd64ibl1hQYI4A" x="155" y="242" width="93"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6k_NMK2eEd64ibl1hQYI4A" type="3009" element="_6kuugK2eEd64ibl1hQYI4A">
+          <children xmi:type="notation:Node" xmi:id="_6k_0QK2eEd64ibl1hQYI4A" type="5004"/>
+          <children xmi:type="notation:Node" xmi:id="_6lAbUK2eEd64ibl1hQYI4A" type="7003">
+            <children xmi:type="notation:Node" xmi:id="_6lDeoK2eEd64ibl1hQYI4A" type="3010" element="_6kxKwK2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_6lDeoa2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_6lEFsK2eEd64ibl1hQYI4A" type="3010" element="_6kyY4K2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_6lEFsa2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_6lEswK2eEd64ibl1hQYI4A" type="3010" element="_6ky_8K2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_6lEswa2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_6lFT0K2eEd64ibl1hQYI4A" type="3010" element="_6kznAK2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_6lFT0a2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_6lGh8K2eEd64ibl1hQYI4A" type="3010" element="_6k0OEK2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_6lGh8a2eEd64ibl1hQYI4A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_6lHwEK2eEd64ibl1hQYI4A" type="3010" element="_6k01IK2eEd64ibl1hQYI4A">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_6lHwEa2eEd64ibl1hQYI4A"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_6lAbUa2eEd64ibl1hQYI4A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_6lAbUq2eEd64ibl1hQYI4A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6k_NMa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="10"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6k_NMq2eEd64ibl1hQYI4A" x="98" y="60"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6lBCYK2eEd64ibl1hQYI4A" type="3009" element="_6kvVkK2eEd64ibl1hQYI4A">
+          <children xmi:type="notation:Node" xmi:id="_6lBpcK2eEd64ibl1hQYI4A" type="5004"/>
+          <children xmi:type="notation:Node" xmi:id="_6lCQgK2eEd64ibl1hQYI4A" type="7003">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_6lCQga2eEd64ibl1hQYI4A"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_6lCQgq2eEd64ibl1hQYI4A"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6lBCYa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="10"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6lBCYq2eEd64ibl1hQYI4A" x="7" y="242" width="121" height="47"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_6k8J4K2eEd64ibl1hQYI4A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_6k8J4a2eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_6k4fga2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="10" bold="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6k4fgq2eEd64ibl1hQYI4A" x="32" y="32" width="269"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_7DNaQK2eEd64ibl1hQYI4A" type="2003" element="_7CwuUK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="_7DOBUK2eEd64ibl1hQYI4A" type="5007"/>
+      <children xmi:type="notation:Node" xmi:id="_7DOoYK2eEd64ibl1hQYI4A" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_7DOoYa2eEd64ibl1hQYI4A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_7DOoYq2eEd64ibl1hQYI4A"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_7DNaQa2eEd64ibl1hQYI4A" fontName="Sans" fontHeight="8"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7DNaQq2eEd64ibl1hQYI4A" x="420" y="136" width="117" height="53"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_6kpO8K2eEd64ibl1hQYI4A"/>
+    <edges xmi:type="notation:Edge" xmi:id="__YXWMOQQEd6kW7cM_Lo75g" type="4001" element="__XnvUOQQEd6kW7cM_Lo75g" source="_6k9YAK2eEd64ibl1hQYI4A" target="_6k_NMK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="__YXWNOQQEd6kW7cM_Lo75g" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__YXWNeQQEd6kW7cM_Lo75g" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="__YXWMeQQEd6kW7cM_Lo75g" routing="Rectilinear" jumpLinkStatus="Above"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="__YXWMuQQEd6kW7cM_Lo75g" fontHeight="8"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__YXWM-QQEd6kW7cM_Lo75g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="__YXWNuQQEd6kW7cM_Lo75g" type="4001" element="__XnvU-QQEd6kW7cM_Lo75g" source="_6lBCYK2eEd64ibl1hQYI4A" target="_6k_NMK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="__YXWOuQQEd6kW7cM_Lo75g" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__YXWO-QQEd6kW7cM_Lo75g" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="__YXWN-QQEd6kW7cM_Lo75g" routing="Rectilinear" jumpLinkStatus="Above"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="__YXWOOQQEd6kW7cM_Lo75g" fontHeight="8"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__YXWOeQQEd6kW7cM_Lo75g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="__YXWPOQQEd6kW7cM_Lo75g" type="4001" element="__XxgUOQQEd6kW7cM_Lo75g" source="_6k_NMK2eEd64ibl1hQYI4A" target="_7DNaQK2eEd64ibl1hQYI4A">
+      <children xmi:type="notation:Node" xmi:id="__YhHMOQQEd6kW7cM_Lo75g" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__YhHMeQQEd6kW7cM_Lo75g" x="21" y="12"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="__YXWPeQQEd6kW7cM_Lo75g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="__YXWPuQQEd6kW7cM_Lo75g" fontHeight="8"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__YXWP-QQEd6kW7cM_Lo75g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

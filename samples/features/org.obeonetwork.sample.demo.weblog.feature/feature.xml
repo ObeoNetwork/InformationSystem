@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.obeonetwork.sample.demo.weblog.feature"
+      label="Obeo Demonstration JEE Weblog"
+      version="2.1.0.qualifier"
+      provider-name="0beo.fr">
+
+   <description url="http://www.obeo.fr">
+      Obeo Demonstration JEE.
+   </description>
+
+   <copyright url="http://www.obeo.fr/legal.php">
+      Copyright © 2007 Obeo
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.obeonetwork.dsl.feature.cinematic" version="2.0.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.entity" version="2.0.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.environment" version="2.0.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.soa" version="2.0.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.obeonetwork.sample.demo.weblog.plugin"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

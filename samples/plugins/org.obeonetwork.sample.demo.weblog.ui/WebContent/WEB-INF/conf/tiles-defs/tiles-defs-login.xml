@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<!-- tiles definition for flow login -->
+<tiles-definitions>
+
+	<definition name=".view.Login" extends="layout">
+	    <put name="title" 		value="Login to your account"/>
+	    <put name="flow"  	value="login"/>
+	    <put name="pageName"  	value="Login"/>
+	    <put name="body" 		value="/jsp/login/Login.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/LoginSidebar.jsp"/>
+	</definition>  
+
+</tiles-definitions>

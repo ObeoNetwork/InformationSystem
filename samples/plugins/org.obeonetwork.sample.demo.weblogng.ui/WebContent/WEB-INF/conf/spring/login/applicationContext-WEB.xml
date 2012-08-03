@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- C O M M U N I C A T I O N -->
+	<bean name="/login/login" class="org.obeonetwork.sample.ui.users.actions.LoginAction">
+		<property name="userService" ref="userService" />
+		<!-- Start of user code for properties definition of Login action-->
+		 
+		<!-- End of user code for properties definition of Login action -->
+	</bean>
+
+</beans>

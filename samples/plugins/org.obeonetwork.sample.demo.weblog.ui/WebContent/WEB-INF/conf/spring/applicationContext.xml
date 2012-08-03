@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- Start of user code for start of document -->
+	
+	<import resource="classpath:/conf/spring/orm/applicationContext.xml"/>
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="org.h2.Driver"/>
+    	<property name="url" value="jdbc:h2:mem:hibernate;DB_CLOSE_DELAY=-1;TRACE_LEVEL_SYSTEM_OUT=2"/>	    
+  	</bean>
+	
+	<!-- End of user code for start of document -->
+	<import resource="/login/applicationContext-WEB.xml"/>
+	<import resource="/editAccount/applicationContext-WEB.xml"/>
+	<import resource="/createAccount/applicationContext-WEB.xml"/>
+	<import resource="/viewLogs/applicationContext-WEB.xml"/>
+	<import resource="/createLog/applicationContext-WEB.xml"/>
+	<!-- Start of user code for end of document -->
+	
+	<!-- End of user code for end of document -->
+</beans>

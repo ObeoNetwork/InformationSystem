@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- C O M M U N I C A T I O N -->
+	<bean name="/createlog/createlog" class="org.obeonetwork.sample.ui.main.actions.CreateLogAction">
+		<!-- Start of user code for properties definition of CreateLog action-->
+		 <property name="blogEntryDao" ref="BlogEntryDAO"/>
+		<!-- End of user code for properties definition of CreateLog action -->
+	</bean>
+
+</beans>

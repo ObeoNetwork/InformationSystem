@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.obeonetwork.dsl.soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmlns:org.obeonetwork.dsl.soa="http://www.obeonetwork.org/dsl/soa/2.0.0" xmi:id="_yK2GkBU8Ed6MJuZ1DgufpA" name="system">
+  <ownedComponents xmi:id="_yK2toBU8Ed6MJuZ1DgufpA" name="WebLog">
+    <ownedServices xmi:id="_eJGBQK3TEd6Kx9pIZD-OsA" kind="required" name="Search"/>
+    <ownedServices xmi:id="_ehHfsK3TEd6Kx9pIZD-OsA" kind="required" name="User"/>
+    <ownedServices xmi:id="_iTC5MK3TEd6Kx9pIZD-OsA" kind="required" name="Grant"/>
+    <ownedServices xmi:id="_yK2toRU8Ed6MJuZ1DgufpA" name="WebLog">
+      <ownedInterface xmi:id="_yK2tohU8Ed6MJuZ1DgufpA" name="WebLog">
+        <ownedOperations xmi:id="_yK2toxU8Ed6MJuZ1DgufpA" name="getAllBlogEntries">
+          <output xmi:id="_yK2tpBU8Ed6MJuZ1DgufpA" name="blogEntries" upper="-1" isOrdered="false">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_yK2tpRU8Ed6MJuZ1DgufpA" name="addBlogEntry">
+          <input xmi:id="_yK3UsBU8Ed6MJuZ1DgufpA" name="blogEntry">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_Wgpe4DCwEd64fuUy_TXXjg" name="removeBlogEntry">
+          <input xmi:id="_ahT38DCwEd64fuUy_TXXjg" name="blogEntry">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_yfV9oC2rEd6XeveztOovgw" name="addComment">
+          <input xmi:id="_9RokQD7-Ed6HZLj_MvKS6w" name="comment">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+          </input>
+          <input xmi:id="_BmDm0D7_Ed6HZLj_MvKS6w" name="blogEntry">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_ZO8G8ESBEd6O0fKvT_2CKw" name="getBlogEntry">
+          <input xmi:id="_bKU1kESBEd6O0fKvT_2CKw" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_dTJjQESBEd6O0fKvT_2CKw" name="blogEntry">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          </output>
+        </ownedOperations>
+      </ownedInterface>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+    </ownedServices>
+    <ownedServices xmi:id="_M7nD8DP1Ed6eVuTmNdt04g" name="Manage">
+      <ownedInterface xmi:id="_UwtX8DP1Ed6eVuTmNdt04g" name="Manage">
+        <ownedOperations xmi:id="_YkvDMDP1Ed6eVuTmNdt04g" name="deleteComment">
+          <input xmi:id="_fAUmkDP1Ed6eVuTmNdt04g" name="comment">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_cF75EDP1Ed6eVuTmNdt04g" name="deleteUser">
+          <input xmi:id="_f95pIDP1Ed6eVuTmNdt04g" name="user">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_w077MDAlEd6O96u4zmprBw" name="updateComment">
+          <input xmi:id="_1Y7q0DAlEd6O96u4zmprBw" name="comment">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_ZlBEQDCvEd64fuUy_TXXjg" name="deleteCategory">
+          <input xmi:id="_cH6e0DCvEd64fuUy_TXXjg" name="category">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_B-8nUTCuEd64fuUy_TXXjg" name="removeCategory">
+          <input xmi:id="_bVCF0DCuEd64fuUy_TXXjg" name="category">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+          </input>
+          <input xmi:id="_noeX8DCvEd64fuUy_TXXjg" name="blogEntry">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_bhKbkDAlEd6O96u4zmprBw" name="updateCategory">
+          <input xmi:id="_cszIQDAlEd6O96u4zmprBw" name="category">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_i67NgC2rEd6XeveztOovgw" name="addCategory">
+          <input xmi:id="_LkgxoDAlEd6O96u4zmprBw" name="category">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+          </input>
+          <input xmi:id="_kZy1cDCvEd64fuUy_TXXjg" name="blogEntry">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_gmS4cC2rEd6XeveztOovgw" name="createCategory">
+          <input xmi:id="_JUmkgDAlEd6O96u4zmprBw" name="category">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_4FgLEDCvEd64fuUy_TXXjg" name="deleteTag">
+          <input xmi:id="_5HDHoDCvEd64fuUy_TXXjg" name="tag">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_PmHyMDCvEd64fuUy_TXXjg" name="removeTag">
+          <input xmi:id="_0bleEDCvEd64fuUy_TXXjg" name="tag">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+          </input>
+          <input xmi:id="_1S6usDCvEd64fuUy_TXXjg" name="blogEntry">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_XSteIDAlEd6O96u4zmprBw" name="updateTag">
+          <input xmi:id="_Yg6WoDAlEd6O96u4zmprBw" name="tag">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_sAS2kC2rEd6XeveztOovgw" name="addTag">
+          <input xmi:id="_NEIKQDAlEd6O96u4zmprBw" name="tag">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+          </input>
+          <input xmi:id="_wtdmgDCvEd64fuUy_TXXjg" name="blogEntry">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_pMw_AC2rEd6XeveztOovgw" name="createTag">
+          <input xmi:id="_KMvGYDAlEd6O96u4zmprBw" name="tag">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_LfaCQErLEd64vOo8u3VEUQ" name="getComment">
+          <input xmi:id="_QeGJ0ErLEd64vOo8u3VEUQ" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_SJq60ErLEd64vOo8u3VEUQ" name="comment">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_dIR9cErLEd64vOo8u3VEUQ" name="getCategory">
+          <input xmi:id="_fM4ScErLEd64vOo8u3VEUQ" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_gdSxcErLEd64vOo8u3VEUQ" name="category">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_lyy2gErLEd64vOo8u3VEUQ" name="getTag">
+          <input xmi:id="_n4xEgErLEd64vOo8u3VEUQ" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_pDd9EErLEd64vOo8u3VEUQ" name="tag">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+          </output>
+        </ownedOperations>
+      </ownedInterface>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+    </ownedServices>
+    <ownedServices xmi:id="_PV3f4DP1Ed6eVuTmNdt04g" name="Monitor">
+      <ownedInterface xmi:id="_swFiMDP1Ed6eVuTmNdt04g" name="Monitor">
+        <ownedOperations xmi:id="_vGjDQDP1Ed6eVuTmNdt04g" name="getAllUsers">
+          <output xmi:id="_4bQv4DP1Ed6eVuTmNdt04g" name="users" upper="-1">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_C6Wk8DP2Ed6eVuTmNdt04g" name="getAllTags">
+          <output xmi:id="_NlR2kDP2Ed6eVuTmNdt04g" name="tags" upper="-1">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_IyVsADP2Ed6eVuTmNdt04g" name="getAllCategories">
+          <output xmi:id="_QyINEDP2Ed6eVuTmNdt04g" name="categories" upper="-1">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_M1ffUD4xEd6-J8OyiOspNg" name="getAllComments">
+          <output xmi:id="_QUxCkD4xEd6-J8OyiOspNg" name="comments" lower="0" upper="-1">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+          </output>
+        </ownedOperations>
+      </ownedInterface>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+    </ownedServices>
+  </ownedComponents>
+  <ownedComponents xmi:id="_624Q0K3SEd6Kx9pIZD-OsA" name="SecurityManagement">
+    <ownedServices xmi:id="_yK3UsRU8Ed6MJuZ1DgufpA" name="User">
+      <ownedInterface xmi:id="_yK3UshU8Ed6MJuZ1DgufpA" name="User">
+        <ownedOperations xmi:id="_yK3UsxU8Ed6MJuZ1DgufpA" name="createUser">
+          <input xmi:id="_yK3UtBU8Ed6MJuZ1DgufpA" name="user">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_yK3UtRU8Ed6MJuZ1DgufpA" name="saveUser">
+          <input xmi:id="_yK3UthU8Ed6MJuZ1DgufpA" name="user">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_yK3UtxU8Ed6MJuZ1DgufpA" name="login">
+          <input xmi:id="_yK3UuBU8Ed6MJuZ1DgufpA" name="login">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <input xmi:id="_yK37wBU8Ed6MJuZ1DgufpA" name="password">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_yK37wRU8Ed6MJuZ1DgufpA" name="authentified">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_yK37whU8Ed6MJuZ1DgufpA" name="getUser">
+          <input xmi:id="_yK37wxU8Ed6MJuZ1DgufpA" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_yK37xBU8Ed6MJuZ1DgufpA" name="user">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_PydC4E9MEd6GCpJ8TZV-dw" name="getAdmin">
+          <input xmi:id="_Q5dHME9MEd6GCpJ8TZV-dw" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_Se7QME9MEd6GCpJ8TZV-dw" name="admin">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_-ZfMsC2xEd6XeveztOovgw"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_HNDHwE9WEd6G9-ZFcTmHjA" name="getModerator">
+          <input xmi:id="_I0dKcE9WEd6G9-ZFcTmHjA" name="id">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_NIfygE9WEd6G9-ZFcTmHjA" name="moderator">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_30ohwC_kEd6O96u4zmprBw"/>
+          </output>
+        </ownedOperations>
+      </ownedInterface>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_-ZfMsC2xEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_30ohwC_kEd6O96u4zmprBw"/>
+    </ownedServices>
+    <ownedServices xmi:id="_CtFpgC2qEd6XeveztOovgw" name="Grant">
+      <ownedInterface xmi:id="_5WG2kC2qEd6XeveztOovgw" name="Grant">
+        <ownedOperations xmi:id="_gmc1MC3GEd6XeveztOovgw" name="grantModerate">
+          <input xmi:id="_AHnF8DAkEd6O96u4zmprBw" name="user">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_p5efwC3GEd6XeveztOovgw" name="grantAdministrate">
+          <input xmi:id="_KYkYYDAkEd6O96u4zmprBw" name="user">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_82vqcExkEd6lSvvC7DKCHA" name="removeAdminRight">
+          <input xmi:id="_Gxv7AExlEd6lSvvC7DKCHA" name="admin">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_-ZfMsC2xEd6XeveztOovgw"/>
+          </input>
+        </ownedOperations>
+        <ownedOperations xmi:id="_JP_fEExlEd6lSvvC7DKCHA" name="removeModerateRight">
+          <input xmi:id="_NJ7lEExlEd6lSvvC7DKCHA" name="moderator">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_30ohwC_kEd6O96u4zmprBw"/>
+          </input>
+        </ownedOperations>
+      </ownedInterface>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqTToBUoEd6X0LjUarKUQA"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_-ZfMsC2xEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_30ohwC_kEd6O96u4zmprBw"/>
+    </ownedServices>
+  </ownedComponents>
+  <ownedComponents xmi:id="_9rEPsK3SEd6Kx9pIZD-OsA" name="SearchEngine">
+    <ownedServices xmi:id="_wnFMcDP2Ed6eVuTmNdt04g" name="Search">
+      <ownedInterface xmi:id="_CMwCoDP3Ed6eVuTmNdt04g" name="Search">
+        <ownedOperations xmi:id="_E8m7IDP3Ed6eVuTmNdt04g" name="searchBlogEntries">
+          <input xmi:id="_ut9WgDTZEd61sqhZOZT7KA" name="searchContent">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_MPddsDP3Ed6eVuTmNdt04g" name="blogEntries" upper="-1">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+          </output>
+        </ownedOperations>
+        <ownedOperations xmi:id="_H6g2sDP3Ed6eVuTmNdt04g" name="searchComments">
+          <input xmi:id="_9ZTwoDTZEd61sqhZOZT7KA" name="searchContent">
+            <type xsi:type="oenv:PrimitiveType" href="../../../plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+          </input>
+          <output xmi:id="_N9VUwDP3Ed6eVuTmNdt04g" name="comments" upper="-1">
+            <type xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+          </output>
+        </ownedOperations>
+      </ownedInterface>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_vAE6EC2uEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_jsLAEC2yEd6XeveztOovgw"/>
+      <usedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+    </ownedServices>
+  </ownedComponents>
+  <ownedWires xmi:id="_k8oKkK3TEd6Kx9pIZD-OsA" source="_iTC5MK3TEd6Kx9pIZD-OsA" dest="_CtFpgC2qEd6XeveztOovgw"/>
+  <ownedWires xmi:id="_lw4SAK3TEd6Kx9pIZD-OsA" source="_ehHfsK3TEd6Kx9pIZD-OsA" dest="_yK3UsRU8Ed6MJuZ1DgufpA"/>
+  <ownedWires xmi:id="_mRJtgK3TEd6Kx9pIZD-OsA" source="_eJGBQK3TEd6Kx9pIZD-OsA" dest="_wnFMcDP2Ed6eVuTmNdt04g"/>
+  <ownedWires xmi:id="_JoRPwBCzEd-Y75IYVT8GsQ"/>
+  <ownedWires xmi:id="_KsP1QBCzEd-Y75IYVT8GsQ"/>
+  <ownedDtoRegistry xmi:id="_yK37xRU8Ed6MJuZ1DgufpA">
+    <ownedCategories xmi:id="_yK37xhU8Ed6MJuZ1DgufpA" name="dtos">
+      <types xsi:type="oenv:PrimitiveType" xmi:id="_yK37xxU8Ed6MJuZ1DgufpA" name="Collection"/>
+      <types xsi:type="org.obeonetwork.dsl.soa:ServiceDTO" xmi:id="_LZIBga3bEd6Sa7sQxGiRQQ" name="BlogEntryDTO">
+        <associatedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_fqWW8RUoEd6X0LjUarKUQA"/>
+      </types>
+      <types xsi:type="org.obeonetwork.dsl.soa:ServiceDTO" xmi:id="_vCcLQK5HEd6w7_0WxaRaRg" name="TagDTO">
+        <associatedTypes xsi:type="oent:Entity" href="../../org.obeonetwork.sample.demo.weblogng.business/models/weblog.entity#_tqUEMC2yEd6XeveztOovgw"/>
+      </types>
+    </ownedCategories>
+  </ownedDtoRegistry>
+</org.obeonetwork.dsl.soa:System>

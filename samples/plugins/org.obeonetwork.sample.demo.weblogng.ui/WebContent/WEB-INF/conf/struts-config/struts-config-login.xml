@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ========== Form Bean Definitions ================================== -->
+    <form-beans type="org.apache.struts.action.ActionFormBean">
+		<form-bean name="LoginForm" type="org.obeonetwork.sample.ui.users.forms.LoginForm" />
+	</form-beans>
+
+	<!-- ========== Action Mapping Definitions =============================== -->
+    <action-mappings >
+		<action	path="/login/login" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="LoginForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.Login">
+			<forward name="self" path=".view.Login" />
+			<forward name="errors" path="/pages/errors/errors?event=init" /> 
+			<forward name="viewLogs" path="/pages/viewlogs/viewlogs?event=init" /> 
+			<forward name="createAccount" path="/pages/createaccount/createaccount?event=init" /> 
+		</action>
+	</action-mappings>
+
+</struts-config>

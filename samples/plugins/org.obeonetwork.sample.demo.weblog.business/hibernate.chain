@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<chain:Chain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:chain="http://www.obeo.fr/acceleo/chain">
+  <repository>
+    <members documentation="R&#xe9;f&#xe9;rentiel pour l'appel de sous-cha&#xee;ne : [Ljava.lang.Object;@19988c4.">
+      <files xsi:type="chain:Model" path="/&lt;%project%>/model/business.entity"/>
+    </members>
+    <files xsi:type="chain:Model" path="/org.obeonetwork.sample.demo.weblog.business/models/weblog.entity"/>
+    <files xsi:type="chain:Log" path="/org.obeonetwork.sample.demo.weblog.business/hibernate.log.txt"/>
+  </repository>
+  <actions documentation="Clean">
+    <actions xsi:type="chain:Clear" documentation="Delete logs" log="//@repository/@files.1" resources="//@repository/@files.1"/>
+  </actions>
+  <actions documentation="Hibernate">
+    <actions xsi:type="chain:ChainCall" documentation="Hibernate generation" chainPath="/org.obeonetwork.dsl.entity.gen.java.hibernate/spring-hibernate-per_entity.chain" argumentsFiles="//@repository/@files.0">
+      <argumentsPatterns>org.obeonetwork.sample.demo.weblog.business</argumentsPatterns>
+    </actions>
+  </actions>
+</chain:Chain>

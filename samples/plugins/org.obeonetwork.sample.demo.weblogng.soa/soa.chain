@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<chain:Chain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:chain="http://www.obeo.fr/acceleo/chain">
+  <repository>
+    <files xsi:type="chain:Model" path="/org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa"/>
+  </repository>
+  <actions documentation="Spring">
+    <actions xsi:type="chain:ChainCall" documentation="Spring Service with Hibernate integration" chainPath="org.obeonetwork.dsl.soa.gen.java.spring.hibernate/springhibernate.chain" argumentsFiles="//@repository/@files.0">
+      <argumentsPatterns>org.obeonetwork.sample.demo.weblogng.soa</argumentsPatterns>
+    </actions>
+  </actions>
+</chain:Chain>

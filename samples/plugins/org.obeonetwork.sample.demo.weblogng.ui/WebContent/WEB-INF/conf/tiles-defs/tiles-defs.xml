@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+	
+<!-- Start of user code of global tiles-def -->
+
+<tiles-definitions>
+	<definition name="layout" path="/layout/layout.jsp">
+	    <put name="title"  		value=""/>
+	    <put name="scenario"  	value=""/>
+	    <put name="pageName"  	value=""/>
+	    <put name="header" 		value="/layout/header.jsp"/>
+	    <put name="body" 		value=""/>
+	    <put name="footer" 		value="/layout/footer.jsp"/>
+	</definition>
+	
+	<definition name=".view.Navigation" extends="layout">
+	    <put name="title" 		value="General Navigation"/>
+	    <put name="scenario"  	value=""/>
+	    <put name="pageName"  	value="navigation"/>
+	    <put name="body" 		value="/Navigation.jsp"/>
+	    <put name="sidebar"		value="/layout/sidebar.jsp"/>
+	</definition>
+</tiles-definitions>
+
+<!-- End of user code -->

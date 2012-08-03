@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<!-- tiles definition for flow grant -->
+<tiles-definitions>
+
+	<definition name=".view.GrantAdministrate" extends="layout">
+	    <put name="title" 		value="Give moderate rights"/>
+	    <put name="flow"  	value="grant"/>
+	    <put name="pageName"  	value="GrantAdministrate"/>
+	    <put name="body" 		value="/jsp/grant/GrantAdministrate.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/GrantAdministrateSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.GrantModerate" extends="layout">
+	    <put name="title" 		value="Give admin rights"/>
+	    <put name="flow"  	value="grant"/>
+	    <put name="pageName"  	value="GrantModerate"/>
+	    <put name="body" 		value="/jsp/grant/GrantModerate.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/GrantModerateSidebar.jsp"/>
+	</definition>  
+
+</tiles-definitions>

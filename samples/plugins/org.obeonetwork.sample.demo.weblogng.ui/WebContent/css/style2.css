@@ -1,0 +1,76 @@
+/*Start of user code for css*/
+
+/*
+-----------------------------------------------------
+Blogger Template Style
+Name:     Snapshot: Tequila
+Designer: Dave Shea
+URL:      mezzoblue.com / brightcreative.com
+Date:     27 Feb 2004
+------------------------------------------------------ */
+
+
+/* -- basic html elements -- */
+body {padding: 0; margin: 0; font: 75% Helvetica, Arial, sans-serif; color: #474B4E; background: #fff; text-align: center;}
+a {color: #93DB04; font-weight: bold; text-decoration: none;}
+a:visited {color: #839D07;}
+a:hover {text-decoration: underline; color: #6C65D5;}
+h1 {margin: 0; color: #7B8186; font-size: 1.5em; text-transform: lowercase;}
+h1 a {color: #7B8186;}
+h2, #comments h4 {font-size: 1em; margin: 2em 0 0 0; color: #7B8186; background: transparent url(../images/style2/bg_header1.gif) bottom right no-repeat; padding-bottom: 2px;}
+h3 {font-size: 1em; margin: 2em 0 0 0; background: transparent url(../images/style2/bg_header1.gif) bottom right no-repeat; padding-bottom: 2px;}
+h4, h5 {font-size: 0.9em; text-transform: lowercase; letter-spacing: 2px;}
+h5 {color: #7B8186;}
+h6 {font-size: 0.8em; text-transform: uppercase; letter-spacing: 2px;}
+p {margin: 0 0 1em 0;}
+img, form {border: 0; margin: 0;}
+
+/* -- layout -- */
+#content {width: 700px; margin: 0 auto; text-align: left; background: #fff url(../images/style2/bg_body.gif) 0 0 repeat-y;}
+#header {background: #D8DADC url(../images/style2/bg_headerdiv.gif) 0 0 repeat-y;}
+#header div {background: transparent url(../images/style2/header_02.gif) bottom left no-repeat;}
+#main {
+ line-height: 1.4;
+ float: left;
+ padding: 10px 12px;
+ border-top: solid 1px #fff;
+ width: 428px;
+ /* Tantek hack - http://www.tantek.com/CSS/Examples/boxmodelhack.html */
+ voice-family: "\"}\""; 
+ voice-family: inherit;
+ width: 404px;
+}
+/* IE5 hack */
+#main {}
+#sidebar {margin-left: 428px; border-top: solid 1px #fff; padding: 4px 0 0 7px; background: #fff url(../images/style2/bg_sidebar2.gif) 1px 0 no-repeat;}
+#footer {clear: both; background: #E9EAEB url(../images/style2/bg_footer.gif) bottom left no-repeat; border-top: solid 1px #fff;}
+
+/* -- header style -- */
+#header h1 {padding: 12px 0 92px 4px; width: 557px; line-height: 1;}
+
+/* -- content area style -- */
+h3.post-title {font-size: 1.2em; margin-bottom: 0;}
+h3.post-title a {color: #7C78B5;}
+.post {clear: both; margin-bottom: 4em;}
+.post-footer em {color: #B4BABE; font-style: normal; float: left;}
+.post-footer .comment-link {float: right;}
+#main img {border: solid 1px #E3E4E4; padding: 2px; background: #fff;}
+.deleted-comment {font-style:italic;color:gray;}
+
+/* -- sidebar style -- */
+#sidebar #description {border: solid 1px #BFFC45; padding: 10px 17px; color: #839D07; background: #CCFD6A url(../images/style2/bg_profile2.gif); font-size: 1.2em; font-weight: bold; line-height: 0.9; margin: 0 0 0 -6px;}
+#sidebar h2 {font-size: 1.3em; margin: 1.3em 0 0.5em 0;}
+#sidebar dl {margin: 0 0 10px 0;}
+#sidebar ul {list-style: none; margin: 0; padding: 0;}
+#sidebar li {padding-bottom: 5px; line-height: 0.9;}
+#profile-container {color: #7B8186;}
+#profile-container img {border: solid 1px #7C78B5; padding: 4px 4px 8px 4px; margin: 0 10px 1em 0; float: left;}
+.archive-list {margin-bottom: 2em;}
+#powered-by {margin: 10px auto 20px auto;}
+
+
+/* -- sidebar style -- */
+#footer p {margin: 0; padding: 12px 8px; font-size: 0.9em;}
+#footer hr {display: none;}
+
+/*End of user code*/

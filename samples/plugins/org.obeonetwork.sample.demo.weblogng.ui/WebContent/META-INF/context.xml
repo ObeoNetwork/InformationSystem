@@ -1,0 +1,60 @@
+<!-- Start of user code for top of file -->
+<Context
+	path="/sample"
+	docBase="sample/WebContent/"
+	debug="1"
+	reloadable="true">
+    
+   <Logger className="org.apache.catalina.logger.SystemOutLogger" verbosity="4" timestamp="true"/> 	
+<!-- End of user code for top of file -->
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-login.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-login.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-login_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-login.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-editAccount.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-editAccount.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-editAccount_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-editAccount.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-errors.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-errors.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-errors_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-errors.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-createAccount.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-createAccount.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-createAccount_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-createAccount.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-viewLogs.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-viewLogs.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-viewLogs_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-viewLogs.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-createLog.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-createLog.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-createLog_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-createLog.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-viewComments.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-viewComments.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-viewComments_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-viewComments.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-grant.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-grant.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-grant_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-grant.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-search.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-search.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-search_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-search.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-manage.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-manage.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-manage_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-manage.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config-monitoring.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-monitoring.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-monitoring_fr.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/validation/validation-monitoring.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs.xml</WatchedResource>
+    <WatchedResource>WEB-INF/conf/struts-config/struts-config.xml</WatchedResource>
+    
+    <!-- Start of user code for end of file -->
+    <!-- End of user code for end of file -->
+    
+</Context>

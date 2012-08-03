@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+    <!-- Start of user code for top part -->
+    <!--  End of user code for top part -->
+    
+    <!-- ========== Global Exceptions Definitions ================================== -->
+	<global-exceptions>
+	  <exception 
+	    key="error.database.failure"
+        path="/error.jsp"
+        scope="request"
+        type="org.obeonetwork.fwk.dao.exception.DaoException" />
+
+	</global-exceptions>
+
+	<!-- ========== Action Mapping Definitions =============================== -->
+    <action-mappings >
+		<action path="/navigation" scope="request" forward=".view.Navigation" validate="false"/>
+		<!-- Start of user code for action mappings -->
+		<!--  End of user code for action mappings -->
+	</action-mappings>
+	
+	<!-- ========== Controller Config Definitions =============================== -->
+	<!-- Start of user code for controller -->
+	<!--  End of user code for controller -->
+	
+	<!-- ========== Message Resources Definitions =========================== -->
+
+  	<message-resources parameter="org.obeonetwork.sample.ui.SampleResources" null="false"/>
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/conf/tiles-defs/tiles-defs.xml,/WEB-INF/conf/tiles-defs/tiles-defs-login.xml,/WEB-INF/conf/tiles-defs/tiles-defs-editAccount.xml,/WEB-INF/conf/tiles-defs/tiles-defs-errors.xml,/WEB-INF/conf/tiles-defs/tiles-defs-createAccount.xml,/WEB-INF/conf/tiles-defs/tiles-defs-viewLogs.xml,/WEB-INF/conf/tiles-defs/tiles-defs-createLog.xml,/WEB-INF/conf/tiles-defs/tiles-defs-viewComments.xml,/WEB-INF/conf/tiles-defs/tiles-defs-grant.xml,/WEB-INF/conf/tiles-defs/tiles-defs-search.xml,/WEB-INF/conf/tiles-defs/tiles-defs-manage.xml,/WEB-INF/conf/tiles-defs/tiles-defs-monitoring.xml"/>
+	</plug-in>
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"	value="/WEB-INF/conf/validation/validator-rules.xml,/WEB-INF/conf/validation/validation-login.xml,/WEB-INF/conf/validation/validation-editAccount.xml,/WEB-INF/conf/validation/validation-errors.xml,/WEB-INF/conf/validation/validation-createAccount.xml,/WEB-INF/conf/validation/validation-viewLogs.xml,/WEB-INF/conf/validation/validation-createLog.xml,/WEB-INF/conf/validation/validation-viewComments.xml,/WEB-INF/conf/validation/validation-grant.xml,/WEB-INF/conf/validation/validation-search.xml,/WEB-INF/conf/validation/validation-manage.xml,/WEB-INF/conf/validation/validation-monitoring.xml"/>
+		<set-property property="stopOnFirstError" value="false"/>
+	</plug-in>
+
+	<!-- Start of user code for bottom part -->
+	<!--  End of user code for bottom part -->
+
+</struts-config>

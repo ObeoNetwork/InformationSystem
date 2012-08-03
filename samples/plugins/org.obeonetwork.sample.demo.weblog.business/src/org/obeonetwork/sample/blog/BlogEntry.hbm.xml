@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.blog.BlogEntry" 
+    	table="BLOG_ENTRY"
+    	dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="title">
+            <column name="TITLE"/>
+        </property>
+        <property name="creationDate">
+            <column name="CREATION_DATE"/>
+        </property>
+        <property name="content">
+            <column name="CONTENT"/>
+        </property>
+
+
+		<!-- Associations -->
+
+		<!--  ____________             ______
+			 | BLOG_ENTRY |- * {-} 1 -| USER |
+			  ____________             ______
+		-->
+
+		<many-to-one 
+			class="org.obeonetwork.sample.blog.User"
+			column="FK_USER_AUTHOR_USER_ID"
+			name="authorUser"
+			/>
+
+
+		<!-- Inheritance -->
+
+
+
+
+    </class>
+
+</hibernate-mapping>
