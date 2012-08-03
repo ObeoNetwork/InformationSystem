@@ -27,7 +27,6 @@
 		<module>../../../models/environment/plugins/org.obeonetwork.dsl.environment.common</module>
 		
 		<module>../../../models/environment/features/org.obeonetwork.dsl.feature.environment</module>
-		<module>../../../models/environment/releng/org.obeonetwork.dsl.environment.repository</module>
 
 		<!-- models/entity/ -->
 		<module>../../../models/entity/plugins/org.obeonetwork.dsl.entity</module>
@@ -35,14 +34,12 @@
 		<module>../../../models/entity/plugins/org.obeonetwork.dsl.entity.editor</module>
 		
 		<module>../../../models/entity/features/org.obeonetwork.dsl.feature.entity</module>
-		<module>../../../models/entity/releng/org.obeonetwork.dsl.entity.repository</module>
 
 		<!-- models/database/ -->
 		<module>../../../models/database/plugins/org.obeonetwork.dsl.database</module>
 		<module>../../../models/database/plugins/org.obeonetwork.dsl.database.edit</module>
 		<module>../../../models/database/plugins/org.obeonetwork.dsl.database.editor</module>
 		<module>../../../models/database/features/org.obeonetwork.dsl.database.feature</module>
-		<module>../../../models/database/releng/org.obeonetwork.dsl.database.repository</module>
 
 		<module>../../../models/database/plugins/org.obeonetwork.dsl.entityrelation</module>
 		<module>../../../models/database/plugins/org.obeonetwork.dsl.entityrelation.edit</module>
@@ -60,7 +57,6 @@
 		<module>../../../models/soa/plugins/org.obeonetwork.dsl.soa.editor</module>
 		
 		<module>../../../models/soa/features/org.obeonetwork.dsl.feature.soa</module>
-		<module>../../../models/soa/releng/org.obeonetwork.dsl.soa.repository</module>
 
 		<!-- models/cinematic/ -->
 		<module>../../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic</module>
@@ -69,7 +65,6 @@
 		<module>../../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.doc</module>
 		
 		<module>../../../models/cinematic/features/org.obeonetwork.dsl.feature.cinematic</module>
-		<module>../../../models/cinematic/releng/org.obeonetwork.dsl.cinematic.repository</module>
 
 		<!-- models/graal/ -->
 		<module>../../../models/graal/plugins/org.obeonetwork.graal</module>
@@ -78,7 +73,6 @@
 		<module>../../../models/graal/plugins/org.obeonetwork.graal.doc</module>
 		
 		<module>../../../models/graal/features/org.obeonetwork.graal.feature</module>
-		<module>../../../models/graal/releng/org.obeonetwork.graal.repository</module>
 		
 		
 		<!-- models/requirement/ -->
@@ -88,7 +82,6 @@
 		<module>../../../models/requirement/plugins/org.obeonetwork.dsl.requirement.doc</module>
 		
 		<module>../../../models/requirement/features/org.obeonetwork.dsl.feature.requirement</module>
-		<module>../../../models/requirement/releng/org.obeonetwork.dsl.requirement.repository</module>
 		
 		<!-- models/statemachine/ -->
 		<module>../../../models/statemachine/plugins/org.obeonetwork.dsl.statemachine</module>
@@ -96,7 +89,6 @@
 		<module>../../../models/statemachine/plugins/org.obeonetwork.dsl.statemachine.editor</module>
 		
 		<module>../../../models/statemachine/features/org.obeonetwork.dsl.feature.statemachine</module>
-		<module>../../../models/statemachine/releng/org.obeonetwork.dsl.statemachine.repository</module>
 		
 		<!-- models/overview/ -->
 		<module>../../../models/overview/plugins/org.obeonetwork.dsl.overview</module>
@@ -104,7 +96,6 @@
 		<module>../../../models/overview/plugins/org.obeonetwork.dsl.overview.editor</module>
 		
 		<module>../../../models/overview/features/org.obeonetwork.dsl.feature.overview</module>
-		<module>../../../models/overview/releng/org.obeonetwork.dsl.overview.repository</module>
 		
 		<!-- models/interaction/ -->
 		<module>../../../models/interaction/plugins/org.obeonetwork.dsl.interaction</module>
@@ -112,7 +103,6 @@
 		<module>../../../models/interaction/plugins/org.obeonetwork.dsl.interaction.editor</module>
 		
 		<module>../../../models/interaction/features/org.obeonetwork.dsl.feature.interaction</module>
-		<module>../../../models/interaction/releng/org.obeonetwork.dsl.interaction.repository</module>
 		
 		<!-- 
 		*********************************************************************************************
@@ -126,7 +116,6 @@
 		<!-- commons/is/ -->
 		<module>../../../commons/is/plugins/org.obeonetwork.dsl.is</module>
 		<module>../../../commons/is/features/org.obeonetwork.dsl.feature.is</module>
-		<module>../../../commons/is/releng/org.obeonetwork.dsl.is.repository</module>
 		
 		<!-- commons/tools/ -->
 		<module>../../../commons/tools/plugins/org.obeonetwork.dsl.viewpoint.eef.adapters</module>

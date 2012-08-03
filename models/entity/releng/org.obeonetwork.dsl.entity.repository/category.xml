@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<site>
-   <feature url="features/org.obeonetwork.dsl.feature.entity_2.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.entity" version="2.3.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.models"/>
-   </feature>
-   <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
-</site>
