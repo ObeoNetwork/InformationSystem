@@ -41,10 +41,9 @@
       <propertyTabs
             contributorId="fr.obeo.dsl.viewpoint.diagram">
          <propertyTab
-               category="semantic"
+               category="semantic &amp; extension"
                id="Metadatas"
-               label="Metadatas"
-               afterTab="top">
+               label="Metadatas">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"

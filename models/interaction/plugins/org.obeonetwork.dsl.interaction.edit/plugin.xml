@@ -45,11 +45,6 @@
             contributorId="fr.obeo.dsl.viewpoint.diagram">
          <propertyTab
                category="semantic &amp; extension"
-               id="Metadatas"
-               label="Metadatas">
-         </propertyTab>
-         <propertyTab
-               category="semantic &amp; extension"
                id="Interaction"
                label="Interaction">
          </propertyTab>

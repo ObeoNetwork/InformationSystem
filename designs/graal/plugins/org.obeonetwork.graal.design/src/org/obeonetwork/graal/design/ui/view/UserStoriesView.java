@@ -151,8 +151,13 @@ public class UserStoriesView extends ViewPart {
 	}
 
 	protected void update(DAnalysis analysis, List<EObject> selectedEObjects) {
-		this.activeAnalysis = analysis;
-		viewer.setInput(selectedEObjects);
+		if (analysis != null) {
+			this.activeAnalysis = analysis;
+			viewer.setInput(selectedEObjects);
+		} else {
+			this.activeAnalysis = null;
+			viewer.setInput(null);
+		}
 	}
 	
 	/**
