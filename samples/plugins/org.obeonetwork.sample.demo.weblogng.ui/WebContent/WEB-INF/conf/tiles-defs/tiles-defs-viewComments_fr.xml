@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<!-- tiles definition for flow viewComments -->
+<tiles-definitions>
+
+	<definition name=".view.ViewComments" extends="layout">
+	    <put name="title" 		value="View comments posted about your logs"/>
+	    <put name="flow"  	value="viewComments"/>
+	    <put name="pageName"  	value="ViewComments"/>
+	    <put name="body" 		value="/jsp/viewComments/ViewComments.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/ViewCommentsSidebar.jsp"/>
+	</definition>  
+
+</tiles-definitions>

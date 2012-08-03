@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<!-- tiles definition for flow editAccount -->
+<tiles-definitions>
+
+	<definition name=".view.EditAccount" extends="layout">
+	    <put name="title" 		value="Edit your account"/>
+	    <put name="flow"  	value="editAccount"/>
+	    <put name="pageName"  	value="EditAccount"/>
+	    <put name="body" 		value="/jsp/editAccount/EditAccount.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/EditAccountSidebar.jsp"/>
+	</definition>  
+
+</tiles-definitions>

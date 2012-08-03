@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<!-- tiles definition for flow viewLogs -->
+<tiles-definitions>
+
+	<definition name=".view.ViewLogs" extends="layout">
+	    <put name="title" 		value="View your personnal logs"/>
+	    <put name="flow"  	value="viewLogs"/>
+	    <put name="pageName"  	value="ViewLogs"/>
+	    <put name="body" 		value="/jsp/viewLogs/ViewLogs.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/ViewLogsSidebar.jsp"/>
+	</definition>  
+
+</tiles-definitions>

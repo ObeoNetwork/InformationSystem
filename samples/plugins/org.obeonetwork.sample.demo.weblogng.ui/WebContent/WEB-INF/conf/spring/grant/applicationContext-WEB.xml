@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- C O M M U N I C A T I O N -->
+	<bean name="/grant/grantadministrate" class="org.obeonetwork.sample.ui.grant.actions.GrantAdministrateAction">
+		<property name="userService" ref="userService" />
+		<property name="monitorService" ref="monitorService" />
+		<property name="grantService" ref="grantService" />
+		<!-- Start of user code for properties definition of GrantAdministrate action-->
+		 
+		<!-- End of user code for properties definition of GrantAdministrate action -->
+	</bean>
+
+	<bean name="/grant/grantmoderate" class="org.obeonetwork.sample.ui.grant.actions.GrantModerateAction">
+		<property name="userService" ref="userService" />
+		<property name="monitorService" ref="monitorService" />
+		<property name="grantService" ref="grantService" />
+		<!-- Start of user code for properties definition of GrantModerate action-->
+		 
+		<!-- End of user code for properties definition of GrantModerate action -->
+	</bean>
+
+</beans>

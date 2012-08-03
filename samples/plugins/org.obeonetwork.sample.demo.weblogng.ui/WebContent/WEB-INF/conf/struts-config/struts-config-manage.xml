@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ========== Form Bean Definitions ================================== -->
+    <form-beans type="org.apache.struts.action.ActionFormBean">
+		<form-bean name="DeleteUserForm" type="org.obeonetwork.sample.ui.manage.forms.DeleteUserForm" />
+		<form-bean name="DeleteCommentForm" type="org.obeonetwork.sample.ui.manage.forms.DeleteCommentForm" />
+		<form-bean name="ManagerForm" type="org.obeonetwork.sample.ui.manage.forms.ManagerForm" />
+		<form-bean name="ManageCommentsForm" type="org.obeonetwork.sample.ui.manage.forms.ManageCommentsForm" />
+		<form-bean name="ManageCategoriesForm" type="org.obeonetwork.sample.ui.manage.forms.ManageCategoriesForm" />
+		<form-bean name="ManageTagsForm" type="org.obeonetwork.sample.ui.manage.forms.ManageTagsForm" />
+		<form-bean name="UpdateCommentForm" type="org.obeonetwork.sample.ui.manage.forms.UpdateCommentForm" />
+		<form-bean name="CreateCategoryForm" type="org.obeonetwork.sample.ui.manage.forms.CreateCategoryForm" />
+		<form-bean name="UpdateCategoryForm" type="org.obeonetwork.sample.ui.manage.forms.UpdateCategoryForm" />
+		<form-bean name="DeleteCategoryForm" type="org.obeonetwork.sample.ui.manage.forms.DeleteCategoryForm" />
+		<form-bean name="CreateTagForm" type="org.obeonetwork.sample.ui.manage.forms.CreateTagForm" />
+		<form-bean name="UpdateTagForm" type="org.obeonetwork.sample.ui.manage.forms.UpdateTagForm" />
+		<form-bean name="DeleteTagForm" type="org.obeonetwork.sample.ui.manage.forms.DeleteTagForm" />
+		<form-bean name="AddTagForm" type="org.obeonetwork.sample.ui.manage.forms.AddTagForm" />
+		<form-bean name="RemoveTagForm" type="org.obeonetwork.sample.ui.manage.forms.RemoveTagForm" />
+		<form-bean name="AddCategoryForm" type="org.obeonetwork.sample.ui.manage.forms.AddCategoryForm" />
+		<form-bean name="RemoveCategoryForm" type="org.obeonetwork.sample.ui.manage.forms.RemoveCategoryForm" />
+	</form-beans>
+
+	<!-- ========== Action Mapping Definitions =============================== -->
+    <action-mappings >
+		<action	path="/manage/deleteuser" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="DeleteUserForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.DeleteUser">
+			<forward name="self" path=".view.DeleteUser" />
+		</action>
+		<action	path="/manage/deletecomment" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="DeleteCommentForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.DeleteComment">
+			<forward name="self" path=".view.DeleteComment" />
+		</action>
+		<action	path="/manage/manager" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="ManagerForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.Manager">
+			<forward name="self" path=".view.Manager" />
+		</action>
+		<action	path="/manage/managecomments" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="ManageCommentsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.ManageComments">
+			<forward name="self" path=".view.ManageComments" />
+		</action>
+		<action	path="/manage/managecategories" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="ManageCategoriesForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.ManageCategories">
+			<forward name="self" path=".view.ManageCategories" />
+		</action>
+		<action	path="/manage/managetags" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="ManageTagsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.ManageTags">
+			<forward name="self" path=".view.ManageTags" />
+		</action>
+		<action	path="/manage/updatecomment" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="UpdateCommentForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.UpdateComment">
+			<forward name="self" path=".view.UpdateComment" />
+		</action>
+		<action	path="/manage/createcategory" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="CreateCategoryForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.CreateCategory">
+			<forward name="self" path=".view.CreateCategory" />
+		</action>
+		<action	path="/manage/updatecategory" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="UpdateCategoryForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.UpdateCategory">
+			<forward name="self" path=".view.UpdateCategory" />
+		</action>
+		<action	path="/manage/deletecategory" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="DeleteCategoryForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.DeleteCategory">
+			<forward name="self" path=".view.DeleteCategory" />
+		</action>
+		<action	path="/manage/createtag" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="CreateTagForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.CreateTag">
+			<forward name="self" path=".view.CreateTag" />
+		</action>
+		<action	path="/manage/updatetag" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="UpdateTagForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.UpdateTag">
+			<forward name="self" path=".view.UpdateTag" />
+		</action>
+		<action	path="/manage/deletetag" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="DeleteTagForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.DeleteTag">
+			<forward name="self" path=".view.DeleteTag" />
+		</action>
+		<action	path="/manage/addtag" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="AddTagForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.AddTag">
+			<forward name="self" path=".view.AddTag" />
+		</action>
+		<action	path="/manage/removetag" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="RemoveTagForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.RemoveTag">
+			<forward name="self" path=".view.RemoveTag" />
+		</action>
+		<action	path="/manage/addcategory" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="AddCategoryForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.AddCategory">
+			<forward name="self" path=".view.AddCategory" />
+		</action>
+		<action	path="/manage/removecategory" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="RemoveCategoryForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.RemoveCategory">
+			<forward name="self" path=".view.RemoveCategory" />
+		</action>
+	</action-mappings>
+
+</struts-config>

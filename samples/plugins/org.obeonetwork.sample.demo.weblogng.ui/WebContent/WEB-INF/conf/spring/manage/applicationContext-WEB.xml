@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- C O M M U N I C A T I O N -->
+	<bean name="/manage/deleteuser" class="org.obeonetwork.sample.ui.manage.actions.DeleteUserAction">
+		<!-- Start of user code for properties definition of DeleteUser action-->
+		 
+		<!-- End of user code for properties definition of DeleteUser action -->
+	</bean>
+
+	<bean name="/manage/deletecomment" class="org.obeonetwork.sample.ui.manage.actions.DeleteCommentAction">
+		<!-- Start of user code for properties definition of DeleteComment action-->
+		 
+		<!-- End of user code for properties definition of DeleteComment action -->
+	</bean>
+
+	<bean name="/manage/manager" class="org.obeonetwork.sample.ui.manage.actions.ManagerAction">
+		<!-- Start of user code for properties definition of Manager action-->
+		 
+		<!-- End of user code for properties definition of Manager action -->
+	</bean>
+
+	<bean name="/manage/managecomments" class="org.obeonetwork.sample.ui.manage.actions.ManageCommentsAction">
+		<!-- Start of user code for properties definition of ManageComments action-->
+		 
+		<!-- End of user code for properties definition of ManageComments action -->
+	</bean>
+
+	<bean name="/manage/managecategories" class="org.obeonetwork.sample.ui.manage.actions.ManageCategoriesAction">
+		<!-- Start of user code for properties definition of ManageCategories action-->
+		 
+		<!-- End of user code for properties definition of ManageCategories action -->
+	</bean>
+
+	<bean name="/manage/managetags" class="org.obeonetwork.sample.ui.manage.actions.ManageTagsAction">
+		<!-- Start of user code for properties definition of ManageTags action-->
+		 
+		<!-- End of user code for properties definition of ManageTags action -->
+	</bean>
+
+	<bean name="/manage/updatecomment" class="org.obeonetwork.sample.ui.manage.actions.UpdateCommentAction">
+		<!-- Start of user code for properties definition of UpdateComment action-->
+		 
+		<!-- End of user code for properties definition of UpdateComment action -->
+	</bean>
+
+	<bean name="/manage/createcategory" class="org.obeonetwork.sample.ui.manage.actions.CreateCategoryAction">
+		<!-- Start of user code for properties definition of CreateCategory action-->
+		 
+		<!-- End of user code for properties definition of CreateCategory action -->
+	</bean>
+
+	<bean name="/manage/updatecategory" class="org.obeonetwork.sample.ui.manage.actions.UpdateCategoryAction">
+		<!-- Start of user code for properties definition of UpdateCategory action-->
+		 
+		<!-- End of user code for properties definition of UpdateCategory action -->
+	</bean>
+
+	<bean name="/manage/deletecategory" class="org.obeonetwork.sample.ui.manage.actions.DeleteCategoryAction">
+		<!-- Start of user code for properties definition of DeleteCategory action-->
+		 
+		<!-- End of user code for properties definition of DeleteCategory action -->
+	</bean>
+
+	<bean name="/manage/createtag" class="org.obeonetwork.sample.ui.manage.actions.CreateTagAction">
+		<!-- Start of user code for properties definition of CreateTag action-->
+		 
+		<!-- End of user code for properties definition of CreateTag action -->
+	</bean>
+
+	<bean name="/manage/updatetag" class="org.obeonetwork.sample.ui.manage.actions.UpdateTagAction">
+		<!-- Start of user code for properties definition of UpdateTag action-->
+		 
+		<!-- End of user code for properties definition of UpdateTag action -->
+	</bean>
+
+	<bean name="/manage/deletetag" class="org.obeonetwork.sample.ui.manage.actions.DeleteTagAction">
+		<!-- Start of user code for properties definition of DeleteTag action-->
+		 
+		<!-- End of user code for properties definition of DeleteTag action -->
+	</bean>
+
+	<bean name="/manage/addtag" class="org.obeonetwork.sample.ui.manage.actions.AddTagAction">
+		<!-- Start of user code for properties definition of AddTag action-->
+		 
+		<!-- End of user code for properties definition of AddTag action -->
+	</bean>
+
+	<bean name="/manage/removetag" class="org.obeonetwork.sample.ui.manage.actions.RemoveTagAction">
+		<!-- Start of user code for properties definition of RemoveTag action-->
+		 
+		<!-- End of user code for properties definition of RemoveTag action -->
+	</bean>
+
+	<bean name="/manage/addcategory" class="org.obeonetwork.sample.ui.manage.actions.AddCategoryAction">
+		<!-- Start of user code for properties definition of AddCategory action-->
+		 
+		<!-- End of user code for properties definition of AddCategory action -->
+	</bean>
+
+	<bean name="/manage/removecategory" class="org.obeonetwork.sample.ui.manage.actions.RemoveCategoryAction">
+		<!-- Start of user code for properties definition of RemoveCategory action-->
+		 
+		<!-- End of user code for properties definition of RemoveCategory action -->
+	</bean>
+
+</beans>

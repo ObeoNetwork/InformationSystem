@@ -1,0 +1,10 @@
+<!-- To add in web.xml for filtering all pages with HibernateFilter -->
+<filter>
+		<filter-name>HibernateFilter</filter-name>
+		<filter-class>org.obeonetwork.weblog.ui.HibernateFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+		<filter-name>HibernateFilter</filter-name>
+		<url-pattern>/pages/*</url-pattern>
+</filter-mapping>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ========== Form Bean Definitions ================================== -->
+    <form-beans type="org.apache.struts.action.ActionFormBean">
+		<form-bean name="MonitorForm" type="org.obeonetwork.sample.ui.monitoring.forms.MonitorForm" />
+		<form-bean name="SeeUsersForm" type="org.obeonetwork.sample.ui.monitoring.forms.SeeUsersForm" />
+		<form-bean name="SeeCategoriesForm" type="org.obeonetwork.sample.ui.monitoring.forms.SeeCategoriesForm" />
+		<form-bean name="SeeTagsForm" type="org.obeonetwork.sample.ui.monitoring.forms.SeeTagsForm" />
+		<form-bean name="SeeCommentsForm" type="org.obeonetwork.sample.ui.monitoring.forms.SeeCommentsForm" />
+	</form-beans>
+
+	<!-- ========== Action Mapping Definitions =============================== -->
+    <action-mappings >
+		<action	path="/monitoring/monitor" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="MonitorForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.Monitor">
+			<forward name="self" path=".view.Monitor" />
+		</action>
+		<action	path="/monitoring/seeusers" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="SeeUsersForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.SeeUsers">
+			<forward name="self" path=".view.SeeUsers" />
+		</action>
+		<action	path="/monitoring/seecategories" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="SeeCategoriesForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.SeeCategories">
+			<forward name="self" path=".view.SeeCategories" />
+		</action>
+		<action	path="/monitoring/seetags" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="SeeTagsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.SeeTags">
+			<forward name="self" path=".view.SeeTags" />
+		</action>
+		<action	path="/monitoring/seecomments" 
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				parameter="event" 
+				name="SeeCommentsForm" 
+				scope="request" 
+				validate="false" 
+				input=".view.SeeComments">
+			<forward name="self" path=".view.SeeComments" />
+		</action>
+	</action-mappings>
+
+</struts-config>
