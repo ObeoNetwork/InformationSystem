@@ -22,13 +22,6 @@
    </requires>
 
    <plugin
-         id="org.obeonetwork.is.ui.wizards"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.obeonetwork.dsl.is.design"
          download-size="0"
          install-size="0"

@@ -115,12 +115,7 @@
 		
 		<!-- commons/is/ -->
 		<module>../../../commons/is/plugins/org.obeonetwork.dsl.is</module>
-		<module>../../../commons/is/features/org.obeonetwork.dsl.feature.is</module>
-		
-		<!-- commons/tools/ -->
-		<module>../../../commons/tools/plugins/org.obeonetwork.dsl.viewpoint.eef.adapters</module>
-		<module>../../../commons/tools/features/org.obeonetwork.dsl.viewpoint.eef.support</module>
-		
+				
 		<module>../../../commons/tools/plugins/org.obeonetwork.tools.doc</module>
 		<module>../../../commons/tools/plugins/org.obeonetwork.tools.doc.doc</module>
 		<module>../../../commons/tools/features/org.obeonetwork.tools.doc.feature</module>
@@ -140,13 +135,11 @@
 		<module>../../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.dialect.ui</module>
 		
 		<module>../../../designs/environment/features/org.obeonetwork.dsl.environment.binding.dialect.feature</module>
-		<module>../../../designs/environment/releng/org.obeonetwork.dsl.environment.binding.dialect.repository</module>
 		
 		<!-- designs/cinematic/ -->
 		<module>../../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design</module>
 		
 		<module>../../../designs/cinematic/features/org.obeonetwork.dsl.cinematic.design.feature</module>
-		<module>../../../designs/cinematic/releng/org.obeonetwork.dsl.cinematic.design.repository</module>
 		
 		<!-- designs/database/ -->
 		<module>../../../designs/database/plugins/org.obeonetwork.dsl.entityrelation.design</module>
@@ -154,38 +147,31 @@
 		
 		<module>../../../designs/database/features/org.obeonetwork.dsl.entityrelation.design.feature</module>
 		<module>../../../designs/database/features/org.obeonetwork.dsl.database.design.feature</module>
-		<module>../../../designs/database/releng/org.obeonetwork.dsl.database.design.repository</module>
 
 		<!-- designs/graal/ -->
 		<module>../../../designs/graal/plugins/org.obeonetwork.graal.design</module>
 		
 		<module>../../../designs/graal/features/org.obeonetwork.graal.design.feature</module>
-		<module>../../../designs/graal/releng/org.obeonetwork.graal.design.repository</module>
 		
 		<!-- designs/interaction/ -->
 		<module>../../../designs/interaction/plugins/org.obeonetwork.dsl.interaction.design</module>
 		
 		<module>../../../designs/interaction/features/org.obeonetwork.dsl.interaction.design.feature</module>
-		<module>../../../designs/interaction/releng/org.obeonetwork.dsl.interaction.design.repository</module>
 		
 		<!-- designs/requirement/ -->
 		<module>../../../designs/requirement/plugins/org.obeonetwork.dsl.requirement.validation</module>
 		<module>../../../designs/requirement/plugins/org.obeonetwork.dsl.requirement.design</module>
 		
 		<module>../../../designs/requirement/features/org.obeonetwork.dsl.requirement.design.feature</module>
-		<module>../../../designs/requirement/releng/org.obeonetwork.dsl.requirement.design.repository</module>
 		
 		<!-- designs/statemachine/ -->
 		<module>../../../designs/statemachine/plugins/org.obeonetwork.dsl.statemachine.design</module>
 		
 		<module>../../../designs/statemachine/features/org.obeonetwork.dsl.statemachine.design.feature</module>
-		<module>../../../designs/statemachine/releng/org.obeonetwork.dsl.statemachine.design.repository</module>
 		
 		<!-- designs/is/ -->
 		<module>../../../designs/is/plugins/org.obeonetwork.dsl.is.design</module>
-		<module>../../../designs/is/plugins/org.obeonetwork.is.ui.wizards</module>
 		<module>../../../designs/is/features/org.obeonetwork.dsl.feature.is.design</module>
-		<module>../../../designs/is/releng/org.obeonetwork.dsl.is.design.repository</module>
 				
 		<!-- 
 		*********************************************************************************************
