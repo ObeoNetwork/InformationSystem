@@ -67,7 +67,6 @@
 		-->
 		<module>../../../generators/java/plugins/org.obeonetwork.dsl.environment.gen.java.common</module>		
 		<module>../../../generators/java/features/org.obeonetwork.dsl.environment.gen.java.feature</module>
-		<module>../../../generators/java/releng/org.obeonetwork.dsl.environment.gen.java.repository</module>
 		
 		<!-- 
 		*********************************************************************************************
@@ -79,7 +78,6 @@
 		<module>../../../generators/hibernate/plugins/org.obeonetwork.dsl.entity.gen.java.hibernate</module>
 		<module>../../../generators/hibernate/plugins/org.obeonetwork.dsl.entity.ui</module>		
 		<module>../../../generators/hibernate/features/org.obeonetwork.dsl.entity.gen.java.hibernate.feature</module>
-		<module>../../../generators/hibernate/releng/org.obeonetwork.dsl.entity.gen.java.hibernate.repository</module>
 		
 		<!-- 
 		*********************************************************************************************
@@ -88,7 +86,6 @@
 		-->
 		<module>../../../generators/spring/plugins/org.obeonetwork.dsl.soa.gen.java.spring</module>		
 		<module>../../../generators/spring/features/org.obeonetwork.dsl.soa.gen.java.spring.feature</module>
-		<module>../../../generators/spring/releng/org.obeonetwork.dsl.soa.gen.java.spring.repository</module>
 		
 		<!-- 
 		*********************************************************************************************
@@ -99,7 +96,6 @@
 		<module>../../../generators/struts/plugins/org.obeonetwork.dsl.cinematic.gen.java.struts.presentation</module>		
 		<module>../../../generators/struts/plugins/org.obeonetwork.dsl.cinematic.gen.java.struts.ui</module>		
 		<module>../../../generators/struts/features/org.obeonetwork.dsl.cinematic.gen.java.struts.feature</module>
-		<module>../../../generators/struts/releng/org.obeonetwork.dsl.cinematic.gen.java.struts.repository</module>
 		
 		<!-- 
 		*********************************************************************************************
@@ -108,7 +104,6 @@
 		-->
 		<module>../../../generators/struts-spring/plugins/org.obeonetwork.dsl.cinematic.gen.java.struts.spring</module>		
 		<module>../../../generators/struts-spring/features/org.obeonetwork.dsl.cinematic.gen.java.struts.spring.feature</module>
-		<module>../../../generators/struts-spring/releng/org.obeonetwork.dsl.cinematic.gen.java.struts.spring.repository</module>
 
 		<!-- 
 		*********************************************************************************************
@@ -118,7 +113,6 @@
 		<module>../../../generators/spring-hibernate/plugins/org.obeonetwork.dsl.soa.gen.java.spring.hibernate</module>		
 		<module>../../../generators/spring-hibernate/plugins/org.obeonetwork.dsl.soa.ui</module>		
 		<module>../../../generators/spring-hibernate/features/org.obeonetwork.dsl.soa.gen.java.spring.hibernate.feature</module>
-		<module>../../../generators/spring-hibernate/releng/org.obeonetwork.dsl.soa.gen.java.spring.hibernate.repository</module>
 		
 		<!-- 
 		*********************************************************************************************
