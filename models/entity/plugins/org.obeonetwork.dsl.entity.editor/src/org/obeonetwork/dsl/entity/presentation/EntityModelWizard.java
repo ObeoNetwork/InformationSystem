@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,6 +68,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 import org.obeonetwork.dsl.entity.EntityFactory;
 import org.obeonetwork.dsl.entity.EntityPackage;
+import org.obeonetwork.dsl.entity.Root;
 import org.obeonetwork.dsl.entity.provider.EntityEditPlugin;
 
 
@@ -200,7 +202,8 @@ public class EntityModelWizard extends Wizard implements INewWizard {
 	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
-		EObject rootObject = entityFactory.createRoot();
+		Root rootObject = entityFactory.createRoot();
+		rootObject.setCreatedOn(new Date());
 		return rootObject;
 	}
 

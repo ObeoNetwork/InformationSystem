@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,6 +78,7 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.interaction.InteractionFactory;
 import org.obeonetwork.dsl.interaction.InteractionPackage;
 import org.obeonetwork.dsl.interaction.provider.InteractionEditPlugin;
@@ -213,11 +215,14 @@ public class InteractionModelWizard extends Wizard implements INewWizard {
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
 		EClass eClass = (EClass)interactionPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = interactionFactory.create(eClass);
+		if (rootObject instanceof ObeoDSMObject) {
+			((ObeoDSMObject) rootObject).setCreatedOn(new Date());
+		}
 		return rootObject;
 	}
 

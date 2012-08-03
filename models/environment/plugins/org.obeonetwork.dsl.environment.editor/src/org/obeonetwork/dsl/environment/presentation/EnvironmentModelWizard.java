@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -68,6 +69,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
 
 /**
@@ -205,13 +207,16 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
 		EClass eClass = (EClass) environmentPackage
 				.getEClassifier(initialObjectCreationPage
 						.getInitialObjectName());
 		EObject rootObject = environmentFactory.create(eClass);
+		if (rootObject instanceof ObeoDSMObject) {
+			((ObeoDSMObject) rootObject).setCreatedOn(new Date());
+		}
 		return rootObject;
 	}
 

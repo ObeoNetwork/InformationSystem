@@ -200,13 +200,40 @@ public interface EnvironmentPackage extends EPackage {
 	int OBEO_DSM_OBJECT__BINDING_REGISTRIES = 4;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBEO_DSM_OBJECT__VERSION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBEO_DSM_OBJECT__CREATED_ON = 6;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBEO_DSM_OBJECT__MODIFIED_ON = 7;
+
+	/**
 	 * The number of structural features of the '<em>Obeo DSM Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBEO_DSM_OBJECT_FEATURE_COUNT = 5;
+	int OBEO_DSM_OBJECT_FEATURE_COUNT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -252,6 +279,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENVIRONMENT__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -353,6 +407,33 @@ public interface EnvironmentPackage extends EPackage {
 	int TYPE__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -425,6 +506,33 @@ public interface EnvironmentPackage extends EPackage {
 	int PRIMITIVE_TYPE__BINDING_REGISTRIES = TYPE__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_TYPE__VERSION = TYPE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_TYPE__CREATED_ON = TYPE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_TYPE__MODIFIED_ON = TYPE__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -495,6 +603,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUMERATION__BINDING_REGISTRIES = TYPE__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION__VERSION = TYPE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION__CREATED_ON = TYPE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION__MODIFIED_ON = TYPE__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -578,6 +713,33 @@ public interface EnvironmentPackage extends EPackage {
 	int FIELD__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -641,6 +803,33 @@ public interface EnvironmentPackage extends EPackage {
 	int ACTION__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -702,6 +891,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTER_DSM_LINK__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTER_DSM_LINK__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTER_DSM_LINK__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTER_DSM_LINK__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -870,6 +1086,33 @@ public interface EnvironmentPackage extends EPackage {
 	int PRIORITY_DEFINITION__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIORITY_DEFINITION__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIORITY_DEFINITION__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIORITY_DEFINITION__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Priorities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -941,6 +1184,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIORITY__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIORITY__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIORITY__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIORITY__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1016,6 +1286,33 @@ public interface EnvironmentPackage extends EPackage {
 	int TYPES_DEFINITION__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPES_DEFINITION__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPES_DEFINITION__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPES_DEFINITION__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1089,6 +1386,33 @@ public interface EnvironmentPackage extends EPackage {
 	int BEHAVIOUR__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOUR__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOUR__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOUR__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The number of structural features of the '<em>Behaviour</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1151,6 +1475,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCTURED_TYPE__BINDING_REGISTRIES = TYPE__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__VERSION = TYPE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__CREATED_ON = TYPE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__MODIFIED_ON = TYPE__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1233,6 +1584,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int DTO__BINDING_REGISTRIES = STRUCTURED_TYPE__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__VERSION = STRUCTURED_TYPE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__CREATED_ON = STRUCTURED_TYPE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__MODIFIED_ON = STRUCTURED_TYPE__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1389,6 +1767,33 @@ public interface EnvironmentPackage extends EPackage {
 	int FILTER_CONTAINER__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_CONTAINER__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_CONTAINER__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_CONTAINER__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Owned Filters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1462,6 +1867,33 @@ public interface EnvironmentPackage extends EPackage {
 	int FILTER__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The number of structural features of the '<em>Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1524,6 +1956,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMESPACE__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
@@ -1617,6 +2076,33 @@ public interface EnvironmentPackage extends EPackage {
 	int PROPERTY__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1697,6 +2183,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int ATTRIBUTE__BINDING_REGISTRIES = PROPERTY__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__VERSION = PROPERTY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__CREATED_ON = PROPERTY__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__MODIFIED_ON = PROPERTY__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1797,6 +2310,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE__BINDING_REGISTRIES = PROPERTY__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__VERSION = PROPERTY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__CREATED_ON = PROPERTY__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__MODIFIED_ON = PROPERTY__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1926,6 +2466,33 @@ public interface EnvironmentPackage extends EPackage {
 	int BINDING_INFO__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_INFO__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_INFO__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_INFO__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>References</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2044,6 +2611,33 @@ public interface EnvironmentPackage extends EPackage {
 	int BINDING_REFERENCE__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_REFERENCE__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_REFERENCE__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_REFERENCE__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Left</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2124,6 +2718,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINDING_ELEMENT__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_ELEMENT__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_ELEMENT__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_ELEMENT__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Bound Element</b></em>' reference.
@@ -2242,6 +2863,33 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINDING_REGISTRY__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_REGISTRY__VERSION = OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_REGISTRY__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_REGISTRY__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Binding Infos</b></em>' containment reference list.
@@ -2556,6 +3204,39 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getObeoDSMObject_BindingRegistries();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see org.obeonetwork.dsl.environment.ObeoDSMObject#getVersion()
+	 * @see #getObeoDSMObject()
+	 * @generated
+	 */
+	EAttribute getObeoDSMObject_Version();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getCreatedOn <em>Created On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created On</em>'.
+	 * @see org.obeonetwork.dsl.environment.ObeoDSMObject#getCreatedOn()
+	 * @see #getObeoDSMObject()
+	 * @generated
+	 */
+	EAttribute getObeoDSMObject_CreatedOn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getModifiedOn <em>Modified On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Modified On</em>'.
+	 * @see org.obeonetwork.dsl.environment.ObeoDSMObject#getModifiedOn()
+	 * @see #getObeoDSMObject()
+	 * @generated
+	 */
+	EAttribute getObeoDSMObject_ModifiedOn();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.MetaDataContainer <em>Meta Data Container</em>}'.
@@ -3473,6 +4154,33 @@ public interface EnvironmentPackage extends EPackage {
 		 */
 		EReference OBEO_DSM_OBJECT__BINDING_REGISTRIES = eINSTANCE
 				.getObeoDSMObject_BindingRegistries();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OBEO_DSM_OBJECT__VERSION = eINSTANCE
+				.getObeoDSMObject_Version();
+
+		/**
+		 * The meta object literal for the '<em><b>Created On</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OBEO_DSM_OBJECT__CREATED_ON = eINSTANCE
+				.getObeoDSMObject_CreatedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Modified On</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OBEO_DSM_OBJECT__MODIFIED_ON = eINSTANCE
+				.getObeoDSMObject_ModifiedOn();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.MetaDataContainerImpl <em>Meta Data Container</em>}' class.

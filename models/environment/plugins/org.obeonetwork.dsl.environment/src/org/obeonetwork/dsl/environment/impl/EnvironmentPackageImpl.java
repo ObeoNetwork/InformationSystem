@@ -564,6 +564,33 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getObeoDSMObject_Version() {
+		return (EAttribute) obeoDSMObjectEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getObeoDSMObject_CreatedOn() {
+		return (EAttribute) obeoDSMObjectEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getObeoDSMObject_ModifiedOn() {
+		return (EAttribute) obeoDSMObjectEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMetaDataContainer() {
 		return metaDataContainerEClass;
 	}
@@ -1201,6 +1228,9 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		createEReference(obeoDSMObjectEClass, OBEO_DSM_OBJECT__BEHAVIOURS);
 		createEReference(obeoDSMObjectEClass,
 				OBEO_DSM_OBJECT__BINDING_REGISTRIES);
+		createEAttribute(obeoDSMObjectEClass, OBEO_DSM_OBJECT__VERSION);
+		createEAttribute(obeoDSMObjectEClass, OBEO_DSM_OBJECT__CREATED_ON);
+		createEAttribute(obeoDSMObjectEClass, OBEO_DSM_OBJECT__MODIFIED_ON);
 
 		metaDataContainerEClass = createEClass(META_DATA_CONTAINER);
 		createEReference(metaDataContainerEClass,
@@ -1447,6 +1477,18 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				-1, ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObeoDSMObject_Version(), ecorePackage.getEInt(),
+				"version", "1", 0, 1, ObeoDSMObject.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObeoDSMObject_CreatedOn(), ecorePackage.getEDate(),
+				"createdOn", null, 0, 1, ObeoDSMObject.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObeoDSMObject_ModifiedOn(), ecorePackage.getEDate(),
+				"modifiedOn", null, 0, 1, ObeoDSMObject.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(metaDataContainerEClass, MetaDataContainer.class,
 				"MetaDataContainer", !IS_ABSTRACT, !IS_INTERFACE,

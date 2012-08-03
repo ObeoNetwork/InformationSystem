@@ -38,8 +38,8 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
-            contributorId="org.obeonetwork.dsl.requirement.properties"
-            labelProvider="org.eclipse.emf.eef.runtime.ui.utils.EEFLabelProvider">
+            contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID"
+            labelProvider="org.obeonetwork.dsl.requirement.parts.forms.CustomEEFLabelProvider">
          <propertyCategory
                category="default">
          </propertyCategory>
