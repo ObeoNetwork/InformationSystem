@@ -55,7 +55,8 @@
              <packageToRegister>org.obeonetwork.dsl.environment.EnvironmentPackage</packageToRegister>
              <packageToRegister>org.obeonetwork.dsl.cinematic.CinematicPackage</packageToRegister>
            </packagesToRegister>
-         </configuration>
+          <uriHandler>org.eclipse.acceleo.maven.AcceleoURIHandler</uriHandler>
+          </configuration>
        </plugin>
      </plugins>
    </build>

@@ -69,6 +69,7 @@
              <packageToRegister>org.obeonetwork.dsl.cinematic.CinematicPackage</packageToRegister>
              <packageToRegister>org.obeonetwork.dsl.soa.SoaPackage</packageToRegister>
            </packagesToRegister>
+           <uriHandler>org.eclipse.acceleo.maven.AcceleoURIHandler</uriHandler>
          </configuration>
        </plugin>
      </plugins>
