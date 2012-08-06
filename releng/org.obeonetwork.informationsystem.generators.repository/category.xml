@@ -21,5 +21,8 @@
    <feature url="features/org.obeonetwork.acceleo.feature_2.3.0.qualifier.jar" id="org.obeonetwork.acceleo.feature" version="2.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.generators"/>
    </feature>
+   <feature url="features/org.obeonetwork.sample.demo.weblog.feature_2.3.0.qualifier.jar" id="org.obeonetwork.sample.demo.weblog.feature" version="2.3.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.generators"/>
+   </feature>
    <category-def name="org.obeonetwork.informationsystem.generators" label="Information System - Generators"/>
 </site>
