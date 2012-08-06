@@ -35,118 +35,108 @@
             providerClass="org.obeonetwork.graal.providers.GraalPropertiesEditionPartProvider">
       </PropertiesEditionPartProvider>
    </extension>
-    <extension
-         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
-      <propertyContributor
-            contributorId="fr.obeo.dsl.viewpoint.diagram"
-            labelProvider="org.eclipse.emf.eef.runtime.ui.utils.EEFLabelProvider">
-         <propertyCategory
-               category="graal.properties">
-         </propertyCategory>
-      </propertyContributor>
-   </extension>
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
             contributorId="fr.obeo.dsl.viewpoint.diagram">
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="Task"
                label="Task"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="System"
                label="System"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="Operator"
                label="Operator"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="Transition"
                label="Transition"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="TaskReference"
                label="TaskReference"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="UserView"
                label="UserView"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="UserAction"
                label="UserAction"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="AppliEvent"
                label="AppliEvent"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="AppliAction"
                label="AppliAction"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="InitialNode"
                label="InitialNode"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="FinalNode"
                label="FinalNode"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="AbortNode"
                label="AbortNode"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="Loop"
                label="Loop"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="Actor"
                label="Actor"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="TasksGroup"
                label="TasksGroup"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="UseCase"
                label="UseCase"
                afterTab="top">
          </propertyTab>
          <propertyTab
-               category="graal.properties"
+               category="semantic &amp; extension"
                id="UserStory"
                label="UserStory"
                afterTab="top">
