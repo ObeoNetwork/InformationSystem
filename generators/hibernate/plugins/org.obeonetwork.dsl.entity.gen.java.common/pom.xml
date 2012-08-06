@@ -56,6 +56,7 @@
              <packageToRegister>org.obeonetwork.dsl.environment.EnvironmentPackage</packageToRegister>
              <packageToRegister>org.obeonetwork.dsl.entity.EntityPackage</packageToRegister>
            </packagesToRegister>
+           <uriHandler>org.eclipse.acceleo.maven.AcceleoURIHandler</uriHandler>
          </configuration>
        </plugin>
      </plugins>
