@@ -16,8 +16,9 @@ Require-Bundle: fr.obeo.acceleo.gen,
  fr.obeo.dsl.viewpoint.diagram,
  fr.obeo.dsl.common.ui,
  org.eclipse.core.expressions,
- org.obeonetwork.graal;bundle-version="1.1.0",
- org.obeonetwork.graal.edit;bundle-version="1.1.0"
+ org.obeonetwork.graal,
+ org.obeonetwork.graal.edit,
+ fr.obeo.dsl.viewpoint.table
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: www.obeo.fr
@@ -28,4 +29,5 @@ Provide-Package: org.obeonetwork.graal.design.services.actor,
  org.obeonetwork.graal.design.services.usability,
  org.obeonetwork.graal.design.services.use,
  org.obeonetwork.graal.design.services.usecase,
- org.obeonetwork.graal.design.services.util
+ org.obeonetwork.graal.design.services.util,
+ org.obeonetwork.graal.design.ui.eef

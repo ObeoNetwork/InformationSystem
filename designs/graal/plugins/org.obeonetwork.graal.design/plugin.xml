@@ -167,5 +167,39 @@
             type="graalfeatureextensions"
             class="org.obeonetwork.graal.design.graalfeatureextensions.util.GraalfeatureextensionsResourceFactoryImpl"/>
    </extension>
-      
+
+	<extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID"
+            labelProvider="org.obeonetwork.graal.design.ui.eef.CustomEEFLabelProvider">
+         <propertyCategory
+               category="default">
+         </propertyCategory>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID">
+         <propertyTab
+               category="default"
+               id="UserStory"
+               label="UserStory"
+               afterTab="top">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID">
+         <propertySection
+               class="org.obeonetwork.graal.design.ui.eef.CustomUserStoryPropertiesEditionPartForm"
+               filter="org.obeonetwork.graal.design.ui.eef.UserStoryTabPropertiesEditionSection"
+               id="org.obeonetwork.graal.eef.section.UserStory"
+               tab="UserStory">
+         </propertySection>
+      </propertySections>
+   </extension>
 </plugin>
