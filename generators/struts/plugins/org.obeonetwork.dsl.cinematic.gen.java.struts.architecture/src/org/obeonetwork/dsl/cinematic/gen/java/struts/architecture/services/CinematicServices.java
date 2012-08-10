@@ -1,7 +1,7 @@
 package org.obeonetwork.dsl.cinematic.gen.java.struts.architecture.services;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
@@ -29,7 +29,7 @@ public class CinematicServices {
 	 * @return a collection of {@link AbstractViewElement}.
 	 */
 	public Collection<AbstractViewElement> getViewElements(ViewState viewState) {
-		Set<AbstractViewElement> elements = new HashSet<AbstractViewElement>();
+		Set<AbstractViewElement> elements = new LinkedHashSet<AbstractViewElement>();
 		for (ViewContainer container : viewState.getViewContainers()) {
 			elements.addAll(getViewElements(container));
 		}
@@ -47,7 +47,7 @@ public class CinematicServices {
 	 * @return a collection of {@link ActionState}.
 	 */
 	public Collection<ActionState> getActionStates(ViewState viewState) {
-		Set<ActionState> actionStates = new HashSet<ActionState>();
+		Set<ActionState> actionStates = new LinkedHashSet<ActionState>();
 		Flow flow = getFlow(viewState);
 		if (flow != null) {
 			for (Transition transition : flow.getTransitions()) {
@@ -73,7 +73,7 @@ public class CinematicServices {
 	 * @return a collection of {@link ViewState}.
 	 */
 	public Collection<ViewState> getNextViewStates(ViewState viewState) {
-		Set<ViewState> nexts = new HashSet<ViewState>();
+		Set<ViewState> nexts = new LinkedHashSet<ViewState>();
 		Flow flow = getFlow(viewState);
 		if (flow != null) {
 			for (Transition transition : flow.getTransitions()) {
@@ -95,7 +95,7 @@ public class CinematicServices {
 
 	
 	private Collection<ViewState> getNextViewStates(ActionState actionState) {
-		Set<ViewState> nexts = new HashSet<ViewState>();
+		Set<ViewState> nexts = new LinkedHashSet<ViewState>();
 		Flow flow = getFlow(actionState);
 		if (flow != null) {
 			for (Transition transition : flow.getTransitions()) {
@@ -114,7 +114,7 @@ public class CinematicServices {
 	}
 	
 	private Collection<ViewState> getNextViewStates(SubflowState subflow) {
-		Set<ViewState> nexts = new HashSet<ViewState>();
+		Set<ViewState> nexts = new LinkedHashSet<ViewState>();
 		Flow flow = subflow.getSubflow();
 		if (flow != null) {
 			for (Transition transition : flow.getTransitions()) {
@@ -218,7 +218,7 @@ public class CinematicServices {
 
 	private Collection<AbstractViewElement> getViewElements(
 			ViewContainer viewContainer) {
-		Set<AbstractViewElement> elements = new HashSet<AbstractViewElement>();
+		Set<AbstractViewElement> elements = new LinkedHashSet<AbstractViewElement>();
 		for (AbstractViewElement element : viewContainer.getOwnedElements()) {
 			if (element instanceof ViewContainer) {
 				elements.addAll(getViewElements((ViewContainer) element));

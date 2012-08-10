@@ -131,6 +131,13 @@ public class StrutsPresentation extends AbstractAcceleoGenerator {
                 List<String> arguments = new ArrayList<String>();
                 
                 /*
+                 * If you want to change the content of this method, do NOT forget to change the "@generated"
+                 * tag in the Javadoc of this method to "@generated NOT". Without this new tag, any compilation
+                 * of the Acceleo module with the main template that has caused the creation of this class will
+                 * revert your modifications.
+                 */
+
+                /*
                  * Add in this list all the arguments used by the starting point of the generation
                  * If your main template is called on an element of your model and a String, you can
                  * add in "arguments" this "String" attribute.
@@ -181,6 +188,11 @@ public class StrutsPresentation extends AbstractAcceleoGenerator {
          */
 
         //org.eclipse.emf.ecore.util.EcoreUtil.resolveAll(model);
+
+        /*
+         * If you want to check for potential errors in your models before the launch of the generation, you
+         * use the code below.
+         */
 
         //if (model != null && model.eResource() != null) {
         //    List<org.eclipse.emf.ecore.resource.Resource.Diagnostic> errors = model.eResource().getErrors();
@@ -314,26 +326,49 @@ public class StrutsPresentation extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
+        if (!isInWorkspace(org.obeonetwork.dsl.cinematic.CinematicPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.cinematic.CinematicPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.cinematic.CinematicPackage.eINSTANCE);
+        }
+        if (!isInWorkspace(org.obeonetwork.dsl.cinematic.view.ViewPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.cinematic.view.ViewPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.cinematic.view.ViewPackage.eINSTANCE);
+        }
+        if (!isInWorkspace(org.obeonetwork.dsl.cinematic.flow.FlowPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.cinematic.flow.FlowPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.cinematic.flow.FlowPackage.eINSTANCE);
+        }
+        if (!isInWorkspace(org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage.class)) {
+            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage.eINSTANCE);
+        }
         
         /*
-         * TODO If you need additional package registrations, you can register them here. The following line
-         * (in comment) is an example of the package registration for UML. If you want to change the content
-         * of this method, do NOT forget to change the "@generated" tag in the Javadoc of this method to
-         * "@generated NOT". Without this new tag, any compilation of the Acceleo module with the main template
-         * that has caused the creation of this class will revert your modifications. You can use the method
-         * "isInWorkspace(Class c)" to check if the package that you are about to register is in the workspace.
-         * To register a package properly, please follow the following conventions:
+         * If you want to change the content of this method, do NOT forget to change the "@generated"
+         * tag in the Javadoc of this method to "@generated NOT". Without this new tag, any compilation
+         * of the Acceleo module with the main template that has caused the creation of this class will
+         * revert your modifications.
+         */
+        
+        /*
+         * If you need additional package registrations, you can register them here. The following line
+         * (in comment) is an example of the package registration for UML.
          * 
+         * You can use the method  "isInWorkspace(Class c)" to check if the package that you are about to
+         * register is in the workspace.
+         * 
+         * To register a package properly, please follow the following conventions:
+         *
+         * If the package is located in another plug-in, already installed in Eclipse. The following content should
+         * have been generated at the beginning of this method. Do not register the package using this mechanism if
+         * the metamodel is located in the workspace.
+         *  
          * if (!isInWorkspace(UMLPackage.class)) {
          *     // The normal package registration if your metamodel is in a plugin.
          *     resourceSet.getPackageRegistry().put(UMLPackage.eNS_URI, UMLPackage.eINSTANCE);
-         * } else {
-         *     // The package registration that will be used if the metamodel is not deployed in a plugin.
-         *     // This should be used if your metamodel is in your workspace and if you are using binary resource serialization.
-         *     resourceSet.getPackageRegistry().put("/myproject/myfolder/mysubfolder/MyUMLMetamodel.ecore", UMLPackage.eINSTANCE);
          * }
          * 
-         * To learn more about Package Registration, have a look at the Acceleo Launcher documentation (Help -> Help Contents).
+         * If the package is located in another project in your workspace, the plugin containing the package has not
+         * been register by EMF and Acceleo should register it automatically. If you want to use the generator in
+         * stand alone, the regular registration (seen a couple lines before) is needed.
+         * 
+         * To learn more about Package Registration, have a look at the Acceleo documentation (Help -> Help Contents).
          */
     }
 
@@ -348,13 +383,19 @@ public class StrutsPresentation extends AbstractAcceleoGenerator {
     public void registerResourceFactories(ResourceSet resourceSet) {
         super.registerResourceFactories(resourceSet);
         /*
+         * If you want to change the content of this method, do NOT forget to change the "@generated"
+         * tag in the Javadoc of this method to "@generated NOT". Without this new tag, any compilation
+         * of the Acceleo module with the main template that has caused the creation of this class will
+         * revert your modifications.
+         */
+        
+        /*
          * TODO If you need additional resource factories registrations, you can register them here. the following line
-         * (in comment) is an example of the resource factory registration for UML. If you want to change the content
-         * of this method, do NOT forget to change the "@generated" tag in the Javadoc of this method to "@generated NOT".
-         * Without this new tag, any compilation of the Acceleo module with the main template that has caused the creation
-         * of this class will revert your modifications.
-         * 
-         * To learn more about the registration of Resource Factories, have a look at the Acceleo Launcher documentation (Help -> Help Contents). 
+         * (in comment) is an example of the resource factory registration for UML.
+         *
+         * If you want to use the generator in stand alone, the resource factory registration will be required.
+         *  
+         * To learn more about the registration of Resource Factories, have a look at the Acceleo documentation (Help -> Help Contents). 
          */ 
         
         // resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
