@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="graal">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="graal">
   <ownedViewpoints name="Graal Methodology" modelFileExtension="*.graal">
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Reused Description" domainClass="graal.System" preconditionExpression="false">
       <defaultLayer name="Default">
@@ -1030,6 +1030,21 @@
       <optionalLayers name="Actors" reusedMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_AbstractTaskToActor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_UsedForCreateEdgeTool']" activeByDefault="true">
         <toolSections name="Actors" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Works%20on']"/>
       </optionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="User Stories Table" titleExpression="User Stories Table" initialisation="true" domainClass="graal.System">
+      <ownedLineMappings name="UST_UserStory" domainClass="graal.UserStory" semanticCandidatesExpression="&lt;%userStories%>"/>
+      <ownedCreateLine name="CRE_UserStory" label="User story" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedLineMappings[name='UST_UserStory']">
+        <variables name="root" documentation="The semantic element of the table."/>
+        <variables name="element" documentation="The semantic currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+          <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.UserStory" referenceName="userStories">
+            <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="UserStory&lt;%eContainer.userStories.nSize()%>"/>
+          </subModelOperations>
+        </firstModelOperation>
+      </ownedCreateLine>
+      <ownedColumnMappings name="UST_ReferencedTask" domainClass="graal.Task" semanticCandidatesExpression="&lt;%userStories.elements.eContainer(&quot;graal.Task&quot;)%>"/>
+      <intersection name="UST_UserStoryReferencesTask" canEdit="&lt;%false%>" lineMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedLineMappings[name='UST_UserStory']" columnMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="&lt;%elements%>"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.templates.diagram"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.templates.tasks"/>
