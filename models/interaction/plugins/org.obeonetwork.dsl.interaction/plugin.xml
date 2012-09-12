@@ -26,5 +26,11 @@
             type="interaction"
             class="org.obeonetwork.dsl.interaction.util.InteractionResourceFactoryImpl"/>
    </extension>
-
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+     <file-association
+           content-type="org.eclipse.emf.compare.ui.contenttype.ModelContentType"
+           file-extensions="interaction"
+           file-names="*">
+     </file-association>
+   </extension>
 </plugin>

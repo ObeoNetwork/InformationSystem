@@ -29,6 +29,13 @@
             class="org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage"
             genModel="model/entity.genmodel"/>
    </extension>
-
+   
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+     <file-association
+           content-type="org.eclipse.emf.compare.ui.contenttype.ModelContentType"
+           file-extensions="entity"
+           file-names="*">
+     </file-association>
+   </extension>
 </plugin>
 

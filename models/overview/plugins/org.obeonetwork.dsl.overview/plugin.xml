@@ -24,5 +24,11 @@
             type="ois"
             class="org.obeonetwork.dsl.overview.util.OverviewResourceFactoryImpl"/>
    </extension>
-
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+     <file-association
+           content-type="org.eclipse.emf.compare.ui.contenttype.ModelContentType"
+           file-extensions="ois"
+           file-names="*">
+     </file-association>
+   </extension>
 </plugin>

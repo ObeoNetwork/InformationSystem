@@ -22,5 +22,12 @@
             type="environment"
             class="org.obeonetwork.dsl.environment.util.EnvironmentResourceFactoryImpl"/>
    </extension>
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+     <file-association
+           content-type="org.eclipse.emf.compare.ui.contenttype.ModelContentType"
+           file-extensions="environment"
+           file-names="*">
+     </file-association>
+   </extension>
 </plugin>
 

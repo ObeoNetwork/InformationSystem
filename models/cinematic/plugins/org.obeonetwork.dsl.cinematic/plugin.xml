@@ -85,4 +85,12 @@
            uri="pathmap://cinematic/toolkits/Web">
      </toolkit>
   </extension>
+  
+    <extension point="org.eclipse.core.contenttype.contentTypes">
+     <file-association
+           content-type="org.eclipse.emf.compare.ui.contenttype.ModelContentType"
+           file-extensions="cinematic"
+           file-names="*">
+     </file-association>
+  </extension>
 </plugin>

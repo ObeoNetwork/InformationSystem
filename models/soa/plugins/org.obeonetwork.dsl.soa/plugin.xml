@@ -22,6 +22,12 @@
             type="soa"
             class="org.obeonetwork.dsl.soa.util.SoaResourceFactoryImpl"/>
    </extension>
-
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+     <file-association
+           content-type="org.eclipse.emf.compare.ui.contenttype.ModelContentType"
+           file-extensions="soa"
+           file-names="*">
+     </file-association>
+   </extension>
 </plugin>
 

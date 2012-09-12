@@ -22,4 +22,11 @@
             type="graal"
             class="org.obeonetwork.graal.util.GraalResourceFactoryImpl"/>
    </extension>
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+     <file-association
+           content-type="org.eclipse.emf.compare.ui.contenttype.ModelContentType"
+           file-extensions="graal"
+           file-names="*">
+     </file-association>
+   </extension>
 </plugin>

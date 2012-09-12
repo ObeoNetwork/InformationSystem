@@ -28,5 +28,11 @@
             type="requirement"
             class="org.obeonetwork.dsl.requirement.util.RequirementResourceFactoryImpl"/>
    </extension>
-
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+     <file-association
+           content-type="org.eclipse.emf.compare.ui.contenttype.ModelContentType"
+           file-extensions="requirement"
+           file-names="*">
+     </file-association>
+   </extension>
 </plugin>

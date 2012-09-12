@@ -21,4 +21,11 @@
             type="statemachine"
             class="org.obeonetwork.dsl.statemachine.util.StateMachineResourceFactoryImpl"/>
    </extension>
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+     <file-association
+           content-type="org.eclipse.emf.compare.ui.contenttype.ModelContentType"
+           file-extensions="statemachine"
+           file-names="*">
+     </file-association>
+   </extension>
 </plugin>
