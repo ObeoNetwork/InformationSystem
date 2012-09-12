@@ -18,7 +18,7 @@
   <properties>
     <tycho-version>0.14.1</tycho-version>
     <platform-version-name>indigo</platform-version-name>
-    <od-site>http://www.obeo.fr/download/release/designer/6.0/6.0.1/indigo/update/</od-site>
+    <od-site>http://www.obeo.fr/download/release/designer/6.0/6.0.2/indigo/update/</od-site>
     <eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/1.1</eef-site>
     <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/interim/3.3/</acceleo-site>
     <eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
