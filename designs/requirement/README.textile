@@ -1,26 +1,17 @@
 h1. Welcome to Requirement Designer by Obeo Network
 
-This graphical designer provides a set of representations to visualize
-and edit Requirements models.
+This graphical designer provides a set of representations to visualize and edit Requirements models.
 Product sheet:http://marketplace.obeonetwork.com/module/Requirements
 
-It is based on Obeo Designer (http://www.obeodesigner.com), a tool to
-create your own graphical designers in Eclipse.
-Its source code is composed of Eclipse plug-ins released under the EPL
-Open-Souce License.
+It is based on Obeo Designer (http://www.obeodesigner.com), a tool to create your own graphical designers in Eclipse.
+Its source code is composed of Eclipse plug-ins released under the EPL Open-Souce License.
 
-You can easily modify this graphical designer with Obeo Designer to
-adapt each diagram to your needs or combine it to your own DSL.
-To start customizing this module, just "download an evaluation
-version": http://www.obeodesigner.com/download of the architect edition.
+You can easily modify this graphical designer with Obeo Designer to adapt each diagram to your needs or combine it to your own DSL.
+To start customizing this module, just "download an evaluation version" : http://www.obeodesigner.com/download of the architect edition.
 
-This module requires the Metamodel plugins available at
-https://github.com/ObeoNetwork/InformationSystem/tree/master/models/requirement
+This module requires the Metamodel plugins available at https://github.com/ObeoNetwork/InformationSystem/tree/master/models/requirement
 
 To build the module you’ll need Maven3 (with Tycho plugin) and type
 @mvn clean verify@
 
-Join "Requirements Designer
-group":http://www.obeonetwork.com/group/Requirements-designer to
-access to a forum and advanced documentation (best practices, FAQ,
-case-studies, metamodel, etc) provided by the community to the community. 
+Join "Requirements Designer group":http://www.obeonetwork.com/group/Requirements-designer to access to a forum and advanced documentation (best practices, FAQ, case-studies, metamodel, etc) provided by the community to the community. 
