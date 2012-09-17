@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+           http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+	
+	<!--Start of user code for start of document -->
+
+	<!-- End of user code -->
+	
+	<!-- Hibernate Transaction Manager -->
+	<bean id="transactionManager"
+ 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<tx:advice id="txAdviceDAO" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:advisor pointcut="execution(* **.*Dao.*(..))" advice-ref="txAdviceDAO" />
+	</aop:config>
+	
+	<!-- Hibernate SessionFactory -->
+	<import resource="classpath:/conf/spring/orm/hibernateMappingsContext.xml"/>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mappingResources" ref="hibernateMappingResources"/>
+		<!-- Start of user code for hibernate properties -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.generate_statistics">true</prop>
+ 				<prop key="hibernate.hbm2ddl.auto">create</prop> 
+ 				<prop key="hibernate.jdbc.batch_size">1</prop>
+			</props>
+		</property>
+		<!-- End of user code -->
+	</bean>
+	
+	<!-- BlogEntry -->
+	<bean id="BlogEntryDAO" 
+		class="org.obeonetwork.demo.weblogng.business.blog.HibernateBlogEntryDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for BlogEntry specific configuration -->
+	<!-- End of user code -->
+	
+	<!-- end BlogEntry -->
+	
+	<!-- Comment -->
+	<bean id="CommentDAO" 
+		class="org.obeonetwork.demo.weblogng.business.informations.HibernateCommentDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for Comment specific configuration -->
+	<!-- End of user code -->
+	
+	<!-- end Comment -->
+	
+	<!-- Tag -->
+	<bean id="TagDAO" 
+		class="org.obeonetwork.demo.weblogng.business.informations.HibernateTagDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for Tag specific configuration -->
+	<!-- End of user code -->
+	
+	<!-- end Tag -->
+	
+	<!-- Category -->
+	<bean id="CategoryDAO" 
+		class="org.obeonetwork.demo.weblogng.business.informations.HibernateCategoryDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for Category specific configuration -->
+	<!-- End of user code -->
+	
+	<!-- end Category -->
+	
+	<!-- Admin -->
+	<bean id="AdminDAO" 
+		class="org.obeonetwork.demo.weblogng.business.users.HibernateAdminDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for Admin specific configuration -->
+	<!-- End of user code -->
+	
+	<!-- end Admin -->
+	
+	<!-- User -->
+	<bean id="UserDAO" 
+		class="org.obeonetwork.demo.weblogng.business.users.HibernateUserDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for User specific configuration -->
+	<!-- End of user code -->
+	
+	<!-- end User -->
+	
+	<!-- Moderator -->
+	<bean id="ModeratorDAO" 
+		class="org.obeonetwork.demo.weblogng.business.users.HibernateModeratorDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for Moderator specific configuration -->
+	<!-- End of user code -->
+	
+	<!-- end Moderator -->
+</beans>

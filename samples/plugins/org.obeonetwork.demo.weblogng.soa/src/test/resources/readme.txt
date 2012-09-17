@@ -1,0 +1,1 @@
+The test resources files root directory.

@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overview:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/2.0.0" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmlns:org.obeonetwork.dsl.soa="http://www.obeonetwork.org/dsl/soa/2.0.0" xmlns:overview="http://www.obeonetwork.org/dsl/overview/2.0.0" xmi:id="_-vIsIBHqEeGjo_sA39IT5g">
+  <ownedElements xsi:type="oent:Root" xmi:id="_-vIsIRHqEeGjo_sA39IT5g">
+    <blocks xmi:id="_DFKRMBHrEeGjo_sA39IT5g" name="blog">
+      <entities xmi:id="_Sp6_kBHrEeGjo_sA39IT5g" name="BlogEntry">
+        <ownedAttributes xmi:id="_UfCHEBHrEeGjo_sA39IT5g" name="title" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_Uj1ukBHrEeGjo_sA39IT5g" name="creationDate" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_U0xtkBHrEeGjo_sA39IT5g" name="content" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_qSDSABHsEeGjo_sA39IT5g" name="authorUser" multiplicity="1" oppositeOf="_-qiNEBH3EeGjo_sA39IT5g" type="_o_uj8BHrEeGjo_sA39IT5g"/>
+        <ownedReferences xmi:id="_D3mv4BHtEeGjo_sA39IT5g" name="categories" multiplicity="0..*" oppositeOf="_aHOoMBH3EeGjo_sA39IT5g" type="_hj99ABHrEeGjo_sA39IT5g"/>
+        <ownedReferences xmi:id="_LXisMBHtEeGjo_sA39IT5g" name="tags" multiplicity="0..*" oppositeOf="_R1SnMBH3EeGjo_sA39IT5g" type="_hapo8BHrEeGjo_sA39IT5g"/>
+        <ownedReferences xmi:id="_Ou97ABHtEeGjo_sA39IT5g" name="comments" multiplicity="0..*" oppositeOf="_CgeZUBH3EeGjo_sA39IT5g" type="_hUZP8BHrEeGjo_sA39IT5g"/>
+      </entities>
+    </blocks>
+    <blocks xmi:id="_KzTBkBHrEeGjo_sA39IT5g" name="informations">
+      <entities xmi:id="_hUZP8BHrEeGjo_sA39IT5g" name="Comment">
+        <ownedAttributes xmi:id="_q33JQBH2EeGjo_sA39IT5g" name="name">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_rALXwBH2EeGjo_sA39IT5g" name="email">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_rGNHQBH2EeGjo_sA39IT5g" name="website">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_rMiYwBH2EeGjo_sA39IT5g" name="content">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_rZcMUBH2EeGjo_sA39IT5g" name="creationDate">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_CgeZUBH3EeGjo_sA39IT5g" name="isCommentOf" multiplicity="1" oppositeOf="_Ou97ABHtEeGjo_sA39IT5g" type="_Sp6_kBHrEeGjo_sA39IT5g"/>
+      </entities>
+      <entities xmi:id="_hapo8BHrEeGjo_sA39IT5g" name="Tag">
+        <ownedAttributes xmi:id="_QDw_MBH3EeGjo_sA39IT5g" name="name">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_R1SnMBH3EeGjo_sA39IT5g" name="isTagOf" multiplicity="0..*" oppositeOf="_LXisMBHtEeGjo_sA39IT5g" type="_Sp6_kBHrEeGjo_sA39IT5g"/>
+      </entities>
+      <entities xmi:id="_hj99ABHrEeGjo_sA39IT5g" name="Category">
+        <ownedAttributes xmi:id="_WwTvsBH3EeGjo_sA39IT5g" name="name">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_W0uVoBH3EeGjo_sA39IT5g" name="description">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_aHOoMBH3EeGjo_sA39IT5g" name="isCategoryOf" multiplicity="0..*" oppositeOf="_D3mv4BHtEeGjo_sA39IT5g" type="_Sp6_kBHrEeGjo_sA39IT5g"/>
+      </entities>
+    </blocks>
+    <blocks xmi:id="_K2p3kBHrEeGjo_sA39IT5g" name="users">
+      <entities xmi:id="_o5s0cBHrEeGjo_sA39IT5g" name="Admin" supertype="_o_uj8BHrEeGjo_sA39IT5g"/>
+      <entities xmi:id="_o_uj8BHrEeGjo_sA39IT5g" name="User">
+        <ownedAttributes xmi:id="_37PqkBH3EeGjo_sA39IT5g" name="email" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EqwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_4DBtkBH3EeGjo_sA39IT5g" name="firstName" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_4GTrEBH3EeGjo_sA39IT5g" name="lastName" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_4J0SEBH3EeGjo_sA39IT5g" name="login" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_4O2jEBH3EeGjo_sA39IT5g" name="password" multiplicity="1">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_4UzaEBH3EeGjo_sA39IT5g" name="telephone">
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_-qiNEBH3EeGjo_sA39IT5g" name="entries" multiplicity="0..*" oppositeOf="_qSDSABHsEeGjo_sA39IT5g" type="_Sp6_kBHrEeGjo_sA39IT5g"/>
+      </entities>
+      <entities xmi:id="_pFEW8BHrEeGjo_sA39IT5g" name="Moderator" supertype="_o_uj8BHrEeGjo_sA39IT5g"/>
+    </blocks>
+  </ownedElements>
+  <ownedElements xsi:type="org.obeonetwork.dsl.soa:System" xmi:id="_-vIsIhHqEeGjo_sA39IT5g" name="system">
+    <ownedComponents xmi:id="_zBzZ8BH4EeGjo_sA39IT5g" name="WebLog">
+      <ownedServices xmi:id="_ddPP0BH5EeGjo_sA39IT5g" kind="required" name="Grant"/>
+      <ownedServices xmi:id="_d6X3wBH5EeGjo_sA39IT5g" kind="required" name="User"/>
+      <ownedServices xmi:id="_eHCawBH5EeGjo_sA39IT5g" kind="required" name="Search"/>
+      <ownedServices xmi:id="_ekVawBH5EeGjo_sA39IT5g" name="WebLog" usedTypes="_Sp6_kBHrEeGjo_sA39IT5g _hj99ABHrEeGjo_sA39IT5g _hUZP8BHrEeGjo_sA39IT5g _hapo8BHrEeGjo_sA39IT5g _o_uj8BHrEeGjo_sA39IT5g">
+        <ownedInterface xmi:id="_ZqyfMBTpEeGOO4BE7teOBA" name="WebLog">
+          <ownedOperations xmi:id="_ZqzGQBTpEeGOO4BE7teOBA" name="getAllBlogEntries">
+            <output xmi:id="_modPgBTpEeGOO4BE7teOBA" type="_Sp6_kBHrEeGjo_sA39IT5g" name="blogEntries" upper="-1"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_ZughkBTpEeGOO4BE7teOBA" name="addBlogEntry">
+            <input xmi:id="_nGhEgBTpEeGOO4BE7teOBA" type="_Sp6_kBHrEeGjo_sA39IT5g" name="blogEntry"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_Z5fpkBTpEeGOO4BE7teOBA" name="removeBlogEntry">
+            <input xmi:id="_nVUVgBTpEeGOO4BE7teOBA" type="_Sp6_kBHrEeGjo_sA39IT5g" name="blogEntry"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_Z-h6kBTpEeGOO4BE7teOBA" name="getBlogEntry">
+            <input xmi:id="_noUKABTpEeGOO4BE7teOBA" name="id">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <output xmi:id="_oAMegBTpEeGOO4BE7teOBA" type="_Sp6_kBHrEeGjo_sA39IT5g" name="blogEntry"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_aDkLkBTpEeGOO4BE7teOBA" name="addComment">
+            <input xmi:id="_p0KWgBTpEeGOO4BE7teOBA" type="_hUZP8BHrEeGjo_sA39IT5g" name="comment"/>
+            <input xmi:id="_5bwWcBTpEeGOO4BE7teOBA" type="_Sp6_kBHrEeGjo_sA39IT5g" name="blogEntry"/>
+          </ownedOperations>
+        </ownedInterface>
+      </ownedServices>
+      <ownedServices xmi:id="_er9swBH5EeGjo_sA39IT5g" name="Manage" usedTypes="_Sp6_kBHrEeGjo_sA39IT5g _hj99ABHrEeGjo_sA39IT5g _hUZP8BHrEeGjo_sA39IT5g _hapo8BHrEeGjo_sA39IT5g _o_uj8BHrEeGjo_sA39IT5g">
+        <ownedInterface xmi:id="_b7sVYBTqEeGOO4BE7teOBA" name="Manage">
+          <ownedOperations xmi:id="_b7sVYRTqEeGOO4BE7teOBA" name="deleteComment">
+            <input xmi:id="_0rMVABTqEeGOO4BE7teOBA" type="_hUZP8BHrEeGjo_sA39IT5g" name="comment"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_cFmfUBTqEeGOO4BE7teOBA" name="deleteUser">
+            <input xmi:id="_40WiwBTqEeGOO4BE7teOBA" type="_o_uj8BHrEeGjo_sA39IT5g" name="user"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_cN11UBTqEeGOO4BE7teOBA" name="updateComment">
+            <input xmi:id="_2vOCQBTqEeGOO4BE7teOBA" type="_hUZP8BHrEeGjo_sA39IT5g" name="comment"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_cW_xUBTqEeGOO4BE7teOBA" name="createCategory">
+            <input xmi:id="_MhOWABTrEeGOO4BE7teOBA" type="_hj99ABHrEeGjo_sA39IT5g" name="category"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_ch-5UBTqEeGOO4BE7teOBA" name="deleteCategory">
+            <input xmi:id="_7sOHwBTqEeGOO4BE7teOBA" type="_hj99ABHrEeGjo_sA39IT5g" name="category"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_coUK0BTqEeGOO4BE7teOBA" name="removeCategory">
+            <input xmi:id="_70w_wBTqEeGOO4BE7teOBA" type="_hj99ABHrEeGjo_sA39IT5g" name="category"/>
+            <input xmi:id="_79xKwBTqEeGOO4BE7teOBA" type="_Sp6_kBHrEeGjo_sA39IT5g" name="blogEntry"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_cvQgUBTqEeGOO4BE7teOBA" name="updateCategory">
+            <input xmi:id="_8OxbMBTqEeGOO4BE7teOBA" type="_hj99ABHrEeGjo_sA39IT5g" name="category"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_c2H9UBTqEeGOO4BE7teOBA" name="addCategory">
+            <input xmi:id="_8VtwsBTqEeGOO4BE7teOBA" type="_hj99ABHrEeGjo_sA39IT5g" name="category"/>
+            <input xmi:id="_8ekxwBTqEeGOO4BE7teOBA" type="_Sp6_kBHrEeGjo_sA39IT5g" name="blogEntry"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_c-0mUBTqEeGOO4BE7teOBA" name="deleteTag">
+            <input xmi:id="_QCjHsBTrEeGOO4BE7teOBA" type="_hapo8BHrEeGjo_sA39IT5g" name="tag"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_dEZC0BTqEeGOO4BE7teOBA" name="removeTag">
+            <input xmi:id="_QJpOMBTrEeGOO4BE7teOBA" type="_hapo8BHrEeGjo_sA39IT5g" name="tag"/>
+            <input xmi:id="_Q67hMBTrEeGOO4BE7teOBA" type="_Sp6_kBHrEeGjo_sA39IT5g" name="blogEntry"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_dJbT0BTqEeGOO4BE7teOBA" name="updateTag">
+            <input xmi:id="_QSCVMBTrEeGOO4BE7teOBA" type="_hapo8BHrEeGjo_sA39IT5g" name="tag"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_dRviUBTqEeGOO4BE7teOBA" name="addTag">
+            <input xmi:id="_QbMRMBTrEeGOO4BE7teOBA" type="_hapo8BHrEeGjo_sA39IT5g" name="tag"/>
+            <input xmi:id="_QsDXsBTrEeGOO4BE7teOBA" type="_Sp6_kBHrEeGjo_sA39IT5g" name="blogEntry"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_dZw14BTqEeGOO4BE7teOBA" name="createTag">
+            <input xmi:id="_QkbFsBTrEeGOO4BE7teOBA" type="_hapo8BHrEeGjo_sA39IT5g" name="tag"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_dfBwYBTqEeGOO4BE7teOBA" name="getComment">
+            <input xmi:id="_gwfEoBTrEeGOO4BE7teOBA" name="id">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <output xmi:id="_hWjmIBTrEeGOO4BE7teOBA" type="_hUZP8BHrEeGjo_sA39IT5g" name="comment"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_dkhUYBTqEeGOO4BE7teOBA" name="getCategory">
+            <input xmi:id="_g3baIBTrEeGOO4BE7teOBA" name="id">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <output xmi:id="_heG_oBTrEeGOO4BE7teOBA" type="_hj99ABHrEeGjo_sA39IT5g" name="category"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_ds6bYBTqEeGOO4BE7teOBA" name="getTag">
+            <input xmi:id="_g_vooBTrEeGOO4BE7teOBA" name="id">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <output xmi:id="_h0KIIBTrEeGOO4BE7teOBA" type="_hapo8BHrEeGjo_sA39IT5g" name="tag"/>
+          </ownedOperations>
+        </ownedInterface>
+      </ownedServices>
+      <ownedServices xmi:id="_e2Q4QBH5EeGjo_sA39IT5g" name="Monitor" usedTypes="_hj99ABHrEeGjo_sA39IT5g _hUZP8BHrEeGjo_sA39IT5g _hapo8BHrEeGjo_sA39IT5g _o_uj8BHrEeGjo_sA39IT5g">
+        <ownedInterface xmi:id="_9sH_cBTpEeGOO4BE7teOBA" name="Monitor">
+          <ownedOperations xmi:id="_9sH_cRTpEeGOO4BE7teOBA" name="getAllUsers">
+            <output xmi:id="_Dp0s8BTqEeGOO4BE7teOBA" type="_o_uj8BHrEeGjo_sA39IT5g" name="users" upper="-1"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_9yE2cBTpEeGOO4BE7teOBA" name="getAllTags">
+            <output xmi:id="_DxTN8BTqEeGOO4BE7teOBA" type="_hapo8BHrEeGjo_sA39IT5g" name="tags" upper="-1"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_97JS4BTpEeGOO4BE7teOBA" name="getAllCategories">
+            <output xmi:id="_D28i8BTqEeGOO4BE7teOBA" type="_hj99ABHrEeGjo_sA39IT5g" name="categories" upper="-1"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_-GXrcBTpEeGOO4BE7teOBA" name="getAllComments">
+            <output xmi:id="_D-WygBTqEeGOO4BE7teOBA" type="_hUZP8BHrEeGjo_sA39IT5g" name="comments" lower="0" upper="-1"/>
+          </ownedOperations>
+        </ownedInterface>
+      </ownedServices>
+    </ownedComponents>
+    <ownedComponents xmi:id="_zKk7cBH4EeGjo_sA39IT5g" name="SecurityManagement">
+      <ownedServices xmi:id="_XVZH0BH5EeGjo_sA39IT5g" name="Grant" usedTypes="_o_uj8BHrEeGjo_sA39IT5g _o5s0cBHrEeGjo_sA39IT5g _pFEW8BHrEeGjo_sA39IT5g">
+        <ownedInterface xmi:id="_k2FBcBIAEeGjo_sA39IT5g" name="Grant">
+          <ownedOperations xmi:id="_k2FBcRIAEeGjo_sA39IT5g" name="grantModerate">
+            <input xmi:id="_rqCIcRToEeGOO4BE7teOBA" type="_o_uj8BHrEeGjo_sA39IT5g" name="user"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_k50R8BIAEeGjo_sA39IT5g" name="grantAdministrate">
+            <input xmi:id="_yn22MBToEeGOO4BE7teOBA" type="_o_uj8BHrEeGjo_sA39IT5g" name="user"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_lFkO8BIAEeGjo_sA39IT5g" name="removeAdminRight">
+            <input xmi:id="_y0EGMBToEeGOO4BE7teOBA" type="_o5s0cBHrEeGjo_sA39IT5g" name="admin"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_lNpz8BIAEeGjo_sA39IT5g" name="removeModerateRight">
+            <input xmi:id="_yukiMBToEeGOO4BE7teOBA" type="_pFEW8BHrEeGjo_sA39IT5g" name="moderator"/>
+          </ownedOperations>
+        </ownedInterface>
+      </ownedServices>
+      <ownedServices xmi:id="_X4aVUBH5EeGjo_sA39IT5g" name="User" usedTypes="_o_uj8BHrEeGjo_sA39IT5g _o5s0cBHrEeGjo_sA39IT5g _pFEW8BHrEeGjo_sA39IT5g">
+        <ownedInterface xmi:id="_lrowcBIAEeGjo_sA39IT5g" name="User">
+          <ownedOperations xmi:id="_lrowcRIAEeGjo_sA39IT5g" name="createUser">
+            <input xmi:id="_9EVcIBToEeGOO4BE7teOBA" type="_o_uj8BHrEeGjo_sA39IT5g" name="user"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_l27acBIAEeGjo_sA39IT5g" name="saveUser">
+            <input xmi:id="_9NWOMBToEeGOO4BE7teOBA" type="_o_uj8BHrEeGjo_sA39IT5g" name="user"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_l-3OcBIAEeGjo_sA39IT5g" name="login">
+            <input xmi:id="_M_iUkBTpEeGOO4BE7teOBA" name="login">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <input xmi:id="_NYtpkBTpEeGOO4BE7teOBA" name="password">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <output xmi:id="_N4YBEBTpEeGOO4BE7teOBA" type="_o_uj8BHrEeGjo_sA39IT5g" name="authentified"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_mENBcBIAEeGjo_sA39IT5g" name="getUser">
+            <input xmi:id="_BZp2kBTpEeGOO4BE7teOBA" name="id">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <output xmi:id="_B4egkBTpEeGOO4BE7teOBA" type="_o_uj8BHrEeGjo_sA39IT5g" name="user"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_mJUK8BIAEeGjo_sA39IT5g" name="getAdmin">
+            <input xmi:id="_GRAnEBTpEeGOO4BE7teOBA" name="id">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <output xmi:id="_GrotkBTpEeGOO4BE7teOBA" type="_o5s0cBHrEeGjo_sA39IT5g" name="admin"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_mO9f8BIAEeGjo_sA39IT5g" name="getModerator">
+            <input xmi:id="_GVqdkBTpEeGOO4BE7teOBA" name="id">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <output xmi:id="_GzuSkBTpEeGOO4BE7teOBA" type="_pFEW8BHrEeGjo_sA39IT5g" name="moderator"/>
+          </ownedOperations>
+        </ownedInterface>
+      </ownedServices>
+    </ownedComponents>
+    <ownedComponents xmi:id="_zXFGYBH4EeGjo_sA39IT5g" name="SearchEngine">
+      <ownedServices xmi:id="_1VIfwBH-EeGjo_sA39IT5g" name="Search" usedTypes="_Sp6_kBHrEeGjo_sA39IT5g _hj99ABHrEeGjo_sA39IT5g _hUZP8BHrEeGjo_sA39IT5g _hapo8BHrEeGjo_sA39IT5g">
+        <ownedInterface xmi:id="_Hve7MBH_EeGjo_sA39IT5g" name="Search">
+          <ownedOperations xmi:id="_HvfiQBH_EeGjo_sA39IT5g" name="searchBlogEntries">
+            <input xmi:id="_KSXusBH_EeGjo_sA39IT5g" name="searchContent">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <output xmi:id="_Km-FsBH_EeGjo_sA39IT5g" type="_Sp6_kBHrEeGjo_sA39IT5g" name="blogEntries" upper="-1"/>
+          </ownedOperations>
+          <ownedOperations xmi:id="_H0NqMBH_EeGjo_sA39IT5g" name="searchComments">
+            <input xmi:id="_KW30MBH_EeGjo_sA39IT5g" name="searchContent">
+              <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+            </input>
+            <output xmi:id="_Ks68sBH_EeGjo_sA39IT5g" type="_hUZP8BHrEeGjo_sA39IT5g" name="comments" upper="-1"/>
+          </ownedOperations>
+        </ownedInterface>
+      </ownedServices>
+    </ownedComponents>
+    <ownedWires xmi:id="_4Yt-0BH5EeGjo_sA39IT5g" source="_ddPP0BH5EeGjo_sA39IT5g" dest="_XVZH0BH5EeGjo_sA39IT5g"/>
+    <ownedWires xmi:id="_6DYw4BH5EeGjo_sA39IT5g" source="_d6X3wBH5EeGjo_sA39IT5g" dest="_X4aVUBH5EeGjo_sA39IT5g"/>
+    <ownedWires xmi:id="__46nkBH-EeGjo_sA39IT5g" source="_eHCawBH5EeGjo_sA39IT5g" dest="_1VIfwBH-EeGjo_sA39IT5g"/>
+    <ownedDtoRegistry xmi:id="_-vIsIxHqEeGjo_sA39IT5g">
+      <ownedCategories xmi:id="_wyGuIBTrEeGOO4BE7teOBA" name="dtos">
+        <types xsi:type="org.obeonetwork.dsl.soa:ServiceDTO" xmi:id="_TaW7IB8qEeG5W98CIZE1DA" name="BlogEntryDTO" associatedTypes="_Sp6_kBHrEeGjo_sA39IT5g"/>
+        <types xsi:type="org.obeonetwork.dsl.soa:ServiceDTO" xmi:id="_XNufEB8qEeG5W98CIZE1DA" name="TagDTO" associatedTypes="_hapo8BHrEeGjo_sA39IT5g"/>
+      </ownedCategories>
+    </ownedDtoRegistry>
+  </ownedElements>
+  <ownedElements xsi:type="cinematic:Root" xmi:id="_-vIsJBHqEeGjo_sA39IT5g">
+    <ownedScenarios xmi:id="_Vy5DwBTtEeGOO4BE7teOBA" name="users">
+      <ownedScreens xmi:id="_kZL-wBTtEeGOO4BE7teOBA" name="CreateAccount" title="Create a new account" next="_kyhEwBTtEeGOO4BE7teOBA _kj3kwBTtEeGOO4BE7teOBA" previousScreen="_kyhEwBTtEeGOO4BE7teOBA _kj3kwBTtEeGOO4BE7teOBA">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_9UtBIBTtEeGOO4BE7teOBA" name="validate" target="_lrowcRIAEeGjo_sA39IT5g"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_67IhsBTtEeGOO4BE7teOBA" name="email">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_7CJvsBTtEeGOO4BE7teOBA" name="firstName">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_7HaqMBTtEeGOO4BE7teOBA" name="lastName">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_7c2usBTtEeGOO4BE7teOBA" name="login">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:Password" xmi:id="_73Z8sBTtEeGOO4BE7teOBA" name="password">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+      </ownedScreens>
+      <ownedScreens xmi:id="_kfNuQBTtEeGOO4BE7teOBA" name="EditAccount" title="Edit an account" next="_kyhEwBTtEeGOO4BE7teOBA _JtoawBTwEeGOO4BE7teOBA" previousScreen="_JtoawBTwEeGOO4BE7teOBA _kyhEwBTtEeGOO4BE7teOBA">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_-k9vIBTtEeGOO4BE7teOBA" name="validate" target="_l27acBIAEeGjo_sA39IT5g"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="__ISeoBTtEeGOO4BE7teOBA" name="email">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="__P6woBTtEeGOO4BE7teOBA" name="firstName">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="__XjCoBTtEeGOO4BE7teOBA" name="lastName">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_AIKAMBTuEeGOO4BE7teOBA" name="login">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:Password" xmi:id="_Ab6psBTuEeGOO4BE7teOBA" name="password">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_AtndsBTuEeGOO4BE7teOBA" name="telephone"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_kj3kwBTtEeGOO4BE7teOBA" name="Login" title="Login" next="_kZL-wBTtEeGOO4BE7teOBA _JtoawBTwEeGOO4BE7teOBA" previousScreen="_kZL-wBTtEeGOO4BE7teOBA _JtoawBTwEeGOO4BE7teOBA">
+        <ownedActions xmi:id="_CddDoBTuEeGOO4BE7teOBA" name="createAccount"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_DBK0sBTuEeGOO4BE7teOBA" name="validate" target="_l-3OcBIAEeGjo_sA39IT5g"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_DXrQMBTuEeGOO4BE7teOBA" name="login">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:Password" xmi:id="_D-4aIBTuEeGOO4BE7teOBA" name="password">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+      </ownedScreens>
+      <ownedScreens xmi:id="_kyhEwBTtEeGOO4BE7teOBA" name="Errors" title="Errors" next="_kZL-wBTtEeGOO4BE7teOBA _kfNuQBTtEeGOO4BE7teOBA" previousScreen="_kZL-wBTtEeGOO4BE7teOBA _kfNuQBTtEeGOO4BE7teOBA">
+        <ownedWidgets xsi:type="cinematic:Label" xmi:id="_FAfoIBTuEeGOO4BE7teOBA" name="message">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+      </ownedScreens>
+    </ownedScenarios>
+    <ownedScenarios xmi:id="_V8WhwBTtEeGOO4BE7teOBA" name="main">
+      <ownedScreens xmi:id="_JmsFQBTwEeGOO4BE7teOBA" name="CreateLog" title="Create a new log" next="_JtoawBTwEeGOO4BE7teOBA" previousScreen="_JtoawBTwEeGOO4BE7teOBA">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_xL8YMBTwEeGOO4BE7teOBA" name="validate" target="_ZughkBTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_wU2YIBTwEeGOO4BE7teOBA" name="title">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextArea" xmi:id="_wtHHIBTwEeGOO4BE7teOBA" name="content">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+      </ownedScreens>
+      <ownedScreens xmi:id="_JtoawBTwEeGOO4BE7teOBA" name="ViewLogs" title="View the logs" next="_kfNuQBTtEeGOO4BE7teOBA _kj3kwBTtEeGOO4BE7teOBA _JmsFQBTwEeGOO4BE7teOBA _Jz9sQBTwEeGOO4BE7teOBA _iNS4gBT5EeG4uqUTUKgMSQ" previousScreen="_kfNuQBTtEeGOO4BE7teOBA _kj3kwBTtEeGOO4BE7teOBA _JmsFQBTwEeGOO4BE7teOBA _Jz9sQBTwEeGOO4BE7teOBA _VoXfsBT2EeG4uqUTUKgMSQ _VxC6kBT2EeG4uqUTUKgMSQ _iNS4gBT5EeG4uqUTUKgMSQ">
+        <ownedActions xmi:id="_yaq1IBTwEeGOO4BE7teOBA" name="createLog"/>
+        <ownedActions xmi:id="_yhTooBTwEeGOO4BE7teOBA" name="logout"/>
+        <ownedActions xmi:id="_ym89oBTwEeGOO4BE7teOBA" name="editAccount"/>
+        <ownedActions xmi:id="_y9J3IBTwEeGOO4BE7teOBA" name="login"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_zUgAIBTwEeGOO4BE7teOBA" name="reload" target="_ZughkBTpEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_zZw6oBTwEeGOO4BE7teOBA" name="viewComments"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_0I6foBTwEeGOO4BE7teOBA" name="logs">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_0tJ1IBTwEeGOO4BE7teOBA" name="message">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_0w0NIBTwEeGOO4BE7teOBA" name="user">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_7SvpEBTwEeGOO4BE7teOBA" name="categories">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_7ZsloBTwEeGOO4BE7teOBA" name="tags">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_8DbfIBTwEeGOO4BE7teOBA" name="hidden">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_zV_4IRT0EeG4uqUTUKgMSQ" name="comments" triggerAction="_-tyzoBTwEeGOO4BE7teOBA"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_Jz9sQBTwEeGOO4BE7teOBA" name="ViewComments" title="View the comments" next="_JtoawBTwEeGOO4BE7teOBA" previousScreen="_JtoawBTwEeGOO4BE7teOBA">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_-tyzoBTwEeGOO4BE7teOBA" name="addComment" target="_aDkLkBTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="__SGakBTwEeGOO4BE7teOBA" name="comments">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_AW6tkBTxEeGOO4BE7teOBA" name="log"/>
+        <ownedWidgets xsi:type="cinematic:TextArea" xmi:id="_A7eMIBTxEeGOO4BE7teOBA" name="content"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_BVaWIBTxEeGOO4BE7teOBA" name="name"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_BZOfIBTxEeGOO4BE7teOBA" name="email"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_BdG5kBTxEeGOO4BE7teOBA" description="website (www.example.com)" name="website"/>
+      </ownedScreens>
+    </ownedScenarios>
+    <ownedScenarios xmi:id="_WGk0wBTtEeGOO4BE7teOBA" name="grant">
+      <ownedScreens xmi:id="_VoXfsBT2EeG4uqUTUKgMSQ" name="GrantAdministrate" title="Grant administrative rights" next="_JtoawBTwEeGOO4BE7teOBA" previousScreen="_iNS4gBT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_M8Sq8BT3EeG4uqUTUKgMSQ" name="addRight" target="_k50R8BIAEeGjo_sA39IT5g _mENBcBIAEeGjo_sA39IT5g"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_NCn8cBT3EeG4uqUTUKgMSQ" name="showUsers" target="_9sH_cRTpEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_NEuOMBT3EeG4uqUTUKgMSQ" name="showModerators" target="_9sH_cRTpEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_NG0f8BT3EeG4uqUTUKgMSQ" name="showAdmins" target="_9sH_cRTpEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_NIqTABT3EeG4uqUTUKgMSQ" name="removeRight" target="_lFkO8BIAEeGjo_sA39IT5g _mJUK8BIAEeGjo_sA39IT5g"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_e51rEBT2EeG4uqUTUKgMSQ" description="Users:" name="users" triggerAction="_NCn8cBT3EeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_fmxpkBT2EeG4uqUTUKgMSQ" description="Give administrative rights." name="add" triggerAction="_M8Sq8BT3EeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_gXXZABT2EeG4uqUTUKgMSQ" name="hidden"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_hdy1kBT2EeG4uqUTUKgMSQ" description="Moderators:" name="moderators" triggerAction="_NEuOMBT3EeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_hiS7EBT2EeG4uqUTUKgMSQ" description="Administrators:" name="admins" triggerAction="_NG0f8BT3EeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_ifoGABT2EeG4uqUTUKgMSQ" description="Remove administrative rights." name="remove" triggerAction="_NIqTABT3EeG4uqUTUKgMSQ"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_VxC6kBT2EeG4uqUTUKgMSQ" name="GrantModerate" title="Grant moderation rights" next="_JtoawBTwEeGOO4BE7teOBA" previousScreen="_iNS4gBT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_Xvg88BT3EeG4uqUTUKgMSQ" name="addRight" target="_k2FBcRIAEeGjo_sA39IT5g _mENBcBIAEeGjo_sA39IT5g"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_XzPmYBT3EeG4uqUTUKgMSQ" name="showUsers" target="_9sH_cRTpEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_X2_d8BT3EeG4uqUTUKgMSQ" name="removeRight" target="_lNpz8BIAEeGjo_sA39IT5g _mO9f8BIAEeGjo_sA39IT5g"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_X7VLYBT3EeG4uqUTUKgMSQ" name="showModerators" target="_9sH_cRTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_VukY4BT3EeG4uqUTUKgMSQ" description="Users:" name="users" triggerAction="_XzPmYBT3EeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_VzJW4BT3EeG4uqUTUKgMSQ" description="Moderators:" name="moderators" triggerAction="_X7VLYBT3EeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_WQSl4BT3EeG4uqUTUKgMSQ" description="Grant moderation rights." name="add" triggerAction="_Xvg88BT3EeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_WU8cYBT3EeG4uqUTUKgMSQ" description="Remove moderation rights." name="remove" triggerAction="_X2_d8BT3EeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_XD8QYBT3EeG4uqUTUKgMSQ" name="hidden"/>
+      </ownedScreens>
+    </ownedScenarios>
+    <ownedScenarios xmi:id="_WPWWQBTtEeGOO4BE7teOBA" name="search">
+      <ownedScreens xmi:id="_iNS4gBT5EeG4uqUTUKgMSQ" name="Search" title="Search" next="_JtoawBTwEeGOO4BE7teOBA _VoXfsBT2EeG4uqUTUKgMSQ _VxC6kBT2EeG4uqUTUKgMSQ" previousScreen="_JtoawBTwEeGOO4BE7teOBA">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_nDbhABT5EeG4uqUTUKgMSQ" name="search" target="_HvfiQBH_EeGjo_sA39IT5g _H0NqMBH_EeGjo_sA39IT5g"/>
+        <ownedWidgets xsi:type="cinematic:Label" xmi:id="_kubYgBT5EeG4uqUTUKgMSQ" description="Blog Entries:" name="logHeader">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:Label" xmi:id="_kxyOgBT5EeG4uqUTUKgMSQ" description="Comments:" name="commentHeader"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_lhAE8BT5EeG4uqUTUKgMSQ" name="logs">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_lkqc8BT5EeG4uqUTUKgMSQ" name="comments">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_l1OogBT5EeG4uqUTUKgMSQ" name="searchField"/>
+      </ownedScreens>
+    </ownedScenarios>
+    <ownedScenarios xmi:id="_WX080BTtEeGOO4BE7teOBA" name="manage">
+      <ownedScreens xmi:id="_xyXv8BT5EeG4uqUTUKgMSQ" name="DeleteUser" title="Delete an user" next="_yBBP8BT5EeG4uqUTUKgMSQ" previousScreen="_yBBP8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_EYCkYBUXEeG4uqUTUKgMSQ" name="validate" target="_cFmfUBTqEeGOO4BE7teOBA _mENBcBIAEeGjo_sA39IT5g"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_GtCs4BUXEeG4uqUTUKgMSQ" name="viewUsers" target="_9sH_cRTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_e8QZABUOEeG4uqUTUKgMSQ" description="Users:" name="users" triggerAction="_GtCs4BUXEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_fmJDgBUOEeG4uqUTUKgMSQ" name="hidden"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_gYMLgBUOEeG4uqUTUKgMSQ" description="Delete:" name="delete" triggerAction="_9UtBIBTtEeGOO4BE7teOBA"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_x7--8BT5EeG4uqUTUKgMSQ" name="DeleteComment" title="Delete a comment" next="_yBBP8BT5EeG4uqUTUKgMSQ" previousScreen="_yFXkcBT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_AAmZIBUOEeG4uqUTUKgMSQ" name="validate" target="_b7sVYRTqEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_-Y6poBUNEeG4uqUTUKgMSQ" description="Comment:" name="commentDescription"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yBBP8BT5EeG4uqUTUKgMSQ" name="Manager" title="Manager" next="_xyXv8BT5EeG4uqUTUKgMSQ _yFXkcBT5EeG4uqUTUKgMSQ _yKBa8BT5EeG4uqUTUKgMSQ _yOmY8BT5EeG4uqUTUKgMSQ" previousScreen="_x7--8BT5EeG4uqUTUKgMSQ _ygmu8BT5EeG4uqUTUKgMSQ _yr5Y8BT5EeG4uqUTUKgMSQ _yoTSYBT5EeG4uqUTUKgMSQ _yvPn4BT5EeG4uqUTUKgMSQ _yy1HYBT5EeG4uqUTUKgMSQ _zFSwYBT5EeG4uqUTUKgMSQ _zIfOUBT5EeG4uqUTUKgMSQ _y2uI4BT5EeG4uqUTUKgMSQ _xyXv8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_Z1ODMBUNEeG4uqUTUKgMSQ" name="deleteUser"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_Z4uqMBUNEeG4uqUTUKgMSQ" name="manageComments"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_Z9FlwBUNEeG4uqUTUKgMSQ" name="manageCategories"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_aGeLQBUNEeG4uqUTUKgMSQ" name="manageTags"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_Y8AjQBUNEeG4uqUTUKgMSQ" description="Delete an user." name="screenDeleteUser"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_ZHh2wBUNEeG4uqUTUKgMSQ" description="Manage the comments." name="screenManageComments"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_ZM3pwBUNEeG4uqUTUKgMSQ" description="Manage the categories." name="screenManageCategories"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_ZRwJwBUNEeG4uqUTUKgMSQ" description="Manage the tags." name="ScreenManageTags"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yFXkcBT5EeG4uqUTUKgMSQ" name="ManageComments" title="Manage the comments" next="_x7--8BT5EeG4uqUTUKgMSQ _yVKT8BT5EeG4uqUTUKgMSQ" previousScreen="_yBBP8BT5EeG4uqUTUKgMSQ _yVKT8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_IGZbkBUOEeG4uqUTUKgMSQ" name="updateComment" target="_cN11UBTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_IKvwEBUOEeG4uqUTUKgMSQ" name="deleteComment" target="_b7sVYRTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_IPjXkBUOEeG4uqUTUKgMSQ" name="viewComments" target="_-GXrcBTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_DNS-oBUOEeG4uqUTUKgMSQ" description="Update." name="update" triggerAction="_IGZbkBUOEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_DT25oBUOEeG4uqUTUKgMSQ" description="Delete." name="delete" triggerAction="_IKvwEBUOEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_D7StEBUOEeG4uqUTUKgMSQ" name="hidden"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_ErqaEBUOEeG4uqUTUKgMSQ" description="Comments:" name="comments"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yKBa8BT5EeG4uqUTUKgMSQ" name="ManageCategories" title="Manage categories" next="_yoTSYBT5EeG4uqUTUKgMSQ _yvPn4BT5EeG4uqUTUKgMSQ _ykV_cBT5EeG4uqUTUKgMSQ _yr5Y8BT5EeG4uqUTUKgMSQ _ygmu8BT5EeG4uqUTUKgMSQ" previousScreen="_yBBP8BT5EeG4uqUTUKgMSQ _ykV_cBT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_7OA-cBUOEeG4uqUTUKgMSQ" name="createCategory" target="_cW_xUBTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_7Rl24BUOEeG4uqUTUKgMSQ" name="updateCategory" target="_cvQgUBTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_7UwfoBUOEeG4uqUTUKgMSQ" name="deleteCategory" target="_ch-5UBTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_7iwfYBUOEeG4uqUTUKgMSQ" name="addCategory" target="_c2H9UBTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_7mHVYBUOEeG4uqUTUKgMSQ" name="removeCategory" target="_coUK0BTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_7p8sgBUOEeG4uqUTUKgMSQ" name="viewCategories" target="_97JS4BTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_zPOi8BUOEeG4uqUTUKgMSQ" name="hidden"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_0W8Y8BUOEeG4uqUTUKgMSQ" description="Categories:" name="categories"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_1rtMcBUOEeG4uqUTUKgMSQ" description="Create." name="create" triggerAction="_7OA-cBUOEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_1yfw8BUOEeG4uqUTUKgMSQ" description="Update." name="update" triggerAction="_7Rl24BUOEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_2D97cBUOEeG4uqUTUKgMSQ" description="Delete." name="delete" triggerAction="_7UwfoBUOEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_2IPXcBUOEeG4uqUTUKgMSQ" description="Add." name="add" triggerAction="_7iwfYBUOEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_2NMv8BUOEeG4uqUTUKgMSQ" description="Remove." name="remove" triggerAction="_7mHVYBUOEeG4uqUTUKgMSQ"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yOmY8BT5EeG4uqUTUKgMSQ" name="ManageTags" title="Manage Tags" next="_yy1HYBT5EeG4uqUTUKgMSQ _zFSwYBT5EeG4uqUTUKgMSQ _zIfOUBT5EeG4uqUTUKgMSQ _y6Ov4BT5EeG4uqUTUKgMSQ _y2uI4BT5EeG4uqUTUKgMSQ" previousScreen="_yBBP8BT5EeG4uqUTUKgMSQ _y6Ov4BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_spG4oBUQEeG4uqUTUKgMSQ" name="createTag" target="_dZw14BTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_ssKMoBUQEeG4uqUTUKgMSQ" name="updateTag" target="_dJbT0BTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_svbjEBUQEeG4uqUTUKgMSQ" name="deleteTag" target="_c-0mUBTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_syooEBUQEeG4uqUTUKgMSQ" name="addTag" target="_dRviUBTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_s2cxEBUQEeG4uqUTUKgMSQ" name="removeTag" target="_dEZC0BTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_s-YlEBUQEeG4uqUTUKgMSQ" name="viewTags" target="_9yE2cBTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_mD9JkBUQEeG4uqUTUKgMSQ" description="Tags:" name="tags"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_m-LWIBUQEeG4uqUTUKgMSQ" name="hidden"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_oH9BoBUQEeG4uqUTUKgMSQ" description="Create." name="create" triggerAction="_spG4oBUQEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_oLwjkBUQEeG4uqUTUKgMSQ" description="Update." name="update" triggerAction="_ssKMoBUQEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_oPzWEBUQEeG4uqUTUKgMSQ" description="Delete." name="delete" triggerAction="_svbjEBUQEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_oXggkBUQEeG4uqUTUKgMSQ" description="Add." name="add" triggerAction="_syooEBUQEeG4uqUTUKgMSQ"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_oc7zIBUQEeG4uqUTUKgMSQ" description="Remove." name="remove" triggerAction="_s2cxEBUQEeG4uqUTUKgMSQ"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yVKT8BT5EeG4uqUTUKgMSQ" name="UpdateComment" title="Update a comment" next="_yFXkcBT5EeG4uqUTUKgMSQ" previousScreen="_yFXkcBT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_P8VdEBUOEeG4uqUTUKgMSQ" name="validate" target="_cN11UBTqEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_O7LiEBUOEeG4uqUTUKgMSQ" name="name"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_O_hPgBUOEeG4uqUTUKgMSQ" name="email"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_PD3kABUOEeG4uqUTUKgMSQ" name="website"/>
+        <ownedWidgets xsi:type="cinematic:TextArea" xmi:id="_PkYQEBUOEeG4uqUTUKgMSQ" name="content"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_ygmu8BT5EeG4uqUTUKgMSQ" name="CreateCategory" title="Create a category" next="_yBBP8BT5EeG4uqUTUKgMSQ" previousScreen="_yKBa8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_rWPNcBUOEeG4uqUTUKgMSQ" name="validate" target="_cW_xUBTqEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_pqSpABUOEeG4uqUTUKgMSQ" name="name"/>
+        <ownedWidgets xsi:type="cinematic:TextArea" xmi:id="_qbzlgBUOEeG4uqUTUKgMSQ" name="description"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_ykV_cBT5EeG4uqUTUKgMSQ" name="UpdateCategory" title="Update a category" next="_yKBa8BT5EeG4uqUTUKgMSQ" previousScreen="_yKBa8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_HCMhsBUQEeG4uqUTUKgMSQ" name="validate" target="_cvQgUBTqEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:TextArea" xmi:id="_FEF2QBUQEeG4uqUTUKgMSQ" name="description"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_GImAMBUQEeG4uqUTUKgMSQ" name="name"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yoTSYBT5EeG4uqUTUKgMSQ" name="DeleteCategory" title="Delete a category" next="_yBBP8BT5EeG4uqUTUKgMSQ" previousScreen="_yKBa8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_n0-3wBUPEeG4uqUTUKgMSQ" name="validate" target="_ch-5UBTqEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_nNnVwBUPEeG4uqUTUKgMSQ" description="Category:" name="categoryDescription"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yr5Y8BT5EeG4uqUTUKgMSQ" name="AddCategory" title="Add a category to a blog entry" next="_yBBP8BT5EeG4uqUTUKgMSQ" previousScreen="_yKBa8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_TKmTYBUPEeG4uqUTUKgMSQ" name="validate" target="_c2H9UBTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_TN9JYBUPEeG4uqUTUKgMSQ" name="viewLogs" target="_ZqzGQBTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_TvS74BUPEeG4uqUTUKgMSQ" description="Category:" name="categoryDescription"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_Typx4BUPEeG4uqUTUKgMSQ" description="Logs:" name="logs"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_UX3-0BUPEeG4uqUTUKgMSQ" name="hidden"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_VO4fUBUPEeG4uqUTUKgMSQ" name="select" triggerAction="_9UtBIBTtEeGOO4BE7teOBA"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yvPn4BT5EeG4uqUTUKgMSQ" name="RemoveCategory" title="Remove a category from a blog entry" next="_yBBP8BT5EeG4uqUTUKgMSQ" previousScreen="_yKBa8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_8di3MBUPEeG4uqUTUKgMSQ" name="validate" target="_coUK0BTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_8i4qMBUPEeG4uqUTUKgMSQ" name="viewLogs" target="_ZqzGQBTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_3XPrwBUPEeG4uqUTUKgMSQ" description="Category:" name="categoryDescription"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_3f21MBUPEeG4uqUTUKgMSQ" description="Logs:" name="logs"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_4EyuQBUPEeG4uqUTUKgMSQ" name="hidden"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_4tTfwBUPEeG4uqUTUKgMSQ" name="select" triggerAction="_9UtBIBTtEeGOO4BE7teOBA"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yy1HYBT5EeG4uqUTUKgMSQ" name="CreateTag" title="Create a tag" next="_yBBP8BT5EeG4uqUTUKgMSQ" previousScreen="_yOmY8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_VbI9MBUQEeG4uqUTUKgMSQ" name="validate" target="_dZw14BTqEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_UqSvEBUQEeG4uqUTUKgMSQ" name="name"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_y2uI4BT5EeG4uqUTUKgMSQ" name="DeleteTag" title="Delete a tag" next="_yBBP8BT5EeG4uqUTUKgMSQ" previousScreen="_yOmY8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_W_ku8BUREeG4uqUTUKgMSQ" name="validate" target="_c-0mUBTqEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_VzIxABUREeG4uqUTUKgMSQ" description="Tag:" name="tagDescription"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_y6Ov4BT5EeG4uqUTUKgMSQ" name="UpdateTag" title="Update a tag" next="_yOmY8BT5EeG4uqUTUKgMSQ" previousScreen="_yOmY8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_-Ka90BUREeG4uqUTUKgMSQ" name="validate" target="_dJbT0BTqEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_9D8d8BUREeG4uqUTUKgMSQ" name="name"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_zFSwYBT5EeG4uqUTUKgMSQ" name="AddTag" title="Add a tag to a blog entry" next="_yBBP8BT5EeG4uqUTUKgMSQ" previousScreen="_yOmY8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_Ggg7gBUREeG4uqUTUKgMSQ" name="validate" target="_dRviUBTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_G1ftABUREeG4uqUTUKgMSQ" name="viewLogs" target="_ZqzGQBTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_Edq6ABUREeG4uqUTUKgMSQ" description="Logs:" name="logs"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_EhtsgBUREeG4uqUTUKgMSQ" description="Tag:" name="tagDescription"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_FM0fABUREeG4uqUTUKgMSQ" name="hidden"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_F2o4EBUREeG4uqUTUKgMSQ" name="select" triggerAction="_9UtBIBTtEeGOO4BE7teOBA"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_zIfOUBT5EeG4uqUTUKgMSQ" name="RemoveTag" title="Remove a tag from a blog entry" next="_yBBP8BT5EeG4uqUTUKgMSQ" previousScreen="_yOmY8BT5EeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_moUlcBUREeG4uqUTUKgMSQ" name="validate" target="_dEZC0BTqEeGOO4BE7teOBA"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_mt5B8BUREeG4uqUTUKgMSQ" name="viewLogs" target="_ZqzGQBTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_kkZl4BUREeG4uqUTUKgMSQ" description="Logs:" name="logs"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_kqHzYBUREeG4uqUTUKgMSQ" description="Tag:" name="tagDescription"/>
+        <ownedWidgets xsi:type="cinematic:TextField" xmi:id="_lqcn8BUREeG4uqUTUKgMSQ" name="hidden"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_mXYmcBUREeG4uqUTUKgMSQ" name="select" triggerAction="_9UtBIBTtEeGOO4BE7teOBA"/>
+      </ownedScreens>
+    </ownedScenarios>
+    <ownedScenarios xmi:id="_WjbI0BTtEeGOO4BE7teOBA" name="monitoring">
+      <ownedScreens xmi:id="_yc09ABULEeG4uqUTUKgMSQ" name="Monitor" title="Monitoring Gomepage" next="_yhyVgBULEeG4uqUTUKgMSQ _y3_PABULEeG4uqUTUKgMSQ _ym5fABULEeG4uqUTUKgMSQ _yzB2gBULEeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_9KPdwBUSEeG4uqUTUKgMSQ" name="seeUsers"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_9TdEIBUSEeG4uqUTUKgMSQ" name="seeTags"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_9ajKoBUSEeG4uqUTUKgMSQ" name="seeComments"/>
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_9rzSsBUSEeG4uqUTUKgMSQ" name="seeCategories"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_8TrpMBUSEeG4uqUTUKgMSQ" description="View all users." name="viewUsers"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_8dqroBUSEeG4uqUTUKgMSQ" description="View all tags." name="viewTags"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_8hW40BUSEeG4uqUTUKgMSQ" description="View all comments." name="viewComments"/>
+        <ownedWidgets xsi:type="cinematic:Link" xmi:id="_8pkZoBUSEeG4uqUTUKgMSQ" description="View all categories." name="viewCategories"/>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yhyVgBULEeG4uqUTUKgMSQ" name="SeeUsers" title="See all the users" previousScreen="_yc09ABULEeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_LVDWoBUTEeG4uqUTUKgMSQ" name="show" target="_9sH_cRTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_Kmb9IBUTEeG4uqUTUKgMSQ" description="Users:" name="users">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+      </ownedScreens>
+      <ownedScreens xmi:id="_ym5fABULEeG4uqUTUKgMSQ" name="SeeTags" title="See all the tags" previousScreen="_yc09ABULEeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_LPGfoBUTEeG4uqUTUKgMSQ" name="show" target="_9yE2cBTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_KgK9EBUTEeG4uqUTUKgMSQ" description="Tags:" name="tags">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+      </ownedScreens>
+      <ownedScreens xmi:id="_yzB2gBULEeG4uqUTUKgMSQ" name="SeeComments" title="See all the comments" previousScreen="_yc09ABULEeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_LIYzoBUTEeG4uqUTUKgMSQ" name="show" target="_-GXrcBTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_KXjMkBUTEeG4uqUTUKgMSQ" description="Comments:" name="comments">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+      </ownedScreens>
+      <ownedScreens xmi:id="_y3_PABULEeG4uqUTUKgMSQ" name="SeeCategories" title="See all the categories" previousScreen="_yc09ABULEeG4uqUTUKgMSQ">
+        <ownedActions xsi:type="cinematic:ActionReference" xmi:id="_LDMxoBUTEeG4uqUTUKgMSQ" name="show" target="_97JS4BTpEeGOO4BE7teOBA"/>
+        <ownedWidgets xsi:type="cinematic:DisplayList" xmi:id="_KScDEBUTEeG4uqUTUKgMSQ" description="Categories:" name="categories">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedWidgets>
+      </ownedScreens>
+    </ownedScenarios>
+  </ownedElements>
+</overview:Root>
