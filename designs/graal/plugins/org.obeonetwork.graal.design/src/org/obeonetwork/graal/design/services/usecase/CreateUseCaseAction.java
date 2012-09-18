@@ -73,9 +73,10 @@ public class CreateUseCaseAction {
 			useCase.getTasks().addAll(tasks);
 			useCase.setName(enterNameDialog.getValue());
 			system.getUseCases().add(useCase);
+			return useCase;
 		}
 		
-		return context;
+		return null;
 	}
 
 	/**

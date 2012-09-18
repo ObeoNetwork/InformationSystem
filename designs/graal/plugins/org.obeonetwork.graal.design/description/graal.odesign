@@ -128,7 +128,7 @@
             <menuItemDescription xsi:type="tool:OperationAction" name="Create use case" precondition="&lt;%canExecuteCreateUseCaseAction($views)%>">
               <view name="views"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%executeCreateUseCaseAction($views)%>">
+                <firstModelOperations xsi:type="tool:If" conditionExpression="&lt;%executeCreateUseCaseAction($views) != null%>">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%eContainer(&quot;System&quot;)%>">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']"/>
                   </subModelOperations>
