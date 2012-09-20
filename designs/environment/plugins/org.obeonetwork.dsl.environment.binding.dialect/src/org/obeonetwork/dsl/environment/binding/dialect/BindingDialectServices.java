@@ -125,7 +125,6 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 	public void initRepresentations(Viewpoint viewpoint, EObject semantic) {
 	}
 	
-	@Override
 	protected <T extends RepresentationDescription> void initRepresentationForElement(T representationDescription, EObject semanticElement) {
 		
 	}
