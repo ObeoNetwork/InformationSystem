@@ -40,6 +40,8 @@ import org.obeonetwork.graal.design.ui.view.util.UserStoryLabelProvider;
 import org.obeonetwork.graal.design.ui.view.util.ViewpointMultiSelectionListener;
 
 import fr.obeo.dsl.viewpoint.DAnalysis;
+import fr.obeo.dsl.viewpoint.business.api.query.EObjectQuery;
+import fr.obeo.dsl.viewpoint.business.api.session.Session;
 
 
 
@@ -152,12 +154,19 @@ public class UserStoriesView extends ViewPart {
 
 	protected void update(DAnalysis analysis, List<EObject> selectedEObjects) {
 		if (analysis != null) {
-			this.activeAnalysis = analysis;
-			viewer.setInput(selectedEObjects);
-		} else {
-			this.activeAnalysis = null;
-			viewer.setInput(null);
+			// Retrieve the local analysis (for CDO projetcs)
+			Session session = (new EObjectQuery(analysis)).getSession();
+			if (session != null) {
+				EObject analysisEObject = session.getSessionResource().getContents().get(0);
+				if (analysisEObject instanceof DAnalysis) {
+					this.activeAnalysis = (DAnalysis)analysisEObject;
+					viewer.setInput(selectedEObjects);
+					return;
+				}
+			}
 		}
+		this.activeAnalysis = null;
+		viewer.setInput(null);
 	}
 	
 	/**

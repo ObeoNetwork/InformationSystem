@@ -19,7 +19,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.AbstractDecorator;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.swt.graphics.Color;
@@ -38,6 +37,8 @@ import fr.obeo.dsl.viewpoint.DDiagramElementContainer;
 import fr.obeo.dsl.viewpoint.DEdge;
 import fr.obeo.dsl.viewpoint.DNode;
 import fr.obeo.dsl.viewpoint.EdgeTarget;
+import fr.obeo.dsl.viewpoint.business.api.query.EObjectQuery;
+import fr.obeo.dsl.viewpoint.business.api.session.Session;
 import fr.obeo.dsl.viewpoint.diagram.edit.api.part.IDiagramElementEditPart;
 
 /**
@@ -258,15 +259,20 @@ public abstract class AbstractUserStoryDecorator extends AbstractDecorator {
 	
 	/**
 	 * Retrieves the DAnalysis instance from a diagram edit part
-	 * @param diagramEditPart Diagram edit part correspondig to an element on a viewpoint diagram
+	 * @param diagramEditPart Diagram edit part corresponding to an element on a viewpoint diagram
 	 * @return the DAnalysis instance
 	 */
 	private static DAnalysis getAnalysis(IDiagramElementEditPart diagramEditPart) {
 		EObject viewpointNode = diagramEditPart.resolveSemanticElement();
-		EObject container = EcoreUtil.getRootContainer(viewpointNode);
-		if (container != null && container instanceof DAnalysis) {
-			return (DAnalysis)container;
+//		EObject container = EcoreUtil.getRootContainer(viewpointNode);
+		Session session = (new EObjectQuery(viewpointNode)).getSession();
+		EObject analysisEObject = session.getSessionResource().getContents().get(0);
+		if (analysisEObject instanceof DAnalysis) {
+			return (DAnalysis)analysisEObject;
 		}
+//		if (container != null && container instanceof DAnalysis) {
+//			return (DAnalysis)container;
+//		}
 		return null;
 	}
 	
