@@ -3,8 +3,10 @@ package org.obeonetwork.weblog.dto;
 import java.text.DateFormat;
 import java.util.Date;
 
-import org.obeonetwork.sample.blog.BlogEntry;
-import org.obeonetwork.sample.users.User;
+import org.obeonetwork.demo.weblogng.business.blog.BlogEntry;
+import org.obeonetwork.demo.weblogng.business.users.User;
+
+
 
 public class BlogEntryDto {
 	

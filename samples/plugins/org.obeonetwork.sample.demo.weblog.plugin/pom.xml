@@ -9,7 +9,7 @@
 		</relativePath>
 	</parent>
 	<groupId>org.obeonetwork</groupId>
-	<artifactId>org.obeonetwork.sample.demo.weblog.plugin</artifactId>
+	<artifactId>org.obeonetwork.demo.weblog.plugin</artifactId>
 	<version>2.3.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>Binary distribution of the weblog IS samples</name>

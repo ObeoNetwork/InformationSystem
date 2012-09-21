@@ -6,7 +6,7 @@
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_qOKXIJUrEeGVoKWOXeOImQ" name="createAccount"/>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_4JfpkJUrEeGVoKWOXeOImQ" name="validate">
         <actions xmi:id="_u-4m0JW9EeGTAb45C6PYuw" name="login">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_yK3UtxU8Ed6MJuZ1DgufpA"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_yK3UtxU8Ed6MJuZ1DgufpA"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:SubflowState" xmi:id="__ut04JUzEeGVoKWOXeOImQ" subflow="_jl0mcJUFEeGPLurfxc-5pA"/>
@@ -26,7 +26,7 @@
       <states xsi:type="cinematic-flow:ViewState" xmi:id="_01BdYJUFEeGPLurfxc-5pA" name="EditAccount" viewContainers="_Sr7kQJUdEeGPLurfxc-5pA"/>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_dS3RAZW9EeGTAb45C6PYuw" name="validate">
         <actions xmi:id="_zd_2cJW9EeGTAb45C6PYuw" name="saveUser">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_yK3UtRU8Ed6MJuZ1DgufpA"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_yK3UtRU8Ed6MJuZ1DgufpA"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:SubflowState" xmi:id="_W1xjcJs8EeGKkcPykoue8Q" subflow="_jl0mcJUFEeGPLurfxc-5pA"/>
@@ -49,7 +49,7 @@
       <states xsi:type="cinematic-flow:ViewState" xmi:id="_y8tQ4JUFEeGPLurfxc-5pA" name="CreateAccount" viewContainers="_ESt6cJUGEeGPLurfxc-5pA"/>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_We0UIJUqEeGVoKWOXeOImQ" name="validate">
         <actions xmi:id="_HlG4cJUrEeGVoKWOXeOImQ" name="createUser">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_yK3UsxU8Ed6MJuZ1DgufpA"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_yK3UsxU8Ed6MJuZ1DgufpA"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:InitialState" xmi:id="_w2jvUJs9EeGKkcPykoue8Q" name="Initial"/>
@@ -127,7 +127,7 @@
       <states xsi:type="cinematic-flow:ViewState" xmi:id="_DqKmgJUjEeGPLurfxc-5pA" name="ViewLogs" viewContainers="_iogVsJUdEeGPLurfxc-5pA"/>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_-41QIJqhEeGA8JgdvWMT9A" name="reload">
         <actions xmi:id="_AxPjQJqiEeGA8JgdvWMT9A">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_yK2tpRU8Ed6MJuZ1DgufpA"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_yK2tpRU8Ed6MJuZ1DgufpA"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_EKwnUJqjEeG7yOTG23MrnQ" name="createLog"/>
@@ -141,7 +141,7 @@
       <states xsi:type="cinematic-flow:SubflowState" xmi:id="_SNiQMJtAEeGKkcPykoue8Q" subflow="_yBzHAJU1EeG7--L1D1l-7w"/>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_RC5CQJqhEeGA8JgdvWMT9A" name="addComment">
         <actions xmi:id="_Txv1MJqhEeGA8JgdvWMT9A" name="addComment">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_yfV9oC2rEd6XeveztOovgw"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_yfV9oC2rEd6XeveztOovgw"/>
         </actions>
       </states>
       <transitions xmi:id="_q3RowJUvEeGVoKWOXeOImQ" from="_6Wk7QJUiEeGPLurfxc-5pA" to="_DqKmgJUjEeGPLurfxc-5pA"/>
@@ -161,7 +161,7 @@
       <states xsi:type="cinematic-flow:ViewState" xmi:id="_ACswkJUjEeGPLurfxc-5pA" name="CreateLog" viewContainers="_e8sLQJUdEeGPLurfxc-5pA"/>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_0Y_PkJUvEeGVoKWOXeOImQ" name="validate">
         <actions xmi:id="_nrtZwJUxEeGVoKWOXeOImQ" name="create log">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_yK2tpRU8Ed6MJuZ1DgufpA"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_yK2tpRU8Ed6MJuZ1DgufpA"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:InitialState" xmi:id="_9VdMkJU1EeG7--L1D1l-7w" name="Initial"/>
@@ -243,51 +243,51 @@
       <states xsi:type="cinematic-flow:ViewState" xmi:id="_M51bEJUjEeGPLurfxc-5pA" name="GrantModerate" viewContainers="_q6INoJUdEeGPLurfxc-5pA"/>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_EJcRIJqBEeGM2OgxopQsFw" name="addRight">
         <actions xmi:id="_L5mawJqBEeGM2OgxopQsFw" name="addRight">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_p5efwC3GEd6XeveztOovgw"/>
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_yK37whU8Ed6MJuZ1DgufpA"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_p5efwC3GEd6XeveztOovgw"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_yK37whU8Ed6MJuZ1DgufpA"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_lnbIMZqfEeGA8JgdvWMT9A" name="removeRight">
         <actions xmi:id="_vvxRMJqfEeGA8JgdvWMT9A" name="removeRight">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_82vqcExkEd6lSvvC7DKCHA"/>
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_PydC4E9MEd6GCpJ8TZV-dw"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_82vqcExkEd6lSvvC7DKCHA"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_PydC4E9MEd6GCpJ8TZV-dw"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_ngb4QJqfEeGA8JgdvWMT9A" name="showUsers">
         <actions xmi:id="_3LHocJqfEeGA8JgdvWMT9A" name="showUsers">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_vGjDQDP1Ed6eVuTmNdt04g"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_vGjDQDP1Ed6eVuTmNdt04g"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_pZ57UJqfEeGA8JgdvWMT9A" name="showModerators">
         <actions xmi:id="_9S_loJqfEeGA8JgdvWMT9A" name="showModerators">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_vGjDQDP1Ed6eVuTmNdt04g"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_vGjDQDP1Ed6eVuTmNdt04g"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_qkvWwJqfEeGA8JgdvWMT9A" name="showAdmins">
         <actions xmi:id="_CdRSIJqgEeGA8JgdvWMT9A">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_vGjDQDP1Ed6eVuTmNdt04g"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_vGjDQDP1Ed6eVuTmNdt04g"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_ZttSwJqgEeGA8JgdvWMT9A" name="addRight">
         <actions xmi:id="_msy_YJqgEeGA8JgdvWMT9A" name="addRight">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_gmc1MC3GEd6XeveztOovgw"/>
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_yK37whU8Ed6MJuZ1DgufpA"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_gmc1MC3GEd6XeveztOovgw"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_yK37whU8Ed6MJuZ1DgufpA"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_auPisJqgEeGA8JgdvWMT9A" name="showUsers">
         <actions xmi:id="_sHOAsJqgEeGA8JgdvWMT9A" name="showUsers">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_vGjDQDP1Ed6eVuTmNdt04g"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_vGjDQDP1Ed6eVuTmNdt04g"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_b-Ey4JqgEeGA8JgdvWMT9A" name="removeRight">
         <actions xmi:id="_xM12sJqgEeGA8JgdvWMT9A" name="removeRight">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_JP_fEExlEd6lSvvC7DKCHA"/>
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_HNDHwE9WEd6G9-ZFcTmHjA"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_JP_fEExlEd6lSvvC7DKCHA"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_HNDHwE9WEd6G9-ZFcTmHjA"/>
         </actions>
       </states>
       <states xsi:type="cinematic-flow:ActionState" xmi:id="_er2AsJqgEeGA8JgdvWMT9A" name="showModerators">
         <actions xmi:id="_2TJCIJqgEeGA8JgdvWMT9A">
-          <operations href="../../org.obeonetwork.sample.demo.weblogng.soa/models/weblog.soa#_vGjDQDP1Ed6eVuTmNdt04g"/>
+          <operations href="../../org.obeonetwork.demo.weblogng.soa/models/weblog.soa#_vGjDQDP1Ed6eVuTmNdt04g"/>
         </actions>
       </states>
       <transitions xmi:id="_zRqUUJqDEeGXDqPWff9aMw" from="_LKJmIJUjEeGPLurfxc-5pA" to="_EJcRIJqBEeGM2OgxopQsFw" on="_64Vx0JqDEeGXDqPWff9aMw"/>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.obeonetwork.sample.demo.weblogng.ui</name>
+	<name>org.obeonetwork.demo.weblogng.ui</name>
 	<comment></comment>
 	<projects>
-		<project>org.obeonetwork.sample.demo.weblogng.business</project>
-		<project>org.obeonetwork.sample.demo.weblogng.soa</project>
+		<project>org.obeonetwork.demo.weblogng.business</project>
+		<project>org.obeonetwork.demo.weblogng.soa</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

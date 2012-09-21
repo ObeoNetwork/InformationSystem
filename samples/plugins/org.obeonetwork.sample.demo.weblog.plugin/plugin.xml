@@ -33,10 +33,10 @@
       <wizard
             canFinishEarly="true"
             category="org.eclipse.ui.Examples/org.obeonetwork.samples.demo"
-            class="org.obeonetwork.sample.demo.weblog.plugin.wizard.WeblogSpringDemoWizard"
+            class="org.obeonetwork.demo.weblog.plugin.wizard.WeblogSpringDemoWizard"
             hasPages="false"
             icon="icons/weblog.gif"
-            id="org.obeonetwork.sample.demo.weblog.spring"
+            id="org.obeonetwork.demo.weblog.spring"
             name="Weblog Demo - 3 Layers">
          <description>The weblog demo in 3 layers from Obeo DSM</description>
       </wizard>
@@ -51,10 +51,10 @@
       <wizard
             canFinishEarly="true"
             category="org.eclipse.ui.Examples/org.obeonetwork.samples.demo"
-            class="org.obeonetwork.sample.demo.weblog.plugin.wizard.WeblogNGDemoWizard"
+            class="org.obeonetwork.demo.weblog.plugin.wizard.WeblogNGDemoWizard"
             hasPages="false"
             icon="icons/weblogNG.gif"
-            id="org.obeonetwork.sample.demo.weblogng"
+            id="org.obeonetwork.demo.weblogng"
             name="Weblog Demo - 4 Layers">
          <description>The weblog demo in 4 layers from Obeo DSM</description>
       </wizard>
@@ -69,7 +69,7 @@
       <wizard
             canFinishEarly="true"
             category="org.eclipse.ui.Examples/org.obeonetwork.samples.demo"
-            class="org.obeonetwork.sample.demo.weblog.plugin.wizard.NewEmptyProjectWizard"
+            class="org.obeonetwork.demo.weblog.plugin.wizard.NewEmptyProjectWizard"
             hasPages="false"
             icon="icons/weblog.gif"
             id="org.obeonetwork.sample.demo.emptyproject"
