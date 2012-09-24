@@ -9,7 +9,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  * /]
-[module resources('http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[module resources('http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/environment/2.0.0')/]
 
 [import org::obeonetwork::dsl::environment::gen::java::common::common /]
 [import org::obeonetwork::dsl::cinematic::gen::java::struts::architecture::common::names /]
@@ -39,8 +39,10 @@
 		[/for]
 #Error Messages
 		[for (element : ViewElement | viewState.getViewElements()->filter(ViewElement))]
-			[if (not (element.widget.name = 'Table' or element.widget.name = 'Label'))]
-[element.type.error(viewState, widget)/]
+			[if (not(element.oclIsUndefined()) and not (element.widget.name = 'Table' or element.widget.name = 'Label' or element.oclIsUndefined()))]
+[let type : environment::Type = element.type]
+[error(type, viewState, widget)/]
+[/let]
 			[/if]
 		[/for]
 #[/protected] for [viewState.name/]

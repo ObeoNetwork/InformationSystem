@@ -42,18 +42,22 @@
 	[root.validatorRules()/]
 	[root.globalTilesdef()/]
 	
-	[for (flow : Flow | root.eAllContents(Flow)->reject(f : Flow | f.oclIsUndefined()))]
+	[let flows : OrderedSet(Flow) = root.eAllContents(Flow)->reject(f : Flow | f.oclIsUndefined())->asOrderedSet()]
+	[for (flow : Flow | flows)]
 		[flow.tilesdefs()/]
-		[flow.tilesdefsFr()/]
+		[flow.tilesdefsFr()/]s
 		[flow.strutsConfigScenario()/]
 		[flow.validateXML()/]
 		[flow.applicationContextScenario()/]
 	[/for]	
+	[/let]
 	
-	[for (viewState : ViewState | root.eAllContents(ViewState)->reject(v : ViewState | v.oclIsUndefined()))]
+	[let viewStates : OrderedSet(ViewState) = root.eAllContents(ViewState)->reject(v : ViewState | v.oclIsUndefined())->asOrderedSet()]
+	[for (viewState : ViewState | viewStates)]
 		[viewState.actions()/]
 		[viewState.forms()/]
 		[viewState.testAction()/]
 	[/for]
+	[/let]
 	
 [/template]
