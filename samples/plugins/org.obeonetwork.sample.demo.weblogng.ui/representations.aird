@@ -10,6 +10,8 @@
     <details>LabelAlignmentForDNodeMigrationForNotHavingSessionDirtyAtOpening</details>
     <details>GMFViewSizeForDNodeNotResizable</details>
     <details>sequenceAbsoluteBoundsFlag</details>
+    <details>GMFTreeEdgeFixAnchors_2</details>
+    <details>RoutingStyleDesynchronization</details>
   </eAnnotations>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_tBCjsJUFEeGPLurfxc-5pA" initialized="true">
     <ownedRepresentations xmi:type="tree:DTree" xmi:id="_l3LIkJUGEeGPLurfxc-5pA" name="weblog UI Structure">
@@ -10911,7 +10913,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_9aoAcJU1EeG7--L1D1l-7w" name="create log validate" outgoingEdges="_F05eEJU2EeG7--L1D1l-7w" incomingEdges="_9auHEJU1EeG7--L1D1l-7w" width="-1" height="-1" resizeKind="NSEW">
+      <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_9aoAcJU1EeG7--L1D1l-7w" name="validate" outgoingEdges="_F05eEJU2EeG7--L1D1l-7w" incomingEdges="_9auHEJU1EeG7--L1D1l-7w" width="-1" height="-1" resizeKind="NSEW">
         <target xmi:type="cinematic-flow:ActionState" href="models/weblog.cinematic#_0Y_PkJUvEeGVoKWOXeOImQ"/>
         <semanticElements xmi:type="cinematic-flow:ActionState" href="models/weblog.cinematic#_0Y_PkJUvEeGVoKWOXeOImQ"/>
         <decorations xmi:type="viewpoint:Decoration" xmi:id="_9as48JU1EeG7--L1D1l-7w">
@@ -10951,7 +10953,7 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_9aqctJU1EeG7--L1D1l-7w" red="255" green="255" blue="255"/>
         </ownedStyle>
         <actualMapping xmi:type="description:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@optionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']"/>
-        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_9arDwJU1EeG7--L1D1l-7w" name="title : Label">
+        <ownedElements xmi:type="viewpoint:DNodeListElement" xmi:id="_9arDwJU1EeG7--L1D1l-7w" name="title : Text">
           <target xmi:type="cinematic-view:ViewElement" href="models/weblog.cinematic#_7D3mcJUfEeGPLurfxc-5pA"/>
           <semanticElements xmi:type="cinematic-view:ViewElement" href="models/weblog.cinematic#_7D3mcJUfEeGPLurfxc-5pA"/>
           <ownedStyle xmi:type="viewpoint:Square" xmi:id="_9arq0JU1EeG7--L1D1l-7w" labelAlignment="LEFT">
