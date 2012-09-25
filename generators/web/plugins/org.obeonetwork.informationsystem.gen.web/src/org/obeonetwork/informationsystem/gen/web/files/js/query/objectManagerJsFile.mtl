@@ -1,0 +1,84 @@
+[comment encoding = UTF-8 /]
+[module objectManagerJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+
+[template public genObjectManager(anEClass: EClass) {
+		This : String = genObjectManagerIdent();
+		WsObject : String = genWsObjectIdent(anEClass);
+
+		object : String = genObjectIdent(anEClass).toVarIdent();
+		objects : String = genObjectIdent(anEClass).toVarIdent().toPluralIdent();
+		Objects : String = genObjectIdent(anEClass).toTypeIdent().toPluralIdent();
+}]
+[file (genJsFullPath(genObjectManagerFileRPath(anEClass)), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.8.0')/]
+[genAMDHeader(
+	Sequence{genWsObjectFileRPath(anEClass)}, 
+	Sequence{WsObject}
+)/]
+
+	var [This/] = {};
+
+	[This/].async_all = function(cb_function) {
+		
+		var cb_[objects/] = function([objects/]) {
+			cb_function([objects/]);
+		};
+		
+		[WsObject/].all(cb_[objects/]);
+	};
+	
+	[This/].async_allProxies = function(cb_function) {
+		
+		var cb_[object/]Proxies = function([object/]Proxies) {
+			cb_function([object/]Proxies);
+		};
+		
+		[WsObject/].allProxies(cb_[object/]Proxies);
+	};
+
+	[This/].async_countAll = function(cb_function) {
+		
+		var cb_countAll[objects/] = function(count) {
+			cb_function(count);
+		};
+		
+		[WsObject/].countAll[Objects/](cb_countAll[objects/]);
+	};
+	
+	[This/].async_allByRows = function(cb_function, nbElemByRow, rowId) {
+		
+		var cb_allByRows = function([objects/]) {
+			cb_function([objects/]);
+		};
+		
+		[WsObject/].allByRows(cb_allByRows, nbElemByRow, rowId);
+	};
+	
+	[This/].async_byId = function(cb_function, id) {
+		
+		var cb_[object/] = function([object/]) {
+			cb_function([object/]);
+		};
+		
+		[WsObject/].[object/](cb_[object/], id);
+	};
+
+	[This/].async_stats = function(cb_function) {
+		
+		var cb_[object/]Stats = function([object/]) {
+			cb_function([object/]);
+		};
+		
+		[WsObject/].stats(cb_[object/]Stats);
+	};
+	
+	return [This/];
+});
+	[/file]
+[/template]

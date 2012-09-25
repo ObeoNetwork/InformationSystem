@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.obeonetwork.org/dsl/application/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:ecorebinding="http://www.obeonetwork.org/dsl/ecorebinding/1.0.0">
+  <bindingRegistries description="Choco Registry">
+    <bindingInfos bindingRegistries="//@bindingRegistries.0">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.1/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.0">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.1/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.0">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.1/@ownedElements.1"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.0">
+      <left xsi:type="cinematic-view:ViewContainer" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.2"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.0">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.1/@subPackages.0/@viewContainers.2/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.0">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.2/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.1/@ownedElements.1"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.1/@ownedElements.2"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.1/@ownedElements.3"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewContainer" href="choco.cinematic#//@viewContainers.1"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
+    </bindingInfos>
+  </bindingRegistries>
+  <bindingRegistries description="Office Registry">
+    <bindingInfos bindingRegistries="//@bindingRegistries.1">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.2/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.1">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.2/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.1">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.2/@ownedElements.1"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.1">
+      <left xsi:type="cinematic-view:ViewContainer" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.1"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.1">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.1/@subPackages.0/@viewContainers.1/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.1">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.1/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.2/@ownedElements.1"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.2/@ownedElements.2"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.2/@ownedElements.3"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewContainer" href="choco.cinematic#//@viewContainers.2"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
+    </bindingInfos>
+  </bindingRegistries>
+  <bindingRegistries description="User Registry">
+    <bindingInfos bindingRegistries="//@bindingRegistries.2">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.0/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.2">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.0/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.2">
+      <left xsi:type="cinematic-view:ViewContainer" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.2">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.1/@subPackages.0/@viewContainers.0/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos bindingRegistries="//@bindingRegistries.2">
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.0/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.0/@ownedElements.1"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.0/@ownedElements.3"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.0/@ownedElements.2"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewContainer" href="choco.cinematic#//@viewContainers.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+      <right xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.0/@ownedElements.0"/>
+    </bindingInfos>
+  </bindingRegistries>
+  <bindingRegistries description="Admin Registry">
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.4/@ownedElements.0"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.4/@ownedElements.2"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#//@viewContainers.4/@ownedElements.1"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+    <bindingInfos>
+      <left xsi:type="cinematic-view:ViewContainer" href="choco.cinematic#//@viewContainers.4"/>
+      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
+    </bindingInfos>
+  </bindingRegistries>
+  <ecoreModel href="Binding/AppChoco.ecore#/"/>
+  <cinematicModel href="choco.cinematic#/"/>
+  <ecoreBindingModel href="Binding/AppChoco.ecorebinding#/"/>
+</application:Configuration>

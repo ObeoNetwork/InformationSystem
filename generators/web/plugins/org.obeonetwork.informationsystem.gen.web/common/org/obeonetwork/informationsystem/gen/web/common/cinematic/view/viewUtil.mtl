@@ -1,0 +1,37 @@
+[comment encoding = UTF-8 /]
+[module viewUtil('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')]
+
+[query public isAReference(absViewElem : AbstractViewElement) : Boolean = absViewElem.resolveInstance().oclIsKindOf(ViewContainerReference) /]
+
+[**
+ * Help to bypass a cinematic problem. We can not call directly the widget reference on a ViewContainerReference. 
+ * @param absViewElem the view element context
+ */]
+[query public resolveInstance(absViewElem : AbstractViewElement) : AbstractViewElement = 
+if absViewElem.oclIsKindOf(ViewContainerReference) then 
+	absViewElem.oclAsType(ViewContainerReference).viewContainer 
+else 
+	absViewElem 
+endif 
+/]
+
+[**
+ * Get all subElements like sub ViewContainer. 
+ * @param absViewElem the view element context
+ */]
+[query public allViewElems(absViewElem : AbstractViewElement) : OrderedSet(AbstractViewElement) = 
+absViewElem.eAllContents(cinematic::view::AbstractViewElement)->append(absViewElem)->asOrderedSet()
+/]
+
+[**
+ * Return true if this absViewElem is bound by an Ecore Class. 
+ * @param absViewElem the view element context
+ */]
+[query public isBound(absViewElem : AbstractViewElement) : Boolean = absViewElem.resolveInstance().eInverse(BindingInfo).targets->filter(ecorebinding::BClass)->size()>0 /]
+
+[**
+ * Return the EClass bound on this absViewElem . 
+ * @param absViewElem the view element context
+ */]
+[query public reqBoundEClass(absViewElem : AbstractViewElement) : ecore::EClass = absViewElem.resolveInstance().eInverse(BindingInfo).targets->filter(ecorebinding::BClass)->first().ecoreClass /]
+

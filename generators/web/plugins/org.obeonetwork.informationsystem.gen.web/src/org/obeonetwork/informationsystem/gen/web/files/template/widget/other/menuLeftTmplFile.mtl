@@ -1,0 +1,32 @@
+[comment encoding = UTF-8 /]
+[module menuLeftTmplFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::cinematicUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::flowUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::toolkitUtil /]
+
+[template public genTmplMenuLeft(aN1Flow : Flow)]
+[file (genTmplMenuLeftFilePath().concat('.tmpl'), false, 'UTF-8')]
+[genHtmlCopyrightHeader()/]
+[genTmplHeader('1.0.0')/]
+[wrapScriptSign(genTmplMenuLeftIdent(aN1Flow), defaultTemplate())/]
+
+[/file]
+[/template]
+
+[template protected defaultTemplate (aN1Flow : Flow) ]
+<ul class="nav nav-list">
+<li class="nav-header">
+	News
+</li>
+[for (aViewContainer : ViewContainer | aN1Flow.reqSubFlows().nextViewStates().nextViewContainers()->select(isWidgetContainer())->asOrderedSet())]
+<li [if (i=1)]class="active"[/if]>
+	<a href="#" class="[aViewContainer.name.toViewIdent()/]"><i class="icon-gift icon-home"></i> [aViewContainer.label/]</a>
+</li>
+[/for]
+</ul>
+[/template]

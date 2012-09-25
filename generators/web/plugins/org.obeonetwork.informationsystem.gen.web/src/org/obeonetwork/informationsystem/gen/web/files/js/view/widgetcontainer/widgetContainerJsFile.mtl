@@ -1,0 +1,113 @@
+[comment encoding = UTF-8 /]
+[module widgetContainerJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::toolkitUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::flowUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::transitionUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::cinematicUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::view::viewUtil /]
+
+[query public reqStaticWidgets(aWidgetContainer : ViewContainer) : Sequence(AbstractViewElement) = aWidgetContainer.allSubViewElements()->select(isJsWidget())->asSequence() /]
+
+
+[template public genWidgetContainer(aWidgetContainer : ViewContainer) ? (isWidgetContainer()) {
+		This : String = genWidgetContainerFileIdent();
+		Ember : String = genEmberIdent();
+
+		App : String = genAppIdent();
+		AppPath : String = genAppFileRPath();
+
+		Widgets : Sequence(AbstractViewElement) = aWidgetContainer.reqStaticWidgets();
+		WidgetPaths: Sequence(String) = Sequence{AppPath}->unionOrdered(Widgets.genJsWidgetFileRPath())->asOrderedSet()->asSequence();
+		WidgetIdents: Sequence(String) = Sequence{App}->unionOrdered(Widgets.genJsWidgetIdent())->asOrderedSet()->asSequence();
+}]
+[file (genJsFullPath(genWidgetContainerFileRPath()), false, 'UTF-8')]
+
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.4.0')/]
+
+[genAMDHeader(
+	WidgetPaths, 
+	Sequence{Ember},
+	WidgetIdents
+)/]
+	
+	var [This/] = {};
+	
+	var templateName = "[aWidgetContainer.toViewIdent()/]";
+	
+	var _Class = Em.ContainerView.extend({ classNames: ['['/]templateName[']'/] });
+	
+	/*
+	 * create an incoming choco View
+	 * @return the view instance
+	 */
+	[This/].create = function() {
+		[for (viewElem : AbstractViewElement | Widgets)]
+		var [viewElem.name.toVarIdent()/] = [viewElem.genJsWidgetIdent()/].create();
+		[/for]
+		
+		var view = _Class.create({
+	
+			childViews: ['['/][for (viewElem : AbstractViewElement | Widgets)]'[viewElem.name.toVarIdent()/]'[if(i<Widgets->size())], [/if][/for][']'/],
+			[for (viewElem : AbstractViewElement | Widgets)]
+			[viewElem.name.toVarIdent()/] : [viewElem.name.toVarIdent()/],
+			[/for]
+			
+			didInsertElement : cb_whenInsert,
+
+			[for (aTransitionOut : String | aWidgetContainer.viewStates().reqTransitionsLeaveFrom()->select(not(to.oclIsUndefined()) and to.oclIsKindOf(ViewState) and isOnClick()).toIdent().toVarIdent())]
+			[aTransitionOut/] : cb_[aTransitionOut/],
+			[/for]
+
+			[for (aTransitionIn : String | aWidgetContainer.viewStates().reqTransitionsIncomeTo()->select(not(from.oclIsUndefined()) and from.oclIsKindOf(ViewState) and (isClose() or isAdd())).toIdent().toVarIdent()->asOrderedSet())]
+			[aTransitionIn/] : cb_[aTransitionIn/],
+			[/for]
+
+			[if(aWidgetContainer.ownedElements->select(isPagination())->size()>0)]
+			paginationChange : cb_paginationChange
+			[/if]
+		});
+		
+		return view;
+		
+	};
+
+	/*call backs*/
+	var cb_whenInsert = function() {
+		
+		this.paginationChange();
+	};
+	
+	[aWidgetContainer.paginationChange() /]
+
+	return [This/];
+});
+	[/file]
+[/template]
+
+
+[template private eventCallBack(eventIdent : String, origin : AbstractViewElement, target : AbstractViewElement)]
+// [eventIdent/] event call back has been bypass (Widget Type problem or not dynamic support)
+[/template]
+
+
+[template private paginationChange(aWidgetContainer : ViewContainer) ? (aWidgetContainer.ownedElements->select(isPagination())->size()>0) {
+		This : String = genWidgetContainerFileIdent();
+		App : String = genAppIdent();
+		boundEClass : ecore::EClass = aWidgetContainer.reqBoundEClass();
+} ]
+var cb_paginationChange = function(pageId) {
+	[let paginationVars : Sequence(String) = aWidgetContainer.ownedElements->select(isPagination()).name.toVarIdent()]
+	[let listVars : Sequence(String) = aWidgetContainer.ownedElements->select(isObjectList()).name.toVarIdent()]
+		[for (listVar : String | listVars)]
+	[App/].[genCommonCtrlIdent().toVarIdent()/].load[boundEClass.toPluralIdent()/]InWidget(this.[listVar/], ['['/][for (paginationVar : String | paginationVars)][if (i>1)], [/if]this.[paginationVar/][/for][']'/], pageId);
+		[/for]
+	[/let]
+	[/let]
+}
+[/template]

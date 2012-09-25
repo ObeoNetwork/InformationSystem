@@ -1,0 +1,90 @@
+[comment encoding = UTF-8 /]
+[module commonEventsJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genCommonEvents(aConfiguration : Configuration) {
+		This : String = genCommonEventsIdent();
+		App : String = genAppIdent();
+		ProviderDelegation : String = genProviderDelegationIdent();
+
+		commonCtrl : String = genCommonCtrlIdent().toVarIdent();
+}]
+[file (genJsFullPath(genCommonEventsFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.3.0')/]
+[genAMDHeader(
+	Sequence{genAppFileRPath(), genProviderDelegationFileRPath()}, 
+	Sequence{App, ProviderDelegation}
+)/]
+
+	var [This/] = {};
+	
+	function _init() {
+		_initSignOut();
+		_initSignUp();
+		_initSignHmarchadour();
+		_initSignModerator();
+		_initSignAdmin();
+	}
+
+
+	[This/].start = function() {
+		_init();
+	};
+	
+	function _initSignHmarchadour() {
+		
+		$("#sign-hmarchadour").click(function(event) {
+			var redirect = [ProviderDelegation/].getUrl4Login("?hmarchadour=true");
+			$(this).attr("href", redirect);
+		});
+	}
+	
+	function _initSignModerator() {
+		
+		$("#sign-moderator").click(function(event) {
+			var redirect = [ProviderDelegation/].getUrl4Login("?moderator=true");
+		$(this).attr("href", redirect);
+		});
+	}
+	
+	function _initSignAdmin() {
+		
+		$("#sign-admin").click(function(event) {
+			var redirect = [ProviderDelegation/].getUrl4Login("?admin=true");
+		$(this).attr("href", redirect);
+		});
+	}
+	
+	function _initSignOut() {
+		
+		$("#sign-out").click(function(event) {
+			event.preventDefault(); // prevent the standard link click
+			[App/].[commonCtrl/].signOut();
+		});
+	};
+	
+	function _initSignUp() {
+		$("#sign-up").click(function(event) {
+			
+			/*event.preventDefault(); // prevent the standard link click
+			
+			var state = $(this).attr("class");
+			
+			if(state === "active") {
+				$(this).removeClass("active");
+				[App/].[commonCtrl/].hideSignUp();
+			} else {
+				$(this).addClass("active");
+				[App/].[commonCtrl/].showSignUp();
+			}*/
+		});
+	};
+	
+	return [This/];
+});
+	[/file]
+[/template]

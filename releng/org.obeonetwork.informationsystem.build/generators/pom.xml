@@ -18,38 +18,40 @@
 		<!-- 
 		*********************************************************************************************
 		* Models
-		*********************************************************************************************
+		*********************************************************************************************-->
 		<module>../../../models/environment/plugins/org.obeonetwork.dsl.environment</module>
 		<module>../../../models/environment/plugins/org.obeonetwork.dsl.environment.edit</module>
 		<module>../../../models/environment/plugins/org.obeonetwork.dsl.environment.editor</module>
 		<module>../../../models/environment/plugins/org.obeonetwork.dsl.environment.common</module>
-		
 		<module>../../../models/environment/features/org.obeonetwork.dsl.feature.environment</module>
-		<module>../../../models/environment/releng/org.obeonetwork.dsl.environment.repository</module>
 
 		<module>../../../models/entity/plugins/org.obeonetwork.dsl.entity</module>
 		<module>../../../models/entity/plugins/org.obeonetwork.dsl.entity.edit</module>
 		<module>../../../models/entity/plugins/org.obeonetwork.dsl.entity.editor</module>
-		
 		<module>../../../models/entity/features/org.obeonetwork.dsl.feature.entity</module>
-		<module>../../../models/entity/releng/org.obeonetwork.dsl.entity.repository</module>
 
 	
 		<module>../../../models/soa/plugins/org.obeonetwork.dsl.soa</module>
 		<module>../../../models/soa/plugins/org.obeonetwork.dsl.soa.edit</module>
 		<module>../../../models/soa/plugins/org.obeonetwork.dsl.soa.editor</module>
-		
 		<module>../../../models/soa/features/org.obeonetwork.dsl.feature.soa</module>
-		<module>../../../models/soa/releng/org.obeonetwork.dsl.soa.repository</module>
 
 		<module>../../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic</module>
 		<module>../../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.edit</module>
 		<module>../../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.editor</module>
 		<module>../../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.doc</module>
-		
 		<module>../../../models/cinematic/features/org.obeonetwork.dsl.feature.cinematic</module>
-		<module>../../../models/cinematic/releng/org.obeonetwork.dsl.cinematic.repository</module>
-		-->
+		
+		<module>../../../models/ecorebinding/plugins/org.obeonetwork.dsl.ecorebinding</module>
+		<module>../../../models/ecorebinding/plugins/org.obeonetwork.dsl.ecorebinding.edit</module>
+		<module>../../../models/ecorebinding/plugins/org.obeonetwork.dsl.ecorebinding.editor</module>
+		<module>../../../models/ecorebinding/features/org.obeonetwork.dsl.ecorebinding.feature</module>
+
+		<module>../../../models/application/plugins/org.obeonetwork.dsl.application</module>
+		<module>../../../models/application/plugins/org.obeonetwork.dsl.application.edit</module>
+		<module>../../../models/application/plugins/org.obeonetwork.dsl.application.editor</module>
+		<module>../../../models/application/features/org.obeonetwork.dsl.application.feature</module>
+		
 
 		<!-- 
 		*********************************************************************************************
@@ -121,6 +123,14 @@
 		<module>../../../generators/spring-hibernate/plugins/org.obeonetwork.dsl.soa.gen.java.spring.hibernate</module>		
 		<module>../../../generators/spring-hibernate/plugins/org.obeonetwork.dsl.soa.ui</module>		
 		<module>../../../generators/spring-hibernate/features/org.obeonetwork.dsl.soa.gen.java.spring.hibernate.feature</module>
+		
+		<!-- 
+		*********************************************************************************************
+		* Web Generator Modules
+		*********************************************************************************************
+		-->
+		<module>../../../generators/web/plugins/org.obeonetwork.informationsystem.gen.web</module>	
+		<module>../../../generators/web/features/org.obeonetwork.informationsystem.gen.web.feature</module>
 		
 		<!-- 
 		*********************************************************************************************

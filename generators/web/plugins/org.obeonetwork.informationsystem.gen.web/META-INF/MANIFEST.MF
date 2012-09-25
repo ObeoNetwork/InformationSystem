@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Web generator
+Bundle-SymbolicName: org.obeonetwork.informationsystem.gen.web
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.obeonetwork.informationsystem.gen.web.Activator
+Bundle-Vendor: Obeo.fr
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.ocl,
+ org.eclipse.ocl.ecore,
+ org.eclipse.acceleo.common;bundle-version="3.0.0",
+ org.eclipse.acceleo.model;bundle-version="3.0.0",
+ org.eclipse.acceleo.profiler;bundle-version="3.0.0",
+ org.eclipse.acceleo.engine;bundle-version="3.0.0",
+ com.google.guava,
+ org.obeonetwork.dsl.application;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: org.obeonetwork.informationsystem.gen.web.main
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+

@@ -1,0 +1,47 @@
+[comment encoding = UTF-8 /]
+[module objectListTmplFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
+
+
+[template public genTmplObjectList(anEClass: EClass)]
+[file (genTmplObjectListFilePath().concat('.tmpl'), false, 'UTF-8')]
+[genHtmlCopyrightHeader()/]
+[genTmplHeader(anEClass, '0.3.0')/]
+
+[wrapScriptSign(genTmplObjectListIdent(anEClass), defaultTemplate(anEClass))/]
+
+[/file]
+[/template]
+
+
+[template protected defaultTemplate (anEClass: EClass) { 
+	contextName : String = anEClass.toVarIdent(); 
+}]
+	{{#with content as [contextName/]}}
+	
+	<div class="well">
+		<div class="btn-group">
+			<a {{action "editAction" context="[contextName/]"}} class="btn btn-inverse" href="#"><i class=""></i> 
+				[genTitle(anEClass)/]
+			</a>
+			<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li>
+					<a {{action "editAction" context="[contextName/]"}} href="#"><i class="icon-pencil"></i> Edit</a>
+				</li>
+				<li>
+					<a {{action "removeAction" context="[contextName/]"}} href="#"><i class="icon-trash"></i> Delete</a>
+				</li>
+			</ul>
+		</div>
+		<ul class="[contextName/]-row">
+			[for (aStrucFeature : EStructuralFeature | (anEClass.eAllStructuralFeatures)->select(not(unsettable)))]
+			[genTmplDisplayFeature(anEClass, aStrucFeature)/]
+			[/for]
+		</ul>
+	</div>
+	
+	{{/with}}
+[/template]

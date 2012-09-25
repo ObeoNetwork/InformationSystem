@@ -1,0 +1,69 @@
+[comment encoding = UTF-8 /]
+[module flowUtil('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::view::viewUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::toolkitUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::transitionUtil /]
+
+[**
+ * get all subflows of this flow.
+ * @param aFlowState the flow context
+ */]
+[query public reqSubFlows(aFlow : Flow) : OrderedSet(Flow) = aFlow.eAllContents(SubflowState).subflow->asOrderedSet() /]
+
+[**
+ * get all subFlow in link from this flowState.
+ * @param aFlowState the flow context
+ */]
+[query public nextSubFlows(aFlowState : FlowState) : OrderedSet(Flow) = aFlowState.reqFlowStatesLeaveFrom()->filter(SubflowState).subflow->asOrderedSet() /]
+
+[**
+ * get all view states in link from this flowState.
+ * @param aFlowState the flow context
+ */]
+[query public nextViewStates(aFlow : Flow) : OrderedSet(ViewState) = aFlow.states.nextViewStates()->asOrderedSet() /]
+
+
+[**
+ * get all view states in link from this flowState.
+ * @param aFlowState the flow state context
+ */]
+[query public nextViewStates(aFlowState : FlowState) : OrderedSet(ViewState) = aFlowState.reqFlowStatesLeaveFrom()->filter(ViewState)->asOrderedSet() /]
+
+[**
+ * get all View Elems in link from this aFlowState.
+ * @param aFlowState the flow state context
+ */]
+[query public nextViewContainers(aFlowState : FlowState) : OrderedSet(ViewContainer) = 
+if aFlowState.oclIsKindOf(ViewState) then
+	aFlowState.oclAsType(ViewState).viewContainers->union(aFlowState.nextViewStates().viewContainers->asOrderedSet())->asOrderedSet() 
+else
+	aFlowState.nextViewStates().viewContainers->asOrderedSet() 
+endif/]
+
+[**
+ * get all View Elems in link from this aFlowState.
+ * @param aFlowState the flow state context
+ */]
+[query public nextDynamicViewContainers(aFlowState : FlowState) : OrderedSet(ViewContainer) = aFlowState.nextViewContainers()->select(isDynamicContainer()) /]
+
+[query public reqWidgetContainers(aN1Flow : Flow) : OrderedSet(ViewContainer) = aN1Flow.reqSubFlows().nextViewStates().nextViewContainers()->select(isWidgetContainer())->asOrderedSet() /]
+
+[**
+ * get all FlowStates that have a transition that leave from or income to this viewState.
+ * @param aFlowState the flow state context
+ */]
+[query public reqAllFlowStates(aFlowState : FlowState) : OrderedSet(FlowState) = aFlowState.reqFlowStatesIncomeTo()->union(aFlowState.reqFlowStatesLeaveFrom())->asOrderedSet() /]
+
+[**
+ * get all FlowStates that have a transition that leave from this viewState.
+ * @param aFlowState the flow state context
+ */]
+[query public reqFlowStatesLeaveFrom(aFlowState : FlowState) : OrderedSet(FlowState) = aFlowState.reqTransitionsLeaveFrom().to->asOrderedSet() /]
+
+[**
+ * get all FlowStates that have a transition that income to this viewState.
+ * @param aFlowState the flow state context
+ */]
+[query public reqFlowStatesIncomeTo(aFlowState : FlowState) : OrderedSet(FlowState) = aFlowState.reqTransitionsIncomeTo().from->asOrderedSet() /]
+

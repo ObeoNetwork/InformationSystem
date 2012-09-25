@@ -1,0 +1,98 @@
+[comment encoding = UTF-8 /]
+[module logManagerJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genLogManager(aConfiguration : Configuration) {
+		This : String = genLogManagerIdent();
+		App : String = genAppIdent();
+		SecurityUtil : String = genSecurityUtilIdent();
+		ProviderDelegation : String = genProviderDelegationIdent();
+}]
+[file (genJsFullPath(genLogManagerFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.7.0')/]
+
+[genAMDHeader(Sequence{genSecurityUtilFileRPath(), genProviderDelegationFileRPath()}, Sequence{SecurityUtil, ProviderDelegation})/]
+	
+	var [This/] = {};
+
+	[This/].logOff = function() {
+		[SecurityUtil/].deleteCookie("token");
+	};
+	
+	[This/].isLogged = function() {
+		
+		var token = [SecurityUtil/].getCookie("token");
+		return token != undefined;
+	};
+	
+	[This/].tokenizeThisUrl = function(url) {
+		
+		//TODO to secure with oAuth
+		if([This/].isLogged())
+			return url;
+		else {
+			return url+"WRONG!";
+		}
+	};
+	
+	//TODO modify this
+	[This/].isAdmin = function() {
+		
+		var token = [SecurityUtil/].getCookie("token");
+		return token === "3333333333333333333333333333333333333333";
+	};
+	
+	//TODO modify this
+	[This/].isModerator = function() {
+		
+		var token = [SecurityUtil/].getCookie("token");
+		return token === "2222222222222222222222222222222222222222";
+	};
+	
+	[This/].getToken = function() {
+		return [SecurityUtil/].getCookie("token");
+	}
+	
+	function _inHackMode() {
+		
+		return [SecurityUtil/].urlParams['['/]"hmarchadour"[']'/]||[SecurityUtil/].urlParams['['/]"moderator"[']'/]||[SecurityUtil/].urlParams['['/]"admin"[']'/];
+	}
+	
+	[This/].inLoginProcess = function() {
+		
+		var code = [SecurityUtil/].urlParams['['/]"code"[']'/];
+		return code != undefined;
+	};
+	
+	[This/].tokenQuery = function() {
+		
+		var token = undefined;
+		
+		if(_inHackMode()) {
+			if([SecurityUtil/].urlParams['['/]"hmarchadour"[']'/]) {
+				console.log("login hack hmarchadour");
+				token = "1111111111111111111111111111111111111111";
+			} else if([SecurityUtil/].urlParams['['/]"moderator"[']'/]) {
+				console.log("login hack moderator");
+				token = "2222222222222222222222222222222222222222";	
+			} else if([SecurityUtil/].urlParams['['/]"admin"[']'/]) {
+				console.log("login hack admin");
+				token = "3333333333333333333333333333333333333333";
+			} else {
+				console.log("login hack failed");
+			}
+			
+		} else {
+			token = [ProviderDelegation/].getToken([App/].urlParams['['/]"code"[']'/]);
+		}
+		if(token!=undefined)
+			[SecurityUtil/].setCookie("token", token, 1);
+	}
+
+	return [This/];
+});	[/file]
+[/template]

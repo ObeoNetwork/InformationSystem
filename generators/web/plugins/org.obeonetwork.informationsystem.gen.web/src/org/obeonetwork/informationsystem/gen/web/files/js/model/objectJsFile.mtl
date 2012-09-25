@@ -1,0 +1,52 @@
+[comment encoding = UTF-8 /]
+[module objectJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+
+[template public genObject(anEClass: EClass){
+	This : String = genObjectIdent();
+	Ember : String = genEmberIdent();
+}]
+[file (genJsFullPath(genObjectFileRPath(anEClass)), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.4.0')/]
+/*
+ * define the ember [This/] model
+ * @see http://emberjs.com/#toc_the-ember-object-model
+ */
+[genAMDHeader(
+	Sequence{},
+	Sequence{Ember}, 
+	Sequence{}
+)/]
+
+	var [This/] = {};
+
+	/*
+	 * The class definition
+	[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures)]
+	[if (classAttribute.eType.oclIsKindOf(EClass))]
+	 * @param {model.Proxy[if (classAttribute.many)]['['/][']'/][/if]} [classAttribute.eType.toVarIdent()/][if (classAttribute.many)]Proxies[else]Proxy[/if]
+	[else]
+	 * @param {[classAttribute.eType.instanceTypeName.tokenize('.')->last().toTypeIdent()/][if (classAttribute.many)]['['/][']'/][/if]} [classAttribute.toVarIdent()/]
+	[/if]
+	[/for]
+	 */
+
+	[This/].Class = Em.Object.extend({
+		[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures)]
+		[if (classAttribute.eType.oclIsKindOf(EClass))]
+		[classAttribute.eType.toVarIdent()/][if (classAttribute.many)]Proxies[else]Proxy[/if] : [if (classAttribute.many)]['['/][']'/][else]null[/if],
+		[else]
+		[classAttribute.toVarIdent()/] : [if (classAttribute.many)]['['/][']'/][else]null[/if],
+		[/if]
+		[/for]
+	});
+
+	return [This/];
+});
+[/file]
+[/template]

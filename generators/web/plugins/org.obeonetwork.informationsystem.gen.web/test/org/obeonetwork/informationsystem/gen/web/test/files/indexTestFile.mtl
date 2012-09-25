@@ -1,0 +1,59 @@
+[comment encoding = UTF-8 /]
+[module indexTestFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::testDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::cinematicUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::flowUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::toolkitUtil /]
+
+[template private fileName(anOclAny : OclAny)]['tests'/][/template]
+
+[template private filePath(anOclAny : OclAny)][fileName().concat('.html')/][/template]
+
+[template public genIndexTest(aConfiguration : Configuration)]
+[file (filePath(), false, 'UTF-8')]
+[genHtmlCopyrightHeader()/]
+<html>
+	<head>
+		[genHead()/]
+	</head>
+	<body>
+		<p><strong><a href="../">Back</a></strong></p>
+	</body>
+</html>
+[/file]
+[/template]
+
+
+[template protected genHead(aConfiguration : Configuration)]
+<title>[aConfiguration.cinematicModel.name/]</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>New Web Project</title>
+
+<link rel="stylesheet" type="text/css" href="../asset/js/lib/jasmine/css/jasmine.css">
+
+<script type="text/javascript" src="./[genRequirePath()/]"></script>
+<script type="text/javascript">
+	// Configure the RequireJS paths to use an alias for the
+	// jQuery library.
+	require({
+		baseUrl : './asset/js', 
+		paths : {
+			
+			[genJqueryIdent()/] :		'lib/jquery/jquery-1.7.2.min',
+			[genEmberIdent()/] :		'lib/ember/ember-0.9.8.min',
+			[genBootstrapIdent()/] :	'lib/bootstrap/bootstrap.min',
+			[genRaphaelIdent()/] :		'lib/raphael/raphael-2.1.0',
+			[genJasmineIdent()/] :		'lib/jasmine/jasmine',
+			[genJasmineHtmlIdent()/] :	'lib/jasmine/jasmine-html',
+		}, 
+		//TODO ENV.CP_DEFAULT_CACHEABLE = true
+		priority : ['['/]'[genJqueryIdent()/]'[']'/]
+	}, ['['/]'[genJsTestDirectoryRPath().concat('/TestSuite')/]'[']'/]);
+</script>
+[/template]

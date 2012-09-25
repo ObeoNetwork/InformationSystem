@@ -1,0 +1,161 @@
+[comment encoding = UTF-8 /]
+[module widgetUtil('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::view::viewUtil /]
+
+
+
+[**********************************************************************
+ * Helpers
+ */]
+[**
+ * Check the widget type. This query is an helper for all event checks.
+ * @param aWidget the widget context
+ * @param widgetType the widget type to compare
+ */]
+[query private is(aWidget : Widget, widgetType : String) : Boolean = aWidget.name.equalsIgnoreCase(widgetType) /]
+
+[**
+ * Check the event type. This query is an helper for all event checks.
+ * @param anEvent the event context
+ * @param eventType the event type to compare
+ */]
+[query private is(anEvent : Event, eventType : String) : Boolean = 
+	if anEvent.oclIsKindOf(FlowEvent) then 
+		anEvent.oclAsType(FlowEvent).binds->exists( type.name.equalsIgnoreCase(eventType) ) 
+	else 
+		anEvent.oclAsType(ViewEvent).type.name.equalsIgnoreCase(eventType)
+	endif
+/]
+
+
+
+
+[**********************************************************************
+ * Events
+ */]
+
+[**
+ * Check the event type.
+ * @param anEvent the event context
+ */]
+[query public isOnClick(anEvent : Event) : Boolean = anEvent.is('onClick') /]
+
+[**
+ * Check the event type.
+ * @param anEvent the event context
+ */]
+[query public isClose(anEvent : Event) : Boolean = anEvent.is('close') /]
+
+[**
+ * Check the event type.
+ * @param anEvent the event context
+ */]
+[query public isOnClickObject(anEvent : Event) : Boolean = anEvent.is('onClickObject') /]
+
+[**
+ * Check the event type.
+ * @param anEvent the event context
+ */]
+[query public isSave(anEvent : Event) : Boolean = anEvent.is('save') /]
+
+[**
+ * Check the event type.
+ * @param anEvent the event context
+ */]
+[query public isAdd(anEvent : Event) : Boolean = anEvent.is('add') /]
+
+[**
+ * Check the event type.
+ * @param anEvent the event context
+ */]
+[query public isEdit(anEvent : Event) : Boolean = anEvent.is('editItem') /]
+
+[**
+ * Check the event type.
+ * @param anEvent the event context
+ */]
+[query public isDelete(anEvent : Event) : Boolean = anEvent.is('deleteItem') /]
+
+
+
+[**********************************************************************
+ * Widgets
+ */]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isPage(aWidget : Widget) : Boolean = aWidget.is('Page') /]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isWidgetContainer(aWidget : Widget) : Boolean = aWidget.is('WidgetContainer') /]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isMenu(aWidget : Widget) : Boolean = aWidget.is('Menu') /]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isPopupContainer(aWidget : Widget) : Boolean = aWidget.is('PopupContainer') /]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isPagination(aWidget : Widget) : Boolean = aWidget.is('Pagination') /]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isStats(aWidget : Widget) : Boolean = aWidget.is('Stats') /]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isCreateForm(aWidget : Widget) : Boolean = aWidget.is('CreateForm') /]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isEditForm(aWidget : Widget) : Boolean = aWidget.is('EditForm') /]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isObjectList(aWidget : Widget) : Boolean = aWidget.is('ObjectList') /]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isObjectSingle(aWidget : Widget) : Boolean = aWidget.is('ObjectSingle') /]
+
+[**
+ * Check the widget type.
+ * @param aWidget the widget context
+ */]
+[query public isPageLink(aWidget : Widget) : Boolean = aWidget.is('PageLink') /]
+
+[**
+ * Check if the widget is a Javascript widget (Create, List, Edit or Pagination). 
+ * @param aWidget the widget context
+ */]
+[query public isJsWidget(aWidget : Widget) : Boolean = isCreateForm() or isObjectList() or isEditForm() or isPagination() or isStats() /]
+
+[**
+ * Check if the widget is a Javascript dynamic container (Popup). 
+ * @param aWidget the widget context
+ */]
+[query public isDynamicContainer(aWidget : Widget) : Boolean = isPopupContainer() /]

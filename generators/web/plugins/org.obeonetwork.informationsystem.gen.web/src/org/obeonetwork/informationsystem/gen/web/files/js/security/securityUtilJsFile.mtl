@@ -1,0 +1,72 @@
+[comment encoding = UTF-8 /]
+[module securityUtilJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genSecurityUtil(aConfiguration : Configuration) {
+		This : String = genSecurityUtilIdent();
+}]
+[file (genJsFullPath(genSecurityUtilFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.7.0')/]
+
+[genAMDHeader(Sequence{}, Sequence{})/]
+
+	var [This/] = {};
+
+	
+	[This/].setCookie = function(c_name, value, exdays) {
+		var exdate = new Date();
+		exdate.setDate(exdate.getDate() + exdays);
+		var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+		document.cookie = c_name + "=" + c_value;
+	};
+
+	[This/].getCookie = function(c_name) {
+		var i, x, y, ARRcookies = document.cookie.split(";");
+		for( i = 0; i < ARRcookies.length; i++) {
+			x = ARRcookies['['/]i[']'/].substr(0, ARRcookies['['/]i[']'/].indexOf("="));
+			y = ARRcookies['['/]i[']'/].substr(ARRcookies['['/]i[']'/].indexOf("=") + 1);
+			x = x.replace(/^\s+|\s+$/g, "");
+			if(x == c_name) {
+				return unescape(y);
+			}
+		}
+		return null;
+	};
+
+	[This/].deleteCookie = function(c_name) {
+    	[This/].setCookie(c_name,"",-1);
+	};
+	
+	[This/].checkCookie = function() {
+		var username = getCookie("username");
+		if(username != null && username != "") {
+			alert("Welcome again " + username);
+		} else {
+			username = prompt("Please enter your name:", "");
+			if(username != null && username != "") {
+				setCookie("username", username, 365);
+			}
+		}
+	};
+
+	[This/].urlParams = {};
+	(function () {
+	    var e,
+	        a = /\+/g,  // Regex for replacing addition symbol with a space
+	        r = /(['['/]^&=[']'/]+)=?(['['/]^&[']'/]*)/g,
+	        d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
+	        q = window.location.search.substring(1);
+	
+	    while (e = r.exec(q))
+	       [This/].urlParams['['/]d(e['['/]1[']'/])[']'/] = d(e['['/]2[']'/]);
+	})();
+	
+	return [This/];
+});
+
+	[/file]
+[/template]

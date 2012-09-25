@@ -1,0 +1,92 @@
+[comment encoding = UTF-8 /]
+[module ctrlJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::flowUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::cinematicUtil /]
+
+[template public genCtrl(aN1Flow : Flow){
+		This : String = genCtrlIdent(aN1Flow);
+		App : String = genAppIdent();
+		Page : String = genPageIdent(aN1Flow);
+
+		WidgetContainers : OrderedSet(ViewContainer) = reqWidgetContainers(aN1Flow);
+}]
+[file (genJsFullPath(genCtrlFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.1.0')/]
+[genAMDHeader(
+	Sequence{genAppFileRPath(), genPageFileRPath()}, 
+	Sequence{App, Page}
+)/]
+	var [This/] = {};
+	
+	var allowedStates = ['['/]"default"[for (aViewContainer : ViewContainer | WidgetContainers)], "[aViewContainer.toViewIdent()/]"[/for][']'/];
+	
+	function _init() {
+
+		/*window.onpopstate = function(event) {
+			
+			if(event.state === null || event.state === undefined) {
+				[This/].stateChange();
+			} else {
+				[This/].stateChange(event.state.[This.toVarIdent()/], true);
+			}
+		};*/
+		[Page/].start();
+		[This/].stateChange();
+	}
+
+	[This/].start = function() {
+		
+		_init();
+	};
+
+	[This/].stop = function() {
+		
+		[Page/].stop();
+	};
+	
+	/*
+	 * @param {String} the string Id of the state
+	 * @return boolean true if it's a valid state
+	 */
+	[This/].stateChange = function(state, historyMode) {
+
+		switch(state) {
+			[for (aViewContainer : ViewContainer | WidgetContainers)]
+			[if (i>1)]
+			case allowedStates['['/][i/][']'/]:
+				//if(!historyMode) 
+				//	window.history.pushState({[This.toVarIdent()/]: state});
+				_to[aViewContainer.toTypeIdent()/]State();
+				break;
+			
+			[/if]
+			[/for]
+			default:
+				//if(!historyMode) 
+				//	window.history.pushState({[This.toVarIdent()/]: allowedStates['['/]1[']'/]});
+				_to[WidgetContainers->first().toTypeIdent()/]State();
+				break;
+		}
+
+	};
+	
+	[for (aViewContainer : ViewContainer | WidgetContainers)]
+	/**/
+	function _to[aViewContainer.toTypeIdent()/]State() {
+		
+		[Page/].render[aViewContainer.toTypeIdent()/]();
+		[Page/].changeActiveMenu(allowedStates['['/][i/][']'/]);
+	}
+	[/for]
+	
+	
+	return [This/];
+});
+	[/file]
+[/template]

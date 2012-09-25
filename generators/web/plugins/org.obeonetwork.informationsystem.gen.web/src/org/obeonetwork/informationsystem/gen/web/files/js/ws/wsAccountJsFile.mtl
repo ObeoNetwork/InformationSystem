@@ -1,0 +1,67 @@
+[comment encoding = UTF-8 /]
+[module wsAccountJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genWsAccount(aConfiguration : Configuration) {
+		This : String = genWsAccountIdent();
+		WsUtil : String = genWsUtilIdent();
+		Account : String = genAccountIdent();
+}]
+[file (genJsFullPath(genWsAccountFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.7.0')/]
+ /**
+ * define a webservice API for the user entity.
+ * we use JQuery REST API. In consequence, we are in an asynchrone context.
+ * All functions must define a call back function that will run at the end
+ * of the REST query.
+ */
+[genAMDHeader(
+	Sequence{genWsUtilFileRPath(), genAccountFileRPath()}, 
+	Sequence{WsUtil, Account}
+)/]
+	
+	var [This/] = {};
+
+	/*
+	 * get an user model by Id
+	 * @param {function(model.User)} the function throw at the end 
+	 * of the asynchrone query.
+	 * @param {long} the user Id.
+	 * @return {model.[Account/]} the [Account.toVarIdent()/]
+	 */
+	[This/].byTokenMatch = function(cb_function, token) {
+
+		var url = [WsUtil/].baseUrl() + "/account/get/" + token;
+		var data = null;
+		var cb_success = function(resultData) {
+			var account = _json2[Account/](resultData);
+			cb_function(account);
+		};
+		var cb_error = function() { 
+			cb_function(null);
+		};
+		[WsUtil/].getJsonQuery(url, data, cb_success, cb_error);
+	};
+	
+		
+	/*
+	 * Convert a Json Object to a model.[Account/] Object
+	 * @param {Object} brut object
+	 * @return the [Account/] object
+	 */
+	function _json2[Account/](json) {
+		
+		var [Account.toVarIdent()/] = [Account/].Class.create({
+			id : json.id, nickname : json.nickname, shortNickname : json.shortNickname
+		});
+		return [Account.toVarIdent()/];
+	}
+	
+	return [This/];
+});
+[/file]
+[/template]

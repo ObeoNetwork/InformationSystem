@@ -1,0 +1,62 @@
+[comment encoding = UTF-8 /]
+[module objectTestJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::testDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::testFilePath /]
+
+
+[template public genObjectTest(anEClass: EClass){
+	UnderTest : String = genObjectIdent();
+	underTest : String = UnderTest.toVarIdent();
+	UnderPath : String = genObjectFileRPath(anEClass);
+	Jasmine : String = genJasmineIdent();
+}]
+[file (genJsFullPath(genObjectTestFileRPath(anEClass)), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('1.0.0')/]
+[genAMDHeader(
+	Sequence{UnderPath},
+	Sequence{Jasmine},
+	Sequence{UnderTest}
+)/]
+
+
+	describe("[UnderTest/] test", function() {
+		var [underTest/];
+		
+		beforeEach(function() { 
+			
+		});
+
+		it("test create() with no params", function() {
+			[underTest/] = [UnderTest/].Class.create({});
+			expect([underTest/]).not.toBe(null);
+			expect([underTest/].id).toBe(null);
+		});
+		
+		it("test create() with params", function() {
+			[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures)]
+			[if (i=1)]var [else]	[/if][classAttribute.toVarIdent()/] = [if (classAttribute.many)]['['/][']'/][else][if (classAttribute.hasStringType())]"[classAttribute.toVarIdent()/]"[else][if (classAttribute.hasNumericType())]1[else]null[/if][/if][/if][if (i<anEClass.eAllStructuralFeatures->size())],[else];[/if]
+			[/for]			
+				
+			var [underTest/] = [UnderTest/].Class.create({
+				[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures)]
+				[classAttribute.toVarIdent()/] : [classAttribute.toVarIdent()/],
+				[/for]
+			});
+
+			expect([underTest/]).not.toBe(null);
+
+			[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures)]
+			expect([underTest/].[classAttribute.toVarIdent()/]).toBe([classAttribute.toVarIdent()/]);
+			[/for]
+		});
+	});
+
+});
+[/file]
+[/template]

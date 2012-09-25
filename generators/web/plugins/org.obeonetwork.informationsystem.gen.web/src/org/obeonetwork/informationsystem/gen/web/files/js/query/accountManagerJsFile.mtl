@@ -1,0 +1,36 @@
+[comment encoding = UTF-8 /]
+[module accountManagerJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+
+[template public genAccountManager(anOclAny : OclAny) {
+		This : String = genAccountManagerIdent();
+		WsAccount : String = genWsAccountIdent();
+}]
+[file (genJsFullPath(genAccountManagerFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.8.0')/]
+[genAMDHeader(
+	Sequence{genWsAccountFileRPath()}, 
+	Sequence{WsAccount}
+)/]
+
+	var [This/] = {};
+
+	[This/].async_myAccount = function(cb_function, token) {
+		
+		var cb_account = function(account) {
+
+			cb_function(account);
+		};
+		
+		[WsAccount/].byTokenMatch(cb_account, token);
+	}
+
+	return [This/];
+});
+[/file]
+[/template]

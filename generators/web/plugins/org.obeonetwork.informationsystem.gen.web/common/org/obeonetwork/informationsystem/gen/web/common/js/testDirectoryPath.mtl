@@ -1,0 +1,67 @@
+[comment encoding = UTF-8 /]
+[module testDirectoryPath('http://www.obeonetwork.org/dsl/application/1.0.0')]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+
+[template public genTestStubFullPath(rPath : String) post (trim())]
+[genJsDirectoryPath()/]/[genJsTestStubDirectoryRPath()/]/[rPath/].js
+[/template]
+
+[template public genJsTestDirectoryRPath(oclAny : OclAny)]
+[getProperty('jsTest-directory-rpath')/]
+[/template]
+
+[template public genJsTestStubDirectoryRPath(oclAny : OclAny)]
+[getProperty('jsTestStub-directory-rpath')/]
+[/template]
+
+[template public genJsControllerTestRPath(oclAny : OclAny)]
+[getProperty('jsControllerTest-rpath')/]
+[/template]
+
+[template public genJsModelTestRPath(oclAny : OclAny)]
+[getProperty('jsModelTest-rpath')/]
+[/template]
+
+[template public genJsViewTestRPath(oclAny : OclAny)]
+[getProperty('jsViewTest-rpath')/]
+[/template]
+
+[template public genJsQueryTestRPath(oclAny : OclAny)]
+[getProperty('jsQueryTest-rpath')/]
+[/template]
+
+[template public genWebServicesTestRPath(oclAny : OclAny)]
+[getProperty('jsWebServicesTest-rpath')/]
+[/template]
+
+[template public genJsSecurityTestRPath(oclAny : OclAny)]
+[getProperty('jsSecurityTest-rpath')/]
+[/template]
+
+
+
+[template public genJsPageTestRPath(oclAny : OclAny)]
+[getProperty('jsPageTest-rpath')/]
+[/template]
+
+[template public genWidgetContainerTestRPath(oclAny : OclAny)]
+[getProperty('jsWidgetContainerTest-rpath')/]
+[/template]
+
+
+
+[template public genJsWidgetFormTestRPath(oclAny : OclAny)]
+[getProperty('jsWidgetFormTest-rpath')/]
+[/template]
+
+[template public genJsWidgetListTestRPath(oclAny : OclAny)]
+[getProperty('jsWidgetListTest-rpath')/]
+[/template]
+
+[template public genJsWidgetOtherTestRPath(oclAny : OclAny)]
+[getProperty('jsWidgetOtherTest-rpath')/]
+[/template]
+
+[template public genJsWidgetPopupTestRPath(oclAny : OclAny)]
+[getProperty('jsWidgetPopupTest-rpath')/]
+[/template]

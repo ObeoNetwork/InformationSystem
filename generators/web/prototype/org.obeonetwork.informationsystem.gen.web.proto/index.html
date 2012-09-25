@@ -1,0 +1,125 @@
+<html>
+<!--
+ /*******************************************************************************
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
+-->
+	<head>
+		<title>Choco manager</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>New Web Project</title>
+
+		<link rel="stylesheet" media="screen" href="./asset/css/lib/bootstrap.css">
+		<link rel="stylesheet" media="screen" href="./asset/css/lib/bootstrap-responsive.css">
+		
+		<link rel="stylesheet" media="screen" href="./asset/css/main.css">
+		<link rel="stylesheet" media="screen" href="./asset/css/moderator.css">
+		<link rel="stylesheet" media="screen" href="./asset/css/admin.css">
+		
+		<script type="text/javascript" src="./asset/js/lib/requirejs/require-1.0.8.js"></script>
+		<script type="text/javascript" src="./require-config.js"></script>
+		<!--
+		<script type="text/javascript" src="./asset/js/lib/requirejs/require-1.0.8.min.js"></script>
+		<script type="text/javascript" src="./require-config.min.js"></script>
+		-->
+		</script>
+	</head>
+	<body>
+		<div class="page container">
+
+			<!-- Masthead
+			================================================== -->
+			<header class="jumbotron subhead" id="overview">
+				<!-- Navbar
+				================================================== -->
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container">
+							<a class="btn btn-navbar" data-toggle="collapse"
+							data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> </a>
+							<div class="nav-collapse">
+								<ul class="nav">
+									<li class="active">
+										<a href="/">Home</a>
+									</li>
+									<li class="admin">
+										<a href="/pages/admin.html">Admin</a>
+									</li>
+									<li class="dropdown account">
+						              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+						              <ul class="dropdown-menu">
+						              	<li class="sign-out nav-header">Sign in</li>
+						                <li class="sign-out"><a href="#" id="sign-hmarchadour">hmarchadour</a></li>
+						                <li class="sign-out"><a href="#" id="sign-moderator">moderator</a></li>
+						                <li class="sign-out"><a href="#" id="sign-admin">admin</a></li>
+						                <li class="sign-out"><a href="#" id="sign-in">Other</a></li>
+						                <li class="sign-in"><a href="#" id="sign-out">Sign out</a></li>
+						              </ul>
+						            </li>
+								</ul>
+							</div>
+							<!-- /.nav-collapse -->
+						</div>
+					</div>
+					<!-- /navbar-inner -->
+				</div>
+
+			</header>
+
+			<div id="content">
+				<div class="container-fluid">
+					<div class="row-fluid">
+						<div class="span4">
+							
+	
+							<div class="well" style="padding: 8px 0;">
+								<ul class="nav nav-list">
+									<li class="nav-header">
+										News
+									</li>
+									<li class="active">
+										<a href="#" class="state-users"><i class="icon-gift icon-home"></i> Users</a>
+									</li>
+									<li>
+										<a href="#" class="state-choco-vote"><i class="icon-retweet"></i> Choco Vote</a>
+									</li>
+									<li>
+										<a href="#" class="state-office-statistics"><i class="icon-tasks"></i> Office statistics</a>
+									</li>
+									<li class="divider"></li>
+								</ul>
+							</div>
+							
+							<div id="toasts"></div>
+							
+						</div>
+						<div class="span8">
+							<div id ="workspace">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- Footer
+		================================================== -->
+		<footer class="navbar-inner">
+			<p class="pull-right">
+				<a href="#">Back to top</a>
+			</p>
+			<p></p>
+		</footer>
+		</div>
+		<!-- /container -->
+	</body>
+</html>

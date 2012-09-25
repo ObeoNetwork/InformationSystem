@@ -1,0 +1,42 @@
+[comment encoding = UTF-8 /]
+[module proxyJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genProxy(aConfiguration : Configuration){
+		This : String = genProxyIdent();
+		Ember : String = genEmberIdent();
+}]
+[file (genJsFullPath(genProxyFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.8.0')/]
+/*
+ * define the ember proxy model
+ * @see http://emberjs.com/#toc_the-ember-object-model
+ */
+[genAMDHeader(
+	Sequence{},
+	Sequence{Ember}, 
+	Sequence{}
+)/]
+
+	var [This/] = {};
+
+	/*
+	 * The class definition
+	 * @param {long} id
+	 * @param {String} description
+
+	*/
+	[This/].Class = Em.Object.extend({
+		id : null, 
+		desc : null
+	});
+
+	return [This/];
+
+});
+	[/file]
+[/template]

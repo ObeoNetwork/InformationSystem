@@ -1,0 +1,118 @@
+[comment encoding = UTF-8 /]
+[module wsUtilJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genWsUtilFileRPath(anOclAny : OclAny)][genWebServicesRPath()/]/[genWsUtilIdent()/][/template]
+
+[template public genWsUtil(aConfiguration : Configuration) {
+		This : String = genWsUtilIdent();
+		Proxy : String = genProxyIdent();
+		Stat : String = genStatIdent();
+		LogManager : String = genLogManagerIdent();
+}]
+[file (genJsFullPath(genWsUtilFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.6.0')/]
+[genAMDHeader(
+	Sequence{genProxyFileRPath(), genLogManagerFileRPath(), genStatFileRPath()}, 
+	Sequence{Proxy, LogManager,Stat}
+)/]
+	
+	var [This/] = {};
+	
+	[This/].baseUrl = function() {
+		return "./ws";
+	}
+
+	[This/].getJsonQuery = function(url, data, cb_success, cb_error) {
+
+		$.ajax({
+			type : "GET", 
+			url : [LogManager/].tokenizeThisUrl(url), 
+			data : data,
+			dataType: "json",
+			success : function(result) {
+				cb_success(result);
+			}, 
+			error : function(request, status, errorThrown) {
+				if(cb_error!=undefined)
+					cb_error(request, status, errorThrown);
+				else
+					_defaultError(request, status, errorThrown);
+					
+			}
+		}); 
+
+	}
+	
+	/*
+	 * Convert a Json Object to a model.[Proxy/] Object
+	 * @param {Object} brut object
+	 * @return the [Proxy/] object
+	 */
+	[This/].json2[Proxy/] = function(json) {
+		
+		var proxy = [Proxy/].Class.create({
+			id : json.id, desc : json.desc
+		});
+		return proxy;
+	}
+	
+	/*
+	 * Convert a Json Objects array to a model.[Proxy/] Object array
+	 * @param {Object} brut object
+	 * @return Proxies objects
+	 */
+	[This/].json2Proxies = function(json) {
+		
+		var proxies = ['['/][']'/];
+		for (var i=0; i < json.length; i++) {
+		  proxies['['/]i[']'/] = [This/].json2[Proxy/](json['['/]i[']'/]);
+		};
+		
+		return proxies;
+	}
+
+	/*
+	 * Convert a Json Object to a model.[Stat/] Object
+	 * @param {Object} brut object
+	 * @return the Stat object
+	 */
+	[This/].json2Stat = function(json) {
+		
+		var proxy = Stat.Class.create({
+			res : json.res, desc : json.desc
+		});
+		return proxy;
+	}
+	
+	/*
+	 * Convert a Json Objects array to a model.Stat Object array
+	 * @param {Object} brut object
+	 * @return Stats objects
+	 */
+	[This/].json2Stats = function(json) {
+		
+		var stats = ['['/][']'/];
+		for (var i=0; i < json.length; i++) {
+		  stats['['/]i[']'/] = [This/].json2Stat(json['['/]i[']'/]);
+		};
+		
+		return stats;
+	}
+	
+	var _defaultError = function(request, status, errorThrown) {
+		console.log("JsonQuery fail");
+		console.log(request);
+		console.log(status);
+		console.log(errorThrown);
+	};
+	
+	return [This/];
+});
+
+	[/file]
+[/template]

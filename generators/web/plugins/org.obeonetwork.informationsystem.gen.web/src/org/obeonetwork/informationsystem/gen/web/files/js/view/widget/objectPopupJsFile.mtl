@@ -1,0 +1,71 @@
+[comment encoding = UTF-8 /]
+[module objectPopupJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
+
+[template public genJsObjectPopupIdent(aNamedElem : ENamedElement)][aNamedElem.toTypeIdent()/]Popup[/template]
+
+[template public genJsObjectPopupFileRPath(aNamedElem : ENamedElement)][genJsWidgetPopupRPath()/]/[genJsObjectPopupIdent()/][/template]
+
+[template public genJsObjectPopup(anEClass: EClass) {
+		This : String = genJsObjectPopupIdent();
+		App : String = genAppIdent();
+		ViewUtil : String = genViewUtilIdent();
+		CommonEvents : String = genCommonEventsIdent();
+		Ember : String = genEmberIdent();
+}]
+[file (genJsFullPath(genJsObjectPopupFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.9.0')/]
+[genAMDHeader(
+	Sequence{genAppFileRPath(), genViewUtilFileRPath(), genCommonEventsFileRPath()}, 
+	Sequence{Ember},
+	Sequence{App, ViewUtil, CommonEvents}
+)/]
+
+	var [This/] = {},
+		_Class = Em.View.extend({ templateName : "[anEClass.genTmplObjectPopupIdent()/]" });
+
+	
+	
+	[let object : String = anEClass.toVarIdent()]
+	/*
+	 */
+	[This/].create = function([object/]) {
+		[ViewUtil/].loadWidgetTemplate("./[anEClass.genTmplObjectPopupFilePath()/]");
+		
+		var view = _Class.create({
+			[object/] : [object/],
+			[for (attributeType : String | (anEClass.eAllReferences.eType.toVarIdent()))]
+			[attributeType/]Link: [attributeType/]Link,
+			[/for]
+			closeLink: closeLink
+		});
+		
+		return view;
+	};
+	[/let]
+
+	/* events */
+	[for (attributeType : String | (anEClass.eAllReferences.eType.toVarIdent()))]
+	var [attributeType/]Link = function(e){
+		
+		e.preventDefault();
+		var [attributeType/]Proxy = e.context;
+		[App/].[genCommonCtrlIdent().toVarIdent()/].showModal[attributeType.toTypeIdent()/]([attributeType/]Proxy.id);
+	};
+	[/for]
+	
+	var closeLink = function(e){
+		
+		e.preventDefault();
+		[App/].[genCommonCtrlIdent().toVarIdent()/].hideModal();
+	};
+
+	return [This/];
+});
+[/file]
+[/template]

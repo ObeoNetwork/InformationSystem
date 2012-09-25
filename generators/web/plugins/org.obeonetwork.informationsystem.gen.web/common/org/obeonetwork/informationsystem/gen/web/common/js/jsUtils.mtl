@@ -1,0 +1,252 @@
+[comment encoding = UTF-8 /]
+[module jsUtils('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[**
+ * Gen the Javascript copyright header
+ */]
+[template public genJsCopyrightHeader(oclAny : OclAny)]
+ /*******************************************************************************
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Hugo Marchadour (Obeo) - initial API and implementation
+ *******************************************************************************/
+[/template]
+
+[**
+ * Gen the Javascript header.
+ * @param version the code since of the Javascript module.
+ */]
+[template public genJsHeader(since : String)][genJsHeader(genCurrentVersion(), since)/][/template]
+
+[**
+ * Gen the Javascript header.
+ * @param version the code version of the Javascript module.
+ * @param since the code since of the Javascript module.
+ */]
+[template public genJsHeader(version : String, since : String)]
+ /**
+ * @autor hugo.marchadour@obeo.fr
+ * @version [version/]
+ * @since [since/]
+ * @generated
+ */
+[/template]
+
+[template public genAMDHeader(jsPaths : Sequence(String), environmentImports : Sequence(String), jsIdents : Sequence(String))]
+[let allJsImports : Sequence(String) = jsPaths->unionOrdered(environmentImports)]
+/* Define function is an AMD feature. For more information, @see http://requirejs.org. */
+define(['['/]"require[for (jsPath : String | allJsImports)]", "[jsPath/][/for]"[']'/], function(require) {
+	"use strict";
+[if (allJsImports->size()>0)]
+	
+	/* Get all required AMD modules in vars */
+	[for (jsIdent : String | jsIdents)]
+	[if (i=1)]var [else]	[/if][jsIdent/] = require("[jsPaths->at(i)/]")[if (i<jsIdents->size())],[else];[/if]
+	[/for]
+	[for (environmentImport : String | environmentImports)]
+	// [environmentImport/] does not need to be stored in a variable.
+	[/for]
+[/if]
+[/let]
+[/template]
+
+[template public genAMDHeader(jsPaths : Sequence(String), jsIdents : Sequence(String))]
+[genAMDHeader(jsPaths, Sequence{}, jsIdents)/]
+[/template]
+
+[template public genJqueryIdent(oclAny : OclAny)]
+[getProperty('jquery-ident')/]
+[/template]
+
+[template public genEmberIdent(oclAny : OclAny)]
+[getProperty('ember-ident')/]
+[/template]
+
+[template public genBootstrapIdent(oclAny : OclAny)]
+[getProperty('bootstrap-ident')/]
+[/template]
+
+[template public genRaphaelIdent(oclAny : OclAny)]
+[getProperty('raphael-ident')/]
+[/template]
+
+[template public genJasmineIdent(oclAny : OclAny)]
+[getProperty('jasmine-ident')/]
+[/template]
+
+[template public genJasmineHtmlIdent(oclAny : OclAny)]
+[getProperty('jasmine-html-ident')/]
+[/template]
+
+[template public genEmberFields(oclAny : OclAny)]
+var _TextFieldClass = Em.TextField.extend({
+	keyUp : function(e) {
+		if (_identIsValid($(e.target).val())) {
+			$(e.target).parent().parent().removeClass("error");
+			$(e.target).next().hide();
+		} else {
+			$(e.target).parent().parent().addClass("error");
+			$(e.target).next().show();
+		}
+	}
+
+});
+
+var _EmailFieldClass = Em.TextField.extend({
+	keyUp : function(e) {
+		if (_emailIsValid($(e.target).val())) {
+			$(e.target).parent().parent().removeClass("error");
+			$(e.target).next().hide();
+		} else {
+			$(e.target).parent().parent().addClass("error");
+			$(e.target).next().show();
+		}
+	}
+
+});
+
+var _ShortTextFieldClass = Em.TextField.extend({
+	keyUp : function(e) {
+		if (_shortIdentIsValid($(e.target).val())) {
+			$(e.target).parent().parent().removeClass("error");
+			$(e.target).next().hide();
+		} else {
+			$(e.target).parent().parent().addClass("error");
+			$(e.target).next().show();
+		}
+	}
+
+});
+
+
+var _SelectClass = Em.Select.extend({ });
+
+var _SelectMultipleClass = Em.Select.extend({
+	multiple : "true"
+}); 
+
+function _identIsValid(ident) {
+	return ident!=undefined && ident!=null && ident.length>=3;
+}
+
+function _shortIdentIsValid(ident) {
+	return ident!=undefined && ident!=null && ident.length==3;
+}
+
+function _emailIsValid(ident) {
+	var filter = /^(['['/]a-zA-Z0-9_\.\-[']'/])+\@((['['/]a-zA-Z0-9\-[']'/])+\.)+(['['/]a-zA-Z0-9[']'/]{2,4})+$/;
+	return ident!=undefined && ident!=null && filter.test(ident);
+}
+[/template]
+
+[template public genValidCreateForm(anEClass: EClass, Object : String, object : String) {
+		App : String = genAppIdent();
+}]
+var validForm = function(e) {
+	
+	e.preventDefault();
+	
+	var result = true;
+	var errorMsg = "";
+	[checkForm(anEClass.eAllAttributes->select(not(unsettable)), Object, object)/]
+	
+	if(result) {
+		[App/].commonCtrl.add[Object/](this.[object/]);
+		[App/].commonCtrl.hideModal();
+		this.createEvent();
+	} else {
+		App.toast.error(errorMsg+"Please, correct error(s).");
+	}
+}
+[/template]
+
+[template public genValidUpdateForm(anEClass: EClass, Object : String, object : String) {
+		App : String = genAppIdent();
+}]
+var validForm = function(e) {
+	
+	e.preventDefault();
+	
+	var result = true;
+	var errorMsg = "";
+	[checkForm(anEClass.eAllAttributes->select(not(unsettable)), Object, object)/]
+	
+	if(result) {
+		[App/].commonCtrl.update[Object/](this.[object/]);
+		[App/].commonCtrl.hideModal();
+	} else {
+		App.toast.error(errorMsg+"Please, correct error(s).");
+	}
+}
+[/template]
+
+[template private checkForm(eAttributes : Set(EAttribute), Object : String, object : String) post (trim()) {
+		App : String = genAppIdent();
+}]
+[if (eAttributes->size()>0)]
+	[let anEAttribute : EAttribute = eAttributes->asOrderedSet()->first()]
+	[let attributeVar : String = anEAttribute.toVarIdent()]
+[if (anEAttribute.hasDateType())]
+// [attributeVar.toUpperFirst()/] check (valid date)
+if(result &= true) {
+
+[else]
+	[if (anEAttribute.hasNumericType())]
+// [attributeVar.toUpperFirst()/] check (valid numeric)
+if(result &= true) {
+	[else]
+		[if (anEAttribute.hasStringType())]
+// [attributeVar.toUpperFirst()/] check (valid string)
+if(result &= _identIsValid(this.[object/].[attributeVar/])) {
+		[else]
+// [attributeVar.toUpperFirst()/] check (unknow type field) !
+if(result &= true) {
+		[/if]
+	[/if]
+[/if]
+	[checkForm(eAttributes->excluding(anEAttribute), Object, object)/]
+} else {
+	errorMsg += '<p>[attributeVar.toUpperFirst()/] is invalid</p>';
+}
+	[/let]
+	[/let]
+[/if]
+[/template]
+
+[template public jsComment4RecStart(anEClass : EClass)]
+/* <async block start> ([anEClass.toTypeIdent()/] context) 
+ */
+[/template]
+[template public jsComment4RecStop(anEClass : EClass)]
+/* 
+ * <async block stop> ([anEClass.toTypeIdent()/] context) */
+[/template]
+
+[template public jsComment4RecStart(oclAny : OclAny)]
+/* <async block start> 
+ */
+[/template]
+[template public jsComment4RecStop(oclAny : OclAny)]
+/* 
+ * <async block stop>*/
+[/template]
+
+[query public toPluralIdent(str : String) : String = str.toIdent().concat('s') /]
+[query public toPluralIdent(aENamedElem : ENamedElement) : String = aENamedElem.name.toPluralIdent() /]
+[query public toPluralIdent(aNamedElem : NamedElement) : String = aNamedElem.name.toPluralIdent() /]
+
+[query public toVarIdent(str : String) : String = str.toIdent().toLowerFirst() /]
+[query public toVarIdent(aENamedElem : ENamedElement) : String = aENamedElem.name.toVarIdent() /]
+[query public toVarIdent(aNamedElem : NamedElement) : String = aNamedElem.name.toVarIdent() /]
+
+[query public toTypeIdent(str : String) : String = str.toIdent().toUpperFirst() /]
+[query public toTypeIdent(aENamedElem : ENamedElement) : String = aENamedElem.name.toTypeIdent() /]
+[query public toTypeIdent(aNamedElem : NamedElement) : String = aNamedElem.name.toTypeIdent() /]
+

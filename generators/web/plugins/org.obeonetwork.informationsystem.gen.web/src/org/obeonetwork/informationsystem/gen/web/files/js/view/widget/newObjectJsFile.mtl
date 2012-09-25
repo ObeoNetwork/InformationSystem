@@ -1,0 +1,110 @@
+[comment encoding = UTF-8 /]
+[module newObjectJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
+
+[template public genJsNewObject(anEClass: EClass) {
+		This : String = genJsNewObjectIdent();
+		App : String = genAppIdent();
+		ViewUtil : String = genViewUtilIdent();
+		CommonEvents : String = genCommonEventsIdent();
+		Ember : String = genEmberIdent();
+
+		Object : String = genObjectIdent(anEClass);
+		object : String = Object.concat('InProgress').toVarIdent();
+}]
+[file (genJsFullPath(genJsNewObjectFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.9.0')/]
+[genAMDHeader(
+	Sequence{genAppFileRPath(), genViewUtilFileRPath(), genCommonEventsFileRPath(), genObjectFileRPath()}, 
+	Sequence{Ember},
+	Sequence{App, ViewUtil, CommonEvents, Object}
+)/]
+
+	var [This/] = {},
+		_Class = Em.View.extend({ templateName : "[anEClass.genTmplNewObjectIdent()/]" });
+
+	
+
+
+	[genEmberFields()/]
+	
+	/*
+	 */
+	[This/].create = function() {
+		[ViewUtil/].loadWidgetTemplate("./[anEClass.genTmplNewObjectFilePath()/]");
+		
+		var view = _Class.create({
+			activated : false,
+			
+			hideWidget : hideWidget,
+			showWidget : showWidget,
+
+			TextField : _TextFieldClass,
+			EmailField : _EmailFieldClass,
+			ShortTextField : _ShortTextFieldClass,
+			Select : _SelectClass,
+			SelectMultiple : _SelectMultipleClass,
+			[object/] : undefined,
+			[for (attributeVar : String | (anEClass.eAllReferences.eType.toVarIdent()))]
+			[attributeVar/]Proxies : ['['/][']'/],
+			[/for]
+
+			createEvent : createEvent,
+			closeEvent : closeEvent,
+			addEvent : addEvent,
+
+			validForm: validForm,
+			[for (attributeType : String | (anEClass.eAllReferences.eType.toTypeIdent()))]
+			load[attributeType/]Proxies : cb_load[attributeType/]Proxies,
+			[/for]
+		});
+		
+		return view;
+	};
+	
+	/* events */
+	var createEvent = function() {
+		this.showWidget();
+	};
+	var closeEvent = function(e) {
+		e.preventDefault();
+		this.hideWidget();
+		this.get('parentView').closeEvent(this);
+	};
+	var addEvent = function() {
+		this.hideWidget();
+		this.get('parentView').addEvent(this);
+	};
+	
+	var hideWidget = function() {
+		this.set('[object/]', undefined);
+		this.set('activated', false);
+	};
+	
+	var showWidget = function() {
+		[for (attributeTypePlural : String | (anEClass.eAllReferences.eType.toTypeIdent().toPluralIdent()))]
+		[App/].[genCommonCtrlIdent().toVarIdent()/].loadAll[attributeTypePlural/]InWidget(this);
+		[/for]
+		this.set('[object/]', [Object/].Class.create());
+		this.set('activated', true);
+	};
+	
+	[genValidCreateForm(anEClass, Object, object)/]
+	
+	/*call backs*/
+	[for (attributeVar : String | (anEClass.eAllReferences.eType.toVarIdent()))]
+	var cb_load[attributeVar.toTypeIdent()/]Proxies = function([attributeVar/]Proxies) {
+		
+		this.set('[attributeVar/]Proxies', [attributeVar/]Proxies);
+	};
+	[/for]
+	
+	return [This/];
+});
+	[/file]
+[/template]

@@ -1,0 +1,104 @@
+[comment encoding = UTF-8 /]
+[module appJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genApp(aConfiguration : Configuration) {
+		This : String = genAppIdent();
+		AccountManager : String = genAccountManagerIdent();
+		Ember : String = genEmberIdent();
+		
+		AccountManagerPath : String = genAccountManagerFileRPath();
+		objectEClasses : OrderedSet(ecore::EClass) = aConfiguration.ecoreModel.eClassifiers->filter(EClass);
+		AllPaths : Sequence(String) = objectEClasses.genObjectManagerFileRPath()->append(AccountManagerPath);
+		AllIdents : Sequence(String) =objectEClasses.genObjectManagerIdent()->append(AccountManager);
+}]
+[file (genJsFullPath(genAppFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.1.0')/]
+[genAMDHeader(
+	AllPaths, 
+	Sequence{Ember},
+	AllIdents
+)/]
+	
+	var [This/] = Em.Application.create();
+	[This/].debug = false;
+
+	[This/].[AccountManager/] = [AccountManager/];
+	
+	[for (ObjectManager : String | objectEClasses.genObjectManagerIdent())]
+	[This/].[ObjectManager/] = [ObjectManager/];
+	[/for]
+
+	[This/].toast = {};
+	
+	[This/].toast.debug = function(msg) {
+		
+		if([This/].debug) {
+			_addToast(msg, "debug");
+		}
+	}
+	
+	[This/].toast.info = function(msg) {
+		
+		_addToast(msg, "info");
+	}
+	
+	[This/].toast.warning = function(msg) {
+		
+		_addToast(msg, "warning");
+	}
+	
+	[This/].toast.success = function(msg) {
+		
+		_addToast(msg, "success");
+	}
+	
+	[This/].toast.error = function(msg) {
+		
+		_addToast(msg, "danger");
+	}
+	
+	/*
+	 * @param {String} the html message
+	 * @param {String} the toast type (info, warning, success, debug or danger)
+	 */
+	function _addToast(msg, type) {
+		
+		var htmlMsg;
+		var cssClass;
+		
+		switch(type) {
+			case "debug" : 
+				htmlMsg = "<strong>Debug!</strong> "+msg;
+				cssClass = "alert-error"; 
+			break;
+			case "danger" : 
+				htmlMsg = "<strong>Error!</strong> "+msg;
+				cssClass = "alert-error"; 
+			break;
+			case "warning" : 
+				htmlMsg = "<strong>Warning!</strong> "+msg;
+				cssClass = ""; 
+			break;
+			case "success" : 
+				htmlMsg = "<strong>Well done!</strong> "+msg;
+				cssClass = "alert-success"; 
+			break;
+			default : 
+				htmlMsg = "<strong>Info!</strong>" +msg;
+				cssClass = "alert-info"; 
+			break;
+		}
+		var template = "<div class=\"alert "+cssClass+"\"><button class=\"close\" data-dismiss=\"alert\">x</button>"+htmlMsg+"</div>";
+		var addedInDom = $(template).prependTo("#toasts");
+	};
+	
+	return [This/];
+});
+	[/file]
+[/template]

@@ -1,0 +1,154 @@
+[comment encoding = UTF-8 /]
+[module indexFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::cinematicUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::flowUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::toolkitUtil /]
+
+[template private fileName(anOclAny : OclAny)]['index'/][/template]
+
+[template private filePath(anOclAny : OclAny)][fileName().concat('.html')/][/template]
+
+[template public genIndex(aConfiguration : Configuration)]
+[file (filePath(), false, 'UTF-8')]
+[genHtmlCopyrightHeader()/]
+<html>
+	<head>
+		[genHead()/]
+	</head>
+	<body>
+		<div class="page container">
+			<!-- Masthead
+			================================================== -->
+			<header class="jumbotron subhead" id="overview">
+				[genHeader()/]
+			</header>
+			<div id="content">
+				<div class="container-fluid">
+					<div class="row-fluid">
+						<div class="span4">
+							[genLeft()/]
+						</div>
+						<div class="span8">
+							[genCenter()/]
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- Footer
+		================================================== -->
+		<footer class="navbar-inner">
+			[genFooter()/]
+		</footer>
+		</div>
+		<!-- /container -->
+	</body>
+</html>
+[/file]
+[/template]
+
+
+[template protected genHead(aConfiguration : Configuration)]
+<title>[aConfiguration.cinematicModel.name/]</title>
+<meta name="description" content="">
+<meta name="author" content="">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>New Web Project</title>
+
+<link rel="stylesheet" media="screen" href="./[genJsLibDirectoryPath()/]/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" media="screen" href="./[genJsLibDirectoryPath()/]/bootstrap/css/bootstrap-responsive.css">
+
+
+<link rel="stylesheet" media="screen" href="./[genCssDirectoryPath()/]/main.css">
+<link rel="stylesheet" media="screen" href="./[genCssDirectoryPath()/]/moderator.css">
+<link rel="stylesheet" media="screen" href="./[genCssDirectoryPath()/]/admin.css">
+
+<script type="text/javascript" src="./[genRequirePath()/]"></script>
+<script type="text/javascript">
+	// Configure the RequireJS paths to use an alias for the
+	// jQuery library.
+	require({
+		baseUrl : './asset/js', 
+		paths : {
+			
+			[genJqueryIdent()/] :		'lib/jquery/jquery-1.7.2.min',
+			[genEmberIdent()/] :		'lib/ember/ember-0.9.8.min',
+			[genBootstrapIdent()/] :	'lib/bootstrap/bootstrap.min',
+			[genRaphaelIdent()/] :		'lib/raphael/raphael-2.1.0'
+		}, 
+		//TODO ENV.CP_DEFAULT_CACHEABLE = true
+		priority : ['['/]'[genJqueryIdent()/]'[']'/]
+	}, ['['/]'[genRootFileRPath()/]'[']'/]);
+</script>
+[/template]
+
+[template protected genHeader(aConfiguration : Configuration)]
+<!-- Navbar ================================================== -->
+<a class="brand" href="#"> <img class="align-left" src="./[genImgDirectoryPath()/]/logood.png" height="75"></a>
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<div class="nav-collapse">
+				<ul class="nav">
+					[for (aN1Flow : Flow | aConfiguration.cinematicModel.flows->first().reqSubFlows())]
+					<li [if (i=1)]class="active"[/if]>
+						<a href="/" class="[aN1Flow.name.toViewIdent()/]">[aN1Flow.name/]</a>
+					</li>
+					[/for]
+					<li class="dropdown account">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+		              <ul class="dropdown-menu">
+		              	<li class="sign-out nav-header">Sign in</li>
+		                <li class="sign-out"><a href="#" id="sign-hmarchadour">hmarchadour</a></li>
+		                <li class="sign-out"><a href="#" id="sign-moderator">moderator</a></li>
+		                <li class="sign-out"><a href="#" id="sign-admin">admin</a></li>
+		                <li class="sign-out"><a href="#" id="sign-in">Other</a></li>
+		                <li class="sign-in"><a href="#" id="sign-out">Sign out</a></li>
+		              </ul>
+		            </li>
+					<li class="">
+						<a href="./tests.html">Unit tests</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.nav-collapse -->
+		</div>
+	</div>
+	<!-- /navbar-inner -->
+</div>
+[/template]
+
+[template public genLeft (aConfiguration : Configuration)]
+<div class="well" style="padding: 8px 0;">
+	<div id="menu-left">
+	</div> 
+
+	<ul class="account nav" style="padding-left: 15px;padding-right: 15px;margin-bottom: 0;">
+		
+	</ul>
+</div>
+
+<div id="toasts"></div>					
+[/template]
+
+[template public genCenter(aConfiguration : Configuration)]
+<div id ="workspace">
+</div>
+[/template]
+
+[template protected genFooter (aConfiguration : Configuration) ]
+<p class="pull-right">
+	<a href="#">Back to top</a>
+</p>
+<p></p>
+[/template]

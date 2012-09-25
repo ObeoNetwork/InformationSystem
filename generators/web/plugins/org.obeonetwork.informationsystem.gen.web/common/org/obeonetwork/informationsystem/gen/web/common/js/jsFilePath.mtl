@@ -1,0 +1,160 @@
+[comment encoding = UTF-8 /]
+[module jsFilePath('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::toolkitUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::view::viewUtil /]
+
+[comment App /]
+[template public genAppIdent(anOclAny : OclAny) post (trim())]App[/template]
+[template public genAppFileRPath(anOclAny : OclAny) post (trim())][genJsAppDirectoryRPath()/]/[genAppIdent()/][/template]
+
+[comment Root /]
+[template public genRootIdent(anOclAny : OclAny) post (trim())]Root[/template]
+[template public genRootFileRPath(anOclAny : OclAny) post (trim())][genJsAppDirectoryRPath()/]/[genRootIdent()/][/template]
+
+
+
+[comment CommonCtrl /]
+[template public genCommonCtrlIdent(anOclAny : OclAny) post (trim())]CommonCtrl[/template]
+[template public genCommonCtrlFileRPath(anOclAny : OclAny) post (trim())][genJsControllerRPath()/]/[genCommonCtrlIdent()/][/template]
+
+[comment Ctrl /]
+[query public genCtrlIdent(aNamedElem : NamedElement) : String = aNamedElem.name.toIdent().concat('Ctrl') /]
+[query public genCtrlFileRPath(aNamedElem : NamedElement) : String = genJsControllerRPath().concat('/').concat(genCtrlIdent(aNamedElem))/]
+
+[comment Account /]
+[template public genAccountIdent(anOclAny : OclAny) post (trim())]Account[/template]
+[template public genAccountFileRPath(anOclAny : OclAny) post (trim())][genJsModelRPath()/]/[genAccountIdent()/][/template]
+
+[comment Proxy /]
+[template public genProxyIdent(anOclAny : OclAny) post (trim())]Proxy[/template]
+[template public genProxyFileRPath(anOclAny : OclAny) post (trim())][genJsModelRPath()/]/[genProxyIdent()/][/template]
+
+[comment Stat /]
+[template public genStatIdent(anOclAny : OclAny) post (trim())]Stat[/template]
+[template public genStatFileRPath(anOclAny : OclAny) post (trim())][genJsModelRPath()/]/[genStatIdent()/][/template]
+
+[comment <Object> /]
+[query public genObjectIdent(aNamedElem : ENamedElement) : String = aNamedElem.name.toIdent()/]
+[query public genObjectFileRPath(aNamedElem : ENamedElement) : String = genJsModelRPath().concat('/').concat(genObjectIdent(aNamedElem))/]
+
+
+
+[comment AccountManager /]
+[template public genAccountManagerIdent(anOclAny : OclAny) post (trim())]AccountManager[/template]
+[template public genAccountManagerFileRPath(anOclAny : OclAny) post (trim())][genJsQueryRPath()/]/[genAccountManagerIdent()/][/template]
+
+[comment LogManager /]
+[template public genLogManagerIdent(anOclAny : OclAny) post (trim())]LogManager[/template]
+[template public genLogManagerFileRPath(anOclAny : OclAny) post (trim())][genJsSecurityRPath()/]/[genLogManagerIdent()/][/template]
+
+[comment ProviderDelegation /]
+[template public genProviderDelegationIdent(anOclAny : OclAny) post (trim())]ProviderDelegation[/template]
+[template public genProviderDelegationFileRPath(anOclAny : OclAny) post (trim())][genJsSecurityRPath()/]/[genProviderDelegationIdent()/][/template]
+
+[comment SecurityUtil /]
+[template public genSecurityUtilIdent(anOclAny : OclAny) post (trim())]SecurityUtil[/template]
+[template public genSecurityUtilFileRPath(anOclAny : OclAny) post (trim())][genJsSecurityRPath()/]/[genSecurityUtilIdent()/][/template]
+
+
+
+[comment WsAccount /]
+[template public genWsAccountIdent(anOclAny : OclAny) post (trim())]WsAccount[/template]
+[template public genWsAccountFileRPath(anOclAny : OclAny) post (trim())][genWebServicesRPath()/]/[genWsAccountIdent()/][/template]
+
+[comment WsUtil /]
+[template public genWsUtilIdent(anOclAny : OclAny) post (trim())]WsUtil[/template]
+[template public genWsUtilFileRPath(anOclAny : OclAny) post (trim())][genWebServicesRPath()/]/[genWsUtilIdent()/][/template]
+
+[comment Ws<Object> /]
+[query public genWsObjectIdent(aNamedElem : ENamedElement) : String = 'Ws'.concat(aNamedElem.name.toIdent())/]
+[query public genWsObjectFileRPath(aNamedElem : ENamedElement) : String = genWebServicesRPath().concat('/').concat(genWsObjectIdent(aNamedElem))/]
+
+[comment <Object>Manager /]
+[query public genObjectManagerIdent(aNamedElem : ENamedElement) : String = aNamedElem.name.toIdent().concat('Manager')/]
+[query public genObjectManagerFileRPath(aNamedElem : ENamedElement) : String = genJsQueryRPath().concat('/').concat(genObjectManagerIdent())/]
+
+
+
+[comment WidgetContainer /]
+[template public genWidgetContainerFileIdent(absViewElem : AbstractViewElement) ? (absViewElem.isWidgetContainer()) post (trim())][absViewElem.name.toIdent()/][/template]
+[template public genWidgetContainerFileRPath(absViewElem : AbstractViewElement) ? (absViewElem.isWidgetContainer()) post (trim())][genWidgetContainerRPath()/]/[genWidgetContainerFileIdent()/][/template]
+[comment WidgetContainer with error/]
+[template public genWidgetContainerFileIdent(absViewElem : AbstractViewElement) post (trim())][absViewElem.name.toIdent()/]Wrong[/template]
+[template public genWidgetContainerFileRPath(absViewElem : AbstractViewElement) post (trim())]wrongPath/[genWidgetContainerFileIdent()/][/template]
+
+
+[comment CommonPage /]
+[template public genCommonPageIdent(anOclAny : OclAny) post (trim())]CommonPage[/template]
+[template public genCommonPageFileRPath(anOclAny : OclAny) post (trim())][genJsPageRPath()/]/[genCommonPageIdent()/][/template]
+
+[comment Page /]
+[query public genPageIdent(aNamedElem : NamedElement) : String = aNamedElem.name.toIdent().concat('Page')/]
+[query public genPageFileRPath(aNamedElem : NamedElement) : String = genJsPageRPath().concat('/').concat(genPageIdent(aNamedElem))/]
+
+
+[comment CommonEvents /]
+[template public genCommonEventsIdent(anOclAny : OclAny) post (trim())]CommonEvents[/template]
+[template public genCommonEventsFileRPath(anOclAny : OclAny) post (trim())][genJsViewRPath()/]/[genCommonEventsIdent()/][/template]
+
+[comment ViewUtil /]
+[template public genViewUtilIdent(anOclAny : OclAny) post (trim())]ViewUtil[/template]
+[template public genViewUtilFileRPath(anOclAny : OclAny) post (trim())][genJsViewRPath()/]/[genViewUtilIdent()/][/template]
+
+
+
+[comment Widget AccountNav /]
+[template public genJsAccountNavIdent(anOclAny : OclAny) post (trim())]AccountNav[/template]
+[template public genJsAccountNavFileRPath(anOclAny : OclAny) post (trim())][genJsWidgetOtherRPath()/]/[genJsAccountNavIdent()/][/template]
+
+[comment Widget MenuLeft /]
+[query public genJsMenuLeftIdent(aNamedElem : NamedElement) : String = aNamedElem.name.toIdent().concat('MenuLeft')/]
+[query public genJsMenuLeftFileRPath(aNamedElem : NamedElement) : String = genJsWidgetOtherRPath().concat('/').concat(genJsMenuLeftIdent(aNamedElem))/]
+
+[comment Widget Pagination /]
+[template public genJsPaginationIdent(anOclAny : OclAny) post (trim())]Pagination[/template]
+[template public genJsPaginationFileRPath(anOclAny : OclAny) post (trim())][genJsWidgetOtherRPath()/]/[genJsPaginationIdent()/][/template]
+[template public genJsWidgetIdent(absViewElem : AbstractViewElement) ? (absViewElem.isPagination()) post (trim())][genJsPaginationIdent()/][/template]
+[template public genJsWidgetFileRPath(absViewElem : AbstractViewElement) ? (absViewElem.isPagination()) post (trim())][genJsWidgetOtherRPath()/]/[genJsPaginationIdent()/][/template]
+
+[comment Widget Stats /]
+[template public genJsStatsHelperIdent(anOclAny : OclAny) post (trim())]StatsHelper[/template]
+[template public genJsStatsHelperFileRPath(anOclAny : OclAny) post (trim())][genJsWidgetOtherRPath()/]/[genJsStatsHelperIdent()/][/template]
+
+[query public genJsObjectStatsIdent(aNamedElem : ENamedElement) : String = aNamedElem.name.toIdent().concat('Stats')/]
+[query public genJsObjectStatsFileRPath(aNamedElem : ENamedElement) : String = genJsWidgetOtherRPath().concat('/').concat(genJsObjectStatsIdent())/]
+[template public genJsWidgetIdent(absViewElem : AbstractViewElement) ? (absViewElem.isStats() and absViewElem.isBound()) post (trim())][absViewElem.reqBoundEClass().genJsObjectStatsIdent()/][/template]
+[template public genJsWidgetFileRPath(absViewElem : AbstractViewElement) ? (absViewElem.isStats()) post (trim())][genJsWidgetOtherRPath()/]/[genJsWidgetIdent()/][/template]
+
+[comment Widget Edit<Object> /]
+[query public genJsEditObjectIdent(aNamedElem : ENamedElement) : String = 'Edit'.concat(aNamedElem.name.toIdent())/]
+[query public genJsEditObjectFileRPath(aNamedElem : ENamedElement) : String = genJsWidgetPopupRPath().concat('/').concat(genJsEditObjectIdent())/]
+[template public genJsWidgetIdent(absViewElem : AbstractViewElement) ? (absViewElem.isEditForm() and absViewElem.isBound()) post (trim())][absViewElem.reqBoundEClass().genJsEditObjectIdent()/][/template]
+[template public genJsWidgetFileRPath(absViewElem : AbstractViewElement) ? (absViewElem.isEditForm()) post (trim())][genJsWidgetPopupRPath()/]/[genJsWidgetIdent()/][/template]
+
+[comment Widget New<Object> /]
+[query public genJsNewObjectIdent(aNamedElem : ENamedElement) : String = 'New'.concat(aNamedElem.name.toIdent())/]
+[query public genJsNewObjectFileRPath(aNamedElem : ENamedElement) : String = genJsWidgetFormRPath().concat('/').concat(genJsNewObjectIdent())/]
+[template public genJsWidgetIdent(absViewElem : AbstractViewElement) ? (absViewElem.isCreateForm() and absViewElem.isBound()) post (trim())][absViewElem.reqBoundEClass().genJsNewObjectIdent()/][/template]
+[template public genJsWidgetFileRPath(absViewElem : AbstractViewElement) ? (absViewElem.isCreateForm()) post (trim())][genJsWidgetFormRPath()/]/[genJsWidgetIdent()/][/template]
+
+[comment Widget <Object>Popup /]
+[query public genJsObjectPopupIdent(aNamedElem : ENamedElement) : String = aNamedElem.name.toIdent().concat('Popup')/]
+[query public genJsObjectPopupFileRPath(aNamedElem : ENamedElement) : String = genJsWidgetPopupRPath().concat('/').concat(genJsObjectPopupIdent())/]
+[template public genJsWidgetIdent(absViewElem : AbstractViewElement) ? (absViewElem.isPopupContainer() and absViewElem.isBound()) post (trim())][absViewElem.reqBoundEClass().genJsObjectPopupIdent()/][/template]
+[template public genJsWidgetFileRPath(absViewElem : AbstractViewElement) ? (absViewElem.isPopupContainer()) post (trim())][genJsWidgetPopupRPath()/]/[genJsWidgetIdent()/][/template]
+
+[comment Widget <Object>List /]
+[query public genJsObjectListIdent(aNamedElem : ENamedElement) : String = aNamedElem.name.toIdent().concat('List')/]
+[query public genJsObjectListFileRPath(aNamedElem : ENamedElement) : String = genJsWidgetListRPath().concat('/').concat(genJsObjectListIdent())/]
+[template public genJsWidgetIdent(absViewElem : AbstractViewElement) ? (absViewElem.isObjectList() and absViewElem.isBound()) post (trim())][absViewElem.reqBoundEClass().genJsObjectListIdent()/][/template]
+[template public genJsWidgetFileRPath(absViewElem : AbstractViewElement) ? (absViewElem.isObjectList()) post (trim())][genJsWidgetListRPath()/]/[genJsWidgetIdent()/][/template]
+
+[comment Widget not binded /]
+[template public genJsWidgetIdent(absViewElem : AbstractViewElement) ? (not(absViewElem.isBound())) post (trim())][absViewElem.name.toIdent()/]NotBound[/template]
+
+[comment Widget error /]
+[template public genJsWidgetIdent(absViewElem : AbstractViewElement) post (trim())][absViewElem.name.toIdent()/]Wrong[/template]
+[template public genJsWidgetFileRPath(absViewElem : AbstractViewElement) post (trim())]wrongPath/[absViewElem.isCreateForm()/]/[absViewElem.isBound()/]/[absViewElem.genJsWidgetIdent()/][/template]
+

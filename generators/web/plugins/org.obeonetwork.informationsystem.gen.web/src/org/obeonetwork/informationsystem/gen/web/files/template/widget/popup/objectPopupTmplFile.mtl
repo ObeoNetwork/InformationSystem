@@ -1,0 +1,44 @@
+[comment encoding = UTF-8 /]
+[module objectPopupTmplFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
+
+[template public genTmplObjectPopup(anEClass: EClass)]
+[file (genTmplObjectPopupFilePath().concat('.tmpl'), false, 'UTF-8')]
+[genHtmlCopyrightHeader()/]
+[genTmplHeader(anEClass, '0.5.0')/]
+
+[wrapScriptSign(genTmplObjectPopupIdent(anEClass), defaultTemplate(anEClass))/]
+
+[/file]
+[/template]
+
+[template protected defaultTemplate (anEClass: EClass) { 
+	contextName : String = anEClass.toVarIdent(); 
+}]
+
+	<div id="[contextName/]" class="modal fade in">
+	
+		<div class="modal-header">
+			<a {{action "closeLink"}} class="close" data-dismiss="modal">x</a>
+			<h3 class="title">[genTitle(anEClass)/]</h3>
+		</div>
+	
+		<div class="modal-body">
+			<ul class="[contextName/]-row">
+				[for (aStrucFeature : EStructuralFeature | (anEClass.eAllStructuralFeatures)->select(not(unsettable)))]
+				[genTmplDisplayFeature(anEClass, aStrucFeature)/]
+				[/for]
+			</ul>
+		</div>
+	
+		<div class="modal-footer">
+			<a {{action "closeLink"}} href="#" class="btn" data-dismiss="modal">Close</a>
+		</div>
+	
+	</div>
+	
+	<div {{action "closeLink"}} class="modal-backdrop fade in"></div>
+[/template]
+

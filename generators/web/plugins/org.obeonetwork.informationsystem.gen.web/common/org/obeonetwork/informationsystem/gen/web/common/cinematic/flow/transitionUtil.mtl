@@ -1,0 +1,90 @@
+[comment encoding = UTF-8 /]
+[module transitionUtil('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::widgetUtil /]
+[**
+ * Get all transition that leave from or income to this viewState.
+ * @param aFlowState the flow state context
+ */]
+[query public reqAllTransitions(flowState : FlowState) : OrderedSet(Transition) = flowState.reqTransitionsIncomeTo()->union(flowState.reqTransitionsLeaveFrom())->asOrderedSet() /]
+
+[**
+ * Get all transition that leave from this viewState.
+ * @param aFlowState the flow state context
+ */]
+[query public reqTransitionsLeaveFrom(flowState : FlowState) : OrderedSet(Transition) = flowState.eContainer(Flow).transitions->select(from = flowState)->asOrderedSet() /]
+
+[**
+ * Get all transitions that income to this viewState.
+ * @param aFlowState the flow state context
+ */]
+[query public reqTransitionsIncomeTo(flowState : FlowState) : OrderedSet(Transition) = flowState.eContainer(Flow).transitions->select(to = flowState)->asOrderedSet() /]
+
+[query public toIdent(aTransition : Transition) : String = aTransition.findAString().concat('Event').toIdent() /]
+
+[query private findAString(aTransition : Transition) : String = 
+	if aTransition.on->filter(ViewEvent)->size()>0 then 
+		aTransition.on->filter(ViewEvent)->first().name 
+	else 
+		aTransition.name.concat(' ').concat(aTransition.guard)
+	endif 
+/]
+
+[**
+ * Get all ViewElements that could be the orgin event of this transition.
+ * @param aTransition the transition context
+ */]
+[query public viewElementOrigin(aTransition : Transition) : OrderedSet(ViewElement) = 
+	aTransition.on.oclAsType(ViewEvent).eContainer(ViewElement)->asOrderedSet()
+ /]
+
+[**
+ * Get the ViewElement targets of this transition.
+ * @param aTransition the transition context
+ */]
+[query public viewElementTarget(aTransition : Transition) : ViewElement = 
+	aTransition.to.oclAsType(ViewState).viewContainers->first().eAllContents(ViewElement)->first()
+ /]
+
+
+[**
+ * Check that we have one (or more) event onClick on this transition.
+ * @param aTransition the transition context
+ */]
+[query public isOnClick(aTransition : Transition) : Boolean = aTransition.on->exists(anEvent : Event | anEvent.isOnClick()) /]
+
+[**
+ * Check that we have one (or more) event close on this transition.
+ * @param aTransition the transition context
+ */]
+[query public isClose(aTransition : Transition) : Boolean = aTransition.on->exists(anEvent : Event | anEvent.isClose()) /]
+
+[**
+ * Check that we have one (or more) event onClickObject on this transition.
+ * @param aTransition the transition context
+ */]
+[query public isOnClickObject(aTransition : Transition) : Boolean = aTransition.on->exists(anEvent : Event | anEvent.isOnClickObject()) /]
+
+[**
+ * Check that we have one (or more) event save on this transition.
+ * @param aTransition the transition context
+ */]
+[query public isSave(aTransition : Transition) : Boolean = aTransition.on->exists(anEvent : Event | anEvent.isSave()) /]
+
+[**
+ * Check that we have one (or more) event add on this transition.
+ * @param aTransition the transition context
+ */]
+[query public isAdd(aTransition : Transition) : Boolean = aTransition.on->exists(anEvent : Event | anEvent.isAdd()) /]
+
+[**
+ * Check that we have one (or more) event edit on this transition.
+ * @param aTransition the transition context
+ */]
+[query public isEdit(aTransition : Transition) : Boolean = aTransition.on->exists(anEvent : Event | anEvent.isEdit()) /]
+
+[**
+ * Check that we have one (or more) event delete on this transition.
+ * @param aTransition the transition context
+ */]
+[query public isDelete(aTransition : Transition) : Boolean = aTransition.on->exists(anEvent : Event | anEvent.isDelete()) /]

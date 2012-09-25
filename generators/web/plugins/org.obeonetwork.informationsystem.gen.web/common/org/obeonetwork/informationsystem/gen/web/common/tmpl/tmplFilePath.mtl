@@ -1,0 +1,35 @@
+[comment encoding = UTF-8 /]
+[module tmplFilePath('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplDirectoryPath /]
+
+[comment Pagination /]
+[template public genTmplPaginationIdent(anOclAny : OclAny)]pagination[/template]
+[template public genTmplPaginationFilePath(anOclAny : OclAny)][genTmplWidgetOtherPath()/]/[genTmplPaginationIdent()/][/template]
+
+[comment MenuLeft /]
+[query public genTmplMenuLeftIdent(aNamedElem : NamedElement) : String = aNamedElem.name.toLower().concat('-menu-left')/]
+[query public genTmplMenuLeftFilePath(aNamedElem : NamedElement) : String = genTmplWidgetOtherPath().concat('/').concat(genTmplMenuLeftIdent())/]
+
+[comment Stats /]
+[template public genTmplStatsIdent(anOclAny : OclAny)]stats[/template]
+[template public genTmplStatsFilePath(anOclAny : OclAny)][genTmplWidgetOtherPath()/]/[genTmplStatsIdent()/][/template]
+
+[comment AccountNav /]
+[template public genTmplAccountNavIdent(anOclAny : OclAny)]account-nav[/template]
+[template public genTmplAccountNavFilePath(anOclAny : OclAny)][genTmplWidgetOtherPath()/]/[genTmplAccountNavIdent()/][/template]
+
+[comment <Object>Popup /]
+[query public genTmplObjectPopupIdent(aNamedElem : ENamedElement) : String = aNamedElem.name.toLower().concat('-popup')/]
+[query public genTmplObjectPopupFilePath(aNamedElem : ENamedElement) : String = genTmplWidgetPopupPath().concat('/').concat(genTmplObjectPopupIdent())/]
+
+[comment Edit<Object>Popup /]
+[query public genTmplEditObjectPopupIdent(aNamedElem : ENamedElement) : String = 'edit-'.concat(aNamedElem.name.toLower()).concat('-popup')/]
+[query public genTmplEditObjectPopupFilePath(aNamedElem : ENamedElement) : String = genTmplWidgetPopupPath().concat('/').concat(genTmplEditObjectPopupIdent())/]
+
+[comment <Object>List /]
+[query public genTmplObjectListIdent(aNamedElem : ENamedElement) : String = aNamedElem.name.toLower().concat('-list')/]
+[query public genTmplObjectListFilePath(aNamedElem : ENamedElement) : String = genTmplWidgetListPath().concat('/').concat(genTmplObjectListIdent())/]
+
+[comment New<Object> /]
+[query public genTmplNewObjectIdent(aNamedElem : ENamedElement) : String = 'new-'.concat(aNamedElem.name.toLower())/]
+[query public genTmplNewObjectFilePath(aNamedElem : ENamedElement) : String = genTmplWidgetFormPath().concat('/').concat(genTmplNewObjectIdent())/]

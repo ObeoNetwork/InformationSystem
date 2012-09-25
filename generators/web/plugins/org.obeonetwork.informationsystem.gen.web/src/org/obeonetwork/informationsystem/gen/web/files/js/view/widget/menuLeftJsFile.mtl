@@ -1,0 +1,58 @@
+[comment encoding = UTF-8 /]
+[module menuLeftJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
+
+[template public genJsMenuLeft(aN1Flow : Flow) {
+		This : String = genJsMenuLeftIdent(aN1Flow);
+		App : String = genAppIdent();
+		ViewUtil : String = genViewUtilIdent();
+		CommonEvents : String = genCommonEventsIdent();
+		Ember : String = genEmberIdent();
+}]
+[file (genJsFullPath(aN1Flow.genJsMenuLeftFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('1.0')/]
+[genAMDHeader(
+	Sequence{genAppFileRPath(), genViewUtilFileRPath(), genCommonEventsFileRPath()}, 
+	Sequence{Ember},
+	Sequence{App, ViewUtil, CommonEvents}
+)/]
+	
+	var [This/] = {},
+		_Class = Em.View.extend({ templateName : "[aN1Flow.genTmplMenuLeftIdent()/]" });
+
+	
+	
+	/*
+	 */
+	[This/].create = function() {
+		[ViewUtil/].loadWidgetTemplate("./[aN1Flow.genTmplMenuLeftFilePath()/]");
+
+		var view = _Class.create({
+			
+			didInsertElement : cb_whenInsert
+		});
+		
+		return view;
+	};
+	
+	[This/].getClass = function() { return _Class; };
+	
+	/*call backs*/
+	var cb_load[genAccountIdent()/] = function([genAccountIdent().toVarIdent()/]) {
+
+		this.set('[genAccountIdent().toVarIdent()/]', [genAccountIdent().toVarIdent()/]);
+	};
+
+	var cb_whenInsert = function() {
+		
+	};
+	
+	return [This/];
+});
+	[/file]
+[/template]

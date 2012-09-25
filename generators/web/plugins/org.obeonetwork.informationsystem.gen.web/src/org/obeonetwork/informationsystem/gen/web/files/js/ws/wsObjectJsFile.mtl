@@ -1,0 +1,189 @@
+[comment encoding = UTF-8 /]
+[module wsObjectJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genWsObject(anEClass : EClass) {
+		This : String = genWsObjectIdent();
+		WsUtil : String = genWsUtilIdent();
+
+		Object : String = genObjectIdent(anEClass).toTypeIdent();
+		object : String = genObjectIdent(anEClass).toVarIdent();
+		objects : String = genObjectIdent(anEClass).toVarIdent().toPluralIdent();
+}]
+[file (genJsFullPath(genWsObjectFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.2.0')/]
+ /**
+ * define a webservice API for the [object/] entity.
+ * we use JQuery REST API. In consequence, we are in an asynchrone context.
+ * All functions must define a call back function that will run at the end
+ * of the REST query.
+ */
+[genAMDHeader(
+	Sequence{genWsUtilFileRPath(), genObjectFileRPath()}, 
+	Sequence{WsUtil, Object}
+)/]
+	
+	var [This/] = {};
+
+	/*
+	 * get all [objects/] model.
+	 * @param {function(model.[Object/]['['/][']'/])} the function throw at the end of 
+	 * the asynchrone query.
+	 * @return {model.[Object/]['['/][']'/]} all [objects/]
+	 */
+	[This/].all = function(cb_function) {
+
+		var [objects/] = ['['/][']'/];
+		
+		var url = [WsUtil/].baseUrl() + "/[object/]/list";
+		var data = null;
+		var cb_success = function(resultData) {
+
+			for(var i = 0; i < resultData.length; i++) {
+				var [object/] = _json2[Object/](resultData['['/]i[']'/]);
+				[objects/]['['/]i[']'/] = [object/];
+			}
+			cb_function([objects/]);
+		};
+		var cb_error = function() { 
+			cb_function(['['/][']'/]);
+		};
+		[WsUtil/].getJsonQuery(url, data, cb_success, cb_error);
+	};
+
+	[This/].allProxies = function(cb_function) {
+
+		var [object/]Proxies = ['['/][']'/];
+
+		var url = [WsUtil/].baseUrl() + "/[object/]/list-proxy";
+		var data = null;
+		var cb_success = function(resultData) {
+
+			for(var i = 0; i < resultData.length; i++) {
+				var [object/]Proxy = [WsUtil/].json2Proxy(resultData['['/]i[']'/]);
+				[object/]Proxies['['/]i[']'/] = [object/]Proxy;
+			}
+			cb_function([object/]Proxies);
+		};
+		var cb_error = function() { 
+			cb_function(['['/][']'/]);
+		};
+		[WsUtil/].getJsonQuery(url, data, cb_success, cb_error);
+	};
+	
+	[This/].allByRows = function(cb_function, nbElemByRow, rowId) {
+
+		if(nbElemByRow<0) {
+			[This/].all(cb_function);
+		} else {
+			var [objects/] = ['['/][']'/];
+
+			var url = [WsUtil/].baseUrl() + "/[object/]/rows/"+rowId;
+			var data = {nbElemByRow : nbElemByRow};
+			var cb_success = function(resultData) {
+				for(var i = 0; i < resultData.length; i++) {
+					var [object/] = _json2[Object/](resultData['['/]i[']'/]);
+					[objects/]['['/]i[']'/] = [object/];
+				}
+				cb_function([objects/]);
+			};
+			var cb_error = function() { 
+				cb_function(['['/][']'/]);
+			};
+			[WsUtil/].getJsonQuery(url, data, cb_success, cb_error);
+		}
+	};
+	
+	
+	[This/].countAll[Object.toPluralIdent()/] = function(cb_function) {
+
+		var count = 0;
+
+		var url = [WsUtil/].baseUrl() + "/[object/]/list-count";
+		var data = null;
+		var cb_success = function(resultData) {
+
+			cb_function(resultData.count);
+			
+		};
+		var cb_error = function() { 
+			cb_function(0);
+		};
+		[WsUtil/].getJsonQuery(url, data, cb_success, cb_error);
+	};
+	
+	/*
+	 * get an [object/] model by Id
+	 * @param {function(model.[Object/])} the function throw at the end 
+	 * of the asynchrone query.
+	 * @param {long} the [object/] Id.
+	 * @return {model.[Object/]} the object
+	 */
+	[This/].[object/] = function(cb_function, id) {
+
+		var url = [WsUtil/].baseUrl() + "/[object/]/get/" + id;
+		var data = null;
+		var cb_success = function(resultData) {
+
+			var [object/] = _json2[Object/](resultData);
+			cb_function([object/]);
+		};
+		var cb_error = function() { 
+			cb_function(null);
+		};
+		[WsUtil/].getJsonQuery(url, data, cb_success, cb_error);
+	};
+
+	// sample of stats query
+	[This/].stats = function(cb_function) {
+
+		var stats = ['['/][']'/];
+
+		var url = [WsUtil/].baseUrl() + "/[object/]/stats";
+		var data = null;
+		var cb_success = function(resultData) {
+
+			for(var i = 0; i < resultData.length; i++) {
+				var stat = [WsUtil/].json2Stat(resultData['['/]i[']'/]);
+				stats['['/]i[']'/] = stat;
+			}
+			cb_function(stats);
+		};
+		var cb_error = function() { 
+			cb_function(['['/][']'/]);
+		};
+		[WsUtil/].getJsonQuery(url, data, cb_success, cb_error);
+	};
+
+	/*
+	 * Convert a Json Object to a model.[Object/] Object
+	 * @param {[Object/]} brut object
+	 * @return the [Object/] object
+	 */
+	function _json2[Object/](json) {
+		
+		var [object/] = [Object/].Class.create({
+			[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures)]
+				[if(classAttribute.eType.oclIsKindOf(EClass))]
+					[if(classAttribute.many)]
+						[classAttribute.eType.toVarIdent()/]Proxies : [WsUtil/].json2Proxies(json.[classAttribute.eType.toVarIdent()/]Proxies),
+					[else]
+						[classAttribute.eType.toVarIdent()/]Proxy : [WsUtil/].json2Proxy(json.[classAttribute.eType.toVarIdent()/]Proxy),
+					[/if]
+				[else]
+						[classAttribute.toVarIdent()/] : json.[classAttribute.toVarIdent()/],
+				[/if]
+			[/for]
+		});
+		
+		return [object/];
+	}
+	
+	return [This/];
+});
+[/file]
+[/template]

@@ -1,0 +1,53 @@
+[comment encoding = UTF-8 /]
+[module viewUtilJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genViewUtil(aConfiguration : Configuration) {
+		This : String = genViewUtilIdent();
+		Ember : String = genEmberIdent();
+}]
+[file (genJsFullPath(genViewUtilFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.3.0')/]
+[genAMDHeader(Sequence{}, Sequence{Ember}, Sequence{})/]
+
+	var [This/] = {};
+
+	/*
+	 * Load the ember template (if it is not already loaded)
+	 * @param {String} templateName
+	 */
+	[This/].loadWidgetTemplate = function(templatePath) {
+		_loadTemplate([This/]._extractTemplateName(templatePath), templatePath);
+	}
+	
+	function _loadTemplate(templateName, templatePath) {
+		
+		if(Em.TEMPLATES['['/]templateName[']'/] == undefined) {
+			$.ajax({
+				url : templatePath+".tmpl", type : "get", dataType : "html", context : document.body, async : false, cache : true, success : function(data) {
+					$(data).filter('script['['/]type="text/x-handlebars"[']'/]').each(function() {
+						
+						var templateNameFounded = $(this).attr('data-template-name');
+						Em.TEMPLATES['['/]templateNameFounded[']'/] = Ember.Handlebars.compile($(this).html());
+					});
+				}
+
+			});
+		}
+	}
+
+	[This/]._extractTemplateName = function (filePath) {
+		var fileNameIndex = filePath.lastIndexOf("/") + 1;
+		var filename = filePath.substr(fileNameIndex);
+		return filename;
+	}
+
+	return [This/];
+});
+
+	[/file]
+[/template]

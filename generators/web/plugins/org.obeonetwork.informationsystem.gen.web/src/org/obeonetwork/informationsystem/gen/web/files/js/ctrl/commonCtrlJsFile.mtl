@@ -1,0 +1,308 @@
+[comment encoding = UTF-8 /]
+[module commonCtrlJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genCommonCtrl(aConfiguration : Configuration) {
+		This : String = genCommonCtrlIdent();
+		App : String = genAppIdent();
+		LogManager : String = genLogManagerIdent();
+		CommonPage : String = genCommonPageIdent();
+		Proxy : String = genProxyIdent();
+		WsUtil : String = genWsUtilIdent();
+		objectEClasses : OrderedSet(ecore::EClass) = aConfiguration.ecoreModel.eClassifiers->filter(EClass);
+}]
+[file (genJsFullPath(genCommonCtrlFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.1.0')/]
+
+[genAMDHeader(
+	Sequence{genAppFileRPath(), genLogManagerFileRPath(), genCommonPageFileRPath(), genProxyFileRPath()}, 
+	Sequence{App, LogManager, CommonPage, Proxy}
+	)/]
+	
+	var [This/] = {};
+	
+	var allowedStates = ['['/]"state-default", "state-in-login", "state-user", "state-moderator", "state-admin"[']'/];
+	var host = "http://"+window.location.host;
+	
+	[initFunction()/]
+
+	[This/].start = function() {
+		_init();
+	};
+	
+	/*
+	 * @param {String} the string Id of the state
+	 * @return boolean true if it's a valid state
+	 */
+	[This/].stateChange = function(state) {
+	
+		switch(state) {
+			case allowedStates['['/]1[']'/]:
+				_toInLoginState();
+				break;
+				
+			case allowedStates['['/]2[']'/]:
+				_toUserState();
+				break;
+				
+			case allowedStates['['/]3[']'/]:
+				_toModeratorState();
+				break;
+				
+			case allowedStates['['/]4[']'/]:
+				_toAdminState();
+				break;
+				
+			default:
+				_toDefaultState();
+				break;
+		}
+
+	};
+	
+	/* events */
+[for (anEClass : EClass | objectEClasses)]
+	[let Object : String = anEClass.toTypeIdent()]
+	[let object : String = anEClass.toVarIdent()]
+	[let ObjectManager : String = anEClass.genObjectManagerIdent().toTypeIdent()]
+	/**/
+	[This/].remove[Object/] = function([object/]) {
+		//TODO
+		[App/].toast.warning("Server remove not implemented yet. Sorry!");
+	};
+	[This/].update[Object/] = function([object/]) {
+		//TODO
+		[App/].toast.warning("Server edit not implemented yet. Sorry!");
+	};
+	[This/].add[Object/] = function([object/]) {
+		//TODO
+		[App/].toast.warning("Server add not implemented yet. Sorry!");
+	};
+	[This/].showModal[Object/] = function(id) {
+		
+		[App/].[ObjectManager/].async_byId(function([object/]) {
+			[CommonPage/].showModal[Object/]([object/]);
+		}, id);
+	};
+	[This/].edit[Object/] = function([object/]) {
+		[recAsyncEdit(anEClass, anEClass.eReferences)/]
+	};
+	[/let]
+	[/let]
+	[/let]
+
+[/for]
+
+[for (anEClass : EClass | objectEClasses)]
+	[let object : String = anEClass.toVarIdent()]
+	[let Objects : String = anEClass.toTypeIdent().toPluralIdent()]
+	[let ObjectManager : String = anEClass.genObjectManagerIdent().toTypeIdent()]
+	
+	/**/
+	[This/].loadAll[Objects/]InWidget = function(contentWidget) {
+		
+		[App/].[ObjectManager/].async_allProxies(
+			[comment [jsComment4RecStart(anEClass)/]
+			function([object/]Proxies) { contentWidget.load[object.toTypeIdent()/]Proxies([object/]Proxies); }
+			[comment [jsComment4RecStop(anEClass)/]
+		);
+	};
+
+	[This/].load[Objects/]InWidget = function(contentWidget, paginationWidgets, activePage) {
+		_async_loadContent([App/].[ObjectManager/], contentWidget, activePage);
+		_async_loadPagination([App/].[ObjectManager/], paginationWidgets, activePage);
+	};
+
+	[This/].load[object.toTypeIdent()/]StatsInWidget = function(contentWidget) {
+		_async_loadStat([App/].[ObjectManager/], contentWidget);
+	};
+	[/let]
+	[/let]
+	[/let]
+[/for]
+	
+
+
+
+
+
+	function _async_loadContent(objectManager, contentWidget, activePage) {
+		
+		if(activePage===undefined || activePage==null) {
+			activePage = 0;
+		}
+		
+		objectManager.async_allByRows(
+			function(offices) { contentWidget.loadContent(offices); }, 5, activePage
+		);
+	}
+
+	function _async_loadStat(objectManager, contentWidget) {
+		objectManager.async_stats(
+			function(stats) { contentWidget.loadContent(stats); }
+		);
+	}
+	
+	/**/
+	function _async_loadPagination(objectManager, paginationWidgets, activePage) {
+		
+		if(paginationWidgets===undefined || paginationWidgets==null) {
+			paginationWidgets = ['['/][']'/];
+		}
+		if(activePage===undefined || activePage==null) {
+			activePage = 0;
+		}
+		
+		objectManager.async_countAll(
+			[comment [jsComment4RecStart()/]
+			function(count) {
+				var pageProxies = ['['/][']'/];
+				for(var i = 0; i < count / 5; i++) {
+					pageProxies['['/]i[']'/] = [Proxy/].Class.create({
+						id : i, desc : "" + (i + 1) + "", active : activePage==i
+					});
+				};
+				for (var i=0; i < paginationWidgets.length; i++) {
+				  paginationWidgets['['/]i[']'/].loadContent(pageProxies);
+				};
+			}
+			[comment [jsComment4RecStop()/]
+		);
+	}
+	
+	/**/
+	[This/].hideModal = function() {
+		
+		[CommonPage/].hideModal();
+	};
+	
+	/**/
+	[This/].signOut = function() {
+		
+		[LogManager/].logOff();
+		_reloadPage();
+	};
+	
+	[privateFunctions()/]
+	
+	return [This/];
+});
+[/file]
+[/template]
+
+[template private recAsyncEdit(anEClass : EClass, eRefs : Set(EReference)) post (trim())]
+[if (eRefs->size()<=0)]
+[genCommonPageIdent()/].showEditModal[anEClass.toTypeIdent()/]([anEClass.toVarIdent()/][for (type : EClassifier | anEClass.eAllReferences.eType)], [type.toVarIdent()/]Proxies[/for]);
+[else]
+[let currentRef : EReference = eRefs->asSequence()->at(1)]
+[let currentClass : EClass = currentRef.eType]
+[let currentVar : String = currentClass.toVarIdent()]
+[genAppIdent()/].[genObjectManagerIdent(currentClass)/].async_allProxies(function([currentVar/]Proxies) {
+	[jsComment4RecStart(currentClass)/]
+	[if (currentRef.many)]
+	var old[currentClass.toTypeIdent()/]Proxies = [anEClass.toVarIdent()/].get("[currentVar/]Proxies");
+	var linked[currentClass.toTypeIdent()/]Proxies = ['['/][']'/];
+	
+	for (var i = 0; i < [currentVar/]Proxies.length; i++) {
+		for (var j = 0; j < old[currentClass.toTypeIdent()/]Proxies.length; j++) {
+	
+			if ([currentVar/]Proxies['['/]i[']'/].id === old[currentClass.toTypeIdent()/]Proxies['['/]j[']'/].id) {
+				linked[currentClass.toTypeIdent()/]Proxies.push([currentVar/]Proxies['['/]i[']'/]);
+				break;
+			}
+		}
+	}
+	[anEClass.toVarIdent()/].set("[currentVar/]Proxies", linked[currentClass.toTypeIdent()/]Proxies);
+	
+	[else]
+	for (var i = 0; i < [currentVar/]Proxies.length; i++) {
+		var [currentVar/]Proxy = [currentVar/]Proxies['['/]i[']'/];
+	
+		if ([anEClass.toVarIdent()/].[currentVar/]Proxy.id === [currentVar/]Proxy.id) {
+			[anEClass.toVarIdent()/].set("[currentVar/]Proxy", [currentVar/]Proxy);
+			break;
+		}
+	}
+	[/if]
+
+	[comment recursive calling /]
+	[recAsyncEdit(anEClass, eRefs->excluding(currentRef))/]
+	[jsComment4RecStop(currentClass)/]
+});
+[/let]
+[/let]
+[/let]
+[/if]
+[/template]
+
+[template public initFunction (anOclAny : OclAny){
+	This : String = genCommonCtrlIdent();
+	LogManager : String = genLogManagerIdent();
+	CommonPage : String = genCommonPageIdent()
+}]
+function _init() {
+		
+	if([LogManager/].isLogged()) {
+		if([LogManager/].isAdmin()) {
+			[This/].stateChange(allowedStates['['/]4[']'/]);
+		} else if([LogManager/].isModerator()) {
+			[This/].stateChange(allowedStates['['/]3[']'/]);
+		} else {
+			[This/].stateChange(allowedStates['['/]2[']'/]);
+		}
+	} else {
+		if([LogManager/].inLoginProcess()) {
+			[This/].stateChange(allowedStates['['/]1[']'/]);
+		} else {
+			[This/].stateChange(allowedStates['['/]0[']'/]);
+		}
+	}
+	[CommonPage/].start();
+}
+[/template]
+
+[template public privateFunctions(anOclAny : OclAny){
+	LogManager : String = genLogManagerIdent();
+	CommonPage : String = genCommonPageIdent()
+}]
+/**/
+function _reloadPage() {
+	
+	window.location.replace(host);
+}
+
+/**/
+function _toDefaultState() {
+	
+	[CommonPage/].renderDefault();
+}
+
+/**/
+function _toInLoginState() {
+	
+	[LogManager/].tokenQuery();
+	_reloadPage();
+}
+
+/**/
+function _toUserState() {
+	
+	[CommonPage/].renderUserFeatures();
+}
+
+/**/
+function _toModeratorState() {
+	
+	[CommonPage/].renderModeratorFeatures();
+}
+
+/**/
+function _toAdminState() {
+	
+	[CommonPage/].renderAdminFeatures();
+}
+[/template]

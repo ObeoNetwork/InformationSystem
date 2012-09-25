@@ -1,0 +1,40 @@
+[comment encoding = UTF-8 /]
+[module paginationTmplFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
+
+[template public genTmplPagination(anOclAny : OclAny)]
+[file (genTmplPaginationFilePath().concat('.tmpl'), false, 'UTF-8')]
+[genHtmlCopyrightHeader()/]
+[genTmplHeader('0.8.0')/]
+<!--
+	@param {model.Proxy['['/][']'/]} proxies
+	@param {model.Proxy} currentProxy
+-->
+[wrapScriptSign(genTmplPaginationIdent(), defaultTemplate())/]
+
+[/file]
+[/template]
+
+[template protected defaultTemplate (anOclAny : OclAny) ]
+	{{#if paginationProxies}}
+	<div class="[genTmplPaginationIdent()/]" style="text-align: center;">
+		<ul>
+			{{#each [genTmplPaginationIdent()/]Proxy in [genTmplPaginationIdent()/]Proxies}}
+				{{#if [genTmplPaginationIdent()/]Proxy.active}}
+				<li class="active">
+					<a href="#">
+				{{else}}
+				<li class="">
+					<a {{action "[genTmplPaginationIdent()/]Link" context="[genTmplPaginationIdent()/]Proxy"}} href="#" class="[genTmplPaginationIdent()/]-link">
+				{{/if}}
+					{{[genTmplPaginationIdent()/]Proxy.desc}}
+					</a>
+				</li>
+				
+			{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+[/template]

@@ -1,0 +1,167 @@
+ /*******************************************************************************
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
+
+body {
+	/*padding-top:10px;	*/
+	background: #BFC0D7;
+}
+
+.page {
+	box-shadow: 3px 3px 32px #000;
+	background: white;
+}
+#logo {
+	background: url("../images/header.png") no-repeat scroll top center;
+	border: 0 none transparent;
+	width: 1170px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+header {
+	background-color: #2C2C2C;
+}
+
+header .carousel {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sections {
+	background-color: #FFFFFF;
+}
+
+#content {
+	min-height: 600px;
+}
+
+.pre-footer {
+	margin-top: 10px;
+	border-bottom-width: 10px;
+	border-bottom-style: solid;
+	border-bottom-color: #2C2C2C;
+	border-right-width: 10px;
+	border-right-style: solid;
+	border-right-color: transparent;
+	border-left-width: 10px;
+	border-left-style: solid;
+	border-left-color: transparent;
+}
+
+.post-footer {
+	border-top-width: 10px;
+	border-top-style: solid;
+	border-top-color: #2C2C2C;
+	border-right-width: 10px;
+	border-right-style: solid;
+	border-right-color: transparent;
+	border-left-width: 10px;
+	border-left-style: solid;
+	border-left-color: transparent;
+}
+
+footer {
+	margin-top: 10px;
+	padding: 10px 0 20px;
+	border : none;
+	background-color: #2C2C2C;
+	border: none;
+}
+
+footer p {
+	color: #FFFFFF;
+}
+
+.modal-backdrop,
+.modal-backdrop.fade.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+
+header .navbar-inner {
+	border-radius: 0px;
+}
+
+footer.navbar-inner {
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.sign-in {
+	display:none;	
+}
+
+#sign-in .sign-in {
+	display:block;
+}
+
+#sign-in .sign-out {
+	display:none;	
+}
+
+#content .container-fluid {
+	display:none;	
+}
+
+.loaded #content .container-fluid {
+	display:block;	
+}
+
+.loaded .navbar .nav .active > a, 
+.loaded .navbar .nav .active > a:hover {
+	background-color: #08C;
+}
+
+.loaded .navbar .nav > li > a {
+	border-top-left-radius: 50px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 50px;
+	padding: 10px 15px 10px 15px;
+}
+
+/* Special grid styles
+-------------------------------------------------- */
+
+
+.dark-block [class*="span"] {
+  min-height: 30px;
+  line-height: 30px;
+}
+
+.icon-tasks {
+background-position: -384px -144px;
+}
+
+.icon-thumbs-up {
+background-position: -96px -144px;
+}
+
+.dark-block {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color:whiteSmoke;
+	border-radius: 6px;
+	border:1px solid #222222;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}

@@ -1,0 +1,164 @@
+[comment encoding = UTF-8 /]
+[module main('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+
+[import org::obeonetwork::informationsystem::gen::web::files::indexFile /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::flowUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::view::viewUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::toolkitUtil /]
+[import org::obeonetwork::informationsystem::gen::web::common::cinematic::cinematicUtil /]
+
+[import org::obeonetwork::informationsystem::gen::web::files::js::rootJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::appJsFile /]
+
+[import org::obeonetwork::informationsystem::gen::web::files::js::ctrl::commonCtrlJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::ctrl::ctrlJsFile /]
+
+[import org::obeonetwork::informationsystem::gen::web::files::js::model::proxyJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::model::statJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::model::objectJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::model::accountJsFile /]
+
+[import org::obeonetwork::informationsystem::gen::web::files::js::query::objectManagerJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::query::accountManagerJsFile /]
+
+[import org::obeonetwork::informationsystem::gen::web::files::js::security::securityUtilJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::security::logManagerJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::security::providerDelegationJsFile /]
+
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::commonEventsJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::viewUtilJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::page::commonPageJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::page::pageJsFile /]
+
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::widget::paginationJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::widget::accountNavJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::widget::menuLeftJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::widget::objectStatsJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::widget::statsPopupHelperJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::widget::objectListJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::widget::newObjectJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::widget::editObjectJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::widget::objectPopupJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::view::widgetcontainer::widgetContainerJsFile /]
+
+[import org::obeonetwork::informationsystem::gen::web::files::js::ws::wsUtilJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::ws::wsObjectJsFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::js::ws::wsAccountJsFile /]
+
+[import org::obeonetwork::informationsystem::gen::web::files::template::widget::form::newObjectTmplFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::template::widget::list::objectListTmplFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::template::widget::other::accountNavTmplFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::template::widget::other::menuLeftTmplFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::template::widget::other::paginationTmplFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::template::widget::other::statsTmplFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::template::widget::popup::editObjectPopupTmplFile /]
+[import org::obeonetwork::informationsystem::gen::web::files::template::widget::popup::objectPopupTmplFile /]
+[import org::obeonetwork::informationsystem::gen::web::test::main::mainTest /]
+
+[template public main(aConfig : Configuration)]
+[comment @main/]
+	[aConfig.genHtml()/]
+	[aConfig.genJs()/]
+	[aConfig.genTmpl()/]
+	[aConfig.genTest()/]
+[/template]
+
+
+[template public genHtml(aConfig : Configuration)]
+	[aConfig.genIndex()/]
+[/template]
+
+
+[template private genJs(aConfig : Configuration)]
+	[genRoot(aConfig.cinematicModel.flows->first().reqSubFlows())/]
+	[aConfig.genApp()/]
+
+	[aConfig.genJsCtrls()/]
+
+	[aConfig.genJsModels()/]
+
+	[aConfig.genJsViews()/]
+
+	[aConfig.genJsSec()/]
+
+	[aConfig.genJsServices()/]
+[/template]
+
+[template private genTmpl(aConfig : Configuration)]
+
+	[genTmplAccountNav(aConfig)/]
+	[genTmplStats(aConfig)/]
+	
+	[for (aN1Flow : Flow | aConfig.cinematicModel.flows->first().reqSubFlows())]
+		[genTmplMenuLeft(aN1Flow)/]
+	[/for]
+	[genTmplPagination(aConfig)/]
+	[for (aEClass : EClass | aConfig.ecoreModel.eClassifiers->filter(EClass))]
+		[genTmplNewObject(aEClass)/]
+		[genTmplObjectList(aEClass)/]
+		[genTmplObjectPopup(aEClass)/]
+		[genTmplEditObjectPopup(aEClass)/]
+	[/for]
+
+[/template]
+
+
+
+[template private genJsCtrls(aConfig : Configuration)]
+	[genCommonCtrl(aConfig)/]
+	[for (aN1Flow : Flow | aConfig.cinematicModel.flows->first().reqSubFlows())]
+		[genCtrl(aN1Flow)/]
+	[/for]
+[/template]
+
+[template private genJsModels(aConfig : Configuration)]
+	[genProxy(aConfig)/]
+	[genStat(aConfig)/]
+	[genAccount(aConfig)/]
+
+	[for (aEClass : EClass | aConfig.ecoreModel.eClassifiers->filter(EClass))]
+	[genObject(aEClass)/]
+	[/for]
+[/template]
+
+[template private genJsSec(aConfig : Configuration)]
+	[genSecurityUtil(aConfig)/]
+	[genLogManager(aConfig)/]
+	[genProviderDelegation(aConfig)/]
+[/template]
+
+[template private genJsViews(aConfig : Configuration)]
+	[genCommonEvents(aConfig)/]
+	[genCommonPage(aConfig)/]
+	[for (aN1Flow : Flow | aConfig.cinematicModel.flows->first().reqSubFlows())]
+		[genPage(aN1Flow)/]
+		[genJsMenuLeft(aN1Flow)/]
+	[/for]
+	[genViewUtil(aConfig)/]
+	[for (aViewContainer : ViewContainer | aConfig.cinematicModel.viewContainers->select(isWidgetContainer() and not(isAReference())))]
+		[genWidgetContainer(aViewContainer)/]
+	[/for]
+
+	[genJsAccountNav(aConfig)/]
+	[genJsStatsPopupHelper()/]
+
+	[genJsPagination(aConfig)/]
+	[for (aEClass : EClass | aConfig.ecoreModel.eClassifiers->filter(EClass))]
+		[genJsObjectStats(aEClass)/]
+		[genJsNewObject(aEClass)/]
+		[genJsObjectList(aEClass)/]
+		[genJsEditObject(aEClass)/]
+		[genJsObjectPopup(aEClass)/]
+	[/for]
+	
+[/template]
+
+[template private genJsServices(aConfig : Configuration)]
+	[genWsUtil(aConfig)/]
+	[genWsAccount(aConfig)/]
+	[genAccountManager(aConfig)/]
+	[for (aEClass : EClass | aConfig.ecoreModel.eClassifiers->filter(EClass))]
+	[genWsObject(aEClass)/]
+	[genObjectManager(aEClass)/]
+	[/for]
+[/template]

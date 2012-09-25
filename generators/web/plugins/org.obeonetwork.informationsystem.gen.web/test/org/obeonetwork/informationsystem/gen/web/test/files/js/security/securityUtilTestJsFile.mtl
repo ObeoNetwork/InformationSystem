@@ -1,0 +1,51 @@
+[comment encoding = UTF-8 /]
+[module securityUtilTestJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::testFilePath /]
+
+[template public genSecurityUtilTest(aConfiguration : Configuration) {
+		UnderTest : String = genSecurityUtilIdent();
+		UnderPath : String = genSecurityUtilFileRPath();
+		Jasmine : String = genJasmineIdent();
+}]
+[file (genJsFullPath(genSecurityUtilTestFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('1.0.0')/]
+
+[genAMDHeader(
+	Sequence{UnderPath}, 
+	Sequence{Jasmine}, 
+	Sequence{UnderTest}
+)/]
+
+	describe("[UnderTest/] test", function() {
+		var cookieName;
+		var cookieValue;
+
+		beforeEach(function() {
+			cookieName = "test";
+			cookieValue = "0";
+			[UnderTest/].deleteCookie(cookieName);
+		});
+
+		it("test set and get cookie", function() {
+			expect([UnderTest/].getCookie(cookieName)).toBe(null);
+			[UnderTest/].setCookie(cookieName, cookieValue, 1);
+			expect([UnderTest/].getCookie(cookieName)).toBe(cookieValue);
+		});
+
+		it("test set, delete and get cookie", function() {
+			expect([UnderTest/].getCookie(cookieName)).toBe(null);
+			[UnderTest/].setCookie(cookieName, cookieValue, 1);
+			expect([UnderTest/].getCookie(cookieName)).toBe(cookieValue);
+			[UnderTest/].deleteCookie(cookieName);
+			expect([UnderTest/].getCookie(cookieName)).toBe(null);
+		});
+	});
+
+});
+[/file]
+[/template]
