@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;    Obeo - initial API and implementation"
+    modelDirectory="/org.obeonetwork.dsl.application/src-gen" creationIcons="false"
+    editDirectory="/org.obeonetwork.dsl.application.edit/src-gen" editorDirectory="/org.obeonetwork.dsl.application.editor/src-gen"
+    modelPluginID="org.obeonetwork.dsl.application" redirection="" modelName="Application"
+    editPluginClass="org.obeonetwork.dsl.application.provider.ApplicationEditPlugin"
+    editorPluginClass="org.obeonetwork.dsl.application.presentation.ApplicationEditorPlugin"
+    generateSchema="true" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
+    codeFormatting="true" testSuiteClass="org.obeonetwork.dsl.application.tests.ApplicationAllTests"
+    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" complianceLevel="5.0"
+    copyrightFields="false" language="" usedGenPackages="../../org.obeonetwork.dsl.cinematic/model/cinematic_cdonative.genmodel#//cinematic platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.obeonetwork.dsl.ecorebinding/model/ecorebinding.genmodel#//ecorebinding ../../org.obeonetwork.dsl.environment/model/environment_cdonative.genmodel#//environment ../../org.obeonetwork.dsl.soa/model/soa_cdonative.genmodel#//soa"
+    interfaceNamePattern="" classNamePattern="">
+  <foreignModel>application.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <genPackages prefix="Application" basePackage="org.obeonetwork.dsl" resource="XMI"
+      disposableProviderFactory="true" ecorePackage="application.ecore#/">
+    <genClasses ecoreClass="application.ecore#//Configuration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference application.ecore#//Configuration/bindingRegistries"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference application.ecore#//Configuration/ecoreModel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference application.ecore#//Configuration/cinematicModel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference application.ecore#//Configuration/ecoreBindingModel"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

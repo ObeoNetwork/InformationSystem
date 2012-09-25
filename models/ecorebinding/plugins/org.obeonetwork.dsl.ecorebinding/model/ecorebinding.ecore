@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ecorebinding"
+    nsURI="http://www.obeonetwork.org/dsl/ecorebinding/1.0.0" nsPrefix="ecorebinding">
+  <eClassifiers xsi:type="ecore:EClass" name="BBase" abstract="true" interface="true"
+      eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//BoundableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BModel" eSuperTypes="#//BBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bPackages" upperBound="-1"
+        eType="#//BPackage" containment="true" eOpposite="#//BPackage/bModel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BPackage" eSuperTypes="#//BBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecorePackage" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bModel" eType="#//BModel"
+        eOpposite="#//BModel/bPackages"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bEnums" upperBound="-1"
+        eType="#//BEnum" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bDataTypes" upperBound="-1"
+        eType="#//BDataType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bClasses" upperBound="-1"
+        eType="#//BClass" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedBPackages" upperBound="-1"
+        eType="#//BPackage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bClassifiers" upperBound="-1"
+        eType="#//BClassifier" eOpposite="#//BClassifier/bPackage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BClass" eSuperTypes="#//BClassifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreClass" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bFeatures" upperBound="-1"
+        eType="#//BFeature" containment="true" eOpposite="#//BFeature/bClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bOperations" upperBound="-1"
+        eType="#//BOperation" containment="true" eOpposite="#//BOperation/bClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BFeature" eSuperTypes="#//BTypedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bClass" lowerBound="1"
+        eType="#//BClass" eOpposite="#//BClass/bFeatures"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreFeature" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BEnum" eSuperTypes="#//BDataType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreEnum" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bEnumLiterals" upperBound="-1"
+        eType="#//BEnumLiteral" containment="true" eOpposite="#//BEnumLiteral/bEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BEnumLiteral" eSuperTypes="#//BBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bEnum" lowerBound="1" eType="#//BEnum"
+        eOpposite="#//BEnum/bEnumLiterals"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreEnumLiteral" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EEnumLiteral"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BClassifier" eSuperTypes="#//BBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bTypeParameters" upperBound="-1"
+        eType="#//BTypeParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bPackage" lowerBound="1"
+        eType="#//BPackage" eOpposite="#//BPackage/bClassifiers"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BDataType" eSuperTypes="#//BClassifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreDataType" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDataType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BOperation" eSuperTypes="#//BTypedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bClass" lowerBound="1"
+        eType="#//BClass" eOpposite="#//BClass/bOperations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreOperation" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bParameters" upperBound="-1"
+        eType="#//BParameter" containment="true" eOpposite="#//BParameter/bOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bTypeParameters" upperBound="-1"
+        eType="#//BTypeParameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BParameter" eSuperTypes="#//BTypedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bOperation" lowerBound="1"
+        eType="#//BOperation" eOpposite="#//BOperation/bParameters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreParameter" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EParameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BTypedElement" eSuperTypes="#//BBase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BTypeParameter" eSuperTypes="#//BBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreTypeParameter" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ETypeParameter"/>
+  </eClassifiers>
+</ecore:EPackage>

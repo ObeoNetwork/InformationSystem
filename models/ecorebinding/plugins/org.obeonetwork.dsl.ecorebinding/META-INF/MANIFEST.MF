@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.obeonetwork.dsl.ecorebinding;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.obeonetwork.dsl.ecorebinding,
+ org.obeonetwork.dsl.ecorebinding.impl,
+ org.obeonetwork.dsl.ecorebinding.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.cdo;visibility:=reexport,
+ org.obeonetwork.dsl.environment;visibility:=reexport
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="application"
+    nsURI="http://www.obeonetwork.org/dsl/application/1.0.0" nsPrefix="application">
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingRegistries" upperBound="-1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BindingRegistry"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreModel" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cinematicModel" eType="ecore:EClass ../../org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//CinematicRoot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ecoreBindingModel" eType="ecore:EClass ../../org.obeonetwork.dsl.ecorebinding/model/ecorebinding.ecore#//BModel"/>
+  </eClassifiers>
+</ecore:EPackage>

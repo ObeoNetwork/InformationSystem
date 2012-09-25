@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.dsl.ecorebinding.presentation.EcorebindingModelWizardID"
+            name="%_UI_EcorebindingModelWizard_label"
+            class="org.obeonetwork.dsl.ecorebinding.presentation.EcorebindingModelWizardSpec"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EcorebindingModelFile.gif">
+         <description>%_UI_EcorebindingModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.obeonetwork.dsl.ecorebinding.presentation.EcorebindingEditorID"
+            name="%_UI_EcorebindingEditor_label"
+            icon="icons/full/obj16/EcorebindingModelFile.gif"
+            extensions="ecorebinding"
+            class="org.obeonetwork.dsl.ecorebinding.presentation.EcorebindingEditor"
+            contributorClass="org.obeonetwork.dsl.ecorebinding.presentation.EcorebindingActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
