@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.cinematic.NamedElement;
 
 import org.obeonetwork.dsl.cinematic.view.*;
 
+import org.obeonetwork.dsl.environment.BoundableElement;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**
@@ -136,6 +137,10 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseBoundableElement(BoundableElement object) {
+				return createBoundableElementAdapter();
 			}
 			@Override
 			public Adapter caseEvent(Event object) {
@@ -354,6 +359,20 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.BoundableElement <em>Boundable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.environment.BoundableElement
+	 * @generated
+	 */
+	public Adapter createBoundableElementAdapter() {
 		return null;
 	}
 

@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.cinematic.view;
 import org.eclipse.emf.common.util.EList;
 import org.obeonetwork.dsl.cinematic.NamedElement;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
+import org.obeonetwork.dsl.environment.BoundableElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +35,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.Widget;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractViewElement extends NamedElement {
+public interface AbstractViewElement extends NamedElement, BoundableElement {
 	/**
 	 * Returns the value of the '<em><b>Widget</b></em>' reference.
 	 * <!-- begin-user-doc -->

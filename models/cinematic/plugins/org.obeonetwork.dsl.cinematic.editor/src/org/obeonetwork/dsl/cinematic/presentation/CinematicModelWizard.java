@@ -248,8 +248,7 @@ public class CinematicModelWizard extends Wizard implements INewWizard {
 
 							// Add the initial model object to the contents.
 							//
-							String rootName = modelFile.getName().replaceFirst("[.][^.]+$", "");
-							EObject rootObject = createInitialModel(rootName);
+							EObject rootObject = createInitialModel();
 							if (rootObject != null) {
 								resource.getContents().add(rootObject);
 							}
@@ -257,7 +256,7 @@ public class CinematicModelWizard extends Wizard implements INewWizard {
 							// Save the contents of the resource to the file system.
 							//
 							Map<Object, Object> options = new HashMap<Object, Object>();
-							options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
 							resource.save(options);
 						}
 						catch (Exception exception) {
@@ -610,6 +609,10 @@ public class CinematicModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
+		initialObjectCreationPage = new CinematicModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(CinematicEditorPlugin.INSTANCE.getString("_UI_CinematicModelWizard_label"));
+		initialObjectCreationPage.setDescription(CinematicEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		addPage(initialObjectCreationPage);
 	}
 
 	/**

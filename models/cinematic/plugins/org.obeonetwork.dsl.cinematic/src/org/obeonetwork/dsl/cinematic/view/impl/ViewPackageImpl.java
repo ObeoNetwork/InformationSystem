@@ -543,8 +543,8 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 
 		// Obtain other dependent packages
 		CinematicPackage theCinematicPackage = (CinematicPackage)EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI);
-		ToolkitsPackage theToolkitsPackage = (ToolkitsPackage)EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI);
 		EnvironmentPackage theEnvironmentPackage = (EnvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(EnvironmentPackage.eNS_URI);
+		ToolkitsPackage theToolkitsPackage = (ToolkitsPackage)EPackage.Registry.INSTANCE.getEPackage(ToolkitsPackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		SoaPackage theSoaPackage = (SoaPackage)EPackage.Registry.INSTANCE.getEPackage(SoaPackage.eNS_URI);
 
@@ -554,6 +554,7 @@ public class ViewPackageImpl extends EPackageImpl implements ViewPackage {
 
 		// Add supertypes to classes
 		abstractViewElementEClass.getESuperTypes().add(theCinematicPackage.getNamedElement());
+		abstractViewElementEClass.getESuperTypes().add(theEnvironmentPackage.getBoundableElement());
 		viewContainerEClass.getESuperTypes().add(this.getAbstractViewElement());
 		viewElementEClass.getESuperTypes().add(this.getAbstractViewElement());
 		viewActionEClass.getESuperTypes().add(theCinematicPackage.getNamedElement());

@@ -24,7 +24,7 @@
   <eSubpackages name="view" nsURI="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0"
       nsPrefix="cinematic-view">
     <eClassifiers xsi:type="ecore:EClass" name="AbstractViewElement" abstract="true"
-        eSuperTypes="#//NamedElement">
+        eSuperTypes="#//NamedElement ../../org.obeonetwork.dsl.environment/model/environment.ecore#//BoundableElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="widget" eType="#//toolkits/Widget"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
           eType="#//view/ViewAction" containment="true"/>

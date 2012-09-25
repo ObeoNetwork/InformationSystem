@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.cinematic.view.DataBinding;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
+import org.obeonetwork.dsl.environment.BoundableElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -149,6 +150,17 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 	@SuppressWarnings("unchecked")
 	public EList<DataBinding> getDataBindings() {
 		return (EList<DataBinding>)eDynamicGet(ViewPackage.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS, ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPathValid(BoundableElement root, String path) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
