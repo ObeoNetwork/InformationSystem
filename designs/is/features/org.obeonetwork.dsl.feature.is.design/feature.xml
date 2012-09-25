@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.dsl.feature.is.design"
       label="IS Designer"
-      version="2.2.0.qualifier"
+      version="2.3.0.qualifier"
       provider-name="Obeo.fr">
 
    <description url="http://www.obeonetwork.org">
@@ -16,10 +16,6 @@
    <license url="%licenseURL">
       %license
    </license>
-
-   <requires>
-      <import feature="fr.obeo.acceleo" version="2.6.0" match="greaterOrEqual"/>
-   </requires>
 
    <plugin
          id="org.obeonetwork.dsl.is.design"
