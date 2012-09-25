@@ -115,6 +115,7 @@
 		
 		<!-- commons/is/ -->
 		<module>../../../commons/is/plugins/org.obeonetwork.dsl.is</module>
+		<module>../../../commons/is/features/org.obeonetwork.dsl.feature.is</module>
 				
 		<module>../../../commons/tools/plugins/org.obeonetwork.tools.doc</module>
 		<module>../../../commons/tools/plugins/org.obeonetwork.tools.doc.doc</module>
@@ -172,16 +173,7 @@
 		<!-- designs/is/ -->
 		<module>../../../designs/is/plugins/org.obeonetwork.dsl.is.design</module>
 		<module>../../../designs/is/features/org.obeonetwork.dsl.feature.is.design</module>
-				
-		<!-- 
-		*********************************************************************************************
-		* Samples
-		*********************************************************************************************
-		-->
-		<!-- Samples/weblog / -->
-		<module>../../../samples/plugins/org.obeonetwork.sample.demo.weblog.plugin</module>
-		<module>../../../samples/features/org.obeonetwork.sample.demo.weblog.feature</module>
-
+		
 		<!-- 
 		*********************************************************************************************
 		* Repository Information System Design
