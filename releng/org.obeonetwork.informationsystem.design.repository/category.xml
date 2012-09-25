@@ -75,6 +75,12 @@
    <feature url="features/org.obeonetwork.dsl.feature.is.design_2.3.0.qualifier.jar" id="org.obeonetwork.dsl.feature.is.design" version="2.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
+   <feature url="features/org.obeonetwork.dsl.application.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.application.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.models"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.ecorebinding.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.ecorebinding.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.models"/>
+   </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>

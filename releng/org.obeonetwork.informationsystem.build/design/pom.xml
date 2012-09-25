@@ -104,6 +104,20 @@
 		
 		<module>../../../models/interaction/features/org.obeonetwork.dsl.feature.interaction</module>
 		
+		<!-- models/ecoreBinding/ -->
+		<module>../../../models/ecorebinding/plugins/org.obeonetwork.dsl.ecorebinding</module>
+		<module>../../../models/ecorebinding/plugins/org.obeonetwork.dsl.ecorebinding.edit</module>
+		<module>../../../models/ecorebinding/plugins/org.obeonetwork.dsl.ecorebinding.editor</module>
+		
+		<module>../../../models/ecorebinding/features/org.obeonetwork.dsl.ecorebinding.feature</module>
+
+		<!-- models/application/ -->
+		<module>../../../models/application/plugins/org.obeonetwork.dsl.application</module>
+		<module>../../../models/application/plugins/org.obeonetwork.dsl.application.edit</module>
+		<module>../../../models/application/plugins/org.obeonetwork.dsl.application.editor</module>
+		
+		<module>../../../models/application/features/org.obeonetwork.dsl.application.feature</module>
+		
 		<!-- 
 		*********************************************************************************************
 		* Tools & Commons
