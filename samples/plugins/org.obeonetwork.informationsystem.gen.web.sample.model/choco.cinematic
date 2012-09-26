@@ -1,352 +1,352 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cinematic:CinematicRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" name="Choco Manager">
-  <flows name="Main">
-    <states xsi:type="cinematic-flow:InitialState" name="Initial"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.1"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.8"/>
-    <transitions from="//@flows.0/@states.0"/>
-    <transitions from="//@flows.0/@states.0" to="//@flows.0/@states.1"/>
-    <transitions from="//@flows.0/@states.1" to="//@flows.0/@states.2"/>
-    <transitions from="//@flows.0/@states.2" to="//@flows.0/@states.1"/>
+<cinematic:CinematicRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmi:id="_OHoC8AcpEeKriuko9xNWRg" modifiedOn="2012-09-26T16:16:17.915+0200" name="Choco Manager">
+  <flows xmi:id="_OHoC8QcpEeKriuko9xNWRg" name="Main">
+    <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHoC8gcpEeKriuko9xNWRg" name="Initial"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHoC8wcpEeKriuko9xNWRg" subflow="_OHoC-QcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHoC9AcpEeKriuko9xNWRg" subflow="_OHrtXAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoC9QcpEeKriuko9xNWRg" from="_OHoC8gcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoC9gcpEeKriuko9xNWRg" from="_OHoC8gcpEeKriuko9xNWRg" to="_OHoC8wcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoC9wcpEeKriuko9xNWRg" from="_OHoC8wcpEeKriuko9xNWRg" to="_OHoC9AcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoC-AcpEeKriuko9xNWRg" from="_OHoC9AcpEeKriuko9xNWRg" to="_OHoC8wcpEeKriuko9xNWRg"/>
   </flows>
-  <flows name="Home">
-    <states xsi:type="cinematic-flow:InitialState" name="Initial"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.2"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.3"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.4"/>
-    <transitions from="//@flows.1/@states.0" to="//@flows.1/@states.1"/>
-    <transitions from="//@flows.1/@states.1" to="//@flows.1/@states.2" on="//@viewContainers.3/@ownedElements.1/@events.0"/>
-    <transitions from="//@flows.1/@states.2" to="//@flows.1/@states.3" on="//@viewContainers.3/@ownedElements.2/@events.0"/>
-    <transitions from="//@flows.1/@states.3" to="//@flows.1/@states.1" on="//@viewContainers.3/@ownedElements.0/@events.0"/>
-    <transitions from="//@flows.1/@states.3" to="//@flows.1/@states.2" on="//@viewContainers.3/@ownedElements.1/@events.0"/>
-    <transitions from="//@flows.1/@states.1" to="//@flows.1/@states.3" on="//@viewContainers.3/@ownedElements.2/@events.0"/>
-    <transitions from="//@flows.1/@states.2" to="//@flows.1/@states.1" on="//@viewContainers.3/@ownedElements.0/@events.0"/>
+  <flows xmi:id="_OHoC-QcpEeKriuko9xNWRg" name="Home">
+    <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHoqAAcpEeKriuko9xNWRg" name="Initial"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHoqAQcpEeKriuko9xNWRg" subflow="_OHoqCwcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHoqAgcpEeKriuko9xNWRg" subflow="_OHpRGQcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHoqAwcpEeKriuko9xNWRg" subflow="_OHqfMAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoqBAcpEeKriuko9xNWRg" from="_OHoqAAcpEeKriuko9xNWRg" to="_OHoqAQcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoqBQcpEeKriuko9xNWRg" from="_OHoqAQcpEeKriuko9xNWRg" to="_OHoqAgcpEeKriuko9xNWRg" on="_OHuwqAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoqBgcpEeKriuko9xNWRg" from="_OHoqAgcpEeKriuko9xNWRg" to="_OHoqAwcpEeKriuko9xNWRg" on="_OHuwqgcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoqBwcpEeKriuko9xNWRg" from="_OHoqAwcpEeKriuko9xNWRg" to="_OHoqAQcpEeKriuko9xNWRg" on="_OHuwpgcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoqCAcpEeKriuko9xNWRg" from="_OHoqAwcpEeKriuko9xNWRg" to="_OHoqAgcpEeKriuko9xNWRg" on="_OHuwqAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoqCQcpEeKriuko9xNWRg" from="_OHoqAQcpEeKriuko9xNWRg" to="_OHoqAwcpEeKriuko9xNWRg" on="_OHuwqgcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHoqCgcpEeKriuko9xNWRg" from="_OHoqAgcpEeKriuko9xNWRg" to="_OHoqAQcpEeKriuko9xNWRg" on="_OHuwpgcpEeKriuko9xNWRg"/>
   </flows>
-  <flows name="Users">
-    <states xsi:type="cinematic-flow:InitialState" name="Initial"/>
-    <states xsi:type="cinematic-flow:ViewState" name="Display Widgets" viewContainers="//@viewContainers.0"/>
-    <states xsi:type="cinematic-flow:ViewState" name="Display Edit Form" viewContainers="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.0"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.7"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.6"/>
-    <states xsi:type="cinematic-flow:FinalState" name="Final"/>
-    <transitions from="//@flows.2/@states.0" to="//@flows.2/@states.1"/>
-    <transitions from="//@flows.2/@states.1" to="//@flows.2/@states.2" on="//@viewContainers.0/@ownedElements.3/@events.1"/>
-    <transitions from="//@flows.2/@states.2" to="//@flows.2/@states.1" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.0/@ownedElements.0/@events.1"/>
-    <transitions guard="ok" from="//@flows.2/@states.2" to="//@flows.2/@states.1" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.0/@ownedElements.0/@events.0"/>
-    <transitions from="//@flows.2/@states.1" to="//@flows.2/@states.4" on="//@viewContainers.0/@ownedElements.3/@events.3"/>
-    <transitions from="//@flows.2/@states.1" to="//@flows.2/@states.3" on="//@viewContainers.0/@ownedElements.3/@events.2"/>
-    <transitions from="//@flows.2/@states.4" to="//@flows.2/@states.1" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.2/@ownedElements.0/@events.1"/>
-    <transitions from="//@flows.2/@states.3" to="//@flows.2/@states.1" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.1/@ownedElements.0/@events.1"/>
-    <transitions from="//@flows.2/@states.1" to="//@flows.2/@states.5" on="//@viewContainers.3/@ownedElements.1/@events.0"/>
-    <transitions from="//@flows.2/@states.1" to="//@flows.2/@states.5" on="//@viewContainers.3/@ownedElements.2/@events.0"/>
+  <flows xmi:id="_OHoqCwcpEeKriuko9xNWRg" name="Users">
+    <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHoqDAcpEeKriuko9xNWRg" name="Initial"/>
+    <states xsi:type="cinematic-flow:ViewState" xmi:id="_OHoqDQcpEeKriuko9xNWRg" name="Display Widgets" viewContainers="_OHs7cAcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:ViewState" xmi:id="_OHoqDgcpEeKriuko9xNWRg" name="Display Edit Form" viewContainers="_OHv-xwcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHoqDwcpEeKriuko9xNWRg" subflow="_OHrtVAcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHoqEAcpEeKriuko9xNWRg" subflow="_OHrGSQcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:FinalState" xmi:id="_OHoqEQcpEeKriuko9xNWRg" name="Final"/>
+    <transitions xmi:id="_OHoqEgcpEeKriuko9xNWRg" from="_OHoqDAcpEeKriuko9xNWRg" to="_OHoqDQcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHpREAcpEeKriuko9xNWRg" from="_OHoqDQcpEeKriuko9xNWRg" to="_OHoqDgcpEeKriuko9xNWRg" on="_OHs7eAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHpREQcpEeKriuko9xNWRg" from="_OHoqDgcpEeKriuko9xNWRg" to="_OHoqDQcpEeKriuko9xNWRg" on="_OHv-ygcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHpREgcpEeKriuko9xNWRg" guard="ok" from="_OHoqDgcpEeKriuko9xNWRg" to="_OHoqDQcpEeKriuko9xNWRg" on="_OHv-yQcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHpREwcpEeKriuko9xNWRg" from="_OHoqDQcpEeKriuko9xNWRg" to="_OHoqEAcpEeKriuko9xNWRg" on="_OHtigAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHpRFAcpEeKriuko9xNWRg" from="_OHoqDQcpEeKriuko9xNWRg" to="_OHoqDwcpEeKriuko9xNWRg" on="_OHs7eQcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHpRFQcpEeKriuko9xNWRg" from="_OHoqEAcpEeKriuko9xNWRg" to="_OHoqDQcpEeKriuko9xNWRg" on="_OHxM5gcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHpRFgcpEeKriuko9xNWRg" from="_OHoqDwcpEeKriuko9xNWRg" to="_OHoqDQcpEeKriuko9xNWRg" on="_OHxM4gcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHpRFwcpEeKriuko9xNWRg" from="_OHoqDQcpEeKriuko9xNWRg" to="_OHoqEQcpEeKriuko9xNWRg" on="_OHuwqAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHpRGAcpEeKriuko9xNWRg" from="_OHoqDQcpEeKriuko9xNWRg" to="_OHoqEQcpEeKriuko9xNWRg" on="_OHuwqgcpEeKriuko9xNWRg"/>
   </flows>
-  <flows name="ChocoVote">
-    <states xsi:type="cinematic-flow:InitialState" name="Initial"/>
-    <states xsi:type="cinematic-flow:ViewState" name="Display Widgets" viewContainers="//@viewContainers.1"/>
-    <states xsi:type="cinematic-flow:ViewState" name="Display Edit Form" viewContainers="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.1"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.5"/>
-    <states xsi:type="cinematic-flow:FinalState" name="Final"/>
-    <transitions from="//@flows.2/@states.0" to="//@flows.3/@states.1"/>
-    <transitions on="//@viewContainers.1/@ownedElements.0/@events.0"/>
-    <transitions guard="ko"/>
-    <transitions from="//@flows.3/@states.1" to="//@flows.3/@states.2" on="//@viewContainers.1/@ownedElements.2/@events.1"/>
-    <transitions from="//@flows.3/@states.2" to="//@flows.3/@states.1" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.1/@ownedElements.0/@events.1"/>
-    <transitions guard="ok" from="//@flows.3/@states.2" to="//@flows.3/@states.1" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.1/@ownedElements.0/@events.0"/>
-    <transitions from="//@flows.3/@states.1" to="//@flows.3/@states.3" on="//@viewContainers.1/@ownedElements.2/@events.2"/>
-    <transitions from="//@flows.3/@states.3" to="//@flows.3/@states.1" on="//@viewContainers.0/@ownedElements.0/@events.1"/>
-    <transitions from="//@flows.3/@states.0" to="//@flows.3/@states.1"/>
-    <transitions from="//@flows.3/@states.1" to="//@flows.3/@states.4" on="//@viewContainers.3/@ownedElements.0/@events.0"/>
-    <transitions from="//@flows.3/@states.1" to="//@flows.3/@states.4" on="//@viewContainers.3/@ownedElements.2/@events.0"/>
+  <flows xmi:id="_OHpRGQcpEeKriuko9xNWRg" name="ChocoVote">
+    <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHpRGgcpEeKriuko9xNWRg" name="Initial"/>
+    <states xsi:type="cinematic-flow:ViewState" xmi:id="_OHpRGwcpEeKriuko9xNWRg" name="Display Widgets" viewContainers="_OHtigwcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:ViewState" xmi:id="_OHpRHAcpEeKriuko9xNWRg" name="Display Edit Form" viewContainers="_OHv-ywcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHp4IAcpEeKriuko9xNWRg" subflow="_OHqfPwcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:FinalState" xmi:id="_OHp4IQcpEeKriuko9xNWRg" name="Final"/>
+    <transitions xmi:id="_OHp4IgcpEeKriuko9xNWRg" from="_OHoqDAcpEeKriuko9xNWRg" to="_OHpRGwcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHp4IwcpEeKriuko9xNWRg" on="_OHtihQcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHp4JAcpEeKriuko9xNWRg" guard="ko"/>
+    <transitions xmi:id="_OHp4JQcpEeKriuko9xNWRg" from="_OHpRGwcpEeKriuko9xNWRg" to="_OHpRHAcpEeKriuko9xNWRg" on="_OHtiigcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHp4JgcpEeKriuko9xNWRg" from="_OHpRHAcpEeKriuko9xNWRg" to="_OHpRGwcpEeKriuko9xNWRg" on="_OHwl0gcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHp4JwcpEeKriuko9xNWRg" guard="ok" from="_OHpRHAcpEeKriuko9xNWRg" to="_OHpRGwcpEeKriuko9xNWRg" on="_OHwl0QcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHp4KAcpEeKriuko9xNWRg" from="_OHpRGwcpEeKriuko9xNWRg" to="_OHp4IAcpEeKriuko9xNWRg" on="_OHuJkAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHp4KQcpEeKriuko9xNWRg" from="_OHp4IAcpEeKriuko9xNWRg" to="_OHpRGwcpEeKriuko9xNWRg" on="_OHs7cwcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHp4KgcpEeKriuko9xNWRg" from="_OHpRGgcpEeKriuko9xNWRg" to="_OHpRGwcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHp4KwcpEeKriuko9xNWRg" from="_OHpRGwcpEeKriuko9xNWRg" to="_OHp4IQcpEeKriuko9xNWRg" on="_OHuwpgcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHp4LAcpEeKriuko9xNWRg" from="_OHpRGwcpEeKriuko9xNWRg" to="_OHp4IQcpEeKriuko9xNWRg" on="_OHuwqgcpEeKriuko9xNWRg"/>
   </flows>
-  <flows name="OfficeStatistics">
-    <states xsi:type="cinematic-flow:InitialState" name="Initial"/>
-    <states xsi:type="cinematic-flow:ViewState" name="Display Widgets" viewContainers="//@viewContainers.2"/>
-    <states xsi:type="cinematic-flow:ViewState" name="Display Edit Form" viewContainers="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.2"/>
-    <states xsi:type="cinematic-flow:FinalState" name="Final"/>
-    <transitions from="//@flows.2/@states.0" to="//@flows.4/@states.1"/>
-    <transitions from="//@flows.4/@states.1" to="//@flows.4/@states.2" on="//@viewContainers.2/@ownedElements.2/@events.1"/>
-    <transitions from="//@flows.4/@states.2" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.2/@ownedElements.0/@events.0"/>
-    <transitions guard="ko" to="//@flows.4/@states.2"/>
-    <transitions from="//@flows.4/@states.2" to="//@flows.4/@states.1" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.2/@ownedElements.0/@events.1"/>
-    <transitions guard="ok" from="//@flows.4/@states.2" to="//@flows.4/@states.1" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.0/@viewContainers.2/@ownedElements.0/@events.0"/>
-    <transitions from="//@flows.3/@states.0" to="//@flows.4/@states.1"/>
-    <transitions from="//@flows.4/@states.0" to="//@flows.4/@states.1"/>
-    <transitions from="//@flows.4/@states.1" to="//@flows.4/@states.3" on="//@viewContainers.3/@ownedElements.1/@events.0"/>
-    <transitions from="//@flows.4/@states.1" to="//@flows.4/@states.3" on="//@viewContainers.3/@ownedElements.0/@events.0"/>
+  <flows xmi:id="_OHqfMAcpEeKriuko9xNWRg" name="OfficeStatistics">
+    <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHqfMQcpEeKriuko9xNWRg" name="Initial"/>
+    <states xsi:type="cinematic-flow:ViewState" xmi:id="_OHqfMgcpEeKriuko9xNWRg" name="Display Widgets" viewContainers="_OHuJkwcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:ViewState" xmi:id="_OHqfMwcpEeKriuko9xNWRg" name="Display Edit Form" viewContainers="_OHwl0wcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:FinalState" xmi:id="_OHqfNAcpEeKriuko9xNWRg" name="Final"/>
+    <transitions xmi:id="_OHqfNQcpEeKriuko9xNWRg" from="_OHoqDAcpEeKriuko9xNWRg" to="_OHqfMgcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHqfNgcpEeKriuko9xNWRg" from="_OHqfMgcpEeKriuko9xNWRg" to="_OHqfMwcpEeKriuko9xNWRg" on="_OHuwoAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHqfNwcpEeKriuko9xNWRg" from="_OHqfMwcpEeKriuko9xNWRg" on="_OHwl1QcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHqfOAcpEeKriuko9xNWRg" guard="ko" to="_OHqfMwcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHqfOQcpEeKriuko9xNWRg" from="_OHqfMwcpEeKriuko9xNWRg" to="_OHqfMgcpEeKriuko9xNWRg" on="_OHwl1gcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHqfOgcpEeKriuko9xNWRg" guard="ok" from="_OHqfMwcpEeKriuko9xNWRg" to="_OHqfMgcpEeKriuko9xNWRg" on="_OHwl1QcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHqfOwcpEeKriuko9xNWRg" from="_OHpRGgcpEeKriuko9xNWRg" to="_OHqfMgcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHqfPAcpEeKriuko9xNWRg" from="_OHqfMQcpEeKriuko9xNWRg" to="_OHqfMgcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHqfPQcpEeKriuko9xNWRg" from="_OHqfMgcpEeKriuko9xNWRg" to="_OHqfNAcpEeKriuko9xNWRg" on="_OHuwqAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHqfPgcpEeKriuko9xNWRg" from="_OHqfMgcpEeKriuko9xNWRg" to="_OHqfNAcpEeKriuko9xNWRg" on="_OHuwpgcpEeKriuko9xNWRg"/>
   </flows>
-  <flows name="User Popup">
-    <states xsi:type="cinematic-flow:InitialState" name="Initial"/>
-    <states xsi:type="cinematic-flow:ViewState" name="DisplayUser" viewContainers="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.0"/>
-    <states xsi:type="cinematic-flow:FinalState" name="Final"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.7"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.6"/>
-    <transitions from="//@flows.5/@states.0" to="//@flows.5/@states.1"/>
-    <transitions from="//@flows.5/@states.1" to="//@flows.5/@states.2"/>
-    <transitions from="//@flows.5/@states.1" to="//@flows.5/@states.3" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.0/@ownedElements.0/@events.0"/>
-    <transitions from="//@flows.5/@states.1" to="//@flows.5/@states.4" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.0/@ownedElements.0/@events.1"/>
+  <flows xmi:id="_OHqfPwcpEeKriuko9xNWRg" name="User Popup">
+    <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHrGQAcpEeKriuko9xNWRg" name="Initial"/>
+    <states xsi:type="cinematic-flow:ViewState" xmi:id="_OHrGQQcpEeKriuko9xNWRg" name="DisplayUser" viewContainers="_OHwl2AcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:FinalState" xmi:id="_OHrGQgcpEeKriuko9xNWRg" name="Final"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHrGQwcpEeKriuko9xNWRg" subflow="_OHrtVAcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHrGRAcpEeKriuko9xNWRg" subflow="_OHrGSQcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHrGRQcpEeKriuko9xNWRg" from="_OHrGQAcpEeKriuko9xNWRg" to="_OHrGQQcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHrGRgcpEeKriuko9xNWRg" from="_OHrGQQcpEeKriuko9xNWRg" to="_OHrGQgcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHrGRwcpEeKriuko9xNWRg" from="_OHrGQQcpEeKriuko9xNWRg" to="_OHrGQwcpEeKriuko9xNWRg" on="_OHwl2gcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHrGSAcpEeKriuko9xNWRg" from="_OHrGQQcpEeKriuko9xNWRg" to="_OHrGRAcpEeKriuko9xNWRg" on="_OHwl2wcpEeKriuko9xNWRg"/>
   </flows>
-  <flows name="Choco Popup">
-    <states xsi:type="cinematic-flow:InitialState" name="Initial"/>
-    <states xsi:type="cinematic-flow:ViewState" name="DisplayChoco" viewContainers="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.2"/>
-    <states xsi:type="cinematic-flow:FinalState" name="Final"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.5"/>
-    <transitions from="//@flows.6/@states.0" to="//@flows.6/@states.1"/>
-    <transitions from="//@flows.6/@states.1" to="//@flows.6/@states.2"/>
-    <transitions from="//@flows.6/@states.1" to="//@flows.6/@states.3" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.2/@ownedElements.0/@events.0"/>
+  <flows xmi:id="_OHrGSQcpEeKriuko9xNWRg" name="Choco Popup">
+    <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHrGSgcpEeKriuko9xNWRg" name="Initial"/>
+    <states xsi:type="cinematic-flow:ViewState" xmi:id="_OHrGSwcpEeKriuko9xNWRg" name="DisplayChoco" viewContainers="_OHxM4wcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:FinalState" xmi:id="_OHrGTAcpEeKriuko9xNWRg" name="Final"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHrtUAcpEeKriuko9xNWRg" subflow="_OHqfPwcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHrtUQcpEeKriuko9xNWRg" from="_OHrGSgcpEeKriuko9xNWRg" to="_OHrGSwcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHrtUgcpEeKriuko9xNWRg" from="_OHrGSwcpEeKriuko9xNWRg" to="_OHrGTAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHrtUwcpEeKriuko9xNWRg" from="_OHrGSwcpEeKriuko9xNWRg" to="_OHrtUAcpEeKriuko9xNWRg" on="_OHxM5QcpEeKriuko9xNWRg"/>
   </flows>
-  <flows name="Office Popup">
-    <states xsi:type="cinematic-flow:InitialState" name="Initial"/>
-    <states xsi:type="cinematic-flow:ViewState" name="DisplayOffice" viewContainers="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.1"/>
-    <states xsi:type="cinematic-flow:FinalState" name="Final"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.5"/>
-    <transitions from="//@flows.7/@states.0" to="//@flows.7/@states.1"/>
-    <transitions from="//@flows.7/@states.1" to="//@flows.7/@states.2"/>
-    <transitions from="//@flows.7/@states.1" to="//@flows.7/@states.3" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.1/@ownedElements.0/@events.0"/>
+  <flows xmi:id="_OHrtVAcpEeKriuko9xNWRg" name="Office Popup">
+    <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHrtVQcpEeKriuko9xNWRg" name="Initial"/>
+    <states xsi:type="cinematic-flow:ViewState" xmi:id="_OHrtVgcpEeKriuko9xNWRg" name="DisplayOffice" viewContainers="_OHwl3QcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:FinalState" xmi:id="_OHrtVwcpEeKriuko9xNWRg" name="Final"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHrtWAcpEeKriuko9xNWRg" subflow="_OHqfPwcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHrtWQcpEeKriuko9xNWRg" from="_OHrtVQcpEeKriuko9xNWRg" to="_OHrtVgcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHrtWgcpEeKriuko9xNWRg" from="_OHrtVgcpEeKriuko9xNWRg" to="_OHrtVwcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHrtWwcpEeKriuko9xNWRg" from="_OHrtVgcpEeKriuko9xNWRg" to="_OHrtWAcpEeKriuko9xNWRg" on="_OHxM4QcpEeKriuko9xNWRg"/>
   </flows>
-  <flows name="Admin">
-    <states xsi:type="cinematic-flow:InitialState" name="Initial"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.9"/>
-    <transitions from="//@flows.1/@states.0"/>
-    <transitions from="//@flows.8/@states.0" to="//@flows.8/@states.1"/>
+  <flows xmi:id="_OHrtXAcpEeKriuko9xNWRg" name="Admin">
+    <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHsUYAcpEeKriuko9xNWRg" name="Initial"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHsUYQcpEeKriuko9xNWRg" subflow="_OHsUZAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHsUYgcpEeKriuko9xNWRg" from="_OHoqAAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHsUYwcpEeKriuko9xNWRg" from="_OHsUYAcpEeKriuko9xNWRg" to="_OHsUYQcpEeKriuko9xNWRg"/>
   </flows>
-  <flows name="Admins">
-    <states xsi:type="cinematic-flow:InitialState" name="Initial"/>
-    <states xsi:type="cinematic-flow:ViewState" name="Display Widgets" viewContainers="//@viewContainers.4"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.7"/>
-    <states xsi:type="cinematic-flow:SubflowState" subflow="//@flows.6"/>
-    <transitions from="//@flows.9/@states.0" to="//@flows.9/@states.1"/>
-    <transitions from="//@flows.9/@states.1" to="//@flows.9/@states.3" on="//@viewContainers.4/@ownedElements.1/@events.1"/>
-    <transitions from="//@flows.9/@states.1" to="//@flows.9/@states.2" on="//@viewContainers.4/@ownedElements.1/@events.0"/>
-    <transitions from="//@flows.9/@states.3" to="//@flows.9/@states.1" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.2/@ownedElements.0/@events.1"/>
-    <transitions from="//@flows.9/@states.2" to="//@flows.9/@states.1" on="//@subPackages.0/@subPackages.0/@subPackages.0/@subPackages.1/@viewContainers.1/@ownedElements.0/@events.1"/>
-    <transitions from="//@flows.9/@states.1" on="//@viewContainers.3/@ownedElements.1/@events.0"/>
-    <transitions from="//@flows.9/@states.1" on="//@viewContainers.3/@ownedElements.2/@events.0"/>
+  <flows xmi:id="_OHsUZAcpEeKriuko9xNWRg" name="Admins">
+    <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHsUZQcpEeKriuko9xNWRg" name="Initial"/>
+    <states xsi:type="cinematic-flow:ViewState" xmi:id="_OHsUZgcpEeKriuko9xNWRg" name="Display Widgets" viewContainers="_OHvXsAcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHsUZwcpEeKriuko9xNWRg" subflow="_OHrtVAcpEeKriuko9xNWRg"/>
+    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHsUaAcpEeKriuko9xNWRg" subflow="_OHrGSQcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHsUaQcpEeKriuko9xNWRg" from="_OHsUZQcpEeKriuko9xNWRg" to="_OHsUZgcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHsUagcpEeKriuko9xNWRg" from="_OHsUZgcpEeKriuko9xNWRg" to="_OHsUaAcpEeKriuko9xNWRg" on="_OHvXtAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHsUawcpEeKriuko9xNWRg" from="_OHsUZgcpEeKriuko9xNWRg" to="_OHsUZwcpEeKriuko9xNWRg" on="_OHvXswcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHsUbAcpEeKriuko9xNWRg" from="_OHsUaAcpEeKriuko9xNWRg" to="_OHsUZgcpEeKriuko9xNWRg" on="_OHxM5gcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHsUbQcpEeKriuko9xNWRg" from="_OHsUZwcpEeKriuko9xNWRg" to="_OHsUZgcpEeKriuko9xNWRg" on="_OHxM4gcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHsUbgcpEeKriuko9xNWRg" from="_OHsUZgcpEeKriuko9xNWRg" on="_OHuwqAcpEeKriuko9xNWRg"/>
+    <transitions xmi:id="_OHsUbwcpEeKriuko9xNWRg" from="_OHsUZgcpEeKriuko9xNWRg" on="_OHuwqgcpEeKriuko9xNWRg"/>
   </flows>
-  <viewContainers name="users" label="Users">
+  <viewContainers xmi:id="_OHs7cAcpEeKriuko9xNWRg" modifiedOn="2012-09-26T16:15:41.370+0200" name="users" label="Users">
     <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="create-user-form">
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7cQcpEeKriuko9xNWRg" name="create-user-form">
       <widget href="pathmap://cinematic/toolkits/JBE#_Y__FYcZ3EeGhpfs0heeamg"/>
-      <events name="add">
+      <events xmi:id="_OHs7cgcpEeKriuko9xNWRg" name="add">
         <type href="pathmap://cinematic/toolkits/JBE#_Y__FYsZ3EeGhpfs0heeamg"/>
       </events>
-      <events name="close">
+      <events xmi:id="_OHs7cwcpEeKriuko9xNWRg" name="close">
         <type href="pathmap://cinematic/toolkits/JBE#//@widgets.6/@possibleEvents.1"/>
       </events>
     </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="usersByOffice">
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7dAcpEeKriuko9xNWRg" name="usersByOffice">
       <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.9"/>
     </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="paginationUserTop">
-      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.9"/>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="userList">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
-      <events name="deleteUser">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FaMZ3EeGhpfs0heeamg"/>
-      </events>
-      <events name="editUser">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
-      </events>
-      <events name="officeLink">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
-      </events>
-      <events name="chocoLink">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
-      </events>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="paginationUserBottom">
-      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.9"/>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewContainerReference" name="menuLeft" viewContainer="//@viewContainers.3"/>
-  </viewContainers>
-  <viewContainers name="choco-vote" label="Choco Vote">
-    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="create-choco-form">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FYcZ3EeGhpfs0heeamg"/>
-      <events name="add">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FYsZ3EeGhpfs0heeamg"/>
-      </events>
-      <events name="close">
-        <type href="pathmap://cinematic/toolkits/JBE#//@widgets.6/@possibleEvents.1"/>
-      </events>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="paginationChocoTop">
-      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.9"/>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="chocoList">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
-      <events name="deleteChoco">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FaMZ3EeGhpfs0heeamg"/>
-      </events>
-      <events name="editChoco">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
-      </events>
-      <events name="userLink">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
-      </events>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="paginationChocoBottom">
-      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.9"/>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewContainerReference" name="menuLeft" viewContainer="//@viewContainers.3"/>
-  </viewContainers>
-  <viewContainers name="office-statistics" label="Office Statistics">
-    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="create-office-form">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FYcZ3EeGhpfs0heeamg"/>
-      <events name="add">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FYsZ3EeGhpfs0heeamg"/>
-      </events>
-      <events name="close">
-        <type href="pathmap://cinematic/toolkits/JBE#//@widgets.6/@possibleEvents.1"/>
-      </events>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="paginationOfficeTop">
-      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.9"/>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="officeList">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
-      <events name="deleteOffice">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FaMZ3EeGhpfs0heeamg"/>
-      </events>
-      <events name="editOffice">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
-      </events>
-      <events name="userLink">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
-      </events>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="paginationOfficeBottom">
-      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.9"/>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewContainerReference" name="menuLeft" label="" viewContainer="//@viewContainers.3"/>
-  </viewContainers>
-  <viewContainers name="home-left-menu" label="News">
-    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcsZ3EeGhpfs0heeamg"/>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="usersLink">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
-      <events name="openUsers">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
-      </events>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="chocoVoteLink" label="">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
-      <events name="openChocoVote">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
-      </events>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="officeStatistics">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
-      <events name="openOfficeStatistics">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
-      </events>
-    </ownedElements>
-  </viewContainers>
-  <viewContainers name="admins" label="Admin">
-    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="paginationAdminTop">
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7dQcpEeKriuko9xNWRg" createdOn="2012-09-26T16:15:37.080+0200" modifiedOn="2012-09-26T16:15:37.080+0200" name="paginationUserTop">
       <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.8"/>
     </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="adminList">
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7dgcpEeKriuko9xNWRg" name="userList">
       <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
-      <events name="officeLink">
+      <events xmi:id="_OHs7dwcpEeKriuko9xNWRg" name="deleteUser">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FaMZ3EeGhpfs0heeamg"/>
+      </events>
+      <events xmi:id="_OHs7eAcpEeKriuko9xNWRg" name="editUser">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+      </events>
+      <events xmi:id="_OHs7eQcpEeKriuko9xNWRg" name="officeLink">
         <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
       </events>
-      <events name="chocoLink">
+      <events xmi:id="_OHtigAcpEeKriuko9xNWRg" name="chocoLink">
         <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
       </events>
     </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="paginationAdminBottom">
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHtigQcpEeKriuko9xNWRg" createdOn="2012-09-26T16:15:41.370+0200" modifiedOn="2012-09-26T16:15:41.370+0200" name="paginationUserBottom">
       <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.8"/>
     </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewContainerReference" name="adminLeftMenu" viewContainer="//@viewContainers.5"/>
+    <ownedElements xsi:type="cinematic-view:ViewContainerReference" xmi:id="_OHtiggcpEeKriuko9xNWRg" name="menuLeft" viewContainer="_OHuwpAcpEeKriuko9xNWRg"/>
   </viewContainers>
-  <viewContainers name="admin-left-menu" label="News">
+  <viewContainers xmi:id="_OHtigwcpEeKriuko9xNWRg" modifiedOn="2012-09-26T16:16:06.484+0200" name="choco-vote" label="Choco Vote">
+    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHtihAcpEeKriuko9xNWRg" name="create-choco-form">
+      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FYcZ3EeGhpfs0heeamg"/>
+      <events xmi:id="_OHtihQcpEeKriuko9xNWRg" name="add">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FYsZ3EeGhpfs0heeamg"/>
+      </events>
+      <events xmi:id="_OHtihgcpEeKriuko9xNWRg" name="close">
+        <type href="pathmap://cinematic/toolkits/JBE#//@widgets.6/@possibleEvents.1"/>
+      </events>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHtihwcpEeKriuko9xNWRg" createdOn="2012-09-26T16:16:01.505+0200" modifiedOn="2012-09-26T16:16:01.505+0200" name="paginationChocoTop">
+      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.8"/>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHtiiAcpEeKriuko9xNWRg" name="chocoList">
+      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
+      <events xmi:id="_OHtiiQcpEeKriuko9xNWRg" name="deleteChoco">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FaMZ3EeGhpfs0heeamg"/>
+      </events>
+      <events xmi:id="_OHtiigcpEeKriuko9xNWRg" name="editChoco">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+      </events>
+      <events xmi:id="_OHuJkAcpEeKriuko9xNWRg" name="userLink">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
+      </events>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuJkQcpEeKriuko9xNWRg" createdOn="2012-09-26T16:16:06.484+0200" modifiedOn="2012-09-26T16:16:06.484+0200" name="paginationChocoBottom">
+      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.8"/>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewContainerReference" xmi:id="_OHuJkgcpEeKriuko9xNWRg" name="menuLeft" viewContainer="_OHuwpAcpEeKriuko9xNWRg"/>
+  </viewContainers>
+  <viewContainers xmi:id="_OHuJkwcpEeKriuko9xNWRg" modifiedOn="2012-09-26T16:16:17.915+0200" name="office-statistics" label="Office Statistics">
+    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuJlAcpEeKriuko9xNWRg" name="create-office-form">
+      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FYcZ3EeGhpfs0heeamg"/>
+      <events xmi:id="_OHuJlQcpEeKriuko9xNWRg" name="add">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FYsZ3EeGhpfs0heeamg"/>
+      </events>
+      <events xmi:id="_OHuJlgcpEeKriuko9xNWRg" name="close">
+        <type href="pathmap://cinematic/toolkits/JBE#//@widgets.6/@possibleEvents.1"/>
+      </events>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuJlwcpEeKriuko9xNWRg" createdOn="2012-09-26T16:16:12.864+0200" modifiedOn="2012-09-26T16:16:12.864+0200" name="paginationOfficeTop">
+      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.8"/>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuJmAcpEeKriuko9xNWRg" name="officeList">
+      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
+      <events xmi:id="_OHuJmQcpEeKriuko9xNWRg" name="deleteOffice">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FaMZ3EeGhpfs0heeamg"/>
+      </events>
+      <events xmi:id="_OHuwoAcpEeKriuko9xNWRg" name="editOffice">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+      </events>
+      <events xmi:id="_OHuwoQcpEeKriuko9xNWRg" name="userLink">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
+      </events>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuwogcpEeKriuko9xNWRg" createdOn="2012-09-26T16:16:17.915+0200" modifiedOn="2012-09-26T16:16:17.915+0200" name="paginationOfficeBottom">
+      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.8"/>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewContainerReference" xmi:id="_OHuwowcpEeKriuko9xNWRg" name="menuLeft" label="" viewContainer="_OHuwpAcpEeKriuko9xNWRg"/>
+  </viewContainers>
+  <viewContainers xmi:id="_OHuwpAcpEeKriuko9xNWRg" name="home-left-menu" label="News">
     <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcsZ3EeGhpfs0heeamg"/>
-    <ownedElements xsi:type="cinematic-view:ViewElement" name="admins">
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuwpQcpEeKriuko9xNWRg" name="usersLink">
       <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
-      <events name="openAdmins">
+      <events xmi:id="_OHuwpgcpEeKriuko9xNWRg" name="openUsers">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
+      </events>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuwpwcpEeKriuko9xNWRg" name="chocoVoteLink" label="">
+      <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
+      <events xmi:id="_OHuwqAcpEeKriuko9xNWRg" name="openChocoVote">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
+      </events>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuwqQcpEeKriuko9xNWRg" name="officeStatistics">
+      <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
+      <events xmi:id="_OHuwqgcpEeKriuko9xNWRg" name="openOfficeStatistics">
         <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
       </events>
     </ownedElements>
   </viewContainers>
-  <subPackages name="dynamic">
-    <subPackages name="container">
-      <subPackages name="popup">
-        <subPackages name="edit">
-          <viewContainers name="edit-user" label="Edit User">
+  <viewContainers xmi:id="_OHvXsAcpEeKriuko9xNWRg" name="admins" label="Admin">
+    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHvXsQcpEeKriuko9xNWRg" name="paginationAdminTop">
+      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.8"/>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHvXsgcpEeKriuko9xNWRg" name="adminList">
+      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
+      <events xmi:id="_OHvXswcpEeKriuko9xNWRg" name="officeLink">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
+      </events>
+      <events xmi:id="_OHvXtAcpEeKriuko9xNWRg" name="chocoLink">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
+      </events>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHvXtQcpEeKriuko9xNWRg" name="paginationAdminBottom">
+      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.8"/>
+    </ownedElements>
+    <ownedElements xsi:type="cinematic-view:ViewContainerReference" xmi:id="_OHvXtgcpEeKriuko9xNWRg" name="adminLeftMenu" viewContainer="_OHv-wAcpEeKriuko9xNWRg"/>
+  </viewContainers>
+  <viewContainers xmi:id="_OHv-wAcpEeKriuko9xNWRg" name="admin-left-menu" label="News">
+    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcsZ3EeGhpfs0heeamg"/>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHv-wQcpEeKriuko9xNWRg" name="admins">
+      <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
+      <events xmi:id="_OHv-wgcpEeKriuko9xNWRg" name="openAdmins">
+        <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
+      </events>
+    </ownedElements>
+  </viewContainers>
+  <subPackages xmi:id="_OHv-wwcpEeKriuko9xNWRg" name="dynamic">
+    <subPackages xmi:id="_OHv-xAcpEeKriuko9xNWRg" name="container">
+      <subPackages xmi:id="_OHv-xQcpEeKriuko9xNWRg" name="popup">
+        <subPackages xmi:id="_OHv-xgcpEeKriuko9xNWRg" name="edit">
+          <viewContainers xmi:id="_OHv-xwcpEeKriuko9xNWRg" name="edit-user" label="Edit User">
             <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
-            <ownedElements xsi:type="cinematic-view:ViewElement" name="editUser" label="Edit User">
+            <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHv-yAcpEeKriuko9xNWRg" name="editUser" label="Edit User">
               <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZMZ3EeGhpfs0heeamg"/>
-              <events name="save">
+              <events xmi:id="_OHv-yQcpEeKriuko9xNWRg" name="save">
                 <type href="pathmap://cinematic/toolkits/JBE#_Y__FZcZ3EeGhpfs0heeamg"/>
               </events>
-              <events name="close">
+              <events xmi:id="_OHv-ygcpEeKriuko9xNWRg" name="close">
                 <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
-          <viewContainers name="edit-choco" label="Edit Choco">
+          <viewContainers xmi:id="_OHv-ywcpEeKriuko9xNWRg" name="edit-choco" label="Edit Choco">
             <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
-            <ownedElements xsi:type="cinematic-view:ViewElement" name="editChoco">
+            <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHwl0AcpEeKriuko9xNWRg" name="editChoco">
               <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZMZ3EeGhpfs0heeamg"/>
-              <events name="save">
+              <events xmi:id="_OHwl0QcpEeKriuko9xNWRg" name="save">
                 <type href="pathmap://cinematic/toolkits/JBE#_Y__FZcZ3EeGhpfs0heeamg"/>
               </events>
-              <events name="close">
+              <events xmi:id="_OHwl0gcpEeKriuko9xNWRg" name="close">
                 <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
-          <viewContainers name="edit-office">
+          <viewContainers xmi:id="_OHwl0wcpEeKriuko9xNWRg" name="edit-office">
             <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
-            <ownedElements xsi:type="cinematic-view:ViewElement" name="editOffice">
+            <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHwl1AcpEeKriuko9xNWRg" name="editOffice">
               <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZMZ3EeGhpfs0heeamg"/>
-              <events name="save">
+              <events xmi:id="_OHwl1QcpEeKriuko9xNWRg" name="save">
                 <type href="pathmap://cinematic/toolkits/JBE#_Y__FZcZ3EeGhpfs0heeamg"/>
               </events>
-              <events name="close">
+              <events xmi:id="_OHwl1gcpEeKriuko9xNWRg" name="close">
                 <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
         </subPackages>
-        <subPackages name="display">
-          <viewContainers name="display-user-container" label="Display User Container">
+        <subPackages xmi:id="_OHwl1wcpEeKriuko9xNWRg" name="display">
+          <viewContainers xmi:id="_OHwl2AcpEeKriuko9xNWRg" name="display-user-container" label="Display User Container">
             <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
-            <ownedElements xsi:type="cinematic-view:ViewElement" name="displayUser">
+            <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHwl2QcpEeKriuko9xNWRg" name="displayUser">
               <widget href="pathmap://cinematic/toolkits/JBE#_U9LFgMaeEeGhpfs0heeamg"/>
-              <events name="officeLink">
+              <events xmi:id="_OHwl2gcpEeKriuko9xNWRg" name="officeLink">
                 <type href="pathmap://cinematic/toolkits/JBE#_V7WIgMafEeGhpfs0heeamg"/>
               </events>
-              <events name="chocoLink">
+              <events xmi:id="_OHwl2wcpEeKriuko9xNWRg" name="chocoLink">
                 <type href="pathmap://cinematic/toolkits/JBE#_V7WIgMafEeGhpfs0heeamg"/>
               </events>
-              <events name="close">
+              <events xmi:id="_OHwl3AcpEeKriuko9xNWRg" name="close">
                 <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
-          <viewContainers name="display-office-container" label="Display Office Container">
+          <viewContainers xmi:id="_OHwl3QcpEeKriuko9xNWRg" name="display-office-container" label="Display Office Container">
             <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
-            <ownedElements xsi:type="cinematic-view:ViewElement" name="displayOffice">
+            <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHxM4AcpEeKriuko9xNWRg" name="displayOffice">
               <widget href="pathmap://cinematic/toolkits/JBE#_U9LFgMaeEeGhpfs0heeamg"/>
-              <events name="userLink">
+              <events xmi:id="_OHxM4QcpEeKriuko9xNWRg" name="userLink">
                 <type href="pathmap://cinematic/toolkits/JBE#_V7WIgMafEeGhpfs0heeamg"/>
               </events>
-              <events name="close">
+              <events xmi:id="_OHxM4gcpEeKriuko9xNWRg" name="close">
                 <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
-          <viewContainers name="display-choco-container" label="Display Choco Container">
+          <viewContainers xmi:id="_OHxM4wcpEeKriuko9xNWRg" name="display-choco-container" label="Display Choco Container">
             <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
-            <ownedElements xsi:type="cinematic-view:ViewElement" name="displayChoco">
+            <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHxM5AcpEeKriuko9xNWRg" name="displayChoco">
               <widget href="pathmap://cinematic/toolkits/JBE#_U9LFgMaeEeGhpfs0heeamg"/>
-              <events name="userLink">
+              <events xmi:id="_OHxM5QcpEeKriuko9xNWRg" name="userLink">
                 <type href="pathmap://cinematic/toolkits/JBE#_V7WIgMafEeGhpfs0heeamg"/>
               </events>
-              <events name="close">
+              <events xmi:id="_OHxM5gcpEeKriuko9xNWRg" name="close">
                 <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
