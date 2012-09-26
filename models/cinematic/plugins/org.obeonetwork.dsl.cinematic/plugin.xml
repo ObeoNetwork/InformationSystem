@@ -76,6 +76,10 @@
             source="pathmap://cinematic/toolkits/Web"
             target="platform:/plugin/org.obeonetwork.dsl.cinematic/toolkits/Web.cinematic_toolkits">
       </mapping>
+      <mapping
+            source="pathmap://cinematic/toolkits/JBE"
+            target="platform:/plugin/org.obeonetwork.dsl.cinematic/toolkits/JBE.cinematic_toolkits">
+      </mapping>
    </extension>
   <extension point="org.obeonetwork.dsl.cinematic.providedToolkit">
      <toolkit
@@ -83,6 +87,9 @@
      </toolkit>
      <toolkit
            uri="pathmap://cinematic/toolkits/Web">
+     </toolkit>
+     <toolkit
+           uri="pathmap://cinematic/toolkits/JBE">
      </toolkit>
   </extension>
   
