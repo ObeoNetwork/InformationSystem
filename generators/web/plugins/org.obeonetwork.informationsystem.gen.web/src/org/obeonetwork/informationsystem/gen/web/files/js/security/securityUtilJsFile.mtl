@@ -65,8 +65,6 @@
 	       [This/].urlParams['['/]d(e['['/]1[']'/])[']'/] = d(e['['/]2[']'/]);
 	})();
 	
-	return [This/];
-});
-
-	[/file]
+[genAMDFooter(This)/]
+[/file]
 [/template]

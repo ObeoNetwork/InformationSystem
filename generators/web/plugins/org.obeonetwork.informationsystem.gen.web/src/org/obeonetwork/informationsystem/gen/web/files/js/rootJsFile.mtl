@@ -28,15 +28,13 @@
 	 */
 	function _init() {
 
-		[App/].debug = true;
-
 		[App/].commonCtrl = [CommonCtrl/];
 		[App/].commonCtrl.start();
 		
 		[App/].ctrl = [CtrlIdents->first()/];
 		[App/].ctrl.start();
 
-
+		/** [protected ('default ctrl event */')]
 		[for (aN1Flow : Flow | n1Flows)]
 		$(".nav a.[aN1Flow.name.toViewIdent()/]").click(function(event) {
 			event.preventDefault(); // prevent the standard link click
@@ -49,18 +47,21 @@
 		});
 
 		[/for]
-
+		/** [/protected] */
 	}
 
 	function _changeActiveMenu(cssClass) {
+	/** [protected ('default _changeActiveMenu */')]
 		var node = $(".nav a."+cssClass);
 		$(".nav li").removeClass("active");
 		$(node).parent("li").addClass("active");
-		
+	/** [/protected] */
 	}
 
 	function start() {
+	/** [protected ('default start */')]
 		_init();
+	/** [/protected] */
 	}
 
 	start();

@@ -42,7 +42,8 @@
 			[for (attributeType : String | (anEClass.eAllReferences.eType.toVarIdent()))]
 			[attributeType/]Link: [attributeType/]Link,
 			[/for]
-			closeLink: closeLink
+			closeLink: closeLink,
+			[freeJsUC('additional features')/]
 		});
 		
 		return view;
@@ -64,8 +65,7 @@
 		e.preventDefault();
 		[App/].[genCommonCtrlIdent().toVarIdent()/].hideModal();
 	};
-
-	return [This/];
-});
+	
+[genAMDFooter(This)/]
 [/file]
 [/template]

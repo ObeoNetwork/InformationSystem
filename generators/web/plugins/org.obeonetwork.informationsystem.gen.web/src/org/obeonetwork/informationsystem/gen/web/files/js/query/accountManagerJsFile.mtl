@@ -29,8 +29,7 @@
 		
 		[WsAccount/].byTokenMatch(cb_account, token);
 	}
-
-	return [This/];
-});
+	
+[genAMDFooter(This)/]
 [/file]
 [/template]

@@ -39,11 +39,14 @@
  */
 [/template]
 
+
 [template public genAMDHeader(jsPaths : Sequence(String), environmentImports : Sequence(String), jsIdents : Sequence(String))]
 [let allJsImports : Sequence(String) = jsPaths->unionOrdered(environmentImports)]
+/** [protected ('default require function */')]
 /* Define function is an AMD feature. For more information, @see http://requirejs.org. */
-define(['['/]"require[for (jsPath : String | allJsImports)]", "[jsPath/][/for]"[']'/], function(require) {
+define(['['/]"require[for (jsPath : String | allJsImports)]", "[jsPath/][/for]" [']'/], function(require) {
 	"use strict";
+
 [if (allJsImports->size()>0)]
 	
 	/* Get all required AMD modules in vars */
@@ -54,7 +57,19 @@ define(['['/]"require[for (jsPath : String | allJsImports)]", "[jsPath/][/for]"[
 	// [environmentImport/] does not need to be stored in a variable.
 	[/for]
 [/if]
+/** [/protected] */
 [/let]
+[/template]
+
+[template public genAMDFooter(This : String)]
+	[freeJsUC('additional functions')/]
+	return [This/];
+});
+[/template]
+
+[template public freeJsUC(text : String) post (trim())]
+/** [protected (text.concat(' */'))]
+/** [/protected] */
 [/template]
 
 [template public genAMDHeader(jsPaths : Sequence(String), jsIdents : Sequence(String))]

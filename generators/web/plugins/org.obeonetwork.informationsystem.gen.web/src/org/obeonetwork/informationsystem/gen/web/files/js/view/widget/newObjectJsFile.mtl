@@ -59,6 +59,7 @@
 			addEvent : addEvent,
 
 			validForm: validForm,
+			[freeJsUC('additional features')/]
 			[for (attributeType : String | (anEClass.eAllReferences.eType.toTypeIdent()))]
 			load[attributeType/]Proxies : cb_load[attributeType/]Proxies,
 			[/for]
@@ -74,7 +75,6 @@
 	var closeEvent = function(e) {
 		e.preventDefault();
 		this.hideWidget();
-		this.get('parentView').closeEvent(this);
 	};
 	var addEvent = function() {
 		this.hideWidget();
@@ -104,7 +104,6 @@
 	};
 	[/for]
 	
-	return [This/];
-});
-	[/file]
+[genAMDFooter(This)/]
+[/file]
 [/template]

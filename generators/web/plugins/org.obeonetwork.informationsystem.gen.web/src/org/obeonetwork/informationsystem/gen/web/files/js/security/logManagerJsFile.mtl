@@ -92,7 +92,7 @@
 		if(token!=undefined)
 			[SecurityUtil/].setCookie("token", token, 1);
 	}
-
-	return [This/];
-});	[/file]
+	
+[genAMDFooter(This)/]
+[/file]
 [/template]

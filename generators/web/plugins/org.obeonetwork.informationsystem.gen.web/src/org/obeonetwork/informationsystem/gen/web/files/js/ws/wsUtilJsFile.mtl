@@ -111,8 +111,6 @@
 		console.log(errorThrown);
 	};
 	
-	return [This/];
-});
-
-	[/file]
+[genAMDFooter(This)/]
+[/file]
 [/template]

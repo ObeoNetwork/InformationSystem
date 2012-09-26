@@ -45,8 +45,7 @@
 		[/if]
 		[/for]
 	});
-
-	return [This/];
-});
+	
+[genAMDFooter(This)/]
 [/file]
 [/template]

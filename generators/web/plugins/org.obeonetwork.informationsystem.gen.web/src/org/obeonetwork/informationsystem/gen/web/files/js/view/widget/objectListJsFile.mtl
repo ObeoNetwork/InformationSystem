@@ -64,7 +64,8 @@
 		[attributeType/]Link: [attributeType/]Link,
 		[/for]
 		editAction: editAction,
-		removeAction: removeAction
+		removeAction: removeAction,
+		[freeJsUC('additional item features')/]
 	});
 	
 	
@@ -80,7 +81,8 @@
 			content : ['['/][']'/],
 			itemViewClass : _ItemClass,
 			
-			loadContent : cb_load[Objects/]
+			loadContent : cb_load[Objects/],
+			[freeJsUC('additional features')/]
 		});
 			 
 		return view;
@@ -94,7 +96,6 @@
 		this.set('content', [objects/]);
 	};
 	
-	return [This/];
-});
-	[/file]
+[genAMDFooter(This)/]
+[/file]
 [/template]

@@ -46,6 +46,11 @@
 [getProperty('img-directory-path')/]
 [/template]
 
+[template public freeHtmlUC(text : String) post (trim())]
+<!-- [protected (text.concat(' -->'))]
+<!-- [/protected] -->
+[/template]
+
 [query public toIdent(str : String) : String = str.replaceAll('-', ' ').replaceAll('_', ' ').tokenize(' ').toUpperFirst()->toString() /]
 
 [query public toViewIdent(str : String) : String = str.toLower().replaceAll(' ', '-') /]

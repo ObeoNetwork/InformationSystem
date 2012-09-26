@@ -45,9 +45,7 @@
 		var filename = filePath.substr(fileNameIndex);
 		return filename;
 	}
-
-	return [This/];
-});
-
-	[/file]
+	
+[genAMDFooter(This)/]
+[/file]
 [/template]

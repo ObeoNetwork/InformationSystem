@@ -38,7 +38,8 @@
 			paginationProxies : ['['/][']'/],
 			
 			loadContent : cb_loadProxies,
-			paginationLink: paginationLink
+			paginationLink: paginationLink,
+			[freeJsUC('additional features')/]
 		});
 		return view;
 	};
@@ -58,8 +59,7 @@
 		else
 			this.set('paginationProxies', ['['/][']'/]);
 	};
-
-	return [This/];
-});
-	[/file]
+	
+[genAMDFooter(This)/]
+[/file]
 [/template]

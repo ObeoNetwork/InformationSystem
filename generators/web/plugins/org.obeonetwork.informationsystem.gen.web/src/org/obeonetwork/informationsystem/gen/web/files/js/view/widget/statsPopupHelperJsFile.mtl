@@ -137,8 +137,7 @@
 		            return out;
 		    };
 		})();
-
-	return [This/];
-});
+	
+[genAMDFooter(This)/]
 [/file]
 [/template]

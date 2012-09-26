@@ -36,8 +36,7 @@
 		nickname : null,
 		shortNickname : null,
 	});
-
-	return [This/];
-});
+	
+[genAMDFooter(This)/]
 [/file]
 [/template]

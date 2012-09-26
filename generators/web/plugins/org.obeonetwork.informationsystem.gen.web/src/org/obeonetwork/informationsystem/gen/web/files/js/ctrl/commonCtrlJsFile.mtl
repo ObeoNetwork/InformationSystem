@@ -189,8 +189,7 @@
 	
 	[privateFunctions()/]
 	
-	return [This/];
-});
+[genAMDFooter(This)/]
 [/file]
 [/template]
 

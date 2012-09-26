@@ -34,9 +34,7 @@
 		id : null, 
 		desc : null
 	});
-
-	return [This/];
-
-});
-	[/file]
+	
+[genAMDFooter(This)/]
+[/file]
 [/template]

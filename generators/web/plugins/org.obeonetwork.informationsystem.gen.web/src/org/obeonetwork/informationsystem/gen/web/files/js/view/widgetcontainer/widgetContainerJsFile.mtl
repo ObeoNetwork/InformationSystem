@@ -59,6 +59,7 @@
 			[/for]
 			
 			didInsertElement : cb_whenInsert,
+			[freeJsUC('additional features')/]
 
 			[for (aTransitionOut : String | aWidgetContainer.viewStates().reqTransitionsLeaveFrom()->select(not(to.oclIsUndefined()) and to.oclIsKindOf(ViewState) and isOnClick()).toIdent().toVarIdent())]
 			[aTransitionOut/] : cb_[aTransitionOut/],
@@ -84,10 +85,9 @@
 	};
 	
 	[aWidgetContainer.paginationChange() /]
-
-	return [This/];
-});
-	[/file]
+	
+[genAMDFooter(This)/]
+[/file]
 [/template]
 
 

@@ -39,7 +39,8 @@
 			[genAccountIdent().toVarIdent()/] : undefined,
 			
 			didInsertElement : cb_whenInsert,
-			loadContent : cb_load[genAccountIdent()/]
+			loadContent : cb_load[genAccountIdent()/],
+			[freeJsUC('additional features')/]
 		});
 		
 		return view;
@@ -57,7 +58,6 @@
 		
 	};
 	
-	return [This/];
-});
-	[/file]
+[genAMDFooter(This)/]
+[/file]
 [/template]

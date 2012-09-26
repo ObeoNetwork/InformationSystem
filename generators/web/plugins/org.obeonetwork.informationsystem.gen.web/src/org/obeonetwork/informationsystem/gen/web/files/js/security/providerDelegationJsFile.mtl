@@ -42,7 +42,7 @@
 			});
 		return ret;
 	}
-
-	return [This/];
-});	[/file]
+	
+[genAMDFooter(This)/]
+[/file]
 [/template]

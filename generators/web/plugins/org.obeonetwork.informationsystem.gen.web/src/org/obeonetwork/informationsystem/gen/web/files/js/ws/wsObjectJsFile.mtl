@@ -183,7 +183,6 @@
 		return [object/];
 	}
 	
-	return [This/];
-});
+[genAMDFooter(This)/]
 [/file]
 [/template]

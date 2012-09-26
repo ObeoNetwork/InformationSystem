@@ -60,10 +60,11 @@
 	[/for]
 
 	[This/].changeActiveMenu = function(cssClass) {
+		/** [protected ('default changeActiveMenu */')]
 		var node = $("#menu-left .nav-list a."+cssClass);
 		$("#menu-left .nav-list li").removeClass("active");
 		$(node).parent("li").addClass("active");
-		
+		/** [/protected] */
 	}
 
 	function _insertView(view) {
@@ -104,7 +105,6 @@
 		});
 	};
 	
-	return [This/];
-});
+[genAMDFooter(This)/]
 [/file]
 [/template]

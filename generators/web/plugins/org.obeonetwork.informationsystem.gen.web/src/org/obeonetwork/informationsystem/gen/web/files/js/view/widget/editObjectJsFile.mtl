@@ -51,7 +51,8 @@
 			[/for]
 			
 			validForm: validForm,
-			cancelForm : cancelForm
+			cancelForm : cancelForm,
+			[freeJsUC('additional features')/]
 		});
 		
 		return view;
@@ -66,7 +67,6 @@
 		[App/].[genCommonCtrlIdent().toVarIdent()/].hideModal();
 	}
 	
-	return [This/];
-});
-	[/file]
+[genAMDFooter(This)/]
+[/file]
 [/template]

@@ -28,14 +28,6 @@
 	
 	function _init() {
 
-		/*window.onpopstate = function(event) {
-			
-			if(event.state === null || event.state === undefined) {
-				[This/].stateChange();
-			} else {
-				[This/].stateChange(event.state.[This.toVarIdent()/], true);
-			}
-		};*/
 		[Page/].start();
 		[This/].stateChange();
 	}
@@ -60,16 +52,12 @@
 			[for (aViewContainer : ViewContainer | WidgetContainers)]
 			[if (i>1)]
 			case allowedStates['['/][i/][']'/]:
-				//if(!historyMode) 
-				//	window.history.pushState({[This.toVarIdent()/]: state});
 				_to[aViewContainer.toTypeIdent()/]State();
 				break;
 			
 			[/if]
 			[/for]
 			default:
-				//if(!historyMode) 
-				//	window.history.pushState({[This.toVarIdent()/]: allowedStates['['/]1[']'/]});
 				_to[WidgetContainers->first().toTypeIdent()/]State();
 				break;
 		}
@@ -85,8 +73,6 @@
 	}
 	[/for]
 	
-	
-	return [This/];
-});
-	[/file]
+[genAMDFooter(This)/]
+[/file]
 [/template]

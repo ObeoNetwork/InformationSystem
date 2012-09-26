@@ -78,7 +78,6 @@
 		[WsObject/].stats(cb_[object/]Stats);
 	};
 	
-	return [This/];
-});
-	[/file]
+[genAMDFooter(This)/]
+[/file]
 [/template]

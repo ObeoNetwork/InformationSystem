@@ -25,9 +25,7 @@
 	function _init() {
 		_initSignOut();
 		_initSignUp();
-		_initSignHmarchadour();
-		_initSignModerator();
-		_initSignAdmin();
+		_initSignIn();
 	}
 
 
@@ -35,28 +33,13 @@
 		_init();
 	};
 	
-	function _initSignHmarchadour() {
-		
+	function _initSignIn() {
+		/** [protected ('default _initSignIn */')]
 		$("#sign-hmarchadour").click(function(event) {
 			var redirect = [ProviderDelegation/].getUrl4Login("?hmarchadour=true");
 			$(this).attr("href", redirect);
 		});
-	}
-	
-	function _initSignModerator() {
-		
-		$("#sign-moderator").click(function(event) {
-			var redirect = [ProviderDelegation/].getUrl4Login("?moderator=true");
-		$(this).attr("href", redirect);
-		});
-	}
-	
-	function _initSignAdmin() {
-		
-		$("#sign-admin").click(function(event) {
-			var redirect = [ProviderDelegation/].getUrl4Login("?admin=true");
-		$(this).attr("href", redirect);
-		});
+		/** [/protected] */
 	}
 	
 	function _initSignOut() {
@@ -84,7 +67,6 @@
 		});
 	};
 	
-	return [This/];
-});
-	[/file]
+[genAMDFooter(This)/]
+[/file]
 [/template]

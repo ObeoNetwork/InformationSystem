@@ -51,7 +51,9 @@
 /]
 [template public wrapScriptSign(templateIdent : String, templateContent : String)]
 <script type="text/x-handlebars" data-template-name="[templateIdent/]">
+	<!-- [protected (templateIdent.concat(' -->'))]
 	[templateContent/]
+	<!-- [/protected] -->
 </script>
 [/template]
 

@@ -39,7 +39,8 @@
 			tabStats : ['['/][']'/],
 			
 			loadContent : cb_loadStats,
-			didInsertElement : function() {[App/].[genCommonCtrlIdent().toVarIdent()/].load[anEClass.toTypeIdent()/]StatsInWidget(this);}
+			didInsertElement : function() {[App/].[genCommonCtrlIdent().toVarIdent()/].load[anEClass.toTypeIdent()/]StatsInWidget(this);},
+			[freeJsUC('additional features')/]
 		});
 		return view;
 	};
@@ -194,7 +195,7 @@
 			y2: p2y + dy2
 		};
 	  };
-	return [This/];
-});
-	[/file]
+	
+[genAMDFooter(This)/]
+[/file]
 [/template]
