@@ -39,7 +39,6 @@
  */
 [/template]
 
-
 [template public genAMDHeader(jsPaths : Sequence(String), environmentImports : Sequence(String), jsIdents : Sequence(String))]
 [let allJsImports : Sequence(String) = jsPaths->unionOrdered(environmentImports)]
 /** [protected ('default require function */')]
@@ -63,6 +62,7 @@ define(['['/]"require[for (jsPath : String | allJsImports)]", "[jsPath/][/for]" 
 
 [template public genAMDFooter(This : String)]
 	[freeJsUC('additional functions')/]
+
 	return [This/];
 });
 [/template]

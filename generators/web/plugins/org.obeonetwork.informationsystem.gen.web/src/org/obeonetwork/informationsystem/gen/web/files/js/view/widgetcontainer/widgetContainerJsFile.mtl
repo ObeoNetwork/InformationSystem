@@ -47,28 +47,28 @@
 	 * @return the view instance
 	 */
 	[This/].create = function() {
+		/** [protected ('default init widgets */')]
 		[for (viewElem : AbstractViewElement | Widgets)]
 		var [viewElem.name.toVarIdent()/] = [viewElem.genJsWidgetIdent()/].create();
 		[/for]
-		
+		/** [/protected] */
+
 		var view = _Class.create({
-	
+			/** [protected ('default sub widgets */')]
 			childViews: ['['/][for (viewElem : AbstractViewElement | Widgets)]'[viewElem.name.toVarIdent()/]'[if(i<Widgets->size())], [/if][/for][']'/],
 			[for (viewElem : AbstractViewElement | Widgets)]
 			[viewElem.name.toVarIdent()/] : [viewElem.name.toVarIdent()/],
 			[/for]
-			
+			/** [/protected] */
+
 			didInsertElement : cb_whenInsert,
 			[freeJsUC('additional features')/]
-
 			[for (aTransitionOut : String | aWidgetContainer.viewStates().reqTransitionsLeaveFrom()->select(not(to.oclIsUndefined()) and to.oclIsKindOf(ViewState) and isOnClick()).toIdent().toVarIdent())]
 			[aTransitionOut/] : cb_[aTransitionOut/],
 			[/for]
-
 			[for (aTransitionIn : String | aWidgetContainer.viewStates().reqTransitionsIncomeTo()->select(not(from.oclIsUndefined()) and from.oclIsKindOf(ViewState) and (isClose() or isAdd())).toIdent().toVarIdent()->asOrderedSet())]
 			[aTransitionIn/] : cb_[aTransitionIn/],
 			[/for]
-
 			[if(aWidgetContainer.ownedElements->select(isPagination())->size()>0)]
 			paginationChange : cb_paginationChange
 			[/if]
