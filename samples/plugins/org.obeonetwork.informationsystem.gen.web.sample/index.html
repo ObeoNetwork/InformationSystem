@@ -7,7 +7,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- *     Hugo Marchadour (Obeo) - initial API and implementation
+ *     Hugo Marchadour (Obeo) - initial API and implementation<html manifest="cache.manifest">
  *******************************************************************************/
 -->
 <html>
@@ -55,6 +55,19 @@
 		</script>
 
 		<!-- Start of user code post head -->
+		<style>
+			.offline {
+			  background: #c00;
+			}
+			
+			.online {
+			  background: #0c0;
+			}
+			
+			#status {
+				color:#fff;
+			}
+		</style>
 		<!-- End of user code -->
 	</head>
 	<body>
@@ -95,8 +108,13 @@
 						              </ul>
 						            </li>
 									<!-- Start of user code post nav -->
+								</ul>
+								<ul class="nav" style="float: right;">
 									<li class="">
 										<a href="./tests.html">Unit tests</a>
+									</li>
+									<li>
+										<a href="#" id="status" class=""></a>
 									</li>
 									<!-- End of user code -->
 								</ul>

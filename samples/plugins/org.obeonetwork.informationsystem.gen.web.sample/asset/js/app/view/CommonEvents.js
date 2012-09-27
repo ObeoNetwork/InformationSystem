@@ -30,9 +30,12 @@ define(["require", "app/App", "app/security/ProviderDelegation" ], function(requ
 	var CommonEvents = {};
 	
 	function _init() {
+		/** Start of user code default _init */
 		_initSignOut();
 		_initSignUp();
 		_initSignIn();
+		_initConnectionStatus();
+		/** End of user code */
 	}
 
 
@@ -75,6 +78,21 @@ define(["require", "app/App", "app/security/ProviderDelegation" ], function(requ
 	};
 	
 	/** Start of user code additional functions */
+	function _initConnectionStatus() {
+		require(["app/view/H5utils"], function(H5utils) {
+			H5utils.addEvent(window, 'online', cb_toOnline);
+			H5utils.addEvent(window, 'offline', cb_toOffline);
+		});
+	}
+	
+	/*call backs*/
+	var cb_toOnline = function() {
+		App.commonCtrl.toOnline();
+	};
+	
+	var cb_toOffline = function() {
+		App.commonCtrl.toOffline();
+	};
 	/** End of user code */
 
 	return CommonEvents;

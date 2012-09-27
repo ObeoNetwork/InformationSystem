@@ -53,6 +53,11 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 			}
 		}
 		CommonPage.start();
+		if(navigator.onLine) {
+			CommonPage.renderOnline();
+		} else {
+			CommonPage.renderOffline();
+		}
 	}
 
 	CommonCtrl.start = function() {
@@ -89,6 +94,19 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 
 	};
 	
+	/**/
+	CommonCtrl.hideModal = function() {
+		
+		CommonPage.hideModal();
+	};
+	
+	/**/
+	CommonCtrl.signOut = function() {
+		
+		LogManager.logOff();
+		_reloadPage();
+	};
+	
 	/* events */
 	/**/
 	CommonCtrl.removeChoco = function(choco) {
@@ -104,28 +122,35 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 		App.toast.warning("Server add not implemented yet. Sorry!");
 	};
 	CommonCtrl.showModalChoco = function(id) {
-		
+		/** Start of user code showModalChoco */
 		App.ChocoManager.async_byId(function(choco) {
 			CommonPage.showModalChoco(choco);
 		}, id);
+		/** End of user code */
 	};
 	CommonCtrl.editChoco = function(choco) {
-		App.UserManager.async_allProxies(function(userProxies) {
-			/* <async block start> (User context) 
-			 */
-			for (var i = 0; i < userProxies.length; i++) {
-				var userProxy = userProxies[i];
-			
-				if (choco.userProxy.id === userProxy.id) {
-					choco.set("userProxy", userProxy);
-					break;
+		/** Start of user code editChoco */
+		if(navigator.onLine) {
+			App.UserManager.async_allProxies(function(userProxies) {
+				/* <async block start> (User context) 
+				 */
+				for (var i = 0; i < userProxies.length; i++) {
+					var userProxy = userProxies[i];
+				
+					if (choco.userProxy.id === userProxy.id) {
+						choco.set("userProxy", userProxy);
+						break;
+					}
 				}
-			}
-		
-			CommonPage.showEditModalChoco(choco, userProxies);
-			/* 
-			 * <async block stop> (User context) */
-		});
+			
+				CommonPage.showEditModalChoco(choco, userProxies);
+				/* 
+				 * <async block stop> (User context) */
+			});
+		} else {
+			// TODO something
+		}
+		/** End of user code */
 	};
 
 	/**/
@@ -142,49 +167,56 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 		App.toast.warning("Server add not implemented yet. Sorry!");
 	};
 	CommonCtrl.showModalUser = function(id) {
-		
+		/** Start of user code showModalUser */
 		App.UserManager.async_byId(function(user) {
 			CommonPage.showModalUser(user);
 		}, id);
+		/** End of user code */
 	};
 	CommonCtrl.editUser = function(user) {
-		App.ChocoManager.async_allProxies(function(chocoProxies) {
-			/* <async block start> (Choco context) 
-			 */
-			var oldChocoProxies = user.get("chocoProxies");
-			var linkedChocoProxies = [];
-			
-			for (var i = 0; i < chocoProxies.length; i++) {
-				for (var j = 0; j < oldChocoProxies.length; j++) {
-			
-					if (chocoProxies[i].id === oldChocoProxies[j].id) {
-						linkedChocoProxies.push(chocoProxies[i]);
-						break;
-					}
-				}
-			}
-			user.set("chocoProxies", linkedChocoProxies);
-			
-		
-			App.OfficeManager.async_allProxies(function(officeProxies) {
-				/* <async block start> (Office context) 
+		/** Start of user code editUser */
+		if(navigator.onLine) {
+			App.ChocoManager.async_allProxies(function(chocoProxies) {
+				/* <async block start> (Choco context) 
 				 */
-				for (var i = 0; i < officeProxies.length; i++) {
-					var officeProxy = officeProxies[i];
+				var oldChocoProxies = user.get("chocoProxies");
+				var linkedChocoProxies = [];
 				
-					if (user.officeProxy.id === officeProxy.id) {
-						user.set("officeProxy", officeProxy);
-						break;
+				for (var i = 0; i < chocoProxies.length; i++) {
+					for (var j = 0; j < oldChocoProxies.length; j++) {
+				
+						if (chocoProxies[i].id === oldChocoProxies[j].id) {
+							linkedChocoProxies.push(chocoProxies[i]);
+							break;
+						}
 					}
 				}
+				user.set("chocoProxies", linkedChocoProxies);
+				
 			
-				CommonPage.showEditModalUser(user, chocoProxies, officeProxies);
+				App.OfficeManager.async_allProxies(function(officeProxies) {
+					/* <async block start> (Office context) 
+					 */
+					for (var i = 0; i < officeProxies.length; i++) {
+						var officeProxy = officeProxies[i];
+					
+						if (user.officeProxy.id === officeProxy.id) {
+							user.set("officeProxy", officeProxy);
+							break;
+						}
+					}
+				
+					CommonPage.showEditModalUser(user, chocoProxies, officeProxies);
+					/* 
+					 * <async block stop> (Office context) */
+				});
 				/* 
-				 * <async block stop> (Office context) */
+				 * <async block stop> (Choco context) */
 			});
-			/* 
-			 * <async block stop> (Choco context) */
-		});
+		} else {
+			// TODO something
+		}
+		/** End of user code */
 	};
 
 	/**/
@@ -201,23 +233,35 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 		App.toast.warning("Server add not implemented yet. Sorry!");
 	};
 	CommonCtrl.showModalOffice = function(id) {
-		
-		App.OfficeManager.async_byId(function(office) {
-			CommonPage.showModalOffice(office);
-		}, id);
+		/** Start of user code showModalOffice */
+		if(navigator.onLine) {
+			App.OfficeManager.async_byId(function(office) {
+				CommonPage.showModalOffice(office);
+			}, id);
+		} else {
+			// TODO something
+		}
+		/** End of user code */
 	};
 	CommonCtrl.editOffice = function(office) {
+		/** Start of user code editOffice */
 		CommonPage.showEditModalOffice(office);
+		/** End of user code */
 	};
 
 
 	
 	/**/
 	CommonCtrl.loadAllChocosInWidget = function(contentWidget) {
-		
-		App.ChocoManager.async_allProxies(
-			function(chocoProxies) { contentWidget.loadChocoProxies(chocoProxies); }
-		);
+		/** Start of user code loadAllChocosInWidget */
+		if(navigator.onLine) {
+			App.ChocoManager.async_allProxies(
+				function(chocoProxies) { contentWidget.loadChocoProxies(chocoProxies); }
+			);
+		} else {
+			// TODO something
+		}
+		/** End of user code */
 	};
 
 	CommonCtrl.loadChocosInWidget = function(contentWidget, paginationWidgets, activePage) {
@@ -231,10 +275,15 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 	
 	/**/
 	CommonCtrl.loadAllUsersInWidget = function(contentWidget) {
-		
-		App.UserManager.async_allProxies(
-			function(userProxies) { contentWidget.loadUserProxies(userProxies); }
-		);
+		/** Start of user code loadAllUsersInWidget */
+		if(navigator.onLine) {
+			App.UserManager.async_allProxies(
+				function(userProxies) { contentWidget.loadUserProxies(userProxies); }
+			);
+		} else {
+			// TODO something
+		}
+		/** End of user code */
 	};
 
 	CommonCtrl.loadUsersInWidget = function(contentWidget, paginationWidgets, activePage) {
@@ -248,10 +297,17 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 	
 	/**/
 	CommonCtrl.loadAllOfficesInWidget = function(contentWidget) {
-		
-		App.OfficeManager.async_allProxies(
-			function(officeProxies) { contentWidget.loadOfficeProxies(officeProxies); }
-		);
+		/** Start of user code loadAllOfficesInWidget */
+		if(navigator.onLine) {
+			App.OfficeManager.async_allProxies(
+				function(officeProxies) { contentWidget.loadOfficeProxies(officeProxies); }
+			);
+		} else {
+			App.OfficeManager.allProxies(
+					function(officeProxies) { contentWidget.loadOfficeProxies(officeProxies); }
+				);
+		}
+		/** End of user code */
 	};
 
 	CommonCtrl.loadOfficesInWidget = function(contentWidget, paginationWidgets, activePage) {
@@ -269,60 +325,64 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 
 
 	function _async_loadContent(objectManager, contentWidget, activePage) {
-		
+		/** Start of user code default _async_loadContent*/
 		if(activePage===undefined || activePage==null) {
 			activePage = 0;
 		}
 		
-		objectManager.async_allByRows(
-			function(offices) { contentWidget.loadContent(offices); }, 5, activePage
-		);
+		if(navigator.onLine) {
+			objectManager.async_allByRows(
+				function(offices) { contentWidget.loadContent(offices); }, 5, activePage
+			);
+		} else {
+			objectManager.allByRows(
+					function(offices) { contentWidget.loadContent(offices); }, 5, activePage
+				);
+		}
+		/** End of user code */
 	}
 
 	function _async_loadStat(objectManager, contentWidget) {
-		objectManager.async_stats(
-			function(stats) { contentWidget.loadContent(stats); }
-		);
+		/** Start of user code default _async_loadStat*/
+		if(navigator.onLine) {
+			objectManager.async_stats(
+				function(stats) { contentWidget.loadContent(stats); }
+			);
+		} else {
+			// TODO something
+		}
+		/** End of user code */
 	}
 	
 	/**/
 	function _async_loadPagination(objectManager, paginationWidgets, activePage) {
-		
+		/** Start of user code default _async_loadPagination */
 		if(paginationWidgets===undefined || paginationWidgets==null) {
 			paginationWidgets = [];
 		}
 		if(activePage===undefined || activePage==null) {
 			activePage = 0;
 		}
-		
-		objectManager.async_countAll(
-			function(count) {
-				var pageProxies = [];
-				for(var i = 0; i < count / 5; i++) {
-					pageProxies[i] = Proxy.Class.create({
-						id : i, desc : "" + (i + 1) + "", active : activePage==i
-					});
-				};
-				for (var i=0; i < paginationWidgets.length; i++) {
-				  paginationWidgets[i].loadContent(pageProxies);
-				};
-			}
-		);
+		if(navigator.onLine) {
+			objectManager.async_countAll(
+				function(count) {
+					var pageProxies = [];
+					for(var i = 0; i < count / 5; i++) {
+						pageProxies[i] = Proxy.Class.create({
+							id : i, desc : "" + (i + 1) + "", active : activePage==i
+						});
+					};
+					for (var i=0; i < paginationWidgets.length; i++) {
+					  paginationWidgets[i].loadContent(pageProxies);
+					};
+				}
+			);
+		} else {
+			// TODO something
+		}
+		/** End of user code */
 	}
-	
-	/**/
-	CommonCtrl.hideModal = function() {
-		
-		CommonPage.hideModal();
-	};
-	
-	/**/
-	CommonCtrl.signOut = function() {
-		
-		LogManager.logOff();
-		_reloadPage();
-	};
-	
+
 	/**/
 	function _reloadPage() {
 		
@@ -360,7 +420,14 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 		CommonPage.renderAdminFeatures();
 	}
 	
-	/** Start of user code additional functions */
+	/** Start of user code additional functions */	
+	CommonCtrl.toOnline = function() {
+		CommonPage.renderOnline();
+	};
+	
+	CommonCtrl.toOffline = function() {
+		CommonPage.renderOffline();
+	};
 	/** End of user code */
 
 	return CommonCtrl;
