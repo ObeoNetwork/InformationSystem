@@ -64,6 +64,19 @@
 
 	};
 	
+	/**/
+	[This/].hideModal = function() {
+		
+		[CommonPage/].hideModal();
+	};
+	
+	/**/
+	[This/].signOut = function() {
+		
+		[LogManager/].logOff();
+		_reloadPage();
+	};
+	
 	/* events */
 [for (anEClass : EClass | objectEClasses)]
 	[let Object : String = anEClass.toTypeIdent()]
@@ -83,13 +96,16 @@
 		[App/].toast.warning("Server add not implemented yet. Sorry!");
 	};
 	[This/].showModal[Object/] = function(id) {
-		
+		/** [protected ('showModal'.concat(Object).concat(' */'))]
 		[App/].[ObjectManager/].async_byId(function([object/]) {
 			[CommonPage/].showModal[Object/]([object/]);
 		}, id);
+		/** [/protected] */
 	};
 	[This/].edit[Object/] = function([object/]) {
+		/** [protected ('edit'.concat(Object).concat(' */'))]
 		[recAsyncEdit(anEClass, anEClass.eReferences)/]
+		/** [/protected] */
 	};
 	[/let]
 	[/let]
@@ -104,12 +120,13 @@
 	
 	/**/
 	[This/].loadAll[Objects/]InWidget = function(contentWidget) {
-		
+		/** [protected ('loadAll'.concat(Objects).concat('InWidget */'))]
 		[App/].[ObjectManager/].async_allProxies(
 			[comment [jsComment4RecStart(anEClass)/]
 			function([object/]Proxies) { contentWidget.load[object.toTypeIdent()/]Proxies([object/]Proxies); }
 			[comment [jsComment4RecStop(anEClass)/]
 		);
+		/** [/protected] */
 	};
 
 	[This/].load[Objects/]InWidget = function(contentWidget, paginationWidgets, activePage) {
@@ -131,7 +148,7 @@
 
 
 	function _async_loadContent(objectManager, contentWidget, activePage) {
-		
+		/** [protected ('default _async_loadContent*/')]
 		if(activePage===undefined || activePage==null) {
 			activePage = 0;
 		}
@@ -139,17 +156,20 @@
 		objectManager.async_allByRows(
 			function(offices) { contentWidget.loadContent(offices); }, 5, activePage
 		);
+		/** [/protected] */
 	}
 
 	function _async_loadStat(objectManager, contentWidget) {
+		/** [protected ('default _async_loadStat*/')]
 		objectManager.async_stats(
 			function(stats) { contentWidget.loadContent(stats); }
 		);
+		/** [/protected] */
 	}
 	
 	/**/
 	function _async_loadPagination(objectManager, paginationWidgets, activePage) {
-		
+		/** [protected ('default _async_loadPagination */')]
 		if(paginationWidgets===undefined || paginationWidgets==null) {
 			paginationWidgets = ['['/][']'/];
 		}
@@ -172,21 +192,9 @@
 			}
 			[comment [jsComment4RecStop()/]
 		);
+		/** [/protected] */
 	}
-	
-	/**/
-	[This/].hideModal = function() {
-		
-		[CommonPage/].hideModal();
-	};
-	
-	/**/
-	[This/].signOut = function() {
-		
-		[LogManager/].logOff();
-		_reloadPage();
-	};
-	
+
 	[privateFunctions()/]
 	
 [genAMDFooter(This)/]

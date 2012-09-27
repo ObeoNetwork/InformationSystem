@@ -27,55 +27,97 @@
 	[This/].async_all = function(cb_function) {
 		
 		var cb_[objects/] = function([objects/]) {
+			/** [protected ('cb_'.concat(objects).concat(' */'))]
 			cb_function([objects/]);
+			/** [/protected] */
 		};
 		
 		[WsObject/].all(cb_[objects/]);
 	};
+
+	[This/].all = function(cb_function) {
+		[freeJsUC('default all')/]
+	};
 	
+
 	[This/].async_allProxies = function(cb_function) {
 		
 		var cb_[object/]Proxies = function([object/]Proxies) {
+			/** [protected ('cb_'.concat(object).concat('Proxies */'))]
 			cb_function([object/]Proxies);
+			/** [/protected] */
 		};
 		
 		[WsObject/].allProxies(cb_[object/]Proxies);
 	};
 
+	[This/].allProxies = function(cb_function) {
+		[freeJsUC('default allProxies')/]
+	};
+
+
 	[This/].async_countAll = function(cb_function) {
 		
 		var cb_countAll[objects/] = function(count) {
+			/** [protected ('cb_countAll'.concat(objects).concat(' */'))]
 			cb_function(count);
+			/** [/protected] */
 		};
 		
 		[WsObject/].countAll[Objects/](cb_countAll[objects/]);
 	};
+
+	[This/].countAll = function(cb_function) {
+		[freeJsUC('default countAll')/]
+	};
+
 	
 	[This/].async_allByRows = function(cb_function, nbElemByRow, rowId) {
 		
 		var cb_allByRows = function([objects/]) {
+			/** [protected ('cb_allByRows */')]
 			cb_function([objects/]);
+			/** [/protected] */
+			
 		};
 		
 		[WsObject/].allByRows(cb_allByRows, nbElemByRow, rowId);
 	};
+
+	[This/].allByRows = function(cb_function, nbElemByRow, rowId) {
+		[freeJsUC('default allByRows')/]
+	};
 	
+
 	[This/].async_byId = function(cb_function, id) {
 		
 		var cb_[object/] = function([object/]) {
+			/** [protected ('cb_'.concat(object).concat(' */'))]
 			cb_function([object/]);
+			/** [/protected] */
 		};
 		
 		[WsObject/].[object/](cb_[object/], id);
 	};
 
+	[This/].byId = function(cb_function, id) {
+		[freeJsUC('default byId')/]
+	};
+
+
 	[This/].async_stats = function(cb_function) {
 		
-		var cb_[object/]Stats = function([object/]) {
-			cb_function([object/]);
+		var cb_[object/]Stats = function([objects/]) {
+			/** [protected ('cb_'.concat(object).concat('Stats */'))]
+			cb_function([objects/]);
+			/** [/protected] */
 		};
 		
 		[WsObject/].stats(cb_[object/]Stats);
+	};
+
+	[This/].stats = function(cb_function) {
+		[freeJsUC('default stats')/]
 	};
 	
 [genAMDFooter(This)/]

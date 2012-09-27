@@ -23,9 +23,11 @@
 	var [This/] = {};
 	
 	function _init() {
+		/** [protected ('default _init */')]
 		_initSignOut();
 		_initSignUp();
 		_initSignIn();
+		/** [/protected] */
 	}
 
 
