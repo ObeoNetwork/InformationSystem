@@ -1,0 +1,112 @@
+<!--
+ /*******************************************************************************
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Hugo Marchadour (Obeo) - initial API and implementation
+ *******************************************************************************/
+-->
+<!--
+	@autor hugo.marchadour@obeo.fr
+	@version 1.0.0
+	@since 1.0.0
+	
+	Ember.View
+	@param {model.User} user
+	@generated
+-->
+
+<script type="text/x-handlebars" data-template-name="new-user">
+	<!-- Start of user code new-user -->
+		{{#if activated}}
+	<div class="">
+		<div class="dark-block">
+			<h3>Add user</h3>
+			<form class="form-horizontal">
+				<div class="control-group error">
+					<label class="control-label">Nickname </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="userInProgress.nickname" placeholder="jdoe"}}
+						<span class="help-inline">this field is required</span>
+					</div>
+				</div>	
+				<div class="control-group error">
+					<label class="control-label">ShortNickname </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="userInProgress.shortNickname" placeholder="JDO"}}
+						<span class="help-inline">this field is required</span>
+					</div>
+				</div>	
+				<div class="control-group error">
+					<label class="control-label">FirstName </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="userInProgress.firstName" placeholder="John"}}
+						<span class="help-inline">this field is required</span>
+					</div>
+				</div>	
+				<div class="control-group error">
+					<label class="control-label">LastName </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="userInProgress.lastName" placeholder="Doe"}}
+						<span class="help-inline">this field is required</span>
+					</div>
+				</div>	
+				<div class="control-group">
+					<label class="control-label">Chocos </label>
+					<div class="controls">
+						{{view SelectMultiple viewName="select" contentBinding="chocoProxies" class="span2"
+											  optionLabelPath="content.desc" optionValuePath="content.id" selectionBinding="userInProgress.chocoProxies"}}
+						
+					</div>
+				</div>	
+				<div class="control-group">
+					<label class="control-label">Office </label>
+					<div class="controls">
+						{{view Select viewName="select" contentBinding="officeProxies" class="span2"
+											  optionLabelPath="content.desc" optionValuePath="content.id" selectionBinding="userInProgress.officeProxy"}}
+						
+					</div>
+				</div>	
+				<div class="control-group error">
+					<label class="control-label">Email </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="userInProgress.email" placeholder="john.doe@obeo.fr"}}
+						<span class="help-inline">this field is required</span>
+					</div>
+				</div>	
+				<div class="control-group">
+					<label class="control-label">Level </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="userInProgress.level" placeholder="0"}}
+					</div>
+				</div>	
+				<div class="control-group">
+					<label class="control-label">Xp </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="userInProgress.xp" placeholder="0"}}
+					</div>
+				</div>	
+				
+				<div class="control-group" style="text-align:center">
+					<button {{action "validForm"}} class="btn btn-inverse" href="#">Add</button>
+					<button {{action "closeEvent"}} class="btn" href="#">Cancel</button>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+	{{else}}
+		<div class="control-group" style="text-align:right">
+			<button {{action "createEvent"}} class="btn btn-inverse" href="#">
+				<i class="icon-plus-sign icon-white"></i>
+				New
+			</button>
+		</div>
+	{{/if}}
+	<!-- End of user code -->
+</script>
+

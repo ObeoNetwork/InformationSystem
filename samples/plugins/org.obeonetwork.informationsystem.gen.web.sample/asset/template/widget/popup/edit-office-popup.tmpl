@@ -1,0 +1,65 @@
+<!--
+ /*******************************************************************************
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Hugo Marchadour (Obeo) - initial API and implementation
+ *******************************************************************************/
+-->
+<!--
+	@autor hugo.marchadour@obeo.fr
+	@version 1.0.0
+	@since 1.0.0
+	
+	Ember.View
+	@param {model.Office} office
+	@generated
+-->
+
+<script type="text/x-handlebars" data-template-name="edit-office-popup">
+	<!-- Start of user code edit-office-popup -->
+		<div id="office" class="modal fade in">
+	
+		<div class="modal-header">
+			<a {{action "cancelForm"}} class="close" data-dismiss="modal">x</a>
+			<h3 class="title">{{office.shortDescription}}</h3>
+		</div>
+	
+		<div class="modal-body">
+			
+			<form class="form-horizontal">
+				
+				<div class="control-group">
+					<label class="control-label">ShortDescription </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="office.shortDescription" placeholder="A short description"}}
+						<span class="help-inline" style="display: none;">this field is required</span>
+					</div>
+				</div>	
+				<div class="control-group">
+					<label class="control-label">Description </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="office.description" placeholder="A complete description with all information."}}
+						<span class="help-inline" style="display: none;">this field is required</span>
+					</div>
+				</div>	
+				
+			</form>
+			
+		</div>
+	
+		<div class="modal-footer">
+			<a {{action "validForm"}} href="#" class="btn btn-inverse" data-dismiss="modal">Save</a>
+			<a {{action "cancelForm"}} href="#" class="btn" data-dismiss="modal">Close</a>
+		</div>
+	
+	</div>
+	
+	<div {{action "cancelForm"}} class="modal-backdrop fade in"></div>
+	<!-- End of user code -->
+</script>
+
