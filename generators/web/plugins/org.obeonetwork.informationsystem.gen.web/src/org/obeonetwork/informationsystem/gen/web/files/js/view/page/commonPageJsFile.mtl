@@ -132,6 +132,18 @@
 		_cleanView();
 	};
 	
+	[This/].renderOnline = function() {
+		$("#status").removeClass('offline');
+		$("#status").addClass('online');
+		$("#status").text('online');
+	};
+	
+	[This/].renderOffline = function() {
+		$("#status").removeClass('online');
+		$("#status").addClass('offline');
+		$("#status").text('offline');
+	};
+
 	//
 	function _renderLoaded() {
 		$("body").addClass("loaded");

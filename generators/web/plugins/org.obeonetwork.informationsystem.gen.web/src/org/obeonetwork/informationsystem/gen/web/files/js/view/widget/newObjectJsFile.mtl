@@ -87,10 +87,10 @@
 	};
 	
 	var showWidget = function() {
-		[for (attributeTypePlural : String | (anEClass.eAllReferences.eType.toTypeIdent().toPluralIdent()))]
+		[for (attributeTypePlural : String | (anEClass.eAllReferences.eType.toPluralIdent()))]
 		[App/].[genCommonCtrlIdent().toVarIdent()/].loadAll[attributeTypePlural/]InWidget(this);
 		[/for]
-		this.set('[object/]', [Object/].Class.create());
+		this.set('[object/]', [Object/].Class.create({localUpdate:false, localRemove:false, localAdd:false}));
 		this.set('activated', true);
 	};
 	

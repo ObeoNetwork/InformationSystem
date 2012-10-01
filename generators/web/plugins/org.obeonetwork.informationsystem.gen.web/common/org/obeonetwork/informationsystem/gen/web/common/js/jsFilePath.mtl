@@ -71,6 +71,15 @@
 [query public genWsObjectIdent(aNamedElem : ENamedElement) : String = 'Ws'.concat(aNamedElem.name.toIdent())/]
 [query public genWsObjectFileRPath(aNamedElem : ENamedElement) : String = genWebServicesRPath().concat('/').concat(genWsObjectIdent(aNamedElem))/]
 
+[comment LsUtil /]
+[template public genLsUtilIdent(anOclAny : OclAny) post (trim())]LsUtil[/template]
+[template public genLsUtilFileRPath(anOclAny : OclAny) post (trim())][genWebServicesRPath()/]/[genLsUtilIdent()/][/template]
+
+[comment Ls<Object> /]
+[query public genLsObjectIdent(aNamedElem : ENamedElement) : String = 'Ls'.concat(aNamedElem.name.toIdent())/]
+[query public genLsObjectFileRPath(aNamedElem : ENamedElement) : String = genLocalStorageRPath().concat('/').concat(genLsObjectIdent(aNamedElem))/]
+
+
 [comment <Object>Manager /]
 [query public genObjectManagerIdent(aNamedElem : ENamedElement) : String = aNamedElem.name.toIdent().concat('Manager')/]
 [query public genObjectManagerFileRPath(aNamedElem : ENamedElement) : String = genJsQueryRPath().concat('/').concat(genObjectManagerIdent())/]

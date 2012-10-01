@@ -35,6 +35,7 @@
 		id : null,
 		nickname : null,
 		shortNickname : null,
+		[freeJsUC('additional attributes')/]
 	});
 	
 [genAMDFooter(This)/]

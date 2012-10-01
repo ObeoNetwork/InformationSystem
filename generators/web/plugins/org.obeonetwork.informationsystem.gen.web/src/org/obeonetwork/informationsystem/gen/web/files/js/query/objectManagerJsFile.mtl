@@ -8,21 +8,24 @@
 [template public genObjectManager(anEClass: EClass) {
 		This : String = genObjectManagerIdent();
 		WsObject : String = genWsObjectIdent(anEClass);
+		LsObject : String = genLsObjectIdent(anEClass);
 
 		object : String = genObjectIdent(anEClass).toVarIdent();
-		objects : String = genObjectIdent(anEClass).toVarIdent().toPluralIdent();
-		Objects : String = genObjectIdent(anEClass).toTypeIdent().toPluralIdent();
+		Object : String = genObjectIdent(anEClass).toTypeIdent();
+		objects : String = genObjectIdent(anEClass).toPluralVarIdent();
+		Objects : String = genObjectIdent(anEClass).toPluralIdent();
 }]
 [file (genJsFullPath(genObjectManagerFileRPath(anEClass)), false, 'UTF-8')]
 [genJsCopyrightHeader()/]
 
 [genJsHeader('0.8.0')/]
 [genAMDHeader(
-	Sequence{genWsObjectFileRPath(anEClass)}, 
-	Sequence{WsObject}
+	Sequence{genWsObjectFileRPath(anEClass), genLsObjectFileRPath(anEClass)}, 
+	Sequence{WsObject, LsObject}
 )/]
 
-	var [This/] = {};
+	var [This/] = {},
+		lsEnable = (typeof(Storage)!=="undefined");
 
 	[This/].async_all = function(cb_function) {
 		
@@ -36,7 +39,11 @@
 	};
 
 	[This/].all = function(cb_function) {
-		[freeJsUC('default all')/]
+		/** [protected ('default all */')]
+		var store = [LsObject/].getStore();
+		var [objects/] = store.[objects/];
+		cb_function([objects/]);
+		/** [/protected] */
 	};
 	
 
@@ -44,6 +51,7 @@
 		
 		var cb_[object/]Proxies = function([object/]Proxies) {
 			/** [protected ('cb_'.concat(object).concat('Proxies */'))]
+			[LsObject/].storeProxies([object/]Proxies);
 			cb_function([object/]Proxies);
 			/** [/protected] */
 		};
@@ -52,7 +60,11 @@
 	};
 
 	[This/].allProxies = function(cb_function) {
-		[freeJsUC('default allProxies')/]
+		/** [protected ('default allProxies */')]
+		var store = [LsObject/].getStore();
+		var proxies = store.proxies;
+		cb_function(proxies);
+		/** [/protected] */
 	};
 
 
@@ -68,7 +80,15 @@
 	};
 
 	[This/].countAll = function(cb_function) {
-		[freeJsUC('default countAll')/]
+		/** [protected ('default countAll */')]
+		var store = [LsObject/].getStore();
+		var count = 0;
+	    for(var l[object/] in store.l[objects/])
+	    {
+	        count++;
+	    }
+		cb_function(count)
+		/** [/protected] */
 	};
 
 	
@@ -76,6 +96,7 @@
 		
 		var cb_allByRows = function([objects/]) {
 			/** [protected ('cb_allByRows */')]
+			[LsObject/].store[Objects/]([objects/]);
 			cb_function([objects/]);
 			/** [/protected] */
 			
@@ -85,7 +106,32 @@
 	};
 
 	[This/].allByRows = function(cb_function, nbElemByRow, rowId) {
-		[freeJsUC('default allByRows')/]
+		/** [protected ('default allByRows */')]
+		var store = [LsObject/].getStore();
+		var [objects/] = store.[objects/];
+		var [objects/]ToAdd = store.local.[objects/]ToAdd;
+		
+		var [objects/]Length = [objects/]ToAdd.length;
+	    for(var [object/] in [objects/]) {
+	    	[objects/]Length++;
+	    }
+		var result = ['[]'/];
+		var from = Math.max(rowId*nbElemByRow, 0);
+		var to = Math.min(rowId*nbElemByRow+nbElemByRow, [objects/]Length);
+		
+		for ( var i = 0; i < [objects/]ToAdd.length; i++) {
+			result.push([objects/]ToAdd['['/]i[']'/]);
+		}
+		
+		var i = 0;
+		for(var [object/]Id in [objects/]) {
+			if(i >= from && i < to){
+				result.push([objects/]['['/][object/]Id[']'/]);
+			}
+			i++;
+		}
+		cb_function(result);
+		/** [/protected] */
 	};
 	
 
@@ -93,6 +139,7 @@
 		
 		var cb_[object/] = function([object/]) {
 			/** [protected ('cb_'.concat(object).concat(' */'))]
+			[LsObject/].store[Object/]([object/]);
 			cb_function([object/]);
 			/** [/protected] */
 		};
@@ -117,7 +164,62 @@
 	};
 
 	[This/].stats = function(cb_function) {
-		[freeJsUC('default stats')/]
+		/** [protected ('default stats */')]
+		var store = [LsObject/].getStore();
+		cb_function(store.[object/]Stats);
+		/** [/protected] */
+	};
+
+	// REMOVE
+	[This/].async_remove = function(cb_function, [object/]) {
+		
+		var cb_remove = function() {
+			[LsObject/].remove[Object/]([object/]);
+			cb_function();
+		};
+		var store = [LsObject/].getStore();
+		var [object/]Stored = store.[objects/]['['/][object/].id[']'/];
+		[WsObject/].remove(cb_remove, [object/]Stored);
+	};
+
+	[This/].remove = function(cb_function, [object/]) {
+		[LsObject/].localRemove[Object/]([object/]);
+		cb_function();
+	};
+	
+	// UPDATE
+	[This/].async_update = function(cb_function, [object/]) {
+		
+		var cb_update = function() {
+			[LsObject/].update[Object/]([object/]);
+			cb_function();
+		};
+		var store = [LsObject/].getStore();
+		var [object/]Stored = store.[objects/]['['/][object/].id[']'/];
+		[WsObject/].update(cb_update, [object/]Stored);
+	};
+
+	[This/].update = function(cb_function, [object/]) {
+		[LsObject/].localUpdate[Object/]([object/]);
+		cb_function();
+	};
+	
+	
+	// ADD
+	[This/].async_add = function(cb_function, [object/]) {
+		//TODO WArning bug?
+		var cb_add = function() {
+			[LsObject/].store[Object/]([object/]);
+			cb_function();
+		};
+		var store = [LsObject/].getStore();
+		var [object/]Stored = store.[objects/]['['/][object/].id[']'/];
+		[WsObject/].add(cb_add, [object/]Stored);
+	};
+
+	[This/].add = function(cb_function, [object/]) {
+		[LsObject/].localStore[Object/]([object/]);
+		cb_function();
 	};
 	
 [genAMDFooter(This)/]

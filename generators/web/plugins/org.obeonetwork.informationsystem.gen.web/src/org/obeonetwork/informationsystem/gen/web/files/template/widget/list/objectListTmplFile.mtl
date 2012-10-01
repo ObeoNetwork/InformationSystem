@@ -20,28 +20,60 @@
 	contextName : String = anEClass.toVarIdent(); 
 }]
 	{{#with content as [contextName/]}}
-	
-	<div class="well">
-		<div class="btn-group">
-			<a {{action "editAction" context="[contextName/]"}} class="btn btn-inverse" href="#"><i class=""></i> 
-				[genTitle(anEClass)/]
-			</a>
-			<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
-			<ul class="dropdown-menu">
-				<li>
-					<a {{action "editAction" context="[contextName/]"}} href="#"><i class="icon-pencil"></i> Edit</a>
-				</li>
-				<li>
-					<a {{action "removeAction" context="[contextName/]"}} href="#"><i class="icon-trash"></i> Delete</a>
-				</li>
+		{{#if [contextName/].local}}
+		<div class="well local">
+
+			<!--localRemove {{[contextName/].localRemove}}
+			localAdd {{[contextName/].localAdd}}
+			localUpdate {{o[contextName/]ffice.localUpdate}}-->
+
+			<div class="btn-group">
+				<a {{action "editAction" context="[contextName/]"}} class="btn btn-inverse" href="#"><i class=""></i> 
+					[genTitle(anEClass)/]
+				</a>
+				<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a {{action "editAction" context="[contextName/]"}} href="#"><i class="icon-pencil"></i> Edit</a>
+					</li>
+					<li>
+						<a {{action "removeAction" context="[contextName/]"}} href="#"><i class="icon-trash"></i> Delete</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="[contextName/]-row">
+				[for (aStrucFeature : EStructuralFeature | (anEClass.eAllStructuralFeatures)->select(not(unsettable)))]
+				[genTmplDisplayFeature(anEClass, aStrucFeature)/]
+				[/for]
 			</ul>
 		</div>
-		<ul class="[contextName/]-row">
-			[for (aStrucFeature : EStructuralFeature | (anEClass.eAllStructuralFeatures)->select(not(unsettable)))]
-			[genTmplDisplayFeature(anEClass, aStrucFeature)/]
-			[/for]
-		</ul>
-	</div>
-	
+		{{else}}
+		<div class="well">
+
+			<!--localRemove {{[contextName/].localRemove}}
+			localAdd {{[contextName/].localAdd}}
+			localUpdate {{o[contextName/]ffice.localUpdate}}-->
+
+			<div class="btn-group">
+				<a {{action "editAction" context="[contextName/]"}} class="btn btn-inverse" href="#"><i class=""></i> 
+					[genTitle(anEClass)/]
+				</a>
+				<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a {{action "editAction" context="[contextName/]"}} href="#"><i class="icon-pencil"></i> Edit</a>
+					</li>
+					<li>
+						<a {{action "removeAction" context="[contextName/]"}} href="#"><i class="icon-trash"></i> Delete</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="[contextName/]-row">
+				[for (aStrucFeature : EStructuralFeature | (anEClass.eAllStructuralFeatures)->select(not(unsettable)))]
+				[genTmplDisplayFeature(anEClass, aStrucFeature)/]
+				[/for]
+			</ul>
+		</div>
+		{{/if}}
 	{{/with}}
 [/template]

@@ -44,6 +44,13 @@
 		[classAttribute.toVarIdent()/] : [if (classAttribute.many)]['['/][']'/][else]null[/if],
 		[/if]
 		[/for]
+		localUpdate : false,
+		localRemove : false,
+		localAdd : false,
+		local : function() {
+			return this.get('localUpdate') || this.get('localRemove') || this.get('localAdd'); 
+		}.property('localUpdate', 'localRemove', 'localAdd'),
+		[freeJsUC('additional attributes')/]
 	});
 	
 [genAMDFooter(This)/]

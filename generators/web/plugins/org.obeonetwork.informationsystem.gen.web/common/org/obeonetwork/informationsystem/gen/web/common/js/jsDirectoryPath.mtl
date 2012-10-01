@@ -59,6 +59,11 @@
 [getProperty('jsWebServices-rpath')/]
 [/template]
 
+
+[template public genLocalStorageRPath(oclAny : OclAny)]
+[getProperty('jsLocalStorage-rpath')/]
+[/template]
+
 [template public genJsSecurityRPath(oclAny : OclAny)]
 [getProperty('jsSecurity-rpath')/]
 [/template]

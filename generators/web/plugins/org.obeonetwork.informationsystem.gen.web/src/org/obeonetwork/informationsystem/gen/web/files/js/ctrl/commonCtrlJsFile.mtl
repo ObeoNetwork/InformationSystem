@@ -84,16 +84,43 @@
 	[let ObjectManager : String = anEClass.genObjectManagerIdent().toTypeIdent()]
 	/**/
 	[This/].remove[Object/] = function([object/]) {
-		//TODO
-		[App/].toast.warning("Server remove not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			[App/].[ObjectManager/].async_remove(
+				function() { },
+				[object/]
+			);
+		} else {
+			[App/].[ObjectManager/].remove(
+				function() { },
+				[object/]
+			);
+		}
 	};
 	[This/].update[Object/] = function([object/]) {
-		//TODO
-		[App/].toast.warning("Server edit not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			[App/].[ObjectManager/].async_update(
+				function() { },
+				[object/]
+			);
+		} else {
+			[App/].[ObjectManager/].update(
+				function() { },
+				[object/]
+			);
+		}
 	};
 	[This/].add[Object/] = function([object/]) {
-		//TODO
-		[App/].toast.warning("Server add not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			[App/].[ObjectManager/].async_add(
+				function() { },
+				[object/]
+			);
+		} else {
+			[App/].[ObjectManager/].add(
+				function() { },
+				[object/]
+			);
+		}
 	};
 	[This/].showModal[Object/] = function(id) {
 		/** [protected ('showModal'.concat(Object).concat(' */'))]
@@ -115,17 +142,23 @@
 
 [for (anEClass : EClass | objectEClasses)]
 	[let object : String = anEClass.toVarIdent()]
-	[let Objects : String = anEClass.toTypeIdent().toPluralIdent()]
+	[let Objects : String = anEClass.toPluralIdent()]
 	[let ObjectManager : String = anEClass.genObjectManagerIdent().toTypeIdent()]
 	
 	/**/
 	[This/].loadAll[Objects/]InWidget = function(contentWidget) {
 		/** [protected ('loadAll'.concat(Objects).concat('InWidget */'))]
-		[App/].[ObjectManager/].async_allProxies(
-			[comment [jsComment4RecStart(anEClass)/]
-			function([object/]Proxies) { contentWidget.load[object.toTypeIdent()/]Proxies([object/]Proxies); }
-			[comment [jsComment4RecStop(anEClass)/]
-		);
+		if(navigator.onLine) {
+			[App/].[ObjectManager/].async_allProxies(
+				[comment [jsComment4RecStart(anEClass)/]
+				function([object/]Proxies) { contentWidget.load[object.toTypeIdent()/]Proxies([object/]Proxies); }
+				[comment [jsComment4RecStop(anEClass)/]
+			);
+		} else {
+			[App/].[ObjectManager/].allProxies(
+				function([object/]Proxies) { contentWidget.load[object.toTypeIdent()/]Proxies([object/]Proxies); }
+			);
+		}
 		/** [/protected] */
 	};
 
@@ -143,7 +176,13 @@
 [/for]
 	
 
-
+	[This/].toOnline = function() {
+		[CommonPage/].renderOnline();
+	};
+	
+	[This/].toOffline = function() {
+		[CommonPage/].renderOffline();
+	};
 
 
 
@@ -152,18 +191,29 @@
 		if(activePage===undefined || activePage==null) {
 			activePage = 0;
 		}
-		
-		objectManager.async_allByRows(
-			function(offices) { contentWidget.loadContent(offices); }, 5, activePage
-		);
+		if(navigator.onLine) {
+			objectManager.async_allByRows(
+				function(objects) { contentWidget.loadContent(objects); }, 5, activePage
+			);
+		} else {
+			objectManager.allByRows(
+				function(objects) { contentWidget.loadContent(objects); }, 5, activePage
+			);
+		}
 		/** [/protected] */
 	}
 
 	function _async_loadStat(objectManager, contentWidget) {
 		/** [protected ('default _async_loadStat*/')]
-		objectManager.async_stats(
-			function(stats) { contentWidget.loadContent(stats); }
-		);
+		if(navigator.onLine) {
+			objectManager.async_stats(
+				function(stats) { contentWidget.loadContent(stats); }
+			);
+		} else {
+			objectManager.stats(
+				function(stats) { contentWidget.loadContent(stats); }
+			);
+		}
 		/** [/protected] */
 	}
 	
@@ -176,22 +226,25 @@
 		if(activePage===undefined || activePage==null) {
 			activePage = 0;
 		}
-		
-		objectManager.async_countAll(
-			[comment [jsComment4RecStart()/]
-			function(count) {
-				var pageProxies = ['['/][']'/];
-				for(var i = 0; i < count / 5; i++) {
-					pageProxies['['/]i[']'/] = [Proxy/].Class.create({
-						id : i, desc : "" + (i + 1) + "", active : activePage==i
-					});
-				};
-				for (var i=0; i < paginationWidgets.length; i++) {
-				  paginationWidgets['['/]i[']'/].loadContent(pageProxies);
-				};
-			}
-			[comment [jsComment4RecStop()/]
-		);
+		if(navigator.onLine) {
+			objectManager.async_countAll(
+				[comment [jsComment4RecStart()/]
+				function(count) {
+					var pageProxies = ['['/][']'/];
+					for(var i = 0; i < count / 5; i++) {
+						pageProxies['['/]i[']'/] = [Proxy/].Class.create({
+							id : i, desc : "" + (i + 1) + "", active : activePage==i
+						});
+					};
+					for (var i=0; i < paginationWidgets.length; i++) {
+					  paginationWidgets['['/]i[']'/].loadContent(pageProxies);
+					};
+				}
+				[comment [jsComment4RecStop()/]
+			);
+		} else {
+			// TODO something
+		}
 		/** [/protected] */
 	}
 
@@ -269,6 +322,11 @@ function _init() {
 		}
 	}
 	[CommonPage/].start();
+	if(navigator.onLine) {
+		[CommonPage/].renderOnline();
+	} else {
+		[CommonPage/].renderOffline();
+	}
 }
 [/template]
 

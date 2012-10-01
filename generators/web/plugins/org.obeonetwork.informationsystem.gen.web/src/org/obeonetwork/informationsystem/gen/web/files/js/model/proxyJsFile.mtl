@@ -32,7 +32,14 @@
 	*/
 	[This/].Class = Em.Object.extend({
 		id : null, 
-		desc : null
+		desc : null,
+		localUpdate : false,
+		localRemove : false,
+		localAdd : false,
+		local : function() {
+			return this.get('localUpdate') || this.get('localRemove') || this.get('localAdd'); 
+		}.property('localUpdate', 'localRemove', 'localAdd'),
+		[freeJsUC('additional attributes')/]
 	});
 	
 [genAMDFooter(This)/]

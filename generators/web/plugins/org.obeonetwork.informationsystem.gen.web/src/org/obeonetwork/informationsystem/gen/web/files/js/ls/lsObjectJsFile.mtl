@@ -1,0 +1,173 @@
+[comment encoding = UTF-8 /]
+[module lsObjectJsFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
+
+[template public genLsObject(anEClass : EClass) {
+		This : String = genLsObjectIdent();
+		Proxy : String = genProxyIdent();
+		Stat : String = genStatIdent();
+		WsUtil : String = genWsUtilIdent();
+
+		Object : String = genObjectIdent(anEClass).toTypeIdent();
+		object : String = genObjectIdent(anEClass).toVarIdent();
+		objects : String = genObjectIdent(anEClass).toPluralVarIdent();
+}]
+[file (genJsFullPath(genLsObjectFileRPath()), false, 'UTF-8')]
+[genJsCopyrightHeader()/]
+
+[genJsHeader('0.2.0')/]
+ /**
+ * define a webservice API for the [object/] entity.
+ * we use JQuery REST API. In consequence, we are in an asynchrone context.
+ * All functions must define a call back function that will run at the end
+ * of the REST query.
+ */
+[genAMDHeader(
+	Sequence{genObjectFileRPath(), genWsUtilFileRPath()}, 
+	Sequence{Object, WsUtil}
+)/]
+	
+	var [This/] = {};
+
+	[This/].getStore = function() {
+		return _getStore();
+	};
+	
+	[This/].setStore = function(store) {
+		 _setStore(store);
+	}
+	
+	[This/].store[Object.toPluralIdent()/] = function([objects/]) {
+		var store = _getStore();
+		for ( var i = 0; i < [objects/].length; i++) {
+			var [object/] = [objects/]['['/]i[']'/];
+			[object/].set('localUpdate', false);
+			[object/].set('localRemove', false);
+			[object/].set('localAdd', false);
+			store.[objects/]['['/][object/].id[']'/] = [object/];
+		}
+		_setStore(store);
+	}
+	
+	[This/].storeProxies = function(proxies) {
+		var store = _getStore();
+		for ( var i = 0; i < proxies.length; i++) {
+			var proxy = proxies['['/]i[']'/];
+			store.proxies['['/]i[']'/] = proxy;
+		}
+		_setStore(store);
+	}
+	
+	[This/].store[Object/]Stats = function([object/]Stats) {
+		var store = _getStore();
+		store.[object/]Stats = [object/]Stats;
+		_setStore(store);
+	}
+	
+	[This/].store[Object/] = function([object/]) {
+		var store = _getStore();
+		[object/].set('localUpdate', false);
+		[object/].set('localRemove', false);
+		[object/].set('localAdd', false);
+		store.[objects/]['['/][object/].id[']'/] = [object/];
+		_setStore(store);
+	}
+	
+	[This/].remove[Object/] = function([object/]) {
+		var store = _getStore();
+		store.[objects/]['['/][object/].id[']'/] = undefined;
+		_setStore(store);
+	}
+
+	
+	
+	[This/].localUpdate[Object/] = function([object/]) {
+		var store = _getStore();
+		[object/].set('localUpdate', true);
+		store.[objects/]['['/][object/].id[']'/] = [object/];
+		store.local.[objects/]ToUpdate.push([object/].id);
+		_setStore(store);
+	}
+	
+	[This/].localStore[Object/] = function([object/]) {
+		var store = _getStore();
+		[object/].set('localAdd', true);
+		store.local.[objects/]ToAdd.push([object/]);
+		_setStore(store);
+	}
+	
+	[This/].localRemove[Object/] = function([object/]) {
+		var store = _getStore();
+		[object/].set('localRemove', true);
+		store.[objects/]['['/][object/].id[']'/] = [object/];
+		store.local.[objects/]ToRemove.push([object/].id);
+		_setStore(store);
+	}
+	
+	function _getStore() {
+		var storeBrut = localStorage.getItem("[This/]");
+		if(typeof(storeBrut)!=="undefined" && storeBrut!==null ) {
+			var store = JSON.parse(storeBrut);
+			var [objects/]Brut = store.[objects/];
+			var [objects/] = {};
+			for ( var id in [objects/]Brut) {
+				var [object/]Brut = [objects/]Brut['['/]id[']'/];
+				[objects/]['['/]id[']'/] = _object2EmberObject([object/]Brut);
+			}
+			store.[objects/] = [objects/];
+			
+			for ( var i = 0; i < store.local.[objects/]ToAdd.length; i++) {
+				store.local.[objects/]ToAdd['['/]i[']'/] = _object2EmberObject(store.local.[objects/]ToAdd['['/]i[']'/]);
+			}
+
+			//store.local.proxies = [WsUtil/].json2Proxies(store.local.proxies);
+			//store.local.[object/]Stats = [WsUtil/].json2Stats(store.local.[object/]Stats);
+
+			return store;
+		} else {
+			var emptyStore = {
+				count : 0,
+				[objects/] : {},
+				proxies : ['['/][']'/],
+				[object/]Stats : ['['/][']'/],
+				local : {
+					[objects/]ToAdd : ['['/][']'/],
+					[objects/]ToUpdate : ['['/][']'/],
+					[objects/]ToRemove : ['['/][']'/],
+				}
+			};
+			return emptyStore;
+		}
+	};
+	
+	function _setStore(store) {
+		localStorage.setItem("[This/]", JSON.stringify(store));
+	}
+
+	function _object2EmberObject(object) {
+		
+		var [object/] = [Object/].Class.create({
+						[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures)]
+							[if(classAttribute.eType.oclIsKindOf(EClass))]
+								[if(classAttribute.many)]
+									[classAttribute.eType.toVarIdent()/]Proxies : object.[classAttribute.eType.toVarIdent()/]Proxies,
+								[else]
+									[classAttribute.eType.toVarIdent()/]Proxy : object.[classAttribute.eType.toVarIdent()/]Proxy,
+								[/if]
+							[else]
+									[classAttribute.toVarIdent()/] : object.[classAttribute.toVarIdent()/],
+							[/if]
+						[/for]
+									localUpdate : object.localUpdate,
+									localRemove : object.localRemove,
+									localAdd : object.localAdd
+		});
+		
+		return [object/];
+	}	
+	
+[genAMDFooter(This)/]
+[/file]
+[/template]

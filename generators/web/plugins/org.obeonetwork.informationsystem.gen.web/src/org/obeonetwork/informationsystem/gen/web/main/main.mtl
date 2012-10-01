@@ -45,6 +45,8 @@
 [import org::obeonetwork::informationsystem::gen::web::files::js::ws::wsObjectJsFile /]
 [import org::obeonetwork::informationsystem::gen::web::files::js::ws::wsAccountJsFile /]
 
+[import org::obeonetwork::informationsystem::gen::web::files::js::ls::lsObjectJsFile /]
+
 [import org::obeonetwork::informationsystem::gen::web::files::template::widget::form::newObjectTmplFile /]
 [import org::obeonetwork::informationsystem::gen::web::files::template::widget::list::objectListTmplFile /]
 [import org::obeonetwork::informationsystem::gen::web::files::template::widget::other::accountNavTmplFile /]
@@ -60,7 +62,7 @@
 	[aConfig.genHtml()/]
 	[aConfig.genJs()/]
 	[aConfig.genTmpl()/]
-	[aConfig.genTest()/]
+	[comment[aConfig.genTest()/]
 [/template]
 
 
@@ -159,6 +161,7 @@
 	[genAccountManager(aConfig)/]
 	[for (aEClass : EClass | aConfig.ecoreModel.eClassifiers->filter(EClass))]
 	[genWsObject(aEClass)/]
+	[genLsObject(aEClass)/]
 	[genObjectManager(aEClass)/]
 	[/for]
 [/template]

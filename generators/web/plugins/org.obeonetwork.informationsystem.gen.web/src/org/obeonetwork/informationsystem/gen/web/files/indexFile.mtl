@@ -16,7 +16,8 @@
 [template public genIndex(aConfiguration : Configuration)]
 [file (filePath(), false, 'UTF-8')]
 [genHtmlCopyrightHeader()/]
-<html manifest="cache.manifest">
+<!--<html manifest="cache.manifest">-->
+<html>
 	<head>
 		[freeHtmlUC('pre head')/]
 

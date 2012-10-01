@@ -174,8 +174,7 @@ var validForm = function(e) {
 	
 	if(result) {
 		[App/].commonCtrl.add[Object/](this.[object/]);
-		[App/].commonCtrl.hideModal();
-		this.createEvent();
+		this.hideWidget();
 	} else {
 		App.toast.error(errorMsg+"Please, correct error(s).");
 	}
@@ -256,6 +255,11 @@ if(result &= true) {
 [query public toPluralIdent(str : String) : String = str.toIdent().concat('s') /]
 [query public toPluralIdent(aENamedElem : ENamedElement) : String = aENamedElem.name.toPluralIdent() /]
 [query public toPluralIdent(aNamedElem : NamedElement) : String = aNamedElem.name.toPluralIdent() /]
+
+[query public toPluralVarIdent(str : String) : String = str.toVarIdent().concat('s') /]
+[query public toPluralVarIdent(aENamedElem : ENamedElement) : String = aENamedElem.toVarIdent().concat('s') /]
+[query public toPluralVarIdent(aNamedElem : NamedElement) : String = aNamedElem.toVarIdent().concat('s') /]
+
 
 [query public toVarIdent(str : String) : String = str.toIdent().toLowerFirst() /]
 [query public toVarIdent(aENamedElem : ENamedElement) : String = aENamedElem.name.toVarIdent() /]

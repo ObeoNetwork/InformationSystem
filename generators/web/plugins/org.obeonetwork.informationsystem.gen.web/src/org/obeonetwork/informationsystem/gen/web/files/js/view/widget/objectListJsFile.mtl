@@ -15,9 +15,9 @@
 
 		commonCtrl : String = genCommonCtrlIdent().toVarIdent();
 		Object : String  = anEClass.toTypeIdent();
-		Objects : String  = anEClass.toTypeIdent().toPluralIdent();
+		Objects : String  = anEClass.toPluralIdent();
 		object : String = anEClass.toVarIdent();
-		objects : String = anEClass.toVarIdent().toPluralIdent();
+		objects : String = anEClass.toPluralVarIdent();
 }]
 [file (genJsFullPath(genJsObjectListFileRPath()), false, 'UTF-8')]
 [genJsCopyrightHeader()/]
@@ -56,6 +56,7 @@
 		e.preventDefault();
 		var [object/] = e.context;
 		[App/].[commonCtrl/].remove[Object/]([object/]);
+		//this.remove();
 	};
 	
 	var _ItemClass = Em.View.extend({
