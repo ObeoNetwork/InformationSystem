@@ -150,7 +150,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "app
 	var showWidget = function() {
 		App.commonCtrl.loadAllChocosInWidget(this);
 		App.commonCtrl.loadAllOfficesInWidget(this);
-		this.set('userInProgress', User.Class.create());
+		this.set('userInProgress', User.Class.create({localUpdate:false, localRemove:false, localAdd:false}));
 		this.set('activated', true);
 	};
 	
@@ -199,8 +199,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "app
 		
 		if(result) {
 			App.commonCtrl.addUser(this.userInProgress);
-			App.commonCtrl.hideModal();
-			this.createEvent();
+			this.hideWidget();
 		} else {
 			App.toast.error(errorMsg+"Please, correct error(s).");
 		}

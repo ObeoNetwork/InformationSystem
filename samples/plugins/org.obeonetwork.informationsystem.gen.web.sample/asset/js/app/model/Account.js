@@ -43,6 +43,8 @@ define(["require", "ember" ], function(require) {
 		id : null,
 		nickname : null,
 		shortNickname : null,
+		/** Start of user code additional attributes */
+		/** End of user code */
 	});
 	
 	/** Start of user code additional functions */

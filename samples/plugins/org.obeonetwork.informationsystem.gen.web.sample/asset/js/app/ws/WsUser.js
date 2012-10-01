@@ -36,14 +36,14 @@ define(["require", "app/ws/WsUtil", "app/model/User" ], function(require) {
 	var WsUser = {};
 
 	/*
-	 * get all Users model.
+	 * get all users model.
 	 * @param {function(model.User[])} the function throw at the end of 
 	 * the asynchrone query.
-	 * @return {model.User[]} all Users
+	 * @return {model.User[]} all users
 	 */
 	WsUser.all = function(cb_function) {
 
-		var Users = [];
+		var users = [];
 		
 		var url = WsUtil.baseUrl() + "/user/list";
 		var data = null;
@@ -51,9 +51,9 @@ define(["require", "app/ws/WsUtil", "app/model/User" ], function(require) {
 
 			for(var i = 0; i < resultData.length; i++) {
 				var user = _json2User(resultData[i]);
-				Users[i] = user;
+				users[i] = user;
 			}
-			cb_function(Users);
+			cb_function(users);
 		};
 		var cb_error = function() { 
 			cb_function([]);
@@ -86,16 +86,16 @@ define(["require", "app/ws/WsUtil", "app/model/User" ], function(require) {
 		if(nbElemByRow<0) {
 			WsUser.all(cb_function);
 		} else {
-			var Users = [];
+			var users = [];
 
 			var url = WsUtil.baseUrl() + "/user/rows/"+rowId;
 			var data = {nbElemByRow : nbElemByRow};
 			var cb_success = function(resultData) {
 				for(var i = 0; i < resultData.length; i++) {
 					var user = _json2User(resultData[i]);
-					Users[i] = user;
+					users[i] = user;
 				}
-				cb_function(Users);
+				cb_function(users);
 			};
 			var cb_error = function() { 
 				cb_function([]);
@@ -163,6 +163,48 @@ define(["require", "app/ws/WsUtil", "app/model/User" ], function(require) {
 			cb_function([]);
 		};
 		WsUtil.getJsonQuery(url, data, cb_success, cb_error);
+	};
+
+	WsUser.remove = function(cb_function, user) {
+
+		var url = WsUtil.baseUrl() + "/user/remove";
+		var data = user;
+		var cb_success = function(resultData) {
+
+			cb_function();
+		};
+		var cb_error = function() { 
+			cb_function();
+		};
+		WsUtil.postJsonQuery(url, data, cb_success, cb_error);
+	};
+	
+	WsUser.update = function(cb_function, user) {
+
+		var url = WsUtil.baseUrl() + "/user/update";
+		var data = user;
+		var cb_success = function(resultData) {
+
+			cb_function();
+		};
+		var cb_error = function() { 
+			cb_function();
+		};
+		WsUtil.postJsonQuery(url, data, cb_success, cb_error);
+	};
+	
+	WsUser.add = function(cb_function, user) {
+
+		var url = WsUtil.baseUrl() + "/user/add";
+		var data = user;
+		var cb_success = function(resultData) {
+
+			cb_function();
+		};
+		var cb_error = function() { 
+			cb_function();
+		};
+		WsUtil.postJsonQuery(url, data, cb_success, cb_error);
 	};
 
 	/*

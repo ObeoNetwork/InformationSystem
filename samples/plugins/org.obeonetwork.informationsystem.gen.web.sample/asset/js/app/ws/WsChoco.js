@@ -36,14 +36,14 @@ define(["require", "app/ws/WsUtil", "app/model/Choco" ], function(require) {
 	var WsChoco = {};
 
 	/*
-	 * get all Chocos model.
+	 * get all chocos model.
 	 * @param {function(model.Choco[])} the function throw at the end of 
 	 * the asynchrone query.
-	 * @return {model.Choco[]} all Chocos
+	 * @return {model.Choco[]} all chocos
 	 */
 	WsChoco.all = function(cb_function) {
 
-		var Chocos = [];
+		var chocos = [];
 		
 		var url = WsUtil.baseUrl() + "/choco/list";
 		var data = null;
@@ -51,9 +51,9 @@ define(["require", "app/ws/WsUtil", "app/model/Choco" ], function(require) {
 
 			for(var i = 0; i < resultData.length; i++) {
 				var choco = _json2Choco(resultData[i]);
-				Chocos[i] = choco;
+				chocos[i] = choco;
 			}
-			cb_function(Chocos);
+			cb_function(chocos);
 		};
 		var cb_error = function() { 
 			cb_function([]);
@@ -86,16 +86,16 @@ define(["require", "app/ws/WsUtil", "app/model/Choco" ], function(require) {
 		if(nbElemByRow<0) {
 			WsChoco.all(cb_function);
 		} else {
-			var Chocos = [];
+			var chocos = [];
 
 			var url = WsUtil.baseUrl() + "/choco/rows/"+rowId;
 			var data = {nbElemByRow : nbElemByRow};
 			var cb_success = function(resultData) {
 				for(var i = 0; i < resultData.length; i++) {
 					var choco = _json2Choco(resultData[i]);
-					Chocos[i] = choco;
+					chocos[i] = choco;
 				}
-				cb_function(Chocos);
+				cb_function(chocos);
 			};
 			var cb_error = function() { 
 				cb_function([]);
@@ -163,6 +163,48 @@ define(["require", "app/ws/WsUtil", "app/model/Choco" ], function(require) {
 			cb_function([]);
 		};
 		WsUtil.getJsonQuery(url, data, cb_success, cb_error);
+	};
+
+	WsChoco.remove = function(cb_function, choco) {
+
+		var url = WsUtil.baseUrl() + "/choco/remove";
+		var data = choco;
+		var cb_success = function(resultData) {
+
+			cb_function();
+		};
+		var cb_error = function() { 
+			cb_function();
+		};
+		WsUtil.postJsonQuery(url, data, cb_success, cb_error);
+	};
+	
+	WsChoco.update = function(cb_function, choco) {
+
+		var url = WsUtil.baseUrl() + "/choco/update";
+		var data = choco;
+		var cb_success = function(resultData) {
+
+			cb_function();
+		};
+		var cb_error = function() { 
+			cb_function();
+		};
+		WsUtil.postJsonQuery(url, data, cb_success, cb_error);
+	};
+	
+	WsChoco.add = function(cb_function, choco) {
+
+		var url = WsUtil.baseUrl() + "/choco/add";
+		var data = choco;
+		var cb_success = function(resultData) {
+
+			cb_function();
+		};
+		var cb_error = function() { 
+			cb_function();
+		};
+		WsUtil.postJsonQuery(url, data, cb_success, cb_error);
 	};
 
 	/*

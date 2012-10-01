@@ -111,6 +111,33 @@ define(["require", "app/model/Proxy", "app/security/LogManager", "app/model/Stat
 		return stats;
 	}
 	
+	WsUtil.postJsonQuery = function(url, data, cb_success, cb_error) {
+		//TODO to remove
+		if(true){
+			console.log('POST queries can not be stubbed');
+			cb_success(null);
+		} 
+		else {
+		$.ajax({
+			type : "POST",
+			url : LogManager.tokenizeThisUrl(url), 
+			data : data,
+			dataType: "json",
+			success : function(result) {
+				cb_success(result);
+			}, 
+			error : function(request, status, errorThrown) {
+				if(cb_error!=undefined)
+					cb_error(request, status, errorThrown);
+				else
+					_defaultError(request, status, errorThrown);
+					
+			}
+		}); 
+		}
+
+	}
+
 	var _defaultError = function(request, status, errorThrown) {
 		console.log("JsonQuery fail");
 		console.log(request);

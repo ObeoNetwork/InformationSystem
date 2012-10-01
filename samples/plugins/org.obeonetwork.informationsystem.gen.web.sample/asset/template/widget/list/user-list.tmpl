@@ -23,60 +23,123 @@
 <script type="text/x-handlebars" data-template-name="user-list">
 	<!-- Start of user code user-list -->
 		{{#with content as user}}
-	
-	<div class="well">
-		<div class="btn-group">
-			<a {{action "editAction" context="user"}} class="btn btn-inverse" href="#"><i class=""></i> 
-				{{user.nickname}}
-			</a>
-			<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
-			<ul class="dropdown-menu">
+		{{#if user.local}}
+		<div class="well local">
+
+			<!--localRemove {{user.localRemove}}
+			localAdd {{user.localAdd}}
+			localUpdate {{ouserffice.localUpdate}}-->
+
+			<div class="btn-group">
+				<a {{action "editAction" context="user"}} class="btn btn-inverse" href="#"><i class=""></i> 
+					{{user.nickname}}
+				</a>
+				<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a {{action "editAction" context="user"}} href="#"><i class="icon-pencil"></i> Edit</a>
+					</li>
+					<li>
+						<a {{action "removeAction" context="user"}} href="#"><i class="icon-trash"></i> Delete</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="user-row">
+					<li>{{user.nickname}}</li>
+				
+					<li>{{user.shortNickname}}</li>
+				
+					<li>{{user.firstName}}</li>
+				
+					<li>{{user.lastName}}</li>
+				
+				{{#if user.chocoProxies}}
 				<li>
-					<a {{action "editAction" context="user"}} href="#"><i class="icon-pencil"></i> Edit</a>
+					Chocos :
+					<ul>
+					{{#each chocoProxy in user.chocoProxies}}
+						<li>
+							<a {{action "chocoLink" context="chocoProxy"}} href="#" class="choco-link">{{chocoProxy.desc}} ({{chocoProxy.id}})</a>
+						</li>
+					{{/each}}
+					</ul>
 				</li>
+				{{/if}}
+				
+				{{#if user.officeProxy}}
 				<li>
-					<a {{action "removeAction" context="user"}} href="#"><i class="icon-trash"></i> Delete</a>
+					Office :
+					<a {{action "officeLink" context="user.officeProxy"}} href="#" class="office-link">{{user.officeProxy.desc}} ({{user.officeProxy.id}})</a>
 				</li>
+				{{/if}}
+				
+					<li>{{user.email}}</li>
+				
+					<li>level : {{user.level}}</li>
+				
+					<li>xp : {{user.xp}}</li>
+				
 			</ul>
 		</div>
-		<ul class="user-row">
-				<li>{{user.nickname}}</li>
-			
-				<li>{{user.shortNickname}}</li>
-			
-				<li>{{user.firstName}}</li>
-			
-				<li>{{user.lastName}}</li>
-			
-			{{#if user.chocoProxies}}
-			<li>
-				Chocos :
-				<ul>
-				{{#each chocoProxy in user.chocoProxies}}
+		{{else}}
+		<div class="well">
+
+			<!--localRemove {{user.localRemove}}
+			localAdd {{user.localAdd}}
+			localUpdate {{ouserffice.localUpdate}}-->
+
+			<div class="btn-group">
+				<a {{action "editAction" context="user"}} class="btn btn-inverse" href="#"><i class=""></i> 
+					{{user.nickname}}
+				</a>
+				<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
+				<ul class="dropdown-menu">
 					<li>
-						<a {{action "chocoLink" context="chocoProxy"}} href="#" class="choco-link">{{chocoProxy.desc}} ({{chocoProxy.id}})</a>
+						<a {{action "editAction" context="user"}} href="#"><i class="icon-pencil"></i> Edit</a>
 					</li>
-				{{/each}}
+					<li>
+						<a {{action "removeAction" context="user"}} href="#"><i class="icon-trash"></i> Delete</a>
+					</li>
 				</ul>
-			</li>
-			{{/if}}
-			
-			{{#if user.officeProxy}}
-			<li>
-				Office :
-				<a {{action "officeLink" context="user.officeProxy"}} href="#" class="office-link">{{user.officeProxy.desc}} ({{user.officeProxy.id}})</a>
-			</li>
-			{{/if}}
-			
-				<li>{{user.email}}</li>
-			
-				<li>level : {{user.level}}</li>
-			
-				<li>xp : {{user.xp}}</li>
-			
-		</ul>
-	</div>
-	
+			</div>
+			<ul class="user-row">
+					<li>{{user.nickname}}</li>
+				
+					<li>{{user.shortNickname}}</li>
+				
+					<li>{{user.firstName}}</li>
+				
+					<li>{{user.lastName}}</li>
+				
+				{{#if user.chocoProxies}}
+				<li>
+					Chocos :
+					<ul>
+					{{#each chocoProxy in user.chocoProxies}}
+						<li>
+							<a {{action "chocoLink" context="chocoProxy"}} href="#" class="choco-link">{{chocoProxy.desc}} ({{chocoProxy.id}})</a>
+						</li>
+					{{/each}}
+					</ul>
+				</li>
+				{{/if}}
+				
+				{{#if user.officeProxy}}
+				<li>
+					Office :
+					<a {{action "officeLink" context="user.officeProxy"}} href="#" class="office-link">{{user.officeProxy.desc}} ({{user.officeProxy.id}})</a>
+				</li>
+				{{/if}}
+				
+					<li>{{user.email}}</li>
+				
+					<li>level : {{user.level}}</li>
+				
+					<li>xp : {{user.xp}}</li>
+				
+			</ul>
+		</div>
+		{{/if}}
 	{{/with}}
 	<!-- End of user code -->
 </script>

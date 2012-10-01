@@ -147,7 +147,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "app
 	
 	var showWidget = function() {
 		App.commonCtrl.loadAllUsersInWidget(this);
-		this.set('chocoInProgress', Choco.Class.create());
+		this.set('chocoInProgress', Choco.Class.create({localUpdate:false, localRemove:false, localAdd:false}));
 		this.set('activated', true);
 	};
 	
@@ -176,8 +176,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "app
 		
 		if(result) {
 			App.commonCtrl.addChoco(this.chocoInProgress);
-			App.commonCtrl.hideModal();
-			this.createEvent();
+			this.hideWidget();
 		} else {
 			App.toast.error(errorMsg+"Please, correct error(s).");
 		}

@@ -59,6 +59,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 		e.preventDefault();
 		var user = e.context;
 		App.commonCtrl.removeUser(user);
+		//this.remove();
 	};
 	
 	var _ItemClass = Em.View.extend({
@@ -95,9 +96,9 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 	UserList.getClass = function() { return _Class; };
 	
 	/*call backs*/
-	var cb_loadUsers = function(Users) {
+	var cb_loadUsers = function(users) {
 
-		this.set('content', Users);
+		this.set('content', users);
 	};
 	
 	/** Start of user code additional functions */

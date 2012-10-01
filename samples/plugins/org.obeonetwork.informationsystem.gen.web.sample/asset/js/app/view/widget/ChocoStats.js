@@ -57,11 +57,12 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/widget/StatsHelper"
 		/*call backs*/
 	var cb_loadStats = function(tabStats) {
 		
-		if(tabStats.length>1)
+		if(tabStats.length>1){
 			this.set('tabStats', tabStats);
+			_draw(tabStats, this.$('.svg'));
+		}
 		else
-			this.set('tabStats', []);
-		_draw(tabStats, this.$('.svg'));
+			App.toast.error("Empty stats");
 	};
 
 	var _draw = function(tabStats, node) {

@@ -110,16 +110,43 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 	/* events */
 	/**/
 	CommonCtrl.removeChoco = function(choco) {
-		//TODO
-		App.toast.warning("Server remove not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			App.ChocoManager.async_remove(
+				function() { },
+				choco
+			);
+		} else {
+			App.ChocoManager.remove(
+				function() { },
+				choco
+			);
+		}
 	};
 	CommonCtrl.updateChoco = function(choco) {
-		//TODO
-		App.toast.warning("Server edit not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			App.ChocoManager.async_update(
+				function() { },
+				choco
+			);
+		} else {
+			App.ChocoManager.update(
+				function() { },
+				choco
+			);
+		}
 	};
 	CommonCtrl.addChoco = function(choco) {
-		//TODO
-		App.toast.warning("Server add not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			App.ChocoManager.async_add(
+				function() { },
+				choco
+			);
+		} else {
+			App.ChocoManager.add(
+				function() { },
+				choco
+			);
+		}
 	};
 	CommonCtrl.showModalChoco = function(id) {
 		/** Start of user code showModalChoco */
@@ -130,41 +157,64 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 	};
 	CommonCtrl.editChoco = function(choco) {
 		/** Start of user code editChoco */
-		if(navigator.onLine) {
-			App.UserManager.async_allProxies(function(userProxies) {
-				/* <async block start> (User context) 
-				 */
-				for (var i = 0; i < userProxies.length; i++) {
-					var userProxy = userProxies[i];
-				
-					if (choco.userProxy.id === userProxy.id) {
-						choco.set("userProxy", userProxy);
-						break;
-					}
-				}
+		App.UserManager.async_allProxies(function(userProxies) {
+			/* <async block start> (User context) 
+			 */
+			for (var i = 0; i < userProxies.length; i++) {
+				var userProxy = userProxies[i];
 			
-				CommonPage.showEditModalChoco(choco, userProxies);
-				/* 
-				 * <async block stop> (User context) */
-			});
-		} else {
-			// TODO something
-		}
+				if (choco.userProxy.id === userProxy.id) {
+					choco.set("userProxy", userProxy);
+					break;
+				}
+			}
+		
+			CommonPage.showEditModalChoco(choco, userProxies);
+			/* 
+			 * <async block stop> (User context) */
+		});
 		/** End of user code */
 	};
 
 	/**/
 	CommonCtrl.removeUser = function(user) {
-		//TODO
-		App.toast.warning("Server remove not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			App.UserManager.async_remove(
+				function() { },
+				user
+			);
+		} else {
+			App.UserManager.remove(
+				function() { },
+				user
+			);
+		}
 	};
 	CommonCtrl.updateUser = function(user) {
-		//TODO
-		App.toast.warning("Server edit not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			App.UserManager.async_update(
+				function() { },
+				user
+			);
+		} else {
+			App.UserManager.update(
+				function() { },
+				user
+			);
+		}
 	};
 	CommonCtrl.addUser = function(user) {
-		//TODO
-		App.toast.warning("Server add not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			App.UserManager.async_add(
+				function() { },
+				user
+			);
+		} else {
+			App.UserManager.add(
+				function() { },
+				user
+			);
+		}
 	};
 	CommonCtrl.showModalUser = function(id) {
 		/** Start of user code showModalUser */
@@ -175,72 +225,91 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 	};
 	CommonCtrl.editUser = function(user) {
 		/** Start of user code editUser */
-		if(navigator.onLine) {
-			App.ChocoManager.async_allProxies(function(chocoProxies) {
-				/* <async block start> (Choco context) 
-				 */
-				var oldChocoProxies = user.get("chocoProxies");
-				var linkedChocoProxies = [];
-				
-				for (var i = 0; i < chocoProxies.length; i++) {
-					for (var j = 0; j < oldChocoProxies.length; j++) {
-				
-						if (chocoProxies[i].id === oldChocoProxies[j].id) {
-							linkedChocoProxies.push(chocoProxies[i]);
-							break;
-						}
+		App.ChocoManager.async_allProxies(function(chocoProxies) {
+			/* <async block start> (Choco context) 
+			 */
+			var oldChocoProxies = user.get("chocoProxies");
+			var linkedChocoProxies = [];
+			
+			for (var i = 0; i < chocoProxies.length; i++) {
+				for (var j = 0; j < oldChocoProxies.length; j++) {
+			
+					if (chocoProxies[i].id === oldChocoProxies[j].id) {
+						linkedChocoProxies.push(chocoProxies[i]);
+						break;
 					}
 				}
-				user.set("chocoProxies", linkedChocoProxies);
-				
+			}
+			user.set("chocoProxies", linkedChocoProxies);
 			
-				App.OfficeManager.async_allProxies(function(officeProxies) {
-					/* <async block start> (Office context) 
-					 */
-					for (var i = 0; i < officeProxies.length; i++) {
-						var officeProxy = officeProxies[i];
-					
-						if (user.officeProxy.id === officeProxy.id) {
-							user.set("officeProxy", officeProxy);
-							break;
-						}
-					}
+		
+			App.OfficeManager.async_allProxies(function(officeProxies) {
+				/* <async block start> (Office context) 
+				 */
+				for (var i = 0; i < officeProxies.length; i++) {
+					var officeProxy = officeProxies[i];
 				
-					CommonPage.showEditModalUser(user, chocoProxies, officeProxies);
-					/* 
-					 * <async block stop> (Office context) */
-				});
+					if (user.officeProxy.id === officeProxy.id) {
+						user.set("officeProxy", officeProxy);
+						break;
+					}
+				}
+			
+				CommonPage.showEditModalUser(user, chocoProxies, officeProxies);
 				/* 
-				 * <async block stop> (Choco context) */
+				 * <async block stop> (Office context) */
 			});
-		} else {
-			// TODO something
-		}
+			/* 
+			 * <async block stop> (Choco context) */
+		});
 		/** End of user code */
 	};
 
 	/**/
 	CommonCtrl.removeOffice = function(office) {
-		//TODO
-		App.toast.warning("Server remove not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			App.OfficeManager.async_remove(
+				function() { },
+				office
+			);
+		} else {
+			App.OfficeManager.remove(
+				function() { },
+				office
+			);
+		}
 	};
 	CommonCtrl.updateOffice = function(office) {
-		//TODO
-		App.toast.warning("Server edit not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			App.OfficeManager.async_update(
+				function() { },
+				office
+			);
+		} else {
+			App.OfficeManager.update(
+				function() { },
+				office
+			);
+		}
 	};
 	CommonCtrl.addOffice = function(office) {
-		//TODO
-		App.toast.warning("Server add not implemented yet. Sorry!");
+		if(navigator.onLine) {
+			App.OfficeManager.async_add(
+				function() { },
+				office
+			);
+		} else {
+			App.OfficeManager.add(
+				function() { },
+				office
+			);
+		}
 	};
 	CommonCtrl.showModalOffice = function(id) {
 		/** Start of user code showModalOffice */
-		if(navigator.onLine) {
-			App.OfficeManager.async_byId(function(office) {
-				CommonPage.showModalOffice(office);
-			}, id);
-		} else {
-			// TODO something
-		}
+		App.OfficeManager.async_byId(function(office) {
+			CommonPage.showModalOffice(office);
+		}, id);
 		/** End of user code */
 	};
 	CommonCtrl.editOffice = function(office) {
@@ -259,7 +328,9 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 				function(chocoProxies) { contentWidget.loadChocoProxies(chocoProxies); }
 			);
 		} else {
-			// TODO something
+			App.ChocoManager.allProxies(
+				function(chocoProxies) { contentWidget.loadChocoProxies(chocoProxies); }
+			);
 		}
 		/** End of user code */
 	};
@@ -281,7 +352,9 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 				function(userProxies) { contentWidget.loadUserProxies(userProxies); }
 			);
 		} else {
-			// TODO something
+			App.UserManager.allProxies(
+				function(userProxies) { contentWidget.loadUserProxies(userProxies); }
+			);
 		}
 		/** End of user code */
 	};
@@ -304,8 +377,8 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 			);
 		} else {
 			App.OfficeManager.allProxies(
-					function(officeProxies) { contentWidget.loadOfficeProxies(officeProxies); }
-				);
+				function(officeProxies) { contentWidget.loadOfficeProxies(officeProxies); }
+			);
 		}
 		/** End of user code */
 	};
@@ -320,7 +393,13 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 	};
 	
 
-
+	CommonCtrl.toOnline = function() {
+		CommonPage.renderOnline();
+	};
+	
+	CommonCtrl.toOffline = function() {
+		CommonPage.renderOffline();
+	};
 
 
 
@@ -329,15 +408,14 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 		if(activePage===undefined || activePage==null) {
 			activePage = 0;
 		}
-		
 		if(navigator.onLine) {
 			objectManager.async_allByRows(
-				function(offices) { contentWidget.loadContent(offices); }, 5, activePage
+				function(objects) { contentWidget.loadContent(objects); }, 5, activePage
 			);
 		} else {
 			objectManager.allByRows(
-					function(offices) { contentWidget.loadContent(offices); }, 5, activePage
-				);
+				function(objects) { contentWidget.loadContent(objects); }, 5, activePage
+			);
 		}
 		/** End of user code */
 	}
@@ -349,7 +427,9 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 				function(stats) { contentWidget.loadContent(stats); }
 			);
 		} else {
-			// TODO something
+			objectManager.stats(
+				function(stats) { contentWidget.loadContent(stats); }
+			);
 		}
 		/** End of user code */
 	}
@@ -420,14 +500,7 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 		CommonPage.renderAdminFeatures();
 	}
 	
-	/** Start of user code additional functions */	
-	CommonCtrl.toOnline = function() {
-		CommonPage.renderOnline();
-	};
-	
-	CommonCtrl.toOffline = function() {
-		CommonPage.renderOffline();
-	};
+	/** Start of user code additional functions */
 	/** End of user code */
 
 	return CommonCtrl;

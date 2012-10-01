@@ -144,7 +144,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "app
 	};
 	
 	var showWidget = function() {
-		this.set('officeInProgress', Office.Class.create());
+		this.set('officeInProgress', Office.Class.create({localUpdate:false, localRemove:false, localAdd:false}));
 		this.set('activated', true);
 	};
 	
@@ -168,8 +168,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "app
 		
 		if(result) {
 			App.commonCtrl.addOffice(this.officeInProgress);
-			App.commonCtrl.hideModal();
-			this.createEvent();
+			this.hideWidget();
 		} else {
 			App.toast.error(errorMsg+"Please, correct error(s).");
 		}

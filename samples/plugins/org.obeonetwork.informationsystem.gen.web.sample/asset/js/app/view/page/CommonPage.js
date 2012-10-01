@@ -151,6 +151,18 @@ define(["require", "app/App", "app/view/CommonEvents", "app/view/widget/AccountN
 		_cleanView();
 	};
 	
+	CommonPage.renderOnline = function() {
+		$("#status").removeClass('offline');
+		$("#status").addClass('online');
+		$("#status").text('online');
+	};
+	
+	CommonPage.renderOffline = function() {
+		$("#status").removeClass('online');
+		$("#status").addClass('offline');
+		$("#status").text('offline');
+	};
+
 	//
 	function _renderLoaded() {
 		$("body").addClass("loaded");
@@ -173,17 +185,6 @@ define(["require", "app/App", "app/view/CommonEvents", "app/view/widget/AccountN
 	}
 	
 	/** Start of user code additional functions */
-	CommonPage.renderOnline = function() {
-		$("#status").removeClass('offline');
-		$("#status").addClass('online');
-		$("#status").text('online');
-	};
-	
-	CommonPage.renderOffline = function() {
-		$("#status").removeClass('online');
-		$("#status").addClass('offline');
-		$("#status").text('offline');
-	};
 	/** End of user code */
 
 	return CommonPage;

@@ -47,6 +47,14 @@ define(["require", "ember" ], function(require) {
 		description : null,
 		userProxy : null,
 		status : [],
+		localUpdate : false,
+		localRemove : false,
+		localAdd : false,
+		local : function() {
+			return this.get('localUpdate') || this.get('localRemove') || this.get('localAdd'); 
+		}.property('localUpdate', 'localRemove', 'localAdd'),
+		/** Start of user code additional attributes */
+		/** End of user code */
 	});
 	
 	/** Start of user code additional functions */

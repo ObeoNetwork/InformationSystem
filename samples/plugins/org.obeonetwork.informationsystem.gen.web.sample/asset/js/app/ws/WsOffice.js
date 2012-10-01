@@ -36,14 +36,14 @@ define(["require", "app/ws/WsUtil", "app/model/Office" ], function(require) {
 	var WsOffice = {};
 
 	/*
-	 * get all Offices model.
+	 * get all offices model.
 	 * @param {function(model.Office[])} the function throw at the end of 
 	 * the asynchrone query.
-	 * @return {model.Office[]} all Offices
+	 * @return {model.Office[]} all offices
 	 */
 	WsOffice.all = function(cb_function) {
 
-		var Offices = [];
+		var offices = [];
 		
 		var url = WsUtil.baseUrl() + "/office/list";
 		var data = null;
@@ -51,9 +51,9 @@ define(["require", "app/ws/WsUtil", "app/model/Office" ], function(require) {
 
 			for(var i = 0; i < resultData.length; i++) {
 				var office = _json2Office(resultData[i]);
-				Offices[i] = office;
+				offices[i] = office;
 			}
-			cb_function(Offices);
+			cb_function(offices);
 		};
 		var cb_error = function() { 
 			cb_function([]);
@@ -86,16 +86,16 @@ define(["require", "app/ws/WsUtil", "app/model/Office" ], function(require) {
 		if(nbElemByRow<0) {
 			WsOffice.all(cb_function);
 		} else {
-			var Offices = [];
+			var offices = [];
 
 			var url = WsUtil.baseUrl() + "/office/rows/"+rowId;
 			var data = {nbElemByRow : nbElemByRow};
 			var cb_success = function(resultData) {
 				for(var i = 0; i < resultData.length; i++) {
 					var office = _json2Office(resultData[i]);
-					Offices[i] = office;
+					offices[i] = office;
 				}
-				cb_function(Offices);
+				cb_function(offices);
 			};
 			var cb_error = function() { 
 				cb_function([]);
@@ -163,6 +163,48 @@ define(["require", "app/ws/WsUtil", "app/model/Office" ], function(require) {
 			cb_function([]);
 		};
 		WsUtil.getJsonQuery(url, data, cb_success, cb_error);
+	};
+
+	WsOffice.remove = function(cb_function, office) {
+
+		var url = WsUtil.baseUrl() + "/office/remove";
+		var data = office;
+		var cb_success = function(resultData) {
+
+			cb_function();
+		};
+		var cb_error = function() { 
+			cb_function();
+		};
+		WsUtil.postJsonQuery(url, data, cb_success, cb_error);
+	};
+	
+	WsOffice.update = function(cb_function, office) {
+
+		var url = WsUtil.baseUrl() + "/office/update";
+		var data = office;
+		var cb_success = function(resultData) {
+
+			cb_function();
+		};
+		var cb_error = function() { 
+			cb_function();
+		};
+		WsUtil.postJsonQuery(url, data, cb_success, cb_error);
+	};
+	
+	WsOffice.add = function(cb_function, office) {
+
+		var url = WsUtil.baseUrl() + "/office/add";
+		var data = office;
+		var cb_success = function(resultData) {
+
+			cb_function();
+		};
+		var cb_error = function() { 
+			cb_function();
+		};
+		WsUtil.postJsonQuery(url, data, cb_success, cb_error);
 	};
 
 	/*

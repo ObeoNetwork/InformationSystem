@@ -49,6 +49,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 		e.preventDefault();
 		var office = e.context;
 		App.commonCtrl.removeOffice(office);
+		//this.remove();
 	};
 	
 	var _ItemClass = Em.View.extend({
@@ -74,6 +75,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 			
 			loadContent : cb_loadOffices,
 			/** Start of user code additional features */
+
 			/** End of user code */
 		});
 			 
@@ -83,9 +85,9 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 	OfficeList.getClass = function() { return _Class; };
 	
 	/*call backs*/
-	var cb_loadOffices = function(Offices) {
+	var cb_loadOffices = function(offices) {
 
-		this.set('content', Offices);
+		this.set('content', offices);
 	};
 	
 	/** Start of user code additional functions */

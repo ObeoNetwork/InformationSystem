@@ -54,6 +54,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 		e.preventDefault();
 		var choco = e.context;
 		App.commonCtrl.removeChoco(choco);
+		//this.remove();
 	};
 	
 	var _ItemClass = Em.View.extend({
@@ -89,9 +90,9 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 	ChocoList.getClass = function() { return _Class; };
 	
 	/*call backs*/
-	var cb_loadChocos = function(Chocos) {
+	var cb_loadChocos = function(chocos) {
 
-		this.set('content', Chocos);
+		this.set('content', chocos);
 	};
 	
 	/** Start of user code additional functions */

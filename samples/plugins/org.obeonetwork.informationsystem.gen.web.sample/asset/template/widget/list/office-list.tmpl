@@ -23,30 +23,63 @@
 <script type="text/x-handlebars" data-template-name="office-list">
 	<!-- Start of user code office-list -->
 		{{#with content as office}}
-	
-	<div class="well">
-		<div class="btn-group">
-			<a {{action "editAction" context="office"}} class="btn btn-inverse" href="#"><i class=""></i> 
-				{{office.shortDescription}}
-			</a>
-			<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
-			<ul class="dropdown-menu">
-				<li>
-					<a {{action "editAction" context="office"}} href="#"><i class="icon-pencil"></i> Edit</a>
-				</li>
-				<li>
-					<a {{action "removeAction" context="office"}} href="#"><i class="icon-trash"></i> Delete</a>
-				</li>
+		{{#if office.local}}
+		<div class="well local">
+
+			<!--localRemove {{office.localRemove}}
+			localAdd {{office.localAdd}}
+			localUpdate {{oofficeffice.localUpdate}}-->
+
+			<div class="btn-group">
+				<a {{action "editAction" context="office"}} class="btn btn-inverse" href="#"><i class=""></i> 
+					{{office.shortDescription}}
+				</a>
+				<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a {{action "editAction" context="office"}} href="#"><i class="icon-pencil"></i> Edit</a>
+					</li>
+					<li>
+						<a {{action "removeAction" context="office"}} href="#"><i class="icon-trash"></i> Delete</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="office-row">
+					<li>{{office.shortDescription}}</li>
+				
+					<li>{{office.description}}</li>
+				
 			</ul>
 		</div>
-		<ul class="office-row">
-				<li>{{office.shortDescription}}</li>
-			
-				<li>{{office.description}}</li>
-			
-		</ul>
-	</div>
-	
+		{{else}}
+		<div class="well">
+
+			<!--localRemove {{office.localRemove}}
+			localAdd {{office.localAdd}}
+			localUpdate {{oofficeffice.localUpdate}}-->
+
+			<div class="btn-group">
+				<a {{action "editAction" context="office"}} class="btn btn-inverse" href="#"><i class=""></i> 
+					{{office.shortDescription}}
+				</a>
+				<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a {{action "editAction" context="office"}} href="#"><i class="icon-pencil"></i> Edit</a>
+					</li>
+					<li>
+						<a {{action "removeAction" context="office"}} href="#"><i class="icon-trash"></i> Delete</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="office-row">
+					<li>{{office.shortDescription}}</li>
+				
+					<li>{{office.description}}</li>
+				
+			</ul>
+		</div>
+		{{/if}}
 	{{/with}}
 	<!-- End of user code -->
 </script>

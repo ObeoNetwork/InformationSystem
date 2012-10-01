@@ -23,39 +23,81 @@
 <script type="text/x-handlebars" data-template-name="choco-list">
 	<!-- Start of user code choco-list -->
 		{{#with content as choco}}
-	
-	<div class="well">
-		<div class="btn-group">
-			<a {{action "editAction" context="choco"}} class="btn btn-inverse" href="#"><i class=""></i> 
-				{{choco.shortDescription}}
-			</a>
-			<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
-			<ul class="dropdown-menu">
+		{{#if choco.local}}
+		<div class="well local">
+
+			<!--localRemove {{choco.localRemove}}
+			localAdd {{choco.localAdd}}
+			localUpdate {{ochocoffice.localUpdate}}-->
+
+			<div class="btn-group">
+				<a {{action "editAction" context="choco"}} class="btn btn-inverse" href="#"><i class=""></i> 
+					{{choco.shortDescription}}
+				</a>
+				<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a {{action "editAction" context="choco"}} href="#"><i class="icon-pencil"></i> Edit</a>
+					</li>
+					<li>
+						<a {{action "removeAction" context="choco"}} href="#"><i class="icon-trash"></i> Delete</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="choco-row">
+					<li>{{choco.shortDescription}}</li>
+				
+					<li>{{choco.description}}</li>
+				
+				{{#if choco.userProxy}}
 				<li>
-					<a {{action "editAction" context="choco"}} href="#"><i class="icon-pencil"></i> Edit</a>
+					User :
+					<a {{action "userLink" context="choco.userProxy"}} href="#" class="user-link">{{choco.userProxy.desc}} ({{choco.userProxy.id}})</a>
 				</li>
-				<li>
-					<a {{action "removeAction" context="choco"}} href="#"><i class="icon-trash"></i> Delete</a>
-				</li>
+				{{/if}}
+				
+					<li>status : {{choco.status}}</li>
+				
 			</ul>
 		</div>
-		<ul class="choco-row">
-				<li>{{choco.shortDescription}}</li>
-			
-				<li>{{choco.description}}</li>
-			
-			{{#if choco.userProxy}}
-			<li>
-				User :
-				<a {{action "userLink" context="choco.userProxy"}} href="#" class="user-link">{{choco.userProxy.desc}} ({{choco.userProxy.id}})</a>
-			</li>
-			{{/if}}
-			
-				<li>status : {{choco.status}}</li>
-			
-		</ul>
-	</div>
-	
+		{{else}}
+		<div class="well">
+
+			<!--localRemove {{choco.localRemove}}
+			localAdd {{choco.localAdd}}
+			localUpdate {{ochocoffice.localUpdate}}-->
+
+			<div class="btn-group">
+				<a {{action "editAction" context="choco"}} class="btn btn-inverse" href="#"><i class=""></i> 
+					{{choco.shortDescription}}
+				</a>
+				<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a {{action "editAction" context="choco"}} href="#"><i class="icon-pencil"></i> Edit</a>
+					</li>
+					<li>
+						<a {{action "removeAction" context="choco"}} href="#"><i class="icon-trash"></i> Delete</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="choco-row">
+					<li>{{choco.shortDescription}}</li>
+				
+					<li>{{choco.description}}</li>
+				
+				{{#if choco.userProxy}}
+				<li>
+					User :
+					<a {{action "userLink" context="choco.userProxy"}} href="#" class="user-link">{{choco.userProxy.desc}} ({{choco.userProxy.id}})</a>
+				</li>
+				{{/if}}
+				
+					<li>status : {{choco.status}}</li>
+				
+			</ul>
+		</div>
+		{{/if}}
 	{{/with}}
 	<!-- End of user code -->
 </script>
