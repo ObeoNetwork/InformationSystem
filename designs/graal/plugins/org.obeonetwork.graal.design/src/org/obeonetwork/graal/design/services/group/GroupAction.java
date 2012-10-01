@@ -12,6 +12,7 @@ package org.obeonetwork.graal.design.services.group;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -74,6 +75,10 @@ public class GroupAction {
 				
 				// Create a new group to contain the selected tasks
 				TasksGroup group = GraalFactory.eINSTANCE.createTasksGroup();
+				Date createdOn = new Date();
+				group.setCreatedOn(createdOn);
+				group.setModifiedOn(createdOn);
+				
 				// Attach the selected tasks to the new group
 				group.getTasks().addAll(tasks);
 				group.setName(enterNameDialog.getValue());

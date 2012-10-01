@@ -12,6 +12,7 @@ package org.obeonetwork.graal.design.services.usecase;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -70,6 +71,9 @@ public class CreateUseCaseAction {
 			
 			// Create a new Use Case
 			UseCase useCase = GraalFactory.eINSTANCE.createUseCase();
+			Date createdOn = new Date();
+			useCase.setCreatedOn(createdOn);
+			useCase.setModifiedOn(createdOn);
 			useCase.getTasks().addAll(tasks);
 			useCase.setName(enterNameDialog.getValue());
 			system.getUseCases().add(useCase);
