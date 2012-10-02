@@ -19,10 +19,33 @@
 	@param {model.User} user
 	@generated
 -->
-
+<!--
+	@param {model.User[]} content
+	@param {model.Proxy[]} proxies
+	@param {model.Proxy} currentProxy
+-->
 <script type="text/x-handlebars" data-template-name="user-list">
 	<!-- Start of user code user-list -->
-		{{#with content as user}}
+			{{#if paginationProxies}}
+		<div class="pagination" style="text-align: center;">
+			<ul>
+				{{#each paginationProxy in paginationProxies}}
+					{{#if paginationProxy.active}}
+					<li class="active">
+						<a href="#">
+					{{else}}
+					<li class="">
+						<a {{action "paginationLink" context="paginationProxy"}} href="#" class="pagination-link">
+					{{/if}}
+						{{paginationProxy.desc}}
+						</a>
+					</li>
+					
+				{{/each}}
+			</ul>
+		</div>
+		{{/if}}
+	{{#with content as user}}
 		{{#if user.local}}
 		<div class="well local">
 
@@ -149,6 +172,25 @@
 		</div>
 		{{/if}}
 	{{/with}}
+		{{#if paginationProxies}}
+		<div class="pagination" style="text-align: center;">
+			<ul>
+				{{#each paginationProxy in paginationProxies}}
+					{{#if paginationProxy.active}}
+					<li class="active">
+						<a href="#">
+					{{else}}
+					<li class="">
+						<a {{action "paginationLink" context="paginationProxy"}} href="#" class="pagination-link">
+					{{/if}}
+						{{paginationProxy.desc}}
+						</a>
+					</li>
+					
+				{{/each}}
+			</ul>
+		</div>
+		{{/if}}
 	<!-- End of user code -->
 </script>
 

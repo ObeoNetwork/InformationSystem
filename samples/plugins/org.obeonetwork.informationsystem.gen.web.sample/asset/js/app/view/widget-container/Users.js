@@ -19,15 +19,15 @@
 
 /** Start of user code default require function */
 /* Define function is an AMD feature. For more information, @see http://requirejs.org. */
-define(["require", "app/App", "app/view/widget/NewUser", "app/view/widget/UserStats", "app/view/widget/Pagination", "app/view/widget/UserList", "ember" ], function(require) {
+define(["require", "app/App", "app/view/widget/Pagination", "app/view/widget/NewUser", "app/view/widget/UserStats", "app/view/widget/UserList", "ember" ], function(require) {
 	"use strict";
 
 	
 	/* Get all required AMD modules in vars */
 	var App = require("app/App"),
+		Pagination = require("app/view/widget/Pagination"),
 		NewUser = require("app/view/widget/NewUser"),
 		UserStats = require("app/view/widget/UserStats"),
-		Pagination = require("app/view/widget/Pagination"),
 		UserList = require("app/view/widget/UserList");
 	// ember does not need to be stored in a variable.
 /** End of user code */
@@ -47,40 +47,39 @@ define(["require", "app/App", "app/view/widget/NewUser", "app/view/widget/UserSt
 		/** Start of user code default init widgets */
 		var createUserForm = NewUser.create();
 		var usersByOffice = UserStats.create();
-		var paginationUserTop = Pagination.create();
 		var userList = UserList.create();
-		var paginationUserBottom = Pagination.create();
+		var userListPrePagination = Pagination.create(userList);
+		userList.addPaginationWidget(userListPrePagination);
+
+		var userListPostPagination = Pagination.create(userList);
+		userList.addPaginationWidget(userListPostPagination);
+		
 		/** End of user code */
 
 		var view = _Class.create({
 			/** Start of user code default sub widgets */
-			childViews: ['createUserForm', 'usersByOffice', 'paginationUserTop', 'userList', 'paginationUserBottom'],
+			childViews: [
+						'createUserForm',
+						'usersByOffice',
+						'userListPrePagination',
+						'userList',
+						'userListPostPagination',
+						],
 			createUserForm : createUserForm,
 			usersByOffice : usersByOffice,
-			paginationUserTop : paginationUserTop,
+			userListPrePagination : userListPrePagination,
 			userList : userList,
-			paginationUserBottom : paginationUserBottom,
+			userListPostPagination : userListPostPagination,
 			/** End of user code */
 
-			didInsertElement : cb_whenInsert,
 			/** Start of user code additional features */
 			/** End of user code */
-			paginationChange : cb_paginationChange
 		});
 		
 		return view;
 		
 	};
 
-	/*call backs*/
-	var cb_whenInsert = function() {
-		
-		this.paginationChange();
-	};
-	
-	var cb_paginationChange = function(pageId) {
-		App.commonCtrl.loadUsersInWidget(this.userList, [this.paginationUserTop, this.paginationUserBottom], pageId);
-	}
 	
 	/** Start of user code additional functions */
 	/** End of user code */

@@ -71,11 +71,18 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 		var view = _Class.create({
 				
 			content : [],
+			paginationProxies : [],
 			itemViewClass : _ItemClass,
-			
+			paginationWidgets : [],
+			addPaginationWidget : function(paginationWidget) {
+				this.paginationWidgets.push(paginationWidget);
+			},
 			loadContent : cb_loadOffices,
+			//loadPagination : cb_loadProxies,
+			paginationLink: paginationLink,
+			didInsertElement : cb_whenInsert,
+			paginationChange : cb_paginationChange,
 			/** Start of user code additional features */
-
 			/** End of user code */
 		});
 			 
@@ -84,11 +91,34 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 
 	OfficeList.getClass = function() { return _Class; };
 	
+	/* events */
+	var paginationLink = function(e){
+		e.preventDefault();
+		var paginationProxy = e.context;
+		this.get('parentView').paginationChange(paginationProxy.id);
+	};
+
 	/*call backs*/
+	var cb_whenInsert = function() {
+		this.paginationChange(0);
+	};
+
+	var cb_paginationChange = function(pageId) {
+		App.commonCtrl.loadOfficesInWidget(this, pageId);
+	}
+
 	var cb_loadOffices = function(offices) {
 
 		this.set('content', offices);
 	};
+
+	/*var cb_loadProxies = function(paginationProxies) {
+		
+		if(paginationProxies.length>1)
+			this.set('paginationProxies', paginationProxies);
+		else
+			this.set('paginationProxies', []);
+	};*/
 	
 	/** Start of user code additional functions */
 	/** End of user code */

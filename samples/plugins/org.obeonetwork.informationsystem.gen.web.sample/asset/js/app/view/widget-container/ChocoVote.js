@@ -19,14 +19,14 @@
 
 /** Start of user code default require function */
 /* Define function is an AMD feature. For more information, @see http://requirejs.org. */
-define(["require", "app/App", "app/view/widget/NewChoco", "app/view/widget/Pagination", "app/view/widget/ChocoList", "ember" ], function(require) {
+define(["require", "app/App", "app/view/widget/Pagination", "app/view/widget/NewChoco", "app/view/widget/ChocoList", "ember" ], function(require) {
 	"use strict";
 
 	
 	/* Get all required AMD modules in vars */
 	var App = require("app/App"),
-		NewChoco = require("app/view/widget/NewChoco"),
 		Pagination = require("app/view/widget/Pagination"),
+		NewChoco = require("app/view/widget/NewChoco"),
 		ChocoList = require("app/view/widget/ChocoList");
 	// ember does not need to be stored in a variable.
 /** End of user code */
@@ -45,39 +45,37 @@ define(["require", "app/App", "app/view/widget/NewChoco", "app/view/widget/Pagin
 	ChocoVote.create = function() {
 		/** Start of user code default init widgets */
 		var createChocoForm = NewChoco.create();
-		var paginationChocoTop = Pagination.create();
 		var chocoList = ChocoList.create();
-		var paginationChocoBottom = Pagination.create();
+		var chocoListPrePagination = Pagination.create(chocoList);
+		chocoList.addPaginationWidget(chocoListPrePagination);
+
+		var chocoListPostPagination = Pagination.create(chocoList);
+		chocoList.addPaginationWidget(chocoListPostPagination);
+		
 		/** End of user code */
 
 		var view = _Class.create({
 			/** Start of user code default sub widgets */
-			childViews: ['createChocoForm', 'paginationChocoTop', 'chocoList', 'paginationChocoBottom'],
+			childViews: [
+						'createChocoForm',
+						'chocoListPrePagination',
+						'chocoList',
+						'chocoListPostPagination',
+						],
 			createChocoForm : createChocoForm,
-			paginationChocoTop : paginationChocoTop,
+			chocoListPrePagination : chocoListPrePagination,
 			chocoList : chocoList,
-			paginationChocoBottom : paginationChocoBottom,
+			chocoListPostPagination : chocoListPostPagination,
 			/** End of user code */
 
-			didInsertElement : cb_whenInsert,
 			/** Start of user code additional features */
 			/** End of user code */
-			paginationChange : cb_paginationChange
 		});
 		
 		return view;
 		
 	};
 
-	/*call backs*/
-	var cb_whenInsert = function() {
-		
-		this.paginationChange();
-	};
-	
-	var cb_paginationChange = function(pageId) {
-		App.commonCtrl.loadChocosInWidget(this.chocoList, [this.paginationChocoTop, this.paginationChocoBottom], pageId);
-	}
 	
 	/** Start of user code additional functions */
 	/** End of user code */

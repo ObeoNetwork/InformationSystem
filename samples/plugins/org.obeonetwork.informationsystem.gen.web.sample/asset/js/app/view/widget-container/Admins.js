@@ -43,38 +43,35 @@ define(["require", "app/App", "app/view/widget/Pagination", "app/view/widget/Use
 	 */
 	Admins.create = function() {
 		/** Start of user code default init widgets */
-		var paginationAdminTop = Pagination.create();
 		var adminList = UserList.create();
-		var paginationAdminBottom = Pagination.create();
+		var adminListPrePagination = Pagination.create(adminList);
+		adminList.addPaginationWidget(adminListPrePagination);
+
+		var adminListPostPagination = Pagination.create(adminList);
+		adminList.addPaginationWidget(adminListPostPagination);
+		
 		/** End of user code */
 
 		var view = _Class.create({
 			/** Start of user code default sub widgets */
-			childViews: ['paginationAdminTop', 'adminList', 'paginationAdminBottom'],
-			paginationAdminTop : paginationAdminTop,
+			childViews: [
+						'adminListPrePagination',
+						'adminList',
+						'adminListPostPagination',
+						],
+			adminListPrePagination : adminListPrePagination,
 			adminList : adminList,
-			paginationAdminBottom : paginationAdminBottom,
+			adminListPostPagination : adminListPostPagination,
 			/** End of user code */
 
-			didInsertElement : cb_whenInsert,
 			/** Start of user code additional features */
 			/** End of user code */
-			paginationChange : cb_paginationChange
 		});
 		
 		return view;
 		
 	};
 
-	/*call backs*/
-	var cb_whenInsert = function() {
-		
-		this.paginationChange();
-	};
-	
-	var cb_paginationChange = function(pageId) {
-		App.commonCtrl.loadUsersInWidget(this.adminList, [this.paginationAdminTop, this.paginationAdminBottom], pageId);
-	}
 	
 	/** Start of user code additional functions */
 	/** End of user code */

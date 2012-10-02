@@ -19,24 +19,47 @@
 	@param {model.Office} office
 	@generated
 -->
-
+<!--
+	@param {model.Office[]} content
+	@param {model.Proxy[]} proxies
+	@param {model.Proxy} currentProxy
+-->
 <script type="text/x-handlebars" data-template-name="office-list">
 	<!-- Start of user code office-list -->
-		{{#with content as office}}
+			{{#if paginationProxies}}
+		<div class="pagination" style="text-align: center;">
+			<ul>
+				{{#each paginationProxy in paginationProxies}}
+					{{#if paginationProxy.active}}
+					<li class="active">
+						<a href="#">
+					{{else}}
+					<li class="">
+						<a {{action "paginationLink" context="paginationProxy"}} href="#" class="pagination-link">
+					{{/if}}
+						{{paginationProxy.desc}}
+						</a>
+					</li>
+					
+				{{/each}}
+			</ul>
+		</div>
+		{{/if}}
+	{{#with content as office}}
 		{{#if office.local}}
 		<div class="well local">
 
-			{{#if user.localRemove}}
+			{{#if office.localRemove}}
 			<div style="float: right;">
 				<img class="align-left" src="./asset/img/remove.png" height="24px">
 			</div>
 			{{/if}}
-			{{#if user.localAdd}}
+			{{#if office.localAdd}}
 			<div style="float: right;">
 				<img class="align-left" src="./asset/img/add.png" height="24px">
 			</div>
 			{{/if}}
-			{{#if user.localUpdate}}
+			{{#if office.localUpdate}}
 			<div style="float: right;">
 				<img class="align-left" src="./asset/img/refresh.png" height="24px">
 			</div>
@@ -89,6 +112,25 @@
 		</div>
 		{{/if}}
 	{{/with}}
+		{{#if paginationProxies}}
+		<div class="pagination" style="text-align: center;">
+			<ul>
+				{{#each paginationProxy in paginationProxies}}
+					{{#if paginationProxy.active}}
+					<li class="active">
+						<a href="#">
+					{{else}}
+					<li class="">
+						<a {{action "paginationLink" context="paginationProxy"}} href="#" class="pagination-link">
+					{{/if}}
+						{{paginationProxy.desc}}
+						</a>
+					</li>
+					
+				{{/each}}
+			</ul>
+		</div>
+		{{/if}}
 	<!-- End of user code -->
 </script>
 

@@ -38,12 +38,12 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 	 * create a Pagination widget
 	 * @return the Pagination widget instance
 	 */
-	Pagination.create = function() {
+	Pagination.create = function(listWidget) {
 		ViewUtil.loadWidgetTemplate("./asset/template/widget/other/pagination");
 
 		var view = _Class.create({
 			paginationProxies : [],
-			
+			listWidget : listWidget,
 			loadContent : cb_loadProxies,
 			paginationLink: paginationLink,
 			/** Start of user code additional features */
@@ -56,7 +56,7 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "emb
 	var paginationLink = function(e){
 		e.preventDefault();
 		var paginationProxy = e.context;
-		this.get('parentView').paginationChange(paginationProxy.id);
+		this.listWidget.paginationChange(paginationProxy.id);
 	};
 
 	/*call backs*/

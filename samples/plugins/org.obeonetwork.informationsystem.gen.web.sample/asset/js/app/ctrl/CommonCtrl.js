@@ -34,7 +34,7 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 	
 	var allowedStates = ["state-default", "state-in-login", "state-user", "state-moderator", "state-admin"];
 	var host = "http://"+window.location.host;
-	
+	var defaultNumRows = 5;
 	function _init() {
 			
 		if(LogManager.isLogged()) {
@@ -149,14 +149,11 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 		}
 	};
 	CommonCtrl.showModalChoco = function(id) {
-		/** Start of user code showModalChoco */
 		App.ChocoManager.async_byId(function(choco) {
 			CommonPage.showModalChoco(choco);
 		}, id);
-		/** End of user code */
 	};
 	CommonCtrl.editChoco = function(choco) {
-		/** Start of user code editChoco */
 		App.UserManager.async_allProxies(function(userProxies) {
 			/* <async block start> (User context) 
 			 */
@@ -173,7 +170,6 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 			/* 
 			 * <async block stop> (User context) */
 		});
-		/** End of user code */
 	};
 
 	/**/
@@ -217,14 +213,11 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 		}
 	};
 	CommonCtrl.showModalUser = function(id) {
-		/** Start of user code showModalUser */
 		App.UserManager.async_byId(function(user) {
 			CommonPage.showModalUser(user);
 		}, id);
-		/** End of user code */
 	};
 	CommonCtrl.editUser = function(user) {
-		/** Start of user code editUser */
 		App.ChocoManager.async_allProxies(function(chocoProxies) {
 			/* <async block start> (Choco context) 
 			 */
@@ -262,7 +255,6 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 			/* 
 			 * <async block stop> (Choco context) */
 		});
-		/** End of user code */
 	};
 
 	/**/
@@ -306,23 +298,18 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 		}
 	};
 	CommonCtrl.showModalOffice = function(id) {
-		/** Start of user code showModalOffice */
 		App.OfficeManager.async_byId(function(office) {
 			CommonPage.showModalOffice(office);
 		}, id);
-		/** End of user code */
 	};
 	CommonCtrl.editOffice = function(office) {
-		/** Start of user code editOffice */
 		CommonPage.showEditModalOffice(office);
-		/** End of user code */
 	};
 
 
 	
 	/**/
 	CommonCtrl.loadAllChocosInWidget = function(contentWidget) {
-		/** Start of user code loadAllChocosInWidget */
 		if(navigator.onLine) {
 			App.ChocoManager.async_allProxies(
 				function(chocoProxies) { contentWidget.loadChocoProxies(chocoProxies); }
@@ -332,12 +319,14 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 				function(chocoProxies) { contentWidget.loadChocoProxies(chocoProxies); }
 			);
 		}
-		/** End of user code */
 	};
 
-	CommonCtrl.loadChocosInWidget = function(contentWidget, paginationWidgets, activePage) {
-		_async_loadContent(App.ChocoManager, contentWidget, activePage);
-		_async_loadPagination(App.ChocoManager, paginationWidgets, activePage);
+	CommonCtrl.loadChocosInWidget = function(listWidget, activePage) {
+		_async_loadContent(App.ChocoManager, listWidget, activePage);
+		var i = 0;
+		for(i; i<listWidget.paginationWidgets.length; i++){
+			_async_loadPagination(App.ChocoManager, listWidget.paginationWidgets[i], activePage);
+		}
 	};
 
 	CommonCtrl.loadChocoStatsInWidget = function(contentWidget) {
@@ -346,7 +335,6 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 	
 	/**/
 	CommonCtrl.loadAllUsersInWidget = function(contentWidget) {
-		/** Start of user code loadAllUsersInWidget */
 		if(navigator.onLine) {
 			App.UserManager.async_allProxies(
 				function(userProxies) { contentWidget.loadUserProxies(userProxies); }
@@ -356,12 +344,14 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 				function(userProxies) { contentWidget.loadUserProxies(userProxies); }
 			);
 		}
-		/** End of user code */
 	};
 
-	CommonCtrl.loadUsersInWidget = function(contentWidget, paginationWidgets, activePage) {
-		_async_loadContent(App.UserManager, contentWidget, activePage);
-		_async_loadPagination(App.UserManager, paginationWidgets, activePage);
+	CommonCtrl.loadUsersInWidget = function(listWidget, activePage) {
+		_async_loadContent(App.UserManager, listWidget, activePage);
+		var i = 0;
+		for(i; i<listWidget.paginationWidgets.length; i++){
+			_async_loadPagination(App.UserManager, listWidget.paginationWidgets[i], activePage);
+		}
 	};
 
 	CommonCtrl.loadUserStatsInWidget = function(contentWidget) {
@@ -370,7 +360,6 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 	
 	/**/
 	CommonCtrl.loadAllOfficesInWidget = function(contentWidget) {
-		/** Start of user code loadAllOfficesInWidget */
 		if(navigator.onLine) {
 			App.OfficeManager.async_allProxies(
 				function(officeProxies) { contentWidget.loadOfficeProxies(officeProxies); }
@@ -380,12 +369,14 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 				function(officeProxies) { contentWidget.loadOfficeProxies(officeProxies); }
 			);
 		}
-		/** End of user code */
 	};
 
-	CommonCtrl.loadOfficesInWidget = function(contentWidget, paginationWidgets, activePage) {
-		_async_loadContent(App.OfficeManager, contentWidget, activePage);
-		_async_loadPagination(App.OfficeManager, paginationWidgets, activePage);
+	CommonCtrl.loadOfficesInWidget = function(listWidget, activePage) {
+		_async_loadContent(App.OfficeManager, listWidget, activePage);
+		var i = 0;
+		for(i; i<listWidget.paginationWidgets.length; i++){
+			_async_loadPagination(App.OfficeManager, listWidget.paginationWidgets[i], activePage);
+		}
 	};
 
 	CommonCtrl.loadOfficeStatsInWidget = function(contentWidget) {
@@ -403,25 +394,23 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 
 
 
-	function _async_loadContent(objectManager, contentWidget, activePage) {
-		/** Start of user code default _async_loadContent*/
+	function _async_loadContent(objectManager, listWidget, activePage) {
 		if(activePage===undefined || activePage==null) {
 			activePage = 0;
 		}
+
 		if(navigator.onLine) {
 			objectManager.async_allByRows(
-				function(objects) { contentWidget.loadContent(objects); }, 5, activePage
+				function(objects) { listWidget.loadContent(objects); }, defaultNumRows, activePage
 			);
 		} else {
 			objectManager.allByRows(
-				function(objects) { contentWidget.loadContent(objects); }, 5, activePage
+				function(objects) { listWidget.loadContent(objects); }, defaultNumRows, activePage
 			);
 		}
-		/** End of user code */
 	}
 
 	function _async_loadStat(objectManager, contentWidget) {
-		/** Start of user code default _async_loadStat*/
 		if(navigator.onLine) {
 			objectManager.async_stats(
 				function(stats) { contentWidget.loadContent(stats); }
@@ -431,36 +420,39 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 				function(stats) { contentWidget.loadContent(stats); }
 			);
 		}
-		/** End of user code */
 	}
 	
 	/**/
-	function _async_loadPagination(objectManager, paginationWidgets, activePage) {
-		/** Start of user code default _async_loadPagination */
-		if(paginationWidgets===undefined || paginationWidgets==null) {
-			paginationWidgets = [];
-		}
-		if(activePage===undefined || activePage==null) {
-			activePage = 0;
-		}
+	function _async_loadPagination(objectManager, paginationWidget, activePage) {
 		if(navigator.onLine) {
 			objectManager.async_countAll(
 				function(count) {
 					var pageProxies = [];
-					for(var i = 0; i < count / 5; i++) {
+					var max = (count / defaultNumRows);
+					for(var i = 0; i < max; i++) {
 						pageProxies[i] = Proxy.Class.create({
 							id : i, desc : "" + (i + 1) + "", active : activePage==i
 						});
 					};
-					for (var i=0; i < paginationWidgets.length; i++) {
-					  paginationWidgets[i].loadContent(pageProxies);
-					};
+					
+					paginationWidget.loadContent(pageProxies);
 				}
 			);
 		} else {
-			// TODO something
+			objectManager.countAll(
+					function(count) {
+						var pageProxies = [];
+						var max = (count / defaultNumRows);
+						for(var i = 0; i < max; i++) {
+							pageProxies[i] = Proxy.Class.create({
+								id : i, desc : "" + (i + 1) + "", active : activePage==i
+							});
+						};
+						
+						paginationWidget.loadContent(pageProxies);
+					}
+				);
 		}
-		/** End of user code */
 	}
 
 	/**/
