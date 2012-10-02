@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cinematic:CinematicRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmi:id="_OHoC8AcpEeKriuko9xNWRg" modifiedOn="2012-10-02T09:48:14.549+0200" name="Choco Manager">
+<cinematic:CinematicRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmi:id="_OHoC8AcpEeKriuko9xNWRg" modifiedOn="2012-10-02T15:46:29.393+0200" name="Choco Manager">
   <flows xmi:id="_OHoC8QcpEeKriuko9xNWRg" name="Main">
     <states xsi:type="cinematic-flow:InitialState" xmi:id="_OHoC8gcpEeKriuko9xNWRg" name="Initial"/>
     <states xsi:type="cinematic-flow:SubflowState" xmi:id="_OHoC8wcpEeKriuko9xNWRg" subflow="_OHoC-QcpEeKriuko9xNWRg"/>
@@ -122,8 +122,11 @@
     <transitions xmi:id="_OHsUbgcpEeKriuko9xNWRg" from="_OHsUZgcpEeKriuko9xNWRg" on="_OHuwqAcpEeKriuko9xNWRg"/>
     <transitions xmi:id="_OHsUbwcpEeKriuko9xNWRg" from="_OHsUZgcpEeKriuko9xNWRg" on="_OHuwqgcpEeKriuko9xNWRg"/>
   </flows>
-  <viewContainers xmi:id="_OHs7cAcpEeKriuko9xNWRg" createdOn="2012-10-02T09:47:45.230+0200" modifiedOn="2012-10-02T09:48:14.549+0200" name="users" label="Users">
+  <viewContainers xmi:id="_OHs7cAcpEeKriuko9xNWRg" createdOn="2012-10-02T09:47:45.230+0200" modifiedOn="2012-10-02T15:46:29.393+0200" name="users" label="Users">
     <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
+    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7dAcpEeKriuko9xNWRg" name="usersByOffice">
+      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.9"/>
+    </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7cQcpEeKriuko9xNWRg" name="create-user-form">
       <widget href="pathmap://cinematic/toolkits/JBE#_Y__FYcZ3EeGhpfs0heeamg"/>
       <events xmi:id="_OHs7cgcpEeKriuko9xNWRg" name="add">
@@ -132,9 +135,6 @@
       <events xmi:id="_OHs7cwcpEeKriuko9xNWRg" name="close">
         <type href="pathmap://cinematic/toolkits/JBE#//@widgets.6/@possibleEvents.1"/>
       </events>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7dAcpEeKriuko9xNWRg" name="usersByOffice">
-      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.9"/>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7dgcpEeKriuko9xNWRg" name="userList">
       <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>

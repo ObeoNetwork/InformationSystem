@@ -45,8 +45,8 @@ define(["require", "app/App", "app/view/widget/Pagination", "app/view/widget/New
 	 */
 	Users.create = function() {
 		/** Start of user code default init widgets */
-		var createUserForm = NewUser.create();
 		var usersByOffice = UserStats.create();
+		var createUserForm = NewUser.create();
 		var userList = UserList.create();
 		var userListPrePagination = Pagination.create(userList);
 		userList.addPaginationWidget(userListPrePagination);
@@ -59,14 +59,14 @@ define(["require", "app/App", "app/view/widget/Pagination", "app/view/widget/New
 		var view = _Class.create({
 			/** Start of user code default sub widgets */
 			childViews: [
-						'createUserForm',
 						'usersByOffice',
+						'createUserForm',
 						'userListPrePagination',
 						'userList',
 						'userListPostPagination',
 						],
-			createUserForm : createUserForm,
 			usersByOffice : usersByOffice,
+			createUserForm : createUserForm,
 			userListPrePagination : userListPrePagination,
 			userList : userList,
 			userListPostPagination : userListPostPagination,
