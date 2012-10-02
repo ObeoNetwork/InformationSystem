@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.obeonetwork.org/dsl/application/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:ecorebinding="http://www.obeonetwork.org/dsl/ecorebinding/1.0.0">
-  <bindingRegistries description="Choco Registry" createdOn="2012-09-26T16:13:38.860+0200" modifiedOn="2012-09-26T16:17:23.307+0200">
+  <bindingRegistries description="Choco Registry" createdOn="2012-09-26T16:13:38.860+0200" modifiedOn="2012-10-02T09:46:37.328+0200">
     <bindingInfos bindingRegistries="//@bindingRegistries.0">
       <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHtihAcpEeKriuko9xNWRg"/>
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
     </bindingInfos>
     <bindingInfos bindingRegistries="//@bindingRegistries.0">
       <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHwl0AcpEeKriuko9xNWRg"/>
-      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
-    </bindingInfos>
-    <bindingInfos bindingRegistries="//@bindingRegistries.0">
-      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHtihwcpEeKriuko9xNWRg"/>
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
     </bindingInfos>
     <bindingInfos bindingRegistries="//@bindingRegistries.0">
@@ -22,15 +18,7 @@
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
     </bindingInfos>
     <bindingInfos>
-      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHtihwcpEeKriuko9xNWRg"/>
-      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
-    </bindingInfos>
-    <bindingInfos>
       <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHtiiAcpEeKriuko9xNWRg"/>
-      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
-    </bindingInfos>
-    <bindingInfos>
-      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuJkQcpEeKriuko9xNWRg"/>
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
     </bindingInfos>
     <bindingInfos>
@@ -38,17 +26,13 @@
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.0"/>
     </bindingInfos>
   </bindingRegistries>
-  <bindingRegistries description="Office Registry" createdOn="2012-09-26T16:13:40.233+0200" modifiedOn="2012-09-26T16:17:25.908+0200">
+  <bindingRegistries description="Office Registry" createdOn="2012-09-26T16:13:40.233+0200" modifiedOn="2012-10-02T09:46:44.671+0200">
     <bindingInfos bindingRegistries="//@bindingRegistries.1">
       <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuJlAcpEeKriuko9xNWRg"/>
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
     </bindingInfos>
     <bindingInfos bindingRegistries="//@bindingRegistries.1">
       <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHwl1AcpEeKriuko9xNWRg"/>
-      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
-    </bindingInfos>
-    <bindingInfos bindingRegistries="//@bindingRegistries.1">
-      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuJlwcpEeKriuko9xNWRg"/>
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
     </bindingInfos>
     <bindingInfos bindingRegistries="//@bindingRegistries.1">
@@ -60,15 +44,7 @@
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
     </bindingInfos>
     <bindingInfos>
-      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuJlwcpEeKriuko9xNWRg"/>
-      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
-    </bindingInfos>
-    <bindingInfos>
       <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuJmAcpEeKriuko9xNWRg"/>
-      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
-    </bindingInfos>
-    <bindingInfos>
-      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuwogcpEeKriuko9xNWRg"/>
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
     </bindingInfos>
     <bindingInfos>
@@ -76,7 +52,7 @@
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.2"/>
     </bindingInfos>
   </bindingRegistries>
-  <bindingRegistries description="User Registry" createdOn="2012-09-26T16:17:29.382+0200" modifiedOn="2012-09-26T16:17:29.382+0200">
+  <bindingRegistries description="User Registry" createdOn="2012-09-26T16:17:29.382+0200" modifiedOn="2012-10-02T09:47:03.726+0200">
     <bindingInfos bindingRegistries="//@bindingRegistries.2">
       <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHs7cQcpEeKriuko9xNWRg"/>
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
@@ -102,10 +78,6 @@
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
     </bindingInfos>
     <bindingInfos>
-      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHs7dQcpEeKriuko9xNWRg"/>
-      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
-    </bindingInfos>
-    <bindingInfos>
       <left xsi:type="cinematic-view:ViewContainer" href="choco.cinematic#_OHs7cAcpEeKriuko9xNWRg"/>
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
     </bindingInfos>
@@ -114,15 +86,7 @@
       <right xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHs7cQcpEeKriuko9xNWRg"/>
     </bindingInfos>
   </bindingRegistries>
-  <bindingRegistries description="Admin Registry">
-    <bindingInfos>
-      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHvXsQcpEeKriuko9xNWRg"/>
-      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
-    </bindingInfos>
-    <bindingInfos>
-      <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHvXtQcpEeKriuko9xNWRg"/>
-      <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
-    </bindingInfos>
+  <bindingRegistries description="Admin Registry" createdOn="2012-10-02T09:47:14.571+0200" modifiedOn="2012-10-02T09:47:15.726+0200">
     <bindingInfos>
       <left xsi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHvXsgcpEeKriuko9xNWRg"/>
       <right xsi:type="ecorebinding:BClass" href="Binding/AppChoco.ecorebinding#//@bPackages.0/@bClasses.1"/>
