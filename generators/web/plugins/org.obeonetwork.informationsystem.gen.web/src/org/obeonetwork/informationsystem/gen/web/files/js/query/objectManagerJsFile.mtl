@@ -30,75 +30,61 @@
 	[This/].async_all = function(cb_function) {
 		
 		var cb_[objects/] = function([objects/]) {
-			/** [protected ('cb_'.concat(objects).concat(' */'))]
 			cb_function([objects/]);
-			/** [/protected] */
 		};
 		
 		[WsObject/].all(cb_[objects/]);
 	};
 
 	[This/].all = function(cb_function) {
-		/** [protected ('default all */')]
 		var store = [LsObject/].getStore();
 		var [objects/] = store.[objects/];
 		cb_function([objects/]);
-		/** [/protected] */
 	};
 	
 
 	[This/].async_allProxies = function(cb_function) {
 		
 		var cb_[object/]Proxies = function([object/]Proxies) {
-			/** [protected ('cb_'.concat(object).concat('Proxies */'))]
 			[LsObject/].storeProxies([object/]Proxies);
 			cb_function([object/]Proxies);
-			/** [/protected] */
 		};
 		
 		[WsObject/].allProxies(cb_[object/]Proxies);
 	};
 
 	[This/].allProxies = function(cb_function) {
-		/** [protected ('default allProxies */')]
 		var store = [LsObject/].getStore();
 		var proxies = store.proxies;
 		cb_function(proxies);
-		/** [/protected] */
 	};
 
 
 	[This/].async_countAll = function(cb_function) {
 		
 		var cb_countAll[objects/] = function(count) {
-			/** [protected ('cb_countAll'.concat(objects).concat(' */'))]
 			cb_function(count);
-			/** [/protected] */
 		};
 		
 		[WsObject/].countAll[Objects/](cb_countAll[objects/]);
 	};
 
 	[This/].countAll = function(cb_function) {
-		/** [protected ('default countAll */')]
 		var store = [LsObject/].getStore();
-		var count = 0;
-	    for(var l[object/] in store.l[objects/])
+		var count = store.local.[objects/]ToAdd.length;
+	    for(var [object/] in store.[objects/])
 	    {
 	        count++;
 	    }
 		cb_function(count)
-		/** [/protected] */
 	};
 
 	
 	[This/].async_allByRows = function(cb_function, nbElemByRow, rowId) {
 		
 		var cb_allByRows = function([objects/]) {
-			/** [protected ('cb_allByRows */')]
 			[LsObject/].store[Objects/]([objects/]);
 			cb_function([objects/]);
-			/** [/protected] */
 			
 		};
 		
@@ -106,22 +92,21 @@
 	};
 
 	[This/].allByRows = function(cb_function, nbElemByRow, rowId) {
-		/** [protected ('default allByRows */')]
 		var store = [LsObject/].getStore();
 		var [objects/] = store.[objects/];
 		var [objects/]ToAdd = store.local.[objects/]ToAdd;
 		
-		var [objects/]Length = [objects/]ToAdd.length;
+		for ( var i = 0; i < [objects/]ToAdd.length; i++) {
+			[objects/]['["_"+i]'/] = [objects/]ToAdd['['/]i[']'/];
+		}
+
+		var [objects/]Length = 0;
 	    for(var [object/] in [objects/]) {
 	    	[objects/]Length++;
 	    }
 		var result = ['[]'/];
 		var from = Math.max(rowId*nbElemByRow, 0);
 		var to = Math.min(rowId*nbElemByRow+nbElemByRow, [objects/]Length);
-		
-		for ( var i = 0; i < [objects/]ToAdd.length; i++) {
-			result.push([objects/]ToAdd['['/]i[']'/]);
-		}
 		
 		var i = 0;
 		for(var [object/]Id in [objects/]) {
@@ -131,17 +116,14 @@
 			i++;
 		}
 		cb_function(result);
-		/** [/protected] */
 	};
 	
 
 	[This/].async_byId = function(cb_function, id) {
 		
 		var cb_[object/] = function([object/]) {
-			/** [protected ('cb_'.concat(object).concat(' */'))]
 			[LsObject/].store[Object/]([object/]);
 			cb_function([object/]);
-			/** [/protected] */
 		};
 		
 		[WsObject/].[object/](cb_[object/], id);
@@ -155,19 +137,15 @@
 	[This/].async_stats = function(cb_function) {
 		
 		var cb_[object/]Stats = function([objects/]) {
-			/** [protected ('cb_'.concat(object).concat('Stats */'))]
 			cb_function([objects/]);
-			/** [/protected] */
 		};
 		
 		[WsObject/].stats(cb_[object/]Stats);
 	};
 
 	[This/].stats = function(cb_function) {
-		/** [protected ('default stats */')]
 		var store = [LsObject/].getStore();
 		cb_function(store.[object/]Stats);
-		/** [/protected] */
 	};
 
 	// REMOVE

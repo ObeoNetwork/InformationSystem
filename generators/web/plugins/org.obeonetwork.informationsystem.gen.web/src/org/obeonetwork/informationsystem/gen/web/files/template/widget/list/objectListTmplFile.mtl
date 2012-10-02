@@ -9,7 +9,11 @@
 [file (genTmplObjectListFilePath().concat('.tmpl'), false, 'UTF-8')]
 [genHtmlCopyrightHeader()/]
 [genTmplHeader(anEClass, '0.3.0')/]
-
+<!--
+	@param {model.[anEClass.toTypeIdent()/]['['/][']'/]} content
+	@param {model.Proxy['['/][']'/]} proxies
+	@param {model.Proxy} currentProxy
+-->
 [wrapScriptSign(genTmplObjectListIdent(anEClass), defaultTemplate(anEClass))/]
 
 [/file]
@@ -23,21 +27,6 @@
 		{{#if [contextName/].local}}
 		<div class="well local">
 
-			{{#if user.localRemove}}
-			<div style="float: right;">
-				<img class="align-left" src="./asset/img/remove.png" height="24px">
-			</div>
-			{{/if}}
-			{{#if user.localAdd}}
-			<div style="float: right;">
-				<img class="align-left" src="./asset/img/add.png" height="24px">
-			</div>
-			{{/if}}
-			{{#if user.localUpdate}}
-			<div style="float: right;">
-				<img class="align-left" src="./asset/img/refresh.png" height="24px">
-			</div>
-			{{/if}}
 
 			<div class="btn-group">
 				<a {{action "editAction" context="[contextName/]"}} class="btn btn-inverse" href="#"><i class=""></i> 
@@ -46,13 +35,25 @@
 				<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#">&nbsp;<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li>
-						<a {{action "editAction" context="[contextName/]"}} href="#"><i class="icon-pencil"></i> Edit</a>
-					</li>
-					<li>
-						<a {{action "removeAction" context="[contextName/]"}} href="#"><i class="icon-trash"></i> Delete</a>
+						<a href="#"><i class="icon-pencil"></i> standby network connection</a>
 					</li>
 				</ul>
 			</div>
+			{{#if [contextName/].localRemove}}
+			<div style="float: right;">
+				<img class="align-right" src="./asset/img/remove.png" height="24px">
+			</div>
+			{{/if}}
+			{{#if [contextName/].localAdd}}
+			<div style="float: right;">
+				<img class="align-right" src="./asset/img/add.png" height="24px">
+			</div>
+			{{/if}}
+			{{#if [contextName/].localUpdate}}
+			<div style="float: right;">
+				<img class="align-right" src="./asset/img/refresh.png" height="24px">
+			</div>
+			{{/if}}
 			<ul class="[contextName/]-row">
 				[for (aStrucFeature : EStructuralFeature | (anEClass.eAllStructuralFeatures)->select(not(unsettable)))]
 				[genTmplDisplayFeature(anEClass, aStrucFeature)/]

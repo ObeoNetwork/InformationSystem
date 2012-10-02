@@ -27,7 +27,7 @@
 	
 	var allowedStates = ['['/]"state-default", "state-in-login", "state-user", "state-moderator", "state-admin"[']'/];
 	var host = "http://"+window.location.host;
-	
+	var defaultNumRows = 5;
 	[initFunction()/]
 
 	[This/].start = function() {
@@ -123,16 +123,12 @@
 		}
 	};
 	[This/].showModal[Object/] = function(id) {
-		/** [protected ('showModal'.concat(Object).concat(' */'))]
 		[App/].[ObjectManager/].async_byId(function([object/]) {
 			[CommonPage/].showModal[Object/]([object/]);
 		}, id);
-		/** [/protected] */
 	};
 	[This/].edit[Object/] = function([object/]) {
-		/** [protected ('edit'.concat(Object).concat(' */'))]
 		[recAsyncEdit(anEClass, anEClass.eReferences)/]
-		/** [/protected] */
 	};
 	[/let]
 	[/let]
@@ -147,7 +143,6 @@
 	
 	/**/
 	[This/].loadAll[Objects/]InWidget = function(contentWidget) {
-		/** [protected ('loadAll'.concat(Objects).concat('InWidget */'))]
 		if(navigator.onLine) {
 			[App/].[ObjectManager/].async_allProxies(
 				[comment [jsComment4RecStart(anEClass)/]
@@ -159,12 +154,14 @@
 				function([object/]Proxies) { contentWidget.load[object.toTypeIdent()/]Proxies([object/]Proxies); }
 			);
 		}
-		/** [/protected] */
 	};
 
-	[This/].load[Objects/]InWidget = function(contentWidget, paginationWidgets, activePage) {
-		_async_loadContent([App/].[ObjectManager/], contentWidget, activePage);
-		_async_loadPagination([App/].[ObjectManager/], paginationWidgets, activePage);
+	[This/].load[Objects/]InWidget = function(listWidget, activePage) {
+		_async_loadContent([App/].[ObjectManager/], listWidget, activePage);
+		var i = 0;
+		for(i; i<listWidget.paginationWidgets.length; i++){
+			_async_loadPagination([App/].[ObjectManager/], listWidget.paginationWidgets['[i]'/], activePage);
+		}
 	};
 
 	[This/].load[object.toTypeIdent()/]StatsInWidget = function(contentWidget) {
@@ -186,25 +183,23 @@
 
 
 
-	function _async_loadContent(objectManager, contentWidget, activePage) {
-		/** [protected ('default _async_loadContent*/')]
+	function _async_loadContent(objectManager, listWidget, activePage) {
 		if(activePage===undefined || activePage==null) {
 			activePage = 0;
 		}
+
 		if(navigator.onLine) {
 			objectManager.async_allByRows(
-				function(objects) { contentWidget.loadContent(objects); }, 5, activePage
+				function(objects) { listWidget.loadContent(objects); }, defaultNumRows, activePage
 			);
 		} else {
 			objectManager.allByRows(
-				function(objects) { contentWidget.loadContent(objects); }, 5, activePage
+				function(objects) { listWidget.loadContent(objects); }, defaultNumRows, activePage
 			);
 		}
-		/** [/protected] */
 	}
 
 	function _async_loadStat(objectManager, contentWidget) {
-		/** [protected ('default _async_loadStat*/')]
 		if(navigator.onLine) {
 			objectManager.async_stats(
 				function(stats) { contentWidget.loadContent(stats); }
@@ -214,38 +209,41 @@
 				function(stats) { contentWidget.loadContent(stats); }
 			);
 		}
-		/** [/protected] */
 	}
 	
 	/**/
-	function _async_loadPagination(objectManager, paginationWidgets, activePage) {
-		/** [protected ('default _async_loadPagination */')]
-		if(paginationWidgets===undefined || paginationWidgets==null) {
-			paginationWidgets = ['['/][']'/];
-		}
-		if(activePage===undefined || activePage==null) {
-			activePage = 0;
-		}
+	function _async_loadPagination(objectManager, paginationWidget, activePage) {
 		if(navigator.onLine) {
 			objectManager.async_countAll(
 				[comment [jsComment4RecStart()/]
 				function(count) {
-					var pageProxies = ['['/][']'/];
-					for(var i = 0; i < count / 5; i++) {
-						pageProxies['['/]i[']'/] = [Proxy/].Class.create({
+					var pageProxies = ['[]'/];
+					var max = (count / defaultNumRows);
+					for(var i = 0; i < max; i++) {
+						pageProxies['[i]'/] = [Proxy/].Class.create({
 							id : i, desc : "" + (i + 1) + "", active : activePage==i
 						});
 					};
-					for (var i=0; i < paginationWidgets.length; i++) {
-					  paginationWidgets['['/]i[']'/].loadContent(pageProxies);
-					};
+					
+					paginationWidget.loadContent(pageProxies);
 				}
 				[comment [jsComment4RecStop()/]
 			);
 		} else {
-			// TODO something
+			objectManager.countAll(
+					function(count) {
+						var pageProxies = ['[]'/];
+						var max = (count / defaultNumRows);
+						for(var i = 0; i < max; i++) {
+							pageProxies['[i]'/] = [Proxy/].Class.create({
+								id : i, desc : "" + (i + 1) + "", active : activePage==i
+							});
+						};
+						
+						paginationWidget.loadContent(pageProxies);
+					}
+				);
 		}
-		/** [/protected] */
 	}
 
 	[privateFunctions()/]

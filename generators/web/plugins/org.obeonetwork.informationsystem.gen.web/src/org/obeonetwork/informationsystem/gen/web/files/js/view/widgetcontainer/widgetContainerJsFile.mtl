@@ -19,10 +19,13 @@
 
 		App : String = genAppIdent();
 		AppPath : String = genAppFileRPath();
-
+		
+		Pagination : String = genJsPaginationIdent();
+		PaginationPath : String = genJsPaginationFileRPath();
+		
 		Widgets : Sequence(AbstractViewElement) = aWidgetContainer.reqStaticWidgets();
-		WidgetPaths: Sequence(String) = Sequence{AppPath}->unionOrdered(Widgets.genJsWidgetFileRPath())->asOrderedSet()->asSequence();
-		WidgetIdents: Sequence(String) = Sequence{App}->unionOrdered(Widgets.genJsWidgetIdent())->asOrderedSet()->asSequence();
+		WidgetPaths: Sequence(String) = Sequence{AppPath, PaginationPath}->unionOrdered(Widgets.genJsWidgetFileRPath())->asOrderedSet()->asSequence();
+		WidgetIdents: Sequence(String) = Sequence{App, Pagination}->unionOrdered(Widgets.genJsWidgetIdent())->asOrderedSet()->asSequence();
 }]
 [file (genJsFullPath(genWidgetContainerFileRPath()), false, 'UTF-8')]
 
@@ -50,18 +53,41 @@
 		/** [protected ('default init widgets */')]
 		[for (viewElem : AbstractViewElement | Widgets)]
 		var [viewElem.name.toVarIdent()/] = [viewElem.genJsWidgetIdent()/].create();
+		[if (viewElem.isObjectList())]
+		var [viewElem.name.concat('PrePagination').toVarIdent()/] = [Pagination/].create([viewElem.name.toVarIdent()/]);
+		[viewElem.name.toVarIdent()/].addPaginationWidget([viewElem.name.concat('PrePagination').toVarIdent()/]);
+
+		var [viewElem.name.concat('PostPagination').toVarIdent()/] = [Pagination/].create([viewElem.name.toVarIdent()/]);
+		[viewElem.name.toVarIdent()/].addPaginationWidget([viewElem.name.concat('PostPagination').toVarIdent()/]);
+		
+		[/if]
 		[/for]
 		/** [/protected] */
 
 		var view = _Class.create({
 			/** [protected ('default sub widgets */')]
-			childViews: ['['/][for (viewElem : AbstractViewElement | Widgets)]'[viewElem.name.toVarIdent()/]'[if(i<Widgets->size())], [/if][/for][']'/],
+			childViews: ['['/]
+						[for (viewElem : AbstractViewElement | Widgets)]
+						[if (viewElem.isObjectList())]
+						'[viewElem.name.concat('PrePagination').toVarIdent()/]',
+						[/if]
+						'[viewElem.name.toVarIdent()/]',
+						[if (viewElem.isObjectList())]
+						'[viewElem.name.concat('PostPagination').toVarIdent()/]',
+						[/if]
+						[/for]
+						[']'/],
 			[for (viewElem : AbstractViewElement | Widgets)]
+			[if (viewElem.isObjectList())]
+			[viewElem.name.concat('PrePagination').toVarIdent()/] : [viewElem.name.concat('PrePagination').toVarIdent()/],
+			[/if]
 			[viewElem.name.toVarIdent()/] : [viewElem.name.toVarIdent()/],
+			[if (viewElem.isObjectList())]
+			[viewElem.name.concat('PostPagination').toVarIdent()/] : [viewElem.name.concat('PostPagination').toVarIdent()/],
+			[/if]
 			[/for]
 			/** [/protected] */
 
-			didInsertElement : cb_whenInsert,
 			[freeJsUC('additional features')/]
 			[for (aTransitionOut : String | aWidgetContainer.viewStates().reqTransitionsLeaveFrom()->select(not(to.oclIsUndefined()) and to.oclIsKindOf(ViewState) and isOnClick()).toIdent().toVarIdent())]
 			[aTransitionOut/] : cb_[aTransitionOut/],
@@ -78,13 +104,6 @@
 		
 	};
 
-	/*call backs*/
-	var cb_whenInsert = function() {
-		
-		this.paginationChange();
-	};
-	
-	[aWidgetContainer.paginationChange() /]
 	
 [genAMDFooter(This)/]
 [/file]
@@ -93,21 +112,4 @@
 
 [template private eventCallBack(eventIdent : String, origin : AbstractViewElement, target : AbstractViewElement)]
 // [eventIdent/] event call back has been bypass (Widget Type problem or not dynamic support)
-[/template]
-
-
-[template private paginationChange(aWidgetContainer : ViewContainer) ? (aWidgetContainer.ownedElements->select(isPagination())->size()>0) {
-		This : String = genWidgetContainerFileIdent();
-		App : String = genAppIdent();
-		boundEClass : ecore::EClass = aWidgetContainer.reqBoundEClass();
-} ]
-var cb_paginationChange = function(pageId) {
-	[let paginationVars : Sequence(String) = aWidgetContainer.ownedElements->select(isPagination()).name.toVarIdent()]
-	[let listVars : Sequence(String) = aWidgetContainer.ownedElements->select(isObjectList()).name.toVarIdent()]
-		[for (listVar : String | listVars)]
-	[App/].[genCommonCtrlIdent().toVarIdent()/].load[boundEClass.toPluralIdent()/]InWidget(this.[listVar/], ['['/][for (paginationVar : String | paginationVars)][if (i>1)], [/if]this.[paginationVar/][/for][']'/], pageId);
-		[/for]
-	[/let]
-	[/let]
-}
 [/template]

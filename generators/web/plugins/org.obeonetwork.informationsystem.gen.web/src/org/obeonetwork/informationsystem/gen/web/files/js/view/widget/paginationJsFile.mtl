@@ -31,12 +31,12 @@
 	 * create a [This/] widget
 	 * @return the [This/] widget instance
 	 */
-	[This/].create = function() {
+	[This/].create = function(listWidget) {
 		[ViewUtil/].loadWidgetTemplate("./[genTmplPaginationFilePath()/]");
 
 		var view = _Class.create({
 			paginationProxies : ['['/][']'/],
-			
+			listWidget : listWidget,
 			loadContent : cb_loadProxies,
 			paginationLink: paginationLink,
 			[freeJsUC('additional features')/]
@@ -48,7 +48,7 @@
 	var paginationLink = function(e){
 		e.preventDefault();
 		var paginationProxy = e.context;
-		this.get('parentView').paginationChange(paginationProxy.id);
+		this.listWidget.paginationChange(paginationProxy.id);
 	};
 
 	/*call backs*/

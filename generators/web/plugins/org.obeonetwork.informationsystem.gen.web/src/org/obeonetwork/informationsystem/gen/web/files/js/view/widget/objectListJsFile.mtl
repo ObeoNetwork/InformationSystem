@@ -79,10 +79,18 @@
 		
 		var view = _Class.create({
 				
-			content : ['['/][']'/],
+			content : ['[]'/],
+			paginationProxies : ['[]'/],
 			itemViewClass : _ItemClass,
-			
+			paginationWidgets : ['[]'/],
+			addPaginationWidget : function(paginationWidget) {
+				this.paginationWidgets.push(paginationWidget);
+			},
 			loadContent : cb_load[Objects/],
+			//loadPagination : cb_loadProxies,
+			paginationLink: paginationLink,
+			didInsertElement : cb_whenInsert,
+			paginationChange : cb_paginationChange,
 			[freeJsUC('additional features')/]
 		});
 			 
@@ -91,11 +99,34 @@
 
 	[This/].getClass = function() { return _Class; };
 	
+	/* events */
+	var paginationLink = function(e){
+		e.preventDefault();
+		var paginationProxy = e.context;
+		this.get('parentView').paginationChange(paginationProxy.id);
+	};
+
 	/*call backs*/
+	var cb_whenInsert = function() {
+		this.paginationChange(0);
+	};
+
+	var cb_paginationChange = function(pageId) {
+		[App/].[genCommonCtrlIdent().toVarIdent()/].load[anEClass.toPluralIdent()/]InWidget(this, pageId);
+	}
+
 	var cb_load[Objects/] = function([objects/]) {
 
 		this.set('content', [objects/]);
 	};
+
+	/*var cb_loadProxies = function(paginationProxies) {
+		
+		if(paginationProxies.length>1)
+			this.set('paginationProxies', paginationProxies);
+		else
+			this.set('paginationProxies', ['[]'/]);
+	};*/
 	
 [genAMDFooter(This)/]
 [/file]
