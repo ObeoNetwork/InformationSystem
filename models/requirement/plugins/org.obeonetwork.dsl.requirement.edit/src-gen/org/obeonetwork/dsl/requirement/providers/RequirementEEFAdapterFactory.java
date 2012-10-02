@@ -5,10 +5,6 @@ package org.obeonetwork.dsl.requirement.providers;
 
 import org.eclipse.emf.common.notify.Adapter;
 
-import org.obeonetwork.dsl.requirement.providers.CategoryPropertiesEditionProvider;
-import org.obeonetwork.dsl.requirement.providers.RepositoryPropertiesEditionProvider;
-import org.obeonetwork.dsl.requirement.providers.RequirementPropertiesEditionProvider;
-
 import org.obeonetwork.dsl.requirement.util.RequirementAdapterFactory;
 
 /**
