@@ -29,7 +29,8 @@
     <genClasses ecoreClass="requirement.ecore#//Requirement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirement.ecore#//Requirement/id"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute requirement.ecore#//Requirement/version"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference requirement.ecore#//Requirement/referencedObject"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference requirement.ecore#//Requirement/referencedObject"/>
       <genFeatures createChild="false" propertyDescription="Statement of what the requirement is, including a definition of whether the requirement shall be met, should be met, or may be met."
           ecoreFeature="ecore:EAttribute requirement.ecore#//Requirement/statement"/>
       <genFeatures createChild="false" propertyDescription="Statement of why the requirement exists."

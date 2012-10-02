@@ -177,6 +177,8 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		createDescription(parent, RequirementViewsRepository.Advanced.referencedObject, RequirementMessages.AdvancedPropertiesEditionPart_ReferencedObjectLabel);
 		referencedObject = new FlatReferencesTable(parent);
 		referencedObject.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+		referencedObject.setEnabled(false);
+		referencedObject.setToolTipText(RequirementMessages.Advanced_ReadOnly);
 
 		referencedObject.addSelectionChangedListener(new ISelectionChangedListener() {
 
