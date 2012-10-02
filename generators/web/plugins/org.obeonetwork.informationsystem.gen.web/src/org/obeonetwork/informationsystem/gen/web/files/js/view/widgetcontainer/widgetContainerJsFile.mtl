@@ -95,9 +95,6 @@
 			[for (aTransitionIn : String | aWidgetContainer.viewStates().reqTransitionsIncomeTo()->select(not(from.oclIsUndefined()) and from.oclIsKindOf(ViewState) and (isClose() or isAdd())).toIdent().toVarIdent()->asOrderedSet())]
 			[aTransitionIn/] : cb_[aTransitionIn/],
 			[/for]
-			[if(aWidgetContainer.ownedElements->select(isPagination())->size()>0)]
-			paginationChange : cb_paginationChange
-			[/if]
 		});
 		
 		return view;

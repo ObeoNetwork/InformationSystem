@@ -56,7 +56,6 @@
 
 			createEvent : createEvent,
 			closeEvent : closeEvent,
-			addEvent : addEvent,
 
 			validForm: validForm,
 			[freeJsUC('additional features')/]
@@ -75,10 +74,6 @@
 	var closeEvent = function(e) {
 		e.preventDefault();
 		this.hideWidget();
-	};
-	var addEvent = function() {
-		this.hideWidget();
-		this.get('parentView').addEvent(this);
 	};
 	
 	var hideWidget = function() {

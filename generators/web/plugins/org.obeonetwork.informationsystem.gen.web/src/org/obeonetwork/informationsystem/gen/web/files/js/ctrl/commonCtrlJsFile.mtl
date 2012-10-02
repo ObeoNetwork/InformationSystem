@@ -136,6 +136,13 @@
 
 [/for]
 
+	[This/].rerenderWidgetContainer = function(widgetContainer) {
+		var childViews = widgetContainer.get('childViews');
+		for(var i = 0; i<childViews.length; i++) {
+			childViews['[i]'/].rerender();
+		}
+	};
+
 [for (anEClass : EClass | objectEClasses)]
 	[let object : String = anEClass.toVarIdent()]
 	[let Objects : String = anEClass.toPluralIdent()]
@@ -175,6 +182,9 @@
 
 	[This/].toOnline = function() {
 		[CommonPage/].renderOnline();
+		[for (ObjectManager : String | objectEClasses.genObjectManagerIdent().toTypeIdent())]
+		[App/].[ObjectManager/].toOnlineProcess();
+		[/for]
 	};
 	
 	[This/].toOffline = function() {

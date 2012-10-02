@@ -27,6 +27,28 @@
 	var [This/] = {},
 		lsEnable = (typeof(Storage)!=="undefined");
 
+	[This/].toOnlineProcess = function() {
+		var store = [LsObject/].getStore();
+		var [objects/]ToAdd = store.local.[objects/]ToAdd;
+		for(var i=0; i<[objects/]ToAdd.length; i++) {
+			[This/].async_add(function(){}, [objects/]ToAdd['[i]'/]);
+		}
+
+		var [objects/] = store.[objects/];
+		var [objects/]ToRemove = store.local.[objects/]ToRemove;
+		var [objects/]ToUpdate = store.local.[objects/]ToUpdate;
+
+		for(var i=0; i<[objects/]ToRemove.length; i++) {
+			var id = [objects/]ToRemove['[i]'/];
+			[This/].async_remove(function(){}, [objects/]['[id]'/]);
+		}
+
+		for(var i=0; i<[objects/]ToUpdate.length; i++) {
+			var id = [objects/]ToUpdate['[i]'/];
+			[This/].async_update(function(){}, [objects/]['[id]'/]);
+		}
+	};
+
 	[This/].async_all = function(cb_function) {
 		
 		var cb_[objects/] = function([objects/]) {
@@ -153,7 +175,7 @@
 	[This/].async_remove = function(cb_function, [object/]) {
 		
 		var cb_remove = function() {
-			[LsObject/].remove[Object/]([object/]);
+			//[LsObject/].remove[Object/]([object/]);
 			cb_function();
 		};
 		var store = [LsObject/].getStore();
@@ -170,7 +192,7 @@
 	[This/].async_update = function(cb_function, [object/]) {
 		
 		var cb_update = function() {
-			[LsObject/].update[Object/]([object/]);
+			//[LsObject/].update[Object/]([object/]);
 			cb_function();
 		};
 		var store = [LsObject/].getStore();
@@ -186,9 +208,8 @@
 	
 	// ADD
 	[This/].async_add = function(cb_function, [object/]) {
-		//TODO WArning bug?
 		var cb_add = function() {
-			[LsObject/].store[Object/]([object/]);
+			//[LsObject/].store[Object/]([object/]);
 			cb_function();
 		};
 		var store = [LsObject/].getStore();

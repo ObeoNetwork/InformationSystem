@@ -30,6 +30,28 @@ define(["require", "app/ws/WsOffice", "app/ls/LsOffice" ], function(require) {
 	var OfficeManager = {},
 		lsEnable = (typeof(Storage)!=="undefined");
 
+	OfficeManager.toOnlineProcess = function() {
+		var store = LsOffice.getStore();
+		var officesToAdd = store.local.officesToAdd;
+		for(var i=0; i<officesToAdd.length; i++) {
+			OfficeManager.async_add(function(){}, officesToAdd[i]);
+		}
+
+		var offices = store.offices;
+		var officesToRemove = store.local.officesToRemove;
+		var officesToUpdate = store.local.officesToUpdate;
+
+		for(var i=0; i<officesToRemove.length; i++) {
+			var id = officesToRemove[i];
+			OfficeManager.async_remove(function(){}, offices[id]);
+		}
+
+		for(var i=0; i<officesToUpdate.length; i++) {
+			var id = officesToUpdate[i];
+			OfficeManager.async_update(function(){}, offices[id]);
+		}
+	};
+
 	OfficeManager.async_all = function(cb_function) {
 		
 		var cb_offices = function(offices) {
@@ -157,7 +179,7 @@ define(["require", "app/ws/WsOffice", "app/ls/LsOffice" ], function(require) {
 	OfficeManager.async_remove = function(cb_function, office) {
 		
 		var cb_remove = function() {
-			LsOffice.removeOffice(office);
+			//LsOffice.removeOffice(office);
 			cb_function();
 		};
 		var store = LsOffice.getStore();
@@ -174,7 +196,7 @@ define(["require", "app/ws/WsOffice", "app/ls/LsOffice" ], function(require) {
 	OfficeManager.async_update = function(cb_function, office) {
 		
 		var cb_update = function() {
-			LsOffice.updateOffice(office);
+			//LsOffice.updateOffice(office);
 			cb_function();
 		};
 		var store = LsOffice.getStore();
@@ -190,9 +212,8 @@ define(["require", "app/ws/WsOffice", "app/ls/LsOffice" ], function(require) {
 	
 	// ADD
 	OfficeManager.async_add = function(cb_function, office) {
-		//TODO WArning bug?
 		var cb_add = function() {
-			LsOffice.storeOffice(office);
+			//LsOffice.storeOffice(office);
 			cb_function();
 		};
 		var store = LsOffice.getStore();

@@ -307,6 +307,13 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 	};
 
 
+	CommonCtrl.rerenderWidgetContainer = function(widgetContainer) {
+		var childViews = widgetContainer.get('childViews');
+		for(var i = 0; i<childViews.length; i++) {
+			childViews[i].rerender();
+		}
+	};
+
 	
 	/**/
 	CommonCtrl.loadAllChocosInWidget = function(contentWidget) {
@@ -386,6 +393,9 @@ define(["require", "app/App", "app/security/LogManager", "app/view/page/CommonPa
 
 	CommonCtrl.toOnline = function() {
 		CommonPage.renderOnline();
+		App.ChocoManager.toOnlineProcess();
+		App.UserManager.toOnlineProcess();
+		App.OfficeManager.toOnlineProcess();
 	};
 	
 	CommonCtrl.toOffline = function() {

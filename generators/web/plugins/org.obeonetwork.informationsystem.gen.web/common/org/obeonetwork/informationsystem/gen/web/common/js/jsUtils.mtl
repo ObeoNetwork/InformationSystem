@@ -175,6 +175,9 @@ var validForm = function(e) {
 	if(result) {
 		[App/].commonCtrl.add[Object/](this.[object/]);
 		this.hideWidget();
+		
+		var widgetContainer = this.get('parentView');
+		[App/].commonCtrl.rerenderWidgetContainer(widgetContainer);
 	} else {
 		App.toast.error(errorMsg+"Please, correct error(s).");
 	}

@@ -30,6 +30,28 @@ define(["require", "app/ws/WsChoco", "app/ls/LsChoco" ], function(require) {
 	var ChocoManager = {},
 		lsEnable = (typeof(Storage)!=="undefined");
 
+	ChocoManager.toOnlineProcess = function() {
+		var store = LsChoco.getStore();
+		var chocosToAdd = store.local.chocosToAdd;
+		for(var i=0; i<chocosToAdd.length; i++) {
+			ChocoManager.async_add(function(){}, chocosToAdd[i]);
+		}
+
+		var chocos = store.chocos;
+		var chocosToRemove = store.local.chocosToRemove;
+		var chocosToUpdate = store.local.chocosToUpdate;
+
+		for(var i=0; i<chocosToRemove.length; i++) {
+			var id = chocosToRemove[i];
+			ChocoManager.async_remove(function(){}, chocos[id]);
+		}
+
+		for(var i=0; i<chocosToUpdate.length; i++) {
+			var id = chocosToUpdate[i];
+			ChocoManager.async_update(function(){}, chocos[id]);
+		}
+	};
+
 	ChocoManager.async_all = function(cb_function) {
 		
 		var cb_chocos = function(chocos) {
@@ -157,7 +179,7 @@ define(["require", "app/ws/WsChoco", "app/ls/LsChoco" ], function(require) {
 	ChocoManager.async_remove = function(cb_function, choco) {
 		
 		var cb_remove = function() {
-			LsChoco.removeChoco(choco);
+			//LsChoco.removeChoco(choco);
 			cb_function();
 		};
 		var store = LsChoco.getStore();
@@ -174,7 +196,7 @@ define(["require", "app/ws/WsChoco", "app/ls/LsChoco" ], function(require) {
 	ChocoManager.async_update = function(cb_function, choco) {
 		
 		var cb_update = function() {
-			LsChoco.updateChoco(choco);
+			//LsChoco.updateChoco(choco);
 			cb_function();
 		};
 		var store = LsChoco.getStore();
@@ -190,9 +212,8 @@ define(["require", "app/ws/WsChoco", "app/ls/LsChoco" ], function(require) {
 	
 	// ADD
 	ChocoManager.async_add = function(cb_function, choco) {
-		//TODO WArning bug?
 		var cb_add = function() {
-			LsChoco.storeChoco(choco);
+			//LsChoco.storeChoco(choco);
 			cb_function();
 		};
 		var store = LsChoco.getStore();

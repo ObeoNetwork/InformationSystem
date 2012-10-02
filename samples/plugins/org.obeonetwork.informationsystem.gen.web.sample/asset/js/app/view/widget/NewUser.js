@@ -117,7 +117,6 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "app
 
 			createEvent : createEvent,
 			closeEvent : closeEvent,
-			addEvent : addEvent,
 
 			validForm: validForm,
 			/** Start of user code additional features */
@@ -136,10 +135,6 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "app
 	var closeEvent = function(e) {
 		e.preventDefault();
 		this.hideWidget();
-	};
-	var addEvent = function() {
-		this.hideWidget();
-		this.get('parentView').addEvent(this);
 	};
 	
 	var hideWidget = function() {
@@ -200,6 +195,9 @@ define(["require", "app/App", "app/view/ViewUtil", "app/view/CommonEvents", "app
 		if(result) {
 			App.commonCtrl.addUser(this.userInProgress);
 			this.hideWidget();
+			
+			var widgetContainer = this.get('parentView');
+			App.commonCtrl.rerenderWidgetContainer(widgetContainer);
 		} else {
 			App.toast.error(errorMsg+"Please, correct error(s).");
 		}

@@ -30,6 +30,28 @@ define(["require", "app/ws/WsUser", "app/ls/LsUser" ], function(require) {
 	var UserManager = {},
 		lsEnable = (typeof(Storage)!=="undefined");
 
+	UserManager.toOnlineProcess = function() {
+		var store = LsUser.getStore();
+		var usersToAdd = store.local.usersToAdd;
+		for(var i=0; i<usersToAdd.length; i++) {
+			UserManager.async_add(function(){}, usersToAdd[i]);
+		}
+
+		var users = store.users;
+		var usersToRemove = store.local.usersToRemove;
+		var usersToUpdate = store.local.usersToUpdate;
+
+		for(var i=0; i<usersToRemove.length; i++) {
+			var id = usersToRemove[i];
+			UserManager.async_remove(function(){}, users[id]);
+		}
+
+		for(var i=0; i<usersToUpdate.length; i++) {
+			var id = usersToUpdate[i];
+			UserManager.async_update(function(){}, users[id]);
+		}
+	};
+
 	UserManager.async_all = function(cb_function) {
 		
 		var cb_users = function(users) {
@@ -157,7 +179,7 @@ define(["require", "app/ws/WsUser", "app/ls/LsUser" ], function(require) {
 	UserManager.async_remove = function(cb_function, user) {
 		
 		var cb_remove = function() {
-			LsUser.removeUser(user);
+			//LsUser.removeUser(user);
 			cb_function();
 		};
 		var store = LsUser.getStore();
@@ -174,7 +196,7 @@ define(["require", "app/ws/WsUser", "app/ls/LsUser" ], function(require) {
 	UserManager.async_update = function(cb_function, user) {
 		
 		var cb_update = function() {
-			LsUser.updateUser(user);
+			//LsUser.updateUser(user);
 			cb_function();
 		};
 		var store = LsUser.getStore();
@@ -190,9 +212,8 @@ define(["require", "app/ws/WsUser", "app/ls/LsUser" ], function(require) {
 	
 	// ADD
 	UserManager.async_add = function(cb_function, user) {
-		//TODO WArning bug?
 		var cb_add = function() {
-			LsUser.storeUser(user);
+			//LsUser.storeUser(user);
 			cb_function();
 		};
 		var store = LsUser.getStore();
