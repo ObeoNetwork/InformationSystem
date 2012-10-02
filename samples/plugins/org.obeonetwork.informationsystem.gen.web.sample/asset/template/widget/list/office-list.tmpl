@@ -26,9 +26,21 @@
 		{{#if office.local}}
 		<div class="well local">
 
-			<!--localRemove {{office.localRemove}}
-			localAdd {{office.localAdd}}
-			localUpdate {{oofficeffice.localUpdate}}-->
+			{{#if user.localRemove}}
+			<div style="float: right;">
+				<img class="align-left" src="./asset/img/remove.png" height="24px">
+			</div>
+			{{/if}}
+			{{#if user.localAdd}}
+			<div style="float: right;">
+				<img class="align-left" src="./asset/img/add.png" height="24px">
+			</div>
+			{{/if}}
+			{{#if user.localUpdate}}
+			<div style="float: right;">
+				<img class="align-left" src="./asset/img/refresh.png" height="24px">
+			</div>
+			{{/if}}
 
 			<div class="btn-group">
 				<a {{action "editAction" context="office"}} class="btn btn-inverse" href="#"><i class=""></i> 
@@ -53,10 +65,6 @@
 		</div>
 		{{else}}
 		<div class="well">
-
-			<!--localRemove {{office.localRemove}}
-			localAdd {{office.localAdd}}
-			localUpdate {{oofficeffice.localUpdate}}-->
 
 			<div class="btn-group">
 				<a {{action "editAction" context="office"}} class="btn btn-inverse" href="#"><i class=""></i> 

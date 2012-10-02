@@ -23,9 +23,21 @@
 		{{#if [contextName/].local}}
 		<div class="well local">
 
-			<!--localRemove {{[contextName/].localRemove}}
-			localAdd {{[contextName/].localAdd}}
-			localUpdate {{o[contextName/]ffice.localUpdate}}-->
+			{{#if user.localRemove}}
+			<div style="float: right;">
+				<img class="align-left" src="./asset/img/remove.png" height="24px">
+			</div>
+			{{/if}}
+			{{#if user.localAdd}}
+			<div style="float: right;">
+				<img class="align-left" src="./asset/img/add.png" height="24px">
+			</div>
+			{{/if}}
+			{{#if user.localUpdate}}
+			<div style="float: right;">
+				<img class="align-left" src="./asset/img/refresh.png" height="24px">
+			</div>
+			{{/if}}
 
 			<div class="btn-group">
 				<a {{action "editAction" context="[contextName/]"}} class="btn btn-inverse" href="#"><i class=""></i> 
@@ -49,10 +61,6 @@
 		</div>
 		{{else}}
 		<div class="well">
-
-			<!--localRemove {{[contextName/].localRemove}}
-			localAdd {{[contextName/].localAdd}}
-			localUpdate {{o[contextName/]ffice.localUpdate}}-->
 
 			<div class="btn-group">
 				<a {{action "editAction" context="[contextName/]"}} class="btn btn-inverse" href="#"><i class=""></i> 
