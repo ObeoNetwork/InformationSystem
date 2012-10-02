@@ -140,8 +140,9 @@ define(["require", "app/ws/WsUser", "app/ls/LsUser" ], function(require) {
 
 	UserManager.async_stats = function(cb_function) {
 		
-		var cb_userStats = function(users) {
-			cb_function(users);
+		var cb_userStats = function(stats) {
+			LsUser.storeUserStats(stats);
+			cb_function(stats);
 		};
 		
 		WsUser.stats(cb_userStats);

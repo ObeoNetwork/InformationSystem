@@ -140,8 +140,9 @@ define(["require", "app/ws/WsOffice", "app/ls/LsOffice" ], function(require) {
 
 	OfficeManager.async_stats = function(cb_function) {
 		
-		var cb_officeStats = function(offices) {
-			cb_function(offices);
+		var cb_officeStats = function(stats) {
+			LsOffice.storeOfficeStats(stats);
+			cb_function(stats);
 		};
 		
 		WsOffice.stats(cb_officeStats);

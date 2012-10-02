@@ -140,8 +140,9 @@ define(["require", "app/ws/WsChoco", "app/ls/LsChoco" ], function(require) {
 
 	ChocoManager.async_stats = function(cb_function) {
 		
-		var cb_chocoStats = function(chocos) {
-			cb_function(chocos);
+		var cb_chocoStats = function(stats) {
+			LsChoco.storeChocoStats(stats);
+			cb_function(stats);
 		};
 		
 		WsChoco.stats(cb_chocoStats);

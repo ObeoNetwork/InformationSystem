@@ -136,8 +136,9 @@
 
 	[This/].async_stats = function(cb_function) {
 		
-		var cb_[object/]Stats = function([objects/]) {
-			cb_function([objects/]);
+		var cb_[object/]Stats = function(stats) {
+			[LsObject/].store[Object/]Stats(stats);
+			cb_function(stats);
 		};
 		
 		[WsObject/].stats(cb_[object/]Stats);
