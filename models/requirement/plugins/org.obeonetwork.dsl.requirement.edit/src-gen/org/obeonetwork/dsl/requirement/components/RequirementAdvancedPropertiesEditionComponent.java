@@ -146,10 +146,6 @@ public class RequirementAdvancedPropertiesEditionComponent extends SinglePartPro
 		if (RequirementViewsRepository.Advanced.acceptanceCriteria == event.getAffectedEditor()) {
 			requirement.setAcceptanceCriteria((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (RequirementViewsRepository.Advanced.referencedObject == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.SET)
-				referencedObjectSettings.setToReference((List<EObject>) event.getNewValue());
-		}
 	}
 
 	/**
