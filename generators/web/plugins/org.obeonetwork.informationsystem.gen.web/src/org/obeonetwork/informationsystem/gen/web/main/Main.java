@@ -305,11 +305,11 @@ public class Main extends AbstractAcceleoGenerator {
 		 * 
 		 * To learn more about Properties Files, have a look at the Acceleo documentation (Help -> Help Contents).
 		 */
-		propertiesFiles.add("platform:/plugin/org.obeonetwork.informationsystem.gen.web/org/obeonetwork/informationsystem/gen/web/properties/default.properties");
 
 		if(EMFPlugin.IS_ECLIPSE_RUNNING && model != null && model.eResource() != null){
 			propertiesFiles.addAll(AcceleoEngineUtils.getPropertiesFilesNearModel(model.eResource()));
 		}
+		propertiesFiles.add("platform:/plugin/org.obeonetwork.informationsystem.gen.web/org/obeonetwork/informationsystem/gen/web/properties/default.properties");
 		return propertiesFiles;
 	}
 
