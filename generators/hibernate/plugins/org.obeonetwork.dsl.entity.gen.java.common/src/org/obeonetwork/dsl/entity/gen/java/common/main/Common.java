@@ -226,12 +226,12 @@ public class Common extends AbstractAcceleoGenerator {
 	public List<String> getProperties() {
     List<String> propertiesFiles = super.getProperties();
     
-    propertiesFiles.add(EntityCommonPlugin.ORG_OBEONETWORK_DSL_ENTITY_GEN_JAVA_COMMON_DEFAULT_PROPERTIES);
-    propertiesFiles.add(EntityCommonPlugin.ORG_OBEONETWORK_DSL_ENTITY_GEN_JAVA_COMMON_DEFAULT_JAVA_FILES_PROPERTIES);
-
 	if (this.model != null && this.model.eResource() != null) {
 		propertiesFiles.addAll(AcceleoPropertiesUtils.getPropertiesFilesNearModel(this.model.eResource()));
 	}
+	
+    propertiesFiles.add(EntityCommonPlugin.ORG_OBEONETWORK_DSL_ENTITY_GEN_JAVA_COMMON_DEFAULT_PROPERTIES);
+    propertiesFiles.add(EntityCommonPlugin.ORG_OBEONETWORK_DSL_ENTITY_GEN_JAVA_COMMON_DEFAULT_JAVA_FILES_PROPERTIES);
 	
     return propertiesFiles;
   }

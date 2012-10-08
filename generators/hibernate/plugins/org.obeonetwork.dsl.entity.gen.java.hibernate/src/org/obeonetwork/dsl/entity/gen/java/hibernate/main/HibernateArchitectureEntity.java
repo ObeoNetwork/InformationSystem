@@ -238,6 +238,11 @@ public class HibernateArchitectureEntity extends AbstractAcceleoGenerator {
      * "org.eclipse.acceleo.sample", the path that needs be added to this
      * list is "org.eclipse.acceleo.sample.messages".
      */
+	 
+	if (this.model != null && this.model.eResource() != null) {
+		propertiesFiles.addAll(AcceleoPropertiesUtils.getPropertiesFilesNearModel(this.model.eResource()));
+	}
+	
     propertiesFiles.add(AcceleoPropertiesUtils.PLATFORM_PLUGIN + EnvironmentCommonPlugin.PLUGIN_ID + EnvironmentCommonPlugin.ORG_OBEONETWORK_DSL_ENVIRONMENT_GEN_JAVA_COMMON_DEFAULT_PROPERTIES);
     propertiesFiles.add(AcceleoPropertiesUtils.PLATFORM_PLUGIN + EnvironmentCommonPlugin.PLUGIN_ID + EnvironmentCommonPlugin.ORG_OBEONETWORK_DSL_ENVIRONMENT_GEN_JAVA_COMMON_DEFAULT_TYPES);
     
@@ -250,10 +255,6 @@ public class HibernateArchitectureEntity extends AbstractAcceleoGenerator {
     
     //propertiesFiles.add(AcceleoPropertiesUtils.PLATFORM_PLUGIN + EntityDaoPlugin.PLUGIN_ID + EntityDaoPlugin.ORG_OBEONETWORK_DSL_ENTITY_GEN_JAVA_DAO_DAO_PROPERTIES);
     propertiesFiles.add(AcceleoPropertiesUtils.PLATFORM_PLUGIN + EntityDaoPlugin.PLUGIN_ID + EntityDaoPlugin.ORG_OBEONETWORK_DSL_ENVIRONMENT_GEN_SQL_COMMON_SQL_PROPERTIES);
-    
-	if (this.model != null && this.model.eResource() != null) {
-		propertiesFiles.addAll(AcceleoPropertiesUtils.getPropertiesFilesNearModel(this.model.eResource()));
-	}
     
     return propertiesFiles;
   }
