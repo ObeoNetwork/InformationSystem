@@ -23,6 +23,9 @@ public class SpringArchitecture extends StrutsArchitecture {
 
 	@Override
 	public List<String> getProperties() {
+		if (this.model != null && this.model.eResource() != null) {
+			propertiesFiles.addAll(AcceleoPropertiesUtils.getPropertiesFilesNearModel(this.model.eResource()));
+		}
 		String strutsPropertiesFile = AcceleoPropertiesUtils.PLATFORM_PLUGIN + CinematicArchitecturePlugin.PLUGIN_ID + CinematicArchitecturePlugin.STRUTS_PROPERTIES;
     	propertiesFiles.add(strutsPropertiesFile);
     	return propertiesFiles;
