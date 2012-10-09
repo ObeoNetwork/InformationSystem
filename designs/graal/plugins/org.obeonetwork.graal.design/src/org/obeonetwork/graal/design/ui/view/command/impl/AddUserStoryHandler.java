@@ -3,6 +3,8 @@
  */
 package org.obeonetwork.graal.design.ui.view.command.impl;
 
+import java.util.Date;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -42,6 +44,9 @@ public class AddUserStoryHandler extends AbstractHandler implements AddUserStory
 					UserStory story = GraalFactory.eINSTANCE.createUserStory();
 					story.setName(dialog.getName());
 					story.setDescription(dialog.getDescription());
+					Date createdOn = new Date();
+					story.setCreatedOn(createdOn);
+					story.setModifiedOn(createdOn);
 					EObject eObject = EcoreUtil.getRootContainer(view.getInput().get(0));
 					if (eObject instanceof org.obeonetwork.graal.System) {
 						editingDomain.getCommandStack().execute(AddCommand.create(editingDomain, eObject, GraalPackage.eINSTANCE.getSystem_UserStories(), story));
