@@ -13,7 +13,7 @@ package org.obeonetwork.graal.design.services.actor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.TreeSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -106,7 +106,7 @@ public class ActorUtils {
 	 */
 	public Set<Actor> getVisibleActors(TasksGroup group) {
 		HashMap<Task, Set<Actor>> cache = new HashMap<Task, Set<Actor>>();
-		Set<Actor> actors = new TreeSet<Actor>();
+		Set<Actor> actors = new LinkedHashSet<Actor>();
 		for (AbstractTask abstractTask : group.getTasks()) {
 			actors.addAll(internalGetVisibleActors(abstractTask, cache));
 		}
@@ -120,7 +120,7 @@ public class ActorUtils {
 	 */
 	public Set<Actor> getVisibleActors(UseCase	useCase) {
 		HashMap<Task, Set<Actor>> cache = new HashMap<Task, Set<Actor>>();
-		Set<Actor> actors = new TreeSet<Actor>();
+		Set<Actor> actors = new LinkedHashSet<Actor>();
 		for (AbstractTask abstractTask : useCase.getTasks()) {
 			actors.addAll(internalGetVisibleActors(abstractTask, cache));
 		}
@@ -134,11 +134,11 @@ public class ActorUtils {
 	 */
 	public Set<Actor> getVisibleActors(System system) {
 		HashMap<Task, Set<Actor>> cache = new HashMap<Task, Set<Actor>>();
-		Set<Actor> actors = new TreeSet<Actor>();
+		Set<Actor> actors = new LinkedHashSet<Actor>();
 		for (AbstractTask abstractTask : system.getTasks()) {
 			actors.addAll(internalGetVisibleActors(abstractTask, cache));
 		}
-		return actors;
+		return actors; 
 	}
 
 	/**
@@ -154,7 +154,7 @@ public class ActorUtils {
 			if (cache.containsKey(task)) {
 				return cache.get(task);
 			} else {
-				Set<Actor> actors = new TreeSet<Actor>();
+				Set<Actor> actors = new LinkedHashSet<Actor>();
 				if (task.getActors().isEmpty()) {
 					for (Task usingTask : task.getUsedBy()) {
 						actors.addAll(internalGetVisibleActors(usingTask, cache));
@@ -166,13 +166,13 @@ public class ActorUtils {
 				return actors;
 			}
 		} else if (abstractTask instanceof TasksGroup) {
-			Set<Actor> actors = new TreeSet<Actor>();
+			Set<Actor> actors = new LinkedHashSet<Actor>();
 			TasksGroup group = (TasksGroup)abstractTask;
 			for (AbstractTask subTask : group.getTasks()) {
 				actors.addAll(internalGetVisibleActors(subTask, cache));
 			}
 			return actors;
 		}
-		return new TreeSet<Actor>();
+		return new LinkedHashSet<Actor>();
 	}
 }
