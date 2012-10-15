@@ -10,7 +10,7 @@
 [import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::toolkitUtil /]
 
 [template public genTmplMenuLeft(aN1Flow : Flow)]
-[file (genTmplMenuLeftFilePath().concat('.tmpl'), false, 'UTF-8')]
+[file ('public/'.concat(genTmplMenuLeftFilePath()).concat('.tmpl'), false, 'UTF-8')]
 [genHtmlCopyrightHeader()/]
 [genTmplHeader('1.0.0')/]
 [wrapScriptSign(genTmplMenuLeftIdent(aN1Flow), defaultTemplate())/]

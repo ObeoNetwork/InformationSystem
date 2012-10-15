@@ -195,9 +195,9 @@
 			//[LsObject/].update[Object/]([object/]);
 			cb_function();
 		};
-		var store = [LsObject/].getStore();
-		var [object/]Stored = store.[objects/]['['/][object/].id[']'/];
-		[WsObject/].update(cb_update, [object/]Stored);
+		//var store = [LsObject/].getStore();
+		//var [object/]Stored = store.[objects/]['['/][object/].id[']'/];
+		[WsObject/].update(cb_update, [object/]);
 	};
 
 	[This/].update = function(cb_function, [object/]) {
@@ -212,9 +212,9 @@
 			//[LsObject/].store[Object/]([object/]);
 			cb_function();
 		};
-		var store = [LsObject/].getStore();
-		var [object/]Stored = store.[objects/]['['/][object/].id[']'/];
-		[WsObject/].add(cb_add, [object/]Stored);
+		//var store = [LsObject/].getStore();
+		//var [object/]Stored = store.[objects/]['['/][object/].id[']'/];
+		[WsObject/].add(cb_add, [object/]);
 	};
 
 	[This/].add = function(cb_function, [object/]) {

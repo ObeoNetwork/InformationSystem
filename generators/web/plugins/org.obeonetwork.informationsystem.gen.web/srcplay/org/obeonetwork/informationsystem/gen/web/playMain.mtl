@@ -1,0 +1,37 @@
+[comment encoding = UTF-8 /]
+[module playMain('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import play::org::obeonetwork::informationsystem::gen::web::file::controllers::objectController /]
+[import play::org::obeonetwork::informationsystem::gen::web::file::models::imodel /]
+[import play::org::obeonetwork::informationsystem::gen::web::file::models::objectModel /]
+[import play::org::obeonetwork::informationsystem::gen::web::file::models::proxy /]
+[import play::org::obeonetwork::informationsystem::gen::web::file::models::stat /]
+[import play::org::obeonetwork::informationsystem::gen::web::file::services::objectServices /]
+[import play::org::obeonetwork::informationsystem::gen::web::file::util::factory /]
+[import play::org::obeonetwork::informationsystem::gen::web::file::views::indexScalaFile /]
+[import play::org::obeonetwork::informationsystem::gen::web::file::views::testScalaFile /]
+
+[import play::org::obeonetwork::informationsystem::gen::web::file::conf::applicationConfFile /]
+[import play::org::obeonetwork::informationsystem::gen::web::file::conf::routesFile /]
+[import play::org::obeonetwork::informationsystem::gen::web::file::controllers::indexController /]
+
+[template public genPlay(aConfig : Configuration) {
+	objectEClasses : OrderedSet(ecore::EClass) = aConfig.ecoreModel.eClassifiers->filter(EClass);
+}]
+[genApplicationConfFile(objectEClasses)/]
+[genRoutesFile(objectEClasses)/]
+
+[aConfig.genIndexScala()/]
+[aConfig.genTestScala()/]
+[genIndexcontroller()/]
+[genFactory(objectEClasses)/]
+[genImodel()/]
+[genProxy()/]
+[genStat()/]
+
+[for (aEClass : EClass | objectEClasses)]
+	[aEClass.genObjectController(objectEClasses)/]
+	[aEClass.genObjectModel()/]
+	[aEClass.genObjectServices()/]
+[/for]
+[/template]

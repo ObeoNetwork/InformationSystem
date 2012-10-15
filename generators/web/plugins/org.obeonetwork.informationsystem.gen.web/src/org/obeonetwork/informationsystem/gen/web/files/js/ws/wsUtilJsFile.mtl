@@ -1,5 +1,6 @@
 [comment encoding = UTF-8 /]
 [module wsUtilJsFile('http://www.obeonetwork.org/dsl/application/1.0.0')/]
+[import org::obeonetwork::informationsystem::gen::web::common::utils /]
 [import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
 [import org::obeonetwork::informationsystem::gen::web::common::js::jsDirectoryPath /]
 [import org::obeonetwork::informationsystem::gen::web::common::js::jsFilePath /]
@@ -24,7 +25,11 @@
 	var [This/] = {};
 	
 	[This/].baseUrl = function() {
-		return "./ws";
+		[if (genPlayServices())]
+			return ".";
+		[else]
+			return "./ws";
+		[/if]
 	}
 
 	[This/].getJsonQuery = function(url, data, cb_success, cb_error) {
@@ -54,10 +59,12 @@
 	 * @return the [Proxy/] object
 	 */
 	[This/].json2[Proxy/] = function(json) {
-		
-		var proxy = [Proxy/].Class.create({
-			id : json.id, desc : json.desc
-		});
+		var proxy = null;
+		if(json != undefined) {
+			proxy = [Proxy/].Class.create({
+				id : json.id, desc : json.desc
+			});
+		}
 		return proxy;
 	}
 	
@@ -69,10 +76,11 @@
 	[This/].json2Proxies = function(json) {
 		
 		var proxies = ['['/][']'/];
-		for (var i=0; i < json.length; i++) {
-		  proxies['['/]i[']'/] = [This/].json2[Proxy/](json['['/]i[']'/]);
-		};
-		
+		if(json != undefined) {
+			for (var i=0; i < json.length; i++) {
+			  proxies['['/]i[']'/] = [This/].json2[Proxy/](json['['/]i[']'/]);
+			};
+		}
 		return proxies;
 	}
 
@@ -82,11 +90,13 @@
 	 * @return the Stat object
 	 */
 	[This/].json2Stat = function(json) {
-		
-		var proxy = Stat.Class.create({
-			res : json.res, desc : json.desc
-		});
-		return proxy;
+		var stat = null;
+		if(json != undefined) {
+			var stat = Stat.Class.create({
+				res : json.res, desc : json.desc
+			});
+		}
+		return stat;
 	}
 	
 	/*
@@ -97,25 +107,23 @@
 	[This/].json2Stats = function(json) {
 		
 		var stats = ['['/][']'/];
-		for (var i=0; i < json.length; i++) {
-		  stats['['/]i[']'/] = [This/].json2Stat(json['['/]i[']'/]);
-		};
-		
+		if(json != undefined) {
+			for (var i=0; i < json.length; i++) {
+			  stats['['/]i[']'/] = [This/].json2Stat(json['['/]i[']'/]);
+			};
+		}
+
 		return stats;
 	}
 	
 	[This/].postJsonQuery = function(url, data, cb_success, cb_error) {
 		//TODO to remove
-		if(true){
-			console.log('POST queries can not be stubbed');
-			cb_success(null);
-		} 
-		else {
+
 		$.ajax({
 			type : "POST",
 			url : LogManager.tokenizeThisUrl(url), 
 			data : data,
-			dataType: "json",
+			dataType: "text",
 			success : function(result) {
 				cb_success(result);
 			}, 
@@ -126,8 +134,51 @@
 					_defaultError(request, status, errorThrown);
 					
 			}
-		}); 
-		}
+		});
+
+	}
+
+	[This/].updateJsonQuery = function(url, data, cb_success, cb_error) {
+		//TODO to remove
+
+		$.ajax({
+			type : "PUT",
+			url : LogManager.tokenizeThisUrl(url), 
+			data : data,
+			dataType: "text",
+			success : function(result) {
+				cb_success(result);
+			}, 
+			error : function(request, status, errorThrown) {
+				if(cb_error!=undefined)
+					cb_error(request, status, errorThrown);
+				else
+					_defaultError(request, status, errorThrown);
+					
+			}
+		});
+
+	}
+
+	[This/].updateJsonQuery = function(url, data, cb_success, cb_error) {
+		//TODO to remove
+
+		$.ajax({
+			type : "UPDATE",
+			url : LogManager.tokenizeThisUrl(url), 
+			data : data,
+			dataType: "text",
+			success : function(result) {
+				cb_success(result);
+			}, 
+			error : function(request, status, errorThrown) {
+				if(cb_error!=undefined)
+					cb_error(request, status, errorThrown);
+				else
+					_defaultError(request, status, errorThrown);
+					
+			}
+		});
 
 	}
 

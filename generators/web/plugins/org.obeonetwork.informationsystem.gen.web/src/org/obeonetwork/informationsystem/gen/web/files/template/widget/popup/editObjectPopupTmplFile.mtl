@@ -5,7 +5,7 @@
 [import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
 
 [template public genTmplEditObjectPopup(anEClass: EClass)]
-[file (genTmplEditObjectPopupFilePath().concat('.tmpl'), false, 'UTF-8')]
+[file ('public/'.concat(genTmplEditObjectPopupFilePath()).concat('.tmpl'), false, 'UTF-8')]
 [genHtmlCopyrightHeader()/]
 [genTmplHeader(anEClass, '1.0.0')/]
 

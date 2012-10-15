@@ -1,0 +1,56 @@
+[comment encoding = UTF-8 /]
+[module javaUtils('http://www.eclipse.org/emf/2002/Ecore')]
+
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+
+[template public genJPAClassAttribute(classAttribute : EStructuralFeature) post (trim())]
+[if(classAttribute.eType.oclIsKindOf(EClass))]
+	[if(classAttribute.many)]
+	@OneToMany(cascade=CascadeType.ALL)
+	[else]
+		[if (not(classAttribute.oclAsType(EReference).eOpposite.oclIsUndefined()) and classAttribute.oclAsType(EReference).eOpposite.many)]
+	@ManyToOne
+		[else]
+	@OneToOne (cascade=CascadeType.ALL)
+		[/if]
+	[/if]
+[else]
+	[if (classAttribute.required)]
+	@Required
+	[/if]
+[/if]
+public [classAttribute.genAttributeDefinition()/];
+[/template]
+
+
+[template public genAttributeDefinition(classAttribute : EStructuralFeature) post (trim())]
+	[if(classAttribute.many)]
+	List<[classAttribute.genBasicJavaType()/]> [classAttribute.toVarIdent()/]
+	[else]
+	[classAttribute.genBasicJavaType()/] [classAttribute.toVarIdent()/]
+	[/if]
+[/template]
+
+[template public genBasicJavaType(classAttribute : EStructuralFeature) post (trim())]
+[if(classAttribute.eType.oclIsKindOf(EClass))]
+	[classAttribute.eType.toTypeIdent()/]
+[else]
+	[if (classAttribute.eType.instanceClassName.equalsIgnoreCase('java.lang.String'))]
+	String
+	[elseif (classAttribute.eType.instanceClassName.equalsIgnoreCase('long'))]
+	[if(classAttribute.many)]
+	Long
+	[else]
+	Long
+	[/if]
+	[elseif (classAttribute.eType.instanceClassName.equalsIgnoreCase('int'))]
+	[if(classAttribute.many)]
+	Integer
+	[else]
+	Integer
+	[/if]
+	[else]
+	/* WARN [classAttribute.eType.instanceClassName/] type not supported by this generator */
+	[/if]
+[/if]
+[/template]

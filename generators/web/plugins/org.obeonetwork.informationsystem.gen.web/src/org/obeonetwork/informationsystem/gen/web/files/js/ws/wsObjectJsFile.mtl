@@ -82,8 +82,9 @@
 		} else {
 			var [objects/] = ['['/][']'/];
 
-			var url = [WsUtil/].baseUrl() + "/[object/]/rows/"+rowId;
-			var data = {nbElemByRow : nbElemByRow};
+			var url = [WsUtil/].baseUrl() + "/[object/]/rows/"+rowId+"/"+nbElemByRow;
+			var data = null;
+			// data = {nbElemByRow : nbElemByRow};
 			var cb_success = function(resultData) {
 				for(var i = 0; i < resultData.length; i++) {
 					var [object/] = _json2[Object/](resultData['['/]i[']'/]);
@@ -107,7 +108,7 @@
 		var data = null;
 		var cb_success = function(resultData) {
 
-			cb_function(resultData.count);
+			cb_function(resultData);
 			
 		};
 		var cb_error = function() { 
@@ -161,25 +162,25 @@
 
 	[This/].remove = function(cb_function, [object/]) {
 
-		var url = WsUtil.baseUrl() + "/[object/]/remove";
-		var data = [object/];
+		var url = WsUtil.baseUrl() + "/[object/]/remove/"+[object/].id;
+		var data = null;
 		var cb_success = function(resultData) {
 
-			cb_function();
+			cb_function([object/]);
 		};
 		var cb_error = function() { 
 			cb_function();
 		};
-		WsUtil.postJsonQuery(url, data, cb_success, cb_error);
+		WsUtil.getJsonQuery(url, data, cb_success, cb_error);
 	};
 	
 	[This/].update = function(cb_function, [object/]) {
 
 		var url = WsUtil.baseUrl() + "/[object/]/update";
-		var data = [object/];
+		var data = JSON.stringify([object/]);
 		var cb_success = function(resultData) {
 
-			cb_function();
+			cb_function([object/]);
 		};
 		var cb_error = function() { 
 			cb_function();
@@ -190,10 +191,10 @@
 	[This/].add = function(cb_function, [object/]) {
 
 		var url = WsUtil.baseUrl() + "/[object/]/add";
-		var data = [object/];
+		var data = JSON.stringify([object/]);
 		var cb_success = function(resultData) {
 
-			cb_function();
+			cb_function([object/]);
 		};
 		var cb_error = function() { 
 			cb_function();

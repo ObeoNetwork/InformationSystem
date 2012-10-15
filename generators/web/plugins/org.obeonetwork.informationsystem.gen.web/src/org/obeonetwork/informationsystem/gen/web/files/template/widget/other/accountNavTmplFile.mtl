@@ -5,7 +5,7 @@
 [import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
 
 [template public genTmplAccountNav(anOclAny : OclAny)]
-[file (genTmplAccountNavFilePath().concat('.tmpl'), false, 'UTF-8')]
+[file ('public/'.concat(genTmplAccountNavFilePath()).concat('.tmpl'), false, 'UTF-8')]
 [genHtmlCopyrightHeader()/]
 [genTmplHeader('0.7.0')/]
 <!--

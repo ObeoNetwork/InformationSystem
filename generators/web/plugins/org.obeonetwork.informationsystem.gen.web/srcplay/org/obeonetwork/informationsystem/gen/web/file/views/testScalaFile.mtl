@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module indexTestFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+[module testScalaFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
 [import org::obeonetwork::informationsystem::gen::web::common::utils /]
 [import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
 [import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplUtils /]
@@ -9,12 +9,13 @@
 [import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::flowUtil /]
 [import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::toolkitUtil /]
 
-[template private fileName(anOclAny : OclAny)]['tests'/][/template]
+[template private fileName(anOclAny : OclAny)]['test.scala'/][/template]
 
-[template private filePath(anOclAny : OclAny)]['public/'.concat(fileName()).concat('.html')/][/template]
+[template private filePath(anOclAny : OclAny)]['app/views/'.concat(fileName()).concat('.html')/][/template]
 
-[template public genIndexTest(aConfiguration : Configuration)]
+[template public genTestScala(aConfiguration : Configuration)]
 [file (filePath(), false, 'UTF-8')]
+@()
 [genHtmlCopyrightHeader()/]
 <html>
 	<head>

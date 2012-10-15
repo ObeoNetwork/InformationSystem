@@ -1,0 +1,186 @@
+[comment encoding = UTF-8 /]
+[module objectController('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+
+[template public genObjectController(anEClass : EClass, objectEClasses : OrderedSet(ecore::EClass)) {
+	Object : String = anEClass.toTypeIdent();
+	object : String = anEClass.toVarIdent();
+}]
+[file ('app/controllers/'.concat(anEClass.name.concat('Controller.java')), false, 'UTF-8')]
+package controllers;
+
+import java.util.ArrayList;
+import java.util.List;
+import play.mvc.BodyParser;
+import play.mvc.Http.RequestBody;
+import models.*;
+import org.codehaus.jackson.JsonNode;
+import play.Logger;
+import play.data.DynamicForm;
+import play.libs.Json;
+import play.mvc.Controller;
+import play.mvc.Result;
+import services.*;
+import util.Factory;
+
+public class [Object/]Controller extends Controller {
+
+
+	public static Result serviceCount() {
+
+		return ok(Json.toJson([Object/]Services.count()));
+	}
+	
+	public static Result serviceRows(Integer rowId, Integer nbElemByRow) {
+
+		List<JsonNode> [object/]s2Json = new ArrayList();
+
+		for([Object/] [object/]: [Object/]Services.rows(rowId, nbElemByRow))
+			[object/]s2Json.add(Factory.[object/]2Json([object/]));
+
+		return ok(Json.toJson([object/]s2Json));
+	}
+
+	public static Result serviceAllProxies() {
+
+		List<JsonNode> jsonProxies = new ArrayList();
+
+		for(Proxy proxy : [Object/]Services.allProxies())
+			jsonProxies.add(Factory.proxy2Json(proxy));
+
+		return ok(Json.toJson(jsonProxies));
+	}
+	
+	public static Result serviceStats() {
+
+		List<JsonNode> jsonStats = new ArrayList();
+
+		for(Stat stat: [Object/]Services.stats())
+			jsonStats.add(Factory.stat2Json(stat));
+
+		return ok(Json.toJson(jsonStats));
+	}
+
+	public static Result serviceGet(Long id) {
+		
+		return ok(Json.toJson(Factory.[object/]2Json([Object/]Services.getById(id))));
+	}
+
+	/*public static Result serviceSearch(String matcher) {
+
+		List<JsonNode> [object/]s2Json = new ArrayList();
+
+		for([Object/] [object/]: [Object/]Services.search(matcher))
+			[object/]s2Json.add(Factory.[object/]2Json([object/]));
+
+		return ok(Json.toJson([object/]s2Json));
+	}*/
+
+	@BodyParser.Of(BodyParser.TolerantText.class)
+	public static Result serviceAdd() {
+
+		DynamicForm filledForm = form().bindFromRequest();
+		if(filledForm.hasErrors()) {
+			return ok(Json.toJson(false));
+		} else {
+			RequestBody rb = request().body();
+			String brut = rb.asText();
+			Logger.debug("serviceAdd : "+brut);
+			JsonNode data = Json.parse(brut);
+			[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures->asOrderedSet())]
+			[if (i=1)]
+				Long id = new Long(0);
+			[else]
+				[if(classAttribute.eType.oclIsKindOf(EClass))]
+					[if (classAttribute.many)]
+				List<[classAttribute.eType.toTypeIdent()/]> [classAttribute.toVarIdent()/] = new ArrayList<[classAttribute.eType.toTypeIdent()/]>();	
+				if(data.path("[classAttribute.eType.toVarIdent()/]Proxies")!=null && !"null".equals(data.path("[classAttribute.eType.toVarIdent()/]Proxies"))) {
+					[classAttribute.toVarIdent()/] = Factory.jsonTo[classAttribute.eType.toTypeIdent()/]s(data.path("[classAttribute.eType.toVarIdent()/]Proxies"));
+				}				
+					[else]
+				[classAttribute.eType.toTypeIdent()/] [classAttribute.toVarIdent()/] = null;
+				if(data.path("[classAttribute.toVarIdent()/]")!=null && !"null".equals(data.path("[classAttribute.toVarIdent()/]Proxy"))) {
+					Proxy proxy = Factory.json2Proxy(data.path("[classAttribute.toVarIdent()/]Proxy"));
+					[classAttribute.toVarIdent()/] = [classAttribute.eType.toTypeIdent()/]Services.getById(proxy.getId());
+				}
+					[/if]
+				[elseif (classAttribute.eType.instanceClassName.equalsIgnoreCase('long'))]
+				Long [classAttribute.toVarIdent()/] = null;
+				if(data.path("[classAttribute.toVarIdent()/]")!=null && !"null".equals(data.path("[classAttribute.toVarIdent()/]").asText()))
+					[classAttribute.toVarIdent()/] = new Long(data.path("[classAttribute.toVarIdent()/]").asText());
+				[elseif (classAttribute.eType.instanceClassName.equalsIgnoreCase('int'))]
+				Integer [classAttribute.toVarIdent()/] = null;
+				if(data.path("[classAttribute.toVarIdent()/]")!=null && !"null".equals(data.path("[classAttribute.toVarIdent()/]").asText()))
+					[classAttribute.toVarIdent()/] = new Integer(data.path("[classAttribute.toVarIdent()/]").asText());
+				[else]
+				String [classAttribute.toVarIdent()/] = null;
+				if(data.path("[classAttribute.toVarIdent()/]")!=null && !"null".equals(data.path("[classAttribute.toVarIdent()/]").asText()))
+					[classAttribute.toVarIdent()/] = data.path("[classAttribute.toVarIdent()/]").asText();
+				[/if]
+			[/if]
+
+			[/for]
+			return ok(Json.toJson(
+						[Object/]Services.create(
+							new [Object/]([for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures->asOrderedSet())][if (i=1)]id[else], [classAttribute.toVarIdent()/][/if][/for])
+						)
+					));
+		}
+	}
+
+	public static Result serviceDelete(Long id) {
+		return ok(Json.toJson([Object/]Services.delete(id)));
+	}
+
+	@BodyParser.Of(BodyParser.TolerantText.class)
+	public static Result serviceUpdate() {
+
+		DynamicForm filledForm = form().bindFromRequest();
+		if(filledForm.hasErrors()) {
+			return ok(Json.toJson(false));
+		} else {
+			RequestBody rb = request().body();
+			String brut = rb.asText();
+			Logger.debug("serviceUpdate : "+brut);
+			JsonNode data = Json.parse(brut);
+			[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures->asOrderedSet())]
+				[if(classAttribute.eType.oclIsKindOf(EClass))]
+					[if (classAttribute.many)]
+				List<[classAttribute.eType.toTypeIdent()/]> [classAttribute.toVarIdent()/] = new ArrayList<[classAttribute.eType.toTypeIdent()/]>();	
+				if(data.path("[classAttribute.eType.toVarIdent()/]Proxies")!=null && !"null".equals(data.path("[classAttribute.eType.toVarIdent()/]Proxies"))) {
+					[classAttribute.toVarIdent()/] = Factory.jsonTo[classAttribute.eType.toTypeIdent()/]s(data.path("[classAttribute.eType.toVarIdent()/]Proxies"));
+				}					
+					[else]
+				[classAttribute.eType.toTypeIdent()/] [classAttribute.toVarIdent()/] = null;
+				if(data.path("[classAttribute.toVarIdent()/]")!=null && !"null".equals(data.path("[classAttribute.toVarIdent()/]Proxy"))) {
+					Proxy proxy = Factory.json2Proxy(data.path("[classAttribute.toVarIdent()/]Proxy"));
+					[classAttribute.toVarIdent()/] = [classAttribute.eType.toTypeIdent()/]Services.getById(proxy.getId());
+				}
+					[/if]
+				[elseif (classAttribute.eType.instanceClassName.equalsIgnoreCase('long'))]
+				Long [classAttribute.toVarIdent()/] = null;
+				if(data.path("[classAttribute.toVarIdent()/]")!=null && !"null".equals(data.path("[classAttribute.toVarIdent()/]").asText()))
+					[classAttribute.toVarIdent()/] = new Long(data.path("[classAttribute.toVarIdent()/]").asText());
+				[elseif (classAttribute.eType.instanceClassName.equalsIgnoreCase('int'))]
+				Integer [classAttribute.toVarIdent()/] = null;
+				if(data.path("[classAttribute.toVarIdent()/]")!=null && !"null".equals(data.path("[classAttribute.toVarIdent()/]").asText()))
+					[classAttribute.toVarIdent()/] = new Integer(data.path("[classAttribute.toVarIdent()/]").asText());
+				[else]
+				String [classAttribute.toVarIdent()/] = null;
+				if(data.path("[classAttribute.toVarIdent()/]")!=null && !"null".equals(data.path("[classAttribute.toVarIdent()/]").asText()))
+					[classAttribute.toVarIdent()/] = data.path("[classAttribute.toVarIdent()/]").asText();
+				[/if]
+
+			[/for]
+			return ok(Json.toJson(
+					[Object/]Services.update(
+							new [Object/]([for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures->asOrderedSet())][if (i=1)][classAttribute.toVarIdent()/][else], [classAttribute.toVarIdent()/][/if][/for])
+						)
+					)
+				);
+		}
+	}
+}
+[/file]
+[/template]

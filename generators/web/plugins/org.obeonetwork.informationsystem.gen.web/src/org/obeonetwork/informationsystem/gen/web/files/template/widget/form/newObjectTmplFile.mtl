@@ -5,7 +5,7 @@
 [import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
 
 [template public genTmplNewObject(anEClass: EClass)]
-[file (genTmplNewObjectFilePath().concat('.tmpl'), false, 'UTF-8')]
+[file ('public/'.concat(genTmplNewObjectFilePath()).concat('.tmpl'), false, 'UTF-8')]
 [genHtmlCopyrightHeader()/]
 [genTmplHeader(anEClass, '1.0.0')/]
 

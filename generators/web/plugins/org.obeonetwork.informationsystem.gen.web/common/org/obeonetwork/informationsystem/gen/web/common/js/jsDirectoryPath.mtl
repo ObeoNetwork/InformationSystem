@@ -2,7 +2,7 @@
 [module jsDirectoryPath('http://www.obeonetwork.org/dsl/application/1.0.0')]
 
 [template public genJsFullPath(rPath : String) post (trim())]
-[genJsDirectoryPath()/]/[rPath/].js
+public/[genJsDirectoryPath()/]/[rPath/].js
 [/template]
 
 [template public genJsDirectoryPath(oclAny : OclAny)]

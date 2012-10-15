@@ -86,12 +86,12 @@
 	[This/].remove[Object/] = function([object/]) {
 		if(navigator.onLine) {
 			[App/].[ObjectManager/].async_remove(
-				function() { },
+				function() { App.ctrl.refresh(); },
 				[object/]
 			);
 		} else {
 			[App/].[ObjectManager/].remove(
-				function() { },
+				function() { App.ctrl.refresh(); },
 				[object/]
 			);
 		}
@@ -99,12 +99,12 @@
 	[This/].update[Object/] = function([object/]) {
 		if(navigator.onLine) {
 			[App/].[ObjectManager/].async_update(
-				function() { },
+				function() { App.ctrl.refresh(); },
 				[object/]
 			);
 		} else {
 			[App/].[ObjectManager/].update(
-				function() { },
+				function() { App.ctrl.refresh(); },
 				[object/]
 			);
 		}
@@ -112,12 +112,12 @@
 	[This/].add[Object/] = function([object/]) {
 		if(navigator.onLine) {
 			[App/].[ObjectManager/].async_add(
-				function() { },
+				function() { App.ctrl.refresh(); },
 				[object/]
 			);
 		} else {
 			[App/].[ObjectManager/].add(
-				function() { },
+				function() { App.ctrl.refresh(); },
 				[object/]
 			);
 		}
@@ -136,12 +136,12 @@
 
 [/for]
 
-	[This/].rerenderWidgetContainer = function(widgetContainer) {
+	/*[This/].rerenderWidgetContainer = function(widgetContainer) {
 		var childViews = widgetContainer.get('childViews');
 		for(var i = 0; i<childViews.length; i++) {
 			childViews['[i]'/].rerender();
 		}
-	};
+	};*/
 
 [for (anEClass : EClass | objectEClasses)]
 	[let object : String = anEClass.toVarIdent()]
@@ -290,9 +290,11 @@
 	for (var i = 0; i < [currentVar/]Proxies.length; i++) {
 		var [currentVar/]Proxy = [currentVar/]Proxies['['/]i[']'/];
 	
-		if ([anEClass.toVarIdent()/].[currentVar/]Proxy.id === [currentVar/]Proxy.id) {
-			[anEClass.toVarIdent()/].set("[currentVar/]Proxy", [currentVar/]Proxy);
-			break;
+		if([anEClass.toVarIdent()/].[currentVar/]Proxy!==null && [anEClass.toVarIdent()/].[currentVar/]Proxy!==undefined) {
+			if ([anEClass.toVarIdent()/].[currentVar/]Proxy.id === [currentVar/]Proxy.id) {
+				[anEClass.toVarIdent()/].set("[currentVar/]Proxy", [currentVar/]Proxy);
+				break;
+			}
 		}
 	}
 	[/if]

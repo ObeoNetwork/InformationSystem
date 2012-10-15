@@ -52,6 +52,12 @@
 		_cleanWorkspace();
 	};
 
+	[This/].refresh = function() {
+		_cleanWorkspace();
+		if(oldView != undefined) {
+			_insertView(oldView);
+		}
+	}
 	[for (aViewContainer : ViewContainer | WidgetContainers)]
 	[This/].render[aViewContainer.toTypeIdent()/] = function() {
 		

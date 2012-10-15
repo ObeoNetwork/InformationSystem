@@ -1,0 +1,75 @@
+[comment encoding = UTF-8 /]
+[module objectModel('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
+[import org::obeonetwork::informationsystem::gen::web::common::java::javaUtils /]
+
+[template public genObjectModel(anEClass : EClass ){
+	Object : String = anEClass.toTypeIdent();
+}]
+[file ('app/models/'.concat(Object.concat('.java')), false, 'UTF-8')]
+package models;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.*;
+
+import play.db.ebean.*;
+import play.data.format.*;
+import play.data.validation.*;
+
+import play.data.validation.Constraints.Required;
+import play.db.ebean.Model;
+
+@Entity
+public class [Object/] extends Model implements IModel {
+	[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures->asOrderedSet())]
+	[if (i=1)]
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "device_gen")
+	@Id
+	public Long id;
+	[else]
+	[classAttribute.genJPAClassAttribute()/]
+	[/if]
+
+	[/for]
+
+
+	public [anEClass.toTypeIdent()/]([for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures)][if (i=1)][genAttributeDefinition()/][else], [genAttributeDefinition()/][/if][/for]) {
+		super();
+
+		[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures)]
+		this.[classAttribute.toVarIdent()/] = [classAttribute.toVarIdent()/];
+		[/for]
+	}
+
+	[for (classAttribute : EStructuralFeature | anEClass.eAllStructuralFeatures)]
+	[if(classAttribute.many)]
+	public List<[classAttribute.genBasicJavaType()/]> get[classAttribute.toTypeIdent()/]() {
+	[else]
+	public [classAttribute.genBasicJavaType()/] get[classAttribute.toTypeIdent()/]() {
+	[/if]
+		return [classAttribute.toVarIdent()/];
+	}
+
+	public void set[classAttribute.toTypeIdent()/]([genAttributeDefinition()/]) {
+		this.[classAttribute.toVarIdent()/] = [classAttribute.toVarIdent()/];
+	}
+
+
+	[/for]
+
+	public static Finder<Long,[Object/]> find = new Finder<Long,[Object/]>(
+    	Long.class, [Object/].class
+  	);
+
+	@Override
+	public Proxy toProxy() {
+		return new Proxy(id, [anEClass.eAllStructuralFeatures->select(eType.instanceClassName<>null and eType.instanceClassName.equalsIgnoreCase('java.lang.String'))->first().toVarIdent()/]);
+	}
+	
+
+}
+	[/file]
+[/template]

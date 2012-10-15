@@ -5,7 +5,7 @@
 [import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
 
 [template public genTmplPagination(anOclAny : OclAny)]
-[file (genTmplPaginationFilePath().concat('.tmpl'), false, 'UTF-8')]
+[file ('public/'.concat(genTmplPaginationFilePath()).concat('.tmpl'), false, 'UTF-8')]
 [genHtmlCopyrightHeader()/]
 [genTmplHeader('0.8.0')/]
 <!--

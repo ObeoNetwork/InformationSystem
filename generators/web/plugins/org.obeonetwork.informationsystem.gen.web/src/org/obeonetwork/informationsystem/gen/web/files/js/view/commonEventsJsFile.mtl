@@ -27,6 +27,7 @@
 		_initSignOut();
 		_initSignUp();
 		_initSignIn();
+		_initConnectionStatus();
 		/** [/protected] */
 	}
 
@@ -67,6 +68,22 @@
 				[App/].[commonCtrl/].showSignUp();
 			}*/
 		});
+	};
+
+	function _initConnectionStatus() {
+		require(['['/]"app/view/H5utils"[']'/], function(H5utils) {
+			H5utils.addEvent(window, 'online', cb_toOnline);
+			H5utils.addEvent(window, 'offline', cb_toOffline);
+		});
+	}
+	
+	/*call backs*/
+	var cb_toOnline = function() {
+		App.commonCtrl.toOnline();
+	};
+	
+	var cb_toOffline = function() {
+		App.commonCtrl.toOffline();
 	};
 	
 [genAMDFooter(This)/]

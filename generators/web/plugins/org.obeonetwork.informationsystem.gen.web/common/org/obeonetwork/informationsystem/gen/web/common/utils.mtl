@@ -1,6 +1,9 @@
 [comment encoding = UTF-8 /]
 [module utils('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.eclipse.org/emf/2002/Ecore')]
 
+[query public genPlayServices(oclAny : OclAny) : Boolean = getProperty('gen-play-services').contains('true') /]
+
+
 [** Gen the site base url. /]
 [template public genSiteUrl(oclAny : OclAny) post (trim())]
 [getProperty('base-url')/]

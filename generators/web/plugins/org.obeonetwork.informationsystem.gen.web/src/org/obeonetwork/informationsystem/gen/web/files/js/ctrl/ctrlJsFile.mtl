@@ -41,6 +41,11 @@
 		
 		[Page/].stop();
 	};
+
+	[This/].refresh = function() {
+		
+		[Page/].refresh();
+	};
 	
 	/*
 	 * @param {String} the string Id of the state

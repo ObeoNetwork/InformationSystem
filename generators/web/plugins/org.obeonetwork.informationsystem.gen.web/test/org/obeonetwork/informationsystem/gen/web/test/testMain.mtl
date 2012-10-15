@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module mainTest('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+[module testMain('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.eclipse.org/emf/2002/Ecore', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
 
 [import org::obeonetwork::informationsystem::gen::web::test::files::indexTestFile /]
 [import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::flowUtil /]
@@ -20,7 +20,6 @@
 
 
 [template public genTest(aConfig : Configuration)]
-	[genIndexTest(aConfig)/]
 	[genJsTests(aConfig)/]
 	[genSuiteTest(aConfig)/]
 [/template]

@@ -5,7 +5,7 @@
 [import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplFilePath /]
 
 [template public genTmplStats(aConfig : Configuration)]
-[file (genTmplStatsFilePath().concat('.tmpl'), false, 'UTF-8')]
+[file ('public/'.concat(genTmplStatsFilePath()).concat('.tmpl'), false, 'UTF-8')]
 [genHtmlCopyrightHeader()/]
 [genTmplHeader('1.0.0')/]
 

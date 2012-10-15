@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module indexFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+[module indexScalaFile('http://www.obeonetwork.org/dsl/application/1.0.0', 'http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
 [import org::obeonetwork::informationsystem::gen::web::common::utils /]
 [import org::obeonetwork::informationsystem::gen::web::common::js::jsUtils /]
 [import org::obeonetwork::informationsystem::gen::web::common::tmpl::tmplUtils /]
@@ -9,12 +9,13 @@
 [import org::obeonetwork::informationsystem::gen::web::common::cinematic::flow::flowUtil /]
 [import org::obeonetwork::informationsystem::gen::web::common::cinematic::toolkit::toolkitUtil /]
 
-[template private fileName(anOclAny : OclAny)]['index'/][/template]
+[template private fileName(anOclAny : OclAny)]['index.scala'/][/template]
 
-[template private filePath(anOclAny : OclAny)]['public/'.concat(fileName()).concat('.html')/][/template]
+[template private filePath(anOclAny : OclAny)]['app/views/'.concat(fileName()).concat('.html')/][/template]
 
-[template public genIndex(aConfiguration : Configuration)]
+[template public genIndexScala(aConfiguration : Configuration)]
 [file (filePath(), false, 'UTF-8')]
+@(title: String)
 [genHtmlCopyrightHeader()/]
 <!--<html manifest="cache.manifest">-->
 <html>
@@ -23,6 +24,28 @@
 
 		[genHead()/]
 
+		<style>
+			.offline {
+			  background: #c00;
+			}
+			
+			.online {
+			  background: #0c0;
+			}
+			
+			#status {
+				color:#fff;
+			}
+			
+			.local,
+			.localupdate,
+			.localadd,
+			.localremove {
+				opacity : 0.7;
+				border: 2px dotted black;
+			}
+			
+		</style>
 		[freeHtmlUC('post head')/]
 	</head>
 	<body>
@@ -128,9 +151,14 @@
 		              </ul>
 		            </li>
 					<!-- [protected ('post nav -->')]
-					<li class="">
-						<a href="./tests.html">Unit tests</a>
-					</li>
+					</ul>
+					<ul class="nav" style="float: right;">
+						<li class="">
+							<a href="./tests.html">Unit tests</a>
+						</li>
+						<li>
+							<a href="#" id="status" class=""></a>
+						</li>
 					<!-- [/protected] -->
 				</ul>
 			</div>

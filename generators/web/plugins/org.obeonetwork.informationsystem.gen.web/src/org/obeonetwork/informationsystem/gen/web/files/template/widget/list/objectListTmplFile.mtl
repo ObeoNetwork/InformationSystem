@@ -6,7 +6,7 @@
 
 
 [template public genTmplObjectList(anEClass: EClass)]
-[file (genTmplObjectListFilePath().concat('.tmpl'), false, 'UTF-8')]
+[file ('public/'.concat(genTmplObjectListFilePath()).concat('.tmpl'), false, 'UTF-8')]
 [genHtmlCopyrightHeader()/]
 [genTmplHeader(anEClass, '0.3.0')/]
 <!--

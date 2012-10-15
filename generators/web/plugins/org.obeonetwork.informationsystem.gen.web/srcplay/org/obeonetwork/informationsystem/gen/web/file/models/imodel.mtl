@@ -1,0 +1,12 @@
+[comment encoding = UTF-8 /]
+[module imodel('http://www.eclipse.org/emf/2002/Ecore')/]
+
+[template public genImodel(any : OclAny)]
+[file ('app/models/'.concat('IModel.java'), false, 'UTF-8')]
+package models;
+
+public interface IModel {
+	public Proxy toProxy();
+}
+[/file]
+[/template]
