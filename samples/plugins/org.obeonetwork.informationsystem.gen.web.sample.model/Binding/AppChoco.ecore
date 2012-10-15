@@ -12,8 +12,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="A complete description with all information."/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="user" lowerBound="1" eType="#//User"
         eOpposite="#//User/chocos"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="User">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"

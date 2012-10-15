@@ -16,9 +16,6 @@
       <bFeatures>
         <ecoreFeature xsi:type="ecore:EAttribute" href="AppChoco.ecore#//Choco/description"/>
       </bFeatures>
-      <bFeatures>
-        <ecoreFeature xsi:type="ecore:EAttribute" href="AppChoco.ecore#//Choco/status"/>
-      </bFeatures>
     </bClasses>
     <bClasses bPackage="//@bPackages.0">
       <ecoreClass href="AppChoco.ecore#//User"/>
