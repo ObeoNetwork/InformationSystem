@@ -1,0 +1,85 @@
+#_________________________________________________________________________________
+# Home page
+GET        /                      controllers.IndexController.index()
+
+#_________________________________________________________________________________
+# ASSET
+# Map static resources from the /public folder to the /assets URL path
+GET        /asset/*file          controllers.Assets.at(path="/public/asset", file)
+
+
+# JSON REST service
+
+#Choco REST
+GET        /choco/list-count             controllers.ChocoController.serviceCount()
+
+GET        /choco/list-proxy 			 controllers.ChocoController.serviceAllProxies()
+
+GET        /choco/rows/:rowId/:nbElemByRow   controllers.ChocoController.serviceRows(rowId : Integer, nbElemByRow:Integer)
+
+GET        /choco/stats            controllers.ChocoController.serviceStats()
+
+GET        /choco/get/:id          controllers.ChocoController.serviceGet(id: Long)
+
+#GET       /choco/search/:matcher  controllers.ChocoController.serviceSearch(matcher: String)
+
+PUT        /choco/add              controllers.ChocoController.serviceAdd()
+POST       /choco/add              controllers.ChocoController.serviceAdd()
+
+PUT        /choco/update           controllers.ChocoController.serviceUpdate()
+POST       /choco/update           controllers.ChocoController.serviceUpdate()
+
+GET        /choco/remove/:id       controllers.ChocoController.serviceDelete(id: Long)
+POST       /choco/remove/:id       controllers.ChocoController.serviceDelete(id: Long)
+DELETE     /choco/remove/:id       controllers.ChocoController.serviceDelete(id: Long)
+
+
+#User REST
+GET        /user/list-count             controllers.UserController.serviceCount()
+
+GET        /user/list-proxy 			 controllers.UserController.serviceAllProxies()
+
+GET        /user/rows/:rowId/:nbElemByRow   controllers.UserController.serviceRows(rowId : Integer, nbElemByRow:Integer)
+
+GET        /user/stats            controllers.UserController.serviceStats()
+
+GET        /user/get/:id          controllers.UserController.serviceGet(id: Long)
+
+#GET       /user/search/:matcher  controllers.UserController.serviceSearch(matcher: String)
+
+PUT        /user/add              controllers.UserController.serviceAdd()
+POST       /user/add              controllers.UserController.serviceAdd()
+
+PUT        /user/update           controllers.UserController.serviceUpdate()
+POST       /user/update           controllers.UserController.serviceUpdate()
+
+GET        /user/remove/:id       controllers.UserController.serviceDelete(id: Long)
+POST       /user/remove/:id       controllers.UserController.serviceDelete(id: Long)
+DELETE     /user/remove/:id       controllers.UserController.serviceDelete(id: Long)
+
+
+#Office REST
+GET        /office/list-count             controllers.OfficeController.serviceCount()
+
+GET        /office/list-proxy 			 controllers.OfficeController.serviceAllProxies()
+
+GET        /office/rows/:rowId/:nbElemByRow   controllers.OfficeController.serviceRows(rowId : Integer, nbElemByRow:Integer)
+
+GET        /office/stats            controllers.OfficeController.serviceStats()
+
+GET        /office/get/:id          controllers.OfficeController.serviceGet(id: Long)
+
+#GET       /office/search/:matcher  controllers.OfficeController.serviceSearch(matcher: String)
+
+PUT        /office/add              controllers.OfficeController.serviceAdd()
+POST       /office/add              controllers.OfficeController.serviceAdd()
+
+PUT        /office/update           controllers.OfficeController.serviceUpdate()
+POST       /office/update           controllers.OfficeController.serviceUpdate()
+
+GET        /office/remove/:id       controllers.OfficeController.serviceDelete(id: Long)
+POST       /office/remove/:id       controllers.OfficeController.serviceDelete(id: Long)
+DELETE     /office/remove/:id       controllers.OfficeController.serviceDelete(id: Long)
+
+
+

@@ -1,0 +1,71 @@
+<!--
+ /*******************************************************************************
+ * Copyright (c) 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Hugo Marchadour (Obeo) - initial API and implementation
+ *******************************************************************************/
+-->
+<!--
+	@autor hugo.marchadour@obeo.fr
+	@version 1.0.0
+	@since 1.0.0
+	
+	Ember.View
+	@param {model.Choco} choco
+	@generated
+-->
+
+<script type="text/x-handlebars" data-template-name="new-choco">
+	<!-- Start of user code new-choco -->
+		{{#if activated}}
+	<div class="">
+		<div class="dark-block">
+			<h3>Add choco</h3>
+			<form class="form-horizontal">
+				<div class="control-group error">
+					<label class="control-label">ShortDescription </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="chocoInProgress.shortDescription" placeholder="A short description"}}
+						<span class="help-inline">this field is required</span>
+					</div>
+				</div>	
+				<div class="control-group error">
+					<label class="control-label">Description </label>
+					<div class="controls">
+							{{view TextField class="span2" valueBinding="chocoInProgress.description" placeholder="A complete description with all information."}}
+						<span class="help-inline">this field is required</span>
+					</div>
+				</div>	
+				<div class="control-group">
+					<label class="control-label">User </label>
+					<div class="controls">
+						{{view Select viewName="select" contentBinding="userProxies" class="span2"
+											  optionLabelPath="content.desc" optionValuePath="content.id" selectionBinding="chocoInProgress.userProxy"}}
+						
+					</div>
+				</div>	
+				
+				<div class="control-group" style="text-align:center">
+					<button {{action "validForm"}} class="btn btn-inverse" href="#">Add</button>
+					<button {{action "closeEvent"}} class="btn" href="#">Cancel</button>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+	{{else}}
+		<div class="control-group" style="text-align:right">
+			<button {{action "createEvent"}} class="btn btn-inverse" href="#">
+				<i class="icon-plus-sign icon-white"></i>
+				New
+			</button>
+		</div>
+	{{/if}}
+	<!-- End of user code -->
+</script>
+
