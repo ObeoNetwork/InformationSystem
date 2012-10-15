@@ -146,7 +146,7 @@
         <elements xsi:type="eef-views:ElementEditor" xmi:id="_pmLZodFMEd-D_d4DyzbMng" name="acceptanceCriteria">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
         </elements>
-        <elements xsi:type="eef-views:ElementEditor" xmi:id="__NCFoGBMEeCk77KcMuHxlQ" name="referencedObject">
+        <elements xsi:type="eef-views:ElementEditor" xmi:id="__NCFoGBMEeCk77KcMuHxlQ" name="referencedObject" readOnly="true">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.10"/>
         </elements>
       </views>

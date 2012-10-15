@@ -26,7 +26,7 @@
                menubarPath="org.obeonetwork.dsl.ois.menu/entity">
          </action>
          <action
-               class="org.obeonetwork.dsl.entity.ui.launchers.HibernateArchitecturePackageLaunchActionorg.obeonetwork.dsl.entity.ui.launchers.HibernateLaunchAction"
+               class="org.obeonetwork.dsl.entity.ui.launchers.HibernateArchitecturePackageLaunchAction"
                id="org.obeonetwork.dsl.entity.ui.action2"
                label="Generate Entity Hibernate Architecture Per Package"
                menubarPath="org.obeonetwork.dsl.ois.menu/entity">

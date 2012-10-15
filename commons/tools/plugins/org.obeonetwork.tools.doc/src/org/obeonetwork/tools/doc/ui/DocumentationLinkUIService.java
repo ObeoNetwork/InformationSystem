@@ -16,13 +16,13 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
-import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.browser.IWebBrowser;
 import org.eclipse.ui.browser.IWorkbenchBrowserSupport;
-import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.ide.IDE;
 import org.obeonetwork.tools.doc.DocBridgeUI;
 import org.obeonetwork.tools.doc.core.DocumentationLink;
 
@@ -80,9 +80,17 @@ public class DocumentationLinkUIService implements DocumentationLinkCommandFacto
 		public Object execute(ExecutionEvent event) throws ExecutionException {
 			try {
 				IWorkbench workbench = DocBridgeUI.getInstance().getWorkbench();
-				IEditorDescriptor desc = workbench.getEditorRegistry().getDefaultEditor(entry.getWorkspaceRelativeValue());
 				IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(entry.getWorkspaceRelativeValue()));
-				workbench.getActiveWorkbenchWindow().getActivePage().openEditor(new FileEditorInput(file), desc.getId());
+				IWorkbenchPage activePage = workbench.getActiveWorkbenchWindow().getActivePage();
+				/* Was the old way to open editors (always use the default editor)
+				IEditorDescriptor desc = workbench.getEditorRegistry().getDefaultEditor(entry.getWorkspaceRelativeValue());
+				if (desc != null && file != null && activePage != null) {
+					activePage.openEditor(new FileEditorInput(file), desc.getId());
+				}
+				*/
+				if (file != null && activePage != null) {
+					IDE.openEditor(activePage, file);
+				}
 			} catch (PartInitException e) {
 				reportError(e);
 			}
