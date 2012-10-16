@@ -1,3 +1,9 @@
 This is your sample model
 =====================================
 
+The root model of this sample is ChocoApp.application and it will be the incoming of the generator.
+This model contains references on other models : cinematic ecore and ecore binding.
+Moreover, it defines bindings between cinematic and ecore binding.
+
+Well do not forget to update all models after a modification.
+For example, if you modify the ecore, you need to regenerate the ecore binding and update bindings between cinematic and ecore binding.
