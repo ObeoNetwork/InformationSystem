@@ -1,0 +1,10 @@
+This is your new Javascript application
+=====================================
+
+This folder can be launch in a terminal (with nodeJs on your shell Path) :
+cd org.obeonetwork.informationsystem.gen.web.sample
+npm install connect
+node nodeJsRunner.js
+
+You can open your favorite browser on http://127.0.0.3:8080/.
+Note that this application has a login process (oauth) with a github account.

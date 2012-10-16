@@ -45,8 +45,8 @@ define(["require", "app/App", "app/security/ProviderDelegation" ], function(requ
 	
 	function _initSignIn() {
 		/** Start of user code default _initSignIn */
-		$("#sign-hmarchadour").click(function(event) {
-			var redirect = ProviderDelegation.getUrl4Login("?hmarchadour=true");
+		$("#github-login").click(function(event) {
+			var redirect = ProviderDelegation.getUrl4Login("?github=true");
 			$(this).attr("href", redirect);
 		});
 		/** End of user code */

@@ -31,7 +31,7 @@ define(["require", "app/model/Proxy", "app/security/LogManager", "app/model/Stat
 	var WsUtil = {};
 	
 	WsUtil.baseUrl = function() {
-		return ".";
+			return ".";
 	}
 
 	WsUtil.getJsonQuery = function(url, data, cb_success, cb_error) {

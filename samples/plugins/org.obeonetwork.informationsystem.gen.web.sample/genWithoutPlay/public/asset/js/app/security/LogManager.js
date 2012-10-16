@@ -70,7 +70,7 @@ define(["require", "app/security/SecurityUtil", "app/security/ProviderDelegation
 	
 	function _inHackMode() {
 		
-		return SecurityUtil.urlParams["hmarchadour"]||SecurityUtil.urlParams["moderator"]||SecurityUtil.urlParams["admin"];
+		return SecurityUtil.urlParams["github"]||SecurityUtil.urlParams["moderator"]||SecurityUtil.urlParams["admin"];
 	}
 	
 	LogManager.inLoginProcess = function() {
@@ -84,8 +84,8 @@ define(["require", "app/security/SecurityUtil", "app/security/ProviderDelegation
 		var token = undefined;
 		
 		if(_inHackMode()) {
-			if(SecurityUtil.urlParams["hmarchadour"]) {
-				console.log("login hack hmarchadour");
+			if(SecurityUtil.urlParams["github"]) {
+				console.log("login hack github");
 				token = "1111111111111111111111111111111111111111";
 			} else if(SecurityUtil.urlParams["moderator"]) {
 				console.log("login hack moderator");

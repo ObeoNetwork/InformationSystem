@@ -38,8 +38,8 @@
 	
 	function _initSignIn() {
 		/** [protected ('default _initSignIn */')]
-		$("#sign-hmarchadour").click(function(event) {
-			var redirect = [ProviderDelegation/].getUrl4Login("?hmarchadour=true");
+		$("#github-login").click(function(event) {
+			var redirect = [ProviderDelegation/].getUrl4Login("?github=true");
 			$(this).attr("href", redirect);
 		});
 		/** [/protected] */
