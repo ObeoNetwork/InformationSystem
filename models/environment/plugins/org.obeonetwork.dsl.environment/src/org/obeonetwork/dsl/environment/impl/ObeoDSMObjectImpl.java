@@ -15,6 +15,7 @@ package org.obeonetwork.dsl.environment.impl;
 import java.util.Collection;
 import java.util.Date;
 
+import org.eclipse.emf.cdo.CDONotification;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
@@ -110,6 +111,14 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 
 			@Override
 			public void notifyChanged(Notification msg) {
+				// We don't handle CDONotifications because it would mean setting an attribute outside a transaction
+				// When 2 clients are on the same shared projects :
+				// - the one who actually does the modification receives instances of EMF classic notifications
+				// - the one who is just listening to changes receives instances of CDO notifications
+				// With that test, it is the first client who sets the modifiedOn attribute
+				if (msg instanceof CDONotification) {
+					return;
+				}
 				if (msg.getNotifier() instanceof ObeoDSMObject) {
 					ObeoDSMObject notifier = (ObeoDSMObject) msg.getNotifier();
 
