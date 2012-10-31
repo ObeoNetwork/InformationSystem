@@ -217,10 +217,10 @@ litigation.
    </license>
 
    <requires>
-      <import feature="org.obeonetwork.dsl.feature.environment" version="2.3.0.qualifier"/>
-      <import feature="org.obeonetwork.dsl.feature.entity" version="2.3.0.qualifier"/>
-      <import feature="org.obeonetwork.dsl.feature.soa" version="2.3.0.qualifier"/>
-      <import feature="org.eclipse.emf.eef.runtime-feature" version="1.1.1.201206051542"/>
+      <import feature="org.obeonetwork.dsl.feature.environment" version="2.3.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.entity" version="2.3.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.soa" version="2.3.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.eef.runtime-feature" version="1.1.1" match="greaterOrEqual"/>
    </requires>
 
    <plugin
