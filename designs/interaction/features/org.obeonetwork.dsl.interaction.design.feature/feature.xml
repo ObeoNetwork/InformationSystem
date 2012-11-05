@@ -217,29 +217,18 @@ litigation.
    </license>
 
    <requires>
-      <import feature="org.obeonetwork.dsl.feature.environment" version="2.1.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.feature.designer.architect" version="6.0.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.acceleo" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.acceleo2" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.ide.ui" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.ide.ui.acceleo" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.ocl" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui.acceleo" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.mda.license" version="1.0.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.interaction" version="2.3.0" match="greaterOrEqual"/>
    </requires>
-
-   <plugin
-         id="org.obeonetwork.dsl.interaction"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.obeonetwork.dsl.interaction.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.obeonetwork.dsl.interaction.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
          id="org.obeonetwork.dsl.interaction.design"

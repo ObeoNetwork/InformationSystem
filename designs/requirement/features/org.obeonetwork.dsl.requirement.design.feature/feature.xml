@@ -16,36 +16,23 @@
       %license
    </license>
 
-   <plugin
-         id="org.obeonetwork.dsl.requirement"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <requires>
+      <import feature="fr.obeo.dsl.feature.designer.architect" version="6.0.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.acceleo" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.acceleo2" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.ide.ui" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.ide.ui.acceleo" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.ocl" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui.acceleo" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.mda.license" version="1.0.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.requirement" version="1.1.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.tools.linker.feature" version="1.0.0.qualifier"/>
+   </requires>
 
    <plugin
          id="org.obeonetwork.dsl.requirement.design"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.obeonetwork.dsl.requirement.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.obeonetwork.dsl.requirement.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.obeonetwork.dsl.requirement.doc"
          download-size="0"
          install-size="0"
          version="0.0.0"
