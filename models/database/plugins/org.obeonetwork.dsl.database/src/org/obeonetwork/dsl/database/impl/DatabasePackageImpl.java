@@ -797,6 +797,24 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSequence_CacheSize() {
+		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSequence_Cycle() {
+		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTableContainer() {
 		return tableContainerEClass;
 	}
@@ -924,6 +942,8 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		createEAttribute(sequenceEClass, SEQUENCE__INCREMENT);
 		createEAttribute(sequenceEClass, SEQUENCE__MIN_VALUE);
 		createEAttribute(sequenceEClass, SEQUENCE__MAX_VALUE);
+		createEAttribute(sequenceEClass, SEQUENCE__CACHE_SIZE);
+		createEAttribute(sequenceEClass, SEQUENCE__CYCLE);
 
 		tableContainerEClass = createEClass(TABLE_CONTAINER);
 		createEReference(tableContainerEClass, TABLE_CONTAINER__TABLES);
@@ -1068,6 +1088,8 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		initEAttribute(getSequence_Increment(), ecorePackage.getEInt(), "increment", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequence_MinValue(), ecorePackage.getEInt(), "minValue", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequence_MaxValue(), ecorePackage.getEInt(), "maxValue", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSequence_CacheSize(), ecorePackage.getEInt(), "cacheSize", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSequence_Cycle(), ecorePackage.getEBoolean(), "cycle", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableContainerEClass, TableContainer.class, "TableContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTableContainer_Tables(), this.getAbstractTable(), this.getAbstractTable_Owner(), "tables", null, 0, -1, TableContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

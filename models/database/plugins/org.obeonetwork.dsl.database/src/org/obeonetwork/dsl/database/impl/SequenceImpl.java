@@ -27,6 +27,8 @@ import org.obeonetwork.dsl.database.Sequence;
  *   <li>{@link org.obeonetwork.dsl.database.impl.SequenceImpl#getIncrement <em>Increment</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.SequenceImpl#getMinValue <em>Min Value</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.SequenceImpl#getMaxValue <em>Max Value</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.database.impl.SequenceImpl#getCacheSize <em>Cache Size</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.database.impl.SequenceImpl#isCycle <em>Cycle</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,6 +78,25 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * @ordered
 	 */
 	protected static final int MAX_VALUE_EDEFAULT = 0;
+	/**
+	 * The default value of the '{@link #getCacheSize() <em>Cache Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCacheSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int CACHE_SIZE_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #isCycle() <em>Cycle</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCycle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CYCLE_EDEFAULT = false;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -172,6 +193,42 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getCacheSize() {
+		return (Integer)eDynamicGet(DatabasePackage.SEQUENCE__CACHE_SIZE, DatabasePackage.Literals.SEQUENCE__CACHE_SIZE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCacheSize(int newCacheSize) {
+		eDynamicSet(DatabasePackage.SEQUENCE__CACHE_SIZE, DatabasePackage.Literals.SEQUENCE__CACHE_SIZE, newCacheSize);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isCycle() {
+		return (Boolean)eDynamicGet(DatabasePackage.SEQUENCE__CYCLE, DatabasePackage.Literals.SEQUENCE__CYCLE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCycle(boolean newCycle) {
+		eDynamicSet(DatabasePackage.SEQUENCE__CYCLE, DatabasePackage.Literals.SEQUENCE__CYCLE, newCycle);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -183,6 +240,10 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 				return getMinValue();
 			case DatabasePackage.SEQUENCE__MAX_VALUE:
 				return getMaxValue();
+			case DatabasePackage.SEQUENCE__CACHE_SIZE:
+				return getCacheSize();
+			case DatabasePackage.SEQUENCE__CYCLE:
+				return isCycle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -206,6 +267,12 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 				return;
 			case DatabasePackage.SEQUENCE__MAX_VALUE:
 				setMaxValue((Integer)newValue);
+				return;
+			case DatabasePackage.SEQUENCE__CACHE_SIZE:
+				setCacheSize((Integer)newValue);
+				return;
+			case DatabasePackage.SEQUENCE__CYCLE:
+				setCycle((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -231,6 +298,12 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 			case DatabasePackage.SEQUENCE__MAX_VALUE:
 				setMaxValue(MAX_VALUE_EDEFAULT);
 				return;
+			case DatabasePackage.SEQUENCE__CACHE_SIZE:
+				setCacheSize(CACHE_SIZE_EDEFAULT);
+				return;
+			case DatabasePackage.SEQUENCE__CYCLE:
+				setCycle(CYCLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,6 +324,10 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 				return getMinValue() != MIN_VALUE_EDEFAULT;
 			case DatabasePackage.SEQUENCE__MAX_VALUE:
 				return getMaxValue() != MAX_VALUE_EDEFAULT;
+			case DatabasePackage.SEQUENCE__CACHE_SIZE:
+				return getCacheSize() != CACHE_SIZE_EDEFAULT;
+			case DatabasePackage.SEQUENCE__CYCLE:
+				return isCycle() != CYCLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
