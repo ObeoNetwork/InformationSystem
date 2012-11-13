@@ -5,48 +5,37 @@ package org.obeonetwork.dsl.database.parts.forms;
 
 // Start of user code for imports
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
 import org.eclipse.emf.eef.runtime.ui.widgets.HorizontalBox;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-
+import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
 import org.obeonetwork.dsl.database.parts.SequencePropertiesEditionPart;
-
 import org.obeonetwork.dsl.database.providers.DatabaseMessages;
 
 // End of user code
@@ -62,6 +51,8 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 	protected Text increment;
 	protected Text minValue;
 	protected Text maxValue;
+	protected Button cycle;
+	protected Text cacheSize;
 	protected Text comments;
 
 
@@ -117,6 +108,10 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		minMaxStep.addStep(DatabaseViewsRepository.Sequence.Properties.MinMax.minValue);
 		minMaxStep.addStep(DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue);
 		
+		CompositionStep cycleCacheSizeStep = propertiesStep.addStep(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.class);
+		cycleCacheSizeStep.addStep(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle);
+		cycleCacheSizeStep.addStep(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize);
+		
 		propertiesStep.addStep(DatabaseViewsRepository.Sequence.Properties.comments);
 		
 		
@@ -147,6 +142,15 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 				}
 				if (key == DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue) {
 					return createMaxValueText(widgetFactory, parent);
+				}
+				if (key == DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.class) {
+					return createCycleCacheSizeHBox(widgetFactory, parent);
+				}
+				if (key == DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle) {
+					return createCycleCheckbox(widgetFactory, parent);
+				}
+				if (key == DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize) {
+					return createCacheSizeText(widgetFactory, parent);
 				}
 				if (key == DatabaseViewsRepository.Sequence.Properties.comments) {
 					return createCommentsTextarea(widgetFactory, parent);
@@ -238,9 +242,7 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createStartIncrementHBox(FormToolkit widgetFactory, Composite parent) {
 		Composite container = widgetFactory.createComposite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -383,9 +385,7 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createMinMaxHBox(FormToolkit widgetFactory, Composite parent) {
 		Composite container = widgetFactory.createComposite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -525,6 +525,114 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		EditingUtils.setID(maxValue, DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue);
 		EditingUtils.setEEFtype(maxValue, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue, DatabaseViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		return parent;
+	}
+
+	
+	protected Composite createCycleCacheSizeHBox(FormToolkit widgetFactory, Composite parent) {
+		Composite container = widgetFactory.createComposite(parent, SWT.NONE);
+		GridLayout layout = new GridLayout();
+		container.setLayout(layout);
+		GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+		gridData.horizontalSpan=3;
+		container.setLayoutData(gridData);
+				HorizontalBox cycleCacheSizeHBox = new HorizontalBox(container);
+		//Apply constraint for checkbox
+		GridData constraint = new GridData(GridData.FILL_HORIZONTAL);
+		constraint.horizontalAlignment = GridData.BEGINNING;
+		cycleCacheSizeHBox.setLayoutData(constraint);
+		widgetFactory.adapt(cycleCacheSizeHBox);
+		return cycleCacheSizeHBox;
+	}
+
+	
+	protected Composite createCycleCheckbox(FormToolkit widgetFactory, Composite parent) {
+		cycle = widgetFactory.createButton(parent, getDescription(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle, DatabaseMessages.SequencePropertiesEditionPart_CycleLabel), SWT.CHECK);
+		cycle.addSelectionListener(new SelectionAdapter() {
+
+			/**
+			 * {@inheritDoc}
+			 *
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 * 	
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				if (propertiesEditionComponent != null)
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SequencePropertiesEditionPartForm.this, DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, new Boolean(cycle.getSelection())));
+			}
+
+		});
+		GridData cycleData = new GridData(GridData.FILL_HORIZONTAL);
+		cycleData.horizontalSpan = 2;
+		cycle.setLayoutData(cycleData);
+		EditingUtils.setID(cycle, DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle);
+		EditingUtils.setEEFtype(cycle, "eef::Checkbox"); //$NON-NLS-1$
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle, DatabaseViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		return parent;
+	}
+
+	
+	protected Composite createCacheSizeText(FormToolkit widgetFactory, Composite parent) {
+		createDescription(parent, DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize, DatabaseMessages.SequencePropertiesEditionPart_CacheSizeLabel);
+		cacheSize = widgetFactory.createText(parent, ""); //$NON-NLS-1$
+		cacheSize.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
+		widgetFactory.paintBordersFor(parent);
+		GridData cacheSizeData = new GridData(GridData.FILL_HORIZONTAL);
+		cacheSize.setLayoutData(cacheSizeData);
+		cacheSize.addFocusListener(new FocusAdapter() {
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
+			 * 
+			 */
+			@Override
+			@SuppressWarnings("synthetic-access")
+			public void focusLost(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							SequencePropertiesEditionPartForm.this,
+							DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, cacheSize.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									SequencePropertiesEditionPartForm.this,
+									DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, cacheSize.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									SequencePropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
+		});
+		cacheSize.addKeyListener(new KeyAdapter() {
+			/**
+			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
+			 * 
+			 */
+			@Override
+			@SuppressWarnings("synthetic-access")
+			public void keyPressed(KeyEvent e) {
+				if (e.character == SWT.CR) {
+					if (propertiesEditionComponent != null)
+						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SequencePropertiesEditionPartForm.this, DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, cacheSize.getText()));
+				}
+			}
+		});
+		EditingUtils.setID(cacheSize, DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize);
+		EditingUtils.setEEFtype(cacheSize, "eef::Text"); //$NON-NLS-1$
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize, DatabaseViewsRepository.FORM_KIND), null); //$NON-NLS-1$
 		return parent;
 	}
 
@@ -714,6 +822,54 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 			maxValue.setText(newValue);
 		} else {
 			maxValue.setText(""); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.SequencePropertiesEditionPart#getCycle()
+	 * 
+	 */
+	public Boolean getCycle() {
+		return Boolean.valueOf(cycle.getSelection());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.SequencePropertiesEditionPart#setCycle(Boolean newValue)
+	 * 
+	 */
+	public void setCycle(Boolean newValue) {
+		if (newValue != null) {
+			cycle.setSelection(newValue.booleanValue());
+		} else {
+			cycle.setSelection(false);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.SequencePropertiesEditionPart#getCacheSize()
+	 * 
+	 */
+	public String getCacheSize() {
+		return cacheSize.getText();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.SequencePropertiesEditionPart#setCacheSize(String newValue)
+	 * 
+	 */
+	public void setCacheSize(String newValue) {
+		if (newValue != null) {
+			cacheSize.setText(newValue);
+		} else {
+			cacheSize.setText(""); //$NON-NLS-1$
 		}
 	}
 

@@ -257,13 +257,19 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOgyZDEeGbPrqZPmsr5Q" name="maxValue" views="_9djcmSZDEeGbPrqZPmsr5Q">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Sequence/maxValue"/>
         </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_zxdp8C2oEeK0sog8VcOGbQ" name="cycle" views="_rrtDwC2oEeK0sog8VcOGbQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Sequence/cycle"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4BNn4C2oEeK0sog8VcOGbQ" name="cacheSize" views="_udufcC2oEeK0sog8VcOGbQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Sequence/cacheSize"/>
+        </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9diOfiZDEeGbPrqZPmsr5Q" name="comments" views="_9djclCZDEeGbPrqZPmsr5Q">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
         </properties>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Sequence"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.database/model/database.genmodel#//database"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.database/model/database_cdonative.genmodel#//database"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_9diOhCZDEeGbPrqZPmsr5Q" documentation="Views repository for database GenPackage" name="database">
     <RepositoryKind>SWT</RepositoryKind>
@@ -525,6 +531,15 @@
               <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
             </elements>
             <elements xsi:type="eef-views:ElementEditor" xmi:id="_9djcmSZDEeGbPrqZPmsr5Q" name="max value">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            </elements>
+          </elements>
+          <elements xsi:type="eef-views:Container" xmi:id="_oOWMEC2oEeK0sog8VcOGbQ" name="CycleCacheSize">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.6"/>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_rrtDwC2oEeK0sog8VcOGbQ" name="cycle">
+              <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+            </elements>
+            <elements xsi:type="eef-views:ElementEditor" xmi:id="_udufcC2oEeK0sog8VcOGbQ" name="cache size">
               <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
             </elements>
           </elements>

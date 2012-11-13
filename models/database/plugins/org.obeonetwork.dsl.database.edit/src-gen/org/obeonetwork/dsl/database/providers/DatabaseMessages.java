@@ -322,6 +322,12 @@ public class DatabaseMessages extends NLS {
 	public static String SequencePropertiesEditionPart_MaxValueLabel;
 
 	
+	public static String SequencePropertiesEditionPart_CycleLabel;
+
+	
+	public static String SequencePropertiesEditionPart_CacheSizeLabel;
+
+	
 	public static String SequencePropertiesEditionPart_CommentsLabel;
 
 

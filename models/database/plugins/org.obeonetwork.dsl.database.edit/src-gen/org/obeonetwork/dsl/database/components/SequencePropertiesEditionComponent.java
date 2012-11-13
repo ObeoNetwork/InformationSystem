@@ -81,9 +81,18 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 				sequencePart.setMaxValue(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, sequence.getMaxValue()));
 			}
 			
+			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle)) {
+				sequencePart.setCycle(sequence.isCycle());
+			}
+			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize)) {
+				sequencePart.setCacheSize(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, sequence.getCacheSize()));
+			}
+			
 			if (sequence.getComments() != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.comments))
 				sequencePart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, sequence.getComments()));
 			// init filters
+			
+			
 			
 			
 			
@@ -97,6 +106,8 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		setInitializing(false);
 	}
+
+
 
 
 
@@ -126,6 +137,12 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 		if (editorKey == DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue) {
 			return DatabasePackage.eINSTANCE.getSequence_MaxValue();
 		}
+		if (editorKey == DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle) {
+			return DatabasePackage.eINSTANCE.getSequence_Cycle();
+		}
+		if (editorKey == DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize) {
+			return DatabasePackage.eINSTANCE.getSequence_CacheSize();
+		}
 		if (editorKey == DatabaseViewsRepository.Sequence.Properties.comments) {
 			return DatabasePackage.eINSTANCE.getDatabaseElement_Comments();
 		}
@@ -153,6 +170,12 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		if (DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue == event.getAffectedEditor()) {
 			sequence.setMaxValue((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+		}
+		if (DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle == event.getAffectedEditor()) {
+			sequence.setCycle((Boolean)event.getNewValue());
+		}
+		if (DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize == event.getAffectedEditor()) {
+			sequence.setCacheSize((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
 		}
 		if (DatabaseViewsRepository.Sequence.Properties.comments == event.getAffectedEditor()) {
 			sequence.setComments((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
@@ -199,6 +222,16 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 					sequencePart.setMaxValue(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					sequencePart.setMaxValue("");
+				}
+			}
+			if (DatabasePackage.eINSTANCE.getSequence_Cycle().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle))
+				sequencePart.setCycle((Boolean)msg.getNewValue());
+			
+			if (DatabasePackage.eINSTANCE.getSequence_CacheSize().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize)) {
+				if (msg.getNewValue() != null) {
+					sequencePart.setCacheSize(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
+				} else {
+					sequencePart.setCacheSize("");
 				}
 			}
 			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.comments)){
@@ -267,6 +300,20 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 						newValue = EEFConverterUtil.createFromString(DatabasePackage.eINSTANCE.getSequence_MaxValue().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(DatabasePackage.eINSTANCE.getSequence_MaxValue().getEAttributeType(), newValue);
+				}
+				if (DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle == event.getAffectedEditor()) {
+					Object newValue = event.getNewValue();
+					if (newValue instanceof String) {
+						newValue = EEFConverterUtil.createFromString(DatabasePackage.eINSTANCE.getSequence_Cycle().getEAttributeType(), (String)newValue);
+					}
+					ret = Diagnostician.INSTANCE.validate(DatabasePackage.eINSTANCE.getSequence_Cycle().getEAttributeType(), newValue);
+				}
+				if (DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize == event.getAffectedEditor()) {
+					Object newValue = event.getNewValue();
+					if (newValue instanceof String) {
+						newValue = EEFConverterUtil.createFromString(DatabasePackage.eINSTANCE.getSequence_CacheSize().getEAttributeType(), (String)newValue);
+					}
+					ret = Diagnostician.INSTANCE.validate(DatabasePackage.eINSTANCE.getSequence_CacheSize().getEAttributeType(), newValue);
 				}
 				if (DatabaseViewsRepository.Sequence.Properties.comments == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();

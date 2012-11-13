@@ -330,9 +330,7 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createTypeAttributesHBox(FormToolkit widgetFactory, Composite parent) {
 		Composite container = widgetFactory.createComposite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -518,9 +516,7 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createNullablePkAndUniqueHBox(FormToolkit widgetFactory, Composite parent) {
 		Composite container = widgetFactory.createComposite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -615,9 +611,7 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createSequenceHBox(FormToolkit widgetFactory, Composite parent) {
 		Composite container = widgetFactory.createComposite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();

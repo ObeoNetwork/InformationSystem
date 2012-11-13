@@ -86,6 +86,34 @@ public interface SequencePropertiesEditionPart {
 
 
 	/**
+	 * @return the cycle
+	 * 
+	 */
+	public Boolean getCycle();
+
+	/**
+	 * Defines a new cycle
+	 * @param newValue the new cycle to set
+	 * 
+	 */
+	public void setCycle(Boolean newValue);
+
+
+	/**
+	 * @return the cache size
+	 * 
+	 */
+	public String getCacheSize();
+
+	/**
+	 * Defines a new cache size
+	 * @param newValue the new cache size to set
+	 * 
+	 */
+	public void setCacheSize(String newValue);
+
+
+	/**
 	 * @return the comments
 	 * 
 	 */

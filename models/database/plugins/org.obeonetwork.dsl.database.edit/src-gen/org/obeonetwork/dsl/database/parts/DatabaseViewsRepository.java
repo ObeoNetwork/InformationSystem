@@ -385,6 +385,17 @@ public class DatabaseViewsRepository {
 			
 				}
 			
+				public static class CycleCacheSize {
+			
+					
+					public static String cycle = "database::Sequence::properties::CycleCacheSize::cycle";
+					
+					
+					public static String cacheSize = "database::Sequence::properties::CycleCacheSize::cache size";
+					
+			
+				}
+			
 			
 			public static String comments = "database::Sequence::properties::comments";
 			
