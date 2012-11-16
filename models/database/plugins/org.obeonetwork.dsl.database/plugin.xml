@@ -18,7 +18,7 @@
       <package
             uri="http://www.obeonetwork.org/dsl/database/1.0"
             class="org.obeonetwork.dsl.database.DatabasePackage"
-            genModel="model/database.genmodel"/>
+            genModel="model/database_cdonative.genmodel"/>
    </extension>
 
   <extension point="org.eclipse.emf.ecore.extension_parser">

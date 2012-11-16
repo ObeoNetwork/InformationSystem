@@ -227,6 +227,7 @@ public interface Column extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Sequence</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.database.Sequence#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sequence</em>' reference isn't clear,
@@ -236,7 +237,8 @@ public interface Column extends NamedElement {
 	 * @return the value of the '<em>Sequence</em>' reference.
 	 * @see #setSequence(Sequence)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_Sequence()
-	 * @model
+	 * @see org.obeonetwork.dsl.database.Sequence#getColumns
+	 * @model opposite="columns"
 	 * @generated
 	 */
 	Sequence getSequence();

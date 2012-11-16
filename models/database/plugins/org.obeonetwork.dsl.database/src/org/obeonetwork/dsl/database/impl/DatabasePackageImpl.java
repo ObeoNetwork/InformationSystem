@@ -815,6 +815,15 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSequence_Columns() {
+		return (EReference)sequenceEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTableContainer() {
 		return tableContainerEClass;
 	}
@@ -944,6 +953,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		createEAttribute(sequenceEClass, SEQUENCE__MAX_VALUE);
 		createEAttribute(sequenceEClass, SEQUENCE__CACHE_SIZE);
 		createEAttribute(sequenceEClass, SEQUENCE__CYCLE);
+		createEReference(sequenceEClass, SEQUENCE__COLUMNS);
 
 		tableContainerEClass = createEClass(TABLE_CONTAINER);
 		createEReference(tableContainerEClass, TABLE_CONTAINER__TABLES);
@@ -1020,7 +1030,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		initEReference(getColumn_ForeignKeys(), this.getForeignKey(), null, "foreignKeys", null, 0, -1, Column.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getColumn_ForeignKeyElements(), this.getForeignKeyElement(), this.getForeignKeyElement_FkColumn(), "foreignKeyElements", null, 0, -1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColumn_Type(), theTypesLibraryPackage.getType(), null, "type", null, 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getColumn_Sequence(), this.getSequence(), null, "sequence", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColumn_Sequence(), this.getSequence(), this.getSequence_Columns(), "sequence", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColumn_Owner(), this.getAbstractTable(), this.getAbstractTable_Columns(), "owner", null, 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_Autoincrement(), ecorePackage.getEBoolean(), "autoincrement", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_InPrimaryKey(), ecorePackage.getEBoolean(), "inPrimaryKey", null, 0, 1, Column.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1090,6 +1100,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		initEAttribute(getSequence_MaxValue(), ecorePackage.getEInt(), "maxValue", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequence_CacheSize(), ecorePackage.getEInt(), "cacheSize", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequence_Cycle(), ecorePackage.getEBoolean(), "cycle", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSequence_Columns(), this.getColumn(), this.getColumn_Sequence(), "columns", null, 0, -1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableContainerEClass, TableContainer.class, "TableContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTableContainer_Tables(), this.getAbstractTable(), this.getAbstractTable_Owner(), "tables", null, 0, -1, TableContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

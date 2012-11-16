@@ -10,6 +10,8 @@
  */
 package org.obeonetwork.dsl.database;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +27,7 @@ package org.obeonetwork.dsl.database;
  *   <li>{@link org.obeonetwork.dsl.database.Sequence#getMaxValue <em>Max Value</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Sequence#getCacheSize <em>Cache Size</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Sequence#isCycle <em>Cycle</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.database.Sequence#getColumns <em>Columns</em>}</li>
  * </ul>
  * </p>
  *
@@ -195,5 +198,23 @@ public interface Sequence extends NamedElement {
 	 * @generated
 	 */
 	void setCycle(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Columns</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.database.Column}.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.database.Column#getSequence <em>Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Columns</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Columns</em>' reference list.
+	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_Columns()
+	 * @see org.obeonetwork.dsl.database.Column#getSequence
+	 * @model opposite="sequence"
+	 * @generated
+	 */
+	EList<Column> getColumns();
 
 } // Sequence

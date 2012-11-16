@@ -94,6 +94,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//Sequence/maxValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//Sequence/cacheSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//Sequence/cycle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference database.ecore#//Sequence/columns"/>
     </genClasses>
     <genClasses image="false" ecoreClass="database.ecore#//TableContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//TableContainer/tables"/>

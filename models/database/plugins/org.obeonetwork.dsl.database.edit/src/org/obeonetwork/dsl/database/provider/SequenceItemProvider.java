@@ -76,6 +76,7 @@ public class SequenceItemProvider
 			addMaxValuePropertyDescriptor(object);
 			addCacheSizePropertyDescriptor(object);
 			addCyclePropertyDescriptor(object);
+			addColumnsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -208,6 +209,28 @@ public class SequenceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Columns feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColumnsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sequence_columns_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sequence_columns_feature", "_UI_Sequence_type"),
+				 DatabasePackage.Literals.SEQUENCE__COLUMNS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

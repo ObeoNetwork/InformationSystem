@@ -1293,13 +1293,22 @@ public interface DatabasePackage extends EPackage {
 	int SEQUENCE__CYCLE = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Columns</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__COLUMNS = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Sequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int SEQUENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 
 	/**
@@ -2003,6 +2012,17 @@ public interface DatabasePackage extends EPackage {
 	EAttribute getSequence_Cycle();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.database.Sequence#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Columns</em>'.
+	 * @see org.obeonetwork.dsl.database.Sequence#getColumns()
+	 * @see #getSequence()
+	 * @generated
+	 */
+	EReference getSequence_Columns();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.TableContainer <em>Table Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2605,6 +2625,14 @@ public interface DatabasePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SEQUENCE__CYCLE = eINSTANCE.getSequence_Cycle();
+
+		/**
+		 * The meta object literal for the '<em><b>Columns</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEQUENCE__COLUMNS = eINSTANCE.getSequence_Columns();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.impl.TableContainerImpl <em>Table Container</em>}' class.

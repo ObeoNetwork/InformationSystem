@@ -310,6 +310,16 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NotificationChain basicSetSequence(Sequence newSequence, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newSequence, DatabasePackage.COLUMN__SEQUENCE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void setSequence(Sequence newSequence) {
 		eDynamicSet(DatabasePackage.COLUMN__SEQUENCE, DatabasePackage.Literals.COLUMN__SEQUENCE, newSequence);
 	}
@@ -449,6 +459,11 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 				return basicSetPrimaryKey((PrimaryKey)otherEnd, msgs);
 			case DatabasePackage.COLUMN__FOREIGN_KEY_ELEMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getForeignKeyElements()).basicAdd(otherEnd, msgs);
+			case DatabasePackage.COLUMN__SEQUENCE:
+				Sequence sequence = basicGetSequence();
+				if (sequence != null)
+					msgs = ((InternalEObject)sequence).eInverseRemove(this, DatabasePackage.SEQUENCE__COLUMNS, Sequence.class, msgs);
+				return basicSetSequence((Sequence)otherEnd, msgs);
 			case DatabasePackage.COLUMN__OWNER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -473,6 +488,8 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 				return ((InternalEList<?>)getForeignKeyElements()).basicRemove(otherEnd, msgs);
 			case DatabasePackage.COLUMN__TYPE:
 				return basicSetType(null, msgs);
+			case DatabasePackage.COLUMN__SEQUENCE:
+				return basicSetSequence(null, msgs);
 			case DatabasePackage.COLUMN__OWNER:
 				return basicSetOwner(null, msgs);
 		}
