@@ -298,9 +298,7 @@ public class ColumnPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createTypeAttributesHBox(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -444,9 +442,7 @@ public class ColumnPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createNullablePkAndUniqueHBox(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -543,9 +539,7 @@ public class ColumnPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createSequenceHBox(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();

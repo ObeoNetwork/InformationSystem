@@ -140,7 +140,11 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 								}
 								break;
 							}
-						} else if (msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON)) {
+						}/* Disabling this functionnality because it causes problems with CDO
+							everytime an object is modifed all its containers are modified too
+							and then CDO objects are locked
+							
+							else if (msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON)) {
 							if (msg.isTouch() == false) {
 								// When an object is modified, last modification date is set on its container too
 								if (msg.getEventType() == Notification.SET) {
@@ -149,7 +153,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 									}
 								}
 							}
-						}
+						}*/
 					}
 				}
 			}

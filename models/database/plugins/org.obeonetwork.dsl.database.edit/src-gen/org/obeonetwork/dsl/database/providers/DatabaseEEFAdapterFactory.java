@@ -5,19 +5,6 @@ package org.obeonetwork.dsl.database.providers;
 
 import org.eclipse.emf.common.notify.Adapter;
 
-import org.obeonetwork.dsl.database.providers.ColumnPropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.ConstraintPropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.DataBasePropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.ForeignKeyElementPropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.ForeignKeyPropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.IndexElementPropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.IndexPropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.PrimaryKeyPropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.SchemaPropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.SequencePropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.TablePropertiesEditionProvider;
-import org.obeonetwork.dsl.database.providers.ViewPropertiesEditionProvider;
-
 import org.obeonetwork.dsl.database.util.DatabaseAdapterFactory;
 
 /**

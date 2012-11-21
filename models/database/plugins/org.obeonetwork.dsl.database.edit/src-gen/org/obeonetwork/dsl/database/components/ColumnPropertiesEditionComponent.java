@@ -162,7 +162,7 @@ public class ColumnPropertiesEditionComponent extends SinglePartPropertiesEditin
 			}
 			
 			if (literalsSettings.getSignificantObject() != null && isAccessible(DatabaseViewsRepository.Column.Properties.literals)) {
-				columnPart.setLiterals((EList)literalsSettings.getValue());
+				columnPart.setLiterals((EList<?>)literalsSettings.getValue());
 			}
 			// init filters
 			
@@ -316,7 +316,7 @@ public class ColumnPropertiesEditionComponent extends SinglePartPropertiesEditin
 			precisionSettings.setValue((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
 		}
 		if (DatabaseViewsRepository.Column.Properties.literals == event.getAffectedEditor()) {
-			literalsSettings.setValue((List)event.getNewValue());
+			literalsSettings.setValue((List<?>)event.getNewValue());
 		}
 	}
 
@@ -379,7 +379,7 @@ public class ColumnPropertiesEditionComponent extends SinglePartPropertiesEditin
 				}
 			}
 			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Literals().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.literals)) {
-				columnPart.setLiterals((EList)msg.getNewValue());
+				columnPart.setLiterals((EList<?>)msg.getNewValue());
 			}
 			
 			
