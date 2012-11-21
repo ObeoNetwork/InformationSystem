@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:jee="http://www.springframework.org/schema/jee"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+           http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+		<bean id="webLogService" class="org.obeonetwork.sample.demo.weblogng.business.weblog.WebLogServiceImpl">
+        	<property name="grantService" ref="grantService"/>	
+        	<property name="userService" ref="userService"/>	
+        	<property name="searchService" ref="searchService"/>	
+			<property name="userDao" ref="UserDAO" />
+			<property name="commentDao" ref="CommentDAO" />
+			<property name="blogEntryDao" ref="BlogEntryDAO" />
+			<property name="tagDao" ref="TagDAO" />
+			<property name="categoryDao" ref="CategoryDAO" />
+			
+            <!-- Start of user code of custom section-WebLogService -->
+            	
+            <!-- End of user code -->
+        </bean>
+		<bean id="manageService" class="org.obeonetwork.sample.demo.weblogng.business.manage.ManageServiceImpl">
+        	<property name="grantService" ref="grantService"/>	
+        	<property name="userService" ref="userService"/>	
+        	<property name="searchService" ref="searchService"/>	
+			<property name="userDao" ref="UserDAO" />
+			<property name="commentDao" ref="CommentDAO" />
+			<property name="blogEntryDao" ref="BlogEntryDAO" />
+			<property name="tagDao" ref="TagDAO" />
+			<property name="categoryDao" ref="CategoryDAO" />
+			
+            <!-- Start of user code of custom section-ManageService -->
+            	
+            <!-- End of user code -->
+        </bean>
+		<bean id="monitorService" class="org.obeonetwork.sample.demo.weblogng.business.monitor.MonitorServiceImpl">
+        	<property name="grantService" ref="grantService"/>	
+        	<property name="userService" ref="userService"/>	
+        	<property name="searchService" ref="searchService"/>	
+			<property name="userDao" ref="UserDAO" />
+			<property name="commentDao" ref="CommentDAO" />
+			<property name="tagDao" ref="TagDAO" />
+			<property name="categoryDao" ref="CategoryDAO" />
+			
+            <!-- Start of user code of custom section-MonitorService -->
+            	
+            <!-- End of user code -->
+        </bean>
+		<bean id="grantService" class="org.obeonetwork.sample.demo.weblogng.business.grant.GrantServiceImpl">
+			<property name="adminDao" ref="AdminDAO" />
+			<property name="userDao" ref="UserDAO" />
+			<property name="moderatorDao" ref="ModeratorDAO" />
+			
+            <!-- Start of user code of custom section-GrantService -->
+            	
+            <!-- End of user code -->
+        </bean>
+		<bean id="userService" class="org.obeonetwork.sample.demo.weblogng.business.user.UserServiceImpl">
+			<property name="adminDao" ref="AdminDAO" />
+			<property name="userDao" ref="UserDAO" />
+			<property name="moderatorDao" ref="ModeratorDAO" />
+			
+            <!-- Start of user code of custom section-UserService -->
+            	
+            <!-- End of user code -->
+        </bean>
+		<bean id="searchService" class="org.obeonetwork.sample.demo.weblogng.business.search.SearchServiceImpl">
+			<property name="commentDao" ref="CommentDAO" />
+			<property name="blogEntryDao" ref="BlogEntryDAO" />
+			<property name="tagDao" ref="TagDAO" />
+			<property name="categoryDao" ref="CategoryDAO" />
+			
+            <!-- Start of user code of custom section-SearchService -->
+            	
+            <!-- End of user code -->
+        </bean>
+</beans>
+

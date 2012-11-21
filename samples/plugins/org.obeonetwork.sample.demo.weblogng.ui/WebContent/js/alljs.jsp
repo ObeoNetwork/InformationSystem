@@ -4,4 +4,4 @@
         uri="http://struts.apache.org/tags-html"
         prefix="html" %>
 <html:javascript dynamicJavascript="false" />
-/*End of user code
+//End of user code

@@ -7,9 +7,6 @@
 <%@ taglib
         uri="http://struts.apache.org/tags-logic"
         prefix="logic" %>
-<%@ taglib 
-        uri="http://displaytag.sf.net" 
-        prefix="display" %>
 
 
 <logic:messagesPresent>
@@ -32,12 +29,16 @@
 	
 	<table>
 		<tr>
+			<td><label for="tagDescription"><bean:message key="AddTag.tagDescription"/></label> :</td>
+			<td><logic:iterate name="AddTagForm" id="tagDescription_id" property="tagDescription" /></td>
+		</tr>
+		<tr>
 			<td><label for="logs"><bean:message key="AddTag.logs"/></label> :</td>
 			<td><logic:iterate name="AddTagForm" id="logs_id" property="logs" /></td>
 		</tr>
 		<tr>
-			<td><label for="tagDescription"><bean:message key="AddTag.tagDescription"/></label> :</td>
-			<td><logic:iterate name="AddTagForm" id="tagDescription_id" property="tagDescription" /></td>
+			<td><label for="hidden"><bean:message key="AddTag.hidden"/></label> :</td>
+			<td><html:text property="hidden" /></td>
 		</tr>
 		<tr>
 			<td>
@@ -45,10 +46,6 @@
 					<bean:message key="AddTag.select"/>
 				</html:link>
 			</td>
-		</tr>
-		<tr>
-			<td><label for="hidden"><bean:message key="AddTag.hidden"/></label> :</td>
-			<td><html:text property="hidden" /></td>
 		</tr>
 	</table>
 </fieldset>

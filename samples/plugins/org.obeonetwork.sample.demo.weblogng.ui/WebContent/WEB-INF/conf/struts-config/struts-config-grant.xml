@@ -5,8 +5,8 @@
 
     <!-- ========== Form Bean Definitions ================================== -->
     <form-beans type="org.apache.struts.action.ActionFormBean">
-		<form-bean name="GrantAdministrateForm" type="org.obeonetwork.sample.ui.grant.forms.GrantAdministrateForm" />
-		<form-bean name="GrantModerateForm" type="org.obeonetwork.sample.ui.grant.forms.GrantModerateForm" />
+		<form-bean name="GrantAdministrateForm" type="org.obeonetwork.sample.demo.weblogng.ui.grant.forms.GrantAdministrateForm" />
+		<form-bean name="GrantModerateForm" type="org.obeonetwork.sample.demo.weblogng.ui.grant.forms.GrantModerateForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->

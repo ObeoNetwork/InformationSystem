@@ -5,23 +5,23 @@
 
     <!-- ========== Form Bean Definitions ================================== -->
     <form-beans type="org.apache.struts.action.ActionFormBean">
-		<form-bean name="DeleteUserForm" type="org.obeonetwork.sample.ui.manage.forms.DeleteUserForm" />
-		<form-bean name="DeleteCommentForm" type="org.obeonetwork.sample.ui.manage.forms.DeleteCommentForm" />
-		<form-bean name="ManagerForm" type="org.obeonetwork.sample.ui.manage.forms.ManagerForm" />
-		<form-bean name="ManageCommentsForm" type="org.obeonetwork.sample.ui.manage.forms.ManageCommentsForm" />
-		<form-bean name="ManageCategoriesForm" type="org.obeonetwork.sample.ui.manage.forms.ManageCategoriesForm" />
-		<form-bean name="ManageTagsForm" type="org.obeonetwork.sample.ui.manage.forms.ManageTagsForm" />
-		<form-bean name="UpdateCommentForm" type="org.obeonetwork.sample.ui.manage.forms.UpdateCommentForm" />
-		<form-bean name="CreateCategoryForm" type="org.obeonetwork.sample.ui.manage.forms.CreateCategoryForm" />
-		<form-bean name="UpdateCategoryForm" type="org.obeonetwork.sample.ui.manage.forms.UpdateCategoryForm" />
-		<form-bean name="DeleteCategoryForm" type="org.obeonetwork.sample.ui.manage.forms.DeleteCategoryForm" />
-		<form-bean name="CreateTagForm" type="org.obeonetwork.sample.ui.manage.forms.CreateTagForm" />
-		<form-bean name="UpdateTagForm" type="org.obeonetwork.sample.ui.manage.forms.UpdateTagForm" />
-		<form-bean name="DeleteTagForm" type="org.obeonetwork.sample.ui.manage.forms.DeleteTagForm" />
-		<form-bean name="AddTagForm" type="org.obeonetwork.sample.ui.manage.forms.AddTagForm" />
-		<form-bean name="RemoveTagForm" type="org.obeonetwork.sample.ui.manage.forms.RemoveTagForm" />
-		<form-bean name="AddCategoryForm" type="org.obeonetwork.sample.ui.manage.forms.AddCategoryForm" />
-		<form-bean name="RemoveCategoryForm" type="org.obeonetwork.sample.ui.manage.forms.RemoveCategoryForm" />
+		<form-bean name="DeleteUserForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.DeleteUserForm" />
+		<form-bean name="DeleteCommentForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.DeleteCommentForm" />
+		<form-bean name="ManagerForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.ManagerForm" />
+		<form-bean name="ManageCommentsForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.ManageCommentsForm" />
+		<form-bean name="ManageCategoriesForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.ManageCategoriesForm" />
+		<form-bean name="ManageTagsForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.ManageTagsForm" />
+		<form-bean name="UpdateCommentForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.UpdateCommentForm" />
+		<form-bean name="CreateCategoryForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.CreateCategoryForm" />
+		<form-bean name="UpdateCategoryForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.UpdateCategoryForm" />
+		<form-bean name="DeleteCategoryForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.DeleteCategoryForm" />
+		<form-bean name="CreateTagForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.CreateTagForm" />
+		<form-bean name="UpdateTagForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.UpdateTagForm" />
+		<form-bean name="DeleteTagForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.DeleteTagForm" />
+		<form-bean name="AddTagForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.AddTagForm" />
+		<form-bean name="RemoveTagForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.RemoveTagForm" />
+		<form-bean name="AddCategoryForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.AddCategoryForm" />
+		<form-bean name="RemoveCategoryForm" type="org.obeonetwork.sample.demo.weblogng.ui.manage.forms.RemoveCategoryForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->

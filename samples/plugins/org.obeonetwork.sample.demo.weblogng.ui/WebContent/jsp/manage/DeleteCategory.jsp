@@ -7,10 +7,6 @@
 <%@ taglib
         uri="http://struts.apache.org/tags-logic"
         prefix="logic" %>
-<%@ taglib 
-        uri="http://displaytag.sf.net" 
-        prefix="display" %>
-
 
 <logic:messagesPresent>
    <bean:message key="errors.header"/>

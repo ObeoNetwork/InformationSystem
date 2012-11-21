@@ -29,12 +29,12 @@
 	
 	<table>
 		<tr>
-			<td><label for="password"><bean:message key="Login.password"/></label> :</td>
-			<td><html:password property="password" /></td>
-		</tr>
-		<tr>
 			<td><label for="login"><bean:message key="Login.login"/></label> :</td>
 			<td><html:text property="login" /></td>
+		</tr>
+		<tr>
+			<td><label for="password"><bean:message key="Login.password"/></label> :</td>
+			<td><html:password property="password" /></td>
 		</tr>
 	</table>
 </fieldset>
@@ -44,15 +44,15 @@
 	<table>
 		<tr>
 			<td>
-				<html:submit property="validate" onclick="bCancel=false;LoginForm.event.value = 'validate';">
-				<bean:message key="Login.validate"/>
+				<html:submit property="createAccount" onclick="bCancel=false;LoginForm.event.value = 'createAccount';">
+				<bean:message key="Login.createAccount"/>
 				</html:submit>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<html:submit property="createAccount" onclick="bCancel=false;LoginForm.event.value = 'createAccount';">
-				<bean:message key="Login.createAccount"/>
+				<html:submit property="validate" onclick="bCancel=false;LoginForm.event.value = 'validate';">
+				<bean:message key="Login.validate"/>
 				</html:submit>
 			</td>
 		</tr>

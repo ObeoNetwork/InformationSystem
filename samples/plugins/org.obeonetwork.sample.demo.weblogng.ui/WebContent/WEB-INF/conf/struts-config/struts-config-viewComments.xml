@@ -5,7 +5,7 @@
 
     <!-- ========== Form Bean Definitions ================================== -->
     <form-beans type="org.apache.struts.action.ActionFormBean">
-		<form-bean name="ViewCommentsForm" type="org.obeonetwork.sample.ui.main.forms.ViewCommentsForm" />
+		<form-bean name="ViewCommentsForm" type="org.obeonetwork.sample.demo.weblogng.ui.main.forms.ViewCommentsForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->

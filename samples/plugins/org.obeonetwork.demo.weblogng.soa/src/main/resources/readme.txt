@@ -1,1 +1,0 @@
-The main resources files root directory.

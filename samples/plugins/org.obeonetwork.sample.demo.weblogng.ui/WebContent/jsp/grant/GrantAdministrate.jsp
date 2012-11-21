@@ -7,10 +7,6 @@
 <%@ taglib
         uri="http://struts.apache.org/tags-logic"
         prefix="logic" %>
-<%@ taglib 
-        uri="http://displaytag.sf.net" 
-        prefix="display" %>
-
 
 <logic:messagesPresent>
    <bean:message key="errors.header"/>
@@ -32,23 +28,8 @@
 	
 	<table>
 		<tr>
-			<td><label for="admins"><bean:message key="GrantAdministrate.admins"/></label> :</td>
-			<td><logic:iterate name="GrantAdministrateForm" id="admins_id" property="admins" /></td>
-		</tr>
-		<tr>
-			<td><label for="hidden"><bean:message key="GrantAdministrate.hidden"/></label> :</td>
-			<td><html:text property="hidden" /></td>
-		</tr>
-		<tr>
-			<td>
-				<html:link action="/grant/grantadministrate?event=removeRight">
-					<bean:message key="GrantAdministrate.remove"/>
-				</html:link>
-			</td>
-		</tr>
-		<tr>
-			<td><label for="moderators"><bean:message key="GrantAdministrate.moderators"/></label> :</td>
-			<td><logic:iterate name="GrantAdministrateForm" id="moderators_id" property="moderators" /></td>
+			<td><label for="users"><bean:message key="GrantAdministrate.users"/></label> :</td>
+			<td><logic:iterate name="GrantAdministrateForm" id="users_id" property="users" /></td>
 		</tr>
 		<tr>
 			<td>
@@ -58,8 +39,23 @@
 			</td>
 		</tr>
 		<tr>
-			<td><label for="users"><bean:message key="GrantAdministrate.users"/></label> :</td>
-			<td><logic:iterate name="GrantAdministrateForm" id="users_id" property="users" /></td>
+			<td><label for="hidden"><bean:message key="GrantAdministrate.hidden"/></label> :</td>
+			<td><html:text property="hidden" /></td>
+		</tr>
+		<tr>
+			<td><label for="moderators"><bean:message key="GrantAdministrate.moderators"/></label> :</td>
+			<td><logic:iterate name="GrantAdministrateForm" id="moderators_id" property="moderators" /></td>
+		</tr>
+		<tr>
+			<td><label for="admins"><bean:message key="GrantAdministrate.admins"/></label> :</td>
+			<td><logic:iterate name="GrantAdministrateForm" id="admins_id" property="admins" /></td>
+		</tr>
+		<tr>
+			<td>
+				<html:link action="/grant/grantadministrate?event=removeRight">
+					<bean:message key="GrantAdministrate.remove"/>
+				</html:link>
+			</td>
 		</tr>
 	</table>
 </fieldset>
@@ -67,13 +63,6 @@
 <fieldset>
 	<legend>Actions</legend>
 	<table>
-		<tr>
-			<td>
-				<html:submit property="showUsers" onclick="bCancel=false;GrantAdministrateForm.event.value = 'showUsers';">
-				<bean:message key="GrantAdministrate.showUsers"/>
-				</html:submit>
-			</td>
-		</tr>
 		<tr>
 			<td>
 				<html:submit property="addRight" onclick="bCancel=false;GrantAdministrateForm.event.value = 'addRight';">
@@ -85,6 +74,13 @@
 			<td>
 				<html:submit property="removeRight" onclick="bCancel=false;GrantAdministrateForm.event.value = 'removeRight';">
 				<bean:message key="GrantAdministrate.removeRight"/>
+				</html:submit>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<html:submit property="showUsers" onclick="bCancel=false;GrantAdministrateForm.event.value = 'showUsers';">
+				<bean:message key="GrantAdministrate.showUsers"/>
 				</html:submit>
 			</td>
 		</tr>

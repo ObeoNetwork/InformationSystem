@@ -29,12 +29,12 @@
 	
 	<table>
 		<tr>
-			<td><label for="description"><bean:message key="UpdateCategory.description"/></label> :</td>
-			<td><html:textarea property="description" /></td>
-		</tr>
-		<tr>
 			<td><label for="name"><bean:message key="UpdateCategory.name"/></label> :</td>
 			<td><html:text property="name" /></td>
+		</tr>
+		<tr>
+			<td><label for="description"><bean:message key="UpdateCategory.description"/></label> :</td>
+			<td><html:textarea property="description" /></td>
 		</tr>
 	</table>
 </fieldset>

@@ -5,7 +5,7 @@
 
     <!-- ========== Form Bean Definitions ================================== -->
     <form-beans type="org.apache.struts.action.ActionFormBean">
-		<form-bean name="ErrorsForm" type="org.obeonetwork.sample.ui.users.forms.ErrorsForm" />
+		<form-bean name="ErrorsForm" type="org.obeonetwork.sample.demo.weblogng.ui.users.forms.ErrorsForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -18,8 +18,8 @@
 				validate="false" 
 				input=".view.Errors">
 			<forward name="self" path=".view.Errors" />
-			<forward name="editAccount" path="/pages/editaccount/editaccount?event=init" /> 
 			<forward name="createAccount" path="/pages/createaccount/createaccount?event=init" /> 
+			<forward name="editAccount" path="/pages/editaccount/editaccount?event=init" /> 
 		</action>
 	</action-mappings>
 

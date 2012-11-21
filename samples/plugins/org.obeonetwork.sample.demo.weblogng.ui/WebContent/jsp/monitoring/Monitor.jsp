@@ -38,14 +38,14 @@
 		<tr>
 			<td>
 				<html:link action="/monitoring/monitor?event=unspecified">
-					<bean:message key="Monitor.viewCategories"/>
+					<bean:message key="Monitor.viewComments"/>
 				</html:link>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<html:link action="/monitoring/monitor?event=unspecified">
-					<bean:message key="Monitor.viewComments"/>
+					<bean:message key="Monitor.viewCategories"/>
 				</html:link>
 			</td>
 		</tr>

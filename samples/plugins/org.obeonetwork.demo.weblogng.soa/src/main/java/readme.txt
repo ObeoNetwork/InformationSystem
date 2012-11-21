@@ -1,1 +1,0 @@
-The main java source files root directory.

@@ -7,10 +7,6 @@
 <%@ taglib
         uri="http://struts.apache.org/tags-logic"
         prefix="logic" %>
-<%@ taglib 
-        uri="http://displaytag.sf.net" 
-        prefix="display" %>
-
 
 <logic:messagesPresent>
    <bean:message key="errors.header"/>
@@ -32,12 +28,12 @@
 	
 	<table>
 		<tr>
-			<td><label for="hidden"><bean:message key="DeleteUser.hidden"/></label> :</td>
-			<td><html:text property="hidden" /></td>
-		</tr>
-		<tr>
 			<td><label for="users"><bean:message key="DeleteUser.users"/></label> :</td>
 			<td><logic:iterate name="DeleteUserForm" id="users_id" property="users" /></td>
+		</tr>
+		<tr>
+			<td><label for="hidden"><bean:message key="DeleteUser.hidden"/></label> :</td>
+			<td><html:text property="hidden" /></td>
 		</tr>
 		<tr>
 			<td>

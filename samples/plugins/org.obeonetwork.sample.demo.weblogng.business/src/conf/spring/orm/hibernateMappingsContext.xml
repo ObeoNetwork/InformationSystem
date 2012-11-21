@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="hibernateMappingResources" class="org.springframework.beans.factory.config.ListFactoryBean">
+	  <property name="sourceList">
+	      <list>
+				<value>org/obeonetwork/sample/demo/weblogng/business/blog/BlogEntry.hbm.xml</value>
+				<value>org/obeonetwork/sample/demo/weblogng/business/informations/Comment.hbm.xml</value>
+				<value>org/obeonetwork/sample/demo/weblogng/business/informations/Tag.hbm.xml</value>
+				<value>org/obeonetwork/sample/demo/weblogng/business/informations/Category.hbm.xml</value>
+				<value>org/obeonetwork/sample/demo/weblogng/business/users/User.hbm.xml</value>
+				<!-- Start of user code for mapping ressources -->
+				<!-- End of user code -->
+	      </list>
+	  </property>
+	</bean>
+</beans>

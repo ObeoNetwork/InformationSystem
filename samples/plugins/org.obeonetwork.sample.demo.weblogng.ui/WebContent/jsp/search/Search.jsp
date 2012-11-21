@@ -7,10 +7,6 @@
 <%@ taglib
         uri="http://struts.apache.org/tags-logic"
         prefix="logic" %>
-<%@ taglib 
-        uri="http://displaytag.sf.net" 
-        prefix="display" %>
-
 
 <logic:messagesPresent>
    <bean:message key="errors.header"/>
@@ -32,22 +28,22 @@
 	
 	<table>
 		<tr>
-			<td><label for="logs"><bean:message key="Search.logs"/></label> :</td>
-			<td><logic:iterate name="SearchForm" id="logs_id" property="logs" /></td>
-		</tr>
-		<tr>
-			<td><label for="comments"><bean:message key="Search.comments"/></label> :</td>
-			<td><logic:iterate name="SearchForm" id="comments_id" property="comments" /></td>
+			<td><label for="searchField"><bean:message key="Search.searchField"/></label> :</td>
+			<td><html:text property="searchField" /></td>
 		</tr>
 		<tr>
 			<td colspan="2"><bean:message key="Search.logHeader"/></td>
 		</tr>
 		<tr>
-			<td><label for="searchField"><bean:message key="Search.searchField"/></label> :</td>
-			<td><html:text property="searchField" /></td>
+			<td><label for="logs"><bean:message key="Search.logs"/></label> :</td>
+			<td><logic:iterate name="SearchForm" id="logs_id" property="logs" /></td>
 		</tr>
 		<tr>
 			<td colspan="2"><bean:message key="Search.commentHeader"/></td>
+		</tr>
+		<tr>
+			<td><label for="comments"><bean:message key="Search.comments"/></label> :</td>
+			<td><logic:iterate name="SearchForm" id="comments_id" property="comments" /></td>
 		</tr>
 	</table>
 </fieldset>

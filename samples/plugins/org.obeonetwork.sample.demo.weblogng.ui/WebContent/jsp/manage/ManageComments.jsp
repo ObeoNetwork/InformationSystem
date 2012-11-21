@@ -7,10 +7,6 @@
 <%@ taglib
         uri="http://struts.apache.org/tags-logic"
         prefix="logic" %>
-<%@ taglib 
-        uri="http://displaytag.sf.net" 
-        prefix="display" %>
-
 
 <logic:messagesPresent>
    <bean:message key="errors.header"/>
@@ -32,6 +28,10 @@
 	
 	<table>
 		<tr>
+			<td><label for="comments"><bean:message key="ManageComments.comments"/></label> :</td>
+			<td><logic:iterate name="ManageCommentsForm" id="comments_id" property="comments" /></td>
+		</tr>
+		<tr>
 			<td><label for="hidden"><bean:message key="ManageComments.hidden"/></label> :</td>
 			<td><html:text property="hidden" /></td>
 		</tr>
@@ -41,10 +41,6 @@
 					<bean:message key="ManageComments.update"/>
 				</html:link>
 			</td>
-		</tr>
-		<tr>
-			<td><label for="comments"><bean:message key="ManageComments.comments"/></label> :</td>
-			<td><logic:iterate name="ManageCommentsForm" id="comments_id" property="comments" /></td>
 		</tr>
 		<tr>
 			<td>

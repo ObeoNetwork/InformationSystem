@@ -1,1 +1,0 @@
-The test java source files root directory.

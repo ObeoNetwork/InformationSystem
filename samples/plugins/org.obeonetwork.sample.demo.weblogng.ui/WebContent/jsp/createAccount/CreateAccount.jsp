@@ -48,7 +48,6 @@
 			<td><label for="password"><bean:message key="CreateAccount.password"/></label> :</td>
 			<td><html:password property="password" /></td>
 		</tr>
-		
 	</table>
 </fieldset>
 

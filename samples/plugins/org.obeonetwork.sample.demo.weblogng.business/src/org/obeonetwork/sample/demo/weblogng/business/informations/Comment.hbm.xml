@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="org.obeonetwork.sample.demo.weblogng.business.informations.Comment" 
+    	table="COMMENT"
+		dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="name">
+            <column name="NAME"/>
+        </property>
+        <property name="email">
+            <column name="EMAIL"/>
+        </property>
+        <property name="website">
+            <column name="WEBSITE"/>
+        </property>
+        <property name="content">
+            <column name="CONTENT"/>
+        </property>
+        <property name="creationDate">
+            <column name="CREATION_DATE"/>
+        </property>
+
+
+		<!-- Associations -->
+
+		<!--  _________             ____________
+			 | COMMENT |- * {-} 1 -| BLOG_ENTRY |
+			  _________             ____________
+		-->
+		<many-to-one 
+			class="org.obeonetwork.sample.demo.weblogng.business.blog.BlogEntry"
+			column="FK_BLOG_ENTRY_IS_COMMENT_OF_ID"
+			name="isCommentOf"
+			/>
+
+
+		<!-- Inheritance -->
+
+
+    </class>
+
+</hibernate-mapping>

@@ -1,11 +1,11 @@
 <!-- Start of user code for top of file -->
 <Context
-	path="/sample"
-	docBase="sample/WebContent/"
+	path="/weblog"
+	docBase="weblog/WebContent/"
 	debug="1"
 	reloadable="true">
     
-   <Logger className="org.apache.catalina.logger.SystemOutLogger" verbosity="4" timestamp="true"/> 	
+   <Logger className="org.apache.catalina.logger.SystemOutLogger" verbosity="4" timestamp="true"/> 
 <!-- End of user code for top of file -->
     <WatchedResource>WEB-INF/conf/struts-config/struts-config-login.xml</WatchedResource>
     <WatchedResource>WEB-INF/conf/tiles-defs/tiles-defs-login.xml</WatchedResource>

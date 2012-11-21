@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.obeonetwork.demo.weblogng.ui</name>
+	<name>org.obeonetwork.sample.demo.weblogng.ui</name>
 	<comment></comment>
 	<projects>
-		<project>org.obeonetwork.demo.weblogng.business</project>
-		<project>org.obeonetwork.demo.weblogng.soa</project>
+		<project>org.obeonetwork.sample.demo.weblogng.business</project>
+		<project>org.obeonetwork.sample.demo.weblogng.soa</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -23,15 +23,22 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>fr.obeo.traceability.TraceabilityBuilder</name>
+			<name>org.obeonetwork.oo15oo.oo345oo.oo221oo.acceleoSyncBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>fr.obeo.oo15oo.oo345oo.oo221oo.acceleoSyncBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>fr.obeo.dsl.viewpoint.nature.modelingproject</nature>
+		<nature>fr.obeo.oo15oo.oo345oo.oo221oo.acceleoSyncNature</nature>
+		<nature>org.obeonetwork.oo15oo.oo345oo.oo221oo.acceleoSyncNature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
+		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
 	</natures>
 </projectDescription>

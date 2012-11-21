@@ -9,6 +9,7 @@
 	<definition name=".view.Login" extends="layout">
 	    <put name="title" 		value="Login to your account"/>
 	    <put name="flow"  	value="login"/>
+	    <put name="scenario" value="login"/>
 	    <put name="pageName"  	value="Login"/>
 	    <put name="body" 		value="/jsp/login/Login.jsp"/>
 	    <put name="sidebar"		value="/jsp/sidebar/LoginSidebar.jsp"/>

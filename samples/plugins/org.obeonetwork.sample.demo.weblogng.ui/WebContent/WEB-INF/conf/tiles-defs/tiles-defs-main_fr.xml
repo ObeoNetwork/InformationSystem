@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<!-- tiles definition for scenario main -->
+<tiles-definitions>
+
+	<definition name=".view.CreateLog" extends="layout">
+	    <put name="title" 		value="Création d'un nouveau log"/>
+	    <put name="scenario"  	value="main"/>
+	    <put name="pageName"  	value="CreateLog"/>
+	    <put name="body" 		value="/jsp/main/CreateLog.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/CreateLogSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.ViewLogs" extends="layout">
+	    <put name="title" 		value="Les Weblogs"/>
+	    <put name="scenario"  	value="main"/>
+	    <put name="pageName"  	value="ViewLogs"/>
+	    <put name="body" 		value="/jsp/main/ViewLogs.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/ViewLogsSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.ViewComments" extends="layout">
+	    <put name="title" 		value="Voir les commentaires et en ajouter"/>
+	    <put name="scenario"  	value="main"/>
+	    <put name="pageName"  	value="ViewComments"/>
+	    <put name="body" 		value="/jsp/main/ViewComments.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/ViewCommentsSidebar.jsp"/>
+	</definition>  
+
+</tiles-definitions>

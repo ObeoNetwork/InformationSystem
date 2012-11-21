@@ -3,7 +3,7 @@
 
 <struts-config>
     <!-- Start of user code for top part -->
-    <!--  End of user code for top part -->
+    <!-- End of user code for top part -->
     
     <!-- ========== Global Exceptions Definitions ================================== -->
 	<global-exceptions>
@@ -11,7 +11,7 @@
 	    key="error.database.failure"
         path="/error.jsp"
         scope="request"
-        type="org.obeonetwork.fwk.dao.exception.DaoException" />
+        type="org.obeonetwork.demo.fwk.dao.exception.DaoException" />
 
 	</global-exceptions>
 
@@ -19,16 +19,16 @@
     <action-mappings >
 		<action path="/navigation" scope="request" forward=".view.Navigation" validate="false"/>
 		<!-- Start of user code for action mappings -->
-		<!--  End of user code for action mappings -->
+    	<!-- End of user code for action mappings -->
 	</action-mappings>
 	
 	<!-- ========== Controller Config Definitions =============================== -->
 	<!-- Start of user code for controller -->
-	<!--  End of user code for controller -->
+    <!-- End of user code for controller -->
 	
 	<!-- ========== Message Resources Definitions =========================== -->
 
-  	<message-resources parameter="org.obeonetwork.sample.ui.SampleResources" null="false"/>
+  	<message-resources parameter="org.obeonetwork.sample.demo.weblogng.ui.WeblogngResources" null="false"/>
 
 	<plug-in className="org.apache.struts.tiles.TilesPlugin">
 		<set-property property="definitions-config" value="/WEB-INF/conf/tiles-defs/tiles-defs.xml,/WEB-INF/conf/tiles-defs/tiles-defs-login.xml,/WEB-INF/conf/tiles-defs/tiles-defs-editAccount.xml,/WEB-INF/conf/tiles-defs/tiles-defs-errors.xml,/WEB-INF/conf/tiles-defs/tiles-defs-createAccount.xml,/WEB-INF/conf/tiles-defs/tiles-defs-viewLogs.xml,/WEB-INF/conf/tiles-defs/tiles-defs-createLog.xml,/WEB-INF/conf/tiles-defs/tiles-defs-viewComments.xml,/WEB-INF/conf/tiles-defs/tiles-defs-grant.xml,/WEB-INF/conf/tiles-defs/tiles-defs-search.xml,/WEB-INF/conf/tiles-defs/tiles-defs-manage.xml,/WEB-INF/conf/tiles-defs/tiles-defs-monitoring.xml"/>
@@ -40,6 +40,6 @@
 	</plug-in>
 
 	<!-- Start of user code for bottom part -->
-	<!--  End of user code for bottom part -->
+    <!-- End of user code for bottom part -->
 
 </struts-config>

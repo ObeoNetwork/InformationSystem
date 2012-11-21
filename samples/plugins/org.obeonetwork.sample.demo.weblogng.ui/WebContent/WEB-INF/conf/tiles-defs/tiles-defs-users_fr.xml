@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<!-- tiles definition for scenario users -->
+<tiles-definitions>
+
+	<definition name=".view.CreateAccount" extends="layout">
+	    <put name="title" 		value="Création d'un nouveau compte"/>
+	    <put name="scenario"  	value="users"/>
+	    <put name="pageName"  	value="CreateAccount"/>
+	    <put name="body" 		value="/jsp/users/CreateAccount.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/CreateAccountSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.EditAccount" extends="layout">
+	    <put name="title" 		value="Edition d'un compte"/>
+	    <put name="scenario"  	value="users"/>
+	    <put name="pageName"  	value="EditAccount"/>
+	    <put name="body" 		value="/jsp/users/EditAccount.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/EditAccountSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Login" extends="layout">
+	    <put name="title" 		value="Login"/>
+	    <put name="scenario"  	value="users"/>
+	    <put name="pageName"  	value="Login"/>
+	    <put name="body" 		value="/jsp/users/Login.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/LoginSidebar.jsp"/>
+	</definition>  
+	<definition name=".view.Errors" extends="layout">
+	    <put name="title" 		value="ErrorView"/>
+	    <put name="scenario"  	value="users"/>
+	    <put name="pageName"  	value="Errors"/>
+	    <put name="body" 		value="/jsp/users/Errors.jsp"/>
+	    <put name="sidebar"		value="/jsp/sidebar/ErrorsSidebar.jsp"/>
+	</definition>  
+
+</tiles-definitions>

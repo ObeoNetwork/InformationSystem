@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- C O M M U N I C A T I O N -->
+	<bean name="/users/createaccount" class="org.obeonetwork.sample.ui.users.actions.CreateAccountAction">
+		<property name="userService" ref="userService" />
+		<!-- Start of user code for properties definition of CreateAccount action-->
+		 
+		<!-- End of user code for properties definition of CreateAccount action -->
+	</bean>
+
+	<bean name="/users/editaccount" class="org.obeonetwork.sample.ui.users.actions.EditAccountAction">
+		<property name="userService" ref="userService" />
+		<!-- Start of user code for properties definition of EditAccount action-->
+		 
+		<!-- End of user code for properties definition of EditAccount action -->
+	</bean>
+
+	<bean name="/users/login" class="org.obeonetwork.sample.ui.users.actions.LoginAction">
+		<property name="userService" ref="userService" />
+		<!-- Start of user code for properties definition of Login action-->
+		 
+		<!-- End of user code for properties definition of Login action -->
+	</bean>
+
+	<bean name="/users/errors" class="org.obeonetwork.sample.ui.users.actions.ErrorsAction">
+		<!-- Start of user code for properties definition of Errors action-->
+		 
+		<!-- End of user code for properties definition of Errors action -->
+	</bean>
+
+</beans>

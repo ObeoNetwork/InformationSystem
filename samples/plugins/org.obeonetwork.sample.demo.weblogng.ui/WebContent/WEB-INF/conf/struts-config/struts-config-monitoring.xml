@@ -5,11 +5,11 @@
 
     <!-- ========== Form Bean Definitions ================================== -->
     <form-beans type="org.apache.struts.action.ActionFormBean">
-		<form-bean name="MonitorForm" type="org.obeonetwork.sample.ui.monitoring.forms.MonitorForm" />
-		<form-bean name="SeeUsersForm" type="org.obeonetwork.sample.ui.monitoring.forms.SeeUsersForm" />
-		<form-bean name="SeeCategoriesForm" type="org.obeonetwork.sample.ui.monitoring.forms.SeeCategoriesForm" />
-		<form-bean name="SeeTagsForm" type="org.obeonetwork.sample.ui.monitoring.forms.SeeTagsForm" />
-		<form-bean name="SeeCommentsForm" type="org.obeonetwork.sample.ui.monitoring.forms.SeeCommentsForm" />
+		<form-bean name="MonitorForm" type="org.obeonetwork.sample.demo.weblogng.ui.monitoring.forms.MonitorForm" />
+		<form-bean name="SeeUsersForm" type="org.obeonetwork.sample.demo.weblogng.ui.monitoring.forms.SeeUsersForm" />
+		<form-bean name="SeeCategoriesForm" type="org.obeonetwork.sample.demo.weblogng.ui.monitoring.forms.SeeCategoriesForm" />
+		<form-bean name="SeeTagsForm" type="org.obeonetwork.sample.demo.weblogng.ui.monitoring.forms.SeeTagsForm" />
+		<form-bean name="SeeCommentsForm" type="org.obeonetwork.sample.demo.weblogng.ui.monitoring.forms.SeeCommentsForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->

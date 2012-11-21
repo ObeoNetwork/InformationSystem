@@ -2,7 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
 	<!-- C O M M U N I C A T I O N -->
-	<bean name="/search/search" class="org.obeonetwork.sample.ui.search.actions.SearchAction">
+	<bean name="/search/search" class="org.obeonetwork.sample.demo.weblogng.ui.search.actions.SearchAction">
 		<!-- Start of user code for properties definition of Search action-->
 		 
 		<!-- End of user code for properties definition of Search action -->

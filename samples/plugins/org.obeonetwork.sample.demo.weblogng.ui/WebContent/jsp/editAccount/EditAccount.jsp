@@ -29,6 +29,10 @@
 	
 	<table>
 		<tr>
+			<td><label for="email"><bean:message key="EditAccount.email"/></label> :</td>
+			<td><html:text property="email" /></td>
+		</tr>
+		<tr>
 			<td><label for="firstName"><bean:message key="EditAccount.firstName"/></label> :</td>
 			<td><html:text property="firstName" /></td>
 		</tr>
@@ -37,19 +41,13 @@
 			<td><html:text property="lastName" /></td>
 		</tr>
 		<tr>
-			<td><label for="email"><bean:message key="EditAccount.email"/></label> :</td>
-			<td><html:text property="email" /></td>
-		</tr>
-		<tr>
 			<td><label for="login"><bean:message key="EditAccount.login"/></label> :</td>
 			<td><html:text property="login" /></td>
 		</tr>
-		
 		<tr>
 			<td><label for="password"><bean:message key="EditAccount.password"/></label> :</td>
 			<td><html:password property="password" /></td>
 		</tr>
-		
 	</table>
 </fieldset>
 
