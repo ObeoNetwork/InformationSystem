@@ -34,10 +34,11 @@ public class WeblogNGDemoWizard
 	protected Collection getProjectDescriptors() {
 		// We need the workspace example to be unzipped along with the
 		// EMF library example model, edit and editor examples
-		List projects = new ArrayList(3);
-		projects.add(new ProjectDescriptor("org.obeonetwork.demo.weblog.plugin", "zips/org.obeonetwork.demo.weblogng.ui.zip", "org.obeonetwork.demo.weblogng.ui"));  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
-		projects.add(new ProjectDescriptor("org.obeonetwork.demo.weblog.plugin", "zips/org.obeonetwork.demo.weblogng.soa.zip", "org.obeonetwork.demo.weblogng.soa"));  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
-		projects.add(new ProjectDescriptor("org.obeonetwork.demo.weblog.plugin", "zips/org.obeonetwork.demo.weblogng.business.zip", "org.obeonetwork.demo.weblogng.business"));  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
+		List projects = new ArrayList(4);
+		projects.add(new ProjectDescriptor("org.obeonetwork.demo.weblog.plugin", "zips/org.obeonetwork.demo.weblogng.model.zip", "org.obeonetwork.demo.weblogng.model"));  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
+		projects.add(new ProjectDescriptor("org.obeonetwork.demo.weblog.plugin", "zips/org.obeonetwork.sample.demo.weblogng.ui.zip", "org.obeonetwork.sample.demo.weblogng.ui"));  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
+		projects.add(new ProjectDescriptor("org.obeonetwork.demo.weblog.plugin", "zips/org.obeonetwork.sample.demo.weblogng.soa.zip", "org.obeonetwork.sample.demo.weblogng.soa"));  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
+		projects.add(new ProjectDescriptor("org.obeonetwork.demo.weblog.plugin", "zips/org.obeonetwork.sample.demo.weblogng.business.zip", "org.obeonetwork.sample.demo.weblogng.business"));  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
 		return projects;
 	}
 	
