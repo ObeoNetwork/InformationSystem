@@ -1,6 +1,8 @@
 package org.obeonetwork.sample.demo.weblogng.ui.users.forms;
 
 // Start of user code for import 
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;

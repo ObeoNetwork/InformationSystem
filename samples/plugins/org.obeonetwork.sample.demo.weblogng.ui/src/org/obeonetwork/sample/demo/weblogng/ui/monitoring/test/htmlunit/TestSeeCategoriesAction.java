@@ -1,6 +1,13 @@
 package org.obeonetwork.sample.demo.weblogng.ui.monitoring.test.htmlunit;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.List;
+
 import junit.framework.TestCase;
+
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.*;
 
 /**
  * HtmlUnit testing for <strong>SeeCategories Form</strong>

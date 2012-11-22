@@ -4,11 +4,11 @@
 	<bean id="hibernateMappingResources" class="org.springframework.beans.factory.config.ListFactoryBean">
 	  <property name="sourceList">
 	      <list>
-				<value>org/obeonetwork/sample/demo/weblogng/business/blog/BlogEntry.hbm.xml</value>
-				<value>org/obeonetwork/sample/demo/weblogng/business/informations/Comment.hbm.xml</value>
-				<value>org/obeonetwork/sample/demo/weblogng/business/informations/Tag.hbm.xml</value>
-				<value>org/obeonetwork/sample/demo/weblogng/business/informations/Category.hbm.xml</value>
-				<value>org/obeonetwork/sample/demo/weblogng/business/users/User.hbm.xml</value>
+				<value>org/obeonetwork/sample/demo/weblogng/blog/BlogEntry.hbm.xml</value>
+				<value>org/obeonetwork/sample/demo/weblogng/informations/Comment.hbm.xml</value>
+				<value>org/obeonetwork/sample/demo/weblogng/informations/Tag.hbm.xml</value>
+				<value>org/obeonetwork/sample/demo/weblogng/informations/Category.hbm.xml</value>
+				<value>org/obeonetwork/sample/demo/weblogng/users/User.hbm.xml</value>
 				<!-- Start of user code for mapping ressources -->
 				<!-- End of user code -->
 	      </list>

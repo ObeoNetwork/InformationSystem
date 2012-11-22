@@ -9,8 +9,11 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.obeonetwork.sample.demo.weblogng.business.weblog.IWebLogService;
+
 import org.obeonetwork.sample.demo.weblogng.ui.main.forms.CreateLogForm;
+
+
+import org.obeonetwork.sample.demo.weblogng.weblog.IWebLogService;
 
 
 // End of user code for import

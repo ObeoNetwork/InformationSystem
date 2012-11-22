@@ -51,7 +51,7 @@
 	
 	<!-- BlogEntry -->
 	<bean id="BlogEntryDAO" 
-		class="org.obeonetwork.sample.demo.weblogng.business.blog.HibernateBlogEntryDao">
+		class="org.obeonetwork.sample.demo.weblogng.blog.HibernateBlogEntryDao">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -64,7 +64,7 @@
 	
 	<!-- Comment -->
 	<bean id="CommentDAO" 
-		class="org.obeonetwork.sample.demo.weblogng.business.informations.HibernateCommentDao">
+		class="org.obeonetwork.sample.demo.weblogng.informations.HibernateCommentDao">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -77,7 +77,7 @@
 	
 	<!-- Tag -->
 	<bean id="TagDAO" 
-		class="org.obeonetwork.sample.demo.weblogng.business.informations.HibernateTagDao">
+		class="org.obeonetwork.sample.demo.weblogng.informations.HibernateTagDao">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -90,7 +90,7 @@
 	
 	<!-- Category -->
 	<bean id="CategoryDAO" 
-		class="org.obeonetwork.sample.demo.weblogng.business.informations.HibernateCategoryDao">
+		class="org.obeonetwork.sample.demo.weblogng.informations.HibernateCategoryDao">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -103,7 +103,7 @@
 	
 	<!-- Admin -->
 	<bean id="AdminDAO" 
-		class="org.obeonetwork.sample.demo.weblogng.business.users.HibernateAdminDao">
+		class="org.obeonetwork.sample.demo.weblogng.users.HibernateAdminDao">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -116,7 +116,7 @@
 	
 	<!-- User -->
 	<bean id="UserDAO" 
-		class="org.obeonetwork.sample.demo.weblogng.business.users.HibernateUserDao">
+		class="org.obeonetwork.sample.demo.weblogng.users.HibernateUserDao">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -129,7 +129,7 @@
 	
 	<!-- Moderator -->
 	<bean id="ModeratorDAO" 
-		class="org.obeonetwork.sample.demo.weblogng.business.users.HibernateModeratorDao">
+		class="org.obeonetwork.sample.demo.weblogng.users.HibernateModeratorDao">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>

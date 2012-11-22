@@ -1,6 +1,13 @@
 package org.obeonetwork.sample.demo.weblogng.ui.manage.test.htmlunit;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.List;
+
 import junit.framework.TestCase;
+
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.*;
 
 /**
  * HtmlUnit testing for <strong>RemoveCategory Form</strong>

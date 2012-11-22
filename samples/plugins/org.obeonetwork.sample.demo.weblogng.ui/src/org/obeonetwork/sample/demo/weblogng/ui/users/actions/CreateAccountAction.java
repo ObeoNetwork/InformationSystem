@@ -9,9 +9,12 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.obeonetwork.sample.demo.weblogng.business.user.IUserService;
-import org.obeonetwork.sample.demo.weblogng.business.users.User;
+
 import org.obeonetwork.sample.demo.weblogng.ui.users.forms.CreateAccountForm;
+
+
+import org.obeonetwork.sample.demo.weblogng.user.IUserService;
+import org.obeonetwork.sample.demo.weblogng.users.User;
 
 
 // End of user code for import
@@ -95,6 +98,9 @@ public class CreateAccountAction extends org.apache.struts.actions.DispatchActio
 		User user = new User();
 		user.setLogin(createAccountForm.getLogin());
 		user.setPassword(createAccountForm.getPassword());
+		user.setFirstName(createAccountForm.getFirstName());
+		user.setLastName(createAccountForm.getLastName());
+		user.setEmail(createAccountForm.getEmail());
 		userService.createUser(user);
 		returnCode = PAGE_LOGIN;
 		//End of user code

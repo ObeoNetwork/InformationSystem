@@ -9,9 +9,12 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.obeonetwork.sample.demo.weblogng.business.user.IUserService;
-import org.obeonetwork.sample.demo.weblogng.business.users.User;
+
 import org.obeonetwork.sample.demo.weblogng.ui.users.forms.LoginForm;
+
+
+import org.obeonetwork.sample.demo.weblogng.user.IUserService;
+import org.obeonetwork.sample.demo.weblogng.users.User;
 
 
 // End of user code for import
@@ -54,7 +57,7 @@ public class LoginAction extends org.apache.struts.actions.DispatchAction {
 		LoginForm loginForm = (LoginForm)form;
 
 		//Start of user code method init
-		
+		// TODO Write here the action code for init
 		//End of user code 
 
 		LOG.debug("End init");	
@@ -93,7 +96,7 @@ public class LoginAction extends org.apache.struts.actions.DispatchAction {
 		LoginForm loginForm = (LoginForm)form;
 		
 		//Start of user code method createAccount
-		returnCode = PAGE_CREATEACCOUNT;		
+		returnCode = PAGE_CREATEACCOUNT;
 		//End of user code
 
 		LOG.debug("End createAccount");
@@ -115,12 +118,12 @@ public class LoginAction extends org.apache.struts.actions.DispatchAction {
 		LoginForm loginForm = (LoginForm)form;
 		
 		//Start of user code method validate
-		returnCode = PAGE_ERRORS;
-		User user = userService.getUser(loginForm.getLogin());
+		User user = userService.login(loginForm.getLogin(), loginForm.getPassword());
 		if (user != null) {
-			if (user.getPassword().equals(loginForm.getPassword())) {
-				returnCode = PAGE_VIEWLOGS;
-			}
+			request.setAttribute("user", user);
+			returnCode = PAGE_VIEWLOGS;
+		} else {
+			returnCode = PAGE_ERRORS;
 		}
 		//End of user code
 

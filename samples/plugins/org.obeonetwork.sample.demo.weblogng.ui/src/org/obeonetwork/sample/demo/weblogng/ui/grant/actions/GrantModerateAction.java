@@ -9,10 +9,13 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.obeonetwork.sample.demo.weblogng.business.grant.IGrantService;
-import org.obeonetwork.sample.demo.weblogng.business.monitor.IMonitorService;
-import org.obeonetwork.sample.demo.weblogng.business.user.IUserService;
+
 import org.obeonetwork.sample.demo.weblogng.ui.grant.forms.GrantModerateForm;
+
+
+import org.obeonetwork.sample.demo.weblogng.user.IUserService;
+import org.obeonetwork.sample.demo.weblogng.monitor.IMonitorService;
+import org.obeonetwork.sample.demo.weblogng.grant.IGrantService;
 
 
 // End of user code for import
@@ -164,13 +167,13 @@ public class GrantModerateAction extends org.apache.struts.actions.DispatchActio
 		return mapping.findForward(returnCode);
 	}
 
-private IMonitorService monitorService;
-public void setMonitorService(IMonitorService monitorService){
-	this.monitorService = monitorService;
-}
 private IUserService userService;
 public void setUserService(IUserService userService){
 	this.userService = userService;
+}
+private IMonitorService monitorService;
+public void setMonitorService(IMonitorService monitorService){
+	this.monitorService = monitorService;
 }
 private IGrantService grantService;
 public void setGrantService(IGrantService grantService){

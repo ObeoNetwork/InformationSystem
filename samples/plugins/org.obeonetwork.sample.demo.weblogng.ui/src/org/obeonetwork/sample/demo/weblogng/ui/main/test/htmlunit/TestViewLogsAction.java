@@ -2,14 +2,12 @@ package org.obeonetwork.sample.demo.weblogng.ui.main.test.htmlunit;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.List;
 
 import junit.framework.TestCase;
 
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
-import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
+import com.gargoylesoftware.htmlunit.html.*;
 
 /**
  * HtmlUnit testing for <strong>ViewLogs Form</strong>
