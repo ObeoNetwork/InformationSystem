@@ -24,7 +24,7 @@
 <plugin
 >
    
-   <extension
+   <!--extension
          point="org.eclipse.ui.newWizards">
       <category
             id="org.obeonetwork.samples.demo"
@@ -40,7 +40,7 @@
             name="Weblog Demo - 3 Layers">
          <description>The weblog demo in 3 layers from Obeo DSM</description>
       </wizard>
-   </extension>
+   </extension-->
    
    <extension
          point="org.eclipse.ui.newWizards">
@@ -60,7 +60,7 @@
       </wizard>
    </extension>
    
-   <extension
+   <!--extension
          point="org.eclipse.ui.newWizards">
       <category
             id="org.obeonetwork.samples.demo"
@@ -76,5 +76,5 @@
             name="New Empty template Project">
          <description>An empty project based on Spring, Hibernate and Struts Framework</description>
       </wizard>
-   </extension>
+   </extension-->
 </plugin>
