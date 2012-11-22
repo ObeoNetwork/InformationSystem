@@ -1,6 +1,10 @@
 package org.obeonetwork.sample.demo.weblogng.ui.main.actions;
 
 // Start of user code for import
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,11 +13,13 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-
+import org.obeonetwork.sample.BlogEntryDto;
+import org.obeonetwork.sample.demo.fwk.service.exception.ServiceException;
+import org.obeonetwork.sample.demo.weblogng.blog.BlogEntry;
 import org.obeonetwork.sample.demo.weblogng.ui.main.forms.ViewLogsForm;
-
-
+import org.obeonetwork.sample.demo.weblogng.users.User;
 import org.obeonetwork.sample.demo.weblogng.weblog.IWebLogService;
+import org.obeonetwork.sample.ui.UiConstants;
 
 
 // End of user code for import
@@ -57,7 +63,13 @@ public class ViewLogsAction extends org.apache.struts.actions.DispatchAction {
 		ViewLogsForm viewLogsForm = (ViewLogsForm)form;
 
 		//Start of user code method init
-		// TODO Write here the action code for init
+		this.getLogs(viewLogsForm);
+		
+		User user= (User)request.getSession().getAttribute(UiConstants.CURRENT_USER);
+		if (user != null) 
+			viewLogsForm.setUser(user.getFirstName() +" " + user.getLastName());
+
+
 		//End of user code 
 
 		LOG.debug("End init");	
@@ -96,7 +108,7 @@ public class ViewLogsAction extends org.apache.struts.actions.DispatchAction {
 		ViewLogsForm viewLogsForm = (ViewLogsForm)form;
 		
 		//Start of user code method reload
-		// TODO Write here the action code for reload		
+		this.init(mapping, viewLogsForm, request, response);
 		//End of user code
 
 		LOG.debug("End reload");
@@ -118,7 +130,11 @@ public class ViewLogsAction extends org.apache.struts.actions.DispatchAction {
 		ViewLogsForm viewLogsForm = (ViewLogsForm)form;
 		
 		//Start of user code method createLog
-		// TODO Write here the action code for createLog		
+		User user= (User)request.getSession().getAttribute(UiConstants.CURRENT_USER);
+		if (user != null) 
+			returnCode = PAGE_CREATELOG;
+		else
+			this.getLogs(viewLogsForm);		
 		//End of user code
 
 		LOG.debug("End createLog");
@@ -140,7 +156,9 @@ public class ViewLogsAction extends org.apache.struts.actions.DispatchAction {
 		ViewLogsForm viewLogsForm = (ViewLogsForm)form;
 		
 		//Start of user code method logout
-		// TODO Write here the action code for logout		
+		request.getSession().setAttribute(UiConstants.CURRENT_USER, null);
+		viewLogsForm.setUser(null);
+		this.getLogs(viewLogsForm);		
 		//End of user code
 
 		LOG.debug("End logout");
@@ -162,7 +180,11 @@ public class ViewLogsAction extends org.apache.struts.actions.DispatchAction {
 		ViewLogsForm viewLogsForm = (ViewLogsForm)form;
 		
 		//Start of user code method editAccount
-		// TODO Write here the action code for editAccount		
+		User user= (User)request.getSession().getAttribute(UiConstants.CURRENT_USER);
+		if (user != null) 
+			returnCode = PAGE_EDITACCOUNT;
+		else
+			this.getLogs(viewLogsForm);
 		//End of user code
 
 		LOG.debug("End editAccount");
@@ -184,7 +206,7 @@ public class ViewLogsAction extends org.apache.struts.actions.DispatchAction {
 		ViewLogsForm viewLogsForm = (ViewLogsForm)form;
 		
 		//Start of user code method login
-		// TODO Write here the action code for login		
+		returnCode = PAGE_LOGIN;
 		//End of user code
 
 		LOG.debug("End login");
@@ -242,6 +264,21 @@ public void setWebLogService(IWebLogService webLogService){
 
 
 //Start of user code user methods
+	private void getLogs(ViewLogsForm viewLogsForm) throws ServiceException{
+		// Recuperation DAO sur table Users
+		Collection listBlogs = webLogService.getAllBlogEntries();
+		if(listBlogs!=null){
+			Collection listBlogDtos = new ArrayList(listBlogs.size());
+			Iterator blogsIterator=listBlogs.iterator();
+			while(blogsIterator.hasNext()){
+				BlogEntry blog = (BlogEntry)blogsIterator.next();
+				BlogEntryDto blogDto = new BlogEntryDto(blog);
+				listBlogDtos.add(blogDto);
+			}
+			viewLogsForm.setLogs(listBlogDtos);
+		}
+	}
+
 //End of user code
 
 }

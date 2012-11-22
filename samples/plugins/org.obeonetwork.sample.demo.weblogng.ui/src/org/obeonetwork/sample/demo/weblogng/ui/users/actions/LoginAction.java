@@ -9,12 +9,10 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-
 import org.obeonetwork.sample.demo.weblogng.ui.users.forms.LoginForm;
-
-
 import org.obeonetwork.sample.demo.weblogng.user.IUserService;
 import org.obeonetwork.sample.demo.weblogng.users.User;
+import org.obeonetwork.sample.ui.UiConstants;
 
 
 // End of user code for import
@@ -120,7 +118,7 @@ public class LoginAction extends org.apache.struts.actions.DispatchAction {
 		//Start of user code method validate
 		User user = userService.login(loginForm.getLogin(), loginForm.getPassword());
 		if (user != null) {
-			request.setAttribute("user", user);
+			request.getSession().setAttribute(UiConstants.CURRENT_USER, user);
 			returnCode = PAGE_VIEWLOGS;
 		} else {
 			returnCode = PAGE_ERRORS;

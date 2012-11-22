@@ -2,6 +2,7 @@ package org.obeonetwork.sample.demo.weblogng.weblog;
 
 //Start of user code for import
 
+import org.obeonetwork.demo.fwk.dao.exception.DaoException;
 import org.obeonetwork.sample.demo.fwk.service.exception.ServiceException;
 import java.util.Collection;
 
@@ -23,13 +24,21 @@ import org.obeonetwork.sample.demo.weblogng.blog.IBlogEntryDao;
 public class WebLogServiceImpl implements IWebLogService {
     public Collection<BlogEntry> getAllBlogEntries() throws ServiceException{
     	// Start of user code of getAllBlogEntries        
-    	return null;
+    	try {
+			return blogEntryDao.findAllBlogEntrys();
+		} catch (DaoException e) {
+			throw new ServiceException(e);
+		}
     	// End of user code        
     }
     
     public void addBlogEntry(BlogEntry blogEntry) throws ServiceException{
     	// Start of user code of addBlogEntry        
-    	
+    	try {
+			blogEntryDao.createBlogEntry(blogEntry);
+		} catch (DaoException e) {
+			throw new ServiceException(e);
+		}
     	// End of user code        
     }
     

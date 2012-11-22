@@ -1,6 +1,8 @@
 package org.obeonetwork.sample.demo.weblogng.ui.main.actions;
 
 // Start of user code for import
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,11 +11,11 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-
+import org.obeonetwork.sample.demo.weblogng.blog.BlogEntry;
 import org.obeonetwork.sample.demo.weblogng.ui.main.forms.CreateLogForm;
-
-
+import org.obeonetwork.sample.demo.weblogng.users.User;
 import org.obeonetwork.sample.demo.weblogng.weblog.IWebLogService;
+import org.obeonetwork.sample.ui.UiConstants;
 
 
 // End of user code for import
@@ -93,7 +95,15 @@ public class CreateLogAction extends org.apache.struts.actions.DispatchAction {
 		CreateLogForm createLogForm = (CreateLogForm)form;
 		
 		//Start of user code method validate
-		// TODO Write here the action code for validate		
+		User user = (User)request.getSession().getAttribute(UiConstants.CURRENT_USER);
+		BlogEntry newLog = new BlogEntry();
+		newLog.setTitle(createLogForm.getTitle());
+		newLog.setCreationDate(new Date());
+		newLog.setContent(createLogForm.getContent());
+
+		newLog.setAuthorUser(user);
+		webLogService.addBlogEntry(newLog);
+		returnCode = PAGE_VIEWLOGS;
 		//End of user code
 
 		LOG.debug("End validate");
