@@ -109,14 +109,14 @@ public class BlockItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EntityPackage.Literals.BLOCK__ENTITIES);
 			childrenFeatures.add(EntityPackage.Literals.BLOCK__SUBBLOCKS);
+			childrenFeatures.add(EntityPackage.Literals.BLOCK__ENTITIES);
 		}
 		return childrenFeatures;
 	}
