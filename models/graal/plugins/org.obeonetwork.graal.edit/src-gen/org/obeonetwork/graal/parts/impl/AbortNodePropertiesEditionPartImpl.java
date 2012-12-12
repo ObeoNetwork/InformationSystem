@@ -146,7 +146,7 @@ public class AbortNodePropertiesEditionPartImpl extends CompositePropertiesEditi
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -344,7 +344,7 @@ public class AbortNodePropertiesEditionPartImpl extends CompositePropertiesEditi
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -371,6 +371,15 @@ public class AbortNodePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.AbortNode.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.AbortNode_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -386,6 +395,14 @@ public class AbortNodePropertiesEditionPartImpl extends CompositePropertiesEditi
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		outgoingTransitions.setContentProvider(contentProvider);
 		outgoingTransitions.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.AbortNode.Properties.outgoingTransitions);
+		if (readOnly && outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(false);
+			outgoingTransitions.setToolTipText(GraalMessages.AbortNode_ReadOnly);
+		} else if (!readOnly && !outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -441,6 +458,14 @@ public class AbortNodePropertiesEditionPartImpl extends CompositePropertiesEditi
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		incomingTransitions.setContentProvider(contentProvider);
 		incomingTransitions.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.AbortNode.Properties.incomingTransitions);
+		if (readOnly && incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(false);
+			incomingTransitions.setToolTipText(GraalMessages.AbortNode_ReadOnly);
+		} else if (!readOnly && !incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -498,7 +523,7 @@ public class AbortNodePropertiesEditionPartImpl extends CompositePropertiesEditi
 		return GraalMessages.AbortNode_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

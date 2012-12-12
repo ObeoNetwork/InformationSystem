@@ -5,11 +5,9 @@ package org.obeonetwork.graal.parts.forms;
 
 // Start of user code for imports
 import org.eclipse.emf.common.util.Enumerator;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.eef.runtime.EEFRuntimePlugin;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
@@ -174,8 +172,33 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 			@Override
 			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(TransitionPropertiesEditionPartForm.this, GraalViewsRepository.Transition.Properties.guard, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, guard.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							TransitionPropertiesEditionPartForm.this,
+							GraalViewsRepository.Transition.Properties.guard,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, guard.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									TransitionPropertiesEditionPartForm.this,
+									GraalViewsRepository.Transition.Properties.guard,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, guard.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									TransitionPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
 			}
 		});
 		guard.addKeyListener(new KeyAdapter() {
@@ -203,7 +226,7 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 		createDescription(parent, GraalViewsRepository.Transition.Properties.kind, GraalMessages.TransitionPropertiesEditionPart_KindLabel);
 		kind = new EMFComboViewer(parent);
 		kind.setContentProvider(new ArrayContentProvider());
-		kind.setLabelProvider(new AdapterFactoryLabelProvider(new EcoreAdapterFactory()));
+		kind.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
 		GridData kindData = new GridData(GridData.FILL_HORIZONTAL);
 		kind.getCombo().setLayoutData(kindData);
 		kind.addSelectionChangedListener(new ISelectionChangedListener() {
@@ -306,10 +329,34 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 			 * 
 			 */
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(TransitionPropertiesEditionPartForm.this, GraalViewsRepository.Transition.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							TransitionPropertiesEditionPartForm.this,
+							GraalViewsRepository.Transition.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									TransitionPropertiesEditionPartForm.this,
+									GraalViewsRepository.Transition.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
 			}
 
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									TransitionPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
 		});
 		EditingUtils.setID(description, GraalViewsRepository.Transition.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
@@ -325,7 +372,7 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -352,6 +399,14 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			guard.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Transition.Properties.guard);
+		if (readOnly && guard.isEnabled()) {
+			guard.setEnabled(false);
+			guard.setToolTipText(GraalMessages.Transition_ReadOnly);
+		} else if (!readOnly && !guard.isEnabled()) {
+			guard.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -361,18 +416,26 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 	 * 
 	 */
 	public Enumerator getKind() {
-		EEnumLiteral selection = (EEnumLiteral) ((StructuredSelection) kind.getSelection()).getFirstElement();
-		return selection.getInstance();
+		Enumerator selection = (Enumerator) ((StructuredSelection) kind.getSelection()).getFirstElement();
+		return selection;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.graal.parts.TransitionPropertiesEditionPart#initKind(EEnum eenum, Enumerator current)
+	 * @see org.obeonetwork.graal.parts.TransitionPropertiesEditionPart#initKind(Object input, Enumerator current)
 	 */
-	public void initKind(EEnum eenum, Enumerator current) {
-		kind.setInput(eenum.getELiterals());
+	public void initKind(Object input, Enumerator current) {
+		kind.setInput(input);
 		kind.modelUpdating(new StructuredSelection(current));
+		boolean readOnly = isReadOnly(GraalViewsRepository.Transition.Properties.kind);
+		if (readOnly && kind.isEnabled()) {
+			kind.setEnabled(false);
+			kind.setToolTipText(GraalMessages.Transition_ReadOnly);
+		} else if (!readOnly && !kind.isEnabled()) {
+			kind.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -383,6 +446,14 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 	 */
 	public void setKind(Enumerator newValue) {
 		kind.modelUpdating(new StructuredSelection(newValue));
+		boolean readOnly = isReadOnly(GraalViewsRepository.Transition.Properties.kind);
+		if (readOnly && kind.isEnabled()) {
+			kind.setEnabled(false);
+			kind.setToolTipText(GraalMessages.Transition_ReadOnly);
+		} else if (!readOnly && !kind.isEnabled()) {
+			kind.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -410,6 +481,14 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 		if (current != null) {
 			source.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Transition.Properties.source);
+		if (readOnly && source.isEnabled()) {
+			source.setEnabled(false);
+			source.setToolTipText(GraalMessages.Transition_ReadOnly);
+		} else if (!readOnly && !source.isEnabled()) {
+			source.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -424,6 +503,14 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			source.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Transition.Properties.source);
+		if (readOnly && source.isEnabled()) {
+			source.setEnabled(false);
+			source.setToolTipText(GraalMessages.Transition_ReadOnly);
+		} else if (!readOnly && !source.isEnabled()) {
+			source.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -480,6 +567,14 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 		if (current != null) {
 			target.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Transition.Properties.target);
+		if (readOnly && target.isEnabled()) {
+			target.setEnabled(false);
+			target.setToolTipText(GraalMessages.Transition_ReadOnly);
+		} else if (!readOnly && !target.isEnabled()) {
+			target.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -494,6 +589,14 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			target.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Transition.Properties.target);
+		if (readOnly && target.isEnabled()) {
+			target.setEnabled(false);
+			target.setToolTipText(GraalMessages.Transition_ReadOnly);
+		} else if (!readOnly && !target.isEnabled()) {
+			target.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -547,6 +650,15 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Transition.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.Transition_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -564,7 +676,7 @@ public class TransitionPropertiesEditionPartForm extends SectionPropertiesEditin
 		return GraalMessages.Transition_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

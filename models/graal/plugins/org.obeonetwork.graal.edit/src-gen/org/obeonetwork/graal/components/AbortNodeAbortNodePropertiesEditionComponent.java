@@ -15,7 +15,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
@@ -47,12 +49,12 @@ public class AbortNodeAbortNodePropertiesEditionComponent extends SinglePartProp
 	/**
 	 * Settings for outgoingTransitions ReferencesTable
 	 */
-	private	ReferencesTableSettings outgoingTransitionsSettings;
+	private ReferencesTableSettings outgoingTransitionsSettings;
 	
 	/**
 	 * Settings for incomingTransitions ReferencesTable
 	 */
-	private	ReferencesTableSettings incomingTransitionsSettings;
+	private ReferencesTableSettings incomingTransitionsSettings;
 	
 	
 	/**
@@ -77,10 +79,11 @@ public class AbortNodeAbortNodePropertiesEditionComponent extends SinglePartProp
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final AbortNode abortNode = (AbortNode)elt;
 			final AbortNodePropertiesEditionPart abortNodePart = (AbortNodePropertiesEditionPart)editingPart;
 			// init values
-			if (abortNode.getDescription() != null && isAccessible(GraalViewsRepository.AbortNode.Properties.description))
+			if (isAccessible(GraalViewsRepository.AbortNode.Properties.description))
 				abortNodePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, abortNode.getDescription()));
 			if (isAccessible(GraalViewsRepository.AbortNode.Properties.outgoingTransitions)) {
 				outgoingTransitionsSettings = new ReferencesTableSettings(abortNode, GraalPackage.eINSTANCE.getNode_OutgoingTransitions());
@@ -92,42 +95,44 @@ public class AbortNodeAbortNodePropertiesEditionComponent extends SinglePartProp
 			}
 			// init filters
 			
-			abortNodePart.addFilterToOutgoingTransitions(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!abortNodePart.isContainedInOutgoingTransitionsTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			abortNodePart.addFilterToOutgoingTransitions(new EObjectFilter(GraalPackage.Literals.TRANSITION));
-			// Start of user code 
-			// End of user code
-			
-			abortNodePart.addFilterToIncomingTransitions(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!abortNodePart.isContainedInIncomingTransitionsTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			abortNodePart.addFilterToIncomingTransitions(new EObjectFilter(GraalPackage.Literals.TRANSITION));
-			// Start of user code 
-			// End of user code
-			
+			if (isAccessible(GraalViewsRepository.AbortNode.Properties.outgoingTransitions)) {
+				abortNodePart.addFilterToOutgoingTransitions(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						if (element instanceof EObject)
+							return (!abortNodePart.isContainedInOutgoingTransitionsTable((EObject)element));
+						return element instanceof Resource;
+					}
+				
+				});
+				abortNodePart.addFilterToOutgoingTransitions(new EObjectFilter(GraalPackage.Literals.TRANSITION));
+				// Start of user code for additional businessfilters for outgoingTransitions
+				// End of user code
+			}
+			if (isAccessible(GraalViewsRepository.AbortNode.Properties.incomingTransitions)) {
+				abortNodePart.addFilterToIncomingTransitions(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						if (element instanceof EObject)
+							return (!abortNodePart.isContainedInIncomingTransitionsTable((EObject)element));
+						return element instanceof Resource;
+					}
+				
+				});
+				abortNodePart.addFilterToIncomingTransitions(new EObjectFilter(GraalPackage.Literals.TRANSITION));
+				// Start of user code for additional businessfilters for incomingTransitions
+				// End of user code
+			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -197,9 +202,10 @@ public class AbortNodeAbortNodePropertiesEditionComponent extends SinglePartProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			AbortNodePropertiesEditionPart abortNodePart = (AbortNodePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && abortNodePart != null && isAccessible(GraalViewsRepository.AbortNode.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && abortNodePart != null && isAccessible(GraalViewsRepository.AbortNode.Properties.description)){
 				if (msg.getNewValue() != null) {
 					abortNodePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -212,6 +218,20 @@ public class AbortNodeAbortNodePropertiesEditionComponent extends SinglePartProp
 				abortNodePart.updateIncomingTransitions();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			GraalPackage.eINSTANCE.getNode_OutgoingTransitions(),
+			GraalPackage.eINSTANCE.getNode_IncomingTransitions()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -228,7 +248,7 @@ public class AbortNodeAbortNodePropertiesEditionComponent extends SinglePartProp
 				if (GraalViewsRepository.AbortNode.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
@@ -240,5 +260,8 @@ public class AbortNodeAbortNodePropertiesEditionComponent extends SinglePartProp
 		}
 		return ret;
 	}
+
+
+	
 
 }

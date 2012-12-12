@@ -13,9 +13,9 @@ import org.eclipse.emf.eef.runtime.impl.components.ComposedPropertiesEditionComp
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
+import org.obeonetwork.graal.System;
 import org.obeonetwork.graal.parts.GraalViewsRepository;
 import org.obeonetwork.graal.parts.SystemPropertiesEditionPart;
-import org.obeonetwork.graal.System;
 
 // End of user code
 

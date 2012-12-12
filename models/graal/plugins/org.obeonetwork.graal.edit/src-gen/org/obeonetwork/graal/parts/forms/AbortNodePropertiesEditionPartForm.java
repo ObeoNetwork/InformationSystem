@@ -173,10 +173,34 @@ public class AbortNodePropertiesEditionPartForm extends SectionPropertiesEditing
 			 * 
 			 */
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(AbortNodePropertiesEditionPartForm.this, GraalViewsRepository.AbortNode.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							AbortNodePropertiesEditionPartForm.this,
+							GraalViewsRepository.AbortNode.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									AbortNodePropertiesEditionPartForm.this,
+									GraalViewsRepository.AbortNode.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
 			}
 
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									AbortNodePropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
 		});
 		EditingUtils.setID(description, GraalViewsRepository.AbortNode.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
@@ -354,7 +378,7 @@ public class AbortNodePropertiesEditionPartForm extends SectionPropertiesEditing
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -381,6 +405,15 @@ public class AbortNodePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.AbortNode.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.AbortNode_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -396,6 +429,14 @@ public class AbortNodePropertiesEditionPartForm extends SectionPropertiesEditing
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		outgoingTransitions.setContentProvider(contentProvider);
 		outgoingTransitions.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.AbortNode.Properties.outgoingTransitions);
+		if (readOnly && outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(false);
+			outgoingTransitions.setToolTipText(GraalMessages.AbortNode_ReadOnly);
+		} else if (!readOnly && !outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -451,6 +492,14 @@ public class AbortNodePropertiesEditionPartForm extends SectionPropertiesEditing
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		incomingTransitions.setContentProvider(contentProvider);
 		incomingTransitions.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.AbortNode.Properties.incomingTransitions);
+		if (readOnly && incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(false);
+			incomingTransitions.setToolTipText(GraalMessages.AbortNode_ReadOnly);
+		} else if (!readOnly && !incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -508,7 +557,7 @@ public class AbortNodePropertiesEditionPartForm extends SectionPropertiesEditing
 		return GraalMessages.AbortNode_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

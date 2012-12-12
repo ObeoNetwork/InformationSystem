@@ -171,7 +171,7 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, GraalViewsRepository.UseCase.Properties.name, GraalMessages.UseCasePropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -220,7 +220,7 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -664,7 +664,7 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -691,6 +691,14 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -715,6 +723,15 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -730,6 +747,14 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		tasks.setContentProvider(contentProvider);
 		tasks.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.tasks);
+		if (readOnly && tasks.getTable().isEnabled()) {
+			tasks.setEnabled(false);
+			tasks.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !tasks.getTable().isEnabled()) {
+			tasks.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -785,6 +810,14 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		dtoCategories.setContentProvider(contentProvider);
 		dtoCategories.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.dtoCategories);
+		if (readOnly && dtoCategories.getTable().isEnabled()) {
+			dtoCategories.setEnabled(false);
+			dtoCategories.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !dtoCategories.getTable().isEnabled()) {
+			dtoCategories.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -840,6 +873,14 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		dtos.setContentProvider(contentProvider);
 		dtos.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.dtos);
+		if (readOnly && dtos.getTable().isEnabled()) {
+			dtos.setEnabled(false);
+			dtos.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !dtos.getTable().isEnabled()) {
+			dtos.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -895,6 +936,14 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		entityBlocks.setContentProvider(contentProvider);
 		entityBlocks.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.entityBlocks);
+		if (readOnly && entityBlocks.getTable().isEnabled()) {
+			entityBlocks.setEnabled(false);
+			entityBlocks.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !entityBlocks.getTable().isEnabled()) {
+			entityBlocks.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -950,6 +999,14 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		entities.setContentProvider(contentProvider);
 		entities.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.entities);
+		if (readOnly && entities.getTable().isEnabled()) {
+			entities.setEnabled(false);
+			entities.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !entities.getTable().isEnabled()) {
+			entities.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -1007,7 +1064,7 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		return GraalMessages.UseCase_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

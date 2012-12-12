@@ -168,8 +168,33 @@ public class LoopPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 			@Override
 			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(LoopPropertiesEditionPartForm.this, GraalViewsRepository.Loop.Properties.lowerBound, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, lowerBound.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							LoopPropertiesEditionPartForm.this,
+							GraalViewsRepository.Loop.Properties.lowerBound,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, lowerBound.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									LoopPropertiesEditionPartForm.this,
+									GraalViewsRepository.Loop.Properties.lowerBound,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, lowerBound.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									LoopPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
 			}
 		});
 		lowerBound.addKeyListener(new KeyAdapter() {
@@ -208,8 +233,33 @@ public class LoopPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 			@Override
 			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(LoopPropertiesEditionPartForm.this, GraalViewsRepository.Loop.Properties.upperBound, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, upperBound.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							LoopPropertiesEditionPartForm.this,
+							GraalViewsRepository.Loop.Properties.upperBound,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, upperBound.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									LoopPropertiesEditionPartForm.this,
+									GraalViewsRepository.Loop.Properties.upperBound,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, upperBound.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									LoopPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
 			}
 		});
 		upperBound.addKeyListener(new KeyAdapter() {
@@ -253,10 +303,34 @@ public class LoopPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 			 * 
 			 */
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(LoopPropertiesEditionPartForm.this, GraalViewsRepository.Loop.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							LoopPropertiesEditionPartForm.this,
+							GraalViewsRepository.Loop.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									LoopPropertiesEditionPartForm.this,
+									GraalViewsRepository.Loop.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
 			}
 
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									LoopPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
 		});
 		EditingUtils.setID(description, GraalViewsRepository.Loop.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
@@ -320,7 +394,7 @@ public class LoopPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -347,6 +421,14 @@ public class LoopPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		} else {
 			lowerBound.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Loop.Properties.lowerBound);
+		if (readOnly && lowerBound.isEnabled()) {
+			lowerBound.setEnabled(false);
+			lowerBound.setToolTipText(GraalMessages.Loop_ReadOnly);
+		} else if (!readOnly && !lowerBound.isEnabled()) {
+			lowerBound.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -371,6 +453,14 @@ public class LoopPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		} else {
 			upperBound.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Loop.Properties.upperBound);
+		if (readOnly && upperBound.isEnabled()) {
+			upperBound.setEnabled(false);
+			upperBound.setToolTipText(GraalMessages.Loop_ReadOnly);
+		} else if (!readOnly && !upperBound.isEnabled()) {
+			upperBound.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -395,6 +485,15 @@ public class LoopPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Loop.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.Loop_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -410,6 +509,14 @@ public class LoopPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		subActivities.setContentProvider(contentProvider);
 		subActivities.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.Loop.Properties.subActivities);
+		if (readOnly && subActivities.isEnabled()) {
+			subActivities.setEnabled(false);
+			subActivities.setToolTipText(GraalMessages.Loop_ReadOnly);
+		} else if (!readOnly && !subActivities.isEnabled()) {
+			subActivities.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -470,7 +577,7 @@ public class LoopPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		return GraalMessages.Loop_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

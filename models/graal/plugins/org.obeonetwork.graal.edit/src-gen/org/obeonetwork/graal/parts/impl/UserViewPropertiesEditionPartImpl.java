@@ -150,7 +150,7 @@ public class UserViewPropertiesEditionPartImpl extends CompositePropertiesEditio
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, GraalViewsRepository.UserView.Properties.name, GraalMessages.UserViewPropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -199,7 +199,7 @@ public class UserViewPropertiesEditionPartImpl extends CompositePropertiesEditio
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -397,7 +397,7 @@ public class UserViewPropertiesEditionPartImpl extends CompositePropertiesEditio
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -424,6 +424,14 @@ public class UserViewPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.UserView.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(GraalMessages.UserView_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -448,6 +456,15 @@ public class UserViewPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.UserView.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.UserView_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -463,6 +480,14 @@ public class UserViewPropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		outgoingTransitions.setContentProvider(contentProvider);
 		outgoingTransitions.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UserView.Properties.outgoingTransitions);
+		if (readOnly && outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(false);
+			outgoingTransitions.setToolTipText(GraalMessages.UserView_ReadOnly);
+		} else if (!readOnly && !outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -518,6 +543,14 @@ public class UserViewPropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		incomingTransitions.setContentProvider(contentProvider);
 		incomingTransitions.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UserView.Properties.incomingTransitions);
+		if (readOnly && incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(false);
+			incomingTransitions.setToolTipText(GraalMessages.UserView_ReadOnly);
+		} else if (!readOnly && !incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -575,7 +608,7 @@ public class UserViewPropertiesEditionPartImpl extends CompositePropertiesEditio
 		return GraalMessages.UserView_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

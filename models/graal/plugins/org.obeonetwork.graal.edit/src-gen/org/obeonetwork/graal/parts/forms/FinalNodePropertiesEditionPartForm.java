@@ -173,10 +173,34 @@ public class FinalNodePropertiesEditionPartForm extends SectionPropertiesEditing
 			 * 
 			 */
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(FinalNodePropertiesEditionPartForm.this, GraalViewsRepository.FinalNode.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							FinalNodePropertiesEditionPartForm.this,
+							GraalViewsRepository.FinalNode.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									FinalNodePropertiesEditionPartForm.this,
+									GraalViewsRepository.FinalNode.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
 			}
 
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									FinalNodePropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
 		});
 		EditingUtils.setID(description, GraalViewsRepository.FinalNode.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
@@ -354,7 +378,7 @@ public class FinalNodePropertiesEditionPartForm extends SectionPropertiesEditing
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -381,6 +405,15 @@ public class FinalNodePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.FinalNode.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.FinalNode_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -396,6 +429,14 @@ public class FinalNodePropertiesEditionPartForm extends SectionPropertiesEditing
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		outgoingTransitions.setContentProvider(contentProvider);
 		outgoingTransitions.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.FinalNode.Properties.outgoingTransitions);
+		if (readOnly && outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(false);
+			outgoingTransitions.setToolTipText(GraalMessages.FinalNode_ReadOnly);
+		} else if (!readOnly && !outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -451,6 +492,14 @@ public class FinalNodePropertiesEditionPartForm extends SectionPropertiesEditing
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		incomingTransitions.setContentProvider(contentProvider);
 		incomingTransitions.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.FinalNode.Properties.incomingTransitions);
+		if (readOnly && incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(false);
+			incomingTransitions.setToolTipText(GraalMessages.FinalNode_ReadOnly);
+		} else if (!readOnly && !incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -508,7 +557,7 @@ public class FinalNodePropertiesEditionPartForm extends SectionPropertiesEditing
 		return GraalMessages.FinalNode_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 
