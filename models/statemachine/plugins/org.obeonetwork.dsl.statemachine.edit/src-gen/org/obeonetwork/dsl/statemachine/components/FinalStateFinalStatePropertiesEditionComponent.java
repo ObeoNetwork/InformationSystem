@@ -19,7 +19,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
@@ -81,13 +83,14 @@ public class FinalStateFinalStatePropertiesEditionComponent extends SinglePartPr
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final FinalState finalState = (FinalState)elt;
 			final FinalStatePropertiesEditionPart finalStatePart = (FinalStatePropertiesEditionPart)editingPart;
 			// init values
-			if (finalState.getDescription() != null && isAccessible(StatemachineViewsRepository.FinalState.Properties.description))
+			if (isAccessible(StatemachineViewsRepository.FinalState.Properties.description))
 				finalStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, finalState.getDescription()));
 			
-			if (finalState.getKeywords() != null && isAccessible(StatemachineViewsRepository.FinalState.Properties.keywords))
+			if (isAccessible(StatemachineViewsRepository.FinalState.Properties.keywords))
 				finalStatePart.setKeywords(finalState.getKeywords());
 			
 			if (isAccessible(StatemachineViewsRepository.FinalState.Properties.incomingTransitions)) {
@@ -218,16 +221,17 @@ public class FinalStateFinalStatePropertiesEditionComponent extends SinglePartPr
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			FinalStatePropertiesEditionPart finalStatePart = (FinalStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && finalStatePart != null && isAccessible(StatemachineViewsRepository.FinalState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && finalStatePart != null && isAccessible(StatemachineViewsRepository.FinalState.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					finalStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					finalStatePart.setDescription("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords().equals(msg.getFeature()) && finalStatePart != null && isAccessible(StatemachineViewsRepository.FinalState.Properties.keywords)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && finalStatePart != null && isAccessible(StatemachineViewsRepository.FinalState.Properties.keywords)) {
 				finalStatePart.setKeywords((EList<?>)msg.getNewValue());
 			}
 			
@@ -237,6 +241,21 @@ public class FinalStateFinalStatePropertiesEditionComponent extends SinglePartPr
 				finalStatePart.updateOutcomingTransitions();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords(),
+			StateMachinePackage.eINSTANCE.getAbstractState_IncomingTransitions(),
+			StateMachinePackage.eINSTANCE.getAbstractState_OutcomingTransitions()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -272,5 +291,8 @@ public class FinalStateFinalStatePropertiesEditionComponent extends SinglePartPr
 		}
 		return ret;
 	}
+
+
+	
 
 }

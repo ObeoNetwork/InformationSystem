@@ -463,6 +463,14 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		incomingTransitions.setContentProvider(contentProvider);
 		incomingTransitions.setInput(settings);
+		boolean readOnly = isReadOnly(StatemachineViewsRepository.InitialState.Properties.incomingTransitions);
+		if (readOnly && incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(false);
+			incomingTransitions.setToolTipText(StatemachineMessages.InitialState_ReadOnly);
+		} else if (!readOnly && !incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -518,6 +526,14 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		outcomingTransitions.setContentProvider(contentProvider);
 		outcomingTransitions.setInput(settings);
+		boolean readOnly = isReadOnly(StatemachineViewsRepository.InitialState.Properties.outcomingTransitions);
+		if (readOnly && outcomingTransitions.getTable().isEnabled()) {
+			outcomingTransitions.setEnabled(false);
+			outcomingTransitions.setToolTipText(StatemachineMessages.InitialState_ReadOnly);
+		} else if (!readOnly && !outcomingTransitions.getTable().isEnabled()) {
+			outcomingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -583,6 +599,14 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			keywords.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(StatemachineViewsRepository.InitialState.Properties.keywords);
+		if (readOnly && keywords.isEnabled()) {
+			keywords.setEnabled(false);
+			keywords.setToolTipText(StatemachineMessages.InitialState_ReadOnly);
+		} else if (!readOnly && !keywords.isEnabled()) {
+			keywords.setEnabled(true);
+		}	
+		
 	}
 
 	public void addToKeywords(Object newValue) {
@@ -625,6 +649,14 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(StatemachineViewsRepository.InitialState.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(StatemachineMessages.InitialState_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
