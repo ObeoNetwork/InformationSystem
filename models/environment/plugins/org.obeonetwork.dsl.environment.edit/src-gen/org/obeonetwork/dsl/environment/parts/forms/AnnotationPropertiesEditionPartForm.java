@@ -5,47 +5,33 @@ package org.obeonetwork.dsl.environment.parts.forms;
 
 // Start of user code for imports
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-
+import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.obeonetwork.dsl.environment.parts.AnnotationPropertiesEditionPart;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
-
 import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
 
 // End of user code
@@ -298,6 +284,14 @@ public class AnnotationPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			title_.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Annotation.Properties.title_);
+		if (readOnly && title_.isEnabled()) {
+			title_.setEnabled(false);
+			title_.setToolTipText(EnvironmentMessages.Annotation_ReadOnly);
+		} else if (!readOnly && !title_.isEnabled()) {
+			title_.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -322,6 +316,15 @@ public class AnnotationPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			body.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Annotation.Properties.body);
+		if (readOnly && body.isEnabled()) {
+			body.setEnabled(false);
+			body.setBackground(body.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			body.setToolTipText(EnvironmentMessages.Annotation_ReadOnly);
+		} else if (!readOnly && !body.isEnabled()) {
+			body.setEnabled(true);
+		}	
+		
 	}
 
 

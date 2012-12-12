@@ -5,42 +5,28 @@ package org.obeonetwork.dsl.environment.parts.impl;
 
 // Start of user code for imports
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 import org.obeonetwork.dsl.environment.parts.NamespacePropertiesEditionPart;
-
 import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
 
 // End of user code
@@ -256,6 +242,14 @@ public class NamespacePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Namespace.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EnvironmentMessages.Namespace_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -280,6 +274,14 @@ public class NamespacePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Namespace.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(EnvironmentMessages.Namespace_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

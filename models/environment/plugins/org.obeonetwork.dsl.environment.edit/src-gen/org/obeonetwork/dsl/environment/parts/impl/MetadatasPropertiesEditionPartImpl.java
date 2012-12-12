@@ -8,57 +8,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.graphics.Image;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.TableColumn;
-
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 import org.obeonetwork.dsl.environment.parts.MetadatasPropertiesEditionPart;
-
 import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
 
 // End of user code
@@ -72,6 +54,9 @@ public class MetadatasPropertiesEditionPartImpl extends CompositePropertiesEditi
 	protected TableViewer metadata;
 	protected List<ViewerFilter> metadataBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> metadataFilters = new ArrayList<ViewerFilter>();
+	protected Button addMetadata;
+	protected Button removeMetadata;
+	protected Button editMetadata;
 
 
 
@@ -248,7 +233,7 @@ public class MetadatasPropertiesEditionPartImpl extends CompositePropertiesEditi
 		GridLayout metadataPanelLayout = new GridLayout();
 		metadataPanelLayout.numColumns = 1;
 		metadataPanel.setLayout(metadataPanelLayout);
-		Button addMetadata = new Button(metadataPanel, SWT.NONE);
+		addMetadata = new Button(metadataPanel, SWT.NONE);
 		addMetadata.setText(EnvironmentMessages.PropertiesEditionPart_AddTableViewerLabel);
 		GridData addMetadataData = new GridData(GridData.FILL_HORIZONTAL);
 		addMetadata.setLayoutData(addMetadataData);
@@ -267,7 +252,7 @@ public class MetadatasPropertiesEditionPartImpl extends CompositePropertiesEditi
 		});
 		EditingUtils.setID(addMetadata, EnvironmentViewsRepository.Metadatas.Properties.metadata);
 		EditingUtils.setEEFtype(addMetadata, "eef::TableComposition::addbutton"); //$NON-NLS-1$
-		Button removeMetadata = new Button(metadataPanel, SWT.NONE);
+		removeMetadata = new Button(metadataPanel, SWT.NONE);
 		removeMetadata.setText(EnvironmentMessages.PropertiesEditionPart_RemoveTableViewerLabel);
 		GridData removeMetadataData = new GridData(GridData.FILL_HORIZONTAL);
 		removeMetadata.setLayoutData(removeMetadataData);
@@ -293,7 +278,7 @@ public class MetadatasPropertiesEditionPartImpl extends CompositePropertiesEditi
 		});
 		EditingUtils.setID(removeMetadata, EnvironmentViewsRepository.Metadatas.Properties.metadata);
 		EditingUtils.setEEFtype(removeMetadata, "eef::TableComposition::removebutton"); //$NON-NLS-1$
-		Button editMetadata = new Button(metadataPanel, SWT.NONE);
+		editMetadata = new Button(metadataPanel, SWT.NONE);
 		editMetadata.setText(EnvironmentMessages.PropertiesEditionPart_EditTableViewerLabel);
 		GridData editMetadataData = new GridData(GridData.FILL_HORIZONTAL);
 		editMetadata.setLayoutData(editMetadataData);
@@ -347,6 +332,23 @@ public class MetadatasPropertiesEditionPartImpl extends CompositePropertiesEditi
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		metadata.setContentProvider(contentProvider);
 		metadata.setInput(settings);
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Metadatas.Properties.metadata);
+		if (readOnly && metadata.getTable().isEnabled()) {
+			metadata.getTable().setEnabled(false);
+			metadata.getTable().setToolTipText(EnvironmentMessages.Metadatas_ReadOnly);
+			addMetadata.setEnabled(false);
+			addMetadata.setToolTipText(EnvironmentMessages.Metadatas_ReadOnly);
+			removeMetadata.setEnabled(false);
+			removeMetadata.setToolTipText(EnvironmentMessages.Metadatas_ReadOnly);
+			editMetadata.setEnabled(false);
+			editMetadata.setToolTipText(EnvironmentMessages.Metadatas_ReadOnly);
+		} else if (!readOnly && !metadata.getTable().isEnabled()) {
+			metadata.getTable().setEnabled(true);
+			addMetadata.setEnabled(true);
+			removeMetadata.setEnabled(true);
+			editMetadata.setEnabled(true);
+		}
+		
 	}
 
 	/**

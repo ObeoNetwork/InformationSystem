@@ -5,31 +5,23 @@ package org.obeonetwork.dsl.environment.components;
 
 // Start of user code for imports
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-
 import org.obeonetwork.dsl.environment.parts.AnnotationPropertiesEditionPart;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 
@@ -69,13 +61,14 @@ public class AnnotationPropertiesEditionComponent extends SinglePartPropertiesEd
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Annotation annotation = (Annotation)elt;
 			final AnnotationPropertiesEditionPart annotationPart = (AnnotationPropertiesEditionPart)editingPart;
 			// init values
-			if (annotation.getTitle() != null && isAccessible(EnvironmentViewsRepository.Annotation.Properties.title_))
+			if (isAccessible(EnvironmentViewsRepository.Annotation.Properties.title_))
 				annotationPart.setTitle_(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, annotation.getTitle()));
 			
-			if (annotation.getBody() != null && isAccessible(EnvironmentViewsRepository.Annotation.Properties.body))
+			if (isAccessible(EnvironmentViewsRepository.Annotation.Properties.body))
 				annotationPart.setBody(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, annotation.getBody()));
 			// init filters
 			
@@ -126,16 +119,17 @@ public class AnnotationPropertiesEditionComponent extends SinglePartPropertiesEd
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			AnnotationPropertiesEditionPart annotationPart = (AnnotationPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getAnnotation_Title().equals(msg.getFeature()) && annotationPart != null && isAccessible(EnvironmentViewsRepository.Annotation.Properties.title_)) {
+			if (EnvironmentPackage.eINSTANCE.getAnnotation_Title().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && annotationPart != null && isAccessible(EnvironmentViewsRepository.Annotation.Properties.title_)) {
 				if (msg.getNewValue() != null) {
 					annotationPart.setTitle_(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					annotationPart.setTitle_("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getAnnotation_Body().equals(msg.getFeature()) && annotationPart != null && isAccessible(EnvironmentViewsRepository.Annotation.Properties.body)){
+			if (EnvironmentPackage.eINSTANCE.getAnnotation_Body().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && annotationPart != null && isAccessible(EnvironmentViewsRepository.Annotation.Properties.body)){
 				if (msg.getNewValue() != null) {
 					annotationPart.setBody(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -144,6 +138,19 @@ public class AnnotationPropertiesEditionComponent extends SinglePartPropertiesEd
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getAnnotation_Title(),
+			EnvironmentPackage.eINSTANCE.getAnnotation_Body()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -189,5 +196,8 @@ public class AnnotationPropertiesEditionComponent extends SinglePartPropertiesEd
 		}
 		return ret;
 	}
+
+
+	
 
 }

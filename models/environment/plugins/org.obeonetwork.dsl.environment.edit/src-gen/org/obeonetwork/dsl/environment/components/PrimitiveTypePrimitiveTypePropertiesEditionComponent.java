@@ -5,31 +5,23 @@ package org.obeonetwork.dsl.environment.components;
 
 // Start of user code for imports
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.PrimitiveType;
-
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 import org.obeonetwork.dsl.environment.parts.PrimitiveTypePropertiesEditionPart;
 
@@ -69,13 +61,14 @@ public class PrimitiveTypePrimitiveTypePropertiesEditionComponent extends Single
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final PrimitiveType primitiveType = (PrimitiveType)elt;
 			final PrimitiveTypePropertiesEditionPart primitiveTypePart = (PrimitiveTypePropertiesEditionPart)editingPart;
 			// init values
-			if (primitiveType.getName() != null && isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.name))
+			if (isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.name))
 				primitiveTypePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, primitiveType.getName()));
 			
-			if (primitiveType.getDescription() != null && isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.description))
+			if (isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.description))
 				primitiveTypePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, primitiveType.getDescription()));
 			
 			// init filters
@@ -127,16 +120,17 @@ public class PrimitiveTypePrimitiveTypePropertiesEditionComponent extends Single
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			PrimitiveTypePropertiesEditionPart primitiveTypePart = (PrimitiveTypePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getType_Name().equals(msg.getFeature()) && primitiveTypePart != null && isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.name)) {
+			if (EnvironmentPackage.eINSTANCE.getType_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && primitiveTypePart != null && isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					primitiveTypePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					primitiveTypePart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && primitiveTypePart != null && isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && primitiveTypePart != null && isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					primitiveTypePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -145,6 +139,19 @@ public class PrimitiveTypePrimitiveTypePropertiesEditionComponent extends Single
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getType_Name(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -190,5 +197,8 @@ public class PrimitiveTypePrimitiveTypePropertiesEditionComponent extends Single
 		}
 		return ret;
 	}
+
+
+	
 
 }

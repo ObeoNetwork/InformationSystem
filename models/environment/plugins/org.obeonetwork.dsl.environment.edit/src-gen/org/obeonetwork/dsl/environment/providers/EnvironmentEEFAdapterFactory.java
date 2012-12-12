@@ -7,27 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
-import org.obeonetwork.dsl.environment.providers.AnnotationPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.AttributePropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.BindingElementPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.BindingInfoPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.BindingReferencePropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.EnumerationPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.EnvironmentPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.FieldPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.FilterContainerPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.InterDSMLinkPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.MetadataCptPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.NamespacePropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.PrimitiveTypePropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.PriorityDefinitionPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.PriorityPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.ReferencePropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.TypesDefinitionPropertiesEditionProvider;
-
 import org.obeonetwork.dsl.environment.util.EnvironmentAdapterFactory;
 
 /**

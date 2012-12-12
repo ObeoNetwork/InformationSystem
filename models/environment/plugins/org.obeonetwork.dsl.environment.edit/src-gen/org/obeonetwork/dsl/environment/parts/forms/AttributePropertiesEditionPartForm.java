@@ -366,6 +366,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Attribute.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EnvironmentMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -405,6 +413,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			type.modelUpdating(new StructuredSelection("")); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Attribute.Properties.type);
+		if (readOnly && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(EnvironmentMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -436,6 +452,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 	public void initMultiplicity(Object input, Enumerator current) {
 		multiplicity.setInput(input);
 		multiplicity.modelUpdating(new StructuredSelection(current));
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Attribute.Properties.multiplicity);
+		if (readOnly && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EnvironmentMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -446,6 +470,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 	 */
 	public void setMultiplicity(Enumerator newValue) {
 		multiplicity.modelUpdating(new StructuredSelection(newValue));
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Attribute.Properties.multiplicity);
+		if (readOnly && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EnvironmentMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -470,6 +502,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Attribute.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(EnvironmentMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
