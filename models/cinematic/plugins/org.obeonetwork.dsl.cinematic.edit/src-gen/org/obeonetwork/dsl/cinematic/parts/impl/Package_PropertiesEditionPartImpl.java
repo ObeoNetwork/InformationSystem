@@ -8,55 +8,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.dsl.cinematic.parts.CinematicViewsRepository;
 import org.obeonetwork.dsl.cinematic.parts.Package_PropertiesEditionPart;
-
 import org.obeonetwork.dsl.cinematic.providers.CinematicMessages;
 
 // End of user code
@@ -437,6 +419,14 @@ public class Package_PropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(CinematicViewsRepository.Package_.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(CinematicMessages.Package__ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -461,6 +451,14 @@ public class Package_PropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(CinematicViewsRepository.Package_.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(CinematicMessages.Package__ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -476,6 +474,14 @@ public class Package_PropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		subPackages.setContentProvider(contentProvider);
 		subPackages.setInput(settings);
+		boolean readOnly = isReadOnly(CinematicViewsRepository.Package_.Properties.subPackages);
+		if (readOnly && subPackages.isEnabled()) {
+			subPackages.setEnabled(false);
+			subPackages.setToolTipText(CinematicMessages.Package__ReadOnly);
+		} else if (!readOnly && !subPackages.isEnabled()) {
+			subPackages.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -534,6 +540,14 @@ public class Package_PropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		flows.setContentProvider(contentProvider);
 		flows.setInput(settings);
+		boolean readOnly = isReadOnly(CinematicViewsRepository.Package_.Properties.flows);
+		if (readOnly && flows.isEnabled()) {
+			flows.setEnabled(false);
+			flows.setToolTipText(CinematicMessages.Package__ReadOnly);
+		} else if (!readOnly && !flows.isEnabled()) {
+			flows.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -592,6 +606,14 @@ public class Package_PropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		viewContainers.setContentProvider(contentProvider);
 		viewContainers.setInput(settings);
+		boolean readOnly = isReadOnly(CinematicViewsRepository.Package_.Properties.viewContainers);
+		if (readOnly && viewContainers.isEnabled()) {
+			viewContainers.setEnabled(false);
+			viewContainers.setToolTipText(CinematicMessages.Package__ReadOnly);
+		} else if (!readOnly && !viewContainers.isEnabled()) {
+			viewContainers.setEnabled(true);
+		}	
+		
 	}
 
 	/**

@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -103,13 +105,14 @@ public class ViewContainerViewContainerPropertiesEditionComponent extends Single
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final ViewContainer viewContainer = (ViewContainer)elt;
 			final ViewContainerPropertiesEditionPart viewContainerPart = (ViewContainerPropertiesEditionPart)editingPart;
 			// init values
-			if (viewContainer.getDescription() != null && isAccessible(ViewViewsRepository.ViewContainer.Properties.description))
+			if (isAccessible(ViewViewsRepository.ViewContainer.Properties.description))
 				viewContainerPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewContainer.getDescription()));
 			
-			if (viewContainer.getName() != null && isAccessible(ViewViewsRepository.ViewContainer.Properties.name))
+			if (isAccessible(ViewViewsRepository.ViewContainer.Properties.name))
 				viewContainerPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewContainer.getName()));
 			
 			if (isAccessible(ViewViewsRepository.ViewContainer.Properties.widget)) {
@@ -127,7 +130,7 @@ public class ViewContainerViewContainerPropertiesEditionComponent extends Single
 				eventsSettings = new ReferencesTableSettings(viewContainer, ViewPackage.eINSTANCE.getAbstractViewElement_Events());
 				viewContainerPart.initEvents(eventsSettings);
 			}
-			if (viewContainer.getLabel() != null && isAccessible(ViewViewsRepository.ViewContainer.Properties.label))
+			if (isAccessible(ViewViewsRepository.ViewContainer.Properties.label))
 				viewContainerPart.setLabel(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewContainer.getLabel()));
 			
 			if (isAccessible(ViewViewsRepository.ViewContainer.Properties.dataBindings)) {
@@ -407,16 +410,17 @@ public class ViewContainerViewContainerPropertiesEditionComponent extends Single
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ViewContainerPropertiesEditionPart viewContainerPart = (ViewContainerPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && viewContainerPart != null && isAccessible(ViewViewsRepository.ViewContainer.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewContainerPart != null && isAccessible(ViewViewsRepository.ViewContainer.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					viewContainerPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					viewContainerPart.setDescription("");
 				}
 			}
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && viewContainerPart != null && isAccessible(ViewViewsRepository.ViewContainer.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewContainerPart != null && isAccessible(ViewViewsRepository.ViewContainer.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					viewContainerPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -429,7 +433,7 @@ public class ViewContainerViewContainerPropertiesEditionComponent extends Single
 				viewContainerPart.updateActions();
 			if (ViewPackage.eINSTANCE.getAbstractViewElement_Events().equals(msg.getFeature()) && isAccessible(ViewViewsRepository.ViewContainer.Properties.events))
 				viewContainerPart.updateEvents();
-			if (ViewPackage.eINSTANCE.getAbstractViewElement_Label().equals(msg.getFeature()) && viewContainerPart != null && isAccessible(ViewViewsRepository.ViewContainer.Properties.label)) {
+			if (ViewPackage.eINSTANCE.getAbstractViewElement_Label().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewContainerPart != null && isAccessible(ViewViewsRepository.ViewContainer.Properties.label)) {
 				if (msg.getNewValue() != null) {
 					viewContainerPart.setLabel(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -442,6 +446,25 @@ public class ViewContainerViewContainerPropertiesEditionComponent extends Single
 				viewContainerPart.updateOwnedElements();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Widget(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Actions(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Events(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Label(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_DataBindings(),
+			ViewPackage.eINSTANCE.getViewContainer_OwnedElements()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -484,5 +507,8 @@ public class ViewContainerViewContainerPropertiesEditionComponent extends Single
 		}
 		return ret;
 	}
+
+
+	
 
 }

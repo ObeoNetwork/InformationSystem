@@ -1,5 +1,4 @@
 /**
-
  * Generated with Acceleo
  */
 package org.obeonetwork.dsl.cinematic.components;
@@ -15,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -86,13 +87,14 @@ public class PackagePackage_PropertiesEditionComponent extends SinglePartPropert
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Package package_ = (Package)elt;
 			final Package_PropertiesEditionPart package_Part = (Package_PropertiesEditionPart)editingPart;
 			// init values
-			if (package_.getDescription() != null && isAccessible(CinematicViewsRepository.Package_.Properties.description))
+			if (isAccessible(CinematicViewsRepository.Package_.Properties.description))
 				package_Part.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, package_.getDescription()));
 			
-			if (package_.getName() != null && isAccessible(CinematicViewsRepository.Package_.Properties.name))
+			if (isAccessible(CinematicViewsRepository.Package_.Properties.name))
 				package_Part.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, package_.getName()));
 			
 			if (isAccessible(CinematicViewsRepository.Package_.Properties.flows)) {
@@ -288,16 +290,17 @@ public class PackagePackage_PropertiesEditionComponent extends SinglePartPropert
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			Package_PropertiesEditionPart package_Part = (Package_PropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && package_Part != null && isAccessible(CinematicViewsRepository.Package_.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && package_Part != null && isAccessible(CinematicViewsRepository.Package_.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					package_Part.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					package_Part.setDescription("");
 				}
 			}
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && package_Part != null && isAccessible(CinematicViewsRepository.Package_.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && package_Part != null && isAccessible(CinematicViewsRepository.Package_.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					package_Part.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -312,6 +315,22 @@ public class PackagePackage_PropertiesEditionComponent extends SinglePartPropert
 				package_Part.updateSubPackages();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name(),
+			CinematicPackage.eINSTANCE.getAbstractPackage_Flows(),
+			CinematicPackage.eINSTANCE.getAbstractPackage_ViewContainers(),
+			CinematicPackage.eINSTANCE.getAbstractPackage_SubPackages()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -347,5 +366,8 @@ public class PackagePackage_PropertiesEditionComponent extends SinglePartPropert
 		}
 		return ret;
 	}
+
+
+	
 
 }

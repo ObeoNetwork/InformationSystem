@@ -15,7 +15,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -85,17 +87,18 @@ public class ViewStateViewStatePropertiesEditionComponent extends SinglePartProp
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final ViewState viewState = (ViewState)elt;
 			final ViewStatePropertiesEditionPart viewStatePart = (ViewStatePropertiesEditionPart)editingPart;
 			// init values
-			if (viewState.getDescription() != null && isAccessible(FlowViewsRepository.ViewState.Properties.description))
+			if (isAccessible(FlowViewsRepository.ViewState.Properties.description))
 				viewStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewState.getDescription()));
 			
 			if (isAccessible(FlowViewsRepository.ViewState.Properties.actions)) {
 				actionsSettings = new ReferencesTableSettings(viewState, FlowPackage.eINSTANCE.getFlowState_Actions());
 				viewStatePart.initActions(actionsSettings);
 			}
-			if (viewState.getName() != null && isAccessible(FlowViewsRepository.ViewState.Properties.name))
+			if (isAccessible(FlowViewsRepository.ViewState.Properties.name))
 				viewStatePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewState.getName()));
 			
 			if (isAccessible(FlowViewsRepository.ViewState.Properties.newInstance)) {
@@ -251,9 +254,10 @@ public class ViewStateViewStatePropertiesEditionComponent extends SinglePartProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ViewStatePropertiesEditionPart viewStatePart = (ViewStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && viewStatePart != null && isAccessible(FlowViewsRepository.ViewState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewStatePart != null && isAccessible(FlowViewsRepository.ViewState.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					viewStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -262,23 +266,40 @@ public class ViewStateViewStatePropertiesEditionComponent extends SinglePartProp
 			}
 			if (FlowPackage.eINSTANCE.getFlowState_Actions().equals(msg.getFeature()) && isAccessible(FlowViewsRepository.ViewState.Properties.actions))
 				viewStatePart.updateActions();
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && viewStatePart != null && isAccessible(FlowViewsRepository.ViewState.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewStatePart != null && isAccessible(FlowViewsRepository.ViewState.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					viewStatePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					viewStatePart.setName("");
 				}
 			}
-			if (FlowPackage.eINSTANCE.getViewState_NewInstance().equals(msg.getFeature()) && viewStatePart != null && isAccessible(FlowViewsRepository.ViewState.Properties.newInstance))
+			if (FlowPackage.eINSTANCE.getViewState_NewInstance().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewStatePart != null && isAccessible(FlowViewsRepository.ViewState.Properties.newInstance))
 				viewStatePart.setNewInstance((Boolean)msg.getNewValue());
 			
-			if (FlowPackage.eINSTANCE.getViewState_Refresh().equals(msg.getFeature()) && viewStatePart != null && isAccessible(FlowViewsRepository.ViewState.Properties.refresh))
+			if (FlowPackage.eINSTANCE.getViewState_Refresh().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewStatePart != null && isAccessible(FlowViewsRepository.ViewState.Properties.refresh))
 				viewStatePart.setRefresh((Boolean)msg.getNewValue());
 			
 			if (FlowPackage.eINSTANCE.getViewState_ViewContainers().equals(msg.getFeature())  && isAccessible(FlowViewsRepository.ViewState.Properties.viewContainers))
 				viewStatePart.updateViewContainers();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			FlowPackage.eINSTANCE.getFlowState_Actions(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name(),
+			FlowPackage.eINSTANCE.getViewState_NewInstance(),
+			FlowPackage.eINSTANCE.getViewState_Refresh(),
+			FlowPackage.eINSTANCE.getViewState_ViewContainers()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -328,5 +349,8 @@ public class ViewStateViewStatePropertiesEditionComponent extends SinglePartProp
 		}
 		return ret;
 	}
+
+
+	
 
 }

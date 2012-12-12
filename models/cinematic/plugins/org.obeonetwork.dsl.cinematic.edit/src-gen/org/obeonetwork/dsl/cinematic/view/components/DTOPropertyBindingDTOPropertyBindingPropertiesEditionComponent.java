@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -75,10 +77,11 @@ public class DTOPropertyBindingDTOPropertyBindingPropertiesEditionComponent exte
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final DTOPropertyBinding dTOPropertyBinding = (DTOPropertyBinding)elt;
 			final DTOPropertyBindingPropertiesEditionPart dTOPropertyBindingPart = (DTOPropertyBindingPropertiesEditionPart)editingPart;
 			// init values
-			if (dTOPropertyBinding.getDescription() != null && isAccessible(ViewViewsRepository.DTOPropertyBinding.Properties.description))
+			if (isAccessible(ViewViewsRepository.DTOPropertyBinding.Properties.description))
 				dTOPropertyBindingPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dTOPropertyBinding.getDescription()));
 			
 			if (isAccessible(ViewViewsRepository.DTOPropertyBinding.Properties.property)) {
@@ -163,9 +166,10 @@ public class DTOPropertyBindingDTOPropertyBindingPropertiesEditionComponent exte
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			DTOPropertyBindingPropertiesEditionPart dTOPropertyBindingPart = (DTOPropertyBindingPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && dTOPropertyBindingPart != null && isAccessible(ViewViewsRepository.DTOPropertyBinding.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && dTOPropertyBindingPart != null && isAccessible(ViewViewsRepository.DTOPropertyBinding.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					dTOPropertyBindingPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -176,6 +180,19 @@ public class DTOPropertyBindingDTOPropertyBindingPropertiesEditionComponent exte
 				dTOPropertyBindingPart.setProperty((EObject)msg.getNewValue());
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			ViewPackage.eINSTANCE.getDTOPropertyBinding_Property()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -214,5 +231,8 @@ public class DTOPropertyBindingDTOPropertyBindingPropertiesEditionComponent exte
 		}
 		return ret;
 	}
+
+
+	
 
 }
