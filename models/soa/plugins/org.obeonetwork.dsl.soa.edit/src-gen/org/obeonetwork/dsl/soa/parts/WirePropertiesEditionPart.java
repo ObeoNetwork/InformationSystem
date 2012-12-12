@@ -12,11 +12,8 @@ package org.obeonetwork.dsl.soa.parts;
 
 // Start of user code for imports
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.eclipse.jface.viewers.ViewerFilter;
 
 
@@ -147,7 +144,7 @@ public interface WirePropertiesEditionPart {
 	 */
 	public String getTitle();
 
-	// Start of user code 
+	// Start of user code for additional methods
 	
 	// End of user code
 

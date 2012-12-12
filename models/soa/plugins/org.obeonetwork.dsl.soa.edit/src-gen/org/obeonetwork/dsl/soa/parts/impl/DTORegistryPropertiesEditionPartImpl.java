@@ -15,54 +15,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.dsl.soa.parts.DTORegistryPropertiesEditionPart;
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
-
 import org.obeonetwork.dsl.soa.providers.SoaMessages;
 
 // End of user code
@@ -207,7 +189,7 @@ public class DTORegistryPropertiesEditionPartImpl extends CompositePropertiesEdi
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -241,7 +223,7 @@ public class DTORegistryPropertiesEditionPartImpl extends CompositePropertiesEdi
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -259,6 +241,14 @@ public class DTORegistryPropertiesEditionPartImpl extends CompositePropertiesEdi
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		categories.setContentProvider(contentProvider);
 		categories.setInput(settings);
+		boolean readOnly = isReadOnly(SoaViewsRepository.DTORegistry.Properties.categories);
+		if (readOnly && categories.isEnabled()) {
+			categories.setEnabled(false);
+			categories.setToolTipText(SoaMessages.DTORegistry_ReadOnly);
+		} else if (!readOnly && !categories.isEnabled()) {
+			categories.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -326,6 +316,15 @@ public class DTORegistryPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(SoaViewsRepository.DTORegistry.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(SoaMessages.DTORegistry_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -343,7 +342,7 @@ public class DTORegistryPropertiesEditionPartImpl extends CompositePropertiesEdi
 		return SoaMessages.DTORegistry_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

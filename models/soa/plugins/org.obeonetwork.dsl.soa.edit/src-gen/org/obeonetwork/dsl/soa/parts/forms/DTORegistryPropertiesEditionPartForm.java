@@ -15,57 +15,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-
+import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.obeonetwork.dsl.soa.parts.DTORegistryPropertiesEditionPart;
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
-
 import org.obeonetwork.dsl.soa.providers.SoaMessages;
 
 // End of user code
@@ -233,10 +216,34 @@ public class DTORegistryPropertiesEditionPartForm extends SectionPropertiesEditi
 			 * 
 			 */
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTORegistryPropertiesEditionPartForm.this, SoaViewsRepository.DTORegistry.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							DTORegistryPropertiesEditionPartForm.this,
+							SoaViewsRepository.DTORegistry.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									DTORegistryPropertiesEditionPartForm.this,
+									SoaViewsRepository.DTORegistry.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
 			}
 
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									DTORegistryPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
 		});
 		EditingUtils.setID(description, SoaViewsRepository.DTORegistry.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
@@ -252,7 +259,7 @@ public class DTORegistryPropertiesEditionPartForm extends SectionPropertiesEditi
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -270,6 +277,14 @@ public class DTORegistryPropertiesEditionPartForm extends SectionPropertiesEditi
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		categories.setContentProvider(contentProvider);
 		categories.setInput(settings);
+		boolean readOnly = isReadOnly(SoaViewsRepository.DTORegistry.Properties.categories);
+		if (readOnly && categories.isEnabled()) {
+			categories.setEnabled(false);
+			categories.setToolTipText(SoaMessages.DTORegistry_ReadOnly);
+		} else if (!readOnly && !categories.isEnabled()) {
+			categories.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -337,6 +352,15 @@ public class DTORegistryPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(SoaViewsRepository.DTORegistry.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(SoaMessages.DTORegistry_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -354,7 +378,7 @@ public class DTORegistryPropertiesEditionPartForm extends SectionPropertiesEditi
 		return SoaMessages.DTORegistry_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

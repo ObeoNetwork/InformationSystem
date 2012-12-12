@@ -13,25 +13,14 @@ package org.obeonetwork.dsl.soa.components;
 // Start of user code for imports
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.ComposedPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
-
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
-
 import org.obeonetwork.dsl.soa.Wire;
-
-import org.obeonetwork.dsl.soa.components.WireWirePropertiesEditionComponent;
-
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
 import org.obeonetwork.dsl.soa.parts.WirePropertiesEditionPart;
 
