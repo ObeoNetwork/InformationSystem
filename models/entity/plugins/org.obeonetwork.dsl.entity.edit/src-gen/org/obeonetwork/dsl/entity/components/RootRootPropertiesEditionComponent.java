@@ -21,7 +21,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -66,13 +68,14 @@ public class RootRootPropertiesEditionComponent extends SinglePartPropertiesEdit
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Root root = (Root)elt;
 			final RootPropertiesEditionPart rootPart = (RootPropertiesEditionPart)editingPart;
 			// init values
-			if (root.getName() != null && isAccessible(EntityViewsRepository.Root.Properties.name))
+			if (isAccessible(EntityViewsRepository.Root.Properties.name))
 				rootPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, root.getName()));
 			
-			if (root.getDescription() != null && isAccessible(EntityViewsRepository.Root.Properties.description))
+			if (isAccessible(EntityViewsRepository.Root.Properties.description))
 				rootPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, root.getDescription()));
 			// init filters
 			
@@ -123,16 +126,17 @@ public class RootRootPropertiesEditionComponent extends SinglePartPropertiesEdit
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			RootPropertiesEditionPart rootPart = (RootPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getNamespace_Name().equals(msg.getFeature()) && rootPart != null && isAccessible(EntityViewsRepository.Root.Properties.name)) {
+			if (EnvironmentPackage.eINSTANCE.getNamespace_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && rootPart != null && isAccessible(EntityViewsRepository.Root.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					rootPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					rootPart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && rootPart != null && isAccessible(EntityViewsRepository.Root.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && rootPart != null && isAccessible(EntityViewsRepository.Root.Properties.description)){
 				if (msg.getNewValue() != null) {
 					rootPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -141,6 +145,19 @@ public class RootRootPropertiesEditionComponent extends SinglePartPropertiesEdit
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getNamespace_Name(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -176,5 +193,8 @@ public class RootRootPropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		return ret;
 	}
+
+
+	
 
 }

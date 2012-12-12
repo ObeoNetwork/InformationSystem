@@ -21,7 +21,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -80,6 +82,7 @@ public class InternalCriterionInternalCriterionPropertiesEditionComponent extend
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final InternalCriterion internalCriterion = (InternalCriterion)elt;
 			final InternalCriterionPropertiesEditionPart internalCriterionPart = (InternalCriterionPropertiesEditionPart)editingPart;
 			// init values
@@ -90,7 +93,7 @@ public class InternalCriterionInternalCriterionPropertiesEditionComponent extend
 				// set the button mode
 				internalCriterionPart.setTargetButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (internalCriterion.getDescription() != null && isAccessible(EntityViewsRepository.InternalCriterion.Properties.description))
+			if (isAccessible(EntityViewsRepository.InternalCriterion.Properties.description))
 				internalCriterionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, internalCriterion.getDescription()));
 			// init filters
 			
@@ -154,11 +157,12 @@ public class InternalCriterionInternalCriterionPropertiesEditionComponent extend
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			InternalCriterionPropertiesEditionPart internalCriterionPart = (InternalCriterionPropertiesEditionPart)editingPart;
 			if (EntityPackage.eINSTANCE.getInternalCriterion_Target().equals(msg.getFeature()) && internalCriterionPart != null && isAccessible(EntityViewsRepository.InternalCriterion.Properties.target))
 				internalCriterionPart.setTarget((EObject)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && internalCriterionPart != null && isAccessible(EntityViewsRepository.InternalCriterion.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && internalCriterionPart != null && isAccessible(EntityViewsRepository.InternalCriterion.Properties.description)){
 				if (msg.getNewValue() != null) {
 					internalCriterionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -167,6 +171,19 @@ public class InternalCriterionInternalCriterionPropertiesEditionComponent extend
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EntityPackage.eINSTANCE.getInternalCriterion_Target(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -205,5 +222,8 @@ public class InternalCriterionInternalCriterionPropertiesEditionComponent extend
 		}
 		return ret;
 	}
+
+
+	
 
 }

@@ -21,7 +21,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -67,13 +69,14 @@ public class BlockBlockPropertiesEditionComponent extends SinglePartPropertiesEd
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Block block = (Block)elt;
 			final BlockPropertiesEditionPart blockPart = (BlockPropertiesEditionPart)editingPart;
 			// init values
-			if (block.getName() != null && isAccessible(EntityViewsRepository.Block.Properties.name))
+			if (isAccessible(EntityViewsRepository.Block.Properties.name))
 				blockPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, block.getName()));
 			
-			if (block.getDescription() != null && isAccessible(EntityViewsRepository.Block.Properties.description))
+			if (isAccessible(EntityViewsRepository.Block.Properties.description))
 				blockPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, block.getDescription()));
 			// init filters
 			
@@ -124,16 +127,17 @@ public class BlockBlockPropertiesEditionComponent extends SinglePartPropertiesEd
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			BlockPropertiesEditionPart blockPart = (BlockPropertiesEditionPart)editingPart;
-			if (EntityPackage.eINSTANCE.getBlock_Name().equals(msg.getFeature()) && blockPart != null && isAccessible(EntityViewsRepository.Block.Properties.name)) {
+			if (EntityPackage.eINSTANCE.getBlock_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && blockPart != null && isAccessible(EntityViewsRepository.Block.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					blockPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					blockPart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && blockPart != null && isAccessible(EntityViewsRepository.Block.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && blockPart != null && isAccessible(EntityViewsRepository.Block.Properties.description)){
 				if (msg.getNewValue() != null) {
 					blockPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -142,6 +146,19 @@ public class BlockBlockPropertiesEditionComponent extends SinglePartPropertiesEd
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EntityPackage.eINSTANCE.getBlock_Name(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -187,5 +204,8 @@ public class BlockBlockPropertiesEditionComponent extends SinglePartPropertiesEd
 		}
 		return ret;
 	}
+
+
+	
 
 }
