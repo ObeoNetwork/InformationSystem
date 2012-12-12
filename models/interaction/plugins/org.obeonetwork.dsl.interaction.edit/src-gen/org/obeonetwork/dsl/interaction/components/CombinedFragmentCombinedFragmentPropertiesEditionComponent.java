@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -60,16 +62,17 @@ public class CombinedFragmentCombinedFragmentPropertiesEditionComponent extends 
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final CombinedFragment combinedFragment = (CombinedFragment)elt;
 			final CombinedFragmentPropertiesEditionPart combinedFragmentPart = (CombinedFragmentPropertiesEditionPart)editingPart;
 			// init values
-			if (combinedFragment.getName() != null && isAccessible(InteractionViewsRepository.CombinedFragment.Properties.name))
+			if (isAccessible(InteractionViewsRepository.CombinedFragment.Properties.name))
 				combinedFragmentPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, combinedFragment.getName()));
 			
-			if (combinedFragment.getOperator() != null && isAccessible(InteractionViewsRepository.CombinedFragment.Properties.operator))
+			if (isAccessible(InteractionViewsRepository.CombinedFragment.Properties.operator))
 				combinedFragmentPart.setOperator(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, combinedFragment.getOperator()));
 			
-			if (combinedFragment.getDescription() != null && isAccessible(InteractionViewsRepository.CombinedFragment.Properties.description))
+			if (isAccessible(InteractionViewsRepository.CombinedFragment.Properties.description))
 				combinedFragmentPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, combinedFragment.getDescription()));
 			
 			// init filters
@@ -129,23 +132,24 @@ public class CombinedFragmentCombinedFragmentPropertiesEditionComponent extends 
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			CombinedFragmentPropertiesEditionPart combinedFragmentPart = (CombinedFragmentPropertiesEditionPart)editingPart;
-			if (InteractionPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && combinedFragmentPart != null && isAccessible(InteractionViewsRepository.CombinedFragment.Properties.name)) {
+			if (InteractionPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && combinedFragmentPart != null && isAccessible(InteractionViewsRepository.CombinedFragment.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					combinedFragmentPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					combinedFragmentPart.setName("");
 				}
 			}
-			if (InteractionPackage.eINSTANCE.getCombinedFragment_Operator().equals(msg.getFeature()) && combinedFragmentPart != null && isAccessible(InteractionViewsRepository.CombinedFragment.Properties.operator)) {
+			if (InteractionPackage.eINSTANCE.getCombinedFragment_Operator().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && combinedFragmentPart != null && isAccessible(InteractionViewsRepository.CombinedFragment.Properties.operator)) {
 				if (msg.getNewValue() != null) {
 					combinedFragmentPart.setOperator(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					combinedFragmentPart.setOperator("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && combinedFragmentPart != null && isAccessible(InteractionViewsRepository.CombinedFragment.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && combinedFragmentPart != null && isAccessible(InteractionViewsRepository.CombinedFragment.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					combinedFragmentPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -154,6 +158,20 @@ public class CombinedFragmentCombinedFragmentPropertiesEditionComponent extends 
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			InteractionPackage.eINSTANCE.getNamedElement_Name(),
+			InteractionPackage.eINSTANCE.getCombinedFragment_Operator(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -170,21 +188,21 @@ public class CombinedFragmentCombinedFragmentPropertiesEditionComponent extends 
 				if (InteractionViewsRepository.CombinedFragment.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
 				}
 				if (InteractionViewsRepository.CombinedFragment.Properties.operator == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(InteractionPackage.eINSTANCE.getCombinedFragment_Operator().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(InteractionPackage.eINSTANCE.getCombinedFragment_Operator().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(InteractionPackage.eINSTANCE.getCombinedFragment_Operator().getEAttributeType(), newValue);
 				}
 				if (InteractionViewsRepository.CombinedFragment.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
@@ -196,5 +214,8 @@ public class CombinedFragmentCombinedFragmentPropertiesEditionComponent extends 
 		}
 		return ret;
 	}
+
+
+	
 
 }

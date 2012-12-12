@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -60,13 +62,14 @@ public class InteractionInteractionPropertiesEditionComponent extends SinglePart
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Interaction interaction = (Interaction)elt;
 			final InteractionPropertiesEditionPart interactionPart = (InteractionPropertiesEditionPart)editingPart;
 			// init values
-			if (interaction.getName() != null && isAccessible(InteractionViewsRepository.Interaction_.Properties.name))
+			if (isAccessible(InteractionViewsRepository.Interaction_.Properties.name))
 				interactionPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, interaction.getName()));
 			
-			if (interaction.getDescription() != null && isAccessible(InteractionViewsRepository.Interaction_.Properties.description))
+			if (isAccessible(InteractionViewsRepository.Interaction_.Properties.description))
 				interactionPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, interaction.getDescription()));
 			
 			// init filters
@@ -118,16 +121,17 @@ public class InteractionInteractionPropertiesEditionComponent extends SinglePart
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			InteractionPropertiesEditionPart interactionPart = (InteractionPropertiesEditionPart)editingPart;
-			if (InteractionPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && interactionPart != null && isAccessible(InteractionViewsRepository.Interaction_.Properties.name)) {
+			if (InteractionPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && interactionPart != null && isAccessible(InteractionViewsRepository.Interaction_.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					interactionPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					interactionPart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && interactionPart != null && isAccessible(InteractionViewsRepository.Interaction_.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && interactionPart != null && isAccessible(InteractionViewsRepository.Interaction_.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					interactionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -136,6 +140,19 @@ public class InteractionInteractionPropertiesEditionComponent extends SinglePart
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			InteractionPackage.eINSTANCE.getNamedElement_Name(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -152,14 +169,14 @@ public class InteractionInteractionPropertiesEditionComponent extends SinglePart
 				if (InteractionViewsRepository.Interaction_.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
 				}
 				if (InteractionViewsRepository.Interaction_.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
@@ -171,5 +188,8 @@ public class InteractionInteractionPropertiesEditionComponent extends SinglePart
 		}
 		return ret;
 	}
+
+
+	
 
 }

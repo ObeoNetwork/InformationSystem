@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -75,10 +77,11 @@ public class ParticipantParticipantPropertiesEditionComponent extends SinglePart
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Participant participant = (Participant)elt;
 			final ParticipantPropertiesEditionPart participantPart = (ParticipantPropertiesEditionPart)editingPart;
 			// init values
-			if (participant.getName() != null && isAccessible(InteractionViewsRepository.Participant.Properties.name))
+			if (isAccessible(InteractionViewsRepository.Participant.Properties.name))
 				participantPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, participant.getName()));
 			
 			if (isAccessible(InteractionViewsRepository.Participant.Properties.type)) {
@@ -88,26 +91,27 @@ public class ParticipantParticipantPropertiesEditionComponent extends SinglePart
 				// set the button mode
 				participantPart.setTypeButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (participant.getDescription() != null && isAccessible(InteractionViewsRepository.Participant.Properties.description))
+			if (isAccessible(InteractionViewsRepository.Participant.Properties.description))
 				participantPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, participant.getDescription()));
 			
 			// init filters
 			
-			participantPart.addFilterToType(new ViewerFilter() {
-			
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-			 */
-			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				return (element instanceof String && element.equals("")) || (element instanceof ObeoDSMObject); //$NON-NLS-1$ 
-				}
-			
-			});
-			// Start of user code 
-			// End of user code
-			
+			if (isAccessible(InteractionViewsRepository.Participant.Properties.type)) {
+				participantPart.addFilterToType(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof String && element.equals("")) || (element instanceof ObeoDSMObject); //$NON-NLS-1$ 
+					}
+					
+				});
+				// Start of user code for additional businessfilters for type
+				// End of user code
+			}
 			
 			// init values for referenced views
 			
@@ -173,9 +177,10 @@ public class ParticipantParticipantPropertiesEditionComponent extends SinglePart
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ParticipantPropertiesEditionPart participantPart = (ParticipantPropertiesEditionPart)editingPart;
-			if (InteractionPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && participantPart != null && isAccessible(InteractionViewsRepository.Participant.Properties.name)) {
+			if (InteractionPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && participantPart != null && isAccessible(InteractionViewsRepository.Participant.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					participantPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -184,7 +189,7 @@ public class ParticipantParticipantPropertiesEditionComponent extends SinglePart
 			}
 			if (InteractionPackage.eINSTANCE.getParticipant_Type().equals(msg.getFeature()) && participantPart != null && isAccessible(InteractionViewsRepository.Participant.Properties.type))
 				participantPart.setType((EObject)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && participantPart != null && isAccessible(InteractionViewsRepository.Participant.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && participantPart != null && isAccessible(InteractionViewsRepository.Participant.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					participantPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -193,6 +198,20 @@ public class ParticipantParticipantPropertiesEditionComponent extends SinglePart
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			InteractionPackage.eINSTANCE.getNamedElement_Name(),
+			InteractionPackage.eINSTANCE.getParticipant_Type(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -209,14 +228,14 @@ public class ParticipantParticipantPropertiesEditionComponent extends SinglePart
 				if (InteractionViewsRepository.Participant.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
 				}
 				if (InteractionViewsRepository.Participant.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
@@ -228,5 +247,8 @@ public class ParticipantParticipantPropertiesEditionComponent extends SinglePart
 		}
 		return ret;
 	}
+
+
+	
 
 }
