@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/diagram/sequence/description/2.0.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" xmlns:tool_1="http://www.obeo.fr/dsl/viewpoint/diagram/sequence/description/tool/2.0.0" name="interaction">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/diagram/sequence/description/2.0.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" xmlns:tool_1="http://www.obeo.fr/dsl/viewpoint/diagram/sequence/description/tool/2.0.0" name="interaction" version="6.5.0.201210011230">
   <ownedViewpoints name="Interaction">
     <ownedRepresentations xsi:type="description_1:SequenceDiagramDescription" dropDescriptions="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DAD_Participant']" name="Sequence Diagram" domainClass="interaction.Interaction" rootExpression="&lt;%behaviours.nFirst%>" endsOrdering="&lt;%ends &amp;&amp; $eventEnds%>">
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.interaction/model/interaction.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.interaction/model/interaction.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings xsi:type="description_1:InstanceRoleMapping" name="SD_Participant" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DEL_Participant']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='EDT_Participant']" semanticCandidatesExpression="&lt;%participants%>" semanticElements="&lt;%self%>s" synchronizationLock="true" domainClass="interaction.Participant">
           <borderedNodeMappings xsi:type="description_1:ExecutionMapping" name="SD_Lifeline" semanticCandidatesExpression="&lt;%self%>" semanticElements="&lt;%self%>" domainClass="interaction.Participant" startingEndFinderExpression="&lt;%self%>" finishingEndFinderExpression="&lt;%self%>">
@@ -14,7 +14,10 @@
               </style>
             </borderedNodeMappings>
             <borderedNodeMappings xsi:type="description_1:EndOfLifeMapping" name="SD_EndOfLine" preconditionExpression="&lt;%isPointedByDestroyMessage()==true%>" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DEL_EndOfLife']" semanticCandidatesExpression="&lt;%self%>" semanticElements="&lt;%self%>" synchronizationLock="true" domainClass="interaction.Participant">
-              <style xsi:type="style:WorkspaceImageDescription" labelExpression="" sizeComputationExpression="4" workspacePath="/org.obeonetwork.dsl.interaction.design/images/eol.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" labelExpression="" sizeComputationExpression="4" workspacePath="/org.obeonetwork.dsl.interaction.design/images/eol.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </borderedNodeMappings>
             <borderedNodeMappings xsi:type="description_1:EndOfLifeMapping" name="SD_EndOfLine_Redim" preconditionExpression="&lt;%isPointedByDestroyMessage()==false%>" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DEL_EndOfLife']" semanticCandidatesExpression="&lt;%self%>" semanticElements="&lt;%self%>" synchronizationLock="true" domainClass="interaction.Participant">
               <style xsi:type="style:EllipseNodeDescription" labelExpression="" sizeComputationExpression="1" horizontalDiameterComputationExpression="1" verticalDiameterComputationExpression="1">
@@ -24,7 +27,10 @@
               </style>
             </borderedNodeMappings>
             <borderedNodeMappings xsi:type="description_1:StateMapping" name="SD_StateInvariant" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='StateInvariant']/@ownedTools[name='DEL_StateInvariant']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='StateInvariant']/@ownedTools[name='EDT_StateInvariant']" semanticCandidatesExpression="&lt;%currentParticipant.getDirectEventsOn(self)%>" semanticElements="&lt;%self%>" synchronizationLock="true" domainClass="interaction.StateInvariant" startingEndFinderExpression="&lt;%startingEnd%>" finishingEndFinderExpression="&lt;%finishingEnd%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.interaction.design/images/state_invariant.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.interaction.design/images/state_invariant.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </borderedNodeMappings>
             <style xsi:type="style:SquareDescription" borderSizeComputationExpression="3" showIcon="false" labelExpression="" resizeKind="NORTH_SOUTH" width="1" height="40">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
@@ -977,6 +983,7 @@
                 <representationNameVariable name="diagramName"/>
               </ownedTools>
               <ownedTools xsi:type="tool:DiagramCreationDescription" name="CRENAV_To_UsedInteraction" label="Create Sequence diagram" titleExpression="&lt;%name%> Sequence Diagram" browseExpression="&lt;%interaction%>" diagramDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']">
+                <initialOperation/>
                 <containerViewVariable name="containerView"/>
                 <representationNameVariable name="diagramName"/>
               </ownedTools>
