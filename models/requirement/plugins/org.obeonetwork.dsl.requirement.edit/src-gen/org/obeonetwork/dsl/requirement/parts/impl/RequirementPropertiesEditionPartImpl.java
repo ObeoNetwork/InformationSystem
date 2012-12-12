@@ -387,8 +387,6 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 	protected Composite createModifiedOnText(Composite parent) {
 		createDescription(parent, RequirementViewsRepository.Requirement_.modifiedOn, RequirementMessages.RequirementPropertiesEditionPart_ModifiedOnLabel);
 		modifiedOn = SWTUtils.createScrollableText(parent, SWT.BORDER);
-		modifiedOn.setEnabled(false);
-		modifiedOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
 		GridData modifiedOnData = new GridData(GridData.FILL_HORIZONTAL);
 		modifiedOn.setLayoutData(modifiedOnData);
 		modifiedOn.addFocusListener(new FocusAdapter() {
@@ -435,8 +433,6 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 	protected Composite createCreatedOnText(Composite parent) {
 		createDescription(parent, RequirementViewsRepository.Requirement_.createdOn, RequirementMessages.RequirementPropertiesEditionPart_CreatedOnLabel);
 		createdOn = SWTUtils.createScrollableText(parent, SWT.BORDER);
-		createdOn.setEnabled(false);
-		createdOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
 		GridData createdOnData = new GridData(GridData.FILL_HORIZONTAL);
 		createdOn.setLayoutData(createdOnData);
 		createdOn.addFocusListener(new FocusAdapter() {
@@ -511,6 +507,14 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 	public void initType(Object input, Enumerator current) {
 		type.setInput(input);
 		type.modelUpdating(new StructuredSelection(current));
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.type);
+		if (readOnly && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -521,6 +525,14 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 	 */
 	public void setType(Enumerator newValue) {
 		type.modelUpdating(new StructuredSelection(newValue));
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.type);
+		if (readOnly && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -545,6 +557,14 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			subtype.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.subtype);
+		if (readOnly && subtype.isEnabled()) {
+			subtype.setEnabled(false);
+			subtype.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !subtype.isEnabled()) {
+			subtype.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -569,6 +589,14 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			id.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.id);
+		if (readOnly && id.isEnabled()) {
+			id.setEnabled(false);
+			id.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !id.isEnabled()) {
+			id.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -593,6 +621,14 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -617,6 +653,14 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			status.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.status);
+		if (readOnly && status.isEnabled()) {
+			status.setEnabled(false);
+			status.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !status.isEnabled()) {
+			status.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -641,6 +685,15 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			statement.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.statement);
+		if (readOnly && statement.isEnabled()) {
+			statement.setEnabled(false);
+			statement.setBackground(statement.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			statement.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !statement.isEnabled()) {
+			statement.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -665,6 +718,9 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			modifiedOn.setText(""); //$NON-NLS-1$
 		}
+		modifiedOn.setEnabled(false);
+		modifiedOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		
 	}
 
 	/**
@@ -689,6 +745,9 @@ public class RequirementPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			createdOn.setText(""); //$NON-NLS-1$
 		}
+		createdOn.setEnabled(false);
+		createdOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		
 	}
 
 

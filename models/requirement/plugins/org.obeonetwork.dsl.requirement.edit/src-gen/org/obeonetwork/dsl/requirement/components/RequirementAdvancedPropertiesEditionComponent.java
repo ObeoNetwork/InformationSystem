@@ -4,8 +4,6 @@
 package org.obeonetwork.dsl.requirement.components;
 
 // Start of user code for imports
-import java.util.List;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -16,11 +14,12 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.filters.EObjectStrictFilter;
-import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.eclipse.jface.viewers.Viewer;
@@ -70,12 +69,13 @@ public class RequirementAdvancedPropertiesEditionComponent extends SinglePartPro
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Requirement requirement = (Requirement)elt;
 			final AdvancedPropertiesEditionPart advancedPart = (AdvancedPropertiesEditionPart)editingPart;
 			// init values
-			if (requirement.getRationale() != null && isAccessible(RequirementViewsRepository.Advanced.rationale))
+			if (isAccessible(RequirementViewsRepository.Advanced.rationale))
 				advancedPart.setRationale(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, requirement.getRationale()));
-			if (requirement.getAcceptanceCriteria() != null && isAccessible(RequirementViewsRepository.Advanced.acceptanceCriteria))
+			if (isAccessible(RequirementViewsRepository.Advanced.acceptanceCriteria))
 				advancedPart.setAcceptanceCriteria(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, requirement.getAcceptanceCriteria()));
 			if (isAccessible(RequirementViewsRepository.Advanced.referencedObject)) {
 				referencedObjectSettings = new ReferencesTableSettings(requirement, RequirementPackage.eINSTANCE.getRequirement_ReferencedObject());
@@ -153,16 +153,17 @@ public class RequirementAdvancedPropertiesEditionComponent extends SinglePartPro
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			AdvancedPropertiesEditionPart advancedPart = (AdvancedPropertiesEditionPart)editingPart;
-			if (RequirementPackage.eINSTANCE.getRequirement_Rationale().equals(msg.getFeature()) && advancedPart != null && isAccessible(RequirementViewsRepository.Advanced.rationale)){
+			if (RequirementPackage.eINSTANCE.getRequirement_Rationale().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && advancedPart != null && isAccessible(RequirementViewsRepository.Advanced.rationale)){
 				if (msg.getNewValue() != null) {
 					advancedPart.setRationale(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					advancedPart.setRationale("");
 				}
 			}
-			if (RequirementPackage.eINSTANCE.getRequirement_AcceptanceCriteria().equals(msg.getFeature()) && advancedPart != null && isAccessible(RequirementViewsRepository.Advanced.acceptanceCriteria)){
+			if (RequirementPackage.eINSTANCE.getRequirement_AcceptanceCriteria().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && advancedPart != null && isAccessible(RequirementViewsRepository.Advanced.acceptanceCriteria)){
 				if (msg.getNewValue() != null) {
 					advancedPart.setAcceptanceCriteria(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -173,6 +174,20 @@ public class RequirementAdvancedPropertiesEditionComponent extends SinglePartPro
 				advancedPart.updateReferencedObject();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			RequirementPackage.eINSTANCE.getRequirement_Rationale(),
+			RequirementPackage.eINSTANCE.getRequirement_AcceptanceCriteria(),
+			RequirementPackage.eINSTANCE.getRequirement_ReferencedObject()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -224,5 +239,8 @@ public class RequirementAdvancedPropertiesEditionComponent extends SinglePartPro
 		}
 		return ret;
 	}
+
+
+	
 
 }

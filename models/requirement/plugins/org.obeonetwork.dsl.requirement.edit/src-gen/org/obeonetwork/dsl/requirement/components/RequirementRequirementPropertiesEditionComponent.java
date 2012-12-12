@@ -16,7 +16,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -63,10 +65,11 @@ public class RequirementRequirementPropertiesEditionComponent extends SinglePart
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Requirement requirement = (Requirement)elt;
 			final RequirementPropertiesEditionPart requirementPart = (RequirementPropertiesEditionPart)editingPart;
 			// init values
-			if (requirement.getId() != null && isAccessible(RequirementViewsRepository.Requirement_.id))
+			if (isAccessible(RequirementViewsRepository.Requirement_.id))
 				requirementPart.setId(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, requirement.getId()));
 			
 			// Start of user code  for version command update
@@ -77,24 +80,24 @@ public class RequirementRequirementPropertiesEditionComponent extends SinglePart
 			
 			// End of user code
 			
-			if (requirement.getName() != null && isAccessible(RequirementViewsRepository.Requirement_.name))
+			if (isAccessible(RequirementViewsRepository.Requirement_.name))
 				requirementPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, requirement.getName()));
 			
-			if (requirement.getStatement() != null && isAccessible(RequirementViewsRepository.Requirement_.statement))
+			if (isAccessible(RequirementViewsRepository.Requirement_.statement))
 				requirementPart.setStatement(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, requirement.getStatement()));
 			if (isAccessible(RequirementViewsRepository.Requirement_.type)) {
 				requirementPart.initType(EEFUtils.choiceOfValues(requirement, RequirementPackage.eINSTANCE.getRequirement_Type()), requirement.getType());
 			}
-			if (requirement.getStatus() != null && isAccessible(RequirementViewsRepository.Requirement_.status))
+			if (isAccessible(RequirementViewsRepository.Requirement_.status))
 				requirementPart.setStatus(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, requirement.getStatus()));
 			
-			if (requirement.getSubtype() != null && isAccessible(RequirementViewsRepository.Requirement_.subtype))
+			if (isAccessible(RequirementViewsRepository.Requirement_.subtype))
 				requirementPart.setSubtype(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, requirement.getSubtype()));
 			
-			if (requirement.getModifiedOn() != null && isAccessible(RequirementViewsRepository.Requirement_.modifiedOn))
+			if (isAccessible(RequirementViewsRepository.Requirement_.modifiedOn))
 				requirementPart.setModifiedOn(EEFConverterUtil.convertToString(EcorePackage.Literals.EDATE, requirement.getModifiedOn()));
 			
-			if (requirement.getCreatedOn() != null && isAccessible(RequirementViewsRepository.Requirement_.createdOn))
+			if (isAccessible(RequirementViewsRepository.Requirement_.createdOn))
 				requirementPart.setCreatedOn(EEFConverterUtil.convertToString(EcorePackage.Literals.EDATE, requirement.getCreatedOn()));
 			
 			// init filters
@@ -210,9 +213,10 @@ public class RequirementRequirementPropertiesEditionComponent extends SinglePart
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			RequirementPropertiesEditionPart requirementPart = (RequirementPropertiesEditionPart)editingPart;
-			if (RequirementPackage.eINSTANCE.getRequirement_Id().equals(msg.getFeature()) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.id)) {
+			if (RequirementPackage.eINSTANCE.getRequirement_Id().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.id)) {
 				if (msg.getNewValue() != null) {
 					requirementPart.setId(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -250,45 +254,45 @@ public class RequirementRequirementPropertiesEditionComponent extends SinglePart
 			
 					// End of user code
 			
-			if (RequirementPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.name)) {
+			if (RequirementPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.name)) {
 				if (msg.getNewValue() != null) {
 					requirementPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					requirementPart.setName("");
 				}
 			}
-			if (RequirementPackage.eINSTANCE.getRequirement_Statement().equals(msg.getFeature()) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.statement)){
+			if (RequirementPackage.eINSTANCE.getRequirement_Statement().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.statement)){
 				if (msg.getNewValue() != null) {
 					requirementPart.setStatement(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					requirementPart.setStatement("");
 				}
 			}
-			if (RequirementPackage.eINSTANCE.getRequirement_Type().equals(msg.getFeature()) && isAccessible(RequirementViewsRepository.Requirement_.type))
+			if (RequirementPackage.eINSTANCE.getRequirement_Type().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(RequirementViewsRepository.Requirement_.type))
 				requirementPart.setType((RequirementType)msg.getNewValue());
 			
-			if (RequirementPackage.eINSTANCE.getRequirement_Status().equals(msg.getFeature()) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.status)) {
+			if (RequirementPackage.eINSTANCE.getRequirement_Status().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.status)) {
 				if (msg.getNewValue() != null) {
 					requirementPart.setStatus(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					requirementPart.setStatus("");
 				}
 			}
-			if (RequirementPackage.eINSTANCE.getRequirement_Subtype().equals(msg.getFeature()) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.subtype)) {
+			if (RequirementPackage.eINSTANCE.getRequirement_Subtype().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.subtype)) {
 				if (msg.getNewValue() != null) {
 					requirementPart.setSubtype(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					requirementPart.setSubtype("");
 				}
 			}
-			if (RequirementPackage.eINSTANCE.getRequirement_ModifiedOn().equals(msg.getFeature()) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.modifiedOn)) {
+			if (RequirementPackage.eINSTANCE.getRequirement_ModifiedOn().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.modifiedOn)) {
 				if (msg.getNewValue() != null) {
 					requirementPart.setModifiedOn(EcoreUtil.convertToString(EcorePackage.Literals.EDATE, msg.getNewValue()));
 				} else {
 					requirementPart.setModifiedOn("");
 				}
 			}
-			if (RequirementPackage.eINSTANCE.getRequirement_CreatedOn().equals(msg.getFeature()) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.createdOn)) {
+			if (RequirementPackage.eINSTANCE.getRequirement_CreatedOn().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && requirementPart != null && isAccessible(RequirementViewsRepository.Requirement_.createdOn)) {
 				if (msg.getNewValue() != null) {
 					requirementPart.setCreatedOn(EcoreUtil.convertToString(EcorePackage.Literals.EDATE, msg.getNewValue()));
 				} else {
@@ -297,6 +301,26 @@ public class RequirementRequirementPropertiesEditionComponent extends SinglePart
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			RequirementPackage.eINSTANCE.getRequirement_Id(),
+			RequirementPackage.eINSTANCE.getRequirement_Version(),
+			RequirementPackage.eINSTANCE.getNamedElement_Name(),
+			RequirementPackage.eINSTANCE.getRequirement_Statement(),
+			RequirementPackage.eINSTANCE.getRequirement_Type(),
+			RequirementPackage.eINSTANCE.getRequirement_Status(),
+			RequirementPackage.eINSTANCE.getRequirement_Subtype(),
+			RequirementPackage.eINSTANCE.getRequirement_ModifiedOn(),
+			RequirementPackage.eINSTANCE.getRequirement_CreatedOn()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -397,5 +421,8 @@ public class RequirementRequirementPropertiesEditionComponent extends SinglePart
 		}
 		return ret;
 	}
+
+
+	
 
 }
