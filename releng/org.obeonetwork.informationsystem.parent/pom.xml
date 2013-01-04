@@ -23,7 +23,6 @@
     <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/interim/3.3/</acceleo-site>
     <eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
     <orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</orbit-site>
-    <traceability-site>http://update.obeo.fr/integration/traceability/fr.obeo.traceability.update/</traceability-site>
   </properties>
 
   <repositories>
@@ -51,11 +50,6 @@
       <id>orbit</id>
       <layout>p2</layout>
       <url>${orbit-site}</url>
-    </repository>
-    <repository>
-      <id>traceability</id>
-      <layout>p2</layout>
-      <url>${traceability-site}</url>
     </repository>
   </repositories>
   
