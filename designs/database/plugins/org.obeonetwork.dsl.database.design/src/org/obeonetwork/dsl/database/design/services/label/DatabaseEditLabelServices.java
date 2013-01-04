@@ -42,7 +42,7 @@ public class DatabaseEditLabelServices extends DatabaseSwitch<DatabaseElement>{
 		// the label can be in the form "attributeName : typeName (precision, length)"
 		int pos = editedLabelContent.indexOf(':');
 		if (pos != -1) {
-			String attributeName = editedLabelContent.substring(0, pos - 1).trim();
+			String attributeName = editedLabelContent.substring(0, pos).trim();
 			column.setName(attributeName);
 			
 			String typeDef = editedLabelContent.substring(pos + 1).trim();
