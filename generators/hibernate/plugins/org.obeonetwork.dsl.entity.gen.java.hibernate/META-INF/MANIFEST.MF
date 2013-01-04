@@ -17,8 +17,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment.gen.java.common,
  org.obeonetwork.dsl.entity,
  org.obeonetwork.dsl.environment,
- org.obeonetwork.acceleo.utils,
- fr.obeo.traceability.connector.acceleo
+ org.obeonetwork.acceleo.utils
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.obeonetwork.dsl.entity.gen.java.hibernate.main,
  org.obeonetwork.dsl.entity.gen.java.hibernate.services

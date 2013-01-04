@@ -11,8 +11,7 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.entity.gen.java.common;bundle-version="1.0.0",
  org.obeonetwork.dsl.entity.gen.java.dao;bundle-version="1.0.0",
  org.obeonetwork.dsl.entity.gen.java.hibernate;bundle-version="1.0.0",
- org.eclipse.core.resources,
- fr.obeo.traceability.connector.acceleo
+ org.eclipse.core.resources
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Localization: plugin

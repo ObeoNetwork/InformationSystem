@@ -6,13 +6,10 @@ package org.obeonetwork.acceleo.utils.launch;
 import java.io.File;
 import java.io.IOException;
 
-import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.acceleo.engine.service.AbstractAcceleoGenerator;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
-
-import fr.obeo.traceability.connector.acceleo.TraceabilityAcceleoGenerator;
 
 /**
  * @author <a href="mailto:goulwen.lefur@obeo.fr">Goulwen Le Fur</a>

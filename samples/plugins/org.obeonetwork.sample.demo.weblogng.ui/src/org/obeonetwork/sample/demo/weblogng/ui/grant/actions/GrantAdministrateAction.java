@@ -189,10 +189,6 @@ public class GrantAdministrateAction extends org.apache.struts.actions.DispatchA
 		return mapping.findForward(returnCode);
 	}
 
-private IUserService userService;
-public void setUserService(IUserService userService){
-	this.userService = userService;
-}
 private IMonitorService monitorService;
 public void setMonitorService(IMonitorService monitorService){
 	this.monitorService = monitorService;
@@ -200,6 +196,10 @@ public void setMonitorService(IMonitorService monitorService){
 private IGrantService grantService;
 public void setGrantService(IGrantService grantService){
 	this.grantService = grantService;
+}
+private IUserService userService;
+public void setUserService(IUserService userService){
+	this.userService = userService;
 }
 
 

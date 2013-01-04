@@ -16,7 +16,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment.gen.java.common,
  org.obeonetwork.dsl.entity.gen.java.common,
  org.obeonetwork.dsl.soa,
- fr.obeo.traceability.connector.acceleo,
  org.obeonetwork.acceleo.utils
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy

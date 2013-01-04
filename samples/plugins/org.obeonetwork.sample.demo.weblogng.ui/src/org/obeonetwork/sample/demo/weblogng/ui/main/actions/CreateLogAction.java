@@ -38,6 +38,7 @@ public class CreateLogAction extends org.apache.struts.actions.DispatchAction {
 	public final static String PAGE_SELF = "self"; //$NON-NLS-1$
 	public final static String PAGE_VIEWLOGS = "viewLogs"; //$NON-NLS-1$
 //Start of user code user attributes
+	public final static String PAGE_OTHER = "viewLogs"; //$NON-NLS-1$
 //End of user code
     /**
      * Process the specified HTTP request for <strong>init</strong> event.
