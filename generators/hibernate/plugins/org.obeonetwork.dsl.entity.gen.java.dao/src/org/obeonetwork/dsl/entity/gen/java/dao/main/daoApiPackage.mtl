@@ -9,18 +9,18 @@
  * Contributors:
  *     Obeo - initial API and implementation
  * /]
-[module daoApi('http://www.obeonetwork.org/dsl/entity/2.0.0')/]
+[module daoApiPackage('http://www.obeonetwork.org/dsl/entity/2.0.0')/]
 
 [import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoException /]
 [import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoFactoryPackage /]
 [import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoInterfaceDirectPackage /]
 
 
-[template public daoApi(root : Root)]
+[template public daoApiPackage(root : Root)]
 	
 	[comment @main /]
 	[root.daoException()/]
-	[root.daoFactory()/]
+	[root.daoFactoryPackage()/]
 	[for (it : Block | root.eAllContents(Block))]
 		[it.daoInterfaceDirect()/]
 	[/for]

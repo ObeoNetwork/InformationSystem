@@ -156,7 +156,7 @@ throw new [element.daoExceptionName()/](e);
 [comment ** Generates the dao interface name for the entity.
  * @param entity the input entity.
  * /]
-[template public daoInterfaceName(entity : Entity)]
+[template public daoInterfaceName(entity : Entity) post (trim())]
 I[entity.name.toStandardNotation().toUpperFirst()/]Dao
 [/template]
 

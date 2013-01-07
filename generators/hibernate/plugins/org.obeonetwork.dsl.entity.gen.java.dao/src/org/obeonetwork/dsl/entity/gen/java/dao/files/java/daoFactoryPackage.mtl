@@ -35,7 +35,7 @@
 [comment **
  * DAOFactory abstract class generation
  * /]
-[template public daoFactory(root : Root)]
+[template public daoFactoryPackage(root : Root)]
 	[file (root.fullFilePath(), false, 'UTF-8')]
 package [root.daoFactoryPackage()/];
 

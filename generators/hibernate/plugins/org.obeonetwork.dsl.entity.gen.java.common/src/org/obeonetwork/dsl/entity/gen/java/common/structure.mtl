@@ -21,3 +21,7 @@
 [comment name.toStandardNotation().toLower()/]
 [comment FIXME if isModel() name.toStandardNotation().toLower() endif/]
 [/template]
+
+[template public camelCaseName(block : Block) post(trim())]
+[block->asSequence()->union(block.ancestors()->filter(Block))->reverse()->filter(Block).name.toStandardNotation().toUpperFirst()/]
+[/template]

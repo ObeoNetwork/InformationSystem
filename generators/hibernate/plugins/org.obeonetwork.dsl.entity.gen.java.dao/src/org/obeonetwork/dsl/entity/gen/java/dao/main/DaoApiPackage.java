@@ -39,20 +39,20 @@ import org.osgi.framework.Bundle;
  *
  * @generated
  */
-public class DaoApi extends AbstractAcceleoGenerator {
+public class DaoApiPackage extends AbstractAcceleoGenerator {
 	/**
 	 * The name of the module.
 	 *
 	 * @generated
 	 */
-	public static final String MODULE_FILE_NAME = "/org/obeonetwork/dsl/entity/gen/java/dao/main/daoApi";
+	public static final String MODULE_FILE_NAME = "/org/obeonetwork/dsl/entity/gen/java/dao/main/daoApiPackage";
 	
 	/**
 	 * The name of the templates that are to be generated.
 	 *
 	 * @generated
 	 */
-	public static final String[] TEMPLATE_NAMES = { "daoApi" };
+	public static final String[] TEMPLATE_NAMES = { "daoApiPackage" };
 
 	/**
      * The list of properties files from the launch parameters (Launch configuration).
@@ -75,7 +75,7 @@ public class DaoApi extends AbstractAcceleoGenerator {
 	 *
 	 * @generated
 	 */
-	public DaoApi() {
+	public DaoApiPackage() {
         // Empty implementation
     }
 
@@ -95,7 +95,7 @@ public class DaoApi extends AbstractAcceleoGenerator {
 	 *             the model cannot be loaded.
 	 * @generated
 	 */
-	public DaoApi(URI modelURI, File targetFolder,
+	public DaoApiPackage(URI modelURI, File targetFolder,
 			List<? extends Object> arguments) throws IOException {
         initialize(modelURI, targetFolder, arguments);
     }
@@ -116,7 +116,7 @@ public class DaoApi extends AbstractAcceleoGenerator {
 	 *             This can be thrown in two scenarios : the module cannot be found, or it cannot be loaded.
 	 * @generated
 	 */
-	public DaoApi(EObject model, File targetFolder,
+	public DaoApiPackage(EObject model, File targetFolder,
 			List<? extends Object> arguments) throws IOException {
         initialize(model, targetFolder, arguments);
     }
@@ -151,7 +151,7 @@ public class DaoApi extends AbstractAcceleoGenerator {
                  * add in "arguments" this "String" attribute.
                  */
                 
-                DaoApi generator = new DaoApi(modelURI, folder, arguments);
+                DaoApiPackage generator = new DaoApiPackage(modelURI, folder, arguments);
                 
                 /*
                  * Add the properties from the launch arguments.
@@ -287,7 +287,7 @@ public class DaoApi extends AbstractAcceleoGenerator {
 	public List<String> getProperties() {
     List<String> propertiesFiles = super.getProperties();
     /*
-     * TODO if your generation module requires access to properties files,
+     * if your generation module requires access to properties files,
      * add their qualified path to the list here. Properties files are
      * expected to be in source folders, and the path here to be the
      * qualified path as if referring to a Java class. For example, if you

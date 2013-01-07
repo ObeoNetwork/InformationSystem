@@ -116,13 +116,13 @@ public class [root.DAOFactoryName()/] {
  * @param block the input block.
  * /]
 [template public DAOGetterName(entity : Entity)]
-get[entity.getterPrefix()/][entity.name.toStandardNotation().toUpperFirst()/]Dao
+get[entity.getterPrefix()/][entity.name.toStandardNotation().trim().toUpperFirst()/]Dao
 [/template]
 
 [comment ** Generates explicit package declaration if many entities have the same name.
  * @param entity the input entity.
  * /]
-[template public packageDeclaration(entity : Entity)]
+[template public packageDeclaration(entity : Entity) post (trim())]
 [if (not getProperty('daogetter' + entity.name).oclIsUndefined())]
 	[entity.daoInterfacePackage()/].
 [/if]
@@ -131,9 +131,9 @@ get[entity.getterPrefix()/][entity.name.toStandardNotation().toUpperFirst()/]Dao
 [comment ** Generates getter prefix name if many entities have the same name.
  * @param entity the input entity.
  * /]
-[template public getterPrefix(entity : Entity)]
+[template public getterPrefix(entity : Entity) post (trim())]
 [if (not getProperty('daogetter' + entity.name).oclIsUndefined())]
-	[entity.block.normalizedName().toUpperFirst()/]
+	[entity.block.camelCaseName().toUpperFirst()/]
 [/if]
 [/template]
 

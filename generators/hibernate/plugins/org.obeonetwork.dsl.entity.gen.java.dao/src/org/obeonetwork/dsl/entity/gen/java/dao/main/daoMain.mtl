@@ -11,14 +11,14 @@
  * /]
 [module daoMain('http://www.obeonetwork.org/dsl/entity/2.0.0')/]
 
-[import org::obeonetwork::dsl::entity::gen::java::dao::main::daoApi /]
+[import org::obeonetwork::dsl::entity::gen::java::dao::main::daoApiPackage /]
 [import org::obeonetwork::dsl::entity::gen::java::dao::main::jdbc /]
 [import org::obeonetwork::dsl::entity::gen::java::dao::main::memcache /]
 
 
 [template public doaMain(aRoot : Root)]
 [comment @main /]
-[aRoot.daoApi()/]
+[aRoot.daoApiPackage()/]
 [aRoot.jdbc()/]
 [aRoot.memcache()/]
 [/template]
