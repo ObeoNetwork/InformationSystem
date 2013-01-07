@@ -4,14 +4,6 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import org.obeonetwork.fwk.dao.exception.DaoException;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.api.IEntity1Dao;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.api.IEntity4Dao;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.api.IEntity6Dao;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.api.IEntity7Dao;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.api.IEntity8Dao;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.block2.api.IEntity2Dao;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.block2.api.IEntity3Dao;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.block2.api.IEntity5Dao;
 
 
 /**

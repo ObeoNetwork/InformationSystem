@@ -4,7 +4,6 @@ package org.obeonetwork.dsl.entity.gen.java.common.tests.block1;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
-import org.obeonetwork.dsl.entity.gen.java.common.tests.block1.Entity1;
 
 // End of user code for imports
 

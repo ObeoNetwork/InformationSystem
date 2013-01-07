@@ -22,14 +22,14 @@ public class Entity2 implements Serializable {
 	public static final String PROP_ID = "id";
 	
 	/**
-     * Constant representing the name of the field attribute8.
-     */
-	public static final String PROP_ATTRIBUTE8 = "attribute8";
-	
-	/**
      * Constant representing the name of the field reference1.
      */
 	public static final String PROP_REFERENCE1 = "reference1";
+	
+	/**
+     * Constant representing the name of the field attribute8.
+     */
+	public static final String PROP_ATTRIBUTE8 = "attribute8";
 	
     /**
      * Automatic primary key.
@@ -37,14 +37,14 @@ public class Entity2 implements Serializable {
     private String id;
     
     /**
-     * Field attribute8.
-     */
-	protected String attribute8;
-
-    /**
      * Field reference1.
      */
 	protected Entity3 reference1;
+
+    /**
+     * Field attribute8.
+     */
+	protected String attribute8;
 
 	/**
 	 * Default constructor.
@@ -71,12 +71,12 @@ public class Entity2 implements Serializable {
 
 	/**
 	 * Constructor with all parameters initialized.
-	 * @param attribute8. 
 	 * @param reference1. 
+	 * @param attribute8. 
 	 */
-	public Entity2(String attribute8, Entity3 reference1) {
-		this.attribute8 = attribute8;
+	public Entity2(Entity3 reference1, String attribute8) {
 		this.reference1 = reference1;
+		this.attribute8 = attribute8;
 	}
 
 	/**
