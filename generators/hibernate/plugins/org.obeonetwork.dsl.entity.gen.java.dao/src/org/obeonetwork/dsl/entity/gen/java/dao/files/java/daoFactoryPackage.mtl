@@ -35,7 +35,7 @@
 [comment **
  * DAOFactory abstract class generation
  * /]
-[template public daoFactoryPackage(root : Root)]
+[template public daoFactoryPack(root : Root)]
 	[file (root.fullFilePath(), false, 'UTF-8')]
 package [root.daoFactoryPackage()/];
 
@@ -116,7 +116,7 @@ public class [root.DAOFactoryName()/] {
  * @param block the input block.
  * /]
 [template public DAOGetterName(block : Block)]
-get[block.getterPrefix()/][block.name.toStandardNotation().toUpperFirst()/]Dao
+get[block.getterPrefix()/][block.name.toStandardNotation().toUpperFirst().trim()/]Dao
 [/template]
 
 [template public DAOGetterName(anEntity : Entity)]
@@ -137,7 +137,7 @@ get[anEntity.getterPrefix()/][anEntity.name.toStandardNotation().toUpperFirst()/
  * /]
 [template public getterPrefix(block : Block) post(trim())]
 [if (not getProperty('daogetter' + block.name).oclIsUndefined())]
-	[block.normalizedName().toUpperFirst()/]
+	[block.camelCaseName().toUpperFirst()/]
 [/if]
 [/template]
 

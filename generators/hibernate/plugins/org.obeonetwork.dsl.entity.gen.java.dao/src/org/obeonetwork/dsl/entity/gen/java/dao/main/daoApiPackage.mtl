@@ -20,7 +20,7 @@
 	
 	[comment @main /]
 	[root.daoException()/]
-	[root.daoFactoryPackage()/]
+	[root.daoFactoryPack()/]
 	[for (it : Block | root.eAllContents(Block))]
 		[it.daoInterfaceDirect()/]
 	[/for]
