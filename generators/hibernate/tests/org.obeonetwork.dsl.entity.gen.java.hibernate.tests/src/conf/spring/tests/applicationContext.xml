@@ -10,9 +10,9 @@
 	    <property name="username" value="sa"/>
     	<property name="password" value=""/>
   	</bean>
-  	<!-- End of user code for principal applicationContext.xml -->
+  	<!-- End of user code -->
 	
 	<!-- Start of user code for specific configuration -->
 	
-	<!-- End of user code for specific configuration -->
+	<!-- End of user code -->
 </beans>
