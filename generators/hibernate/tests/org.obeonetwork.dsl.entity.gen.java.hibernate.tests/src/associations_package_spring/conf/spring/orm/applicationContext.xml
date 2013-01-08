@@ -11,7 +11,7 @@
 	
 	<!--Start of user code for start of document -->	 
 
-	<!-- End of user code for start of document -->
+	<!-- End of user code -->
 	
 	<!-- Hibernate Transaction Manager -->
 	<bean id="transactionManager"
@@ -37,20 +37,18 @@
 		<property name="dataSource" ref="dataSource"/>
 		<property name="mappingResources" ref="hibernateMappingResources"/>
 		<!-- Start of user code for hibernate properties -->
-		<!-- End of user code for hibernate properties -->
+		<!-- End of user code -->
 	</bean> 
-			<!-- associations -->
-		<bean id="AssociationsDAO" 
-			class="org.obeonetwork.sample.associations.HibernateAssociationsDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for associations specific configuration -->
+	<!-- associations -->
+	<bean id="AssociationsDAO" 
+		class="org.obeonetwork.sample.associations.HibernateAssociationsDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 	
-		<!-- End of user code  for associations specific configuration -->
-		<!-- end associations -->
-
-
+	<!-- Start of user code for associations specific configuration -->
+	
+		<!-- End of user code -->
+	<!-- end associations -->
 </beans>
