@@ -383,10 +383,10 @@ public class HibernateBadPractivesDao extends HibernateDaoSupport implements IBa
 
 	/**
 	 * Update an existing element
-	 * @param entityWithSpécialChars
+	 * @param entityWithSpï¿½cialChars
      *            Element to update. If the element has an id,it may use it. 
 	 * @throws DaoException If an HibernateException occurs.
-     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.updateentityWithSpécialChars
+     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.updateentityWithSpï¿½cialChars
      */
 	public void updateentityWithSpecialChars(EntityWithSpecialChars entityWithSpecialChars) throws DaoException {
 		LOG.debug("Update the entity EntityWithSpecialChars with id =" + entityWithSpecialChars.getId());
@@ -417,7 +417,7 @@ public class HibernateBadPractivesDao extends HibernateDaoSupport implements IBa
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
 	 * @throws DaoException If an HibernateException occurs.
-     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.findAllentityWithSpécialCharss
+     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.findAllentityWithSpï¿½cialCharss
      */
 	public Collection<EntityWithSpecialChars> findAllentityWithSpecialCharss() throws DaoException {
 		LOG.debug("Find all instance of EntityWithSpecialChars entity");

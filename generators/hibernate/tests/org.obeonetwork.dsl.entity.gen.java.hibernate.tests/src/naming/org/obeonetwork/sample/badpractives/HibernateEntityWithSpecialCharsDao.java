@@ -32,9 +32,9 @@ public class HibernateEntityWithSpecialCharsDao implements IEntityWithSpecialCha
 
 	/**
 	 * Create a new element
-	 * @param entityWithSpécialChars Element to create.
+	 * @param entityWithSpï¿½cialChars Element to create.
 	 * @throws DaoException If an HibernateException occurs.
-     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.createentityWithSpécialChars
+     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.createentityWithSpï¿½cialChars
      */
 	public void createentityWithSpecialChars(final EntityWithSpecialChars entityWithSpecialChars) throws DaoException {
 		LOG.debug("Create a new entityWithSpecialChars entity");
@@ -48,13 +48,13 @@ public class HibernateEntityWithSpecialCharsDao implements IEntityWithSpecialCha
 
 	/**
 	 * Update an existing element
-	 * @param entityWithSpécialChars
+	 * @param entityWithSpï¿½cialChars
      *            Element to update. If the element has an id,it may use it. 
 	 * @throws DaoException If an HibernateException occurs.
-     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.updateentityWithSpécialChars
+     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.updateentityWithSpï¿½cialChars
      */
 	public void updateentityWithSpecialChars(EntityWithSpecialChars entityWithSpecialChars) throws DaoException {
-		LOG.debug("Update the entity entityWithSpécialChars with id =" + entityWithSpecialChars.getId());
+		LOG.debug("Update the entity entityWithSpï¿½cialChars with id =" + entityWithSpecialChars.getId());
 		try {
 			Session session = HibernateUtil.currentSession();
 			session.update(entityWithSpecialChars);
@@ -66,12 +66,12 @@ public class HibernateEntityWithSpecialCharsDao implements IEntityWithSpecialCha
 	/**
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
-	 * @param entityWithSpécialChars Element which will be deleted. 
+	 * @param entityWithSpï¿½cialChars Element which will be deleted. 
 	 * @throws DaoException If an HibernateException occurs.
-     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.deleteentityWithSpécialChars
+     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.deleteentityWithSpï¿½cialChars
    	 */
 	public void deleteentityWithSpecialChars(EntityWithSpecialChars entityWithSpecialChars) throws DaoException {
-		LOG.debug("Delete the entity entityWithSpécialChars with id =" + entityWithSpecialChars.getId());
+		LOG.debug("Delete the entity entityWithSpï¿½cialChars with id =" + entityWithSpecialChars.getId());
 		try {
 			Session session = HibernateUtil.currentSession();
 			session.delete(entityWithSpecialChars);
@@ -84,16 +84,16 @@ public class HibernateEntityWithSpecialCharsDao implements IEntityWithSpecialCha
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
 	 * @throws DaoException If an HibernateException occurs.
-     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.findAllentityWithSpécialCharss
+     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.findAllentityWithSpï¿½cialCharss
      */
 	public Collection<EntityWithSpecialChars> findAllentityWithSpecialCharss() throws DaoException {
-		LOG.debug("Find all instance of entityWithSpécialChars entity");
+		LOG.debug("Find all instance of entityWithSpï¿½cialChars entity");
 		try {
 			Session session = HibernateUtil.currentSession();
 			Criteria criteria = session.createCriteria(EntityWithSpecialChars.class);
 			Collection<EntityWithSpecialChars> resultList = criteria.list();
 			
-			LOG.debug("Found " + resultList.size() + " instances of entityWithSpécialChars entity");
+			LOG.debug("Found " + resultList.size() + " instances of entityWithSpï¿½cialChars entity");
 			return resultList;
 		} catch (HibernateException e) {
 			throw new DaoException(e);
@@ -105,10 +105,10 @@ public class HibernateEntityWithSpecialCharsDao implements IEntityWithSpecialCha
      * @param id The PK of the entity
 	 * @return The entity found. 
 	 * @throws DaoException If an HibernateException occurs.
-     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.findentityWithSpécialCharsById
+     * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.findentityWithSpï¿½cialCharsById
      */
 	public EntityWithSpecialChars findentityWithSpecialCharsById(String id) throws DaoException {
-		LOG.debug("Find one instance of entityWithSpécialChars entity by id : " + id);
+		LOG.debug("Find one instance of entityWithSpï¿½cialChars entity by id : " + id);
 		try {
 			Session session = HibernateUtil.currentSession();
 			Criteria criteria = session.createCriteria(EntityWithSpecialChars.class)
