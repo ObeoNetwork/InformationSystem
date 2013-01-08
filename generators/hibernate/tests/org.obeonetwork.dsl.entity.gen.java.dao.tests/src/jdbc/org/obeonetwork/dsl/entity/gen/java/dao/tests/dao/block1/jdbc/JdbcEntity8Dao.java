@@ -2,28 +2,23 @@ package org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.jdbc;
 
 // Start of user code for import 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.UUID;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-
-import org.obeonetwork.fwk.dao.exception.DaoException;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.fwk.dao.jdbc.Dsl.entity.gen.java.dao.testsConnectionUtils;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.business.block1.Entity8;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.business.block1.Entity7;
-
+import org.obeonetwork.dsl.entity.gen.java.common.tests.block1.Entity7;
+import org.obeonetwork.dsl.entity.gen.java.common.tests.block1.Entity8;
 import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.api.IEntity8Dao;
+import org.obeonetwork.dsl.entity.gen.java.dao.tests.fwk.dao.jdbc.TestsConnectionUtils;
+import org.obeonetwork.fwk.dao.exception.DaoException;
 
-// End of user code for import 
+// End of user code
 
 /**
  * This class provides the data access layer to the Entity8 entity class.
@@ -33,7 +28,7 @@ public class JdbcEntity8Dao implements IEntity8Dao {
     /**
      * Commons Logging instance.
      */
-	private final static Log LOG = LogFactory.getLog(JdbcEntity8Dao.class);;
+	private final static Log LOG = LogFactory.getLog(JdbcEntity8Dao.class);
 
 
 	protected final static String TABLE_NAME = "ENTITY8";
@@ -69,8 +64,8 @@ public class JdbcEntity8Dao implements IEntity8Dao {
 	
 	// End of user code
 
-	protected Collection<Entity8> createList(ResultSet rs) throws DaoException {
-		Collection<Entity8> result = new ArrayList<Entity8>();
+	protected Collection createList(ResultSet rs) throws DaoException {
+		Collection result = new ArrayList();
 		Entity8 entity8 = null;
 		while (rs.next()) {
 			entity8 = new Entity8();
@@ -91,7 +86,7 @@ public class JdbcEntity8Dao implements IEntity8Dao {
 		PreparedStatement statement = null;
 
 		try {
-			cnx = Dsl.entity.gen.java.dao.testsConnectionUtils.getInstance().getConnection();
+			cnx = TestsConnectionUtils.getInstance().getConnection();
 			statement = cnx.prepareStatement(CREATE_QUERY);
 			element.setId(UUID.randomUUID().toString());
 			statement.setString(1, element.getId());
@@ -119,7 +114,7 @@ public class JdbcEntity8Dao implements IEntity8Dao {
 		PreparedStatement statement = null;
 
 		try {
-			cnx = Dsl.entity.gen.java.dao.testsConnectionUtils.getInstance().getConnection();
+			cnx = TestsConnectionUtils.getInstance().getConnection();
 			statement = cnx.prepareStatement(UPDATE_QUERY);
 			// Start of user code update
 			if (element.getReference6() != null) statement.setString(1, element.getReference6().getId());
@@ -145,7 +140,7 @@ public class JdbcEntity8Dao implements IEntity8Dao {
 		PreparedStatement statement = null;
 
 		try {
-			cnx = Dsl.entity.gen.java.dao.testsConnectionUtils.getInstance().getConnection();
+			cnx = TestsConnectionUtils.getInstance().getConnection();
 			statement = cnx.prepareStatement(DELETE_QUERY);
 			statement.setString(1, element.getId());
 			statement.executeUpdate();
@@ -161,18 +156,18 @@ public class JdbcEntity8Dao implements IEntity8Dao {
 		}
 	}
 	
-	public Collection<Entity8> findAllEntity8s() throws DaoException {
+	public Collection findAllEntity8s() throws DaoException {
 		LOG.debug("Find all Entity8");
 		Connection cnx = null;
 		Statement statement = null;
 		ResultSet rs = null;
 
 		try {
-			cnx = Dsl.entity.gen.java.dao.testsConnectionUtils.getInstance().getConnection();
+			cnx = TestsConnectionUtils.getInstance().getConnection();
 			statement = cnx.createStatement();
 			rs = statement.executeQuery(FIND_ALL_QUERY);
 
-			Collection<Entity8> result = createList(rs);
+			Collection result = createList(rs);
 			return result;
 		} catch (SQLException e) {
 			throw new DaoException("Erreur requete", e);
@@ -194,7 +189,7 @@ public class JdbcEntity8Dao implements IEntity8Dao {
 		ResultSet rs = null;
 
 		try {
-			cnx = Dsl.entity.gen.java.dao.testsConnectionUtils.getInstance().getConnection();
+			cnx = TestsConnectionUtils.getInstance().getConnection();
 			statement = cnx.prepareStatement(FIND_BY_ID);
 			statement.setString(1,id);			
 			rs = statement.executeQuery();

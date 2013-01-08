@@ -2,28 +2,22 @@ package org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.jdbc;
 
 // Start of user code for import 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.UUID;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-
-import org.obeonetwork.fwk.dao.exception.DaoException;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.fwk.dao.jdbc.Dsl.entity.gen.java.dao.testsConnectionUtils;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.business.block1.Entity4;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.business.block1.Entity6;
-
+import org.obeonetwork.dsl.entity.gen.java.common.tests.block1.Entity4;
 import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.api.IEntity4Dao;
+import org.obeonetwork.dsl.entity.gen.java.dao.tests.fwk.dao.jdbc.TestsConnectionUtils;
+import org.obeonetwork.fwk.dao.exception.DaoException;
 
-// End of user code for import 
+// End of user code
 
 /**
  * This class provides the data access layer to the Entity4 entity class.
@@ -33,7 +27,7 @@ public class JdbcEntity4Dao implements IEntity4Dao {
     /**
      * Commons Logging instance.
      */
-	private final static Log LOG = LogFactory.getLog(JdbcEntity4Dao.class);;
+	private final static Log LOG = LogFactory.getLog(JdbcEntity4Dao.class);
 
 
 	protected final static String TABLE_NAME = "ENTITY4";
@@ -65,8 +59,8 @@ public class JdbcEntity4Dao implements IEntity4Dao {
 	
 	// End of user code
 
-	protected Collection<Entity4> createList(ResultSet rs) throws DaoException {
-		Collection<Entity4> result = new ArrayList<Entity4>();
+	protected Collection createList(ResultSet rs) throws DaoException {
+		Collection result = new ArrayList();
 		Entity4 entity4 = null;
 		while (rs.next()) {
 			entity4 = new Entity4();
@@ -83,7 +77,7 @@ public class JdbcEntity4Dao implements IEntity4Dao {
 		PreparedStatement statement = null;
 
 		try {
-			cnx = Dsl.entity.gen.java.dao.testsConnectionUtils.getInstance().getConnection();
+			cnx = TestsConnectionUtils.getInstance().getConnection();
 			statement = cnx.prepareStatement(CREATE_QUERY);
 			element.setId(UUID.randomUUID().toString());
 			statement.setString(1, element.getId());
@@ -109,7 +103,7 @@ public class JdbcEntity4Dao implements IEntity4Dao {
 		PreparedStatement statement = null;
 
 		try {
-			cnx = Dsl.entity.gen.java.dao.testsConnectionUtils.getInstance().getConnection();
+			cnx = TestsConnectionUtils.getInstance().getConnection();
 			statement = cnx.prepareStatement(UPDATE_QUERY);
 			// Start of user code update
 			// End of user code
@@ -133,7 +127,7 @@ public class JdbcEntity4Dao implements IEntity4Dao {
 		PreparedStatement statement = null;
 
 		try {
-			cnx = Dsl.entity.gen.java.dao.testsConnectionUtils.getInstance().getConnection();
+			cnx = TestsConnectionUtils.getInstance().getConnection();
 			statement = cnx.prepareStatement(DELETE_QUERY);
 			statement.setString(1, element.getId());
 			statement.executeUpdate();
@@ -149,18 +143,18 @@ public class JdbcEntity4Dao implements IEntity4Dao {
 		}
 	}
 	
-	public Collection<Entity4> findAllEntity4s() throws DaoException {
+	public Collection findAllEntity4s() throws DaoException {
 		LOG.debug("Find all Entity4");
 		Connection cnx = null;
 		Statement statement = null;
 		ResultSet rs = null;
 
 		try {
-			cnx = Dsl.entity.gen.java.dao.testsConnectionUtils.getInstance().getConnection();
+			cnx = TestsConnectionUtils.getInstance().getConnection();
 			statement = cnx.createStatement();
 			rs = statement.executeQuery(FIND_ALL_QUERY);
 
-			Collection<Entity4> result = createList(rs);
+			Collection result = createList(rs);
 			return result;
 		} catch (SQLException e) {
 			throw new DaoException("Erreur requete", e);
@@ -182,7 +176,7 @@ public class JdbcEntity4Dao implements IEntity4Dao {
 		ResultSet rs = null;
 
 		try {
-			cnx = Dsl.entity.gen.java.dao.testsConnectionUtils.getInstance().getConnection();
+			cnx = TestsConnectionUtils.getInstance().getConnection();
 			statement = cnx.prepareStatement(FIND_BY_ID);
 			statement.setString(1,id);			
 			rs = statement.executeQuery();

@@ -184,6 +184,8 @@ public class Jdbc[entity.name.toStandardNotation().toUpperFirst()/]Dao implement
 			statement.setInt([i+2/], element.get[it.name.toUpperFirst()/]());
 						[elseif (it.type.name = 'Float')]
 			statement.setDouble([i+2/], element.get[it.name.toUpperFirst()/]());
+						[elseif (it.type.name = 'Double')]
+			statement.setDouble([i+2/], element.get[it.name.toUpperFirst()/]());
 						[elseif (it.type.name = 'Boolean')]
 			statement.setBoolean([i+2/], element.get[it.name.toUpperFirst()/]());
 						[elseif (it.type.name = 'Montant')]
@@ -236,6 +238,8 @@ public class Jdbc[entity.name.toStandardNotation().toUpperFirst()/]Dao implement
 						[elseif (it.type.name = 'Integer')]
 			statement.setInt([i+1/], element.get[it.name.toUpperFirst()/]());
 						[elseif (it.type.name = 'Float')]
+			statement.setDouble([i+1/], element.get[it.name.toUpperFirst()/]());
+						[elseif (it.type.name = 'Double')]
 			statement.setDouble([i+1/], element.get[it.name.toUpperFirst()/]());
 						[elseif (it.type.name = 'Boolean')]
 			statement.setBoolean([i+1/], element.get[it.name.toUpperFirst()/]());

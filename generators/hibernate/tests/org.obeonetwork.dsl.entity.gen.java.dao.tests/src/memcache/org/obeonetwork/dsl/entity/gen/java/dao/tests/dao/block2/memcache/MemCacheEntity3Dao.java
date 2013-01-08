@@ -6,9 +6,9 @@ import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Map;
 
+import org.obeonetwork.dsl.entity.gen.java.common.tests.block1.block2.Entity3;
+import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.block2.api.IEntity3Dao;
 import org.obeonetwork.fwk.dao.exception.DaoException;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.business.block2.Entity3;
-import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block2.api.IEntity3Dao;
 
 // End of user code for import 
 
