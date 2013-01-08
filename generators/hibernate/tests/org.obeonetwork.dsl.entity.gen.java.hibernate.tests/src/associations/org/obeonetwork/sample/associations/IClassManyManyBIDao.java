@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.obeonetwork.fwk.dao.exception.DaoException;
 import org.obeonetwork.sample.associations.ClassManyManyBI;
 
-// End of user code for import
+// End of user code
 
 /**
  * This class provides the data access layer to the Class_Many_Many_BI entity class.<br/>
@@ -17,7 +17,7 @@ public interface IClassManyManyBIDao {
 	/**
 	 * Create a new element.
 	 * @param classManyManyBI Element to create.
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public void createClassManyManyBI(ClassManyManyBI classManyManyBI) throws DaoException;
 
@@ -25,7 +25,7 @@ public interface IClassManyManyBIDao {
 	 * Update an existing element.
 	 * @param classManyManyBI Element to update. 
      *            If the element has an id, it may use it.
-	 * @throws DaoException If a Dao problem occurs.
+     	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public void updateClassManyManyBI(ClassManyManyBI classManyManyBI) throws DaoException;
 
@@ -33,14 +33,14 @@ public interface IClassManyManyBIDao {
 	 * Delete an element.
      * Only id can be used to find which element must be deleted.
 	 * @param classManyManyBI Element which will be delete. 
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public void deleteClassManyManyBI(ClassManyManyBI classManyManyBI) throws DaoException;
 
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter.
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public Collection<ClassManyManyBI> findAllClassManyManyBIs() throws DaoException;
 
@@ -48,10 +48,10 @@ public interface IClassManyManyBIDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity.
 	 * @return The entity found.
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public ClassManyManyBI findClassManyManyBIById(String id) throws DaoException;
 
 	//Start of user code for technicals dao access api
-	//End of user code for technical dao access api
+	//End of user code
 }

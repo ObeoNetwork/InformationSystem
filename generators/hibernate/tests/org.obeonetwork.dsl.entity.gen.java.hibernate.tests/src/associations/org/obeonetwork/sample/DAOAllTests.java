@@ -33,7 +33,7 @@ import org.obeonetwork.sample.associations.test.ClassManyManyEndTest;
 import org.obeonetwork.sample.associations.test.ClassManyManyBITest;
 import org.obeonetwork.sample.associations.test.ClassManyManyBIENDTest;
 
-// End of user code for import
+// End of user code
 
 /**
  * Test class for All DAO Tests.
@@ -74,7 +74,7 @@ public class DAOAllTests {
 		suite.addTestSuite(ClassManyManyBIENDTest.class);
 		//Start of user code others unit tests
 		
-		//End of user code others unit tests
+		//End of user code
 		return suite;
 	}
 

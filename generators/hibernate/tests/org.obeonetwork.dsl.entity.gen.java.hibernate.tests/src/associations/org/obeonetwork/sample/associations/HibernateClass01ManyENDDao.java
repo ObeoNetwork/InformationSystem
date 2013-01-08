@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.associations.Class01ManyEND;
 import org.obeonetwork.sample.associations.IClass01ManyENDDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IClass01ManyENDDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateClass01ManyENDDao implements IClass01ManyENDDao {
 	/**
 	 * Create a new element
 	 * @param class_01_Many_END Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyENDDao.createClass_01_Many_END
      */
 	public void createClass01ManyEND(final Class01ManyEND class01ManyEND) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateClass01ManyENDDao implements IClass01ManyENDDao {
 	 * Update an existing element
 	 * @param class_01_Many_END
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyENDDao.updateClass_01_Many_END
      */
 	public void updateClass01ManyEND(Class01ManyEND class01ManyEND) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateClass01ManyENDDao implements IClass01ManyENDDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class_01_Many_END Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyENDDao.deleteClass_01_Many_END
    	 */
 	public void deleteClass01ManyEND(Class01ManyEND class01ManyEND) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateClass01ManyENDDao implements IClass01ManyENDDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyENDDao.findAllClass_01_Many_ENDs
      */
 	public Collection<Class01ManyEND> findAllClass01ManyENDs() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateClass01ManyENDDao implements IClass01ManyENDDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyENDDao.findClass_01_Many_ENDById
      */
 	public Class01ManyEND findClass01ManyENDById(String id) throws DaoException {

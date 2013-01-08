@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.associations.Class101;
 import org.obeonetwork.sample.associations.IClass101Dao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IClass101Dao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateClass101Dao implements IClass101Dao {
 	/**
 	 * Create a new element
 	 * @param class_1_01 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101Dao.createClass_1_01
      */
 	public void createClass101(final Class101 class101) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateClass101Dao implements IClass101Dao {
 	 * Update an existing element
 	 * @param class_1_01
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101Dao.updateClass_1_01
      */
 	public void updateClass101(Class101 class101) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateClass101Dao implements IClass101Dao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class_1_01 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101Dao.deleteClass_1_01
    	 */
 	public void deleteClass101(Class101 class101) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateClass101Dao implements IClass101Dao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101Dao.findAllClass_1_01s
      */
 	public Collection<Class101> findAllClass101s() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateClass101Dao implements IClass101Dao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101Dao.findClass_1_01ById
      */
 	public Class101 findClass101ById(String id) throws DaoException {

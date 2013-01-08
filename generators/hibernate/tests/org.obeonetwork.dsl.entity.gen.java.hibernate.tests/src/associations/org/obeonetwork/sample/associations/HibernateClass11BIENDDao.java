@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.associations.Class11BIEND;
 import org.obeonetwork.sample.associations.IClass11BIENDDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IClass11BIENDDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateClass11BIENDDao implements IClass11BIENDDao {
 	/**
 	 * Create a new element
 	 * @param class_1_1_BI_END Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIENDDao.createClass_1_1_BI_END
      */
 	public void createClass11BIEND(final Class11BIEND class11BIEND) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateClass11BIENDDao implements IClass11BIENDDao {
 	 * Update an existing element
 	 * @param class_1_1_BI_END
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIENDDao.updateClass_1_1_BI_END
      */
 	public void updateClass11BIEND(Class11BIEND class11BIEND) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateClass11BIENDDao implements IClass11BIENDDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class_1_1_BI_END Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIENDDao.deleteClass_1_1_BI_END
    	 */
 	public void deleteClass11BIEND(Class11BIEND class11BIEND) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateClass11BIENDDao implements IClass11BIENDDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIENDDao.findAllClass_1_1_BI_ENDs
      */
 	public Collection<Class11BIEND> findAllClass11BIENDs() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateClass11BIENDDao implements IClass11BIENDDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIENDDao.findClass_1_1_BI_ENDById
      */
 	public Class11BIEND findClass11BIENDById(String id) throws DaoException {

@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.associations.ClassManyManyBIEND;
 import org.obeonetwork.sample.associations.IClassManyManyBIENDDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IClassManyManyBIENDDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateClassManyManyBIENDDao implements IClassManyManyBIENDDao {
 	/**
 	 * Create a new element
 	 * @param class_Many_Many_BI_END Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIENDDao.createClass_Many_Many_BI_END
      */
 	public void createClassManyManyBIEND(final ClassManyManyBIEND classManyManyBIEND) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateClassManyManyBIENDDao implements IClassManyManyBIENDDao {
 	 * Update an existing element
 	 * @param class_Many_Many_BI_END
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIENDDao.updateClass_Many_Many_BI_END
      */
 	public void updateClassManyManyBIEND(ClassManyManyBIEND classManyManyBIEND) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateClassManyManyBIENDDao implements IClassManyManyBIENDDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class_Many_Many_BI_END Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIENDDao.deleteClass_Many_Many_BI_END
    	 */
 	public void deleteClassManyManyBIEND(ClassManyManyBIEND classManyManyBIEND) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateClassManyManyBIENDDao implements IClassManyManyBIENDDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIENDDao.findAllClass_Many_Many_BI_ENDs
      */
 	public Collection<ClassManyManyBIEND> findAllClassManyManyBIENDs() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateClassManyManyBIENDDao implements IClassManyManyBIENDDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIENDDao.findClass_Many_Many_BI_ENDById
      */
 	public ClassManyManyBIEND findClassManyManyBIENDById(String id) throws DaoException {
