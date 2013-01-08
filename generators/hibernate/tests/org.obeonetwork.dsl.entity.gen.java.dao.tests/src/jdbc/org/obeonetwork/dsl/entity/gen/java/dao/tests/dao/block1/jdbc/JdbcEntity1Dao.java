@@ -105,7 +105,7 @@ public class JdbcEntity1Dao implements IEntity1Dao {
 			entity1.setAtttribute3( rs.getDouble(ATTTRIBUTE3) );
 			entity1.setAtttribute4( rs.getString(ATTTRIBUTE4) );
 			entity1.setAtttribute5( rs.getFloat(ATTTRIBUTE5) );
-			entity1.setAtttribute6( rs.getInt(ATTTRIBUTE6) );
+			entity1.setAtttribute6( rs.getInteger(ATTTRIBUTE6) );
 			entity1.setAtttribute7( rs.getString(ATTTRIBUTE7) );
 
 			result.add(entity1);
