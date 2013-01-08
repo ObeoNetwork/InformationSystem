@@ -43,7 +43,7 @@ import org.obeonetwork.sample.associations.ClassManyManyBI;
 import org.obeonetwork.sample.associations.ClassManyManyBIEND;
 import org.obeonetwork.sample.associations.IAssociationsDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IAssociationsDao based on the hibernate
@@ -60,7 +60,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class0101 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101Dao.createClass0101
      */
 	public void createClass0101(Class0101 class0101) throws DaoException {
@@ -77,7 +77,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class0101
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101Dao.updateClass0101
      */
 	public void updateClass0101(Class0101 class0101) throws DaoException {
@@ -94,7 +94,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class0101 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101Dao.deleteClass0101
    	 */
 	public void deleteClass0101(Class0101 class0101) throws DaoException {
@@ -110,7 +110,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101Dao.findAllClass0101s
      */
 	public Collection<Class0101> findAllClass0101s() throws DaoException {
@@ -131,7 +131,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101Dao.findClass0101ById
      */
 	public Class0101 findClass0101ById(String id) throws DaoException {
@@ -152,7 +152,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class0101END Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101ENDDao.createClass0101END
      */
 	public void createClass0101END(Class0101END class0101END) throws DaoException {
@@ -169,7 +169,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class0101END
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101ENDDao.updateClass0101END
      */
 	public void updateClass0101END(Class0101END class0101END) throws DaoException {
@@ -186,7 +186,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class0101END Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101ENDDao.deleteClass0101END
    	 */
 	public void deleteClass0101END(Class0101END class0101END) throws DaoException {
@@ -202,7 +202,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101ENDDao.findAllClass0101ENDs
      */
 	public Collection<Class0101END> findAllClass0101ENDs() throws DaoException {
@@ -223,7 +223,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101ENDDao.findClass0101ENDById
      */
 	public Class0101END findClass0101ENDById(String id) throws DaoException {
@@ -244,7 +244,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class0101BI Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101BIDao.createClass0101BI
      */
 	public void createClass0101BI(Class0101BI class0101BI) throws DaoException {
@@ -261,7 +261,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class0101BI
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101BIDao.updateClass0101BI
      */
 	public void updateClass0101BI(Class0101BI class0101BI) throws DaoException {
@@ -278,7 +278,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class0101BI Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101BIDao.deleteClass0101BI
    	 */
 	public void deleteClass0101BI(Class0101BI class0101BI) throws DaoException {
@@ -294,7 +294,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101BIDao.findAllClass0101BIs
      */
 	public Collection<Class0101BI> findAllClass0101BIs() throws DaoException {
@@ -315,7 +315,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101BIDao.findClass0101BIById
      */
 	public Class0101BI findClass0101BIById(String id) throws DaoException {
@@ -336,7 +336,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class0101BIEND Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101BIENDDao.createClass0101BIEND
      */
 	public void createClass0101BIEND(Class0101BIEND class0101BIEND) throws DaoException {
@@ -353,7 +353,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class0101BIEND
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101BIENDDao.updateClass0101BIEND
      */
 	public void updateClass0101BIEND(Class0101BIEND class0101BIEND) throws DaoException {
@@ -370,7 +370,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class0101BIEND Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101BIENDDao.deleteClass0101BIEND
    	 */
 	public void deleteClass0101BIEND(Class0101BIEND class0101BIEND) throws DaoException {
@@ -386,7 +386,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101BIENDDao.findAllClass0101BIENDs
      */
 	public Collection<Class0101BIEND> findAllClass0101BIENDs() throws DaoException {
@@ -407,7 +407,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass0101BIENDDao.findClass0101BIENDById
      */
 	public Class0101BIEND findClass0101BIENDById(String id) throws DaoException {
@@ -428,7 +428,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class101 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101Dao.createClass101
      */
 	public void createClass101(Class101 class101) throws DaoException {
@@ -445,7 +445,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class101
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101Dao.updateClass101
      */
 	public void updateClass101(Class101 class101) throws DaoException {
@@ -462,7 +462,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class101 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101Dao.deleteClass101
    	 */
 	public void deleteClass101(Class101 class101) throws DaoException {
@@ -478,7 +478,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101Dao.findAllClass101s
      */
 	public Collection<Class101> findAllClass101s() throws DaoException {
@@ -499,7 +499,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101Dao.findClass101ById
      */
 	public Class101 findClass101ById(String id) throws DaoException {
@@ -520,7 +520,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class101END Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101ENDDao.createClass101END
      */
 	public void createClass101END(Class101END class101END) throws DaoException {
@@ -537,7 +537,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class101END
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101ENDDao.updateClass101END
      */
 	public void updateClass101END(Class101END class101END) throws DaoException {
@@ -554,7 +554,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class101END Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101ENDDao.deleteClass101END
    	 */
 	public void deleteClass101END(Class101END class101END) throws DaoException {
@@ -570,7 +570,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101ENDDao.findAllClass101ENDs
      */
 	public Collection<Class101END> findAllClass101ENDs() throws DaoException {
@@ -591,7 +591,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101ENDDao.findClass101ENDById
      */
 	public Class101END findClass101ENDById(String id) throws DaoException {
@@ -612,7 +612,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class101BI Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101BIDao.createClass101BI
      */
 	public void createClass101BI(Class101BI class101BI) throws DaoException {
@@ -629,7 +629,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class101BI
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101BIDao.updateClass101BI
      */
 	public void updateClass101BI(Class101BI class101BI) throws DaoException {
@@ -646,7 +646,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class101BI Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101BIDao.deleteClass101BI
    	 */
 	public void deleteClass101BI(Class101BI class101BI) throws DaoException {
@@ -662,7 +662,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101BIDao.findAllClass101BIs
      */
 	public Collection<Class101BI> findAllClass101BIs() throws DaoException {
@@ -683,7 +683,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101BIDao.findClass101BIById
      */
 	public Class101BI findClass101BIById(String id) throws DaoException {
@@ -704,7 +704,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class101BIEND Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101BIENDDao.createClass101BIEND
      */
 	public void createClass101BIEND(Class101BIEND class101BIEND) throws DaoException {
@@ -721,7 +721,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class101BIEND
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101BIENDDao.updateClass101BIEND
      */
 	public void updateClass101BIEND(Class101BIEND class101BIEND) throws DaoException {
@@ -738,7 +738,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class101BIEND Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101BIENDDao.deleteClass101BIEND
    	 */
 	public void deleteClass101BIEND(Class101BIEND class101BIEND) throws DaoException {
@@ -754,7 +754,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101BIENDDao.findAllClass101BIENDs
      */
 	public Collection<Class101BIEND> findAllClass101BIENDs() throws DaoException {
@@ -775,7 +775,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass101BIENDDao.findClass101BIENDById
      */
 	public Class101BIEND findClass101BIENDById(String id) throws DaoException {
@@ -796,7 +796,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class011 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011Dao.createClass011
      */
 	public void createClass011(Class011 class011) throws DaoException {
@@ -813,7 +813,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class011
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011Dao.updateClass011
      */
 	public void updateClass011(Class011 class011) throws DaoException {
@@ -830,7 +830,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class011 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011Dao.deleteClass011
    	 */
 	public void deleteClass011(Class011 class011) throws DaoException {
@@ -846,7 +846,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011Dao.findAllClass011s
      */
 	public Collection<Class011> findAllClass011s() throws DaoException {
@@ -867,7 +867,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011Dao.findClass011ById
      */
 	public Class011 findClass011ById(String id) throws DaoException {
@@ -888,7 +888,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class011END Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011ENDDao.createClass011END
      */
 	public void createClass011END(Class011END class011END) throws DaoException {
@@ -905,7 +905,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class011END
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011ENDDao.updateClass011END
      */
 	public void updateClass011END(Class011END class011END) throws DaoException {
@@ -922,7 +922,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class011END Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011ENDDao.deleteClass011END
    	 */
 	public void deleteClass011END(Class011END class011END) throws DaoException {
@@ -938,7 +938,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011ENDDao.findAllClass011ENDs
      */
 	public Collection<Class011END> findAllClass011ENDs() throws DaoException {
@@ -959,7 +959,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011ENDDao.findClass011ENDById
      */
 	public Class011END findClass011ENDById(String id) throws DaoException {
@@ -980,7 +980,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class011BI Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011BIDao.createClass011BI
      */
 	public void createClass011BI(Class011BI class011BI) throws DaoException {
@@ -997,7 +997,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class011BI
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011BIDao.updateClass011BI
      */
 	public void updateClass011BI(Class011BI class011BI) throws DaoException {
@@ -1014,7 +1014,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class011BI Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011BIDao.deleteClass011BI
    	 */
 	public void deleteClass011BI(Class011BI class011BI) throws DaoException {
@@ -1030,7 +1030,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011BIDao.findAllClass011BIs
      */
 	public Collection<Class011BI> findAllClass011BIs() throws DaoException {
@@ -1051,7 +1051,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011BIDao.findClass011BIById
      */
 	public Class011BI findClass011BIById(String id) throws DaoException {
@@ -1072,7 +1072,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class011BIEND Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011BIENDDao.createClass011BIEND
      */
 	public void createClass011BIEND(Class011BIEND class011BIEND) throws DaoException {
@@ -1089,7 +1089,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class011BIEND
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011BIENDDao.updateClass011BIEND
      */
 	public void updateClass011BIEND(Class011BIEND class011BIEND) throws DaoException {
@@ -1106,7 +1106,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class011BIEND Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011BIENDDao.deleteClass011BIEND
    	 */
 	public void deleteClass011BIEND(Class011BIEND class011BIEND) throws DaoException {
@@ -1122,7 +1122,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011BIENDDao.findAllClass011BIENDs
      */
 	public Collection<Class011BIEND> findAllClass011BIENDs() throws DaoException {
@@ -1143,7 +1143,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass011BIENDDao.findClass011BIENDById
      */
 	public Class011BIEND findClass011BIENDById(String id) throws DaoException {
@@ -1164,7 +1164,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class11 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11Dao.createClass11
      */
 	public void createClass11(Class11 class11) throws DaoException {
@@ -1181,7 +1181,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class11
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11Dao.updateClass11
      */
 	public void updateClass11(Class11 class11) throws DaoException {
@@ -1198,7 +1198,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class11 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11Dao.deleteClass11
    	 */
 	public void deleteClass11(Class11 class11) throws DaoException {
@@ -1214,7 +1214,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11Dao.findAllClass11s
      */
 	public Collection<Class11> findAllClass11s() throws DaoException {
@@ -1235,7 +1235,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11Dao.findClass11ById
      */
 	public Class11 findClass11ById(String id) throws DaoException {
@@ -1256,7 +1256,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class11END Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11ENDDao.createClass11END
      */
 	public void createClass11END(Class11END class11END) throws DaoException {
@@ -1273,7 +1273,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class11END
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11ENDDao.updateClass11END
      */
 	public void updateClass11END(Class11END class11END) throws DaoException {
@@ -1290,7 +1290,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class11END Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11ENDDao.deleteClass11END
    	 */
 	public void deleteClass11END(Class11END class11END) throws DaoException {
@@ -1306,7 +1306,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11ENDDao.findAllClass11ENDs
      */
 	public Collection<Class11END> findAllClass11ENDs() throws DaoException {
@@ -1327,7 +1327,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11ENDDao.findClass11ENDById
      */
 	public Class11END findClass11ENDById(String id) throws DaoException {
@@ -1348,7 +1348,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class11BI Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIDao.createClass11BI
      */
 	public void createClass11BI(Class11BI class11BI) throws DaoException {
@@ -1365,7 +1365,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class11BI
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIDao.updateClass11BI
      */
 	public void updateClass11BI(Class11BI class11BI) throws DaoException {
@@ -1382,7 +1382,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class11BI Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIDao.deleteClass11BI
    	 */
 	public void deleteClass11BI(Class11BI class11BI) throws DaoException {
@@ -1398,7 +1398,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIDao.findAllClass11BIs
      */
 	public Collection<Class11BI> findAllClass11BIs() throws DaoException {
@@ -1419,7 +1419,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIDao.findClass11BIById
      */
 	public Class11BI findClass11BIById(String id) throws DaoException {
@@ -1440,7 +1440,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class11BIEND Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIENDDao.createClass11BIEND
      */
 	public void createClass11BIEND(Class11BIEND class11BIEND) throws DaoException {
@@ -1457,7 +1457,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class11BIEND
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIENDDao.updateClass11BIEND
      */
 	public void updateClass11BIEND(Class11BIEND class11BIEND) throws DaoException {
@@ -1474,7 +1474,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class11BIEND Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIENDDao.deleteClass11BIEND
    	 */
 	public void deleteClass11BIEND(Class11BIEND class11BIEND) throws DaoException {
@@ -1490,7 +1490,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIENDDao.findAllClass11BIENDs
      */
 	public Collection<Class11BIEND> findAllClass11BIENDs() throws DaoException {
@@ -1511,7 +1511,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass11BIENDDao.findClass11BIENDById
      */
 	public Class11BIEND findClass11BIENDById(String id) throws DaoException {
@@ -1532,7 +1532,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class01Many Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyDao.createClass01Many
      */
 	public void createClass01Many(Class01Many class01Many) throws DaoException {
@@ -1549,7 +1549,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class01Many
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyDao.updateClass01Many
      */
 	public void updateClass01Many(Class01Many class01Many) throws DaoException {
@@ -1566,7 +1566,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class01Many Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyDao.deleteClass01Many
    	 */
 	public void deleteClass01Many(Class01Many class01Many) throws DaoException {
@@ -1582,7 +1582,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyDao.findAllClass01Manys
      */
 	public Collection<Class01Many> findAllClass01Manys() throws DaoException {
@@ -1603,7 +1603,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyDao.findClass01ManyById
      */
 	public Class01Many findClass01ManyById(String id) throws DaoException {
@@ -1624,7 +1624,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class01ManyEND Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyENDDao.createClass01ManyEND
      */
 	public void createClass01ManyEND(Class01ManyEND class01ManyEND) throws DaoException {
@@ -1641,7 +1641,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class01ManyEND
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyENDDao.updateClass01ManyEND
      */
 	public void updateClass01ManyEND(Class01ManyEND class01ManyEND) throws DaoException {
@@ -1658,7 +1658,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class01ManyEND Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyENDDao.deleteClass01ManyEND
    	 */
 	public void deleteClass01ManyEND(Class01ManyEND class01ManyEND) throws DaoException {
@@ -1674,7 +1674,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyENDDao.findAllClass01ManyENDs
      */
 	public Collection<Class01ManyEND> findAllClass01ManyENDs() throws DaoException {
@@ -1695,7 +1695,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyENDDao.findClass01ManyENDById
      */
 	public Class01ManyEND findClass01ManyENDById(String id) throws DaoException {
@@ -1716,7 +1716,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class01ManyBI Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyBIDao.createClass01ManyBI
      */
 	public void createClass01ManyBI(Class01ManyBI class01ManyBI) throws DaoException {
@@ -1733,7 +1733,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class01ManyBI
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyBIDao.updateClass01ManyBI
      */
 	public void updateClass01ManyBI(Class01ManyBI class01ManyBI) throws DaoException {
@@ -1750,7 +1750,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class01ManyBI Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyBIDao.deleteClass01ManyBI
    	 */
 	public void deleteClass01ManyBI(Class01ManyBI class01ManyBI) throws DaoException {
@@ -1766,7 +1766,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyBIDao.findAllClass01ManyBIs
      */
 	public Collection<Class01ManyBI> findAllClass01ManyBIs() throws DaoException {
@@ -1787,7 +1787,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyBIDao.findClass01ManyBIById
      */
 	public Class01ManyBI findClass01ManyBIById(String id) throws DaoException {
@@ -1808,7 +1808,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param class01ManyBIEND Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyBIENDDao.createClass01ManyBIEND
      */
 	public void createClass01ManyBIEND(Class01ManyBIEND class01ManyBIEND) throws DaoException {
@@ -1825,7 +1825,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param class01ManyBIEND
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyBIENDDao.updateClass01ManyBIEND
      */
 	public void updateClass01ManyBIEND(Class01ManyBIEND class01ManyBIEND) throws DaoException {
@@ -1842,7 +1842,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class01ManyBIEND Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyBIENDDao.deleteClass01ManyBIEND
    	 */
 	public void deleteClass01ManyBIEND(Class01ManyBIEND class01ManyBIEND) throws DaoException {
@@ -1858,7 +1858,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyBIENDDao.findAllClass01ManyBIENDs
      */
 	public Collection<Class01ManyBIEND> findAllClass01ManyBIENDs() throws DaoException {
@@ -1879,7 +1879,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClass01ManyBIENDDao.findClass01ManyBIENDById
      */
 	public Class01ManyBIEND findClass01ManyBIENDById(String id) throws DaoException {
@@ -1900,7 +1900,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param classMany01 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01Dao.createClassMany01
      */
 	public void createClassMany01(ClassMany01 classMany01) throws DaoException {
@@ -1917,7 +1917,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param classMany01
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01Dao.updateClassMany01
      */
 	public void updateClassMany01(ClassMany01 classMany01) throws DaoException {
@@ -1934,7 +1934,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classMany01 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01Dao.deleteClassMany01
    	 */
 	public void deleteClassMany01(ClassMany01 classMany01) throws DaoException {
@@ -1950,7 +1950,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01Dao.findAllClassMany01s
      */
 	public Collection<ClassMany01> findAllClassMany01s() throws DaoException {
@@ -1971,7 +1971,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01Dao.findClassMany01ById
      */
 	public ClassMany01 findClassMany01ById(String id) throws DaoException {
@@ -1992,7 +1992,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param classMany01END Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01ENDDao.createClassMany01END
      */
 	public void createClassMany01END(ClassMany01END classMany01END) throws DaoException {
@@ -2009,7 +2009,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param classMany01END
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01ENDDao.updateClassMany01END
      */
 	public void updateClassMany01END(ClassMany01END classMany01END) throws DaoException {
@@ -2026,7 +2026,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classMany01END Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01ENDDao.deleteClassMany01END
    	 */
 	public void deleteClassMany01END(ClassMany01END classMany01END) throws DaoException {
@@ -2042,7 +2042,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01ENDDao.findAllClassMany01ENDs
      */
 	public Collection<ClassMany01END> findAllClassMany01ENDs() throws DaoException {
@@ -2063,7 +2063,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01ENDDao.findClassMany01ENDById
      */
 	public ClassMany01END findClassMany01ENDById(String id) throws DaoException {
@@ -2084,7 +2084,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param classMany01BI Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01BIDao.createClassMany01BI
      */
 	public void createClassMany01BI(ClassMany01BI classMany01BI) throws DaoException {
@@ -2101,7 +2101,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param classMany01BI
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01BIDao.updateClassMany01BI
      */
 	public void updateClassMany01BI(ClassMany01BI classMany01BI) throws DaoException {
@@ -2118,7 +2118,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classMany01BI Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01BIDao.deleteClassMany01BI
    	 */
 	public void deleteClassMany01BI(ClassMany01BI classMany01BI) throws DaoException {
@@ -2134,7 +2134,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01BIDao.findAllClassMany01BIs
      */
 	public Collection<ClassMany01BI> findAllClassMany01BIs() throws DaoException {
@@ -2155,7 +2155,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01BIDao.findClassMany01BIById
      */
 	public ClassMany01BI findClassMany01BIById(String id) throws DaoException {
@@ -2176,7 +2176,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param classMany01BIEND Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01BIENDDao.createClassMany01BIEND
      */
 	public void createClassMany01BIEND(ClassMany01BIEND classMany01BIEND) throws DaoException {
@@ -2193,7 +2193,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param classMany01BIEND
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01BIENDDao.updateClassMany01BIEND
      */
 	public void updateClassMany01BIEND(ClassMany01BIEND classMany01BIEND) throws DaoException {
@@ -2210,7 +2210,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classMany01BIEND Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01BIENDDao.deleteClassMany01BIEND
    	 */
 	public void deleteClassMany01BIEND(ClassMany01BIEND classMany01BIEND) throws DaoException {
@@ -2226,7 +2226,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01BIENDDao.findAllClassMany01BIENDs
      */
 	public Collection<ClassMany01BIEND> findAllClassMany01BIENDs() throws DaoException {
@@ -2247,7 +2247,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassMany01BIENDDao.findClassMany01BIENDById
      */
 	public ClassMany01BIEND findClassMany01BIENDById(String id) throws DaoException {
@@ -2268,7 +2268,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param classManyMany Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyDao.createClassManyMany
      */
 	public void createClassManyMany(ClassManyMany classManyMany) throws DaoException {
@@ -2285,7 +2285,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param classManyMany
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyDao.updateClassManyMany
      */
 	public void updateClassManyMany(ClassManyMany classManyMany) throws DaoException {
@@ -2302,7 +2302,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classManyMany Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyDao.deleteClassManyMany
    	 */
 	public void deleteClassManyMany(ClassManyMany classManyMany) throws DaoException {
@@ -2318,7 +2318,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyDao.findAllClassManyManys
      */
 	public Collection<ClassManyMany> findAllClassManyManys() throws DaoException {
@@ -2339,7 +2339,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyDao.findClassManyManyById
      */
 	public ClassManyMany findClassManyManyById(String id) throws DaoException {
@@ -2360,7 +2360,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param classManyManyEnd Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyEndDao.createClassManyManyEnd
      */
 	public void createClassManyManyEnd(ClassManyManyEnd classManyManyEnd) throws DaoException {
@@ -2377,7 +2377,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param classManyManyEnd
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyEndDao.updateClassManyManyEnd
      */
 	public void updateClassManyManyEnd(ClassManyManyEnd classManyManyEnd) throws DaoException {
@@ -2394,7 +2394,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classManyManyEnd Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyEndDao.deleteClassManyManyEnd
    	 */
 	public void deleteClassManyManyEnd(ClassManyManyEnd classManyManyEnd) throws DaoException {
@@ -2410,7 +2410,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyEndDao.findAllClassManyManyEnds
      */
 	public Collection<ClassManyManyEnd> findAllClassManyManyEnds() throws DaoException {
@@ -2431,7 +2431,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyEndDao.findClassManyManyEndById
      */
 	public ClassManyManyEnd findClassManyManyEndById(String id) throws DaoException {
@@ -2452,7 +2452,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param classManyManyBI Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIDao.createClassManyManyBI
      */
 	public void createClassManyManyBI(ClassManyManyBI classManyManyBI) throws DaoException {
@@ -2469,7 +2469,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param classManyManyBI
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIDao.updateClassManyManyBI
      */
 	public void updateClassManyManyBI(ClassManyManyBI classManyManyBI) throws DaoException {
@@ -2486,7 +2486,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classManyManyBI Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIDao.deleteClassManyManyBI
    	 */
 	public void deleteClassManyManyBI(ClassManyManyBI classManyManyBI) throws DaoException {
@@ -2502,7 +2502,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIDao.findAllClassManyManyBIs
      */
 	public Collection<ClassManyManyBI> findAllClassManyManyBIs() throws DaoException {
@@ -2523,7 +2523,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIDao.findClassManyManyBIById
      */
 	public ClassManyManyBI findClassManyManyBIById(String id) throws DaoException {
@@ -2544,7 +2544,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Create a new element
 	 * @param classManyManyBIEND Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIENDDao.createClassManyManyBIEND
      */
 	public void createClassManyManyBIEND(ClassManyManyBIEND classManyManyBIEND) throws DaoException {
@@ -2561,7 +2561,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Update an existing element
 	 * @param classManyManyBIEND
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIENDDao.updateClassManyManyBIEND
      */
 	public void updateClassManyManyBIEND(ClassManyManyBIEND classManyManyBIEND) throws DaoException {
@@ -2578,7 +2578,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classManyManyBIEND Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIENDDao.deleteClassManyManyBIEND
    	 */
 	public void deleteClassManyManyBIEND(ClassManyManyBIEND classManyManyBIEND) throws DaoException {
@@ -2594,7 +2594,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIENDDao.findAllClassManyManyBIENDs
      */
 	public Collection<ClassManyManyBIEND> findAllClassManyManyBIENDs() throws DaoException {
@@ -2615,7 +2615,7 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.associations.IClassManyManyBIENDDao.findClassManyManyBIENDById
      */
 	public ClassManyManyBIEND findClassManyManyBIENDById(String id) throws DaoException {
@@ -2636,3 +2636,4 @@ public class HibernateAssociationsDao implements IAssociationsDao {
 	//Start of user code
 	//End of user code
 }
+

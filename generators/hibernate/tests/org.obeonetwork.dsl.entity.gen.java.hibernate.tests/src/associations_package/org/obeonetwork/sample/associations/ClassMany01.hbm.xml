@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.associations.ClassMany01" 
     	table="CLASS_MANY_01"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -27,7 +27,6 @@
 			 | CLASS_MANY_01 |- * -} 1 -| CLASS_MANY_01_END |
 			  _______________            ___________________
 		-->
-
 		<many-to-one 
 			name="target" 
 			class="org.obeonetwork.sample.associations.ClassMany01END" 
@@ -36,8 +35,6 @@
 
 
 		<!-- Inheritance -->
-
-
 
 
     </class>

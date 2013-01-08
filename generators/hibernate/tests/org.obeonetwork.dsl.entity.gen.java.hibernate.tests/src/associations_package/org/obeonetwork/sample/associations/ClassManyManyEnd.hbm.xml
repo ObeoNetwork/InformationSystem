@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.associations.ClassManyManyEnd" 
     	table="CLASS_MANY_MANY_END"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -25,8 +25,6 @@
 
 
 		<!-- Inheritance -->
-
-
 
 
     </class>
