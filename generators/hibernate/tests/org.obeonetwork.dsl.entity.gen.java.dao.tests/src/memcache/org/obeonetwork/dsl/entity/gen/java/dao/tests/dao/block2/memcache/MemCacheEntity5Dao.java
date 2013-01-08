@@ -10,11 +10,11 @@ import org.obeonetwork.dsl.entity.gen.java.common.tests.block1.block2.Entity5;
 import org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.block1.block2.api.IEntity5Dao;
 import org.obeonetwork.fwk.dao.exception.DaoException;
 
-// End of user code for import 
+// End of user code
 
 public class MemCacheEntity5Dao implements IEntity5Dao {
 	
-	protected static Map<String, Entity5> entity5sCache = new Hashtable<String, Entity5>();
+	protected static Map entity5sCache = new Hashtable();
 	
 	public void createEntity5(Entity5 entity) throws DaoException {
 		entity5sCache.put(entity.getId(), entity);
@@ -31,14 +31,14 @@ public class MemCacheEntity5Dao implements IEntity5Dao {
 		entity5sCache.remove(entity.getId());
 	}
 	
-	public Collection<Entity5> findAllEntity5s() throws DaoException {
-		Collection<Entity5> allList = new ArrayList<Entity5>();
+	public Collection findAllEntity5s() throws DaoException {
+		Collection allList = new ArrayList();
 		allList.addAll(entity5sCache.values());
 		return allList;
 	}
 	
 	public Entity5 findEntity5ById(String id) throws DaoException {
-		Entity5 result = entity5sCache.get(id);
+		Entity5 result = (Entity5)entity5sCache.get(id);
 		return result;
 	}
 	
