@@ -50,6 +50,7 @@ import [entity.supertype.entityPackage()/].[entity.supertype.name.toStandardNota
 
 // [/protected] for imports
 
+[let entityProperties : Sequence(Property) = entity.ownedAttributes->asSequence()->union(entity.ownedReferences->select(ref : Reference | ref.isNavigable())->asSequence())->asOrderedSet()->asSequence()]
 /**
  * [comment ownedComment.body/]
  */
@@ -64,8 +65,7 @@ public class [entity.name.toStandardNotation().toUpperFirst()/][entity.extension
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
-[for (it : Property | entity.ownedAttributes->filter(Property)->union(entity.ownedReferences->asSequence()->select(ref : Reference | ref.isNavigable())->asOrderedSet()->filter(Property)))]
+[for (it : Property | entityProperties)]
 	/**
      * Constant representing the name of the field [it.name/].
      */
@@ -77,7 +77,7 @@ public class [entity.name.toStandardNotation().toUpperFirst()/][entity.extension
      */
     private [entity.defaultPKType()/] id;
     
-[for (it : Property | entity.ownedAttributes->filter(Property)->union(entity.ownedReferences->asSequence()->select(ref : Reference | ref.isNavigable())->asOrderedSet()->filter(Property)))]
+[for (it : Property | entityProperties)]
     /**
      * Field [it.name/].
      */
@@ -116,19 +116,19 @@ public class [entity.name.toStandardNotation().toUpperFirst()/][entity.extension
 	public void setId(final [entity.defaultPKType()/] id) {
 		this.id = id;
 	}	
-[if (entity.ownedAttributes->filter(Property)->union(entity.ownedReferences->select(ref : Reference | ref.isNavigable())->filter(Property))->size() > 0)]
+[if (entityProperties->size() > 0)]
 
 	/**
 	 * Constructor with all parameters initialized.
-[for (it : Property | entity.ownedAttributes->filter(Property)->union(entity.ownedReferences->asSequence()->select(ref : Reference | ref.isNavigable())->asOrderedSet()->filter(Property)))]
+[for (it : Property | entityProperties)]
 	 * @param [it.name/]. [comment ownedComment.body/]
 [/for]
 	 */
-	public [entity.name.toStandardNotation().toUpperFirst()/]([for (it : Property | entity.ownedAttributes->filter(Property)->union(entity.ownedReferences->select(ref : Reference | ref.isNavigable())->filter(Property)))][if (i <> 1)], [/if][it.toJava()/][/for]) {
+	public [entity.name.toStandardNotation().toUpperFirst()/]([for (it : Property | entityProperties)][if (i <> 1)], [/if][it.toJava()/][/for]) {
 [if (entity.ownedAttributes->select(att : Attribute | att.isMultiValuated())->filter(Property)->union(entity.ownedReferences->select(ref : Reference | ref.isNavigable() and ref.isMultiValuated())->filter(Property))->size() > 0)]
 		this();
 [/if]
-[for (it : Property | entity.ownedAttributes->filter(Property)->union(entity.ownedReferences->asSequence()->select(ref : Reference | ref.isNavigable())->asOrderedSet()->filter(Property)))]
+[for (it : Property | entityProperties)]
 	[if (it.isMonoValuated())]
 		this.[it.name.toStandardNotation().toLowerFirst()/] = [name.toStandardNotation().toLowerFirst()/];
 	[else]
@@ -317,7 +317,7 @@ public class [entity.name.toStandardNotation().toUpperFirst()/][entity.extension
 			[/if]
 		
 		[else]
-			[for (it : Property | entity.ownedAttributes->filter(Property)->union(entity.ownedReferences->select(ref : Reference | ref.isNavigable())->filter(Property)))]
+			[for (it : Property | entityProperties)]
 				[if (it.oclIsKindOf(Attribute) and it.oclAsType(Attribute).type.isJavaPrimitiveType() = 'true')]
 		if ([it.name.toStandardNotation().toLowerFirst()/] != castedOther.get[it.name.toStandardNotation().toUpperFirst()/]()) {
 			return false;
@@ -372,6 +372,7 @@ public class [entity.name.toStandardNotation().toUpperFirst()/][entity.extension
 	// [/protected] for private methods
    
 }
+[/let]
 	[/file]
 [/template]
 
@@ -445,7 +446,7 @@ Collection[reference.toJavaVersion(reference.type.toJavaType())/]
  * @param arg0 the input name. 
  * /]
 [query public attributesWithName(entity : Entity, arg0 : String) : Attribute = 
-entity.attributes->select(att : Attribute | att.name = arg0)
+entity.attributes->select(att : Attribute | att.name = arg0)->first()
 /]
 
 [comment ** Get the references with the given name for the entity.
@@ -453,21 +454,21 @@ entity.attributes->select(att : Attribute | att.name = arg0)
  * @param arg0 the input name. 
  * /]
 [query public referencesWithName(entity : Entity, arg0 : String) : Reference = 
-entity.references->select(ref : Reference | ref.isNavigable() and ref.name = arg0)
+entity.references->select(ref : Reference | ref.isNavigable() and ref.name = arg0)->first()
 /]
 
 [comment ** Get the properties with the same attribute name of the given attribute.
  * @param attribute the input attribute.
  * /]
 [query public propertiesWithSameName(attribute : Attribute) : Sequence(Property) = 
-attribute.entity.attributesWithName(attribute.name)->filter(Property)->union(attribute.entity.referencesWithName(attribute.name)->filter(Property))
+attribute.entity.attributesWithName(attribute.name)->filter(Property)->union(attribute.entity.referencesWithName(attribute.name)->filter(Property))->asSequence()
 /]
 
 [comment ** Get the properties with the same reference name of the given reference.
  * @param reference the input reference.
  * /]
 [query public propertiesWithSameName(reference :Reference) : Sequence(Property) = 
-reference.entity.attributesWithName(reference.name)->filter(Property)->union(reference.entity.referencesWithName(reference.name)->filter(Property))
+reference.entity.attributesWithName(reference.name)->filter(Property)->union(reference.entity.referencesWithName(reference.name)->filter(Property))->asSequence()
 /]
 
 [comment ** Generates the index for the property.

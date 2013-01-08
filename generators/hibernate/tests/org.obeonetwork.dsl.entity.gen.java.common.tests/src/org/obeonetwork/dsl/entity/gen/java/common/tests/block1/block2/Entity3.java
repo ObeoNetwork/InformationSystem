@@ -7,8 +7,7 @@ import java.io.Serializable;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class Entity3 implements Serializable {
 
 	/**
@@ -20,7 +19,6 @@ public class Entity3 implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
     /**
      * Automatic primary key.
      */

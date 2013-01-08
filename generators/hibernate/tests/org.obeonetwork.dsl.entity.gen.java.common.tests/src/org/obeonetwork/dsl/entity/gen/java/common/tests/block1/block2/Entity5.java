@@ -8,8 +8,7 @@ import org.obeonetwork.dsl.entity.gen.java.common.tests.block1.Entity6;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class Entity5 extends Entity2 implements Serializable {
 
 	/**
@@ -21,7 +20,6 @@ public class Entity5 extends Entity2 implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
 	/**
      * Constant representing the name of the field reference2.
      */

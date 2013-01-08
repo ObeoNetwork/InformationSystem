@@ -8,8 +8,7 @@ import java.util.HashSet;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class Entity6 implements Serializable {
 
 	/**
@@ -21,7 +20,6 @@ public class Entity6 implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
 	/**
      * Constant representing the name of the field reference4.
      */
