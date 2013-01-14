@@ -22,14 +22,14 @@ import org.obeonetwork.sample.associations.IClass011ENDDao;
 public class Class011Test extends TestCase {
 	
 	/**
-	 * The DAO for class Class_01_1_END.
-	 */
-	private IClass011ENDDao class011ENDDao;
-	
-	/**
 	 * The DAO for class Class_01_1.
 	 */
 	private IClass011Dao class011Dao;
+	
+	/**
+	 * The DAO for class Class_01_1_END.
+	 */
+	private IClass011ENDDao class011ENDDao;
 	
 	/**
 	 * The transaction that will be used.
@@ -44,8 +44,8 @@ public class Class011Test extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 	    super.setUp();
-		class011ENDDao = SampleDaoFactory.getAssociationsClass011ENDDao();
 		class011Dao = SampleDaoFactory.getAssociationsClass011Dao();
+		class011ENDDao = SampleDaoFactory.getAssociationsClass011ENDDao();
 		tx = HibernateUtil.currentSession().beginTransaction();
 	}
 	

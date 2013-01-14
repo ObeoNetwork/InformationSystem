@@ -17,7 +17,7 @@ import org.obeonetwork.sample.customize.Person;
 import org.obeonetwork.sample.customize.Address;
 import org.obeonetwork.sample.customize.ICustomizeDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface ICustomizeDao based on the hibernate
@@ -34,7 +34,7 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	/**
 	 * Create a new element
 	 * @param person Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IPersonDao.createPerson
      */
 	public void createPerson(Person person) throws DaoException {
@@ -51,7 +51,7 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	 * Update an existing element
 	 * @param person
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IPersonDao.updatePerson
      */
 	public void updatePerson(Person person) throws DaoException {
@@ -68,7 +68,7 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param person Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IPersonDao.deletePerson
    	 */
 	public void deletePerson(Person person) throws DaoException {
@@ -84,7 +84,7 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IPersonDao.findAllPersons
      */
 	public Collection<Person> findAllPersons() throws DaoException {
@@ -105,7 +105,7 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IPersonDao.findPersonById
      */
 	public Person findPersonById(String id) throws DaoException {
@@ -126,7 +126,7 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	/**
 	 * Create a new element
 	 * @param address Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IAddressDao.createAddress
      */
 	public void createAddress(Address address) throws DaoException {
@@ -143,7 +143,7 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	 * Update an existing element
 	 * @param address
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IAddressDao.updateAddress
      */
 	public void updateAddress(Address address) throws DaoException {
@@ -160,7 +160,7 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param address Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IAddressDao.deleteAddress
    	 */
 	public void deleteAddress(Address address) throws DaoException {
@@ -176,7 +176,7 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IAddressDao.findAllAddresss
      */
 	public Collection<Address> findAllAddresss() throws DaoException {
@@ -197,7 +197,7 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IAddressDao.findAddressById
      */
 	public Address findAddressById(String id) throws DaoException {
@@ -218,3 +218,4 @@ public class HibernateCustomizeDao implements ICustomizeDao {
 	//Start of user code
 	//End of user code
 }
+

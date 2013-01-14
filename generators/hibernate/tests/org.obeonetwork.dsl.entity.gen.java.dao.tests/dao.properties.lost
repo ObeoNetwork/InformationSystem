@@ -248,3 +248,23 @@ org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.url=jdbc:mysql://localhos
 org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.login=tests
 org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.password=test
 # End of user code
+
+Mon Jan 14 17:26:26 CET 2013
+================================================================================
+Start of user code for SGBD datasource 
+org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.dataSource=java:comp/env/jdbc/tests
+org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.driver=com.mysql.jdbc.Driver
+org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.url=jdbc:mysql://localhost/tests
+org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.login=tests
+org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.password=test
+# End of user code
+
+Mon Jan 14 17:52:52 CET 2013
+================================================================================
+Start of user code for SGBD datasource 
+org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.dataSource=java:comp/env/jdbc/tests
+org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.driver=com.mysql.jdbc.Driver
+org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.url=jdbc:mysql://localhost/tests
+org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.login=tests
+org.obeonetwork.dsl.entity.gen.java.dao.tests.dao.jdbc.password=test
+# End of user code

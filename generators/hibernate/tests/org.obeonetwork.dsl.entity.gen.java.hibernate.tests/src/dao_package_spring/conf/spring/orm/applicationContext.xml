@@ -11,7 +11,7 @@
 	
 	<!--Start of user code for start of document -->	 
 
-	<!-- End of user code for start of document -->
+	<!-- End of user code -->
 	
 	<!-- Hibernate Transaction Manager -->
 	<bean id="transactionManager"
@@ -46,45 +46,39 @@
  				<prop key="hibernate.jdbc.batch_size">1</prop>
 			</props>
 		</property>
-		<!-- End of user code for hibernate properties -->
+		<!-- End of user code -->
 	</bean> 
-			<!-- kindOfDao -->
-		<bean id="KindOfDaoDAO" 
-			class="org.obeonetwork.sample.kindofdao.HibernateKindOfDaoDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for kind of dao specific configuration -->
-		<!-- End of user code  for kind of dao specific configuration -->
-		<!-- end kindOfDao -->
-
-
-		<!-- customize -->
-		<bean id="CustomizeDAO" 
-			class="org.obeonetwork.sample.customize.HibernateCustomizeDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for customize specific configuration -->
-		<!-- End of user code  for customize specific configuration -->
-		<!-- end customize -->
-
-
-		<!-- operation -->
-		<bean id="OperationDAO" 
-			class="org.obeonetwork.sample.operation.HibernateOperationDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for operation specific configuration -->
-		<!-- End of user code  for operation specific configuration -->
-		<!-- end operation -->
-
-
+	<!-- kindOfDao -->
+	<bean id="KindOfDaoDAO" 
+		class="org.obeonetwork.sample.kindofdao.HibernateKindOfDaoDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for kind of dao specific configuration -->
+		<!-- End of user code -->
+	<!-- end kindOfDao -->
+	<!-- customize -->
+	<bean id="CustomizeDAO" 
+		class="org.obeonetwork.sample.customize.HibernateCustomizeDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for customize specific configuration -->
+		<!-- End of user code -->
+	<!-- end customize -->
+	<!-- operation -->
+	<bean id="OperationDAO" 
+		class="org.obeonetwork.sample.operation.HibernateOperationDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for operation specific configuration -->
+		<!-- End of user code -->
+	<!-- end operation -->
 </beans>

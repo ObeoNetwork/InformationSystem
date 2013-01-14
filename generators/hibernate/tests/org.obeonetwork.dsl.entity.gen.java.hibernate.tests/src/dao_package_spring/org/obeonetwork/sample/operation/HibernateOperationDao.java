@@ -15,7 +15,7 @@ import org.obeonetwork.sample.operation.Operations;
 import org.obeonetwork.sample.operation.Finders;
 import org.obeonetwork.sample.operation.IOperationDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IOperationDao based on the hibernate
@@ -32,13 +32,14 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	/**
 	 * Create a new element
 	 * @param operations Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.operation.IOperationsDao.createOperations
      */
     public void createOperations(Operations operations) throws DaoException {
 		LOG.debug("Create a new Operations entity");
 		try {
 			getHibernateTemplate().save(operations);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -48,13 +49,14 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	 * Update an existing element
 	 * @param operations
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.operation.IOperationsDao.updateOperations
      */
 	public void updateOperations(Operations operations) throws DaoException {
 		LOG.debug("Update the entity Operations with id =" + operations.getId());
 		try {
 			getHibernateTemplate().update(operations);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -64,13 +66,14 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param operations Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.operation.IOperationsDao.deleteOperations
    	 */
 	public void deleteOperations(Operations operations) throws DaoException {
 		LOG.debug("Delete the entity Operations with id =" + operations.getId());
 		try {
 			getHibernateTemplate().delete(operations);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -79,7 +82,7 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.operation.IOperationsDao.findAllOperationss
      */
 	public Collection<Operations> findAllOperationss() throws DaoException {
@@ -98,7 +101,7 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.operation.IOperationsDao.findOperationsById
      */
 	public Operations findOperationsById(String id) throws DaoException {
@@ -114,13 +117,14 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	/**
 	 * Create a new element
 	 * @param finders Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.operation.IFindersDao.createFinders
      */
     public void createFinders(Finders finders) throws DaoException {
 		LOG.debug("Create a new Finders entity");
 		try {
 			getHibernateTemplate().save(finders);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -130,13 +134,14 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	 * Update an existing element
 	 * @param finders
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.operation.IFindersDao.updateFinders
      */
 	public void updateFinders(Finders finders) throws DaoException {
 		LOG.debug("Update the entity Finders with id =" + finders.getId());
 		try {
 			getHibernateTemplate().update(finders);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -146,13 +151,14 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param finders Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.operation.IFindersDao.deleteFinders
    	 */
 	public void deleteFinders(Finders finders) throws DaoException {
 		LOG.debug("Delete the entity Finders with id =" + finders.getId());
 		try {
 			getHibernateTemplate().delete(finders);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -161,7 +167,7 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.operation.IFindersDao.findAllFinderss
      */
 	public Collection<Finders> findAllFinderss() throws DaoException {
@@ -180,7 +186,7 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.operation.IFindersDao.findFindersById
      */
 	public Finders findFindersById(String id) throws DaoException {
@@ -205,7 +211,7 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 			Criteria criteria = getSession().createCriteria(Finders.class);
 
 			resultList = criteria.list();
-			// End of user code for finder :  finder
+			// End of user code
 			LOG.debug("Find " + resultList.size() + " instances of finder :  entity");
 			return resultList;
 		} catch (HibernateException e) {
@@ -216,3 +222,4 @@ public class HibernateOperationDao extends HibernateDaoSupport implements IOpera
 	//Start of user code
 	//End of user code
 }
+

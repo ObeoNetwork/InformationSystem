@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.customize.Address" 
     	table="ADDRESS"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -33,7 +33,6 @@
 			 | ADDRESS |- 1 {-} 1 -| PERSON |
 			  _________             ________
 		-->
-
         <many-to-one 
         	name="person" 
         	class="org.obeonetwork.sample.customize.Person" 
@@ -46,8 +45,6 @@
 
 
 		<!-- Inheritance -->
-
-
 
 
     </class>

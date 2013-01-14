@@ -14,7 +14,7 @@ import org.obeonetwork.fwk.dao.exception.DaoException;
 import org.obeonetwork.sample.kindofdao.ExempleDirect;
 import org.obeonetwork.sample.kindofdao.IKindOfDaoDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IKindOfDaoDao based on the hibernate
@@ -31,13 +31,14 @@ public class HibernateKindOfDaoDao extends HibernateDaoSupport implements IKindO
 	/**
 	 * Create a new element
 	 * @param exempleDirect Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.kindofdao.IExempleDirectDao.createExempleDirect
      */
     public void createExempleDirect(ExempleDirect exempleDirect) throws DaoException {
 		LOG.debug("Create a new ExempleDirect entity");
 		try {
 			getHibernateTemplate().save(exempleDirect);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -47,13 +48,14 @@ public class HibernateKindOfDaoDao extends HibernateDaoSupport implements IKindO
 	 * Update an existing element
 	 * @param exempleDirect
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.kindofdao.IExempleDirectDao.updateExempleDirect
      */
 	public void updateExempleDirect(ExempleDirect exempleDirect) throws DaoException {
 		LOG.debug("Update the entity ExempleDirect with id =" + exempleDirect.getId());
 		try {
 			getHibernateTemplate().update(exempleDirect);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -63,13 +65,14 @@ public class HibernateKindOfDaoDao extends HibernateDaoSupport implements IKindO
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param exempleDirect Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.kindofdao.IExempleDirectDao.deleteExempleDirect
    	 */
 	public void deleteExempleDirect(ExempleDirect exempleDirect) throws DaoException {
 		LOG.debug("Delete the entity ExempleDirect with id =" + exempleDirect.getId());
 		try {
 			getHibernateTemplate().delete(exempleDirect);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -78,7 +81,7 @@ public class HibernateKindOfDaoDao extends HibernateDaoSupport implements IKindO
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.kindofdao.IExempleDirectDao.findAllExempleDirects
      */
 	public Collection<ExempleDirect> findAllExempleDirects() throws DaoException {
@@ -97,7 +100,7 @@ public class HibernateKindOfDaoDao extends HibernateDaoSupport implements IKindO
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.kindofdao.IExempleDirectDao.findExempleDirectById
      */
 	public ExempleDirect findExempleDirectById(String id) throws DaoException {
@@ -113,3 +116,4 @@ public class HibernateKindOfDaoDao extends HibernateDaoSupport implements IKindO
 	//Start of user code
 	//End of user code
 }
+
