@@ -8,7 +8,6 @@ import junit.framework.TestCase;
 import org.obeonetwork.fwk.dao.exception.DaoException;
 import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.SampleDaoFactory;
-
 import junit.framework.Assert;
 
 import org.obeonetwork.sample.associations.IAssociationsDao;
@@ -20,20 +19,14 @@ import org.obeonetwork.sample.associations.Class101;
 import org.obeonetwork.sample.associations.Class101END;
 import org.obeonetwork.sample.associations.Class101BI;
 import org.obeonetwork.sample.associations.Class101BIEND;
-import org.obeonetwork.sample.associations.Class101BI;
 import org.obeonetwork.sample.associations.Class011;
-import org.obeonetwork.sample.associations.Class011END;
 import org.obeonetwork.sample.associations.Class011END;
 import org.obeonetwork.sample.associations.Class011BI;
 import org.obeonetwork.sample.associations.Class011BIEND;
-import org.obeonetwork.sample.associations.Class011BIEND;
 import org.obeonetwork.sample.associations.Class11;
 import org.obeonetwork.sample.associations.Class11END;
-import org.obeonetwork.sample.associations.Class11END;
 import org.obeonetwork.sample.associations.Class11BI;
 import org.obeonetwork.sample.associations.Class11BIEND;
-import org.obeonetwork.sample.associations.Class11BIEND;
-import org.obeonetwork.sample.associations.Class11BI;
 import org.obeonetwork.sample.associations.Class01Many;
 import org.obeonetwork.sample.associations.Class01ManyEND;
 import org.obeonetwork.sample.associations.Class01ManyBI;
@@ -46,6 +39,7 @@ import org.obeonetwork.sample.associations.ClassManyMany;
 import org.obeonetwork.sample.associations.ClassManyManyEnd;
 import org.obeonetwork.sample.associations.ClassManyManyBI;
 import org.obeonetwork.sample.associations.ClassManyManyBIEND;
+
 // End of user code
 
 /**
@@ -71,7 +65,7 @@ public class AssociationsTest extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 	    super.setUp();
-		associationsDao = SampleDaoFactory.getAssociationsAssociationsDao();
+		associationsDao = null; //FIXME
 		tx = HibernateUtil.currentSession().beginTransaction();
 	}
 	

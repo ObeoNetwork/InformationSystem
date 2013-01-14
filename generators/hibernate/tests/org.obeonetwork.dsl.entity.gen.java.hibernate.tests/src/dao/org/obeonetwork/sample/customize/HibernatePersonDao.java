@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.customize.Person;
 import org.obeonetwork.sample.customize.IPersonDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IPersonDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernatePersonDao implements IPersonDao {
 	/**
 	 * Create a new element
 	 * @param person Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IPersonDao.createPerson
      */
 	public void createPerson(final Person person) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernatePersonDao implements IPersonDao {
 	 * Update an existing element
 	 * @param person
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IPersonDao.updatePerson
      */
 	public void updatePerson(Person person) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernatePersonDao implements IPersonDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param person Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IPersonDao.deletePerson
    	 */
 	public void deletePerson(Person person) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernatePersonDao implements IPersonDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IPersonDao.findAllPersons
      */
 	public Collection<Person> findAllPersons() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernatePersonDao implements IPersonDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IPersonDao.findPersonById
      */
 	public Person findPersonById(String id) throws DaoException {

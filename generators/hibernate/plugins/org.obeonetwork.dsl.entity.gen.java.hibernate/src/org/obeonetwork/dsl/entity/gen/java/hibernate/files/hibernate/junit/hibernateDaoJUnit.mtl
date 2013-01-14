@@ -20,7 +20,7 @@
 [import org::obeonetwork::dsl::environment::gen::java::common::common/]
 [import org::obeonetwork::dsl::entity::gen::java::dao::common::daoCommon/]
 [import org::obeonetwork::dsl::entity::gen::java::hibernate::files::spring::xml::applicationContext/]
-[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoFactoryPackage/]
+[import org::obeonetwork::dsl::entity::gen::java::dao::files::java::daoFactory/]
 
 
 [comment ** Generates the hibernate test package name for the given element.
@@ -499,7 +499,7 @@ private Transaction tx;
 protected void setUp() throws Exception {
     super.setUp();
 	[for (it2 : Block | aBlock->union(aBlock.externalDAOs()))]
-	[it2.DAOName()/] = [it2.DAOFactoryName()/].[it2.DAOGetterName()/]();
+	[it2.DAOName()/] = [comment][it2.DAOFactoryName()/].[it2.DAOGetterName()/]();[/comment]null; //FIXME
 	[/for]
 	tx = HibernateUtil.currentSession().beginTransaction();
 }

@@ -39,7 +39,7 @@ public class ClassManyManyBIENDTest extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 	    super.setUp();
-		classManyManyBIENDDao = SampleDaoFactory.getAssociationsClass_Many_Many_BI_ENDClassManyManyBIENDDao();
+		classManyManyBIENDDao = SampleDaoFactory.getAssociationsClassManyManyBIENDDao();
 		tx = HibernateUtil.currentSession().beginTransaction();
 	}
 	

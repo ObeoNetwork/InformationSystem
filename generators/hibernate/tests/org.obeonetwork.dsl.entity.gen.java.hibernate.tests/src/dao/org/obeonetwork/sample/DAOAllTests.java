@@ -10,7 +10,7 @@ import org.obeonetwork.sample.customize.test.AddressTest;
 import org.obeonetwork.sample.operation.test.OperationsTest;
 import org.obeonetwork.sample.operation.test.FindersTest;
 
-// End of user code for import
+// End of user code
 
 /**
  * Test class for All DAO Tests.
@@ -28,7 +28,7 @@ public class DAOAllTests {
 		suite.addTestSuite(FindersTest.class);
 		//Start of user code others unit tests
 		
-		//End of user code others unit tests
+		//End of user code
 		return suite;
 	}
 
