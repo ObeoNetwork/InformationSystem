@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.inheritence.tablepersubclass.Root" 
     	table="ROOT_1"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -26,11 +26,10 @@
 
 		<!-- Inheritance -->
 
-
 		<joined-subclass
 			name="org.obeonetwork.sample.inheritence.tablepersubclass.C1" 
     		table="C1_1"
-    	dynamic-update="true">
+    	    dynamic-update="true">
     		
     		<key column="FK_INHERITS_ROOT_ID"/>
     		
@@ -50,7 +49,7 @@
 		<joined-subclass
 			name="org.obeonetwork.sample.inheritence.tablepersubclass.C2" 
     		table="C2_1"
-    	dynamic-update="true">
+    	    dynamic-update="true">
     		
     		<key column="FK_INHERITS_ROOT_ID"/>
     		
@@ -66,7 +65,6 @@
 			<!-- Inheritance -->
 
     	</joined-subclass>
-
 
 
     </class>

@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.inheritence.tableperhierarchy.Root" 
     	table="ROOT"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -26,7 +26,6 @@
 
 
 		<!-- Inheritance -->
-
 
 		<subclass name="org.obeonetwork.sample.inheritence.tableperhierarchy.C1" discriminator-value="org.obeonetwork.sample.inheritence.tableperhierarchy.C1">
 			<!-- Properties -->
@@ -51,7 +50,6 @@
 
     	</subclass>
 		
-
 
 
     </class>

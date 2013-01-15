@@ -31,7 +31,7 @@ import org.obeonetwork.sample.inheritence.tablepersubclass.test
 import org.obeonetwork.sample.attributes.test
 .AttributesTest;
 
-// End of user code for import
+// End of user code
 
 /**
  * Test class for All DAO Tests.
@@ -57,7 +57,7 @@ public class DAOAllTests {
 		suite.addTestSuite(AttributesTest.class);
 		//Start of user code others unit tests
 		
-		//End of user code others unit tests
+		//End of user code
 		return suite;
 	}
 

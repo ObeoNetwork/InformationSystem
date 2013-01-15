@@ -17,7 +17,7 @@ import org.obeonetwork.sample.attributes.Cardinality;
 import org.obeonetwork.sample.attributes.PrimitiveType;
 import org.obeonetwork.sample.attributes.IAttributesDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IAttributesDao based on the hibernate
@@ -34,7 +34,7 @@ public class HibernateAttributesDao implements IAttributesDao {
 	/**
 	 * Create a new element
 	 * @param cardinality Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.ICardinalityDao.createCardinality
      */
 	public void createCardinality(Cardinality cardinality) throws DaoException {
@@ -51,7 +51,7 @@ public class HibernateAttributesDao implements IAttributesDao {
 	 * Update an existing element
 	 * @param cardinality
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.ICardinalityDao.updateCardinality
      */
 	public void updateCardinality(Cardinality cardinality) throws DaoException {
@@ -68,7 +68,7 @@ public class HibernateAttributesDao implements IAttributesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param cardinality Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.ICardinalityDao.deleteCardinality
    	 */
 	public void deleteCardinality(Cardinality cardinality) throws DaoException {
@@ -84,7 +84,7 @@ public class HibernateAttributesDao implements IAttributesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.ICardinalityDao.findAllCardinalitys
      */
 	public Collection<Cardinality> findAllCardinalitys() throws DaoException {
@@ -105,7 +105,7 @@ public class HibernateAttributesDao implements IAttributesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.ICardinalityDao.findCardinalityById
      */
 	public Cardinality findCardinalityById(String id) throws DaoException {
@@ -126,7 +126,7 @@ public class HibernateAttributesDao implements IAttributesDao {
 	/**
 	 * Create a new element
 	 * @param primitiveType Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.IPrimitiveTypeDao.createPrimitiveType
      */
 	public void createPrimitiveType(PrimitiveType primitiveType) throws DaoException {
@@ -143,7 +143,7 @@ public class HibernateAttributesDao implements IAttributesDao {
 	 * Update an existing element
 	 * @param primitiveType
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.IPrimitiveTypeDao.updatePrimitiveType
      */
 	public void updatePrimitiveType(PrimitiveType primitiveType) throws DaoException {
@@ -160,7 +160,7 @@ public class HibernateAttributesDao implements IAttributesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param primitiveType Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.IPrimitiveTypeDao.deletePrimitiveType
    	 */
 	public void deletePrimitiveType(PrimitiveType primitiveType) throws DaoException {
@@ -176,7 +176,7 @@ public class HibernateAttributesDao implements IAttributesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.IPrimitiveTypeDao.findAllPrimitiveTypes
      */
 	public Collection<PrimitiveType> findAllPrimitiveTypes() throws DaoException {
@@ -197,7 +197,7 @@ public class HibernateAttributesDao implements IAttributesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.IPrimitiveTypeDao.findPrimitiveTypeById
      */
 	public PrimitiveType findPrimitiveTypeById(String id) throws DaoException {
@@ -218,3 +218,4 @@ public class HibernateAttributesDao implements IAttributesDao {
 	//Start of user code
 	//End of user code
 }
+
