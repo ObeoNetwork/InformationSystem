@@ -17,7 +17,7 @@ import org.obeonetwork.sample.collections.associations.unidirectional.assounidio
 import org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.B;
 import org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IAssounidionetomanyDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IAssounidionetomanyDao based on the hibernate
@@ -34,7 +34,7 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	/**
 	 * Create a new element
 	 * @param a Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IADao.createA
      */
 	public void createA(A a) throws DaoException {
@@ -51,7 +51,7 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	 * Update an existing element
 	 * @param a
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IADao.updateA
      */
 	public void updateA(A a) throws DaoException {
@@ -68,7 +68,7 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param a Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IADao.deleteA
    	 */
 	public void deleteA(A a) throws DaoException {
@@ -84,7 +84,7 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IADao.findAllAs
      */
 	public Collection<A> findAllAs() throws DaoException {
@@ -105,7 +105,7 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IADao.findAById
      */
 	public A findAById(String id) throws DaoException {
@@ -126,7 +126,7 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	/**
 	 * Create a new element
 	 * @param b Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IBDao.createB
      */
 	public void createB(B b) throws DaoException {
@@ -143,7 +143,7 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	 * Update an existing element
 	 * @param b
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IBDao.updateB
      */
 	public void updateB(B b) throws DaoException {
@@ -160,7 +160,7 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param b Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IBDao.deleteB
    	 */
 	public void deleteB(B b) throws DaoException {
@@ -176,7 +176,7 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IBDao.findAllBs
      */
 	public Collection<B> findAllBs() throws DaoException {
@@ -197,7 +197,7 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.IBDao.findBById
      */
 	public B findBById(String id) throws DaoException {
@@ -218,3 +218,4 @@ public class HibernateAssounidionetomanyDao implements IAssounidionetomanyDao {
 	//Start of user code
 	//End of user code
 }
+

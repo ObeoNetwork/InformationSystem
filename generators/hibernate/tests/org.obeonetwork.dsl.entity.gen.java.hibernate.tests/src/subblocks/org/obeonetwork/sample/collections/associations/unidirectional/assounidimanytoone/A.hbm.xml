@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.collections.associations.unidirectional.assounidimanytoone.A" 
     	table="A_4"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -24,7 +24,6 @@
 			 | A |- * -} 1 -| B |
 			  ___            ___
 		-->
-
 		<many-to-one 
 			name="b" 
 			class="org.obeonetwork.sample.collections.associations.unidirectional.assounidimanytoone.B" 
@@ -33,8 +32,6 @@
 
 
 		<!-- Inheritance -->
-
-
 
 
     </class>
