@@ -8,8 +8,7 @@ import java.util.Date;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class Person implements Serializable {
 
 	/**
@@ -21,7 +20,6 @@ public class Person implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
 	/**
      * Constant representing the name of the field firstName.
      */
@@ -234,6 +232,6 @@ public class Person implements Serializable {
    
 	// Start of user code for private methods
 	// TODO Remove this line and add your private methods here
-	// End of user code
+	// End of user code for private methods
    
 }

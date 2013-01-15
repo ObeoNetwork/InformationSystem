@@ -22,14 +22,14 @@ import org.obeonetwork.sample.associations.IClass11BIDao;
 public class Class11BIENDTest extends TestCase {
 	
 	/**
-	 * The DAO for class Class_1_1_BI.
-	 */
-	private IClass11BIDao class11BIDao;
-	
-	/**
 	 * The DAO for class Class_1_1_BI_END.
 	 */
 	private IClass11BIENDDao class11BIENDDao;
+	
+	/**
+	 * The DAO for class Class_1_1_BI.
+	 */
+	private IClass11BIDao class11BIDao;
 	
 	/**
 	 * The transaction that will be used.
@@ -44,8 +44,8 @@ public class Class11BIENDTest extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 	    super.setUp();
-		class11BIDao = SampleDaoFactory.getAssociationsClass_1_1_BIClass11BIDao();
-		class11BIENDDao = SampleDaoFactory.getAssociationsClass_1_1_BI_ENDClass11BIENDDao();
+		class11BIENDDao = SampleDaoFactory.getAssociationsClass11BIENDDao();
+		class11BIDao = SampleDaoFactory.getAssociationsClass11BIDao();
 		tx = HibernateUtil.currentSession().beginTransaction();
 	}
 	

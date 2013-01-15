@@ -39,7 +39,7 @@ public class Class0101Test extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 	    super.setUp();
-		class0101Dao = SampleDaoFactory.getAssociationsClass_01_01Class0101Dao();
+		class0101Dao = SampleDaoFactory.getAssociationsClass0101Dao();
 		tx = HibernateUtil.currentSession().beginTransaction();
 	}
 	

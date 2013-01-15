@@ -44,8 +44,8 @@ public class Class101BIENDTest extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 	    super.setUp();
-		class101BIDao = SampleDaoFactory.getAssociationsClass_1_01_BIClass101BIDao();
-		class101BIENDDao = SampleDaoFactory.getAssociationsClass_1_01_BI_ENDClass101BIENDDao();
+		class101BIDao = SampleDaoFactory.getAssociationsClass101BIDao();
+		class101BIENDDao = SampleDaoFactory.getAssociationsClass101BIENDDao();
 		tx = HibernateUtil.currentSession().beginTransaction();
 	}
 	

@@ -143,7 +143,7 @@ get[anEntity.getterPrefix()/][anEntity.name.toStandardNotation().toUpperFirst()/
 
 [template public getterPrefix(anEntity : Entity) post(trim())]
 [if (not getProperty('daogetter' + anEntity.name).oclIsUndefined())]
-	[anEntity.block.normalizedName().toUpperFirst() + anEntity.name/]
+	[anEntity.block.camelCaseName().toUpperFirst() + anEntity.name/]
 [/if]
 [/template]
 

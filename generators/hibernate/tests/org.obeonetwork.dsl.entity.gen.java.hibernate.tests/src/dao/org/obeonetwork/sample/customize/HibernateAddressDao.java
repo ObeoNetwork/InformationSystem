@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.customize.Address;
 import org.obeonetwork.sample.customize.IAddressDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IAddressDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateAddressDao implements IAddressDao {
 	/**
 	 * Create a new element
 	 * @param address Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IAddressDao.createAddress
      */
 	public void createAddress(final Address address) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateAddressDao implements IAddressDao {
 	 * Update an existing element
 	 * @param address
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IAddressDao.updateAddress
      */
 	public void updateAddress(Address address) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateAddressDao implements IAddressDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param address Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IAddressDao.deleteAddress
    	 */
 	public void deleteAddress(Address address) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateAddressDao implements IAddressDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IAddressDao.findAllAddresss
      */
 	public Collection<Address> findAllAddresss() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateAddressDao implements IAddressDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.customize.IAddressDao.findAddressById
      */
 	public Address findAddressById(String id) throws DaoException {

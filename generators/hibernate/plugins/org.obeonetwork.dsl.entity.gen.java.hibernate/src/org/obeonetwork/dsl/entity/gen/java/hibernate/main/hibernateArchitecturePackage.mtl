@@ -32,7 +32,7 @@
 	[for (it : Entity | root.eAllContents(Entity))] 
 		[it.generateEntity()/]
 	[/for]
-	[root.daoFactory()/]
+	[root.daoFactoryPack()/]
 	[for (it : Block | root.eAllContents(Block))] 
 		[it.daoInterfaceDirect()/]
 	[/for]

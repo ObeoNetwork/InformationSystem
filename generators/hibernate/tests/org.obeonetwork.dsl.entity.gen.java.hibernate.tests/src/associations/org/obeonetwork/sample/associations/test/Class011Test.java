@@ -44,8 +44,8 @@ public class Class011Test extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 	    super.setUp();
-		class011Dao = SampleDaoFactory.getAssociationsClass_01_1Class011Dao();
-		class011ENDDao = SampleDaoFactory.getAssociationsClass_01_1_ENDClass011ENDDao();
+		class011Dao = SampleDaoFactory.getAssociationsClass011Dao();
+		class011ENDDao = SampleDaoFactory.getAssociationsClass011ENDDao();
 		tx = HibernateUtil.currentSession().beginTransaction();
 	}
 	
