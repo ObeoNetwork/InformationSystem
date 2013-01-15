@@ -22,7 +22,7 @@ import org.obeonetwork.sample.inheritance.Sub1;
 import org.obeonetwork.sample.inheritance.Sub2;
 import org.obeonetwork.sample.inheritance.IInheritanceDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IInheritanceDao based on the hibernate
@@ -39,13 +39,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Create a new element
 	 * @param basic Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IBasicDao.createBasic
      */
     public void createBasic(Basic basic) throws DaoException {
 		LOG.debug("Create a new Basic entity");
 		try {
 			getHibernateTemplate().save(basic);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -55,13 +56,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Update an existing element
 	 * @param basic
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IBasicDao.updateBasic
      */
 	public void updateBasic(Basic basic) throws DaoException {
 		LOG.debug("Update the entity Basic with id =" + basic.getId());
 		try {
 			getHibernateTemplate().update(basic);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -71,13 +73,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param basic Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IBasicDao.deleteBasic
    	 */
 	public void deleteBasic(Basic basic) throws DaoException {
 		LOG.debug("Delete the entity Basic with id =" + basic.getId());
 		try {
 			getHibernateTemplate().delete(basic);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -86,7 +89,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IBasicDao.findAllBasics
      */
 	public Collection<Basic> findAllBasics() throws DaoException {
@@ -105,7 +108,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IBasicDao.findBasicById
      */
 	public Basic findBasicById(String id) throws DaoException {
@@ -121,13 +124,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Create a new element
 	 * @param basicWithoutAttr Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao.createBasicWithoutAttr
      */
     public void createBasicWithoutAttr(BasicWithoutAttr basicWithoutAttr) throws DaoException {
 		LOG.debug("Create a new BasicWithoutAttr entity");
 		try {
 			getHibernateTemplate().save(basicWithoutAttr);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -137,13 +141,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Update an existing element
 	 * @param basicWithoutAttr
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao.updateBasicWithoutAttr
      */
 	public void updateBasicWithoutAttr(BasicWithoutAttr basicWithoutAttr) throws DaoException {
 		LOG.debug("Update the entity BasicWithoutAttr with id =" + basicWithoutAttr.getId());
 		try {
 			getHibernateTemplate().update(basicWithoutAttr);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -153,13 +158,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param basicWithoutAttr Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao.deleteBasicWithoutAttr
    	 */
 	public void deleteBasicWithoutAttr(BasicWithoutAttr basicWithoutAttr) throws DaoException {
 		LOG.debug("Delete the entity BasicWithoutAttr with id =" + basicWithoutAttr.getId());
 		try {
 			getHibernateTemplate().delete(basicWithoutAttr);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -168,7 +174,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao.findAllBasicWithoutAttrs
      */
 	public Collection<BasicWithoutAttr> findAllBasicWithoutAttrs() throws DaoException {
@@ -187,7 +193,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao.findBasicWithoutAttrById
      */
 	public BasicWithoutAttr findBasicWithoutAttrById(String id) throws DaoException {
@@ -203,13 +209,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Create a new element
 	 * @param root Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IRootDao.createRoot
      */
     public void createRoot(Root root) throws DaoException {
 		LOG.debug("Create a new Root entity");
 		try {
 			getHibernateTemplate().save(root);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -219,13 +226,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Update an existing element
 	 * @param root
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IRootDao.updateRoot
      */
 	public void updateRoot(Root root) throws DaoException {
 		LOG.debug("Update the entity Root with id =" + root.getId());
 		try {
 			getHibernateTemplate().update(root);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -235,13 +243,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param root Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IRootDao.deleteRoot
    	 */
 	public void deleteRoot(Root root) throws DaoException {
 		LOG.debug("Delete the entity Root with id =" + root.getId());
 		try {
 			getHibernateTemplate().delete(root);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -250,7 +259,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IRootDao.findAllRoots
      */
 	public Collection<Root> findAllRoots() throws DaoException {
@@ -269,7 +278,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IRootDao.findRootById
      */
 	public Root findRootById(String id) throws DaoException {
@@ -285,13 +294,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Create a new element
 	 * @param classA1 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA1Dao.createClassA1
      */
     public void createClassA1(ClassA1 classA1) throws DaoException {
 		LOG.debug("Create a new ClassA1 entity");
 		try {
 			getHibernateTemplate().save(classA1);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -301,13 +311,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Update an existing element
 	 * @param classA1
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA1Dao.updateClassA1
      */
 	public void updateClassA1(ClassA1 classA1) throws DaoException {
 		LOG.debug("Update the entity ClassA1 with id =" + classA1.getId());
 		try {
 			getHibernateTemplate().update(classA1);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -317,13 +328,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classA1 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA1Dao.deleteClassA1
    	 */
 	public void deleteClassA1(ClassA1 classA1) throws DaoException {
 		LOG.debug("Delete the entity ClassA1 with id =" + classA1.getId());
 		try {
 			getHibernateTemplate().delete(classA1);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -332,7 +344,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA1Dao.findAllClassA1s
      */
 	public Collection<ClassA1> findAllClassA1s() throws DaoException {
@@ -351,7 +363,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA1Dao.findClassA1ById
      */
 	public ClassA1 findClassA1ById(String id) throws DaoException {
@@ -367,13 +379,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Create a new element
 	 * @param classA2 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA2Dao.createClassA2
      */
     public void createClassA2(ClassA2 classA2) throws DaoException {
 		LOG.debug("Create a new ClassA2 entity");
 		try {
 			getHibernateTemplate().save(classA2);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -383,13 +396,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Update an existing element
 	 * @param classA2
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA2Dao.updateClassA2
      */
 	public void updateClassA2(ClassA2 classA2) throws DaoException {
 		LOG.debug("Update the entity ClassA2 with id =" + classA2.getId());
 		try {
 			getHibernateTemplate().update(classA2);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -399,13 +413,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classA2 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA2Dao.deleteClassA2
    	 */
 	public void deleteClassA2(ClassA2 classA2) throws DaoException {
 		LOG.debug("Delete the entity ClassA2 with id =" + classA2.getId());
 		try {
 			getHibernateTemplate().delete(classA2);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -414,7 +429,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA2Dao.findAllClassA2s
      */
 	public Collection<ClassA2> findAllClassA2s() throws DaoException {
@@ -433,7 +448,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA2Dao.findClassA2ById
      */
 	public ClassA2 findClassA2ById(String id) throws DaoException {
@@ -449,13 +464,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Create a new element
 	 * @param classA3 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA3Dao.createClassA3
      */
     public void createClassA3(ClassA3 classA3) throws DaoException {
 		LOG.debug("Create a new ClassA3 entity");
 		try {
 			getHibernateTemplate().save(classA3);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -465,13 +481,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Update an existing element
 	 * @param classA3
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA3Dao.updateClassA3
      */
 	public void updateClassA3(ClassA3 classA3) throws DaoException {
 		LOG.debug("Update the entity ClassA3 with id =" + classA3.getId());
 		try {
 			getHibernateTemplate().update(classA3);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -481,13 +498,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classA3 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA3Dao.deleteClassA3
    	 */
 	public void deleteClassA3(ClassA3 classA3) throws DaoException {
 		LOG.debug("Delete the entity ClassA3 with id =" + classA3.getId());
 		try {
 			getHibernateTemplate().delete(classA3);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -496,7 +514,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA3Dao.findAllClassA3s
      */
 	public Collection<ClassA3> findAllClassA3s() throws DaoException {
@@ -515,7 +533,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA3Dao.findClassA3ById
      */
 	public ClassA3 findClassA3ById(String id) throws DaoException {
@@ -531,13 +549,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Create a new element
 	 * @param main Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IMainDao.createMain
      */
     public void createMain(Main main) throws DaoException {
 		LOG.debug("Create a new Main entity");
 		try {
 			getHibernateTemplate().save(main);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -547,13 +566,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Update an existing element
 	 * @param main
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IMainDao.updateMain
      */
 	public void updateMain(Main main) throws DaoException {
 		LOG.debug("Update the entity Main with id =" + main.getId());
 		try {
 			getHibernateTemplate().update(main);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -563,13 +583,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param main Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IMainDao.deleteMain
    	 */
 	public void deleteMain(Main main) throws DaoException {
 		LOG.debug("Delete the entity Main with id =" + main.getId());
 		try {
 			getHibernateTemplate().delete(main);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -578,7 +599,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IMainDao.findAllMains
      */
 	public Collection<Main> findAllMains() throws DaoException {
@@ -597,7 +618,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IMainDao.findMainById
      */
 	public Main findMainById(String id) throws DaoException {
@@ -613,13 +634,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Create a new element
 	 * @param sub1 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub1Dao.createSub1
      */
     public void createSub1(Sub1 sub1) throws DaoException {
 		LOG.debug("Create a new Sub1 entity");
 		try {
 			getHibernateTemplate().save(sub1);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -629,13 +651,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Update an existing element
 	 * @param sub1
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub1Dao.updateSub1
      */
 	public void updateSub1(Sub1 sub1) throws DaoException {
 		LOG.debug("Update the entity Sub1 with id =" + sub1.getId());
 		try {
 			getHibernateTemplate().update(sub1);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -645,13 +668,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param sub1 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub1Dao.deleteSub1
    	 */
 	public void deleteSub1(Sub1 sub1) throws DaoException {
 		LOG.debug("Delete the entity Sub1 with id =" + sub1.getId());
 		try {
 			getHibernateTemplate().delete(sub1);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -660,7 +684,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub1Dao.findAllSub1s
      */
 	public Collection<Sub1> findAllSub1s() throws DaoException {
@@ -679,7 +703,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub1Dao.findSub1ById
      */
 	public Sub1 findSub1ById(String id) throws DaoException {
@@ -695,13 +719,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Create a new element
 	 * @param sub2 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub2Dao.createSub2
      */
     public void createSub2(Sub2 sub2) throws DaoException {
 		LOG.debug("Create a new Sub2 entity");
 		try {
 			getHibernateTemplate().save(sub2);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -711,13 +736,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Update an existing element
 	 * @param sub2
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub2Dao.updateSub2
      */
 	public void updateSub2(Sub2 sub2) throws DaoException {
 		LOG.debug("Update the entity Sub2 with id =" + sub2.getId());
 		try {
 			getHibernateTemplate().update(sub2);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -727,13 +753,14 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param sub2 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub2Dao.deleteSub2
    	 */
 	public void deleteSub2(Sub2 sub2) throws DaoException {
 		LOG.debug("Delete the entity Sub2 with id =" + sub2.getId());
 		try {
 			getHibernateTemplate().delete(sub2);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -742,7 +769,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub2Dao.findAllSub2s
      */
 	public Collection<Sub2> findAllSub2s() throws DaoException {
@@ -761,7 +788,7 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub2Dao.findSub2ById
      */
 	public Sub2 findSub2ById(String id) throws DaoException {
@@ -777,3 +804,4 @@ public class HibernateInheritanceDao extends HibernateDaoSupport implements IInh
 	//Start of user code
 	//End of user code
 }
+

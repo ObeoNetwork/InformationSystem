@@ -6,7 +6,7 @@ import junit.framework.TestSuite;
 
 import org.obeonetwork.sample.inheritance.test.InheritanceTest;
 
-// End of user code for import
+// End of user code
 
 /**
  * Test class for All DAO Tests.
@@ -20,7 +20,7 @@ public class DAOAllTests {
 		suite.addTestSuite(InheritanceTest.class);
 		//Start of user code others unit tests
 		
-		//End of user code others unit tests
+		//End of user code
 		return suite;
 	}
 

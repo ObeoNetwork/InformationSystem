@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.inheritance.Sub2;
 import org.obeonetwork.sample.inheritance.ISub2Dao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface ISub2Dao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateSub2Dao implements ISub2Dao {
 	/**
 	 * Create a new element
 	 * @param sub2 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub2Dao.createSub2
      */
 	public void createSub2(final Sub2 sub2) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateSub2Dao implements ISub2Dao {
 	 * Update an existing element
 	 * @param sub2
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub2Dao.updateSub2
      */
 	public void updateSub2(Sub2 sub2) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateSub2Dao implements ISub2Dao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param sub2 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub2Dao.deleteSub2
    	 */
 	public void deleteSub2(Sub2 sub2) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateSub2Dao implements ISub2Dao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub2Dao.findAllSub2s
      */
 	public Collection<Sub2> findAllSub2s() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateSub2Dao implements ISub2Dao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.ISub2Dao.findSub2ById
      */
 	public Sub2 findSub2ById(String id) throws DaoException {

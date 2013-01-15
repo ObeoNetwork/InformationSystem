@@ -14,7 +14,7 @@ import org.obeonetwork.sample.inheritance.test.MainTest;
 import org.obeonetwork.sample.inheritance.test.Sub1Test;
 import org.obeonetwork.sample.inheritance.test.Sub2Test;
 
-// End of user code for import
+// End of user code
 
 /**
  * Test class for All DAO Tests.
@@ -36,7 +36,7 @@ public class DAOAllTests {
 		suite.addTestSuite(Sub2Test.class);
 		//Start of user code others unit tests
 		
-		//End of user code others unit tests
+		//End of user code
 		return suite;
 	}
 

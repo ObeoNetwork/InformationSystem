@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.inheritance.Root;
 import org.obeonetwork.sample.inheritance.IRootDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IRootDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateRootDao implements IRootDao {
 	/**
 	 * Create a new element
 	 * @param root Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IRootDao.createRoot
      */
 	public void createRoot(final Root root) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateRootDao implements IRootDao {
 	 * Update an existing element
 	 * @param root
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IRootDao.updateRoot
      */
 	public void updateRoot(Root root) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateRootDao implements IRootDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param root Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IRootDao.deleteRoot
    	 */
 	public void deleteRoot(Root root) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateRootDao implements IRootDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IRootDao.findAllRoots
      */
 	public Collection<Root> findAllRoots() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateRootDao implements IRootDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IRootDao.findRootById
      */
 	public Root findRootById(String id) throws DaoException {

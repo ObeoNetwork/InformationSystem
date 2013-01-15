@@ -14,6 +14,7 @@ import org.obeonetwork.sample.inheritance.IMainDao;
 import org.obeonetwork.sample.inheritance.ISub1Dao;
 import org.obeonetwork.sample.inheritance.ISub2Dao;
 
+
 /**
  * Factory in charge of creating the appropriate instances of DAO objects by
  * using the properties in the dao.properties resource bundle.
@@ -50,23 +51,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static IBasicDao getBasicDao() throws DaoException {
+	public static org.obeonetwork.sample.inheritance.IBasicDao getInheritanceBasicDao() throws DaoException {
 
 		try {
-			String className = bundle.getString(IBasicDao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.inheritance.IBasicDao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends IBasicDao> daoClass = 
-				Class.forName(className).asSubclass(IBasicDao.class);
+			Class<? extends org.obeonetwork.sample.inheritance.IBasicDao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.inheritance.IBasicDao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ IBasicDao.class.getName()
+				+ org.obeonetwork.sample.inheritance.IBasicDao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ IBasicDao.class.getName(), e);
+				+ org.obeonetwork.sample.inheritance.IBasicDao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {
@@ -83,23 +84,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static IBasicWithoutAttrDao getBasicWithoutAttrDao() throws DaoException {
+	public static org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao getInheritanceBasicWithoutAttrDao() throws DaoException {
 
 		try {
-			String className = bundle.getString(IBasicWithoutAttrDao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends IBasicWithoutAttrDao> daoClass = 
-				Class.forName(className).asSubclass(IBasicWithoutAttrDao.class);
+			Class<? extends org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ IBasicWithoutAttrDao.class.getName()
+				+ org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ IBasicWithoutAttrDao.class.getName(), e);
+				+ org.obeonetwork.sample.inheritance.IBasicWithoutAttrDao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {
@@ -116,23 +117,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static IRootDao getRootDao() throws DaoException {
+	public static org.obeonetwork.sample.inheritance.IRootDao getInheritanceRootDao() throws DaoException {
 
 		try {
-			String className = bundle.getString(IRootDao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.inheritance.IRootDao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends IRootDao> daoClass = 
-				Class.forName(className).asSubclass(IRootDao.class);
+			Class<? extends org.obeonetwork.sample.inheritance.IRootDao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.inheritance.IRootDao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ IRootDao.class.getName()
+				+ org.obeonetwork.sample.inheritance.IRootDao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ IRootDao.class.getName(), e);
+				+ org.obeonetwork.sample.inheritance.IRootDao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {
@@ -149,23 +150,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static IClassA1Dao getClassA1Dao() throws DaoException {
+	public static org.obeonetwork.sample.inheritance.IClassA1Dao getInheritanceClassA1Dao() throws DaoException {
 
 		try {
-			String className = bundle.getString(IClassA1Dao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.inheritance.IClassA1Dao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends IClassA1Dao> daoClass = 
-				Class.forName(className).asSubclass(IClassA1Dao.class);
+			Class<? extends org.obeonetwork.sample.inheritance.IClassA1Dao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.inheritance.IClassA1Dao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ IClassA1Dao.class.getName()
+				+ org.obeonetwork.sample.inheritance.IClassA1Dao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ IClassA1Dao.class.getName(), e);
+				+ org.obeonetwork.sample.inheritance.IClassA1Dao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {
@@ -182,23 +183,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static IClassA2Dao getClassA2Dao() throws DaoException {
+	public static org.obeonetwork.sample.inheritance.IClassA2Dao getInheritanceClassA2Dao() throws DaoException {
 
 		try {
-			String className = bundle.getString(IClassA2Dao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.inheritance.IClassA2Dao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends IClassA2Dao> daoClass = 
-				Class.forName(className).asSubclass(IClassA2Dao.class);
+			Class<? extends org.obeonetwork.sample.inheritance.IClassA2Dao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.inheritance.IClassA2Dao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ IClassA2Dao.class.getName()
+				+ org.obeonetwork.sample.inheritance.IClassA2Dao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ IClassA2Dao.class.getName(), e);
+				+ org.obeonetwork.sample.inheritance.IClassA2Dao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {
@@ -215,23 +216,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static IClassA3Dao getClassA3Dao() throws DaoException {
+	public static org.obeonetwork.sample.inheritance.IClassA3Dao getInheritanceClassA3Dao() throws DaoException {
 
 		try {
-			String className = bundle.getString(IClassA3Dao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.inheritance.IClassA3Dao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends IClassA3Dao> daoClass = 
-				Class.forName(className).asSubclass(IClassA3Dao.class);
+			Class<? extends org.obeonetwork.sample.inheritance.IClassA3Dao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.inheritance.IClassA3Dao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ IClassA3Dao.class.getName()
+				+ org.obeonetwork.sample.inheritance.IClassA3Dao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ IClassA3Dao.class.getName(), e);
+				+ org.obeonetwork.sample.inheritance.IClassA3Dao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {
@@ -248,23 +249,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static IMainDao getMainDao() throws DaoException {
+	public static org.obeonetwork.sample.inheritance.IMainDao getInheritanceMainDao() throws DaoException {
 
 		try {
-			String className = bundle.getString(IMainDao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.inheritance.IMainDao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends IMainDao> daoClass = 
-				Class.forName(className).asSubclass(IMainDao.class);
+			Class<? extends org.obeonetwork.sample.inheritance.IMainDao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.inheritance.IMainDao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ IMainDao.class.getName()
+				+ org.obeonetwork.sample.inheritance.IMainDao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ IMainDao.class.getName(), e);
+				+ org.obeonetwork.sample.inheritance.IMainDao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {
@@ -281,23 +282,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static ISub1Dao getSub1Dao() throws DaoException {
+	public static org.obeonetwork.sample.inheritance.ISub1Dao getInheritanceSub1Dao() throws DaoException {
 
 		try {
-			String className = bundle.getString(ISub1Dao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.inheritance.ISub1Dao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends ISub1Dao> daoClass = 
-				Class.forName(className).asSubclass(ISub1Dao.class);
+			Class<? extends org.obeonetwork.sample.inheritance.ISub1Dao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.inheritance.ISub1Dao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ ISub1Dao.class.getName()
+				+ org.obeonetwork.sample.inheritance.ISub1Dao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ ISub1Dao.class.getName(), e);
+				+ org.obeonetwork.sample.inheritance.ISub1Dao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {
@@ -314,23 +315,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static ISub2Dao getSub2Dao() throws DaoException {
+	public static org.obeonetwork.sample.inheritance.ISub2Dao getInheritanceSub2Dao() throws DaoException {
 
 		try {
-			String className = bundle.getString(ISub2Dao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.inheritance.ISub2Dao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends ISub2Dao> daoClass = 
-				Class.forName(className).asSubclass(ISub2Dao.class);
+			Class<? extends org.obeonetwork.sample.inheritance.ISub2Dao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.inheritance.ISub2Dao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ ISub2Dao.class.getName()
+				+ org.obeonetwork.sample.inheritance.ISub2Dao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ ISub2Dao.class.getName(), e);
+				+ org.obeonetwork.sample.inheritance.ISub2Dao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {

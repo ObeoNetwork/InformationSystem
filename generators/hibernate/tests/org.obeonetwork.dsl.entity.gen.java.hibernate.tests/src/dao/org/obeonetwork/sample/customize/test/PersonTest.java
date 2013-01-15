@@ -23,14 +23,14 @@ import org.obeonetwork.sample.customize.IAddressDao;
 public class PersonTest extends TestCase {
 	
 	/**
-	 * The DAO for class Person.
-	 */
-	private IPersonDao personDao;
-	
-	/**
 	 * The DAO for class Address.
 	 */
 	private IAddressDao addressDao;
+	
+	/**
+	 * The DAO for class Person.
+	 */
+	private IPersonDao personDao;
 	
 	/**
 	 * The transaction that will be used.
@@ -45,8 +45,8 @@ public class PersonTest extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 	    super.setUp();
-		personDao = SampleDaoFactory.getCustomizePersonDao();
 		addressDao = SampleDaoFactory.getCustomizeAddressDao();
+		personDao = SampleDaoFactory.getCustomizePersonDao();
 		tx = HibernateUtil.currentSession().beginTransaction();
 	}
 	

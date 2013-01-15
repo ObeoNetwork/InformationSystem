@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.inheritance.ClassA3;
 import org.obeonetwork.sample.inheritance.IClassA3Dao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IClassA3Dao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateClassA3Dao implements IClassA3Dao {
 	/**
 	 * Create a new element
 	 * @param classA3 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA3Dao.createClassA3
      */
 	public void createClassA3(final ClassA3 classA3) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateClassA3Dao implements IClassA3Dao {
 	 * Update an existing element
 	 * @param classA3
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA3Dao.updateClassA3
      */
 	public void updateClassA3(ClassA3 classA3) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateClassA3Dao implements IClassA3Dao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param classA3 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA3Dao.deleteClassA3
    	 */
 	public void deleteClassA3(ClassA3 classA3) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateClassA3Dao implements IClassA3Dao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA3Dao.findAllClassA3s
      */
 	public Collection<ClassA3> findAllClassA3s() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateClassA3Dao implements IClassA3Dao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IClassA3Dao.findClassA3ById
      */
 	public ClassA3 findClassA3ById(String id) throws DaoException {
