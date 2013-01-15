@@ -8,8 +8,7 @@ import org.obeonetwork.sample.inheritance.ClassA2;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class ClassA3 extends ClassA2 implements Serializable {
 
 	/**
@@ -21,7 +20,6 @@ public class ClassA3 extends ClassA2 implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
 	/**
      * Constant representing the name of the field a3.
      */
@@ -122,6 +120,6 @@ public class ClassA3 extends ClassA2 implements Serializable {
    
 	// Start of user code for private methods
 	// TODO Remove this line and add your private methods here
-	// End of user code
+	// End of user code for private methods
    
 }

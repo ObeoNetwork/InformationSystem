@@ -8,8 +8,7 @@ import org.obeonetwork.sample.inheritance.Main;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class Sub1 extends Main implements Serializable {
 
 	/**
@@ -21,7 +20,6 @@ public class Sub1 extends Main implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
     /**
      * Automatic primary key.
      */
@@ -88,6 +86,6 @@ public class Sub1 extends Main implements Serializable {
    
 	// Start of user code for private methods
 	// TODO Remove this line and add your private methods here
-	// End of user code
+	// End of user code for private methods
    
 }

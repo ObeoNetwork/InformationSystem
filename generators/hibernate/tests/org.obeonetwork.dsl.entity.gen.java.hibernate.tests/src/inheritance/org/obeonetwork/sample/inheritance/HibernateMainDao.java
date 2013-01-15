@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.inheritance.Main;
 import org.obeonetwork.sample.inheritance.IMainDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IMainDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateMainDao implements IMainDao {
 	/**
 	 * Create a new element
 	 * @param main Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IMainDao.createMain
      */
 	public void createMain(final Main main) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateMainDao implements IMainDao {
 	 * Update an existing element
 	 * @param main
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IMainDao.updateMain
      */
 	public void updateMain(Main main) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateMainDao implements IMainDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param main Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IMainDao.deleteMain
    	 */
 	public void deleteMain(Main main) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateMainDao implements IMainDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IMainDao.findAllMains
      */
 	public Collection<Main> findAllMains() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateMainDao implements IMainDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritance.IMainDao.findMainById
      */
 	public Main findMainById(String id) throws DaoException {

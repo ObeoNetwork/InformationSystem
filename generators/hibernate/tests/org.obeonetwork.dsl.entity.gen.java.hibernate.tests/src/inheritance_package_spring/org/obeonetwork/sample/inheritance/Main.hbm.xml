@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.inheritance.Main" 
     	table="MAIN"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -23,7 +23,6 @@
 
 
 		<!-- Inheritance -->
-
 
 		<subclass name="org.obeonetwork.sample.inheritance.Sub1" discriminator-value="org.obeonetwork.sample.inheritance.Sub1">
 			<!-- Properties -->
@@ -42,7 +41,6 @@
 
     	</subclass>
 		
-
 
 
     </class>
