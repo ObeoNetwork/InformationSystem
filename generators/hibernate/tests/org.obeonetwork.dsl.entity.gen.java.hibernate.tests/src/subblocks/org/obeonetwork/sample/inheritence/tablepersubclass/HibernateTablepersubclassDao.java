@@ -18,7 +18,7 @@ import org.obeonetwork.sample.inheritence.tablepersubclass.C1;
 import org.obeonetwork.sample.inheritence.tablepersubclass.C2;
 import org.obeonetwork.sample.inheritence.tablepersubclass.ITablepersubclassDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface ITablepersubclassDao based on the hibernate
@@ -35,7 +35,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	/**
 	 * Create a new element
 	 * @param root Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IRootDao.createRoot
      */
 	public void createRoot(Root root) throws DaoException {
@@ -52,7 +52,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	 * Update an existing element
 	 * @param root
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IRootDao.updateRoot
      */
 	public void updateRoot(Root root) throws DaoException {
@@ -69,7 +69,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param root Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IRootDao.deleteRoot
    	 */
 	public void deleteRoot(Root root) throws DaoException {
@@ -85,7 +85,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IRootDao.findAllRoots
      */
 	public Collection<Root> findAllRoots() throws DaoException {
@@ -106,7 +106,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IRootDao.findRootById
      */
 	public Root findRootById(String id) throws DaoException {
@@ -127,7 +127,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	/**
 	 * Create a new element
 	 * @param c1 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IC1Dao.createC1
      */
 	public void createC1(C1 c1) throws DaoException {
@@ -144,7 +144,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	 * Update an existing element
 	 * @param c1
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IC1Dao.updateC1
      */
 	public void updateC1(C1 c1) throws DaoException {
@@ -161,7 +161,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param c1 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IC1Dao.deleteC1
    	 */
 	public void deleteC1(C1 c1) throws DaoException {
@@ -177,7 +177,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IC1Dao.findAllC1s
      */
 	public Collection<C1> findAllC1s() throws DaoException {
@@ -198,7 +198,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IC1Dao.findC1ById
      */
 	public C1 findC1ById(String id) throws DaoException {
@@ -219,7 +219,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	/**
 	 * Create a new element
 	 * @param c2 Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IC2Dao.createC2
      */
 	public void createC2(C2 c2) throws DaoException {
@@ -236,7 +236,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	 * Update an existing element
 	 * @param c2
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IC2Dao.updateC2
      */
 	public void updateC2(C2 c2) throws DaoException {
@@ -253,7 +253,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param c2 Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IC2Dao.deleteC2
    	 */
 	public void deleteC2(C2 c2) throws DaoException {
@@ -269,7 +269,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IC2Dao.findAllC2s
      */
 	public Collection<C2> findAllC2s() throws DaoException {
@@ -290,7 +290,7 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritence.tablepersubclass.IC2Dao.findC2ById
      */
 	public C2 findC2ById(String id) throws DaoException {
@@ -311,3 +311,4 @@ public class HibernateTablepersubclassDao implements ITablepersubclassDao {
 	//Start of user code
 	//End of user code
 }
+
