@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.collections.associations.bidirectional.assobidionetomany.B" 
     	table="B_6"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -24,7 +24,6 @@
 			 | B |- * {-} 1 -| A |
 			  ___             ___
 		-->
-
 		<many-to-one 
 			class="org.obeonetwork.sample.collections.associations.bidirectional.assobidionetomany.A"
 			column="FK_A_A_ID"
@@ -33,8 +32,6 @@
 
 
 		<!-- Inheritance -->
-
-
 
 
     </class>

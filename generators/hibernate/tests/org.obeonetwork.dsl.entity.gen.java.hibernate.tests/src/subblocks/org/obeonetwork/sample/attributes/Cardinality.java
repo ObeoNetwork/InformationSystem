@@ -163,7 +163,7 @@ public class Cardinality implements Serializable {
 	 
 	/**
 	 * Remove a oneOrMany to the oneOrMany collection.
-	 * @param oneOrManyElt Element to remove.
+	 * @param it.oneOrManyElt Element to remove.
 	 */
 	 public void removeOneOrMany(final String oneOrManyElt) {
 	 	this.oneOrMany.remove(oneOrManyElt);
@@ -195,7 +195,7 @@ public class Cardinality implements Serializable {
 	 
 	/**
 	 * Remove a zeroOrMany to the zeroOrMany collection.
-	 * @param zeroOrManyElt Element to remove.
+	 * @param it.zeroOrManyElt Element to remove.
 	 */
 	 public void removeZeroOrMany(final String zeroOrManyElt) {
 	 	this.zeroOrMany.remove(zeroOrManyElt);
