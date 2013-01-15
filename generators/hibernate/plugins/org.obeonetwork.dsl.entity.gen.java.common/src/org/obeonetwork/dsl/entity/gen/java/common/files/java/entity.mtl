@@ -166,7 +166,7 @@ public class [entity.name.toStandardNotation().toUpperFirst()/][entity.extension
 	 
 	/**
 	 * Remove a [it.name.toStandardNotation()/] to the [it.name.toStandardNotation()/] collection.
-	 * @param it.[name.toStandardNotation()/]Elt Element to remove.
+	 * @param [it.name.toStandardNotation()/]Elt Element to remove.
 	 */
 	 public void remove[it.name.toStandardNotation().toUpperFirst()/](final [it.type.toJavaType()/] [it.name.toStandardNotation()/]Elt) {
 	 	this.[it.name.toStandardNotation()/].remove([it.name.toStandardNotation()/]Elt);
