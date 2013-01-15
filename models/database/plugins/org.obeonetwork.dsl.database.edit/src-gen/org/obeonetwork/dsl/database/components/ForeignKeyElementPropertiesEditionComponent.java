@@ -32,7 +32,9 @@ import org.eclipse.jface.viewers.ViewerFilter;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.DatabasePackage;
+import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.ForeignKeyElement;
+import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
 import org.obeonetwork.dsl.database.parts.ForeignKeyElementPropertiesEditionPart;
 
@@ -96,7 +98,7 @@ public class ForeignKeyElementPropertiesEditionComponent extends SinglePartPrope
 	 * 
 	 * @see org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent#initPart(java.lang.Object, int, org.eclipse.emf.ecore.EObject, 
 	 *      org.eclipse.emf.ecore.resource.ResourceSet)
-	 * 
+	 * @generated NOT
 	 */
 	public void initPart(Object key, int kind, EObject elt, ResourceSet allResource) {
 		setInitializing(true);
@@ -121,11 +123,34 @@ public class ForeignKeyElementPropertiesEditionComponent extends SinglePartPrope
 				// set the button mode
 				foreignKeyElementPart.setPKColumnButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (sourceTableSettings.getValue() != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.sourceTable))
-				foreignKeyElementPart.setSourceTable(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, sourceTableSettings.getValue()));
 			
-			if (targetTableSettings.getValue() != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.targetTable))
-				foreignKeyElementPart.setTargetTable(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, targetTableSettings.getValue()));
+			// Custom code to prevent NPE when creating new FKElement
+			ForeignKeyElement fkElt = (ForeignKeyElement)semanticObject;
+			if (fkElt.getFkColumn() != null) {
+				if (sourceTableSettings.getValue() != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.sourceTable))
+					foreignKeyElementPart.setSourceTable(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, sourceTableSettings.getValue()));
+			} else {
+				EObject container = fkElt.eContainer();
+				if (container instanceof ForeignKey) {
+					Table table = ((ForeignKey) container).getSourceTable();
+					if (table != null) {
+						foreignKeyElementPart.setSourceTable(table.getName());
+					}
+				}
+			}
+			if (fkElt.getPkColumn() != null) {
+				if (targetTableSettings.getValue() != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.targetTable))
+					foreignKeyElementPart.setTargetTable(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, targetTableSettings.getValue()));
+			} else {
+				EObject container = fkElt.eContainer();
+				if (container instanceof ForeignKey) {
+					Table table = ((ForeignKey) container).getTargetTable();
+					if (table != null) {
+						foreignKeyElementPart.setTargetTable(table.getName());
+					}
+				}
+			}
+			// End of custom code to prevent NPE when creating new FKElement
 			
 			// init filters
 			
