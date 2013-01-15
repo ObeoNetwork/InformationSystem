@@ -684,7 +684,8 @@ public class EntityEditor extends MultiPageEditorPart implements
 									.getAffectedObjects());
 						}
 						if (propertySheetPage != null
-								&& !propertySheetPage.getControl().isDisposed()) {
+								&& !propertySheetPage.getControl().isDisposed()
+								 && propertySheetPage.getCurrentTab() != null) {
 							propertySheetPage.refresh();
 						}
 					}
@@ -737,7 +738,7 @@ public class EntityEditor extends MultiPageEditorPart implements
 								  if (mostRecentCommand != null) {
 									  setSelectionToViewer(mostRecentCommand.getAffectedObjects());
 								  }
-								  if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
+								  if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed() && propertySheetPage.getCurrentTab() != null) {
 									  propertySheetPage.refresh();
 								  }
 							  }

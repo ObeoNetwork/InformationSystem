@@ -694,7 +694,7 @@ public class InteractionEditor
 								  if (mostRecentCommand != null) {
 									  setSelectionToViewer(mostRecentCommand.getAffectedObjects());
 								  }
-								  if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
+								  if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed() && propertySheetPage.getCurrentTab() != null) {
 									  propertySheetPage.refresh();
 								  }
 							  }
