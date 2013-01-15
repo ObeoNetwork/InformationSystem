@@ -8,8 +8,7 @@ import java.util.HashSet;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class A implements Serializable {
 
 	/**
@@ -21,7 +20,6 @@ public class A implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
 	/**
      * Constant representing the name of the field b.
      */
@@ -88,18 +86,22 @@ public class A implements Serializable {
 	
 	/**
 	 * Add a b to the b collection.
+	 * Birectional association : add the current A instance to given b parameter.
 	 * @param bElt Element to add.
 	 */
 	 public void addB(final B bElt) {
 	 	this.b.add(bElt);
+	 	bElt.getA().add(this);
 	 }
 	 
 	/**
 	 * Remove a b to the b collection.
+	 * Birectionnal association : remove the current A instance to given b parameter.
 	 * @param bElt Element to remove.
 	 */
 	 public void removeB(final B bElt) {
 	 	this.b.remove(bElt);
+	 	bElt.getA().remove(this);
 	 }
 
 	/** 
@@ -140,6 +142,6 @@ public class A implements Serializable {
    
 	// Start of user code for private methods
 	// TODO Remove this line and add your private methods here
-	// End of user code
+	// End of user code for private methods
    
 }
