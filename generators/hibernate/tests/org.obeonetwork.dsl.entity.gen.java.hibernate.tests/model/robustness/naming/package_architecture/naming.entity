@@ -5,7 +5,7 @@
     <entities xmi:id="_GqKF8aybEd2Mj_nI6TDo3Q" name="Class"/>
     <entities xmi:id="_GqKF8qybEd2Mj_nI6TDo3Q" name="Bad name"/>
     <entities xmi:id="_GqKF86ybEd2Mj_nI6TDo3Q" name="Another.name"/>
-    <entities xmi:id="_GqKtAKybEd2Mj_nI6TDo3Q" name="entityWithSpï¿½cialChars"/>
+    <entities xmi:id="_GqKtAKybEd2Mj_nI6TDo3Q" createdOn="2013-01-16T16:57:08.567+0100" modifiedOn="2013-01-16T16:57:08.567+0100" name="entityWithSpécialChars"/>
     <entities xmi:id="_GqKtAaybEd2Mj_nI6TDo3Q" name="public"/>
     <entities xmi:id="_GqKtAqybEd2Mj_nI6TDo3Q" name="private"/>
     <entities xmi:id="_GqKtA6ybEd2Mj_nI6TDo3Q" name="protected"/>
@@ -29,7 +29,7 @@
       <ownedAttributes xmi:id="_GqNJQKybEd2Mj_nI6TDo3Q" name="String">
         <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
-      <ownedAttributes xmi:id="_GqNJQaybEd2Mj_nI6TDo3Q" name="ï¿½">
+      <ownedAttributes xmi:id="_GqNJQaybEd2Mj_nI6TDo3Q" createdOn="2013-01-16T16:56:59.895+0100" modifiedOn="2013-01-16T16:56:59.895+0100" name="à">
         <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5GlIKwKEd2XLNOhkJIazw"/>
       </ownedAttributes>
     </entities>
