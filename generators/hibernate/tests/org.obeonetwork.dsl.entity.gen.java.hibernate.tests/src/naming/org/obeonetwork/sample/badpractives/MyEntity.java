@@ -7,8 +7,7 @@ import java.io.Serializable;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class MyEntity implements Serializable {
 
 	/**
@@ -20,7 +19,6 @@ public class MyEntity implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
 	/**
      * Constant representing the name of the field attr 1.
      */
@@ -52,9 +50,9 @@ public class MyEntity implements Serializable {
 	public static final String PROP_STRING = "String";
 	
 	/**
-     * Constant representing the name of the field à.
+     * Constant representing the name of the field Ã .
      */
-	public static final String PROP_A = "à";
+	public static final String PROP_A = "Ã ";
 	
     /**
      * Automatic primary key.
@@ -92,7 +90,7 @@ public class MyEntity implements Serializable {
 	protected String string;
 
     /**
-     * Field à.
+     * Field Ã .
      */
 	protected Float a;
 
@@ -127,7 +125,7 @@ public class MyEntity implements Serializable {
 	 * @param protected. 
 	 * @param null. 
 	 * @param String. 
-	 * @param à. 
+	 * @param Ã . 
 	 */
 	public MyEntity(Integer attr1, Integer private_, Integer public_, String protected_, String null_, String string, Float a) {
 		this.attr1 = attr1;
@@ -244,7 +242,7 @@ public class MyEntity implements Serializable {
 	}
 
 	/**
-	 * Set a value to parameter à.
+	 * Set a value to parameter Ã .
 	 * @param a
 	 */
 	public void setA(final Float a) {
@@ -289,6 +287,6 @@ public class MyEntity implements Serializable {
    
 	// Start of user code for private methods
 	// TODO Remove this line and add your private methods here
-	// End of user code
+	// End of user code for private methods
    
 }

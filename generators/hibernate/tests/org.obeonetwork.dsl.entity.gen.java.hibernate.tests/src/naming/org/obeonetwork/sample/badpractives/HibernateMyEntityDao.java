@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.badpractives.MyEntity;
 import org.obeonetwork.sample.badpractives.IMyEntityDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IMyEntityDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateMyEntityDao implements IMyEntityDao {
 	/**
 	 * Create a new element
 	 * @param myEntity Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IMyEntityDao.createmyEntity
      */
 	public void createmyEntity(final MyEntity myEntity) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateMyEntityDao implements IMyEntityDao {
 	 * Update an existing element
 	 * @param myEntity
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IMyEntityDao.updatemyEntity
      */
 	public void updatemyEntity(MyEntity myEntity) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateMyEntityDao implements IMyEntityDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param myEntity Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IMyEntityDao.deletemyEntity
    	 */
 	public void deletemyEntity(MyEntity myEntity) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateMyEntityDao implements IMyEntityDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IMyEntityDao.findAllmyEntitys
      */
 	public Collection<MyEntity> findAllmyEntitys() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateMyEntityDao implements IMyEntityDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IMyEntityDao.findmyEntityById
      */
 	public MyEntity findmyEntityById(String id) throws DaoException {

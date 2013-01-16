@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.badpractives.Public_;
 import org.obeonetwork.sample.badpractives.IPublic_Dao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IPublic_Dao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernatePublic_Dao implements IPublic_Dao {
 	/**
 	 * Create a new element
 	 * @param public Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPublic_Dao.createpublic
      */
 	public void createpublic_(final Public_ public_) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernatePublic_Dao implements IPublic_Dao {
 	 * Update an existing element
 	 * @param public
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPublic_Dao.updatepublic
      */
 	public void updatepublic_(Public_ public_) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernatePublic_Dao implements IPublic_Dao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param public Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPublic_Dao.deletepublic
    	 */
 	public void deletepublic_(Public_ public_) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernatePublic_Dao implements IPublic_Dao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPublic_Dao.findAllpublics
      */
 	public Collection<Public_> findAllpublic_s() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernatePublic_Dao implements IPublic_Dao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPublic_Dao.findpublicById
      */
 	public Public_ findpublic_ById(String id) throws DaoException {

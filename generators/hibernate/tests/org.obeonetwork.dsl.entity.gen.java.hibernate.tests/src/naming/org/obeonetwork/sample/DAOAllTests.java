@@ -16,7 +16,7 @@ import org.obeonetwork.sample.badpractives.test.Null_Test;
 import org.obeonetwork.sample.badpractives.test.MyEntityTest;
 import org.obeonetwork.sample.badpractives.test.TABLETest;
 
-// End of user code for import
+// End of user code
 
 /**
  * Test class for All DAO Tests.
@@ -40,7 +40,7 @@ public class DAOAllTests {
 		suite.addTestSuite(TABLETest.class);
 		//Start of user code others unit tests
 		
-		//End of user code others unit tests
+		//End of user code
 		return suite;
 	}
 
