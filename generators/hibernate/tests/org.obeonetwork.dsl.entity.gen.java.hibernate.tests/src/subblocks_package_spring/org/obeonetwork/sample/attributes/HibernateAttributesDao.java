@@ -14,7 +14,7 @@ import org.obeonetwork.sample.attributes.Cardinality;
 import org.obeonetwork.sample.attributes.PrimitiveType;
 import org.obeonetwork.sample.attributes.IAttributesDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IAttributesDao based on the hibernate
@@ -31,13 +31,14 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	/**
 	 * Create a new element
 	 * @param cardinality Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.ICardinalityDao.createCardinality
      */
     public void createCardinality(Cardinality cardinality) throws DaoException {
 		LOG.debug("Create a new Cardinality entity");
 		try {
 			getHibernateTemplate().save(cardinality);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -47,13 +48,14 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	 * Update an existing element
 	 * @param cardinality
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.ICardinalityDao.updateCardinality
      */
 	public void updateCardinality(Cardinality cardinality) throws DaoException {
 		LOG.debug("Update the entity Cardinality with id =" + cardinality.getId());
 		try {
 			getHibernateTemplate().update(cardinality);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -63,13 +65,14 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param cardinality Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.ICardinalityDao.deleteCardinality
    	 */
 	public void deleteCardinality(Cardinality cardinality) throws DaoException {
 		LOG.debug("Delete the entity Cardinality with id =" + cardinality.getId());
 		try {
 			getHibernateTemplate().delete(cardinality);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -78,7 +81,7 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.ICardinalityDao.findAllCardinalitys
      */
 	public Collection<Cardinality> findAllCardinalitys() throws DaoException {
@@ -97,7 +100,7 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.ICardinalityDao.findCardinalityById
      */
 	public Cardinality findCardinalityById(String id) throws DaoException {
@@ -113,13 +116,14 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	/**
 	 * Create a new element
 	 * @param primitiveType Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.IPrimitiveTypeDao.createPrimitiveType
      */
     public void createPrimitiveType(PrimitiveType primitiveType) throws DaoException {
 		LOG.debug("Create a new PrimitiveType entity");
 		try {
 			getHibernateTemplate().save(primitiveType);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -129,13 +133,14 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	 * Update an existing element
 	 * @param primitiveType
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.IPrimitiveTypeDao.updatePrimitiveType
      */
 	public void updatePrimitiveType(PrimitiveType primitiveType) throws DaoException {
 		LOG.debug("Update the entity PrimitiveType with id =" + primitiveType.getId());
 		try {
 			getHibernateTemplate().update(primitiveType);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -145,13 +150,14 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param primitiveType Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.IPrimitiveTypeDao.deletePrimitiveType
    	 */
 	public void deletePrimitiveType(PrimitiveType primitiveType) throws DaoException {
 		LOG.debug("Delete the entity PrimitiveType with id =" + primitiveType.getId());
 		try {
 			getHibernateTemplate().delete(primitiveType);
+			getHibernateTemplate().flush();
 		} catch (HibernateException e) {
 			throw new DaoException(e);
 		}
@@ -160,7 +166,7 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.IPrimitiveTypeDao.findAllPrimitiveTypes
      */
 	public Collection<PrimitiveType> findAllPrimitiveTypes() throws DaoException {
@@ -179,7 +185,7 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.attributes.IPrimitiveTypeDao.findPrimitiveTypeById
      */
 	public PrimitiveType findPrimitiveTypeById(String id) throws DaoException {
@@ -195,3 +201,4 @@ public class HibernateAttributesDao extends HibernateDaoSupport implements IAttr
 	//Start of user code
 	//End of user code
 }
+

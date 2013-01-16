@@ -11,7 +11,7 @@
 	
 	<!--Start of user code for start of document -->	 
 
-	<!-- End of user code for start of document -->
+	<!-- End of user code -->
 	
 	<!-- Hibernate Transaction Manager -->
 	<bean id="transactionManager"
@@ -46,175 +46,149 @@
  				<prop key="hibernate.jdbc.batch_size">1</prop>
 			</props>
 		</property>
-		<!-- End of user code for hibernate properties -->
+		<!-- End of user code -->
 	</bean> 
-			<!-- onetomanycomp -->
-		<bean id="OnetomanycompDAO" 
-			class="org.obeonetwork.sample.collections.composition.onetomanycomp.HibernateOnetomanycompDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for one_to_many_comp specific configuration -->
-		<!-- End of user code  for one_to_many_comp specific configuration -->
-		<!-- end onetomanycomp -->
-
-
-		<!-- onetoonecomp -->
-		<bean id="OnetoonecompDAO" 
-			class="org.obeonetwork.sample.collections.composition.onetoonecomp.HibernateOnetoonecompDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for one_to_one_comp specific configuration -->
-		<!-- End of user code  for one_to_one_comp specific configuration -->
-		<!-- end onetoonecomp -->
-
-
-		<!-- assounidionetomany -->
-		<bean id="AssounidionetomanyDAO" 
-			class="org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.HibernateAssounidionetomanyDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for asso_unidi_one_to_many specific configuration -->
-		<!-- End of user code  for asso_unidi_one_to_many specific configuration -->
-		<!-- end assounidionetomany -->
-
-
-		<!-- assounidionetoone -->
-		<bean id="AssounidionetooneDAO" 
-			class="org.obeonetwork.sample.collections.associations.unidirectional.assounidionetoone.HibernateAssounidionetooneDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for asso_unidi_one_to_one specific configuration -->
-		<!-- End of user code  for asso_unidi_one_to_one specific configuration -->
-		<!-- end assounidionetoone -->
-
-
-		<!-- assounidimanytoone -->
-		<bean id="AssounidimanytooneDAO" 
-			class="org.obeonetwork.sample.collections.associations.unidirectional.assounidimanytoone.HibernateAssounidimanytooneDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for asso_unidi_many_to_one specific configuration -->
-		<!-- End of user code  for asso_unidi_many_to_one specific configuration -->
-		<!-- end assounidimanytoone -->
-
-
-		<!-- assounidimanytomany -->
-		<bean id="AssounidimanytomanyDAO" 
-			class="org.obeonetwork.sample.collections.associations.unidirectional.assounidimanytomany.HibernateAssounidimanytomanyDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for asso_unidi_many_to_many specific configuration -->
-		<!-- End of user code  for asso_unidi_many_to_many specific configuration -->
-		<!-- end assounidimanytomany -->
-
-
-		<!-- assobidionetomany -->
-		<bean id="AssobidionetomanyDAO" 
-			class="org.obeonetwork.sample.collections.associations.bidirectional.assobidionetomany.HibernateAssobidionetomanyDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for asso_bidi_one_to_many specific configuration -->
-		<!-- End of user code  for asso_bidi_one_to_many specific configuration -->
-		<!-- end assobidionetomany -->
-
-
-		<!-- assobidimanytomany -->
-		<bean id="AssobidimanytomanyDAO" 
-			class="org.obeonetwork.sample.collections.associations.bidirectional.assobidimanytomany.HibernateAssobidimanytomanyDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for asso_bidi_many_to_many specific configuration -->
-		<!-- End of user code  for asso_bidi_many_to_many specific configuration -->
-		<!-- end assobidimanytomany -->
-
-
-		<!-- assobidionetoone -->
-		<bean id="AssobidionetooneDAO" 
-			class="org.obeonetwork.sample.collections.associations.bidirectional.assobidionetoone.HibernateAssobidionetooneDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for asso_bidi_one_to_one specific configuration -->
-		<!-- End of user code  for asso_bidi_one_to_one specific configuration -->
-		<!-- end assobidionetoone -->
-
-
-		<!-- assobidimanytoone -->
-		<bean id="AssobidimanytooneDAO" 
-			class="org.obeonetwork.sample.collections.associations.bidirectional.assobidimanytoone.HibernateAssobidimanytooneDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for asso_bidi_many_to_one specific configuration -->
-		<!-- End of user code  for asso_bidi_many_to_one specific configuration -->
-		<!-- end assobidimanytoone -->
-
-
-		<!-- tableperhierarchy -->
-		<bean id="TableperhierarchyDAO" 
-			class="org.obeonetwork.sample.inheritence.tableperhierarchy.HibernateTableperhierarchyDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for table_per_hierarchy specific configuration -->
-		<!-- End of user code  for table_per_hierarchy specific configuration -->
-		<!-- end tableperhierarchy -->
-
-
-		<!-- tablepersubclass -->
-		<bean id="TablepersubclassDAO" 
-			class="org.obeonetwork.sample.inheritence.tablepersubclass.HibernateTablepersubclassDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for table_per_subclass specific configuration -->
-		<!-- End of user code  for table_per_subclass specific configuration -->
-		<!-- end tablepersubclass -->
-
-
-		<!-- attributes -->
-		<bean id="AttributesDAO" 
-			class="org.obeonetwork.sample.attributes.HibernateAttributesDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for attributes specific configuration -->
-		<!-- End of user code  for attributes specific configuration -->
-		<!-- end attributes -->
-
-
+	<!-- onetomanycomp -->
+	<bean id="OnetomanycompDAO" 
+		class="org.obeonetwork.sample.collections.composition.onetomanycomp.HibernateOnetomanycompDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for one_to_many_comp specific configuration -->
+		<!-- End of user code -->
+	<!-- end onetomanycomp -->
+	<!-- onetoonecomp -->
+	<bean id="OnetoonecompDAO" 
+		class="org.obeonetwork.sample.collections.composition.onetoonecomp.HibernateOnetoonecompDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for one_to_one_comp specific configuration -->
+		<!-- End of user code -->
+	<!-- end onetoonecomp -->
+	<!-- assounidionetomany -->
+	<bean id="AssounidionetomanyDAO" 
+		class="org.obeonetwork.sample.collections.associations.unidirectional.assounidionetomany.HibernateAssounidionetomanyDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for asso_unidi_one_to_many specific configuration -->
+		<!-- End of user code -->
+	<!-- end assounidionetomany -->
+	<!-- assounidionetoone -->
+	<bean id="AssounidionetooneDAO" 
+		class="org.obeonetwork.sample.collections.associations.unidirectional.assounidionetoone.HibernateAssounidionetooneDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for asso_unidi_one_to_one specific configuration -->
+		<!-- End of user code -->
+	<!-- end assounidionetoone -->
+	<!-- assounidimanytoone -->
+	<bean id="AssounidimanytooneDAO" 
+		class="org.obeonetwork.sample.collections.associations.unidirectional.assounidimanytoone.HibernateAssounidimanytooneDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for asso_unidi_many_to_one specific configuration -->
+		<!-- End of user code -->
+	<!-- end assounidimanytoone -->
+	<!-- assounidimanytomany -->
+	<bean id="AssounidimanytomanyDAO" 
+		class="org.obeonetwork.sample.collections.associations.unidirectional.assounidimanytomany.HibernateAssounidimanytomanyDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for asso_unidi_many_to_many specific configuration -->
+		<!-- End of user code -->
+	<!-- end assounidimanytomany -->
+	<!-- assobidionetomany -->
+	<bean id="AssobidionetomanyDAO" 
+		class="org.obeonetwork.sample.collections.associations.bidirectional.assobidionetomany.HibernateAssobidionetomanyDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for asso_bidi_one_to_many specific configuration -->
+		<!-- End of user code -->
+	<!-- end assobidionetomany -->
+	<!-- assobidimanytomany -->
+	<bean id="AssobidimanytomanyDAO" 
+		class="org.obeonetwork.sample.collections.associations.bidirectional.assobidimanytomany.HibernateAssobidimanytomanyDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for asso_bidi_many_to_many specific configuration -->
+		<!-- End of user code -->
+	<!-- end assobidimanytomany -->
+	<!-- assobidionetoone -->
+	<bean id="AssobidionetooneDAO" 
+		class="org.obeonetwork.sample.collections.associations.bidirectional.assobidionetoone.HibernateAssobidionetooneDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for asso_bidi_one_to_one specific configuration -->
+		<!-- End of user code -->
+	<!-- end assobidionetoone -->
+	<!-- assobidimanytoone -->
+	<bean id="AssobidimanytooneDAO" 
+		class="org.obeonetwork.sample.collections.associations.bidirectional.assobidimanytoone.HibernateAssobidimanytooneDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for asso_bidi_many_to_one specific configuration -->
+		<!-- End of user code -->
+	<!-- end assobidimanytoone -->
+	<!-- tableperhierarchy -->
+	<bean id="TableperhierarchyDAO" 
+		class="org.obeonetwork.sample.inheritence.tableperhierarchy.HibernateTableperhierarchyDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for table_per_hierarchy specific configuration -->
+		<!-- End of user code -->
+	<!-- end tableperhierarchy -->
+	<!-- tablepersubclass -->
+	<bean id="TablepersubclassDAO" 
+		class="org.obeonetwork.sample.inheritence.tablepersubclass.HibernateTablepersubclassDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for table_per_subclass specific configuration -->
+		<!-- End of user code -->
+	<!-- end tablepersubclass -->
+	<!-- attributes -->
+	<bean id="AttributesDAO" 
+		class="org.obeonetwork.sample.attributes.HibernateAttributesDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for attributes specific configuration -->
+		<!-- End of user code -->
+	<!-- end attributes -->
 </beans>

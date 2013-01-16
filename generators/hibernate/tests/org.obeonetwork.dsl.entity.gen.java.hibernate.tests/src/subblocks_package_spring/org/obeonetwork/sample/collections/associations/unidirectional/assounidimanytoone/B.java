@@ -8,8 +8,7 @@ import java.util.HashSet;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class B implements Serializable {
 
 	/**
@@ -21,7 +20,6 @@ public class B implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
     /**
      * Automatic primary key.
      */
@@ -88,6 +86,6 @@ public class B implements Serializable {
    
 	// Start of user code for private methods
 	// TODO Remove this line and add your private methods here
-	// End of user code
+	// End of user code for private methods
    
 }
