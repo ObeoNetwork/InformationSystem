@@ -57,7 +57,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int START_EDEFAULT = 0;
+	protected static final Integer START_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getIncrement() <em>Increment</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -66,7 +66,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int INCREMENT_EDEFAULT = 0;
+	protected static final Integer INCREMENT_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getMinValue() <em>Min Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -75,7 +75,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MIN_VALUE_EDEFAULT = 0;
+	protected static final Integer MIN_VALUE_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getMaxValue() <em>Max Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -84,7 +84,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAX_VALUE_EDEFAULT = 0;
+	protected static final Integer MAX_VALUE_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getCacheSize() <em>Cache Size</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -93,7 +93,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int CACHE_SIZE_EDEFAULT = 0;
+	protected static final Integer CACHE_SIZE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #isCycle() <em>Cycle</em>}' attribute.
@@ -128,7 +128,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getStart() {
+	public Integer getStart() {
 		return (Integer)eDynamicGet(DatabasePackage.SEQUENCE__START, DatabasePackage.Literals.SEQUENCE__START, true, true);
 	}
 
@@ -137,7 +137,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStart(int newStart) {
+	public void setStart(Integer newStart) {
 		eDynamicSet(DatabasePackage.SEQUENCE__START, DatabasePackage.Literals.SEQUENCE__START, newStart);
 	}
 
@@ -146,7 +146,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getIncrement() {
+	public Integer getIncrement() {
 		return (Integer)eDynamicGet(DatabasePackage.SEQUENCE__INCREMENT, DatabasePackage.Literals.SEQUENCE__INCREMENT, true, true);
 	}
 
@@ -155,7 +155,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIncrement(int newIncrement) {
+	public void setIncrement(Integer newIncrement) {
 		eDynamicSet(DatabasePackage.SEQUENCE__INCREMENT, DatabasePackage.Literals.SEQUENCE__INCREMENT, newIncrement);
 	}
 
@@ -164,7 +164,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMinValue() {
+	public Integer getMinValue() {
 		return (Integer)eDynamicGet(DatabasePackage.SEQUENCE__MIN_VALUE, DatabasePackage.Literals.SEQUENCE__MIN_VALUE, true, true);
 	}
 
@@ -173,7 +173,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMinValue(int newMinValue) {
+	public void setMinValue(Integer newMinValue) {
 		eDynamicSet(DatabasePackage.SEQUENCE__MIN_VALUE, DatabasePackage.Literals.SEQUENCE__MIN_VALUE, newMinValue);
 	}
 
@@ -182,7 +182,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMaxValue() {
+	public Integer getMaxValue() {
 		return (Integer)eDynamicGet(DatabasePackage.SEQUENCE__MAX_VALUE, DatabasePackage.Literals.SEQUENCE__MAX_VALUE, true, true);
 	}
 
@@ -191,7 +191,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxValue(int newMaxValue) {
+	public void setMaxValue(Integer newMaxValue) {
 		eDynamicSet(DatabasePackage.SEQUENCE__MAX_VALUE, DatabasePackage.Literals.SEQUENCE__MAX_VALUE, newMaxValue);
 	}
 
@@ -200,7 +200,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getCacheSize() {
+	public Integer getCacheSize() {
 		return (Integer)eDynamicGet(DatabasePackage.SEQUENCE__CACHE_SIZE, DatabasePackage.Literals.SEQUENCE__CACHE_SIZE, true, true);
 	}
 
@@ -209,7 +209,7 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCacheSize(int newCacheSize) {
+	public void setCacheSize(Integer newCacheSize) {
 		eDynamicSet(DatabasePackage.SEQUENCE__CACHE_SIZE, DatabasePackage.Literals.SEQUENCE__CACHE_SIZE, newCacheSize);
 	}
 
@@ -373,15 +373,15 @@ public class SequenceImpl extends NamedElementImpl implements Sequence {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DatabasePackage.SEQUENCE__START:
-				return getStart() != START_EDEFAULT;
+				return START_EDEFAULT == null ? getStart() != null : !START_EDEFAULT.equals(getStart());
 			case DatabasePackage.SEQUENCE__INCREMENT:
-				return getIncrement() != INCREMENT_EDEFAULT;
+				return INCREMENT_EDEFAULT == null ? getIncrement() != null : !INCREMENT_EDEFAULT.equals(getIncrement());
 			case DatabasePackage.SEQUENCE__MIN_VALUE:
-				return getMinValue() != MIN_VALUE_EDEFAULT;
+				return MIN_VALUE_EDEFAULT == null ? getMinValue() != null : !MIN_VALUE_EDEFAULT.equals(getMinValue());
 			case DatabasePackage.SEQUENCE__MAX_VALUE:
-				return getMaxValue() != MAX_VALUE_EDEFAULT;
+				return MAX_VALUE_EDEFAULT == null ? getMaxValue() != null : !MAX_VALUE_EDEFAULT.equals(getMaxValue());
 			case DatabasePackage.SEQUENCE__CACHE_SIZE:
-				return getCacheSize() != CACHE_SIZE_EDEFAULT;
+				return CACHE_SIZE_EDEFAULT == null ? getCacheSize() != null : !CACHE_SIZE_EDEFAULT.equals(getCacheSize());
 			case DatabasePackage.SEQUENCE__CYCLE:
 				return isCycle() != CYCLE_EDEFAULT;
 			case DatabasePackage.SEQUENCE__COLUMNS:

@@ -65,28 +65,23 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 			if (sequence.getName() != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.name))
 				sequencePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, sequence.getName()));
 			
-			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.start)) {
-				sequencePart.setStart(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, sequence.getStart()));
-			}
+			if (sequence.getStart() != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.start))
+				sequencePart.setStart(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, sequence.getStart()));
 			
-			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.increment)) {
-				sequencePart.setIncrement(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, sequence.getIncrement()));
-			}
+			if (sequence.getIncrement() != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.increment))
+				sequencePart.setIncrement(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, sequence.getIncrement()));
 			
-			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.MinMax.minValue)) {
-				sequencePart.setMinValue(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, sequence.getMinValue()));
-			}
+			if (sequence.getMinValue() != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.MinMax.minValue))
+				sequencePart.setMinValue(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, sequence.getMinValue()));
 			
-			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue)) {
-				sequencePart.setMaxValue(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, sequence.getMaxValue()));
-			}
+			if (sequence.getMaxValue() != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue))
+				sequencePart.setMaxValue(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, sequence.getMaxValue()));
 			
 			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle)) {
 				sequencePart.setCycle(sequence.isCycle());
 			}
-			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize)) {
-				sequencePart.setCacheSize(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, sequence.getCacheSize()));
-			}
+			if (sequence.getCacheSize() != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize))
+				sequencePart.setCacheSize(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, sequence.getCacheSize()));
 			
 			if (sequence.getComments() != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.comments))
 				sequencePart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, sequence.getComments()));
@@ -160,22 +155,22 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 			sequence.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
 		if (DatabaseViewsRepository.Sequence.Properties.StartIncrement.start == event.getAffectedEditor()) {
-			sequence.setStart((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+			sequence.setStart((java.lang.Integer)EEFConverterUtil.createFromString(EcorePackage.Literals.EINTEGER_OBJECT, (String)event.getNewValue()));
 		}
 		if (DatabaseViewsRepository.Sequence.Properties.StartIncrement.increment == event.getAffectedEditor()) {
-			sequence.setIncrement((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+			sequence.setIncrement((java.lang.Integer)EEFConverterUtil.createFromString(EcorePackage.Literals.EINTEGER_OBJECT, (String)event.getNewValue()));
 		}
 		if (DatabaseViewsRepository.Sequence.Properties.MinMax.minValue == event.getAffectedEditor()) {
-			sequence.setMinValue((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+			sequence.setMinValue((java.lang.Integer)EEFConverterUtil.createFromString(EcorePackage.Literals.EINTEGER_OBJECT, (String)event.getNewValue()));
 		}
 		if (DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue == event.getAffectedEditor()) {
-			sequence.setMaxValue((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+			sequence.setMaxValue((java.lang.Integer)EEFConverterUtil.createFromString(EcorePackage.Literals.EINTEGER_OBJECT, (String)event.getNewValue()));
 		}
 		if (DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle == event.getAffectedEditor()) {
 			sequence.setCycle((Boolean)event.getNewValue());
 		}
 		if (DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize == event.getAffectedEditor()) {
-			sequence.setCacheSize((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+			sequence.setCacheSize((java.lang.Integer)EEFConverterUtil.createFromString(EcorePackage.Literals.EINTEGER_OBJECT, (String)event.getNewValue()));
 		}
 		if (DatabaseViewsRepository.Sequence.Properties.comments == event.getAffectedEditor()) {
 			sequence.setComments((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
@@ -198,28 +193,28 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 			}
 			if (DatabasePackage.eINSTANCE.getSequence_Start().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.start)) {
 				if (msg.getNewValue() != null) {
-					sequencePart.setStart(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
+					sequencePart.setStart(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					sequencePart.setStart("");
 				}
 			}
 			if (DatabasePackage.eINSTANCE.getSequence_Increment().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.increment)) {
 				if (msg.getNewValue() != null) {
-					sequencePart.setIncrement(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
+					sequencePart.setIncrement(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					sequencePart.setIncrement("");
 				}
 			}
 			if (DatabasePackage.eINSTANCE.getSequence_MinValue().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.MinMax.minValue)) {
 				if (msg.getNewValue() != null) {
-					sequencePart.setMinValue(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
+					sequencePart.setMinValue(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					sequencePart.setMinValue("");
 				}
 			}
 			if (DatabasePackage.eINSTANCE.getSequence_MaxValue().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue)) {
 				if (msg.getNewValue() != null) {
-					sequencePart.setMaxValue(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
+					sequencePart.setMaxValue(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					sequencePart.setMaxValue("");
 				}
@@ -229,7 +224,7 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 			
 			if (DatabasePackage.eINSTANCE.getSequence_CacheSize().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize)) {
 				if (msg.getNewValue() != null) {
-					sequencePart.setCacheSize(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
+					sequencePart.setCacheSize(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					sequencePart.setCacheSize("");
 				}

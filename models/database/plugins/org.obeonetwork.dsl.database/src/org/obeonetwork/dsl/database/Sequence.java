@@ -52,12 +52,12 @@ public interface Sequence extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start</em>' attribute.
-	 * @see #setStart(int)
+	 * @see #setStart(Integer)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_Start()
 	 * @model
 	 * @generated
 	 */
-	int getStart();
+	Integer getStart();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Sequence#getStart <em>Start</em>}' attribute.
@@ -67,7 +67,7 @@ public interface Sequence extends NamedElement {
 	 * @see #getStart()
 	 * @generated
 	 */
-	void setStart(int value);
+	void setStart(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Increment</b></em>' attribute.
@@ -78,12 +78,12 @@ public interface Sequence extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Increment</em>' attribute.
-	 * @see #setIncrement(int)
+	 * @see #setIncrement(Integer)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_Increment()
 	 * @model
 	 * @generated
 	 */
-	int getIncrement();
+	Integer getIncrement();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Sequence#getIncrement <em>Increment</em>}' attribute.
@@ -93,7 +93,7 @@ public interface Sequence extends NamedElement {
 	 * @see #getIncrement()
 	 * @generated
 	 */
-	void setIncrement(int value);
+	void setIncrement(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Min Value</b></em>' attribute.
@@ -104,12 +104,12 @@ public interface Sequence extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Min Value</em>' attribute.
-	 * @see #setMinValue(int)
+	 * @see #setMinValue(Integer)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_MinValue()
 	 * @model
 	 * @generated
 	 */
-	int getMinValue();
+	Integer getMinValue();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Sequence#getMinValue <em>Min Value</em>}' attribute.
@@ -119,7 +119,7 @@ public interface Sequence extends NamedElement {
 	 * @see #getMinValue()
 	 * @generated
 	 */
-	void setMinValue(int value);
+	void setMinValue(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Max Value</b></em>' attribute.
@@ -130,12 +130,12 @@ public interface Sequence extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Max Value</em>' attribute.
-	 * @see #setMaxValue(int)
+	 * @see #setMaxValue(Integer)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_MaxValue()
 	 * @model
 	 * @generated
 	 */
-	int getMaxValue();
+	Integer getMaxValue();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Sequence#getMaxValue <em>Max Value</em>}' attribute.
@@ -145,7 +145,7 @@ public interface Sequence extends NamedElement {
 	 * @see #getMaxValue()
 	 * @generated
 	 */
-	void setMaxValue(int value);
+	void setMaxValue(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Cache Size</b></em>' attribute.
@@ -156,12 +156,12 @@ public interface Sequence extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cache Size</em>' attribute.
-	 * @see #setCacheSize(int)
+	 * @see #setCacheSize(Integer)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_CacheSize()
 	 * @model
 	 * @generated
 	 */
-	int getCacheSize();
+	Integer getCacheSize();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Sequence#getCacheSize <em>Cache Size</em>}' attribute.
@@ -171,7 +171,7 @@ public interface Sequence extends NamedElement {
 	 * @see #getCacheSize()
 	 * @generated
 	 */
-	void setCacheSize(int value);
+	void setCacheSize(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Cycle</b></em>' attribute.
