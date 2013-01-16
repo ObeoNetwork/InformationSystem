@@ -11,7 +11,7 @@
 	
 	<!--Start of user code for start of document -->	 
 
-	<!-- End of user code for start of document -->
+	<!-- End of user code -->
 	
 	<!-- Hibernate Transaction Manager -->
 	<bean id="transactionManager"
@@ -46,32 +46,28 @@
  				<prop key="hibernate.jdbc.batch_size">1</prop>
 			</props>
 		</property>
-		<!-- End of user code for hibernate properties -->
+		<!-- End of user code -->
 	</bean> 
-			<!-- badPractives -->
-		<bean id="BadPractivesDAO" 
-			class="org.obeonetwork.sample.badpractives.HibernateBadPractivesDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for badPractives specific configuration -->
-		<!-- End of user code  for badPractives specific configuration -->
-		<!-- end badPractives -->
-
-
-		<!-- package -->
-		<bean id="PackageDAO" 
-			class="org.obeonetwork.sample.badpractives.package_.HibernatePackage_Dao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for package specific configuration -->
-		<!-- End of user code  for package specific configuration -->
-		<!-- end package -->
-
-
+	<!-- badPractives -->
+	<bean id="BadPractivesDAO" 
+		class="org.obeonetwork.sample.badpractives.HibernateBadPractivesDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for badPractives specific configuration -->
+		<!-- End of user code -->
+	<!-- end badPractives -->
+	<!-- package -->
+	<bean id="PackageDAO" 
+		class="org.obeonetwork.sample.badpractives.package_.HibernatePackage_Dao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for package specific configuration -->
+		<!-- End of user code -->
+	<!-- end package -->
 </beans>

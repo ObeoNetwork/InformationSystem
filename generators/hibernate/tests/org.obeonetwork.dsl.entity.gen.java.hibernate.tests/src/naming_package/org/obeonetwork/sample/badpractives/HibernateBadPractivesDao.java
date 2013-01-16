@@ -26,7 +26,7 @@ import org.obeonetwork.sample.badpractives.MyEntity;
 import org.obeonetwork.sample.badpractives.TABLE;
 import org.obeonetwork.sample.badpractives.IBadPractivesDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IBadPractivesDao based on the hibernate
@@ -43,7 +43,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param interface_ Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IInterface_Dao.createInterface_
      */
 	public void createInterface_(Interface_ interface_) throws DaoException {
@@ -60,7 +60,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param interface_
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IInterface_Dao.updateInterface_
      */
 	public void updateInterface_(Interface_ interface_) throws DaoException {
@@ -77,7 +77,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param interface_ Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IInterface_Dao.deleteInterface_
    	 */
 	public void deleteInterface_(Interface_ interface_) throws DaoException {
@@ -93,7 +93,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IInterface_Dao.findAllInterface_s
      */
 	public Collection<Interface_> findAllInterface_s() throws DaoException {
@@ -114,7 +114,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IInterface_Dao.findInterface_ById
      */
 	public Interface_ findInterface_ById(String id) throws DaoException {
@@ -135,7 +135,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param class_ Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IClass_Dao.createClass_
      */
 	public void createClass_(Class_ class_) throws DaoException {
@@ -152,7 +152,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param class_
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IClass_Dao.updateClass_
      */
 	public void updateClass_(Class_ class_) throws DaoException {
@@ -169,7 +169,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class_ Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IClass_Dao.deleteClass_
    	 */
 	public void deleteClass_(Class_ class_) throws DaoException {
@@ -185,7 +185,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IClass_Dao.findAllClass_s
      */
 	public Collection<Class_> findAllClass_s() throws DaoException {
@@ -206,7 +206,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IClass_Dao.findClass_ById
      */
 	public Class_ findClass_ById(String id) throws DaoException {
@@ -227,7 +227,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param badName Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IBadNameDao.createBadName
      */
 	public void createBadName(BadName badName) throws DaoException {
@@ -244,7 +244,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param badName
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IBadNameDao.updateBadName
      */
 	public void updateBadName(BadName badName) throws DaoException {
@@ -261,7 +261,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param badName Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IBadNameDao.deleteBadName
    	 */
 	public void deleteBadName(BadName badName) throws DaoException {
@@ -277,7 +277,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IBadNameDao.findAllBadNames
      */
 	public Collection<BadName> findAllBadNames() throws DaoException {
@@ -298,7 +298,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IBadNameDao.findBadNameById
      */
 	public BadName findBadNameById(String id) throws DaoException {
@@ -319,7 +319,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param anothername Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IAnothernameDao.createAnothername
      */
 	public void createAnothername(Anothername anothername) throws DaoException {
@@ -336,7 +336,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param anothername
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IAnothernameDao.updateAnothername
      */
 	public void updateAnothername(Anothername anothername) throws DaoException {
@@ -353,7 +353,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param anothername Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IAnothernameDao.deleteAnothername
    	 */
 	public void deleteAnothername(Anothername anothername) throws DaoException {
@@ -369,7 +369,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IAnothernameDao.findAllAnothernames
      */
 	public Collection<Anothername> findAllAnothernames() throws DaoException {
@@ -390,7 +390,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IAnothernameDao.findAnothernameById
      */
 	public Anothername findAnothernameById(String id) throws DaoException {
@@ -411,7 +411,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param entityWithSpecialChars Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.createentityWithSpecialChars
      */
 	public void createentityWithSpecialChars(EntityWithSpecialChars entityWithSpecialChars) throws DaoException {
@@ -428,7 +428,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param entityWithSpecialChars
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.updateentityWithSpecialChars
      */
 	public void updateentityWithSpecialChars(EntityWithSpecialChars entityWithSpecialChars) throws DaoException {
@@ -445,7 +445,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param entityWithSpecialChars Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.deleteentityWithSpecialChars
    	 */
 	public void deleteentityWithSpecialChars(EntityWithSpecialChars entityWithSpecialChars) throws DaoException {
@@ -461,7 +461,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.findAllentityWithSpecialCharss
      */
 	public Collection<EntityWithSpecialChars> findAllentityWithSpecialCharss() throws DaoException {
@@ -482,7 +482,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IEntityWithSpecialCharsDao.findentityWithSpecialCharsById
      */
 	public EntityWithSpecialChars findentityWithSpecialCharsById(String id) throws DaoException {
@@ -503,7 +503,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param public_ Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPublic_Dao.createpublic_
      */
 	public void createpublic_(Public_ public_) throws DaoException {
@@ -520,7 +520,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param public_
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPublic_Dao.updatepublic_
      */
 	public void updatepublic_(Public_ public_) throws DaoException {
@@ -537,7 +537,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param public_ Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPublic_Dao.deletepublic_
    	 */
 	public void deletepublic_(Public_ public_) throws DaoException {
@@ -553,7 +553,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPublic_Dao.findAllpublic_s
      */
 	public Collection<Public_> findAllpublic_s() throws DaoException {
@@ -574,7 +574,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPublic_Dao.findpublic_ById
      */
 	public Public_ findpublic_ById(String id) throws DaoException {
@@ -595,7 +595,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param private_ Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPrivate_Dao.createprivate_
      */
 	public void createprivate_(Private_ private_) throws DaoException {
@@ -612,7 +612,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param private_
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPrivate_Dao.updateprivate_
      */
 	public void updateprivate_(Private_ private_) throws DaoException {
@@ -629,7 +629,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param private_ Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPrivate_Dao.deleteprivate_
    	 */
 	public void deleteprivate_(Private_ private_) throws DaoException {
@@ -645,7 +645,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPrivate_Dao.findAllprivate_s
      */
 	public Collection<Private_> findAllprivate_s() throws DaoException {
@@ -666,7 +666,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IPrivate_Dao.findprivate_ById
      */
 	public Private_ findprivate_ById(String id) throws DaoException {
@@ -687,7 +687,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param protected_ Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IProtected_Dao.createprotected_
      */
 	public void createprotected_(Protected_ protected_) throws DaoException {
@@ -704,7 +704,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param protected_
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IProtected_Dao.updateprotected_
      */
 	public void updateprotected_(Protected_ protected_) throws DaoException {
@@ -721,7 +721,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param protected_ Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IProtected_Dao.deleteprotected_
    	 */
 	public void deleteprotected_(Protected_ protected_) throws DaoException {
@@ -737,7 +737,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IProtected_Dao.findAllprotected_s
      */
 	public Collection<Protected_> findAllprotected_s() throws DaoException {
@@ -758,7 +758,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IProtected_Dao.findprotected_ById
      */
 	public Protected_ findprotected_ById(String id) throws DaoException {
@@ -779,7 +779,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param null_ Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.INull_Dao.createnull_
      */
 	public void createnull_(Null_ null_) throws DaoException {
@@ -796,7 +796,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param null_
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.INull_Dao.updatenull_
      */
 	public void updatenull_(Null_ null_) throws DaoException {
@@ -813,7 +813,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param null_ Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.INull_Dao.deletenull_
    	 */
 	public void deletenull_(Null_ null_) throws DaoException {
@@ -829,7 +829,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.INull_Dao.findAllnull_s
      */
 	public Collection<Null_> findAllnull_s() throws DaoException {
@@ -850,7 +850,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.INull_Dao.findnull_ById
      */
 	public Null_ findnull_ById(String id) throws DaoException {
@@ -871,7 +871,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param myEntity Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IMyEntityDao.createmyEntity
      */
 	public void createmyEntity(MyEntity myEntity) throws DaoException {
@@ -888,7 +888,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param myEntity
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IMyEntityDao.updatemyEntity
      */
 	public void updatemyEntity(MyEntity myEntity) throws DaoException {
@@ -905,7 +905,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param myEntity Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IMyEntityDao.deletemyEntity
    	 */
 	public void deletemyEntity(MyEntity myEntity) throws DaoException {
@@ -921,7 +921,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IMyEntityDao.findAllmyEntitys
      */
 	public Collection<MyEntity> findAllmyEntitys() throws DaoException {
@@ -942,7 +942,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.IMyEntityDao.findmyEntityById
      */
 	public MyEntity findmyEntityById(String id) throws DaoException {
@@ -963,7 +963,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Create a new element
 	 * @param tABLE Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.ITABLEDao.createTABLE
      */
 	public void createTABLE(TABLE tABLE) throws DaoException {
@@ -980,7 +980,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Update an existing element
 	 * @param tABLE
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.ITABLEDao.updateTABLE
      */
 	public void updateTABLE(TABLE tABLE) throws DaoException {
@@ -997,7 +997,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param tABLE Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.ITABLEDao.deleteTABLE
    	 */
 	public void deleteTABLE(TABLE tABLE) throws DaoException {
@@ -1013,7 +1013,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.ITABLEDao.findAllTABLEs
      */
 	public Collection<TABLE> findAllTABLEs() throws DaoException {
@@ -1034,7 +1034,7 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.ITABLEDao.findTABLEById
      */
 	public TABLE findTABLEById(String id) throws DaoException {
@@ -1055,3 +1055,4 @@ public class HibernateBadPractivesDao implements IBadPractivesDao {
 	//Start of user code
 	//End of user code
 }
+

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-configuration
     PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
@@ -23,11 +23,11 @@
         <mapping resource="org/obeonetwork/sample/badpractives/package_/Return_.hbm.xml"/>
 
 		<!-- Start of user code of listeners -->
-		<!-- End of user code of listeners -->
+		<!-- End of user code -->
 
     </session-factory>
 
 	<!-- Start of user code of security parameters -->
-	<!-- End of user code of security parameters -->
+	<!-- End of user code -->
 
 </hibernate-configuration>
