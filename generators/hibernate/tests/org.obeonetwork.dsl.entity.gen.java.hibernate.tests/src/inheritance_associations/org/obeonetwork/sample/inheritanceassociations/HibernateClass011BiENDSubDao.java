@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.inheritanceassociations.Class011BiENDSub;
 import org.obeonetwork.sample.inheritanceassociations.IClass011BiENDSubDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IClass011BiENDSubDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateClass011BiENDSubDao implements IClass011BiENDSubDao {
 	/**
 	 * Create a new element
 	 * @param class_01_1_Bi_END_Sub Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClass011BiENDSubDao.createClass_01_1_Bi_END_Sub
      */
 	public void createClass011BiENDSub(final Class011BiENDSub class011BiENDSub) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateClass011BiENDSubDao implements IClass011BiENDSubDao {
 	 * Update an existing element
 	 * @param class_01_1_Bi_END_Sub
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClass011BiENDSubDao.updateClass_01_1_Bi_END_Sub
      */
 	public void updateClass011BiENDSub(Class011BiENDSub class011BiENDSub) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateClass011BiENDSubDao implements IClass011BiENDSubDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class_01_1_Bi_END_Sub Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClass011BiENDSubDao.deleteClass_01_1_Bi_END_Sub
    	 */
 	public void deleteClass011BiENDSub(Class011BiENDSub class011BiENDSub) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateClass011BiENDSubDao implements IClass011BiENDSubDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClass011BiENDSubDao.findAllClass_01_1_Bi_END_Subs
      */
 	public Collection<Class011BiENDSub> findAllClass011BiENDSubs() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateClass011BiENDSubDao implements IClass011BiENDSubDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClass011BiENDSubDao.findClass_01_1_Bi_END_SubById
      */
 	public Class011BiENDSub findClass011BiENDSubById(String id) throws DaoException {

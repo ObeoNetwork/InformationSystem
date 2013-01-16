@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.inheritanceassociations.ClassManyManyEnd;
 import org.obeonetwork.sample.inheritanceassociations.IClassManyManyEndDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IClassManyManyEndDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateClassManyManyEndDao implements IClassManyManyEndDao {
 	/**
 	 * Create a new element
 	 * @param class_Many_Many_End Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassManyManyEndDao.createClass_Many_Many_End
      */
 	public void createClassManyManyEnd(final ClassManyManyEnd classManyManyEnd) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateClassManyManyEndDao implements IClassManyManyEndDao {
 	 * Update an existing element
 	 * @param class_Many_Many_End
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassManyManyEndDao.updateClass_Many_Many_End
      */
 	public void updateClassManyManyEnd(ClassManyManyEnd classManyManyEnd) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateClassManyManyEndDao implements IClassManyManyEndDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class_Many_Many_End Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassManyManyEndDao.deleteClass_Many_Many_End
    	 */
 	public void deleteClassManyManyEnd(ClassManyManyEnd classManyManyEnd) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateClassManyManyEndDao implements IClassManyManyEndDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassManyManyEndDao.findAllClass_Many_Many_Ends
      */
 	public Collection<ClassManyManyEnd> findAllClassManyManyEnds() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateClassManyManyEndDao implements IClassManyManyEndDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassManyManyEndDao.findClass_Many_Many_EndById
      */
 	public ClassManyManyEnd findClassManyManyEndById(String id) throws DaoException {

@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.inheritanceassociations.ClassMany01BIEND;
 import org.obeonetwork.sample.inheritanceassociations.IClassMany01BIENDDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IClassMany01BIENDDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateClassMany01BIENDDao implements IClassMany01BIENDDao {
 	/**
 	 * Create a new element
 	 * @param class_Many_01_BI_END Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassMany01BIENDDao.createClass_Many_01_BI_END
      */
 	public void createClassMany01BIEND(final ClassMany01BIEND classMany01BIEND) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateClassMany01BIENDDao implements IClassMany01BIENDDao {
 	 * Update an existing element
 	 * @param class_Many_01_BI_END
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassMany01BIENDDao.updateClass_Many_01_BI_END
      */
 	public void updateClassMany01BIEND(ClassMany01BIEND classMany01BIEND) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateClassMany01BIENDDao implements IClassMany01BIENDDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class_Many_01_BI_END Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassMany01BIENDDao.deleteClass_Many_01_BI_END
    	 */
 	public void deleteClassMany01BIEND(ClassMany01BIEND classMany01BIEND) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateClassMany01BIENDDao implements IClassMany01BIENDDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassMany01BIENDDao.findAllClass_Many_01_BI_ENDs
      */
 	public Collection<ClassMany01BIEND> findAllClassMany01BIENDs() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateClassMany01BIENDDao implements IClassMany01BIENDDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassMany01BIENDDao.findClass_Many_01_BI_ENDById
      */
 	public ClassMany01BIEND findClassMany01BIENDById(String id) throws DaoException {

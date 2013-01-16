@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.obeonetwork.fwk.dao.exception.DaoException;
 import org.obeonetwork.sample.inheritanceassociations.Class01ManyBIENDSub;
 
-// End of user code for import
+// End of user code
 
 /**
  * This class provides the data access layer to the Class_01_Many_BI_END_Sub entity class.<br/>
@@ -17,7 +17,7 @@ public interface IClass01ManyBIENDSubDao {
 	/**
 	 * Create a new element.
 	 * @param class01ManyBIENDSub Element to create.
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public void createClass01ManyBIENDSub(Class01ManyBIENDSub class01ManyBIENDSub) throws DaoException;
 
@@ -25,7 +25,7 @@ public interface IClass01ManyBIENDSubDao {
 	 * Update an existing element.
 	 * @param class01ManyBIENDSub Element to update. 
      *            If the element has an id, it may use it.
-	 * @throws DaoException If a Dao problem occurs.
+     	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public void updateClass01ManyBIENDSub(Class01ManyBIENDSub class01ManyBIENDSub) throws DaoException;
 
@@ -33,14 +33,14 @@ public interface IClass01ManyBIENDSubDao {
 	 * Delete an element.
      * Only id can be used to find which element must be deleted.
 	 * @param class01ManyBIENDSub Element which will be delete. 
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public void deleteClass01ManyBIENDSub(Class01ManyBIENDSub class01ManyBIENDSub) throws DaoException;
 
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter.
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public Collection<Class01ManyBIENDSub> findAllClass01ManyBIENDSubs() throws DaoException;
 
@@ -48,10 +48,10 @@ public interface IClass01ManyBIENDSubDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity.
 	 * @return The entity found.
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public Class01ManyBIENDSub findClass01ManyBIENDSubById(String id) throws DaoException;
 
 	//Start of user code for technicals dao access api
-	//End of user code for technical dao access api
+	//End of user code
 }

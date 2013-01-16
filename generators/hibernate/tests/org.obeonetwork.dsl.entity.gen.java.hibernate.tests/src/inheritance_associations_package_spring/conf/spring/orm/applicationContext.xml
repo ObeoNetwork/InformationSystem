@@ -11,7 +11,7 @@
 	
 	<!--Start of user code for start of document -->	 
 
-	<!-- End of user code for start of document -->
+	<!-- End of user code -->
 	
 	<!-- Hibernate Transaction Manager -->
 	<bean id="transactionManager"
@@ -46,19 +46,17 @@
  				<prop key="hibernate.jdbc.batch_size">1</prop>
 			</props>
 		</property>
-		<!-- End of user code for hibernate properties -->
+		<!-- End of user code -->
 	</bean> 
-			<!-- inheritanceassociations -->
-		<bean id="InheritanceassociationsDAO" 
-			class="org.obeonetwork.sample.inheritanceassociations.HibernateInheritanceassociationsDao">
-			<property name="sessionFactory">
-				<ref bean="sessionFactory" />
-			</property>
-		</bean>
-
-		<!-- Start of user code for inheritance_associations specific configuration -->
-		<!-- End of user code  for inheritance_associations specific configuration -->
-		<!-- end inheritanceassociations -->
-
-
+	<!-- inheritanceassociations -->
+	<bean id="InheritanceassociationsDAO" 
+		class="org.obeonetwork.sample.inheritanceassociations.HibernateInheritanceassociationsDao">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- Start of user code for inheritance_associations specific configuration -->
+		<!-- End of user code -->
+	<!-- end inheritanceassociations -->
 </beans>

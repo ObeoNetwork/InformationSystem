@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.inheritanceassociations.Class11END" 
     	table="CLASS_1_1_END"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -26,11 +26,10 @@
 
 		<!-- Inheritance -->
 
-
 		<joined-subclass
 			name="org.obeonetwork.sample.inheritanceassociations.Class11ENDSub" 
     		table="CLASS_1_1_END_SUB"
-    	dynamic-update="true">
+    	    dynamic-update="true">
     		
     		<key column="FK_INHERITS_CLASS_1_1_END_ID"/>
     		
@@ -43,7 +42,6 @@
 			<!-- Inheritance -->
 
     	</joined-subclass>
-
 
 
     </class>
