@@ -10,7 +10,7 @@
             objectClass="org.eclipse.core.resources.IFile">
          <menu
                id="org.obeonetwork.dsl.ois.menu"
-               label="Generation"
+               label="Generate"
                path="additions">
          </menu>
          <action
@@ -39,7 +39,7 @@
             objectClass="org.eclipse.core.resources.IFile">
          <menu
                id="org.obeonetwork.dsl.ois.menu"
-               label="Generation"
+               label="Generate"
                path="additions">
          </menu>
          <action
