@@ -3,14 +3,19 @@
       id="org.obeonetwork.sample.demo.weblog.feature"
       label="Obeo Demonstration JEE Weblog"
       version="2.3.0.qualifier"
-      provider-name="0beo.fr">
+      provider-name="%providerName">
 
-   <description url="http://www.obeo.fr">
-      Obeo Demonstration JEE.
+   <description url="http://marketplace.obeonetwork.com/">
+      ObeoNetwork - JEE Demonstration
    </description>
 
-   <copyright url="http://www.obeo.fr/legal.php">
-      Copyright © 2007 Obeo
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2011 - 2013 Obeo.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
    </copyright>
 
    <license url="%licenseURL">

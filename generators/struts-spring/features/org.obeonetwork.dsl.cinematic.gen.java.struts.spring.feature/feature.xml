@@ -3,10 +3,10 @@
       id="org.obeonetwork.dsl.cinematic.gen.java.struts.spring.feature"
       label="Obeo DSM JEE - Struts Spring integration Module"
       version="2.3.0.qualifier"
-      provider-name="Obeo.fr">
+      provider-name="%providerName">
 
-   <description url="http://www.obeo.fr">
-      Acceleo Pro JEE - Struts Spring integration module
+   <description url="http://marketplace.obeonetwork.com/">
+      ObeoNetwork - Struts Spring generation integration module
    </description>
 
    <copyright url="http://www.obeo.fr">

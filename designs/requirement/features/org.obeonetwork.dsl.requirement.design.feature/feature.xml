@@ -2,10 +2,11 @@
 <feature
       id="org.obeonetwork.dsl.requirement.design.feature"
       label="Requirement Designer"
-      version="0.8.0.qualifier">
+      version="0.8.0.qualifier"
+      provider-name="%providerName">
 
-   <description url="http://www.obeo.fr">
-      Requirements DSM
+   <description url="http://marketplace.obeonetwork.com/">
+      ObeoNetwork - Requirements Designer
    </description>
 
    <copyright url="http://www.obeo.fr">

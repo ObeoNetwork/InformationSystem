@@ -3,10 +3,10 @@
       id="org.obeonetwork.dsl.soa.gen.java.spring.feature"
       label="Obeo DSM JEE - Spring Module"
       version="2.3.0.qualifier"
-      provider-name="Obeo.fr">
+      provider-name="%providerName">
 
-   <description url="http://www.obeo.fr">
-      Acceleo Pro JEE - Spring module
+   <description url="http://marketplace.obeonetwork.com/">
+      ObeoNetwork - Spring generation module
    </description>
 
    <copyright url="http://www.obeo.fr">

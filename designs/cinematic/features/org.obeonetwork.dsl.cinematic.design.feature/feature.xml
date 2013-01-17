@@ -3,10 +3,10 @@
       id="org.obeonetwork.dsl.cinematic.design.feature"
       label="Cinematic Designer"
       version="3.0.0.qualifier"
-      provider-name="Obeo.fr">
+      provider-name="%providerName">
 
-   <description url="http://www.obeo.fr">
-      Obeo - Cinematic
+   <description url="http://marketplace.obeonetwork.com/">
+      ObeoNetwork - Cinematic Designer
    </description>
 
    <copyright url="http://www.obeo.fr/legal.php?lang=en">

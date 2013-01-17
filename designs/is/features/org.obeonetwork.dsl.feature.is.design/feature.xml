@@ -3,10 +3,10 @@
       id="org.obeonetwork.dsl.feature.is.design"
       label="IS Designer"
       version="2.3.0.qualifier"
-      provider-name="Obeo.fr">
+      provider-name="%providerName">
 
-   <description url="http://www.obeonetwork.org">
-      Designer for IS cinematic, entity and SOA models
+   <description url="http://marketplace.obeonetwork.com/">
+      ObeoNetwork - Designer for IS cinematic, entity and SOA models
    </description>
 
    <copyright url="http://www.acceleo.org/legal.php">

@@ -3,14 +3,19 @@
       id="org.obeonetwork.dsl.environment.gen.java.feature"
       label="Obeo DSM JEE - Common Module"
       version="2.3.0.qualifier"
-      provider-name="Obeo.fr">
+      provider-name="%providerName">
 
-   <description url="http://www.obeo.fr">
-      Acceleo Pro JEE - Common module
+   <description url="http://marketplace.obeonetwork.com/">
+      ObeoNetwork - Common generation module
    </description>
 
-   <copyright url="http://www.obeo.fr">
-      Copyright (c) 2006-2008 Obeo
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2011 - 2013 Obeo.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
    </copyright>
 
    <license url="%licenseURL">
