@@ -10,7 +10,7 @@
    </description>
 
    <copyright url="http://www.obeo.fr/legal.php?lang=en">
-      Copyright (c) 2009, 2012 Obeo.
+      Copyright (c) 2013 Obeo.
 All rights reserved. This program and the accompanying materials
 are made available under the terms of the Eclipse Public License
 v1.0 which accompanies this distribution, and is available at
@@ -215,7 +215,7 @@ Agreement more than one year after the cause of action arose.
 Each party waives its rights to a jury trial in any resulting
 litigation.
    </license>
-
+   
    <requires>
       <import feature="fr.obeo.dsl.feature.designer.architect" version="6.0.0" match="greaterOrEqual"/>
       <import feature="fr.obeo.dsl.viewpoint.runtime" version="6.4.0" match="greaterOrEqual"/>
