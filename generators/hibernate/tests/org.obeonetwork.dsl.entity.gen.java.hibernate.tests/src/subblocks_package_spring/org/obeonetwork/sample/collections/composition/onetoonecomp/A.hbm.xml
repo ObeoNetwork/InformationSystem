@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.collections.composition.onetoonecomp.A" 
     	table="A_1"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -24,17 +24,15 @@
 			 | A |- * -} 1 -| B |
 			  ___            ___
 		-->
-
 		<many-to-one 
 			name="b" 
 			class="org.obeonetwork.sample.collections.composition.onetoonecomp.B" 
 			column="FK_B_B_ID"
+            cascade=""
 			/>
 
 
 		<!-- Inheritance -->
-
-
 
 
     </class>

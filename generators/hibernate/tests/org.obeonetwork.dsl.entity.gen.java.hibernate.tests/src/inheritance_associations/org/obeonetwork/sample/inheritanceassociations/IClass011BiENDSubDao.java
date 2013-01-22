@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.obeonetwork.fwk.dao.exception.DaoException;
 import org.obeonetwork.sample.inheritanceassociations.Class011BiENDSub;
 
-// End of user code for import
+// End of user code
 
 /**
  * This class provides the data access layer to the Class_01_1_Bi_END_Sub entity class.<br/>
@@ -17,7 +17,7 @@ public interface IClass011BiENDSubDao {
 	/**
 	 * Create a new element.
 	 * @param class011BiENDSub Element to create.
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public void createClass011BiENDSub(Class011BiENDSub class011BiENDSub) throws DaoException;
 
@@ -25,7 +25,7 @@ public interface IClass011BiENDSubDao {
 	 * Update an existing element.
 	 * @param class011BiENDSub Element to update. 
      *            If the element has an id, it may use it.
-	 * @throws DaoException If a Dao problem occurs.
+     	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public void updateClass011BiENDSub(Class011BiENDSub class011BiENDSub) throws DaoException;
 
@@ -33,14 +33,14 @@ public interface IClass011BiENDSubDao {
 	 * Delete an element.
      * Only id can be used to find which element must be deleted.
 	 * @param class011BiENDSub Element which will be delete. 
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public void deleteClass011BiENDSub(Class011BiENDSub class011BiENDSub) throws DaoException;
 
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter.
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public Collection<Class011BiENDSub> findAllClass011BiENDSubs() throws DaoException;
 
@@ -48,10 +48,10 @@ public interface IClass011BiENDSubDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity.
 	 * @return The entity found.
-	 * @throws DaoException If a Dao problem occurs.
+	 	 * @throws DaoException If a Dao problem occurs.
 	 */
 	public Class011BiENDSub findClass011BiENDSubById(String id) throws DaoException;
 
 	//Start of user code for technicals dao access api
-	//End of user code for technical dao access api
+	//End of user code
 }

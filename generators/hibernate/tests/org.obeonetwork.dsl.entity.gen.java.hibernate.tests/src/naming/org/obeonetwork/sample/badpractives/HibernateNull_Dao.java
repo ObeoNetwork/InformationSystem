@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.badpractives.Null_;
 import org.obeonetwork.sample.badpractives.INull_Dao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface INull_Dao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateNull_Dao implements INull_Dao {
 	/**
 	 * Create a new element
 	 * @param null Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.INull_Dao.createnull
      */
 	public void createnull_(final Null_ null_) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateNull_Dao implements INull_Dao {
 	 * Update an existing element
 	 * @param null
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.INull_Dao.updatenull
      */
 	public void updatenull_(Null_ null_) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateNull_Dao implements INull_Dao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param null Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.INull_Dao.deletenull
    	 */
 	public void deletenull_(Null_ null_) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateNull_Dao implements INull_Dao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.INull_Dao.findAllnulls
      */
 	public Collection<Null_> findAllnull_s() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateNull_Dao implements INull_Dao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.INull_Dao.findnullById
      */
 	public Null_ findnull_ById(String id) throws DaoException {

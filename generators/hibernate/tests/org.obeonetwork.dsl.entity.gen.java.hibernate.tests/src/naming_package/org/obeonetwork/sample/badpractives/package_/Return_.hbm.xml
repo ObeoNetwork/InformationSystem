@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.badpractives.package_.Return_" 
     	table="RETURN"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -24,7 +24,6 @@
 			 | RETURN |- * -} 1 -| CLASS |
 			  ________            _______
 		-->
-
 		<many-to-one 
 			name="Class_" 
 			class="org.obeonetwork.sample.badpractives.Class_" 
@@ -33,8 +32,6 @@
 
 
 		<!-- Inheritance -->
-
-
 
 
     </class>

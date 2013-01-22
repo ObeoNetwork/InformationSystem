@@ -39,7 +39,7 @@ CREATE TABLE ANOTHERNAME
 	PRIMARY KEY (ID)
 );
 
--- Tables for Entity entityWithSpécialChars 
+-- Tables for Entity entityWithSpÃ©cialChars 
 
 DROP TABLE IF EXISTS ENTITY_WITH_SPECIAL_CHARS;
 CREATE TABLE ENTITY_WITH_SPECIAL_CHARS

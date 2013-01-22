@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.badpractives.BadName" 
     	table="BADNAME"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -22,8 +22,6 @@
 
 
 		<!-- Inheritance -->
-
-
 
 
     </class>

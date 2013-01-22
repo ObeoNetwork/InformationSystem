@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.inheritanceassociations.Class101END;
 import org.obeonetwork.sample.inheritanceassociations.IClass101ENDDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IClass101ENDDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateClass101ENDDao implements IClass101ENDDao {
 	/**
 	 * Create a new element
 	 * @param class_1_01_END Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClass101ENDDao.createClass_1_01_END
      */
 	public void createClass101END(final Class101END class101END) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateClass101ENDDao implements IClass101ENDDao {
 	 * Update an existing element
 	 * @param class_1_01_END
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClass101ENDDao.updateClass_1_01_END
      */
 	public void updateClass101END(Class101END class101END) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateClass101ENDDao implements IClass101ENDDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class_1_01_END Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClass101ENDDao.deleteClass_1_01_END
    	 */
 	public void deleteClass101END(Class101END class101END) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateClass101ENDDao implements IClass101ENDDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClass101ENDDao.findAllClass_1_01_ENDs
      */
 	public Collection<Class101END> findAllClass101ENDs() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateClass101ENDDao implements IClass101ENDDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClass101ENDDao.findClass_1_01_ENDById
      */
 	public Class101END findClass101ENDById(String id) throws DaoException {

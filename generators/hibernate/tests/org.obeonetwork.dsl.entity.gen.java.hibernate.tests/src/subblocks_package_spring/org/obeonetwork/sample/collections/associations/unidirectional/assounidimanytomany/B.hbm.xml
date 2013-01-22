@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.collections.associations.unidirectional.assounidimanytomany.B" 
     	table="B_5"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -22,8 +22,6 @@
 
 
 		<!-- Inheritance -->
-
-
 
 
     </class>

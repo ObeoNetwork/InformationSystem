@@ -9,8 +9,7 @@ import org.obeonetwork.sample.inheritanceassociations.ClassManyManyBIEND;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class ClassManyManyBIENDSub extends ClassManyManyBIEND implements Serializable {
 
 	/**
@@ -22,7 +21,6 @@ public class ClassManyManyBIENDSub extends ClassManyManyBIEND implements Seriali
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
     /**
      * Automatic primary key.
      */
@@ -89,6 +87,6 @@ public class ClassManyManyBIENDSub extends ClassManyManyBIEND implements Seriali
    
 	// Start of user code for private methods
 	// TODO Remove this line and add your private methods here
-	// End of user code
+	// End of user code for private methods
    
 }

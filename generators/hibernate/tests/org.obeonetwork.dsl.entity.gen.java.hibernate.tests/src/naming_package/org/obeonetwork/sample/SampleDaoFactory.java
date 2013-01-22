@@ -7,6 +7,7 @@ import org.obeonetwork.fwk.dao.exception.DaoException;
 import org.obeonetwork.sample.badpractives.IBadPractivesDao;
 import org.obeonetwork.sample.badpractives.package_.IPackage_Dao;
 
+
 /**
  * Factory in charge of creating the appropriate instances of DAO objects by
  * using the properties in the dao.properties resource bundle.
@@ -43,23 +44,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static IBadPractivesDao getBadPractivesDao() throws DaoException {
+	public static org.obeonetwork.sample.badpractives.IBadPractivesDao getBadPractivesBadPractivesDao() throws DaoException {
 
 		try {
-			String className = bundle.getString(IBadPractivesDao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.badpractives.IBadPractivesDao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends IBadPractivesDao> daoClass = 
-				Class.forName(className).asSubclass(IBadPractivesDao.class);
+			Class<? extends org.obeonetwork.sample.badpractives.IBadPractivesDao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.badpractives.IBadPractivesDao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ IBadPractivesDao.class.getName()
+				+ org.obeonetwork.sample.badpractives.IBadPractivesDao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ IBadPractivesDao.class.getName(), e);
+				+ org.obeonetwork.sample.badpractives.IBadPractivesDao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {
@@ -76,23 +77,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static IPackage_Dao getPackage_Dao() throws DaoException {
+	public static org.obeonetwork.sample.badpractives.package_.IPackage_Dao getBadPractivesPackage_Package_Dao() throws DaoException {
 
 		try {
-			String className = bundle.getString(IPackage_Dao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.badpractives.package_.IPackage_Dao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends IPackage_Dao> daoClass = 
-				Class.forName(className).asSubclass(IPackage_Dao.class);
+			Class<? extends org.obeonetwork.sample.badpractives.package_.IPackage_Dao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.badpractives.package_.IPackage_Dao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ IPackage_Dao.class.getName()
+				+ org.obeonetwork.sample.badpractives.package_.IPackage_Dao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ IPackage_Dao.class.getName(), e);
+				+ org.obeonetwork.sample.badpractives.package_.IPackage_Dao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {

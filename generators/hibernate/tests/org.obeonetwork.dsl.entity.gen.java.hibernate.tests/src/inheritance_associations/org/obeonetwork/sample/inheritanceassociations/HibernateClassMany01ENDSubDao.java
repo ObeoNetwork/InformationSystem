@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.inheritanceassociations.ClassMany01ENDSub;
 import org.obeonetwork.sample.inheritanceassociations.IClassMany01ENDSubDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface IClassMany01ENDSubDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateClassMany01ENDSubDao implements IClassMany01ENDSubDao {
 	/**
 	 * Create a new element
 	 * @param class_Many_01_END_Sub Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassMany01ENDSubDao.createClass_Many_01_END_Sub
      */
 	public void createClassMany01ENDSub(final ClassMany01ENDSub classMany01ENDSub) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateClassMany01ENDSubDao implements IClassMany01ENDSubDao {
 	 * Update an existing element
 	 * @param class_Many_01_END_Sub
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassMany01ENDSubDao.updateClass_Many_01_END_Sub
      */
 	public void updateClassMany01ENDSub(ClassMany01ENDSub classMany01ENDSub) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateClassMany01ENDSubDao implements IClassMany01ENDSubDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param class_Many_01_END_Sub Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassMany01ENDSubDao.deleteClass_Many_01_END_Sub
    	 */
 	public void deleteClassMany01ENDSub(ClassMany01ENDSub classMany01ENDSub) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateClassMany01ENDSubDao implements IClassMany01ENDSubDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassMany01ENDSubDao.findAllClass_Many_01_END_Subs
      */
 	public Collection<ClassMany01ENDSub> findAllClassMany01ENDSubs() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateClassMany01ENDSubDao implements IClassMany01ENDSubDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.inheritanceassociations.IClassMany01ENDSubDao.findClass_Many_01_END_SubById
      */
 	public ClassMany01ENDSub findClassMany01ENDSubById(String id) throws DaoException {

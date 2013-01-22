@@ -8,7 +8,7 @@
     <class 
     	name="org.obeonetwork.sample.inheritanceassociations.ClassMany01BI" 
     	table="CLASS_MANY_01_BI"
-    	dynamic-update="true">
+		dynamic-update="true">
 
 		<!-- Technical ID -->
         <id name="id" type="string" unsaved-value="null" column="ID">
@@ -27,7 +27,6 @@
 			 | CLASS_MANY_01_BI |- * {-} 1 -| CLASS_MANY_01_BI_END |
 			  __________________             ______________________
 		-->
-
 		<many-to-one 
 			class="org.obeonetwork.sample.inheritanceassociations.ClassMany01BIEND"
 			column="FK_CLASS_MANY_01_BI_END_TARGET_ID"
@@ -37,11 +36,10 @@
 
 		<!-- Inheritance -->
 
-
 		<joined-subclass
 			name="org.obeonetwork.sample.inheritanceassociations.ClassMany01BISub" 
     		table="CLASS_MANY_01_BI_SUB"
-    	dynamic-update="true">
+    	    dynamic-update="true">
     		
     		<key column="FK_INHERITS_CLASS_MANY_01_BI_ID"/>
     		
@@ -54,7 +52,6 @@
 			<!-- Inheritance -->
 
     	</joined-subclass>
-
 
 
     </class>

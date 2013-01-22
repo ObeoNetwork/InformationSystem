@@ -61,7 +61,7 @@ import org.obeonetwork.sample.inheritanceassociations.test.ClassMany01BISubTest;
 import org.obeonetwork.sample.inheritanceassociations.test.ClassManyManySubTest;
 import org.obeonetwork.sample.inheritanceassociations.test.ClassManyManyBISubTest;
 
-// End of user code for import
+// End of user code
 
 /**
  * Test class for All DAO Tests.
@@ -130,7 +130,7 @@ public class DAOAllTests {
 		suite.addTestSuite(ClassManyManyBISubTest.class);
 		//Start of user code others unit tests
 		
-		//End of user code others unit tests
+		//End of user code
 		return suite;
 	}
 

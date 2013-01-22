@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.badpractives.TABLE;
 import org.obeonetwork.sample.badpractives.ITABLEDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface ITABLEDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateTABLEDao implements ITABLEDao {
 	/**
 	 * Create a new element
 	 * @param tABLE Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.ITABLEDao.createTABLE
      */
 	public void createTABLE(final TABLE tABLE) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateTABLEDao implements ITABLEDao {
 	 * Update an existing element
 	 * @param tABLE
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.ITABLEDao.updateTABLE
      */
 	public void updateTABLE(TABLE tABLE) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateTABLEDao implements ITABLEDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param tABLE Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.ITABLEDao.deleteTABLE
    	 */
 	public void deleteTABLE(TABLE tABLE) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateTABLEDao implements ITABLEDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.ITABLEDao.findAllTABLEs
      */
 	public Collection<TABLE> findAllTABLEs() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateTABLEDao implements ITABLEDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.badpractives.ITABLEDao.findTABLEById
      */
 	public TABLE findTABLEById(String id) throws DaoException {

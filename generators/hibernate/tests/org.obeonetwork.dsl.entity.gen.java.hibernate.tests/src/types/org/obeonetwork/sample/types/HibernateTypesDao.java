@@ -16,7 +16,7 @@ import org.obeonetwork.fwk.dao.hibernate.HibernateUtil;
 import org.obeonetwork.sample.types.Types;
 import org.obeonetwork.sample.types.ITypesDao;
 
-// End of user code for import
+// End of user code
 
 /**
  * Implementation of DAO interface ITypesDao based on the hibernate
@@ -33,7 +33,7 @@ public class HibernateTypesDao implements ITypesDao {
 	/**
 	 * Create a new element
 	 * @param types Element to create.
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.types.ITypesDao.createTypes
      */
 	public void createTypes(final Types types) throws DaoException {
@@ -50,7 +50,7 @@ public class HibernateTypesDao implements ITypesDao {
 	 * Update an existing element
 	 * @param types
      *            Element to update. If the element has an id,it may use it. 
-	 * @throws DaoException If an HibernateException occurs.
+     	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.types.ITypesDao.updateTypes
      */
 	public void updateTypes(Types types) throws DaoException {
@@ -67,7 +67,7 @@ public class HibernateTypesDao implements ITypesDao {
 	 * Delete an element
 	 * Only id can be used to find which element must be deleted.
 	 * @param types Element which will be deleted. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.types.ITypesDao.deleteTypes
    	 */
 	public void deleteTypes(Types types) throws DaoException {
@@ -83,7 +83,7 @@ public class HibernateTypesDao implements ITypesDao {
 	/**
 	 * Find all elements.
 	 * @return A list with all elements, without any filter. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.types.ITypesDao.findAllTypess
      */
 	public Collection<Types> findAllTypess() throws DaoException {
@@ -104,7 +104,7 @@ public class HibernateTypesDao implements ITypesDao {
 	 * Find one entity by its primary key.
      * @param id The PK of the entity
 	 * @return The entity found. 
-	 * @throws DaoException If an HibernateException occurs.
+	 	 * @throws DaoException If an HibernateException occurs.
      * @see org.obeonetwork.sample.types.ITypesDao.findTypesById
      */
 	public Types findTypesById(String id) throws DaoException {

@@ -3,12 +3,10 @@ package org.obeonetwork.sample.badpractives;
 // Start of user code for imports
 import java.io.Serializable;
 
-
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class Anothername implements Serializable {
 
 	/**
@@ -20,7 +18,6 @@ public class Anothername implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
     /**
      * Automatic primary key.
      */
@@ -87,6 +84,6 @@ public class Anothername implements Serializable {
    
 	// Start of user code for private methods
 	// TODO Remove this line and add your private methods here
-	// End of user code
+	// End of user code for private methods
    
 }

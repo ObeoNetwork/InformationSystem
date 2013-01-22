@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import org.obeonetwork.fwk.dao.exception.DaoException;
 import org.obeonetwork.sample.types.ITypesDao;
 
+
 /**
  * Factory in charge of creating the appropriate instances of DAO objects by
  * using the properties in the dao.properties resource bundle.
@@ -42,23 +43,23 @@ public class SampleDaoFactory {
      * @throws DaoException If the declared implementation cannot be found or
      * cannot be instantiated.
      */
-	public static ITypesDao getTypesDao() throws DaoException {
+	public static org.obeonetwork.sample.types.ITypesDao getTypesTypesDao() throws DaoException {
 
 		try {
-			String className = bundle.getString(ITypesDao.class.getName());
+			String className = bundle.getString(org.obeonetwork.sample.types.ITypesDao.class.getName());
 
 			// Cast and instanciate with JDK 1.5 control
-			Class<? extends ITypesDao> daoClass = 
-				Class.forName(className).asSubclass(ITypesDao.class);
+			Class<? extends org.obeonetwork.sample.types.ITypesDao> daoClass = 
+				Class.forName(className).asSubclass(org.obeonetwork.sample.types.ITypesDao.class);
 			return daoClass.newInstance();
 
 		} catch (MissingResourceException e) {
 			throw new DaoException("Key " 
-				+ ITypesDao.class.getName()
+				+ org.obeonetwork.sample.types.ITypesDao.class.getName()
 				+ " not found in " + FILE_DAO_MAPPING + ".properties", e);
 		} catch (ClassNotFoundException e) {
 			throw new DaoException("DAO implementation not found for "
-				+ ITypesDao.class.getName(), e);
+				+ org.obeonetwork.sample.types.ITypesDao.class.getName(), e);
 		} catch (InstantiationException e) {
 			throw new DaoException(e);
 		} catch (IllegalAccessException e) {
