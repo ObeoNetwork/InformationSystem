@@ -175,9 +175,7 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createTypeAttributesHBox(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();

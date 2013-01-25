@@ -279,6 +279,8 @@ public class TypeInstanceItemProvider
 		TypeInstance typeInstance = (TypeInstance)object;
 		NativeType nativeType = typeInstance.getNativeType();
 		String label = null;
+		String length = "";
+		String precision = "";
 		if (nativeType != null) {
 			label = nativeType.getName();
 			if (label == null || label.length() == 0) {
@@ -286,14 +288,23 @@ public class TypeInstanceItemProvider
 			}
 			switch(nativeType.getSpec()) {
 			case LENGTH :
+				if (typeInstance.getLength() != null) {
+					length = String.valueOf(typeInstance.getLength());
+				}
 				if (!label.contains("%n")) {
 					label = label + "(%n)";
 				}
 				label = replacePlaceholders(label,
 						new String[]{"%n"},
-						new String[]{String.valueOf(typeInstance.getLength())});
+						new String[]{length});
 				break;
 			case LENGTH_AND_PRECISION :
+				if (typeInstance.getLength() != null) {
+					length = String.valueOf(typeInstance.getLength());
+				}
+				if (typeInstance.getPrecision() != null) {
+					precision = String.valueOf(typeInstance.getPrecision());
+				}
 				if (!label.contains("%n") && !label.contains("%p")) {
 					label = label + "(%n, %p)";
 				} else if (!label.contains("%n")) {
@@ -303,7 +314,7 @@ public class TypeInstanceItemProvider
 				}
 				label = replacePlaceholders(label,
 						new String[]{"%n", "%p"},
-						new String[]{String.valueOf(typeInstance.getLength()), String.valueOf(typeInstance.getPrecision())});
+						new String[]{length, precision});
 				break;
 			case ENUM :
 				label += "(";

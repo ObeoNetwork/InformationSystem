@@ -72,13 +72,11 @@ public class TypeInstancePropertiesEditionComponent extends SinglePartProperties
 			if (isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.type)) {
 				typeInstancePart.initType(EEFUtils.choiceOfValues(typeInstance, TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType()), typeInstance.getNativeType());
 			}
-			if (isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length)) {
-				typeInstancePart.setLength(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, typeInstance.getLength()));
-			}
+			if (typeInstance.getLength() != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length))
+				typeInstancePart.setLength(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, typeInstance.getLength()));
 			
-			if (isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision)) {
-				typeInstancePart.setPrecision(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, typeInstance.getPrecision()));
-			}
+			if (typeInstance.getPrecision() != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision))
+				typeInstancePart.setPrecision(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, typeInstance.getPrecision()));
 			
 			if (typeInstance.getLiterals() != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.literals))
 				typeInstancePart.setLiterals(typeInstance.getLiterals());
@@ -135,10 +133,10 @@ public class TypeInstancePropertiesEditionComponent extends SinglePartProperties
 			typeInstance.setNativeType(!"".equals(event.getNewValue()) ? (NativeType) event.getNewValue() : null);
 		}
 		if (TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length == event.getAffectedEditor()) {
-			typeInstance.setLength((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+			typeInstance.setLength((java.lang.Integer)EEFConverterUtil.createFromString(EcorePackage.Literals.EINTEGER_OBJECT, (String)event.getNewValue()));
 		}
 		if (TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision == event.getAffectedEditor()) {
-			typeInstance.setPrecision((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+			typeInstance.setPrecision((java.lang.Integer)EEFConverterUtil.createFromString(EcorePackage.Literals.EINTEGER_OBJECT, (String)event.getNewValue()));
 		}
 		if (TypeslibraryViewsRepository.TypeInstance.Properties.literals == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.SET) {
@@ -159,20 +157,20 @@ public class TypeInstancePropertiesEditionComponent extends SinglePartProperties
 				typeInstancePart.setType((Object)msg.getNewValue());
 			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Length().equals(msg.getFeature()) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length)) {
 				if (msg.getNewValue() != null) {
-					typeInstancePart.setLength(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
+					typeInstancePart.setLength(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					typeInstancePart.setLength("");
 				}
 			}
 			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Precision().equals(msg.getFeature()) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision)) {
 				if (msg.getNewValue() != null) {
-					typeInstancePart.setPrecision(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
+					typeInstancePart.setPrecision(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					typeInstancePart.setPrecision("");
 				}
 			}
 			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Literals().equals(msg.getFeature()) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.literals)) {
-				typeInstancePart.setLiterals((EList)msg.getNewValue());
+				typeInstancePart.setLiterals((EList<?>)msg.getNewValue());
 			}
 			
 			

@@ -78,11 +78,11 @@ public class CustomColumnPropertiesEditionComponent extends ColumnPropertiesEdit
 					basePart.setLiterals((EList)literalsSettings.getValue());
 				}
 				if (isAccessible(DatabaseViewsRepository.Column.Properties.TypeAttributes.length)) {
-					basePart.setLength(EEFConverterUtil.convertToString(EcorePackage.eINSTANCE.getEInt(), lengthSettings.getValue()));
+					basePart.setLength(EEFConverterUtil.convertToString(EcorePackage.eINSTANCE.getEIntegerObject(), lengthSettings.getValue()));
 				}
 				
 				if (isAccessible(DatabaseViewsRepository.Column.Properties.TypeAttributes.precision)) {
-					basePart.setPrecision(EEFConverterUtil.convertToString(EcorePackage.eINSTANCE.getEInt(), precisionSettings.getValue()));
+					basePart.setPrecision(EEFConverterUtil.convertToString(EcorePackage.eINSTANCE.getEIntegerObject(), precisionSettings.getValue()));
 				}
 			} else {
 				if (isAccessible(DatabaseViewsRepository.Column.Properties.type)) {
@@ -92,11 +92,11 @@ public class CustomColumnPropertiesEditionComponent extends ColumnPropertiesEdit
 					basePart.setLiterals(null);
 				}
 				if (isAccessible(DatabaseViewsRepository.Column.Properties.TypeAttributes.length)) {
-					basePart.setLength(EEFConverterUtil.convertToString(EcorePackage.eINSTANCE.getEInt(), null));
+					basePart.setLength(EEFConverterUtil.convertToString(EcorePackage.eINSTANCE.getEIntegerObject(), null));
 				}
 				
 				if (isAccessible(DatabaseViewsRepository.Column.Properties.TypeAttributes.precision)) {
-					basePart.setPrecision(EEFConverterUtil.convertToString(EcorePackage.eINSTANCE.getEInt(), null));
+					basePart.setPrecision(EEFConverterUtil.convertToString(EcorePackage.eINSTANCE.getEIntegerObject(), null));
 				}
 			}
 			
@@ -205,8 +205,8 @@ public class CustomColumnPropertiesEditionComponent extends ColumnPropertiesEdit
 		if (DatabaseViewsRepository.Column.Properties.TypeAttributes.length == event.getAffectedEditor()) {
 			if (columnObject.getType() != null) {
 				String newValue = (String)event.getNewValue();
-				if (newValue.trim().equals("")) {
-					lengthSettings.setValue(0);
+				if (newValue == null || newValue.trim().equals("")) {
+					lengthSettings.setValue(null);
 				} else {
 					lengthSettings.setValue((EEFConverterUtil.createIntFromString(EcorePackage.eINSTANCE.getEInt(), newValue)));
 				}
@@ -216,8 +216,8 @@ public class CustomColumnPropertiesEditionComponent extends ColumnPropertiesEdit
 		if (DatabaseViewsRepository.Column.Properties.TypeAttributes.precision == event.getAffectedEditor()) {
 			if (columnObject.getType() != null) {
 				String newValue = (String)event.getNewValue();
-				if (newValue.trim().equals("")) {
-					precisionSettings.setValue(0);
+				if (newValue == null || newValue.trim().equals("")) {
+					precisionSettings.setValue(null);
 				} else {
 					precisionSettings.setValue((EEFConverterUtil.createIntFromString(EcorePackage.eINSTANCE.getEInt(), newValue)));
 				}

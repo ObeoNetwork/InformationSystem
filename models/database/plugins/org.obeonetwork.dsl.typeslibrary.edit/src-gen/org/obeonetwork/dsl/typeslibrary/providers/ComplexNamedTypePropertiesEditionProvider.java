@@ -6,13 +6,22 @@ package org.obeonetwork.dsl.typeslibrary.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
+import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
+
 import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.typeslibrary.ComplexNamedType;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
+
 import org.obeonetwork.dsl.typeslibrary.components.ComplexNamedTypePropertiesEditionComponent;
 
 /**
@@ -125,7 +134,8 @@ public class ComplexNamedTypePropertiesEditionProvider extends PropertiesEditing
 		 * @see org.eclipse.jface.viewers.IFilter#select(java.lang.Object)
 		 */
 		public boolean select(Object toTest) {
-			return toTest instanceof EObject && TypesLibraryPackage.Literals.COMPLEX_NAMED_TYPE == ((EObject)toTest).eClass();
+			EObject eObj = EEFUtils.resolveSemanticObject(toTest);
+			return eObj != null && TypesLibraryPackage.Literals.COMPLEX_NAMED_TYPE == eObj.eClass();
 		}
 		
 	}
