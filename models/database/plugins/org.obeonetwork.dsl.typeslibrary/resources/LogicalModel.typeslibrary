@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_WWbGkREnEeGTa_JlZYBw1A" name="Logical Model">
-  <nativeTypes xmi:id="_WWeJ4BEnEeGTa_JlZYBw1A" name="Entier"/>
-  <nativeTypes xmi:id="_WWeJ4REnEeGTa_JlZYBw1A" name="Entier court"/>
-  <nativeTypes xmi:id="_WWeJ4hEnEeGTa_JlZYBw1A" name="Entier long"/>
+  <nativeTypes xmi:id="_WWeJ4BEnEeGTa_JlZYBw1A" name="Entier" spec="Length"/>
+  <nativeTypes xmi:id="_WWeJ4REnEeGTa_JlZYBw1A" name="Entier court" spec="Length"/>
+  <nativeTypes xmi:id="_WWeJ4hEnEeGTa_JlZYBw1A" name="Entier long" spec="Length"/>
   <nativeTypes xmi:id="_WWeJ4xEnEeGTa_JlZYBw1A" name="Octet" spec="Length"/>
   <nativeTypes xmi:id="_WWeJ5BEnEeGTa_JlZYBw1A" name="Numérique" spec="LengthAndPrecision"/>
   <nativeTypes xmi:id="_WWeJ5REnEeGTa_JlZYBw1A" name="Décimal" spec="LengthAndPrecision"/>
