@@ -60,7 +60,7 @@ public class TypeInstanceImpl extends TypeImpl implements TypeInstance {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int LENGTH_EDEFAULT = 0;
+	protected static final Integer LENGTH_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getPrecision() <em>Precision</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public class TypeInstanceImpl extends TypeImpl implements TypeInstance {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int PRECISION_EDEFAULT = 0;
+	protected static final Integer PRECISION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,7 +122,7 @@ public class TypeInstanceImpl extends TypeImpl implements TypeInstance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getLength() {
+	public Integer getLength() {
 		return (Integer)eDynamicGet(TypesLibraryPackage.TYPE_INSTANCE__LENGTH, TypesLibraryPackage.Literals.TYPE_INSTANCE__LENGTH, true, true);
 	}
 
@@ -131,7 +131,7 @@ public class TypeInstanceImpl extends TypeImpl implements TypeInstance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLength(int newLength) {
+	public void setLength(Integer newLength) {
 		eDynamicSet(TypesLibraryPackage.TYPE_INSTANCE__LENGTH, TypesLibraryPackage.Literals.TYPE_INSTANCE__LENGTH, newLength);
 	}
 
@@ -140,7 +140,7 @@ public class TypeInstanceImpl extends TypeImpl implements TypeInstance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getPrecision() {
+	public Integer getPrecision() {
 		return (Integer)eDynamicGet(TypesLibraryPackage.TYPE_INSTANCE__PRECISION, TypesLibraryPackage.Literals.TYPE_INSTANCE__PRECISION, true, true);
 	}
 
@@ -149,7 +149,7 @@ public class TypeInstanceImpl extends TypeImpl implements TypeInstance {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPrecision(int newPrecision) {
+	public void setPrecision(Integer newPrecision) {
 		eDynamicSet(TypesLibraryPackage.TYPE_INSTANCE__PRECISION, TypesLibraryPackage.Literals.TYPE_INSTANCE__PRECISION, newPrecision);
 	}
 
@@ -245,9 +245,9 @@ public class TypeInstanceImpl extends TypeImpl implements TypeInstance {
 			case TypesLibraryPackage.TYPE_INSTANCE__NATIVE_TYPE:
 				return basicGetNativeType() != null;
 			case TypesLibraryPackage.TYPE_INSTANCE__LENGTH:
-				return getLength() != LENGTH_EDEFAULT;
+				return LENGTH_EDEFAULT == null ? getLength() != null : !LENGTH_EDEFAULT.equals(getLength());
 			case TypesLibraryPackage.TYPE_INSTANCE__PRECISION:
-				return getPrecision() != PRECISION_EDEFAULT;
+				return PRECISION_EDEFAULT == null ? getPrecision() != null : !PRECISION_EDEFAULT.equals(getPrecision());
 			case TypesLibraryPackage.TYPE_INSTANCE__LITERALS:
 				return !getLiterals().isEmpty();
 		}

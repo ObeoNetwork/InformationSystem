@@ -74,12 +74,12 @@ public interface TypeInstance extends Type {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Length</em>' attribute.
-	 * @see #setLength(int)
+	 * @see #setLength(Integer)
 	 * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getTypeInstance_Length()
 	 * @model
 	 * @generated
 	 */
-	int getLength();
+	Integer getLength();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.typeslibrary.TypeInstance#getLength <em>Length</em>}' attribute.
@@ -89,7 +89,7 @@ public interface TypeInstance extends Type {
 	 * @see #getLength()
 	 * @generated
 	 */
-	void setLength(int value);
+	void setLength(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Precision</b></em>' attribute.
@@ -100,12 +100,12 @@ public interface TypeInstance extends Type {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Precision</em>' attribute.
-	 * @see #setPrecision(int)
+	 * @see #setPrecision(Integer)
 	 * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getTypeInstance_Precision()
 	 * @model
 	 * @generated
 	 */
-	int getPrecision();
+	Integer getPrecision();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.typeslibrary.TypeInstance#getPrecision <em>Precision</em>}' attribute.
@@ -115,7 +115,7 @@ public interface TypeInstance extends Type {
 	 * @see #getPrecision()
 	 * @generated
 	 */
-	void setPrecision(int value);
+	void setPrecision(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Literals</b></em>' attribute list.
