@@ -11,7 +11,6 @@
 package org.obeonetwork.dsl.database;
 
 import org.eclipse.emf.cdo.CDOObject;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.DatabaseElement#getID <em>ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.DatabaseElement#getComments <em>Comments</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.database.DatabaseElement#getTechID <em>Tech ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,5 +79,31 @@ public interface DatabaseElement extends CDOObject {
 	 * @generated
 	 */
 	void setComments(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tech ID</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tech ID</em>' attribute.
+	 * @see #setTechID(String)
+	 * @see org.obeonetwork.dsl.database.DatabasePackage#getDatabaseElement_TechID()
+	 * @model
+	 * @generated
+	 */
+	String getTechID();
+
+	/**
+	 * Sets the value of the '{@link org.obeonetwork.dsl.database.DatabaseElement#getTechID <em>Tech ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Tech ID</em>' attribute.
+	 * @see #getTechID()
+	 * @generated
+	 */
+	void setTechID(String value);
 
 } // DatabaseElement

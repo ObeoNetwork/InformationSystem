@@ -99,13 +99,22 @@ public interface DatabasePackage extends EPackage {
 	int DATABASE_ELEMENT__COMMENTS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_ELEMENT__TECH_ID = 2;
+
+	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_ELEMENT_FEATURE_COUNT = 2;
+	int DATABASE_ELEMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.database.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -134,6 +143,15 @@ public interface DatabasePackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_ELEMENT__COMMENTS = DATABASE_ELEMENT__COMMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__TECH_ID = DATABASE_ELEMENT__TECH_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -180,6 +198,15 @@ public interface DatabasePackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE_CONTAINER__COMMENTS = NAMED_ELEMENT__COMMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CONTAINER__TECH_ID = NAMED_ELEMENT__TECH_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -244,6 +271,15 @@ public interface DatabasePackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_BASE__COMMENTS = TABLE_CONTAINER__COMMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_BASE__TECH_ID = TABLE_CONTAINER__TECH_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -346,6 +382,15 @@ public interface DatabasePackage extends EPackage {
 	int ABSTRACT_TABLE__COMMENTS = NAMED_ELEMENT__COMMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_TABLE__TECH_ID = NAMED_ELEMENT__TECH_ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -408,6 +453,15 @@ public interface DatabasePackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMN__COMMENTS = NAMED_ELEMENT__COMMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__TECH_ID = NAMED_ELEMENT__TECH_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -582,6 +636,15 @@ public interface DatabasePackage extends EPackage {
 	int INDEX__COMMENTS = NAMED_ELEMENT__COMMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__TECH_ID = NAMED_ELEMENT__TECH_ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -682,6 +745,15 @@ public interface DatabasePackage extends EPackage {
 	int VIEW__COMMENTS = ABSTRACT_TABLE__COMMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__TECH_ID = ABSTRACT_TABLE__TECH_ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -753,6 +825,15 @@ public interface DatabasePackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE__COMMENTS = ABSTRACT_TABLE__COMMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TECH_ID = ABSTRACT_TABLE__TECH_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -855,6 +936,15 @@ public interface DatabasePackage extends EPackage {
 	int PRIMARY_KEY__COMMENTS = NAMED_ELEMENT__COMMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMARY_KEY__TECH_ID = NAMED_ELEMENT__TECH_ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -917,6 +1007,15 @@ public interface DatabasePackage extends EPackage {
 	 * @ordered
 	 */
 	int FOREIGN_KEY__COMMENTS = NAMED_ELEMENT__COMMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY__TECH_ID = NAMED_ELEMENT__TECH_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -992,6 +1091,15 @@ public interface DatabasePackage extends EPackage {
 	int FOREIGN_KEY_ELEMENT__COMMENTS = DATABASE_ELEMENT__COMMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY_ELEMENT__TECH_ID = DATABASE_ELEMENT__TECH_ID;
+
+	/**
 	 * The feature id for the '<em><b>Fk Column</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1047,6 +1155,15 @@ public interface DatabasePackage extends EPackage {
 	int INDEX_ELEMENT__COMMENTS = DATABASE_ELEMENT__COMMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_ELEMENT__TECH_ID = DATABASE_ELEMENT__TECH_ID;
+
+	/**
 	 * The feature id for the '<em><b>Column</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1100,6 +1217,15 @@ public interface DatabasePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRAINT__COMMENTS = NAMED_ELEMENT__COMMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__TECH_ID = NAMED_ELEMENT__TECH_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1166,6 +1292,15 @@ public interface DatabasePackage extends EPackage {
 	int SCHEMA__COMMENTS = TABLE_CONTAINER__COMMENTS;
 
 	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA__TECH_ID = TABLE_CONTAINER__TECH_ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1228,6 +1363,15 @@ public interface DatabasePackage extends EPackage {
 	 * @ordered
 	 */
 	int SEQUENCE__COMMENTS = NAMED_ELEMENT__COMMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Tech ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__TECH_ID = NAMED_ELEMENT__TECH_ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1926,6 +2070,17 @@ public interface DatabasePackage extends EPackage {
 	EAttribute getDatabaseElement_Comments();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.database.DatabaseElement#getTechID <em>Tech ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tech ID</em>'.
+	 * @see org.obeonetwork.dsl.database.DatabaseElement#getTechID()
+	 * @see #getDatabaseElement()
+	 * @generated
+	 */
+	EAttribute getDatabaseElement_TechID();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.Schema <em>Schema</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2557,6 +2712,14 @@ public interface DatabasePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATABASE_ELEMENT__COMMENTS = eINSTANCE.getDatabaseElement_Comments();
+
+		/**
+		 * The meta object literal for the '<em><b>Tech ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATABASE_ELEMENT__TECH_ID = eINSTANCE.getDatabaseElement_TechID();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.impl.SchemaImpl <em>Schema</em>}' class.

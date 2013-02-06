@@ -85,6 +85,7 @@
     <genClasses image="false" ecoreClass="database.ecore#//DatabaseElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//DatabaseElement/ID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//DatabaseElement/comments"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//DatabaseElement/techID"/>
     </genClasses>
     <genClasses ecoreClass="database.ecore#//Schema"/>
     <genClasses ecoreClass="database.ecore#//Sequence">

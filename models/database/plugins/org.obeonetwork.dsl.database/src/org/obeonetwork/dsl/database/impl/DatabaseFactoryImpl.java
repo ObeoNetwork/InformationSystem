@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.dsl.database.*;
 import org.obeonetwork.dsl.database.spec.ColumnSpec;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
@@ -91,10 +92,11 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public DataBase createDataBase() {
 		DataBaseImpl dataBase = new DataBaseImpl();
+		dataBase.setTechID(EcoreUtil.generateUUID());
 		return dataBase;
 	}
 
@@ -105,6 +107,7 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	 */
 	public Column createColumn() {
 		ColumnImpl column = new ColumnSpec();
+		column.setTechID(EcoreUtil.generateUUID());
 		TypeInstance type = TypesLibraryFactory.eINSTANCE.createTypeInstance();
 		column.setType(type);
 		return column;
@@ -113,100 +116,110 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Index createIndex() {
 		IndexImpl index = new IndexImpl();
+		index.setTechID(EcoreUtil.generateUUID());
 		return index;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public View createView() {
 		ViewImpl view = new ViewImpl();
+		view.setTechID(EcoreUtil.generateUUID());
 		return view;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Table createTable() {
 		TableImpl table = new TableImpl();
+		table.setTechID(EcoreUtil.generateUUID());
 		return table;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public PrimaryKey createPrimaryKey() {
 		PrimaryKeyImpl primaryKey = new PrimaryKeyImpl();
+		primaryKey.setTechID(EcoreUtil.generateUUID());
 		return primaryKey;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ForeignKey createForeignKey() {
 		ForeignKeyImpl foreignKey = new ForeignKeyImpl();
+		foreignKey.setTechID(EcoreUtil.generateUUID());
 		return foreignKey;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ForeignKeyElement createForeignKeyElement() {
 		ForeignKeyElementImpl foreignKeyElement = new ForeignKeyElementImpl();
+		foreignKeyElement.setTechID(EcoreUtil.generateUUID());
 		return foreignKeyElement;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public IndexElement createIndexElement() {
 		IndexElementImpl indexElement = new IndexElementImpl();
+		indexElement.setTechID(EcoreUtil.generateUUID());
 		return indexElement;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Constraint createConstraint() {
 		ConstraintImpl constraint = new ConstraintImpl();
+		constraint.setTechID(EcoreUtil.generateUUID());
 		return constraint;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Schema createSchema() {
 		SchemaImpl schema = new SchemaImpl();
+		schema.setTechID(EcoreUtil.generateUUID());
 		return schema;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Sequence createSequence() {
 		SequenceImpl sequence = new SequenceImpl();
+		sequence.setTechID(EcoreUtil.generateUUID());
 		return sequence;
 	}
 

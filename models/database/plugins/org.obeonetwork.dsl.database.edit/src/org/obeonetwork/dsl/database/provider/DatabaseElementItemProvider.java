@@ -163,6 +163,7 @@ public class DatabaseElementItemProvider
 		switch (notification.getFeatureID(DatabaseElement.class)) {
 			case DatabasePackage.DATABASE_ELEMENT__ID:
 			case DatabasePackage.DATABASE_ELEMENT__COMMENTS:
+			case DatabasePackage.DATABASE_ELEMENT__TECH_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

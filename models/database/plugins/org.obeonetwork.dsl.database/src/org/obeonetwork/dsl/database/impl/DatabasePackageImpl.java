@@ -743,6 +743,15 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDatabaseElement_TechID() {
+		return (EAttribute)databaseElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSchema() {
 		return schemaEClass;
 	}
@@ -943,6 +952,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		databaseElementEClass = createEClass(DATABASE_ELEMENT);
 		createEAttribute(databaseElementEClass, DATABASE_ELEMENT__ID);
 		createEAttribute(databaseElementEClass, DATABASE_ELEMENT__COMMENTS);
+		createEAttribute(databaseElementEClass, DATABASE_ELEMENT__TECH_ID);
 
 		schemaEClass = createEClass(SCHEMA);
 
@@ -1090,6 +1100,7 @@ public class DatabasePackageImpl extends EPackageImpl implements DatabasePackage
 		initEClass(databaseElementEClass, DatabaseElement.class, "DatabaseElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDatabaseElement_ID(), ecorePackage.getEString(), "ID", null, 0, 1, DatabaseElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDatabaseElement_Comments(), ecorePackage.getEString(), "comments", null, 0, 1, DatabaseElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDatabaseElement_TechID(), ecorePackage.getEString(), "techID", null, 0, 1, DatabaseElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(schemaEClass, Schema.class, "Schema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
