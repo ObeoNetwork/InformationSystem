@@ -12,47 +12,32 @@ package org.obeonetwork.dsl.soa.components;
 
 // Start of user code for imports
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-
 import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.Wire;
-
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
 import org.obeonetwork.dsl.soa.parts.WirePropertiesEditionPart;
 
@@ -102,6 +87,7 @@ public class WireWirePropertiesEditionComponent extends SinglePartPropertiesEdit
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Wire wire = (Wire)elt;
 			final WirePropertiesEditionPart wirePart = (WirePropertiesEditionPart)editingPart;
 			// init values
@@ -119,7 +105,7 @@ public class WireWirePropertiesEditionComponent extends SinglePartPropertiesEdit
 				// set the button mode
 				wirePart.setDestButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (wire.getDescription() != null && isAccessible(SoaViewsRepository.Wire.Properties.description))
+			if (isAccessible(SoaViewsRepository.Wire.Properties.description))
 				wirePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, wire.getDescription()));
 			// init filters
 			
@@ -204,13 +190,14 @@ public class WireWirePropertiesEditionComponent extends SinglePartPropertiesEdit
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			WirePropertiesEditionPart wirePart = (WirePropertiesEditionPart)editingPart;
 			if (SoaPackage.eINSTANCE.getWire_Source().equals(msg.getFeature()) && wirePart != null && isAccessible(SoaViewsRepository.Wire.Properties.source))
 				wirePart.setSource((EObject)msg.getNewValue());
 			if (SoaPackage.eINSTANCE.getWire_Dest().equals(msg.getFeature()) && wirePart != null && isAccessible(SoaViewsRepository.Wire.Properties.dest))
 				wirePart.setDest((EObject)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && wirePart != null && isAccessible(SoaViewsRepository.Wire.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && wirePart != null && isAccessible(SoaViewsRepository.Wire.Properties.description)){
 				if (msg.getNewValue() != null) {
 					wirePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -219,6 +206,20 @@ public class WireWirePropertiesEditionComponent extends SinglePartPropertiesEdit
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			SoaPackage.eINSTANCE.getWire_Source(),
+			SoaPackage.eINSTANCE.getWire_Dest(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -235,7 +236,7 @@ public class WireWirePropertiesEditionComponent extends SinglePartPropertiesEdit
 				if (SoaViewsRepository.Wire.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
@@ -247,5 +248,8 @@ public class WireWirePropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		return ret;
 	}
+
+
+	
 
 }

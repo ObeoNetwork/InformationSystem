@@ -389,6 +389,14 @@ public class LogicalModelPropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.LogicalModel.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EntityrelationMessages.LogicalModel_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -404,6 +412,14 @@ public class LogicalModelPropertiesEditionPartForm extends SectionPropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		usedLibraries.setContentProvider(contentProvider);
 		usedLibraries.setInput(settings);
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.LogicalModel.Properties.usedLibraries);
+		if (readOnly && usedLibraries.getTable().isEnabled()) {
+			usedLibraries.setEnabled(false);
+			usedLibraries.setToolTipText(EntityrelationMessages.LogicalModel_ReadOnly);
+		} else if (!readOnly && !usedLibraries.getTable().isEnabled()) {
+			usedLibraries.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -468,6 +484,15 @@ public class LogicalModelPropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.LogicalModel.Properties.comments);
+		if (readOnly && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(EntityrelationMessages.LogicalModel_ReadOnly);
+		} else if (!readOnly && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

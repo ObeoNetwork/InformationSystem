@@ -5,31 +5,23 @@ package org.obeonetwork.dsl.environment.components;
 
 // Start of user code for imports
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Field;
-
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 import org.obeonetwork.dsl.environment.parts.FieldPropertiesEditionPart;
 
@@ -69,13 +61,14 @@ public class FieldFieldPropertiesEditionComponent extends SinglePartPropertiesEd
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Field field = (Field)elt;
 			final FieldPropertiesEditionPart fieldPart = (FieldPropertiesEditionPart)editingPart;
 			// init values
-			if (field.getName() != null && isAccessible(EnvironmentViewsRepository.Field.Properties.name))
+			if (isAccessible(EnvironmentViewsRepository.Field.Properties.name))
 				fieldPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, field.getName()));
 			
-			if (field.getDescription() != null && isAccessible(EnvironmentViewsRepository.Field.Properties.description))
+			if (isAccessible(EnvironmentViewsRepository.Field.Properties.description))
 				fieldPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, field.getDescription()));
 			
 			// init filters
@@ -127,16 +120,17 @@ public class FieldFieldPropertiesEditionComponent extends SinglePartPropertiesEd
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			FieldPropertiesEditionPart fieldPart = (FieldPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getField_Name().equals(msg.getFeature()) && fieldPart != null && isAccessible(EnvironmentViewsRepository.Field.Properties.name)) {
+			if (EnvironmentPackage.eINSTANCE.getField_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && fieldPart != null && isAccessible(EnvironmentViewsRepository.Field.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					fieldPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					fieldPart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && fieldPart != null && isAccessible(EnvironmentViewsRepository.Field.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && fieldPart != null && isAccessible(EnvironmentViewsRepository.Field.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					fieldPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -145,6 +139,19 @@ public class FieldFieldPropertiesEditionComponent extends SinglePartPropertiesEd
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getField_Name(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -190,5 +197,8 @@ public class FieldFieldPropertiesEditionComponent extends SinglePartPropertiesEd
 		}
 		return ret;
 	}
+
+
+	
 
 }

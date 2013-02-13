@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
@@ -74,6 +75,7 @@ public class IndexElementPropertiesEditionComponent extends SinglePartProperties
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final IndexElement indexElement = (IndexElement)elt;
 			final IndexElementPropertiesEditionPart indexElementPart = (IndexElementPropertiesEditionPart)editingPart;
 			// init values
@@ -87,7 +89,7 @@ public class IndexElementPropertiesEditionComponent extends SinglePartProperties
 			if (isAccessible(DatabaseViewsRepository.IndexElement.Properties.asc)) {
 				indexElementPart.setAsc(indexElement.isAsc());
 			}
-			if (indexElement.getComments() != null && isAccessible(DatabaseViewsRepository.IndexElement.Properties.comments))
+			if (isAccessible(DatabaseViewsRepository.IndexElement.Properties.comments))
 				indexElementPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, indexElement.getComments()));
 			// init filters
 			if (isAccessible(DatabaseViewsRepository.IndexElement.Properties.column)) {
@@ -174,14 +176,15 @@ public class IndexElementPropertiesEditionComponent extends SinglePartProperties
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			IndexElementPropertiesEditionPart indexElementPart = (IndexElementPropertiesEditionPart)editingPart;
 			if (DatabasePackage.eINSTANCE.getIndexElement_Column().equals(msg.getFeature()) && indexElementPart != null && isAccessible(DatabaseViewsRepository.IndexElement.Properties.column))
 				indexElementPart.setColumn((EObject)msg.getNewValue());
-			if (DatabasePackage.eINSTANCE.getIndexElement_Asc().equals(msg.getFeature()) && indexElementPart != null && isAccessible(DatabaseViewsRepository.IndexElement.Properties.asc))
+			if (DatabasePackage.eINSTANCE.getIndexElement_Asc().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && indexElementPart != null && isAccessible(DatabaseViewsRepository.IndexElement.Properties.asc))
 				indexElementPart.setAsc((Boolean)msg.getNewValue());
 			
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && indexElementPart != null && isAccessible(DatabaseViewsRepository.IndexElement.Properties.comments)){
+			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && indexElementPart != null && isAccessible(DatabaseViewsRepository.IndexElement.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					indexElementPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -190,6 +193,20 @@ public class IndexElementPropertiesEditionComponent extends SinglePartProperties
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getIndexElement_Column(),
+			DatabasePackage.eINSTANCE.getIndexElement_Asc(),
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -225,5 +242,8 @@ public class IndexElementPropertiesEditionComponent extends SinglePartProperties
 		}
 		return ret;
 	}
+
+
+	
 
 }

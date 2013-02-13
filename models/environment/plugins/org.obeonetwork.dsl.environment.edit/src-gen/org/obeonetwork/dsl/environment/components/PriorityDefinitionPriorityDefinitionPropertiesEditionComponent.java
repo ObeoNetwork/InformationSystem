@@ -5,31 +5,23 @@ package org.obeonetwork.dsl.environment.components;
 
 // Start of user code for imports
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.PriorityDefinition;
-
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 import org.obeonetwork.dsl.environment.parts.PriorityDefinitionPropertiesEditionPart;
 
@@ -69,10 +61,11 @@ public class PriorityDefinitionPriorityDefinitionPropertiesEditionComponent exte
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final PriorityDefinition priorityDefinition = (PriorityDefinition)elt;
 			final PriorityDefinitionPropertiesEditionPart priorityDefinitionPart = (PriorityDefinitionPropertiesEditionPart)editingPart;
 			// init values
-			if (priorityDefinition.getDescription() != null && isAccessible(EnvironmentViewsRepository.PriorityDefinition.Properties.description))
+			if (isAccessible(EnvironmentViewsRepository.PriorityDefinition.Properties.description))
 				priorityDefinitionPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, priorityDefinition.getDescription()));
 			
 			// init filters
@@ -116,9 +109,10 @@ public class PriorityDefinitionPriorityDefinitionPropertiesEditionComponent exte
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			PriorityDefinitionPropertiesEditionPart priorityDefinitionPart = (PriorityDefinitionPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && priorityDefinitionPart != null && isAccessible(EnvironmentViewsRepository.PriorityDefinition.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && priorityDefinitionPart != null && isAccessible(EnvironmentViewsRepository.PriorityDefinition.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					priorityDefinitionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -127,6 +121,18 @@ public class PriorityDefinitionPriorityDefinitionPropertiesEditionComponent exte
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -155,5 +161,8 @@ public class PriorityDefinitionPriorityDefinitionPropertiesEditionComponent exte
 		}
 		return ret;
 	}
+
+
+	
 
 }

@@ -51,6 +51,7 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.obeonetwork.dsl.database.Column;
+import org.obeonetwork.dsl.database.components.TablePropertiesEditionComponent;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
 import org.obeonetwork.dsl.database.parts.PrimaryKeyPropertiesEditionPart;
 import org.obeonetwork.dsl.database.providers.DatabaseMessages;
@@ -479,6 +480,14 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.PrimaryKey.Properties.name, ((TablePropertiesEditionComponent) propertiesEditionComponent).getPkNameSettings().getOrCreateSignificantObject());
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -494,6 +503,20 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		columns.setContentProvider(contentProvider);
 		columns.setInput(settings);
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.PrimaryKey.Properties.columns);
+		if (readOnly && columns.getTable().isEnabled()) {
+			columns.getTable().setEnabled(false);
+			columns.getTable().setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+			addColumns.setEnabled(false);
+			addColumns.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+			removeColumns.setEnabled(false);
+			removeColumns.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+		} else if (!readOnly && !columns.getTable().isEnabled()) {
+			columns.getTable().setEnabled(true);
+			addColumns.setEnabled(true);
+			removeColumns.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -558,6 +581,15 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.PrimaryKey.Properties.comments, ((TablePropertiesEditionComponent) propertiesEditionComponent).getPkCommentsSettings().getOrCreateSignificantObject());
+		if (readOnly && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+		} else if (!readOnly && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

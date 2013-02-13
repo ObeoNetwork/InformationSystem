@@ -16,7 +16,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -86,13 +88,14 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Category category = (Category)elt;
 			final CategoryPropertiesEditionPart categoryPart = (CategoryPropertiesEditionPart)editingPart;
 			// init values
-			if (category.getId() != null && isAccessible(RequirementViewsRepository.Category.Category_.id))
+			if (isAccessible(RequirementViewsRepository.Category.Category_.id))
 				categoryPart.setId(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, category.getId()));
 			
-			if (category.getName() != null && isAccessible(RequirementViewsRepository.Category.Category_.name))
+			if (isAccessible(RequirementViewsRepository.Category.Category_.name))
 				categoryPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, category.getName()));
 			
 			if (isAccessible(RequirementViewsRepository.Category.Category_.requirements)) {
@@ -271,16 +274,17 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			CategoryPropertiesEditionPart categoryPart = (CategoryPropertiesEditionPart)editingPart;
-			if (RequirementPackage.eINSTANCE.getCategory_Id().equals(msg.getFeature()) && categoryPart != null && isAccessible(RequirementViewsRepository.Category.Category_.id)) {
+			if (RequirementPackage.eINSTANCE.getCategory_Id().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && categoryPart != null && isAccessible(RequirementViewsRepository.Category.Category_.id)) {
 				if (msg.getNewValue() != null) {
 					categoryPart.setId(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					categoryPart.setId("");
 				}
 			}
-			if (RequirementPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && categoryPart != null && isAccessible(RequirementViewsRepository.Category.Category_.name)) {
+			if (RequirementPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && categoryPart != null && isAccessible(RequirementViewsRepository.Category.Category_.name)) {
 				if (msg.getNewValue() != null) {
 					categoryPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -295,6 +299,22 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 				categoryPart.updateReferencedObject();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			RequirementPackage.eINSTANCE.getCategory_Id(),
+			RequirementPackage.eINSTANCE.getNamedElement_Name(),
+			RequirementPackage.eINSTANCE.getCategory_Requirements(),
+			RequirementPackage.eINSTANCE.getCategory_SubCategories(),
+			RequirementPackage.eINSTANCE.getCategory_ReferencedObject()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -330,5 +350,8 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		return ret;
 	}
+
+
+	
 
 }

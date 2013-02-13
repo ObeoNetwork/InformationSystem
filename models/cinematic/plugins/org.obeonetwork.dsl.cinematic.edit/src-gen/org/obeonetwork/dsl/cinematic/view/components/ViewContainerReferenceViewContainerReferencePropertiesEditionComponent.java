@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -104,13 +106,14 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final ViewContainerReference viewContainerReference = (ViewContainerReference)elt;
 			final ViewContainerReferencePropertiesEditionPart viewContainerReferencePart = (ViewContainerReferencePropertiesEditionPart)editingPart;
 			// init values
-			if (viewContainerReference.getDescription() != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.description))
+			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.description))
 				viewContainerReferencePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewContainerReference.getDescription()));
 			
-			if (viewContainerReference.getName() != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.name))
+			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.name))
 				viewContainerReferencePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewContainerReference.getName()));
 			
 			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.widget)) {
@@ -128,7 +131,7 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 				eventsSettings = new ReferencesTableSettings(viewContainerReference, ViewPackage.eINSTANCE.getAbstractViewElement_Events());
 				viewContainerReferencePart.initEvents(eventsSettings);
 			}
-			if (viewContainerReference.getLabel() != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.label))
+			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.label))
 				viewContainerReferencePart.setLabel(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewContainerReference.getLabel()));
 			
 			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.dataBindings)) {
@@ -403,16 +406,17 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ViewContainerReferencePropertiesEditionPart viewContainerReferencePart = (ViewContainerReferencePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && viewContainerReferencePart != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewContainerReferencePart != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					viewContainerReferencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					viewContainerReferencePart.setDescription("");
 				}
 			}
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && viewContainerReferencePart != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewContainerReferencePart != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					viewContainerReferencePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -425,7 +429,7 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 				viewContainerReferencePart.updateActions();
 			if (ViewPackage.eINSTANCE.getAbstractViewElement_Events().equals(msg.getFeature()) && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.events))
 				viewContainerReferencePart.updateEvents();
-			if (ViewPackage.eINSTANCE.getAbstractViewElement_Label().equals(msg.getFeature()) && viewContainerReferencePart != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.label)) {
+			if (ViewPackage.eINSTANCE.getAbstractViewElement_Label().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewContainerReferencePart != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.label)) {
 				if (msg.getNewValue() != null) {
 					viewContainerReferencePart.setLabel(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -438,6 +442,25 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 				viewContainerReferencePart.setViewContainer((EObject)msg.getNewValue());
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Widget(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Actions(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Events(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Label(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_DataBindings(),
+			ViewPackage.eINSTANCE.getViewContainerReference_ViewContainer()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -490,5 +513,8 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 		}
 		return ret;
 	}
+
+
+	
 
 }

@@ -175,9 +175,7 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createTypeAttributesHBox(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -371,6 +369,14 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			type.modelUpdating(new StructuredSelection("")); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.TypeInstance.Properties.type);
+		if (readOnly && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(TypeslibraryMessages.TypeInstance_ReadOnly);
+		} else if (!readOnly && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -405,6 +411,14 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			length.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length);
+		if (readOnly && length.isEnabled()) {
+			length.setEnabled(false);
+			length.setToolTipText(TypeslibraryMessages.TypeInstance_ReadOnly);
+		} else if (!readOnly && !length.isEnabled()) {
+			length.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -429,6 +443,14 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			precision.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision);
+		if (readOnly && precision.isEnabled()) {
+			precision.setEnabled(false);
+			precision.setToolTipText(TypeslibraryMessages.TypeInstance_ReadOnly);
+		} else if (!readOnly && !precision.isEnabled()) {
+			precision.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -454,6 +476,14 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			literals.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.TypeInstance.Properties.literals);
+		if (readOnly && literals.isEnabled()) {
+			literals.setEnabled(false);
+			literals.setToolTipText(TypeslibraryMessages.TypeInstance_ReadOnly);
+		} else if (!readOnly && !literals.isEnabled()) {
+			literals.setEnabled(true);
+		}	
+		
 	}
 
 	public void addToLiterals(Object newValue) {

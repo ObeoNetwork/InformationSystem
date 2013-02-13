@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
@@ -83,10 +84,11 @@ public class ForeignKeyPropertiesEditionComponent extends SinglePartPropertiesEd
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final ForeignKey foreignKey = (ForeignKey)elt;
 			final ForeignKeyPropertiesEditionPart foreignKeyPart = (ForeignKeyPropertiesEditionPart)editingPart;
 			// init values
-			if (foreignKey.getName() != null && isAccessible(DatabaseViewsRepository.ForeignKey.Properties.name))
+			if (isAccessible(DatabaseViewsRepository.ForeignKey.Properties.name))
 				foreignKeyPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, foreignKey.getName()));
 			
 			if (isAccessible(DatabaseViewsRepository.ForeignKey.Properties.target)) {
@@ -100,7 +102,7 @@ public class ForeignKeyPropertiesEditionComponent extends SinglePartPropertiesEd
 				elementsSettings = new ReferencesTableSettings(foreignKey, DatabasePackage.eINSTANCE.getForeignKey_Elements());
 				foreignKeyPart.initElements(elementsSettings);
 			}
-			if (foreignKey.getComments() != null && isAccessible(DatabaseViewsRepository.ForeignKey.Properties.comments))
+			if (isAccessible(DatabaseViewsRepository.ForeignKey.Properties.comments))
 				foreignKeyPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, foreignKey.getComments()));
 			// init filters
 			
@@ -231,9 +233,10 @@ public class ForeignKeyPropertiesEditionComponent extends SinglePartPropertiesEd
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ForeignKeyPropertiesEditionPart foreignKeyPart = (ForeignKeyPropertiesEditionPart)editingPart;
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && foreignKeyPart != null && isAccessible(DatabaseViewsRepository.ForeignKey.Properties.name)) {
+			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && foreignKeyPart != null && isAccessible(DatabaseViewsRepository.ForeignKey.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					foreignKeyPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -244,7 +247,7 @@ public class ForeignKeyPropertiesEditionComponent extends SinglePartPropertiesEd
 				foreignKeyPart.setTarget((EObject)msg.getNewValue());
 			if (DatabasePackage.eINSTANCE.getForeignKey_Elements().equals(msg.getFeature()) && isAccessible(DatabaseViewsRepository.ForeignKey.Properties.elements))
 				foreignKeyPart.updateElements();
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && foreignKeyPart != null && isAccessible(DatabaseViewsRepository.ForeignKey.Properties.comments)){
+			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && foreignKeyPart != null && isAccessible(DatabaseViewsRepository.ForeignKey.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					foreignKeyPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -253,6 +256,21 @@ public class ForeignKeyPropertiesEditionComponent extends SinglePartPropertiesEd
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getNamedElement_Name(),
+			DatabasePackage.eINSTANCE.getForeignKey_Target(),
+			DatabasePackage.eINSTANCE.getForeignKey_Elements(),
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -298,5 +316,8 @@ public class ForeignKeyPropertiesEditionComponent extends SinglePartPropertiesEd
 		}
 		return ret;
 	}
+
+
+	
 
 }

@@ -156,8 +156,6 @@ public class RelationElementPropertiesEditionPartForm extends SectionPropertiesE
 	protected Composite createSourceEntityText(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, EntityrelationViewsRepository.RelationElement.Properties.sourceEntity, EntityrelationMessages.RelationElementPropertiesEditionPart_SourceEntityLabel);
 		sourceEntity = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		sourceEntity.setEnabled(false);
-		sourceEntity.setToolTipText(EntityrelationMessages.RelationElement_ReadOnly);
 		sourceEntity.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
 		GridData sourceEntityData = new GridData(GridData.FILL_HORIZONTAL);
@@ -253,8 +251,6 @@ public class RelationElementPropertiesEditionPartForm extends SectionPropertiesE
 	protected Composite createTargetEntityText(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, EntityrelationViewsRepository.RelationElement.Properties.targetEntity, EntityrelationMessages.RelationElementPropertiesEditionPart_TargetEntityLabel);
 		targetEntity = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		targetEntity.setEnabled(false);
-		targetEntity.setToolTipText(EntityrelationMessages.RelationElement_ReadOnly);
 		targetEntity.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
 		GridData targetEntityData = new GridData(GridData.FILL_HORIZONTAL);
@@ -437,6 +433,9 @@ public class RelationElementPropertiesEditionPartForm extends SectionPropertiesE
 		} else {
 			sourceEntity.setText(""); //$NON-NLS-1$
 		}
+		sourceEntity.setEnabled(false);
+		sourceEntity.setToolTipText(EntityrelationMessages.RelationElement_ReadOnly);
+		
 	}
 
 	/**
@@ -464,6 +463,14 @@ public class RelationElementPropertiesEditionPartForm extends SectionPropertiesE
 		if (current != null) {
 			sourceAttribute.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.RelationElement.Properties.sourceAttribute);
+		if (readOnly && sourceAttribute.isEnabled()) {
+			sourceAttribute.setEnabled(false);
+			sourceAttribute.setToolTipText(EntityrelationMessages.RelationElement_ReadOnly);
+		} else if (!readOnly && !sourceAttribute.isEnabled()) {
+			sourceAttribute.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -478,6 +485,14 @@ public class RelationElementPropertiesEditionPartForm extends SectionPropertiesE
 		} else {
 			sourceAttribute.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.RelationElement.Properties.sourceAttribute);
+		if (readOnly && sourceAttribute.isEnabled()) {
+			sourceAttribute.setEnabled(false);
+			sourceAttribute.setToolTipText(EntityrelationMessages.RelationElement_ReadOnly);
+		} else if (!readOnly && !sourceAttribute.isEnabled()) {
+			sourceAttribute.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -531,6 +546,9 @@ public class RelationElementPropertiesEditionPartForm extends SectionPropertiesE
 		} else {
 			targetEntity.setText(""); //$NON-NLS-1$
 		}
+		targetEntity.setEnabled(false);
+		targetEntity.setToolTipText(EntityrelationMessages.RelationElement_ReadOnly);
+		
 	}
 
 	/**
@@ -558,6 +576,14 @@ public class RelationElementPropertiesEditionPartForm extends SectionPropertiesE
 		if (current != null) {
 			targetAttribute.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.RelationElement.Properties.targetAttribute);
+		if (readOnly && targetAttribute.isEnabled()) {
+			targetAttribute.setEnabled(false);
+			targetAttribute.setToolTipText(EntityrelationMessages.RelationElement_ReadOnly);
+		} else if (!readOnly && !targetAttribute.isEnabled()) {
+			targetAttribute.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -572,6 +598,14 @@ public class RelationElementPropertiesEditionPartForm extends SectionPropertiesE
 		} else {
 			targetAttribute.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.RelationElement.Properties.targetAttribute);
+		if (readOnly && targetAttribute.isEnabled()) {
+			targetAttribute.setEnabled(false);
+			targetAttribute.setToolTipText(EntityrelationMessages.RelationElement_ReadOnly);
+		} else if (!readOnly && !targetAttribute.isEnabled()) {
+			targetAttribute.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -625,6 +659,15 @@ public class RelationElementPropertiesEditionPartForm extends SectionPropertiesE
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.RelationElement.Properties.comments);
+		if (readOnly && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(EntityrelationMessages.RelationElement_ReadOnly);
+		} else if (!readOnly && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

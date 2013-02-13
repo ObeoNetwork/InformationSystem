@@ -21,7 +21,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -81,10 +83,11 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Entity entity = (Entity)elt;
 			final EntityPropertiesEditionPart entityPart = (EntityPropertiesEditionPart)editingPart;
 			// init values
-			if (entity.getName() != null && isAccessible(EntityViewsRepository.Entity_.Properties.name))
+			if (isAccessible(EntityViewsRepository.Entity_.Properties.name))
 				entityPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, entity.getName()));
 			
 			if (isAccessible(EntityViewsRepository.Entity_.Properties.superType)) {
@@ -108,7 +111,7 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 			if (isAccessible(EntityViewsRepository.Entity_.Properties.inheritanceKind)) {
 				entityPart.initInheritanceKind(EEFUtils.choiceOfValues(entity, EntityPackage.eINSTANCE.getEntity_InheritanceKind()), entity.getInheritanceKind());
 			}
-			if (entity.getDescription() != null && isAccessible(EntityViewsRepository.Entity_.Properties.description))
+			if (isAccessible(EntityViewsRepository.Entity_.Properties.description))
 				entityPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, entity.getDescription()));
 			// init filters
 			
@@ -212,9 +215,10 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			EntityPropertiesEditionPart entityPart = (EntityPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getType_Name().equals(msg.getFeature()) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.name)) {
+			if (EnvironmentPackage.eINSTANCE.getType_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					entityPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -223,27 +227,27 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 			}
 			if (EntityPackage.eINSTANCE.getEntity_Supertype().equals(msg.getFeature()) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.superType))
 				entityPart.setSuperType((EObject)msg.getNewValue());
-			if (EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry().equals(msg.getFeature()) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.estimatedVolumetry)) {
+			if (EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.estimatedVolumetry)) {
 				if (msg.getNewValue() != null) {
 					entityPart.setEstimatedVolumetry(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					entityPart.setEstimatedVolumetry("");
 				}
 			}
-			if (EntityPackage.eINSTANCE.getEntity_EstimatedAccess().equals(msg.getFeature()) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.estimatedAccess)) {
+			if (EntityPackage.eINSTANCE.getEntity_EstimatedAccess().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.estimatedAccess)) {
 				if (msg.getNewValue() != null) {
 					entityPart.setEstimatedAccess(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					entityPart.setEstimatedAccess("");
 				}
 			}
-			if (EntityPackage.eINSTANCE.getEntity_Historized().equals(msg.getFeature()) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.historized))
+			if (EntityPackage.eINSTANCE.getEntity_Historized().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.historized))
 				entityPart.setHistorized((Boolean)msg.getNewValue());
 			
-			if (EntityPackage.eINSTANCE.getEntity_InheritanceKind().equals(msg.getFeature()) && isAccessible(EntityViewsRepository.Entity_.Properties.inheritanceKind))
+			if (EntityPackage.eINSTANCE.getEntity_InheritanceKind().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EntityViewsRepository.Entity_.Properties.inheritanceKind))
 				entityPart.setInheritanceKind((InheritanceKind)msg.getNewValue());
 			
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.description)){
 				if (msg.getNewValue() != null) {
 					entityPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -252,6 +256,24 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getType_Name(),
+			EntityPackage.eINSTANCE.getEntity_Supertype(),
+			EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry(),
+			EntityPackage.eINSTANCE.getEntity_EstimatedAccess(),
+			EntityPackage.eINSTANCE.getEntity_Historized(),
+			EntityPackage.eINSTANCE.getEntity_InheritanceKind(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -325,5 +347,8 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 		}
 		return ret;
 	}
+
+
+	
 
 }

@@ -261,6 +261,14 @@ public class InternalCriterionPropertiesEditionPartForm extends SectionPropertie
 		if (current != null) {
 			target.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.InternalCriterion.Properties.target);
+		if (readOnly && target.isEnabled()) {
+			target.setEnabled(false);
+			target.setToolTipText(EntityMessages.InternalCriterion_ReadOnly);
+		} else if (!readOnly && !target.isEnabled()) {
+			target.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -275,6 +283,14 @@ public class InternalCriterionPropertiesEditionPartForm extends SectionPropertie
 		} else {
 			target.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.InternalCriterion.Properties.target);
+		if (readOnly && target.isEnabled()) {
+			target.setEnabled(false);
+			target.setToolTipText(EntityMessages.InternalCriterion_ReadOnly);
+		} else if (!readOnly && !target.isEnabled()) {
+			target.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -328,6 +344,15 @@ public class InternalCriterionPropertiesEditionPartForm extends SectionPropertie
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.InternalCriterion.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(EntityMessages.InternalCriterion_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

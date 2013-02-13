@@ -8,19 +8,21 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
+import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
 import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
@@ -82,12 +84,13 @@ public class TransitionTransitionPropertiesEditionComponent extends SinglePartPr
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Transition transition = (Transition)elt;
 			final TransitionPropertiesEditionPart transitionPart = (TransitionPropertiesEditionPart)editingPart;
 			// init values
-			if (transition.getDescription() != null && isAccessible(GraalViewsRepository.Transition.Properties.description))
+			if (isAccessible(GraalViewsRepository.Transition.Properties.description))
 				transitionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, transition.getDescription()));
-			if (transition.getGuard() != null && isAccessible(GraalViewsRepository.Transition.Properties.guard))
+			if (isAccessible(GraalViewsRepository.Transition.Properties.guard))
 				transitionPart.setGuard(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, transition.getGuard()));
 			
 			if (isAccessible(GraalViewsRepository.Transition.Properties.source)) {
@@ -105,41 +108,43 @@ public class TransitionTransitionPropertiesEditionComponent extends SinglePartPr
 				transitionPart.setTargetButtonMode(ButtonsModeEnum.BROWSE);
 			}
 			if (isAccessible(GraalViewsRepository.Transition.Properties.kind)) {
-				transitionPart.initKind((EEnum) GraalPackage.eINSTANCE.getTransition_Kind().getEType(), transition.getKind());
+				transitionPart.initKind(EEFUtils.choiceOfValues(transition, GraalPackage.eINSTANCE.getTransition_Kind()), transition.getKind());
 			}
 			// init filters
 			
 			
-			transitionPart.addFilterToSource(new ViewerFilter() {
-			
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-			 */
-			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				return (element instanceof Node);
-				}
-			
-			});
-			// Start of user code 
-			// End of user code
-			
-			transitionPart.addFilterToTarget(new ViewerFilter() {
-			
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-			 */
-			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				return (element instanceof Node);
-				}
-			
-			});
-			// Start of user code 
-			// End of user code
-			
+			if (isAccessible(GraalViewsRepository.Transition.Properties.source)) {
+				transitionPart.addFilterToSource(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof Node);
+					}
+					
+				});
+				// Start of user code for additional businessfilters for source
+				// End of user code
+			}
+			if (isAccessible(GraalViewsRepository.Transition.Properties.target)) {
+				transitionPart.addFilterToTarget(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof Node);
+					}
+					
+				});
+				// Start of user code for additional businessfilters for target
+				// End of user code
+			}
 			
 			// init values for referenced views
 			
@@ -230,16 +235,17 @@ public class TransitionTransitionPropertiesEditionComponent extends SinglePartPr
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			TransitionPropertiesEditionPart transitionPart = (TransitionPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && transitionPart != null && isAccessible(GraalViewsRepository.Transition.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && transitionPart != null && isAccessible(GraalViewsRepository.Transition.Properties.description)){
 				if (msg.getNewValue() != null) {
 					transitionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					transitionPart.setDescription("");
 				}
 			}
-			if (GraalPackage.eINSTANCE.getTransition_Guard().equals(msg.getFeature()) && transitionPart != null && isAccessible(GraalViewsRepository.Transition.Properties.guard)) {
+			if (GraalPackage.eINSTANCE.getTransition_Guard().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && transitionPart != null && isAccessible(GraalViewsRepository.Transition.Properties.guard)) {
 				if (msg.getNewValue() != null) {
 					transitionPart.setGuard(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -250,11 +256,27 @@ public class TransitionTransitionPropertiesEditionComponent extends SinglePartPr
 				transitionPart.setSource((EObject)msg.getNewValue());
 			if (GraalPackage.eINSTANCE.getTransition_Target().equals(msg.getFeature()) && transitionPart != null && isAccessible(GraalViewsRepository.Transition.Properties.target))
 				transitionPart.setTarget((EObject)msg.getNewValue());
-			if (GraalPackage.eINSTANCE.getTransition_Kind().equals(msg.getFeature()) && isAccessible(GraalViewsRepository.Transition.Properties.kind))
+			if (GraalPackage.eINSTANCE.getTransition_Kind().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(GraalViewsRepository.Transition.Properties.kind))
 				transitionPart.setKind((TransitionKind)msg.getNewValue());
 			
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			GraalPackage.eINSTANCE.getTransition_Guard(),
+			GraalPackage.eINSTANCE.getTransition_Source(),
+			GraalPackage.eINSTANCE.getTransition_Target(),
+			GraalPackage.eINSTANCE.getTransition_Kind()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -281,21 +303,21 @@ public class TransitionTransitionPropertiesEditionComponent extends SinglePartPr
 				if (GraalViewsRepository.Transition.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.Transition.Properties.guard == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getTransition_Guard().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(GraalPackage.eINSTANCE.getTransition_Guard().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getTransition_Guard().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.Transition.Properties.kind == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getTransition_Kind().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(GraalPackage.eINSTANCE.getTransition_Kind().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getTransition_Kind().getEAttributeType(), newValue);
 				}
@@ -307,5 +329,8 @@ public class TransitionTransitionPropertiesEditionComponent extends SinglePartPr
 		}
 		return ret;
 	}
+
+
+	
 
 }

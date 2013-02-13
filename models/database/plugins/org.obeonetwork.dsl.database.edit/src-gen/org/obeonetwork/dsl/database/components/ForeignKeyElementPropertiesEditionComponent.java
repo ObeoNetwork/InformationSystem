@@ -14,11 +14,13 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
@@ -102,10 +104,14 @@ public class ForeignKeyElementPropertiesEditionComponent extends SinglePartPrope
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			if (editingPart instanceof CompositePropertiesEditionPart) {
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(sourceTableSettings);
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(targetTableSettings);
+			}
 			final ForeignKeyElement foreignKeyElement = (ForeignKeyElement)elt;
 			final ForeignKeyElementPropertiesEditionPart foreignKeyElementPart = (ForeignKeyElementPropertiesEditionPart)editingPart;
 			// init values
-			if (foreignKeyElement.getComments() != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.comments))
+			if (isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.comments))
 				foreignKeyElementPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, foreignKeyElement.getComments()));
 			if (isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.fKColumn)) {
 				// init part
@@ -258,9 +264,10 @@ public class ForeignKeyElementPropertiesEditionComponent extends SinglePartPrope
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ForeignKeyElementPropertiesEditionPart foreignKeyElementPart = (ForeignKeyElementPropertiesEditionPart)editingPart;
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && foreignKeyElementPart != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.comments)){
+			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && foreignKeyElementPart != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					foreignKeyElementPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -271,14 +278,14 @@ public class ForeignKeyElementPropertiesEditionComponent extends SinglePartPrope
 				foreignKeyElementPart.setFKColumn((EObject)msg.getNewValue());
 			if (DatabasePackage.eINSTANCE.getForeignKeyElement_PkColumn().equals(msg.getFeature()) && foreignKeyElementPart != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.pKColumn))
 				foreignKeyElementPart.setPKColumn((EObject)msg.getNewValue());
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && foreignKeyElementPart != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.sourceTable)) {
+			if (!(msg.getNewValue() instanceof EObject) && sourceTableSettings.isAffectingEvent(msg) && foreignKeyElementPart != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.sourceTable)) {
 				if (msg.getNewValue() != null) {
 					foreignKeyElementPart.setSourceTable(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					foreignKeyElementPart.setSourceTable("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && foreignKeyElementPart != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.targetTable)) {
+			if (!(msg.getNewValue() instanceof EObject) && targetTableSettings.isAffectingEvent(msg) && foreignKeyElementPart != null && isAccessible(DatabaseViewsRepository.ForeignKeyElement.Properties.targetTable)) {
 				if (msg.getNewValue() != null) {
 					foreignKeyElementPart.setTargetTable(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -287,6 +294,24 @@ public class ForeignKeyElementPropertiesEditionComponent extends SinglePartPrope
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments(),
+			DatabasePackage.eINSTANCE.getForeignKeyElement_FkColumn(),
+			DatabasePackage.eINSTANCE.getForeignKeyElement_PkColumn(),
+			DatabasePackage.eINSTANCE.getNamedElement_Name()
+			,
+			DatabasePackage.eINSTANCE.getNamedElement_Name()
+					);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -338,6 +363,21 @@ public class ForeignKeyElementPropertiesEditionComponent extends SinglePartPrope
 			}
 		}
 		return ret;
+	}
+
+
+	
+	/**
+	 * @ return settings for sourceTable editor
+	 */
+	public EEFEditorSettingsImpl getSourceTableSettings() {
+			return sourceTableSettings;
+	}
+	/**
+	 * @ return settings for targetTable editor
+	 */
+	public EEFEditorSettingsImpl getTargetTableSettings() {
+			return targetTableSettings;
 	}
 
 }

@@ -16,7 +16,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -81,10 +83,11 @@ public class RepositoryPropertiesEditionComponent extends SinglePartPropertiesEd
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Repository repository = (Repository)elt;
 			final RepositoryPropertiesEditionPart repositoryPart = (RepositoryPropertiesEditionPart)editingPart;
 			// init values
-			if (repository.getName() != null && isAccessible(RequirementViewsRepository.Repository.Repository_.name))
+			if (isAccessible(RequirementViewsRepository.Repository.Repository_.name))
 				repositoryPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, repository.getName()));
 			
 			if (isAccessible(RequirementViewsRepository.Repository.Repository_.mainCategories)) {
@@ -207,9 +210,10 @@ public class RepositoryPropertiesEditionComponent extends SinglePartPropertiesEd
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			RepositoryPropertiesEditionPart repositoryPart = (RepositoryPropertiesEditionPart)editingPart;
-			if (RequirementPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && repositoryPart != null && isAccessible(RequirementViewsRepository.Repository.Repository_.name)) {
+			if (RequirementPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && repositoryPart != null && isAccessible(RequirementViewsRepository.Repository.Repository_.name)) {
 				if (msg.getNewValue() != null) {
 					repositoryPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -222,6 +226,20 @@ public class RepositoryPropertiesEditionComponent extends SinglePartPropertiesEd
 				repositoryPart.updateReferencedObject();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			RequirementPackage.eINSTANCE.getNamedElement_Name(),
+			RequirementPackage.eINSTANCE.getRepository_MainCategories(),
+			RequirementPackage.eINSTANCE.getRepository_ReferencedObject()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -250,5 +268,8 @@ public class RepositoryPropertiesEditionComponent extends SinglePartPropertiesEd
 		}
 		return ret;
 	}
+
+
+	
 
 }

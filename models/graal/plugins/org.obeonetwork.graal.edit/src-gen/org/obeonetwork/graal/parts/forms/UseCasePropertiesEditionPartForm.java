@@ -196,8 +196,33 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 			@Override
 			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(UseCasePropertiesEditionPartForm.this, GraalViewsRepository.UseCase.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							UseCasePropertiesEditionPartForm.this,
+							GraalViewsRepository.UseCase.Properties.name,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									UseCasePropertiesEditionPartForm.this,
+									GraalViewsRepository.UseCase.Properties.name,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, name.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									UseCasePropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
 			}
 		});
 		name.addKeyListener(new KeyAdapter() {
@@ -241,10 +266,34 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 			 * 
 			 */
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(UseCasePropertiesEditionPartForm.this, GraalViewsRepository.UseCase.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							UseCasePropertiesEditionPartForm.this,
+							GraalViewsRepository.UseCase.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									UseCasePropertiesEditionPartForm.this,
+									GraalViewsRepository.UseCase.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
 			}
 
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									UseCasePropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
 		});
 		EditingUtils.setID(description, GraalViewsRepository.UseCase.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
@@ -665,7 +714,7 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -692,6 +741,14 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -716,6 +773,15 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -731,6 +797,14 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		tasks.setContentProvider(contentProvider);
 		tasks.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.tasks);
+		if (readOnly && tasks.getTable().isEnabled()) {
+			tasks.setEnabled(false);
+			tasks.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !tasks.getTable().isEnabled()) {
+			tasks.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -786,6 +860,14 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		dtoCategories.setContentProvider(contentProvider);
 		dtoCategories.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.dtoCategories);
+		if (readOnly && dtoCategories.getTable().isEnabled()) {
+			dtoCategories.setEnabled(false);
+			dtoCategories.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !dtoCategories.getTable().isEnabled()) {
+			dtoCategories.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -841,6 +923,14 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		dtos.setContentProvider(contentProvider);
 		dtos.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.dtos);
+		if (readOnly && dtos.getTable().isEnabled()) {
+			dtos.setEnabled(false);
+			dtos.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !dtos.getTable().isEnabled()) {
+			dtos.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -896,6 +986,14 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		entityBlocks.setContentProvider(contentProvider);
 		entityBlocks.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.entityBlocks);
+		if (readOnly && entityBlocks.getTable().isEnabled()) {
+			entityBlocks.setEnabled(false);
+			entityBlocks.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !entityBlocks.getTable().isEnabled()) {
+			entityBlocks.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -951,6 +1049,14 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		entities.setContentProvider(contentProvider);
 		entities.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.UseCase.Properties.entities);
+		if (readOnly && entities.getTable().isEnabled()) {
+			entities.setEnabled(false);
+			entities.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!readOnly && !entities.getTable().isEnabled()) {
+			entities.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -1008,7 +1114,7 @@ public class UseCasePropertiesEditionPartForm extends SectionPropertiesEditingPa
 		return GraalMessages.UseCase_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

@@ -50,7 +50,7 @@ public class PackagePropertiesEditionComponent extends ComposedPropertiesEdition
 	 */
 	public PackagePropertiesEditionComponent(PropertiesEditingContext editingContext, EObject package_, String editing_mode) {
 		super(editingContext, editing_mode);
-		if (package_ instanceof Package) {
+		if (package_ instanceof org.obeonetwork.dsl.cinematic.Package) {
 			PropertiesEditingProvider provider = null;
 			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(package_, PropertiesEditingProvider.class);
 			packagePackage_PropertiesEditionComponent = (PackagePackage_PropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, PackagePackage_PropertiesEditionComponent.PACKAGE__PART, PackagePackage_PropertiesEditionComponent.class);

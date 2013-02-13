@@ -276,6 +276,14 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			customizedName.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.Finder.Properties.customizedName);
+		if (readOnly && customizedName.isEnabled()) {
+			customizedName.setEnabled(false);
+			customizedName.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!readOnly && !customizedName.isEnabled()) {
+			customizedName.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -297,6 +305,14 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	public void initMultiplicity(Object input, Enumerator current) {
 		multiplicity.setInput(input);
 		multiplicity.modelUpdating(new StructuredSelection(current));
+		boolean readOnly = isReadOnly(EntityViewsRepository.Finder.Properties.multiplicity);
+		if (readOnly && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!readOnly && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -307,6 +323,14 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	 */
 	public void setMultiplicity(Enumerator newValue) {
 		multiplicity.modelUpdating(new StructuredSelection(newValue));
+		boolean readOnly = isReadOnly(EntityViewsRepository.Finder.Properties.multiplicity);
+		if (readOnly && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!readOnly && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -331,6 +355,15 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.Finder.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

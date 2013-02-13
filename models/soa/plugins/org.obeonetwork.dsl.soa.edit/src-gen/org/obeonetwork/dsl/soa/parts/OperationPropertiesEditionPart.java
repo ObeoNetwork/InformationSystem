@@ -13,8 +13,6 @@ package org.obeonetwork.dsl.soa.parts;
 // Start of user code for imports
 import org.eclipse.emf.common.util.Enumerator;
 
-import org.eclipse.emf.ecore.EEnum;
-
 
 // End of user code
 
@@ -46,10 +44,10 @@ public interface OperationPropertiesEditionPart {
 
 	/**
 	 * Init the kind
-	 * @param eenum the enum to manage
+	 * @param input the viewer input
 	 * @param current the current value
 	 */
-	public void initKind(EEnum eenum, Enumerator current);
+	public void initKind(Object input, Enumerator current);
 
 	/**
 	 * Defines a new kind
@@ -98,7 +96,7 @@ public interface OperationPropertiesEditionPart {
 	 */
 	public String getTitle();
 
-	// Start of user code 
+	// Start of user code for additional methods
 	
 	// End of user code
 

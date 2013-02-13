@@ -453,6 +453,14 @@ public class EntityPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.Entity_.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EntityMessages.Entity_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -475,6 +483,14 @@ public class EntityPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		if (current != null) {
 			superType.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.Entity_.Properties.superType);
+		if (readOnly && superType.isEnabled()) {
+			superType.setEnabled(false);
+			superType.setToolTipText(EntityMessages.Entity_ReadOnly);
+		} else if (!readOnly && !superType.isEnabled()) {
+			superType.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -489,6 +505,14 @@ public class EntityPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			superType.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.Entity_.Properties.superType);
+		if (readOnly && superType.isEnabled()) {
+			superType.setEnabled(false);
+			superType.setToolTipText(EntityMessages.Entity_ReadOnly);
+		} else if (!readOnly && !superType.isEnabled()) {
+			superType.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -542,6 +566,14 @@ public class EntityPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			estimatedVolumetry.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.Entity_.Properties.estimatedVolumetry);
+		if (readOnly && estimatedVolumetry.isEnabled()) {
+			estimatedVolumetry.setEnabled(false);
+			estimatedVolumetry.setToolTipText(EntityMessages.Entity_ReadOnly);
+		} else if (!readOnly && !estimatedVolumetry.isEnabled()) {
+			estimatedVolumetry.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -566,6 +598,14 @@ public class EntityPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			estimatedAccess.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.Entity_.Properties.estimatedAccess);
+		if (readOnly && estimatedAccess.isEnabled()) {
+			estimatedAccess.setEnabled(false);
+			estimatedAccess.setToolTipText(EntityMessages.Entity_ReadOnly);
+		} else if (!readOnly && !estimatedAccess.isEnabled()) {
+			estimatedAccess.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -590,6 +630,14 @@ public class EntityPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			historized.setSelection(false);
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.Entity_.Properties.historized);
+		if (readOnly && historized.isEnabled()) {
+			historized.setEnabled(false);
+			historized.setToolTipText(EntityMessages.Entity_ReadOnly);
+		} else if (!readOnly && !historized.isEnabled()) {
+			historized.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -611,6 +659,14 @@ public class EntityPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	public void initInheritanceKind(Object input, Enumerator current) {
 		inheritanceKind.setInput(input);
 		inheritanceKind.modelUpdating(new StructuredSelection(current));
+		boolean readOnly = isReadOnly(EntityViewsRepository.Entity_.Properties.inheritanceKind);
+		if (readOnly && inheritanceKind.isEnabled()) {
+			inheritanceKind.setEnabled(false);
+			inheritanceKind.setToolTipText(EntityMessages.Entity_ReadOnly);
+		} else if (!readOnly && !inheritanceKind.isEnabled()) {
+			inheritanceKind.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -621,6 +677,14 @@ public class EntityPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	 */
 	public void setInheritanceKind(Enumerator newValue) {
 		inheritanceKind.modelUpdating(new StructuredSelection(newValue));
+		boolean readOnly = isReadOnly(EntityViewsRepository.Entity_.Properties.inheritanceKind);
+		if (readOnly && inheritanceKind.isEnabled()) {
+			inheritanceKind.setEnabled(false);
+			inheritanceKind.setToolTipText(EntityMessages.Entity_ReadOnly);
+		} else if (!readOnly && !inheritanceKind.isEnabled()) {
+			inheritanceKind.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -645,6 +709,15 @@ public class EntityPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityViewsRepository.Entity_.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(EntityMessages.Entity_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

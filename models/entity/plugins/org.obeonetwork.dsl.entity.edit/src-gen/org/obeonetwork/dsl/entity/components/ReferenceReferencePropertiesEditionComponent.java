@@ -21,7 +21,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -89,10 +91,11 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Reference reference = (Reference)elt;
 			final ReferencePropertiesEditionPart referencePart = (ReferencePropertiesEditionPart)editingPart;
 			// init values
-			if (reference.getName() != null && isAccessible(EntityViewsRepository.Reference.Properties.name))
+			if (isAccessible(EntityViewsRepository.Reference.Properties.name))
 				referencePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, reference.getName()));
 			
 			if (isAccessible(EntityViewsRepository.Reference.Properties.type)) {
@@ -114,7 +117,7 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 			if (isAccessible(EntityViewsRepository.Reference.Properties.navigable)) {
 				referencePart.setNavigable(reference.isNavigable());
 			}
-			if (reference.getDescription() != null && isAccessible(EntityViewsRepository.Reference.Properties.description))
+			if (isAccessible(EntityViewsRepository.Reference.Properties.description))
 				referencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, reference.getDescription()));
 			if (isAccessible(EntityViewsRepository.Reference.Properties.oppositeOf)) {
 				// init part
@@ -261,9 +264,10 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ReferencePropertiesEditionPart referencePart = (ReferencePropertiesEditionPart)editingPart;
-			if (EntityPackage.eINSTANCE.getProperty_Name().equals(msg.getFeature()) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.name)) {
+			if (EntityPackage.eINSTANCE.getProperty_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					referencePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -272,19 +276,19 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 			}
 			if (EntityPackage.eINSTANCE.getReference_Type().equals(msg.getFeature()) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.type))
 				referencePart.setType((EObject)msg.getNewValue());
-			if (EntityPackage.eINSTANCE.getProperty_Multiplicity().equals(msg.getFeature()) && isAccessible(EntityViewsRepository.Reference.Properties.multiplicity))
+			if (EntityPackage.eINSTANCE.getProperty_Multiplicity().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EntityViewsRepository.Reference.Properties.multiplicity))
 				referencePart.setMultiplicity((MultiplicityKind)msg.getNewValue());
 			
-			if (EntityPackage.eINSTANCE.getProperty_IsPrimaryKey().equals(msg.getFeature()) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.isPrimaryKey))
+			if (EntityPackage.eINSTANCE.getProperty_IsPrimaryKey().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.isPrimaryKey))
 				referencePart.setIsPrimaryKey((Boolean)msg.getNewValue());
 			
-			if (EntityPackage.eINSTANCE.getReference_IsComposite().equals(msg.getFeature()) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.isComposite))
+			if (EntityPackage.eINSTANCE.getReference_IsComposite().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.isComposite))
 				referencePart.setIsComposite((Boolean)msg.getNewValue());
 			
-			if (EntityPackage.eINSTANCE.getReference_Navigable().equals(msg.getFeature()) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.navigable))
+			if (EntityPackage.eINSTANCE.getReference_Navigable().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.navigable))
 				referencePart.setNavigable((Boolean)msg.getNewValue());
 			
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && referencePart != null && isAccessible(EntityViewsRepository.Reference.Properties.description)){
 				if (msg.getNewValue() != null) {
 					referencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -295,6 +299,25 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 				referencePart.setOppositeOf((EObject)msg.getNewValue());
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EntityPackage.eINSTANCE.getProperty_Name(),
+			EntityPackage.eINSTANCE.getReference_Type(),
+			EntityPackage.eINSTANCE.getProperty_Multiplicity(),
+			EntityPackage.eINSTANCE.getProperty_IsPrimaryKey(),
+			EntityPackage.eINSTANCE.getReference_IsComposite(),
+			EntityPackage.eINSTANCE.getReference_Navigable(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			EntityPackage.eINSTANCE.getReference_OppositeOf()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -368,5 +391,8 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 		}
 		return ret;
 	}
+
+
+	
 
 }

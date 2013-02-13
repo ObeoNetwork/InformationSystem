@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="Obeo Designer For IS">
-  <eAnnotations source="Migration">
-    <details key="SemanticCandidatesExpressionBehaviorChange" value=""/>
-    <details key="LabelAlignmentForDNodeListElementMappingMigrationForBehaviourPresevation" value=""/>
-    <details key="SVG.BundledImageDescription.BorderColor" value=""/>
-  </eAnnotations>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="Obeo Designer For IS" version="6.5.0.201210011230">
   <ownedViewpoints name="Cinematic Views" icon="/fr.obeo.dsl.cinematic.edit/icons/full/obj16/CinematicModelFile.gif">
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Screen Description Diagram" titleExpression="&lt;%name%> Screen" domainClass="Screen">
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.cinematic/models/Cinematic.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/models/Cinematic.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <defaultLayer name="Default layer">
         <containerMappings name="Sc_Screen_CM" semanticCandidatesExpression="&lt;%self%>" domainClass="Screen">
           <subNodeMappings name="Sc_Widget_CM" semanticCandidatesExpression="&lt;%current.eAllContents%>" domainClass="Widget">
@@ -18,49 +13,94 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;TextField&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="16" labelPosition="node" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-textsingle.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="16" labelPosition="node" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-textsingle.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Combobox&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="14" labelPosition="node" resizeKind="EAST_WEST" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-combo.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="14" labelPosition="node" resizeKind="EAST_WEST" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-combo.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Password&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-combo.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-combo.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Checkbox&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-check.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-check.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Radio&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-radio.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-radio.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Slider&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="18" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-slider.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="18" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-slider.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Push&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-push.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-push.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Toggle&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-toggle.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="9" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-toggle.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Button&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-push.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="6" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-push.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;DisplayList&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="11" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-list.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="11" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-list.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Canvas&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-canvas.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-canvas.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Link&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-link.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-link.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;ProgressBar&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="14" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-progressbar.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="14" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-progressbar.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;TextArea&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="14" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-textmulti.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="14" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-textmulti.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
             <conditionnalStyles predicateExpression="&lt;%filter(&quot;Table&quot;).nSize() > 0%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-table.png"/>
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.obeo.dsl.is.design/description/images/swtwidgets/gallery-table.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
             </conditionnalStyles>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">

@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -76,17 +78,18 @@ public class AsyncEventStateAsyncEventStatePropertiesEditionComponent extends Si
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final AsyncEventState asyncEventState = (AsyncEventState)elt;
 			final AsyncEventStatePropertiesEditionPart asyncEventStatePart = (AsyncEventStatePropertiesEditionPart)editingPart;
 			// init values
-			if (asyncEventState.getDescription() != null && isAccessible(FlowViewsRepository.AsyncEventState.Properties.description))
+			if (isAccessible(FlowViewsRepository.AsyncEventState.Properties.description))
 				asyncEventStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, asyncEventState.getDescription()));
 			
 			if (isAccessible(FlowViewsRepository.AsyncEventState.Properties.actions)) {
 				actionsSettings = new ReferencesTableSettings(asyncEventState, FlowPackage.eINSTANCE.getFlowState_Actions());
 				asyncEventStatePart.initActions(actionsSettings);
 			}
-			if (asyncEventState.getName() != null && isAccessible(FlowViewsRepository.AsyncEventState.Properties.name))
+			if (isAccessible(FlowViewsRepository.AsyncEventState.Properties.name))
 				asyncEventStatePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, asyncEventState.getName()));
 			
 			// init filters
@@ -182,9 +185,10 @@ public class AsyncEventStateAsyncEventStatePropertiesEditionComponent extends Si
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			AsyncEventStatePropertiesEditionPart asyncEventStatePart = (AsyncEventStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && asyncEventStatePart != null && isAccessible(FlowViewsRepository.AsyncEventState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && asyncEventStatePart != null && isAccessible(FlowViewsRepository.AsyncEventState.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					asyncEventStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -193,7 +197,7 @@ public class AsyncEventStateAsyncEventStatePropertiesEditionComponent extends Si
 			}
 			if (FlowPackage.eINSTANCE.getFlowState_Actions().equals(msg.getFeature()) && isAccessible(FlowViewsRepository.AsyncEventState.Properties.actions))
 				asyncEventStatePart.updateActions();
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && asyncEventStatePart != null && isAccessible(FlowViewsRepository.AsyncEventState.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && asyncEventStatePart != null && isAccessible(FlowViewsRepository.AsyncEventState.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					asyncEventStatePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -202,6 +206,20 @@ public class AsyncEventStateAsyncEventStatePropertiesEditionComponent extends Si
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			FlowPackage.eINSTANCE.getFlowState_Actions(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -237,5 +255,8 @@ public class AsyncEventStateAsyncEventStatePropertiesEditionComponent extends Si
 		}
 		return ret;
 	}
+
+
+	
 
 }

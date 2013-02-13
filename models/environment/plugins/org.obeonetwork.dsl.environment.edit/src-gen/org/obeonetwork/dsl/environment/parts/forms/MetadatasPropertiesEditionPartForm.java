@@ -8,62 +8,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.graphics.Image;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.TableColumn;
-
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-
+import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.obeonetwork.dsl.environment.Annotation;
-import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 import org.obeonetwork.dsl.environment.parts.MetadatasPropertiesEditionPart;
-
 import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
 
 // End of user code
@@ -77,6 +58,9 @@ public class MetadatasPropertiesEditionPartForm extends SectionPropertiesEditing
 	protected TableViewer metadata;
 	protected List<ViewerFilter> metadataBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> metadataFilters = new ArrayList<ViewerFilter>();
+	protected Button addMetadata;
+	protected Button removeMetadata;
+	protected Button editMetadata;
 
 
 
@@ -261,7 +245,7 @@ public class MetadatasPropertiesEditionPartForm extends SectionPropertiesEditing
 		GridLayout metadataPanelLayout = new GridLayout();
 		metadataPanelLayout.numColumns = 1;
 		metadataPanel.setLayout(metadataPanelLayout);
-		Button addMetadata = widgetFactory.createButton(metadataPanel, EnvironmentMessages.PropertiesEditionPart_AddTableViewerLabel, SWT.NONE);
+		addMetadata = widgetFactory.createButton(metadataPanel, EnvironmentMessages.PropertiesEditionPart_AddTableViewerLabel, SWT.NONE);
 		GridData addMetadataData = new GridData(GridData.FILL_HORIZONTAL);
 		addMetadata.setLayoutData(addMetadataData);
 		addMetadata.addSelectionListener(new SelectionAdapter() {
@@ -279,7 +263,7 @@ public class MetadatasPropertiesEditionPartForm extends SectionPropertiesEditing
 		});
 		EditingUtils.setID(addMetadata, EnvironmentViewsRepository.Metadatas.Properties.metadata);
 		EditingUtils.setEEFtype(addMetadata, "eef::TableComposition::addbutton"); //$NON-NLS-1$
-		Button removeMetadata = widgetFactory.createButton(metadataPanel, EnvironmentMessages.PropertiesEditionPart_RemoveTableViewerLabel, SWT.NONE);
+		removeMetadata = widgetFactory.createButton(metadataPanel, EnvironmentMessages.PropertiesEditionPart_RemoveTableViewerLabel, SWT.NONE);
 		GridData removeMetadataData = new GridData(GridData.FILL_HORIZONTAL);
 		removeMetadata.setLayoutData(removeMetadataData);
 		removeMetadata.addSelectionListener(new SelectionAdapter() {
@@ -304,7 +288,7 @@ public class MetadatasPropertiesEditionPartForm extends SectionPropertiesEditing
 		});
 		EditingUtils.setID(removeMetadata, EnvironmentViewsRepository.Metadatas.Properties.metadata);
 		EditingUtils.setEEFtype(removeMetadata, "eef::TableComposition::removebutton"); //$NON-NLS-1$
-		Button editMetadata = widgetFactory.createButton(metadataPanel, EnvironmentMessages.PropertiesEditionPart_EditTableViewerLabel, SWT.NONE);
+		editMetadata = widgetFactory.createButton(metadataPanel, EnvironmentMessages.PropertiesEditionPart_EditTableViewerLabel, SWT.NONE);
 		GridData editMetadataData = new GridData(GridData.FILL_HORIZONTAL);
 		editMetadata.setLayoutData(editMetadataData);
 		editMetadata.addSelectionListener(new SelectionAdapter() {
@@ -357,6 +341,23 @@ public class MetadatasPropertiesEditionPartForm extends SectionPropertiesEditing
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		metadata.setContentProvider(contentProvider);
 		metadata.setInput(settings);
+		boolean readOnly = isReadOnly(EnvironmentViewsRepository.Metadatas.Properties.metadata);
+		if (readOnly && metadata.getTable().isEnabled()) {
+			metadata.getTable().setEnabled(false);
+			metadata.getTable().setToolTipText(EnvironmentMessages.Metadatas_ReadOnly);
+			addMetadata.setEnabled(false);
+			addMetadata.setToolTipText(EnvironmentMessages.Metadatas_ReadOnly);
+			removeMetadata.setEnabled(false);
+			removeMetadata.setToolTipText(EnvironmentMessages.Metadatas_ReadOnly);
+			editMetadata.setEnabled(false);
+			editMetadata.setToolTipText(EnvironmentMessages.Metadatas_ReadOnly);
+		} else if (!readOnly && !metadata.getTable().isEnabled()) {
+			metadata.getTable().setEnabled(true);
+			addMetadata.setEnabled(true);
+			removeMetadata.setEnabled(true);
+			editMetadata.setEnabled(true);
+		}
+		
 	}
 
 	/**

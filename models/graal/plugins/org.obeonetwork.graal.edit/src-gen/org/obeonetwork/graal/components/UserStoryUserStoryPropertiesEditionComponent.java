@@ -14,12 +14,13 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.UserStory;
 import org.obeonetwork.graal.parts.GraalViewsRepository;
 import org.obeonetwork.graal.parts.UserStoryPropertiesEditionPart;
@@ -60,12 +61,13 @@ public class UserStoryUserStoryPropertiesEditionComponent extends SinglePartProp
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final UserStory userStory = (UserStory)elt;
 			final UserStoryPropertiesEditionPart userStoryPart = (UserStoryPropertiesEditionPart)editingPart;
 			// init values
-			if (userStory.getDescription() != null && isAccessible(GraalViewsRepository.UserStory.Properties.description))
+			if (isAccessible(GraalViewsRepository.UserStory.Properties.description))
 				userStoryPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, userStory.getDescription()));
-			if (userStory.getName() != null && isAccessible(GraalViewsRepository.UserStory.Properties.name))
+			if (isAccessible(GraalViewsRepository.UserStory.Properties.name))
 				userStoryPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, userStory.getName()));
 			
 			// init filters
@@ -92,7 +94,7 @@ public class UserStoryUserStoryPropertiesEditionComponent extends SinglePartProp
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
 		}
 		if (editorKey == GraalViewsRepository.UserStory.Properties.name) {
-			return GraalPackage.eINSTANCE.getNamedElement_Name();
+			return EnvironmentPackage.eINSTANCE.getNamespace_Name();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -117,16 +119,17 @@ public class UserStoryUserStoryPropertiesEditionComponent extends SinglePartProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			UserStoryPropertiesEditionPart userStoryPart = (UserStoryPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && userStoryPart != null && isAccessible(GraalViewsRepository.UserStory.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && userStoryPart != null && isAccessible(GraalViewsRepository.UserStory.Properties.description)){
 				if (msg.getNewValue() != null) {
 					userStoryPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					userStoryPart.setDescription("");
 				}
 			}
-			if (GraalPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && userStoryPart != null && isAccessible(GraalViewsRepository.UserStory.Properties.name)) {
+			if (EnvironmentPackage.eINSTANCE.getNamespace_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && userStoryPart != null && isAccessible(GraalViewsRepository.UserStory.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					userStoryPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -135,6 +138,19 @@ public class UserStoryUserStoryPropertiesEditionComponent extends SinglePartProp
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			EnvironmentPackage.eINSTANCE.getNamespace_Name()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -151,16 +167,16 @@ public class UserStoryUserStoryPropertiesEditionComponent extends SinglePartProp
 				if (GraalViewsRepository.UserStory.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.UserStory.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getNamespace_Name().getEAttributeType(), (String)newValue);
 					}
-					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
+					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getNamespace_Name().getEAttributeType(), newValue);
 				}
 			} catch (IllegalArgumentException iae) {
 				ret = BasicDiagnostic.toDiagnostic(iae);
@@ -170,5 +186,8 @@ public class UserStoryUserStoryPropertiesEditionComponent extends SinglePartProp
 		}
 		return ret;
 	}
+
+
+	
 
 }

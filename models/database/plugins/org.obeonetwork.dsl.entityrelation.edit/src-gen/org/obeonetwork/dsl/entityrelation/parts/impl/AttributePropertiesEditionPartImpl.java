@@ -6,64 +6,45 @@ package org.obeonetwork.dsl.entityrelation.parts.impl;
 // Start of user code for imports
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.providers.EMFListContentProvider;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.EEFFeatureEditorDialog;
 import org.eclipse.emf.eef.runtime.ui.widgets.EMFComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.HorizontalBox;
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.jface.window.Window;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
+import org.obeonetwork.dsl.entityrelation.components.AttributePropertiesEditionComponent;
 import org.obeonetwork.dsl.entityrelation.parts.AttributePropertiesEditionPart;
 import org.obeonetwork.dsl.entityrelation.parts.EntityrelationViewsRepository;
-
 import org.obeonetwork.dsl.entityrelation.providers.EntityrelationMessages;
-
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 
 // End of user code
@@ -267,9 +248,7 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createTypeAttributesHBox(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -413,9 +392,7 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createRequiredAndIdentifierHBox(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -552,6 +529,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -591,6 +576,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			type.modelUpdating(new StructuredSelection("")); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.type, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getTypeSettings().getOrCreateSignificantObject());
+		if (readOnly && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -625,6 +618,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			length.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.length, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getLengthSettings().getOrCreateSignificantObject());
+		if (readOnly && length.isEnabled()) {
+			length.setEnabled(false);
+			length.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !length.isEnabled()) {
+			length.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -649,6 +650,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			precision.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.precision, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getPrecisionSettings().getOrCreateSignificantObject());
+		if (readOnly && precision.isEnabled()) {
+			precision.setEnabled(false);
+			precision.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !precision.isEnabled()) {
+			precision.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -674,6 +683,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			literals.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.literals, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getLiteralsSettings().getOrCreateSignificantObject());
+		if (readOnly && literals.isEnabled()) {
+			literals.setEnabled(false);
+			literals.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !literals.isEnabled()) {
+			literals.setEnabled(true);
+		}	
+		
 	}
 
 	public void addToLiterals(Object newValue) {
@@ -716,6 +733,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			required.setSelection(false);
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.required);
+		if (readOnly && required.isEnabled()) {
+			required.setEnabled(false);
+			required.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !required.isEnabled()) {
+			required.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -740,6 +765,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			inPrimaryIdentifier.setSelection(false);
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.inPrimaryIdentifier);
+		if (readOnly && inPrimaryIdentifier.isEnabled()) {
+			inPrimaryIdentifier.setEnabled(false);
+			inPrimaryIdentifier.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !inPrimaryIdentifier.isEnabled()) {
+			inPrimaryIdentifier.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -764,6 +797,15 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.comments);
+		if (readOnly && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

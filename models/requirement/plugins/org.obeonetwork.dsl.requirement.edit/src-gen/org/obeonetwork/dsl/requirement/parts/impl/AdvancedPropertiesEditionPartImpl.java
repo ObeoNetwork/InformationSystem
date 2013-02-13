@@ -177,9 +177,6 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		createDescription(parent, RequirementViewsRepository.Advanced.referencedObject, RequirementMessages.AdvancedPropertiesEditionPart_ReferencedObjectLabel);
 		referencedObject = new FlatReferencesTable(parent);
 		referencedObject.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		referencedObject.setEnabled(false);
-		referencedObject.setToolTipText(RequirementMessages.Advanced_ReadOnly);
-
 		referencedObject.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -231,6 +228,15 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			rationale.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Advanced.rationale);
+		if (readOnly && rationale.isEnabled()) {
+			rationale.setEnabled(false);
+			rationale.setBackground(rationale.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			rationale.setToolTipText(RequirementMessages.Advanced_ReadOnly);
+		} else if (!readOnly && !rationale.isEnabled()) {
+			rationale.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -255,6 +261,15 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			acceptanceCriteria.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Advanced.acceptanceCriteria);
+		if (readOnly && acceptanceCriteria.isEnabled()) {
+			acceptanceCriteria.setEnabled(false);
+			acceptanceCriteria.setBackground(acceptanceCriteria.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			acceptanceCriteria.setToolTipText(RequirementMessages.Advanced_ReadOnly);
+		} else if (!readOnly && !acceptanceCriteria.isEnabled()) {
+			acceptanceCriteria.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -268,6 +283,9 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		if (current.eResource() != null && current.eResource().getResourceSet() != null)
 			this.resourceSet = current.eResource().getResourceSet();
 		referencedObject.setInput(settings);
+		referencedObject.setEnabled(false);
+		referencedObject.setToolTipText(RequirementMessages.Advanced_ReadOnly);
+		
 	}
 
 	/**

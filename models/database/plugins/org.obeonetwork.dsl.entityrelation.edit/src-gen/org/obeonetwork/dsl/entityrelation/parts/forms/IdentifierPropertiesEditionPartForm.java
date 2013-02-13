@@ -470,6 +470,14 @@ public class IdentifierPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Identifier.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EntityrelationMessages.Identifier_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -485,6 +493,20 @@ public class IdentifierPropertiesEditionPartForm extends SectionPropertiesEditin
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		attributes.setContentProvider(contentProvider);
 		attributes.setInput(settings);
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Identifier.Properties.attributes);
+		if (readOnly && attributes.getTable().isEnabled()) {
+			attributes.getTable().setEnabled(false);
+			attributes.getTable().setToolTipText(EntityrelationMessages.Identifier_ReadOnly);
+			addAttributes.setEnabled(false);
+			addAttributes.setToolTipText(EntityrelationMessages.Identifier_ReadOnly);
+			removeAttributes.setEnabled(false);
+			removeAttributes.setToolTipText(EntityrelationMessages.Identifier_ReadOnly);
+		} else if (!readOnly && !attributes.getTable().isEnabled()) {
+			attributes.getTable().setEnabled(true);
+			addAttributes.setEnabled(true);
+			removeAttributes.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -549,6 +571,15 @@ public class IdentifierPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Identifier.Properties.comments);
+		if (readOnly && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(EntityrelationMessages.Identifier_ReadOnly);
+		} else if (!readOnly && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

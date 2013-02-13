@@ -19,7 +19,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
@@ -81,13 +83,14 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final InitialState initialState = (InitialState)elt;
 			final InitialStatePropertiesEditionPart initialStatePart = (InitialStatePropertiesEditionPart)editingPart;
 			// init values
-			if (initialState.getDescription() != null && isAccessible(StatemachineViewsRepository.InitialState.Properties.description))
+			if (isAccessible(StatemachineViewsRepository.InitialState.Properties.description))
 				initialStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, initialState.getDescription()));
 			
-			if (initialState.getKeywords() != null && isAccessible(StatemachineViewsRepository.InitialState.Properties.keywords))
+			if (isAccessible(StatemachineViewsRepository.InitialState.Properties.keywords))
 				initialStatePart.setKeywords(initialState.getKeywords());
 			
 			if (isAccessible(StatemachineViewsRepository.InitialState.Properties.incomingTransitions)) {
@@ -218,16 +221,17 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			InitialStatePropertiesEditionPart initialStatePart = (InitialStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && initialStatePart != null && isAccessible(StatemachineViewsRepository.InitialState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && initialStatePart != null && isAccessible(StatemachineViewsRepository.InitialState.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					initialStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					initialStatePart.setDescription("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords().equals(msg.getFeature()) && initialStatePart != null && isAccessible(StatemachineViewsRepository.InitialState.Properties.keywords)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && initialStatePart != null && isAccessible(StatemachineViewsRepository.InitialState.Properties.keywords)) {
 				initialStatePart.setKeywords((EList<?>)msg.getNewValue());
 			}
 			
@@ -237,6 +241,21 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 				initialStatePart.updateOutcomingTransitions();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords(),
+			StateMachinePackage.eINSTANCE.getAbstractState_IncomingTransitions(),
+			StateMachinePackage.eINSTANCE.getAbstractState_OutcomingTransitions()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -272,5 +291,8 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 		}
 		return ret;
 	}
+
+
+	
 
 }

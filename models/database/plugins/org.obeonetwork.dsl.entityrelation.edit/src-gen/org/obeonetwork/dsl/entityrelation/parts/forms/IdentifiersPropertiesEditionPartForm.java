@@ -202,6 +202,14 @@ public class IdentifiersPropertiesEditionPartForm extends SectionPropertiesEditi
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		identifiers.setContentProvider(contentProvider);
 		identifiers.setInput(settings);
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Identifiers.Properties.identifiers_);
+		if (readOnly && identifiers.isEnabled()) {
+			identifiers.setEnabled(false);
+			identifiers.setToolTipText(EntityrelationMessages.Identifiers_ReadOnly);
+		} else if (!readOnly && !identifiers.isEnabled()) {
+			identifiers.setEnabled(true);
+		}	
+		
 	}
 
 	/**

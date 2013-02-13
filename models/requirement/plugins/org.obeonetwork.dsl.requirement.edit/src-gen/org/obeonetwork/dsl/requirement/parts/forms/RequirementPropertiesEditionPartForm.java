@@ -505,8 +505,6 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 	protected Composite createModifiedOnText(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, RequirementViewsRepository.Requirement_.modifiedOn, RequirementMessages.RequirementPropertiesEditionPart_ModifiedOnLabel);
 		modifiedOn = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		modifiedOn.setEnabled(false);
-		modifiedOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
 		modifiedOn.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
 		GridData modifiedOnData = new GridData(GridData.FILL_HORIZONTAL);
@@ -572,8 +570,6 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 	protected Composite createCreatedOnText(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, RequirementViewsRepository.Requirement_.createdOn, RequirementMessages.RequirementPropertiesEditionPart_CreatedOnLabel);
 		createdOn = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		createdOn.setEnabled(false);
-		createdOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
 		createdOn.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
 		GridData createdOnData = new GridData(GridData.FILL_HORIZONTAL);
@@ -667,6 +663,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 	public void initType(Object input, Enumerator current) {
 		type.setInput(input);
 		type.modelUpdating(new StructuredSelection(current));
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.type);
+		if (readOnly && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -677,6 +681,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 	 */
 	public void setType(Enumerator newValue) {
 		type.modelUpdating(new StructuredSelection(newValue));
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.type);
+		if (readOnly && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -701,6 +713,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			subtype.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.subtype);
+		if (readOnly && subtype.isEnabled()) {
+			subtype.setEnabled(false);
+			subtype.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !subtype.isEnabled()) {
+			subtype.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -725,6 +745,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			id.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.id);
+		if (readOnly && id.isEnabled()) {
+			id.setEnabled(false);
+			id.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !id.isEnabled()) {
+			id.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -749,6 +777,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -773,6 +809,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			status.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.status);
+		if (readOnly && status.isEnabled()) {
+			status.setEnabled(false);
+			status.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !status.isEnabled()) {
+			status.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -797,6 +841,15 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			statement.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Requirement_.statement);
+		if (readOnly && statement.isEnabled()) {
+			statement.setEnabled(false);
+			statement.setBackground(statement.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			statement.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!readOnly && !statement.isEnabled()) {
+			statement.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -821,6 +874,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			modifiedOn.setText(""); //$NON-NLS-1$
 		}
+		modifiedOn.setEnabled(false);
+		modifiedOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		
 	}
 
 	/**
@@ -845,6 +901,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			createdOn.setText(""); //$NON-NLS-1$
 		}
+		createdOn.setEnabled(false);
+		createdOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		
 	}
 
 

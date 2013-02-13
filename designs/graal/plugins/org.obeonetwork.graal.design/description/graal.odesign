@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="graal">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="graal" version="6.5.0.201210011230">
   <ownedViewpoints name="Graal Methodology" modelFileExtension="*.graal">
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Reused Description" domainClass="graal.System" preconditionExpression="false">
       <defaultLayer name="Default">
@@ -50,10 +50,16 @@
       <layout xsi:type="description:CompositeLayout" padding="20"/>
       <defaultLayer name="Default">
         <nodeMappings name="TG_Task" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Actions%20Plan']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Task']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%tasks%>" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='Go%20To%20Actions%20Plan%20Representation']" domainClass="graal.Task">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/task.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/task.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="TG_TasksGroup" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Tasksgroup%20Graph']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_TasksGroup']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%tasks%>" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='Go%20To%20Tasksgroup%20Tasks%20Graph']" domainClass="graal.TasksGroup">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/tasks_group.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/tasks_group.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <edgeMappings name="TG_Use" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_TaskUse']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@containerMappings[name='TG_System']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@containerMappings[name='TG_System']" targetFinderExpression="&lt;%getUsedSystemsAndTasksAndGroups() - current%>" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_ReconnectSource_Use'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_ReconnectTarget_Use']">
           <style sizeComputationExpression="1">
@@ -234,7 +240,10 @@
       </defaultLayer>
       <optionalLayers name="Actors" activeByDefault="true">
         <nodeMappings name="TG_Actor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Actor']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%getVisibleActors%>" domainClass="graal.Actor">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" workspacePath="/org.obeonetwork.graal.design/images/actor.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <edgeMappings name="TG_Edge_AbstractTaskToActor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Edge_AbstractTaskToActor']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']" targetFinderExpression="&lt;%getVisibleLinksToActors($diagram.visibleTasks)%>" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_REC_AbstractTaskToActor']">
           <style lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="1">
@@ -336,28 +345,52 @@
       </diagramInitialisation>
       <defaultLayer name="Default">
         <nodeMappings name="AP_InitialNode" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.InitialNode">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/initial_node.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/initial_node.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="AP_FinalNode" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.FinalNode">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/final_node.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/final_node.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="AP_AbortNode" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.AbortNode">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/abort_node.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/abort_node.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="AP_AppliEvent" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.AppliEvent">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/appli_event.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/appli_event.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="AP_AppliAction" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.AppliAction">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/appli_action.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/appli_action.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="AP_UserView" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.UserView">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/user_view.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/user_view.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="AP_UserAction" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.UserAction">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/user_action.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/user_action.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="AP_TaskReference" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Create%20Actions%20Plan']" navigationDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Actions%20Plan']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='TaskReference']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%nodes%>" semanticElements="&lt;%task%>" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Go%20To%20Actions%20Plan']" domainClass="graal.TaskReference">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/task.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/task.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="AP_Operator" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.Operator">
           <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="" verticalDiameterComputationExpression="">
@@ -416,13 +449,22 @@
         </edgeMappings>
         <containerMappings name="AP_Loop" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Loop']" semanticCandidatesExpression="&lt;%subActivities%>" domainClass="graal.Loop" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_ExistingTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Node'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Loop']" reusedNodeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_AppliAction'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_AppliEvent'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_TaskReference'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserView'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_Operator']" reusedContainerMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@containerMappings[name='AP_Loop']">
           <borderedNodeMappings name="AP_Loop_InitialNode" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.InitialNode">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/initial_node.png"/>
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/initial_node.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="AP_Loop_FinalNode" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.FinalNode">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/final_node.png"/>
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/final_node.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="AP_Loop_AbortNode" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='Node']" semanticCandidatesExpression="&lt;%nodes%>" domainClass="graal.AbortNode">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/abort_node.png"/>
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/abort_node.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
           </borderedNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" labelSize="12" showIcon="false" labelExpression="&lt;%computeGraalLabel()%> " labelAlignment="RIGHT">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -783,7 +825,10 @@
       <layout xsi:type="description:CompositeLayout" direction="bottomToTop"/>
       <defaultLayer name="Default">
         <nodeMappings name="AG_Actor" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%actors%>" domainClass="graal.Actor">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" workspacePath="/org.obeonetwork.graal.design/images/actor.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <edgeMappings name="AG_Inherits" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='Inherits']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@nodeMappings[name='AG_Actor']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20Graph']/@defaultLayer/@nodeMappings[name='AG_Actor']" targetFinderExpression="&lt;%superActor%>">
           <style targetArrow="InputClosedArrow" sizeComputationExpression="1">
@@ -856,7 +901,10 @@
       <layout xsi:type="description:CompositeLayout"/>
       <defaultLayer name="Default">
         <nodeMappings name="UCM_UseCase" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Use%20Case%20Diagram']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%useCases%>" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Navigate%20to%20Use%20Case%20diagram']" domainClass="graal.UseCase">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/use_case.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/use_case.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <edgeMappings name="UCM_Extend" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='UCM_Delete_Extend']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetFinderExpression="&lt;%extends%>" targetExpression="&lt;%self%>">
           <style sizeComputationExpression="1">
@@ -951,7 +999,10 @@
       </defaultLayer>
       <optionalLayers name="Actors" activeByDefault="true">
         <nodeMappings name="UCM_Actor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Actor']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="&lt;%useCases.getVisibleActors%>" domainClass="graal.Actor">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" workspacePath="/org.obeonetwork.graal.design/images/actor.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="&lt;%computeGraalLabel()%>" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <edgeMappings name="UCM_ActorWorksOnUseCase" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@optionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']" targetFinderExpression="&lt;%getVisibleActors%>">
           <style lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="1">

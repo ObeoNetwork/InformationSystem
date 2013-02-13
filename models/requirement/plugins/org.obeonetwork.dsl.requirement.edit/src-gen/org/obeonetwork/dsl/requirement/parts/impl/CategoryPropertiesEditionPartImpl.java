@@ -347,7 +347,6 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		createDescription(parent, RequirementViewsRepository.Category.Category_.referencedObject, RequirementMessages.CategoryPropertiesEditionPart_ReferencedObjectLabel);
 		referencedObject = new FlatReferencesTable(parent);
 		referencedObject.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
 		referencedObject.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -399,6 +398,14 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			id.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Category.Category_.id);
+		if (readOnly && id.isEnabled()) {
+			id.setEnabled(false);
+			id.setToolTipText(RequirementMessages.Category_ReadOnly);
+		} else if (!readOnly && !id.isEnabled()) {
+			id.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -423,6 +430,14 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Category.Category_.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(RequirementMessages.Category_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -438,6 +453,14 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		requirements.setContentProvider(contentProvider);
 		requirements.setInput(settings);
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Category.Category_.requirements);
+		if (readOnly && requirements.isEnabled()) {
+			requirements.setEnabled(false);
+			requirements.setToolTipText(RequirementMessages.Category_ReadOnly);
+		} else if (!readOnly && !requirements.isEnabled()) {
+			requirements.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -496,6 +519,14 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		subCategories.setContentProvider(contentProvider);
 		subCategories.setInput(settings);
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Category.Category_.subCategories);
+		if (readOnly && subCategories.isEnabled()) {
+			subCategories.setEnabled(false);
+			subCategories.setToolTipText(RequirementMessages.Category_ReadOnly);
+		} else if (!readOnly && !subCategories.isEnabled()) {
+			subCategories.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -552,6 +583,14 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		if (current.eResource() != null && current.eResource().getResourceSet() != null)
 			this.resourceSet = current.eResource().getResourceSet();
 		referencedObject.setInput(settings);
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Category.Category_.referencedObject);
+		if (readOnly && referencedObject.isEnabled()) {
+			referencedObject.setEnabled(false);
+			referencedObject.setToolTipText(RequirementMessages.Category_ReadOnly);
+		} else if (!readOnly && !referencedObject.isEnabled()) {
+			referencedObject.setEnabled(true);
+		}	
+		
 	}
 
 	/**

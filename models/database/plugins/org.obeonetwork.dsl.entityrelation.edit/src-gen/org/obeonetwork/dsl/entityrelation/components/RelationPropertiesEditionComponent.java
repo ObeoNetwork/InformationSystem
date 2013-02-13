@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -96,12 +98,13 @@ public class RelationPropertiesEditionComponent extends SinglePartPropertiesEdit
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Relation relation = (Relation)elt;
 			final RelationPropertiesEditionPart relationPart = (RelationPropertiesEditionPart)editingPart;
 			// init values
-			if (relation.getComments() != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.comments))
+			if (isAccessible(EntityrelationViewsRepository.Relation.Properties.comments))
 				relationPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, relation.getComments()));
-			if (relation.getName() != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.name))
+			if (isAccessible(EntityrelationViewsRepository.Relation.Properties.name))
 				relationPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, relation.getName()));
 			
 			if (isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.source_)) {
@@ -111,7 +114,7 @@ public class RelationPropertiesEditionComponent extends SinglePartPropertiesEdit
 				// set the button mode
 				relationPart.setSourceButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (relation.getSourceRole() != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.sourceRole))
+			if (isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.sourceRole))
 				relationPart.setSourceRole(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, relation.getSourceRole()));
 			
 			if (isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.sourceCardinality)) {
@@ -127,7 +130,7 @@ public class RelationPropertiesEditionComponent extends SinglePartPropertiesEdit
 				// set the button mode
 				relationPart.setTargetButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (relation.getTargetRole() != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Target.targetRole))
+			if (isAccessible(EntityrelationViewsRepository.Relation.Properties.Target.targetRole))
 				relationPart.setTargetRole(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, relation.getTargetRole()));
 			
 			if (isAccessible(EntityrelationViewsRepository.Relation.Properties.Target.targetCardinality)) {
@@ -396,16 +399,17 @@ public class RelationPropertiesEditionComponent extends SinglePartPropertiesEdit
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			RelationPropertiesEditionPart relationPart = (RelationPropertiesEditionPart)editingPart;
-			if (EntityRelationPackage.eINSTANCE.getLogicalElement_Comments().equals(msg.getFeature()) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.comments)){
+			if (EntityRelationPackage.eINSTANCE.getLogicalElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					relationPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					relationPart.setComments("");
 				}
 			}
-			if (EntityRelationPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.name)) {
+			if (EntityRelationPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					relationPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -414,32 +418,32 @@ public class RelationPropertiesEditionComponent extends SinglePartPropertiesEdit
 			}
 			if (EntityRelationPackage.eINSTANCE.getRelation_Source().equals(msg.getFeature()) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.source_))
 				relationPart.setSource((EObject)msg.getNewValue());
-			if (EntityRelationPackage.eINSTANCE.getRelation_SourceRole().equals(msg.getFeature()) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.sourceRole)) {
+			if (EntityRelationPackage.eINSTANCE.getRelation_SourceRole().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.sourceRole)) {
 				if (msg.getNewValue() != null) {
 					relationPart.setSourceRole(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					relationPart.setSourceRole("");
 				}
 			}
-			if (EntityRelationPackage.eINSTANCE.getRelation_SourceCardinality().equals(msg.getFeature()) && isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.sourceCardinality))
+			if (EntityRelationPackage.eINSTANCE.getRelation_SourceCardinality().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.sourceCardinality))
 				relationPart.setSourceCardinality((Cardinality)msg.getNewValue());
 			
-			if (EntityRelationPackage.eINSTANCE.getRelation_SourceIsComposite().equals(msg.getFeature()) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.sourceIsComposite))
+			if (EntityRelationPackage.eINSTANCE.getRelation_SourceIsComposite().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Source.sourceIsComposite))
 				relationPart.setSourceIsComposite((Boolean)msg.getNewValue());
 			
 			if (EntityRelationPackage.eINSTANCE.getRelation_Target().equals(msg.getFeature()) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Target.target_))
 				relationPart.setTarget((EObject)msg.getNewValue());
-			if (EntityRelationPackage.eINSTANCE.getRelation_TargetRole().equals(msg.getFeature()) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Target.targetRole)) {
+			if (EntityRelationPackage.eINSTANCE.getRelation_TargetRole().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Target.targetRole)) {
 				if (msg.getNewValue() != null) {
 					relationPart.setTargetRole(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					relationPart.setTargetRole("");
 				}
 			}
-			if (EntityRelationPackage.eINSTANCE.getRelation_TargetCardinality().equals(msg.getFeature()) && isAccessible(EntityrelationViewsRepository.Relation.Properties.Target.targetCardinality))
+			if (EntityRelationPackage.eINSTANCE.getRelation_TargetCardinality().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EntityrelationViewsRepository.Relation.Properties.Target.targetCardinality))
 				relationPart.setTargetCardinality((Cardinality)msg.getNewValue());
 			
-			if (EntityRelationPackage.eINSTANCE.getRelation_TargetIsComposite().equals(msg.getFeature()) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Target.targetIsComposite))
+			if (EntityRelationPackage.eINSTANCE.getRelation_TargetIsComposite().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && relationPart != null && isAccessible(EntityrelationViewsRepository.Relation.Properties.Target.targetIsComposite))
 				relationPart.setTargetIsComposite((Boolean)msg.getNewValue());
 			
 			if (EntityRelationPackage.eINSTANCE.getRelation_Elements().equals(msg.getFeature()) && isAccessible(EntityrelationViewsRepository.Relation.Properties.elements))
@@ -448,6 +452,29 @@ public class RelationPropertiesEditionComponent extends SinglePartPropertiesEdit
 				relationPart.setIdentifier((EObject)msg.getNewValue());
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EntityRelationPackage.eINSTANCE.getLogicalElement_Comments(),
+			EntityRelationPackage.eINSTANCE.getNamedElement_Name(),
+			EntityRelationPackage.eINSTANCE.getRelation_Source(),
+			EntityRelationPackage.eINSTANCE.getRelation_SourceRole(),
+			EntityRelationPackage.eINSTANCE.getRelation_SourceCardinality(),
+			EntityRelationPackage.eINSTANCE.getRelation_SourceIsComposite(),
+			EntityRelationPackage.eINSTANCE.getRelation_Target(),
+			EntityRelationPackage.eINSTANCE.getRelation_TargetRole(),
+			EntityRelationPackage.eINSTANCE.getRelation_TargetCardinality(),
+			EntityRelationPackage.eINSTANCE.getRelation_TargetIsComposite(),
+			EntityRelationPackage.eINSTANCE.getRelation_Elements(),
+			EntityRelationPackage.eINSTANCE.getRelation_Identifier()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -535,5 +562,8 @@ public class RelationPropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		return ret;
 	}
+
+
+	
 
 }

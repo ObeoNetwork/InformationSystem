@@ -15,7 +15,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
@@ -53,27 +55,27 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 	/**
 	 * Settings for tasks ReferencesTable
 	 */
-	private	ReferencesTableSettings tasksSettings;
+	private ReferencesTableSettings tasksSettings;
 	
 	/**
 	 * Settings for dtoCategories ReferencesTable
 	 */
-	private	ReferencesTableSettings dtoCategoriesSettings;
+	private ReferencesTableSettings dtoCategoriesSettings;
 	
 	/**
 	 * Settings for dtos ReferencesTable
 	 */
-	private	ReferencesTableSettings dtosSettings;
+	private ReferencesTableSettings dtosSettings;
 	
 	/**
 	 * Settings for entityBlocks ReferencesTable
 	 */
-	private	ReferencesTableSettings entityBlocksSettings;
+	private ReferencesTableSettings entityBlocksSettings;
 	
 	/**
 	 * Settings for entities ReferencesTable
 	 */
-	private	ReferencesTableSettings entitiesSettings;
+	private ReferencesTableSettings entitiesSettings;
 	
 	
 	/**
@@ -98,16 +100,17 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final UseCase useCase = (UseCase)elt;
 			final UseCasePropertiesEditionPart useCasePart = (UseCasePropertiesEditionPart)editingPart;
 			// init values
-			if (useCase.getDescription() != null && isAccessible(GraalViewsRepository.UseCase.Properties.description))
+			if (isAccessible(GraalViewsRepository.UseCase.Properties.description))
 				useCasePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, useCase.getDescription()));
 			if (isAccessible(GraalViewsRepository.UseCase.Properties.tasks)) {
 				tasksSettings = new ReferencesTableSettings(useCase, GraalPackage.eINSTANCE.getUseCase_Tasks());
 				useCasePart.initTasks(tasksSettings);
 			}
-			if (useCase.getName() != null && isAccessible(GraalViewsRepository.UseCase.Properties.name))
+			if (isAccessible(GraalViewsRepository.UseCase.Properties.name))
 				useCasePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, useCase.getName()));
 			
 			if (isAccessible(GraalViewsRepository.UseCase.Properties.dtoCategories)) {
@@ -128,97 +131,102 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 			}
 			// init filters
 			
-			useCasePart.addFilterToTasks(new ViewerFilter() {
+			if (isAccessible(GraalViewsRepository.UseCase.Properties.tasks)) {
+				useCasePart.addFilterToTasks(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						if (element instanceof EObject)
+							return (!useCasePart.isContainedInTasksTable((EObject)element));
+						return element instanceof Resource;
+					}
+				
+				});
+				useCasePart.addFilterToTasks(new EObjectFilter(GraalPackage.Literals.ABSTRACT_TASK));
+				// Start of user code for additional businessfilters for tasks
+				// End of user code
+			}
 			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!useCasePart.isContainedInTasksTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			useCasePart.addFilterToTasks(new EObjectFilter(GraalPackage.Literals.ABSTRACT_TASK));
-			// Start of user code 
-			// End of user code
-			
-			
-			useCasePart.addFilterToDtoCategories(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!useCasePart.isContainedInDtoCategoriesTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			useCasePart.addFilterToDtoCategories(new EObjectFilter(SoaPackage.Literals.CATEGORY));
-			// Start of user code 
-			// End of user code
-			
-			useCasePart.addFilterToDtos(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!useCasePart.isContainedInDtosTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			useCasePart.addFilterToDtos(new EObjectFilter(SoaPackage.Literals.SERVICE_DTO));
-			// Start of user code 
-			// End of user code
-			
-			useCasePart.addFilterToEntityBlocks(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!useCasePart.isContainedInEntityBlocksTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			useCasePart.addFilterToEntityBlocks(new EObjectFilter(EntityPackage.Literals.BLOCK));
-			// Start of user code 
-			// End of user code
-			
-			useCasePart.addFilterToEntities(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!useCasePart.isContainedInEntitiesTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			useCasePart.addFilterToEntities(new EObjectFilter(EntityPackage.Literals.ENTITY));
-			// Start of user code 
-			// End of user code
-			
+			if (isAccessible(GraalViewsRepository.UseCase.Properties.dtoCategories)) {
+				useCasePart.addFilterToDtoCategories(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						if (element instanceof EObject)
+							return (!useCasePart.isContainedInDtoCategoriesTable((EObject)element));
+						return element instanceof Resource;
+					}
+				
+				});
+				useCasePart.addFilterToDtoCategories(new EObjectFilter(SoaPackage.Literals.CATEGORY));
+				// Start of user code for additional businessfilters for dtoCategories
+				// End of user code
+			}
+			if (isAccessible(GraalViewsRepository.UseCase.Properties.dtos)) {
+				useCasePart.addFilterToDtos(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						if (element instanceof EObject)
+							return (!useCasePart.isContainedInDtosTable((EObject)element));
+						return element instanceof Resource;
+					}
+				
+				});
+				useCasePart.addFilterToDtos(new EObjectFilter(SoaPackage.Literals.SERVICE_DTO));
+				// Start of user code for additional businessfilters for dtos
+				// End of user code
+			}
+			if (isAccessible(GraalViewsRepository.UseCase.Properties.entityBlocks)) {
+				useCasePart.addFilterToEntityBlocks(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						if (element instanceof EObject)
+							return (!useCasePart.isContainedInEntityBlocksTable((EObject)element));
+						return element instanceof Resource;
+					}
+				
+				});
+				useCasePart.addFilterToEntityBlocks(new EObjectFilter(EntityPackage.Literals.BLOCK));
+				// Start of user code for additional businessfilters for entityBlocks
+				// End of user code
+			}
+			if (isAccessible(GraalViewsRepository.UseCase.Properties.entities)) {
+				useCasePart.addFilterToEntities(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						if (element instanceof EObject)
+							return (!useCasePart.isContainedInEntitiesTable((EObject)element));
+						return element instanceof Resource;
+					}
+				
+				});
+				useCasePart.addFilterToEntities(new EObjectFilter(EntityPackage.Literals.ENTITY));
+				// Start of user code for additional businessfilters for entities
+				// End of user code
+			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -340,9 +348,10 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			UseCasePropertiesEditionPart useCasePart = (UseCasePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && useCasePart != null && isAccessible(GraalViewsRepository.UseCase.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && useCasePart != null && isAccessible(GraalViewsRepository.UseCase.Properties.description)){
 				if (msg.getNewValue() != null) {
 					useCasePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -351,7 +360,7 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 			}
 			if (GraalPackage.eINSTANCE.getUseCase_Tasks().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.UseCase.Properties.tasks))
 				useCasePart.updateTasks();
-			if (GraalPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && useCasePart != null && isAccessible(GraalViewsRepository.UseCase.Properties.name)) {
+			if (GraalPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && useCasePart != null && isAccessible(GraalViewsRepository.UseCase.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					useCasePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -370,6 +379,24 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			GraalPackage.eINSTANCE.getUseCase_Tasks(),
+			GraalPackage.eINSTANCE.getNamedElement_Name(),
+			GraalPackage.eINSTANCE.getDomainModelRegistry_DtoCategories(),
+			GraalPackage.eINSTANCE.getDomainModelRegistry_Dtos(),
+			GraalPackage.eINSTANCE.getDomainModelRegistry_EntityBlocks(),
+			GraalPackage.eINSTANCE.getDomainModelRegistry_Entities()		);
+		return new NotificationFilter[] {filter,};
+	}
+
 
 	/**
 	 * {@inheritDoc}
@@ -384,14 +411,14 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 				if (GraalViewsRepository.UseCase.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.UseCase.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
 				}
@@ -403,5 +430,8 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 		}
 		return ret;
 	}
+
+
+	
 
 }

@@ -17,7 +17,6 @@ import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
-import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
@@ -203,6 +202,14 @@ public class ForeignKeysPropertiesEditionPartForm extends SectionPropertiesEditi
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		foreignKeys.setContentProvider(contentProvider);
 		foreignKeys.setInput(settings);
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.ForeignKeys.Properties.foreignKeys_);
+		if (readOnly && foreignKeys.isEnabled()) {
+			foreignKeys.setEnabled(false);
+			foreignKeys.setToolTipText(DatabaseMessages.ForeignKeys_ReadOnly);
+		} else if (!readOnly && !foreignKeys.isEnabled()) {
+			foreignKeys.setEnabled(true);
+		}	
+		
 	}
 
 	/**

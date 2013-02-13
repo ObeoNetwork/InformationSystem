@@ -143,7 +143,7 @@ public class LoopPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 	
 	protected Composite createLowerBoundText(Composite parent) {
 		createDescription(parent, GraalViewsRepository.Loop.Properties.lowerBound, GraalMessages.LoopPropertiesEditionPart_LowerBoundLabel);
-		lowerBound = new Text(parent, SWT.BORDER);
+		lowerBound = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData lowerBoundData = new GridData(GridData.FILL_HORIZONTAL);
 		lowerBound.setLayoutData(lowerBoundData);
 		lowerBound.addFocusListener(new FocusAdapter() {
@@ -189,7 +189,7 @@ public class LoopPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 	
 	protected Composite createUpperBoundText(Composite parent) {
 		createDescription(parent, GraalViewsRepository.Loop.Properties.upperBound, GraalMessages.LoopPropertiesEditionPart_UpperBoundLabel);
-		upperBound = new Text(parent, SWT.BORDER);
+		upperBound = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData upperBoundData = new GridData(GridData.FILL_HORIZONTAL);
 		upperBound.setLayoutData(upperBoundData);
 		upperBound.addFocusListener(new FocusAdapter() {
@@ -238,7 +238,7 @@ public class LoopPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -320,7 +320,7 @@ public class LoopPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -347,6 +347,14 @@ public class LoopPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		} else {
 			lowerBound.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Loop.Properties.lowerBound);
+		if (readOnly && lowerBound.isEnabled()) {
+			lowerBound.setEnabled(false);
+			lowerBound.setToolTipText(GraalMessages.Loop_ReadOnly);
+		} else if (!readOnly && !lowerBound.isEnabled()) {
+			lowerBound.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -371,6 +379,14 @@ public class LoopPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		} else {
 			upperBound.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Loop.Properties.upperBound);
+		if (readOnly && upperBound.isEnabled()) {
+			upperBound.setEnabled(false);
+			upperBound.setToolTipText(GraalMessages.Loop_ReadOnly);
+		} else if (!readOnly && !upperBound.isEnabled()) {
+			upperBound.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -395,6 +411,15 @@ public class LoopPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Loop.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.Loop_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -410,6 +435,14 @@ public class LoopPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		subActivities.setContentProvider(contentProvider);
 		subActivities.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.Loop.Properties.subActivities);
+		if (readOnly && subActivities.isEnabled()) {
+			subActivities.setEnabled(false);
+			subActivities.setToolTipText(GraalMessages.Loop_ReadOnly);
+		} else if (!readOnly && !subActivities.isEnabled()) {
+			subActivities.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -470,7 +503,7 @@ public class LoopPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		return GraalMessages.Loop_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

@@ -18,7 +18,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -79,16 +81,17 @@ public class StateMachineStateMachinePropertiesEditionComponent extends SinglePa
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final StateMachine stateMachine = (StateMachine)elt;
 			final StateMachinePropertiesEditionPart stateMachinePart = (StateMachinePropertiesEditionPart)editingPart;
 			// init values
-			if (stateMachine.getDescription() != null && isAccessible(StatemachineViewsRepository.StateMachine_.Properties.description))
+			if (isAccessible(StatemachineViewsRepository.StateMachine_.Properties.description))
 				stateMachinePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, stateMachine.getDescription()));
 			
-			if (stateMachine.getKeywords() != null && isAccessible(StatemachineViewsRepository.StateMachine_.Properties.keywords))
+			if (isAccessible(StatemachineViewsRepository.StateMachine_.Properties.keywords))
 				stateMachinePart.setKeywords(stateMachine.getKeywords());
 			
-			if (stateMachine.getName() != null && isAccessible(StatemachineViewsRepository.StateMachine_.Properties.name))
+			if (isAccessible(StatemachineViewsRepository.StateMachine_.Properties.name))
 				stateMachinePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, stateMachine.getName()));
 			
 			if (isAccessible(StatemachineViewsRepository.StateMachine_.Properties.regions)) {
@@ -199,20 +202,21 @@ public class StateMachineStateMachinePropertiesEditionComponent extends SinglePa
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			StateMachinePropertiesEditionPart stateMachinePart = (StateMachinePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && stateMachinePart != null && isAccessible(StatemachineViewsRepository.StateMachine_.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && stateMachinePart != null && isAccessible(StatemachineViewsRepository.StateMachine_.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					stateMachinePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					stateMachinePart.setDescription("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords().equals(msg.getFeature()) && stateMachinePart != null && isAccessible(StatemachineViewsRepository.StateMachine_.Properties.keywords)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && stateMachinePart != null && isAccessible(StatemachineViewsRepository.StateMachine_.Properties.keywords)) {
 				stateMachinePart.setKeywords((EList<?>)msg.getNewValue());
 			}
 			
-			if (StateMachinePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && stateMachinePart != null && isAccessible(StatemachineViewsRepository.StateMachine_.Properties.name)) {
+			if (StateMachinePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && stateMachinePart != null && isAccessible(StatemachineViewsRepository.StateMachine_.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					stateMachinePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -223,6 +227,21 @@ public class StateMachineStateMachinePropertiesEditionComponent extends SinglePa
 				stateMachinePart.updateRegions();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords(),
+			StateMachinePackage.eINSTANCE.getNamedElement_Name(),
+			StateMachinePackage.eINSTANCE.getStateMachine_Regions()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -265,5 +284,8 @@ public class StateMachineStateMachinePropertiesEditionComponent extends SinglePa
 		}
 		return ret;
 	}
+
+
+	
 
 }

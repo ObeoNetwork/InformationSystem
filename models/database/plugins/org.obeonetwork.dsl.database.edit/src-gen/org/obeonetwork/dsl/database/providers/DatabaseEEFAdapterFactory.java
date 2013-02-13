@@ -4,7 +4,6 @@
 package org.obeonetwork.dsl.database.providers;
 
 import org.eclipse.emf.common.notify.Adapter;
-
 import org.obeonetwork.dsl.database.util.DatabaseAdapterFactory;
 
 /**

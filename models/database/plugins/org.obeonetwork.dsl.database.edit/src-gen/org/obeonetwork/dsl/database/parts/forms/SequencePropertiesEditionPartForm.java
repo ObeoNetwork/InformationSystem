@@ -727,6 +727,14 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.Sequence.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -751,6 +759,14 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		} else {
 			start.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.Sequence.Properties.StartIncrement.start);
+		if (readOnly && start.isEnabled()) {
+			start.setEnabled(false);
+			start.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!readOnly && !start.isEnabled()) {
+			start.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -775,6 +791,14 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		} else {
 			increment.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.Sequence.Properties.StartIncrement.increment);
+		if (readOnly && increment.isEnabled()) {
+			increment.setEnabled(false);
+			increment.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!readOnly && !increment.isEnabled()) {
+			increment.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -799,6 +823,14 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		} else {
 			minValue.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.Sequence.Properties.MinMax.minValue);
+		if (readOnly && minValue.isEnabled()) {
+			minValue.setEnabled(false);
+			minValue.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!readOnly && !minValue.isEnabled()) {
+			minValue.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -823,6 +855,14 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		} else {
 			maxValue.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue);
+		if (readOnly && maxValue.isEnabled()) {
+			maxValue.setEnabled(false);
+			maxValue.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!readOnly && !maxValue.isEnabled()) {
+			maxValue.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -847,6 +887,14 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		} else {
 			cycle.setSelection(false);
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle);
+		if (readOnly && cycle.isEnabled()) {
+			cycle.setEnabled(false);
+			cycle.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!readOnly && !cycle.isEnabled()) {
+			cycle.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -871,6 +919,14 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		} else {
 			cacheSize.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize);
+		if (readOnly && cacheSize.isEnabled()) {
+			cacheSize.setEnabled(false);
+			cacheSize.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!readOnly && !cacheSize.isEnabled()) {
+			cacheSize.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -895,6 +951,15 @@ public class SequencePropertiesEditionPartForm extends SectionPropertiesEditingP
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.Sequence.Properties.comments);
+		if (readOnly && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!readOnly && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

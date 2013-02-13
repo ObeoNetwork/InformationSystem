@@ -173,7 +173,7 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 	
 	protected Composite createIdText(Composite parent) {
 		createDescription(parent, GraalViewsRepository.Task.Properties.id, GraalMessages.TaskPropertiesEditionPart_IdLabel);
-		id = new Text(parent, SWT.BORDER);
+		id = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData idData = new GridData(GridData.FILL_HORIZONTAL);
 		id.setLayoutData(idData);
 		id.addFocusListener(new FocusAdapter() {
@@ -219,7 +219,7 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, GraalViewsRepository.Task.Properties.name, GraalMessages.TaskPropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -268,7 +268,7 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -300,7 +300,7 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		GridData preconditionsLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		preconditionsLabelData.horizontalSpan = 3;
 		preconditionsLabel.setLayoutData(preconditionsLabelData);
-		preconditions = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		preconditions = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData preconditionsData = new GridData(GridData.FILL_HORIZONTAL);
 		preconditionsData.horizontalSpan = 2;
 		preconditionsData.heightHint = 80;
@@ -332,7 +332,7 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		GridData postconditionsLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		postconditionsLabelData.horizontalSpan = 3;
 		postconditionsLabel.setLayoutData(postconditionsLabelData);
-		postconditions = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		postconditions = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData postconditionsData = new GridData(GridData.FILL_HORIZONTAL);
 		postconditionsData.horizontalSpan = 2;
 		postconditionsData.heightHint = 80;
@@ -578,7 +578,7 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -605,6 +605,14 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		} else {
 			id.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Task.Properties.id);
+		if (readOnly && id.isEnabled()) {
+			id.setEnabled(false);
+			id.setToolTipText(GraalMessages.Task_ReadOnly);
+		} else if (!readOnly && !id.isEnabled()) {
+			id.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -629,6 +637,14 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Task.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(GraalMessages.Task_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -653,6 +669,15 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Task.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.Task_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -677,6 +702,15 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		} else {
 			preconditions.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Task.Properties.preconditions);
+		if (readOnly && preconditions.isEnabled()) {
+			preconditions.setEnabled(false);
+			preconditions.setBackground(preconditions.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			preconditions.setToolTipText(GraalMessages.Task_ReadOnly);
+		} else if (!readOnly && !preconditions.isEnabled()) {
+			preconditions.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -701,6 +735,15 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		} else {
 			postconditions.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(GraalViewsRepository.Task.Properties.postconditions);
+		if (readOnly && postconditions.isEnabled()) {
+			postconditions.setEnabled(false);
+			postconditions.setBackground(postconditions.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			postconditions.setToolTipText(GraalMessages.Task_ReadOnly);
+		} else if (!readOnly && !postconditions.isEnabled()) {
+			postconditions.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -716,6 +759,14 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		subActivities.setContentProvider(contentProvider);
 		subActivities.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.Task.Properties.subActivities);
+		if (readOnly && subActivities.isEnabled()) {
+			subActivities.setEnabled(false);
+			subActivities.setToolTipText(GraalMessages.Task_ReadOnly);
+		} else if (!readOnly && !subActivities.isEnabled()) {
+			subActivities.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -774,6 +825,14 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		actors.setContentProvider(contentProvider);
 		actors.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.Task.Properties.actors);
+		if (readOnly && actors.getTable().isEnabled()) {
+			actors.setEnabled(false);
+			actors.setToolTipText(GraalMessages.Task_ReadOnly);
+		} else if (!readOnly && !actors.getTable().isEnabled()) {
+			actors.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -829,6 +888,14 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		uses.setContentProvider(contentProvider);
 		uses.setInput(settings);
+		boolean readOnly = isReadOnly(GraalViewsRepository.Task.Properties.uses);
+		if (readOnly && uses.getTable().isEnabled()) {
+			uses.setEnabled(false);
+			uses.setToolTipText(GraalMessages.Task_ReadOnly);
+		} else if (!readOnly && !uses.getTable().isEnabled()) {
+			uses.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -886,7 +953,7 @@ public class TaskPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		return GraalMessages.Task_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

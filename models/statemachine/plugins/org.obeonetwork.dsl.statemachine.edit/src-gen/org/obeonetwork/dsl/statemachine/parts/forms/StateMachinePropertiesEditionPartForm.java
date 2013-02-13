@@ -416,6 +416,14 @@ public class StateMachinePropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(StatemachineViewsRepository.StateMachine_.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(StatemachineMessages.StateMachine_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -431,6 +439,14 @@ public class StateMachinePropertiesEditionPartForm extends SectionPropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		regions.setContentProvider(contentProvider);
 		regions.setInput(settings);
+		boolean readOnly = isReadOnly(StatemachineViewsRepository.StateMachine_.Properties.regions);
+		if (readOnly && regions.isEnabled()) {
+			regions.setEnabled(false);
+			regions.setToolTipText(StatemachineMessages.StateMachine_ReadOnly);
+		} else if (!readOnly && !regions.isEnabled()) {
+			regions.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -499,6 +515,14 @@ public class StateMachinePropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			keywords.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(StatemachineViewsRepository.StateMachine_.Properties.keywords);
+		if (readOnly && keywords.isEnabled()) {
+			keywords.setEnabled(false);
+			keywords.setToolTipText(StatemachineMessages.StateMachine_ReadOnly);
+		} else if (!readOnly && !keywords.isEnabled()) {
+			keywords.setEnabled(true);
+		}	
+		
 	}
 
 	public void addToKeywords(Object newValue) {
@@ -541,6 +565,14 @@ public class StateMachinePropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(StatemachineViewsRepository.StateMachine_.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(StatemachineMessages.StateMachine_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

@@ -5,55 +5,37 @@ package org.obeonetwork.dsl.interaction.parts.impl;
 
 // Start of user code for imports
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.EObjectFlatComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.dsl.interaction.parts.InteractionUsePropertiesEditionPart;
 import org.obeonetwork.dsl.interaction.parts.InteractionViewsRepository;
-
 import org.obeonetwork.dsl.interaction.providers.InteractionMessages;
 
 // End of user code
@@ -155,7 +137,7 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, InteractionViewsRepository.InteractionUse.Properties.name, InteractionMessages.InteractionUsePropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -201,7 +183,7 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 	
 	protected Composite createTypeText(Composite parent) {
 		createDescription(parent, InteractionViewsRepository.InteractionUse.Properties.type, InteractionMessages.InteractionUsePropertiesEditionPart_TypeLabel);
-		type = new Text(parent, SWT.BORDER);
+		type = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData typeData = new GridData(GridData.FILL_HORIZONTAL);
 		type.setLayoutData(typeData);
 		type.addFocusListener(new FocusAdapter() {
@@ -270,7 +252,7 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 	
 	protected Composite createDescriptionText(Composite parent) {
 		createDescription(parent, InteractionViewsRepository.InteractionUse.Properties.description, InteractionMessages.InteractionUsePropertiesEditionPart_DescriptionLabel);
-		description = new Text(parent, SWT.BORDER);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		description.setLayoutData(descriptionData);
 		description.addFocusListener(new FocusAdapter() {
@@ -321,7 +303,7 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -348,6 +330,14 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -372,6 +362,14 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		} else {
 			type.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.type);
+		if (readOnly && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!readOnly && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -399,6 +397,14 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		if (current != null) {
 			interaction.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.interaction_);
+		if (readOnly && interaction.isEnabled()) {
+			interaction.setEnabled(false);
+			interaction.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!readOnly && !interaction.isEnabled()) {
+			interaction.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -413,6 +419,14 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		} else {
 			interaction.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.interaction_);
+		if (readOnly && interaction.isEnabled()) {
+			interaction.setEnabled(false);
+			interaction.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!readOnly && !interaction.isEnabled()) {
+			interaction.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -466,6 +480,14 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -483,7 +505,7 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		return InteractionMessages.InteractionUse_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

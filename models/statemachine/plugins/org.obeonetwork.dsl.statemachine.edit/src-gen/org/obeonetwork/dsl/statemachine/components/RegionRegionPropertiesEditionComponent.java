@@ -18,7 +18,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
@@ -65,16 +67,17 @@ public class RegionRegionPropertiesEditionComponent extends SinglePartProperties
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Region region = (Region)elt;
 			final RegionPropertiesEditionPart regionPart = (RegionPropertiesEditionPart)editingPart;
 			// init values
-			if (region.getDescription() != null && isAccessible(StatemachineViewsRepository.Region.Properties.description))
+			if (isAccessible(StatemachineViewsRepository.Region.Properties.description))
 				regionPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, region.getDescription()));
 			
-			if (region.getKeywords() != null && isAccessible(StatemachineViewsRepository.Region.Properties.keywords))
+			if (isAccessible(StatemachineViewsRepository.Region.Properties.keywords))
 				regionPart.setKeywords(region.getKeywords());
 			
-			if (region.getName() != null && isAccessible(StatemachineViewsRepository.Region.Properties.name))
+			if (isAccessible(StatemachineViewsRepository.Region.Properties.name))
 				regionPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, region.getName()));
 			
 			// init filters
@@ -137,20 +140,21 @@ public class RegionRegionPropertiesEditionComponent extends SinglePartProperties
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			RegionPropertiesEditionPart regionPart = (RegionPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && regionPart != null && isAccessible(StatemachineViewsRepository.Region.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && regionPart != null && isAccessible(StatemachineViewsRepository.Region.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					regionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					regionPart.setDescription("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords().equals(msg.getFeature()) && regionPart != null && isAccessible(StatemachineViewsRepository.Region.Properties.keywords)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && regionPart != null && isAccessible(StatemachineViewsRepository.Region.Properties.keywords)) {
 				regionPart.setKeywords((EList<?>)msg.getNewValue());
 			}
 			
-			if (StateMachinePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && regionPart != null && isAccessible(StatemachineViewsRepository.Region.Properties.name)) {
+			if (StateMachinePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && regionPart != null && isAccessible(StatemachineViewsRepository.Region.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					regionPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -159,6 +163,20 @@ public class RegionRegionPropertiesEditionComponent extends SinglePartProperties
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords(),
+			StateMachinePackage.eINSTANCE.getNamedElement_Name()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -201,5 +219,8 @@ public class RegionRegionPropertiesEditionComponent extends SinglePartProperties
 		}
 		return ret;
 	}
+
+
+	
 
 }

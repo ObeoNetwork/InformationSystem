@@ -5,61 +5,43 @@ package org.obeonetwork.dsl.database.parts.forms;
 
 // Start of user code for imports
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.EObjectFlatComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-
+import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
 import org.obeonetwork.dsl.database.parts.IndexElementPropertiesEditionPart;
-
 import org.obeonetwork.dsl.database.providers.DatabaseMessages;
 
 // End of user code
@@ -311,6 +293,14 @@ public class IndexElementPropertiesEditionPartForm extends SectionPropertiesEdit
 		if (current != null) {
 			column.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.IndexElement.Properties.column);
+		if (readOnly && column.isEnabled()) {
+			column.setEnabled(false);
+			column.setToolTipText(DatabaseMessages.IndexElement_ReadOnly);
+		} else if (!readOnly && !column.isEnabled()) {
+			column.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -325,6 +315,14 @@ public class IndexElementPropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			column.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.IndexElement.Properties.column);
+		if (readOnly && column.isEnabled()) {
+			column.setEnabled(false);
+			column.setToolTipText(DatabaseMessages.IndexElement_ReadOnly);
+		} else if (!readOnly && !column.isEnabled()) {
+			column.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -378,6 +376,14 @@ public class IndexElementPropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			asc.setSelection(false);
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.IndexElement.Properties.asc);
+		if (readOnly && asc.isEnabled()) {
+			asc.setEnabled(false);
+			asc.setToolTipText(DatabaseMessages.IndexElement_ReadOnly);
+		} else if (!readOnly && !asc.isEnabled()) {
+			asc.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -402,6 +408,15 @@ public class IndexElementPropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(DatabaseViewsRepository.IndexElement.Properties.comments);
+		if (readOnly && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(DatabaseMessages.IndexElement_ReadOnly);
+		} else if (!readOnly && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

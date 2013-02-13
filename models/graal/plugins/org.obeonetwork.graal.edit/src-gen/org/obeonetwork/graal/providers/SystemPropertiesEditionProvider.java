@@ -8,6 +8,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
 import org.eclipse.jface.viewers.IFilter;
@@ -15,7 +16,6 @@ import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionCo
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.components.SystemPropertiesEditionComponent;
 import org.obeonetwork.graal.components.SystemSystemPropertiesEditionComponent;
-import org.obeonetwork.graal.System;
 
 /**
  * 
@@ -44,7 +44,7 @@ public class SystemPropertiesEditionProvider extends PropertiesEditingProviderIm
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext) {
-		return (editingContext.getEObject() instanceof System) 
+		return (editingContext.getEObject() instanceof org.obeonetwork.graal.System) 
 					&& (GraalPackage.Literals.SYSTEM == editingContext.getEObject().eClass());
 	}
 
@@ -54,7 +54,7 @@ public class SystemPropertiesEditionProvider extends PropertiesEditingProviderIm
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext, String part) {
-		return (editingContext.getEObject() instanceof System) && (SystemSystemPropertiesEditionComponent.SYSTEM_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
+		return (editingContext.getEObject() instanceof org.obeonetwork.graal.System) && (SystemSystemPropertiesEditionComponent.SYSTEM_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class SystemPropertiesEditionProvider extends PropertiesEditingProviderIm
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof System) && (refinement == SystemSystemPropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
+		return (editingContext.getEObject() instanceof org.obeonetwork.graal.System) && (refinement == SystemSystemPropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class SystemPropertiesEditionProvider extends PropertiesEditingProviderIm
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, String part, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof System) && ((SystemSystemPropertiesEditionComponent.SYSTEM_PART.equals(part) && refinement == SystemSystemPropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
+		return (editingContext.getEObject() instanceof org.obeonetwork.graal.System) && ((SystemSystemPropertiesEditionComponent.SYSTEM_PART.equals(part) && refinement == SystemSystemPropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class SystemPropertiesEditionProvider extends PropertiesEditingProviderIm
 	 * 
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode) {
-		if (editingContext.getEObject() instanceof System) {
+		if (editingContext.getEObject() instanceof org.obeonetwork.graal.System) {
 			return new SystemPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
 		return super.getPropertiesEditingComponent(editingContext, mode);
@@ -95,7 +95,7 @@ public class SystemPropertiesEditionProvider extends PropertiesEditingProviderIm
 	 * 
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part) {
-		if (editingContext.getEObject() instanceof System) {
+		if (editingContext.getEObject() instanceof org.obeonetwork.graal.System) {
 			if (SystemSystemPropertiesEditionComponent.SYSTEM_PART.equals(part))
 				return new SystemSystemPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part))
@@ -110,7 +110,7 @@ public class SystemPropertiesEditionProvider extends PropertiesEditingProviderIm
 	 */
 	@SuppressWarnings("rawtypes")
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part, java.lang.Class refinement) {
-		if (editingContext.getEObject() instanceof System) {
+		if (editingContext.getEObject() instanceof org.obeonetwork.graal.System) {
 			if (SystemSystemPropertiesEditionComponent.SYSTEM_PART.equals(part)
 				&& refinement == SystemSystemPropertiesEditionComponent.class)
 				return new SystemSystemPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
@@ -132,7 +132,8 @@ public class SystemPropertiesEditionProvider extends PropertiesEditingProviderIm
 		 * @see org.eclipse.jface.viewers.IFilter#select(java.lang.Object)
 		 */
 		public boolean select(Object toTest) {
-			return toTest instanceof EObject && GraalPackage.Literals.SYSTEM == ((EObject)toTest).eClass();
+			EObject eObj = EEFUtils.resolveSemanticObject(toTest);
+			return eObj != null && GraalPackage.Literals.SYSTEM == eObj.eClass();
 		}
 		
 	}

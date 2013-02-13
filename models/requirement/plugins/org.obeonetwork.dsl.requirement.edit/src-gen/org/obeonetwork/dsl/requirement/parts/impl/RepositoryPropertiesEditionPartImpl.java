@@ -241,7 +241,6 @@ public class RepositoryPropertiesEditionPartImpl extends CompositePropertiesEdit
 		createDescription(parent, RequirementViewsRepository.Repository.Repository_.referencedObject, RequirementMessages.RepositoryPropertiesEditionPart_ReferencedObjectLabel);
 		referencedObject = new FlatReferencesTable(parent);
 		referencedObject.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
 		referencedObject.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -293,6 +292,14 @@ public class RepositoryPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Repository.Repository_.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(RequirementMessages.Repository_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -308,6 +315,14 @@ public class RepositoryPropertiesEditionPartImpl extends CompositePropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		mainCategories.setContentProvider(contentProvider);
 		mainCategories.setInput(settings);
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Repository.Repository_.mainCategories);
+		if (readOnly && mainCategories.isEnabled()) {
+			mainCategories.setEnabled(false);
+			mainCategories.setToolTipText(RequirementMessages.Repository_ReadOnly);
+		} else if (!readOnly && !mainCategories.isEnabled()) {
+			mainCategories.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -364,6 +379,14 @@ public class RepositoryPropertiesEditionPartImpl extends CompositePropertiesEdit
 		if (current.eResource() != null && current.eResource().getResourceSet() != null)
 			this.resourceSet = current.eResource().getResourceSet();
 		referencedObject.setInput(settings);
+		boolean readOnly = isReadOnly(RequirementViewsRepository.Repository.Repository_.referencedObject);
+		if (readOnly && referencedObject.isEnabled()) {
+			referencedObject.setEnabled(false);
+			referencedObject.setToolTipText(RequirementMessages.Repository_ReadOnly);
+		} else if (!readOnly && !referencedObject.isEnabled()) {
+			referencedObject.setEnabled(true);
+		}	
+		
 	}
 
 	/**

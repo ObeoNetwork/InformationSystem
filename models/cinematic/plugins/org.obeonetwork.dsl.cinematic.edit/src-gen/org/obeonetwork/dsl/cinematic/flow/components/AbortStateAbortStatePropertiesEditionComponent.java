@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -76,17 +78,18 @@ public class AbortStateAbortStatePropertiesEditionComponent extends SinglePartPr
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final AbortState abortState = (AbortState)elt;
 			final AbortStatePropertiesEditionPart abortStatePart = (AbortStatePropertiesEditionPart)editingPart;
 			// init values
-			if (abortState.getDescription() != null && isAccessible(FlowViewsRepository.AbortState.Properties.description))
+			if (isAccessible(FlowViewsRepository.AbortState.Properties.description))
 				abortStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, abortState.getDescription()));
 			
 			if (isAccessible(FlowViewsRepository.AbortState.Properties.actions)) {
 				actionsSettings = new ReferencesTableSettings(abortState, FlowPackage.eINSTANCE.getFlowState_Actions());
 				abortStatePart.initActions(actionsSettings);
 			}
-			if (abortState.getName() != null && isAccessible(FlowViewsRepository.AbortState.Properties.name))
+			if (isAccessible(FlowViewsRepository.AbortState.Properties.name))
 				abortStatePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, abortState.getName()));
 			
 			// init filters
@@ -182,9 +185,10 @@ public class AbortStateAbortStatePropertiesEditionComponent extends SinglePartPr
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			AbortStatePropertiesEditionPart abortStatePart = (AbortStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && abortStatePart != null && isAccessible(FlowViewsRepository.AbortState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && abortStatePart != null && isAccessible(FlowViewsRepository.AbortState.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					abortStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -193,7 +197,7 @@ public class AbortStateAbortStatePropertiesEditionComponent extends SinglePartPr
 			}
 			if (FlowPackage.eINSTANCE.getFlowState_Actions().equals(msg.getFeature()) && isAccessible(FlowViewsRepository.AbortState.Properties.actions))
 				abortStatePart.updateActions();
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && abortStatePart != null && isAccessible(FlowViewsRepository.AbortState.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && abortStatePart != null && isAccessible(FlowViewsRepository.AbortState.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					abortStatePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -202,6 +206,20 @@ public class AbortStateAbortStatePropertiesEditionComponent extends SinglePartPr
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			FlowPackage.eINSTANCE.getFlowState_Actions(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -237,5 +255,8 @@ public class AbortStateAbortStatePropertiesEditionComponent extends SinglePartPr
 		}
 		return ret;
 	}
+
+
+	
 
 }

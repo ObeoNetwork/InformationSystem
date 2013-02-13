@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -75,10 +77,11 @@ public class EntityBindingEntityBindingPropertiesEditionComponent extends Single
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final EntityBinding entityBinding = (EntityBinding)elt;
 			final EntityBindingPropertiesEditionPart entityBindingPart = (EntityBindingPropertiesEditionPart)editingPart;
 			// init values
-			if (entityBinding.getDescription() != null && isAccessible(ViewViewsRepository.EntityBinding.Properties.description))
+			if (isAccessible(ViewViewsRepository.EntityBinding.Properties.description))
 				entityBindingPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, entityBinding.getDescription()));
 			
 			if (isAccessible(ViewViewsRepository.EntityBinding.Properties.entity)) {
@@ -165,9 +168,10 @@ public class EntityBindingEntityBindingPropertiesEditionComponent extends Single
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			EntityBindingPropertiesEditionPart entityBindingPart = (EntityBindingPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && entityBindingPart != null && isAccessible(ViewViewsRepository.EntityBinding.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityBindingPart != null && isAccessible(ViewViewsRepository.EntityBinding.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					entityBindingPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -178,6 +182,19 @@ public class EntityBindingEntityBindingPropertiesEditionComponent extends Single
 				entityBindingPart.setEntity((EObject)msg.getNewValue());
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			ViewPackage.eINSTANCE.getEntityBinding_Entity()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -216,5 +233,8 @@ public class EntityBindingEntityBindingPropertiesEditionComponent extends Single
 		}
 		return ret;
 	}
+
+
+	
 
 }

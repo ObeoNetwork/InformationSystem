@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -76,17 +78,18 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final InitialState initialState = (InitialState)elt;
 			final InitialStatePropertiesEditionPart initialStatePart = (InitialStatePropertiesEditionPart)editingPart;
 			// init values
-			if (initialState.getDescription() != null && isAccessible(FlowViewsRepository.InitialState.Properties.description))
+			if (isAccessible(FlowViewsRepository.InitialState.Properties.description))
 				initialStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, initialState.getDescription()));
 			
 			if (isAccessible(FlowViewsRepository.InitialState.Properties.actions)) {
 				actionsSettings = new ReferencesTableSettings(initialState, FlowPackage.eINSTANCE.getFlowState_Actions());
 				initialStatePart.initActions(actionsSettings);
 			}
-			if (initialState.getName() != null && isAccessible(FlowViewsRepository.InitialState.Properties.name))
+			if (isAccessible(FlowViewsRepository.InitialState.Properties.name))
 				initialStatePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, initialState.getName()));
 			
 			// init filters
@@ -182,9 +185,10 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			InitialStatePropertiesEditionPart initialStatePart = (InitialStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && initialStatePart != null && isAccessible(FlowViewsRepository.InitialState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && initialStatePart != null && isAccessible(FlowViewsRepository.InitialState.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					initialStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -193,7 +197,7 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 			}
 			if (FlowPackage.eINSTANCE.getFlowState_Actions().equals(msg.getFeature()) && isAccessible(FlowViewsRepository.InitialState.Properties.actions))
 				initialStatePart.updateActions();
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && initialStatePart != null && isAccessible(FlowViewsRepository.InitialState.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && initialStatePart != null && isAccessible(FlowViewsRepository.InitialState.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					initialStatePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -202,6 +206,20 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			FlowPackage.eINSTANCE.getFlowState_Actions(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -237,5 +255,8 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 		}
 		return ret;
 	}
+
+
+	
 
 }

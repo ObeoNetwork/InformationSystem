@@ -12,57 +12,38 @@ package org.obeonetwork.dsl.soa.parts.forms;
 
 // Start of user code for imports
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.AdvancedEObjectFlatComboViewer;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.AdvancedEObjectFlatComboViewer.EObjectFlatComboViewerListener;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-
+import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
 import org.obeonetwork.dsl.soa.parts.WirePropertiesEditionPart;
-
 import org.obeonetwork.dsl.soa.providers.SoaMessages;
 
 // End of user code
@@ -249,10 +230,34 @@ public class WirePropertiesEditionPartForm extends SectionPropertiesEditingPart 
 			 * 
 			 */
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(WirePropertiesEditionPartForm.this, SoaViewsRepository.Wire.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							WirePropertiesEditionPartForm.this,
+							SoaViewsRepository.Wire.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									WirePropertiesEditionPartForm.this,
+									SoaViewsRepository.Wire.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
 			}
 
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									WirePropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
 		});
 		EditingUtils.setID(description, SoaViewsRepository.Wire.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
@@ -268,7 +273,7 @@ public class WirePropertiesEditionPartForm extends SectionPropertiesEditingPart 
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -293,6 +298,14 @@ public class WirePropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		if (current != null) {
 			source.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(SoaViewsRepository.Wire.Properties.source);
+		if (readOnly && source.isEnabled()) {
+			source.setEnabled(false);
+			source.setToolTipText(SoaMessages.Wire_ReadOnly);
+		} else if (!readOnly && !source.isEnabled()) {
+			source.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -307,6 +320,14 @@ public class WirePropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		} else {
 			source.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(SoaViewsRepository.Wire.Properties.source);
+		if (readOnly && source.isEnabled()) {
+			source.setEnabled(false);
+			source.setToolTipText(SoaMessages.Wire_ReadOnly);
+		} else if (!readOnly && !source.isEnabled()) {
+			source.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -358,6 +379,14 @@ public class WirePropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		if (current != null) {
 			dest.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(SoaViewsRepository.Wire.Properties.dest);
+		if (readOnly && dest.isEnabled()) {
+			dest.setEnabled(false);
+			dest.setToolTipText(SoaMessages.Wire_ReadOnly);
+		} else if (!readOnly && !dest.isEnabled()) {
+			dest.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -372,6 +401,14 @@ public class WirePropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		} else {
 			dest.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(SoaViewsRepository.Wire.Properties.dest);
+		if (readOnly && dest.isEnabled()) {
+			dest.setEnabled(false);
+			dest.setToolTipText(SoaMessages.Wire_ReadOnly);
+		} else if (!readOnly && !dest.isEnabled()) {
+			dest.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -425,6 +462,15 @@ public class WirePropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(SoaViewsRepository.Wire.Properties.description);
+		if (readOnly && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(SoaMessages.Wire_ReadOnly);
+		} else if (!readOnly && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -442,7 +488,7 @@ public class WirePropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		return SoaMessages.Wire_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 
