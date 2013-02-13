@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
@@ -70,6 +71,7 @@ public class TableConstraintsPropertiesEditionComponent extends SinglePartProper
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Table table = (Table)elt;
 			final ConstraintsPropertiesEditionPart constraintsPart = (ConstraintsPropertiesEditionPart)editingPart;
 			// init values
@@ -154,12 +156,25 @@ public class TableConstraintsPropertiesEditionComponent extends SinglePartProper
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ConstraintsPropertiesEditionPart constraintsPart = (ConstraintsPropertiesEditionPart)editingPart;
 			if (DatabasePackage.eINSTANCE.getTable_Constraints().equals(msg.getFeature()) && isAccessible(DatabaseViewsRepository.Constraints.Properties.constraints_))
 				constraintsPart.updateConstraints();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getTable_Constraints()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -191,5 +206,8 @@ public class TableConstraintsPropertiesEditionComponent extends SinglePartProper
 		}
 		return ret;
 	}
+
+
+	
 
 }

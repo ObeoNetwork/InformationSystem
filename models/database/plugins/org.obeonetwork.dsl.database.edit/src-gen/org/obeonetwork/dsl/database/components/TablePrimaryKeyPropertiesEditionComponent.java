@@ -14,11 +14,13 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.filters.EObjectStrictFilter;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.eclipse.emf.eef.runtime.ui.widgets.settings.EEFEditorSettingsBuilder;
@@ -89,6 +91,11 @@ public class TablePrimaryKeyPropertiesEditionComponent extends SinglePartPropert
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			if (editingPart instanceof CompositePropertiesEditionPart) {
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(pkNameSettings);
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(pkColumnsSettings);
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(pkCommentsSettings);
+			}
 			final Table table = (Table)elt;
 			final PrimaryKeyPropertiesEditionPart primaryKeyPart = (PrimaryKeyPropertiesEditionPart)editingPart;
 			// init values
@@ -192,9 +199,10 @@ public class TablePrimaryKeyPropertiesEditionComponent extends SinglePartPropert
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			PrimaryKeyPropertiesEditionPart primaryKeyPart = (PrimaryKeyPropertiesEditionPart)editingPart;
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && primaryKeyPart != null && isAccessible(DatabaseViewsRepository.PrimaryKey.Properties.name)) {
+			if (!(msg.getNewValue() instanceof EObject) && pkNameSettings.isAffectingEvent(msg) && primaryKeyPart != null && isAccessible(DatabaseViewsRepository.PrimaryKey.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					primaryKeyPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -203,7 +211,7 @@ public class TablePrimaryKeyPropertiesEditionComponent extends SinglePartPropert
 			}
 			if (pkColumnsSettings.isAffectingFeature((EStructuralFeature)msg.getFeature()) && isAccessible(DatabaseViewsRepository.PrimaryKey.Properties.columns))
 				primaryKeyPart.updateColumns();
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && primaryKeyPart != null && isAccessible(DatabaseViewsRepository.PrimaryKey.Properties.comments)){
+			if (!(msg.getNewValue() instanceof EObject) && pkCommentsSettings.isAffectingEvent(msg) && primaryKeyPart != null && isAccessible(DatabaseViewsRepository.PrimaryKey.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					primaryKeyPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -212,6 +220,22 @@ public class TablePrimaryKeyPropertiesEditionComponent extends SinglePartPropert
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getNamedElement_Name()
+			,
+			DatabasePackage.eINSTANCE.getPrimaryKey_Columns(),
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments()
+					);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -256,6 +280,21 @@ public class TablePrimaryKeyPropertiesEditionComponent extends SinglePartPropert
 			}
 		}
 		return ret;
+	}
+
+
+	
+	/**
+	 * @ return settings for pkName editor
+	 */
+	public EEFEditorSettingsImpl getPkNameSettings() {
+			return pkNameSettings;
+	}
+	/**
+	 * @ return settings for pkComments editor
+	 */
+	public EEFEditorSettingsImpl getPkCommentsSettings() {
+			return pkCommentsSettings;
 	}
 
 }

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -59,15 +60,16 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final View view = (View)elt;
 			final ViewPropertiesEditionPart viewPart = (ViewPropertiesEditionPart)editingPart;
 			// init values
-			if (view.getName() != null && isAccessible(DatabaseViewsRepository.View.Properties.name))
+			if (isAccessible(DatabaseViewsRepository.View.Properties.name))
 				viewPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, view.getName()));
 			
-			if (view.getQuery() != null && isAccessible(DatabaseViewsRepository.View.Properties.query))
+			if (isAccessible(DatabaseViewsRepository.View.Properties.query))
 				viewPart.setQuery(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, view.getQuery()));
-			if (view.getComments() != null && isAccessible(DatabaseViewsRepository.View.Properties.comments))
+			if (isAccessible(DatabaseViewsRepository.View.Properties.comments))
 				viewPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, view.getComments()));
 			// init filters
 			
@@ -126,23 +128,24 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ViewPropertiesEditionPart viewPart = (ViewPropertiesEditionPart)editingPart;
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && viewPart != null && isAccessible(DatabaseViewsRepository.View.Properties.name)) {
+			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewPart != null && isAccessible(DatabaseViewsRepository.View.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					viewPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					viewPart.setName("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getView_Query().equals(msg.getFeature()) && viewPart != null && isAccessible(DatabaseViewsRepository.View.Properties.query)){
+			if (DatabasePackage.eINSTANCE.getView_Query().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewPart != null && isAccessible(DatabaseViewsRepository.View.Properties.query)){
 				if (msg.getNewValue() != null) {
 					viewPart.setQuery(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					viewPart.setQuery("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && viewPart != null && isAccessible(DatabaseViewsRepository.View.Properties.comments)){
+			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewPart != null && isAccessible(DatabaseViewsRepository.View.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					viewPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -151,6 +154,20 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getNamedElement_Name(),
+			DatabasePackage.eINSTANCE.getView_Query(),
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -203,5 +220,8 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 		}
 		return ret;
 	}
+
+
+	
 
 }

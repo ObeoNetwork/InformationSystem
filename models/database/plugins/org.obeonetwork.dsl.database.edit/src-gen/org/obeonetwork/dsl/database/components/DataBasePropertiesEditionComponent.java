@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -71,16 +72,17 @@ public class DataBasePropertiesEditionComponent extends SinglePartPropertiesEdit
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final DataBase dataBase = (DataBase)elt;
 			final DataBasePropertiesEditionPart dataBasePart = (DataBasePropertiesEditionPart)editingPart;
 			// init values
-			if (dataBase.getName() != null && isAccessible(DatabaseViewsRepository.DataBase_.Properties.name))
+			if (isAccessible(DatabaseViewsRepository.DataBase_.Properties.name))
 				dataBasePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dataBase.getName()));
 			
-			if (dataBase.getUrl() != null && isAccessible(DatabaseViewsRepository.DataBase_.Properties.url))
+			if (isAccessible(DatabaseViewsRepository.DataBase_.Properties.url))
 				dataBasePart.setUrl(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dataBase.getUrl()));
 			
-			if (dataBase.getComments() != null && isAccessible(DatabaseViewsRepository.DataBase_.Properties.comments))
+			if (isAccessible(DatabaseViewsRepository.DataBase_.Properties.comments))
 				dataBasePart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, dataBase.getComments()));
 			if (isAccessible(DatabaseViewsRepository.DataBase_.Properties.usedLibraries)) {
 				usedLibrariesSettings = new ReferencesTableSettings(dataBase, TypesLibraryPackage.eINSTANCE.getTypesLibraryUser_UsedLibraries());
@@ -170,23 +172,24 @@ public class DataBasePropertiesEditionComponent extends SinglePartPropertiesEdit
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			DataBasePropertiesEditionPart dataBasePart = (DataBasePropertiesEditionPart)editingPart;
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && dataBasePart != null && isAccessible(DatabaseViewsRepository.DataBase_.Properties.name)) {
+			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && dataBasePart != null && isAccessible(DatabaseViewsRepository.DataBase_.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					dataBasePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					dataBasePart.setName("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getDataBase_Url().equals(msg.getFeature()) && dataBasePart != null && isAccessible(DatabaseViewsRepository.DataBase_.Properties.url)) {
+			if (DatabasePackage.eINSTANCE.getDataBase_Url().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && dataBasePart != null && isAccessible(DatabaseViewsRepository.DataBase_.Properties.url)) {
 				if (msg.getNewValue() != null) {
 					dataBasePart.setUrl(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					dataBasePart.setUrl("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && dataBasePart != null && isAccessible(DatabaseViewsRepository.DataBase_.Properties.comments)){
+			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && dataBasePart != null && isAccessible(DatabaseViewsRepository.DataBase_.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					dataBasePart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -197,6 +200,21 @@ public class DataBasePropertiesEditionComponent extends SinglePartPropertiesEdit
 				dataBasePart.updateUsedLibraries();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getNamedElement_Name(),
+			DatabasePackage.eINSTANCE.getDataBase_Url(),
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments(),
+			TypesLibraryPackage.eINSTANCE.getTypesLibraryUser_UsedLibraries()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -249,5 +267,8 @@ public class DataBasePropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		return ret;
 	}
+
+
+	
 
 }

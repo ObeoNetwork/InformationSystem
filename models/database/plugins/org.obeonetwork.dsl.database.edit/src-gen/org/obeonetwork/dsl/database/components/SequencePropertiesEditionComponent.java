@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -59,10 +60,11 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Sequence sequence = (Sequence)elt;
 			final SequencePropertiesEditionPart sequencePart = (SequencePropertiesEditionPart)editingPart;
 			// init values
-			if (sequence.getName() != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.name))
+			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.name))
 				sequencePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, sequence.getName()));
 			
 			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.start)) {
@@ -88,7 +90,7 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 				sequencePart.setCacheSize(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, sequence.getCacheSize()));
 			}
 			
-			if (sequence.getComments() != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.comments))
+			if (isAccessible(DatabaseViewsRepository.Sequence.Properties.comments))
 				sequencePart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, sequence.getComments()));
 			// init filters
 			
@@ -187,54 +189,55 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			SequencePropertiesEditionPart sequencePart = (SequencePropertiesEditionPart)editingPart;
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.name)) {
+			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					sequencePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					sequencePart.setName("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getSequence_Start().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.start)) {
+			if (DatabasePackage.eINSTANCE.getSequence_Start().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.start)) {
 				if (msg.getNewValue() != null) {
 					sequencePart.setStart(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					sequencePart.setStart("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getSequence_Increment().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.increment)) {
+			if (DatabasePackage.eINSTANCE.getSequence_Increment().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.StartIncrement.increment)) {
 				if (msg.getNewValue() != null) {
 					sequencePart.setIncrement(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					sequencePart.setIncrement("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getSequence_MinValue().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.MinMax.minValue)) {
+			if (DatabasePackage.eINSTANCE.getSequence_MinValue().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.MinMax.minValue)) {
 				if (msg.getNewValue() != null) {
 					sequencePart.setMinValue(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					sequencePart.setMinValue("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getSequence_MaxValue().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue)) {
+			if (DatabasePackage.eINSTANCE.getSequence_MaxValue().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue)) {
 				if (msg.getNewValue() != null) {
 					sequencePart.setMaxValue(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					sequencePart.setMaxValue("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getSequence_Cycle().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle))
+			if (DatabasePackage.eINSTANCE.getSequence_Cycle().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle))
 				sequencePart.setCycle((Boolean)msg.getNewValue());
 			
-			if (DatabasePackage.eINSTANCE.getSequence_CacheSize().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize)) {
+			if (DatabasePackage.eINSTANCE.getSequence_CacheSize().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize)) {
 				if (msg.getNewValue() != null) {
 					sequencePart.setCacheSize(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					sequencePart.setCacheSize("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.comments)){
+			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && sequencePart != null && isAccessible(DatabaseViewsRepository.Sequence.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					sequencePart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -243,6 +246,25 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getNamedElement_Name(),
+			DatabasePackage.eINSTANCE.getSequence_Start(),
+			DatabasePackage.eINSTANCE.getSequence_Increment(),
+			DatabasePackage.eINSTANCE.getSequence_MinValue(),
+			DatabasePackage.eINSTANCE.getSequence_MaxValue(),
+			DatabasePackage.eINSTANCE.getSequence_Cycle(),
+			DatabasePackage.eINSTANCE.getSequence_CacheSize(),
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -330,5 +352,8 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		return ret;
 	}
+
+
+	
 
 }

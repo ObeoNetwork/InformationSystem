@@ -264,6 +264,14 @@ public class NativeTypePropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.NativeType.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(TypeslibraryMessages.NativeType_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -285,6 +293,14 @@ public class NativeTypePropertiesEditionPartImpl extends CompositePropertiesEdit
 	public void initSpec(Object input, Enumerator current) {
 		spec.setInput(input);
 		spec.modelUpdating(new StructuredSelection(current));
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.NativeType.Properties.spec);
+		if (readOnly && spec.isEnabled()) {
+			spec.setEnabled(false);
+			spec.setToolTipText(TypeslibraryMessages.NativeType_ReadOnly);
+		} else if (!readOnly && !spec.isEnabled()) {
+			spec.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -295,6 +311,14 @@ public class NativeTypePropertiesEditionPartImpl extends CompositePropertiesEdit
 	 */
 	public void setSpec(Enumerator newValue) {
 		spec.modelUpdating(new StructuredSelection(newValue));
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.NativeType.Properties.spec);
+		if (readOnly && spec.isEnabled()) {
+			spec.setEnabled(false);
+			spec.setToolTipText(TypeslibraryMessages.NativeType_ReadOnly);
+		} else if (!readOnly && !spec.isEnabled()) {
+			spec.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -322,6 +346,14 @@ public class NativeTypePropertiesEditionPartImpl extends CompositePropertiesEdit
 		if (current != null) {
 			mapsTo.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.NativeType.Properties.mapsTo);
+		if (readOnly && mapsTo.isEnabled()) {
+			mapsTo.setEnabled(false);
+			mapsTo.setToolTipText(TypeslibraryMessages.NativeType_ReadOnly);
+		} else if (!readOnly && !mapsTo.isEnabled()) {
+			mapsTo.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -336,6 +368,14 @@ public class NativeTypePropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			mapsTo.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.NativeType.Properties.mapsTo);
+		if (readOnly && mapsTo.isEnabled()) {
+			mapsTo.setEnabled(false);
+			mapsTo.setToolTipText(TypeslibraryMessages.NativeType_ReadOnly);
+		} else if (!readOnly && !mapsTo.isEnabled()) {
+			mapsTo.setEnabled(true);
+		}	
+		
 	}
 
 	/**

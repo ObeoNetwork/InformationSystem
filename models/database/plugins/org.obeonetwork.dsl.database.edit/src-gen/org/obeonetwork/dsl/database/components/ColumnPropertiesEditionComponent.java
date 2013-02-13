@@ -18,11 +18,13 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
@@ -40,7 +42,6 @@ import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.parts.ColumnPropertiesEditionPart;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
-import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 
 
@@ -120,10 +121,16 @@ public class ColumnPropertiesEditionComponent extends SinglePartPropertiesEditin
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			if (editingPart instanceof CompositePropertiesEditionPart) {
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(typeSettings);
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(lengthSettings);
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(precisionSettings);
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(literalsSettings);
+			}
 			final Column column = (Column)elt;
 			final ColumnPropertiesEditionPart columnPart = (ColumnPropertiesEditionPart)editingPart;
 			// init values
-			if (column.getName() != null && isAccessible(DatabaseViewsRepository.Column.Properties.name))
+			if (isAccessible(DatabaseViewsRepository.Column.Properties.name))
 				columnPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, column.getName()));
 			
 			if (isAccessible(DatabaseViewsRepository.Column.Properties.NullablePkAndUnique.nullable)) {
@@ -145,10 +152,10 @@ public class ColumnPropertiesEditionComponent extends SinglePartPropertiesEditin
 				// set the button mode
 				columnPart.setSequenceButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (column.getDefaultValue() != null && isAccessible(DatabaseViewsRepository.Column.Properties.defaultValue))
+			if (isAccessible(DatabaseViewsRepository.Column.Properties.defaultValue))
 				columnPart.setDefaultValue(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, column.getDefaultValue()));
 			
-			if (column.getComments() != null && isAccessible(DatabaseViewsRepository.Column.Properties.comments))
+			if (isAccessible(DatabaseViewsRepository.Column.Properties.comments))
 				columnPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, column.getComments()));
 			if (typeSettings.getSignificantObject() != null && isAccessible(DatabaseViewsRepository.Column.Properties.type)) {
 				columnPart.initType(EEFUtils.choiceOfValues(typeSettings.getSignificantObject(), TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType()), typeSettings.getValue());
@@ -307,7 +314,7 @@ public class ColumnPropertiesEditionComponent extends SinglePartPropertiesEditin
 			column.setComments((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
 		if (DatabaseViewsRepository.Column.Properties.type == event.getAffectedEditor()) {
-			typeSettings.setValue(!"".equals(event.getNewValue()) ? (NativeType) event.getNewValue() : null);
+			typeSettings.setValue(!"".equals(event.getNewValue()) ? (invalid) event.getNewValue() : null);
 		}
 		if (DatabaseViewsRepository.Column.Properties.TypeAttributes.length == event.getAffectedEditor()) {
 			lengthSettings.setValue((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
@@ -325,65 +332,93 @@ public class ColumnPropertiesEditionComponent extends SinglePartPropertiesEditin
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ColumnPropertiesEditionPart columnPart = (ColumnPropertiesEditionPart)editingPart;
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.name)) {
+			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					columnPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					columnPart.setName("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getColumn_Nullable().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.NullablePkAndUnique.nullable))
+			if (DatabasePackage.eINSTANCE.getColumn_Nullable().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.NullablePkAndUnique.nullable))
 				columnPart.setNullable((Boolean)msg.getNewValue());
 			
-			if (DatabasePackage.eINSTANCE.getColumn_InPrimaryKey().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.NullablePkAndUnique.primaryKey))
+			if (DatabasePackage.eINSTANCE.getColumn_InPrimaryKey().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.NullablePkAndUnique.primaryKey))
 				columnPart.setPrimaryKey((Boolean)msg.getNewValue());
 			
-			if (DatabasePackage.eINSTANCE.getColumn_Unique().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.NullablePkAndUnique.unique))
+			if (DatabasePackage.eINSTANCE.getColumn_Unique().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.NullablePkAndUnique.unique))
 				columnPart.setUnique((Boolean)msg.getNewValue());
 			
-			if (DatabasePackage.eINSTANCE.getColumn_Autoincrement().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.Sequence.autoincrement))
+			if (DatabasePackage.eINSTANCE.getColumn_Autoincrement().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.Sequence.autoincrement))
 				columnPart.setAutoincrement((Boolean)msg.getNewValue());
 			
 			if (DatabasePackage.eINSTANCE.getColumn_Sequence().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.Sequence.sequence_))
 				columnPart.setSequence((EObject)msg.getNewValue());
-			if (DatabasePackage.eINSTANCE.getColumn_DefaultValue().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.defaultValue)) {
+			if (DatabasePackage.eINSTANCE.getColumn_DefaultValue().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.defaultValue)) {
 				if (msg.getNewValue() != null) {
 					columnPart.setDefaultValue(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					columnPart.setDefaultValue("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.comments)){
+			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					columnPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					columnPart.setComments("");
 				}
 			}
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.type))
+			if (typeSettings.isAffectingEvent(msg) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.type))
 				columnPart.setType((Object)msg.getNewValue());
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Length().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.TypeAttributes.length)) {
+			if (!(msg.getNewValue() instanceof EObject) && lengthSettings.isAffectingEvent(msg) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.TypeAttributes.length)) {
 				if (msg.getNewValue() != null) {
 					columnPart.setLength(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					columnPart.setLength("");
 				}
 			}
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Precision().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.TypeAttributes.precision)) {
+			if (!(msg.getNewValue() instanceof EObject) && precisionSettings.isAffectingEvent(msg) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.TypeAttributes.precision)) {
 				if (msg.getNewValue() != null) {
 					columnPart.setPrecision(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					columnPart.setPrecision("");
 				}
 			}
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Literals().equals(msg.getFeature()) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.literals)) {
+			if (literalsSettings.isAffectingEvent(msg) && columnPart != null && isAccessible(DatabaseViewsRepository.Column.Properties.literals)) {
 				columnPart.setLiterals((EList<?>)msg.getNewValue());
 			}
 			
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getNamedElement_Name(),
+			DatabasePackage.eINSTANCE.getColumn_Nullable(),
+			DatabasePackage.eINSTANCE.getColumn_InPrimaryKey(),
+			DatabasePackage.eINSTANCE.getColumn_Unique(),
+			DatabasePackage.eINSTANCE.getColumn_Autoincrement(),
+			DatabasePackage.eINSTANCE.getColumn_Sequence(),
+			DatabasePackage.eINSTANCE.getColumn_DefaultValue(),
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments(),
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType()
+			,
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_Length()
+			,
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_Precision()
+			,
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_Literals()
+					);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -484,6 +519,33 @@ public class ColumnPropertiesEditionComponent extends SinglePartPropertiesEditin
 			}
 		}
 		return ret;
+	}
+
+
+	
+	/**
+	 * @ return settings for type editor
+	 */
+	public EEFEditorSettingsImpl getTypeSettings() {
+			return typeSettings;
+	}
+	/**
+	 * @ return settings for length editor
+	 */
+	public EEFEditorSettingsImpl getLengthSettings() {
+			return lengthSettings;
+	}
+	/**
+	 * @ return settings for precision editor
+	 */
+	public EEFEditorSettingsImpl getPrecisionSettings() {
+			return precisionSettings;
+	}
+	/**
+	 * @ return settings for literals editor
+	 */
+	public EEFEditorSettingsImpl getLiteralsSettings() {
+			return literalsSettings;
 	}
 
 }

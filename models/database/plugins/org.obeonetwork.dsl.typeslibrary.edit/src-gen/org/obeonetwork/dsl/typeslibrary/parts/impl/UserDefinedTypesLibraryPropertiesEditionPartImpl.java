@@ -258,6 +258,14 @@ public class UserDefinedTypesLibraryPropertiesEditionPartImpl extends CompositeP
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.UserDefinedTypesLibrary.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(TypeslibraryMessages.UserDefinedTypesLibrary_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -273,6 +281,14 @@ public class UserDefinedTypesLibraryPropertiesEditionPartImpl extends CompositeP
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		userDefinedTypes.setContentProvider(contentProvider);
 		userDefinedTypes.setInput(settings);
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.UserDefinedTypesLibrary.Properties.userDefinedTypes);
+		if (readOnly && userDefinedTypes.isEnabled()) {
+			userDefinedTypes.setEnabled(false);
+			userDefinedTypes.setToolTipText(TypeslibraryMessages.UserDefinedTypesLibrary_ReadOnly);
+		} else if (!readOnly && !userDefinedTypes.isEnabled()) {
+			userDefinedTypes.setEnabled(true);
+		}	
+		
 	}
 
 	/**

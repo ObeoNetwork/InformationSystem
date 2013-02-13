@@ -46,6 +46,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.views.properties.tabbed.ISection;
+import org.obeonetwork.dsl.entityrelation.components.AttributePropertiesEditionComponent;
 import org.obeonetwork.dsl.entityrelation.parts.AttributePropertiesEditionPart;
 import org.obeonetwork.dsl.entityrelation.parts.EntityrelationViewsRepository;
 import org.obeonetwork.dsl.entityrelation.providers.EntityrelationMessages;
@@ -279,9 +280,7 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createTypeAttributesHBox(FormToolkit widgetFactory, Composite parent) {
 		Composite container = widgetFactory.createComposite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -467,9 +466,7 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createRequiredAndIdentifierHBox(FormToolkit widgetFactory, Composite parent) {
 		Composite container = widgetFactory.createComposite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -629,6 +626,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -668,6 +673,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			type.modelUpdating(new StructuredSelection("")); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.type, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getTypeSettings().getOrCreateSignificantObject());
+		if (readOnly && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -702,6 +715,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			length.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.length, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getLengthSettings().getOrCreateSignificantObject());
+		if (readOnly && length.isEnabled()) {
+			length.setEnabled(false);
+			length.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !length.isEnabled()) {
+			length.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -726,6 +747,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			precision.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.precision, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getPrecisionSettings().getOrCreateSignificantObject());
+		if (readOnly && precision.isEnabled()) {
+			precision.setEnabled(false);
+			precision.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !precision.isEnabled()) {
+			precision.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -751,6 +780,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			literals.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.literals, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getLiteralsSettings().getOrCreateSignificantObject());
+		if (readOnly && literals.isEnabled()) {
+			literals.setEnabled(false);
+			literals.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !literals.isEnabled()) {
+			literals.setEnabled(true);
+		}	
+		
 	}
 
 	public void addToLiterals(Object newValue) {
@@ -793,6 +830,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			required.setSelection(false);
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.required);
+		if (readOnly && required.isEnabled()) {
+			required.setEnabled(false);
+			required.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !required.isEnabled()) {
+			required.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -817,6 +862,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			inPrimaryIdentifier.setSelection(false);
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.inPrimaryIdentifier);
+		if (readOnly && inPrimaryIdentifier.isEnabled()) {
+			inPrimaryIdentifier.setEnabled(false);
+			inPrimaryIdentifier.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !inPrimaryIdentifier.isEnabled()) {
+			inPrimaryIdentifier.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -841,6 +894,15 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.comments);
+		if (readOnly && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!readOnly && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
@@ -74,13 +75,14 @@ public class IndexPropertiesEditionComponent extends SinglePartPropertiesEditing
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Index index = (Index)elt;
 			final IndexPropertiesEditionPart indexPart = (IndexPropertiesEditionPart)editingPart;
 			// init values
-			if (index.getName() != null && isAccessible(DatabaseViewsRepository.Index.Properties.name))
+			if (isAccessible(DatabaseViewsRepository.Index.Properties.name))
 				indexPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, index.getName()));
 			
-			if (index.getQualifier() != null && isAccessible(DatabaseViewsRepository.Index.Properties.qualifier))
+			if (isAccessible(DatabaseViewsRepository.Index.Properties.qualifier))
 				indexPart.setQualifier(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, index.getQualifier()));
 			
 			if (isAccessible(DatabaseViewsRepository.Index.Properties.unique)) {
@@ -90,10 +92,10 @@ public class IndexPropertiesEditionComponent extends SinglePartPropertiesEditing
 				indexPart.setCardinality(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, index.getCardinality()));
 			}
 			
-			if (index.getIndexType() != null && isAccessible(DatabaseViewsRepository.Index.Properties.indexType))
+			if (isAccessible(DatabaseViewsRepository.Index.Properties.indexType))
 				indexPart.setIndexType(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, index.getIndexType()));
 			
-			if (index.getComments() != null && isAccessible(DatabaseViewsRepository.Index.Properties.comments))
+			if (isAccessible(DatabaseViewsRepository.Index.Properties.comments))
 				indexPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, index.getComments()));
 			if (isAccessible(DatabaseViewsRepository.Index.Properties.elements)) {
 				elementsSettings = new ReferencesTableSettings(index, DatabasePackage.eINSTANCE.getIndex_Elements());
@@ -224,40 +226,41 @@ public class IndexPropertiesEditionComponent extends SinglePartPropertiesEditing
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			IndexPropertiesEditionPart indexPart = (IndexPropertiesEditionPart)editingPart;
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.name)) {
+			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					indexPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					indexPart.setName("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getIndex_Qualifier().equals(msg.getFeature()) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.qualifier)) {
+			if (DatabasePackage.eINSTANCE.getIndex_Qualifier().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.qualifier)) {
 				if (msg.getNewValue() != null) {
 					indexPart.setQualifier(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					indexPart.setQualifier("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getIndex_Unique().equals(msg.getFeature()) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.unique))
+			if (DatabasePackage.eINSTANCE.getIndex_Unique().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.unique))
 				indexPart.setUnique((Boolean)msg.getNewValue());
 			
-			if (DatabasePackage.eINSTANCE.getIndex_Cardinality().equals(msg.getFeature()) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.cardinality)) {
+			if (DatabasePackage.eINSTANCE.getIndex_Cardinality().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.cardinality)) {
 				if (msg.getNewValue() != null) {
 					indexPart.setCardinality(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					indexPart.setCardinality("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getIndex_IndexType().equals(msg.getFeature()) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.indexType)) {
+			if (DatabasePackage.eINSTANCE.getIndex_IndexType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.indexType)) {
 				if (msg.getNewValue() != null) {
 					indexPart.setIndexType(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					indexPart.setIndexType("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.comments)){
+			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && indexPart != null && isAccessible(DatabaseViewsRepository.Index.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					indexPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -268,6 +271,24 @@ public class IndexPropertiesEditionComponent extends SinglePartPropertiesEditing
 				indexPart.updateElements();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getNamedElement_Name(),
+			DatabasePackage.eINSTANCE.getIndex_Qualifier(),
+			DatabasePackage.eINSTANCE.getIndex_Unique(),
+			DatabasePackage.eINSTANCE.getIndex_Cardinality(),
+			DatabasePackage.eINSTANCE.getIndex_IndexType(),
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments(),
+			DatabasePackage.eINSTANCE.getIndex_Elements()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -341,5 +362,8 @@ public class IndexPropertiesEditionComponent extends SinglePartPropertiesEditing
 		}
 		return ret;
 	}
+
+
+	
 
 }

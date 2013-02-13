@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
@@ -74,17 +75,18 @@ public class TableTablePropertiesEditionComponent extends SinglePartPropertiesEd
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Table table = (Table)elt;
 			final TablePropertiesEditionPart tablePart = (TablePropertiesEditionPart)editingPart;
 			// init values
-			if (table.getName() != null && isAccessible(DatabaseViewsRepository.Table.Properties.name))
+			if (isAccessible(DatabaseViewsRepository.Table.Properties.name))
 				tablePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, table.getName()));
 			
 			if (isAccessible(DatabaseViewsRepository.Table.Properties.columns)) {
 				columnsSettings = new ReferencesTableSettings(table, DatabasePackage.eINSTANCE.getAbstractTable_Columns());
 				tablePart.initColumns(columnsSettings);
 			}
-			if (table.getComments() != null && isAccessible(DatabaseViewsRepository.Table.Properties.comments))
+			if (isAccessible(DatabaseViewsRepository.Table.Properties.comments))
 				tablePart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, table.getComments()));
 			// init filters
 			
@@ -179,9 +181,10 @@ public class TableTablePropertiesEditionComponent extends SinglePartPropertiesEd
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			TablePropertiesEditionPart tablePart = (TablePropertiesEditionPart)editingPart;
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && tablePart != null && isAccessible(DatabaseViewsRepository.Table.Properties.name)) {
+			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && tablePart != null && isAccessible(DatabaseViewsRepository.Table.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					tablePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -190,7 +193,7 @@ public class TableTablePropertiesEditionComponent extends SinglePartPropertiesEd
 			}
 			if (DatabasePackage.eINSTANCE.getAbstractTable_Columns().equals(msg.getFeature()) && isAccessible(DatabaseViewsRepository.Table.Properties.columns))
 				tablePart.updateColumns();
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && tablePart != null && isAccessible(DatabaseViewsRepository.Table.Properties.comments)){
+			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && tablePart != null && isAccessible(DatabaseViewsRepository.Table.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					tablePart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -199,6 +202,20 @@ public class TableTablePropertiesEditionComponent extends SinglePartPropertiesEd
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getNamedElement_Name(),
+			DatabasePackage.eINSTANCE.getAbstractTable_Columns(),
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -244,5 +261,8 @@ public class TableTablePropertiesEditionComponent extends SinglePartPropertiesEd
 		}
 		return ret;
 	}
+
+
+	
 
 }

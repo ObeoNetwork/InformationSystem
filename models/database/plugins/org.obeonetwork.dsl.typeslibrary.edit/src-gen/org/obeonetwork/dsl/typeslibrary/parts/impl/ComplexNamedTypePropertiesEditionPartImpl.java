@@ -258,6 +258,14 @@ public class ComplexNamedTypePropertiesEditionPartImpl extends CompositeProperti
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.ComplexNamedType.Properties.name);
+		if (readOnly && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(TypeslibraryMessages.ComplexNamedType_ReadOnly);
+		} else if (!readOnly && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -273,6 +281,14 @@ public class ComplexNamedTypePropertiesEditionPartImpl extends CompositeProperti
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		types.setContentProvider(contentProvider);
 		types.setInput(settings);
+		boolean readOnly = isReadOnly(TypeslibraryViewsRepository.ComplexNamedType.Properties.types);
+		if (readOnly && types.isEnabled()) {
+			types.setEnabled(false);
+			types.setToolTipText(TypeslibraryMessages.ComplexNamedType_ReadOnly);
+		} else if (!readOnly && !types.isEnabled()) {
+			types.setEnabled(true);
+		}	
+		
 	}
 
 	/**

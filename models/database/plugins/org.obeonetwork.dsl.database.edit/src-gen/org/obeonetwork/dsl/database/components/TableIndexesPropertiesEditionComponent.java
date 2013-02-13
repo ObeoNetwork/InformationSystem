@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
@@ -70,6 +71,7 @@ public class TableIndexesPropertiesEditionComponent extends SinglePartProperties
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Table table = (Table)elt;
 			final IndexesPropertiesEditionPart indexesPart = (IndexesPropertiesEditionPart)editingPart;
 			// init values
@@ -154,12 +156,25 @@ public class TableIndexesPropertiesEditionComponent extends SinglePartProperties
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			IndexesPropertiesEditionPart indexesPart = (IndexesPropertiesEditionPart)editingPart;
 			if (DatabasePackage.eINSTANCE.getTable_Indexes().equals(msg.getFeature()) && isAccessible(DatabaseViewsRepository.Indexes.Properties.indexes_))
 				indexesPart.updateIndexes();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getTable_Indexes()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -191,5 +206,8 @@ public class TableIndexesPropertiesEditionComponent extends SinglePartProperties
 		}
 		return ret;
 	}
+
+
+	
 
 }
