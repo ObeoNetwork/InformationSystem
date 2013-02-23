@@ -83,18 +83,18 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SoaPackage.SYSTEM: return (EObject)createSystem();
-			case SoaPackage.COMPONENT: return (EObject)createComponent();
-			case SoaPackage.SERVICE: return (EObject)createService();
-			case SoaPackage.WIRE: return (EObject)createWire();
-			case SoaPackage.BINDING: return (EObject)createBinding();
-			case SoaPackage.INTERFACE: return (EObject)createInterface();
-			case SoaPackage.OPERATION: return (EObject)createOperation();
-			case SoaPackage.IMPLEMENTATION_COMPONENT: return (EObject)createImplementationComponent();
-			case SoaPackage.PARAMETER: return (EObject)createParameter();
-			case SoaPackage.DTO_REGISTRY: return (EObject)createDTORegistry();
-			case SoaPackage.CATEGORY: return (EObject)createCategory();
-			case SoaPackage.SERVICE_DTO: return (EObject)createServiceDTO();
+			case SoaPackage.SYSTEM: return createSystem();
+			case SoaPackage.COMPONENT: return createComponent();
+			case SoaPackage.SERVICE: return createService();
+			case SoaPackage.WIRE: return createWire();
+			case SoaPackage.BINDING: return createBinding();
+			case SoaPackage.INTERFACE: return createInterface();
+			case SoaPackage.OPERATION: return createOperation();
+			case SoaPackage.IMPLEMENTATION_COMPONENT: return createImplementationComponent();
+			case SoaPackage.PARAMETER: return createParameter();
+			case SoaPackage.DTO_REGISTRY: return createDTORegistry();
+			case SoaPackage.CATEGORY: return createCategory();
+			case SoaPackage.SERVICE_DTO: return createServiceDTO();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

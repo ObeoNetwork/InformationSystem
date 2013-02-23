@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPublic <em>Public</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getFault <em>Fault</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +48,26 @@ public class OperationImpl extends ActionImpl implements Operation {
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
+	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInput()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> input;
+
+	/**
+	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutput()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> output;
+
+	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,6 +77,16 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 */
 	protected static final OperationKind KIND_EDEFAULT = OperationKind.REQUEST_RESPONSE_LITERAL;
 	/**
+	 * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected OperationKind kind = KIND_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #isPublic() <em>Public</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,6 +95,26 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @ordered
 	 */
 	protected static final boolean PUBLIC_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPublic() <em>Public</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPublic()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean public_ = PUBLIC_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFault() <em>Fault</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFault()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Parameter> fault;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,7 +142,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Parameter> getInput() {
-		return (EList<Parameter>)eDynamicGet(SoaPackage.OPERATION__INPUT, SoaPackage.Literals.OPERATION__INPUT, true, true);
+		if (input == null) {
+			input = new EObjectContainmentEList.Resolving<Parameter>(Parameter.class, this, SoaPackage.OPERATION__INPUT);
+		}
+		return input;
 	}
 
 	/**
@@ -101,7 +155,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Parameter> getOutput() {
-		return (EList<Parameter>)eDynamicGet(SoaPackage.OPERATION__OUTPUT, SoaPackage.Literals.OPERATION__OUTPUT, true, true);
+		if (output == null) {
+			output = new EObjectContainmentEList.Resolving<Parameter>(Parameter.class, this, SoaPackage.OPERATION__OUTPUT);
+		}
+		return output;
 	}
 
 	/**
@@ -110,7 +167,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	public OperationKind getKind() {
-		return (OperationKind)eDynamicGet(SoaPackage.OPERATION__KIND, SoaPackage.Literals.OPERATION__KIND, true, true);
+		return kind;
 	}
 
 	/**
@@ -119,7 +176,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	public void setKind(OperationKind newKind) {
-		eDynamicSet(SoaPackage.OPERATION__KIND, SoaPackage.Literals.OPERATION__KIND, newKind);
+		OperationKind oldKind = kind;
+		kind = newKind == null ? KIND_EDEFAULT : newKind;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.OPERATION__KIND, oldKind, kind));
 	}
 
 	/**
@@ -128,7 +188,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	public boolean isPublic() {
-		return (Boolean)eDynamicGet(SoaPackage.OPERATION__PUBLIC, SoaPackage.Literals.OPERATION__PUBLIC, true, true);
+		return public_;
 	}
 
 	/**
@@ -137,7 +197,22 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	public void setPublic(boolean newPublic) {
-		eDynamicSet(SoaPackage.OPERATION__PUBLIC, SoaPackage.Literals.OPERATION__PUBLIC, newPublic);
+		boolean oldPublic = public_;
+		public_ = newPublic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.OPERATION__PUBLIC, oldPublic, public_));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Parameter> getFault() {
+		if (fault == null) {
+			fault = new EObjectContainmentEList.Resolving<Parameter>(Parameter.class, this, SoaPackage.OPERATION__FAULT);
+		}
+		return fault;
 	}
 
 	/**
@@ -152,6 +227,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
 			case SoaPackage.OPERATION__OUTPUT:
 				return ((InternalEList<?>)getOutput()).basicRemove(otherEnd, msgs);
+			case SoaPackage.OPERATION__FAULT:
+				return ((InternalEList<?>)getFault()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -172,6 +249,8 @@ public class OperationImpl extends ActionImpl implements Operation {
 				return getKind();
 			case SoaPackage.OPERATION__PUBLIC:
 				return isPublic();
+			case SoaPackage.OPERATION__FAULT:
+				return getFault();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -199,6 +278,10 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PUBLIC:
 				setPublic((Boolean)newValue);
 				return;
+			case SoaPackage.OPERATION__FAULT:
+				getFault().clear();
+				getFault().addAll((Collection<? extends Parameter>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -223,6 +306,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 			case SoaPackage.OPERATION__PUBLIC:
 				setPublic(PUBLIC_EDEFAULT);
 				return;
+			case SoaPackage.OPERATION__FAULT:
+				getFault().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -236,15 +322,35 @@ public class OperationImpl extends ActionImpl implements Operation {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.OPERATION__INPUT:
-				return !getInput().isEmpty();
+				return input != null && !input.isEmpty();
 			case SoaPackage.OPERATION__OUTPUT:
-				return !getOutput().isEmpty();
+				return output != null && !output.isEmpty();
 			case SoaPackage.OPERATION__KIND:
-				return getKind() != KIND_EDEFAULT;
+				return kind != KIND_EDEFAULT;
 			case SoaPackage.OPERATION__PUBLIC:
-				return isPublic() != PUBLIC_EDEFAULT;
+				return public_ != PUBLIC_EDEFAULT;
+			case SoaPackage.OPERATION__FAULT:
+				return fault != null && !fault.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (kind: ");
+		result.append(kind);
+		result.append(", public: ");
+		result.append(public_);
+		result.append(')');
+		return result.toString();
 	}
 
 } //OperationImpl

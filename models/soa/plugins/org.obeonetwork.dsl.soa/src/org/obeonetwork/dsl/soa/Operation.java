@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getOutput <em>Output</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getKind <em>Kind</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#isPublic <em>Public</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Operation#getFault <em>Fault</em>}</li>
  * </ul>
  * </p>
  *
@@ -123,5 +124,21 @@ public interface Operation extends Action {
 	 * @generated
 	 */
 	void setPublic(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation_Fault()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<Parameter> getFault();
 
 } // Operation

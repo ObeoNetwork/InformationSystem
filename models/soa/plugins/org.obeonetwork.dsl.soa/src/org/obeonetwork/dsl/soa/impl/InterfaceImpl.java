@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.Operation;
@@ -43,6 +44,16 @@ public class InterfaceImpl extends ObeoDSMObjectImpl implements Interface {
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
+	 * The cached value of the '{@link #getOwnedOperations() <em>Owned Operations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwnedOperations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Operation> ownedOperations;
+
+	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -51,6 +62,16 @@ public class InterfaceImpl extends ObeoDSMObjectImpl implements Interface {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,7 +99,10 @@ public class InterfaceImpl extends ObeoDSMObjectImpl implements Interface {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Operation> getOwnedOperations() {
-		return (EList<Operation>)eDynamicGet(SoaPackage.INTERFACE__OWNED_OPERATIONS, SoaPackage.Literals.INTERFACE__OWNED_OPERATIONS, true, true);
+		if (ownedOperations == null) {
+			ownedOperations = new EObjectContainmentEList.Resolving<Operation>(Operation.class, this, SoaPackage.INTERFACE__OWNED_OPERATIONS);
+		}
+		return ownedOperations;
 	}
 
 	/**
@@ -87,7 +111,7 @@ public class InterfaceImpl extends ObeoDSMObjectImpl implements Interface {
 	 * @generated
 	 */
 	public String getName() {
-		return (String)eDynamicGet(SoaPackage.INTERFACE__NAME, SoaPackage.Literals.INTERFACE__NAME, true, true);
+		return name;
 	}
 
 	/**
@@ -96,7 +120,10 @@ public class InterfaceImpl extends ObeoDSMObjectImpl implements Interface {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(SoaPackage.INTERFACE__NAME, SoaPackage.Literals.INTERFACE__NAME, newName);
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.INTERFACE__NAME, oldName, name));
 	}
 
 	/**
@@ -176,11 +203,27 @@ public class InterfaceImpl extends ObeoDSMObjectImpl implements Interface {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.INTERFACE__OWNED_OPERATIONS:
-				return !getOwnedOperations().isEmpty();
+				return ownedOperations != null && !ownedOperations.isEmpty();
 			case SoaPackage.INTERFACE__NAME:
-				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //InterfaceImpl
