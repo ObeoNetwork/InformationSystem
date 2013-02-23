@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:description_2="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" xmlns:validation="http://www.obeo.fr/dsl/viewpoint/description/validation/1.1.0" name="Obeo Designer For IS">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" xmlns:validation="http://www.obeo.fr/dsl/viewpoint/description/validation/1.1.0" name="Obeo Designer For IS">
   <eAnnotations source="Migration">
     <details key="SemanticCandidatesExpressionBehaviorChange" value=""/>
   </eAnnotations>
@@ -814,10 +814,16 @@
         </edgeMappings>
         <containerMappings name="SOAD_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="&lt;%ownedComponents%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
           <borderedNodeMappings name="SOAD_Service_Provided" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="&lt;%providedServices%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Service">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="2" workspacePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Service.gif"/>
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="2" workspacePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Service.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="SOAD_Service_Required" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="&lt;%requiredServices%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Service">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="2" workspacePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Reference.gif"/>
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="2" workspacePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Reference.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
           </borderedNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" labelFormat="bold" showIcon="false" roundedCorner="true" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
@@ -1077,6 +1083,13 @@
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
+            <subNodeMappings name="Cc_Fault_Param" labelDirectEdit="//@ownedViewpoints[name='IS%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="&lt;%fault%>" domainClass="soa.Parameter">
+              <style xsi:type="style:SquareDescription" labelExpression="&lt;%computeSoaLabel()%>" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
             <style xsi:type="style:FlatContainerStyleDescription" labelSize="10">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1179,6 +1192,18 @@
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Parameter" referenceName="output">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="output&lt;%eContainer.output.nSize%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="Fault" nodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']/@subNodeMappings[name='Cc_Fault_Param']" iconPath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Fault.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Parameter" referenceName="fault">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="fault&lt;%eContainer.fault.nSize%>"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -2506,8 +2531,11 @@
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="DBI_BindingInfo" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='CRE_BindingEditor']" semanticCandidatesExpression="&lt;%getRelatedBindingInfos()%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='DBL_OpenBindingEditor']" domainClass="environment.BindingInfo">
-          <style xsi:type="style:WorkspaceImageDescription" labelExpression="" sizeComputationExpression="-1" workspacePath="/org.obeonetwork.dsl.is.design/description/images/environment/BindingInfo.gif"/>
+        <nodeMappings name="DBI_BindingInfo" semanticCandidatesExpression="&lt;%getRelatedBindingInfos()%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='DBL_OpenBindingEditor']" domainClass="environment.BindingInfo">
+          <style xsi:type="style:WorkspaceImageDescription" labelExpression="" sizeComputationExpression="-1" workspacePath="/org.obeonetwork.dsl.is.design/description/images/environment/BindingInfo.gif">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <edgeMappings name="DBI_BoundElement" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='DEL_BoundElement_PreventDeletion']" sourceMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']" targetMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@containerMappings[name='DBI_ServiceDTO_CM'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@containerMappings[name='DBI_ExternalServiceDTO_CM'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@containerMappings[name='DBI_Entity_CM']" targetFinderExpression="&lt;%left + right%>" reconnections="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='REC_BoundElement']">
           <style sizeComputationExpression="1">
@@ -2630,10 +2658,6 @@
               </initialOperation>
               <edgeView name="edgeView"/>
             </ownedTools>
-            <ownedTools xsi:type="description_2:DBindingEditorCreationDescription" name="CRE_BindingEditor" label="Binding Details" description="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Binding%20Details']">
-              <containerViewVariable name="containerView"/>
-              <representationNameVariable name="name"/>
-            </ownedTools>
             <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_OpenBindingEditor" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']">
               <element name="element"/>
               <elementView name="elementView"/>
@@ -2660,7 +2684,6 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DBindingEditorDescription" name="Binding Details" titleExpression="&lt;%computeBindingEditorName()%>"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.is.design.soa.soa"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.is.design.service.SOAService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.is.design.service.EcoreService"/>
