@@ -53,26 +53,6 @@ public class CategoryImpl extends TypesDefinitionImpl implements Category {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getOwnedCategories() <em>Owned Categories</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedCategories()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Category> ownedCategories;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -97,7 +77,7 @@ public class CategoryImpl extends TypesDefinitionImpl implements Category {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+		return (String)eDynamicGet(SoaPackage.CATEGORY__NAME, SoaPackage.Literals.CATEGORY__NAME, true, true);
 	}
 
 	/**
@@ -106,10 +86,7 @@ public class CategoryImpl extends TypesDefinitionImpl implements Category {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.CATEGORY__NAME, oldName, name));
+		eDynamicSet(SoaPackage.CATEGORY__NAME, SoaPackage.Literals.CATEGORY__NAME, newName);
 	}
 
 	/**
@@ -119,10 +96,7 @@ public class CategoryImpl extends TypesDefinitionImpl implements Category {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Category> getOwnedCategories() {
-		if (ownedCategories == null) {
-			ownedCategories = new EObjectContainmentEList.Resolving<Category>(Category.class, this, SoaPackage.CATEGORY__OWNED_CATEGORIES);
-		}
-		return ownedCategories;
+		return (EList<Category>)eDynamicGet(SoaPackage.CATEGORY__OWNED_CATEGORIES, SoaPackage.Literals.CATEGORY__OWNED_CATEGORIES, true, true);
 	}
 
 	/**
@@ -202,27 +176,11 @@ public class CategoryImpl extends TypesDefinitionImpl implements Category {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.CATEGORY__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case SoaPackage.CATEGORY__OWNED_CATEGORIES:
-				return ownedCategories != null && !ownedCategories.isEmpty();
+				return !getOwnedCategories().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //CategoryImpl

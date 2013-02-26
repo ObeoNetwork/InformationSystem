@@ -43,16 +43,6 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type type;
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,16 +51,6 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getLower() <em>Lower</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,16 +61,6 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 */
 	protected static final int LOWER_EDEFAULT = 1;
 	/**
-	 * The cached value of the '{@link #getLower() <em>Lower</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLower()
-	 * @generated
-	 * @ordered
-	 */
-	protected int lower = LOWER_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getUpper() <em>Upper</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,16 +69,6 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final int UPPER_EDEFAULT = 1;
-	/**
-	 * The cached value of the '{@link #getUpper() <em>Upper</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUpper()
-	 * @generated
-	 * @ordered
-	 */
-	protected int upper = UPPER_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #isIsUnique() <em>Is Unique</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -119,16 +79,6 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 */
 	protected static final boolean IS_UNIQUE_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #isIsUnique() <em>Is Unique</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsUnique()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isUnique = IS_UNIQUE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isIsOrdered() <em>Is Ordered</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,16 +87,6 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final boolean IS_ORDERED_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isIsOrdered() <em>Is Ordered</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsOrdered()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isOrdered = IS_ORDERED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,15 +113,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public Type getType() {
-		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (Type)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SoaPackage.PARAMETER__TYPE, oldType, type));
-			}
-		}
-		return type;
+		return (Type)eDynamicGet(SoaPackage.PARAMETER__TYPE, SoaPackage.Literals.PARAMETER__TYPE, true, true);
 	}
 
 	/**
@@ -190,7 +122,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public Type basicGetType() {
-		return type;
+		return (Type)eDynamicGet(SoaPackage.PARAMETER__TYPE, SoaPackage.Literals.PARAMETER__TYPE, false, true);
 	}
 
 	/**
@@ -199,10 +131,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public void setType(Type newType) {
-		Type oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.PARAMETER__TYPE, oldType, type));
+		eDynamicSet(SoaPackage.PARAMETER__TYPE, SoaPackage.Literals.PARAMETER__TYPE, newType);
 	}
 
 	/**
@@ -211,7 +140,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+		return (String)eDynamicGet(SoaPackage.PARAMETER__NAME, SoaPackage.Literals.PARAMETER__NAME, true, true);
 	}
 
 	/**
@@ -220,10 +149,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.PARAMETER__NAME, oldName, name));
+		eDynamicSet(SoaPackage.PARAMETER__NAME, SoaPackage.Literals.PARAMETER__NAME, newName);
 	}
 
 	/**
@@ -232,7 +158,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public int getLower() {
-		return lower;
+		return (Integer)eDynamicGet(SoaPackage.PARAMETER__LOWER, SoaPackage.Literals.PARAMETER__LOWER, true, true);
 	}
 
 	/**
@@ -241,10 +167,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public void setLower(int newLower) {
-		int oldLower = lower;
-		lower = newLower;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.PARAMETER__LOWER, oldLower, lower));
+		eDynamicSet(SoaPackage.PARAMETER__LOWER, SoaPackage.Literals.PARAMETER__LOWER, newLower);
 	}
 
 	/**
@@ -253,7 +176,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public int getUpper() {
-		return upper;
+		return (Integer)eDynamicGet(SoaPackage.PARAMETER__UPPER, SoaPackage.Literals.PARAMETER__UPPER, true, true);
 	}
 
 	/**
@@ -262,10 +185,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public void setUpper(int newUpper) {
-		int oldUpper = upper;
-		upper = newUpper;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.PARAMETER__UPPER, oldUpper, upper));
+		eDynamicSet(SoaPackage.PARAMETER__UPPER, SoaPackage.Literals.PARAMETER__UPPER, newUpper);
 	}
 
 	/**
@@ -274,7 +194,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public boolean isIsUnique() {
-		return isUnique;
+		return (Boolean)eDynamicGet(SoaPackage.PARAMETER__IS_UNIQUE, SoaPackage.Literals.PARAMETER__IS_UNIQUE, true, true);
 	}
 
 	/**
@@ -283,10 +203,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public void setIsUnique(boolean newIsUnique) {
-		boolean oldIsUnique = isUnique;
-		isUnique = newIsUnique;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.PARAMETER__IS_UNIQUE, oldIsUnique, isUnique));
+		eDynamicSet(SoaPackage.PARAMETER__IS_UNIQUE, SoaPackage.Literals.PARAMETER__IS_UNIQUE, newIsUnique);
 	}
 
 	/**
@@ -295,7 +212,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public boolean isIsOrdered() {
-		return isOrdered;
+		return (Boolean)eDynamicGet(SoaPackage.PARAMETER__IS_ORDERED, SoaPackage.Literals.PARAMETER__IS_ORDERED, true, true);
 	}
 
 	/**
@@ -304,10 +221,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public void setIsOrdered(boolean newIsOrdered) {
-		boolean oldIsOrdered = isOrdered;
-		isOrdered = newIsOrdered;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.PARAMETER__IS_ORDERED, oldIsOrdered, isOrdered));
+		eDynamicSet(SoaPackage.PARAMETER__IS_ORDERED, SoaPackage.Literals.PARAMETER__IS_ORDERED, newIsOrdered);
 	}
 
 	/**
@@ -404,43 +318,19 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.PARAMETER__TYPE:
-				return type != null;
+				return basicGetType() != null;
 			case SoaPackage.PARAMETER__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case SoaPackage.PARAMETER__LOWER:
-				return lower != LOWER_EDEFAULT;
+				return getLower() != LOWER_EDEFAULT;
 			case SoaPackage.PARAMETER__UPPER:
-				return upper != UPPER_EDEFAULT;
+				return getUpper() != UPPER_EDEFAULT;
 			case SoaPackage.PARAMETER__IS_UNIQUE:
-				return isUnique != IS_UNIQUE_EDEFAULT;
+				return isIsUnique() != IS_UNIQUE_EDEFAULT;
 			case SoaPackage.PARAMETER__IS_ORDERED:
-				return isOrdered != IS_ORDERED_EDEFAULT;
+				return isIsOrdered() != IS_ORDERED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", lower: ");
-		result.append(lower);
-		result.append(", upper: ");
-		result.append(upper);
-		result.append(", isUnique: ");
-		result.append(isUnique);
-		result.append(", isOrdered: ");
-		result.append(isOrdered);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ParameterImpl

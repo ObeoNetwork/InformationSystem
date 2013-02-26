@@ -47,34 +47,6 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * The cached value of the '{@link #getOwnedComponents() <em>Owned Components</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedComponents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Component> ownedComponents;
-	/**
-	 * The cached value of the '{@link #getOwnedWires() <em>Owned Wires</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedWires()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Wire> ownedWires;
-	/**
-	 * The cached value of the '{@link #getOwnedDtoRegistry() <em>Owned Dto Registry</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedDtoRegistry()
-	 * @generated
-	 * @ordered
-	 */
-	protected DTORegistry ownedDtoRegistry;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -100,10 +72,7 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Component> getOwnedComponents() {
-		if (ownedComponents == null) {
-			ownedComponents = new EObjectContainmentEList.Resolving<Component>(Component.class, this, SoaPackage.SYSTEM__OWNED_COMPONENTS);
-		}
-		return ownedComponents;
+		return (EList<Component>)eDynamicGet(SoaPackage.SYSTEM__OWNED_COMPONENTS, SoaPackage.Literals.SYSTEM__OWNED_COMPONENTS, true, true);
 	}
 
 	/**
@@ -113,10 +82,7 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Wire> getOwnedWires() {
-		if (ownedWires == null) {
-			ownedWires = new EObjectContainmentEList.Resolving<Wire>(Wire.class, this, SoaPackage.SYSTEM__OWNED_WIRES);
-		}
-		return ownedWires;
+		return (EList<Wire>)eDynamicGet(SoaPackage.SYSTEM__OWNED_WIRES, SoaPackage.Literals.SYSTEM__OWNED_WIRES, true, true);
 	}
 
 	/**
@@ -125,21 +91,7 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	 * @generated
 	 */
 	public DTORegistry getOwnedDtoRegistry() {
-		if (ownedDtoRegistry != null && ownedDtoRegistry.eIsProxy()) {
-			InternalEObject oldOwnedDtoRegistry = (InternalEObject)ownedDtoRegistry;
-			ownedDtoRegistry = (DTORegistry)eResolveProxy(oldOwnedDtoRegistry);
-			if (ownedDtoRegistry != oldOwnedDtoRegistry) {
-				InternalEObject newOwnedDtoRegistry = (InternalEObject)ownedDtoRegistry;
-				NotificationChain msgs = oldOwnedDtoRegistry.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, null, null);
-				if (newOwnedDtoRegistry.eInternalContainer() == null) {
-					msgs = newOwnedDtoRegistry.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, oldOwnedDtoRegistry, ownedDtoRegistry));
-			}
-		}
-		return ownedDtoRegistry;
+		return (DTORegistry)eDynamicGet(SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, SoaPackage.Literals.SYSTEM__OWNED_DTO_REGISTRY, true, true);
 	}
 
 	/**
@@ -148,7 +100,7 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	 * @generated
 	 */
 	public DTORegistry basicGetOwnedDtoRegistry() {
-		return ownedDtoRegistry;
+		return (DTORegistry)eDynamicGet(SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, SoaPackage.Literals.SYSTEM__OWNED_DTO_REGISTRY, false, true);
 	}
 
 	/**
@@ -157,12 +109,7 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	 * @generated
 	 */
 	public NotificationChain basicSetOwnedDtoRegistry(DTORegistry newOwnedDtoRegistry, NotificationChain msgs) {
-		DTORegistry oldOwnedDtoRegistry = ownedDtoRegistry;
-		ownedDtoRegistry = newOwnedDtoRegistry;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, oldOwnedDtoRegistry, newOwnedDtoRegistry);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newOwnedDtoRegistry, SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, msgs);
 		return msgs;
 	}
 
@@ -172,17 +119,7 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	 * @generated
 	 */
 	public void setOwnedDtoRegistry(DTORegistry newOwnedDtoRegistry) {
-		if (newOwnedDtoRegistry != ownedDtoRegistry) {
-			NotificationChain msgs = null;
-			if (ownedDtoRegistry != null)
-				msgs = ((InternalEObject)ownedDtoRegistry).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, null, msgs);
-			if (newOwnedDtoRegistry != null)
-				msgs = ((InternalEObject)newOwnedDtoRegistry).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, null, msgs);
-			msgs = basicSetOwnedDtoRegistry(newOwnedDtoRegistry, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, newOwnedDtoRegistry, newOwnedDtoRegistry));
+		eDynamicSet(SoaPackage.SYSTEM__OWNED_DTO_REGISTRY, SoaPackage.Literals.SYSTEM__OWNED_DTO_REGISTRY, newOwnedDtoRegistry);
 	}
 
 	/**
@@ -276,11 +213,11 @@ public class SystemImpl extends NamespaceImpl implements org.obeonetwork.dsl.soa
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.SYSTEM__OWNED_COMPONENTS:
-				return ownedComponents != null && !ownedComponents.isEmpty();
+				return !getOwnedComponents().isEmpty();
 			case SoaPackage.SYSTEM__OWNED_WIRES:
-				return ownedWires != null && !ownedWires.isEmpty();
+				return !getOwnedWires().isEmpty();
 			case SoaPackage.SYSTEM__OWNED_DTO_REGISTRY:
-				return ownedDtoRegistry != null;
+				return basicGetOwnedDtoRegistry() != null;
 		}
 		return super.eIsSet(featureID);
 	}

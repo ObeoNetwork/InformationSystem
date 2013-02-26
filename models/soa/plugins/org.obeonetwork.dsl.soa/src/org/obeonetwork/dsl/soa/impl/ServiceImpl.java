@@ -51,16 +51,6 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * The cached value of the '{@link #getOwnedInterface() <em>Owned Interface</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedInterface()
-	 * @generated
-	 * @ordered
-	 */
-	protected Interface ownedInterface;
-
-	/**
 	 * The default value of the '{@link #getSynchronization() <em>Synchronization</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,16 +59,6 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @ordered
 	 */
 	protected static final SynchronizationKind SYNCHRONIZATION_EDEFAULT = SynchronizationKind.SYNCHONE_LITERAL;
-	/**
-	 * The cached value of the '{@link #getSynchronization() <em>Synchronization</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSynchronization()
-	 * @generated
-	 * @ordered
-	 */
-	protected SynchronizationKind synchronization = SYNCHRONIZATION_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,36 +69,6 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 */
 	protected static final InterfaceKind KIND_EDEFAULT = InterfaceKind.PROVIDED_LITERAL;
 	/**
-	 * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKind()
-	 * @generated
-	 * @ordered
-	 */
-	protected InterfaceKind kind = KIND_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getReferencedInterface() <em>Referenced Interface</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferencedInterface()
-	 * @generated
-	 * @ordered
-	 */
-	protected Interface referencedInterface;
-
-	/**
-	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBindings()
-	 * @generated
-	 * @ordered
-	 */
-	protected Binding bindings;
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,26 +77,6 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getUsedTypes() <em>Used Types</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUsedTypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Type> usedTypes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,21 +103,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public Interface getOwnedInterface() {
-		if (ownedInterface != null && ownedInterface.eIsProxy()) {
-			InternalEObject oldOwnedInterface = (InternalEObject)ownedInterface;
-			ownedInterface = (Interface)eResolveProxy(oldOwnedInterface);
-			if (ownedInterface != oldOwnedInterface) {
-				InternalEObject newOwnedInterface = (InternalEObject)ownedInterface;
-				NotificationChain msgs = oldOwnedInterface.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SoaPackage.SERVICE__OWNED_INTERFACE, null, null);
-				if (newOwnedInterface.eInternalContainer() == null) {
-					msgs = newOwnedInterface.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SoaPackage.SERVICE__OWNED_INTERFACE, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SoaPackage.SERVICE__OWNED_INTERFACE, oldOwnedInterface, ownedInterface));
-			}
-		}
-		return ownedInterface;
+		return (Interface)eDynamicGet(SoaPackage.SERVICE__OWNED_INTERFACE, SoaPackage.Literals.SERVICE__OWNED_INTERFACE, true, true);
 	}
 
 	/**
@@ -196,7 +112,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public Interface basicGetOwnedInterface() {
-		return ownedInterface;
+		return (Interface)eDynamicGet(SoaPackage.SERVICE__OWNED_INTERFACE, SoaPackage.Literals.SERVICE__OWNED_INTERFACE, false, true);
 	}
 
 	/**
@@ -205,12 +121,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public NotificationChain basicSetOwnedInterface(Interface newOwnedInterface, NotificationChain msgs) {
-		Interface oldOwnedInterface = ownedInterface;
-		ownedInterface = newOwnedInterface;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SoaPackage.SERVICE__OWNED_INTERFACE, oldOwnedInterface, newOwnedInterface);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eDynamicInverseAdd((InternalEObject)newOwnedInterface, SoaPackage.SERVICE__OWNED_INTERFACE, msgs);
 		return msgs;
 	}
 
@@ -220,17 +131,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public void setOwnedInterface(Interface newOwnedInterface) {
-		if (newOwnedInterface != ownedInterface) {
-			NotificationChain msgs = null;
-			if (ownedInterface != null)
-				msgs = ((InternalEObject)ownedInterface).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SoaPackage.SERVICE__OWNED_INTERFACE, null, msgs);
-			if (newOwnedInterface != null)
-				msgs = ((InternalEObject)newOwnedInterface).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SoaPackage.SERVICE__OWNED_INTERFACE, null, msgs);
-			msgs = basicSetOwnedInterface(newOwnedInterface, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.SERVICE__OWNED_INTERFACE, newOwnedInterface, newOwnedInterface));
+		eDynamicSet(SoaPackage.SERVICE__OWNED_INTERFACE, SoaPackage.Literals.SERVICE__OWNED_INTERFACE, newOwnedInterface);
 	}
 
 	/**
@@ -239,7 +140,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public SynchronizationKind getSynchronization() {
-		return synchronization;
+		return (SynchronizationKind)eDynamicGet(SoaPackage.SERVICE__SYNCHRONIZATION, SoaPackage.Literals.SERVICE__SYNCHRONIZATION, true, true);
 	}
 
 	/**
@@ -248,10 +149,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public void setSynchronization(SynchronizationKind newSynchronization) {
-		SynchronizationKind oldSynchronization = synchronization;
-		synchronization = newSynchronization == null ? SYNCHRONIZATION_EDEFAULT : newSynchronization;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.SERVICE__SYNCHRONIZATION, oldSynchronization, synchronization));
+		eDynamicSet(SoaPackage.SERVICE__SYNCHRONIZATION, SoaPackage.Literals.SERVICE__SYNCHRONIZATION, newSynchronization);
 	}
 
 	/**
@@ -260,7 +158,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public InterfaceKind getKind() {
-		return kind;
+		return (InterfaceKind)eDynamicGet(SoaPackage.SERVICE__KIND, SoaPackage.Literals.SERVICE__KIND, true, true);
 	}
 
 	/**
@@ -269,10 +167,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public void setKind(InterfaceKind newKind) {
-		InterfaceKind oldKind = kind;
-		kind = newKind == null ? KIND_EDEFAULT : newKind;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.SERVICE__KIND, oldKind, kind));
+		eDynamicSet(SoaPackage.SERVICE__KIND, SoaPackage.Literals.SERVICE__KIND, newKind);
 	}
 
 	/**
@@ -281,15 +176,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public Interface getReferencedInterface() {
-		if (referencedInterface != null && referencedInterface.eIsProxy()) {
-			InternalEObject oldReferencedInterface = (InternalEObject)referencedInterface;
-			referencedInterface = (Interface)eResolveProxy(oldReferencedInterface);
-			if (referencedInterface != oldReferencedInterface) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SoaPackage.SERVICE__REFERENCED_INTERFACE, oldReferencedInterface, referencedInterface));
-			}
-		}
-		return referencedInterface;
+		return (Interface)eDynamicGet(SoaPackage.SERVICE__REFERENCED_INTERFACE, SoaPackage.Literals.SERVICE__REFERENCED_INTERFACE, true, true);
 	}
 
 	/**
@@ -298,7 +185,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public Interface basicGetReferencedInterface() {
-		return referencedInterface;
+		return (Interface)eDynamicGet(SoaPackage.SERVICE__REFERENCED_INTERFACE, SoaPackage.Literals.SERVICE__REFERENCED_INTERFACE, false, true);
 	}
 
 	/**
@@ -307,10 +194,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public void setReferencedInterface(Interface newReferencedInterface) {
-		Interface oldReferencedInterface = referencedInterface;
-		referencedInterface = newReferencedInterface;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.SERVICE__REFERENCED_INTERFACE, oldReferencedInterface, referencedInterface));
+		eDynamicSet(SoaPackage.SERVICE__REFERENCED_INTERFACE, SoaPackage.Literals.SERVICE__REFERENCED_INTERFACE, newReferencedInterface);
 	}
 
 	/**
@@ -319,15 +203,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public Binding getBindings() {
-		if (bindings != null && bindings.eIsProxy()) {
-			InternalEObject oldBindings = (InternalEObject)bindings;
-			bindings = (Binding)eResolveProxy(oldBindings);
-			if (bindings != oldBindings) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SoaPackage.SERVICE__BINDINGS, oldBindings, bindings));
-			}
-		}
-		return bindings;
+		return (Binding)eDynamicGet(SoaPackage.SERVICE__BINDINGS, SoaPackage.Literals.SERVICE__BINDINGS, true, true);
 	}
 
 	/**
@@ -336,7 +212,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public Binding basicGetBindings() {
-		return bindings;
+		return (Binding)eDynamicGet(SoaPackage.SERVICE__BINDINGS, SoaPackage.Literals.SERVICE__BINDINGS, false, true);
 	}
 
 	/**
@@ -345,10 +221,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public void setBindings(Binding newBindings) {
-		Binding oldBindings = bindings;
-		bindings = newBindings;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.SERVICE__BINDINGS, oldBindings, bindings));
+		eDynamicSet(SoaPackage.SERVICE__BINDINGS, SoaPackage.Literals.SERVICE__BINDINGS, newBindings);
 	}
 
 	/**
@@ -357,7 +230,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+		return (String)eDynamicGet(SoaPackage.SERVICE__NAME, SoaPackage.Literals.SERVICE__NAME, true, true);
 	}
 
 	/**
@@ -366,10 +239,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.SERVICE__NAME, oldName, name));
+		eDynamicSet(SoaPackage.SERVICE__NAME, SoaPackage.Literals.SERVICE__NAME, newName);
 	}
 
 	/**
@@ -379,10 +249,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Type> getUsedTypes() {
-		if (usedTypes == null) {
-			usedTypes = new EObjectResolvingEList<Type>(Type.class, this, SoaPackage.SERVICE__USED_TYPES);
-		}
-		return usedTypes;
+		return (EList<Type>)eDynamicGet(SoaPackage.SERVICE__USED_TYPES, SoaPackage.Literals.SERVICE__USED_TYPES, true, true);
 	}
 
 	/**
@@ -505,41 +372,21 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.SERVICE__OWNED_INTERFACE:
-				return ownedInterface != null;
+				return basicGetOwnedInterface() != null;
 			case SoaPackage.SERVICE__SYNCHRONIZATION:
-				return synchronization != SYNCHRONIZATION_EDEFAULT;
+				return getSynchronization() != SYNCHRONIZATION_EDEFAULT;
 			case SoaPackage.SERVICE__KIND:
-				return kind != KIND_EDEFAULT;
+				return getKind() != KIND_EDEFAULT;
 			case SoaPackage.SERVICE__REFERENCED_INTERFACE:
-				return referencedInterface != null;
+				return basicGetReferencedInterface() != null;
 			case SoaPackage.SERVICE__BINDINGS:
-				return bindings != null;
+				return basicGetBindings() != null;
 			case SoaPackage.SERVICE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case SoaPackage.SERVICE__USED_TYPES:
-				return usedTypes != null && !usedTypes.isEmpty();
+				return !getUsedTypes().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (synchronization: ");
-		result.append(synchronization);
-		result.append(", kind: ");
-		result.append(kind);
-		result.append(", name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ServiceImpl

@@ -39,25 +39,6 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSource()
-	 * @generated
-	 * @ordered
-	 */
-	protected Service source;
-	/**
-	 * The cached value of the '{@link #getDest() <em>Dest</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDest()
-	 * @generated
-	 * @ordered
-	 */
-	protected Service dest;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -82,15 +63,7 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	 * @generated
 	 */
 	public Service getSource() {
-		if (source != null && source.eIsProxy()) {
-			InternalEObject oldSource = (InternalEObject)source;
-			source = (Service)eResolveProxy(oldSource);
-			if (source != oldSource) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SoaPackage.WIRE__SOURCE, oldSource, source));
-			}
-		}
-		return source;
+		return (Service)eDynamicGet(SoaPackage.WIRE__SOURCE, SoaPackage.Literals.WIRE__SOURCE, true, true);
 	}
 
 	/**
@@ -99,7 +72,7 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	 * @generated
 	 */
 	public Service basicGetSource() {
-		return source;
+		return (Service)eDynamicGet(SoaPackage.WIRE__SOURCE, SoaPackage.Literals.WIRE__SOURCE, false, true);
 	}
 
 	/**
@@ -108,10 +81,7 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	 * @generated
 	 */
 	public void setSource(Service newSource) {
-		Service oldSource = source;
-		source = newSource;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.WIRE__SOURCE, oldSource, source));
+		eDynamicSet(SoaPackage.WIRE__SOURCE, SoaPackage.Literals.WIRE__SOURCE, newSource);
 	}
 
 	/**
@@ -120,15 +90,7 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	 * @generated
 	 */
 	public Service getDest() {
-		if (dest != null && dest.eIsProxy()) {
-			InternalEObject oldDest = (InternalEObject)dest;
-			dest = (Service)eResolveProxy(oldDest);
-			if (dest != oldDest) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SoaPackage.WIRE__DEST, oldDest, dest));
-			}
-		}
-		return dest;
+		return (Service)eDynamicGet(SoaPackage.WIRE__DEST, SoaPackage.Literals.WIRE__DEST, true, true);
 	}
 
 	/**
@@ -137,7 +99,7 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	 * @generated
 	 */
 	public Service basicGetDest() {
-		return dest;
+		return (Service)eDynamicGet(SoaPackage.WIRE__DEST, SoaPackage.Literals.WIRE__DEST, false, true);
 	}
 
 	/**
@@ -146,10 +108,7 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	 * @generated
 	 */
 	public void setDest(Service newDest) {
-		Service oldDest = dest;
-		dest = newDest;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.WIRE__DEST, oldDest, dest));
+		eDynamicSet(SoaPackage.WIRE__DEST, SoaPackage.Literals.WIRE__DEST, newDest);
 	}
 
 	/**
@@ -215,9 +174,9 @@ public class WireImpl extends ObeoDSMObjectImpl implements Wire {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.WIRE__SOURCE:
-				return source != null;
+				return basicGetSource() != null;
 			case SoaPackage.WIRE__DEST:
-				return dest != null;
+				return basicGetDest() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -55,26 +55,6 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * The cached value of the '{@link #getOwnedServices() <em>Owned Services</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedServices()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Service> ownedServices;
-
-	/**
-	 * The cached value of the '{@link #getImplementations() <em>Implementations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImplementations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ImplementationComponent> implementations;
-
-	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,36 +63,6 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getOwnedBinding() <em>Owned Binding</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedBinding()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Binding> ownedBinding;
-
-	/**
-	 * The cached value of the '{@link #getBlock() <em>Block</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBlock()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TypesDefinition> block;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,10 +90,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Service> getOwnedServices() {
-		if (ownedServices == null) {
-			ownedServices = new EObjectContainmentEList.Resolving<Service>(Service.class, this, SoaPackage.COMPONENT__OWNED_SERVICES);
-		}
-		return ownedServices;
+		return (EList<Service>)eDynamicGet(SoaPackage.COMPONENT__OWNED_SERVICES, SoaPackage.Literals.COMPONENT__OWNED_SERVICES, true, true);
 	}
 
 	/**
@@ -183,10 +130,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<ImplementationComponent> getImplementations() {
-		if (implementations == null) {
-			implementations = new EObjectContainmentEList.Resolving<ImplementationComponent>(ImplementationComponent.class, this, SoaPackage.COMPONENT__IMPLEMENTATIONS);
-		}
-		return implementations;
+		return (EList<ImplementationComponent>)eDynamicGet(SoaPackage.COMPONENT__IMPLEMENTATIONS, SoaPackage.Literals.COMPONENT__IMPLEMENTATIONS, true, true);
 	}
 
 	/**
@@ -195,7 +139,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+		return (String)eDynamicGet(SoaPackage.COMPONENT__NAME, SoaPackage.Literals.COMPONENT__NAME, true, true);
 	}
 
 	/**
@@ -204,10 +148,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.COMPONENT__NAME, oldName, name));
+		eDynamicSet(SoaPackage.COMPONENT__NAME, SoaPackage.Literals.COMPONENT__NAME, newName);
 	}
 
 	/**
@@ -217,10 +158,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Binding> getOwnedBinding() {
-		if (ownedBinding == null) {
-			ownedBinding = new EObjectContainmentEList.Resolving<Binding>(Binding.class, this, SoaPackage.COMPONENT__OWNED_BINDING);
-		}
-		return ownedBinding;
+		return (EList<Binding>)eDynamicGet(SoaPackage.COMPONENT__OWNED_BINDING, SoaPackage.Literals.COMPONENT__OWNED_BINDING, true, true);
 	}
 
 	/**
@@ -230,10 +168,7 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<TypesDefinition> getBlock() {
-		if (block == null) {
-			block = new EObjectResolvingEList<TypesDefinition>(TypesDefinition.class, this, SoaPackage.COMPONENT__BLOCK);
-		}
-		return block;
+		return (EList<TypesDefinition>)eDynamicGet(SoaPackage.COMPONENT__BLOCK, SoaPackage.Literals.COMPONENT__BLOCK, true, true);
 	}
 
 	/**
@@ -348,37 +283,21 @@ public class ComponentImpl extends ObeoDSMObjectImpl implements Component {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.COMPONENT__OWNED_SERVICES:
-				return ownedServices != null && !ownedServices.isEmpty();
+				return !getOwnedServices().isEmpty();
 			case SoaPackage.COMPONENT__REQUIRED_SERVICES:
 				return !getRequiredServices().isEmpty();
 			case SoaPackage.COMPONENT__PROVIDED_SERVICES:
 				return !getProvidedServices().isEmpty();
 			case SoaPackage.COMPONENT__IMPLEMENTATIONS:
-				return implementations != null && !implementations.isEmpty();
+				return !getImplementations().isEmpty();
 			case SoaPackage.COMPONENT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case SoaPackage.COMPONENT__OWNED_BINDING:
-				return ownedBinding != null && !ownedBinding.isEmpty();
+				return !getOwnedBinding().isEmpty();
 			case SoaPackage.COMPONENT__BLOCK:
-				return block != null && !block.isEmpty();
+				return !getBlock().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ComponentImpl

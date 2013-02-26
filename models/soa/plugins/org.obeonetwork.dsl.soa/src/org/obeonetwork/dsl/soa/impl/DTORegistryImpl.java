@@ -40,15 +40,6 @@ public class DTORegistryImpl extends ObeoDSMObjectImpl implements DTORegistry {
 	 */
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 	/**
-	 * The cached value of the '{@link #getOwnedCategories() <em>Owned Categories</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedCategories()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Category> ownedCategories;
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -74,10 +65,7 @@ public class DTORegistryImpl extends ObeoDSMObjectImpl implements DTORegistry {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Category> getOwnedCategories() {
-		if (ownedCategories == null) {
-			ownedCategories = new EObjectContainmentEList.Resolving<Category>(Category.class, this, SoaPackage.DTO_REGISTRY__OWNED_CATEGORIES);
-		}
-		return ownedCategories;
+		return (EList<Category>)eDynamicGet(SoaPackage.DTO_REGISTRY__OWNED_CATEGORIES, SoaPackage.Literals.DTO_REGISTRY__OWNED_CATEGORIES, true, true);
 	}
 
 	/**
@@ -149,7 +137,7 @@ public class DTORegistryImpl extends ObeoDSMObjectImpl implements DTORegistry {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.DTO_REGISTRY__OWNED_CATEGORIES:
-				return ownedCategories != null && !ownedCategories.isEmpty();
+				return !getOwnedCategories().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

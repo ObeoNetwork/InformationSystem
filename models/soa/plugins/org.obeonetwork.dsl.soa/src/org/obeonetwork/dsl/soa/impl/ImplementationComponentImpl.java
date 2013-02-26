@@ -40,25 +40,6 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * The cached value of the '{@link #getImplement() <em>Implement</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getImplement()
-	 * @generated
-	 * @ordered
-	 */
-	protected Interface implement;
-	/**
-	 * The cached value of the '{@link #getEntities() <em>Entities</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEntities()
-	 * @generated
-	 * @ordered
-	 */
-	protected TypesDefinition entities;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -83,15 +64,7 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	 * @generated
 	 */
 	public Interface getImplement() {
-		if (implement != null && implement.eIsProxy()) {
-			InternalEObject oldImplement = (InternalEObject)implement;
-			implement = (Interface)eResolveProxy(oldImplement);
-			if (implement != oldImplement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SoaPackage.IMPLEMENTATION_COMPONENT__IMPLEMENT, oldImplement, implement));
-			}
-		}
-		return implement;
+		return (Interface)eDynamicGet(SoaPackage.IMPLEMENTATION_COMPONENT__IMPLEMENT, SoaPackage.Literals.IMPLEMENTATION_COMPONENT__IMPLEMENT, true, true);
 	}
 
 	/**
@@ -100,7 +73,7 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	 * @generated
 	 */
 	public Interface basicGetImplement() {
-		return implement;
+		return (Interface)eDynamicGet(SoaPackage.IMPLEMENTATION_COMPONENT__IMPLEMENT, SoaPackage.Literals.IMPLEMENTATION_COMPONENT__IMPLEMENT, false, true);
 	}
 
 	/**
@@ -109,10 +82,7 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	 * @generated
 	 */
 	public void setImplement(Interface newImplement) {
-		Interface oldImplement = implement;
-		implement = newImplement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.IMPLEMENTATION_COMPONENT__IMPLEMENT, oldImplement, implement));
+		eDynamicSet(SoaPackage.IMPLEMENTATION_COMPONENT__IMPLEMENT, SoaPackage.Literals.IMPLEMENTATION_COMPONENT__IMPLEMENT, newImplement);
 	}
 
 	/**
@@ -121,15 +91,7 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	 * @generated
 	 */
 	public TypesDefinition getEntities() {
-		if (entities != null && entities.eIsProxy()) {
-			InternalEObject oldEntities = (InternalEObject)entities;
-			entities = (TypesDefinition)eResolveProxy(oldEntities);
-			if (entities != oldEntities) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SoaPackage.IMPLEMENTATION_COMPONENT__ENTITIES, oldEntities, entities));
-			}
-		}
-		return entities;
+		return (TypesDefinition)eDynamicGet(SoaPackage.IMPLEMENTATION_COMPONENT__ENTITIES, SoaPackage.Literals.IMPLEMENTATION_COMPONENT__ENTITIES, true, true);
 	}
 
 	/**
@@ -138,7 +100,7 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	 * @generated
 	 */
 	public TypesDefinition basicGetEntities() {
-		return entities;
+		return (TypesDefinition)eDynamicGet(SoaPackage.IMPLEMENTATION_COMPONENT__ENTITIES, SoaPackage.Literals.IMPLEMENTATION_COMPONENT__ENTITIES, false, true);
 	}
 
 	/**
@@ -147,10 +109,7 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	 * @generated
 	 */
 	public void setEntities(TypesDefinition newEntities) {
-		TypesDefinition oldEntities = entities;
-		entities = newEntities;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.IMPLEMENTATION_COMPONENT__ENTITIES, oldEntities, entities));
+		eDynamicSet(SoaPackage.IMPLEMENTATION_COMPONENT__ENTITIES, SoaPackage.Literals.IMPLEMENTATION_COMPONENT__ENTITIES, newEntities);
 	}
 
 	/**
@@ -216,9 +175,9 @@ public class ImplementationComponentImpl extends ObeoDSMObjectImpl implements Im
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.IMPLEMENTATION_COMPONENT__IMPLEMENT:
-				return implement != null;
+				return basicGetImplement() != null;
 			case SoaPackage.IMPLEMENTATION_COMPONENT__ENTITIES:
-				return entities != null;
+				return basicGetEntities() != null;
 		}
 		return super.eIsSet(featureID);
 	}

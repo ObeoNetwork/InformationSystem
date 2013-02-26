@@ -48,26 +48,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInput()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Parameter> input;
-
-	/**
-	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOutput()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Parameter> output;
-
-	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,16 +57,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 */
 	protected static final OperationKind KIND_EDEFAULT = OperationKind.REQUEST_RESPONSE_LITERAL;
 	/**
-	 * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKind()
-	 * @generated
-	 * @ordered
-	 */
-	protected OperationKind kind = KIND_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isPublic() <em>Public</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,26 +65,6 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @ordered
 	 */
 	protected static final boolean PUBLIC_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isPublic() <em>Public</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isPublic()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean public_ = PUBLIC_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getFault() <em>Fault</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFault()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Parameter> fault;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,10 +92,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Parameter> getInput() {
-		if (input == null) {
-			input = new EObjectContainmentEList.Resolving<Parameter>(Parameter.class, this, SoaPackage.OPERATION__INPUT);
-		}
-		return input;
+		return (EList<Parameter>)eDynamicGet(SoaPackage.OPERATION__INPUT, SoaPackage.Literals.OPERATION__INPUT, true, true);
 	}
 
 	/**
@@ -155,10 +102,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Parameter> getOutput() {
-		if (output == null) {
-			output = new EObjectContainmentEList.Resolving<Parameter>(Parameter.class, this, SoaPackage.OPERATION__OUTPUT);
-		}
-		return output;
+		return (EList<Parameter>)eDynamicGet(SoaPackage.OPERATION__OUTPUT, SoaPackage.Literals.OPERATION__OUTPUT, true, true);
 	}
 
 	/**
@@ -167,7 +111,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	public OperationKind getKind() {
-		return kind;
+		return (OperationKind)eDynamicGet(SoaPackage.OPERATION__KIND, SoaPackage.Literals.OPERATION__KIND, true, true);
 	}
 
 	/**
@@ -176,10 +120,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	public void setKind(OperationKind newKind) {
-		OperationKind oldKind = kind;
-		kind = newKind == null ? KIND_EDEFAULT : newKind;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.OPERATION__KIND, oldKind, kind));
+		eDynamicSet(SoaPackage.OPERATION__KIND, SoaPackage.Literals.OPERATION__KIND, newKind);
 	}
 
 	/**
@@ -188,7 +129,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	public boolean isPublic() {
-		return public_;
+		return (Boolean)eDynamicGet(SoaPackage.OPERATION__PUBLIC, SoaPackage.Literals.OPERATION__PUBLIC, true, true);
 	}
 
 	/**
@@ -197,10 +138,7 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * @generated
 	 */
 	public void setPublic(boolean newPublic) {
-		boolean oldPublic = public_;
-		public_ = newPublic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.OPERATION__PUBLIC, oldPublic, public_));
+		eDynamicSet(SoaPackage.OPERATION__PUBLIC, SoaPackage.Literals.OPERATION__PUBLIC, newPublic);
 	}
 
 	/**
@@ -208,11 +146,9 @@ public class OperationImpl extends ActionImpl implements Operation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public EList<Parameter> getFault() {
-		if (fault == null) {
-			fault = new EObjectContainmentEList.Resolving<Parameter>(Parameter.class, this, SoaPackage.OPERATION__FAULT);
-		}
-		return fault;
+		return (EList<Parameter>)eDynamicGet(SoaPackage.OPERATION__FAULT, SoaPackage.Literals.OPERATION__FAULT, true, true);
 	}
 
 	/**
@@ -322,35 +258,17 @@ public class OperationImpl extends ActionImpl implements Operation {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.OPERATION__INPUT:
-				return input != null && !input.isEmpty();
+				return !getInput().isEmpty();
 			case SoaPackage.OPERATION__OUTPUT:
-				return output != null && !output.isEmpty();
+				return !getOutput().isEmpty();
 			case SoaPackage.OPERATION__KIND:
-				return kind != KIND_EDEFAULT;
+				return getKind() != KIND_EDEFAULT;
 			case SoaPackage.OPERATION__PUBLIC:
-				return public_ != PUBLIC_EDEFAULT;
+				return isPublic() != PUBLIC_EDEFAULT;
 			case SoaPackage.OPERATION__FAULT:
-				return fault != null && !fault.isEmpty();
+				return !getFault().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (kind: ");
-		result.append(kind);
-		result.append(", public: ");
-		result.append(public_);
-		result.append(')');
-		return result.toString();
 	}
 
 } //OperationImpl

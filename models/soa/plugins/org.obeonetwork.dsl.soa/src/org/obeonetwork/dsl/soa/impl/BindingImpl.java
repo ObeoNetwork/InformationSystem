@@ -46,16 +46,6 @@ public class BindingImpl extends ObeoDSMObjectImpl implements Binding {
 	protected static final BindingKind TECHNOLOGY_EDEFAULT = BindingKind.WEBSERVICE_LITERAL;
 
 	/**
-	 * The cached value of the '{@link #getTechnology() <em>Technology</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTechnology()
-	 * @generated
-	 * @ordered
-	 */
-	protected BindingKind technology = TECHNOLOGY_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -80,7 +70,7 @@ public class BindingImpl extends ObeoDSMObjectImpl implements Binding {
 	 * @generated
 	 */
 	public BindingKind getTechnology() {
-		return technology;
+		return (BindingKind)eDynamicGet(SoaPackage.BINDING__TECHNOLOGY, SoaPackage.Literals.BINDING__TECHNOLOGY, true, true);
 	}
 
 	/**
@@ -89,10 +79,7 @@ public class BindingImpl extends ObeoDSMObjectImpl implements Binding {
 	 * @generated
 	 */
 	public void setTechnology(BindingKind newTechnology) {
-		BindingKind oldTechnology = technology;
-		technology = newTechnology == null ? TECHNOLOGY_EDEFAULT : newTechnology;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SoaPackage.BINDING__TECHNOLOGY, oldTechnology, technology));
+		eDynamicSet(SoaPackage.BINDING__TECHNOLOGY, SoaPackage.Literals.BINDING__TECHNOLOGY, newTechnology);
 	}
 
 	/**
@@ -148,25 +135,9 @@ public class BindingImpl extends ObeoDSMObjectImpl implements Binding {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SoaPackage.BINDING__TECHNOLOGY:
-				return technology != TECHNOLOGY_EDEFAULT;
+				return getTechnology() != TECHNOLOGY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (technology: ");
-		result.append(technology);
-		result.append(')');
-		return result.toString();
 	}
 
 } //BindingImpl
