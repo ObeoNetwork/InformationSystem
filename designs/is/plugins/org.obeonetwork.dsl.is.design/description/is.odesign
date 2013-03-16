@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" xmlns:validation="http://www.obeo.fr/dsl/viewpoint/description/validation/1.1.0" name="Obeo Designer For IS">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:description_2="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" xmlns:validation="http://www.obeo.fr/dsl/viewpoint/description/validation/1.1.0" name="Obeo Designer For IS">
   <eAnnotations source="Migration">
     <details key="SemanticCandidatesExpressionBehaviorChange" value=""/>
   </eAnnotations>
@@ -2658,6 +2658,10 @@
               </initialOperation>
               <edgeView name="edgeView"/>
             </ownedTools>
+            <ownedTools xsi:type="description_2:DBindingEditorCreationDescription" name="CRE_BindingEditor" label="Binding Details" description="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Binding%20Details']">
+              <containerViewVariable name="containerView"/>
+              <representationNameVariable name="name"/>
+            </ownedTools>
             <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_OpenBindingEditor" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']">
               <element name="element"/>
               <elementView name="elementView"/>
@@ -2684,6 +2688,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:DBindingEditorDescription" name="Binding Details" titleExpression="&lt;%computeBindingEditorName()%>"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.is.design.soa.soa"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.is.design.service.SOAService"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.is.design.service.EcoreService"/>
