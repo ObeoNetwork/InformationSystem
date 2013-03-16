@@ -134,6 +134,7 @@ public class OperationItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__INPUT);
 			childrenFeatures.add(SoaPackage.Literals.OPERATION__OUTPUT);
+			childrenFeatures.add(SoaPackage.Literals.OPERATION__FAULT);
 		}
 		return childrenFeatures;
 	}
@@ -204,6 +205,7 @@ public class OperationItemProvider
 				return;
 			case SoaPackage.OPERATION__INPUT:
 			case SoaPackage.OPERATION__OUTPUT:
+			case SoaPackage.OPERATION__FAULT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -230,6 +232,11 @@ public class OperationItemProvider
 			(createChildParameter
 				(SoaPackage.Literals.OPERATION__OUTPUT,
 				 SoaFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SoaPackage.Literals.OPERATION__FAULT,
+				 SoaFactory.eINSTANCE.createParameter()));
 	}
 
 	/**
@@ -245,7 +252,8 @@ public class OperationItemProvider
 
 		boolean qualify =
 			childFeature == SoaPackage.Literals.OPERATION__INPUT ||
-			childFeature == SoaPackage.Literals.OPERATION__OUTPUT;
+			childFeature == SoaPackage.Literals.OPERATION__OUTPUT ||
+			childFeature == SoaPackage.Literals.OPERATION__FAULT;
 
 		if (qualify) {
 			return getString

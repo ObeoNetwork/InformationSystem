@@ -227,8 +227,10 @@ public class ParameterItemProvider
 				Operation operation = (Operation)container;
 				if(operation.getInput().contains(parameter)){
 					return overlayImage(object, getResourceLocator().getImage("full/obj16/Input"));
-				}else{
+				}else if (operation.getOutput().contains(parameter)){
 					return overlayImage(object, getResourceLocator().getImage("full/obj16/Output"));
+				}else{
+					return overlayImage(object, getResourceLocator().getImage("full/obj16/Fault"));
 				}
 			}
 		

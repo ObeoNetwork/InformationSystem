@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.Binding;
