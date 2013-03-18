@@ -37,6 +37,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorCreationDescription;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionFactory;
+import org.obeonetwork.dsl.environment.bindingdialect.description.provider.DescriptionItemProviderAdapterFactory;
 import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectItemProviderAdapterFactory;
 
 import fr.obeo.dsl.viewpoint.DRepresentation;
@@ -113,6 +114,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 	public AdapterFactory createAdapterFactory() {
         final ComposedAdapterFactory factory = new ComposedAdapterFactory();
         factory.addAdapterFactory(new BindingdialectItemProviderAdapterFactory());
+        factory.addAdapterFactory(new DescriptionItemProviderAdapterFactory());
         factory.addAdapterFactory(new TreeItemProviderAdapterFactory());
         return factory;
 	}
