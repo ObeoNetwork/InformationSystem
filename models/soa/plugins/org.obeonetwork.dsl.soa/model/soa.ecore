@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="soa"
-    nsURI="http://www.obeonetwork.org/dsl/soa/2.0.0" nsPrefix="org.obeonetwork.dsl.soa">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="soa" nsURI="http://www.obeonetwork.org/dsl/soa/2.0.0" nsPrefix="org.obeonetwork.dsl.soa">
   <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedComponents" upperBound="-1"
         eType="#//Component" containment="true"/>
@@ -66,6 +64,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//OperationKind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="public" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fault" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponent" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implement" eType="#//Interface"/>
