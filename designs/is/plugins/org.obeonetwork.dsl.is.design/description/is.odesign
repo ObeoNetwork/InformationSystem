@@ -2531,7 +2531,7 @@
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="DBI_BindingInfo" semanticCandidatesExpression="&lt;%getRelatedBindingInfos()%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='DBL_OpenBindingEditor']" domainClass="environment.BindingInfo">
+        <nodeMappings name="DBI_BindingInfo" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='CRE_BindingEditor']" semanticCandidatesExpression="&lt;%getRelatedBindingInfos()%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Binding']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='DBL_OpenBindingEditor']" domainClass="environment.BindingInfo">
           <style xsi:type="style:WorkspaceImageDescription" labelExpression="" sizeComputationExpression="-1" workspacePath="/org.obeonetwork.dsl.is.design/description/images/environment/BindingInfo.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2637,6 +2637,11 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$views.sourceNode.target.changeBindingTarget($firstElement, $secondElement)%>"/>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation/>
           </ownedTools>
           <subSections name="Usability">
             <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_BoundElement_PreventDeletion">
