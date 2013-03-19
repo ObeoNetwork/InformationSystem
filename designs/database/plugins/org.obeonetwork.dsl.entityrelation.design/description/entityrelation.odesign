@@ -19,9 +19,9 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Entity Relation Diagram" titleExpression="&lt;%name%> Entity Relation" initialisation="true" showOnStartup="true" domainClass="entityrelation.LogicalModel">
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.entityrelation/model/entityrelation.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#/"/>
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Entity Relation Diagram" titleExpression="&lt;%name%> Entity Relation" showOnStartup="true" domainClass="entityrelation.LogicalModel">
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.entityrelation/model/entityrelation.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#/"/>
       <defaultLayer name="Default">
         <edgeMappings name="ERD_Relation" labelDirectEdit="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_LogicalElement']" semanticCandidatesExpression="&lt;%relations%>" semanticElements="&lt;%self%>" sourceMapping="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@defaultLayer/@containerMappings[name='ERD_Entity']" targetMapping="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@defaultLayer/@containerMappings[name='ERD_Entity'] //@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ERD_Non_Referenced_External_Entity'] //@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ERD_Referenced_External_Entity']" targetFinderExpression="&lt;%target%>" sourceFinderExpression="&lt;%source%>" domainClass="entityrelation.Relation" useDomainElement="true">
           <style targetArrow="NoDecoration" sizeComputationExpression="1">

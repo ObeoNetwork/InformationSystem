@@ -45,7 +45,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_System']" name="Tasks Graph" titleExpression="Tasks Graph" initialisation="true" domainClass="graal.System" preconditionExpression="&lt;%~target.filter(&quot;DDiagram&quot;)[eContainer != null].description[name==&quot;Tasks Graph&quot;].nSize &lt; 1%>">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_System']" name="Tasks Graph" titleExpression="Tasks Graph" domainClass="graal.System" preconditionExpression="&lt;%~target.filter(&quot;DDiagram&quot;)[eContainer != null].description[name==&quot;Tasks Graph&quot;].nSize &lt; 1%>">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description:CompositeLayout" padding="20"/>
       <defaultLayer name="Default">
@@ -778,7 +778,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Actors Graph" titleExpression="Actors Graph" initialisation="true" domainClass="graal.System" preconditionExpression="&lt;%~target.filter(&quot;DDiagram&quot;)[eContainer != null].description[name==&quot;Actors Graph&quot;].nSize &lt; 1%>">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Actors Graph" titleExpression="Actors Graph" domainClass="graal.System" preconditionExpression="&lt;%~target.filter(&quot;DDiagram&quot;)[eContainer != null].description[name==&quot;Actors Graph&quot;].nSize &lt; 1%>">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description:CompositeLayout" direction="bottomToTop"/>
       <defaultLayer name="Default">
@@ -851,7 +851,7 @@
         <toolSections name="Actors" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Works%20on'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_REC_AbstractTaskToActor']"/>
       </optionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Use Cases Main View" titleExpression="Use Cases Main View" initialisation="true" domainClass="graal.System" preconditionExpression="&lt;%~target.filter(&quot;DDiagram&quot;)[eContainer != null].description[name==&quot;Use Cases Main View&quot;].nSize &lt; 1%>">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Use Cases Main View" titleExpression="Use Cases Main View" domainClass="graal.System" preconditionExpression="&lt;%~target.filter(&quot;DDiagram&quot;)[eContainer != null].description[name==&quot;Use Cases Main View&quot;].nSize &lt; 1%>">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description:CompositeLayout"/>
       <defaultLayer name="Default">
@@ -1054,7 +1054,7 @@
         <toolSections name="Actors" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Works%20on']"/>
       </optionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="User Stories Table" titleExpression="User Stories Table" initialisation="true" domainClass="graal.System">
+    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="User Stories Table" titleExpression="User Stories Table" domainClass="graal.System">
       <ownedLineMappings name="UST_UserStory" domainClass="graal.UserStory" semanticCandidatesExpression="&lt;%userStories%>"/>
       <ownedCreateLine name="CRE_UserStory" label="User story" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedLineMappings[name='UST_UserStory']">
         <variables name="root" documentation="The semantic element of the table."/>

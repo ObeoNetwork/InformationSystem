@@ -4,7 +4,7 @@
     <details key="SemanticCandidatesExpressionBehaviorChange" value=""/>
   </eAnnotations>
   <ownedViewpoints name="Entity Views" icon="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Block Hierarchy Diagram" initialisation="true" domainClass="entity.Root" preconditionExpression="" rootExpression="">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Block Hierarchy Diagram" domainClass="entity.Root" preconditionExpression="" rootExpression="">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <layout xsi:type="description:OrderedTreeLayout" childrenExpression="&lt;%subblocks%>" nodeMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']/@defaultLayer/@nodeMappings[name='BHD_Block']"/>
@@ -80,7 +80,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_ExternalEntity']" name="Entity Diagram" titleExpression="&lt;%name%> Entity Diagram" initialisation="true" domainClass="entity.Block" preconditionExpression="">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_ExternalEntity']" name="Entity Diagram" titleExpression="&lt;%name%> Entity Diagram" domainClass="entity.Block" preconditionExpression="">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <defaultLayer name="Default Layer" icon="">
@@ -770,7 +770,7 @@
         </toolSections>
       </optionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Entity Table" initialisation="true" domainClass="entity.Root">
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Entity Table" domainClass="entity.Root">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <ownedLineMappings name="EntityLine" domainClass="entity.Entity" headerLabelExpression="&lt;%name%>"/>
@@ -794,7 +794,7 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.is.design.service.ReferencesService"/>
   </ownedViewpoints>
   <ownedViewpoints name="SOA Views" icon="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif">
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Component']" name="SOA Diagram" titleExpression="&lt;%name%> SOA Diagram" initialisation="true" domainClass="soa.System">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Component']" name="SOA Diagram" titleExpression="&lt;%name%> SOA Diagram" domainClass="soa.System">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
@@ -1054,7 +1054,7 @@
         </toolSections>
       </optionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Service']" name="Component Contract Diagram" titleExpression="&lt;%name%> Component Contract" initialisation="true" domainClass="soa.Component">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Service']" name="Component Contract Diagram" titleExpression="&lt;%name%> Component Contract" domainClass="soa.Component">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
@@ -1233,7 +1233,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Category']" name="DTO View" titleExpression="DTO View" initialisation="true" domainClass="soa.DTORegistry">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Category']" name="DTO View" titleExpression="DTO View" domainClass="soa.DTORegistry">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
@@ -1829,7 +1829,7 @@
         </toolSections>
       </optionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Category%20DTO%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Category'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Category%20DTO%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_ServiceDTO']" name="Category DTO View" titleExpression="&lt;%name%> Category DTO View" initialisation="true" domainClass="soa.Category">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Category%20DTO%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Category'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Category%20DTO%20View']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_ServiceDTO']" name="Category DTO View" titleExpression="&lt;%name%> Category DTO View" domainClass="soa.Category">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
@@ -2705,7 +2705,7 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.is.design.service.ReferencesService"/>
   </ownedViewpoints>
   <ownedViewpoints name="IS Views" modelFileExtension="ois">
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Overview Diagram" initialisation="true" showOnStartup="true" domainClass="overview.Root" preconditionExpression="">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Overview Diagram" showOnStartup="true" domainClass="overview.Root" preconditionExpression="">
       <metamodel href="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
