@@ -48,8 +48,11 @@ public class RequirementResourceImpl extends XMIResourceImpl {
 
 	@Override
 	public void save(Map<?, ?> options) throws IOException {
-		if (!options.containsKey(XMLResource.OPTION_URI_HANDLER)) {
-			Map<Object, Object> saveOptions = new HashMap<Object, Object>(options);
+		if (options == null || !options.containsKey(XMLResource.OPTION_URI_HANDLER)) {
+			Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+			if (options != null) {
+				saveOptions.putAll(options);
+			}
 			saveOptions.put(XMLResource.OPTION_URI_HANDLER, new URIHandlerImpl.PlatformSchemeAware());
 			super.save(saveOptions);
 		} else {
