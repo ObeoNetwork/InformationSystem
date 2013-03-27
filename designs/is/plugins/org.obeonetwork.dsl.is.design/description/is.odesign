@@ -2638,11 +2638,6 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$views.sourceNode.target.changeBindingTarget($firstElement, $secondElement)%>"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
           <subSections name="Usability">
             <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_BoundElement_PreventDeletion">
               <element name="element"/>
