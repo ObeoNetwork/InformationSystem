@@ -27,12 +27,25 @@ import org.obeonetwork.dsl.cinematic.toolkits.util.ToolkitsProvider;
 public class CinematicToolkitsServices {
 
 	public static Collection<Toolkit> getCinematicProvidedToolkits(EObject context, Collection<Toolkit> alreadyUsedToolkits) {
+		Collection<Toolkit> toolkits = new ArrayList<Toolkit>();
+		
+		// Get toolkits in ResourceSet
+		Collection<Toolkit> toolkitsInResourceSet = getToolkitsInResourceSet(context);
+		for (Toolkit toolkitInResourceSet : toolkitsInResourceSet) {
+			// We do not propose the already used toolkits
+			if (!alreadyUsedToolkits.contains(toolkitInResourceSet)) {
+				toolkits.add(toolkitInResourceSet);
+			}
+		}
+		
+		// Get the already used toolkits URI which should not be proposed
 		Collection<URI> alreadyUsedToolkitsURIs = new ArrayList<URI>();
 		for (Toolkit usedToolkit : alreadyUsedToolkits) {
 			alreadyUsedToolkitsURIs.add(EcoreUtil.getURI(usedToolkit));
 		}
+		
+		// Get toolkits provided using the extension point
 		Collection<URI> toolkitsURI = ToolkitsProvider.getProvidedToolkits();
-		Collection<Toolkit> toolkits = new ArrayList<Toolkit>();
 		for (URI uri : toolkitsURI) {
 			ResourceSet set = new ResourceSetImpl();
 			Resource resource = set.getResource(uri, true);
@@ -40,8 +53,30 @@ public class CinematicToolkitsServices {
 				for (EObject root : resource.getContents()) {
 					if (root instanceof Toolkit) {
 						Toolkit toolkit = (Toolkit)root;
-						if (!alreadyUsedToolkitsURIs.contains(EcoreUtil.getURI(toolkit))) {
+						if (!toolkits.contains(toolkit) && !alreadyUsedToolkitsURIs.contains(EcoreUtil.getURI(toolkit))) {
 							toolkits.add(toolkit);
+						}
+					}
+				}
+			}
+		}
+		
+		// Get toolkits in ResourceSet
+		
+		
+		return toolkits;
+	}
+	
+	private static Collection<Toolkit> getToolkitsInResourceSet(EObject context) {
+		Collection<Toolkit> toolkits = new ArrayList<Toolkit>();
+		// Get ResourceSet
+		if (context.eResource() != null) {
+			ResourceSet set = context.eResource().getResourceSet();
+			if (set != null) {
+				for (Resource resource : set.getResources()) {
+					for (EObject object : resource.getContents()) {
+						if (object instanceof Toolkit) {
+							toolkits.add((Toolkit)object);
 						}
 					}
 				}
