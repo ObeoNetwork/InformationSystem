@@ -103,26 +103,6 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
 				return createViewEventAdapter();
 			}
 			@Override
-			public Adapter caseEntityBinding(EntityBinding object) {
-				return createEntityBindingAdapter();
-			}
-			@Override
-			public Adapter caseEntityPropertyBinding(EntityPropertyBinding object) {
-				return createEntityPropertyBindingAdapter();
-			}
-			@Override
-			public Adapter caseDTOPropertyBinding(DTOPropertyBinding object) {
-				return createDTOPropertyBindingAdapter();
-			}
-			@Override
-			public Adapter caseDTOBinding(DTOBinding object) {
-				return createDTOBindingAdapter();
-			}
-			@Override
-			public Adapter caseDataBinding(DataBinding object) {
-				return createDataBindingAdapter();
-			}
-			@Override
 			public Adapter caseViewContainerReference(ViewContainerReference object) {
 				return createViewContainerReferenceAdapter();
 			}
@@ -233,76 +213,6 @@ public class ViewAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.cinematic.view.EntityBinding <em>Entity Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.cinematic.view.EntityBinding
-	 * @generated
-	 */
-	public Adapter createEntityBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.cinematic.view.EntityPropertyBinding <em>Entity Property Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.cinematic.view.EntityPropertyBinding
-	 * @generated
-	 */
-	public Adapter createEntityPropertyBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.cinematic.view.DTOPropertyBinding <em>DTO Property Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.cinematic.view.DTOPropertyBinding
-	 * @generated
-	 */
-	public Adapter createDTOPropertyBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.cinematic.view.DTOBinding <em>DTO Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.cinematic.view.DTOBinding
-	 * @generated
-	 */
-	public Adapter createDTOBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.cinematic.view.DataBinding <em>Data Binding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.cinematic.view.DataBinding
-	 * @generated
-	 */
-	public Adapter createDataBindingAdapter() {
 		return null;
 	}
 

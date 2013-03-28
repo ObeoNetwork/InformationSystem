@@ -149,50 +149,6 @@ public class ViewSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ViewPackage.ENTITY_BINDING: {
-				EntityBinding entityBinding = (EntityBinding)theEObject;
-				T result = caseEntityBinding(entityBinding);
-				if (result == null) result = caseDataBinding(entityBinding);
-				if (result == null) result = caseCinematicElement(entityBinding);
-				if (result == null) result = caseObeoDSMObject(entityBinding);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ViewPackage.ENTITY_PROPERTY_BINDING: {
-				EntityPropertyBinding entityPropertyBinding = (EntityPropertyBinding)theEObject;
-				T result = caseEntityPropertyBinding(entityPropertyBinding);
-				if (result == null) result = caseDataBinding(entityPropertyBinding);
-				if (result == null) result = caseCinematicElement(entityPropertyBinding);
-				if (result == null) result = caseObeoDSMObject(entityPropertyBinding);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ViewPackage.DTO_PROPERTY_BINDING: {
-				DTOPropertyBinding dtoPropertyBinding = (DTOPropertyBinding)theEObject;
-				T result = caseDTOPropertyBinding(dtoPropertyBinding);
-				if (result == null) result = caseDataBinding(dtoPropertyBinding);
-				if (result == null) result = caseCinematicElement(dtoPropertyBinding);
-				if (result == null) result = caseObeoDSMObject(dtoPropertyBinding);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ViewPackage.DTO_BINDING: {
-				DTOBinding dtoBinding = (DTOBinding)theEObject;
-				T result = caseDTOBinding(dtoBinding);
-				if (result == null) result = caseDataBinding(dtoBinding);
-				if (result == null) result = caseCinematicElement(dtoBinding);
-				if (result == null) result = caseObeoDSMObject(dtoBinding);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ViewPackage.DATA_BINDING: {
-				DataBinding dataBinding = (DataBinding)theEObject;
-				T result = caseDataBinding(dataBinding);
-				if (result == null) result = caseCinematicElement(dataBinding);
-				if (result == null) result = caseObeoDSMObject(dataBinding);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ViewPackage.VIEW_CONTAINER_REFERENCE: {
 				ViewContainerReference viewContainerReference = (ViewContainerReference)theEObject;
 				T result = caseViewContainerReference(viewContainerReference);
@@ -280,81 +236,6 @@ public class ViewSwitch<T> {
 	 * @generated
 	 */
 	public T caseViewEvent(ViewEvent object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Entity Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Entity Binding</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEntityBinding(EntityBinding object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Entity Property Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Entity Property Binding</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEntityPropertyBinding(EntityPropertyBinding object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DTO Property Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DTO Property Binding</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDTOPropertyBinding(DTOPropertyBinding object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DTO Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DTO Binding</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDTOBinding(DTOBinding object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Binding</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDataBinding(DataBinding object) {
 		return null;
 	}
 

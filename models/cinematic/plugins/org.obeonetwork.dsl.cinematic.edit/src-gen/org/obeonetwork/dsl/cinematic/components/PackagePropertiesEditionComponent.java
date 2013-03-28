@@ -15,6 +15,7 @@ import org.obeonetwork.dsl.cinematic.parts.CinematicViewsRepository;
 import org.obeonetwork.dsl.cinematic.parts.Package_PropertiesEditionPart;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
+import org.obeonetwork.dsl.cinematic.Package;
 
 // End of user code
 

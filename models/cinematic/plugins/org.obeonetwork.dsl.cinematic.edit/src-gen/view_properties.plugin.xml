@@ -82,30 +82,6 @@
          </propertyTab>
 
          <propertyTab
-               id="EntityBinding"
-               label="EntityBinding"
-               category="default">
-         </propertyTab>
-
-         <propertyTab
-               id="EntityPropertyBinding"
-               label="EntityPropertyBinding"
-               category="default">
-         </propertyTab>
-
-         <propertyTab
-               id="DTOPropertyBinding"
-               label="DTOPropertyBinding"
-               category="default">
-         </propertyTab>
-
-         <propertyTab
-               id="DTOBinding"
-               label="DTOBinding"
-               category="default">
-         </propertyTab>
-
-         <propertyTab
                id="ViewContainerReference"
                label="ViewContainerReference"
                category="default">
@@ -163,54 +139,6 @@
                class="parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.view.providers.ViewEventPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.view.section.ViewEvent"
-               tab="Metadatas">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.cinematic.view.parts.forms.EntityBindingPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.view.providers.EntityBindingPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.cinematic.view.section.EntityBinding"
-               tab="EntityBinding">
-         </propertySection>
-         <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.view.providers.EntityBindingPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.cinematic.view.section.EntityBinding"
-               tab="Metadatas">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.cinematic.view.parts.forms.EntityPropertyBindingPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.view.providers.EntityPropertyBindingPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.cinematic.view.section.EntityPropertyBinding"
-               tab="EntityPropertyBinding">
-         </propertySection>
-         <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.view.providers.EntityPropertyBindingPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.cinematic.view.section.EntityPropertyBinding"
-               tab="Metadatas">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.cinematic.view.parts.forms.DTOPropertyBindingPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.view.providers.DTOPropertyBindingPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.cinematic.view.section.DTOPropertyBinding"
-               tab="DTOPropertyBinding">
-         </propertySection>
-         <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.view.providers.DTOPropertyBindingPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.cinematic.view.section.DTOPropertyBinding"
-               tab="Metadatas">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.cinematic.view.parts.forms.DTOBindingPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.view.providers.DTOBindingPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.cinematic.view.section.DTOBinding"
-               tab="DTOBinding">
-         </propertySection>
-         <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.view.providers.DTOBindingPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.cinematic.view.section.DTOBinding"
                tab="Metadatas">
          </propertySection>
          <propertySection

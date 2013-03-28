@@ -15,11 +15,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.obeonetwork.dsl.cinematic.view.*;
-import org.obeonetwork.dsl.cinematic.view.DTOBinding;
-import org.obeonetwork.dsl.cinematic.view.DTOPropertyBinding;
-import org.obeonetwork.dsl.cinematic.view.EntityBinding;
-import org.obeonetwork.dsl.cinematic.view.EntityPropertyBinding;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
@@ -77,10 +72,6 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 			case ViewPackage.VIEW_ELEMENT: return (EObject)createViewElement();
 			case ViewPackage.VIEW_ACTION: return (EObject)createViewAction();
 			case ViewPackage.VIEW_EVENT: return (EObject)createViewEvent();
-			case ViewPackage.ENTITY_BINDING: return (EObject)createEntityBinding();
-			case ViewPackage.ENTITY_PROPERTY_BINDING: return (EObject)createEntityPropertyBinding();
-			case ViewPackage.DTO_PROPERTY_BINDING: return (EObject)createDTOPropertyBinding();
-			case ViewPackage.DTO_BINDING: return (EObject)createDTOBinding();
 			case ViewPackage.VIEW_CONTAINER_REFERENCE: return (EObject)createViewContainerReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -125,46 +116,6 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 	public ViewEvent createViewEvent() {
 		ViewEventImpl viewEvent = new ViewEventImpl();
 		return viewEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EntityBinding createEntityBinding() {
-		EntityBindingImpl entityBinding = new EntityBindingImpl();
-		return entityBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EntityPropertyBinding createEntityPropertyBinding() {
-		EntityPropertyBindingImpl entityPropertyBinding = new EntityPropertyBindingImpl();
-		return entityPropertyBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DTOPropertyBinding createDTOPropertyBinding() {
-		DTOPropertyBindingImpl dtoPropertyBinding = new DTOPropertyBindingImpl();
-		return dtoPropertyBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DTOBinding createDTOBinding() {
-		DTOBindingImpl dtoBinding = new DTOBindingImpl();
-		return dtoBinding;
 	}
 
 	/**

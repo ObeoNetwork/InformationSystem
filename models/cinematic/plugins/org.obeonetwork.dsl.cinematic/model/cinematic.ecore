@@ -31,8 +31,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
           eType="#//view/ViewEvent" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="dataBindings" upperBound="-1"
-          eType="#//view/DataBinding" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ViewContainer" eSuperTypes="#//view/AbstractViewElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ownedElements" upperBound="-1"
@@ -55,22 +53,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="ViewEvent" eSuperTypes="#//Event">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//toolkits/WidgetEventType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EntityBinding" eSuperTypes="#//view/DataBinding">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
-          eType="ecore:EClass ../../org.obeonetwork.dsl.entity/model/entity.ecore#//Entity"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EntityPropertyBinding" eSuperTypes="#//view/DataBinding">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
-          eType="ecore:EClass ../../org.obeonetwork.dsl.entity/model/entity.ecore#//Property"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DTOPropertyBinding" eSuperTypes="#//view/DataBinding">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
-          eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Property"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DTOBinding" eSuperTypes="#//view/DataBinding">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="dto" lowerBound="1" eType="ecore:EClass ../../org.obeonetwork.dsl.soa/model/soa.ecore#//ServiceDTO"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DataBinding" abstract="true" eSuperTypes="#//CinematicElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="ViewContainerReference" eSuperTypes="#//view/AbstractViewElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="viewContainer" lowerBound="1"
           eType="#//view/ViewContainer"/>
@@ -116,7 +98,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="calls" upperBound="-1"
           eType="#//view/ViewAction"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
-          eType="ecore:EClass ../../org.obeonetwork.dsl.soa/model/soa.ecore#//Operation"/>
+          eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Action"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FlowEvent" eSuperTypes="#//Event">
       <eStructuralFeatures xsi:type="ecore:EReference" name="binds" upperBound="-1"

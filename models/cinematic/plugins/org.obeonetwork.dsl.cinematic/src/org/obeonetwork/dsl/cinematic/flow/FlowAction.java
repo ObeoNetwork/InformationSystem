@@ -11,12 +11,9 @@
 package org.obeonetwork.dsl.cinematic.flow;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.obeonetwork.dsl.cinematic.NamedElement;
-
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
-
-import org.obeonetwork.dsl.soa.Operation;
+import org.obeonetwork.dsl.environment.Action;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,7 +51,7 @@ public interface FlowAction extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Operations</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Operation}.
+	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Action}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Operations</em>' reference list isn't clear,
@@ -66,6 +63,6 @@ public interface FlowAction extends NamedElement {
 	 * @model
 	 * @generated
 	 */
-	EList<Operation> getOperations();
+	EList<Action> getOperations();
 
 } // FlowAction

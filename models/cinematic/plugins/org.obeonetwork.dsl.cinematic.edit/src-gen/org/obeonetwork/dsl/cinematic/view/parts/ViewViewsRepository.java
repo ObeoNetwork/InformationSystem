@@ -31,9 +31,6 @@ public class ViewViewsRepository {
 			public static String widget = "view::ViewContainer::properties::widget";
 			
 			
-			public static String dataBindings = "view::ViewContainer::properties::dataBindings";
-			
-			
 			public static String actions = "view::ViewContainer::properties::actions";
 			
 			
@@ -71,9 +68,6 @@ public class ViewViewsRepository {
 			
 			
 			public static String type = "view::ViewElement::properties::type";
-			
-			
-			public static String dataBindings = "view::ViewElement::properties::dataBindings";
 			
 			
 			public static String actions = "view::ViewElement::properties::actions";
@@ -129,78 +123,6 @@ public class ViewViewsRepository {
 	}
 
 	/**
-	 * EntityBinding view descriptor
-	 * 
-	 */
-	public static class EntityBinding {
-		public static class Properties {
-	
-			
-			public static String entity = "view::EntityBinding::properties::entity";
-			
-			
-			public static String description = "view::EntityBinding::properties::description";
-			
-	
-		}
-	
-	}
-
-	/**
-	 * EntityPropertyBinding view descriptor
-	 * 
-	 */
-	public static class EntityPropertyBinding {
-		public static class Properties {
-	
-			
-			public static String property = "view::EntityPropertyBinding::properties::property";
-			
-			
-			public static String description = "view::EntityPropertyBinding::properties::description";
-			
-	
-		}
-	
-	}
-
-	/**
-	 * DTOPropertyBinding view descriptor
-	 * 
-	 */
-	public static class DTOPropertyBinding {
-		public static class Properties {
-	
-			
-			public static String property = "view::DTOPropertyBinding::properties::property";
-			
-			
-			public static String description = "view::DTOPropertyBinding::properties::description";
-			
-	
-		}
-	
-	}
-
-	/**
-	 * DTOBinding view descriptor
-	 * 
-	 */
-	public static class DTOBinding {
-		public static class Properties {
-	
-			
-			public static String dto = "view::DTOBinding::properties::dto";
-			
-			
-			public static String description = "view::DTOBinding::properties::description";
-			
-	
-		}
-	
-	}
-
-	/**
 	 * ViewContainerReference view descriptor
 	 * 
 	 */
@@ -218,9 +140,6 @@ public class ViewViewsRepository {
 			
 			
 			public static String widget = "view::ViewContainerReference::properties::widget";
-			
-			
-			public static String dataBindings = "view::ViewContainerReference::properties::dataBindings";
 			
 			
 			public static String actions = "view::ViewContainerReference::properties::actions";

@@ -26,18 +26,6 @@ public class ViewMessages extends NLS {
 	public static String ViewEventPropertiesEditionPart_PropertiesGroupLabel;
 
 	
-	public static String EntityBindingPropertiesEditionPart_PropertiesGroupLabel;
-
-	
-	public static String EntityPropertyBindingPropertiesEditionPart_PropertiesGroupLabel;
-
-	
-	public static String DTOPropertyBindingPropertiesEditionPart_PropertiesGroupLabel;
-
-	
-	public static String DTOBindingPropertiesEditionPart_PropertiesGroupLabel;
-
-	
 	public static String ViewContainerReferencePropertiesEditionPart_PropertiesGroupLabel;
 
 
@@ -66,30 +54,6 @@ public class ViewMessages extends NLS {
 	public static String ViewEvent_Part_Title;
 
 	
-	public static String EntityBinding_ReadOnly;
-
-	
-	public static String EntityBinding_Part_Title;
-
-	
-	public static String EntityPropertyBinding_ReadOnly;
-
-	
-	public static String EntityPropertyBinding_Part_Title;
-
-	
-	public static String DTOPropertyBinding_ReadOnly;
-
-	
-	public static String DTOPropertyBinding_Part_Title;
-
-	
-	public static String DTOBinding_ReadOnly;
-
-	
-	public static String DTOBinding_Part_Title;
-
-	
 	public static String ViewContainerReference_ReadOnly;
 
 	
@@ -104,9 +68,6 @@ public class ViewMessages extends NLS {
 
 	
 	public static String ViewContainerPropertiesEditionPart_WidgetLabel;
-
-	
-	public static String ViewContainerPropertiesEditionPart_DataBindingsLabel;
 
 	
 	public static String ViewContainerPropertiesEditionPart_ActionsLabel;
@@ -136,9 +97,6 @@ public class ViewMessages extends NLS {
 	public static String ViewElementPropertiesEditionPart_TypeLabel;
 
 	
-	public static String ViewElementPropertiesEditionPart_DataBindingsLabel;
-
-	
 	public static String ViewElementPropertiesEditionPart_ActionsLabel;
 
 	
@@ -163,30 +121,6 @@ public class ViewMessages extends NLS {
 	public static String ViewEventPropertiesEditionPart_DescriptionLabel;
 
 	
-	public static String EntityBindingPropertiesEditionPart_EntityLabel;
-
-	
-	public static String EntityBindingPropertiesEditionPart_DescriptionLabel;
-
-	
-	public static String EntityPropertyBindingPropertiesEditionPart_PropertyLabel;
-
-	
-	public static String EntityPropertyBindingPropertiesEditionPart_DescriptionLabel;
-
-	
-	public static String DTOPropertyBindingPropertiesEditionPart_PropertyLabel;
-
-	
-	public static String DTOPropertyBindingPropertiesEditionPart_DescriptionLabel;
-
-	
-	public static String DTOBindingPropertiesEditionPart_DtoLabel;
-
-	
-	public static String DTOBindingPropertiesEditionPart_DescriptionLabel;
-
-	
 	public static String ViewContainerReferencePropertiesEditionPart_NameLabel;
 
 	
@@ -197,9 +131,6 @@ public class ViewMessages extends NLS {
 
 	
 	public static String ViewContainerReferencePropertiesEditionPart_WidgetLabel;
-
-	
-	public static String ViewContainerReferencePropertiesEditionPart_DataBindingsLabel;
 
 	
 	public static String ViewContainerReferencePropertiesEditionPart_ActionsLabel;

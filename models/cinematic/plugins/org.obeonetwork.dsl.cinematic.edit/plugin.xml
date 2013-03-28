@@ -267,30 +267,6 @@
                tab="ViewEvent">
          </propertySection>
          <propertySection
-               class="org.obeonetwork.dsl.cinematic.view.parts.forms.EntityBindingPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.filters.EntityBindingTabPropertiesEditionSection"
-               id="org.obeonetwork.dsl.cinematic.view.section.EntityBinding"
-               tab="EntityBinding">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.cinematic.view.parts.forms.EntityPropertyBindingPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.filters.EntityPropertyBindingTabPropertiesEditionSection"
-               id="org.obeonetwork.dsl.cinematic.view.section.EntityPropertyBinding"
-               tab="EntityPropertyBinding">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.cinematic.view.parts.forms.DTOPropertyBindingPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.filters.DTOPropertyBindingTabPropertiesEditionSection"
-               id="org.obeonetwork.dsl.cinematic.view.section.DTOPropertyBinding"
-               tab="DTOPropertyBinding">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.cinematic.view.parts.forms.DTOBindingPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.cinematic.filters.DTOBindingTabPropertiesEditionSection"
-               id="org.obeonetwork.dsl.cinematic.view.section.DTOBinding"
-               tab="DTOBinding">
-         </propertySection>
-         <propertySection
                class="org.obeonetwork.dsl.cinematic.view.parts.forms.ViewContainerReferencePropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.filters.ViewContainerReferenceTabPropertiesEditionSection"
                id="org.obeonetwork.dsl.cinematic.view.section.ViewContainerReference"

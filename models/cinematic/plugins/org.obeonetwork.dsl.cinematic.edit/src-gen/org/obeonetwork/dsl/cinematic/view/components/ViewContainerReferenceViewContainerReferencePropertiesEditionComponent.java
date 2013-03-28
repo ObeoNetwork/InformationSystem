@@ -32,7 +32,6 @@ import org.eclipse.jface.viewers.ViewerFilter;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
-import org.obeonetwork.dsl.cinematic.view.DataBinding;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
@@ -70,11 +69,6 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 	 * Settings for events ReferencesTable
 	 */
 	protected ReferencesTableSettings eventsSettings;
-	
-	/**
-	 * Settings for dataBindings ReferencesTable
-	 */
-	protected ReferencesTableSettings dataBindingsSettings;
 	
 	/**
 	 * Settings for viewContainer EObjectFlatComboViewer
@@ -131,10 +125,6 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 			if (viewContainerReference.getLabel() != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.label))
 				viewContainerReferencePart.setLabel(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewContainerReference.getLabel()));
 			
-			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.dataBindings)) {
-				dataBindingsSettings = new ReferencesTableSettings(viewContainerReference, ViewPackage.eINSTANCE.getAbstractViewElement_DataBindings());
-				viewContainerReferencePart.initDataBindings(dataBindingsSettings);
-			}
 			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.viewContainer)) {
 				// init part
 				viewContainerSettings = new EObjectFlatComboSettings(viewContainerReference, ViewPackage.eINSTANCE.getViewContainerReference_ViewContainer());
@@ -192,21 +182,6 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 				// End of user code
 			}
 			
-			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.dataBindings)) {
-				viewContainerReferencePart.addFilterToDataBindings(new ViewerFilter() {
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						return (element instanceof String && element.equals("")) || (element instanceof DataBinding); //$NON-NLS-1$ 
-					}
-			
-				});
-				// Start of user code for additional businessfilters for dataBindings
-				// End of user code
-			}
 			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.viewContainer)) {
 				viewContainerReferencePart.addFilterToViewContainer(new ViewerFilter() {
 				
@@ -240,7 +215,6 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 
 
 
-
 	/**
 	 * {@inheritDoc}
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
@@ -263,9 +237,6 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 		}
 		if (editorKey == ViewViewsRepository.ViewContainerReference.Properties.label) {
 			return ViewPackage.eINSTANCE.getAbstractViewElement_Label();
-		}
-		if (editorKey == ViewViewsRepository.ViewContainerReference.Properties.dataBindings) {
-			return ViewPackage.eINSTANCE.getAbstractViewElement_DataBindings();
 		}
 		if (editorKey == ViewViewsRepository.ViewContainerReference.Properties.viewContainer) {
 			return ViewPackage.eINSTANCE.getViewContainerReference_ViewContainer();
@@ -355,31 +326,6 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 		if (ViewViewsRepository.ViewContainerReference.Properties.label == event.getAffectedEditor()) {
 			viewContainerReference.setLabel((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (ViewViewsRepository.ViewContainerReference.Properties.dataBindings == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, dataBindingsSettings, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(semanticObject, PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy instanceof CreateEditingPolicy) {
-						policy.execute();
-					}
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.EDIT) {
-				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, (EObject) event.getNewValue(), editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt((EObject) event.getNewValue(), PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy editionPolicy = provider.getPolicy(context);
-					if (editionPolicy != null) {
-						editionPolicy.execute();
-					}
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				dataBindingsSettings.removeFromReference((EObject) event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				dataBindingsSettings.move(event.getNewIndex(), (DataBinding) event.getNewValue());
-			}
-		}
 		if (ViewViewsRepository.ViewContainerReference.Properties.viewContainer == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.SET) {
 				viewContainerSettings.setToReference((ViewContainer)event.getNewValue());
@@ -432,8 +378,6 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 					viewContainerReferencePart.setLabel("");
 				}
 			}
-			if (ViewPackage.eINSTANCE.getAbstractViewElement_DataBindings().equals(msg.getFeature()) && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.dataBindings))
-				viewContainerReferencePart.updateDataBindings();
 			if (ViewPackage.eINSTANCE.getViewContainerReference_ViewContainer().equals(msg.getFeature()) && viewContainerReferencePart != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.viewContainer))
 				viewContainerReferencePart.setViewContainer((EObject)msg.getNewValue());
 			

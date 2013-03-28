@@ -12,19 +12,14 @@ package org.obeonetwork.dsl.cinematic.view.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.cinematic.impl.NamedElementImpl;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
-import org.obeonetwork.dsl.cinematic.view.DataBinding;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
@@ -41,7 +36,6 @@ import org.obeonetwork.dsl.environment.BoundableElement;
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getEvents <em>Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getDataBindings <em>Data Bindings</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,16 +141,6 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	public EList<DataBinding> getDataBindings() {
-		return (EList<DataBinding>)eDynamicGet(ViewPackage.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS, ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isPathValid(BoundableElement root, String path) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -175,8 +159,6 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 				return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__EVENTS:
 				return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
-			case ViewPackage.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS:
-				return ((InternalEList<?>)getDataBindings()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -198,8 +180,6 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 				return getEvents();
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__LABEL:
 				return getLabel();
-			case ViewPackage.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS:
-				return getDataBindings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -227,10 +207,6 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__LABEL:
 				setLabel((String)newValue);
 				return;
-			case ViewPackage.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS:
-				getDataBindings().clear();
-				getDataBindings().addAll((Collection<? extends DataBinding>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -255,9 +231,6 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
-			case ViewPackage.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS:
-				getDataBindings().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -278,8 +251,6 @@ public abstract class AbstractViewElementImpl extends NamedElementImpl implement
 				return !getEvents().isEmpty();
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__LABEL:
 				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
-			case ViewPackage.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS:
-				return !getDataBindings().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

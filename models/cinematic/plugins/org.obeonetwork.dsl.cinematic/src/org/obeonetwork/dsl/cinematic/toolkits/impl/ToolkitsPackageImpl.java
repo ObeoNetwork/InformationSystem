@@ -26,8 +26,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 import org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl;
-import org.obeonetwork.dsl.entity.EntityPackage;
-import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,8 +103,7 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		isInited = true;
 
 		// Initialize simple dependencies
-		EntityPackage.eINSTANCE.eClass();
-		SoaPackage.eINSTANCE.eClass();
+		EnvironmentPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		CinematicPackageImpl theCinematicPackage = (CinematicPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) instanceof CinematicPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CinematicPackage.eNS_URI) : CinematicPackage.eINSTANCE);

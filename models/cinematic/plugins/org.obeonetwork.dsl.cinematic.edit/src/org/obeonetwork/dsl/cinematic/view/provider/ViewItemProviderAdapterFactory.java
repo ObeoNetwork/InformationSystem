@@ -170,98 +170,6 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.cinematic.view.EntityBinding} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EntityBindingItemProvider entityBindingItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.cinematic.view.EntityBinding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEntityBindingAdapter() {
-		if (entityBindingItemProvider == null) {
-			entityBindingItemProvider = new EntityBindingItemProvider(this);
-		}
-
-		return entityBindingItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.cinematic.view.EntityPropertyBinding} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EntityPropertyBindingItemProvider entityPropertyBindingItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.cinematic.view.EntityPropertyBinding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEntityPropertyBindingAdapter() {
-		if (entityPropertyBindingItemProvider == null) {
-			entityPropertyBindingItemProvider = new EntityPropertyBindingItemProvider(this);
-		}
-
-		return entityPropertyBindingItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.cinematic.view.DTOPropertyBinding} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DTOPropertyBindingItemProvider dtoPropertyBindingItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.cinematic.view.DTOPropertyBinding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDTOPropertyBindingAdapter() {
-		if (dtoPropertyBindingItemProvider == null) {
-			dtoPropertyBindingItemProvider = new DTOPropertyBindingItemProvider(this);
-		}
-
-		return dtoPropertyBindingItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.cinematic.view.DTOBinding} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DTOBindingItemProvider dtoBindingItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.cinematic.view.DTOBinding}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDTOBindingAdapter() {
-		if (dtoBindingItemProvider == null) {
-			dtoBindingItemProvider = new DTOBindingItemProvider(this);
-		}
-
-		return dtoBindingItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.cinematic.view.ViewContainerReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -387,10 +295,6 @@ public class ViewItemProviderAdapterFactory extends ViewAdapterFactory implement
 		if (viewElementItemProvider != null) viewElementItemProvider.dispose();
 		if (viewActionItemProvider != null) viewActionItemProvider.dispose();
 		if (viewEventItemProvider != null) viewEventItemProvider.dispose();
-		if (entityBindingItemProvider != null) entityBindingItemProvider.dispose();
-		if (entityPropertyBindingItemProvider != null) entityPropertyBindingItemProvider.dispose();
-		if (dtoPropertyBindingItemProvider != null) dtoPropertyBindingItemProvider.dispose();
-		if (dtoBindingItemProvider != null) dtoBindingItemProvider.dispose();
 		if (viewContainerReferenceItemProvider != null) viewContainerReferenceItemProvider.dispose();
 	}
 

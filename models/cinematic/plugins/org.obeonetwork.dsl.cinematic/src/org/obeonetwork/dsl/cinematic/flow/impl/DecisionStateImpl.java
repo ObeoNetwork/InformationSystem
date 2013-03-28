@@ -11,7 +11,6 @@
 package org.obeonetwork.dsl.cinematic.flow.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.obeonetwork.dsl.cinematic.flow.DecisionState;
 import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
 

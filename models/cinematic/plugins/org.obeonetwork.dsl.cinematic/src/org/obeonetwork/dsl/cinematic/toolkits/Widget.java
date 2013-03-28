@@ -13,8 +13,6 @@ package org.obeonetwork.dsl.cinematic.toolkits;
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Widget</b></em>'.

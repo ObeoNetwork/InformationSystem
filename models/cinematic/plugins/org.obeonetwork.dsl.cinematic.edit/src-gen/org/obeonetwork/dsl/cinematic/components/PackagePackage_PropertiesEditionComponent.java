@@ -1,5 +1,4 @@
 /**
-
  * Generated with Acceleo
  */
 package org.obeonetwork.dsl.cinematic.components;

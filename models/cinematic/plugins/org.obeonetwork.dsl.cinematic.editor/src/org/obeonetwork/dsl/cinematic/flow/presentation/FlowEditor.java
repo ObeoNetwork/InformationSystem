@@ -121,10 +121,7 @@ import org.obeonetwork.dsl.cinematic.presentation.CinematicEditorPlugin;
 import org.obeonetwork.dsl.cinematic.provider.CinematicItemProviderAdapterFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.provider.ToolkitsItemProviderAdapterFactory;
 import org.obeonetwork.dsl.cinematic.view.provider.ViewItemProviderAdapterFactory;
-import org.obeonetwork.dsl.entity.extensionUtilities.provider.ExtensionUtilitiesItemProviderAdapterFactory;
-import org.obeonetwork.dsl.entity.provider.EntityItemProviderAdapterFactory;
 import org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFactory;
-import org.obeonetwork.dsl.soa.provider.SoaItemProviderAdapterFactory;
 
 
 /**
@@ -613,10 +610,7 @@ public class FlowEditor
 		adapterFactory.addAdapterFactory(new ViewItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new FlowItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ToolkitsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ExtensionUtilitiesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EnvironmentItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SoaItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

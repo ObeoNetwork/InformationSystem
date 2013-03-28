@@ -66,42 +66,6 @@ public interface ViewFactory extends EFactory {
 	ViewEvent createViewEvent();
 
 	/**
-	 * Returns a new object of class '<em>Entity Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entity Binding</em>'.
-	 * @generated
-	 */
-	EntityBinding createEntityBinding();
-
-	/**
-	 * Returns a new object of class '<em>Entity Property Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entity Property Binding</em>'.
-	 * @generated
-	 */
-	EntityPropertyBinding createEntityPropertyBinding();
-
-	/**
-	 * Returns a new object of class '<em>DTO Property Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DTO Property Binding</em>'.
-	 * @generated
-	 */
-	DTOPropertyBinding createDTOPropertyBinding();
-
-	/**
-	 * Returns a new object of class '<em>DTO Binding</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DTO Binding</em>'.
-	 * @generated
-	 */
-	DTOBinding createDTOBinding();
-
-	/**
 	 * Returns a new object of class '<em>Container Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

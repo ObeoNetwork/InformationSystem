@@ -13,19 +13,12 @@ package org.obeonetwork.dsl.cinematic.flow.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 import org.obeonetwork.dsl.cinematic.flow.FlowAction;
 import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
-
 import org.obeonetwork.dsl.cinematic.impl.NamedElementImpl;
-
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
-
-import org.obeonetwork.dsl.soa.Operation;
+import org.obeonetwork.dsl.environment.Action;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,8 +70,8 @@ public class FlowActionImpl extends NamedElementImpl implements FlowAction {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Operation> getOperations() {
-		return (EList<Operation>)eDynamicGet(FlowPackage.FLOW_ACTION__OPERATIONS, FlowPackage.Literals.FLOW_ACTION__OPERATIONS, true, true);
+	public EList<Action> getOperations() {
+		return (EList<Action>)eDynamicGet(FlowPackage.FLOW_ACTION__OPERATIONS, FlowPackage.Literals.FLOW_ACTION__OPERATIONS, true, true);
 	}
 
 	/**
@@ -112,7 +105,7 @@ public class FlowActionImpl extends NamedElementImpl implements FlowAction {
 				return;
 			case FlowPackage.FLOW_ACTION__OPERATIONS:
 				getOperations().clear();
-				getOperations().addAll((Collection<? extends Operation>)newValue);
+				getOperations().addAll((Collection<? extends Action>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

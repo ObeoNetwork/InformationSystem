@@ -10,7 +10,6 @@
  */
 package org.obeonetwork.dsl.cinematic;
 
-import org.eclipse.emf.cdo.CDOObject;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**

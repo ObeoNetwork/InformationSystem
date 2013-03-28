@@ -67,46 +67,6 @@ public class ViewEEFAdapterFactory extends ViewAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory#createEntityBindingAdapter()
-	 * 
-	 */
-	public Adapter createEntityBindingAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new EntityBindingPropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory#createEntityPropertyBindingAdapter()
-	 * 
-	 */
-	public Adapter createEntityPropertyBindingAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new EntityPropertyBindingPropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory#createDTOPropertyBindingAdapter()
-	 * 
-	 */
-	public Adapter createDTOPropertyBindingAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new DTOPropertyBindingPropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory#createDTOBindingAdapter()
-	 * 
-	 */
-	public Adapter createDTOBindingAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new DTOBindingPropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
 	 * @see org.obeonetwork.dsl.cinematic.view.util.ViewAdapterFactory#createViewContainerReferenceAdapter()
 	 * 
 	 */

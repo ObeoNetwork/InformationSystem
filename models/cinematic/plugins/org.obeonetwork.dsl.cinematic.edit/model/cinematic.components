@@ -48,7 +48,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//CinematicRoot"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.genmodel#//cinematic"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic_cdonative.genmodel#//cinematic"/>
   </eef-components:PropertiesEditionContext>
   <eef-components:PropertiesEditionContext xmi:id="_4vx27IfMEeGX84h4aFslOw" documentation="Edition Context for view GenPackage">
     <categories xmi:id="_4vx27YfMEeGX84h4aFslOw" name="view">
@@ -70,9 +70,6 @@
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx294fMEeGX84h4aFslOw" name="label" views="_4v0TI4fMEeGX84h4aFslOw">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/AbstractViewElement/label"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx2-IfMEeGX84h4aFslOw" name="dataBindings" views="_4v0TJIfMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/AbstractViewElement/dataBindings"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx2-YfMEeGX84h4aFslOw" name="ownedElements" views="_4v0TJYfMEeGX84h4aFslOw">
           <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/ViewContainer/ownedElements"/>
@@ -100,9 +97,6 @@
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx3A4fMEeGX84h4aFslOw" name="label" views="_4v0TMIfMEeGX84h4aFslOw">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/AbstractViewElement/label"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx3BIfMEeGX84h4aFslOw" name="dataBindings" views="_4v0TMYfMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/AbstractViewElement/dataBindings"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx3BYfMEeGX84h4aFslOw" name="required" views="_4v0TMofMEeGX84h4aFslOw">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/ViewElement/required"/>
@@ -142,54 +136,6 @@
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/ViewEvent"/>
       </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4vx3FIfMEeGX84h4aFslOw" name="entityBinding" views="_4v0TQ4fMEeGX84h4aFslOw">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx3FYfMEeGX84h4aFslOw" name="description" views="_4v0TRYfMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx3GYfMEeGX84h4aFslOw" name="entity" views="_4v0TSYfMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/EntityBinding/entity"/>
-        </properties>
-        <referencedBinding xmi:id="_R1NOwIo0EeGNgKiVfteKSA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
-        </referencedBinding>
-        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/EntityBinding"/>
-      </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4vx3GofMEeGX84h4aFslOw" name="entityPropertyBinding" views="_4v0TSofMEeGX84h4aFslOw">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx3G4fMEeGX84h4aFslOw" name="description" views="_4v0TTIfMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx3H4fMEeGX84h4aFslOw" name="property" views="_4v0TUIfMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/EntityPropertyBinding/property"/>
-        </properties>
-        <referencedBinding xmi:id="_R_elEIo0EeGNgKiVfteKSA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
-        </referencedBinding>
-        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/EntityPropertyBinding"/>
-      </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4vx3IIfMEeGX84h4aFslOw" name="dTOPropertyBinding" views="_4v0TUYfMEeGX84h4aFslOw">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx3IYfMEeGX84h4aFslOw" name="description" views="_4v0TU4fMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx3JYfMEeGX84h4aFslOw" name="property" views="_4v0TV4fMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/DTOPropertyBinding/property"/>
-        </properties>
-        <referencedBinding xmi:id="_SKosMIo0EeGNgKiVfteKSA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
-        </referencedBinding>
-        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/DTOPropertyBinding"/>
-      </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4vx3JofMEeGX84h4aFslOw" name="dTOBinding" views="_4v0TWIfMEeGX84h4aFslOw">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx3J4fMEeGX84h4aFslOw" name="description" views="_4v0TWofMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vyd8YfMEeGX84h4aFslOw" name="dto" views="_4v0TXofMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/DTOBinding/dto"/>
-        </properties>
-        <referencedBinding xmi:id="_SVWHYIo0EeGNgKiVfteKSA">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
-        </referencedBinding>
-        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/DTOBinding"/>
-      </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4vyd8ofMEeGX84h4aFslOw" name="viewContainerReference" views="_4v0TX4fMEeGX84h4aFslOw">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vyd84fMEeGX84h4aFslOw" name="description" views="_4v0TYYfMEeGX84h4aFslOw">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
@@ -209,9 +155,6 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vyd-4fMEeGX84h4aFslOw" name="label" views="_4v0TaYfMEeGX84h4aFslOw">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/AbstractViewElement/label"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vyd_IfMEeGX84h4aFslOw" name="dataBindings" views="_4v0TaofMEeGX84h4aFslOw">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/AbstractViewElement/dataBindings"/>
-        </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vyd_YfMEeGX84h4aFslOw" name="viewContainer" views="_4v06MIfMEeGX84h4aFslOw">
           <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/ViewContainerReference/viewContainer"/>
         </properties>
@@ -221,7 +164,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/ViewContainerReference"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.genmodel#//cinematic/view"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic_cdonative.genmodel#//cinematic/view"/>
   </eef-components:PropertiesEditionContext>
   <eef-components:PropertiesEditionContext xmi:id="_4vyd_ofMEeGX84h4aFslOw" documentation="Edition Context for flow GenPackage">
     <categories xmi:id="_4vyd_4fMEeGX84h4aFslOw" name="flow">
@@ -436,7 +379,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//flow/FlowEvent"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.genmodel#//cinematic/flow"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic_cdonative.genmodel#//cinematic/flow"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_4vzFH4fMEeGX84h4aFslOw" documentation="Views repository for flow GenPackage" name="flow">
     <RepositoryKind>SWT</RepositoryKind>
@@ -658,9 +601,6 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TIIfMEeGX84h4aFslOw" name="widget">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TJIfMEeGX84h4aFslOw" name="dataBindings">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
-          </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TIYfMEeGX84h4aFslOw" name="actions">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
           </elements>
@@ -692,9 +632,6 @@
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TM4fMEeGX84h4aFslOw" name="type">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TMYfMEeGX84h4aFslOw" name="dataBindings">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TLofMEeGX84h4aFslOw" name="actions">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
@@ -732,50 +669,6 @@
           </elements>
         </elements>
       </views>
-      <views xmi:id="_4v0TQ4fMEeGX84h4aFslOw" name="EntityBinding">
-        <elements xsi:type="eef-views:Container" xmi:id="_4v0TRIfMEeGX84h4aFslOw" name="properties">
-          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TSYfMEeGX84h4aFslOw" name="entity">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TRYfMEeGX84h4aFslOw" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
-          </elements>
-        </elements>
-      </views>
-      <views xmi:id="_4v0TSofMEeGX84h4aFslOw" name="EntityPropertyBinding">
-        <elements xsi:type="eef-views:Container" xmi:id="_4v0TS4fMEeGX84h4aFslOw" name="properties">
-          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TUIfMEeGX84h4aFslOw" name="property">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TTIfMEeGX84h4aFslOw" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
-          </elements>
-        </elements>
-      </views>
-      <views xmi:id="_4v0TUYfMEeGX84h4aFslOw" name="DTOPropertyBinding">
-        <elements xsi:type="eef-views:Container" xmi:id="_4v0TUofMEeGX84h4aFslOw" name="properties">
-          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TV4fMEeGX84h4aFslOw" name="property">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TU4fMEeGX84h4aFslOw" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
-          </elements>
-        </elements>
-      </views>
-      <views xmi:id="_4v0TWIfMEeGX84h4aFslOw" name="DTOBinding">
-        <elements xsi:type="eef-views:Container" xmi:id="_4v0TWYfMEeGX84h4aFslOw" name="properties">
-          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TXofMEeGX84h4aFslOw" name="dto">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TWofMEeGX84h4aFslOw" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
-          </elements>
-        </elements>
-      </views>
       <views xmi:id="_4v0TX4fMEeGX84h4aFslOw" name="ViewContainerReference">
         <elements xsi:type="eef-views:Container" xmi:id="_4v0TYIfMEeGX84h4aFslOw" name="properties">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
@@ -790,9 +683,6 @@
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TZofMEeGX84h4aFslOw" name="widget">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TaofMEeGX84h4aFslOw" name="dataBindings">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v0TZ4fMEeGX84h4aFslOw" name="actions">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>

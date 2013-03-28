@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cinematic:CinematicRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmi:id="_N-7IwIjLEeGrHN3Vq969QA" name="E-BookStore">
+<cinematic:CinematicRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:org.obeonetwork.dsl.soa="http://www.obeonetwork.org/dsl/soa/2.0.0" xmi:id="_N-7IwIjLEeGrHN3Vq969QA" name="E-BookStore">
   <flows xmi:id="_aIPqAIjWEeGStfxeQK0zeA" name="Main">
     <states xsi:type="cinematic-flow:InitialState" xmi:id="_lBedYIjWEeGStfxeQK0zeA" name="Initial"/>
     <states xsi:type="cinematic-flow:ViewState" xmi:id="_xP47AIjWEeGStfxeQK0zeA" name="Display Homepage" viewContainers="_lSJPQIjZEeGlA5e_Ze9-Rg"/>
     <states xsi:type="cinematic-flow:ActionState" xmi:id="_0UvMEIjWEeGStfxeQK0zeA" name="Load Data">
       <actions xmi:id="_EZ6f4IjXEeGStfxeQK0zeA" name="getHomepageData">
-        <operations href="E-BookStore.soa#_D1bdUIjYEeGlA5e_Ze9-Rg"/>
-        <operations href="E-BookStore.soa#_hhig4IjYEeGlA5e_Ze9-Rg"/>
-        <operations href="E-BookStore.soa#_jWX7kIjYEeGlA5e_Ze9-Rg"/>
+        <operations xsi:type="org.obeonetwork.dsl.soa:Operation" href="E-BookStore.soa#_D1bdUIjYEeGlA5e_Ze9-Rg"/>
+        <operations xsi:type="org.obeonetwork.dsl.soa:Operation" href="E-BookStore.soa#_hhig4IjYEeGlA5e_Ze9-Rg"/>
+        <operations xsi:type="org.obeonetwork.dsl.soa:Operation" href="E-BookStore.soa#_jWX7kIjYEeGlA5e_Ze9-Rg"/>
       </actions>
     </states>
     <states xsi:type="cinematic-flow:ActionState" xmi:id="_w1YzgIjaEeGlA5e_Ze9-Rg" name="Search Books">
       <actions xmi:id="_KRTJAIjiEeGllIuu_i41WA" name="searchBooks">
-        <operations href="E-BookStore.soa#_wYy58IjhEeGllIuu_i41WA"/>
+        <operations xsi:type="org.obeonetwork.dsl.soa:Operation" href="E-BookStore.soa#_wYy58IjhEeGllIuu_i41WA"/>
       </actions>
     </states>
     <states xsi:type="cinematic-flow:ActionState" xmi:id="_mPTE8IjiEeGllIuu_i41WA" name="Add to cart"/>
@@ -67,9 +67,6 @@
       </ownedElements>
       <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Eu44EIjcEeGD_4FfK_oDsg" name="bookTitle">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
-        <dataBindings xsi:type="cinematic-view:DTOPropertyBinding" xmi:id="_EwwN8IlYEeGBksR6VpbZgA">
-          <property xsi:type="oenv:Attribute" href="E-BookStore.soa#_3nGp0IjYEeGlA5e_Ze9-Rg"/>
-        </dataBindings>
       </ownedElements>
       <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_czj8kIjdEeGRPcmmS6YpZw" name="author">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>

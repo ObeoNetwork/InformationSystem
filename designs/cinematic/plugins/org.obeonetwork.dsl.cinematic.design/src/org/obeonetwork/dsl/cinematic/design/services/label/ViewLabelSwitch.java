@@ -11,18 +11,11 @@
 package org.obeonetwork.dsl.cinematic.design.services.label;
 
 import org.obeonetwork.dsl.cinematic.NamedElement;
-import org.obeonetwork.dsl.cinematic.view.DTOBinding;
-import org.obeonetwork.dsl.cinematic.view.DTOPropertyBinding;
-import org.obeonetwork.dsl.cinematic.view.EntityBinding;
-import org.obeonetwork.dsl.cinematic.view.EntityPropertyBinding;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.cinematic.view.util.ViewSwitch;
-import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.environment.DTO;
-import org.obeonetwork.dsl.environment.Property;
 
 public class ViewLabelSwitch extends ViewSwitch<String> {
 	
@@ -83,60 +76,6 @@ public class ViewLabelSwitch extends ViewSwitch<String> {
 	@Override
 	public String caseNamedElement(NamedElement namedElement) {
 		return namedElement.getName();
-	}
-
-	@Override
-	public String caseDTOBinding(DTOBinding binding) {
-		if (binding.getDto() == null) {
-			return "no data bound";
-		}
-		DTO dto = binding.getDto();
-		String label = "";
-		label += dto.getName() + " (DTO)";
-		return label;
-	}
-
-	@Override
-	public String caseEntityBinding(EntityBinding binding) {
-		if (binding.getEntity() == null) {
-			return "no data bound";
-		}
-		Entity dto = binding.getEntity();
-		String label = "";
-		label += dto.getName() + " (Entity)";
-		return label;
-	}
-
-	@Override
-	public String caseDTOPropertyBinding(DTOPropertyBinding binding) {
-		if (binding.getProperty() == null) {
-			return "no data bound";
-		}
-		Property property = binding.getProperty();
-		String label = "";
-		if (property.eContainer() != null && property.eContainer() instanceof DTO) {
-			label += ((DTO)property.eContainer()).getName(); 
-		}
-		label += "." + property.getName() + " (DTO ";
-		label += property.eClass().getName();
-		label += ")";
-		return label;
-	}
-
-	@Override
-	public String caseEntityPropertyBinding(EntityPropertyBinding binding) {
-		if (binding.getProperty() == null) {
-			return "no data bound";
-		}
-		org.obeonetwork.dsl.entity.Property property = binding.getProperty();
-		String label = "";
-		if (property.eContainer() != null && property.eContainer() instanceof Entity) {
-			label += ((Entity)property.eContainer()).getName(); 
-		}
-		label += "." + property.getName() + " (Entity ";
-		label += property.eClass().getName();
-		label += ")";
-		return label;
 	}
 	
 }

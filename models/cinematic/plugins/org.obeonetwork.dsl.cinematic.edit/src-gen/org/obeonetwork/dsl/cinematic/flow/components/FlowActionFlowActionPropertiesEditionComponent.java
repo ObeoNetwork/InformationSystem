@@ -31,9 +31,8 @@ import org.obeonetwork.dsl.cinematic.flow.parts.FlowActionPropertiesEditionPart;
 import org.obeonetwork.dsl.cinematic.flow.parts.FlowViewsRepository;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
+import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.soa.Operation;
-import org.obeonetwork.dsl.soa.SoaPackage;
 
 
 // End of user code
@@ -135,7 +134,7 @@ public class FlowActionFlowActionPropertiesEditionComponent extends SinglePartPr
 					}
 				
 				});
-				flowActionPart.addFilterToOperations(new EObjectFilter(SoaPackage.Literals.OPERATION));
+				flowActionPart.addFilterToOperations(new EObjectFilter(EnvironmentPackage.Literals.ACTION));
 				// Start of user code for additional businessfilters for operations
 				// End of user code
 			}
@@ -199,13 +198,13 @@ public class FlowActionFlowActionPropertiesEditionComponent extends SinglePartPr
 		}
 		if (FlowViewsRepository.FlowAction.Properties.operations == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				if (event.getNewValue() instanceof Operation) {
+				if (event.getNewValue() instanceof Action) {
 					operationsSettings.addToReference((EObject) event.getNewValue());
 				}
 			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
 				operationsSettings.removeFromReference((EObject) event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				operationsSettings.move(event.getNewIndex(), (Operation) event.getNewValue());
+				operationsSettings.move(event.getNewIndex(), (Action) event.getNewValue());
 			}
 		}
 	}

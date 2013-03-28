@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0" xmlns:description_2="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:graal="http://org.obeonetwork.graal/1.0" xmlns:graal-feature-extensions="http://org.obeonetwork.graal/featureextensions/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmlns:org.obeonetwork.dsl.soa="http://www.obeonetwork.org/dsl/soa/2.0.0" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:table="http://www.obeo.fr/dsl/viewpoint/table/1.1.0" xmlns:tree="http://www.obeo.fr/dsl/viewpoint/tree/1.0.0" xmlns:viewpoint="http://www.obeo.fr/dsl/viewpoint/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.obeo.fr/dsl/viewpoint/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0 http://www.obeo.fr/dsl/viewpoint/tree/1.0.0#//description http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/table/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description/style">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0" xmlns:description_2="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:graal="http://org.obeonetwork.graal/1.0" xmlns:graal-feature-extensions="http://org.obeonetwork.graal/featureextensions/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmlns:org.obeonetwork.dsl.soa="http://www.obeonetwork.org/dsl/soa/2.0.0" xmlns:requirement="http://www.obeonetwork.org/dsl/requirement/1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:table="http://www.obeo.fr/dsl/viewpoint/table/1.1.0" xmlns:tree="http://www.obeo.fr/dsl/viewpoint/tree/1.0.0" xmlns:viewpoint="http://www.obeo.fr/dsl/viewpoint/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.obeo.fr/dsl/viewpoint/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0 http://www.obeo.fr/dsl/viewpoint/tree/1.0.0#//description http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/table/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description/style">
   <viewpoint:DAnalysis xmi:id="_bchvoYjGEeGrHN3Vq969QA" selectedViews="_e_HFkIjGEeGrHN3Vq969QA _e_s7cIjGEeGrHN3Vq969QA _fAJnYIjGEeGrHN3Vq969QA _fAJnYYjGEeGrHN3Vq969QA _e-0KoIjGEeGrHN3Vq969QA _dYAk4IjGEeGrHN3Vq969QA">
     <models xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
     <models xmi:type="cinematic:CinematicRoot" href="E-BookStore.cinematic#_N-7IwIjLEeGrHN3Vq969QA"/>
     <models xmi:type="requirement:Repository" href="E-BookStore.requirement#_UIbdoIjLEeGrHN3Vq969QA"/>
     <models xmi:type="org.obeonetwork.dsl.soa:System" href="E-BookStore.soa#_h6PKMYjXEeGlA5e_Ze9-Rg"/>
+    <models xmi:type="cinematic-toolkits:Toolkit" href="pathmap://cinematic/toolkits/Web#_prv6gIjeEeGIXsoZxTXHQA"/>
     <eAnnotations xmi:type="description:DAnnotationEntry" xmi:id="_bchvoojGEeGrHN3Vq969QA" source="Migration">
       <details>style</details>
       <details>someViewsAreHiddenDeactivation</details>
@@ -13,6 +14,8 @@
       <details>GMFViewSizeForDNodeNotResizable</details>
       <details>sequenceAbsoluteBoundsFlag</details>
       <details>LabelAlignmentForDNodeMigrationForNotHavingSessionDirtyAtOpening</details>
+      <details>GMFTreeEdgeFixAnchors_2</details>
+      <details>RoutingStyleDesynchronization</details>
     </eAnnotations>
     <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_dYAk4IjGEeGrHN3Vq969QA" initialized="true">
       <ownedRepresentations xmi:type="viewpoint:DSemanticDiagram" xmi:id="_dYKV4IjGEeGrHN3Vq969QA" name="Tasks Graph">
@@ -317,17 +320,6 @@
             </edges>
           </data>
         </ownedAnnotationEntries>
-        <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_gMBkoIjGEeGrHN3Vq969QA" name="Visitor" incomingEdges="_gMUflYjGEeGrHN3Vq969QA _gMUfmojGEeGrHN3Vq969QA" width="3" height="3">
-          <target xmi:type="graal:Actor" href="E-BookStore.graal#_Lo0LQEjIEeGbkNJePX2AYQ"/>
-          <semanticElements xmi:type="graal:Actor" href="E-BookStore.graal#_Lo0LQEjIEeGbkNJePX2AYQ"/>
-          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_gMBkoYjGEeGrHN3Vq969QA" showIcon="false" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
-            <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']"/>
-        </ownedDiagramElements>
         <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_gMBkoojGEeGrHN3Vq969QA" name="Customer" incomingEdges="_gMUfkIjGEeGrHN3Vq969QA" width="3" height="3">
           <target xmi:type="graal:Actor" href="E-BookStore.graal#_LcBscEjIEeGbkNJePX2AYQ"/>
           <semanticElements xmi:type="graal:Actor" href="E-BookStore.graal#_LcBscEjIEeGbkNJePX2AYQ"/>
@@ -335,6 +327,17 @@
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
           <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_gMBko4jGEeGrHN3Vq969QA" showIcon="false" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
+            <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="viewpoint:DNode" xmi:id="_gMBkoIjGEeGrHN3Vq969QA" name="Visitor" incomingEdges="_gMUflYjGEeGrHN3Vq969QA _gMUfmojGEeGrHN3Vq969QA" width="3" height="3">
+          <target xmi:type="graal:Actor" href="E-BookStore.graal#_Lo0LQEjIEeGbkNJePX2AYQ"/>
+          <semanticElements xmi:type="graal:Actor" href="E-BookStore.graal#_Lo0LQEjIEeGbkNJePX2AYQ"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="viewpoint:WorkspaceImage" xmi:id="_gMBkoYjGEeGrHN3Vq969QA" showIcon="false" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
             <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']"/>
@@ -7404,7 +7407,7 @@
                 </ownedStyle>
                 <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
               </ownedTreeItems>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_8k_mj4jgEeGllIuu_i41WA" name="search : Button">
+              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_8k_mj4jgEeGllIuu_i41WA" name="search : Button" expanded="true">
                 <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_pvknYIjaEeGlA5e_Ze9-Rg"/>
                 <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_P6DvkIlWEeGBksR6VpbZgA" name="search.onClick : onClick">
                   <target xmi:type="cinematic-view:ViewEvent" href="E-BookStore.cinematic#_5P1QQIjaEeGlA5e_Ze9-Rg"/>
@@ -7442,15 +7445,6 @@
               </ownedTreeItems>
               <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_8k_mmYjgEeGllIuu_i41WA" name="bookTitle : Label" expanded="true">
                 <target xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_Eu44EIjcEeGD_4FfK_oDsg"/>
-                <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_ExyvwIlYEeGBksR6VpbZgA" name="Book.title (DTO Attribute)">
-                  <target xmi:type="cinematic-view:DTOPropertyBinding" href="E-BookStore.cinematic#_EwwN8IlYEeGBksR6VpbZgA"/>
-                  <semanticElements xmi:type="cinematic-view:DTOPropertyBinding" href="E-BookStore.cinematic#_EwwN8IlYEeGBksR6VpbZgA"/>
-                  <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_ExyvwYlYEeGBksR6VpbZgA">
-                    <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_ExyvxIlYEeGBksR6VpbZgA"/>
-                    <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_Exyvw4lYEeGBksR6VpbZgA" red="255" green="255" blue="255"/>
-                  </ownedStyle>
-                  <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_DataBinding']"/>
-                </ownedTreeItems>
                 <semanticElements xmi:type="cinematic-view:ViewElement" href="E-BookStore.cinematic#_Eu44EIjcEeGD_4FfK_oDsg"/>
                 <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_8k_mmojgEeGllIuu_i41WA">
                   <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_8k_mnYjgEeGllIuu_i41WA"/>
@@ -7678,6 +7672,15 @@
               <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_XBIcNIjjEeGllIuu_i41WA" red="255" green="255" blue="255"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']"/>
+          </ownedTreeItems>
+          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_5ulNkF8JEeKIXLfwsczbIg" name="Web">
+            <target xmi:type="cinematic-toolkits:Toolkit" href="pathmap://cinematic/toolkits/Web#_prv6gIjeEeGIXsoZxTXHQA"/>
+            <semanticElements xmi:type="cinematic-toolkits:Toolkit" href="pathmap://cinematic/toolkits/Web#_prv6gIjeEeGIXsoZxTXHQA"/>
+            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_5unp0F8JEeKIXLfwsczbIg">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_5upfAF8JEeKIXLfwsczbIg"/>
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_5uo38F8JEeKIXLfwsczbIg" red="255" green="255" blue="255"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_Toolkit']"/>
           </ownedTreeItems>
           <semanticElements xmi:type="cinematic:CinematicRoot" href="E-BookStore.cinematic#_N-7IwIjLEeGrHN3Vq969QA"/>
           <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_7L-lNojgEeGllIuu_i41WA" labelSize="9">

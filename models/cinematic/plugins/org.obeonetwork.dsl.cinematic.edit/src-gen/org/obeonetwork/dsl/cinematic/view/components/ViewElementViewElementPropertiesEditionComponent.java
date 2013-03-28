@@ -32,7 +32,6 @@ import org.eclipse.jface.viewers.ViewerFilter;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
-import org.obeonetwork.dsl.cinematic.view.DataBinding;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
@@ -69,11 +68,6 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 	 * Settings for events ReferencesTable
 	 */
 	protected ReferencesTableSettings eventsSettings;
-	
-	/**
-	 * Settings for dataBindings ReferencesTable
-	 */
-	protected ReferencesTableSettings dataBindingsSettings;
 	
 	/**
 	 * Settings for type EObjectFlatComboViewer
@@ -130,10 +124,6 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 			if (viewElement.getLabel() != null && isAccessible(ViewViewsRepository.ViewElement.Properties.label))
 				viewElementPart.setLabel(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewElement.getLabel()));
 			
-			if (isAccessible(ViewViewsRepository.ViewElement.Properties.dataBindings)) {
-				dataBindingsSettings = new ReferencesTableSettings(viewElement, ViewPackage.eINSTANCE.getAbstractViewElement_DataBindings());
-				viewElementPart.initDataBindings(dataBindingsSettings);
-			}
 			if (isAccessible(ViewViewsRepository.ViewElement.Properties.required)) {
 				viewElementPart.setRequired(viewElement.isRequired());
 			}
@@ -194,21 +184,6 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 				// End of user code
 			}
 			
-			if (isAccessible(ViewViewsRepository.ViewElement.Properties.dataBindings)) {
-				viewElementPart.addFilterToDataBindings(new ViewerFilter() {
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						return (element instanceof String && element.equals("")) || (element instanceof DataBinding); //$NON-NLS-1$ 
-					}
-			
-				});
-				// Start of user code for additional businessfilters for dataBindings
-				// End of user code
-			}
 			
 			if (isAccessible(ViewViewsRepository.ViewElement.Properties.type)) {
 				viewElementPart.addFilterToType(new ViewerFilter() {
@@ -244,7 +219,6 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 
 
 
-
 	/**
 	 * {@inheritDoc}
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
@@ -267,9 +241,6 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 		}
 		if (editorKey == ViewViewsRepository.ViewElement.Properties.label) {
 			return ViewPackage.eINSTANCE.getAbstractViewElement_Label();
-		}
-		if (editorKey == ViewViewsRepository.ViewElement.Properties.dataBindings) {
-			return ViewPackage.eINSTANCE.getAbstractViewElement_DataBindings();
 		}
 		if (editorKey == ViewViewsRepository.ViewElement.Properties.required) {
 			return ViewPackage.eINSTANCE.getViewElement_Required();
@@ -362,31 +333,6 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 		if (ViewViewsRepository.ViewElement.Properties.label == event.getAffectedEditor()) {
 			viewElement.setLabel((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (ViewViewsRepository.ViewElement.Properties.dataBindings == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, dataBindingsSettings, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(semanticObject, PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy instanceof CreateEditingPolicy) {
-						policy.execute();
-					}
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.EDIT) {
-				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, (EObject) event.getNewValue(), editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt((EObject) event.getNewValue(), PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy editionPolicy = provider.getPolicy(context);
-					if (editionPolicy != null) {
-						editionPolicy.execute();
-					}
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				dataBindingsSettings.removeFromReference((EObject) event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				dataBindingsSettings.move(event.getNewIndex(), (DataBinding) event.getNewValue());
-			}
-		}
 		if (ViewViewsRepository.ViewElement.Properties.required == event.getAffectedEditor()) {
 			viewElement.setRequired((Boolean)event.getNewValue());
 		}
@@ -440,8 +386,6 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 					viewElementPart.setLabel("");
 				}
 			}
-			if (ViewPackage.eINSTANCE.getAbstractViewElement_DataBindings().equals(msg.getFeature()) && isAccessible(ViewViewsRepository.ViewElement.Properties.dataBindings))
-				viewElementPart.updateDataBindings();
 			if (ViewPackage.eINSTANCE.getViewElement_Required().equals(msg.getFeature()) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.required))
 				viewElementPart.setRequired((Boolean)msg.getNewValue());
 			

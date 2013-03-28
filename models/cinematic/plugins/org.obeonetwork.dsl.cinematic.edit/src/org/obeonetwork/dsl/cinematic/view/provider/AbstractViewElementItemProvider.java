@@ -173,7 +173,6 @@ public class AbstractViewElementItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__ACTIONS);
 			childrenFeatures.add(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__EVENTS);
-			childrenFeatures.add(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS);
 		}
 		return childrenFeatures;
 	}
@@ -232,7 +231,6 @@ public class AbstractViewElementItemProvider
 				return;
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__ACTIONS:
 			case ViewPackage.ABSTRACT_VIEW_ELEMENT__EVENTS:
-			case ViewPackage.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -259,26 +257,6 @@ public class AbstractViewElementItemProvider
 			(createChildParameter
 				(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__EVENTS,
 				 ViewFactory.eINSTANCE.createViewEvent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS,
-				 ViewFactory.eINSTANCE.createEntityBinding()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS,
-				 ViewFactory.eINSTANCE.createEntityPropertyBinding()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS,
-				 ViewFactory.eINSTANCE.createDTOPropertyBinding()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ViewPackage.Literals.ABSTRACT_VIEW_ELEMENT__DATA_BINDINGS,
-				 ViewFactory.eINSTANCE.createDTOBinding()));
 	}
 
 	/**

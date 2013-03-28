@@ -5,13 +5,9 @@ package org.obeonetwork.dsl.cinematic.view.parts;
 
 // Start of user code for imports
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.ViewerFilter;
 
 
@@ -96,50 +92,6 @@ public interface ViewContainerPropertiesEditionPart {
 	 * 
 	 */
 	public void addBusinessFilterToWidget(ViewerFilter filter);
-
-
-
-
-	/**
-	 * Init the dataBindings
-	 * @param current the current value
-	 * @param containgFeature the feature where to navigate if necessary
-	 * @param feature the feature to manage
-	 */
-	public void initDataBindings(ReferencesTableSettings settings);
-
-	/**
-	 * Update the dataBindings
-	 * @param newValue the dataBindings to update
-	 * 
-	 */
-	public void updateDataBindings();
-
-	/**
-	 * Adds the given filter to the dataBindings edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addFilterToDataBindings(ViewerFilter filter);
-
-	/**
-	 * Adds the given filter to the dataBindings edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addBusinessFilterToDataBindings(ViewerFilter filter);
-
-	/**
-	 * @return true if the given element is contained inside the dataBindings table
-	 * 
-	 */
-	public boolean isContainedInDataBindingsTable(EObject element);
 
 
 
