@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tree="http://www.obeo.fr/dsl/viewpoint/tree/1.0.0" xmlns:viewpoint="http://www.obeo.fr/dsl/viewpoint/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.obeo.fr/dsl/viewpoint/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0 http://www.obeo.fr/dsl/viewpoint/tree/1.0.0#//description http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description/style" xmi:id="_LoMawNcTEeGQovjaDYZWbg" selectedViews="_RBy8sNcTEeGQovjaDYZWbg">
   <models xmi:type="cinematic:CinematicRoot" href="choco.cinematic#_OHoC8AcpEeKriuko9xNWRg"/>
-  <models xmi:type="cinematic-toolkits:Toolkit" href="pathmap://cinematic/toolkits/JBE#_Y__FYMZ3EeGhpfs0heeamg"/>
+  <models xmi:type="cinematic-toolkits:Toolkit" href="JBE.cinematic_toolkits#_Y__FYMZ3EeGhpfs0heeamg"/>
   <eAnnotations xmi:type="description:DAnnotationEntry" xmi:id="_LoMawdcTEeGQovjaDYZWbg" source="Migration">
     <details>style</details>
     <details>someViewsAreHiddenDeactivation</details>
@@ -25,12 +25,30 @@
             <target xmi:type="cinematic:Package" href="choco.cinematic#_OHv-xAcpEeKriuko9xNWRg"/>
             <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_UD2YcNcTEeGQovjaDYZWbg" name="popup" expanded="true">
               <target xmi:type="cinematic:Package" href="choco.cinematic#_OHv-xQcpEeKriuko9xNWRg"/>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_NhUQMP5-EeGCZuXgbXmDrA" name="edit">
+              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_NhUQMP5-EeGCZuXgbXmDrA" name="edit" expanded="true">
                 <target xmi:type="cinematic:Package" href="choco.cinematic#_OHv-xgcpEeKriuko9xNWRg"/>
                 <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_NhU3Q_5-EeGCZuXgbXmDrA" name="edit-user : PopupContainer">
                   <target xmi:type="cinematic-view:ViewContainer" href="choco.cinematic#_OHv-xwcpEeKriuko9xNWRg"/>
                   <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_NhWscP5-EeGCZuXgbXmDrA" name="editUser : EditForm">
                     <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHv-yAcpEeKriuko9xNWRg"/>
+                    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_xV3_UJe2EeKekcstYbgZ9w" name="save : save">
+                      <target xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHv-yQcpEeKriuko9xNWRg"/>
+                      <semanticElements xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHv-yQcpEeKriuko9xNWRg"/>
+                      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_xV4mYJe2EeKekcstYbgZ9w">
+                        <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_xV4mY5e2EeKekcstYbgZ9w"/>
+                        <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_xV4mYpe2EeKekcstYbgZ9w" red="255" green="255" blue="255"/>
+                      </ownedStyle>
+                      <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent']"/>
+                    </ownedTreeItems>
+                    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_xV5NcJe2EeKekcstYbgZ9w" name="close : editItem">
+                      <target xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHv-ygcpEeKriuko9xNWRg"/>
+                      <semanticElements xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHv-ygcpEeKriuko9xNWRg"/>
+                      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_xV50gJe2EeKekcstYbgZ9w">
+                        <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_xV50g5e2EeKekcstYbgZ9w"/>
+                        <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_xV50gpe2EeKekcstYbgZ9w" red="255" green="255" blue="255"/>
+                      </ownedStyle>
+                      <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent']"/>
+                    </ownedTreeItems>
                     <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHv-yAcpEeKriuko9xNWRg"/>
                     <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_NhWscf5-EeGCZuXgbXmDrA">
                       <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhXTgP5-EeGCZuXgbXmDrA"/>
@@ -49,6 +67,24 @@
                   <target xmi:type="cinematic-view:ViewContainer" href="choco.cinematic#_OHv-ywcpEeKriuko9xNWRg"/>
                   <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_NhX6kP5-EeGCZuXgbXmDrA" name="editChoco : EditForm">
                     <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHwl0AcpEeKriuko9xNWRg"/>
+                    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_xV830Je2EeKekcstYbgZ9w" name="save : save">
+                      <target xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHwl0QcpEeKriuko9xNWRg"/>
+                      <semanticElements xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHwl0QcpEeKriuko9xNWRg"/>
+                      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_xV830Ze2EeKekcstYbgZ9w">
+                        <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_xV9e4Ze2EeKekcstYbgZ9w"/>
+                        <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_xV9e4Je2EeKekcstYbgZ9w" red="255" green="255" blue="255"/>
+                      </ownedStyle>
+                      <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent']"/>
+                    </ownedTreeItems>
+                    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_xV-F8Je2EeKekcstYbgZ9w" name="close : editItem">
+                      <target xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHwl0gcpEeKriuko9xNWRg"/>
+                      <semanticElements xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHwl0gcpEeKriuko9xNWRg"/>
+                      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_xV-F8Ze2EeKekcstYbgZ9w">
+                        <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_xV-F9Je2EeKekcstYbgZ9w"/>
+                        <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_xV-F85e2EeKekcstYbgZ9w" red="255" green="255" blue="255"/>
+                      </ownedStyle>
+                      <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent']"/>
+                    </ownedTreeItems>
                     <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHwl0AcpEeKriuko9xNWRg"/>
                     <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_NhX6kf5-EeGCZuXgbXmDrA">
                       <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhX6lP5-EeGCZuXgbXmDrA"/>
@@ -67,6 +103,24 @@
                   <target xmi:type="cinematic-view:ViewContainer" href="choco.cinematic#_OHwl0wcpEeKriuko9xNWRg"/>
                   <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_NhZIsP5-EeGCZuXgbXmDrA" name="editOffice : EditForm">
                     <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHwl1AcpEeKriuko9xNWRg"/>
+                    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_xWBwUJe2EeKekcstYbgZ9w" name="save : save">
+                      <target xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHwl1QcpEeKriuko9xNWRg"/>
+                      <semanticElements xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHwl1QcpEeKriuko9xNWRg"/>
+                      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_xWBwUZe2EeKekcstYbgZ9w">
+                        <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_xWBwVJe2EeKekcstYbgZ9w"/>
+                        <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_xWBwU5e2EeKekcstYbgZ9w" red="255" green="255" blue="255"/>
+                      </ownedStyle>
+                      <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent']"/>
+                    </ownedTreeItems>
+                    <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_xWCXYJe2EeKekcstYbgZ9w" name="close : editItem">
+                      <target xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHwl1gcpEeKriuko9xNWRg"/>
+                      <semanticElements xmi:type="cinematic-view:ViewEvent" href="choco.cinematic#_OHwl1gcpEeKriuko9xNWRg"/>
+                      <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_xWCXYZe2EeKekcstYbgZ9w">
+                        <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_xWC-cZe2EeKekcstYbgZ9w"/>
+                        <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_xWC-cJe2EeKekcstYbgZ9w" red="255" green="255" blue="255"/>
+                      </ownedStyle>
+                      <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent']"/>
+                    </ownedTreeItems>
                     <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHwl1AcpEeKriuko9xNWRg"/>
                     <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_NhZIsf5-EeGCZuXgbXmDrA">
                       <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_NhZItP5-EeGCZuXgbXmDrA"/>
@@ -174,6 +228,15 @@
         </ownedTreeItems>
         <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_TXUCk9cTEeGQovjaDYZWbg" name="users : WidgetContainer">
           <target xmi:type="cinematic-view:ViewContainer" href="choco.cinematic#_OHs7cAcpEeKriuko9xNWRg"/>
+          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_TXUCnNcTEeGQovjaDYZWbg" name="usersByOffice : Stats">
+            <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHs7dAcpEeKriuko9xNWRg"/>
+            <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHs7dAcpEeKriuko9xNWRg"/>
+            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_TXUCndcTEeGQovjaDYZWbg">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCntcTEeGQovjaDYZWbg"/>
+              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCn9cTEeGQovjaDYZWbg" red="255" green="255" blue="255"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
+          </ownedTreeItems>
           <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_TXUClNcTEeGQovjaDYZWbg" name="create-user-form : CreateForm">
             <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHs7cQcpEeKriuko9xNWRg"/>
             <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_mrj1oP5_EeG_A_Q33iCE6g" name="add : add">
@@ -198,24 +261,6 @@
             <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_TXUCldcTEeGQovjaDYZWbg">
               <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCltcTEeGQovjaDYZWbg"/>
               <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCl9cTEeGQovjaDYZWbg" red="255" green="255" blue="255"/>
-            </ownedStyle>
-            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-          </ownedTreeItems>
-          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_TXUCnNcTEeGQovjaDYZWbg" name="usersByOffice : Stats">
-            <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHs7dAcpEeKriuko9xNWRg"/>
-            <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHs7dAcpEeKriuko9xNWRg"/>
-            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_TXUCndcTEeGQovjaDYZWbg">
-              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCntcTEeGQovjaDYZWbg"/>
-              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCn9cTEeGQovjaDYZWbg" red="255" green="255" blue="255"/>
-            </ownedStyle>
-            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-          </ownedTreeItems>
-          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_TXUCoNcTEeGQovjaDYZWbg" name="paginationUserTop : Pagination">
-            <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHs7dQcpEeKriuko9xNWRg"/>
-            <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHs7dQcpEeKriuko9xNWRg"/>
-            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_TXUCodcTEeGQovjaDYZWbg">
-              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCotcTEeGQovjaDYZWbg"/>
-              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCo9cTEeGQovjaDYZWbg" red="255" green="255" blue="255"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
           </ownedTreeItems>
@@ -261,15 +306,6 @@
             <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_aVYX4d_aEeGgM8g4Xd-4HQ">
               <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_aVYX5N_aEeGgM8g4Xd-4HQ"/>
               <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_aVYX49_aEeGgM8g4Xd-4HQ" red="255" green="255" blue="255"/>
-            </ownedStyle>
-            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-          </ownedTreeItems>
-          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_mringP5_EeG_A_Q33iCE6g" name="paginationUserBottom : Pagination">
-            <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHtigQcpEeKriuko9xNWRg"/>
-            <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHtigQcpEeKriuko9xNWRg"/>
-            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_mringf5_EeG_A_Q33iCE6g">
-              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_mrinhP5_EeG_A_Q33iCE6g"/>
-              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_mring_5_EeG_A_Q33iCE6g" red="255" green="255" blue="255"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
           </ownedTreeItems>
@@ -327,15 +363,6 @@
             </ownedStyle>
             <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
           </ownedTreeItems>
-          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_TXUCtNcTEeGQovjaDYZWbg" name="paginationChocoTop : Pagination">
-            <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHtihwcpEeKriuko9xNWRg"/>
-            <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHtihwcpEeKriuko9xNWRg"/>
-            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_TXUCtdcTEeGQovjaDYZWbg">
-              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCttcTEeGQovjaDYZWbg"/>
-              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCt9cTEeGQovjaDYZWbg" red="255" green="255" blue="255"/>
-            </ownedStyle>
-            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-          </ownedTreeItems>
           <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_TXUCuNcTEeGQovjaDYZWbg" name="chocoList : ObjectList">
             <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHtiiAcpEeKriuko9xNWRg"/>
             <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_msnlkP5_EeG_A_Q33iCE6g" name="deleteChoco : deleteItem">
@@ -369,15 +396,6 @@
             <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_TXUCudcTEeGQovjaDYZWbg">
               <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCutcTEeGQovjaDYZWbg"/>
               <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCu9cTEeGQovjaDYZWbg" red="255" green="255" blue="255"/>
-            </ownedStyle>
-            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-          </ownedTreeItems>
-          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_msRnUP5_EeG_A_Q33iCE6g" name="paginationChocoBottom : Pagination">
-            <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuJkQcpEeKriuko9xNWRg"/>
-            <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuJkQcpEeKriuko9xNWRg"/>
-            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_msRnUf5_EeG_A_Q33iCE6g">
-              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_msRnVP5_EeG_A_Q33iCE6g"/>
-              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_msRnU_5_EeG_A_Q33iCE6g" red="255" green="255" blue="255"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
           </ownedTreeItems>
@@ -462,15 +480,6 @@
             </ownedStyle>
             <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
           </ownedTreeItems>
-          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_TXUCzNcTEeGQovjaDYZWbg" name="paginationOfficeTop : Pagination">
-            <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuJlwcpEeKriuko9xNWRg"/>
-            <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuJlwcpEeKriuko9xNWRg"/>
-            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_TXUCzdcTEeGQovjaDYZWbg">
-              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCztcTEeGQovjaDYZWbg"/>
-              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUCz9cTEeGQovjaDYZWbg" red="255" green="255" blue="255"/>
-            </ownedStyle>
-            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-          </ownedTreeItems>
           <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_TXUC0NcTEeGQovjaDYZWbg" name="officeList : ObjectList">
             <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuJmAcpEeKriuko9xNWRg"/>
             <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_mtOCgP5_EeG_A_Q33iCE6g" name="deleteOffice : deleteItem">
@@ -507,46 +516,10 @@
             </ownedStyle>
             <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
           </ownedTreeItems>
-          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_ms4rUP5_EeG_A_Q33iCE6g" name="paginationOfficeBottom : Pagination">
-            <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuwogcpEeKriuko9xNWRg"/>
-            <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuwogcpEeKriuko9xNWRg"/>
-            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_ms4rUf5_EeG_A_Q33iCE6g">
-              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_ms4rVP5_EeG_A_Q33iCE6g"/>
-              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_ms4rU_5_EeG_A_Q33iCE6g" red="255" green="255" blue="255"/>
-            </ownedStyle>
-            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-          </ownedTreeItems>
           <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_ms5SYP5_EeG_A_Q33iCE6g" name="menuLeft : home-left-menu">
             <target xmi:type="cinematic-view:ViewContainerReference" href="choco.cinematic#_OHuwowcpEeKriuko9xNWRg"/>
             <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_mtRF0P5_EeG_A_Q33iCE6g" name="home-left-menu : Menu">
               <target xmi:type="cinematic-view:ViewContainer" href="choco.cinematic#_OHuwpAcpEeKriuko9xNWRg"/>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_twdn8AfkEeK0r9Xkwm60Vw" name="usersLink : PageLink">
-                <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuwpQcpEeKriuko9xNWRg"/>
-                <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuwpQcpEeKriuko9xNWRg"/>
-                <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_twdn8QfkEeK0r9Xkwm60Vw">
-                  <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_twdn9AfkEeK0r9Xkwm60Vw"/>
-                  <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_twdn8wfkEeK0r9Xkwm60Vw" red="255" green="255" blue="255"/>
-                </ownedStyle>
-                <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-              </ownedTreeItems>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_twdn9QfkEeK0r9Xkwm60Vw" name="chocoVoteLink : PageLink">
-                <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuwpwcpEeKriuko9xNWRg"/>
-                <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuwpwcpEeKriuko9xNWRg"/>
-                <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_twdn9gfkEeK0r9Xkwm60Vw">
-                  <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_twePAAfkEeK0r9Xkwm60Vw"/>
-                  <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_twdn-AfkEeK0r9Xkwm60Vw" red="255" green="255" blue="255"/>
-                </ownedStyle>
-                <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-              </ownedTreeItems>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_twePAQfkEeK0r9Xkwm60Vw" name="officeStatistics : PageLink">
-                <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuwqQcpEeKriuko9xNWRg"/>
-                <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHuwqQcpEeKriuko9xNWRg"/>
-                <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_twePAgfkEeK0r9Xkwm60Vw">
-                  <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_twePBQfkEeK0r9Xkwm60Vw"/>
-                  <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_twePBAfkEeK0r9Xkwm60Vw" red="255" green="255" blue="255"/>
-                </ownedStyle>
-                <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-              </ownedTreeItems>
               <semanticElements xmi:type="cinematic-view:ViewContainer" href="choco.cinematic#_OHuwpAcpEeKriuko9xNWRg"/>
               <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_mtRF0f5_EeG_A_Q33iCE6g">
                 <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_mtRs4f5_EeG_A_Q33iCE6g"/>
@@ -633,15 +606,6 @@
         </ownedTreeItems>
         <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_WpFpUNsZEeGSD9XASM8diA" name="admins : WidgetContainer">
           <target xmi:type="cinematic-view:ViewContainer" href="choco.cinematic#_OHvXsAcpEeKriuko9xNWRg"/>
-          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_WrEmVdsZEeGSD9XASM8diA" name="paginationAdminTop : Pagination">
-            <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHvXsQcpEeKriuko9xNWRg"/>
-            <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHvXsQcpEeKriuko9xNWRg"/>
-            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_WrFNYNsZEeGSD9XASM8diA">
-              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_WrFNY9sZEeGSD9XASM8diA"/>
-              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_WrFNYtsZEeGSD9XASM8diA" red="255" green="255" blue="255"/>
-            </ownedStyle>
-            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-          </ownedTreeItems>
           <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_WrFNZNsZEeGSD9XASM8diA" name="adminList : ObjectList">
             <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHvXsgcpEeKriuko9xNWRg"/>
             <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_WrHCl9sZEeGSD9XASM8diA" name="officeLink : onClick">
@@ -669,28 +633,10 @@
             </ownedStyle>
             <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
           </ownedTreeItems>
-          <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_WrFNadsZEeGSD9XASM8diA" name="paginationAdminBottom : Pagination">
-            <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHvXtQcpEeKriuko9xNWRg"/>
-            <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHvXtQcpEeKriuko9xNWRg"/>
-            <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_WrFNatsZEeGSD9XASM8diA">
-              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_WrFNbdsZEeGSD9XASM8diA"/>
-              <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_WrFNbNsZEeGSD9XASM8diA" red="255" green="255" blue="255"/>
-            </ownedStyle>
-            <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-          </ownedTreeItems>
           <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_WrFNbtsZEeGSD9XASM8diA" name="adminLeftMenu : admin-left-menu">
             <target xmi:type="cinematic-view:ViewContainerReference" href="choco.cinematic#_OHvXtgcpEeKriuko9xNWRg"/>
             <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_q1MWQNsZEeGSD9XASM8diA" name="admin-left-menu : Menu" expanded="true">
               <target xmi:type="cinematic-view:ViewContainer" href="choco.cinematic#_OHv-wAcpEeKriuko9xNWRg"/>
-              <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="__RbJYf6FEeGlr96dEksJQw" name="admins : PageLink">
-                <target xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHv-wQcpEeKriuko9xNWRg"/>
-                <semanticElements xmi:type="cinematic-view:ViewElement" href="choco.cinematic#_OHv-wQcpEeKriuko9xNWRg"/>
-                <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="__RbwcP6FEeGlr96dEksJQw">
-                  <labelColor xmi:type="viewpoint:RGBValues" xmi:id="__Rbwc_6FEeGlr96dEksJQw"/>
-                  <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="__Rbwcv6FEeGlr96dEksJQw" red="255" green="255" blue="255"/>
-                </ownedStyle>
-                <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement']"/>
-              </ownedTreeItems>
               <semanticElements xmi:type="cinematic-view:ViewContainer" href="choco.cinematic#_OHv-wAcpEeKriuko9xNWRg"/>
               <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_q1MWQdsZEeGSD9XASM8diA">
                 <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_q1MWRNsZEeGSD9XASM8diA"/>
@@ -739,12 +685,12 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']"/>
         </ownedTreeItems>
-        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_TXUC69cTEeGQovjaDYZWbg" name="JBE">
-          <target xmi:type="cinematic-toolkits:Toolkit" href="pathmap://cinematic/toolkits/JBE#_Y__FYMZ3EeGhpfs0heeamg"/>
-          <semanticElements xmi:type="cinematic-toolkits:Toolkit" href="pathmap://cinematic/toolkits/JBE#_Y__FYMZ3EeGhpfs0heeamg"/>
-          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_TXUC7NcTEeGQovjaDYZWbg">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUC7dcTEeGQovjaDYZWbg"/>
-            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_TXUC7tcTEeGQovjaDYZWbg" red="255" green="255" blue="255"/>
+        <ownedTreeItems xmi:type="tree:DTreeItem" xmi:id="_xAIY0Je2EeKekcstYbgZ9w" name="JBE">
+          <target xmi:type="cinematic-toolkits:Toolkit" href="JBE.cinematic_toolkits#_Y__FYMZ3EeGhpfs0heeamg"/>
+          <semanticElements xmi:type="cinematic-toolkits:Toolkit" href="JBE.cinematic_toolkits#_Y__FYMZ3EeGhpfs0heeamg"/>
+          <ownedStyle xmi:type="tree:TreeItemStyle" xmi:id="_xAI_4Je2EeKekcstYbgZ9w">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_xAKOAZe2EeKekcstYbgZ9w"/>
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_xAKOAJe2EeKekcstYbgZ9w" red="255" green="255" blue="255"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:TreeItemMapping" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_Toolkit']"/>
         </ownedTreeItems>

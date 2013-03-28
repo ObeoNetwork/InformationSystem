@@ -123,126 +123,126 @@
     <transitions xmi:id="_OHsUbwcpEeKriuko9xNWRg" from="_OHsUZgcpEeKriuko9xNWRg" on="_OHuwqgcpEeKriuko9xNWRg"/>
   </flows>
   <viewContainers xmi:id="_OHs7cAcpEeKriuko9xNWRg" createdOn="2012-10-02T09:47:45.230+0200" modifiedOn="2012-10-02T15:46:29.393+0200" name="users" label="Users">
-    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
+    <widget href="JBE.cinematic_toolkits#_Y__FcMZ3EeGhpfs0heeamg"/>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7dAcpEeKriuko9xNWRg" name="usersByOffice">
-      <widget href="pathmap://cinematic/toolkits/JBE#//@widgets.9"/>
+      <widget href="JBE.cinematic_toolkits#_blRZxZe2EeKekcstYbgZ9w"/>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7cQcpEeKriuko9xNWRg" name="create-user-form">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FYcZ3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__FYcZ3EeGhpfs0heeamg"/>
       <events xmi:id="_OHs7cgcpEeKriuko9xNWRg" name="add">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FYsZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FYsZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHs7cwcpEeKriuko9xNWRg" name="close">
-        <type href="pathmap://cinematic/toolkits/JBE#//@widgets.6/@possibleEvents.1"/>
+        <type href="JBE.cinematic_toolkits#_blRZw5e2EeKekcstYbgZ9w"/>
       </events>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHs7dgcpEeKriuko9xNWRg" name="userList">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__FZ8Z3EeGhpfs0heeamg"/>
       <events xmi:id="_OHs7dwcpEeKriuko9xNWRg" name="deleteUser">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FaMZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FaMZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHs7eAcpEeKriuko9xNWRg" name="editUser">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FacZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHs7eQcpEeKriuko9xNWRg" name="officeLink">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FasZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHtigAcpEeKriuko9xNWRg" name="chocoLink">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FasZ3EeGhpfs0heeamg"/>
       </events>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewContainerReference" xmi:id="_OHtiggcpEeKriuko9xNWRg" name="menuLeft" viewContainer="_OHuwpAcpEeKriuko9xNWRg"/>
   </viewContainers>
   <viewContainers xmi:id="_OHtigwcpEeKriuko9xNWRg" createdOn="2012-10-02T09:47:41.733+0200" modifiedOn="2012-10-02T09:48:14.487+0200" name="choco-vote" label="Choco Vote">
-    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
+    <widget href="JBE.cinematic_toolkits#_Y__FcMZ3EeGhpfs0heeamg"/>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHtihAcpEeKriuko9xNWRg" name="create-choco-form">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FYcZ3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__FYcZ3EeGhpfs0heeamg"/>
       <events xmi:id="_OHtihQcpEeKriuko9xNWRg" name="add">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FYsZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FYsZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHtihgcpEeKriuko9xNWRg" name="close">
-        <type href="pathmap://cinematic/toolkits/JBE#//@widgets.6/@possibleEvents.1"/>
+        <type href="JBE.cinematic_toolkits#_blRZw5e2EeKekcstYbgZ9w"/>
       </events>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHtiiAcpEeKriuko9xNWRg" name="chocoList">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__FZ8Z3EeGhpfs0heeamg"/>
       <events xmi:id="_OHtiiQcpEeKriuko9xNWRg" name="deleteChoco">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FaMZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FaMZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHtiigcpEeKriuko9xNWRg" name="editChoco">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FacZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHuJkAcpEeKriuko9xNWRg" name="userLink">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FasZ3EeGhpfs0heeamg"/>
       </events>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewContainerReference" xmi:id="_OHuJkgcpEeKriuko9xNWRg" name="menuLeft" viewContainer="_OHuwpAcpEeKriuko9xNWRg"/>
   </viewContainers>
   <viewContainers xmi:id="_OHuJkwcpEeKriuko9xNWRg" createdOn="2012-10-02T09:47:37.833+0200" modifiedOn="2012-10-02T09:48:14.295+0200" name="office-statistics" label="Office Statistics">
-    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
+    <widget href="JBE.cinematic_toolkits#_Y__FcMZ3EeGhpfs0heeamg"/>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuJlAcpEeKriuko9xNWRg" name="create-office-form">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FYcZ3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__FYcZ3EeGhpfs0heeamg"/>
       <events xmi:id="_OHuJlQcpEeKriuko9xNWRg" name="add">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FYsZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FYsZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHuJlgcpEeKriuko9xNWRg" name="close">
-        <type href="pathmap://cinematic/toolkits/JBE#//@widgets.6/@possibleEvents.1"/>
+        <type href="JBE.cinematic_toolkits#_blRZw5e2EeKekcstYbgZ9w"/>
       </events>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuJmAcpEeKriuko9xNWRg" name="officeList">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__FZ8Z3EeGhpfs0heeamg"/>
       <events xmi:id="_OHuJmQcpEeKriuko9xNWRg" name="deleteOffice">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FaMZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FaMZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHuwoAcpEeKriuko9xNWRg" name="editOffice">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FacZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHuwoQcpEeKriuko9xNWRg" name="userLink">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FasZ3EeGhpfs0heeamg"/>
       </events>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewContainerReference" xmi:id="_OHuwowcpEeKriuko9xNWRg" name="menuLeft" label="" viewContainer="_OHuwpAcpEeKriuko9xNWRg"/>
   </viewContainers>
   <viewContainers xmi:id="_OHuwpAcpEeKriuko9xNWRg" name="home-left-menu" label="News">
-    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcsZ3EeGhpfs0heeamg"/>
+    <widget href="JBE.cinematic_toolkits#_Y__FcsZ3EeGhpfs0heeamg"/>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuwpQcpEeKriuko9xNWRg" name="usersLink">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__Fc8Z3EeGhpfs0heeamg"/>
       <events xmi:id="_OHuwpgcpEeKriuko9xNWRg" name="openUsers">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FdMZ3EeGhpfs0heeamg"/>
       </events>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuwpwcpEeKriuko9xNWRg" name="chocoVoteLink" label="">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__Fc8Z3EeGhpfs0heeamg"/>
       <events xmi:id="_OHuwqAcpEeKriuko9xNWRg" name="openChocoVote">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FdMZ3EeGhpfs0heeamg"/>
       </events>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHuwqQcpEeKriuko9xNWRg" name="officeStatistics">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__Fc8Z3EeGhpfs0heeamg"/>
       <events xmi:id="_OHuwqgcpEeKriuko9xNWRg" name="openOfficeStatistics">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FdMZ3EeGhpfs0heeamg"/>
       </events>
     </ownedElements>
   </viewContainers>
   <viewContainers xmi:id="_OHvXsAcpEeKriuko9xNWRg" createdOn="2012-10-02T09:47:27.518+0200" modifiedOn="2012-10-02T09:48:13.862+0200" name="admins" label="Admin">
-    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcMZ3EeGhpfs0heeamg"/>
+    <widget href="JBE.cinematic_toolkits#_Y__FcMZ3EeGhpfs0heeamg"/>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHvXsgcpEeKriuko9xNWRg" name="adminList">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZ8Z3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__FZ8Z3EeGhpfs0heeamg"/>
       <events xmi:id="_OHvXswcpEeKriuko9xNWRg" name="officeLink">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FasZ3EeGhpfs0heeamg"/>
       </events>
       <events xmi:id="_OHvXtAcpEeKriuko9xNWRg" name="chocoLink">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FasZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FasZ3EeGhpfs0heeamg"/>
       </events>
     </ownedElements>
     <ownedElements xsi:type="cinematic-view:ViewContainerReference" xmi:id="_OHvXtgcpEeKriuko9xNWRg" name="adminLeftMenu" viewContainer="_OHv-wAcpEeKriuko9xNWRg"/>
   </viewContainers>
   <viewContainers xmi:id="_OHv-wAcpEeKriuko9xNWRg" name="admin-left-menu" label="News">
-    <widget href="pathmap://cinematic/toolkits/JBE#_Y__FcsZ3EeGhpfs0heeamg"/>
+    <widget href="JBE.cinematic_toolkits#_Y__FcsZ3EeGhpfs0heeamg"/>
     <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHv-wQcpEeKriuko9xNWRg" name="admins">
-      <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fc8Z3EeGhpfs0heeamg"/>
+      <widget href="JBE.cinematic_toolkits#_Y__Fc8Z3EeGhpfs0heeamg"/>
       <events xmi:id="_OHv-wgcpEeKriuko9xNWRg" name="openAdmins">
-        <type href="pathmap://cinematic/toolkits/JBE#_Y__FdMZ3EeGhpfs0heeamg"/>
+        <type href="JBE.cinematic_toolkits#_Y__FdMZ3EeGhpfs0heeamg"/>
       </events>
     </ownedElements>
   </viewContainers>
@@ -251,79 +251,79 @@
       <subPackages xmi:id="_OHv-xQcpEeKriuko9xNWRg" name="popup">
         <subPackages xmi:id="_OHv-xgcpEeKriuko9xNWRg" name="edit">
           <viewContainers xmi:id="_OHv-xwcpEeKriuko9xNWRg" name="edit-user" label="Edit User">
-            <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
+            <widget href="JBE.cinematic_toolkits#_Y__Fa8Z3EeGhpfs0heeamg"/>
             <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHv-yAcpEeKriuko9xNWRg" name="editUser" label="Edit User">
-              <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZMZ3EeGhpfs0heeamg"/>
+              <widget href="JBE.cinematic_toolkits#_Y__FZMZ3EeGhpfs0heeamg"/>
               <events xmi:id="_OHv-yQcpEeKriuko9xNWRg" name="save">
-                <type href="pathmap://cinematic/toolkits/JBE#_Y__FZcZ3EeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_Y__FZcZ3EeGhpfs0heeamg"/>
               </events>
               <events xmi:id="_OHv-ygcpEeKriuko9xNWRg" name="close">
-                <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
           <viewContainers xmi:id="_OHv-ywcpEeKriuko9xNWRg" name="edit-choco" label="Edit Choco">
-            <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
+            <widget href="JBE.cinematic_toolkits#_Y__Fa8Z3EeGhpfs0heeamg"/>
             <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHwl0AcpEeKriuko9xNWRg" name="editChoco">
-              <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZMZ3EeGhpfs0heeamg"/>
+              <widget href="JBE.cinematic_toolkits#_Y__FZMZ3EeGhpfs0heeamg"/>
               <events xmi:id="_OHwl0QcpEeKriuko9xNWRg" name="save">
-                <type href="pathmap://cinematic/toolkits/JBE#_Y__FZcZ3EeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_Y__FZcZ3EeGhpfs0heeamg"/>
               </events>
               <events xmi:id="_OHwl0gcpEeKriuko9xNWRg" name="close">
-                <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
           <viewContainers xmi:id="_OHwl0wcpEeKriuko9xNWRg" name="edit-office">
-            <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
+            <widget href="JBE.cinematic_toolkits#_Y__Fa8Z3EeGhpfs0heeamg"/>
             <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHwl1AcpEeKriuko9xNWRg" name="editOffice">
-              <widget href="pathmap://cinematic/toolkits/JBE#_Y__FZMZ3EeGhpfs0heeamg"/>
+              <widget href="JBE.cinematic_toolkits#_Y__FZMZ3EeGhpfs0heeamg"/>
               <events xmi:id="_OHwl1QcpEeKriuko9xNWRg" name="save">
-                <type href="pathmap://cinematic/toolkits/JBE#_Y__FZcZ3EeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_Y__FZcZ3EeGhpfs0heeamg"/>
               </events>
               <events xmi:id="_OHwl1gcpEeKriuko9xNWRg" name="close">
-                <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
         </subPackages>
         <subPackages xmi:id="_OHwl1wcpEeKriuko9xNWRg" name="display">
           <viewContainers xmi:id="_OHwl2AcpEeKriuko9xNWRg" name="display-user-container" label="Display User Container">
-            <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
+            <widget href="JBE.cinematic_toolkits#_Y__Fa8Z3EeGhpfs0heeamg"/>
             <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHwl2QcpEeKriuko9xNWRg" name="displayUser">
-              <widget href="pathmap://cinematic/toolkits/JBE#_U9LFgMaeEeGhpfs0heeamg"/>
+              <widget href="JBE.cinematic_toolkits#_U9LFgMaeEeGhpfs0heeamg"/>
               <events xmi:id="_OHwl2gcpEeKriuko9xNWRg" name="officeLink">
-                <type href="pathmap://cinematic/toolkits/JBE#_V7WIgMafEeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_V7WIgMafEeGhpfs0heeamg"/>
               </events>
               <events xmi:id="_OHwl2wcpEeKriuko9xNWRg" name="chocoLink">
-                <type href="pathmap://cinematic/toolkits/JBE#_V7WIgMafEeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_V7WIgMafEeGhpfs0heeamg"/>
               </events>
               <events xmi:id="_OHwl3AcpEeKriuko9xNWRg" name="close">
-                <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
           <viewContainers xmi:id="_OHwl3QcpEeKriuko9xNWRg" name="display-office-container" label="Display Office Container">
-            <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
+            <widget href="JBE.cinematic_toolkits#_Y__Fa8Z3EeGhpfs0heeamg"/>
             <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHxM4AcpEeKriuko9xNWRg" name="displayOffice">
-              <widget href="pathmap://cinematic/toolkits/JBE#_U9LFgMaeEeGhpfs0heeamg"/>
+              <widget href="JBE.cinematic_toolkits#_U9LFgMaeEeGhpfs0heeamg"/>
               <events xmi:id="_OHxM4QcpEeKriuko9xNWRg" name="userLink">
-                <type href="pathmap://cinematic/toolkits/JBE#_V7WIgMafEeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_V7WIgMafEeGhpfs0heeamg"/>
               </events>
               <events xmi:id="_OHxM4gcpEeKriuko9xNWRg" name="close">
-                <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
           <viewContainers xmi:id="_OHxM4wcpEeKriuko9xNWRg" name="display-choco-container" label="Display Choco Container">
-            <widget href="pathmap://cinematic/toolkits/JBE#_Y__Fa8Z3EeGhpfs0heeamg"/>
+            <widget href="JBE.cinematic_toolkits#_Y__Fa8Z3EeGhpfs0heeamg"/>
             <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OHxM5AcpEeKriuko9xNWRg" name="displayChoco">
-              <widget href="pathmap://cinematic/toolkits/JBE#_U9LFgMaeEeGhpfs0heeamg"/>
+              <widget href="JBE.cinematic_toolkits#_U9LFgMaeEeGhpfs0heeamg"/>
               <events xmi:id="_OHxM5QcpEeKriuko9xNWRg" name="userLink">
-                <type href="pathmap://cinematic/toolkits/JBE#_V7WIgMafEeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_V7WIgMafEeGhpfs0heeamg"/>
               </events>
               <events xmi:id="_OHxM5gcpEeKriuko9xNWRg" name="close">
-                <type href="pathmap://cinematic/toolkits/JBE#_Y__FacZ3EeGhpfs0heeamg"/>
+                <type href="JBE.cinematic_toolkits#_Y__FacZ3EeGhpfs0heeamg"/>
               </events>
             </ownedElements>
           </viewContainers>
@@ -331,5 +331,5 @@
       </subPackages>
     </subPackages>
   </subPackages>
-  <toolkits href="pathmap://cinematic/toolkits/JBE#_Y__FYMZ3EeGhpfs0heeamg"/>
+  <toolkits href="JBE.cinematic_toolkits#_Y__FYMZ3EeGhpfs0heeamg"/>
 </cinematic:CinematicRoot>

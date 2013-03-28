@@ -10,21 +10,21 @@
   </widgets>
   <widgets xmi:id="_Y__FYcZ3EeGhpfs0heeamg" name="CreateForm" implementation="">
     <possibleEvents xmi:id="_Y__FYsZ3EeGhpfs0heeamg" name="add"/>
-    <possibleEvents name="close"/>
+    <possibleEvents xmi:id="_blRZwZe2EeKekcstYbgZ9w" name="close"/>
   </widgets>
   <widgets xmi:id="_Y__FZMZ3EeGhpfs0heeamg" name="EditForm">
     <possibleEvents xmi:id="_Y__FZcZ3EeGhpfs0heeamg" name="save"/>
-    <possibleEvents name="close"/>
+    <possibleEvents xmi:id="_blRZwpe2EeKekcstYbgZ9w" name="close"/>
   </widgets>
   <widgets xmi:id="_U9LFgMaeEeGhpfs0heeamg" name="ObjectSingle">
     <possibleEvents xmi:id="_V7WIgMafEeGhpfs0heeamg" name="onClick"/>
-    <possibleEvents name="close"/>
+    <possibleEvents xmi:id="_blRZw5e2EeKekcstYbgZ9w" name="close"/>
   </widgets>
   <widgets xmi:id="_Y__FZ8Z3EeGhpfs0heeamg" name="ObjectList">
     <possibleEvents xmi:id="_Y__FaMZ3EeGhpfs0heeamg" name="deleteItem"/>
     <possibleEvents xmi:id="_Y__FacZ3EeGhpfs0heeamg" name="editItem"/>
     <possibleEvents xmi:id="_Y__FasZ3EeGhpfs0heeamg" name="onClick"/>
   </widgets>
-  <widgets name="Pagination" icon="" implementation=""/>
-  <widgets name="Stats" implementation=""/>
+  <widgets xmi:id="_blRZxJe2EeKekcstYbgZ9w" name="Pagination" icon="" implementation=""/>
+  <widgets xmi:id="_blRZxZe2EeKekcstYbgZ9w" name="Stats" implementation=""/>
 </cinematic-toolkits:Toolkit>
