@@ -180,8 +180,33 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 			@Override
 			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InteractionUsePropertiesEditionPartForm.this, InteractionViewsRepository.InteractionUse.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							InteractionUsePropertiesEditionPartForm.this,
+							InteractionViewsRepository.InteractionUse.Properties.name,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									InteractionUsePropertiesEditionPartForm.this,
+									InteractionViewsRepository.InteractionUse.Properties.name,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, name.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									InteractionUsePropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
 			}
 		});
 		name.addKeyListener(new KeyAdapter() {
@@ -201,6 +226,9 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 		EditingUtils.setID(name, InteractionViewsRepository.InteractionUse.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.InteractionUse.Properties.name, InteractionViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -220,8 +248,33 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 			@Override
 			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InteractionUsePropertiesEditionPartForm.this, InteractionViewsRepository.InteractionUse.Properties.type, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, type.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							InteractionUsePropertiesEditionPartForm.this,
+							InteractionViewsRepository.InteractionUse.Properties.type,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, type.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									InteractionUsePropertiesEditionPartForm.this,
+									InteractionViewsRepository.InteractionUse.Properties.type,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, type.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									InteractionUsePropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
 			}
 		});
 		type.addKeyListener(new KeyAdapter() {
@@ -241,6 +294,9 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 		EditingUtils.setID(type, InteractionViewsRepository.InteractionUse.Properties.type);
 		EditingUtils.setEEFtype(type, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.InteractionUse.Properties.type, InteractionViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTypeText
+
+		// End of user code
 		return parent;
 	}
 
@@ -271,6 +327,9 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 		});
 		interaction.setID(InteractionViewsRepository.InteractionUse.Properties.interaction_);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.InteractionUse.Properties.interaction_, InteractionViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createInteractionFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -290,8 +349,33 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 			@Override
 			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InteractionUsePropertiesEditionPartForm.this, InteractionViewsRepository.InteractionUse.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							InteractionUsePropertiesEditionPartForm.this,
+							InteractionViewsRepository.InteractionUse.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									InteractionUsePropertiesEditionPartForm.this,
+									InteractionViewsRepository.InteractionUse.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									InteractionUsePropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
 			}
 		});
 		description.addKeyListener(new KeyAdapter() {
@@ -311,6 +395,9 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 		EditingUtils.setID(description, InteractionViewsRepository.InteractionUse.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.InteractionUse.Properties.description, InteractionViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -322,7 +409,7 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -349,6 +436,14 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -373,6 +468,14 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 		} else {
 			type.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -400,6 +503,14 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 		if (current != null) {
 			interaction.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.interaction_);
+		if (eefElementEditorReadOnlyState && interaction.isEnabled()) {
+			interaction.setEnabled(false);
+			interaction.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !interaction.isEnabled()) {
+			interaction.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -414,6 +525,14 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 		} else {
 			interaction.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.interaction_);
+		if (eefElementEditorReadOnlyState && interaction.isEnabled()) {
+			interaction.setEnabled(false);
+			interaction.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !interaction.isEnabled()) {
+			interaction.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -467,6 +586,14 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -484,7 +611,7 @@ public class InteractionUsePropertiesEditionPartForm extends SectionPropertiesEd
 		return InteractionMessages.InteractionUse_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

@@ -147,7 +147,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.ecore#//CallMessage"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction.genmodel#//interaction"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.interaction/model/interaction_cdonative.genmodel#//interaction"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_d_P_I2G8EeC3f8ri4v8OqA" documentation="Views repository for interaction GenPackage" name="interaction">
     <RepositoryKind>SWT</RepositoryKind>

@@ -150,7 +150,7 @@ public class ParticipantPropertiesEditionPartImpl extends CompositePropertiesEdi
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, InteractionViewsRepository.Participant.Properties.name, InteractionMessages.ParticipantPropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -190,6 +190,9 @@ public class ParticipantPropertiesEditionPartImpl extends CompositePropertiesEdi
 		EditingUtils.setID(name, InteractionViewsRepository.Participant.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.Participant.Properties.name, InteractionViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -213,13 +216,16 @@ public class ParticipantPropertiesEditionPartImpl extends CompositePropertiesEdi
 		type.setLayoutData(typeData);
 		type.setID(InteractionViewsRepository.Participant.Properties.type);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.Participant.Properties.type, InteractionViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTypeFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
 	
 	protected Composite createDescriptionText(Composite parent) {
 		createDescription(parent, InteractionViewsRepository.Participant.Properties.description, InteractionMessages.ParticipantPropertiesEditionPart_DescriptionLabel);
-		description = new Text(parent, SWT.BORDER);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		description.setLayoutData(descriptionData);
 		description.addFocusListener(new FocusAdapter() {
@@ -259,6 +265,9 @@ public class ParticipantPropertiesEditionPartImpl extends CompositePropertiesEdi
 		EditingUtils.setID(description, InteractionViewsRepository.Participant.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.Participant.Properties.description, InteractionViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -270,7 +279,7 @@ public class ParticipantPropertiesEditionPartImpl extends CompositePropertiesEdi
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -297,6 +306,14 @@ public class ParticipantPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.Participant.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(InteractionMessages.Participant_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -324,6 +341,14 @@ public class ParticipantPropertiesEditionPartImpl extends CompositePropertiesEdi
 		if (current != null) {
 			type.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.Participant.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(InteractionMessages.Participant_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -338,6 +363,14 @@ public class ParticipantPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			type.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.Participant.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(InteractionMessages.Participant_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -391,6 +424,14 @@ public class ParticipantPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.Participant.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(InteractionMessages.Participant_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -408,7 +449,7 @@ public class ParticipantPropertiesEditionPartImpl extends CompositePropertiesEdi
 		return InteractionMessages.Participant_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

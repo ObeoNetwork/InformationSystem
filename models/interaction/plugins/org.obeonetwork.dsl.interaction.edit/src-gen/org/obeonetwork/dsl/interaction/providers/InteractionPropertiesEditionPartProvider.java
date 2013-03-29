@@ -4,9 +4,13 @@
 package org.obeonetwork.dsl.interaction.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.obeonetwork.dsl.interaction.parts.InteractionViewsRepository;
+
 import org.obeonetwork.dsl.interaction.parts.forms.CallMessagePropertiesEditionPartForm;
 import org.obeonetwork.dsl.interaction.parts.forms.CombinedFragmentPropertiesEditionPartForm;
 import org.obeonetwork.dsl.interaction.parts.forms.CreateParticipantMessagePropertiesEditionPartForm;
@@ -18,6 +22,7 @@ import org.obeonetwork.dsl.interaction.parts.forms.OperandPropertiesEditionPartF
 import org.obeonetwork.dsl.interaction.parts.forms.ParticipantPropertiesEditionPartForm;
 import org.obeonetwork.dsl.interaction.parts.forms.ReturnMessagePropertiesEditionPartForm;
 import org.obeonetwork.dsl.interaction.parts.forms.StateInvariantPropertiesEditionPartForm;
+
 import org.obeonetwork.dsl.interaction.parts.impl.CallMessagePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.interaction.parts.impl.CombinedFragmentPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.interaction.parts.impl.CreateParticipantMessagePropertiesEditionPartImpl;

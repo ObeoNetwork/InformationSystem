@@ -11,7 +11,6 @@
 package org.obeonetwork.dsl.interaction.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.obeonetwork.dsl.interaction.InteractionPackage;
 import org.obeonetwork.dsl.interaction.Message;
 

@@ -6,14 +6,24 @@ package org.obeonetwork.dsl.interaction.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
+import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
+
 import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
+
 import org.obeonetwork.dsl.interaction.DestroyParticipantMessage;
 import org.obeonetwork.dsl.interaction.InteractionPackage;
+
 import org.obeonetwork.dsl.interaction.components.DestroyParticipantMessageDestroyParticipantMessagePropertiesEditionComponent;
 import org.obeonetwork.dsl.interaction.components.DestroyParticipantMessagePropertiesEditionComponent;
 
@@ -132,7 +142,8 @@ public class DestroyParticipantMessagePropertiesEditionProvider extends Properti
 		 * @see org.eclipse.jface.viewers.IFilter#select(java.lang.Object)
 		 */
 		public boolean select(Object toTest) {
-			return toTest instanceof EObject && InteractionPackage.Literals.DESTROY_PARTICIPANT_MESSAGE == ((EObject)toTest).eClass();
+			EObject eObj = EEFUtils.resolveSemanticObject(toTest);
+			return eObj != null && InteractionPackage.Literals.DESTROY_PARTICIPANT_MESSAGE == eObj.eClass();
 		}
 		
 	}

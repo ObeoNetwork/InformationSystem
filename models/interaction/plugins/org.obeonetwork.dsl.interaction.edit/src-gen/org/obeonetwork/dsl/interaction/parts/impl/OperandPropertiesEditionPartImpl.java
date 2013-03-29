@@ -132,7 +132,7 @@ public class OperandPropertiesEditionPartImpl extends CompositePropertiesEdition
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, InteractionViewsRepository.Operand.Properties.name, InteractionMessages.OperandPropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -172,13 +172,16 @@ public class OperandPropertiesEditionPartImpl extends CompositePropertiesEdition
 		EditingUtils.setID(name, InteractionViewsRepository.Operand.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.Operand.Properties.name, InteractionViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
 	
 	protected Composite createDescriptionText(Composite parent) {
 		createDescription(parent, InteractionViewsRepository.Operand.Properties.description, InteractionMessages.OperandPropertiesEditionPart_DescriptionLabel);
-		description = new Text(parent, SWT.BORDER);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		description.setLayoutData(descriptionData);
 		description.addFocusListener(new FocusAdapter() {
@@ -218,6 +221,9 @@ public class OperandPropertiesEditionPartImpl extends CompositePropertiesEdition
 		EditingUtils.setID(description, InteractionViewsRepository.Operand.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.Operand.Properties.description, InteractionViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -229,7 +235,7 @@ public class OperandPropertiesEditionPartImpl extends CompositePropertiesEdition
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -256,6 +262,14 @@ public class OperandPropertiesEditionPartImpl extends CompositePropertiesEdition
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.Operand.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(InteractionMessages.Operand_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -280,6 +294,14 @@ public class OperandPropertiesEditionPartImpl extends CompositePropertiesEdition
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.Operand.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(InteractionMessages.Operand_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -297,7 +319,7 @@ public class OperandPropertiesEditionPartImpl extends CompositePropertiesEdition
 		return InteractionMessages.Operand_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

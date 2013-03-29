@@ -124,7 +124,7 @@
                tab="Interaction">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.InteractionPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.Interaction"
                tab="Metadatas">
@@ -136,7 +136,7 @@
                tab="Participant">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.ParticipantPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.Participant"
                tab="Metadatas">
@@ -148,7 +148,7 @@
                tab="Execution">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.ExecutionPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.Execution"
                tab="Metadatas">
@@ -160,7 +160,7 @@
                tab="CreateParticipantMessage">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.CreateParticipantMessagePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.CreateParticipantMessage"
                tab="Metadatas">
@@ -172,7 +172,7 @@
                tab="DestroyParticipantMessage">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.DestroyParticipantMessagePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.DestroyParticipantMessage"
                tab="Metadatas">
@@ -184,7 +184,7 @@
                tab="ReturnMessage">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.ReturnMessagePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.ReturnMessage"
                tab="Metadatas">
@@ -196,7 +196,7 @@
                tab="StateInvariant">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.StateInvariantPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.StateInvariant"
                tab="Metadatas">
@@ -208,7 +208,7 @@
                tab="InteractionUse">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.InteractionUsePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.InteractionUse"
                tab="Metadatas">
@@ -220,7 +220,7 @@
                tab="CombinedFragment">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.CombinedFragmentPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.CombinedFragment"
                tab="Metadatas">
@@ -232,7 +232,7 @@
                tab="Operand">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.OperandPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.Operand"
                tab="Metadatas">
@@ -244,7 +244,7 @@
                tab="CallMessage">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.interaction.providers.CallMessagePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.interaction.section.CallMessage"
                tab="Metadatas">

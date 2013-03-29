@@ -155,7 +155,7 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, InteractionViewsRepository.InteractionUse.Properties.name, InteractionMessages.InteractionUsePropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -195,13 +195,16 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		EditingUtils.setID(name, InteractionViewsRepository.InteractionUse.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.InteractionUse.Properties.name, InteractionViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
 	
 	protected Composite createTypeText(Composite parent) {
 		createDescription(parent, InteractionViewsRepository.InteractionUse.Properties.type, InteractionMessages.InteractionUsePropertiesEditionPart_TypeLabel);
-		type = new Text(parent, SWT.BORDER);
+		type = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData typeData = new GridData(GridData.FILL_HORIZONTAL);
 		type.setLayoutData(typeData);
 		type.addFocusListener(new FocusAdapter() {
@@ -241,6 +244,9 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		EditingUtils.setID(type, InteractionViewsRepository.InteractionUse.Properties.type);
 		EditingUtils.setEEFtype(type, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.InteractionUse.Properties.type, InteractionViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTypeText
+
+		// End of user code
 		return parent;
 	}
 
@@ -264,13 +270,16 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		interaction.setLayoutData(interactionData);
 		interaction.setID(InteractionViewsRepository.InteractionUse.Properties.interaction_);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.InteractionUse.Properties.interaction_, InteractionViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createInteractionFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
 	
 	protected Composite createDescriptionText(Composite parent) {
 		createDescription(parent, InteractionViewsRepository.InteractionUse.Properties.description, InteractionMessages.InteractionUsePropertiesEditionPart_DescriptionLabel);
-		description = new Text(parent, SWT.BORDER);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		description.setLayoutData(descriptionData);
 		description.addFocusListener(new FocusAdapter() {
@@ -310,6 +319,9 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		EditingUtils.setID(description, InteractionViewsRepository.InteractionUse.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(InteractionViewsRepository.InteractionUse.Properties.description, InteractionViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -321,7 +333,7 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -348,6 +360,14 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -372,6 +392,14 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		} else {
 			type.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -399,6 +427,14 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		if (current != null) {
 			interaction.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.interaction_);
+		if (eefElementEditorReadOnlyState && interaction.isEnabled()) {
+			interaction.setEnabled(false);
+			interaction.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !interaction.isEnabled()) {
+			interaction.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -413,6 +449,14 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		} else {
 			interaction.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.interaction_);
+		if (eefElementEditorReadOnlyState && interaction.isEnabled()) {
+			interaction.setEnabled(false);
+			interaction.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !interaction.isEnabled()) {
+			interaction.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -466,6 +510,14 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(InteractionViewsRepository.InteractionUse.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(InteractionMessages.InteractionUse_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -483,7 +535,7 @@ public class InteractionUsePropertiesEditionPartImpl extends CompositeProperties
 		return InteractionMessages.InteractionUse_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

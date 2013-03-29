@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -75,13 +77,14 @@ public class InteractionUseInteractionUsePropertiesEditionComponent extends Sing
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final InteractionUse interactionUse = (InteractionUse)elt;
 			final InteractionUsePropertiesEditionPart interactionUsePart = (InteractionUsePropertiesEditionPart)editingPart;
 			// init values
-			if (interactionUse.getName() != null && isAccessible(InteractionViewsRepository.InteractionUse.Properties.name))
+			if (isAccessible(InteractionViewsRepository.InteractionUse.Properties.name))
 				interactionUsePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, interactionUse.getName()));
 			
-			if (interactionUse.getType() != null && isAccessible(InteractionViewsRepository.InteractionUse.Properties.type))
+			if (isAccessible(InteractionViewsRepository.InteractionUse.Properties.type))
 				interactionUsePart.setType(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, interactionUse.getType()));
 			
 			if (isAccessible(InteractionViewsRepository.InteractionUse.Properties.interaction_)) {
@@ -91,27 +94,28 @@ public class InteractionUseInteractionUsePropertiesEditionComponent extends Sing
 				// set the button mode
 				interactionUsePart.setInteractionButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (interactionUse.getDescription() != null && isAccessible(InteractionViewsRepository.InteractionUse.Properties.description))
+			if (isAccessible(InteractionViewsRepository.InteractionUse.Properties.description))
 				interactionUsePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, interactionUse.getDescription()));
 			
 			// init filters
 			
 			
-			interactionUsePart.addFilterToInteraction(new ViewerFilter() {
-			
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-			 */
-			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				return (element instanceof Interaction);
-				}
-			
-			});
-			// Start of user code 
-			// End of user code
-			
+			if (isAccessible(InteractionViewsRepository.InteractionUse.Properties.interaction_)) {
+				interactionUsePart.addFilterToInteraction(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof Interaction);
+					}
+					
+				});
+				// Start of user code for additional businessfilters for interaction
+				// End of user code
+			}
 			
 			// init values for referenced views
 			
@@ -186,16 +190,17 @@ public class InteractionUseInteractionUsePropertiesEditionComponent extends Sing
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			InteractionUsePropertiesEditionPart interactionUsePart = (InteractionUsePropertiesEditionPart)editingPart;
-			if (InteractionPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && interactionUsePart != null && isAccessible(InteractionViewsRepository.InteractionUse.Properties.name)) {
+			if (InteractionPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && interactionUsePart != null && isAccessible(InteractionViewsRepository.InteractionUse.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					interactionUsePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					interactionUsePart.setName("");
 				}
 			}
-			if (InteractionPackage.eINSTANCE.getInteractionUse_Type().equals(msg.getFeature()) && interactionUsePart != null && isAccessible(InteractionViewsRepository.InteractionUse.Properties.type)) {
+			if (InteractionPackage.eINSTANCE.getInteractionUse_Type().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && interactionUsePart != null && isAccessible(InteractionViewsRepository.InteractionUse.Properties.type)) {
 				if (msg.getNewValue() != null) {
 					interactionUsePart.setType(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -204,7 +209,7 @@ public class InteractionUseInteractionUsePropertiesEditionComponent extends Sing
 			}
 			if (InteractionPackage.eINSTANCE.getInteractionUse_Interaction().equals(msg.getFeature()) && interactionUsePart != null && isAccessible(InteractionViewsRepository.InteractionUse.Properties.interaction_))
 				interactionUsePart.setInteraction((EObject)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && interactionUsePart != null && isAccessible(InteractionViewsRepository.InteractionUse.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && interactionUsePart != null && isAccessible(InteractionViewsRepository.InteractionUse.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					interactionUsePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -213,6 +218,21 @@ public class InteractionUseInteractionUsePropertiesEditionComponent extends Sing
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			InteractionPackage.eINSTANCE.getNamedElement_Name(),
+			InteractionPackage.eINSTANCE.getInteractionUse_Type(),
+			InteractionPackage.eINSTANCE.getInteractionUse_Interaction(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -239,21 +259,21 @@ public class InteractionUseInteractionUsePropertiesEditionComponent extends Sing
 				if (InteractionViewsRepository.InteractionUse.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(InteractionPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
 				}
 				if (InteractionViewsRepository.InteractionUse.Properties.type == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(InteractionPackage.eINSTANCE.getInteractionUse_Type().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(InteractionPackage.eINSTANCE.getInteractionUse_Type().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(InteractionPackage.eINSTANCE.getInteractionUse_Type().getEAttributeType(), newValue);
 				}
 				if (InteractionViewsRepository.InteractionUse.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
@@ -265,5 +285,8 @@ public class InteractionUseInteractionUsePropertiesEditionComponent extends Sing
 		}
 		return ret;
 	}
+
+
+	
 
 }

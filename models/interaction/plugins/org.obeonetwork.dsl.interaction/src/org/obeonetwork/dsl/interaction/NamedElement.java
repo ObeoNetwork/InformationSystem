@@ -10,7 +10,6 @@
  */
 package org.obeonetwork.dsl.interaction;
 
-import org.eclipse.emf.cdo.CDOObject;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**

@@ -13,12 +13,23 @@ package org.obeonetwork.dsl.interaction.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.obeonetwork.dsl.interaction.*;
+import org.obeonetwork.dsl.interaction.CallMessage;
+import org.obeonetwork.dsl.interaction.CombinedFragment;
+import org.obeonetwork.dsl.interaction.CompoundEnd;
+import org.obeonetwork.dsl.interaction.CreateParticipantMessage;
+import org.obeonetwork.dsl.interaction.DestroyParticipantMessage;
+import org.obeonetwork.dsl.interaction.End;
+import org.obeonetwork.dsl.interaction.Execution;
+import org.obeonetwork.dsl.interaction.Interaction;
+import org.obeonetwork.dsl.interaction.InteractionFactory;
+import org.obeonetwork.dsl.interaction.InteractionPackage;
+import org.obeonetwork.dsl.interaction.InteractionUse;
+import org.obeonetwork.dsl.interaction.Operand;
+import org.obeonetwork.dsl.interaction.Participant;
+import org.obeonetwork.dsl.interaction.ReturnMessage;
+import org.obeonetwork.dsl.interaction.StateInvariant;
 
 /**
  * <!-- begin-user-doc -->
