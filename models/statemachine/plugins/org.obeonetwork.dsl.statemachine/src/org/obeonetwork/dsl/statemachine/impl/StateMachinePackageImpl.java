@@ -10,11 +10,8 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-
 import org.obeonetwork.dsl.statemachine.AbstractState;
 import org.obeonetwork.dsl.statemachine.FinalState;
 import org.obeonetwork.dsl.statemachine.InitialState;

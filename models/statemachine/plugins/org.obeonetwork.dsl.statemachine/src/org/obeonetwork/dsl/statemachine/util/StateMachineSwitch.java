@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Behaviour;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
-import org.obeonetwork.dsl.statemachine.*;
 import org.obeonetwork.dsl.statemachine.AbstractState;
 import org.obeonetwork.dsl.statemachine.FinalState;
 import org.obeonetwork.dsl.statemachine.InitialState;

@@ -8,15 +8,20 @@ package org.obeonetwork.dsl.statemachine.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.obeonetwork.dsl.environment.Behaviour;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
-
-import org.obeonetwork.dsl.statemachine.*;
+import org.obeonetwork.dsl.statemachine.AbstractState;
+import org.obeonetwork.dsl.statemachine.FinalState;
+import org.obeonetwork.dsl.statemachine.InitialState;
+import org.obeonetwork.dsl.statemachine.NamedElement;
+import org.obeonetwork.dsl.statemachine.Region;
+import org.obeonetwork.dsl.statemachine.State;
+import org.obeonetwork.dsl.statemachine.StateMachine;
+import org.obeonetwork.dsl.statemachine.StateMachineDescription;
+import org.obeonetwork.dsl.statemachine.StateMachinePackage;
+import org.obeonetwork.dsl.statemachine.Transition;
 
 /**
  * <!-- begin-user-doc -->

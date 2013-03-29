@@ -192,6 +192,9 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		EditingUtils.setID(guard, StatemachineViewsRepository.Transition.Properties.guard);
 		EditingUtils.setEEFtype(guard, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(StatemachineViewsRepository.Transition.Properties.guard, StatemachineViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createGuardText
+
+		// End of user code
 		return parent;
 	}
 
@@ -215,6 +218,9 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		from.setLayoutData(fromData);
 		from.setID(StatemachineViewsRepository.Transition.Properties.from);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(StatemachineViewsRepository.Transition.Properties.from, StatemachineViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createFromFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -238,6 +244,9 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		to.setLayoutData(toData);
 		to.setID(StatemachineViewsRepository.Transition.Properties.to);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(StatemachineViewsRepository.Transition.Properties.to, StatemachineViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createToFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -278,6 +287,9 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		});
 		EditingUtils.setID(editKeywords, StatemachineViewsRepository.Transition.Properties.keywords);
 		EditingUtils.setEEFtype(editKeywords, "eef::MultiValuedEditor::browsebutton"); //$NON-NLS-1$
+		// Start of user code for createKeywordsMultiValuedEditor
+
+		// End of user code
 		return parent;
 	}
 
@@ -324,6 +336,9 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		EditingUtils.setID(description, StatemachineViewsRepository.Transition.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(StatemachineViewsRepository.Transition.Properties.description, StatemachineViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -362,6 +377,14 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			guard.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.Transition.Properties.guard);
+		if (eefElementEditorReadOnlyState && guard.isEnabled()) {
+			guard.setEnabled(false);
+			guard.setToolTipText(StatemachineMessages.Transition_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !guard.isEnabled()) {
+			guard.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -389,6 +412,14 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		if (current != null) {
 			from.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.Transition.Properties.from);
+		if (eefElementEditorReadOnlyState && from.isEnabled()) {
+			from.setEnabled(false);
+			from.setToolTipText(StatemachineMessages.Transition_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !from.isEnabled()) {
+			from.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -403,6 +434,14 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			from.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.Transition.Properties.from);
+		if (eefElementEditorReadOnlyState && from.isEnabled()) {
+			from.setEnabled(false);
+			from.setToolTipText(StatemachineMessages.Transition_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !from.isEnabled()) {
+			from.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -459,6 +498,14 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		if (current != null) {
 			to.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.Transition.Properties.to);
+		if (eefElementEditorReadOnlyState && to.isEnabled()) {
+			to.setEnabled(false);
+			to.setToolTipText(StatemachineMessages.Transition_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !to.isEnabled()) {
+			to.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -473,6 +520,14 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			to.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.Transition.Properties.to);
+		if (eefElementEditorReadOnlyState && to.isEnabled()) {
+			to.setEnabled(false);
+			to.setToolTipText(StatemachineMessages.Transition_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !to.isEnabled()) {
+			to.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -527,6 +582,14 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			keywords.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.Transition.Properties.keywords);
+		if (eefElementEditorReadOnlyState && keywords.isEnabled()) {
+			keywords.setEnabled(false);
+			keywords.setToolTipText(StatemachineMessages.Transition_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !keywords.isEnabled()) {
+			keywords.setEnabled(true);
+		}	
+		
 	}
 
 	public void addToKeywords(Object newValue) {
@@ -569,6 +632,14 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.Transition.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(StatemachineMessages.Transition_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

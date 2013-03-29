@@ -7,7 +7,6 @@
 package org.obeonetwork.dsl.statemachine;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.obeonetwork.dsl.environment.Behaviour;
 
 /**

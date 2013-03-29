@@ -7,7 +7,6 @@
 package org.obeonetwork.dsl.statemachine.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.obeonetwork.dsl.statemachine.FinalState;
 import org.obeonetwork.dsl.statemachine.StateMachinePackage;
 

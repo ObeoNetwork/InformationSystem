@@ -9,12 +9,16 @@ package org.obeonetwork.dsl.statemachine.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.obeonetwork.dsl.statemachine.*;
+import org.obeonetwork.dsl.statemachine.FinalState;
+import org.obeonetwork.dsl.statemachine.InitialState;
+import org.obeonetwork.dsl.statemachine.Region;
+import org.obeonetwork.dsl.statemachine.State;
+import org.obeonetwork.dsl.statemachine.StateMachine;
+import org.obeonetwork.dsl.statemachine.StateMachineFactory;
+import org.obeonetwork.dsl.statemachine.StateMachinePackage;
+import org.obeonetwork.dsl.statemachine.Transition;
 
 /**
  * <!-- begin-user-doc -->

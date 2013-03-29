@@ -195,6 +195,9 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		this.incomingTransitions.disableMove();
 		incomingTransitions.setID(StatemachineViewsRepository.InitialState.Properties.incomingTransitions);
 		incomingTransitions.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createIncomingTransitionsReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -276,6 +279,9 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		this.outcomingTransitions.disableMove();
 		outcomingTransitions.setID(StatemachineViewsRepository.InitialState.Properties.outcomingTransitions);
 		outcomingTransitions.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createOutcomingTransitionsReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -369,6 +375,9 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		});
 		EditingUtils.setID(editKeywords, StatemachineViewsRepository.InitialState.Properties.keywords);
 		EditingUtils.setEEFtype(editKeywords, "eef::MultiValuedEditor::browsebutton"); //$NON-NLS-1$
+		// Start of user code for createKeywordsMultiValuedEditor
+
+		// End of user code
 		return parent;
 	}
 
@@ -434,6 +443,9 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		EditingUtils.setID(description, StatemachineViewsRepository.InitialState.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(StatemachineViewsRepository.InitialState.Properties.description, StatemachineViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -463,6 +475,14 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		incomingTransitions.setContentProvider(contentProvider);
 		incomingTransitions.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.InitialState.Properties.incomingTransitions);
+		if (eefElementEditorReadOnlyState && incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(false);
+			incomingTransitions.setToolTipText(StatemachineMessages.InitialState_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -518,6 +538,14 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		outcomingTransitions.setContentProvider(contentProvider);
 		outcomingTransitions.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.InitialState.Properties.outcomingTransitions);
+		if (eefElementEditorReadOnlyState && outcomingTransitions.getTable().isEnabled()) {
+			outcomingTransitions.setEnabled(false);
+			outcomingTransitions.setToolTipText(StatemachineMessages.InitialState_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !outcomingTransitions.getTable().isEnabled()) {
+			outcomingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -583,6 +611,14 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			keywords.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.InitialState.Properties.keywords);
+		if (eefElementEditorReadOnlyState && keywords.isEnabled()) {
+			keywords.setEnabled(false);
+			keywords.setToolTipText(StatemachineMessages.InitialState_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !keywords.isEnabled()) {
+			keywords.setEnabled(true);
+		}	
+		
 	}
 
 	public void addToKeywords(Object newValue) {
@@ -625,6 +661,14 @@ public class InitialStatePropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(StatemachineViewsRepository.InitialState.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(StatemachineMessages.InitialState_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

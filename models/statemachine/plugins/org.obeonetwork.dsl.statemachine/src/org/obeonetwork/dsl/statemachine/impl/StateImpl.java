@@ -6,12 +6,7 @@
  */
 package org.obeonetwork.dsl.statemachine.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.obeonetwork.dsl.statemachine.NamedElement;
 import org.obeonetwork.dsl.statemachine.State;
 import org.obeonetwork.dsl.statemachine.StateMachinePackage;

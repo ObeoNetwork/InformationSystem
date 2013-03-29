@@ -9,25 +9,25 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerFilter;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.statemachine.State;
 import org.obeonetwork.dsl.statemachine.StateMachinePackage;
@@ -81,13 +81,14 @@ public class StateStatePropertiesEditionComponent extends SinglePartPropertiesEd
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final State state = (State)elt;
 			final StatePropertiesEditionPart statePart = (StatePropertiesEditionPart)editingPart;
 			// init values
-			if (state.getDescription() != null && isAccessible(StatemachineViewsRepository.State.Properties.description))
+			if (isAccessible(StatemachineViewsRepository.State.Properties.description))
 				statePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, state.getDescription()));
 			
-			if (state.getKeywords() != null && isAccessible(StatemachineViewsRepository.State.Properties.keywords))
+			if (isAccessible(StatemachineViewsRepository.State.Properties.keywords))
 				statePart.setKeywords(state.getKeywords());
 			
 			if (isAccessible(StatemachineViewsRepository.State.Properties.incomingTransitions)) {
@@ -98,46 +99,18 @@ public class StateStatePropertiesEditionComponent extends SinglePartPropertiesEd
 				outcomingTransitionsSettings = new ReferencesTableSettings(state, StateMachinePackage.eINSTANCE.getAbstractState_OutcomingTransitions());
 				statePart.initOutcomingTransitions(outcomingTransitionsSettings);
 			}
-			if (state.getName() != null && isAccessible(StatemachineViewsRepository.State.Properties.name))
+			if (isAccessible(StatemachineViewsRepository.State.Properties.name))
 				statePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, state.getName()));
 			
 			// init filters
 			
 			
 			if (isAccessible(StatemachineViewsRepository.State.Properties.incomingTransitions)) {
-				statePart.addFilterToIncomingTransitions(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						if (element instanceof EObject)
-							return (!statePart.isContainedInIncomingTransitionsTable((EObject)element));
-						return element instanceof Resource;
-					}
-				
-				});
 				statePart.addFilterToIncomingTransitions(new EObjectFilter(StateMachinePackage.Literals.TRANSITION));
 				// Start of user code for additional businessfilters for incomingTransitions
 				// End of user code
 			}
 			if (isAccessible(StatemachineViewsRepository.State.Properties.outcomingTransitions)) {
-				statePart.addFilterToOutcomingTransitions(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						if (element instanceof EObject)
-							return (!statePart.isContainedInOutcomingTransitionsTable((EObject)element));
-						return element instanceof Resource;
-					}
-				
-				});
 				statePart.addFilterToOutcomingTransitions(new EObjectFilter(StateMachinePackage.Literals.TRANSITION));
 				// Start of user code for additional businessfilters for outcomingTransitions
 				// End of user code
@@ -229,24 +202,33 @@ public class StateStatePropertiesEditionComponent extends SinglePartPropertiesEd
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			StatePropertiesEditionPart statePart = (StatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && statePart != null && isAccessible(StatemachineViewsRepository.State.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && statePart != null && isAccessible(StatemachineViewsRepository.State.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					statePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					statePart.setDescription("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords().equals(msg.getFeature()) && statePart != null && isAccessible(StatemachineViewsRepository.State.Properties.keywords)) {
-				statePart.setKeywords((EList<?>)msg.getNewValue());
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && statePart != null && isAccessible(StatemachineViewsRepository.State.Properties.keywords)) {
+				if (msg.getNewValue() instanceof EList<?>) {
+					statePart.setKeywords((EList<?>)msg.getNewValue());
+				} else if (msg.getNewValue() == null) {
+					statePart.setKeywords(new BasicEList<Object>());
+				} else {
+					BasicEList<Object> newValueAsList = new BasicEList<Object>();
+					newValueAsList.add(msg.getNewValue());
+					statePart.setKeywords(newValueAsList);
+				}
 			}
 			
 			if (StateMachinePackage.eINSTANCE.getAbstractState_IncomingTransitions().equals(msg.getFeature())  && isAccessible(StatemachineViewsRepository.State.Properties.incomingTransitions))
 				statePart.updateIncomingTransitions();
 			if (StateMachinePackage.eINSTANCE.getAbstractState_OutcomingTransitions().equals(msg.getFeature())  && isAccessible(StatemachineViewsRepository.State.Properties.outcomingTransitions))
 				statePart.updateOutcomingTransitions();
-			if (StateMachinePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && statePart != null && isAccessible(StatemachineViewsRepository.State.Properties.name)) {
+			if (StateMachinePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && statePart != null && isAccessible(StatemachineViewsRepository.State.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					statePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -255,6 +237,22 @@ public class StateStatePropertiesEditionComponent extends SinglePartPropertiesEd
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Keywords(),
+			StateMachinePackage.eINSTANCE.getAbstractState_IncomingTransitions(),
+			StateMachinePackage.eINSTANCE.getAbstractState_OutcomingTransitions(),
+			StateMachinePackage.eINSTANCE.getNamedElement_Name()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -297,5 +295,8 @@ public class StateStatePropertiesEditionComponent extends SinglePartPropertiesEd
 		}
 		return ret;
 	}
+
+
+	
 
 }

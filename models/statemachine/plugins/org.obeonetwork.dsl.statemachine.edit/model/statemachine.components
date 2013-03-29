@@ -114,7 +114,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#//FinalState"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine.genmodel#//statemachine"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.statemachine/model/statemachine_cdonative.genmodel#//statemachine"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_OHBcrWeoEeGs98LJH7FtBg" documentation="Views repository for statemachine GenPackage" name="statemachine">
     <RepositoryKind>SWT</RepositoryKind>
