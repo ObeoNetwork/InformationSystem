@@ -194,6 +194,9 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(id, RequirementViewsRepository.Category.Category_.id);
 		EditingUtils.setEEFtype(id, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Category.Category_.id, RequirementViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createIdText
+
+		// End of user code
 		return parent;
 	}
 
@@ -240,6 +243,9 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(name, RequirementViewsRepository.Category.Category_.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Category.Category_.name, RequirementViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -288,6 +294,9 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		this.requirements.setUpperBound(-1);
 		requirements.setID(RequirementViewsRepository.Category.Category_.requirements);
 		requirements.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createRequirementsAdvancedTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -336,6 +345,9 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		this.subCategories.setUpperBound(-1);
 		subCategories.setID(RequirementViewsRepository.Category.Category_.subCategories);
 		subCategories.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createSubCategoriesAdvancedTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -347,7 +359,6 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		createDescription(parent, RequirementViewsRepository.Category.Category_.referencedObject, RequirementMessages.CategoryPropertiesEditionPart_ReferencedObjectLabel);
 		referencedObject = new FlatReferencesTable(parent);
 		referencedObject.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
 		referencedObject.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -360,6 +371,9 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		referencedObject.setLayoutData(referencedObjectData);
 		referencedObject.setID(RequirementViewsRepository.Category.Category_.referencedObject);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Category.Category_.referencedObject, RequirementViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createReferencedObjectFlatReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -399,6 +413,14 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			id.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Category.Category_.id);
+		if (eefElementEditorReadOnlyState && id.isEnabled()) {
+			id.setEnabled(false);
+			id.setToolTipText(RequirementMessages.Category_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !id.isEnabled()) {
+			id.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -423,6 +445,14 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Category.Category_.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(RequirementMessages.Category_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -438,6 +468,14 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		requirements.setContentProvider(contentProvider);
 		requirements.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Category.Category_.requirements);
+		if (eefElementEditorReadOnlyState && requirements.isEnabled()) {
+			requirements.setEnabled(false);
+			requirements.setToolTipText(RequirementMessages.Category_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !requirements.isEnabled()) {
+			requirements.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -496,6 +534,14 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		subCategories.setContentProvider(contentProvider);
 		subCategories.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Category.Category_.subCategories);
+		if (eefElementEditorReadOnlyState && subCategories.isEnabled()) {
+			subCategories.setEnabled(false);
+			subCategories.setToolTipText(RequirementMessages.Category_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !subCategories.isEnabled()) {
+			subCategories.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -552,6 +598,14 @@ public class CategoryPropertiesEditionPartImpl extends CompositePropertiesEditio
 		if (current.eResource() != null && current.eResource().getResourceSet() != null)
 			this.resourceSet = current.eResource().getResourceSet();
 		referencedObject.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Category.Category_.referencedObject);
+		if (eefElementEditorReadOnlyState && referencedObject.isEnabled()) {
+			referencedObject.setEnabled(false);
+			referencedObject.setToolTipText(RequirementMessages.Category_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !referencedObject.isEnabled()) {
+			referencedObject.setEnabled(true);
+		}	
+		
 	}
 
 	/**

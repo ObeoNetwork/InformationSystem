@@ -182,6 +182,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		});
 		type.setID(RequirementViewsRepository.Requirement_.type);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Requirement_.type, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTypeEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -247,6 +250,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		EditingUtils.setID(subtype, RequirementViewsRepository.Requirement_.subtype);
 		EditingUtils.setEEFtype(subtype, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Requirement_.subtype, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createSubtypeText
+
+		// End of user code
 		return parent;
 	}
 
@@ -312,6 +318,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		EditingUtils.setID(id, RequirementViewsRepository.Requirement_.id);
 		EditingUtils.setEEFtype(id, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Requirement_.id, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createIdText
+
+		// End of user code
 		return parent;
 	}
 
@@ -377,6 +386,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		EditingUtils.setID(name, RequirementViewsRepository.Requirement_.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Requirement_.name, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -442,6 +454,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		EditingUtils.setID(status, RequirementViewsRepository.Requirement_.status);
 		EditingUtils.setEEFtype(status, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Requirement_.status, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createStatusText
+
+		// End of user code
 		return parent;
 	}
 
@@ -498,6 +513,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		EditingUtils.setID(statement, RequirementViewsRepository.Requirement_.statement);
 		EditingUtils.setEEFtype(statement, "eef::Textarea"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Requirement_.statement, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createStatementTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -505,8 +523,6 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 	protected Composite createModifiedOnText(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, RequirementViewsRepository.Requirement_.modifiedOn, RequirementMessages.RequirementPropertiesEditionPart_ModifiedOnLabel);
 		modifiedOn = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		modifiedOn.setEnabled(false);
-		modifiedOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
 		modifiedOn.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
 		GridData modifiedOnData = new GridData(GridData.FILL_HORIZONTAL);
@@ -565,6 +581,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		EditingUtils.setID(modifiedOn, RequirementViewsRepository.Requirement_.modifiedOn);
 		EditingUtils.setEEFtype(modifiedOn, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Requirement_.modifiedOn, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createModifiedOnText
+
+		// End of user code
 		return parent;
 	}
 
@@ -572,8 +591,6 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 	protected Composite createCreatedOnText(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, RequirementViewsRepository.Requirement_.createdOn, RequirementMessages.RequirementPropertiesEditionPart_CreatedOnLabel);
 		createdOn = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		createdOn.setEnabled(false);
-		createdOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
 		createdOn.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
 		GridData createdOnData = new GridData(GridData.FILL_HORIZONTAL);
@@ -632,6 +649,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		EditingUtils.setID(createdOn, RequirementViewsRepository.Requirement_.createdOn);
 		EditingUtils.setEEFtype(createdOn, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Requirement_.createdOn, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCreatedOnText
+
+		// End of user code
 		return parent;
 	}
 
@@ -667,6 +687,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 	public void initType(Object input, Enumerator current) {
 		type.setInput(input);
 		type.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Requirement_.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -677,6 +705,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 	 */
 	public void setType(Enumerator newValue) {
 		type.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Requirement_.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -701,6 +737,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			subtype.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Requirement_.subtype);
+		if (eefElementEditorReadOnlyState && subtype.isEnabled()) {
+			subtype.setEnabled(false);
+			subtype.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !subtype.isEnabled()) {
+			subtype.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -725,6 +769,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			id.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Requirement_.id);
+		if (eefElementEditorReadOnlyState && id.isEnabled()) {
+			id.setEnabled(false);
+			id.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !id.isEnabled()) {
+			id.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -749,6 +801,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Requirement_.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -773,6 +833,14 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			status.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Requirement_.status);
+		if (eefElementEditorReadOnlyState && status.isEnabled()) {
+			status.setEnabled(false);
+			status.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !status.isEnabled()) {
+			status.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -797,6 +865,15 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			statement.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Requirement_.statement);
+		if (eefElementEditorReadOnlyState && statement.isEnabled()) {
+			statement.setEnabled(false);
+			statement.setBackground(statement.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			statement.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !statement.isEnabled()) {
+			statement.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -821,6 +898,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			modifiedOn.setText(""); //$NON-NLS-1$
 		}
+		modifiedOn.setEnabled(false);
+		modifiedOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		
 	}
 
 	/**
@@ -845,6 +925,9 @@ public class RequirementPropertiesEditionPartForm extends SectionPropertiesEditi
 		} else {
 			createdOn.setText(""); //$NON-NLS-1$
 		}
+		createdOn.setEnabled(false);
+		createdOn.setToolTipText(RequirementMessages.Requirement_ReadOnly);
+		
 	}
 
 

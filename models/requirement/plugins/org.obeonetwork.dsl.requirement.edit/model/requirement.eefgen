@@ -6,4 +6,7 @@
   <viewsRepositories basePackage="org.obeonetwork.dsl.requirement" swtViews="true" formViews="true">
     <viewsRepository href="requirement.components#_szypocvEEd-iMcVUPxjMIw"/>
   </viewsRepositories>
+  <references>
+    <referencedContext href="../../org.obeonetwork.dsl.environment.edit/model/environment.eefgen#/"/>
+  </references>
 </eef-gen:EEFGenModel>

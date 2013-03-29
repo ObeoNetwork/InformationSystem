@@ -6,7 +6,7 @@
         <input xsi:type="eef-ext-edt:FirstResourceRootRelativeInput" xmi:id="_9RHfcGA0EeCk77KcMuHxlQ"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.requirement/model/requirement.genmodel#//requirement"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.requirement/model/requirement_cdonative.genmodel#//requirement"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_NE7BU2AzEeCk77KcMuHxlQ" documentation="Editor pages for requirement GenPackage" name="requirement editor">
     <RepositoryKind>Editor</RepositoryKind>

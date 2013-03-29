@@ -20,7 +20,7 @@
       <package
             uri="http://www.obeonetwork.org/dsl/requirement/1.0"
             class="org.obeonetwork.dsl.requirement.RequirementPackage"
-            genModel="model/requirement.genmodel"/>
+            genModel="model/requirement_cdonative.genmodel"/>
    </extension>
    
    <extension point="org.eclipse.emf.ecore.extension_parser">

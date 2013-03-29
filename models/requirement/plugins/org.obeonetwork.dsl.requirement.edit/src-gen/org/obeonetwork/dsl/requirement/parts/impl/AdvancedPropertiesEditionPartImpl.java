@@ -134,6 +134,9 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(rationale, RequirementViewsRepository.Advanced.rationale);
 		EditingUtils.setEEFtype(rationale, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Advanced.rationale, RequirementViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createRationaleTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -166,6 +169,9 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(acceptanceCriteria, RequirementViewsRepository.Advanced.acceptanceCriteria);
 		EditingUtils.setEEFtype(acceptanceCriteria, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Advanced.acceptanceCriteria, RequirementViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createAcceptanceCriteriaTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -177,9 +183,6 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		createDescription(parent, RequirementViewsRepository.Advanced.referencedObject, RequirementMessages.AdvancedPropertiesEditionPart_ReferencedObjectLabel);
 		referencedObject = new FlatReferencesTable(parent);
 		referencedObject.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		referencedObject.setEnabled(false);
-		referencedObject.setToolTipText(RequirementMessages.Advanced_ReadOnly);
-
 		referencedObject.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -192,6 +195,9 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		referencedObject.setLayoutData(referencedObjectData);
 		referencedObject.setID(RequirementViewsRepository.Advanced.referencedObject);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Advanced.referencedObject, RequirementViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createReferencedObjectFlatReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -231,6 +237,15 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			rationale.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Advanced.rationale);
+		if (eefElementEditorReadOnlyState && rationale.isEnabled()) {
+			rationale.setEnabled(false);
+			rationale.setBackground(rationale.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			rationale.setToolTipText(RequirementMessages.Advanced_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !rationale.isEnabled()) {
+			rationale.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -255,6 +270,15 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			acceptanceCriteria.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Advanced.acceptanceCriteria);
+		if (eefElementEditorReadOnlyState && acceptanceCriteria.isEnabled()) {
+			acceptanceCriteria.setEnabled(false);
+			acceptanceCriteria.setBackground(acceptanceCriteria.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			acceptanceCriteria.setToolTipText(RequirementMessages.Advanced_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !acceptanceCriteria.isEnabled()) {
+			acceptanceCriteria.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -268,6 +292,9 @@ public class AdvancedPropertiesEditionPartImpl extends CompositePropertiesEditio
 		if (current.eResource() != null && current.eResource().getResourceSet() != null)
 			this.resourceSet = current.eResource().getResourceSet();
 		referencedObject.setInput(settings);
+		referencedObject.setEnabled(false);
+		referencedObject.setToolTipText(RequirementMessages.Advanced_ReadOnly);
+		
 	}
 
 	/**

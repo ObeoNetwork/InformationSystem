@@ -21,20 +21,7 @@
 		</extension>
 		
 <!-- EEF extensions -->
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <factory
-            uri="http://www.obeonetwork.org/dsl/requirement/1.0"
-            class="org.obeonetwork.dsl.requirement.providers.RequirementEEFAdapterFactory"
-            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
-   </extension>
-   <extension
-         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
-      <PropertiesEditionPartProvider
-            providerClass="org.obeonetwork.dsl.requirement.providers.CustomRequirementPropertiesEditionPartProvider">
-      </PropertiesEditionPartProvider>
-   </extension>
-   
-   
+
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor

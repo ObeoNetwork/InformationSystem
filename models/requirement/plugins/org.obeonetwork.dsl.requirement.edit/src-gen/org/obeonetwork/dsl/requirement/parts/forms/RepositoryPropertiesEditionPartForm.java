@@ -213,6 +213,9 @@ public class RepositoryPropertiesEditionPartForm extends SectionPropertiesEditin
 		EditingUtils.setID(name, RequirementViewsRepository.Repository.Repository_.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Repository.Repository_.name, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -261,6 +264,9 @@ public class RepositoryPropertiesEditionPartForm extends SectionPropertiesEditin
 		this.mainCategories.setUpperBound(-1);
 		mainCategories.setID(RequirementViewsRepository.Repository.Repository_.mainCategories);
 		mainCategories.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createMainCategoriesTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -272,7 +278,6 @@ public class RepositoryPropertiesEditionPartForm extends SectionPropertiesEditin
 		createDescription(parent, RequirementViewsRepository.Repository.Repository_.referencedObject, RequirementMessages.RepositoryPropertiesEditionPart_ReferencedObjectLabel);
 		referencedObject = new FlatReferencesTable(parent);
 		referencedObject.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
 		referencedObject.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -285,6 +290,9 @@ public class RepositoryPropertiesEditionPartForm extends SectionPropertiesEditin
 		referencedObject.setLayoutData(referencedObjectData);
 		referencedObject.setID(RequirementViewsRepository.Repository.Repository_.referencedObject);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Repository.Repository_.referencedObject, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createReferencedObjectFlatReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -324,6 +332,14 @@ public class RepositoryPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Repository.Repository_.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(RequirementMessages.Repository_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -339,6 +355,14 @@ public class RepositoryPropertiesEditionPartForm extends SectionPropertiesEditin
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		mainCategories.setContentProvider(contentProvider);
 		mainCategories.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Repository.Repository_.mainCategories);
+		if (eefElementEditorReadOnlyState && mainCategories.isEnabled()) {
+			mainCategories.setEnabled(false);
+			mainCategories.setToolTipText(RequirementMessages.Repository_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !mainCategories.isEnabled()) {
+			mainCategories.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -395,6 +419,14 @@ public class RepositoryPropertiesEditionPartForm extends SectionPropertiesEditin
 		if (current.eResource() != null && current.eResource().getResourceSet() != null)
 			this.resourceSet = current.eResource().getResourceSet();
 		referencedObject.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Repository.Repository_.referencedObject);
+		if (eefElementEditorReadOnlyState && referencedObject.isEnabled()) {
+			referencedObject.setEnabled(false);
+			referencedObject.setToolTipText(RequirementMessages.Repository_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !referencedObject.isEnabled()) {
+			referencedObject.setEnabled(true);
+		}	
+		
 	}
 
 	/**
