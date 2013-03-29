@@ -70,7 +70,6 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
-import org.eclipse.emf.eef.runtime.ui.properties.TabbedPropertiesEditionSheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
@@ -119,7 +118,6 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-
 import org.obeonetwork.dsl.overview.OverviewModelDef;
 import org.obeonetwork.dsl.overview.OverviewModelDefRegistry;
 
@@ -1358,17 +1356,10 @@ public abstract class OverviewEditor
 	 * @generated NOT
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
-		if (propertySheetPage == null) {
-			propertySheetPage = new TabbedPropertiesEditionSheetPage(OverviewEditor.this) {
-				@Override
-				public void setActionBars(IActionBars actionBars) {
-					super.setActionBars(actionBars);
-					getActionBarContributor().shareGlobalActions(this,
-							actionBars);
-				}
-			};
-		}
-		return propertySheetPage;
+		 if (propertySheetPage == null || propertySheetPage.getControl().isDisposed()) {
+			 propertySheetPage = new TabbedPropertySheetPage(OverviewEditor.this);
+	     }
+		 return propertySheetPage;
 	}
 
 	/**
