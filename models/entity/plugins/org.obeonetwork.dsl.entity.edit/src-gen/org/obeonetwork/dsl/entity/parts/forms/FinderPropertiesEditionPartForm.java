@@ -210,6 +210,9 @@ public class FinderPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		EditingUtils.setID(customizedName, EntityViewsRepository.Finder.Properties.customizedName);
 		EditingUtils.setEEFtype(customizedName, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Finder.Properties.customizedName, EntityViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCustomizedNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -237,6 +240,9 @@ public class FinderPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		});
 		multiplicity.setID(EntityViewsRepository.Finder.Properties.multiplicity);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Finder.Properties.multiplicity, EntityViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createMultiplicityEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -293,6 +299,9 @@ public class FinderPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		EditingUtils.setID(description, EntityViewsRepository.Finder.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Finder.Properties.description, EntityViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -331,6 +340,14 @@ public class FinderPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		} else {
 			customizedName.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Finder.Properties.customizedName);
+		if (eefElementEditorReadOnlyState && customizedName.isEnabled()) {
+			customizedName.setEnabled(false);
+			customizedName.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !customizedName.isEnabled()) {
+			customizedName.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -352,6 +369,14 @@ public class FinderPropertiesEditionPartForm extends SectionPropertiesEditingPar
 	public void initMultiplicity(Object input, Enumerator current) {
 		multiplicity.setInput(input);
 		multiplicity.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Finder.Properties.multiplicity);
+		if (eefElementEditorReadOnlyState && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -362,6 +387,14 @@ public class FinderPropertiesEditionPartForm extends SectionPropertiesEditingPar
 	 */
 	public void setMultiplicity(Enumerator newValue) {
 		multiplicity.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Finder.Properties.multiplicity);
+		if (eefElementEditorReadOnlyState && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -386,6 +419,15 @@ public class FinderPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Finder.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

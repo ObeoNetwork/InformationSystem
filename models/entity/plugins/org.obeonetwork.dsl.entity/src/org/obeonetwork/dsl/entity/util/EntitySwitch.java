@@ -16,8 +16,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.obeonetwork.dsl.entity.*;
-import org.obeonetwork.dsl.environment.BoundableElement;
 import org.obeonetwork.dsl.entity.Attribute;
 import org.obeonetwork.dsl.entity.Block;
 import org.obeonetwork.dsl.entity.Criterion;
@@ -29,6 +27,7 @@ import org.obeonetwork.dsl.entity.InternalCriterion;
 import org.obeonetwork.dsl.entity.Property;
 import org.obeonetwork.dsl.entity.Reference;
 import org.obeonetwork.dsl.entity.Root;
+import org.obeonetwork.dsl.environment.BoundableElement;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.StructuredType;

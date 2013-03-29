@@ -21,7 +21,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -80,10 +82,11 @@ public class ExternalCriterionExternalCriterionPropertiesEditionComponent extend
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final ExternalCriterion externalCriterion = (ExternalCriterion)elt;
 			final ExternalCriterionPropertiesEditionPart externalCriterionPart = (ExternalCriterionPropertiesEditionPart)editingPart;
 			// init values
-			if (externalCriterion.getName() != null && isAccessible(EntityViewsRepository.ExternalCriterion.Properties.name))
+			if (isAccessible(EntityViewsRepository.ExternalCriterion.Properties.name))
 				externalCriterionPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, externalCriterion.getName()));
 			
 			if (isAccessible(EntityViewsRepository.ExternalCriterion.Properties.type)) {
@@ -93,7 +96,7 @@ public class ExternalCriterionExternalCriterionPropertiesEditionComponent extend
 				// set the button mode
 				externalCriterionPart.setTypeButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (externalCriterion.getDescription() != null && isAccessible(EntityViewsRepository.ExternalCriterion.Properties.description))
+			if (isAccessible(EntityViewsRepository.ExternalCriterion.Properties.description))
 				externalCriterionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, externalCriterion.getDescription()));
 			// init filters
 			
@@ -163,9 +166,10 @@ public class ExternalCriterionExternalCriterionPropertiesEditionComponent extend
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ExternalCriterionPropertiesEditionPart externalCriterionPart = (ExternalCriterionPropertiesEditionPart)editingPart;
-			if (EntityPackage.eINSTANCE.getExternalCriterion_Name().equals(msg.getFeature()) && externalCriterionPart != null && isAccessible(EntityViewsRepository.ExternalCriterion.Properties.name)) {
+			if (EntityPackage.eINSTANCE.getExternalCriterion_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && externalCriterionPart != null && isAccessible(EntityViewsRepository.ExternalCriterion.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					externalCriterionPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -174,7 +178,7 @@ public class ExternalCriterionExternalCriterionPropertiesEditionComponent extend
 			}
 			if (EntityPackage.eINSTANCE.getExternalCriterion_Type().equals(msg.getFeature()) && externalCriterionPart != null && isAccessible(EntityViewsRepository.ExternalCriterion.Properties.type))
 				externalCriterionPart.setType((EObject)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && externalCriterionPart != null && isAccessible(EntityViewsRepository.ExternalCriterion.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && externalCriterionPart != null && isAccessible(EntityViewsRepository.ExternalCriterion.Properties.description)){
 				if (msg.getNewValue() != null) {
 					externalCriterionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -183,6 +187,20 @@ public class ExternalCriterionExternalCriterionPropertiesEditionComponent extend
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EntityPackage.eINSTANCE.getExternalCriterion_Name(),
+			EntityPackage.eINSTANCE.getExternalCriterion_Type(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -228,5 +246,8 @@ public class ExternalCriterionExternalCriterionPropertiesEditionComponent extend
 		}
 		return ret;
 	}
+
+
+	
 
 }

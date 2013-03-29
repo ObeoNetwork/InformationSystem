@@ -21,7 +21,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -69,16 +71,17 @@ public class FinderFinderPropertiesEditionComponent extends SinglePartProperties
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Finder finder = (Finder)elt;
 			final FinderPropertiesEditionPart finderPart = (FinderPropertiesEditionPart)editingPart;
 			// init values
-			if (finder.getCustomizedName() != null && isAccessible(EntityViewsRepository.Finder.Properties.customizedName))
+			if (isAccessible(EntityViewsRepository.Finder.Properties.customizedName))
 				finderPart.setCustomizedName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, finder.getCustomizedName()));
 			
 			if (isAccessible(EntityViewsRepository.Finder.Properties.multiplicity)) {
 				finderPart.initMultiplicity(EEFUtils.choiceOfValues(finder, EntityPackage.eINSTANCE.getProperty_Multiplicity()), finder.getMultiplicity());
 			}
-			if (finder.getDescription() != null && isAccessible(EntityViewsRepository.Finder.Properties.description))
+			if (isAccessible(EntityViewsRepository.Finder.Properties.description))
 				finderPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, finder.getDescription()));
 			// init filters
 			
@@ -137,19 +140,20 @@ public class FinderFinderPropertiesEditionComponent extends SinglePartProperties
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			FinderPropertiesEditionPart finderPart = (FinderPropertiesEditionPart)editingPart;
-			if (EntityPackage.eINSTANCE.getFinder_CustomizedName().equals(msg.getFeature()) && finderPart != null && isAccessible(EntityViewsRepository.Finder.Properties.customizedName)) {
+			if (EntityPackage.eINSTANCE.getFinder_CustomizedName().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && finderPart != null && isAccessible(EntityViewsRepository.Finder.Properties.customizedName)) {
 				if (msg.getNewValue() != null) {
 					finderPart.setCustomizedName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					finderPart.setCustomizedName("");
 				}
 			}
-			if (EntityPackage.eINSTANCE.getProperty_Multiplicity().equals(msg.getFeature()) && isAccessible(EntityViewsRepository.Finder.Properties.multiplicity))
+			if (EntityPackage.eINSTANCE.getProperty_Multiplicity().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EntityViewsRepository.Finder.Properties.multiplicity))
 				finderPart.setMultiplicity((MultiplicityKind)msg.getNewValue());
 			
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && finderPart != null && isAccessible(EntityViewsRepository.Finder.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && finderPart != null && isAccessible(EntityViewsRepository.Finder.Properties.description)){
 				if (msg.getNewValue() != null) {
 					finderPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -158,6 +162,20 @@ public class FinderFinderPropertiesEditionComponent extends SinglePartProperties
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EntityPackage.eINSTANCE.getFinder_CustomizedName(),
+			EntityPackage.eINSTANCE.getProperty_Multiplicity(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -210,5 +228,8 @@ public class FinderFinderPropertiesEditionComponent extends SinglePartProperties
 		}
 		return ret;
 	}
+
+
+	
 
 }

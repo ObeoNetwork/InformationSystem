@@ -215,6 +215,9 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(name, EntityViewsRepository.Reference.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Reference.Properties.name, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -243,6 +246,9 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		type.setLayoutData(typeData);
 		type.setID(EntityViewsRepository.Reference.Properties.type);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Reference.Properties.type, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTypeAdvancedFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -270,6 +276,9 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		});
 		multiplicity.setID(EntityViewsRepository.Reference.Properties.multiplicity);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Reference.Properties.multiplicity, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createMultiplicityEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -297,6 +306,9 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(isPrimaryKey, EntityViewsRepository.Reference.Properties.isPrimaryKey);
 		EditingUtils.setEEFtype(isPrimaryKey, "eef::Checkbox"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Reference.Properties.isPrimaryKey, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createIsPrimaryKeyCheckbox
+
+		// End of user code
 		return parent;
 	}
 
@@ -324,6 +336,9 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(isComposite, EntityViewsRepository.Reference.Properties.isComposite);
 		EditingUtils.setEEFtype(isComposite, "eef::Checkbox"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Reference.Properties.isComposite, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createIsCompositeCheckbox
+
+		// End of user code
 		return parent;
 	}
 
@@ -351,6 +366,9 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(navigable, EntityViewsRepository.Reference.Properties.navigable);
 		EditingUtils.setEEFtype(navigable, "eef::Checkbox"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Reference.Properties.navigable, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNavigableCheckbox
+
+		// End of user code
 		return parent;
 	}
 
@@ -374,6 +392,9 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		oppositeOf.setLayoutData(oppositeOfData);
 		oppositeOf.setID(EntityViewsRepository.Reference.Properties.oppositeOf);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Reference.Properties.oppositeOf, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createOppositeOfFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -406,6 +427,9 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(description, EntityViewsRepository.Reference.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Reference.Properties.description, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -444,6 +468,14 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -466,6 +498,14 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		if (current != null) {
 			type.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -480,6 +520,14 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			type.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -530,6 +578,14 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 	public void initMultiplicity(Object input, Enumerator current) {
 		multiplicity.setInput(input);
 		multiplicity.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.multiplicity);
+		if (eefElementEditorReadOnlyState && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -540,6 +596,14 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 	 */
 	public void setMultiplicity(Enumerator newValue) {
 		multiplicity.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.multiplicity);
+		if (eefElementEditorReadOnlyState && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -564,6 +628,14 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			isPrimaryKey.setSelection(false);
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.isPrimaryKey);
+		if (eefElementEditorReadOnlyState && isPrimaryKey.isEnabled()) {
+			isPrimaryKey.setEnabled(false);
+			isPrimaryKey.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !isPrimaryKey.isEnabled()) {
+			isPrimaryKey.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -588,6 +660,14 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			isComposite.setSelection(false);
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.isComposite);
+		if (eefElementEditorReadOnlyState && isComposite.isEnabled()) {
+			isComposite.setEnabled(false);
+			isComposite.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !isComposite.isEnabled()) {
+			isComposite.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -612,6 +692,14 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			navigable.setSelection(false);
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.navigable);
+		if (eefElementEditorReadOnlyState && navigable.isEnabled()) {
+			navigable.setEnabled(false);
+			navigable.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !navigable.isEnabled()) {
+			navigable.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -639,6 +727,14 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		if (current != null) {
 			oppositeOf.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.oppositeOf);
+		if (eefElementEditorReadOnlyState && oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(false);
+			oppositeOf.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -653,6 +749,14 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			oppositeOf.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.oppositeOf);
+		if (eefElementEditorReadOnlyState && oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(false);
+			oppositeOf.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -706,6 +810,15 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Reference.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(EntityMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

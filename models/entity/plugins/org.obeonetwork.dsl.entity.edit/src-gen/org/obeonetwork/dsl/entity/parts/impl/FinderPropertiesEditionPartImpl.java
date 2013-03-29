@@ -179,6 +179,9 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		EditingUtils.setID(customizedName, EntityViewsRepository.Finder.Properties.customizedName);
 		EditingUtils.setEEFtype(customizedName, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Finder.Properties.customizedName, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCustomizedNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -206,6 +209,9 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		});
 		multiplicity.setID(EntityViewsRepository.Finder.Properties.multiplicity);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Finder.Properties.multiplicity, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createMultiplicityEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -238,6 +244,9 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		EditingUtils.setID(description, EntityViewsRepository.Finder.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Finder.Properties.description, EntityViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -276,6 +285,14 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			customizedName.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Finder.Properties.customizedName);
+		if (eefElementEditorReadOnlyState && customizedName.isEnabled()) {
+			customizedName.setEnabled(false);
+			customizedName.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !customizedName.isEnabled()) {
+			customizedName.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -297,6 +314,14 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	public void initMultiplicity(Object input, Enumerator current) {
 		multiplicity.setInput(input);
 		multiplicity.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Finder.Properties.multiplicity);
+		if (eefElementEditorReadOnlyState && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -307,6 +332,14 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	 */
 	public void setMultiplicity(Enumerator newValue) {
 		multiplicity.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Finder.Properties.multiplicity);
+		if (eefElementEditorReadOnlyState && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -331,6 +364,15 @@ public class FinderPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Finder.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(EntityMessages.Finder_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

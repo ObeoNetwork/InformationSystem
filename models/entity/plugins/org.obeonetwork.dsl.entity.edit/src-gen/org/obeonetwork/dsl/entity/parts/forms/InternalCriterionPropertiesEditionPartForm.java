@@ -168,6 +168,9 @@ public class InternalCriterionPropertiesEditionPartForm extends SectionPropertie
 		target.setLayoutData(targetData);
 		target.setID(EntityViewsRepository.InternalCriterion.Properties.target);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.InternalCriterion.Properties.target, EntityViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTargetFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -225,6 +228,9 @@ public class InternalCriterionPropertiesEditionPartForm extends SectionPropertie
 		EditingUtils.setID(description, EntityViewsRepository.InternalCriterion.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.InternalCriterion.Properties.description, EntityViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -261,6 +267,14 @@ public class InternalCriterionPropertiesEditionPartForm extends SectionPropertie
 		if (current != null) {
 			target.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.InternalCriterion.Properties.target);
+		if (eefElementEditorReadOnlyState && target.isEnabled()) {
+			target.setEnabled(false);
+			target.setToolTipText(EntityMessages.InternalCriterion_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !target.isEnabled()) {
+			target.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -275,6 +289,14 @@ public class InternalCriterionPropertiesEditionPartForm extends SectionPropertie
 		} else {
 			target.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.InternalCriterion.Properties.target);
+		if (eefElementEditorReadOnlyState && target.isEnabled()) {
+			target.setEnabled(false);
+			target.setToolTipText(EntityMessages.InternalCriterion_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !target.isEnabled()) {
+			target.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -328,6 +350,15 @@ public class InternalCriterionPropertiesEditionPartForm extends SectionPropertie
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.InternalCriterion.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(EntityMessages.InternalCriterion_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

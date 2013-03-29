@@ -122,6 +122,33 @@ public interface ExtensionUtilitiesPackage extends EPackage {
 	int ENTITY_FILTER__BINDING_REGISTRIES = EnvironmentPackage.FILTER__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_FILTER__VERSION = EnvironmentPackage.FILTER__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_FILTER__CREATED_ON = EnvironmentPackage.FILTER__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_FILTER__MODIFIED_ON = EnvironmentPackage.FILTER__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Attribute References</b></em>' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

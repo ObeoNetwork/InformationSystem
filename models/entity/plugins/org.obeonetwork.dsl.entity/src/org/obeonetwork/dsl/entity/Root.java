@@ -12,7 +12,6 @@
  */
 package org.obeonetwork.dsl.entity;
 
-import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
 import org.obeonetwork.dsl.environment.Namespace;
 

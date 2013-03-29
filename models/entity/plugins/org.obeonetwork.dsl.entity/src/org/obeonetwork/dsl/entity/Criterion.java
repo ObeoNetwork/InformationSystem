@@ -12,7 +12,6 @@
  */
 package org.obeonetwork.dsl.entity;
 
-import org.eclipse.emf.cdo.CDOObject;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**

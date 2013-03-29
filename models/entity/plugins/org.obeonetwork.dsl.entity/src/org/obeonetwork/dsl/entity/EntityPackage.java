@@ -124,6 +124,33 @@ public interface EntityPackage extends EPackage {
 	int ROOT__BINDING_REGISTRIES = EnvironmentPackage.NAMESPACE__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__VERSION = EnvironmentPackage.NAMESPACE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__CREATED_ON = EnvironmentPackage.NAMESPACE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__MODIFIED_ON = EnvironmentPackage.NAMESPACE__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,6 +248,33 @@ public interface EntityPackage extends EPackage {
 	int BLOCK__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -306,6 +360,33 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENTITY__BINDING_REGISTRIES = EnvironmentPackage.STRUCTURED_TYPE__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__VERSION = EnvironmentPackage.STRUCTURED_TYPE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__CREATED_ON = EnvironmentPackage.STRUCTURED_TYPE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__MODIFIED_ON = EnvironmentPackage.STRUCTURED_TYPE__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
@@ -484,6 +565,33 @@ public interface EntityPackage extends EPackage {
 	int PROPERTY__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -568,6 +676,33 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int ATTRIBUTE__BINDING_REGISTRIES = PROPERTY__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__VERSION = PROPERTY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__CREATED_ON = PROPERTY__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__MODIFIED_ON = PROPERTY__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
@@ -671,6 +806,33 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE__BINDING_REGISTRIES = PROPERTY__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__VERSION = PROPERTY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__CREATED_ON = PROPERTY__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__MODIFIED_ON = PROPERTY__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
@@ -802,6 +964,33 @@ public interface EntityPackage extends EPackage {
 	int FINDER__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDER__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDER__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDER__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -905,6 +1094,33 @@ public interface EntityPackage extends EPackage {
 	int CRITERION__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CRITERION__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CRITERION__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CRITERION__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
+
+	/**
 	 * The number of structural features of the '<em>Criterion</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -964,6 +1180,33 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERNAL_CRITERION__BINDING_REGISTRIES = CRITERION__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_CRITERION__VERSION = CRITERION__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_CRITERION__CREATED_ON = CRITERION__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_CRITERION__MODIFIED_ON = CRITERION__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference. <!--
@@ -1043,6 +1286,33 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXTERNAL_CRITERION__BINDING_REGISTRIES = CRITERION__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_CRITERION__VERSION = CRITERION__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_CRITERION__CREATED_ON = CRITERION__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_CRITERION__MODIFIED_ON = CRITERION__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--

@@ -14,7 +14,7 @@
     <package 
        uri = "http://www.obeonetwork.org/dsl/entity/2.0.0" 
        class = "org.obeonetwork.dsl.entity.EntityPackage"
-       genModel = "model/entity.genmodel" /> 
+       genModel = "model/entity_cdonative.genmodel" /> 
   </extension>
   
    <extension point="org.eclipse.emf.ecore.extension_parser">

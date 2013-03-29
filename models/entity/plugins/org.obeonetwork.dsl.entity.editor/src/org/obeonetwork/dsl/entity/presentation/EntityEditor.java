@@ -21,7 +21,6 @@ import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
@@ -73,7 +72,6 @@ import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.eef.runtime.ui.notify.OpenWizardOnDoubleClick;
-import org.eclipse.emf.eef.runtime.ui.properties.TabbedPropertiesEditionSheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
@@ -646,59 +644,11 @@ public class EntityEditor extends MultiPageEditorPart implements
 	 * This creates a model editor. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	public EntityEditor() {
 		super();
-
-		// Create an adapter factory that yields item providers.
-		//
-		List factories = new ArrayList();
-		factories.add(new ResourceItemProviderAdapterFactory());
-		factories.add(new EntityItemProviderAdapterFactory());
-		factories.add(new EnvironmentItemProviderAdapterFactory());
-		factories.add(new ReflectiveItemProviderAdapterFactory());
-
-		adapterFactory = new ComposedAdapterFactory(factories);
-
-		// Create the command stack that will notify this editor as commands are
-		// executed.
-		//
-		BasicCommandStack commandStack = new BasicCommandStack();
-
-		// Add a listener to set the most recent command's affected objects to
-		// be the selection of the viewer with focus.
-		//
-		commandStack.addCommandStackListener(new CommandStackListener() {
-			public void commandStackChanged(final EventObject event) {
-				getContainer().getDisplay().asyncExec(new Runnable() {
-					public void run() {
-						firePropertyChange(IEditorPart.PROP_DIRTY);
-
-						// Try to select the affected objects.
-						//
-						Command mostRecentCommand = ((CommandStack) event
-								.getSource()).getMostRecentCommand();
-						if (mostRecentCommand != null) {
-							setSelectionToViewer(mostRecentCommand
-									.getAffectedObjects());
-						}
-						if (propertySheetPage != null
-								&& !propertySheetPage.getControl().isDisposed()
-								 && propertySheetPage.getCurrentTab() != null) {
-							propertySheetPage.refresh();
-						}
-					}
-				});
-			}
-		});
-
-		// Create the editing domain with a special command stack.
-		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
-				commandStack, new HashMap());
-		editingDomain
-				.loadResource("platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment");
+		initializeEditingDomain();
 	}
 
 	/**
@@ -1382,17 +1332,10 @@ public class EntityEditor extends MultiPageEditorPart implements
 	 * @generated NOT
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
-		if (propertySheetPage == null) {
-			propertySheetPage = new TabbedPropertiesEditionSheetPage(EntityEditor.this) {
-				@Override
-				public void setActionBars(IActionBars actionBars) {
-					super.setActionBars(actionBars);
-					getActionBarContributor().shareGlobalActions(this,
-							actionBars);
-				}
-			};
-		}
-		return propertySheetPage;
+		 if (propertySheetPage == null || propertySheetPage.getControl().isDisposed()) {
+			 propertySheetPage = new TabbedPropertySheetPage(EntityEditor.this);
+	     }
+		 return propertySheetPage;
 	}
 
 	/**
@@ -1597,7 +1540,7 @@ public class EntityEditor extends MultiPageEditorPart implements
 	 * This is called during startup. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void init(IEditorSite site, IEditorInput editorInput) {
@@ -1607,6 +1550,11 @@ public class EntityEditor extends MultiPageEditorPart implements
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+		/*
+		 * Load common obeo.environment
+		 */
+		URI uri = URI.createURI("platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment");
+		editingDomain.getResourceSet().getResource(uri, true);
 	}
 
 	/**

@@ -225,6 +225,9 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		EditingUtils.setID(name, EntityViewsRepository.Attribute.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Attribute.Properties.name, EntityViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -252,6 +255,9 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		EditingUtils.setID(type.getCombo(), EntityViewsRepository.Attribute.Properties.type);
 		EditingUtils.setEEFtype(type.getCombo(), "eef::Combo");
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Attribute.Properties.type, EntityViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTypeEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -279,6 +285,9 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		});
 		multiplicity.setID(EntityViewsRepository.Attribute.Properties.multiplicity);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Attribute.Properties.multiplicity, EntityViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createMultiplicityEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -305,6 +314,9 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		EditingUtils.setID(isPrimaryKey, EntityViewsRepository.Attribute.Properties.isPrimaryKey);
 		EditingUtils.setEEFtype(isPrimaryKey, "eef::Checkbox"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Attribute.Properties.isPrimaryKey, EntityViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createIsPrimaryKeyCheckbox
+
+		// End of user code
 		return parent;
 	}
 
@@ -361,6 +373,9 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		EditingUtils.setID(description, EntityViewsRepository.Attribute.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityViewsRepository.Attribute.Properties.description, EntityViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -399,6 +414,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Attribute.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EntityMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -438,6 +461,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			type.modelUpdating(new StructuredSelection("")); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Attribute.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(EntityMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -469,6 +500,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 	public void initMultiplicity(Object input, Enumerator current) {
 		multiplicity.setInput(input);
 		multiplicity.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Attribute.Properties.multiplicity);
+		if (eefElementEditorReadOnlyState && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EntityMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -479,6 +518,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 	 */
 	public void setMultiplicity(Enumerator newValue) {
 		multiplicity.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Attribute.Properties.multiplicity);
+		if (eefElementEditorReadOnlyState && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(EntityMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -503,6 +550,14 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			isPrimaryKey.setSelection(false);
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Attribute.Properties.isPrimaryKey);
+		if (eefElementEditorReadOnlyState && isPrimaryKey.isEnabled()) {
+			isPrimaryKey.setEnabled(false);
+			isPrimaryKey.setToolTipText(EntityMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !isPrimaryKey.isEnabled()) {
+			isPrimaryKey.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -527,6 +582,15 @@ public class AttributePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Attribute.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(EntityMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

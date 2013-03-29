@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.obeonetwork.dsl.entity.extensionUtilities.*;
 import org.obeonetwork.dsl.entity.extensionUtilities.EntityFilter;
 import org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesFactory;
 import org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage;
