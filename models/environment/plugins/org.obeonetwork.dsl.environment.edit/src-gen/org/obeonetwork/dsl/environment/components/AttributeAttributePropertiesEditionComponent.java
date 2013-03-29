@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -62,10 +64,11 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Attribute attribute = (Attribute)elt;
 			final AttributePropertiesEditionPart attributePart = (AttributePropertiesEditionPart)editingPart;
 			// init values
-			if (attribute.getName() != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.name))
+			if (isAccessible(EnvironmentViewsRepository.Attribute.Properties.name))
 				attributePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, attribute.getName()));
 			
 			if (isAccessible(EnvironmentViewsRepository.Attribute.Properties.type)) {
@@ -74,7 +77,7 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 			if (isAccessible(EnvironmentViewsRepository.Attribute.Properties.multiplicity)) {
 				attributePart.initMultiplicity(EEFUtils.choiceOfValues(attribute, EnvironmentPackage.eINSTANCE.getProperty_Multiplicity()), attribute.getMultiplicity());
 			}
-			if (attribute.getDescription() != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.description))
+			if (isAccessible(EnvironmentViewsRepository.Attribute.Properties.description))
 				attributePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, attribute.getDescription()));
 			
 			// init filters
@@ -144,21 +147,22 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			AttributePropertiesEditionPart attributePart = (AttributePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getProperty_Name().equals(msg.getFeature()) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.name)) {
+			if (EnvironmentPackage.eINSTANCE.getProperty_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					attributePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					attributePart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getAttribute_Type().equals(msg.getFeature()) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.type))
+			if (EnvironmentPackage.eINSTANCE.getAttribute_Type().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.type))
 				attributePart.setType((Object)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getProperty_Multiplicity().equals(msg.getFeature()) && isAccessible(EnvironmentViewsRepository.Attribute.Properties.multiplicity))
+			if (EnvironmentPackage.eINSTANCE.getProperty_Multiplicity().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EnvironmentViewsRepository.Attribute.Properties.multiplicity))
 				attributePart.setMultiplicity((MultiplicityKind)msg.getNewValue());
 			
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					attributePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -167,6 +171,21 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getProperty_Name(),
+			EnvironmentPackage.eINSTANCE.getAttribute_Type(),
+			EnvironmentPackage.eINSTANCE.getProperty_Multiplicity(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -219,5 +238,8 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 		}
 		return ret;
 	}
+
+
+	
 
 }

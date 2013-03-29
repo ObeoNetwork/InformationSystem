@@ -5,47 +5,32 @@ package org.obeonetwork.dsl.environment.components;
 
 // Start of user code for imports
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.InterDSMLink;
-
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 import org.obeonetwork.dsl.environment.parts.InterDSMLinkPropertiesEditionPart;
 
@@ -90,10 +75,11 @@ public class InterDSMLinkInterDSMLinkPropertiesEditionComponent extends SinglePa
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final InterDSMLink interDSMLink = (InterDSMLink)elt;
 			final InterDSMLinkPropertiesEditionPart interDSMLinkPart = (InterDSMLinkPropertiesEditionPart)editingPart;
 			// init values
-			if (interDSMLink.getName() != null && isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.name))
+			if (isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.name))
 				interDSMLinkPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, interDSMLink.getName()));
 			
 			if (isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.target)) {
@@ -103,7 +89,7 @@ public class InterDSMLinkInterDSMLinkPropertiesEditionComponent extends SinglePa
 				// set the button mode
 				interDSMLinkPart.setTargetButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (interDSMLink.getDescription() != null && isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.description))
+			if (isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.description))
 				interDSMLinkPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, interDSMLink.getDescription()));
 			
 			// init filters
@@ -191,9 +177,10 @@ public class InterDSMLinkInterDSMLinkPropertiesEditionComponent extends SinglePa
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			InterDSMLinkPropertiesEditionPart interDSMLinkPart = (InterDSMLinkPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getInterDSMLink_Name().equals(msg.getFeature()) && interDSMLinkPart != null && isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.name)) {
+			if (EnvironmentPackage.eINSTANCE.getInterDSMLink_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && interDSMLinkPart != null && isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					interDSMLinkPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -202,7 +189,7 @@ public class InterDSMLinkInterDSMLinkPropertiesEditionComponent extends SinglePa
 			}
 			if (EnvironmentPackage.eINSTANCE.getInterDSMLink_Target().equals(msg.getFeature()) && interDSMLinkPart != null && isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.target))
 				interDSMLinkPart.setTarget((EObject)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && interDSMLinkPart != null && isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && interDSMLinkPart != null && isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					interDSMLinkPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -211,6 +198,20 @@ public class InterDSMLinkInterDSMLinkPropertiesEditionComponent extends SinglePa
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getInterDSMLink_Name(),
+			EnvironmentPackage.eINSTANCE.getInterDSMLink_Target(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -256,5 +257,8 @@ public class InterDSMLinkInterDSMLinkPropertiesEditionComponent extends SinglePa
 		}
 		return ret;
 	}
+
+
+	
 
 }

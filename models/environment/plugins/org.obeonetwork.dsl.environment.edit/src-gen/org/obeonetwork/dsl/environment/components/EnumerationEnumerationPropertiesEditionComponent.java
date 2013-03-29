@@ -5,48 +5,33 @@ package org.obeonetwork.dsl.environment.components;
 
 // Start of user code for imports
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
-
 import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Field;
-
 import org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 
@@ -91,17 +76,18 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Enumeration enumeration = (Enumeration)elt;
 			final EnumerationPropertiesEditionPart enumerationPart = (EnumerationPropertiesEditionPart)editingPart;
 			// init values
-			if (enumeration.getName() != null && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.name))
+			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.name))
 				enumerationPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, enumeration.getName()));
 			
 			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.fields)) {
 				fieldsSettings = new ReferencesTableSettings(enumeration, EnvironmentPackage.eINSTANCE.getEnumeration_Fields());
 				enumerationPart.initFields(fieldsSettings);
 			}
-			if (enumeration.getDescription() != null && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.description))
+			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.description))
 				enumerationPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, enumeration.getDescription()));
 			
 			// init filters
@@ -197,9 +183,10 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			EnumerationPropertiesEditionPart enumerationPart = (EnumerationPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getType_Name().equals(msg.getFeature()) && enumerationPart != null && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.name)) {
+			if (EnvironmentPackage.eINSTANCE.getType_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && enumerationPart != null && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					enumerationPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -208,7 +195,7 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 			}
 			if (EnvironmentPackage.eINSTANCE.getEnumeration_Fields().equals(msg.getFeature()) && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.fields))
 				enumerationPart.updateFields();
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && enumerationPart != null && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && enumerationPart != null && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					enumerationPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -217,6 +204,20 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getType_Name(),
+			EnvironmentPackage.eINSTANCE.getEnumeration_Fields(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -262,5 +263,8 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 		}
 		return ret;
 	}
+
+
+	
 
 }

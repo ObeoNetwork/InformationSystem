@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -61,6 +63,7 @@ public class BindingReferenceBindingReferencePropertiesEditionComponent extends 
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final BindingReference bindingReference = (BindingReference)elt;
 			final BindingReferencePropertiesEditionPart bindingReferencePart = (BindingReferencePropertiesEditionPart)editingPart;
 			// init values
@@ -70,7 +73,7 @@ public class BindingReferenceBindingReferencePropertiesEditionComponent extends 
 			if (isAccessible(EnvironmentViewsRepository.BindingReference.Properties.right)) {
 				bindingReferencePart.initRight(EEFUtils.choiceOfValues(bindingReference, EnvironmentPackage.eINSTANCE.getBindingReference_Right()), bindingReference.getRight());
 			}
-			if (bindingReference.getDescription() != null && isAccessible(EnvironmentViewsRepository.BindingReference.Properties.description))
+			if (isAccessible(EnvironmentViewsRepository.BindingReference.Properties.description))
 				bindingReferencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, bindingReference.getDescription()));
 			// init filters
 			// Start of user code for additional businessfilters for left
@@ -133,13 +136,14 @@ public class BindingReferenceBindingReferencePropertiesEditionComponent extends 
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			BindingReferencePropertiesEditionPart bindingReferencePart = (BindingReferencePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getBindingReference_Left().equals(msg.getFeature()) && bindingReferencePart != null && isAccessible(EnvironmentViewsRepository.BindingReference.Properties.left))
+			if (EnvironmentPackage.eINSTANCE.getBindingReference_Left().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && bindingReferencePart != null && isAccessible(EnvironmentViewsRepository.BindingReference.Properties.left))
 				bindingReferencePart.setLeft((Object)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getBindingReference_Right().equals(msg.getFeature()) && bindingReferencePart != null && isAccessible(EnvironmentViewsRepository.BindingReference.Properties.right))
+			if (EnvironmentPackage.eINSTANCE.getBindingReference_Right().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && bindingReferencePart != null && isAccessible(EnvironmentViewsRepository.BindingReference.Properties.right))
 				bindingReferencePart.setRight((Object)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && bindingReferencePart != null && isAccessible(EnvironmentViewsRepository.BindingReference.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && bindingReferencePart != null && isAccessible(EnvironmentViewsRepository.BindingReference.Properties.description)){
 				if (msg.getNewValue() != null) {
 					bindingReferencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -148,6 +152,20 @@ public class BindingReferenceBindingReferencePropertiesEditionComponent extends 
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getBindingReference_Left(),
+			EnvironmentPackage.eINSTANCE.getBindingReference_Right(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -186,5 +204,8 @@ public class BindingReferenceBindingReferencePropertiesEditionComponent extends 
 		}
 		return ret;
 	}
+
+
+	
 
 }

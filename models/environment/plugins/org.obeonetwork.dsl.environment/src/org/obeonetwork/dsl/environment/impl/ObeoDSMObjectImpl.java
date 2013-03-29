@@ -153,7 +153,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 									}
 								}
 							}
-						}*/
+							}*/
 					}
 				}
 			}

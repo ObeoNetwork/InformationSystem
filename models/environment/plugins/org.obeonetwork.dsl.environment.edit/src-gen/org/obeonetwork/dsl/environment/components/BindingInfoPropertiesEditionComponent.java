@@ -6,22 +6,12 @@ package org.obeonetwork.dsl.environment.components;
 // Start of user code for imports
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.ComposedPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.obeonetwork.dsl.environment.BindingInfo;
-
-import org.obeonetwork.dsl.environment.components.BindingInfoBindingInfoPropertiesEditionComponent;
-import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
-
 import org.obeonetwork.dsl.environment.parts.BindingInfoPropertiesEditionPart;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 

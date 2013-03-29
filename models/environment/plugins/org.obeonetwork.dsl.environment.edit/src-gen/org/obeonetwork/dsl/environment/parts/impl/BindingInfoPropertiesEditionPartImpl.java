@@ -5,51 +5,34 @@ package org.obeonetwork.dsl.environment.parts.impl;
 
 // Start of user code for imports
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.providers.EMFListContentProvider;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.EMFComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.dsl.environment.parts.BindingInfoPropertiesEditionPart;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
-
 import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
 
 // End of user code
@@ -167,6 +150,9 @@ public class BindingInfoPropertiesEditionPartImpl extends CompositePropertiesEdi
 		EditingUtils.setID(left.getCombo(), EnvironmentViewsRepository.BindingInfo.Properties.left);
 		EditingUtils.setEEFtype(left.getCombo(), "eef::Combo"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.BindingInfo.Properties.left, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createLeftEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -194,6 +180,9 @@ public class BindingInfoPropertiesEditionPartImpl extends CompositePropertiesEdi
 		EditingUtils.setID(right.getCombo(), EnvironmentViewsRepository.BindingInfo.Properties.right);
 		EditingUtils.setEEFtype(right.getCombo(), "eef::Combo"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.BindingInfo.Properties.right, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createRightEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -226,6 +215,9 @@ public class BindingInfoPropertiesEditionPartImpl extends CompositePropertiesEdi
 		EditingUtils.setID(description, EnvironmentViewsRepository.BindingInfo.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.BindingInfo.Properties.description, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -279,6 +271,14 @@ public class BindingInfoPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			left.modelUpdating(new StructuredSelection("")); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.BindingInfo.Properties.left);
+		if (eefElementEditorReadOnlyState && left.isEnabled()) {
+			left.setEnabled(false);
+			left.setToolTipText(EnvironmentMessages.BindingInfo_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !left.isEnabled()) {
+			left.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -328,6 +328,14 @@ public class BindingInfoPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			right.modelUpdating(new StructuredSelection("")); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.BindingInfo.Properties.right);
+		if (eefElementEditorReadOnlyState && right.isEnabled()) {
+			right.setEnabled(false);
+			right.setToolTipText(EnvironmentMessages.BindingInfo_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !right.isEnabled()) {
+			right.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -362,6 +370,15 @@ public class BindingInfoPropertiesEditionPartImpl extends CompositePropertiesEdi
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.BindingInfo.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(EnvironmentMessages.BindingInfo_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
