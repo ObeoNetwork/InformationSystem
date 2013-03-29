@@ -113,7 +113,6 @@ import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
-import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
@@ -128,7 +127,6 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-
 import org.obeonetwork.dsl.entity.extensionUtilities.provider.ExtensionUtilitiesItemProviderAdapterFactory;
 import org.obeonetwork.dsl.entity.presentation.EntityEditorPlugin;
 import org.obeonetwork.dsl.entity.provider.EntityItemProviderAdapterFactory;
