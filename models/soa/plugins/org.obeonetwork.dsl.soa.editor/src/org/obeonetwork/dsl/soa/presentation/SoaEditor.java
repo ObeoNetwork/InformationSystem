@@ -1269,7 +1269,7 @@ public class SoaEditor
 		site.getPage().addPartListener(partListener);
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
 		/*
-		 * Load JavaPrimitiveTypes.library.soa
+		 * Load common obeo.environment
 		 */
 		URI uri = URI.createURI("platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment");
 		editingDomain.getResourceSet().getResource(uri, true);
