@@ -11,19 +11,18 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerFilter;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.flow.FlowAction;
 import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
@@ -80,13 +79,14 @@ public class FlowActionFlowActionPropertiesEditionComponent extends SinglePartPr
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final FlowAction flowAction = (FlowAction)elt;
 			final FlowActionPropertiesEditionPart flowActionPart = (FlowActionPropertiesEditionPart)editingPart;
 			// init values
-			if (flowAction.getDescription() != null && isAccessible(FlowViewsRepository.FlowAction.Properties.description))
+			if (isAccessible(FlowViewsRepository.FlowAction.Properties.description))
 				flowActionPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, flowAction.getDescription()));
 			
-			if (flowAction.getName() != null && isAccessible(FlowViewsRepository.FlowAction.Properties.name))
+			if (isAccessible(FlowViewsRepository.FlowAction.Properties.name))
 				flowActionPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, flowAction.getName()));
 			
 			if (isAccessible(FlowViewsRepository.FlowAction.Properties.calls)) {
@@ -101,39 +101,11 @@ public class FlowActionFlowActionPropertiesEditionComponent extends SinglePartPr
 			
 			
 			if (isAccessible(FlowViewsRepository.FlowAction.Properties.calls)) {
-				flowActionPart.addFilterToCalls(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						if (element instanceof EObject)
-							return (!flowActionPart.isContainedInCallsTable((EObject)element));
-						return element instanceof Resource;
-					}
-				
-				});
 				flowActionPart.addFilterToCalls(new EObjectFilter(ViewPackage.Literals.VIEW_ACTION));
 				// Start of user code for additional businessfilters for calls
 				// End of user code
 			}
 			if (isAccessible(FlowViewsRepository.FlowAction.Properties.operations)) {
-				flowActionPart.addFilterToOperations(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						if (element instanceof EObject)
-							return (!flowActionPart.isContainedInOperationsTable((EObject)element));
-						return element instanceof Resource;
-					}
-				
-				});
 				flowActionPart.addFilterToOperations(new EObjectFilter(EnvironmentPackage.Literals.ACTION));
 				// Start of user code for additional businessfilters for operations
 				// End of user code
@@ -214,16 +186,17 @@ public class FlowActionFlowActionPropertiesEditionComponent extends SinglePartPr
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			FlowActionPropertiesEditionPart flowActionPart = (FlowActionPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && flowActionPart != null && isAccessible(FlowViewsRepository.FlowAction.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && flowActionPart != null && isAccessible(FlowViewsRepository.FlowAction.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					flowActionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					flowActionPart.setDescription("");
 				}
 			}
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && flowActionPart != null && isAccessible(FlowViewsRepository.FlowAction.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && flowActionPart != null && isAccessible(FlowViewsRepository.FlowAction.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					flowActionPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -236,6 +209,21 @@ public class FlowActionFlowActionPropertiesEditionComponent extends SinglePartPr
 				flowActionPart.updateOperations();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name(),
+			FlowPackage.eINSTANCE.getFlowAction_Calls(),
+			FlowPackage.eINSTANCE.getFlowAction_Operations()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -271,5 +259,8 @@ public class FlowActionFlowActionPropertiesEditionComponent extends SinglePartPr
 		}
 		return ret;
 	}
+
+
+	
 
 }

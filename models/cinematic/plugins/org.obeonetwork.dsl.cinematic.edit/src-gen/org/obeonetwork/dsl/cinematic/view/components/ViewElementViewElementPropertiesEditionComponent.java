@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -97,13 +99,14 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final ViewElement viewElement = (ViewElement)elt;
 			final ViewElementPropertiesEditionPart viewElementPart = (ViewElementPropertiesEditionPart)editingPart;
 			// init values
-			if (viewElement.getDescription() != null && isAccessible(ViewViewsRepository.ViewElement.Properties.description))
+			if (isAccessible(ViewViewsRepository.ViewElement.Properties.description))
 				viewElementPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewElement.getDescription()));
 			
-			if (viewElement.getName() != null && isAccessible(ViewViewsRepository.ViewElement.Properties.name))
+			if (isAccessible(ViewViewsRepository.ViewElement.Properties.name))
 				viewElementPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewElement.getName()));
 			
 			if (isAccessible(ViewViewsRepository.ViewElement.Properties.widget)) {
@@ -121,7 +124,7 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 				eventsSettings = new ReferencesTableSettings(viewElement, ViewPackage.eINSTANCE.getAbstractViewElement_Events());
 				viewElementPart.initEvents(eventsSettings);
 			}
-			if (viewElement.getLabel() != null && isAccessible(ViewViewsRepository.ViewElement.Properties.label))
+			if (isAccessible(ViewViewsRepository.ViewElement.Properties.label))
 				viewElementPart.setLabel(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewElement.getLabel()));
 			
 			if (isAccessible(ViewViewsRepository.ViewElement.Properties.required)) {
@@ -357,16 +360,17 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ViewElementPropertiesEditionPart viewElementPart = (ViewElementPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					viewElementPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					viewElementPart.setDescription("");
 				}
 			}
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					viewElementPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -379,20 +383,39 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 				viewElementPart.updateActions();
 			if (ViewPackage.eINSTANCE.getAbstractViewElement_Events().equals(msg.getFeature()) && isAccessible(ViewViewsRepository.ViewElement.Properties.events))
 				viewElementPart.updateEvents();
-			if (ViewPackage.eINSTANCE.getAbstractViewElement_Label().equals(msg.getFeature()) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.label)) {
+			if (ViewPackage.eINSTANCE.getAbstractViewElement_Label().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.label)) {
 				if (msg.getNewValue() != null) {
 					viewElementPart.setLabel(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					viewElementPart.setLabel("");
 				}
 			}
-			if (ViewPackage.eINSTANCE.getViewElement_Required().equals(msg.getFeature()) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.required))
+			if (ViewPackage.eINSTANCE.getViewElement_Required().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.required))
 				viewElementPart.setRequired((Boolean)msg.getNewValue());
 			
 			if (ViewPackage.eINSTANCE.getViewElement_Type().equals(msg.getFeature()) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.type))
 				viewElementPart.setType((EObject)msg.getNewValue());
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Widget(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Actions(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Events(),
+			ViewPackage.eINSTANCE.getAbstractViewElement_Label(),
+			ViewPackage.eINSTANCE.getViewElement_Required(),
+			ViewPackage.eINSTANCE.getViewElement_Type()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -442,5 +465,8 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 		}
 		return ret;
 	}
+
+
+	
 
 }

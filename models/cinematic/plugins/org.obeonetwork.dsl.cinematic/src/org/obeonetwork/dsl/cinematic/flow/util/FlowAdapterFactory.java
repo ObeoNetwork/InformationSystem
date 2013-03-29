@@ -12,17 +12,26 @@ package org.obeonetwork.dsl.cinematic.flow.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.obeonetwork.dsl.cinematic.CinematicElement;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.NamedElement;
-
-import org.obeonetwork.dsl.cinematic.flow.*;
-
+import org.obeonetwork.dsl.cinematic.flow.AbortState;
+import org.obeonetwork.dsl.cinematic.flow.ActionState;
+import org.obeonetwork.dsl.cinematic.flow.AsyncEventState;
+import org.obeonetwork.dsl.cinematic.flow.DecisionState;
+import org.obeonetwork.dsl.cinematic.flow.FinalState;
+import org.obeonetwork.dsl.cinematic.flow.Flow;
+import org.obeonetwork.dsl.cinematic.flow.FlowAction;
+import org.obeonetwork.dsl.cinematic.flow.FlowEvent;
+import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
+import org.obeonetwork.dsl.cinematic.flow.FlowState;
+import org.obeonetwork.dsl.cinematic.flow.InitialState;
+import org.obeonetwork.dsl.cinematic.flow.NamedFlowState;
+import org.obeonetwork.dsl.cinematic.flow.SubflowState;
+import org.obeonetwork.dsl.cinematic.flow.Transition;
+import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**

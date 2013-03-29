@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -76,17 +78,18 @@ public class DecisionStateDecisionStatePropertiesEditionComponent extends Single
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final DecisionState decisionState = (DecisionState)elt;
 			final DecisionStatePropertiesEditionPart decisionStatePart = (DecisionStatePropertiesEditionPart)editingPart;
 			// init values
-			if (decisionState.getDescription() != null && isAccessible(FlowViewsRepository.DecisionState.Properties.description))
+			if (isAccessible(FlowViewsRepository.DecisionState.Properties.description))
 				decisionStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, decisionState.getDescription()));
 			
 			if (isAccessible(FlowViewsRepository.DecisionState.Properties.actions)) {
 				actionsSettings = new ReferencesTableSettings(decisionState, FlowPackage.eINSTANCE.getFlowState_Actions());
 				decisionStatePart.initActions(actionsSettings);
 			}
-			if (decisionState.getName() != null && isAccessible(FlowViewsRepository.DecisionState.Properties.name))
+			if (isAccessible(FlowViewsRepository.DecisionState.Properties.name))
 				decisionStatePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, decisionState.getName()));
 			
 			// init filters
@@ -182,9 +185,10 @@ public class DecisionStateDecisionStatePropertiesEditionComponent extends Single
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			DecisionStatePropertiesEditionPart decisionStatePart = (DecisionStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && decisionStatePart != null && isAccessible(FlowViewsRepository.DecisionState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && decisionStatePart != null && isAccessible(FlowViewsRepository.DecisionState.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					decisionStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -193,7 +197,7 @@ public class DecisionStateDecisionStatePropertiesEditionComponent extends Single
 			}
 			if (FlowPackage.eINSTANCE.getFlowState_Actions().equals(msg.getFeature()) && isAccessible(FlowViewsRepository.DecisionState.Properties.actions))
 				decisionStatePart.updateActions();
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && decisionStatePart != null && isAccessible(FlowViewsRepository.DecisionState.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && decisionStatePart != null && isAccessible(FlowViewsRepository.DecisionState.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					decisionStatePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -202,6 +206,20 @@ public class DecisionStateDecisionStatePropertiesEditionComponent extends Single
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			FlowPackage.eINSTANCE.getFlowState_Actions(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -237,5 +255,8 @@ public class DecisionStateDecisionStatePropertiesEditionComponent extends Single
 		}
 		return ret;
 	}
+
+
+	
 
 }

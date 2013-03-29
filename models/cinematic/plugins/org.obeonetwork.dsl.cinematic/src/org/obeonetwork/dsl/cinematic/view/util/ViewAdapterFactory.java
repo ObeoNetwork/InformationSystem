@@ -12,17 +12,18 @@ package org.obeonetwork.dsl.cinematic.view.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.obeonetwork.dsl.cinematic.CinematicElement;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.NamedElement;
-
-import org.obeonetwork.dsl.cinematic.view.*;
-
+import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
+import org.obeonetwork.dsl.cinematic.view.ViewAction;
+import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
+import org.obeonetwork.dsl.cinematic.view.ViewElement;
+import org.obeonetwork.dsl.cinematic.view.ViewEvent;
+import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 import org.obeonetwork.dsl.environment.BoundableElement;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 

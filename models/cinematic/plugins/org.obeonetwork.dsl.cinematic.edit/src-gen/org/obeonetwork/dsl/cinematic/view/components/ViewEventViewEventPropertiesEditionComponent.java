@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -76,13 +78,14 @@ public class ViewEventViewEventPropertiesEditionComponent extends SinglePartProp
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final ViewEvent viewEvent = (ViewEvent)elt;
 			final ViewEventPropertiesEditionPart viewEventPart = (ViewEventPropertiesEditionPart)editingPart;
 			// init values
-			if (viewEvent.getDescription() != null && isAccessible(ViewViewsRepository.ViewEvent.Properties.description))
+			if (isAccessible(ViewViewsRepository.ViewEvent.Properties.description))
 				viewEventPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewEvent.getDescription()));
 			
-			if (viewEvent.getName() != null && isAccessible(ViewViewsRepository.ViewEvent.Properties.name))
+			if (isAccessible(ViewViewsRepository.ViewEvent.Properties.name))
 				viewEventPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewEvent.getName()));
 			
 			if (isAccessible(ViewViewsRepository.ViewEvent.Properties.type)) {
@@ -177,16 +180,17 @@ public class ViewEventViewEventPropertiesEditionComponent extends SinglePartProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ViewEventPropertiesEditionPart viewEventPart = (ViewEventPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && viewEventPart != null && isAccessible(ViewViewsRepository.ViewEvent.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewEventPart != null && isAccessible(ViewViewsRepository.ViewEvent.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					viewEventPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					viewEventPart.setDescription("");
 				}
 			}
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && viewEventPart != null && isAccessible(ViewViewsRepository.ViewEvent.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewEventPart != null && isAccessible(ViewViewsRepository.ViewEvent.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					viewEventPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -197,6 +201,20 @@ public class ViewEventViewEventPropertiesEditionComponent extends SinglePartProp
 				viewEventPart.setType((EObject)msg.getNewValue());
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name(),
+			ViewPackage.eINSTANCE.getViewEvent_Type()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -232,5 +250,8 @@ public class ViewEventViewEventPropertiesEditionComponent extends SinglePartProp
 		}
 		return ret;
 	}
+
+
+	
 
 }

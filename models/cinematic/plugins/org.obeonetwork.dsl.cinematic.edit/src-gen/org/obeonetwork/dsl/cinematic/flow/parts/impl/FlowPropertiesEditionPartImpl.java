@@ -8,55 +8,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.dsl.cinematic.flow.parts.FlowPropertiesEditionPart;
 import org.obeonetwork.dsl.cinematic.flow.parts.FlowViewsRepository;
-
 import org.obeonetwork.dsl.cinematic.flow.providers.FlowMessages;
 
 // End of user code
@@ -209,6 +191,9 @@ public class FlowPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		EditingUtils.setID(name, FlowViewsRepository.Flow_.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(FlowViewsRepository.Flow_.Properties.name, FlowViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -255,6 +240,9 @@ public class FlowPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		EditingUtils.setID(description, FlowViewsRepository.Flow_.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(FlowViewsRepository.Flow_.Properties.description, FlowViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -303,6 +291,9 @@ public class FlowPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		this.events.setUpperBound(-1);
 		events.setID(FlowViewsRepository.Flow_.Properties.events);
 		events.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createEventsAdvancedTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -351,6 +342,9 @@ public class FlowPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		this.states.setUpperBound(-1);
 		states.setID(FlowViewsRepository.Flow_.Properties.states);
 		states.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createStatesAdvancedTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -399,6 +393,9 @@ public class FlowPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		this.transitions.setUpperBound(-1);
 		transitions.setID(FlowViewsRepository.Flow_.Properties.transitions);
 		transitions.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createTransitionsAdvancedTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -437,6 +434,14 @@ public class FlowPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(FlowViewsRepository.Flow_.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(FlowMessages.Flow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -461,6 +466,14 @@ public class FlowPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(FlowViewsRepository.Flow_.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(FlowMessages.Flow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -476,6 +489,14 @@ public class FlowPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		events.setContentProvider(contentProvider);
 		events.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(FlowViewsRepository.Flow_.Properties.events);
+		if (eefElementEditorReadOnlyState && events.isEnabled()) {
+			events.setEnabled(false);
+			events.setToolTipText(FlowMessages.Flow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !events.isEnabled()) {
+			events.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -534,6 +555,14 @@ public class FlowPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		states.setContentProvider(contentProvider);
 		states.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(FlowViewsRepository.Flow_.Properties.states);
+		if (eefElementEditorReadOnlyState && states.isEnabled()) {
+			states.setEnabled(false);
+			states.setToolTipText(FlowMessages.Flow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !states.isEnabled()) {
+			states.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -592,6 +621,14 @@ public class FlowPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		transitions.setContentProvider(contentProvider);
 		transitions.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(FlowViewsRepository.Flow_.Properties.transitions);
+		if (eefElementEditorReadOnlyState && transitions.isEnabled()) {
+			transitions.setEnabled(false);
+			transitions.setToolTipText(FlowMessages.Flow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !transitions.isEnabled()) {
+			transitions.setEnabled(true);
+		}	
+		
 	}
 
 	/**

@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -88,13 +90,14 @@ public class FlowFlowPropertiesEditionComponent extends SinglePartPropertiesEdit
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Flow flow = (Flow)elt;
 			final FlowPropertiesEditionPart flowPart = (FlowPropertiesEditionPart)editingPart;
 			// init values
-			if (flow.getDescription() != null && isAccessible(FlowViewsRepository.Flow_.Properties.description))
+			if (isAccessible(FlowViewsRepository.Flow_.Properties.description))
 				flowPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, flow.getDescription()));
 			
-			if (flow.getName() != null && isAccessible(FlowViewsRepository.Flow_.Properties.name))
+			if (isAccessible(FlowViewsRepository.Flow_.Properties.name))
 				flowPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, flow.getName()));
 			
 			if (isAccessible(FlowViewsRepository.Flow_.Properties.states)) {
@@ -290,16 +293,17 @@ public class FlowFlowPropertiesEditionComponent extends SinglePartPropertiesEdit
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			FlowPropertiesEditionPart flowPart = (FlowPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && flowPart != null && isAccessible(FlowViewsRepository.Flow_.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && flowPart != null && isAccessible(FlowViewsRepository.Flow_.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					flowPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					flowPart.setDescription("");
 				}
 			}
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && flowPart != null && isAccessible(FlowViewsRepository.Flow_.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && flowPart != null && isAccessible(FlowViewsRepository.Flow_.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					flowPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -314,6 +318,22 @@ public class FlowFlowPropertiesEditionComponent extends SinglePartPropertiesEdit
 				flowPart.updateEvents();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name(),
+			FlowPackage.eINSTANCE.getFlow_States(),
+			FlowPackage.eINSTANCE.getFlow_Transitions(),
+			FlowPackage.eINSTANCE.getFlow_Events()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -349,5 +369,8 @@ public class FlowFlowPropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		return ret;
 	}
+
+
+	
 
 }

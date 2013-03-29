@@ -11,11 +11,11 @@ import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.ComposedPropertiesEditionComponent;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
+import org.obeonetwork.dsl.cinematic.Package;
 import org.obeonetwork.dsl.cinematic.parts.CinematicViewsRepository;
 import org.obeonetwork.dsl.cinematic.parts.Package_PropertiesEditionPart;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
-import org.obeonetwork.dsl.cinematic.Package;
 
 // End of user code
 

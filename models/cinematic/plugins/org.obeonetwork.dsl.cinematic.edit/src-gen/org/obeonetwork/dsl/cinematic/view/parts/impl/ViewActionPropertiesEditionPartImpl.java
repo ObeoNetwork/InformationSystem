@@ -158,6 +158,9 @@ public class ViewActionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		EditingUtils.setID(name, ViewViewsRepository.ViewAction.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(ViewViewsRepository.ViewAction.Properties.name, ViewViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -204,6 +207,9 @@ public class ViewActionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		EditingUtils.setID(description, ViewViewsRepository.ViewAction.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(ViewViewsRepository.ViewAction.Properties.description, ViewViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -242,6 +248,14 @@ public class ViewActionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(ViewViewsRepository.ViewAction.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(ViewMessages.ViewAction_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -266,6 +280,14 @@ public class ViewActionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(ViewViewsRepository.ViewAction.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(ViewMessages.ViewAction_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 

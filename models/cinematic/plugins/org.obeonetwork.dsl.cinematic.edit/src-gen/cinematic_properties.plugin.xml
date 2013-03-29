@@ -82,7 +82,7 @@
                tab="Package">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.providers.Package_PropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.section.Package"
                tab="Metadatas">
@@ -94,7 +94,7 @@
                tab="CinematicRoot">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.providers.CinematicRootPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.section.CinematicRoot"
                tab="Metadatas">

@@ -11,9 +11,7 @@
 package org.obeonetwork.dsl.cinematic;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.obeonetwork.dsl.cinematic.flow.Flow;
-
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 
 /**

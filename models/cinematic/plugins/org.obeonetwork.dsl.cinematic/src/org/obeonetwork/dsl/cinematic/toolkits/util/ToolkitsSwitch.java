@@ -14,8 +14,10 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import org.obeonetwork.dsl.cinematic.toolkits.*;
+import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
+import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
+import org.obeonetwork.dsl.cinematic.toolkits.Widget;
+import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 
 /**
  * <!-- begin-user-doc -->

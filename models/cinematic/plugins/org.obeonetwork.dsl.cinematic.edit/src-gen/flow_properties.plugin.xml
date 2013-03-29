@@ -142,7 +142,7 @@
                tab="Flow">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.FlowPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.Flow"
                tab="Metadatas">
@@ -154,7 +154,7 @@
                tab="Transition">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.TransitionPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.Transition"
                tab="Metadatas">
@@ -166,7 +166,7 @@
                tab="ActionState">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.ActionStatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.ActionState"
                tab="Metadatas">
@@ -178,7 +178,7 @@
                tab="ViewState">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.ViewStatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.ViewState"
                tab="Metadatas">
@@ -190,7 +190,7 @@
                tab="DecisionState">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.DecisionStatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.DecisionState"
                tab="Metadatas">
@@ -202,7 +202,7 @@
                tab="SubflowState">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.SubflowStatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.SubflowState"
                tab="Metadatas">
@@ -214,7 +214,7 @@
                tab="AsyncEventState">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.AsyncEventStatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.AsyncEventState"
                tab="Metadatas">
@@ -226,7 +226,7 @@
                tab="InitialState">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.InitialStatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.InitialState"
                tab="Metadatas">
@@ -238,7 +238,7 @@
                tab="AbortState">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.AbortStatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.AbortState"
                tab="Metadatas">
@@ -250,7 +250,7 @@
                tab="FinalState">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.FinalStatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.FinalState"
                tab="Metadatas">
@@ -262,7 +262,7 @@
                tab="FlowAction">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.FlowActionPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.FlowAction"
                tab="Metadatas">
@@ -274,7 +274,7 @@
                tab="FlowEvent">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.flow.providers.FlowEventPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.flow.section.FlowEvent"
                tab="Metadatas">

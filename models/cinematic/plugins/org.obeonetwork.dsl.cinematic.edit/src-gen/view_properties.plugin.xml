@@ -100,7 +100,7 @@
                tab="ViewContainer">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.view.providers.ViewContainerPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.view.section.ViewContainer"
                tab="Metadatas">
@@ -112,7 +112,7 @@
                tab="ViewElement">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.view.providers.ViewElementPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.view.section.ViewElement"
                tab="Metadatas">
@@ -124,7 +124,7 @@
                tab="ViewAction">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.view.providers.ViewActionPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.view.section.ViewAction"
                tab="Metadatas">
@@ -136,7 +136,7 @@
                tab="ViewEvent">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.view.providers.ViewEventPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.view.section.ViewEvent"
                tab="Metadatas">
@@ -148,7 +148,7 @@
                tab="ViewContainerReference">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.view.providers.ViewContainerReferencePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.view.section.ViewContainerReference"
                tab="Metadatas">

@@ -14,14 +14,12 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.CinematicElement;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.NamedElement;
-
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 /**

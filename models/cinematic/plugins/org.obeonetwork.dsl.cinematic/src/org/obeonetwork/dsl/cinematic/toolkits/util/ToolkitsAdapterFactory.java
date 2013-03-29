@@ -12,12 +12,12 @@ package org.obeonetwork.dsl.cinematic.toolkits.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.obeonetwork.dsl.cinematic.toolkits.*;
+import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
+import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
+import org.obeonetwork.dsl.cinematic.toolkits.Widget;
+import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 
 /**
  * <!-- begin-user-doc -->

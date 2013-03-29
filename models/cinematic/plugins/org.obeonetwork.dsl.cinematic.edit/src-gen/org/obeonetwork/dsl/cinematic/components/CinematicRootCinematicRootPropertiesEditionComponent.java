@@ -11,11 +11,12 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -95,13 +96,14 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final CinematicRoot cinematicRoot = (CinematicRoot)elt;
 			final CinematicRootPropertiesEditionPart cinematicRootPart = (CinematicRootPropertiesEditionPart)editingPart;
 			// init values
-			if (cinematicRoot.getDescription() != null && isAccessible(CinematicViewsRepository.CinematicRoot.Properties.description))
+			if (isAccessible(CinematicViewsRepository.CinematicRoot.Properties.description))
 				cinematicRootPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, cinematicRoot.getDescription()));
 			
-			if (cinematicRoot.getName() != null && isAccessible(CinematicViewsRepository.CinematicRoot.Properties.name))
+			if (isAccessible(CinematicViewsRepository.CinematicRoot.Properties.name))
 				cinematicRootPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, cinematicRoot.getName()));
 			
 			if (isAccessible(CinematicViewsRepository.CinematicRoot.Properties.flows)) {
@@ -169,20 +171,6 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 				// End of user code
 			}
 			if (isAccessible(CinematicViewsRepository.CinematicRoot.Properties.toolkits)) {
-				cinematicRootPart.addFilterToToolkits(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						if (element instanceof EObject)
-							return (!cinematicRootPart.isContainedInToolkitsTable((EObject)element));
-						return element instanceof Resource;
-					}
-				
-				});
 				cinematicRootPart.addFilterToToolkits(new EObjectFilter(ToolkitsPackage.Literals.TOOLKIT));
 				// Start of user code for additional businessfilters for toolkits
 				// End of user code
@@ -335,16 +323,17 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			CinematicRootPropertiesEditionPart cinematicRootPart = (CinematicRootPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && cinematicRootPart != null && isAccessible(CinematicViewsRepository.CinematicRoot.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && cinematicRootPart != null && isAccessible(CinematicViewsRepository.CinematicRoot.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					cinematicRootPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					cinematicRootPart.setDescription("");
 				}
 			}
-			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && cinematicRootPart != null && isAccessible(CinematicViewsRepository.CinematicRoot.Properties.name)) {
+			if (CinematicPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && cinematicRootPart != null && isAccessible(CinematicViewsRepository.CinematicRoot.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					cinematicRootPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -361,6 +350,23 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 				cinematicRootPart.updateToolkits();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			CinematicPackage.eINSTANCE.getNamedElement_Name(),
+			CinematicPackage.eINSTANCE.getAbstractPackage_Flows(),
+			CinematicPackage.eINSTANCE.getAbstractPackage_ViewContainers(),
+			CinematicPackage.eINSTANCE.getAbstractPackage_SubPackages(),
+			CinematicPackage.eINSTANCE.getCinematicRoot_Toolkits()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -396,5 +402,8 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 		}
 		return ret;
 	}
+
+
+	
 
 }

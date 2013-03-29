@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -84,10 +86,11 @@ public class SubflowStateSubflowStatePropertiesEditionComponent extends SinglePa
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final SubflowState subflowState = (SubflowState)elt;
 			final SubflowStatePropertiesEditionPart subflowStatePart = (SubflowStatePropertiesEditionPart)editingPart;
 			// init values
-			if (subflowState.getDescription() != null && isAccessible(FlowViewsRepository.SubflowState.Properties.description))
+			if (isAccessible(FlowViewsRepository.SubflowState.Properties.description))
 				subflowStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, subflowState.getDescription()));
 			
 			if (isAccessible(FlowViewsRepository.SubflowState.Properties.actions)) {
@@ -222,9 +225,10 @@ public class SubflowStateSubflowStatePropertiesEditionComponent extends SinglePa
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			SubflowStatePropertiesEditionPart subflowStatePart = (SubflowStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && subflowStatePart != null && isAccessible(FlowViewsRepository.SubflowState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && subflowStatePart != null && isAccessible(FlowViewsRepository.SubflowState.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					subflowStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -237,6 +241,20 @@ public class SubflowStateSubflowStatePropertiesEditionComponent extends SinglePa
 				subflowStatePart.setSubflow((EObject)msg.getNewValue());
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			FlowPackage.eINSTANCE.getFlowState_Actions(),
+			FlowPackage.eINSTANCE.getSubflowState_Subflow()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -275,5 +293,8 @@ public class SubflowStateSubflowStatePropertiesEditionComponent extends SinglePa
 		}
 		return ret;
 	}
+
+
+	
 
 }

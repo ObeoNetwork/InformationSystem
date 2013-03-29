@@ -208,6 +208,9 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		EditingUtils.setID(name, ViewViewsRepository.ViewContainer.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(ViewViewsRepository.ViewContainer.Properties.name, ViewViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -254,6 +257,9 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		EditingUtils.setID(label, ViewViewsRepository.ViewContainer.Properties.label);
 		EditingUtils.setEEFtype(label, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(ViewViewsRepository.ViewContainer.Properties.label, ViewViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createLabelText
+
+		// End of user code
 		return parent;
 	}
 
@@ -277,6 +283,9 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		widget.setLayoutData(widgetData);
 		widget.setID(ViewViewsRepository.ViewContainer.Properties.widget);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(ViewViewsRepository.ViewContainer.Properties.widget, ViewViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createWidgetFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -325,6 +334,9 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		this.actions.setUpperBound(-1);
 		actions.setID(ViewViewsRepository.ViewContainer.Properties.actions);
 		actions.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createActionsAdvancedTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -373,6 +385,9 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		this.events.setUpperBound(-1);
 		events.setID(ViewViewsRepository.ViewContainer.Properties.events);
 		events.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createEventsAdvancedTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -419,6 +434,9 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		EditingUtils.setID(description, ViewViewsRepository.ViewContainer.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(ViewViewsRepository.ViewContainer.Properties.description, ViewViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -467,6 +485,9 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		this.ownedElements.setUpperBound(-1);
 		ownedElements.setID(ViewViewsRepository.ViewContainer.Properties.ownedElements);
 		ownedElements.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createOwnedElementsAdvancedTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -505,6 +526,14 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(ViewViewsRepository.ViewContainer.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(ViewMessages.ViewContainer_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -529,6 +558,14 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		} else {
 			label.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(ViewViewsRepository.ViewContainer.Properties.label);
+		if (eefElementEditorReadOnlyState && label.isEnabled()) {
+			label.setEnabled(false);
+			label.setToolTipText(ViewMessages.ViewContainer_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !label.isEnabled()) {
+			label.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -556,6 +593,14 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		if (current != null) {
 			widget.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(ViewViewsRepository.ViewContainer.Properties.widget);
+		if (eefElementEditorReadOnlyState && widget.isEnabled()) {
+			widget.setEnabled(false);
+			widget.setToolTipText(ViewMessages.ViewContainer_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !widget.isEnabled()) {
+			widget.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -570,6 +615,14 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		} else {
 			widget.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(ViewViewsRepository.ViewContainer.Properties.widget);
+		if (eefElementEditorReadOnlyState && widget.isEnabled()) {
+			widget.setEnabled(false);
+			widget.setToolTipText(ViewMessages.ViewContainer_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !widget.isEnabled()) {
+			widget.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -614,6 +667,14 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		actions.setContentProvider(contentProvider);
 		actions.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(ViewViewsRepository.ViewContainer.Properties.actions);
+		if (eefElementEditorReadOnlyState && actions.isEnabled()) {
+			actions.setEnabled(false);
+			actions.setToolTipText(ViewMessages.ViewContainer_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !actions.isEnabled()) {
+			actions.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -672,6 +733,14 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		events.setContentProvider(contentProvider);
 		events.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(ViewViewsRepository.ViewContainer.Properties.events);
+		if (eefElementEditorReadOnlyState && events.isEnabled()) {
+			events.setEnabled(false);
+			events.setToolTipText(ViewMessages.ViewContainer_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !events.isEnabled()) {
+			events.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -739,6 +808,14 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(ViewViewsRepository.ViewContainer.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setToolTipText(ViewMessages.ViewContainer_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -754,6 +831,14 @@ public class ViewContainerPropertiesEditionPartImpl extends CompositePropertiesE
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		ownedElements.setContentProvider(contentProvider);
 		ownedElements.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(ViewViewsRepository.ViewContainer.Properties.ownedElements);
+		if (eefElementEditorReadOnlyState && ownedElements.isEnabled()) {
+			ownedElements.setEnabled(false);
+			ownedElements.setToolTipText(ViewMessages.ViewContainer_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !ownedElements.isEnabled()) {
+			ownedElements.setEnabled(true);
+		}	
+		
 	}
 
 	/**
