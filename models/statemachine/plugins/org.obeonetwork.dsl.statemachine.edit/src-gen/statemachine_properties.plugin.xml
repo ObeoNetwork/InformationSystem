@@ -94,7 +94,7 @@
                tab="StateMachine">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.statemachine.providers.StateMachinePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.statemachine.section.StateMachine"
                tab="Metadatas">
@@ -106,7 +106,7 @@
                tab="State">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.statemachine.providers.StatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.statemachine.section.State"
                tab="Metadatas">
@@ -118,7 +118,7 @@
                tab="Region">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.statemachine.providers.RegionPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.statemachine.section.Region"
                tab="Metadatas">
@@ -130,7 +130,7 @@
                tab="Transition">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.statemachine.providers.TransitionPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.statemachine.section.Transition"
                tab="Metadatas">
@@ -142,7 +142,7 @@
                tab="InitialState">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.statemachine.providers.InitialStatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.statemachine.section.InitialState"
                tab="Metadatas">
@@ -154,7 +154,7 @@
                tab="FinalState">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.statemachine.providers.FinalStatePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.statemachine.section.FinalState"
                tab="Metadatas">

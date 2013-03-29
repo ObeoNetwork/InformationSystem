@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.dsl.statemachine/src"
-    creationIcons="false" modelPluginID="org.obeonetwork.dsl.statemachine" modelName="StateMachine"
-    editPluginClass="org.obeonetwork.dsl.statemachine.provider.StateMachineEditPlugin"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.dsl.statemachine/src" creationIcons="false"
+    modelPluginID="org.obeonetwork.dsl.statemachine" modelName="StateMachine" editPluginClass="org.obeonetwork.dsl.statemachine.provider.StateMachineEditPlugin"
     editorPluginClass="org.obeonetwork.dsl.statemachine.presentation.StateMachineEditorPlugin"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     testSuiteClass="org.obeonetwork.dsl.statemachine.tests.StateMachineAllTests" importerID="org.eclipse.emf.importer.ecore"

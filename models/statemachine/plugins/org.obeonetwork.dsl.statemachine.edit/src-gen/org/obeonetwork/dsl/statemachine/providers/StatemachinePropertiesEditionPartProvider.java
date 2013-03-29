@@ -4,15 +4,20 @@
 package org.obeonetwork.dsl.statemachine.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.obeonetwork.dsl.statemachine.parts.StatemachineViewsRepository;
+
 import org.obeonetwork.dsl.statemachine.parts.forms.FinalStatePropertiesEditionPartForm;
 import org.obeonetwork.dsl.statemachine.parts.forms.InitialStatePropertiesEditionPartForm;
 import org.obeonetwork.dsl.statemachine.parts.forms.RegionPropertiesEditionPartForm;
 import org.obeonetwork.dsl.statemachine.parts.forms.StateMachinePropertiesEditionPartForm;
 import org.obeonetwork.dsl.statemachine.parts.forms.StatePropertiesEditionPartForm;
 import org.obeonetwork.dsl.statemachine.parts.forms.TransitionPropertiesEditionPartForm;
+
 import org.obeonetwork.dsl.statemachine.parts.impl.FinalStatePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.statemachine.parts.impl.InitialStatePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.statemachine.parts.impl.RegionPropertiesEditionPartImpl;

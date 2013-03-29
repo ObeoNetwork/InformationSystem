@@ -6,15 +6,24 @@ package org.obeonetwork.dsl.statemachine.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
+
 import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
+
 import org.obeonetwork.dsl.statemachine.StateMachinePackage;
 import org.obeonetwork.dsl.statemachine.Transition;
+
 import org.obeonetwork.dsl.statemachine.components.TransitionPropertiesEditionComponent;
 import org.obeonetwork.dsl.statemachine.components.TransitionTransitionPropertiesEditionComponent;
 
