@@ -12,43 +12,29 @@ package org.obeonetwork.dsl.soa.parts.impl;
 
 // Start of user code for imports
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
 import org.obeonetwork.dsl.soa.parts.SystemPropertiesEditionPart;
-
 import org.obeonetwork.dsl.soa.providers.SoaMessages;
 
 // End of user code
@@ -140,7 +126,7 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, SoaViewsRepository.System.Properties.name, SoaMessages.SystemPropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -180,6 +166,9 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		EditingUtils.setID(name, SoaViewsRepository.System.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.System.Properties.name, SoaViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -189,7 +178,7 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -212,6 +201,9 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		EditingUtils.setID(description, SoaViewsRepository.System.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.System.Properties.description, SoaViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -223,7 +215,7 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -250,6 +242,14 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.System.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(SoaMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -274,6 +274,15 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.System.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(SoaMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -291,7 +300,7 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		return SoaMessages.System_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

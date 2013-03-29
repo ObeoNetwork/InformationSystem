@@ -12,48 +12,32 @@ package org.obeonetwork.dsl.soa.components;
 
 // Start of user code for imports
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
-
 import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Type;
-
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.SoaPackage;
-
 import org.obeonetwork.dsl.soa.parts.ParameterPropertiesEditionPart;
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
 
@@ -98,10 +82,11 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Parameter parameter = (Parameter)elt;
 			final ParameterPropertiesEditionPart parameterPart = (ParameterPropertiesEditionPart)editingPart;
 			// init values
-			if (parameter.getName() != null && isAccessible(SoaViewsRepository.Parameter.Properties.name))
+			if (isAccessible(SoaViewsRepository.Parameter.Properties.name))
 				parameterPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, parameter.getName()));
 			
 			if (isAccessible(SoaViewsRepository.Parameter.Properties.lower)) {
@@ -125,7 +110,7 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 				// set the button mode
 				parameterPart.setTypeButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (parameter.getDescription() != null && isAccessible(SoaViewsRepository.Parameter.Properties.description))
+			if (isAccessible(SoaViewsRepository.Parameter.Properties.description))
 				parameterPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, parameter.getDescription()));
 			// init filters
 			
@@ -227,38 +212,39 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ParameterPropertiesEditionPart parameterPart = (ParameterPropertiesEditionPart)editingPart;
-			if (SoaPackage.eINSTANCE.getParameter_Name().equals(msg.getFeature()) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.name)) {
+			if (SoaPackage.eINSTANCE.getParameter_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					parameterPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					parameterPart.setName("");
 				}
 			}
-			if (SoaPackage.eINSTANCE.getParameter_Lower().equals(msg.getFeature()) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.lower)) {
+			if (SoaPackage.eINSTANCE.getParameter_Lower().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.lower)) {
 				if (msg.getNewValue() != null) {
 					parameterPart.setLower(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					parameterPart.setLower("");
 				}
 			}
-			if (SoaPackage.eINSTANCE.getParameter_Upper().equals(msg.getFeature()) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.upper)) {
+			if (SoaPackage.eINSTANCE.getParameter_Upper().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.upper)) {
 				if (msg.getNewValue() != null) {
 					parameterPart.setUpper(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					parameterPart.setUpper("");
 				}
 			}
-			if (SoaPackage.eINSTANCE.getParameter_IsUnique().equals(msg.getFeature()) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.isUnique))
+			if (SoaPackage.eINSTANCE.getParameter_IsUnique().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.isUnique))
 				parameterPart.setIsUnique((Boolean)msg.getNewValue());
 			
-			if (SoaPackage.eINSTANCE.getParameter_IsOrdered().equals(msg.getFeature()) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.isOrdered))
+			if (SoaPackage.eINSTANCE.getParameter_IsOrdered().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.isOrdered))
 				parameterPart.setIsOrdered((Boolean)msg.getNewValue());
 			
 			if (SoaPackage.eINSTANCE.getParameter_Type().equals(msg.getFeature()) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.type))
 				parameterPart.setType((EObject)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.description)){
 				if (msg.getNewValue() != null) {
 					parameterPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -267,6 +253,24 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			SoaPackage.eINSTANCE.getParameter_Name(),
+			SoaPackage.eINSTANCE.getParameter_Lower(),
+			SoaPackage.eINSTANCE.getParameter_Upper(),
+			SoaPackage.eINSTANCE.getParameter_IsUnique(),
+			SoaPackage.eINSTANCE.getParameter_IsOrdered(),
+			SoaPackage.eINSTANCE.getParameter_Type(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -283,42 +287,42 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 				if (SoaViewsRepository.Parameter.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(SoaPackage.eINSTANCE.getParameter_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(SoaPackage.eINSTANCE.getParameter_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(SoaPackage.eINSTANCE.getParameter_Name().getEAttributeType(), newValue);
 				}
 				if (SoaViewsRepository.Parameter.Properties.lower == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(SoaPackage.eINSTANCE.getParameter_Lower().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(SoaPackage.eINSTANCE.getParameter_Lower().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(SoaPackage.eINSTANCE.getParameter_Lower().getEAttributeType(), newValue);
 				}
 				if (SoaViewsRepository.Parameter.Properties.upper == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(SoaPackage.eINSTANCE.getParameter_Upper().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(SoaPackage.eINSTANCE.getParameter_Upper().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(SoaPackage.eINSTANCE.getParameter_Upper().getEAttributeType(), newValue);
 				}
 				if (SoaViewsRepository.Parameter.Properties.isUnique == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(SoaPackage.eINSTANCE.getParameter_IsUnique().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(SoaPackage.eINSTANCE.getParameter_IsUnique().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(SoaPackage.eINSTANCE.getParameter_IsUnique().getEAttributeType(), newValue);
 				}
 				if (SoaViewsRepository.Parameter.Properties.isOrdered == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(SoaPackage.eINSTANCE.getParameter_IsOrdered().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(SoaPackage.eINSTANCE.getParameter_IsOrdered().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(SoaPackage.eINSTANCE.getParameter_IsOrdered().getEAttributeType(), newValue);
 				}
 				if (SoaViewsRepository.Parameter.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
@@ -330,5 +334,8 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 		}
 		return ret;
 	}
+
+
+	
 
 }

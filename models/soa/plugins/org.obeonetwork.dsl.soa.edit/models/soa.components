@@ -171,7 +171,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//ServiceDTO"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.genmodel#//soa"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.soa/model/soa_cdonative.genmodel#//soa"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_X0uh2VWPEd6uwrZLki81EA" documentation="Views repository for soa GenPackage" name="soa">
     <RepositoryKind>SWT</RepositoryKind>

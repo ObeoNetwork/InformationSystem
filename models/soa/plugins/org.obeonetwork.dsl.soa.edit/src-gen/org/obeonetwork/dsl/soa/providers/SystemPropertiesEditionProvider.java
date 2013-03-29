@@ -13,21 +13,14 @@ package org.obeonetwork.dsl.soa.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
+import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
-
 import org.eclipse.jface.viewers.IFilter;
-
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
-
 import org.obeonetwork.dsl.soa.SoaPackage;
-
 import org.obeonetwork.dsl.soa.components.SystemPropertiesEditionComponent;
 import org.obeonetwork.dsl.soa.components.SystemSystemPropertiesEditionComponent;
 import org.obeonetwork.dsl.soa.System;
@@ -147,7 +140,8 @@ public class SystemPropertiesEditionProvider extends PropertiesEditingProviderIm
 		 * @see org.eclipse.jface.viewers.IFilter#select(java.lang.Object)
 		 */
 		public boolean select(Object toTest) {
-			return toTest instanceof EObject && SoaPackage.Literals.SYSTEM == ((EObject)toTest).eClass();
+			EObject eObj = EEFUtils.resolveSemanticObject(toTest);
+			return eObj != null && SoaPackage.Literals.SYSTEM == eObj.eClass();
 		}
 		
 	}

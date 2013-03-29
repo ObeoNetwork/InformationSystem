@@ -14,25 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.obeonetwork.dsl.environment.providers.MetadataCptPropertiesEditionProvider;
 import org.obeonetwork.dsl.environment.providers.NamespacePropertiesEditionProvider;
 import org.obeonetwork.dsl.environment.providers.TypesDefinitionPropertiesEditionProvider;
-
-import org.obeonetwork.dsl.soa.providers.BindingPropertiesEditionProvider;
-import org.obeonetwork.dsl.soa.providers.CategoryPropertiesEditionProvider;
-import org.obeonetwork.dsl.soa.providers.ComponentPropertiesEditionProvider;
-import org.obeonetwork.dsl.soa.providers.DTORegistryPropertiesEditionProvider;
-import org.obeonetwork.dsl.soa.providers.Interface_PropertiesEditionProvider;
-import org.obeonetwork.dsl.soa.providers.OperationPropertiesEditionProvider;
-import org.obeonetwork.dsl.soa.providers.ParameterPropertiesEditionProvider;
-import org.obeonetwork.dsl.soa.providers.ServiceDTOPropertiesEditionProvider;
-import org.obeonetwork.dsl.soa.providers.ServicePropertiesEditionProvider;
-import org.obeonetwork.dsl.soa.providers.SystemPropertiesEditionProvider;
-import org.obeonetwork.dsl.soa.providers.WirePropertiesEditionProvider;
-
 import org.obeonetwork.dsl.soa.util.SoaAdapterFactory;
 
 /**

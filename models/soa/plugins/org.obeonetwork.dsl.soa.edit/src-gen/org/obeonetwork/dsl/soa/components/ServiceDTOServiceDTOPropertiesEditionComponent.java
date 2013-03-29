@@ -12,56 +12,36 @@ package org.obeonetwork.dsl.soa.components;
 
 // Start of user code for imports
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
-
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-
 import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
-
 import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.StructuredType;
-
 import org.obeonetwork.dsl.soa.ServiceDTO;
-
 import org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart;
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
 
@@ -86,7 +66,7 @@ public class ServiceDTOServiceDTOPropertiesEditionComponent extends SinglePartPr
 	/**
 	 * Settings for associatedTypes ReferencesTable
 	 */
-	private	ReferencesTableSettings associatedTypesSettings;
+	private ReferencesTableSettings associatedTypesSettings;
 	
 	
 	/**
@@ -111,10 +91,11 @@ public class ServiceDTOServiceDTOPropertiesEditionComponent extends SinglePartPr
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final ServiceDTO serviceDTO = (ServiceDTO)elt;
 			final ServiceDTOPropertiesEditionPart serviceDTOPart = (ServiceDTOPropertiesEditionPart)editingPart;
 			// init values
-			if (serviceDTO.getName() != null && isAccessible(SoaViewsRepository.ServiceDTO.Properties.name))
+			if (isAccessible(SoaViewsRepository.ServiceDTO.Properties.name))
 				serviceDTOPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, serviceDTO.getName()));
 			
 			if (isAccessible(SoaViewsRepository.ServiceDTO.Properties.supertype)) {
@@ -124,7 +105,7 @@ public class ServiceDTOServiceDTOPropertiesEditionComponent extends SinglePartPr
 				// set the button mode
 				serviceDTOPart.setSupertypeButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (serviceDTO.getDescription() != null && isAccessible(SoaViewsRepository.ServiceDTO.Properties.description))
+			if (isAccessible(SoaViewsRepository.ServiceDTO.Properties.description))
 				serviceDTOPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, serviceDTO.getDescription()));
 			if (isAccessible(SoaViewsRepository.ServiceDTO.Properties.associatedTypes)) {
 				associatedTypesSettings = new ReferencesTableSettings(serviceDTO, EnvironmentPackage.eINSTANCE.getDTO_AssociatedTypes());
@@ -132,40 +113,28 @@ public class ServiceDTOServiceDTOPropertiesEditionComponent extends SinglePartPr
 			}
 			// init filters
 			
-			serviceDTOPart.addFilterToSupertype(new ViewerFilter() {
+			if (isAccessible(SoaViewsRepository.ServiceDTO.Properties.supertype)) {
+				serviceDTOPart.addFilterToSupertype(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof String && element.equals("")) || (element instanceof DTO); //$NON-NLS-1$ 
+					}
+					
+				});
+				// Start of user code for additional businessfilters for supertype
+				// End of user code
+			}
 			
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-			 */
-			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				return (element instanceof String && element.equals("")) || (element instanceof DTO); //$NON-NLS-1$ 
-				}
-			
-			});
-			// Start of user code 
-			// End of user code
-			
-			
-			serviceDTOPart.addFilterToAssociatedTypes(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!serviceDTOPart.isContainedInAssociatedTypesTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			serviceDTOPart.addFilterToAssociatedTypes(new EObjectFilter(EnvironmentPackage.Literals.STRUCTURED_TYPE));
-			// Start of user code 
-			// End of user code
-			
+			if (isAccessible(SoaViewsRepository.ServiceDTO.Properties.associatedTypes)) {
+				serviceDTOPart.addFilterToAssociatedTypes(new EObjectFilter(EnvironmentPackage.Literals.STRUCTURED_TYPE));
+				// Start of user code for additional businessfilters for associatedTypes
+				// End of user code
+			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -245,9 +214,10 @@ public class ServiceDTOServiceDTOPropertiesEditionComponent extends SinglePartPr
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ServiceDTOPropertiesEditionPart serviceDTOPart = (ServiceDTOPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getType_Name().equals(msg.getFeature()) && serviceDTOPart != null && isAccessible(SoaViewsRepository.ServiceDTO.Properties.name)) {
+			if (EnvironmentPackage.eINSTANCE.getType_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && serviceDTOPart != null && isAccessible(SoaViewsRepository.ServiceDTO.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					serviceDTOPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -256,7 +226,7 @@ public class ServiceDTOServiceDTOPropertiesEditionComponent extends SinglePartPr
 			}
 			if (EnvironmentPackage.eINSTANCE.getDTO_Supertype().equals(msg.getFeature()) && serviceDTOPart != null && isAccessible(SoaViewsRepository.ServiceDTO.Properties.supertype))
 				serviceDTOPart.setSupertype((EObject)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && serviceDTOPart != null && isAccessible(SoaViewsRepository.ServiceDTO.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && serviceDTOPart != null && isAccessible(SoaViewsRepository.ServiceDTO.Properties.description)){
 				if (msg.getNewValue() != null) {
 					serviceDTOPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -267,6 +237,21 @@ public class ServiceDTOServiceDTOPropertiesEditionComponent extends SinglePartPr
 				serviceDTOPart.updateAssociatedTypes();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getType_Name(),
+			EnvironmentPackage.eINSTANCE.getDTO_Supertype(),
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			EnvironmentPackage.eINSTANCE.getDTO_AssociatedTypes()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -293,14 +278,14 @@ public class ServiceDTOServiceDTOPropertiesEditionComponent extends SinglePartPr
 				if (SoaViewsRepository.ServiceDTO.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getType_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getType_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getType_Name().getEAttributeType(), newValue);
 				}
 				if (SoaViewsRepository.ServiceDTO.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
@@ -312,5 +297,8 @@ public class ServiceDTOServiceDTOPropertiesEditionComponent extends SinglePartPr
 		}
 		return ret;
 	}
+
+
+	
 
 }

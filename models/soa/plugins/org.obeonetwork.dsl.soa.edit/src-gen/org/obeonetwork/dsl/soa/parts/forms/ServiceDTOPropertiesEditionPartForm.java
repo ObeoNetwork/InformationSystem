@@ -16,77 +16,53 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.EObjectFlatComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.TabElementTreeSelectionDialog;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-
+import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart;
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
-
 import org.obeonetwork.dsl.soa.providers.SoaMessages;
 
 // End of user code
@@ -211,8 +187,33 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 			@Override
 			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ServiceDTOPropertiesEditionPartForm.this, SoaViewsRepository.ServiceDTO.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							ServiceDTOPropertiesEditionPartForm.this,
+							SoaViewsRepository.ServiceDTO.Properties.name,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									ServiceDTOPropertiesEditionPartForm.this,
+									SoaViewsRepository.ServiceDTO.Properties.name,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, name.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									ServiceDTOPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
 			}
 		});
 		name.addKeyListener(new KeyAdapter() {
@@ -232,6 +233,9 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		EditingUtils.setID(name, SoaViewsRepository.ServiceDTO.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.ServiceDTO.Properties.name, SoaViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -262,6 +266,9 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		});
 		supertype.setID(SoaViewsRepository.ServiceDTO.Properties.supertype);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.ServiceDTO.Properties.supertype, SoaViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createSupertypeFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -293,6 +300,9 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		this.associatedTypes.disableMove();
 		associatedTypes.setID(SoaViewsRepository.ServiceDTO.Properties.associatedTypes);
 		associatedTypes.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createAssociatedTypesReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -367,14 +377,41 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 			 * 
 			 */
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ServiceDTOPropertiesEditionPartForm.this, SoaViewsRepository.ServiceDTO.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							ServiceDTOPropertiesEditionPartForm.this,
+							SoaViewsRepository.ServiceDTO.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									ServiceDTOPropertiesEditionPartForm.this,
+									SoaViewsRepository.ServiceDTO.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
 			}
 
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									ServiceDTOPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
 		});
 		EditingUtils.setID(description, SoaViewsRepository.ServiceDTO.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.ServiceDTO.Properties.description, SoaViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -386,7 +423,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -413,6 +450,14 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.ServiceDTO.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(SoaMessages.ServiceDTO_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -440,6 +485,14 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		if (current != null) {
 			supertype.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.ServiceDTO.Properties.supertype);
+		if (eefElementEditorReadOnlyState && supertype.isEnabled()) {
+			supertype.setEnabled(false);
+			supertype.setToolTipText(SoaMessages.ServiceDTO_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !supertype.isEnabled()) {
+			supertype.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -454,6 +507,14 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			supertype.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.ServiceDTO.Properties.supertype);
+		if (eefElementEditorReadOnlyState && supertype.isEnabled()) {
+			supertype.setEnabled(false);
+			supertype.setToolTipText(SoaMessages.ServiceDTO_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !supertype.isEnabled()) {
+			supertype.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -498,6 +559,14 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		associatedTypes.setContentProvider(contentProvider);
 		associatedTypes.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.ServiceDTO.Properties.associatedTypes);
+		if (eefElementEditorReadOnlyState && associatedTypes.getTable().isEnabled()) {
+			associatedTypes.setEnabled(false);
+			associatedTypes.setToolTipText(SoaMessages.ServiceDTO_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !associatedTypes.getTable().isEnabled()) {
+			associatedTypes.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -562,6 +631,15 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.ServiceDTO.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(SoaMessages.ServiceDTO_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -579,7 +657,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		return SoaMessages.ServiceDTO_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

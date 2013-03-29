@@ -12,58 +12,37 @@ package org.obeonetwork.dsl.soa.parts.impl;
 
 // Start of user code for imports
 import org.eclipse.emf.common.util.Enumerator;
-
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EEnumLiteral;
-
-import org.eclipse.emf.ecore.util.EcoreAdapterFactory;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
+import org.eclipse.emf.eef.runtime.EEFRuntimePlugin;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.EMFComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.dsl.soa.parts.ServicePropertiesEditionPart;
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
-
 import org.obeonetwork.dsl.soa.providers.SoaMessages;
 
 // End of user code
@@ -167,7 +146,7 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 		createDescription(parent, SoaViewsRepository.Service.Properties.synchronization, SoaMessages.ServicePropertiesEditionPart_SynchronizationLabel);
 		synchronization = new EMFComboViewer(parent);
 		synchronization.setContentProvider(new ArrayContentProvider());
-		synchronization.setLabelProvider(new AdapterFactoryLabelProvider(new EcoreAdapterFactory()));
+		synchronization.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
 		GridData synchronizationData = new GridData(GridData.FILL_HORIZONTAL);
 		synchronization.getCombo().setLayoutData(synchronizationData);
 		synchronization.addSelectionChangedListener(new ISelectionChangedListener() {
@@ -186,6 +165,9 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 		});
 		synchronization.setID(SoaViewsRepository.Service.Properties.synchronization);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.Service.Properties.synchronization, SoaViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createSynchronizationEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -194,7 +176,7 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 		createDescription(parent, SoaViewsRepository.Service.Properties.kind, SoaMessages.ServicePropertiesEditionPart_KindLabel);
 		kind = new EMFComboViewer(parent);
 		kind.setContentProvider(new ArrayContentProvider());
-		kind.setLabelProvider(new AdapterFactoryLabelProvider(new EcoreAdapterFactory()));
+		kind.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
 		GridData kindData = new GridData(GridData.FILL_HORIZONTAL);
 		kind.getCombo().setLayoutData(kindData);
 		kind.addSelectionChangedListener(new ISelectionChangedListener() {
@@ -213,13 +195,16 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 		});
 		kind.setID(SoaViewsRepository.Service.Properties.kind);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.Service.Properties.kind, SoaViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createKindEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, SoaViewsRepository.Service.Properties.name, SoaMessages.ServicePropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -259,6 +244,9 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 		EditingUtils.setID(name, SoaViewsRepository.Service.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.Service.Properties.name, SoaViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -268,7 +256,7 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -291,6 +279,9 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 		EditingUtils.setID(description, SoaViewsRepository.Service.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.Service.Properties.description, SoaViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -302,7 +293,7 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -314,18 +305,26 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 	 * 
 	 */
 	public Enumerator getSynchronization() {
-		EEnumLiteral selection = (EEnumLiteral) ((StructuredSelection) synchronization.getSelection()).getFirstElement();
-		return selection.getInstance();
+		Enumerator selection = (Enumerator) ((StructuredSelection) synchronization.getSelection()).getFirstElement();
+		return selection;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServicePropertiesEditionPart#initSynchronization(EEnum eenum, Enumerator current)
+	 * @see org.obeonetwork.dsl.soa.parts.ServicePropertiesEditionPart#initSynchronization(Object input, Enumerator current)
 	 */
-	public void initSynchronization(EEnum eenum, Enumerator current) {
-		synchronization.setInput(eenum.getELiterals());
+	public void initSynchronization(Object input, Enumerator current) {
+		synchronization.setInput(input);
 		synchronization.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.Service.Properties.synchronization);
+		if (eefElementEditorReadOnlyState && synchronization.isEnabled()) {
+			synchronization.setEnabled(false);
+			synchronization.setToolTipText(SoaMessages.Service_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !synchronization.isEnabled()) {
+			synchronization.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -336,6 +335,14 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 	 */
 	public void setSynchronization(Enumerator newValue) {
 		synchronization.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.Service.Properties.synchronization);
+		if (eefElementEditorReadOnlyState && synchronization.isEnabled()) {
+			synchronization.setEnabled(false);
+			synchronization.setToolTipText(SoaMessages.Service_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !synchronization.isEnabled()) {
+			synchronization.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -345,18 +352,26 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 	 * 
 	 */
 	public Enumerator getKind() {
-		EEnumLiteral selection = (EEnumLiteral) ((StructuredSelection) kind.getSelection()).getFirstElement();
-		return selection.getInstance();
+		Enumerator selection = (Enumerator) ((StructuredSelection) kind.getSelection()).getFirstElement();
+		return selection;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServicePropertiesEditionPart#initKind(EEnum eenum, Enumerator current)
+	 * @see org.obeonetwork.dsl.soa.parts.ServicePropertiesEditionPart#initKind(Object input, Enumerator current)
 	 */
-	public void initKind(EEnum eenum, Enumerator current) {
-		kind.setInput(eenum.getELiterals());
+	public void initKind(Object input, Enumerator current) {
+		kind.setInput(input);
 		kind.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.Service.Properties.kind);
+		if (eefElementEditorReadOnlyState && kind.isEnabled()) {
+			kind.setEnabled(false);
+			kind.setToolTipText(SoaMessages.Service_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !kind.isEnabled()) {
+			kind.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -367,6 +382,14 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 	 */
 	public void setKind(Enumerator newValue) {
 		kind.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.Service.Properties.kind);
+		if (eefElementEditorReadOnlyState && kind.isEnabled()) {
+			kind.setEnabled(false);
+			kind.setToolTipText(SoaMessages.Service_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !kind.isEnabled()) {
+			kind.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -391,6 +414,14 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.Service.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(SoaMessages.Service_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -415,6 +446,15 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.Service.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(SoaMessages.Service_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -432,7 +472,7 @@ public class ServicePropertiesEditionPartImpl extends CompositePropertiesEdition
 		return SoaMessages.Service_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 
