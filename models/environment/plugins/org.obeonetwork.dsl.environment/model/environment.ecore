@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="environment"
-    nsURI="http://www.obeonetwork.org/dsl/environment/2.0.0" nsPrefix="oenv">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="environment" nsURI="http://www.obeonetwork.org/dsl/environment/2.0.0"
+    nsPrefix="oenv">
   <eClassifiers xsi:type="ecore:EClass" name="Environment" eSuperTypes="#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"

@@ -11,7 +11,6 @@
 package org.obeonetwork.dsl.environment;
 
 import org.eclipse.emf.cdo.CDOObject;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

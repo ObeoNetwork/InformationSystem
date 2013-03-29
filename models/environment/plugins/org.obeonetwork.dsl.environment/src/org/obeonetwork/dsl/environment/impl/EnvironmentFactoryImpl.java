@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.obeonetwork.dsl.environment.*;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.BindingElement;
