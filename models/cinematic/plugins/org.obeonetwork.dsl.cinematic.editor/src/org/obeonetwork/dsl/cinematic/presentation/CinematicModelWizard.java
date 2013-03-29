@@ -68,7 +68,6 @@ import org.obeonetwork.dsl.cinematic.CinematicFactory;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin;
-import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 
 /**
@@ -194,11 +193,8 @@ public class CinematicModelWizard extends Wizard implements INewWizard {
 	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)cinematicPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = cinematicFactory.create(eClass);
-		if (rootObject instanceof ObeoDSMObject) {
-			((ObeoDSMObject) rootObject).setCreatedOn(new Date());
-		}
+		CinematicRoot rootObject = cinematicFactory.createCinematicRoot();
+		rootObject.setCreatedOn(new Date());
 		return rootObject;
 	}
 	
@@ -256,7 +252,7 @@ public class CinematicModelWizard extends Wizard implements INewWizard {
 							// Save the contents of the resource to the file system.
 							//
 							Map<Object, Object> options = new HashMap<Object, Object>();
-							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+							options.put(XMLResource.OPTION_ENCODING, "UTF-8");
 							resource.save(options);
 						}
 						catch (Exception exception) {
@@ -609,10 +605,6 @@ public class CinematicModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-		initialObjectCreationPage = new CinematicModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(CinematicEditorPlugin.INSTANCE.getString("_UI_CinematicModelWizard_label"));
-		initialObjectCreationPage.setDescription(CinematicEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-		addPage(initialObjectCreationPage);
 	}
 
 	/**
