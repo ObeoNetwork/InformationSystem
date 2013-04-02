@@ -214,6 +214,9 @@ public class LogicalModelPropertiesEditionPartForm extends SectionPropertiesEdit
 		EditingUtils.setID(name, EntityrelationViewsRepository.LogicalModel.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityrelationViewsRepository.LogicalModel.Properties.name, EntityrelationViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -245,6 +248,9 @@ public class LogicalModelPropertiesEditionPartForm extends SectionPropertiesEdit
 		this.usedLibraries.disableMove();
 		usedLibraries.setID(EntityrelationViewsRepository.LogicalModel.Properties.usedLibraries);
 		usedLibraries.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createUsedLibrariesReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -351,6 +357,9 @@ public class LogicalModelPropertiesEditionPartForm extends SectionPropertiesEdit
 		EditingUtils.setID(comments, EntityrelationViewsRepository.LogicalModel.Properties.comments);
 		EditingUtils.setEEFtype(comments, "eef::Textarea"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EntityrelationViewsRepository.LogicalModel.Properties.comments, EntityrelationViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCommentsTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -389,6 +398,14 @@ public class LogicalModelPropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.LogicalModel.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EntityrelationMessages.LogicalModel_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -404,6 +421,14 @@ public class LogicalModelPropertiesEditionPartForm extends SectionPropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		usedLibraries.setContentProvider(contentProvider);
 		usedLibraries.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.LogicalModel.Properties.usedLibraries);
+		if (eefElementEditorReadOnlyState && usedLibraries.getTable().isEnabled()) {
+			usedLibraries.setEnabled(false);
+			usedLibraries.setToolTipText(EntityrelationMessages.LogicalModel_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !usedLibraries.getTable().isEnabled()) {
+			usedLibraries.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -468,6 +493,15 @@ public class LogicalModelPropertiesEditionPartForm extends SectionPropertiesEdit
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.LogicalModel.Properties.comments);
+		if (eefElementEditorReadOnlyState && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(EntityrelationMessages.LogicalModel_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

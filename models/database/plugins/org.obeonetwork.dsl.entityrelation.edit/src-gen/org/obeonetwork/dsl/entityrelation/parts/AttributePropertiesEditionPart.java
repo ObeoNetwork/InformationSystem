@@ -5,7 +5,6 @@ package org.obeonetwork.dsl.entityrelation.parts;
 
 // Start of user code for imports
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.jface.viewers.ViewerFilter;
 
 

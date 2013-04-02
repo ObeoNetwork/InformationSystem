@@ -6,20 +6,14 @@ package org.obeonetwork.dsl.entityrelation.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
+import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
-
 import org.eclipse.jface.viewers.IFilter;
-
 import org.obeonetwork.dsl.entityrelation.Attribute;
 import org.obeonetwork.dsl.entityrelation.EntityRelationPackage;
-
 import org.obeonetwork.dsl.entityrelation.components.AttributePropertiesEditionComponent;
 
 /**
@@ -132,7 +126,8 @@ public class AttributePropertiesEditionProvider extends PropertiesEditingProvide
 		 * @see org.eclipse.jface.viewers.IFilter#select(java.lang.Object)
 		 */
 		public boolean select(Object toTest) {
-			return toTest instanceof EObject && EntityRelationPackage.Literals.ATTRIBUTE == ((EObject)toTest).eClass();
+			EObject eObj = EEFUtils.resolveSemanticObject(toTest);
+			return eObj != null && EntityRelationPackage.Literals.ATTRIBUTE == eObj.eClass();
 		}
 		
 	}

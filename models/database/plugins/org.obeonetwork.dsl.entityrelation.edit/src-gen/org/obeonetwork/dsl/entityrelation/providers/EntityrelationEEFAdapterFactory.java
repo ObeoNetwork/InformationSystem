@@ -4,14 +4,6 @@
 package org.obeonetwork.dsl.entityrelation.providers;
 
 import org.eclipse.emf.common.notify.Adapter;
-
-import org.obeonetwork.dsl.entityrelation.providers.AttributePropertiesEditionProvider;
-import org.obeonetwork.dsl.entityrelation.providers.EntityPropertiesEditionProvider;
-import org.obeonetwork.dsl.entityrelation.providers.IdentifierPropertiesEditionProvider;
-import org.obeonetwork.dsl.entityrelation.providers.LogicalModelPropertiesEditionProvider;
-import org.obeonetwork.dsl.entityrelation.providers.RelationElementPropertiesEditionProvider;
-import org.obeonetwork.dsl.entityrelation.providers.RelationPropertiesEditionProvider;
-
 import org.obeonetwork.dsl.entityrelation.util.EntityRelationAdapterFactory;
 
 /**

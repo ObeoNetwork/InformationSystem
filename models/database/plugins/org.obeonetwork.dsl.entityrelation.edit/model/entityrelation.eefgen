@@ -6,4 +6,7 @@
   <viewsRepositories basePackage="org.obeonetwork.dsl.entityrelation" swtViews="true" formViews="true">
     <viewsRepository href="entityrelation.components#_OdBm8zukEeGor_Oy0kyLUA"/>
   </viewsRepositories>
+  <references>
+    <referencedContext href="../../org.obeonetwork.dsl.typeslibrary.edit/model/typeslibrary.eefgen#/"/>
+  </references>
 </eef-gen:EEFGenModel>

@@ -173,6 +173,9 @@ public class IdentifiersPropertiesEditionPartForm extends SectionPropertiesEditi
 		this.identifiers.setUpperBound(-1);
 		identifiers.setID(EntityrelationViewsRepository.Identifiers.Properties.identifiers_);
 		identifiers.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createIdentifiersTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -202,6 +205,14 @@ public class IdentifiersPropertiesEditionPartForm extends SectionPropertiesEditi
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		identifiers.setContentProvider(contentProvider);
 		identifiers.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.Identifiers.Properties.identifiers_);
+		if (eefElementEditorReadOnlyState && identifiers.isEnabled()) {
+			identifiers.setEnabled(false);
+			identifiers.setToolTipText(EntityrelationMessages.Identifiers_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !identifiers.isEnabled()) {
+			identifiers.setEnabled(true);
+		}	
+		
 	}
 
 	/**

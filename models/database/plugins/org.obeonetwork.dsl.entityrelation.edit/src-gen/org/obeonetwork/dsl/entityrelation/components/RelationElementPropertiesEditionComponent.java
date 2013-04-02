@@ -14,11 +14,14 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
@@ -102,6 +105,10 @@ public class RelationElementPropertiesEditionComponent extends SinglePartPropert
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			if (editingPart instanceof CompositePropertiesEditionPart) {
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(sourceEntitySettings);
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(targetEntitySettings);
+			}
 			final RelationElement relationElement = (RelationElement)elt;
 			final RelationElementPropertiesEditionPart relationElementPart = (RelationElementPropertiesEditionPart)editingPart;
 			// init values
@@ -125,7 +132,7 @@ public class RelationElementPropertiesEditionComponent extends SinglePartPropert
 				// set the button mode
 				relationElementPart.setTargetAttributeButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (relationElement.getComments() != null && isAccessible(EntityrelationViewsRepository.RelationElement.Properties.comments))
+			if (isAccessible(EntityrelationViewsRepository.RelationElement.Properties.comments))
 				relationElementPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, relationElement.getComments()));
 			// init filters
 			
@@ -258,9 +265,10 @@ public class RelationElementPropertiesEditionComponent extends SinglePartPropert
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			RelationElementPropertiesEditionPart relationElementPart = (RelationElementPropertiesEditionPart)editingPart;
-			if (EntityRelationPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && relationElementPart != null && isAccessible(EntityrelationViewsRepository.RelationElement.Properties.sourceEntity)) {
+			if (!(msg.getNewValue() instanceof EObject) && sourceEntitySettings.isAffectingEvent(msg) && relationElementPart != null && isAccessible(EntityrelationViewsRepository.RelationElement.Properties.sourceEntity)) {
 				if (msg.getNewValue() != null) {
 					relationElementPart.setSourceEntity(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -269,7 +277,7 @@ public class RelationElementPropertiesEditionComponent extends SinglePartPropert
 			}
 			if (EntityRelationPackage.eINSTANCE.getRelationElement_SourceAttribute().equals(msg.getFeature()) && relationElementPart != null && isAccessible(EntityrelationViewsRepository.RelationElement.Properties.sourceAttribute))
 				relationElementPart.setSourceAttribute((EObject)msg.getNewValue());
-			if (EntityRelationPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && relationElementPart != null && isAccessible(EntityrelationViewsRepository.RelationElement.Properties.targetEntity)) {
+			if (!(msg.getNewValue() instanceof EObject) && targetEntitySettings.isAffectingEvent(msg) && relationElementPart != null && isAccessible(EntityrelationViewsRepository.RelationElement.Properties.targetEntity)) {
 				if (msg.getNewValue() != null) {
 					relationElementPart.setTargetEntity(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -278,7 +286,7 @@ public class RelationElementPropertiesEditionComponent extends SinglePartPropert
 			}
 			if (EntityRelationPackage.eINSTANCE.getRelationElement_TargetAttribute().equals(msg.getFeature()) && relationElementPart != null && isAccessible(EntityrelationViewsRepository.RelationElement.Properties.targetAttribute))
 				relationElementPart.setTargetAttribute((EObject)msg.getNewValue());
-			if (EntityRelationPackage.eINSTANCE.getLogicalElement_Comments().equals(msg.getFeature()) && relationElementPart != null && isAccessible(EntityrelationViewsRepository.RelationElement.Properties.comments)){
+			if (EntityRelationPackage.eINSTANCE.getLogicalElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && relationElementPart != null && isAccessible(EntityrelationViewsRepository.RelationElement.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					relationElementPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -287,6 +295,24 @@ public class RelationElementPropertiesEditionComponent extends SinglePartPropert
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EntityRelationPackage.eINSTANCE.getNamedElement_Name()
+			,
+			EntityRelationPackage.eINSTANCE.getRelationElement_SourceAttribute(),
+			EntityRelationPackage.eINSTANCE.getNamedElement_Name()
+			,
+			EntityRelationPackage.eINSTANCE.getRelationElement_TargetAttribute(),
+			EntityRelationPackage.eINSTANCE.getLogicalElement_Comments()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -328,6 +354,21 @@ public class RelationElementPropertiesEditionComponent extends SinglePartPropert
 			}
 		}
 		return ret;
+	}
+
+
+	
+	/**
+	 * @ return settings for sourceEntity editor
+	 */
+	public EEFEditorSettingsImpl getSourceEntitySettings() {
+			return sourceEntitySettings;
+	}
+	/**
+	 * @ return settings for targetEntity editor
+	 */
+	public EEFEditorSettingsImpl getTargetEntitySettings() {
+			return targetEntitySettings;
 	}
 
 }

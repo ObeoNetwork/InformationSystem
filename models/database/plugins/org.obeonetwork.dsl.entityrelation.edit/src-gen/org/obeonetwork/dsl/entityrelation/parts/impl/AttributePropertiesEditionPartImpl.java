@@ -6,64 +6,45 @@ package org.obeonetwork.dsl.entityrelation.parts.impl;
 // Start of user code for imports
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.providers.EMFListContentProvider;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.EEFFeatureEditorDialog;
 import org.eclipse.emf.eef.runtime.ui.widgets.EMFComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.HorizontalBox;
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.jface.window.Window;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
+import org.obeonetwork.dsl.entityrelation.components.AttributePropertiesEditionComponent;
 import org.obeonetwork.dsl.entityrelation.parts.AttributePropertiesEditionPart;
 import org.obeonetwork.dsl.entityrelation.parts.EntityrelationViewsRepository;
-
 import org.obeonetwork.dsl.entityrelation.providers.EntityrelationMessages;
-
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 
 // End of user code
@@ -237,6 +218,9 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(name, EntityrelationViewsRepository.Attribute.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityrelationViewsRepository.Attribute.Properties.name, EntityrelationViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -264,12 +248,13 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(type.getCombo(), EntityrelationViewsRepository.Attribute.Properties.type);
 		EditingUtils.setEEFtype(type.getCombo(), "eef::Combo"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityrelationViewsRepository.Attribute.Properties.type, EntityrelationViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTypeEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createTypeAttributesHBox(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -324,6 +309,9 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(length, EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.length);
 		EditingUtils.setEEFtype(length, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.length, EntityrelationViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createLengthText
+
+		// End of user code
 		return parent;
 	}
 
@@ -370,6 +358,9 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(precision, EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.precision);
 		EditingUtils.setEEFtype(precision, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.precision, EntityrelationViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createPrecisionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -410,12 +401,13 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		});
 		EditingUtils.setID(editLiterals, EntityrelationViewsRepository.Attribute.Properties.literals);
 		EditingUtils.setEEFtype(editLiterals, "eef::MultiValuedEditor::browsebutton"); //$NON-NLS-1$
+		// Start of user code for createLiteralsMultiValuedEditor
+
+		// End of user code
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
+	
 	protected Composite createRequiredAndIdentifierHBox(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
@@ -455,6 +447,9 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(required, EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.required);
 		EditingUtils.setEEFtype(required, "eef::Checkbox"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.required, EntityrelationViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createRequiredCheckbox
+
+		// End of user code
 		return parent;
 	}
 
@@ -482,6 +477,9 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(inPrimaryIdentifier, EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.inPrimaryIdentifier);
 		EditingUtils.setEEFtype(inPrimaryIdentifier, "eef::Checkbox"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.inPrimaryIdentifier, EntityrelationViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createInPrimaryIdentifierCheckbox
+
+		// End of user code
 		return parent;
 	}
 
@@ -514,6 +512,9 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		EditingUtils.setID(comments, EntityrelationViewsRepository.Attribute.Properties.comments);
 		EditingUtils.setEEFtype(comments, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EntityrelationViewsRepository.Attribute.Properties.comments, EntityrelationViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCommentsTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -552,6 +553,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -591,6 +600,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			type.modelUpdating(new StructuredSelection("")); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.type, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getTypeSettings().getOrCreateSignificantObject());
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -625,6 +642,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			length.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.length, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getLengthSettings().getOrCreateSignificantObject());
+		if (eefElementEditorReadOnlyState && length.isEnabled()) {
+			length.setEnabled(false);
+			length.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !length.isEnabled()) {
+			length.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -649,6 +674,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			precision.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.precision, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getPrecisionSettings().getOrCreateSignificantObject());
+		if (eefElementEditorReadOnlyState && precision.isEnabled()) {
+			precision.setEnabled(false);
+			precision.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !precision.isEnabled()) {
+			precision.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -674,6 +707,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			literals.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.literals, ((AttributePropertiesEditionComponent) propertiesEditionComponent).getLiteralsSettings().getOrCreateSignificantObject());
+		if (eefElementEditorReadOnlyState && literals.isEnabled()) {
+			literals.setEnabled(false);
+			literals.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !literals.isEnabled()) {
+			literals.setEnabled(true);
+		}	
+		
 	}
 
 	public void addToLiterals(Object newValue) {
@@ -716,6 +757,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			required.setSelection(false);
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.required);
+		if (eefElementEditorReadOnlyState && required.isEnabled()) {
+			required.setEnabled(false);
+			required.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !required.isEnabled()) {
+			required.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -740,6 +789,14 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			inPrimaryIdentifier.setSelection(false);
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.inPrimaryIdentifier);
+		if (eefElementEditorReadOnlyState && inPrimaryIdentifier.isEnabled()) {
+			inPrimaryIdentifier.setEnabled(false);
+			inPrimaryIdentifier.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !inPrimaryIdentifier.isEnabled()) {
+			inPrimaryIdentifier.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -764,6 +821,15 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityrelationViewsRepository.Attribute.Properties.comments);
+		if (eefElementEditorReadOnlyState && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(EntityrelationMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

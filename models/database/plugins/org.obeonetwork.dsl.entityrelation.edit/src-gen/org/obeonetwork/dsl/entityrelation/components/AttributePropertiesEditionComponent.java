@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.WrappedException;
@@ -18,9 +19,12 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
+import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.eclipse.emf.eef.runtime.ui.widgets.settings.EEFEditorSettingsBuilder;
@@ -105,10 +109,16 @@ public class AttributePropertiesEditionComponent extends SinglePartPropertiesEdi
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			if (editingPart instanceof CompositePropertiesEditionPart) {
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(typeSettings);
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(lengthSettings);
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(precisionSettings);
+				((CompositePropertiesEditionPart) editingPart).getSettings().add(literalsSettings);
+			}
 			final Attribute attribute = (Attribute)elt;
 			final AttributePropertiesEditionPart attributePart = (AttributePropertiesEditionPart)editingPart;
 			// init values
-			if (attribute.getName() != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.name))
+			if (isAccessible(EntityrelationViewsRepository.Attribute.Properties.name))
 				attributePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, attribute.getName()));
 			
 			if (isAccessible(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.required)) {
@@ -117,21 +127,19 @@ public class AttributePropertiesEditionComponent extends SinglePartPropertiesEdi
 			if (isAccessible(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.inPrimaryIdentifier)) {
 				attributePart.setInPrimaryIdentifier(attribute.isInPrimaryIdentifier());
 			}
-			if (attribute.getComments() != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.comments))
+			if (isAccessible(EntityrelationViewsRepository.Attribute.Properties.comments))
 				attributePart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, attribute.getComments()));
 			if (typeSettings.getSignificantObject() != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.type)) {
 				attributePart.initType(EEFUtils.choiceOfValues(typeSettings.getSignificantObject(), TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType()), typeSettings.getValue());
 			}
-			if (isAccessible(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.length)) {
-				attributePart.setLength(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, lengthSettings.getValue()));
-			}
+			if (lengthSettings.getValue() != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.length))
+				attributePart.setLength(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, lengthSettings.getValue()));
 			
-			if (isAccessible(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.precision)) {
-				attributePart.setPrecision(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, precisionSettings.getValue()));
-			}
+			if (precisionSettings.getValue() != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.precision))
+				attributePart.setPrecision(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, precisionSettings.getValue()));
 			
 			if (literalsSettings.getSignificantObject() != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.literals)) {
-				attributePart.setLiterals((EList)literalsSettings.getValue());
+				attributePart.setLiterals((EList<?>)literalsSettings.getValue());
 			}
 			// init filters
 			
@@ -222,13 +230,13 @@ public class AttributePropertiesEditionComponent extends SinglePartPropertiesEdi
 			typeSettings.setValue(!"".equals(event.getNewValue()) ? (NativeType) event.getNewValue() : null);
 		}
 		if (EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.length == event.getAffectedEditor()) {
-			lengthSettings.setValue((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+			lengthSettings.setValue((java.lang.Integer)EEFConverterUtil.createFromString(EcorePackage.Literals.EINTEGER_OBJECT, (String)event.getNewValue()));
 		}
 		if (EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.precision == event.getAffectedEditor()) {
-			precisionSettings.setValue((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+			precisionSettings.setValue((java.lang.Integer)EEFConverterUtil.createFromString(EcorePackage.Literals.EINTEGER_OBJECT, (String)event.getNewValue()));
 		}
 		if (EntityrelationViewsRepository.Attribute.Properties.literals == event.getAffectedEditor()) {
-			literalsSettings.setValue((List)event.getNewValue());
+			literalsSettings.setValue((List<?>)event.getNewValue());
 		}
 	}
 
@@ -237,50 +245,82 @@ public class AttributePropertiesEditionComponent extends SinglePartPropertiesEdi
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			AttributePropertiesEditionPart attributePart = (AttributePropertiesEditionPart)editingPart;
-			if (EntityRelationPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.name)) {
+			if (EntityRelationPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					attributePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					attributePart.setName("");
 				}
 			}
-			if (EntityRelationPackage.eINSTANCE.getAttribute_Required().equals(msg.getFeature()) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.required))
+			if (EntityRelationPackage.eINSTANCE.getAttribute_Required().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.required))
 				attributePart.setRequired((Boolean)msg.getNewValue());
 			
-			if (EntityRelationPackage.eINSTANCE.getAttribute_InPrimaryIdentifier().equals(msg.getFeature()) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.inPrimaryIdentifier))
+			if (EntityRelationPackage.eINSTANCE.getAttribute_InPrimaryIdentifier().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.RequiredAndIdentifier.inPrimaryIdentifier))
 				attributePart.setInPrimaryIdentifier((Boolean)msg.getNewValue());
 			
-			if (EntityRelationPackage.eINSTANCE.getLogicalElement_Comments().equals(msg.getFeature()) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.comments)){
+			if (EntityRelationPackage.eINSTANCE.getLogicalElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					attributePart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					attributePart.setComments("");
 				}
 			}
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType().equals(msg.getFeature()) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.type))
+			if (typeSettings.isAffectingEvent(msg) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.type))
 				attributePart.setType((Object)msg.getNewValue());
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Length().equals(msg.getFeature()) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.length)) {
+			if (!(msg.getNewValue() instanceof EObject) && lengthSettings.isAffectingEvent(msg) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.length)) {
 				if (msg.getNewValue() != null) {
-					attributePart.setLength(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
+					attributePart.setLength(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					attributePart.setLength("");
 				}
 			}
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Precision().equals(msg.getFeature()) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.precision)) {
+			if (!(msg.getNewValue() instanceof EObject) && precisionSettings.isAffectingEvent(msg) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.TypeAttributes.precision)) {
 				if (msg.getNewValue() != null) {
-					attributePart.setPrecision(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
+					attributePart.setPrecision(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					attributePart.setPrecision("");
 				}
 			}
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Literals().equals(msg.getFeature()) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.literals)) {
-				attributePart.setLiterals((EList)msg.getNewValue());
+			if (literalsSettings.isAffectingEvent(msg) && attributePart != null && isAccessible(EntityrelationViewsRepository.Attribute.Properties.literals)) {
+				if (msg.getNewValue() instanceof EList<?>) {
+					attributePart.setLiterals((EList<?>)msg.getNewValue());
+				} else if (msg.getNewValue() == null) {
+					attributePart.setLiterals(new BasicEList<Object>());
+				} else {
+					BasicEList<Object> newValueAsList = new BasicEList<Object>();
+					newValueAsList.add(msg.getNewValue());
+					attributePart.setLiterals(newValueAsList);
+				}
 			}
 			
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EntityRelationPackage.eINSTANCE.getNamedElement_Name(),
+			EntityRelationPackage.eINSTANCE.getAttribute_Required(),
+			EntityRelationPackage.eINSTANCE.getAttribute_InPrimaryIdentifier(),
+			EntityRelationPackage.eINSTANCE.getLogicalElement_Comments(),
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType()
+			,
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_Length()
+			,
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_Precision()
+			,
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_Literals()
+					);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -360,6 +400,33 @@ public class AttributePropertiesEditionComponent extends SinglePartPropertiesEdi
 			}
 		}
 		return ret;
+	}
+
+
+	
+	/**
+	 * @ return settings for type editor
+	 */
+	public EEFEditorSettingsImpl getTypeSettings() {
+			return typeSettings;
+	}
+	/**
+	 * @ return settings for length editor
+	 */
+	public EEFEditorSettingsImpl getLengthSettings() {
+			return lengthSettings;
+	}
+	/**
+	 * @ return settings for precision editor
+	 */
+	public EEFEditorSettingsImpl getPrecisionSettings() {
+			return precisionSettings;
+	}
+	/**
+	 * @ return settings for literals editor
+	 */
+	public EEFEditorSettingsImpl getLiteralsSettings() {
+			return literalsSettings;
 	}
 
 }
