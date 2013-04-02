@@ -321,7 +321,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//UserStory"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.graal/model/graal.genmodel#//graal"/>
+    <model href="platform:/resource/org.obeonetwork.graal/model/graal_cdonative.genmodel#//graal"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="__tvfkh8dEeCC-oZI6xw5iw" documentation="Views repository for graal GenPackage" name="graal">
     <RepositoryKind>SWT</RepositoryKind>
