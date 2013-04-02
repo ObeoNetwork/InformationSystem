@@ -158,7 +158,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.entityrelation/model/entityrelation.ecore#//Identifier"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.entityrelation/model/entityrelation.genmodel#//entityrelation"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.entityrelation/model/entityrelation_cdonative.genmodel#//entityrelation"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_OdBm8zukEeGor_Oy0kyLUA" documentation="Views repository for entityrelation GenPackage" name="entityrelation">
     <RepositoryKind>SWT</RepositoryKind>
