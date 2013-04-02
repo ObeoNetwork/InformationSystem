@@ -160,7 +160,7 @@
                tab="Task">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.TaskPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.Task"
                tab="Metadatas">
@@ -172,7 +172,7 @@
                tab="System">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.SystemPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.System"
                tab="Metadatas">
@@ -184,7 +184,7 @@
                tab="Operator">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.OperatorPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.Operator"
                tab="Metadatas">
@@ -196,7 +196,7 @@
                tab="Transition">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.TransitionPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.Transition"
                tab="Metadatas">
@@ -208,7 +208,7 @@
                tab="TaskReference">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.TaskReferencePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.TaskReference"
                tab="Metadatas">
@@ -220,7 +220,7 @@
                tab="UserView">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.UserViewPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.UserView"
                tab="Metadatas">
@@ -232,7 +232,7 @@
                tab="UserAction">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.UserActionPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.UserAction"
                tab="Metadatas">
@@ -244,7 +244,7 @@
                tab="AppliEvent">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.AppliEventPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.AppliEvent"
                tab="Metadatas">
@@ -256,7 +256,7 @@
                tab="AppliAction">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.AppliActionPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.AppliAction"
                tab="Metadatas">
@@ -268,7 +268,7 @@
                tab="InitialNode">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.InitialNodePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.InitialNode"
                tab="Metadatas">
@@ -280,7 +280,7 @@
                tab="FinalNode">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.FinalNodePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.FinalNode"
                tab="Metadatas">
@@ -292,7 +292,7 @@
                tab="AbortNode">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.AbortNodePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.AbortNode"
                tab="Metadatas">
@@ -304,7 +304,7 @@
                tab="Loop">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.LoopPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.Loop"
                tab="Metadatas">
@@ -316,7 +316,7 @@
                tab="Actor">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.ActorPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.Actor"
                tab="Metadatas">
@@ -328,7 +328,7 @@
                tab="TasksGroup">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.TasksGroupPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.TasksGroup"
                tab="Metadatas">
@@ -340,7 +340,7 @@
                tab="UseCase">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.UseCasePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.UseCase"
                tab="Metadatas">
@@ -352,7 +352,7 @@
                tab="UserStory">
          </propertySection>
          <propertySection
-               class="parts.forms.MetadatasPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.UserStoryPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.UserStory"
                tab="Metadatas">

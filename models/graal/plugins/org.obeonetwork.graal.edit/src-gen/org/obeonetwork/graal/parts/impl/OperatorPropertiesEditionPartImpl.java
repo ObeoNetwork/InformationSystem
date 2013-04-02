@@ -9,11 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.util.Enumerator;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.eef.runtime.EEFRuntimePlugin;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
@@ -160,7 +158,7 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 		createDescription(parent, GraalViewsRepository.Operator.Properties.kind, GraalMessages.OperatorPropertiesEditionPart_KindLabel);
 		kind = new EMFComboViewer(parent);
 		kind.setContentProvider(new ArrayContentProvider());
-		kind.setLabelProvider(new AdapterFactoryLabelProvider(new EcoreAdapterFactory()));
+		kind.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
 		GridData kindData = new GridData(GridData.FILL_HORIZONTAL);
 		kind.getCombo().setLayoutData(kindData);
 		kind.addSelectionChangedListener(new ISelectionChangedListener() {
@@ -179,6 +177,9 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 		});
 		kind.setID(GraalViewsRepository.Operator.Properties.kind);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.Operator.Properties.kind, GraalViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createKindEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -188,7 +189,7 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -211,6 +212,9 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(description, GraalViewsRepository.Operator.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.Operator.Properties.description, GraalViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -386,7 +390,7 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -398,18 +402,26 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 	 * 
 	 */
 	public Enumerator getKind() {
-		EEnumLiteral selection = (EEnumLiteral) ((StructuredSelection) kind.getSelection()).getFirstElement();
-		return selection.getInstance();
+		Enumerator selection = (Enumerator) ((StructuredSelection) kind.getSelection()).getFirstElement();
+		return selection;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.graal.parts.OperatorPropertiesEditionPart#initKind(EEnum eenum, Enumerator current)
+	 * @see org.obeonetwork.graal.parts.OperatorPropertiesEditionPart#initKind(Object input, Enumerator current)
 	 */
-	public void initKind(EEnum eenum, Enumerator current) {
-		kind.setInput(eenum.getELiterals());
+	public void initKind(Object input, Enumerator current) {
+		kind.setInput(input);
 		kind.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Operator.Properties.kind);
+		if (eefElementEditorReadOnlyState && kind.isEnabled()) {
+			kind.setEnabled(false);
+			kind.setToolTipText(GraalMessages.Operator_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !kind.isEnabled()) {
+			kind.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -420,6 +432,14 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 	 */
 	public void setKind(Enumerator newValue) {
 		kind.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Operator.Properties.kind);
+		if (eefElementEditorReadOnlyState && kind.isEnabled()) {
+			kind.setEnabled(false);
+			kind.setToolTipText(GraalMessages.Operator_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !kind.isEnabled()) {
+			kind.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -444,6 +464,15 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Operator.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.Operator_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -459,6 +488,14 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		outgoingTransitions.setContentProvider(contentProvider);
 		outgoingTransitions.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Operator.Properties.outgoingTransitions);
+		if (eefElementEditorReadOnlyState && outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(false);
+			outgoingTransitions.setToolTipText(GraalMessages.Operator_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -514,6 +551,14 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		incomingTransitions.setContentProvider(contentProvider);
 		incomingTransitions.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Operator.Properties.incomingTransitions);
+		if (eefElementEditorReadOnlyState && incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(false);
+			incomingTransitions.setToolTipText(GraalMessages.Operator_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -571,7 +616,7 @@ public class OperatorPropertiesEditionPartImpl extends CompositePropertiesEditio
 		return GraalMessages.Operator_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

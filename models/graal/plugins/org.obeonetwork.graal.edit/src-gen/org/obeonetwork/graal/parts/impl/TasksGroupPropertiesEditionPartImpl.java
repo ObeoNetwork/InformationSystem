@@ -124,7 +124,7 @@ public class TasksGroupPropertiesEditionPartImpl extends CompositePropertiesEdit
 	
 	protected Composite createIdText(Composite parent) {
 		createDescription(parent, GraalViewsRepository.TasksGroup.Properties.id, GraalMessages.TasksGroupPropertiesEditionPart_IdLabel);
-		id = new Text(parent, SWT.BORDER);
+		id = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData idData = new GridData(GridData.FILL_HORIZONTAL);
 		id.setLayoutData(idData);
 		id.addFocusListener(new FocusAdapter() {
@@ -164,13 +164,16 @@ public class TasksGroupPropertiesEditionPartImpl extends CompositePropertiesEdit
 		EditingUtils.setID(id, GraalViewsRepository.TasksGroup.Properties.id);
 		EditingUtils.setEEFtype(id, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.TasksGroup.Properties.id, GraalViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createIdText
+
+		// End of user code
 		return parent;
 	}
 
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, GraalViewsRepository.TasksGroup.Properties.name, GraalMessages.TasksGroupPropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -210,6 +213,9 @@ public class TasksGroupPropertiesEditionPartImpl extends CompositePropertiesEdit
 		EditingUtils.setID(name, GraalViewsRepository.TasksGroup.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.TasksGroup.Properties.name, GraalViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -219,7 +225,7 @@ public class TasksGroupPropertiesEditionPartImpl extends CompositePropertiesEdit
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -242,6 +248,9 @@ public class TasksGroupPropertiesEditionPartImpl extends CompositePropertiesEdit
 		EditingUtils.setID(description, GraalViewsRepository.TasksGroup.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.TasksGroup.Properties.description, GraalViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -253,7 +262,7 @@ public class TasksGroupPropertiesEditionPartImpl extends CompositePropertiesEdit
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -280,6 +289,14 @@ public class TasksGroupPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			id.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.TasksGroup.Properties.id);
+		if (eefElementEditorReadOnlyState && id.isEnabled()) {
+			id.setEnabled(false);
+			id.setToolTipText(GraalMessages.TasksGroup_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !id.isEnabled()) {
+			id.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -304,6 +321,14 @@ public class TasksGroupPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.TasksGroup.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(GraalMessages.TasksGroup_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -328,6 +353,15 @@ public class TasksGroupPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.TasksGroup.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.TasksGroup_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -345,7 +379,7 @@ public class TasksGroupPropertiesEditionPartImpl extends CompositePropertiesEdit
 		return GraalMessages.TasksGroup_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

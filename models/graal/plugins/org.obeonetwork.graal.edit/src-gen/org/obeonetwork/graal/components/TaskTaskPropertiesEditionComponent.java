@@ -11,11 +11,12 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -58,12 +59,12 @@ public class TaskTaskPropertiesEditionComponent extends SinglePartPropertiesEdit
 	/**
 	 * Settings for actors ReferencesTable
 	 */
-	private	ReferencesTableSettings actorsSettings;
+	private ReferencesTableSettings actorsSettings;
 	
 	/**
 	 * Settings for uses ReferencesTable
 	 */
-	private	ReferencesTableSettings usesSettings;
+	private ReferencesTableSettings usesSettings;
 	
 	
 	/**
@@ -88,10 +89,11 @@ public class TaskTaskPropertiesEditionComponent extends SinglePartPropertiesEdit
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Task task = (Task)elt;
 			final TaskPropertiesEditionPart taskPart = (TaskPropertiesEditionPart)editingPart;
 			// init values
-			if (task.getDescription() != null && isAccessible(GraalViewsRepository.Task.Properties.description))
+			if (isAccessible(GraalViewsRepository.Task.Properties.description))
 				taskPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, task.getDescription()));
 			if (isAccessible(GraalViewsRepository.Task.Properties.subActivities)) {
 				subActivitiesSettings = new ReferencesTableSettings(task, GraalPackage.eINSTANCE.getActivity_SubActivities());
@@ -101,24 +103,24 @@ public class TaskTaskPropertiesEditionComponent extends SinglePartPropertiesEdit
 				actorsSettings = new ReferencesTableSettings(task, GraalPackage.eINSTANCE.getTask_Actors());
 				taskPart.initActors(actorsSettings);
 			}
-			if (task.getId() != null && isAccessible(GraalViewsRepository.Task.Properties.id))
+			if (isAccessible(GraalViewsRepository.Task.Properties.id))
 				taskPart.setId(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, task.getId()));
 			
-			if (task.getName() != null && isAccessible(GraalViewsRepository.Task.Properties.name))
+			if (isAccessible(GraalViewsRepository.Task.Properties.name))
 				taskPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, task.getName()));
 			
 			if (isAccessible(GraalViewsRepository.Task.Properties.uses)) {
 				usesSettings = new ReferencesTableSettings(task, GraalPackage.eINSTANCE.getTask_Uses());
 				taskPart.initUses(usesSettings);
 			}
-			if (task.getPreconditions() != null && isAccessible(GraalViewsRepository.Task.Properties.preconditions))
+			if (isAccessible(GraalViewsRepository.Task.Properties.preconditions))
 				taskPart.setPreconditions(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, task.getPreconditions()));
-			if (task.getPostconditions() != null && isAccessible(GraalViewsRepository.Task.Properties.postconditions))
+			if (isAccessible(GraalViewsRepository.Task.Properties.postconditions))
 				taskPart.setPostconditions(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, task.getPostconditions()));
 			// init filters
 			
-			taskPart.addFilterToSubActivities(new ViewerFilter() {
-			
+			if (isAccessible(GraalViewsRepository.Task.Properties.subActivities)) {
+				taskPart.addFilterToSubActivities(new ViewerFilter() {
 					/**
 					 * {@inheritDoc}
 					 * 
@@ -128,48 +130,22 @@ public class TaskTaskPropertiesEditionComponent extends SinglePartPropertiesEdit
 						return (element instanceof String && element.equals("")) || (element instanceof Activity); //$NON-NLS-1$ 
 					}
 			
-			});
-			// Start of user code 
-			// End of user code
-			
-			taskPart.addFilterToActors(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!taskPart.isContainedInActorsTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			taskPart.addFilterToActors(new EObjectFilter(GraalPackage.Literals.ACTOR));
-			// Start of user code 
-			// End of user code
+				});
+				// Start of user code for additional businessfilters for subActivities
+				// End of user code
+			}
+			if (isAccessible(GraalViewsRepository.Task.Properties.actors)) {
+				taskPart.addFilterToActors(new EObjectFilter(GraalPackage.Literals.ACTOR));
+				// Start of user code for additional businessfilters for actors
+				// End of user code
+			}
 			
 			
-			
-			taskPart.addFilterToUses(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!taskPart.isContainedInUsesTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			taskPart.addFilterToUses(new EObjectFilter(GraalPackage.Literals.TASK));
-			// Start of user code 
-			// End of user code
-			
+			if (isAccessible(GraalViewsRepository.Task.Properties.uses)) {
+				taskPart.addFilterToUses(new EObjectFilter(GraalPackage.Literals.TASK));
+				// Start of user code for additional businessfilters for uses
+				// End of user code
+			}
 			
 			
 			// init values for referenced views
@@ -298,9 +274,10 @@ public class TaskTaskPropertiesEditionComponent extends SinglePartPropertiesEdit
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			TaskPropertiesEditionPart taskPart = (TaskPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && taskPart != null && isAccessible(GraalViewsRepository.Task.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && taskPart != null && isAccessible(GraalViewsRepository.Task.Properties.description)){
 				if (msg.getNewValue() != null) {
 					taskPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -311,14 +288,14 @@ public class TaskTaskPropertiesEditionComponent extends SinglePartPropertiesEdit
 				taskPart.updateSubActivities();
 			if (GraalPackage.eINSTANCE.getTask_Actors().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.Task.Properties.actors))
 				taskPart.updateActors();
-			if (GraalPackage.eINSTANCE.getAbstractTask_Id().equals(msg.getFeature()) && taskPart != null && isAccessible(GraalViewsRepository.Task.Properties.id)) {
+			if (GraalPackage.eINSTANCE.getAbstractTask_Id().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && taskPart != null && isAccessible(GraalViewsRepository.Task.Properties.id)) {
 				if (msg.getNewValue() != null) {
 					taskPart.setId(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					taskPart.setId("");
 				}
 			}
-			if (GraalPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && taskPart != null && isAccessible(GraalViewsRepository.Task.Properties.name)) {
+			if (GraalPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && taskPart != null && isAccessible(GraalViewsRepository.Task.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					taskPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -327,14 +304,14 @@ public class TaskTaskPropertiesEditionComponent extends SinglePartPropertiesEdit
 			}
 			if (GraalPackage.eINSTANCE.getTask_Uses().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.Task.Properties.uses))
 				taskPart.updateUses();
-			if (GraalPackage.eINSTANCE.getTask_Preconditions().equals(msg.getFeature()) && taskPart != null && isAccessible(GraalViewsRepository.Task.Properties.preconditions)){
+			if (GraalPackage.eINSTANCE.getTask_Preconditions().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && taskPart != null && isAccessible(GraalViewsRepository.Task.Properties.preconditions)){
 				if (msg.getNewValue() != null) {
 					taskPart.setPreconditions(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					taskPart.setPreconditions("");
 				}
 			}
-			if (GraalPackage.eINSTANCE.getTask_Postconditions().equals(msg.getFeature()) && taskPart != null && isAccessible(GraalViewsRepository.Task.Properties.postconditions)){
+			if (GraalPackage.eINSTANCE.getTask_Postconditions().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && taskPart != null && isAccessible(GraalViewsRepository.Task.Properties.postconditions)){
 				if (msg.getNewValue() != null) {
 					taskPart.setPostconditions(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -343,6 +320,25 @@ public class TaskTaskPropertiesEditionComponent extends SinglePartPropertiesEdit
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			GraalPackage.eINSTANCE.getActivity_SubActivities(),
+			GraalPackage.eINSTANCE.getTask_Actors(),
+			GraalPackage.eINSTANCE.getAbstractTask_Id(),
+			GraalPackage.eINSTANCE.getNamedElement_Name(),
+			GraalPackage.eINSTANCE.getTask_Uses(),
+			GraalPackage.eINSTANCE.getTask_Preconditions(),
+			GraalPackage.eINSTANCE.getTask_Postconditions()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -359,35 +355,35 @@ public class TaskTaskPropertiesEditionComponent extends SinglePartPropertiesEdit
 				if (GraalViewsRepository.Task.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.Task.Properties.id == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getAbstractTask_Id().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(GraalPackage.eINSTANCE.getAbstractTask_Id().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getAbstractTask_Id().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.Task.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.Task.Properties.preconditions == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getTask_Preconditions().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(GraalPackage.eINSTANCE.getTask_Preconditions().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getTask_Preconditions().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.Task.Properties.postconditions == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getTask_Postconditions().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(GraalPackage.eINSTANCE.getTask_Postconditions().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getTask_Postconditions().getEAttributeType(), newValue);
 				}
@@ -399,5 +395,8 @@ public class TaskTaskPropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		return ret;
 	}
+
+
+	
 
 }

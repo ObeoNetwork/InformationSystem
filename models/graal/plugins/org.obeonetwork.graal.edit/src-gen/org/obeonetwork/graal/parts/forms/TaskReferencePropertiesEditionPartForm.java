@@ -191,6 +191,9 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		});
 		task.setID(GraalViewsRepository.TaskReference.Properties.task);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.TaskReference.Properties.task, GraalViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTaskFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -215,14 +218,41 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 			 * 
 			 */
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(TaskReferencePropertiesEditionPartForm.this, GraalViewsRepository.TaskReference.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							TaskReferencePropertiesEditionPartForm.this,
+							GraalViewsRepository.TaskReference.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									TaskReferencePropertiesEditionPartForm.this,
+									GraalViewsRepository.TaskReference.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
 			}
 
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									TaskReferencePropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
 		});
 		EditingUtils.setID(description, GraalViewsRepository.TaskReference.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.TaskReference.Properties.description, GraalViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -254,6 +284,9 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		this.outgoingTransitions.disableMove();
 		outgoingTransitions.setID(GraalViewsRepository.TaskReference.Properties.outgoingTransitions);
 		outgoingTransitions.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createOutgoingTransitionsReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -335,6 +368,9 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		this.incomingTransitions.disableMove();
 		incomingTransitions.setID(GraalViewsRepository.TaskReference.Properties.incomingTransitions);
 		incomingTransitions.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createIncomingTransitionsReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -396,7 +432,7 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -426,6 +462,14 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		if (current != null) {
 			task.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.TaskReference.Properties.task);
+		if (eefElementEditorReadOnlyState && task.isEnabled()) {
+			task.setEnabled(false);
+			task.setToolTipText(GraalMessages.TaskReference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !task.isEnabled()) {
+			task.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -440,6 +484,14 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		} else {
 			task.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.TaskReference.Properties.task);
+		if (eefElementEditorReadOnlyState && task.isEnabled()) {
+			task.setEnabled(false);
+			task.setToolTipText(GraalMessages.TaskReference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !task.isEnabled()) {
+			task.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -493,6 +545,15 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.TaskReference.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.TaskReference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -508,6 +569,14 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		outgoingTransitions.setContentProvider(contentProvider);
 		outgoingTransitions.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.TaskReference.Properties.outgoingTransitions);
+		if (eefElementEditorReadOnlyState && outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(false);
+			outgoingTransitions.setToolTipText(GraalMessages.TaskReference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !outgoingTransitions.getTable().isEnabled()) {
+			outgoingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -563,6 +632,14 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		incomingTransitions.setContentProvider(contentProvider);
 		incomingTransitions.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.TaskReference.Properties.incomingTransitions);
+		if (eefElementEditorReadOnlyState && incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(false);
+			incomingTransitions.setToolTipText(GraalMessages.TaskReference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !incomingTransitions.getTable().isEnabled()) {
+			incomingTransitions.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -620,7 +697,7 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		return GraalMessages.TaskReference_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

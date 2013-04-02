@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -75,10 +77,11 @@ public class LoopLoopPropertiesEditionComponent extends SinglePartPropertiesEdit
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Loop loop = (Loop)elt;
 			final LoopPropertiesEditionPart loopPart = (LoopPropertiesEditionPart)editingPart;
 			// init values
-			if (loop.getDescription() != null && isAccessible(GraalViewsRepository.Loop.Properties.description))
+			if (isAccessible(GraalViewsRepository.Loop.Properties.description))
 				loopPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, loop.getDescription()));
 			if (isAccessible(GraalViewsRepository.Loop.Properties.subActivities)) {
 				subActivitiesSettings = new ReferencesTableSettings(loop, GraalPackage.eINSTANCE.getActivity_SubActivities());
@@ -94,8 +97,8 @@ public class LoopLoopPropertiesEditionComponent extends SinglePartPropertiesEdit
 			
 			// init filters
 			
-			loopPart.addFilterToSubActivities(new ViewerFilter() {
-			
+			if (isAccessible(GraalViewsRepository.Loop.Properties.subActivities)) {
+				loopPart.addFilterToSubActivities(new ViewerFilter() {
 					/**
 					 * {@inheritDoc}
 					 * 
@@ -105,10 +108,10 @@ public class LoopLoopPropertiesEditionComponent extends SinglePartPropertiesEdit
 						return (element instanceof String && element.equals("")) || (element instanceof Activity); //$NON-NLS-1$ 
 					}
 			
-			});
-			// Start of user code 
-			// End of user code
-			
+				});
+				// Start of user code for additional businessfilters for subActivities
+				// End of user code
+			}
 			
 			
 			// init values for referenced views
@@ -193,9 +196,10 @@ public class LoopLoopPropertiesEditionComponent extends SinglePartPropertiesEdit
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			LoopPropertiesEditionPart loopPart = (LoopPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && loopPart != null && isAccessible(GraalViewsRepository.Loop.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && loopPart != null && isAccessible(GraalViewsRepository.Loop.Properties.description)){
 				if (msg.getNewValue() != null) {
 					loopPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -204,14 +208,14 @@ public class LoopLoopPropertiesEditionComponent extends SinglePartPropertiesEdit
 			}
 			if (GraalPackage.eINSTANCE.getActivity_SubActivities().equals(msg.getFeature()) && isAccessible(GraalViewsRepository.Loop.Properties.subActivities))
 				loopPart.updateSubActivities();
-			if (GraalPackage.eINSTANCE.getLoop_LowerBound().equals(msg.getFeature()) && loopPart != null && isAccessible(GraalViewsRepository.Loop.Properties.lowerBound)) {
+			if (GraalPackage.eINSTANCE.getLoop_LowerBound().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && loopPart != null && isAccessible(GraalViewsRepository.Loop.Properties.lowerBound)) {
 				if (msg.getNewValue() != null) {
 					loopPart.setLowerBound(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
 					loopPart.setLowerBound("");
 				}
 			}
-			if (GraalPackage.eINSTANCE.getLoop_UpperBound().equals(msg.getFeature()) && loopPart != null && isAccessible(GraalViewsRepository.Loop.Properties.upperBound)) {
+			if (GraalPackage.eINSTANCE.getLoop_UpperBound().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && loopPart != null && isAccessible(GraalViewsRepository.Loop.Properties.upperBound)) {
 				if (msg.getNewValue() != null) {
 					loopPart.setUpperBound(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
 				} else {
@@ -220,6 +224,21 @@ public class LoopLoopPropertiesEditionComponent extends SinglePartPropertiesEdit
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			GraalPackage.eINSTANCE.getActivity_SubActivities(),
+			GraalPackage.eINSTANCE.getLoop_LowerBound(),
+			GraalPackage.eINSTANCE.getLoop_UpperBound()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -236,21 +255,21 @@ public class LoopLoopPropertiesEditionComponent extends SinglePartPropertiesEdit
 				if (GraalViewsRepository.Loop.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.Loop.Properties.lowerBound == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getLoop_LowerBound().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(GraalPackage.eINSTANCE.getLoop_LowerBound().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getLoop_LowerBound().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.Loop.Properties.upperBound == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getLoop_UpperBound().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(GraalPackage.eINSTANCE.getLoop_UpperBound().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getLoop_UpperBound().getEAttributeType(), newValue);
 				}
@@ -262,5 +281,8 @@ public class LoopLoopPropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		return ret;
 	}
+
+
+	
 
 }

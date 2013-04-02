@@ -11,11 +11,12 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -52,7 +53,7 @@ public class ActorActorPropertiesEditionComponent extends SinglePartPropertiesEd
 	/**
 	 * Settings for subActors ReferencesTable
 	 */
-	private	ReferencesTableSettings subActorsSettings;
+	private ReferencesTableSettings subActorsSettings;
 	
 	/**
 	 * Settings for superActor EObjectFlatComboViewer
@@ -82,10 +83,11 @@ public class ActorActorPropertiesEditionComponent extends SinglePartPropertiesEd
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Actor actor = (Actor)elt;
 			final ActorPropertiesEditionPart actorPart = (ActorPropertiesEditionPart)editingPart;
 			// init values
-			if (actor.getDescription() != null && isAccessible(GraalViewsRepository.Actor.Properties.description))
+			if (isAccessible(GraalViewsRepository.Actor.Properties.description))
 				actorPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, actor.getDescription()));
 			if (isAccessible(GraalViewsRepository.Actor.Properties.subActors)) {
 				subActorsSettings = new ReferencesTableSettings(actor, GraalPackage.eINSTANCE.getActor_SubActors());
@@ -98,44 +100,32 @@ public class ActorActorPropertiesEditionComponent extends SinglePartPropertiesEd
 				// set the button mode
 				actorPart.setSuperActorButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (actor.getName() != null && isAccessible(GraalViewsRepository.Actor.Properties.name))
+			if (isAccessible(GraalViewsRepository.Actor.Properties.name))
 				actorPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, actor.getName()));
 			
 			// init filters
 			
-			actorPart.addFilterToSubActors(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!actorPart.isContainedInSubActorsTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			actorPart.addFilterToSubActors(new EObjectFilter(GraalPackage.Literals.ACTOR));
-			// Start of user code 
-			// End of user code
-			
-			actorPart.addFilterToSuperActor(new ViewerFilter() {
-			
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-			 */
-			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				return (element instanceof String && element.equals("")) || (element instanceof Actor); //$NON-NLS-1$ 
-				}
-			
-			});
-			// Start of user code 
-			// End of user code
-			
+			if (isAccessible(GraalViewsRepository.Actor.Properties.subActors)) {
+				actorPart.addFilterToSubActors(new EObjectFilter(GraalPackage.Literals.ACTOR));
+				// Start of user code for additional businessfilters for subActors
+				// End of user code
+			}
+			if (isAccessible(GraalViewsRepository.Actor.Properties.superActor)) {
+				actorPart.addFilterToSuperActor(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof String && element.equals("")) || (element instanceof Actor); //$NON-NLS-1$ 
+					}
+					
+				});
+				// Start of user code for additional businessfilters for superActor
+				// End of user code
+			}
 			
 			// init values for referenced views
 			
@@ -218,9 +208,10 @@ public class ActorActorPropertiesEditionComponent extends SinglePartPropertiesEd
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ActorPropertiesEditionPart actorPart = (ActorPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && actorPart != null && isAccessible(GraalViewsRepository.Actor.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && actorPart != null && isAccessible(GraalViewsRepository.Actor.Properties.description)){
 				if (msg.getNewValue() != null) {
 					actorPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -231,7 +222,7 @@ public class ActorActorPropertiesEditionComponent extends SinglePartPropertiesEd
 				actorPart.updateSubActors();
 			if (GraalPackage.eINSTANCE.getActor_SuperActor().equals(msg.getFeature()) && actorPart != null && isAccessible(GraalViewsRepository.Actor.Properties.superActor))
 				actorPart.setSuperActor((EObject)msg.getNewValue());
-			if (GraalPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && actorPart != null && isAccessible(GraalViewsRepository.Actor.Properties.name)) {
+			if (GraalPackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && actorPart != null && isAccessible(GraalViewsRepository.Actor.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					actorPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -240,6 +231,21 @@ public class ActorActorPropertiesEditionComponent extends SinglePartPropertiesEd
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			GraalPackage.eINSTANCE.getActor_SubActors(),
+			GraalPackage.eINSTANCE.getActor_SuperActor(),
+			GraalPackage.eINSTANCE.getNamedElement_Name()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -256,14 +262,14 @@ public class ActorActorPropertiesEditionComponent extends SinglePartPropertiesEd
 				if (GraalViewsRepository.Actor.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
 				if (GraalViewsRepository.Actor.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(GraalPackage.eINSTANCE.getNamedElement_Name().getEAttributeType(), newValue);
 				}
@@ -275,5 +281,8 @@ public class ActorActorPropertiesEditionComponent extends SinglePartPropertiesEd
 		}
 		return ret;
 	}
+
+
+	
 
 }

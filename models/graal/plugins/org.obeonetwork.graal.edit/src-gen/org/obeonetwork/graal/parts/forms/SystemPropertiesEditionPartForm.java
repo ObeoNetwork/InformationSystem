@@ -189,8 +189,33 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 			@Override
 			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SystemPropertiesEditionPartForm.this, GraalViewsRepository.System.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							SystemPropertiesEditionPartForm.this,
+							GraalViewsRepository.System.Properties.name,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									SystemPropertiesEditionPartForm.this,
+									GraalViewsRepository.System.Properties.name,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, name.getText()));
+				}
+			}
+
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									SystemPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
 			}
 		});
 		name.addKeyListener(new KeyAdapter() {
@@ -210,6 +235,9 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		EditingUtils.setID(name, GraalViewsRepository.System.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.System.Properties.name, GraalViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -234,14 +262,41 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 			 * 
 			 */
 			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SystemPropertiesEditionPartForm.this, GraalViewsRepository.System.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
+							SystemPropertiesEditionPartForm.this,
+							GraalViewsRepository.System.Properties.description,
+							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									SystemPropertiesEditionPartForm.this,
+									GraalViewsRepository.System.Properties.description,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
+									null, description.getText()));
+				}
 			}
 
+			/**
+			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
+			 */
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (propertiesEditionComponent != null) {
+					propertiesEditionComponent
+							.firePropertiesChanged(new PropertiesEditionEvent(
+									SystemPropertiesEditionPartForm.this,
+									null,
+									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
+									null, null));
+				}
+			}
 		});
 		EditingUtils.setID(description, GraalViewsRepository.System.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.System.Properties.description, GraalViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -273,6 +328,9 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		this.dtoCategories.disableMove();
 		dtoCategories.setID(GraalViewsRepository.System.Properties.dtoCategories);
 		dtoCategories.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createDtoCategoriesReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -354,6 +412,9 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		this.dtos.disableMove();
 		dtos.setID(GraalViewsRepository.System.Properties.dtos);
 		dtos.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createDtosReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -435,6 +496,9 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		this.entityBlocks.disableMove();
 		entityBlocks.setID(GraalViewsRepository.System.Properties.entityBlocks);
 		entityBlocks.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createEntityBlocksReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -516,6 +580,9 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		this.entities.disableMove();
 		entities.setID(GraalViewsRepository.System.Properties.entities);
 		entities.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createEntitiesReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -577,7 +644,7 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -604,6 +671,14 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -628,6 +703,15 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -643,6 +727,14 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		dtoCategories.setContentProvider(contentProvider);
 		dtoCategories.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.dtoCategories);
+		if (eefElementEditorReadOnlyState && dtoCategories.getTable().isEnabled()) {
+			dtoCategories.setEnabled(false);
+			dtoCategories.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !dtoCategories.getTable().isEnabled()) {
+			dtoCategories.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -698,6 +790,14 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		dtos.setContentProvider(contentProvider);
 		dtos.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.dtos);
+		if (eefElementEditorReadOnlyState && dtos.getTable().isEnabled()) {
+			dtos.setEnabled(false);
+			dtos.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !dtos.getTable().isEnabled()) {
+			dtos.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -753,6 +853,14 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		entityBlocks.setContentProvider(contentProvider);
 		entityBlocks.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.entityBlocks);
+		if (eefElementEditorReadOnlyState && entityBlocks.getTable().isEnabled()) {
+			entityBlocks.setEnabled(false);
+			entityBlocks.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !entityBlocks.getTable().isEnabled()) {
+			entityBlocks.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -808,6 +916,14 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		entities.setContentProvider(contentProvider);
 		entities.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.entities);
+		if (eefElementEditorReadOnlyState && entities.getTable().isEnabled()) {
+			entities.setEnabled(false);
+			entities.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !entities.getTable().isEnabled()) {
+			entities.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -865,7 +981,7 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		return GraalMessages.System_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

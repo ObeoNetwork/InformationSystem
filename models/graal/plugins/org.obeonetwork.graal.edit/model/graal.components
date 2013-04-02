@@ -37,7 +37,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="__tuRfx8dEeCC-oZI6xw5iw" name="name" views="__tvfpB8dEeCC-oZI6xw5iw">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace/name"/>
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//NamedElement/name"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_spD3EJalEeCxeJYZTx8nbA" name="dtoCategories" views="_xvkGYJZvEeCxeJYZTx8nbA">
           <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/dtoCategories"/>
@@ -313,7 +313,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_PKgUwsP_EeCTTaDQLx2uWA" name="name" views="_jTWHw8P-EeCTTaDQLx2uWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace/name"/>
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//NamedElement/name"/>
         </properties>
         <referencedBinding xmi:id="_PKgUx8P_EeCTTaDQLx2uWA">
           <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>

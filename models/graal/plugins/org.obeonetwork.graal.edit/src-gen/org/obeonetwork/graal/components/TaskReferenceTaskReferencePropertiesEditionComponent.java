@@ -11,11 +11,12 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -54,12 +55,12 @@ public class TaskReferenceTaskReferencePropertiesEditionComponent extends Single
 	/**
 	 * Settings for outgoingTransitions ReferencesTable
 	 */
-	private	ReferencesTableSettings outgoingTransitionsSettings;
+	private ReferencesTableSettings outgoingTransitionsSettings;
 	
 	/**
 	 * Settings for incomingTransitions ReferencesTable
 	 */
-	private	ReferencesTableSettings incomingTransitionsSettings;
+	private ReferencesTableSettings incomingTransitionsSettings;
 	
 	/**
 	 * Settings for task EObjectFlatComboViewer
@@ -89,10 +90,11 @@ public class TaskReferenceTaskReferencePropertiesEditionComponent extends Single
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final TaskReference taskReference = (TaskReference)elt;
 			final TaskReferencePropertiesEditionPart taskReferencePart = (TaskReferencePropertiesEditionPart)editingPart;
 			// init values
-			if (taskReference.getDescription() != null && isAccessible(GraalViewsRepository.TaskReference.Properties.description))
+			if (isAccessible(GraalViewsRepository.TaskReference.Properties.description))
 				taskReferencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, taskReference.getDescription()));
 			if (isAccessible(GraalViewsRepository.TaskReference.Properties.outgoingTransitions)) {
 				outgoingTransitionsSettings = new ReferencesTableSettings(taskReference, GraalPackage.eINSTANCE.getNode_OutgoingTransitions());
@@ -111,57 +113,32 @@ public class TaskReferenceTaskReferencePropertiesEditionComponent extends Single
 			}
 			// init filters
 			
-			taskReferencePart.addFilterToOutgoingTransitions(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!taskReferencePart.isContainedInOutgoingTransitionsTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			taskReferencePart.addFilterToOutgoingTransitions(new EObjectFilter(GraalPackage.Literals.TRANSITION));
-			// Start of user code 
-			// End of user code
-			
-			taskReferencePart.addFilterToIncomingTransitions(new ViewerFilter() {
-			
-				/**
-				 * {@inheritDoc}
-				 * 
-				 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-				 */
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					if (element instanceof EObject)
-						return (!taskReferencePart.isContainedInIncomingTransitionsTable((EObject)element));
-					return element instanceof Resource;
-				}
-			
-			});
-			taskReferencePart.addFilterToIncomingTransitions(new EObjectFilter(GraalPackage.Literals.TRANSITION));
-			// Start of user code 
-			// End of user code
-			
-			taskReferencePart.addFilterToTask(new ViewerFilter() {
-			
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-			 */
-			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				return (element instanceof Task);
-				}
-			
-			});
-			// Start of user code 
-			// End of user code
-			
+			if (isAccessible(GraalViewsRepository.TaskReference.Properties.outgoingTransitions)) {
+				taskReferencePart.addFilterToOutgoingTransitions(new EObjectFilter(GraalPackage.Literals.TRANSITION));
+				// Start of user code for additional businessfilters for outgoingTransitions
+				// End of user code
+			}
+			if (isAccessible(GraalViewsRepository.TaskReference.Properties.incomingTransitions)) {
+				taskReferencePart.addFilterToIncomingTransitions(new EObjectFilter(GraalPackage.Literals.TRANSITION));
+				// Start of user code for additional businessfilters for incomingTransitions
+				// End of user code
+			}
+			if (isAccessible(GraalViewsRepository.TaskReference.Properties.task)) {
+				taskReferencePart.addFilterToTask(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof Task);
+					}
+					
+				});
+				// Start of user code for additional businessfilters for task
+				// End of user code
+			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -251,9 +228,10 @@ public class TaskReferenceTaskReferencePropertiesEditionComponent extends Single
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			TaskReferencePropertiesEditionPart taskReferencePart = (TaskReferencePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && taskReferencePart != null && isAccessible(GraalViewsRepository.TaskReference.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && taskReferencePart != null && isAccessible(GraalViewsRepository.TaskReference.Properties.description)){
 				if (msg.getNewValue() != null) {
 					taskReferencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -268,6 +246,21 @@ public class TaskReferenceTaskReferencePropertiesEditionComponent extends Single
 				taskReferencePart.setTask((EObject)msg.getNewValue());
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			GraalPackage.eINSTANCE.getNode_OutgoingTransitions(),
+			GraalPackage.eINSTANCE.getNode_IncomingTransitions(),
+			GraalPackage.eINSTANCE.getTaskReference_Task()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -294,7 +287,7 @@ public class TaskReferenceTaskReferencePropertiesEditionComponent extends Single
 				if (GraalViewsRepository.TaskReference.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EcoreUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), newValue);
 				}
@@ -306,5 +299,8 @@ public class TaskReferenceTaskReferencePropertiesEditionComponent extends Single
 		}
 		return ret;
 	}
+
+
+	
 
 }

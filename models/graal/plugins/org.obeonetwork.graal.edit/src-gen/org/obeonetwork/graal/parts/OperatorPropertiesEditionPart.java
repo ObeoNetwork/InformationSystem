@@ -5,7 +5,6 @@ package org.obeonetwork.graal.parts;
 
 // Start of user code for imports
 import org.eclipse.emf.common.util.Enumerator;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.eclipse.jface.viewers.ViewerFilter;
@@ -27,10 +26,10 @@ public interface OperatorPropertiesEditionPart {
 
 	/**
 	 * Init the kind
-	 * @param eenum the enum to manage
+	 * @param input the viewer input
 	 * @param current the current value
 	 */
-	public void initKind(EEnum eenum, Enumerator current);
+	public void initKind(Object input, Enumerator current);
 
 	/**
 	 * Defines a new kind
@@ -149,7 +148,7 @@ public interface OperatorPropertiesEditionPart {
 	 */
 	public String getTitle();
 
-	// Start of user code 
+	// Start of user code for additional methods
 	
 	// End of user code
 

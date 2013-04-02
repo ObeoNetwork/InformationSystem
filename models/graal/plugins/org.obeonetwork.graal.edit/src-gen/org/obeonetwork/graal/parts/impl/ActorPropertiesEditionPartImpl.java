@@ -155,7 +155,7 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, GraalViewsRepository.Actor.Properties.name, GraalMessages.ActorPropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -195,6 +195,9 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		EditingUtils.setID(name, GraalViewsRepository.Actor.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.Actor.Properties.name, GraalViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -204,7 +207,7 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -227,6 +230,9 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		EditingUtils.setID(description, GraalViewsRepository.Actor.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.Actor.Properties.description, GraalViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -250,6 +256,9 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		superActor.setLayoutData(superActorData);
 		superActor.setID(GraalViewsRepository.Actor.Properties.superActor);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.Actor.Properties.superActor, GraalViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createSuperActorFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -343,7 +352,7 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -370,6 +379,14 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Actor.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(GraalMessages.Actor_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -394,6 +411,15 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Actor.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.Actor_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -421,6 +447,14 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		if (current != null) {
 			superActor.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Actor.Properties.superActor);
+		if (eefElementEditorReadOnlyState && superActor.isEnabled()) {
+			superActor.setEnabled(false);
+			superActor.setToolTipText(GraalMessages.Actor_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !superActor.isEnabled()) {
+			superActor.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -435,6 +469,14 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		} else {
 			superActor.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Actor.Properties.superActor);
+		if (eefElementEditorReadOnlyState && superActor.isEnabled()) {
+			superActor.setEnabled(false);
+			superActor.setToolTipText(GraalMessages.Actor_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !superActor.isEnabled()) {
+			superActor.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -479,6 +521,14 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		subActors.setContentProvider(contentProvider);
 		subActors.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Actor.Properties.subActors);
+		if (eefElementEditorReadOnlyState && subActors.getTable().isEnabled()) {
+			subActors.setEnabled(false);
+			subActors.setToolTipText(GraalMessages.Actor_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !subActors.getTable().isEnabled()) {
+			subActors.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -536,7 +586,7 @@ public class ActorPropertiesEditionPartImpl extends CompositePropertiesEditionPa
 		return GraalMessages.Actor_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 

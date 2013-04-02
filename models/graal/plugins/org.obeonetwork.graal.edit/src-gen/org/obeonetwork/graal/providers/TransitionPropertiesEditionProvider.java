@@ -6,14 +6,24 @@ package org.obeonetwork.graal.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
+import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
+
 import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
+
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.Transition;
+
 import org.obeonetwork.graal.components.TransitionPropertiesEditionComponent;
 import org.obeonetwork.graal.components.TransitionTransitionPropertiesEditionComponent;
 
@@ -132,7 +142,8 @@ public class TransitionPropertiesEditionProvider extends PropertiesEditingProvid
 		 * @see org.eclipse.jface.viewers.IFilter#select(java.lang.Object)
 		 */
 		public boolean select(Object toTest) {
-			return toTest instanceof EObject && GraalPackage.Literals.TRANSITION == ((EObject)toTest).eClass();
+			EObject eObj = EEFUtils.resolveSemanticObject(toTest);
+			return eObj != null && GraalPackage.Literals.TRANSITION == eObj.eClass();
 		}
 		
 	}

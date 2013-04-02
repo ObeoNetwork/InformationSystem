@@ -164,7 +164,7 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	
 	protected Composite createNameText(Composite parent) {
 		createDescription(parent, GraalViewsRepository.System.Properties.name, GraalMessages.SystemPropertiesEditionPart_NameLabel);
-		name = new Text(parent, SWT.BORDER);
+		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
 		name.addFocusListener(new FocusAdapter() {
@@ -204,6 +204,9 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		EditingUtils.setID(name, GraalViewsRepository.System.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.System.Properties.name, GraalViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -213,7 +216,7 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
-		description = new Text(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionData.horizontalSpan = 2;
 		descriptionData.heightHint = 80;
@@ -236,6 +239,9 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		EditingUtils.setID(description, GraalViewsRepository.System.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(GraalViewsRepository.System.Properties.description, GraalViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDescriptionTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -575,7 +581,7 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 	 * 
 	 */
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code 
+		// Start of user code for tab synchronization
 		
 		// End of user code
 	}
@@ -602,6 +608,14 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -626,6 +640,15 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.description);
+		if (eefElementEditorReadOnlyState && description.isEnabled()) {
+			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			description.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
+			description.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -641,6 +664,14 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		dtoCategories.setContentProvider(contentProvider);
 		dtoCategories.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.dtoCategories);
+		if (eefElementEditorReadOnlyState && dtoCategories.getTable().isEnabled()) {
+			dtoCategories.setEnabled(false);
+			dtoCategories.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !dtoCategories.getTable().isEnabled()) {
+			dtoCategories.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -696,6 +727,14 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		dtos.setContentProvider(contentProvider);
 		dtos.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.dtos);
+		if (eefElementEditorReadOnlyState && dtos.getTable().isEnabled()) {
+			dtos.setEnabled(false);
+			dtos.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !dtos.getTable().isEnabled()) {
+			dtos.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -751,6 +790,14 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		entityBlocks.setContentProvider(contentProvider);
 		entityBlocks.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.entityBlocks);
+		if (eefElementEditorReadOnlyState && entityBlocks.getTable().isEnabled()) {
+			entityBlocks.setEnabled(false);
+			entityBlocks.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !entityBlocks.getTable().isEnabled()) {
+			entityBlocks.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -806,6 +853,14 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		entities.setContentProvider(contentProvider);
 		entities.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.entities);
+		if (eefElementEditorReadOnlyState && entities.getTable().isEnabled()) {
+			entities.setEnabled(false);
+			entities.setToolTipText(GraalMessages.System_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !entities.getTable().isEnabled()) {
+			entities.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -863,7 +918,7 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		return GraalMessages.System_Part_Title;
 	}
 
-	// Start of user code 
+	// Start of user code additional methods
 	
 	// End of user code
 
