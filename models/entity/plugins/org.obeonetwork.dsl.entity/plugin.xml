@@ -27,7 +27,7 @@
       <package
             uri="http://www.obeonetwork.org/dsl/entity/2.0.0/utilities"
             class="org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage"
-            genModel="model/entity.genmodel"/>
+            genModel="model/entity_cdonative.genmodel"/>
    </extension>
    
    <extension point="org.eclipse.core.contenttype.contentTypes">
