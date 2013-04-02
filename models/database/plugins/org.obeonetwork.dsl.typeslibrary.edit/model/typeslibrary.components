@@ -72,7 +72,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//UserDefinedTypesLibrary"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.genmodel#//typeslibrary"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.typeslibrary/model/typeslibrary_cdonative.genmodel#//typeslibrary"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_SxB--CouEeGaTeM9McGXjA" documentation="Views repository for typeslibrary GenPackage" name="typeslibrary">
     <RepositoryKind>SWT</RepositoryKind>
