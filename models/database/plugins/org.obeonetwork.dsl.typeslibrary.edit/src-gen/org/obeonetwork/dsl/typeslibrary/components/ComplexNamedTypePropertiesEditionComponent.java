@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -74,10 +76,11 @@ public class ComplexNamedTypePropertiesEditionComponent extends SinglePartProper
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final ComplexNamedType complexNamedType = (ComplexNamedType)elt;
 			final ComplexNamedTypePropertiesEditionPart complexNamedTypePart = (ComplexNamedTypePropertiesEditionPart)editingPart;
 			// init values
-			if (complexNamedType.getName() != null && isAccessible(TypeslibraryViewsRepository.ComplexNamedType.Properties.name))
+			if (isAccessible(TypeslibraryViewsRepository.ComplexNamedType.Properties.name))
 				complexNamedTypePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, complexNamedType.getName()));
 			
 			if (isAccessible(TypeslibraryViewsRepository.ComplexNamedType.Properties.types)) {
@@ -169,9 +172,10 @@ public class ComplexNamedTypePropertiesEditionComponent extends SinglePartProper
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ComplexNamedTypePropertiesEditionPart complexNamedTypePart = (ComplexNamedTypePropertiesEditionPart)editingPart;
-			if (TypesLibraryPackage.eINSTANCE.getUserDefinedType_Name().equals(msg.getFeature()) && complexNamedTypePart != null && isAccessible(TypeslibraryViewsRepository.ComplexNamedType.Properties.name)) {
+			if (TypesLibraryPackage.eINSTANCE.getUserDefinedType_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && complexNamedTypePart != null && isAccessible(TypeslibraryViewsRepository.ComplexNamedType.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					complexNamedTypePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -182,6 +186,19 @@ public class ComplexNamedTypePropertiesEditionComponent extends SinglePartProper
 				complexNamedTypePart.updateTypes();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			TypesLibraryPackage.eINSTANCE.getUserDefinedType_Name(),
+			TypesLibraryPackage.eINSTANCE.getComplexNamedType_Types()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -210,5 +227,8 @@ public class ComplexNamedTypePropertiesEditionComponent extends SinglePartProper
 		}
 		return ret;
 	}
+
+
+	
 
 }

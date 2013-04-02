@@ -133,6 +133,9 @@ public class UserDefinedTypeRefPropertiesEditionPartImpl extends CompositeProper
 		type.setLayoutData(typeData);
 		type.setID(TypeslibraryViewsRepository.UserDefinedTypeRef.Properties.type);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(TypeslibraryViewsRepository.UserDefinedTypeRef.Properties.type, TypeslibraryViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTypeFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -174,6 +177,14 @@ public class UserDefinedTypeRefPropertiesEditionPartImpl extends CompositeProper
 		if (current != null) {
 			type.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.UserDefinedTypeRef.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(TypeslibraryMessages.UserDefinedTypeRef_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -188,6 +199,14 @@ public class UserDefinedTypeRefPropertiesEditionPartImpl extends CompositeProper
 		} else {
 			type.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.UserDefinedTypeRef.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(TypeslibraryMessages.UserDefinedTypeRef_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**

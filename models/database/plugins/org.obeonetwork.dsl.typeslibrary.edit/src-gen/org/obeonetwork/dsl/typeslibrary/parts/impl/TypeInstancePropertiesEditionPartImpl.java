@@ -172,6 +172,9 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		EditingUtils.setID(type.getCombo(), TypeslibraryViewsRepository.TypeInstance.Properties.type);
 		EditingUtils.setEEFtype(type.getCombo(), "eef::Combo"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(TypeslibraryViewsRepository.TypeInstance.Properties.type, TypeslibraryViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTypeEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -230,6 +233,9 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		EditingUtils.setID(length, TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length);
 		EditingUtils.setEEFtype(length, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length, TypeslibraryViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createLengthText
+
+		// End of user code
 		return parent;
 	}
 
@@ -276,6 +282,9 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		EditingUtils.setID(precision, TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision);
 		EditingUtils.setEEFtype(precision, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision, TypeslibraryViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createPrecisionText
+
+		// End of user code
 		return parent;
 	}
 
@@ -316,6 +325,9 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		});
 		EditingUtils.setID(editLiterals, TypeslibraryViewsRepository.TypeInstance.Properties.literals);
 		EditingUtils.setEEFtype(editLiterals, "eef::MultiValuedEditor::browsebutton"); //$NON-NLS-1$
+		// Start of user code for createLiteralsMultiValuedEditor
+
+		// End of user code
 		return parent;
 	}
 
@@ -369,6 +381,14 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			type.modelUpdating(new StructuredSelection("")); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.TypeInstance.Properties.type);
+		if (eefElementEditorReadOnlyState && type.isEnabled()) {
+			type.setEnabled(false);
+			type.setToolTipText(TypeslibraryMessages.TypeInstance_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
+			type.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -403,6 +423,14 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			length.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length);
+		if (eefElementEditorReadOnlyState && length.isEnabled()) {
+			length.setEnabled(false);
+			length.setToolTipText(TypeslibraryMessages.TypeInstance_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !length.isEnabled()) {
+			length.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -427,6 +455,14 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			precision.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision);
+		if (eefElementEditorReadOnlyState && precision.isEnabled()) {
+			precision.setEnabled(false);
+			precision.setToolTipText(TypeslibraryMessages.TypeInstance_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !precision.isEnabled()) {
+			precision.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -452,6 +488,14 @@ public class TypeInstancePropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			literals.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.TypeInstance.Properties.literals);
+		if (eefElementEditorReadOnlyState && literals.isEnabled()) {
+			literals.setEnabled(false);
+			literals.setToolTipText(TypeslibraryMessages.TypeInstance_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !literals.isEnabled()) {
+			literals.setEnabled(true);
+		}	
+		
 	}
 
 	public void addToLiterals(Object newValue) {

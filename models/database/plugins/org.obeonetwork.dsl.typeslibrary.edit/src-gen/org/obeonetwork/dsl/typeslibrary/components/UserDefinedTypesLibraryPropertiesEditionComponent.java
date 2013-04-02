@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
@@ -74,10 +76,11 @@ public class UserDefinedTypesLibraryPropertiesEditionComponent extends SinglePar
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final UserDefinedTypesLibrary userDefinedTypesLibrary = (UserDefinedTypesLibrary)elt;
 			final UserDefinedTypesLibraryPropertiesEditionPart userDefinedTypesLibraryPart = (UserDefinedTypesLibraryPropertiesEditionPart)editingPart;
 			// init values
-			if (userDefinedTypesLibrary.getName() != null && isAccessible(TypeslibraryViewsRepository.UserDefinedTypesLibrary.Properties.name))
+			if (isAccessible(TypeslibraryViewsRepository.UserDefinedTypesLibrary.Properties.name))
 				userDefinedTypesLibraryPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, userDefinedTypesLibrary.getName()));
 			
 			if (isAccessible(TypeslibraryViewsRepository.UserDefinedTypesLibrary.Properties.userDefinedTypes)) {
@@ -169,9 +172,10 @@ public class UserDefinedTypesLibraryPropertiesEditionComponent extends SinglePar
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			UserDefinedTypesLibraryPropertiesEditionPart userDefinedTypesLibraryPart = (UserDefinedTypesLibraryPropertiesEditionPart)editingPart;
-			if (TypesLibraryPackage.eINSTANCE.getUserDefinedTypesLibrary_Name().equals(msg.getFeature()) && userDefinedTypesLibraryPart != null && isAccessible(TypeslibraryViewsRepository.UserDefinedTypesLibrary.Properties.name)) {
+			if (TypesLibraryPackage.eINSTANCE.getUserDefinedTypesLibrary_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && userDefinedTypesLibraryPart != null && isAccessible(TypeslibraryViewsRepository.UserDefinedTypesLibrary.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					userDefinedTypesLibraryPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -182,6 +186,19 @@ public class UserDefinedTypesLibraryPropertiesEditionComponent extends SinglePar
 				userDefinedTypesLibraryPart.updateUserDefinedTypes();
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			TypesLibraryPackage.eINSTANCE.getUserDefinedTypesLibrary_Name(),
+			TypesLibraryPackage.eINSTANCE.getUserDefinedTypesLibrary_UserDefinedTypes()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -210,5 +227,8 @@ public class UserDefinedTypesLibraryPropertiesEditionComponent extends SinglePar
 		}
 		return ret;
 	}
+
+
+	
 
 }

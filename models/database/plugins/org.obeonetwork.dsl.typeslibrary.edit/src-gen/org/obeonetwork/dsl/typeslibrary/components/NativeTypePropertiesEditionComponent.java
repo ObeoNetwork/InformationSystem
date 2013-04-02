@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -75,10 +77,11 @@ public class NativeTypePropertiesEditionComponent extends SinglePartPropertiesEd
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final NativeType nativeType = (NativeType)elt;
 			final NativeTypePropertiesEditionPart nativeTypePart = (NativeTypePropertiesEditionPart)editingPart;
 			// init values
-			if (nativeType.getName() != null && isAccessible(TypeslibraryViewsRepository.NativeType.Properties.name))
+			if (isAccessible(TypeslibraryViewsRepository.NativeType.Properties.name))
 				nativeTypePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, nativeType.getName()));
 			
 			if (isAccessible(TypeslibraryViewsRepository.NativeType.Properties.spec)) {
@@ -176,22 +179,37 @@ public class NativeTypePropertiesEditionComponent extends SinglePartPropertiesEd
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			NativeTypePropertiesEditionPart nativeTypePart = (NativeTypePropertiesEditionPart)editingPart;
-			if (TypesLibraryPackage.eINSTANCE.getNativeType_Name().equals(msg.getFeature()) && nativeTypePart != null && isAccessible(TypeslibraryViewsRepository.NativeType.Properties.name)) {
+			if (TypesLibraryPackage.eINSTANCE.getNativeType_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && nativeTypePart != null && isAccessible(TypeslibraryViewsRepository.NativeType.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					nativeTypePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					nativeTypePart.setName("");
 				}
 			}
-			if (TypesLibraryPackage.eINSTANCE.getNativeType_Spec().equals(msg.getFeature()) && isAccessible(TypeslibraryViewsRepository.NativeType.Properties.spec))
+			if (TypesLibraryPackage.eINSTANCE.getNativeType_Spec().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(TypeslibraryViewsRepository.NativeType.Properties.spec))
 				nativeTypePart.setSpec((NativeTypeKind)msg.getNewValue());
 			
 			if (TypesLibraryPackage.eINSTANCE.getNativeType_MapsTo().equals(msg.getFeature()) && nativeTypePart != null && isAccessible(TypeslibraryViewsRepository.NativeType.Properties.mapsTo))
 				nativeTypePart.setMapsTo((EObject)msg.getNewValue());
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			TypesLibraryPackage.eINSTANCE.getNativeType_Name(),
+			TypesLibraryPackage.eINSTANCE.getNativeType_Spec(),
+			TypesLibraryPackage.eINSTANCE.getNativeType_MapsTo()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -227,5 +245,8 @@ public class NativeTypePropertiesEditionComponent extends SinglePartPropertiesEd
 		}
 		return ret;
 	}
+
+
+	
 
 }

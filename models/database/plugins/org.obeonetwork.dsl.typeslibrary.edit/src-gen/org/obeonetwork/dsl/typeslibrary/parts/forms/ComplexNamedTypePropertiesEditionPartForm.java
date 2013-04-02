@@ -203,6 +203,9 @@ public class ComplexNamedTypePropertiesEditionPartForm extends SectionProperties
 		EditingUtils.setID(name, TypeslibraryViewsRepository.ComplexNamedType.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(TypeslibraryViewsRepository.ComplexNamedType.Properties.name, TypeslibraryViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -251,6 +254,9 @@ public class ComplexNamedTypePropertiesEditionPartForm extends SectionProperties
 		this.types.setUpperBound(-1);
 		types.setID(TypeslibraryViewsRepository.ComplexNamedType.Properties.types);
 		types.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createTypesTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -289,6 +295,14 @@ public class ComplexNamedTypePropertiesEditionPartForm extends SectionProperties
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.ComplexNamedType.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(TypeslibraryMessages.ComplexNamedType_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -304,6 +318,14 @@ public class ComplexNamedTypePropertiesEditionPartForm extends SectionProperties
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		types.setContentProvider(contentProvider);
 		types.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.ComplexNamedType.Properties.types);
+		if (eefElementEditorReadOnlyState && types.isEnabled()) {
+			types.setEnabled(false);
+			types.setToolTipText(TypeslibraryMessages.ComplexNamedType_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !types.isEnabled()) {
+			types.setEnabled(true);
+		}	
+		
 	}
 
 	/**

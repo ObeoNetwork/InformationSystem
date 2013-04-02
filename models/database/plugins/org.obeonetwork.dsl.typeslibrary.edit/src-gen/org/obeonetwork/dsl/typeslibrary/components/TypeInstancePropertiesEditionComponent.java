@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.WrappedException;
@@ -18,7 +19,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
@@ -66,19 +69,20 @@ public class TypeInstancePropertiesEditionComponent extends SinglePartProperties
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final TypeInstance typeInstance = (TypeInstance)elt;
 			final TypeInstancePropertiesEditionPart typeInstancePart = (TypeInstancePropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.type)) {
 				typeInstancePart.initType(EEFUtils.choiceOfValues(typeInstance, TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType()), typeInstance.getNativeType());
 			}
-			if (typeInstance.getLength() != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length))
+			if (isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length))
 				typeInstancePart.setLength(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, typeInstance.getLength()));
 			
-			if (typeInstance.getPrecision() != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision))
+			if (isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision))
 				typeInstancePart.setPrecision(EEFConverterUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, typeInstance.getPrecision()));
 			
-			if (typeInstance.getLiterals() != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.literals))
+			if (isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.literals))
 				typeInstancePart.setLiterals(typeInstance.getLiterals());
 			
 			// init filters
@@ -141,7 +145,7 @@ public class TypeInstancePropertiesEditionComponent extends SinglePartProperties
 		if (TypeslibraryViewsRepository.TypeInstance.Properties.literals == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.SET) {
 				typeInstance.getLiterals().clear();
-				typeInstance.getLiterals().addAll(((List) event.getNewValue()));
+				typeInstance.getLiterals().addAll(((EList) event.getNewValue()));
 			}
 		}
 	}
@@ -151,30 +155,54 @@ public class TypeInstancePropertiesEditionComponent extends SinglePartProperties
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			TypeInstancePropertiesEditionPart typeInstancePart = (TypeInstancePropertiesEditionPart)editingPart;
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType().equals(msg.getFeature()) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.type))
+			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.type))
 				typeInstancePart.setType((Object)msg.getNewValue());
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Length().equals(msg.getFeature()) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length)) {
+			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Length().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.length)) {
 				if (msg.getNewValue() != null) {
 					typeInstancePart.setLength(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					typeInstancePart.setLength("");
 				}
 			}
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Precision().equals(msg.getFeature()) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision)) {
+			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Precision().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.TypeAttributes.precision)) {
 				if (msg.getNewValue() != null) {
 					typeInstancePart.setPrecision(EcoreUtil.convertToString(EcorePackage.Literals.EINTEGER_OBJECT, msg.getNewValue()));
 				} else {
 					typeInstancePart.setPrecision("");
 				}
 			}
-			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Literals().equals(msg.getFeature()) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.literals)) {
-				typeInstancePart.setLiterals((EList<?>)msg.getNewValue());
+			if (TypesLibraryPackage.eINSTANCE.getTypeInstance_Literals().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && typeInstancePart != null && isAccessible(TypeslibraryViewsRepository.TypeInstance.Properties.literals)) {
+				if (msg.getNewValue() instanceof EList<?>) {
+					typeInstancePart.setLiterals((EList<?>)msg.getNewValue());
+				} else if (msg.getNewValue() == null) {
+					typeInstancePart.setLiterals(new BasicEList<Object>());
+				} else {
+					BasicEList<Object> newValueAsList = new BasicEList<Object>();
+					newValueAsList.add(msg.getNewValue());
+					typeInstancePart.setLiterals(newValueAsList);
+				}
 			}
 			
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_NativeType(),
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_Length(),
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_Precision(),
+			TypesLibraryPackage.eINSTANCE.getTypeInstance_Literals()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -227,5 +255,8 @@ public class TypeInstancePropertiesEditionComponent extends SinglePartProperties
 		}
 		return ret;
 	}
+
+
+	
 
 }

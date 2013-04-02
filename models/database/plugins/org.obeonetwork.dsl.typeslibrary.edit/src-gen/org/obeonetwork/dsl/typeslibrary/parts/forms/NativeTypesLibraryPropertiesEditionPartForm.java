@@ -203,6 +203,9 @@ public class NativeTypesLibraryPropertiesEditionPartForm extends SectionProperti
 		EditingUtils.setID(name, TypeslibraryViewsRepository.NativeTypesLibrary.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(TypeslibraryViewsRepository.NativeTypesLibrary.Properties.name, TypeslibraryViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -251,6 +254,9 @@ public class NativeTypesLibraryPropertiesEditionPartForm extends SectionProperti
 		this.nativeTypes.setUpperBound(-1);
 		nativeTypes.setID(TypeslibraryViewsRepository.NativeTypesLibrary.Properties.nativeTypes);
 		nativeTypes.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createNativeTypesTableComposition
+
+		// End of user code
 		return parent;
 	}
 
@@ -289,6 +295,14 @@ public class NativeTypesLibraryPropertiesEditionPartForm extends SectionProperti
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.NativeTypesLibrary.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(TypeslibraryMessages.NativeTypesLibrary_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -304,6 +318,14 @@ public class NativeTypesLibraryPropertiesEditionPartForm extends SectionProperti
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		nativeTypes.setContentProvider(contentProvider);
 		nativeTypes.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.NativeTypesLibrary.Properties.nativeTypes);
+		if (eefElementEditorReadOnlyState && nativeTypes.isEnabled()) {
+			nativeTypes.setEnabled(false);
+			nativeTypes.setToolTipText(TypeslibraryMessages.NativeTypesLibrary_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !nativeTypes.isEnabled()) {
+			nativeTypes.setEnabled(true);
+		}	
+		
 	}
 
 	/**

@@ -207,6 +207,9 @@ public class NativeTypePropertiesEditionPartForm extends SectionPropertiesEditin
 		EditingUtils.setID(name, TypeslibraryViewsRepository.NativeType.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(TypeslibraryViewsRepository.NativeType.Properties.name, TypeslibraryViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -234,6 +237,9 @@ public class NativeTypePropertiesEditionPartForm extends SectionPropertiesEditin
 		});
 		spec.setID(TypeslibraryViewsRepository.NativeType.Properties.spec);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(TypeslibraryViewsRepository.NativeType.Properties.spec, TypeslibraryViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createSpecEMFComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -264,6 +270,9 @@ public class NativeTypePropertiesEditionPartForm extends SectionPropertiesEditin
 		});
 		mapsTo.setID(TypeslibraryViewsRepository.NativeType.Properties.mapsTo);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(TypeslibraryViewsRepository.NativeType.Properties.mapsTo, TypeslibraryViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createMapsToFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -302,6 +311,14 @@ public class NativeTypePropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.NativeType.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(TypeslibraryMessages.NativeType_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -323,6 +340,14 @@ public class NativeTypePropertiesEditionPartForm extends SectionPropertiesEditin
 	public void initSpec(Object input, Enumerator current) {
 		spec.setInput(input);
 		spec.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.NativeType.Properties.spec);
+		if (eefElementEditorReadOnlyState && spec.isEnabled()) {
+			spec.setEnabled(false);
+			spec.setToolTipText(TypeslibraryMessages.NativeType_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !spec.isEnabled()) {
+			spec.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -333,6 +358,14 @@ public class NativeTypePropertiesEditionPartForm extends SectionPropertiesEditin
 	 */
 	public void setSpec(Enumerator newValue) {
 		spec.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.NativeType.Properties.spec);
+		if (eefElementEditorReadOnlyState && spec.isEnabled()) {
+			spec.setEnabled(false);
+			spec.setToolTipText(TypeslibraryMessages.NativeType_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !spec.isEnabled()) {
+			spec.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -360,6 +393,14 @@ public class NativeTypePropertiesEditionPartForm extends SectionPropertiesEditin
 		if (current != null) {
 			mapsTo.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.NativeType.Properties.mapsTo);
+		if (eefElementEditorReadOnlyState && mapsTo.isEnabled()) {
+			mapsTo.setEnabled(false);
+			mapsTo.setToolTipText(TypeslibraryMessages.NativeType_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !mapsTo.isEnabled()) {
+			mapsTo.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -374,6 +415,14 @@ public class NativeTypePropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			mapsTo.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(TypeslibraryViewsRepository.NativeType.Properties.mapsTo);
+		if (eefElementEditorReadOnlyState && mapsTo.isEnabled()) {
+			mapsTo.setEnabled(false);
+			mapsTo.setToolTipText(TypeslibraryMessages.NativeType_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !mapsTo.isEnabled()) {
+			mapsTo.setEnabled(true);
+		}	
+		
 	}
 
 	/**
