@@ -9,66 +9,47 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.EMFModelViewerDialog;
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.graphics.Image;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.dsl.database.Column;
+import org.obeonetwork.dsl.database.components.TablePrimaryKeyPropertiesEditionComponent;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
 import org.obeonetwork.dsl.database.parts.PrimaryKeyPropertiesEditionPart;
-
 import org.obeonetwork.dsl.database.providers.DatabaseMessages;
 
 // End of user code
@@ -209,6 +190,9 @@ public class PrimaryKeyPropertiesEditionPartImpl extends CompositePropertiesEdit
 		EditingUtils.setID(name, DatabaseViewsRepository.PrimaryKey.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.PrimaryKey.Properties.name, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -362,6 +346,9 @@ public class PrimaryKeyPropertiesEditionPartImpl extends CompositePropertiesEdit
 
 		};
 		dialog.open();
+		// Start of user code for addColumns
+
+		// End of user code
 		columns.refresh();
 	}
 
@@ -406,6 +393,9 @@ public class PrimaryKeyPropertiesEditionPartImpl extends CompositePropertiesEdit
 		EditingUtils.setID(comments, DatabaseViewsRepository.PrimaryKey.Properties.comments);
 		EditingUtils.setEEFtype(comments, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.PrimaryKey.Properties.comments, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCommentsTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -444,6 +434,14 @@ public class PrimaryKeyPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.PrimaryKey.Properties.name, ((TablePrimaryKeyPropertiesEditionComponent) propertiesEditionComponent).getPkNameSettings().getOrCreateSignificantObject());
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -459,6 +457,20 @@ public class PrimaryKeyPropertiesEditionPartImpl extends CompositePropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		columns.setContentProvider(contentProvider);
 		columns.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.PrimaryKey.Properties.columns);
+		if (eefElementEditorReadOnlyState && columns.getTable().isEnabled()) {
+			columns.getTable().setEnabled(false);
+			columns.getTable().setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+			addColumns.setEnabled(false);
+			addColumns.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+			removeColumns.setEnabled(false);
+			removeColumns.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !columns.getTable().isEnabled()) {
+			columns.getTable().setEnabled(true);
+			addColumns.setEnabled(true);
+			removeColumns.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -523,6 +535,15 @@ public class PrimaryKeyPropertiesEditionPartImpl extends CompositePropertiesEdit
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.PrimaryKey.Properties.comments, ((TablePrimaryKeyPropertiesEditionComponent) propertiesEditionComponent).getPkCommentsSettings().getOrCreateSignificantObject());
+		if (eefElementEditorReadOnlyState && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

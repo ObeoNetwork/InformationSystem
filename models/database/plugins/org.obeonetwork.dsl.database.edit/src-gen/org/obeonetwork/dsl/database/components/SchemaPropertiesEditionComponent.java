@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -59,13 +61,14 @@ public class SchemaPropertiesEditionComponent extends SinglePartPropertiesEditin
 		setInitializing(true);
 		if (editingPart != null && key == partKey) {
 			editingPart.setContext(elt, allResource);
+			
 			final Schema schema = (Schema)elt;
 			final SchemaPropertiesEditionPart schemaPart = (SchemaPropertiesEditionPart)editingPart;
 			// init values
-			if (schema.getName() != null && isAccessible(DatabaseViewsRepository.Schema.Properties.name))
+			if (isAccessible(DatabaseViewsRepository.Schema.Properties.name))
 				schemaPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, schema.getName()));
 			
-			if (schema.getComments() != null && isAccessible(DatabaseViewsRepository.Schema.Properties.comments))
+			if (isAccessible(DatabaseViewsRepository.Schema.Properties.comments))
 				schemaPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, schema.getComments()));
 			// init filters
 			
@@ -116,16 +119,17 @@ public class SchemaPropertiesEditionComponent extends SinglePartPropertiesEditin
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updatePart(org.eclipse.emf.common.notify.Notification)
 	 */
 	public void updatePart(Notification msg) {
+		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			SchemaPropertiesEditionPart schemaPart = (SchemaPropertiesEditionPart)editingPart;
-			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && schemaPart != null && isAccessible(DatabaseViewsRepository.Schema.Properties.name)) {
+			if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && schemaPart != null && isAccessible(DatabaseViewsRepository.Schema.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					schemaPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
 					schemaPart.setName("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && schemaPart != null && isAccessible(DatabaseViewsRepository.Schema.Properties.comments)){
+			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && schemaPart != null && isAccessible(DatabaseViewsRepository.Schema.Properties.comments)){
 				if (msg.getNewValue() != null) {
 					schemaPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -134,6 +138,19 @@ public class SchemaPropertiesEditionComponent extends SinglePartPropertiesEditin
 			}
 			
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+	 */
+	@Override
+	protected NotificationFilter[] getNotificationFilters() {
+		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+			DatabasePackage.eINSTANCE.getNamedElement_Name(),
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments()		);
+		return new NotificationFilter[] {filter,};
 	}
 
 
@@ -179,5 +196,8 @@ public class SchemaPropertiesEditionComponent extends SinglePartPropertiesEditin
 		}
 		return ret;
 	}
+
+
+	
 
 }

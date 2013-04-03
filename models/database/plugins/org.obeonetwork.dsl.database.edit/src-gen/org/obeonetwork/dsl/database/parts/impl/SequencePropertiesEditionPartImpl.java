@@ -208,6 +208,9 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(name, DatabaseViewsRepository.Sequence.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.name, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -266,6 +269,9 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(start, DatabaseViewsRepository.Sequence.Properties.StartIncrement.start);
 		EditingUtils.setEEFtype(start, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.StartIncrement.start, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createStartText
+
+		// End of user code
 		return parent;
 	}
 
@@ -312,6 +318,9 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(increment, DatabaseViewsRepository.Sequence.Properties.StartIncrement.increment);
 		EditingUtils.setEEFtype(increment, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.StartIncrement.increment, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createIncrementText
+
+		// End of user code
 		return parent;
 	}
 
@@ -370,6 +379,9 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(minValue, DatabaseViewsRepository.Sequence.Properties.MinMax.minValue);
 		EditingUtils.setEEFtype(minValue, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.MinMax.minValue, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createMinValueText
+
+		// End of user code
 		return parent;
 	}
 
@@ -416,6 +428,9 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(maxValue, DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue);
 		EditingUtils.setEEFtype(maxValue, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createMaxValueText
+
+		// End of user code
 		return parent;
 	}
 
@@ -459,6 +474,9 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(cycle, DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle);
 		EditingUtils.setEEFtype(cycle, "eef::Checkbox"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCycleCheckbox
+
+		// End of user code
 		return parent;
 	}
 
@@ -505,6 +523,9 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(cacheSize, DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize);
 		EditingUtils.setEEFtype(cacheSize, "eef::Text"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCacheSizeText
+
+		// End of user code
 		return parent;
 	}
 
@@ -537,6 +558,9 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		EditingUtils.setID(comments, DatabaseViewsRepository.Sequence.Properties.comments);
 		EditingUtils.setEEFtype(comments, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.Sequence.Properties.comments, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCommentsTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -575,6 +599,14 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.Sequence.Properties.name);
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -599,6 +631,14 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			start.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.Sequence.Properties.StartIncrement.start);
+		if (eefElementEditorReadOnlyState && start.isEnabled()) {
+			start.setEnabled(false);
+			start.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !start.isEnabled()) {
+			start.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -623,6 +663,14 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			increment.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.Sequence.Properties.StartIncrement.increment);
+		if (eefElementEditorReadOnlyState && increment.isEnabled()) {
+			increment.setEnabled(false);
+			increment.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !increment.isEnabled()) {
+			increment.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -647,6 +695,14 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			minValue.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.Sequence.Properties.MinMax.minValue);
+		if (eefElementEditorReadOnlyState && minValue.isEnabled()) {
+			minValue.setEnabled(false);
+			minValue.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !minValue.isEnabled()) {
+			minValue.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -671,6 +727,14 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			maxValue.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.Sequence.Properties.MinMax.maxValue);
+		if (eefElementEditorReadOnlyState && maxValue.isEnabled()) {
+			maxValue.setEnabled(false);
+			maxValue.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !maxValue.isEnabled()) {
+			maxValue.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -695,6 +759,14 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			cycle.setSelection(false);
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cycle);
+		if (eefElementEditorReadOnlyState && cycle.isEnabled()) {
+			cycle.setEnabled(false);
+			cycle.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !cycle.isEnabled()) {
+			cycle.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -719,6 +791,14 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			cacheSize.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.Sequence.Properties.CycleCacheSize.cacheSize);
+		if (eefElementEditorReadOnlyState && cacheSize.isEnabled()) {
+			cacheSize.setEnabled(false);
+			cacheSize.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !cacheSize.isEnabled()) {
+			cacheSize.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -743,6 +823,15 @@ public class SequencePropertiesEditionPartImpl extends CompositePropertiesEditio
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.Sequence.Properties.comments);
+		if (eefElementEditorReadOnlyState && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(DatabaseMessages.Sequence_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

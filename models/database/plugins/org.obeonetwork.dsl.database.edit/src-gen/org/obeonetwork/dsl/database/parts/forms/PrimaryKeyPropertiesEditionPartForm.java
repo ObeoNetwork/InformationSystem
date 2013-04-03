@@ -51,6 +51,7 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.obeonetwork.dsl.database.Column;
+import org.obeonetwork.dsl.database.components.TablePrimaryKeyPropertiesEditionComponent;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
 import org.obeonetwork.dsl.database.parts.PrimaryKeyPropertiesEditionPart;
 import org.obeonetwork.dsl.database.providers.DatabaseMessages;
@@ -220,6 +221,9 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 		EditingUtils.setID(name, DatabaseViewsRepository.PrimaryKey.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.PrimaryKey.Properties.name, DatabaseViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createNameText
+
+		// End of user code
 		return parent;
 	}
 
@@ -240,6 +244,9 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 		EditingUtils.setID(columns.getTable(), DatabaseViewsRepository.PrimaryKey.Properties.columns);
 		EditingUtils.setEEFtype(columns.getTable(), "eef::ReferencesTable::field"); //$NON-NLS-1$
 		createColumnsControlPanel(parent, widgetFactory);
+		// Start of user code for createColumnsReferencesTable
+
+		// End of user code
 		return parent;
 	}
 
@@ -356,6 +363,9 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 		});
 		EditingUtils.setID(removeColumns, DatabaseViewsRepository.PrimaryKey.Properties.columns);
 		EditingUtils.setEEFtype(removeColumns, "eef::ReferencesTable::removebutton"); //$NON-NLS-1$
+		// Start of user code for createColumnsControlPanel
+
+		// End of user code
 	}
 
 	/**
@@ -372,6 +382,9 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 			}
 
 		};
+		// Start of user code for addColumns
+
+		// End of user code
 		dialog.open();
 		columns.refresh();
 	}
@@ -441,6 +454,9 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 		EditingUtils.setID(comments, DatabaseViewsRepository.PrimaryKey.Properties.comments);
 		EditingUtils.setEEFtype(comments, "eef::Textarea"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.PrimaryKey.Properties.comments, DatabaseViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCommentsTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -479,6 +495,14 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.PrimaryKey.Properties.name, ((TablePrimaryKeyPropertiesEditionComponent) propertiesEditionComponent).getPkNameSettings().getOrCreateSignificantObject());
+		if (eefElementEditorReadOnlyState && name.isEnabled()) {
+			name.setEnabled(false);
+			name.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
+			name.setEnabled(true);
+		}	
+		
 	}
 
 
@@ -494,6 +518,20 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		columns.setContentProvider(contentProvider);
 		columns.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.PrimaryKey.Properties.columns);
+		if (eefElementEditorReadOnlyState && columns.getTable().isEnabled()) {
+			columns.getTable().setEnabled(false);
+			columns.getTable().setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+			addColumns.setEnabled(false);
+			addColumns.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+			removeColumns.setEnabled(false);
+			removeColumns.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !columns.getTable().isEnabled()) {
+			columns.getTable().setEnabled(true);
+			addColumns.setEnabled(true);
+			removeColumns.setEnabled(true);
+		}
+		
 	}
 
 	/**
@@ -558,6 +596,15 @@ public class PrimaryKeyPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.PrimaryKey.Properties.comments, ((TablePrimaryKeyPropertiesEditionComponent) propertiesEditionComponent).getPkCommentsSettings().getOrCreateSignificantObject());
+		if (eefElementEditorReadOnlyState && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(DatabaseMessages.PrimaryKey_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

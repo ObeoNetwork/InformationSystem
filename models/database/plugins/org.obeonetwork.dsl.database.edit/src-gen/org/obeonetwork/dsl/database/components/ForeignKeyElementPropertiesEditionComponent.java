@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilter;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
@@ -316,6 +318,24 @@ public class ForeignKeyElementPropertiesEditionComponent extends SinglePartPrope
 
 
 	/**
+   * {@inheritDoc}
+   * 
+   * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#getNotificationFilters()
+   */
+  @Override
+  protected NotificationFilter[] getNotificationFilters() {
+    NotificationFilter filter = new EStructuralFeatureNotificationFilter(
+      DatabasePackage.eINSTANCE.getDatabaseElement_Comments(),
+      DatabasePackage.eINSTANCE.getForeignKeyElement_FkColumn(),
+      DatabasePackage.eINSTANCE.getForeignKeyElement_PkColumn(),
+      DatabasePackage.eINSTANCE.getNamedElement_Name()
+      ,
+      DatabasePackage.eINSTANCE.getNamedElement_Name()
+          );
+    return new NotificationFilter[] {filter,};
+  }
+
+  /**
 	 * {@inheritDoc}
 	 * 
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#isRequired(java.lang.Object, int)
@@ -364,5 +384,19 @@ public class ForeignKeyElementPropertiesEditionComponent extends SinglePartPrope
 		}
 		return ret;
 	}
+
+  /**
+   * @ return settings for sourceTable editor
+   */
+  public EEFEditorSettingsImpl getSourceTableSettings() {
+      return sourceTableSettings;
+  }
+
+  /**
+   * @ return settings for targetTable editor
+   */
+  public EEFEditorSettingsImpl getTargetTableSettings() {
+      return targetTableSettings;
+  }
 
 }

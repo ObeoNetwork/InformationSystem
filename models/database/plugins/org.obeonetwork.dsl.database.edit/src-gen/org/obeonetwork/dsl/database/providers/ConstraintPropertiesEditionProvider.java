@@ -6,22 +6,14 @@ package org.obeonetwork.dsl.database.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
-
 import org.eclipse.jface.viewers.IFilter;
-
 import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.DatabasePackage;
-
 import org.obeonetwork.dsl.database.components.ConstraintPropertiesEditionComponent;
 
 /**

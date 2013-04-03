@@ -36,7 +36,7 @@
    <extension
          point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
       <PropertiesEditionPartProvider
-            providerClass="org.obeonetwork.dsl.database.providers.DatabasePropertiesEditionPartProvider">
+            providerClass="org.obeonetwork.dsl.database.providers.CustomDatabasePropertiesEditionPartProvider">
       </PropertiesEditionPartProvider>
    </extension>
    
@@ -181,7 +181,7 @@
                tab="Table">
          </propertySection>
          <propertySection
-               class="org.obeonetwork.dsl.database.parts.forms.PrimaryKeyPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.database.parts.forms.CustomPrimaryKeyPropertiesEditionPartForm"
                id="org.obeonetwork.dsl.database.section.Table.PrimaryKey"
                filter="org.obeonetwork.dsl.database.filters.PrimaryKeyForTableTabPropertiesEditionSection"
                tab="Primary Key">
@@ -205,7 +205,7 @@
                tab="Indexes">
          </propertySection>
          <propertySection
-               class="org.obeonetwork.dsl.database.parts.forms.PrimaryKeyPropertiesEditionPartForm"
+               class="org.obeonetwork.dsl.database.parts.forms.CustomPrimaryKeyPropertiesEditionPartForm"
                id="org.obeonetwork.dsl.database.section.PrimaryKey"
                filter="org.obeonetwork.dsl.database.filters.PrimaryKeyTabPropertiesEditionSection"
                tab="Primary Key">

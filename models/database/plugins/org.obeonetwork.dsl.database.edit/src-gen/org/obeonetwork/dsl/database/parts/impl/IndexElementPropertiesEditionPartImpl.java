@@ -5,57 +5,39 @@ package org.obeonetwork.dsl.database.parts.impl;
 
 // Start of user code for imports
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.EObjectFlatComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
 import org.obeonetwork.dsl.database.parts.IndexElementPropertiesEditionPart;
-
 import org.obeonetwork.dsl.database.providers.DatabaseMessages;
 
 // End of user code
@@ -169,6 +151,9 @@ public class IndexElementPropertiesEditionPartImpl extends CompositePropertiesEd
 		column.setLayoutData(columnData);
 		column.setID(DatabaseViewsRepository.IndexElement.Properties.column);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.IndexElement.Properties.column, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createColumnFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -196,6 +181,9 @@ public class IndexElementPropertiesEditionPartImpl extends CompositePropertiesEd
 		EditingUtils.setID(asc, DatabaseViewsRepository.IndexElement.Properties.asc);
 		EditingUtils.setEEFtype(asc, "eef::Checkbox"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.IndexElement.Properties.asc, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createAscCheckbox
+
+		// End of user code
 		return parent;
 	}
 
@@ -228,6 +216,9 @@ public class IndexElementPropertiesEditionPartImpl extends CompositePropertiesEd
 		EditingUtils.setID(comments, DatabaseViewsRepository.IndexElement.Properties.comments);
 		EditingUtils.setEEFtype(comments, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.IndexElement.Properties.comments, DatabaseViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCommentsTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -269,6 +260,14 @@ public class IndexElementPropertiesEditionPartImpl extends CompositePropertiesEd
 		if (current != null) {
 			column.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.IndexElement.Properties.column);
+		if (eefElementEditorReadOnlyState && column.isEnabled()) {
+			column.setEnabled(false);
+			column.setToolTipText(DatabaseMessages.IndexElement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !column.isEnabled()) {
+			column.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -283,6 +282,14 @@ public class IndexElementPropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			column.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.IndexElement.Properties.column);
+		if (eefElementEditorReadOnlyState && column.isEnabled()) {
+			column.setEnabled(false);
+			column.setToolTipText(DatabaseMessages.IndexElement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !column.isEnabled()) {
+			column.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -336,6 +343,14 @@ public class IndexElementPropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			asc.setSelection(false);
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.IndexElement.Properties.asc);
+		if (eefElementEditorReadOnlyState && asc.isEnabled()) {
+			asc.setEnabled(false);
+			asc.setToolTipText(DatabaseMessages.IndexElement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !asc.isEnabled()) {
+			asc.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -360,6 +375,15 @@ public class IndexElementPropertiesEditionPartImpl extends CompositePropertiesEd
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.IndexElement.Properties.comments);
+		if (eefElementEditorReadOnlyState && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(DatabaseMessages.IndexElement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 

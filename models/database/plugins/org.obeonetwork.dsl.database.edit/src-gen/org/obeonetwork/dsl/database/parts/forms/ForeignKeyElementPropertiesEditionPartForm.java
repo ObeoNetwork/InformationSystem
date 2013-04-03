@@ -5,60 +5,42 @@ package org.obeonetwork.dsl.database.parts.forms;
 
 // Start of user code for imports
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.EObjectFlatComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-
+import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
 import org.obeonetwork.dsl.database.parts.ForeignKeyElementPropertiesEditionPart;
-
 import org.obeonetwork.dsl.database.providers.DatabaseMessages;
 
 // End of user code
@@ -174,8 +156,6 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 	protected Composite createSourceTableText(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, DatabaseViewsRepository.ForeignKeyElement.Properties.sourceTable, DatabaseMessages.ForeignKeyElementPropertiesEditionPart_SourceTableLabel);
 		sourceTable = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		sourceTable.setEnabled(false);
-		sourceTable.setToolTipText(DatabaseMessages.ForeignKeyElement_ReadOnly);
 		sourceTable.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
 		GridData sourceTableData = new GridData(GridData.FILL_HORIZONTAL);
@@ -234,6 +214,9 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		EditingUtils.setID(sourceTable, DatabaseViewsRepository.ForeignKeyElement.Properties.sourceTable);
 		EditingUtils.setEEFtype(sourceTable, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.ForeignKeyElement.Properties.sourceTable, DatabaseViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createSourceTableText
+
+		// End of user code
 		return parent;
 	}
 
@@ -264,6 +247,9 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		});
 		fKColumn.setID(DatabaseViewsRepository.ForeignKeyElement.Properties.fKColumn);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.ForeignKeyElement.Properties.fKColumn, DatabaseViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createFKColumnFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -271,8 +257,6 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 	protected Composite createTargetTableText(FormToolkit widgetFactory, Composite parent) {
 		createDescription(parent, DatabaseViewsRepository.ForeignKeyElement.Properties.targetTable, DatabaseMessages.ForeignKeyElementPropertiesEditionPart_TargetTableLabel);
 		targetTable = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		targetTable.setEnabled(false);
-		targetTable.setToolTipText(DatabaseMessages.ForeignKeyElement_ReadOnly);
 		targetTable.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
 		GridData targetTableData = new GridData(GridData.FILL_HORIZONTAL);
@@ -331,6 +315,9 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		EditingUtils.setID(targetTable, DatabaseViewsRepository.ForeignKeyElement.Properties.targetTable);
 		EditingUtils.setEEFtype(targetTable, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.ForeignKeyElement.Properties.targetTable, DatabaseViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createTargetTableText
+
+		// End of user code
 		return parent;
 	}
 
@@ -361,6 +348,9 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		});
 		pKColumn.setID(DatabaseViewsRepository.ForeignKeyElement.Properties.pKColumn);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.ForeignKeyElement.Properties.pKColumn, DatabaseViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createPKColumnFlatComboViewer
+
+		// End of user code
 		return parent;
 	}
 
@@ -417,6 +407,9 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		EditingUtils.setID(comments, DatabaseViewsRepository.ForeignKeyElement.Properties.comments);
 		EditingUtils.setEEFtype(comments, "eef::Textarea"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.ForeignKeyElement.Properties.comments, DatabaseViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createCommentsTextArea
+
+		// End of user code
 		return parent;
 	}
 
@@ -455,6 +448,9 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		} else {
 			sourceTable.setText(""); //$NON-NLS-1$
 		}
+		sourceTable.setEnabled(false);
+		sourceTable.setToolTipText(DatabaseMessages.ForeignKeyElement_ReadOnly);
+		
 	}
 
 	/**
@@ -482,6 +478,14 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		if (current != null) {
 			fKColumn.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.ForeignKeyElement.Properties.fKColumn);
+		if (eefElementEditorReadOnlyState && fKColumn.isEnabled()) {
+			fKColumn.setEnabled(false);
+			fKColumn.setToolTipText(DatabaseMessages.ForeignKeyElement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !fKColumn.isEnabled()) {
+			fKColumn.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -496,6 +500,14 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		} else {
 			fKColumn.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.ForeignKeyElement.Properties.fKColumn);
+		if (eefElementEditorReadOnlyState && fKColumn.isEnabled()) {
+			fKColumn.setEnabled(false);
+			fKColumn.setToolTipText(DatabaseMessages.ForeignKeyElement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !fKColumn.isEnabled()) {
+			fKColumn.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -549,6 +561,9 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		} else {
 			targetTable.setText(""); //$NON-NLS-1$
 		}
+		targetTable.setEnabled(false);
+		targetTable.setToolTipText(DatabaseMessages.ForeignKeyElement_ReadOnly);
+		
 	}
 
 	/**
@@ -576,6 +591,14 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		if (current != null) {
 			pKColumn.setSelection(new StructuredSelection(settings.getValue()));
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.ForeignKeyElement.Properties.pKColumn);
+		if (eefElementEditorReadOnlyState && pKColumn.isEnabled()) {
+			pKColumn.setEnabled(false);
+			pKColumn.setToolTipText(DatabaseMessages.ForeignKeyElement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !pKColumn.isEnabled()) {
+			pKColumn.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -590,6 +613,14 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		} else {
 			pKColumn.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.ForeignKeyElement.Properties.pKColumn);
+		if (eefElementEditorReadOnlyState && pKColumn.isEnabled()) {
+			pKColumn.setEnabled(false);
+			pKColumn.setToolTipText(DatabaseMessages.ForeignKeyElement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !pKColumn.isEnabled()) {
+			pKColumn.setEnabled(true);
+		}	
+		
 	}
 
 	/**
@@ -643,6 +674,15 @@ public class ForeignKeyElementPropertiesEditionPartForm extends SectionPropertie
 		} else {
 			comments.setText(""); //$NON-NLS-1$
 		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.ForeignKeyElement.Properties.comments);
+		if (eefElementEditorReadOnlyState && comments.isEnabled()) {
+			comments.setEnabled(false);
+			comments.setBackground(comments.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+			comments.setToolTipText(DatabaseMessages.ForeignKeyElement_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !comments.isEnabled()) {
+			comments.setEnabled(true);
+		}	
+		
 	}
 
 
