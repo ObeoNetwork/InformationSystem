@@ -15,7 +15,6 @@ import org.eclipse.swt.SWT;
 import org.obeonetwork.dsl.database.components.PrimaryKeyPropertiesEditionComponent;
 import org.obeonetwork.dsl.database.components.TablePrimaryKeyPropertiesEditionComponent;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
-import org.obeonetwork.dsl.database.parts.forms.PrimaryKeyPropertiesEditionPartForm;
 import org.obeonetwork.dsl.database.providers.DatabaseMessages;
 
 
