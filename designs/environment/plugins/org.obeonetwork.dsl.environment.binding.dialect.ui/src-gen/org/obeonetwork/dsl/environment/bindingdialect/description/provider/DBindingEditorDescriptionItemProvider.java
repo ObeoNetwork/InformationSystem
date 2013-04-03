@@ -102,13 +102,13 @@ public class DBindingEditorDescriptionItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_EndUserDocumentedElement_endUserDocumentation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EndUserDocumentedElement_endUserDocumentation_feature", "_UI_EndUserDocumentedElement_type"),
+				 getString("_UI_EndUserDocumentedElement_endUserDocumentation_description"),
 				 DescriptionPackage.Literals.END_USER_DOCUMENTED_ELEMENT__END_USER_DOCUMENTATION,
 				 true,
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_DocumentationPropertyCategory"),
 				 null));
 	}
 
@@ -124,13 +124,13 @@ public class DBindingEditorDescriptionItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_IdentifiedElement_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IdentifiedElement_name_feature", "_UI_IdentifiedElement_type"),
+				 getString("_UI_IdentifiedElement_name_description"),
 				 DescriptionPackage.Literals.IDENTIFIED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_GeneralPropertyCategory"),
 				 null));
 	}
 
@@ -146,13 +146,13 @@ public class DBindingEditorDescriptionItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_IdentifiedElement_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IdentifiedElement_label_feature", "_UI_IdentifiedElement_type"),
+				 getString("_UI_IdentifiedElement_label_description"),
 				 DescriptionPackage.Literals.IDENTIFIED_ELEMENT__LABEL,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_GeneralPropertyCategory"),
 				 null));
 	}
 
@@ -168,13 +168,13 @@ public class DBindingEditorDescriptionItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_RepresentationDescription_titleExpression_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RepresentationDescription_titleExpression_feature", "_UI_RepresentationDescription_type"),
+				 getString("_UI_RepresentationDescription_titleExpression_description"),
 				 DescriptionPackage.Literals.REPRESENTATION_DESCRIPTION__TITLE_EXPRESSION,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_AdvancedPropertyCategory"),
 				 null));
 	}
 
@@ -190,13 +190,13 @@ public class DBindingEditorDescriptionItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_RepresentationDescription_initialisation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RepresentationDescription_initialisation_feature", "_UI_RepresentationDescription_type"),
+				 getString("_UI_RepresentationDescription_initialisation_description"),
 				 DescriptionPackage.Literals.REPRESENTATION_DESCRIPTION__INITIALISATION,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI_GeneralPropertyCategory"),
 				 null));
 	}
 
@@ -212,13 +212,13 @@ public class DBindingEditorDescriptionItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_RepresentationDescription_metamodel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RepresentationDescription_metamodel_feature", "_UI_RepresentationDescription_type"),
+				 getString("_UI_RepresentationDescription_metamodel_description"),
 				 DescriptionPackage.Literals.REPRESENTATION_DESCRIPTION__METAMODEL,
 				 true,
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI_MetamodelsPropertyCategory"),
 				 null));
 	}
 
@@ -234,13 +234,13 @@ public class DBindingEditorDescriptionItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_RepresentationDescription_showOnStartup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RepresentationDescription_showOnStartup_feature", "_UI_RepresentationDescription_type"),
+				 getString("_UI_RepresentationDescription_showOnStartup_description"),
 				 DescriptionPackage.Literals.REPRESENTATION_DESCRIPTION__SHOW_ON_STARTUP,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI_GeneralPropertyCategory"),
 				 null));
 	}
 
