@@ -47,12 +47,14 @@ public class EnvironmentResourceImpl extends XMIResourceImpl {
 
 	@Override
 	public void save(Map<?, ?> options) throws IOException {
-		if (options == null || !options.containsKey(XMLResource.OPTION_URI_HANDLER)) {
+		if (options == null
+				|| !options.containsKey(XMLResource.OPTION_URI_HANDLER)) {
 			Map<Object, Object> saveOptions = new HashMap<Object, Object>();
 			if (options != null) {
 				saveOptions.putAll(options);
 			}
-			saveOptions.put(XMLResource.OPTION_URI_HANDLER, new URIHandlerImpl.PlatformSchemeAware());
+			saveOptions.put(XMLResource.OPTION_URI_HANDLER,
+					new URIHandlerImpl.PlatformSchemeAware());
 			super.save(saveOptions);
 		} else {
 			super.save(options);

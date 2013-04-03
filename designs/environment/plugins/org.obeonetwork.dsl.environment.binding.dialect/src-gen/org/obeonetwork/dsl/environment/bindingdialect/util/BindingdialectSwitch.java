@@ -10,6 +10,15 @@
  */
 package org.obeonetwork.dsl.environment.bindingdialect.util;
 
+import java.util.List;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage;
+import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
+import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
+import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
+
 import fr.obeo.dsl.viewpoint.DLabelled;
 import fr.obeo.dsl.viewpoint.DMappingBased;
 import fr.obeo.dsl.viewpoint.DRefreshable;
@@ -17,16 +26,8 @@ import fr.obeo.dsl.viewpoint.DRepresentation;
 import fr.obeo.dsl.viewpoint.DRepresentationElement;
 import fr.obeo.dsl.viewpoint.DSemanticDecorator;
 import fr.obeo.dsl.viewpoint.DStylizable;
-
 import fr.obeo.dsl.viewpoint.description.DModelElement;
 import fr.obeo.dsl.viewpoint.description.DocumentedElement;
-
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-
-import org.obeonetwork.dsl.environment.bindingdialect.*;
 
 /**
  * <!-- begin-user-doc -->

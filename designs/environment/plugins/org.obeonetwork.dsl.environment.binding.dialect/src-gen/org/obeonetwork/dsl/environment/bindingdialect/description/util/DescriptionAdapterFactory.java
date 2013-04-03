@@ -10,23 +10,21 @@
  */
 package org.obeonetwork.dsl.environment.bindingdialect.description.util;
 
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorCreationDescription;
+import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
+import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage;
+
 import fr.obeo.dsl.viewpoint.description.DocumentedElement;
 import fr.obeo.dsl.viewpoint.description.EndUserDocumentedElement;
 import fr.obeo.dsl.viewpoint.description.IdentifiedElement;
 import fr.obeo.dsl.viewpoint.description.RepresentationDescription;
-
 import fr.obeo.dsl.viewpoint.description.tool.AbstractToolDescription;
 import fr.obeo.dsl.viewpoint.description.tool.RepresentationCreationDescription;
 import fr.obeo.dsl.viewpoint.description.tool.ToolEntry;
-
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
-import org.eclipse.emf.ecore.EObject;
-
-import org.obeonetwork.dsl.environment.bindingdialect.description.*;
 
 /**
  * <!-- begin-user-doc -->

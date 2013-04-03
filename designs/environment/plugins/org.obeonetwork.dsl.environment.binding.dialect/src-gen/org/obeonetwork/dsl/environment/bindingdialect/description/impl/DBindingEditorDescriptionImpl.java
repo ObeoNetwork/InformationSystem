@@ -10,26 +10,20 @@
  */
 package org.obeonetwork.dsl.environment.bindingdialect.description.impl;
 
-import fr.obeo.dsl.viewpoint.description.EndUserDocumentedElement;
-import fr.obeo.dsl.viewpoint.description.IdentifiedElement;
-
-import fr.obeo.dsl.viewpoint.description.impl.DocumentedElementImpl;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage;
+
+import fr.obeo.dsl.viewpoint.description.EndUserDocumentedElement;
+import fr.obeo.dsl.viewpoint.description.IdentifiedElement;
+import fr.obeo.dsl.viewpoint.description.impl.DocumentedElementImpl;
 
 /**
  * <!-- begin-user-doc -->

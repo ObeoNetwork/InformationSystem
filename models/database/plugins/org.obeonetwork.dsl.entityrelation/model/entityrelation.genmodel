@@ -6,7 +6,7 @@
     editorPluginClass="org.obeonetwork.dsl.entityrelation.presentation.EntityRelationEditorPlugin"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" complianceLevel="5.0"
-    copyrightFields="false" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.typeslibrary/model/typeslibrary_cdonative.genmodel#//typeslibrary">
+    copyrightFields="false" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.typeslibrary/model/typeslibrary.genmodel#//typeslibrary">
   <foreignModel>entityrelation.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="EntityRelation" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"

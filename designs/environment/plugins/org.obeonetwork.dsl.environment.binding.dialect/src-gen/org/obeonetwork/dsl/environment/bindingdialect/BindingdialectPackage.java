@@ -10,11 +10,11 @@
  */
 package org.obeonetwork.dsl.environment.bindingdialect;
 
-import fr.obeo.dsl.viewpoint.ViewpointPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import fr.obeo.dsl.viewpoint.ViewpointPackage;
 
 /**
  * <!-- begin-user-doc -->

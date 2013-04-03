@@ -11,7 +11,6 @@
 package org.obeonetwork.dsl.environment.bindingdialect;
 
 import fr.obeo.dsl.viewpoint.DRepresentationElement;
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
 
 /**
  * <!-- begin-user-doc -->

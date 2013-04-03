@@ -269,7 +269,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Sequence"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.database/model/database_cdonative.genmodel#//database"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.database/model/database.genmodel#//database"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_9diOhCZDEeGbPrqZPmsr5Q" documentation="Views repository for database GenPackage" name="database">
     <RepositoryKind>SWT</RepositoryKind>

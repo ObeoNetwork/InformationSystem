@@ -5,7 +5,7 @@
     creationIcons="false" modelPluginID="org.obeonetwork.dsl.overview" modelName="Overview"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" containmentProxies="true"
-    complianceLevel="5.0" copyrightFields="false" runtimeVersion="2.6" usedGenPackages="platform:/plugin/org.obeonetwork.dsl.environment/model/environment_cdonative.genmodel#//environment">
+    complianceLevel="5.0" copyrightFields="false" runtimeVersion="2.6" usedGenPackages="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.genmodel#//environment">
   <foreignModel>overview.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Overview" basePackage="org.obeonetwork.dsl" resource="XMI"

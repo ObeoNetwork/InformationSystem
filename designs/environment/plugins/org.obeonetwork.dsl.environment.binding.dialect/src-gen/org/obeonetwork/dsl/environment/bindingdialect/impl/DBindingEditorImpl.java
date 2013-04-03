@@ -10,37 +10,30 @@
  */
 package org.obeonetwork.dsl.environment.bindingdialect.impl;
 
-import fr.obeo.dsl.viewpoint.DRepresentationElement;
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
-import fr.obeo.dsl.viewpoint.ViewpointPackage;
-
-import fr.obeo.dsl.viewpoint.description.DescriptionPackage;
-import fr.obeo.dsl.viewpoint.impl.DRepresentationImpl;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
-
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
+
+import fr.obeo.dsl.viewpoint.DRepresentationElement;
+import fr.obeo.dsl.viewpoint.DSemanticDecorator;
+import fr.obeo.dsl.viewpoint.ViewpointPackage;
+import fr.obeo.dsl.viewpoint.impl.DRepresentationImpl;
 
 /**
  * <!-- begin-user-doc -->

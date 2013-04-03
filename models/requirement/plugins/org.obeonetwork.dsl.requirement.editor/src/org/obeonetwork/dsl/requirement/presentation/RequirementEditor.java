@@ -5,21 +5,12 @@
  */
 package org.obeonetwork.dsl.requirement.presentation;
 
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.resource.Resource;
-
 import org.eclipse.emf.eef.runtime.ui.EEFExtendedRuntime;
-
 import org.eclipse.emf.eef.runtime.ui.editor.InteractiveEEFEditor;
-
 import org.eclipse.emf.eef.runtime.ui.editors.pages.tree.EEFTreeMDFormPage;
-
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
-
 import org.eclipse.swt.widgets.Composite;
-
 import org.eclipse.ui.PartInitException;
 /**
  * This is an example of a requirement model editor.

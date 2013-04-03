@@ -48,7 +48,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//CinematicRoot"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic_cdonative.genmodel#//cinematic"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.genmodel#//cinematic"/>
   </eef-components:PropertiesEditionContext>
   <eef-components:PropertiesEditionContext xmi:id="_4vx27IfMEeGX84h4aFslOw" documentation="Edition Context for view GenPackage">
     <categories xmi:id="_4vx27YfMEeGX84h4aFslOw" name="view">
@@ -164,7 +164,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//view/ViewContainerReference"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic_cdonative.genmodel#//cinematic/view"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.genmodel#//cinematic/view"/>
   </eef-components:PropertiesEditionContext>
   <eef-components:PropertiesEditionContext xmi:id="_4vyd_ofMEeGX84h4aFslOw" documentation="Edition Context for flow GenPackage">
     <categories xmi:id="_4vyd_4fMEeGX84h4aFslOw" name="flow">
@@ -379,7 +379,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//flow/FlowEvent"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic_cdonative.genmodel#//cinematic/flow"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.genmodel#//cinematic/flow"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_4vzFH4fMEeGX84h4aFslOw" documentation="Views repository for flow GenPackage" name="flow">
     <RepositoryKind>SWT</RepositoryKind>

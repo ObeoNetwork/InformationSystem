@@ -13,12 +13,12 @@ package org.obeonetwork.dsl.environment.bindingdialect.description.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.obeonetwork.dsl.environment.bindingdialect.description.*;
+import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorCreationDescription;
+import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
+import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionFactory;
+import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage;
 
 /**
  * <!-- begin-user-doc -->

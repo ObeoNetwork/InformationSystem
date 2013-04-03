@@ -19,7 +19,7 @@
       <package
             uri="http://www.obeonetwork.org/dsl/cinematic/3.0.0"
             class="org.obeonetwork.dsl.cinematic.CinematicPackage"
-            genModel="model/cinematic_cdonative.genmodel"/>
+            genModel="model/cinematic.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
@@ -32,7 +32,7 @@
       <package
             uri="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0"
             class="org.obeonetwork.dsl.cinematic.view.ViewPackage"
-            genModel="model/cinematic_cdonative.genmodel"/>
+            genModel="model/cinematic.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
@@ -45,7 +45,7 @@
       <package
             uri="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0"
             class="org.obeonetwork.dsl.cinematic.flow.FlowPackage"
-            genModel="model/cinematic_cdonative.genmodel"/>
+            genModel="model/cinematic.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
@@ -58,7 +58,7 @@
       <package
             uri="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0"
             class="org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage"
-            genModel="model/cinematic_cdonative.genmodel"/>
+            genModel="model/cinematic.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">

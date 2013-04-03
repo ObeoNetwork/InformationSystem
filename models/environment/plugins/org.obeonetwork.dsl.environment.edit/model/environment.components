@@ -203,7 +203,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//BindingElement"/>
       </bindings>
     </categories>
-    <model href="platform:/resource/org.obeonetwork.dsl.environment/model/environment_cdonative.genmodel#//environment"/>
+    <model href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.genmodel#//environment"/>
   </eef-components:PropertiesEditionContext>
   <eef-views:ViewsRepository xmi:id="_Z4_3snCzEeCNPbrYssPTmA" documentation="Views repository for environment GenPackage" name="environment">
     <RepositoryKind>SWT</RepositoryKind>

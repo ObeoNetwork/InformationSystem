@@ -18,7 +18,7 @@
       <package
             uri="http://www.obeonetwork.org/dsl/typeslibrary/1.0"
             class="org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage"
-            genModel="model/typeslibrary_cdonative.genmodel"/>
+            genModel="model/typeslibrary.genmodel"/>
    </extension>
    
    <extension point="org.eclipse.emf.ecore.extension_parser">

@@ -9,7 +9,7 @@
     generateSchema="true" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     codeFormatting="true" testSuiteClass="org.obeonetwork.dsl.application.tests.ApplicationAllTests"
     importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" complianceLevel="5.0"
-    copyrightFields="false" language="" usedGenPackages="../../org.obeonetwork.dsl.cinematic/model/cinematic_cdonative.genmodel#//cinematic platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.obeonetwork.dsl.ecorebinding/model/ecorebinding.genmodel#//ecorebinding ../../org.obeonetwork.dsl.environment/model/environment_cdonative.genmodel#//environment"
+    copyrightFields="false" language="" usedGenPackages="../../org.obeonetwork.dsl.cinematic/model/cinematic.genmodel#//cinematic platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.obeonetwork.dsl.ecorebinding/model/ecorebinding.genmodel#//ecorebinding ../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment"
     interfaceNamePattern="" classNamePattern="">
   <foreignModel>application.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>

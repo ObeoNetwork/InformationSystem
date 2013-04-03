@@ -14,11 +14,25 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.obeonetwork.dsl.environment.Behaviour;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
-
-import org.obeonetwork.dsl.interaction.*;
+import org.obeonetwork.dsl.interaction.CallMessage;
+import org.obeonetwork.dsl.interaction.CombinedFragment;
+import org.obeonetwork.dsl.interaction.CompoundEnd;
+import org.obeonetwork.dsl.interaction.CreateParticipantMessage;
+import org.obeonetwork.dsl.interaction.DestroyParticipantMessage;
+import org.obeonetwork.dsl.interaction.End;
+import org.obeonetwork.dsl.interaction.Execution;
+import org.obeonetwork.dsl.interaction.Interaction;
+import org.obeonetwork.dsl.interaction.InteractionFragment;
+import org.obeonetwork.dsl.interaction.InteractionPackage;
+import org.obeonetwork.dsl.interaction.InteractionUse;
+import org.obeonetwork.dsl.interaction.Message;
+import org.obeonetwork.dsl.interaction.NamedElement;
+import org.obeonetwork.dsl.interaction.Operand;
+import org.obeonetwork.dsl.interaction.Participant;
+import org.obeonetwork.dsl.interaction.ReturnMessage;
+import org.obeonetwork.dsl.interaction.StateInvariant;
 
 /**
  * <!-- begin-user-doc -->

@@ -4,7 +4,7 @@
     modelDirectory="/org.obeonetwork.graal/src" creationIcons="false" modelPluginID="org.obeonetwork.graal"
     modelName="Graal" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" containmentProxies="true"
-    complianceLevel="5.0" copyrightFields="false" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.entity/model/entity_cdonative.genmodel#//entity ../../org.obeonetwork.dsl.environment/model/environment_cdonative.genmodel#//environment ../../org.obeonetwork.dsl.soa/model/soa_cdonative.genmodel#//soa">
+    complianceLevel="5.0" copyrightFields="false" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.entity/model/entity.genmodel#//entity ../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.soa/model/soa.genmodel#//soa">
   <foreignModel>graal.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Graal" basePackage="org.obeonetwork" resource="XMI" disposableProviderFactory="true"

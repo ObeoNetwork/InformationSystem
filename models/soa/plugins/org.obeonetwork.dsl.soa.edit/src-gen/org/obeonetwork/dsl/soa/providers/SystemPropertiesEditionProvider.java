@@ -21,9 +21,9 @@ import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
 import org.eclipse.jface.viewers.IFilter;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.components.SystemPropertiesEditionComponent;
 import org.obeonetwork.dsl.soa.components.SystemSystemPropertiesEditionComponent;
-import org.obeonetwork.dsl.soa.System;
 
 /**
  * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>

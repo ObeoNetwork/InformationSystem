@@ -10,11 +10,11 @@
  */
 package org.obeonetwork.dsl.environment.bindingdialect;
 
-import fr.obeo.dsl.viewpoint.DRepresentation;
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
-
 import org.eclipse.emf.common.util.EList;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
+
+import fr.obeo.dsl.viewpoint.DRepresentation;
+import fr.obeo.dsl.viewpoint.DSemanticDecorator;
 
 /**
  * <!-- begin-user-doc -->

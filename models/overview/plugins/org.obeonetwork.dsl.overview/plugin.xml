@@ -16,7 +16,7 @@
     <package 
        uri = "http://www.obeonetwork.org/dsl/overview/2.0.0" 
        class = "org.obeonetwork.dsl.overview.OverviewPackage"
-       genModel = "model/overview_cdonative.genmodel" /> 
+       genModel = "model/overview.genmodel" /> 
   </extension>
   
    <extension point="org.eclipse.emf.ecore.extension_parser">
