@@ -14,17 +14,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.obeonetwork.dsl.application.ApplicationFactory;
 import org.obeonetwork.dsl.application.ApplicationPackage;
 import org.obeonetwork.dsl.application.Configuration;
-
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
-
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
-
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 
 /**

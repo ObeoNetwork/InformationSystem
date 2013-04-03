@@ -67,6 +67,7 @@ public class BPackageItemProvider
 			super.getPropertyDescriptors(object);
 
 			addEcorePackagePropertyDescriptor(object);
+			addBClassifiersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,6 +86,28 @@ public class BPackageItemProvider
 				 getString("_UI_BPackage_ecorePackage_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BPackage_ecorePackage_feature", "_UI_BPackage_type"),
 				 EcorebindingPackage.Literals.BPACKAGE__ECORE_PACKAGE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the BClassifiers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBClassifiersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BPackage_bClassifiers_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BPackage_bClassifiers_feature", "_UI_BPackage_type"),
+				 EcorebindingPackage.Literals.BPACKAGE__BCLASSIFIERS,
 				 true,
 				 false,
 				 true,

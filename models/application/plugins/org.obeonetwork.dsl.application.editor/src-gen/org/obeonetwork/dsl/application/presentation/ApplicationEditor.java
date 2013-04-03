@@ -729,7 +729,6 @@ public class ApplicationEditor extends MultiPageEditorPart implements
 				.addAdapterFactory(new EcorebindingItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new EnvironmentItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SoaItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

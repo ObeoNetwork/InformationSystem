@@ -58,7 +58,7 @@ public final class ApplicationEditorPlugin extends EMFPlugin {
 	public ApplicationEditorPlugin() {
 		super(new ResourceLocator[] { CinematicEditPlugin.INSTANCE,
 				EcoreEditPlugin.INSTANCE, EcorebindingEditPlugin.INSTANCE,
-				EnvironmentEditPlugin.INSTANCE, SoaEditPlugin.INSTANCE, });
+				EnvironmentEditPlugin.INSTANCE, });
 	}
 
 	/**
