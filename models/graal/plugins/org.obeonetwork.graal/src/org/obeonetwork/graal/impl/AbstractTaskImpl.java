@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.System;
@@ -98,7 +99,11 @@ public abstract class AbstractTaskImpl extends NamedElementImpl implements Abstr
 			
 			@Override
 			protected boolean containment(EObject eObject) {
-				return (eObject instanceof System)
+				// We have to check for Resource because CDOResource are EObjects
+				// if we did not check, we would not retrieve anything contained within a CDO Resource
+				// (We use Resource instead of CDOResource to avoid dependency on CDO)
+				return (eObject instanceof Resource)
+					|| (eObject instanceof System)
 					|| (eObject instanceof UseCase);
 				
 			}
