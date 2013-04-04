@@ -128,6 +128,13 @@ public class LinkedRequirementsView extends EObjectLinksView {
 		};
 	}
 
+	@Override
+	protected String getShowChildrenActionTitle() {
+		return RequirementLinkerPlugin.getInstance().getString("LinkedRequirementsView_ShowChildrenAction_title");
+	}
 
-
+	@Override
+	protected String getShowChildrenActionDescription() {
+		return RequirementLinkerPlugin.getInstance().getString("LinkedRequirementsView_ShowChildrenAction_description");
+	}
 }

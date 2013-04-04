@@ -107,4 +107,15 @@ public class RelatedDocView extends EObjectLinksView {
 		});
 		return result;
 	}
+
+	@Override
+	protected String getShowChildrenActionTitle() {
+		return DocBridgeUI.getInstance().getString("RelatedDocView_ShowActionChildren_title");
+	}
+
+	@Override
+	protected String getShowChildrenActionDescription() {
+		return DocBridgeUI.getInstance().getString("RelatedDocView_ShowActionChildren_description");
+	}
+	
 }

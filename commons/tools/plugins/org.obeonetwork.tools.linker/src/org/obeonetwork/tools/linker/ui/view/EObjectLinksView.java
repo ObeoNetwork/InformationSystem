@@ -237,14 +237,22 @@ public class EObjectLinksView extends ViewPart {
 	}
 
 	protected void makeActions() {
-		switchChildrenVisibilityAction = new Action(ObeoLinkerPlugin.getInstance().getString("EObjectLinksView_ShowChildrenAction_title"), IAction.AS_CHECK_BOX) { //$NON-NLS-1$
+		switchChildrenVisibilityAction = new Action(getShowChildrenActionTitle(), IAction.AS_CHECK_BOX) { //$NON-NLS-1$
 			public void run() {
 				switchVisibility();
 				viewer.refresh();
 			}
 		};
-		switchChildrenVisibilityAction.setText(ObeoLinkerPlugin.getInstance().getString("EObjectLinksView_ShowChildrenAction_title")); //$NON-NLS-1$
-		switchChildrenVisibilityAction.setToolTipText(ObeoLinkerPlugin.getInstance().getString("EObjectLinksView_ShowChildrenAction_description")); //$NON-NLS-1$
+		switchChildrenVisibilityAction.setText(getShowChildrenActionTitle()); //$NON-NLS-1$
+		switchChildrenVisibilityAction.setToolTipText(getShowChildrenActionDescription()); //$NON-NLS-1$
+	}
+	
+	protected String getShowChildrenActionTitle() {
+		return ObeoLinkerPlugin.getInstance().getString("EObjectLinksView_ShowChildrenAction_title");
+	}
+	
+	protected String getShowChildrenActionDescription() {
+		return ObeoLinkerPlugin.getInstance().getString("EObjectLinksView_ShowChildrenAction_description");
 	}
 
 	/**
