@@ -357,7 +357,11 @@ public abstract class AbstractUserStoryDecorator extends AbstractDecorator {
 	 * @return
 	 */
 	private int translateColorValue(int initialValue, int index, int translation) {
-		return (initialValue + (index / colorsRgbValues.length) * translation) % 256;
+		int value = (initialValue + (index / colorsRgbValues.length) * translation) % 256;
+		if (value < 0) {
+			value = value + 256;
+		}
+		return value;
 	}
 	
 	/**
