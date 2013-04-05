@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.Actor;
 import org.obeonetwork.graal.GraalPackage;
