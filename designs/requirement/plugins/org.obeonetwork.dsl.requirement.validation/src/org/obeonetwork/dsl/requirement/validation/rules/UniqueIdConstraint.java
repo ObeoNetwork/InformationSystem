@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.requirement.validation.rules;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.validation.AbstractModelConstraint;
@@ -20,7 +21,6 @@ import org.eclipse.emf.validation.IValidationContext;
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
-import org.obeonetwork.dsl.requirement.util.RequirementResourceImpl;
 
 public class UniqueIdConstraint extends AbstractModelConstraint {
 
@@ -66,7 +66,7 @@ public class UniqueIdConstraint extends AbstractModelConstraint {
 	}
 	
 	private boolean shouldGetChildren(Object item) {
-		return item instanceof RequirementResourceImpl
+		return item instanceof Resource
 				|| item instanceof Repository
 				|| item instanceof Category;
 	}
