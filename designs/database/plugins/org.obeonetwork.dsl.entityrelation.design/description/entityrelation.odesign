@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="entityrelation">
-  <eAnnotations source="Migration">
-    <details key="SemanticCandidatesExpressionBehaviorChange" value=""/>
-    <details key="LabelAlignmentForDNodeListElementMappingMigrationForBehaviourPresevation" value=""/>
-    <details key="LabelAlignmentForAbstractDNodeMappingMigrationForBehaviourPresevation" value=""/>
-    <details key="SVG.BundledImageDescription.BorderColor" value=""/>
-  </eAnnotations>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="entityrelation" version="6.5.0.201210011230">
   <ownedViewpoints name="Entity Relation" label="Entity Relation" modelFileExtension="*.entityrelation">
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Reused Description" domainClass="entityrelation.LogicalModel" preconditionExpression="&lt;%false%>">
       <defaultLayer name="Default">
@@ -130,7 +124,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CRE_RelationNN" label="Relation n..n" edgeMappings="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@defaultLayer/@edgeMappings[name='ERD_Relation']" iconPath="/org.obeonetwork.dsl.entityrelation.edit/icons/full/obj16/RelationNN.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="CRE_RelationNN" label="Relation n..n" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@defaultLayer/@edgeMappings[name='ERD_Relation']" iconPath="/org.obeonetwork.dsl.entityrelation.edit/icons/full/obj16/RelationNN.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
