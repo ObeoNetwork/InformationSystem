@@ -13,6 +13,7 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
 import org.eclipse.jface.viewers.IFilter;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
+import org.obeonetwork.dsl.cinematic.Package;
 import org.obeonetwork.dsl.cinematic.components.PackagePackage_PropertiesEditionComponent;
 import org.obeonetwork.dsl.cinematic.components.PackagePropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
