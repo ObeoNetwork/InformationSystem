@@ -28,6 +28,7 @@ public class CinematicToolkitsServices {
 
 	public static Collection<Toolkit> getCinematicProvidedToolkits(EObject context, Collection<Toolkit> alreadyUsedToolkits) {
 		Collection<Toolkit> toolkits = new ArrayList<Toolkit>();
+		Collection<URI> toolkitsURI = new ArrayList<URI>();
 		
 		// Get toolkits in ResourceSet
 		Collection<Toolkit> toolkitsInResourceSet = getToolkitsInResourceSet(context);
@@ -35,6 +36,7 @@ public class CinematicToolkitsServices {
 			// We do not propose the already used toolkits
 			if (!alreadyUsedToolkits.contains(toolkitInResourceSet)) {
 				toolkits.add(toolkitInResourceSet);
+				toolkitsURI.add(EcoreUtil.getURI(toolkitInResourceSet));
 			}
 		}
 		
@@ -45,15 +47,16 @@ public class CinematicToolkitsServices {
 		}
 		
 		// Get toolkits provided using the extension point
-		Collection<URI> toolkitsURI = ToolkitsProvider.getProvidedToolkits();
-		for (URI uri : toolkitsURI) {
+		Collection<URI> providedToolkitsURI = ToolkitsProvider.getProvidedToolkits();
+		for (URI uri : providedToolkitsURI) {
 			ResourceSet set = new ResourceSetImpl();
 			Resource resource = set.getResource(uri, true);
 			if (resource != null && resource.getContents() != null) {
 				for (EObject root : resource.getContents()) {
 					if (root instanceof Toolkit) {
 						Toolkit toolkit = (Toolkit)root;
-						if (!toolkits.contains(toolkit) && !alreadyUsedToolkitsURIs.contains(EcoreUtil.getURI(toolkit))) {
+						URI toolkitURI = EcoreUtil.getURI(toolkit);
+						if (!toolkitsURI.contains(toolkitURI) && !alreadyUsedToolkitsURIs.contains(toolkitURI)) {
 							toolkits.add(toolkit);
 						}
 					}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="Cinematic">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="Cinematic" version="6.5.0.201210011230">
   <ownedViewpoints name="Cinematic Views">
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Reused Description" domainClass="cinematic.CinematicRoot" preconditionExpression="&lt;%false%>">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
@@ -11,6 +11,15 @@
           <mask mask="{0}"/>
           <initialOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%editCinematicLabel($0)%>"/>
+          </initialOperation>
+        </ownedTools>
+        <ownedTools xsi:type="tool:OperationAction" name="MNU_AssociateToolkit" label="Associate toolkit" icon="/org.obeonetwork.dsl.cinematic.edit/icons/full/obj16/Toolkit.gif">
+          <view name="views">
+            <subVariables xsi:type="tool:AcceleoVariable" name="cinematicRoot" computationExpression="&lt;%target.eContainer(&quot;CinematicRoot&quot;)%>"/>
+            <subVariables xsi:type="tool:SelectModelElementVariable" name="selectedToolkit" candidatesExpression="&lt;%current.getCinematicProvidedToolkits($cinematicRoot.toolkits)%>" message="Select a toolkit to associate"/>
+          </view>
+          <initialOperation>
+            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$cinematicRoot.associateToolkit($selectedToolkit)%>"/>
           </initialOperation>
         </ownedTools>
       </toolSection>
@@ -30,13 +39,22 @@
       </diagramInitialisation>
       <defaultLayer name="Default">
         <nodeMappings name="FLD_InitialState" semanticCandidatesExpression="&lt;%states%>" domainClass="flow.InitialState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="FLD_FinalState" semanticCandidatesExpression="&lt;%states%>" domainClass="flow.FinalState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="FLD_AbortState" semanticCandidatesExpression="&lt;%states%>" domainClass="flow.AbortState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/abort_state.png"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/abort_state.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="FLD_ViewState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="&lt;%states%>" domainClass="flow.ViewState">
           <borderedNodeMappings name="FLD_FakeNodeForViewContainerBinding" preconditionExpression="false" semanticCandidatesExpression="&lt;%null%>" documentation="This fake bordered node is used to be able to specify a creation tool on it." domainClass="flow.ViewState">
@@ -46,19 +64,34 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg"/>
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="FLD_ActionState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="&lt;%states%>" domainClass="flow.ActionState">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg"/>
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="FLD_AsyncEventState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="&lt;%states%>" domainClass="flow.AsyncEventState">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg"/>
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="FLD_SubflowState" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='CRE_Subflow_Diagram']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Subflow%20Diagram']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="&lt;%states%>" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_SubFlow_Diagram']" domainClass="flow.SubflowState">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg"/>
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <nodeMappings name="FLD_DecisionState" semanticCandidatesExpression="&lt;%states%>" domainClass="flow.DecisionState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/decision_state.svg"/>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/decision_state.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <edgeMappings name="FLD_Transition" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="&lt;%transitions%>" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetFinderExpression="&lt;%to%>" sourceFinderExpression="&lt;%from%>" targetExpression="&lt;%self%>" domainClass="flow.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Source']">
           <style sizeComputationExpression="1">
@@ -258,7 +291,7 @@
         </decorationDescriptionsSet>
       </defaultLayer>
       <optionalLayers name="Flow Events" activeByDefault="true">
-        <containerMappings name="FLD_FlowEvents" semanticCandidatesExpression="&lt;%self%>" domainClass="flow.Flow" listContainer="true">
+        <containerMappings name="FLD_FlowEvents" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@optionalLayers[name='Flow%20Events']/@toolSections.0/@ownedTools[name='DEL_PreventFlowDeletion']" semanticCandidatesExpression="&lt;%self%>" domainClass="flow.Flow" listContainer="true">
           <subNodeMappings name="FLD_FlowEvent" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="&lt;%events%>" domainClass="flow.FlowEvent">
             <style xsi:type="style:SquareDescription" labelExpression="&lt;%getCinematicLabel()%>" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -283,6 +316,14 @@
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="event&lt;%eContainer.events.nSize%>"/>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_PreventFlowDeletion">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -337,7 +378,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ViewState_To_Existing_ViewContainer" label="Bind existing View Container" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@borderedNodeMappings[name='FLD_FakeNodeForViewContainerBinding']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ViewState_To_Existing_ViewContainer" label="Bind existing View Container" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@borderedNodeMappings[name='FLD_FakeNodeForViewContainerBinding']">
             <variable name="container">
               <subVariables xsi:type="tool:AcceleoVariable" name="allContainers" computationExpression="&lt;%$container.getAllRootsForCinematic().eAllContents(&quot;view.ViewContainer&quot;)%>"/>
               <subVariables xsi:type="tool:AcceleoVariable" name="allCandidates" computationExpression="&lt;%$allContainers.nMinimize + $allContainers.ancestor.nMinimize%>"/>
@@ -354,7 +395,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ViewState_To_New_ViewContainer" label="Bind new View Container" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@borderedNodeMappings[name='FLD_FakeNodeForViewContainerBinding']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_ViewState_To_New_ViewContainer" label="Bind new View Container" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']/@borderedNodeMappings[name='FLD_FakeNodeForViewContainerBinding']">
             <variable name="container">
               <subVariables xsi:type="tool:AcceleoVariable" name="viewContainerTypes" computationExpression="&lt;%eContainer(&quot;cinematic.CinematicRoot&quot;).toolkits.widgets[isContainer]%>"/>
               <subVariables xsi:type="tool:SelectModelElementVariable" name="selectedType" candidatesExpression="&lt;%$viewContainerTypes + $viewContainerTypes.eContainer(&quot;toolkits.Toolkit&quot;).nMinimize%>" tree="true" rootExpression="&lt;%$viewContainerTypes.eContainer(&quot;toolkits.Toolkit&quot;).nMinimize%>" childrenExpression="&lt;%widgets%>" message="Select the type of the new view container"/>
@@ -373,7 +414,7 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="Usability">
+        <toolSections name="Usability" reusedTools="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='MNU_AssociateToolkit']">
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_DissociateViewStateAndViewContainer">
             <element name="element"/>
             <elementView name="elementView"/>
@@ -509,7 +550,7 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="Usability">
+        <toolSections name="Usability" reusedTools="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='MNU_AssociateToolkit']">
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="CRE_Package_Diagram" label="Package Diagram" diagramDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']">
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%current%>"/>
