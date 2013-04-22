@@ -27,7 +27,7 @@
               </style>
             </borderedNodeMappings>
             <borderedNodeMappings xsi:type="description_1:StateMapping" name="SD_StateInvariant" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='StateInvariant']/@ownedTools[name='DEL_StateInvariant']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='StateInvariant']/@ownedTools[name='EDT_StateInvariant']" semanticCandidatesExpression="&lt;%currentParticipant.getDirectEventsOn(self)%>" semanticElements="&lt;%self%>" synchronizationLock="true" domainClass="interaction.StateInvariant" startingEndFinderExpression="&lt;%startingEnd%>" finishingEndFinderExpression="&lt;%finishingEnd%>">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.interaction.design/images/state_invariant.png">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.interaction.design/images/state_invariant.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
@@ -371,7 +371,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:MessageCreationTool" name="CRE_CreateParticipantMessage" label="Create" edgeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_CreateParticipantMessage']" extraTargetMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']">
+          <ownedTools xsi:type="tool_1:MessageCreationTool" name="CRE_CreateParticipantMessage" label="Create" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_CreateParticipantMessage']" extraTargetMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -418,7 +418,7 @@
             <startingEndPredecessor name="startingEndPredecessor"/>
             <finishingEndPredecessor name="finishingEndPredecessor"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:MessageCreationTool" name="CRE_DestroyParticipantMessage" label="Destroy" edgeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_DestroyParticipantMessage']" extraTargetMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']">
+          <ownedTools xsi:type="tool_1:MessageCreationTool" name="CRE_DestroyParticipantMessage" label="Destroy" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@edgeMappings[name='SD_DestroyParticipantMessage']" extraTargetMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -829,7 +829,7 @@
             <finishingEndPredecessor name="finishingEndPredecessor"/>
             <coveredLifelines name="coverage"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:CombinedFragmentCreationTool" name="CRE_CombinedFragment" label="Combined Fragment" containerMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']" extraMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand']">
+          <ownedTools xsi:type="tool_1:CombinedFragmentCreationTool" name="CRE_CombinedFragment" label="Combined Fragment" forceRefresh="true" containerMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']" extraMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@containerMappings[name='SD_CombinedFragment']/@subContainerMappings[name='SD_Operand']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -959,7 +959,7 @@
                   </firstModelOperations>
                 </initialOperation>
               </ownedTools>
-              <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_CombinedFragment">
+              <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_CombinedFragment" forceRefresh="true">
                 <element name="element"/>
                 <elementView name="elementView"/>
                 <containerView name="containerView"/>
@@ -967,7 +967,7 @@
                   <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.deleteCombinedFragment%>"/>
                 </initialOperation>
               </ownedTools>
-              <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_Operand">
+              <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_Operand" forceRefresh="true">
                 <element name="element"/>
                 <elementView name="elementView"/>
                 <containerView name="containerView"/>
@@ -983,7 +983,9 @@
                 <representationNameVariable name="diagramName"/>
               </ownedTools>
               <ownedTools xsi:type="tool:DiagramCreationDescription" name="CRENAV_To_UsedInteraction" label="Create Sequence diagram" titleExpression="&lt;%name%> Sequence Diagram" browseExpression="&lt;%interaction%>" diagramDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']">
-                <initialOperation/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>"/>
+                </initialOperation>
                 <containerViewVariable name="containerView"/>
                 <representationNameVariable name="diagramName"/>
               </ownedTools>
