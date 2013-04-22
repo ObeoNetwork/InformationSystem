@@ -707,7 +707,9 @@
             <containerView name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%eContainer(&quot;Task&quot;)%>">
-                <subModelOperations xsi:type="tool:Unset" featureName="uses" elementExpression="&lt;%$element.task%>"/>
+                <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%nodes.filter(&quot;TaskReference&quot;)[task == $element.task].nSize == 1 %>">
+                  <subModelOperations xsi:type="tool:Unset" featureName="uses" elementExpression="&lt;%$element.task%>"/>
+                </subModelOperations>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.eContainer(&quot;Activity&quot;)%>">
                   <subModelOperations xsi:type="tool:Unset" featureName="transitions" elementExpression="&lt;%$element.incomingTransitions + $element.outgoingTransitions%>"/>
                   <subModelOperations xsi:type="tool:Unset" featureName="nodes" elementExpression="&lt;%$element%>"/>
