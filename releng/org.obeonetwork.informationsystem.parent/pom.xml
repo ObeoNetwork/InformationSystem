@@ -18,8 +18,10 @@
   <properties>
     <tycho-version>0.14.1</tycho-version>
     <platform-version-name>indigo</platform-version-name>
-    <od-site>http://www.obeo.fr/download/release/designer/6.0/6.0.2/indigo/update/</od-site>
-    <eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/1.1</eef-site>
+    <od-site>http://www.obeo.fr/download/release/designer/6.1/latest/indigo/update/</od-site>
+    <!--eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/1.1</eef-site-->
+	<!-- waiting for EEF 1.2 release -->
+	<eef-site>https://hudson.eclipse.org/hudson/job/emf-eef-1.2/173/artifact/releng/org.eclipse.emf.eef.update/target/repository/</eef-site>
     <acceleo-site>http://download.eclipse.org/modeling/m2t/acceleo/updates/interim/3.3/</acceleo-site>
     <eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
     <orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</orbit-site>
