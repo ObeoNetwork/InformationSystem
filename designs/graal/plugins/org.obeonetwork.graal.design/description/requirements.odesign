@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="requirements graal">
-  <eAnnotations source="Migration">
-    <details key="SemanticCandidatesExpressionBehaviorChange" value=""/>
-    <details key="LabelAlignmentForDNodeListElementMappingMigrationForBehaviourPresevation" value=""/>
-    <details key="SVG.BundledImageDescription.BorderColor" value=""/>
-  </eAnnotations>
-  <ownedViewpoints name="VP_Graal_Req" label="Requirements (Graal consolidated view)">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="requirements graal" version="6.5.0.201210011230">
+  <ownedViewpoints name="VP_Graal_Req" label="Requirements (Graal consolidated view)" modelFileExtension="*.requirement">
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Req_CTab_Task" label="Requirements - Task tracability matrix" domainClass="requirement.Repository">
       <ownedLineMappings name="ReqTask_Lin_Repository" label="Repository" domainClass="requirement.Repository" semanticCandidatesExpression="&lt;%self%>" headerLabelExpression="&lt;%name%>">
         <ownedSubLines name="ReqTask_Lin_Category" label="Category" reusedSubLines="//@ownedViewpoints[name='VP_Graal_Req']/@ownedRepresentations[name='Req_CTab_Task']/@ownedLineMappings[name='ReqTask_Lin_Repository']/@ownedSubLines[name='ReqTask_Lin_Category']" reusedInMappings="//@ownedViewpoints[name='VP_Graal_Req']/@ownedRepresentations[name='Req_CTab_Task']/@ownedLineMappings[name='ReqTask_Lin_Repository']/@ownedSubLines[name='ReqTask_Lin_Category']" domainClass="requirement.Category" semanticCandidatesExpression="&lt;%eContents()%>" headerLabelExpression="&lt;%id%> - &lt;%name%>">
