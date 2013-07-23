@@ -1054,7 +1054,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Existing task" candidatesExpression="&lt;%eContainer(&quot;System&quot;).eAllContents(&quot;AbstractTask&quot;) - $diagram.eAllContents.target.filter(&quot;Task&quot;)%>" tree="true" rootExpression="&lt;%eContainer(&quot;System&quot;).tasks%>" childrenExpression="&lt;%tasks%>" message="Choose an existing task to be added on this diagram" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Task.gif">
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Existing task" candidatesExpression="&lt;%eContainer(&quot;System&quot;).eAllContents(&quot;AbstractTask&quot;) - $diagram.eAllContents.filter(&quot;DSemanticDecorator&quot;).target.filter(&quot;Task&quot;)%>" tree="true" rootExpression="&lt;%eContainer(&quot;System&quot;).tasks%>" childrenExpression="&lt;%tasks%>" message="Choose an existing task to be added on this diagram" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Task.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
