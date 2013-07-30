@@ -137,7 +137,11 @@ public class TaskReferenceImpl extends NodeImpl implements TaskReference {
 
 	@Override
 	public boolean isConcernedByUserStory(UserStory userStory) {
-		return getTask().isConcernedByUserStory(userStory);
+		Task referencedTask = getTask();
+		if (referencedTask != null) {
+			return referencedTask.isConcernedByUserStory(userStory);
+		}
+		return false;
 	}
 
 	@Override
