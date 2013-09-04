@@ -24,7 +24,7 @@ public class ReferenceSpec extends ReferenceImpl {
 			super.setOppositeOf(newOppositeOf);
 
 			// If an opposite was specified, we have to unset it
-			if (oldOppositeOf != null && !oldOppositeOf.equals(newOppositeOf)) {
+			if (oldOppositeOf != null && (newOppositeOf == null || !newOppositeOf.eIsProxy()) && !oldOppositeOf.equals(newOppositeOf)) {
 				oldOppositeOf.setOppositeOf(null);
 			}
 
