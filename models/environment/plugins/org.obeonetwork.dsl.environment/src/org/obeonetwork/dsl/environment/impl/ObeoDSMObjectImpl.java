@@ -124,7 +124,10 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 
 					if (!EnvironmentUtil.isResourceLoading(notifier)) {
 						Date currentDate = new Date();
-						if (!msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON)
+
+						if (msg != null
+								&& msg.getFeature() != null
+								&& !msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON)
 								&& !msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON)) {
 							switch (msg.getEventType()) {
 							case Notification.MOVE:
