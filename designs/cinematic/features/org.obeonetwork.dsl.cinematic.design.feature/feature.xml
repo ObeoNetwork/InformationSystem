@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.dsl.cinematic.design.feature"
       label="Cinematic Designer"
-      version="3.0.0.qualifier"
+      version="3.1.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://marketplace.obeonetwork.com/">
@@ -215,7 +215,7 @@ Agreement more than one year after the cause of action arose.
 Each party waives its rights to a jury trial in any resulting
 litigation.
    </license>
-   
+
    <requires>
       <import feature="fr.obeo.dsl.feature.designer.architect" version="6.0.0" match="greaterOrEqual"/>
       <import feature="fr.obeo.dsl.viewpoint.runtime" version="6.4.0" match="greaterOrEqual"/>

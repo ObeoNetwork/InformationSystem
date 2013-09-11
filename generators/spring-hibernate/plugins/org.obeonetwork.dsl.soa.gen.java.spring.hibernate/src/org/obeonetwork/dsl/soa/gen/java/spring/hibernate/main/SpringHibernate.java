@@ -350,9 +350,6 @@ public class SpringHibernate extends AbstractAcceleoGenerator {
 	@Override
 	public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(org.obeonetwork.dsl.soa.SoaPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.soa.SoaPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.soa.SoaPackage.eINSTANCE);
-        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

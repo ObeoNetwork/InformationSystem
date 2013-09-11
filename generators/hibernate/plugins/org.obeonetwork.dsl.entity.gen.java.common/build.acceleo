@@ -18,7 +18,7 @@
         <acceleoCompiler 
             sourceFolder="${target.folder}"
             outputFolder="${target.folder}"
-            dependencies="${target.folder}/../../org.obeonetwork.dsl.environment.gen.java.common;${target.folder}/../../org.obeonetwork.acceleo.utils;"
+            dependencies="${target.folder}/../../org.obeonetwork.dsl.entity;${target.folder}/../../org.obeonetwork.dsl.environment;${target.folder}/../../org.obeonetwork.dsl.environment.gen.java.common;${target.folder}/../../org.obeonetwork.acceleo.utils;"
             binaryResource="false"
             packagesToRegister="">
         </acceleoCompiler>

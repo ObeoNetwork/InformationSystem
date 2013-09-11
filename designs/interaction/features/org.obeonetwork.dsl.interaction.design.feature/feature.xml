@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.dsl.interaction.design.feature"
       label="Interaction Designer"
-      version="2.3.0.qualifier"
+      version="2.4.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://marketplace.obeonetwork.com/">
@@ -226,7 +226,7 @@ litigation.
       <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui" version="6.4.0" match="greaterOrEqual"/>
       <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui.acceleo" version="6.4.0" match="greaterOrEqual"/>
       <import feature="fr.obeo.mda.license" version="1.0.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.interaction" version="2.3.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.interaction" version="2.4.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
