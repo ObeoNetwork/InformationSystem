@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Requirement viewpoint
-Bundle-SymbolicName: org.obeonetwork.dsl.requirement.design;singleton=true
-Bundle-Version: 1.1.0.qualifier
+Bundle-SymbolicName: org.obeonetwork.dsl.requirement.design;singleton:=true
+Bundle-Version: 1.2.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.requirement.design.Activator
 Require-Bundle: fr.obeo.acceleo.gen,
  org.eclipse.ui,
@@ -12,3 +12,4 @@ Require-Bundle: fr.obeo.acceleo.gen,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: Obeo.fr
+Bundle-ManifestVersion: 2

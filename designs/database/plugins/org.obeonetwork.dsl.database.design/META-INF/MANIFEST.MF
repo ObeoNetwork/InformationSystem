@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Obeo Designer Viewpoint Project
-Bundle-SymbolicName: org.obeonetwork.dsl.database.design;singleton=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.obeonetwork.dsl.database.design;singleton:=true
+Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.database.design.Activator
 Require-Bundle: fr.obeo.acceleo.gen,
  org.eclipse.ui,
@@ -14,3 +14,4 @@ Require-Bundle: fr.obeo.acceleo.gen,
  org.obeonetwork.dsl.database.edit
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ManifestVersion: 2

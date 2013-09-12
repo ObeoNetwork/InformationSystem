@@ -33,16 +33,16 @@
    <feature url="features/org.obeonetwork.dsl.cinematic.design.feature_3.1.0.qualifier.jar" id="org.obeonetwork.dsl.cinematic.design.feature" version="3.1.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.graal.design.feature_1.1.0.qualifier.jar" id="org.obeonetwork.graal.design.feature" version="1.1.0.qualifier">
+   <feature url="features/org.obeonetwork.graal.design.feature_1.2.0.qualifier.jar" id="org.obeonetwork.graal.design.feature" version="1.2.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
    <feature url="features/org.obeonetwork.dsl.interaction.design.feature_2.4.0.qualifier.jar" id="org.obeonetwork.dsl.interaction.design.feature" version="2.4.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.requirement.design.feature_0.8.0.qualifier.jar" id="org.obeonetwork.dsl.requirement.design.feature" version="0.8.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.requirement.design.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.requirement.design.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.statemachine.design.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.statemachine.design.feature" version="1.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.statemachine.design.feature_1.1.0.qualifier.jar" id="org.obeonetwork.dsl.statemachine.design.feature" version="1.1.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
    <feature url="features/org.obeonetwork.dsl.environment.binding.dialect.feature_2.4.0.qualifier.jar" id="org.obeonetwork.dsl.environment.binding.dialect.feature" version="2.4.0.qualifier">
@@ -63,7 +63,7 @@
    <feature url="features/org.obeonetwork.dsl.typelibrary.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.typelibrary.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.database.design.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.design.feature" version="1.0.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.database.design.feature_1.1.0.qualifier.jar" id="org.obeonetwork.dsl.database.design.feature" version="1.1.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
    <feature url="features/org.obeonetwork.dsl.entityrelation.design.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.entityrelation.design.feature" version="1.0.0.qualifier">
