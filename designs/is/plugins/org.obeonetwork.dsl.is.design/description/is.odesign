@@ -38,7 +38,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Contained In" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']/@defaultLayer/@edgeMappings[name='BHD_Containedin']" iconPath="/org.obeonetwork.dsl.is.design/description/images/containment.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Contained In" precondition="&lt;%$preTarget != $preSource %>" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Block%20Hierarchy%20Diagram']/@defaultLayer/@edgeMappings[name='BHD_Containedin']" iconPath="/org.obeonetwork.dsl.is.design/description/images/containment.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
