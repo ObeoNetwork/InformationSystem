@@ -28,7 +28,12 @@ public class ReferencesService {
 				String key1 = ref.getOppositeOf().hashCode() + "" + ref.hashCode();
 				String key2 = ref.hashCode() + "" + ref.getOppositeOf().hashCode();
 				if (map.get(key1) == null && map.get(key2) == null) {
-					map.put(key1, ref);
+					// Try to always return the same reference as first element
+					if (key1.compareTo(key2) > 0) {
+						map.put(key1, ref);
+					} else {
+						map.put(key2, ref.getOppositeOf());
+					}
 				}
 			}
 		}
@@ -42,7 +47,12 @@ public class ReferencesService {
 				String key1 = ref.getOppositeOf().hashCode() + "" + ref.hashCode();
 				String key2 = ref.hashCode() + "" + ref.getOppositeOf().hashCode();
 				if (map.get(key1) == null && map.get(key2) == null) {
-					map.put(key1, ref);
+					// Try to always return the same reference as first element
+					if (key1.compareTo(key2) > 0) {
+						map.put(key1, ref);
+					} else {
+						map.put(key2, ref.getOppositeOf());
+					}
 				}
 			}
 		}
@@ -54,10 +64,9 @@ public class ReferencesService {
 			EcoreUtil.delete(reference, true);
 		}
 	}
-	
 
-	public void deleteDtoReferences(List<org.obeonetwork.dsl.environment.Reference> references) {
-		for (org.obeonetwork.dsl.environment.Reference reference : references) {
+	public void deleteDtoReferences(List<Reference> references) {
+		for (Reference reference : references) {
 			EcoreUtil.delete(reference, true);
 		}
 	}
