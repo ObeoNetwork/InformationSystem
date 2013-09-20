@@ -18,7 +18,7 @@
             id="org.obeonetwork.dsl.statemachine.presentation.StateMachineModelWizardID"
             name="%_UI_StateMachineModelWizard_label"
             class="org.obeonetwork.dsl.statemachine.presentation.StateMachineModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.obeonetwork.dsl.is.ui.categoryID"
             icon="icons/full/obj16/StateMachineModelFile.gif">
          <description>%_UI_StateMachineModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
