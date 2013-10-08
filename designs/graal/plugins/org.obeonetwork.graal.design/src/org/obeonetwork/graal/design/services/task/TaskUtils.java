@@ -256,7 +256,8 @@ public class TaskUtils {
 	 * @param transitions Transitions to be deleted
 	 */
 	private void deleteTransitions(Collection<Transition> transitions) {
-		for (Transition transition : transitions) {
+		Collection<Transition> lTransitions = new ArrayList<Transition>(transitions);
+		for (Transition transition : lTransitions) {
 			EcoreUtil.delete(transition);
 		}
 	}
