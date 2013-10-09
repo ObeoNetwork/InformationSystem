@@ -252,7 +252,9 @@ public abstract class AbstractUserStoryDecorator extends AbstractDecorator {
 	 */
 	private void detachConfigurationAdapter() {
 		if (configurationAdapter != null && configurationAdapter.getTarget() != null) {
-			configurationAdapter.getTarget().eAdapters().remove(configurationAdapter);
+			if (configurationAdapter.getTarget() != null && configurationAdapter.getTarget().eAdapters() != null) {
+				configurationAdapter.getTarget().eAdapters().remove(configurationAdapter);
+			}
 			configurationAdapter = null;
 		}
 	}
