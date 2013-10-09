@@ -251,8 +251,10 @@ public abstract class AbstractUserStoryDecorator extends AbstractDecorator {
 	 * Detaches the adapter from the UIConfiguration
 	 */
 	private void detachConfigurationAdapter() {
-		if (configurationAdapter != null && configurationAdapter.getTarget() != null) {
-			configurationAdapter.getTarget().eAdapters().remove(configurationAdapter);
+		if (configurationAdapter != null) {
+			if (configurationAdapter.getTarget() != null && configurationAdapter.getTarget().eAdapters() != null) {
+				configurationAdapter.getTarget().eAdapters().remove(configurationAdapter);
+			}
 			configurationAdapter = null;
 		}
 	}
