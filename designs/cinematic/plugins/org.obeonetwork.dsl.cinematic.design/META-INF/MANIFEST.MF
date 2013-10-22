@@ -10,7 +10,8 @@ Require-Bundle: fr.obeo.acceleo.gen,
  fr.obeo.dsl.common,
  fr.obeo.dsl.common.ui,
  org.obeonetwork.dsl.cinematic,
- org.obeonetwork.dsl.cinematic.edit
+ org.obeonetwork.dsl.cinematic.edit,
+ org.eclipse.emf.edit.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: www.obeo.fr

@@ -707,7 +707,7 @@
             <element name="element"/>
             <root name="root"/>
           </directEdit>
-          <subItemMappings name="UIS_ContainedViewContainer" domainClass="view.ViewContainer" semanticCandidatesExpression="&lt;%getViewContainers()%>" reusedTreeItemMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewAction']">
+          <subItemMappings name="UIS_ContainedViewContainer" domainClass="view.ViewContainer" semanticCandidatesExpression="&lt;%getViewContainers()%>" reusedTreeItemMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewContainerReference'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewAction'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_DataBinding']">
             <defaultStyle labelExpression="&lt;%getCinematicLabel()%>">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -793,6 +793,16 @@
               <variables name="element" documentation="The semantic currently edited element."/>
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
+            <create name="CRE_DataBinding" label="Data Binding" forceRefresh="true" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_DataBinding']">
+              <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.createCinematicBindingInfo($selectedElement)%>"/>
+              <variables name="root" documentation="The semantic element of the tree."/>
+              <variables name="element" documentation="The semantic currently edited element.">
+                <subVariables xsi:type="tool:AcceleoVariable" name="allBoundableElements" computationExpression="&lt;%$container.getAllRootsForCinematic().eAllContents[filter(&quot;environment.DTO&quot;) || filter(&quot;environment.Property&quot;) || filter(&quot;entity.Entity&quot;) || filter(&quot;entity.Property&quot;)]%>"/>
+                <subVariables xsi:type="tool:AcceleoVariable" name="allCandidates" computationExpression="&lt;%($allBoundableElements + $allBoundableElements.ancestor).nMinimize%>"/>
+                <subVariables xsi:type="tool:SelectModelElementVariable" name="selectedElement" candidatesExpression="&lt;%$allCandidates%>" tree="true" rootExpression="&lt;%$allCandidates[eContainer == null || $allCandidates.nContains(eContainer)  == false]%>" childrenExpression="&lt;%eContents%>" message="Select an element to bind"/>
+              </variables>
+              <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            </create>
             <create name="CRE_Duplicate" label="Duplicate" forceRefresh="true" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ContainedViewContainer']">
               <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.duplicateCinematicElement()%>"/>
               <variables name="root" documentation="The semantic element of the tree."/>
@@ -800,7 +810,7 @@
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
           </subItemMappings>
-          <subItemMappings name="UIS_ViewElement" domainClass="view.ViewElement" semanticCandidatesExpression="&lt;%viewElements%>" reusedTreeItemMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewAction']">
+          <subItemMappings name="UIS_ViewElement" domainClass="view.ViewElement" semanticCandidatesExpression="&lt;%viewElements%>" reusedTreeItemMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewEvent'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_ViewAction'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_DataBinding']">
             <defaultStyle labelExpression="&lt;%getCinematicLabel()%>">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -841,6 +851,16 @@
               </firstModelOperation>
               <variables name="root" documentation="The semantic element of the tree."/>
               <variables name="element" documentation="The semantic currently edited element."/>
+              <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            </create>
+            <create name="CRE_DataBinding" label="Data Binding" forceRefresh="true" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_DataBinding']">
+              <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.createCinematicBindingInfo($selectedElement)%>"/>
+              <variables name="root" documentation="The semantic element of the tree."/>
+              <variables name="element" documentation="The semantic currently edited element.">
+                <subVariables xsi:type="tool:AcceleoVariable" name="allBoundableElements" computationExpression="&lt;%$container.getAllRootsForCinematic().eAllContents[filter(&quot;environment.DTO&quot;) || filter(&quot;environment.Property&quot;) || filter(&quot;entity.Entity&quot;) || filter(&quot;entity.Property&quot;)]%>"/>
+                <subVariables xsi:type="tool:AcceleoVariable" name="allCandidates" computationExpression="&lt;%($allBoundableElements + $allBoundableElements.ancestor).nMinimize%>"/>
+                <subVariables xsi:type="tool:SelectModelElementVariable" name="selectedElement" candidatesExpression="&lt;%$allCandidates%>" tree="true" rootExpression="&lt;%$allCandidates[eContainer == null || $allCandidates.nContains(eContainer)  == false]%>" childrenExpression="&lt;%eContents%>" message="Select an element to bind"/>
+              </variables>
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
             <create name="CRE_Duplicate" label="Duplicate" forceRefresh="true" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_SubPackage']">
@@ -936,6 +956,42 @@
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
             </create>
           </subItemMappings>
+          <subItemMappings name="UIS_DataBinding" domainClass="environment.BindingInfo" semanticCandidatesExpression="&lt;%getCinematicBindingInfos()%>">
+            <defaultStyle labelExpression="&lt;%getCinematicBindingInfoLabel()%>">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </defaultStyle>
+            <conditionalStyles predicateExpression="&lt;%getCinematicBoundElement().filter(&quot;environment.DTO&quot;)%>">
+              <style labelExpression="&lt;%getCinematicBindingInfoLabel()%>" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/databinding/DTOBinding.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </conditionalStyles>
+            <conditionalStyles predicateExpression="&lt;%getCinematicBoundElement().filter(&quot;environment.Property&quot;)%>">
+              <style labelExpression="&lt;%getCinematicBindingInfoLabel()%>" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/databinding/DTOPropertyBinding.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </conditionalStyles>
+            <conditionalStyles predicateExpression="&lt;%getCinematicBoundElement().filter(&quot;entity.Entity&quot;)%>">
+              <style labelExpression="&lt;%getCinematicBindingInfoLabel()%>" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/databinding/EntityBinding.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </conditionalStyles>
+            <conditionalStyles predicateExpression="&lt;%getCinematicBoundElement().filter(&quot;entity.Property&quot;)%>">
+              <style labelExpression="&lt;%getCinematicBindingInfoLabel()%>" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/databinding/EntityPropertyBinding.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </conditionalStyles>
+            <create name="CRE_Duplicate" label="Duplicate" forceRefresh="true">
+              <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.duplicateCinematicElement()%>"/>
+              <variables name="root" documentation="The semantic element of the tree."/>
+              <variables name="element" documentation="The semantic currently edited element."/>
+              <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            </create>
+          </subItemMappings>
           <dropTools name="DND_ViewContainer" precondition="&lt;%$element.isDropAllowedForCinematicElementOn($newContainer)%>" forceRefresh="true">
             <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.dropOnCinematicContainer($newContainer)%>"/>
             <oldContainer name="oldContainer"/>
@@ -1011,6 +1067,16 @@
             <variables name="element" documentation="The semantic currently edited element."/>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
           </create>
+          <create name="CRE_DataBinding" label="Data Binding" forceRefresh="true" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']/@subItemMappings[name='UIS_DataBinding']">
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.createCinematicBindingInfo($selectedElement)%>"/>
+            <variables name="root" documentation="The semantic element of the tree."/>
+            <variables name="element" documentation="The semantic currently edited element.">
+              <subVariables xsi:type="tool:AcceleoVariable" name="allBoundableElements" computationExpression="&lt;%$container.getAllRootsForCinematic().eAllContents[filter(&quot;environment.DTO&quot;) || filter(&quot;environment.Property&quot;) || filter(&quot;entity.Entity&quot;) || filter(&quot;entity.Property&quot;)]%>"/>
+              <subVariables xsi:type="tool:AcceleoVariable" name="allCandidates" computationExpression="&lt;%($allBoundableElements + $allBoundableElements.ancestor).nMinimize%>"/>
+              <subVariables xsi:type="tool:SelectModelElementVariable" name="selectedElement" candidatesExpression="&lt;%$allCandidates%>" tree="true" rootExpression="&lt;%$allCandidates[eContainer == null || $allCandidates.nContains(eContainer)  == false]%>" childrenExpression="&lt;%eContents%>" message="Select an element to bind"/>
+            </variables>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+          </create>
           <create name="CRE_Duplicate" label="Duplicate" forceRefresh="true" mapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='UI%20Structure']/@subItemMappings[name='UIS_Package']/@subItemMappings[name='UIS_ViewContainer']">
             <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.duplicateCinematicElement()%>"/>
             <variables name="root" documentation="The semantic element of the tree."/>
@@ -1084,5 +1150,6 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.templates.viewQueries"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicDropServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicToolkitsServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicBindingServices"/>
   </ownedViewpoints>
 </description:Group>
