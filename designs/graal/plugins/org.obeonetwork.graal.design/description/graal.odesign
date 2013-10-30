@@ -559,7 +559,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%eContainer(&quot;System&quot;)%>">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%eContainer(&quot;TasksContainer&quot;)%>">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.Task" referenceName="tasks" variableName="createdTask">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Task&lt;%eContainer(&quot;System&quot;).tasks.nSize%>"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="T&lt;%eContainer(&quot;System&quot;).tasks.nSize%>"/>
