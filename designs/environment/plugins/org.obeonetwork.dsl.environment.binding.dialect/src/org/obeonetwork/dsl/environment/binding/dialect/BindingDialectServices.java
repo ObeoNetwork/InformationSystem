@@ -124,8 +124,15 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 	 */
 	public void initRepresentations(Viewpoint viewpoint, EObject semantic) {
 	}
+
+	
 	
 	protected <T extends RepresentationDescription> void initRepresentationForElement(T representationDescription, EObject semanticElement) {
+		
+	}
+	
+	@Override
+	protected <T extends RepresentationDescription> void initRepresentationForElement(T representationDescription, EObject semanticElement, IProgressMonitor monitor) {
 		
 	}
 
@@ -135,6 +142,11 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 
 	public boolean handles(RepresentationDescription description) {
 		return isSupported(description);
+	}
+
+	@Override
+	public void initRepresentations(Viewpoint vp, EObject semantic,	IProgressMonitor monitor) {
+		
 	}
 	
 }

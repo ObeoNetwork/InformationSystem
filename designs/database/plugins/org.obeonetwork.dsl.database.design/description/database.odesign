@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="database" version="6.5.0.201210011230">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="database" version="6.7.0.201302071200">
   <ownedViewpoints name="Database" modelFileExtension="*.database">
     <ownedRepresentations xsi:type="description:DiagramDescription" name="Reused Description" domainClass="database.DataBase" preconditionExpression="&lt;%false%>">
       <defaultLayer name="Default">
@@ -25,7 +25,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="DB_Table" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="&lt;%tables%>" domainClass="database.Table" listContainer="true">
+        <containerMappings name="DB_Table" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="&lt;%tables%>" domainClass="database.Table" childrenPresentation="List">
           <subNodeMappings name="DB_Column" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="&lt;%columns%>" semanticElements="&lt;%self + sequence%>" domainClass="database.Column">
             <style xsi:type="style:SquareDescription" labelExpression="&lt;%getDatabaseElementLabel()%>" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -47,7 +47,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </containerMappings>
-        <containerMappings name="DB_View" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="&lt;%tables%>" domainClass="database.View" listContainer="true">
+        <containerMappings name="DB_View" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="&lt;%tables%>" domainClass="database.View" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" tooltipExpression="&lt;%query%>">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -166,7 +166,7 @@
         </toolSections>
       </optionalLayers>
       <optionalLayers name="External Tables" activeByDefault="true">
-        <containerMappings name="DB_Non_Referenced_External_Table" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@optionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Tables']" semanticCandidatesExpression="&lt;%allNonReferencedExternalTables%>" createElements="false" semanticElements="&lt;%self%>" domainClass="database.Table" listContainer="true">
+        <containerMappings name="DB_Non_Referenced_External_Table" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@optionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Tables']" semanticCandidatesExpression="&lt;%allNonReferencedExternalTables%>" createElements="false" semanticElements="&lt;%self%>" domainClass="database.Table" childrenPresentation="List">
           <subNodeMappings name="DB_Ext_Column" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@optionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Tables']" semanticCandidatesExpression="&lt;%columns%>" semanticElements="&lt;%self + sequence%>" domainClass="database.Column">
             <style xsi:type="style:SquareDescription" labelExpression="&lt;%getDatabaseElementLabel()%>" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -188,7 +188,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
           </style>
         </containerMappings>
-        <containerMappings name="DB_Referenced_External_Table" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@optionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Tables']" semanticCandidatesExpression="&lt;%allReferencedExternalTables%>" semanticElements="&lt;%self%>" domainClass="database.Table" reusedNodeMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@optionalLayers[name='External%20Tables']/@containerMappings[name='DB_Non_Referenced_External_Table']/@subNodeMappings[name='DB_Ext_Column'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@optionalLayers[name='External%20Tables']/@containerMappings[name='DB_Non_Referenced_External_Table']/@subNodeMappings[name='DB_Ext_PrimaryKey']" listContainer="true">
+        <containerMappings name="DB_Referenced_External_Table" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@optionalLayers[name='External%20Tables']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Tables']" semanticCandidatesExpression="&lt;%allReferencedExternalTables%>" semanticElements="&lt;%self%>" domainClass="database.Table" reusedNodeMappings="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@optionalLayers[name='External%20Tables']/@containerMappings[name='DB_Non_Referenced_External_Table']/@subNodeMappings[name='DB_Ext_Column'] //@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@optionalLayers[name='External%20Tables']/@containerMappings[name='DB_Non_Referenced_External_Table']/@subNodeMappings[name='DB_Ext_PrimaryKey']" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" labelExpression="&lt;%ancestor.filter(&quot;database.TableContainer&quot;).reverse.name.sep(&quot;::&quot;)%>::&lt;%name%>">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -218,7 +218,7 @@
         </toolSections>
       </optionalLayers>
       <optionalLayers name="Index" activeByDefault="true">
-        <containerMappings xsi:type="description:ContainerMappingImport" name="DB_TableWithIndex" semanticCandidatesExpression="&lt;%tables%>" listContainer="true" importedMapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']">
+        <containerMappings xsi:type="description:ContainerMappingImport" name="DB_TableWithIndex" semanticCandidatesExpression="&lt;%tables%>" childrenPresentation="List" importedMapping="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']">
           <subNodeMappings name="DB_Column" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="&lt;%columns%>" semanticElements="&lt;%self + sequence%>" domainClass="database.Column">
             <style xsi:type="style:SquareDescription" labelExpression="&lt;%getDatabaseElementLabel()%>" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

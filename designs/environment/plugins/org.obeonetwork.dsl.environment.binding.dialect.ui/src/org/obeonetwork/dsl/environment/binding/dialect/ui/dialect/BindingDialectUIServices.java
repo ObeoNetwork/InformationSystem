@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -58,7 +59,7 @@ import fr.obeo.dsl.viewpoint.ui.business.api.session.SessionEditorInput;
  *
  */
 public class BindingDialectUIServices implements DialectUIServices {
-
+	
 	/**
 	 * {@inheritDoc}
 	 * 
@@ -152,7 +153,14 @@ public class BindingDialectUIServices implements DialectUIServices {
 	 * @see fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIServices#openEditor(fr.obeo.dsl.viewpoint.business.api.session.Session, fr.obeo.dsl.viewpoint.DRepresentation)
 	 */
 	public IEditorPart openEditor(Session session, DRepresentation representation) {
-        if (representation instanceof DBindingEditor) {
+        return openEditor(session, representation, new NullProgressMonitor());
+	}
+	
+
+	@Override
+	public IEditorPart openEditor(Session session, DRepresentation representation, IProgressMonitor monitor) {
+		if (representation instanceof DBindingEditor) {
+			monitor.beginTask("Opening binding editor", 1);
             URI uri = EcoreUtil.getURI(representation);
             final TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
             final IEditorInput editorInput = new SessionEditorInput(uri, getEditorName(representation), session);
@@ -176,6 +184,8 @@ public class BindingDialectUIServices implements DialectUIServices {
                 }
                 return (IEditorPart) result;
             }
+            monitor.worked(1);
+            monitor.done();
         }
         return null;
 	}

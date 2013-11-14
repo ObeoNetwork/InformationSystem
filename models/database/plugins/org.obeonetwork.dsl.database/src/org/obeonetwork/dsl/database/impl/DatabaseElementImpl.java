@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.database.impl;
 
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.BasicEObjectImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.DatabasePackage;
@@ -103,14 +104,14 @@ public abstract class DatabaseElementImpl extends CDOObjectImpl implements Datab
 	 * @generated NOT
 	 */
 	public String getID() {
-		eContainer.eURIFragmentSegment(eContainingFeature(), this);
+		((BasicEObjectImpl) eContainer()).eURIFragmentSegment(eContainingFeature(), this);
 		String id = null;
 		String ownId = "";
 		if (eContainer() != null) {
 			if (eContainer() instanceof DatabaseElement) {
 				id = ((DatabaseElement)eContainer()).getID();				
 			}
-			ownId = eContainer.eURIFragmentSegment(eContainingFeature(), this);
+			ownId = ((BasicEObjectImpl) eContainer()).eURIFragmentSegment(eContainingFeature(), this);
 		}
 		if (id != null) {
 			id += "::" + ownId;
