@@ -131,6 +131,14 @@
 		-->
 		<module>../../../generators/web/plugins/org.obeonetwork.informationsystem.gen.web</module>	
 		<module>../../../generators/web/features/org.obeonetwork.informationsystem.gen.web.feature</module>
+    
+      <!-- 
+      *********************************************************************************************
+      * SOA Generator Modules
+      *********************************************************************************************
+      -->
+      <module>../../../generators/soa/plugins/org.obeonetwork.dsl.soa.gen.contracts</module>   
+      <module>../../../generators/soa/features/org.obeonetwork.dsl.soa.gen.contracts.feature</module>
 		
 		<!-- 
 		*********************************************************************************************
