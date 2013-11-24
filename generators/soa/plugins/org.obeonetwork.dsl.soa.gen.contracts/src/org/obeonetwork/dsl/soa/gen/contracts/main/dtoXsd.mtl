@@ -1,0 +1,18 @@
+[comment encoding = UTF-8 /]
+[module dtoXsd('http://www.obeonetwork.org/dsl/overview/2.0.0', 'http://www.obeonetwork.org/dsl/soa/2.0.0')/]
+
+[import org::obeonetwork::dsl::soa::gen::contracts::files::xsdFile /]
+
+
+[template public dtoXsd(aRoot : Root)]
+[comment @main /]
+[aRoot.ownedElements.eAllContents(DTORegistry).generateDtoXsd()/]        
+[/template]
+
+[template public generateDtoXsd(aRegistry : DTORegistry)]
+[for (aCategory : Category | aRegistry.eAllContents(Category))]
+[file ('main/resources/' + aCategory.genFullPathFile(), false, 'UTF-8')]
+[aCategory.genXsdFileBody()/]
+[/file]
+[/for]
+[/template]

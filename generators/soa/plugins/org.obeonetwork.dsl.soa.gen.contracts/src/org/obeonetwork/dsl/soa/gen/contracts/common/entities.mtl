@@ -1,0 +1,63 @@
+[comment encoding = UTF-8 /]
+[module entities('http://www.obeonetwork.org/dsl/entity/2.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0')]
+
+[import org::obeonetwork::dsl::soa::gen::contracts::common::common /]
+[import org::obeonetwork::dsl::soa::gen::contracts::common::types /]
+[import org::obeonetwork::dsl::soa::gen::contracts::services::constraintsServices /]
+
+
+[template public genXsdElement(anOclAny : OclAny) post (trim())]
+[if (anOclAny.oclIsKindOf(Attribute))]
+
+[let att : Attribute = anOclAny.oclAsType(Attribute)]
+[if ((att.multiplicity = MultiplicityKind::ZERO_ONE) or (att.multiplicity = MultiplicityKind::ONE))]
+[if (hasStringConstraint(att))]
+<xs:element name="[att.name/]" [att.multiplicity.genMultiplicity()/]>
+  [att.genXsdObjectDocumentation('xs')/]
+  [genStringRestriction(getStringConstraintMinLength(att), getStringConstraintMaxLength(att), 'xs')/]
+</xs:element>
+[elseif (hasIntegerConstraint(att))]
+<xs:element name="[att.name/]" [att.multiplicity.genMultiplicity()/]>
+  [att.genXsdObjectDocumentation('xs')/]
+  [genIntegerRestriction(getIntegerConstraintMinValue(att), getIntegerConstraintMaxValue(att), 'xs')/]
+</xs:element>
+[else]
+<xs:element name="[att.name/]" type="[genXsdTypeName(att.type, 'xs')/]" [att.multiplicity.genMultiplicity()/]>
+  [att.genXsdObjectDocumentation('xs')/]
+</xs:element>  
+[/if]
+
+[else]
+<xs:element name="[att.name/]s">
+  [att.genXsdObjectDocumentation('xs')/]
+  [att.genWrappingXsdComplexType()/]
+</xs:element>
+[/if]
+
+[/let]
+[/if]
+[/template]
+
+[query protected hasStringConstraint(anAttribute : Attribute) : Boolean =
+   not anAttribute.metadatas.oclIsUndefined() and anAttribute.metadatas.oclAsType(MetaDataContainer).metadatas.oclAsType(Annotation).title->includes('@Size') /]
+
+[query protected hasIntegerConstraint(anAttribute : Attribute) : Boolean =
+   not anAttribute.metadatas.oclIsUndefined() and anAttribute.metadatas.oclAsType(MetaDataContainer).metadatas.oclAsType(Annotation).title->includes('@Value') /]
+
+[template private genWrappingXsdComplexType(att : Attribute) post (trim())]
+<xs:complexType>
+  <xs:sequence>
+    [if (hasStringConstraint(att))]
+    <xs:element name="[att.name/]" [att.multiplicity.genMultiplicity()/]>
+      [genStringRestriction(getStringConstraintMinLength(att), getStringConstraintMaxLength(att), 'xs')/]
+    </xs:element>
+    [elseif (hasIntegerConstraint(att))]
+    <xs:element name="[att.name/]" [att.multiplicity.genMultiplicity()/]>
+      [genIntegerRestriction(getIntegerConstraintMinValue(att), getIntegerConstraintMaxValue(att), 'xs')/]
+    </xs:element>
+    [else]
+    <xs:element name="[att.name/]" type="[genXsdTypeName(att.type, 'xs')/]" [att.multiplicity.genMultiplicity()/]/>
+    [/if]
+  </xs:sequence>
+</xs:complexType>
+[/template]

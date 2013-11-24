@@ -1,0 +1,27 @@
+[comment encoding = UTF-8 /]
+[module attributes('http://www.obeonetwork.org/dsl/environment/2.0.0')]
+
+[import org::obeonetwork::dsl::soa::gen::contracts::common::common /]
+[import org::obeonetwork::dsl::soa::gen::contracts::common::types /]
+[import org::obeonetwork::dsl::soa::gen::contracts::services::constraintsServices /]
+
+
+[template public genXsdElement(anAttribute : Attribute) post(trim())]
+[if (hasStringConstraint(anAttribute))]
+<xs:element name="[anAttribute.name/]" [anAttribute.multiplicity.genMultiplicity()/]>
+  [genStringRestriction(getStringConstraintMinLength(anAttribute), getStringConstraintMaxLength(anAttribute), 'xs')/]
+</xs:element>
+[elseif (hasIntegerConstraint(anAttribute))]
+<xs:element name="[anAttribute.name/]" [anAttribute.multiplicity.genMultiplicity()/]>
+  [genIntegerRestriction(getIntegerConstraintMinValue(anAttribute), getIntegerConstraintMaxValue(anAttribute), 'xs')/]
+</xs:element>
+[else]
+<xs:element name="[anAttribute.name/]" type="[genXsdTypeName(anAttribute.type, 'xs')/]" [anAttribute.multiplicity.genMultiplicity()/]>[anAttribute.genXsdObjectDocumentation('xs')/]</xs:element>
+[/if]
+[/template]
+
+[query protected hasStringConstraint(anAttribute : Attribute) : Boolean =
+   not anAttribute.metadatas.oclIsUndefined() and anAttribute.metadatas.oclAsType(MetaDataContainer).metadatas.oclAsType(Annotation).title->includes('@Size') /]
+
+[query protected hasIntegerConstraint(anAttribute : Attribute) : Boolean =
+   not anAttribute.metadatas.oclIsUndefined() and anAttribute.metadatas.oclAsType(MetaDataContainer).metadatas.oclAsType(Annotation).title->includes('@Value') /]

@@ -1,0 +1,25 @@
+[comment encoding = UTF-8 /]
+[module references('http://www.obeonetwork.org/dsl/environment/2.0.0', 'http://www.obeonetwork.org/dsl/soa/2.0.0')]
+
+[import org::obeonetwork::dsl::soa::gen::contracts::common::common /]
+[import org::obeonetwork::dsl::soa::gen::contracts::common::types /]
+
+
+[template public genXsdElement(aReference : Reference) post (trim())]
+[if ((aReference.multiplicity = MultiplicityKind::ZERO_ONE) or (aReference.multiplicity = MultiplicityKind::ONE))]
+<xs:element name="[aReference.name/]" type="[genXsdTypeName(aReference.type, aReference.eContainer(Category), 'xs', 'tns')/]" [aReference.multiplicity.genMultiplicity()/]>[aReference.genXsdObjectDocumentation('xs')/]</xs:element>
+[else]
+<xs:element name="[aReference.name/]s">
+  [aReference.genXsdObjectDocumentation('xs')/]
+  [aReference.genWrappingXsdComplexType()/]
+</xs:element>
+[/if]
+[/template]
+
+[template private genWrappingXsdComplexType(aReference : Reference) post (trim())]
+<xs:complexType>
+  <xs:sequence>
+    <xs:element name="[aReference.name/]" type="[genXsdTypeName(aReference.type, aReference.eContainer(Category), 'xs', 'tns')/]" [aReference.multiplicity.genMultiplicity()/]/>
+  </xs:sequence>
+</xs:complexType>
+[/template]

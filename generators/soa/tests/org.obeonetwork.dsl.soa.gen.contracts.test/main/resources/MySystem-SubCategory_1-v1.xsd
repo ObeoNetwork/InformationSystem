@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.github.com/Category_1/SubCategory_1" xmlns:tns="http://www.github.com/Category_1/SubCategory_1"
+    xmlns:ns1="http://www.github.com/Category_1"
+>
+  <xs:import schemaLocation="MySystem-Category_1-v1.xsd" namespace="http://www.github.com/Category_1"></xs:import>
+  
+  <xs:complexType name="BasicExtDTO">
+      <xs:complexContent>
+        <xs:extension base="ns1:BasicDTO">
+          <xs:sequence>
+            <xs:element name="qix" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+            <xs:element name="foo2" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:minLength value="3"></xs:minLength>
+                  <xs:maxLength value="20"></xs:maxLength>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

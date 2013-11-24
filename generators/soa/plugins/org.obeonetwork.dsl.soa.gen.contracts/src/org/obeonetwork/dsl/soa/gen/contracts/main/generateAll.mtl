@@ -1,0 +1,12 @@
+[comment encoding = UTF-8 /]
+[module generateAll('http://www.obeonetwork.org/dsl/overview/2.0.0')]
+
+[import org::obeonetwork::dsl::soa::gen::contracts::main::dtoXsd /]
+[import org::obeonetwork::dsl::soa::gen::contracts::main::serviceWsdl /]
+
+
+[template public generateAll(aRoot : Root)]
+[comment @main /]
+[aRoot.dtoXsd()/]
+[aRoot.serviceWsdl()/]
+[/template]

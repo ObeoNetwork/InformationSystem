@@ -1,0 +1,19 @@
+[comment encoding = UTF-8 /]
+[module constraintsServices('http://www.obeonetwork.org/dsl/environment/2.0.0')]
+
+
+[query public getStringConstraintMinLength(dsmObject : ObeoDSMObject) : Integer
+   = invoke('org.obeonetwork.dsl.soa.gen.contracts.services.ConstraintsServices',
+   'getStringConstraintMinLength(org.obeonetwork.dsl.environment.ObeoDSMObject)', Sequence{dsmObject}) /]
+
+[query public getStringConstraintMaxLength(dsmObject : ObeoDSMObject) : Integer
+   = invoke('org.obeonetwork.dsl.soa.gen.contracts.services.ConstraintsServices',
+   'getStringConstraintMaxLength(org.obeonetwork.dsl.environment.ObeoDSMObject)', Sequence{dsmObject}) /]
+
+[query public getIntegerConstraintMinValue(dsmObject : ObeoDSMObject) : Integer
+   = invoke('org.obeonetwork.dsl.soa.gen.contracts.services.ConstraintsServices',
+   'getIntegerConstraintMinValue(org.obeonetwork.dsl.environment.ObeoDSMObject)', Sequence{dsmObject}) /]
+
+[query public getIntegerConstraintMaxValue(dsmObject : ObeoDSMObject) : Integer
+   = invoke('org.obeonetwork.dsl.soa.gen.contracts.services.ConstraintsServices',
+   'getIntegerConstraintMaxValue(org.obeonetwork.dsl.environment.ObeoDSMObject)', Sequence{dsmObject}) /]

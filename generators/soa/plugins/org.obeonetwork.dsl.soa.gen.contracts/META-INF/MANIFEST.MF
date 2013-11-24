@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Acceleo SOA Contracts Module Plug-in
+Bundle-SymbolicName: org.obeonetwork.dsl.soa.gen.contracts
+Bundle-Version: 2.3.0.qualifier
+Bundle-Activator: org.obeonetwork.dsl.soa.gen.contracts.Activator
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.ocl,
+ org.eclipse.ocl.ecore,
+ org.eclipse.acceleo.common;bundle-version="3.2.1",
+ org.eclipse.acceleo.parser;bundle-version="3.2.1";resolution:=optional,
+ org.eclipse.acceleo.model;bundle-version="3.2.1",
+ org.eclipse.acceleo.profiler;bundle-version="3.2.1",
+ org.eclipse.acceleo.engine;bundle-version="3.2.1",
+ com.google.guava;bundle-version="10.0.1",
+ org.obeonetwork.dsl.soa,
+ org.obeonetwork.dsl.overview,
+ org.obeonetwork.dsl.entity
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: org.obeonetwork.dsl.soa.gen.contracts.main,
+ org.obeonetwork.dsl.soa.gen.contracts.services
+

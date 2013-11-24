@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.github.com/Category_1" xmlns:tns="http://www.github.com/Category_1"
+>
+  <xs:annotation>
+    <xs:documentation>
+      Category_1 description
+    </xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="Entity_1DTO">
+      <xs:sequence>
+        <xs:element name="attribute1" type="xs:string" minOccurs="0">
+          
+        </xs:element>
+        <xs:element name="attribute2" >
+          <xs:annotation>
+            <xs:documentation>
+              Description of attribute2
+            </xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:int">
+              <xs:minInclusive value="100"></xs:minInclusive>
+              <xs:maxInclusive value="9999"></xs:maxInclusive>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BasicDTO">
+      <xs:sequence>
+        <xs:element name="foo" minOccurs="0">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="2"></xs:minLength>
+              <xs:maxLength value="10"></xs:maxLength>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="bar" type="xs:dateTime" ></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+</xs:schema>
