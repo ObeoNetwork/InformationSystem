@@ -156,8 +156,6 @@ public class BindingDialectUIServices implements DialectUIServices {
         return openEditor(session, representation, new NullProgressMonitor());
 	}
 	
-
-	@Override
 	public IEditorPart openEditor(Session session, DRepresentation representation, IProgressMonitor monitor) {
 		if (representation instanceof DBindingEditor) {
 			monitor.beginTask("Opening binding editor", 1);

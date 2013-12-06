@@ -143,7 +143,6 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 		return isSupported(description);
 	}
 
-	@Override
 	public void initRepresentations(Viewpoint vp, EObject semantic,	IProgressMonitor monitor) {
 		
 	}
