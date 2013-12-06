@@ -131,7 +131,6 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 		
 	}
 	
-	@Override
 	protected <T extends RepresentationDescription> void initRepresentationForElement(T representationDescription, EObject semanticElement, IProgressMonitor monitor) {
 		
 	}
