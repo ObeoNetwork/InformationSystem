@@ -70,7 +70,7 @@ public class UserStoryNodeDecorator extends AbstractUserStoryDecorator {
 	private class UserStoryNodeFigure extends Figure {
 		private IFigure decorated;
 		private RectangleFigure rect;
-		private Label label;
+		//private Label label;
 		
 		/**
 		 * Constructs the figure
@@ -83,10 +83,10 @@ public class UserStoryNodeDecorator extends AbstractUserStoryDecorator {
 				userStory = userStories.get(0);
 			}
 			
-			String userStoryName = "";
+			/*String userStoryName = "";
 			if (userStory != null) {
 				userStoryName = userStory.getName();
-			}
+			}*/
 			
 			ToolbarLayout layout = new ToolbarLayout(false);
 			layout.setSpacing(SPACING);
@@ -102,12 +102,12 @@ public class UserStoryNodeDecorator extends AbstractUserStoryDecorator {
 			rect.setBackgroundColor(ColorConstants.white);
 			rect.setAlpha(180); */
 			
-			label = new Label(userStoryName);
+			/*label = new Label(userStoryName);
 			label.setFont(new Font(null, "", 8, SWT.BOLD));
-			label.setForegroundColor(pickColor(userStory));
+			label.setForegroundColor(pickColor(userStory));*/
 			
 			add(rect);
-			add(label);
+			//add(label);
 		}
 		
 		/**
@@ -116,10 +116,12 @@ public class UserStoryNodeDecorator extends AbstractUserStoryDecorator {
 		public void calculateSize() {
 			rect.setSize(decorated.getSize().getCopy().getExpanded(MARGIN * 2, MARGIN * 2));
 			
-			label.setSize(label.getPreferredSize());
+			//label.setSize(label.getPreferredSize());
 			
-			int totalHeight = rect.getSize().height + SPACING + label.getSize().height;
-			int totalWidth = Math.max(rect.getSize().width, label.getSize().width);
+			//int totalHeight = rect.getSize().height + SPACING + label.getSize().height;
+			//int totalWidth = Math.max(rect.getSize().width, label.getSize().width);
+			int totalHeight = rect.getSize().height + SPACING;
+			int totalWidth = rect.getSize().width;
 			
 			setSize(new Dimension(totalWidth, totalHeight));
 		}
