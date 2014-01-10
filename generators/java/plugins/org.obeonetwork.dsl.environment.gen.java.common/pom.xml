@@ -43,7 +43,7 @@
              <packageToRegister>org.eclipse.emf.ecore.EcorePackage</packageToRegister>
              <packageToRegister>org.obeonetwork.dsl.environment.EnvironmentPackage</packageToRegister>
            </packagesToRegister>
-           <uriHandler>org.eclipse.acceleo.maven.AcceleoURIHandler</uriHandler>
+           <uriHandler>org.obeonetwork.acceleo.utils.AcceleoParserURIHandler</uriHandler>
          </configuration>
        </plugin>
      </plugins>

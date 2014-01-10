@@ -72,7 +72,7 @@
              <packageToRegister>org.obeonetwork.dsl.entity.EntityPackage</packageToRegister>
              <packageToRegister>org.obeonetwork.dsl.soa.SoaPackage</packageToRegister>
            </packagesToRegister>
-          <uriHandler>org.eclipse.acceleo.maven.AcceleoURIHandler</uriHandler>
+          <uriHandler>org.obeonetwork.acceleo.utils.AcceleoParserURIHandler</uriHandler>
           </configuration>
        </plugin>
      </plugins>
