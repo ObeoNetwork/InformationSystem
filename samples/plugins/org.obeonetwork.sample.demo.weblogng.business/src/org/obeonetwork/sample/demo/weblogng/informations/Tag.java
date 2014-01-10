@@ -9,8 +9,7 @@ import org.obeonetwork.sample.demo.weblogng.blog.BlogEntry;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class Tag implements Serializable {
 
 	/**
@@ -22,16 +21,15 @@ public class Tag implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
+	/**
+     * Constant representing the name of the field name.
+     */
+	public static final String PROP_NAME = "name";
 	
 	/**
      * Constant representing the name of the field isTagOf.
      */
 	public static final String PROP_ISTAGOF = "isTagOf";
-	
-	/**
-     * Constant representing the name of the field name.
-     */
-	public static final String PROP_NAME = "name";
 	
     /**
      * Automatic primary key.
@@ -39,14 +37,14 @@ public class Tag implements Serializable {
     private String id;
     
     /**
-     * Field isTagOf.
-     */
-	protected Collection<BlogEntry> isTagOf;
-
-    /**
      * Field name.
      */
 	protected String name;
+
+    /**
+     * Field isTagOf.
+     */
+	protected Collection<BlogEntry> isTagOf;
 
 	/**
 	 * Default constructor.
@@ -74,13 +72,13 @@ public class Tag implements Serializable {
 
 	/**
 	 * Constructor with all parameters initialized.
-	 * @param isTagOf. 
 	 * @param name. 
+	 * @param isTagOf. 
 	 */
-	public Tag(Collection<BlogEntry> isTagOf, String name) {
+	public Tag(String name, Collection<BlogEntry> isTagOf) {
 		this();
-		this.isTagOf.addAll(isTagOf);
 		this.name = name;
+		this.isTagOf.addAll(isTagOf);
 	}
 
 	/**

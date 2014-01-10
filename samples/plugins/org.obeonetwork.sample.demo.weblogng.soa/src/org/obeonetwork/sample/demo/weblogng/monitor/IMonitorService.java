@@ -7,9 +7,9 @@ import java.util.Collection;
 
 //End of user code
 
+import org.obeonetwork.sample.demo.weblogng.users.User;	
 import org.obeonetwork.sample.demo.weblogng.informations.Tag;	
 import org.obeonetwork.sample.demo.weblogng.informations.Comment;	
-import org.obeonetwork.sample.demo.weblogng.users.User;	
 import org.obeonetwork.sample.demo.weblogng.informations.Category;	
 
 public interface IMonitorService {

@@ -12,9 +12,9 @@
         	<property name="grantService" ref="grantService"/>	
         	<property name="userService" ref="userService"/>	
         	<property name="searchService" ref="searchService"/>	
+			<property name="userDao" ref="UserDAO" />
 			<property name="tagDao" ref="TagDAO" />
 			<property name="commentDao" ref="CommentDAO" />
-			<property name="userDao" ref="UserDAO" />
 			<property name="categoryDao" ref="CategoryDAO" />
 			<property name="blogEntryDao" ref="BlogEntryDAO" />
 			
@@ -26,9 +26,9 @@
         	<property name="grantService" ref="grantService"/>	
         	<property name="userService" ref="userService"/>	
         	<property name="searchService" ref="searchService"/>	
+			<property name="userDao" ref="UserDAO" />
 			<property name="tagDao" ref="TagDAO" />
 			<property name="commentDao" ref="CommentDAO" />
-			<property name="userDao" ref="UserDAO" />
 			<property name="categoryDao" ref="CategoryDAO" />
 			<property name="blogEntryDao" ref="BlogEntryDAO" />
 			
@@ -40,9 +40,9 @@
         	<property name="grantService" ref="grantService"/>	
         	<property name="userService" ref="userService"/>	
         	<property name="searchService" ref="searchService"/>	
+			<property name="userDao" ref="UserDAO" />
 			<property name="tagDao" ref="TagDAO" />
 			<property name="commentDao" ref="CommentDAO" />
-			<property name="userDao" ref="UserDAO" />
 			<property name="categoryDao" ref="CategoryDAO" />
 			
             <!-- Start of user code of custom section-MonitorService -->
