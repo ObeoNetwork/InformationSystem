@@ -32,7 +32,7 @@
    
    <extension point="org.eclipse.core.contenttype.contentTypes">
      <file-association
-           content-type="org.eclipse.emf.compare.ui.contenttype.ModelContentType"
+           content-type="org.eclipse.emf.compare.content.type"
            file-extensions="entity"
            file-names="*">
      </file-association>
