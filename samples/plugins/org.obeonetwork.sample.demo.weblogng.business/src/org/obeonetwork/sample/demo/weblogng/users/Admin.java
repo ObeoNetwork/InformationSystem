@@ -9,8 +9,7 @@ import org.obeonetwork.sample.demo.weblogng.users.User;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class Admin extends User implements Serializable {
 
 	/**
@@ -22,7 +21,6 @@ public class Admin extends User implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
     /**
      * Automatic primary key.
      */

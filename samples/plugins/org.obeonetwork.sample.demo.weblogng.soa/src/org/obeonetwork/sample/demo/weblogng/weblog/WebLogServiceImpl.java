@@ -14,9 +14,9 @@ import org.obeonetwork.sample.demo.weblogng.informations.Comment;
 import org.obeonetwork.sample.demo.weblogng.grant.IGrantService;	
 import org.obeonetwork.sample.demo.weblogng.user.IUserService;	
 import org.obeonetwork.sample.demo.weblogng.search.ISearchService;	
+import org.obeonetwork.sample.demo.weblogng.users.IUserDao;	
 import org.obeonetwork.sample.demo.weblogng.informations.ITagDao;	
 import org.obeonetwork.sample.demo.weblogng.informations.ICommentDao;	
-import org.obeonetwork.sample.demo.weblogng.users.IUserDao;	
 import org.obeonetwork.sample.demo.weblogng.informations.ICategoryDao;	
 import org.obeonetwork.sample.demo.weblogng.blog.IBlogEntryDao;	
 
@@ -73,6 +73,11 @@ public class WebLogServiceImpl implements IWebLogService {
 	    this.searchService = searchService;
     }			
 	
+    private IUserDao userDao;
+    public void setUserDao(IUserDao userDao){
+    	this.userDao = userDao;
+    }
+    	
     private ITagDao tagDao;
     public void setTagDao(ITagDao tagDao){
     	this.tagDao = tagDao;
@@ -81,11 +86,6 @@ public class WebLogServiceImpl implements IWebLogService {
     private ICommentDao commentDao;
     public void setCommentDao(ICommentDao commentDao){
     	this.commentDao = commentDao;
-    }
-    	
-    private IUserDao userDao;
-    public void setUserDao(IUserDao userDao){
-    	this.userDao = userDao;
     }
     	
     private ICategoryDao categoryDao;

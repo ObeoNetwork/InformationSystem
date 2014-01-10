@@ -167,10 +167,6 @@ public class GrantModerateAction extends org.apache.struts.actions.DispatchActio
 		return mapping.findForward(returnCode);
 	}
 
-private IMonitorService monitorService;
-public void setMonitorService(IMonitorService monitorService){
-	this.monitorService = monitorService;
-}
 private IGrantService grantService;
 public void setGrantService(IGrantService grantService){
 	this.grantService = grantService;
@@ -178,6 +174,10 @@ public void setGrantService(IGrantService grantService){
 private IUserService userService;
 public void setUserService(IUserService userService){
 	this.userService = userService;
+}
+private IMonitorService monitorService;
+public void setMonitorService(IMonitorService monitorService){
+	this.monitorService = monitorService;
 }
 
 

@@ -9,8 +9,7 @@ import org.obeonetwork.sample.demo.weblogng.blog.BlogEntry;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class User implements Serializable {
 
 	/**
@@ -22,31 +21,15 @@ public class User implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
 	/**
      * Constant representing the name of the field email.
      */
 	public static final String PROP_EMAIL = "email";
 	
 	/**
-     * Constant representing the name of the field telephone.
-     */
-	public static final String PROP_TELEPHONE = "telephone";
-	
-	/**
      * Constant representing the name of the field firstName.
      */
 	public static final String PROP_FIRSTNAME = "firstName";
-	
-	/**
-     * Constant representing the name of the field entries.
-     */
-	public static final String PROP_ENTRIES = "entries";
-	
-	/**
-     * Constant representing the name of the field password.
-     */
-	public static final String PROP_PASSWORD = "password";
 	
 	/**
      * Constant representing the name of the field lastName.
@@ -57,6 +40,21 @@ public class User implements Serializable {
      * Constant representing the name of the field login.
      */
 	public static final String PROP_LOGIN = "login";
+	
+	/**
+     * Constant representing the name of the field password.
+     */
+	public static final String PROP_PASSWORD = "password";
+	
+	/**
+     * Constant representing the name of the field telephone.
+     */
+	public static final String PROP_TELEPHONE = "telephone";
+	
+	/**
+     * Constant representing the name of the field entries.
+     */
+	public static final String PROP_ENTRIES = "entries";
 	
     /**
      * Automatic primary key.
@@ -69,24 +67,9 @@ public class User implements Serializable {
 	protected String email;
 
     /**
-     * Field telephone.
-     */
-	protected String telephone;
-
-    /**
      * Field firstName.
      */
 	protected String firstName;
-
-    /**
-     * Field entries.
-     */
-	protected Collection<BlogEntry> entries;
-
-    /**
-     * Field password.
-     */
-	protected String password;
 
     /**
      * Field lastName.
@@ -97,6 +80,21 @@ public class User implements Serializable {
      * Field login.
      */
 	protected String login;
+
+    /**
+     * Field password.
+     */
+	protected String password;
+
+    /**
+     * Field telephone.
+     */
+	protected String telephone;
+
+    /**
+     * Field entries.
+     */
+	protected Collection<BlogEntry> entries;
 
 	/**
 	 * Default constructor.
@@ -125,22 +123,22 @@ public class User implements Serializable {
 	/**
 	 * Constructor with all parameters initialized.
 	 * @param email. 
-	 * @param telephone. 
 	 * @param firstName. 
-	 * @param entries. 
-	 * @param password. 
 	 * @param lastName. 
 	 * @param login. 
+	 * @param password. 
+	 * @param telephone. 
+	 * @param entries. 
 	 */
-	public User(String email, String telephone, String firstName, Collection<BlogEntry> entries, String password, String lastName, String login) {
+	public User(String email, String firstName, String lastName, String login, String password, String telephone, Collection<BlogEntry> entries) {
 		this();
 		this.email = email;
-		this.telephone = telephone;
 		this.firstName = firstName;
-		this.entries.addAll(entries);
-		this.password = password;
 		this.lastName = lastName;
 		this.login = login;
+		this.password = password;
+		this.telephone = telephone;
+		this.entries.addAll(entries);
 	}
 
 	/**

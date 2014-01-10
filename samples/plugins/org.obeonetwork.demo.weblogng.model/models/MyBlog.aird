@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:description_2="http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmlns:org.obeonetwork.dsl.soa="http://www.obeonetwork.org/dsl/soa/2.0.0" xmlns:overview="http://www.obeonetwork.org/dsl/overview/2.0.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:table="http://www.obeo.fr/dsl/viewpoint/table/1.1.0" xmlns:tree="http://www.obeo.fr/dsl/viewpoint/tree/1.0.0" xmlns:viewpoint="http://www.obeo.fr/dsl/viewpoint/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.obeo.fr/dsl/viewpoint/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/table/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0 http://www.obeo.fr/dsl/viewpoint/tree/1.0.0#//description http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description/style" xmi:id="_KxEFkOgUEd-93I016zUkCw" selectedViews="_KxXAgOgUEd-93I016zUkCw _KyPKQOgUEd-93I016zUkCw _Ky54oOgUEd-93I016zUkCw _3LtagAZcEeK1yPgyTstz_A _3L2kcAZcEeK1yPgyTstz_A _3MYv8AZcEeK1yPgyTstz_A _3M2qAAZcEeK1yPgyTstz_A _3PE3kAZcEeK1yPgyTstz_A">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-toolkits="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:description_2="http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmlns:org.obeonetwork.dsl.soa="http://www.obeonetwork.org/dsl/soa/2.0.0" xmlns:overview="http://www.obeonetwork.org/dsl/overview/2.0.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:table="http://www.obeo.fr/dsl/viewpoint/table/1.1.0" xmlns:tree="http://www.obeo.fr/dsl/viewpoint/tree/1.0.0" xmlns:viewpoint="http://www.obeo.fr/dsl/viewpoint/1.1.0" xsi:schemaLocation="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//flow http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//toolkits http://www.obeonetwork.org/dsl/cinematic/view/1.0.0 http://www.obeonetwork.org/dsl/cinematic/3.0.0#//view http://www.obeo.fr/dsl/viewpoint/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/table/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/tree/description/1.0.0 http://www.obeo.fr/dsl/viewpoint/tree/1.0.0#//description http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description/style" xmi:id="_KxEFkOgUEd-93I016zUkCw" selectedViews="_KxXAgOgUEd-93I016zUkCw _KyPKQOgUEd-93I016zUkCw _Ky54oOgUEd-93I016zUkCw _3LtagAZcEeK1yPgyTstz_A _3L2kcAZcEeK1yPgyTstz_A _3MYv8AZcEeK1yPgyTstz_A _3M2qAAZcEeK1yPgyTstz_A _3PE3kAZcEeK1yPgyTstz_A" version="6.5.0.201210011230">
   <models xmi:type="oenv:Environment" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5Ev8KwKEd2XLNOhkJIazw"/>
   <models xmi:type="overview:Root" href="MyBlog.ois#_-vIsIBHqEeGjo_sA39IT5g"/>
   <models xmi:type="viewpoint:DAnalysis" href="MyBlog-20120924_1725.aird.old#_KxEFkOgUEd-93I016zUkCw"/>
@@ -9,17 +9,7 @@
   <models xmi:type="description:Group" href="platform:/plugin/org.obeonetwork.dsl.interaction.design/description/interaction.odesign#/"/>
   <models xmi:type="description:Group" href="platform:/plugin/org.obeonetwork.dsl.requirement.design/description/requirement.odesign#/"/>
   <models xmi:type="description:Group" href="platform:/plugin/org.obeonetwork.graal.design/description/requirements.odesign#/"/>
-  <eAnnotations xmi:type="description:DAnnotationEntry" xmi:id="_Z8xSkFFCEeC54N1apFuXLQ" source="Migration">
-    <details>style</details>
-    <details>someViewsAreHiddenDeactivation</details>
-    <details>sequenceAbsoluteBoundsFlag</details>
-    <details>edgeLabels</details>
-    <details>LabelAlignmentForDNodeListElementMigrationForNotHavingSessionDirtyAtOpening</details>
-    <details>LabelAlignmentForDNodeMigrationForNotHavingSessionDirtyAtOpening</details>
-    <details>GMFViewSizeForDNodeNotResizable</details>
-    <details>GMFTreeEdgeFixAnchors_2</details>
-    <details>RoutingStyleDesynchronization</details>
-  </eAnnotations>
+  <models xmi:type="cinematic-toolkits:Toolkit" href="Web.cinematic_toolkits#_prv6gIjeEeGIXsoZxTXHQA"/>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_KxXAgOgUEd-93I016zUkCw" initialized="true">
     <ownedRepresentations xmi:type="viewpoint:DSemanticDiagram" xmi:id="_KyK40OgUEd-93I016zUkCw" name=" SOA Diagram">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_KyK40ugUEd-93I016zUkCw" source="GMF_DIAGRAMS">
@@ -8843,10 +8833,22 @@
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="viewpoint:DEdge" xmi:id="_Tgag4TStEeKYN7PVgYAKvQ" sourceNode="_TgWPcDStEeKYN7PVgYAKvQ" targetNode="_TgZSwDStEeKYN7PVgYAKvQ">
         <target xmi:type="cinematic-flow:ViewState" href="MyBlog.ois#_2I9KcJUFEeGPLurfxc-5pA"/>
-        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_Tgag4jStEeKYN7PVgYAKvQ" custom="true" lineStyle="dash" routingStyle="manhattan">
+        <ownedStyle xmi:type="viewpoint:EdgeStyle" xmi:id="_Tgag4jStEeKYN7PVgYAKvQ" lineStyle="dash" routingStyle="manhattan">
+          <customFeatures>strokeColor</customFeatures>
+          <customFeatures>lineStyle</customFeatures>
+          <customFeatures>sourceArrow</customFeatures>
+          <customFeatures>targetArrow</customFeatures>
+          <customFeatures>foldingStyle</customFeatures>
+          <customFeatures>size</customFeatures>
+          <customFeatures>routingStyle</customFeatures>
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@optionalLayers[name='View%20Containers']/@edgeMappings[name='FLD_ViewState_To_ViewContainer']/@style"/>
           <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_Tgag4zStEeKYN7PVgYAKvQ" red="136" green="136" blue="136"/>
           <centerLabelStyle xmi:type="viewpoint:CenterLabelStyle" xmi:id="_Tgag5DStEeKYN7PVgYAKvQ" showIcon="false">
+            <customFeatures>labelSize</customFeatures>
+            <customFeatures>labelFormat</customFeatures>
+            <customFeatures>showIcon</customFeatures>
+            <customFeatures>labelColor</customFeatures>
+            <customFeatures>iconPath</customFeatures>
             <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Tgag5TStEeKYN7PVgYAKvQ"/>
           </centerLabelStyle>
         </ownedStyle>

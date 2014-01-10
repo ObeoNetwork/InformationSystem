@@ -3,18 +3,18 @@
 <beans>
 	<!-- C O M M U N I C A T I O N -->
 	<bean name="/grant/grantadministrate" class="org.obeonetwork.sample.demo.weblogng.ui.grant.actions.GrantAdministrateAction">
-		<property name="monitorService" ref="monitorService" />
 		<property name="grantService" ref="grantService" />
 		<property name="userService" ref="userService" />
+		<property name="monitorService" ref="monitorService" />
 		<!-- Start of user code for properties definition of GrantAdministrate action-->
 		 
 		<!-- End of user code for properties definition of GrantAdministrate action -->
 	</bean>
 
 	<bean name="/grant/grantmoderate" class="org.obeonetwork.sample.demo.weblogng.ui.grant.actions.GrantModerateAction">
-		<property name="monitorService" ref="monitorService" />
 		<property name="grantService" ref="grantService" />
 		<property name="userService" ref="userService" />
+		<property name="monitorService" ref="monitorService" />
 		<!-- Start of user code for properties definition of GrantModerate action-->
 		 
 		<!-- End of user code for properties definition of GrantModerate action -->

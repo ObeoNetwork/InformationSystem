@@ -9,8 +9,7 @@ import org.obeonetwork.sample.demo.weblogng.blog.BlogEntry;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class Category implements Serializable {
 
 	/**
@@ -22,6 +21,10 @@ public class Category implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
+	/**
+     * Constant representing the name of the field name.
+     */
+	public static final String PROP_NAME = "name";
 	
 	/**
      * Constant representing the name of the field description.
@@ -33,16 +36,16 @@ public class Category implements Serializable {
      */
 	public static final String PROP_ISCATEGORYOF = "isCategoryOf";
 	
-	/**
-     * Constant representing the name of the field name.
-     */
-	public static final String PROP_NAME = "name";
-	
     /**
      * Automatic primary key.
      */
     private String id;
     
+    /**
+     * Field name.
+     */
+	protected String name;
+
     /**
      * Field description.
      */
@@ -52,11 +55,6 @@ public class Category implements Serializable {
      * Field isCategoryOf.
      */
 	protected Collection<BlogEntry> isCategoryOf;
-
-    /**
-     * Field name.
-     */
-	protected String name;
 
 	/**
 	 * Default constructor.
@@ -84,15 +82,15 @@ public class Category implements Serializable {
 
 	/**
 	 * Constructor with all parameters initialized.
+	 * @param name. 
 	 * @param description. 
 	 * @param isCategoryOf. 
-	 * @param name. 
 	 */
-	public Category(String description, Collection<BlogEntry> isCategoryOf, String name) {
+	public Category(String name, String description, Collection<BlogEntry> isCategoryOf) {
 		this();
+		this.name = name;
 		this.description = description;
 		this.isCategoryOf.addAll(isCategoryOf);
-		this.name = name;
 	}
 
 	/**

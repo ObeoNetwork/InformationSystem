@@ -8,8 +8,7 @@ import org.obeonetwork.sample.demo.weblogng.blog.BlogEntry;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class Comment implements Serializable {
 
 	/**
@@ -21,16 +20,10 @@ public class Comment implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
 	/**
-     * Constant representing the name of the field creationDate.
+     * Constant representing the name of the field name.
      */
-	public static final String PROP_CREATIONDATE = "creationDate";
-	
-	/**
-     * Constant representing the name of the field website.
-     */
-	public static final String PROP_WEBSITE = "website";
+	public static final String PROP_NAME = "name";
 	
 	/**
      * Constant representing the name of the field email.
@@ -38,19 +31,24 @@ public class Comment implements Serializable {
 	public static final String PROP_EMAIL = "email";
 	
 	/**
-     * Constant representing the name of the field isCommentOf.
+     * Constant representing the name of the field website.
      */
-	public static final String PROP_ISCOMMENTOF = "isCommentOf";
-	
-	/**
-     * Constant representing the name of the field name.
-     */
-	public static final String PROP_NAME = "name";
+	public static final String PROP_WEBSITE = "website";
 	
 	/**
      * Constant representing the name of the field content.
      */
 	public static final String PROP_CONTENT = "content";
+	
+	/**
+     * Constant representing the name of the field creationDate.
+     */
+	public static final String PROP_CREATIONDATE = "creationDate";
+	
+	/**
+     * Constant representing the name of the field isCommentOf.
+     */
+	public static final String PROP_ISCOMMENTOF = "isCommentOf";
 	
     /**
      * Automatic primary key.
@@ -58,14 +56,9 @@ public class Comment implements Serializable {
     private String id;
     
     /**
-     * Field creationDate.
+     * Field name.
      */
-	protected Date creationDate;
-
-    /**
-     * Field website.
-     */
-	protected String website;
+	protected String name;
 
     /**
      * Field email.
@@ -73,19 +66,24 @@ public class Comment implements Serializable {
 	protected String email;
 
     /**
-     * Field isCommentOf.
+     * Field website.
      */
-	protected BlogEntry isCommentOf;
-
-    /**
-     * Field name.
-     */
-	protected String name;
+	protected String website;
 
     /**
      * Field content.
      */
 	protected String content;
+
+    /**
+     * Field creationDate.
+     */
+	protected Date creationDate;
+
+    /**
+     * Field isCommentOf.
+     */
+	protected BlogEntry isCommentOf;
 
 	/**
 	 * Default constructor.
@@ -112,20 +110,20 @@ public class Comment implements Serializable {
 
 	/**
 	 * Constructor with all parameters initialized.
-	 * @param creationDate. 
-	 * @param website. 
-	 * @param email. 
-	 * @param isCommentOf. 
 	 * @param name. 
+	 * @param email. 
+	 * @param website. 
 	 * @param content. 
+	 * @param creationDate. 
+	 * @param isCommentOf. 
 	 */
-	public Comment(Date creationDate, String website, String email, BlogEntry isCommentOf, String name, String content) {
-		this.creationDate = creationDate;
-		this.website = website;
-		this.email = email;
-		this.isCommentOf = isCommentOf;
+	public Comment(String name, String email, String website, String content, Date creationDate, BlogEntry isCommentOf) {
 		this.name = name;
+		this.email = email;
+		this.website = website;
 		this.content = content;
+		this.creationDate = creationDate;
+		this.isCommentOf = isCommentOf;
 	}
 
 	/**

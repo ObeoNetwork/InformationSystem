@@ -13,8 +13,7 @@ import org.obeonetwork.sample.demo.weblogng.informations.Comment;
 // End of user code for imports
 
 /**
- * 
- */
+ *  */
 public class BlogEntry implements Serializable {
 
 	/**
@@ -26,7 +25,6 @@ public class BlogEntry implements Serializable {
      * Constant representing the name of the automatic primary key field.
      */
 	public static final String PROP_ID = "id";
-	
 	/**
      * Constant representing the name of the field title.
      */
@@ -38,14 +36,14 @@ public class BlogEntry implements Serializable {
 	public static final String PROP_CREATIONDATE = "creationDate";
 	
 	/**
-     * Constant representing the name of the field tags.
-     */
-	public static final String PROP_TAGS = "tags";
-	
-	/**
      * Constant representing the name of the field content.
      */
 	public static final String PROP_CONTENT = "content";
+	
+	/**
+     * Constant representing the name of the field authorUser.
+     */
+	public static final String PROP_AUTHORUSER = "authorUser";
 	
 	/**
      * Constant representing the name of the field categories.
@@ -53,14 +51,14 @@ public class BlogEntry implements Serializable {
 	public static final String PROP_CATEGORIES = "categories";
 	
 	/**
+     * Constant representing the name of the field tags.
+     */
+	public static final String PROP_TAGS = "tags";
+	
+	/**
      * Constant representing the name of the field comments.
      */
 	public static final String PROP_COMMENTS = "comments";
-	
-	/**
-     * Constant representing the name of the field authorUser.
-     */
-	public static final String PROP_AUTHORUSER = "authorUser";
 	
     /**
      * Automatic primary key.
@@ -78,14 +76,14 @@ public class BlogEntry implements Serializable {
 	protected Date creationDate;
 
     /**
-     * Field tags.
-     */
-	protected Collection<Tag> tags;
-
-    /**
      * Field content.
      */
 	protected String content;
+
+    /**
+     * Field authorUser.
+     */
+	protected User authorUser;
 
     /**
      * Field categories.
@@ -93,14 +91,14 @@ public class BlogEntry implements Serializable {
 	protected Collection<Category> categories;
 
     /**
+     * Field tags.
+     */
+	protected Collection<Tag> tags;
+
+    /**
      * Field comments.
      */
 	protected Collection<Comment> comments;
-
-    /**
-     * Field authorUser.
-     */
-	protected User authorUser;
 
 	/**
 	 * Default constructor.
@@ -132,21 +130,21 @@ public class BlogEntry implements Serializable {
 	 * Constructor with all parameters initialized.
 	 * @param title. 
 	 * @param creationDate. 
-	 * @param tags. 
 	 * @param content. 
-	 * @param categories. 
-	 * @param comments. 
 	 * @param authorUser. 
+	 * @param categories. 
+	 * @param tags. 
+	 * @param comments. 
 	 */
-	public BlogEntry(String title, Date creationDate, Collection<Tag> tags, String content, Collection<Category> categories, Collection<Comment> comments, User authorUser) {
+	public BlogEntry(String title, Date creationDate, String content, User authorUser, Collection<Category> categories, Collection<Tag> tags, Collection<Comment> comments) {
 		this();
 		this.title = title;
 		this.creationDate = creationDate;
-		this.tags.addAll(tags);
 		this.content = content;
-		this.categories.addAll(categories);
-		this.comments.addAll(comments);
 		this.authorUser = authorUser;
+		this.categories.addAll(categories);
+		this.tags.addAll(tags);
+		this.comments.addAll(comments);
 	}
 
 	/**
