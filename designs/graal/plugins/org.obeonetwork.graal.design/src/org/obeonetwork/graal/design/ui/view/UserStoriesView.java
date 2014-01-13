@@ -24,6 +24,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.part.ViewPart;
@@ -77,6 +78,7 @@ public class UserStoriesView extends ViewPart {
 	 */
 	public void createPartControl(Composite parent) {
 		viewer = new CheckboxTreeViewer(parent, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL | SWT.H_SCROLL);
+		viewer.setUseHashlookup(true);
 		viewer.setContentProvider(new UserStoriesContentProvider());
 		viewer.setLabelProvider(new UserStoryLabelProvider(this, adapterFactory));
 		viewer.setCheckStateProvider(new UserStoriesCheckStateProvider(viewer));
@@ -152,7 +154,7 @@ public class UserStoriesView extends ViewPart {
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(selectionListener);
 	}
 
-	protected void update(DAnalysis analysis, List<EObject> selectedEObjects) {
+	protected void update(DAnalysis analysis, final List<EObject> selectedEObjects) {
 		if (analysis != null) {
 			// Retrieve the local analysis (for CDO projetcs)
 			Session session = (new EObjectQuery(analysis)).getSession();
