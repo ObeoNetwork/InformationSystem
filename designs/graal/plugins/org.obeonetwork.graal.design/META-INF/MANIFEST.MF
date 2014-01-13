@@ -19,7 +19,8 @@ Require-Bundle: fr.obeo.acceleo.gen,
  org.obeonetwork.graal,
  org.obeonetwork.graal.edit,
  fr.obeo.dsl.viewpoint.table,
- fr.obeo.dsl.viewpoint.collab;bundle-version="1.0.0"
+ fr.obeo.dsl.viewpoint.collab,
+ fr.obeo.mda.ecore.extender
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: www.obeo.fr

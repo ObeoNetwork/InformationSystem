@@ -44,10 +44,14 @@ public class DeleteMappingCommand extends RecordingCommand {
 				
 			}
 			accessor.eDelete(bindingReference, crossReferencer);
+			accessor.eDelete(bindingEdge, crossReferencer);
+			bindingEdge.setLeft(null);
+			bindingEdge.setRight(null);
+		} else {
+			EcoreUtil.delete(bindingEdge);
+			bindingEdge.setLeft(null);
+			bindingEdge.setRight(null);
 		}
-		bindingEdge.setLeft(null);
-		bindingEdge.setRight(null);
-		EcoreUtil.delete(bindingEdge);
 	}
 	
 	

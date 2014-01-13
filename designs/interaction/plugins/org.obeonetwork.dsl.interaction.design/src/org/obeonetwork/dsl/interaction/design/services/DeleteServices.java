@@ -7,7 +7,7 @@ import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.EReference;
 import org.obeonetwork.dsl.interaction.CombinedFragment;
 import org.obeonetwork.dsl.interaction.CompoundEnd;
 import org.obeonetwork.dsl.interaction.End;
@@ -18,6 +18,13 @@ import org.obeonetwork.dsl.interaction.Message;
 import org.obeonetwork.dsl.interaction.Operand;
 import org.obeonetwork.dsl.interaction.Participant;
 import org.obeonetwork.dsl.interaction.StateInvariant;
+
+import com.google.common.base.Predicate;
+
+import fr.obeo.dsl.viewpoint.DSemanticDecorator;
+import fr.obeo.dsl.viewpoint.business.api.session.Session;
+import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
+import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class DeleteServices {
 	
@@ -74,9 +81,16 @@ public class DeleteServices {
                 toDelete.add(end.getOwner());
             }
         }
-
+		Session session = null;
+		ModelAccessor modelAccessor = null;
         for (EObject obj : toDelete) {
-            EcoreUtil.delete(obj);
+        	if (session == null) {
+        		session = SessionManager.INSTANCE.getSession(obj);
+        	}
+        	if (modelAccessor == null) {
+        		modelAccessor = session.getModelAccessor();
+        	}
+        	delete(obj, session, modelAccessor);
         }
     }
 	
@@ -84,40 +98,46 @@ public class DeleteServices {
 		if (interactionUse == null) {
 			return;
 		}
-		EcoreUtil.delete(interactionUse.getStartingEnd());
-		EcoreUtil.delete(interactionUse.getFinishingEnd());
-		EcoreUtil.delete(interactionUse, true);
+		Session session = SessionManager.INSTANCE.getSession(interactionUse);
+		ModelAccessor modelAccessor = session.getModelAccessor();
+		delete(interactionUse.getStartingEnd(), session, modelAccessor);
+		delete(interactionUse.getFinishingEnd(), session, modelAccessor);
+		delete(interactionUse, session, modelAccessor);
 	}
 	
 	public void deleteStateInvariant(StateInvariant stateInvariant) {
 		if (stateInvariant == null) {
 			return;
 		}
-		EcoreUtil.delete(stateInvariant.getStartingEnd());
-		EcoreUtil.delete(stateInvariant.getFinishingEnd());
-		EcoreUtil.delete(stateInvariant, true);
+		Session session = SessionManager.INSTANCE.getSession(stateInvariant);
+		ModelAccessor modelAccessor = session.getModelAccessor();
+		delete(stateInvariant.getStartingEnd(), session, modelAccessor);
+		delete(stateInvariant.getFinishingEnd(), session, modelAccessor);
+		delete(stateInvariant, session, modelAccessor);
 	}
 	
 	public void deleteExecution(Execution execution) {
 		if (execution == null) {
 			return;
 		}
-		deleteExecutionEnd(execution.getStartingEnd());
-		deleteExecutionEnd(execution.getFinishingEnd());
-		EcoreUtil.delete(execution, true);
+		Session session = SessionManager.INSTANCE.getSession(execution);
+		ModelAccessor modelAccessor = session.getModelAccessor();
+		deleteExecutionEnd(execution.getStartingEnd(), session, modelAccessor);
+		deleteExecutionEnd(execution.getFinishingEnd(), session, modelAccessor);
+		delete(execution, session, modelAccessor);
 	}
 	
-	private void deleteExecutionEnd(End executionEnd) {
+	private void deleteExecutionEnd(End executionEnd, Session session, ModelAccessor modelAccessor) {
 		if (executionEnd != null) {
 			if (executionEnd instanceof CompoundEnd) {
 				CompoundEnd compoundExecutionEnd = (CompoundEnd)executionEnd;
 				if (compoundExecutionEnd.isExecutionEnd() && compoundExecutionEnd.getExecution() != null) {
 					compoundExecutionEnd.setOwner(null);
 				} else {
-					EcoreUtil.delete(compoundExecutionEnd, true);
+					delete(compoundExecutionEnd, session, modelAccessor);
 				}
 			} else {
-				EcoreUtil.delete(executionEnd, true);
+				delete(executionEnd, session, modelAccessor);
 			}
 		}
 	}
@@ -126,22 +146,24 @@ public class DeleteServices {
 		if (message == null) {
 			return;
 		}
-		deleteMessageEnd(message.getStartingEnd());
-		deleteMessageEnd(message.getFinishingEnd());
-		EcoreUtil.delete(message, true);
+		Session session = SessionManager.INSTANCE.getSession(message);
+		ModelAccessor modelAccessor = session.getModelAccessor();
+		deleteMessageEnd(message.getStartingEnd(), session, modelAccessor);
+		deleteMessageEnd(message.getFinishingEnd(), session, modelAccessor);
+		delete(message, session, modelAccessor);
 	}
 	
-	private void deleteMessageEnd(End messageEnd) {
+	private void deleteMessageEnd(End messageEnd, Session session, ModelAccessor modelAccessor) {
 		if (messageEnd != null) {
 			if (messageEnd instanceof CompoundEnd) {
 				CompoundEnd compoundMessageEnd = (CompoundEnd)messageEnd;
 				if (compoundMessageEnd.getOwner() == null) {
-					EcoreUtil.delete(compoundMessageEnd, true);
+					delete(compoundMessageEnd, session, modelAccessor);
 				} else {
 					compoundMessageEnd.setOtherOwner(null);
 				}
 			} else {
-				EcoreUtil.delete(messageEnd, true);
+				delete(messageEnd, session, modelAccessor);
 			}
 		}
 	}
@@ -176,7 +198,7 @@ public class DeleteServices {
 			deleteInteractionUse(interactionUse);
 		}
 		
-		EcoreUtil.delete(participant, true);
+		delete(participant);
 	}
 	
 	private List<Execution> getExecutionsForParticipant(Participant participant) {
@@ -238,5 +260,29 @@ public class DeleteServices {
 			}
 		}
 		return result;
+	}
+	
+	public static void delete(EObject object, Session session, ModelAccessor modelAccessor) {
+		Session vpSession = session;
+		ModelAccessor vpModelAccessor = modelAccessor;
+		if (vpSession == null) {
+			vpSession = SessionManager.INSTANCE.getSession(object);
+		}
+		if (vpModelAccessor == null) {
+			vpModelAccessor = vpSession.getModelAccessor();
+		}
+		vpModelAccessor.eDelete(object, vpSession.getSemanticCrossReferencer(), new Predicate<EReference>() {
+	        public boolean apply(EReference reference) {
+	            return DSemanticDecorator.class.isAssignableFrom(reference.getContainerClass());
+	        }
+	    });
+	}
+	
+	public static void delete(EObject object, Session session) {
+		delete(object, session, null);
+	}
+
+	public static void delete(EObject object) {
+		delete(object, null, null);
 	}
 }

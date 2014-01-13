@@ -18,7 +18,8 @@ Require-Bundle: fr.obeo.acceleo.gen,
  org.obeonetwork.dsl.environment.binding.dialect,
  org.obeonetwork.dsl.overview,
  org.obeonetwork.dsl.cinematic.design,
- org.eclipse.core.expressions
+ org.eclipse.core.expressions,
+ fr.obeo.mda.ecore.extender
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

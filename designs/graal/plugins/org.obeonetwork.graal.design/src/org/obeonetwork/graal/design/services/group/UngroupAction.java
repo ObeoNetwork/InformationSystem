@@ -13,11 +13,11 @@ package org.obeonetwork.graal.design.services.group;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.TasksContainer;
 import org.obeonetwork.graal.TasksGroup;
 import org.obeonetwork.graal.UseCase;
+import org.obeonetwork.graal.design.services.util.DeleteUtils;
 
 import fr.obeo.dsl.viewpoint.AbstractDNode;
 import fr.obeo.dsl.viewpoint.DDiagramElement;
@@ -74,7 +74,8 @@ public class UngroupAction {
 		TasksContainer container = (TasksContainer)group.eContainer();
 		container.getTasks().addAll(group.getTasks());
 		
-		EcoreUtil.delete(group);
+		// Delete without EcoreUtil.delete()
+		DeleteUtils.delete(group);
 		
 		return context;
 	}

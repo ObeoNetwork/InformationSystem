@@ -12,7 +12,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gmf.runtime.diagram.ui,
  fr.obeo.dsl.viewpoint.diagram,
  org.eclipse.ui.ide,
- org.obeonetwork.tools.linker
+ org.obeonetwork.tools.linker,
+ com.google.guava,
+ fr.obeo.mda.ecore.extender
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin

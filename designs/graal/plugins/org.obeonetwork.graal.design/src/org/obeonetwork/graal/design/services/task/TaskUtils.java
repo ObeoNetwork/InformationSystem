@@ -21,7 +21,6 @@ import java.util.regex.Pattern;
 
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.Activity;
 import org.obeonetwork.graal.GraalFactory;
@@ -33,6 +32,11 @@ import org.obeonetwork.graal.TaskReference;
 import org.obeonetwork.graal.TasksContainer;
 import org.obeonetwork.graal.TasksGroup;
 import org.obeonetwork.graal.Transition;
+import org.obeonetwork.graal.design.services.util.DeleteUtils;
+
+import fr.obeo.dsl.viewpoint.business.api.session.Session;
+import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
+import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
 
 /**
  * Utilities services concerning Tasks and TasksGroups
@@ -59,7 +63,7 @@ public class TaskUtils {
 		for (System subSystem : subSystems) {
 			deleteSystem(subSystem);
 		}
-		EcoreUtil.delete(system, true);
+		DeleteUtils.delete(system);
 	}
 	
 	/**
@@ -68,7 +72,7 @@ public class TaskUtils {
 	 */
 	public void deleteTasksGroup(TasksGroup group) {
 		deleteChildrenTasksAndTasksGroups(group);
-		EcoreUtil.delete(group, true);
+		DeleteUtils.delete(group);
 	}
 	
 	/**
@@ -93,9 +97,12 @@ public class TaskUtils {
 	 * @param task Task to be deleted
 	 */
 	public void deleteTask(Task task) {
+		Session session = SessionManager.INSTANCE.getSession(task);
+		ModelAccessor modelAccessor = session.getModelAccessor();
+		
 		// Deletion of all TaskReference instances associated with the task
-		deleteTaskReferences(task);
-		EcoreUtil.delete(task, true);
+		deleteTaskReferences(task, session, modelAccessor);
+		DeleteUtils.delete(task, session, modelAccessor);
 	}
 	
 	/**
@@ -145,6 +152,9 @@ public class TaskUtils {
 	 * @param usedTask Target AbstractTask instance of the relationship
 	 */
 	public void deleteTaskUseTaskEdge(AbstractTask usingTask, AbstractTask usedTask) {
+		Session session = SessionManager.INSTANCE.getSession(usingTask);
+		ModelAccessor modelAccessor = session.getModelAccessor();
+		
 		// Get all potentially concerned used Tasks
 		List<Task> usedTasks = new ArrayList<Task>();
 		if (usedTask instanceof Task) {
@@ -156,12 +166,12 @@ public class TaskUtils {
 		// Check if the using "task" is a Task or a Group
 		if (usingTask instanceof Task) {
 			for (Task realUsedTask : usedTasks) {
-				deleteUseRelationship((Task)usingTask, realUsedTask);
+				deleteUseRelationship((Task)usingTask, realUsedTask, session, modelAccessor);
 			}
 		} else {
 			for (Task realUsedTask : usedTasks) {
 				for (Task realUsingTask : getTasksFromGroupUsingTask((TasksGroup)usingTask, realUsedTask)) {
-					deleteUseRelationship(realUsingTask, realUsedTask);
+					deleteUseRelationship(realUsingTask, realUsedTask, session, modelAccessor);
 				}				
 			}
 		}
@@ -171,10 +181,10 @@ public class TaskUtils {
 	 * Deletes all TaskReference instances pointing to a Task instance
 	 * @param task Pointed Task instance
 	 */
-	private void deleteTaskReferences(Task task) {
+	private void deleteTaskReferences(Task task, Session session, ModelAccessor modelAccessor) {
 		List<TaskReference> taskRefs = new ArrayList<TaskReference>(task.getReferencedBy());
 		for (TaskReference taskRef : taskRefs) {
-			deleteTaskReference(taskRef);
+			deleteTaskReference(taskRef, session, modelAccessor);
 		}
 	}
 
@@ -225,7 +235,7 @@ public class TaskUtils {
 	 * @param usingTask Source task of the "use" relationship
 	 * @param usedTask Target task of the "use" relationship
 	 */
-	private void deleteUseRelationship(Task usingTask, Task usedTask) {
+	private void deleteUseRelationship(Task usingTask, Task usedTask, Session session, ModelAccessor modelAccessor) {
 		// Delete "use" relationship
 		usingTask.getUses().remove(usedTask);
 		
@@ -234,7 +244,7 @@ public class TaskUtils {
 
 		// Delete the corresponding TaskReference on the UsingTask's Actions plan
 		if (taskRef != null) {
-			deleteTaskReference(taskRef);
+			deleteTaskReference(taskRef, session, modelAccessor);
 		}
 	}
 	
@@ -242,23 +252,23 @@ public class TaskUtils {
 	 * Deletes a TaskReference instance and its transitions
 	 * @param taskRef TaskReference to be deleted
 	 */
-	private void deleteTaskReference(TaskReference taskRef) {
+	private void deleteTaskReference(TaskReference taskRef, Session session, ModelAccessor modelAccessor) {
 		// Delete transitions from and to this TaskRef
-		deleteTransitions(taskRef.getIncomingTransitions());
-		deleteTransitions(taskRef.getOutgoingTransitions());
+		deleteTransitions(taskRef.getIncomingTransitions(), session, modelAccessor);
+		deleteTransitions(taskRef.getOutgoingTransitions(), session, modelAccessor);
 		
 		// Delete the TaskReference
-		EcoreUtil.delete(taskRef);
+		DeleteUtils.delete(taskRef, session, modelAccessor);
 	}
 	
 	/**
 	 * Deletes a collection of transitions
 	 * @param transitions Transitions to be deleted
 	 */
-	private void deleteTransitions(Collection<Transition> transitions) {
+	private void deleteTransitions(Collection<Transition> transitions, Session session, ModelAccessor modelAccessor) {
 		Collection<Transition> lTransitions = new ArrayList<Transition>(transitions);
 		for (Transition transition : lTransitions) {
-			EcoreUtil.delete(transition);
+			DeleteUtils.delete(transition, session, modelAccessor);
 		}
 	}
 	

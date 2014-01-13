@@ -16,8 +16,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.dsl.environment.Reference;
+
+import fr.obeo.dsl.viewpoint.business.api.session.Session;
+import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
+import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class ReferencesService {
 	
@@ -60,14 +63,30 @@ public class ReferencesService {
 	}
 	
 	public void deleteEntityReferences(List<org.obeonetwork.dsl.entity.Reference> references) {
+		Session session = null;
+		ModelAccessor modelAccessor = null;
 		for (org.obeonetwork.dsl.entity.Reference reference : references) {
-			EcoreUtil.delete(reference, true);
+			if (session == null) {
+				session = SessionManager.INSTANCE.getSession(reference);
+			}
+			if (modelAccessor == null) {
+				modelAccessor = session.getModelAccessor();
+			}
+			DeleteUtils.delete(reference, session, modelAccessor);
 		}
 	}
 
 	public void deleteDtoReferences(List<Reference> references) {
+		Session session = null;
+		ModelAccessor modelAccessor = null;
 		for (Reference reference : references) {
-			EcoreUtil.delete(reference, true);
+			if (session == null) {
+				session = SessionManager.INSTANCE.getSession(reference);
+			}
+			if (modelAccessor == null) {
+				modelAccessor = session.getModelAccessor();
+			}
+			DeleteUtils.delete(reference, session, modelAccessor);
 		}
 	}
 }
