@@ -18,23 +18,23 @@
   <properties>
     <tycho-version>0.14.1</tycho-version>
     <platform-version-name>indigo</platform-version-name>
-    <od-site>http://www.obeo.fr/download/release/designer/6.1/latest/juno3/update/</od-site>
-	<eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/1.2</eef-site>
-    <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.3/</acceleo-site>
-    <eclipse-site>http://mirror.update.eclipse.obeo.fr/release-indigo-3.7/</eclipse-site>
+    <od-site>http://update.obeo.fr/release/designer/6.2.0/juno3/update/repository/</od-site>
+    <eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/1.3/</eef-site>
+    <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site>
+    <eclipse-site>http://www.obeo.fr/download/eclipse/juno-3.8</eclipse-site>
     <orbit-site>http://mirror.update.eclipse.obeo.fr/orbit-R20120526062928/</orbit-site>
   </properties>
 
   <repositories>
-    <repository>
-      <id>indigo</id>
-      <layout>p2</layout>
-      <url>${eclipse-site}</url>
-    </repository>
-    <repository>
+  	<repository>
       <id>od</id>
       <layout>p2</layout>
       <url>${od-site}</url>
+    </repository>
+    <repository>
+      <id>juno3</id>
+      <layout>p2</layout>
+      <url>${eclipse-site}</url>
     </repository>
     <repository>
       <id>eef</id>
@@ -68,6 +68,16 @@
         <version>${tycho-version}</version>
         <configuration>
           <resolver>p2</resolver>
+          <dependency-resolution>
+	        <!--optionalDependencies>ignore</optionalDependencies-->
+	        <extraRequirements>
+				<requirement>
+					<type>eclipse-plugin</type>
+					<id>org.eclipse.emf.cdo.ecore.retrofit</id>
+					<versionRange>0.0.0</versionRange>
+				</requirement>
+			</extraRequirements>
+	      </dependency-resolution>
         </configuration>
       </plugin>
     </plugins>
