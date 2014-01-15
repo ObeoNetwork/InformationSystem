@@ -14,5 +14,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.obeonetwork.dsl.typeslibrary;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
- org.eclipse.emf.cdo;bundle-version="4.0.1";visibility:=reexport
+ org.eclipse.emf.cdo;visibility:=reexport
 Bundle-ActivationPolicy: lazy
