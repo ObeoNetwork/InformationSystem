@@ -216,15 +216,15 @@ Each party waives its rights to a jury trial in any resulting
 litigation.
    </license>
    <requires>
-      <import feature="fr.obeo.dsl.feature.designer.architect" version="6.0.0" match="greaterOrEqual"/>
-      <import feature="fr.obeo.dsl.viewpoint.runtime" version="6.4.0" match="greaterOrEqual"/>
-      <import feature="fr.obeo.dsl.viewpoint.runtime.acceleo" version="6.4.0" match="greaterOrEqual"/>
-      <import feature="fr.obeo.dsl.viewpoint.runtime.acceleo2" version="6.4.0" match="greaterOrEqual"/>
-      <import feature="fr.obeo.dsl.viewpoint.runtime.ide.ui" version="6.4.0" match="greaterOrEqual"/>
-      <import feature="fr.obeo.dsl.viewpoint.runtime.ide.ui.acceleo" version="6.4.0" match="greaterOrEqual"/>
-      <import feature="fr.obeo.dsl.viewpoint.runtime.ocl" version="6.4.0" match="greaterOrEqual"/>
-      <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui" version="6.4.0" match="greaterOrEqual"/>
-      <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui.acceleo" version="6.4.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.feature.designer.architect" version="6.2.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime" version="6.8.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.acceleo" version="6.8.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.acceleo2" version="6.8.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.ide.ui" version="6.8.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.ide.ui.acceleo" version="6.8.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.runtime.ocl" version="6.8.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui" version="6.8.0" match="greaterOrEqual"/>
+      <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui.acceleo" version="6.8.0" match="greaterOrEqual"/>
       <import feature="fr.obeo.mda.license" version="1.0.0" match="greaterOrEqual"/>
       <import feature="org.obeonetwork.dsl.cinematic.design.feature" version="3.0.0" match="greaterOrEqual"/>
       <import feature="org.obeonetwork.dsl.feature.entity" version="2.4.0" match="greaterOrEqual"/>
