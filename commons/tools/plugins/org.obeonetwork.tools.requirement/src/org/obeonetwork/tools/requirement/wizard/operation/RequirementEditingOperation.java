@@ -37,7 +37,7 @@ public class RequirementEditingOperation extends WizardEditingOperation {
 	 */
 	@Override
 	protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-//		editingContext.initializeRecorder();
+		editingContext.initializeRecorder();
 		RequirementEditingWizard wizard = new RequirementEditingWizard(editingContext, editingContext.getAdapterFactory(), editingContext.getEObject());
 		EEFWizardDialog wDialog = new EEFWizardDialog(EditingUtils.getShell(), wizard);
 		int open = wDialog.open();
