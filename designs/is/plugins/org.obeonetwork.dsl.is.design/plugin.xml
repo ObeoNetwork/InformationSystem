@@ -65,4 +65,10 @@
             type="java.lang.Object">
       </propertyTester>
    </extension>
+   <extension
+         point="fr.obeo.dsl.viewpoint.sessionManagerListener">
+      <listener
+            class="org.obeonetwork.dsl.is.design.ui.selector.UpdateDAnalysisSelectorSessionListener">
+      </listener>
+   </extension>
 </plugin>

@@ -19,7 +19,9 @@ Require-Bundle: fr.obeo.acceleo.gen,
  org.obeonetwork.dsl.overview,
  org.obeonetwork.dsl.cinematic.design,
  org.eclipse.core.expressions,
- fr.obeo.mda.ecore.extender
+ fr.obeo.mda.ecore.extender,
+ fr.obeo.dsl.viewpoint.table,
+ fr.obeo.dsl.viewpoint.tree
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
