@@ -4,9 +4,13 @@
 package org.obeonetwork.dsl.cinematic.flow.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.obeonetwork.dsl.cinematic.flow.parts.FlowViewsRepository;
+
 import org.obeonetwork.dsl.cinematic.flow.parts.forms.AbortStatePropertiesEditionPartForm;
 import org.obeonetwork.dsl.cinematic.flow.parts.forms.ActionStatePropertiesEditionPartForm;
 import org.obeonetwork.dsl.cinematic.flow.parts.forms.AsyncEventStatePropertiesEditionPartForm;
@@ -19,6 +23,7 @@ import org.obeonetwork.dsl.cinematic.flow.parts.forms.InitialStatePropertiesEdit
 import org.obeonetwork.dsl.cinematic.flow.parts.forms.SubflowStatePropertiesEditionPartForm;
 import org.obeonetwork.dsl.cinematic.flow.parts.forms.TransitionPropertiesEditionPartForm;
 import org.obeonetwork.dsl.cinematic.flow.parts.forms.ViewStatePropertiesEditionPartForm;
+
 import org.obeonetwork.dsl.cinematic.flow.parts.impl.AbortStatePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.cinematic.flow.parts.impl.ActionStatePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.cinematic.flow.parts.impl.AsyncEventStatePropertiesEditionPartImpl;

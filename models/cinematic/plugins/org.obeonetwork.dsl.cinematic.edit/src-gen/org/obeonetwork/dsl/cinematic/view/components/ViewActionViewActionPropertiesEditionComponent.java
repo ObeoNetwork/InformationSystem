@@ -192,4 +192,6 @@ public class ViewActionViewActionPropertiesEditionComponent extends SinglePartPr
 
 	
 
+	
+
 }

@@ -4,14 +4,19 @@
 package org.obeonetwork.dsl.cinematic.view.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.obeonetwork.dsl.cinematic.view.parts.ViewViewsRepository;
+
 import org.obeonetwork.dsl.cinematic.view.parts.forms.ViewActionPropertiesEditionPartForm;
 import org.obeonetwork.dsl.cinematic.view.parts.forms.ViewContainerPropertiesEditionPartForm;
 import org.obeonetwork.dsl.cinematic.view.parts.forms.ViewContainerReferencePropertiesEditionPartForm;
 import org.obeonetwork.dsl.cinematic.view.parts.forms.ViewElementPropertiesEditionPartForm;
 import org.obeonetwork.dsl.cinematic.view.parts.forms.ViewEventPropertiesEditionPartForm;
+
 import org.obeonetwork.dsl.cinematic.view.parts.impl.ViewActionPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.cinematic.view.parts.impl.ViewContainerPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.cinematic.view.parts.impl.ViewContainerReferencePropertiesEditionPartImpl;

@@ -254,4 +254,6 @@ public class ViewEventViewEventPropertiesEditionComponent extends SinglePartProp
 
 	
 
+	
+
 }

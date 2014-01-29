@@ -6,22 +6,31 @@ package org.obeonetwork.dsl.cinematic.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
+
 import org.obeonetwork.dsl.cinematic.components.PackagePackage_PropertiesEditionComponent;
 import org.obeonetwork.dsl.cinematic.components.PackagePropertiesEditionComponent;
+
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
+
+import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
 
 /**
  * 
  * 
  */
-public class Package_PropertiesEditionProvider extends PropertiesEditingProviderImpl {
+public class Package_PropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
@@ -125,7 +134,7 @@ public class Package_PropertiesEditionProvider extends PropertiesEditingProvider
 	 * Provides the filter used by the plugin.xml to assign part forms.
 	 */
 	public static class EditionFilter implements IFilter {
-		
+	
 		/**
 		 * {@inheritDoc}
 		 * 

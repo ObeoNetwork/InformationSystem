@@ -6,23 +6,32 @@ package org.obeonetwork.dsl.cinematic.flow.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.cinematic.flow.DecisionState;
 import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
+
 import org.obeonetwork.dsl.cinematic.flow.components.DecisionStateDecisionStatePropertiesEditionComponent;
 import org.obeonetwork.dsl.cinematic.flow.components.DecisionStatePropertiesEditionComponent;
+
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
+
+import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
 
 /**
  * 
  * 
  */
-public class DecisionStatePropertiesEditionProvider extends PropertiesEditingProviderImpl {
+public class DecisionStatePropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
@@ -126,7 +135,7 @@ public class DecisionStatePropertiesEditionProvider extends PropertiesEditingPro
 	 * Provides the filter used by the plugin.xml to assign part forms.
 	 */
 	public static class EditionFilter implements IFilter {
-		
+	
 		/**
 		 * {@inheritDoc}
 		 * 
