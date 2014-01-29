@@ -232,4 +232,6 @@ public class RegionRegionPropertiesEditionComponent extends SinglePartProperties
 
 	
 
+	
+
 }

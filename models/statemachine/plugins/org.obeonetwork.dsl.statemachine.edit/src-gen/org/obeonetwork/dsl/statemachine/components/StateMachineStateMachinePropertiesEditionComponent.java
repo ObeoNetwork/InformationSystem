@@ -297,4 +297,6 @@ public class StateMachineStateMachinePropertiesEditionComponent extends SinglePa
 
 	
 
+	
+
 }
