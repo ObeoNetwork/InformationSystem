@@ -41,11 +41,11 @@
       <layout>p2</layout>
       <url>${eef-site}</url>
     </repository>
-    <repository>
+    <!--<repository>
       <id>acceleo</id>
       <layout>p2</layout>
       <url>${acceleo-site}</url>
-    </repository>
+    </repository>-->
     <repository>
       <id>orbit</id>
       <layout>p2</layout>
