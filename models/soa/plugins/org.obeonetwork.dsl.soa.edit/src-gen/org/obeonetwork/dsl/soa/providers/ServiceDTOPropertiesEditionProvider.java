@@ -13,15 +13,24 @@ package org.obeonetwork.dsl.soa.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
+
+import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
+
 import org.obeonetwork.dsl.soa.ServiceDTO;
 import org.obeonetwork.dsl.soa.SoaPackage;
+
 import org.obeonetwork.dsl.soa.components.ServiceDTOPropertiesEditionComponent;
 import org.obeonetwork.dsl.soa.components.ServiceDTOServiceDTOPropertiesEditionComponent;
 
@@ -29,7 +38,7 @@ import org.obeonetwork.dsl.soa.components.ServiceDTOServiceDTOPropertiesEditionC
  * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
  * 
  */
-public class ServiceDTOPropertiesEditionProvider extends PropertiesEditingProviderImpl {
+public class ServiceDTOPropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
@@ -133,7 +142,7 @@ public class ServiceDTOPropertiesEditionProvider extends PropertiesEditingProvid
 	 * Provides the filter used by the plugin.xml to assign part forms.
 	 */
 	public static class EditionFilter implements IFilter {
-		
+	
 		/**
 		 * {@inheritDoc}
 		 * 

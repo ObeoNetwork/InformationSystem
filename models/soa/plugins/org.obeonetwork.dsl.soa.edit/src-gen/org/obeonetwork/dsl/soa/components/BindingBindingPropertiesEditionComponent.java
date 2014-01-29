@@ -196,4 +196,6 @@ public class BindingBindingPropertiesEditionComponent extends SinglePartProperti
 
 	
 
+	
+
 }

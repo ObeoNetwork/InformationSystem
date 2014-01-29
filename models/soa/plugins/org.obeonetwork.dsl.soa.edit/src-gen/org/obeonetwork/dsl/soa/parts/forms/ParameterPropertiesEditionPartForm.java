@@ -449,7 +449,11 @@ public class ParameterPropertiesEditionPartForm extends SectionPropertiesEditing
 
 			public EObject handleCreate() {
 				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParameterPropertiesEditionPartForm.this, SoaViewsRepository.Parameter.Properties.type, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null)); 
-				return null;
+				return getType();
+			}
+
+			public void handleEdit(EObject element) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParameterPropertiesEditionPartForm.this, SoaViewsRepository.Parameter.Properties.type, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element)); 
 			}
 
 		};

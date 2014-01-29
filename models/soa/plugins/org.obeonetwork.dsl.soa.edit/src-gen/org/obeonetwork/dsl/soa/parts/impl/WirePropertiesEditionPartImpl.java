@@ -150,7 +150,11 @@ public class WirePropertiesEditionPartImpl extends CompositePropertiesEditionPar
 
 			public EObject handleCreate() {
 				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(WirePropertiesEditionPartImpl.this, SoaViewsRepository.Wire.Properties.source, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null)); 
-				return null;
+				return getSource();
+			}
+
+			public void handleEdit(EObject element) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(WirePropertiesEditionPartImpl.this, SoaViewsRepository.Wire.Properties.source, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element)); 
 			}
 		};
 		//create widget
@@ -181,7 +185,11 @@ public class WirePropertiesEditionPartImpl extends CompositePropertiesEditionPar
 
 			public EObject handleCreate() {
 				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(WirePropertiesEditionPartImpl.this, SoaViewsRepository.Wire.Properties.dest, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null)); 
-				return null;
+				return getDest();
+			}
+
+			public void handleEdit(EObject element) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(WirePropertiesEditionPartImpl.this, SoaViewsRepository.Wire.Properties.dest, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element)); 
 			}
 		};
 		//create widget

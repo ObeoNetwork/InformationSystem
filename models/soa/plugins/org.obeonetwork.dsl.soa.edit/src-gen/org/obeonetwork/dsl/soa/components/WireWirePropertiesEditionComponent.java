@@ -252,4 +252,6 @@ public class WireWirePropertiesEditionComponent extends SinglePartPropertiesEdit
 
 	
 
+	
+
 }

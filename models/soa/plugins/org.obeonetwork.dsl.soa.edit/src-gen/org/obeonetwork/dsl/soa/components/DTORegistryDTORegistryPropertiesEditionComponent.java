@@ -238,4 +238,6 @@ public class DTORegistryDTORegistryPropertiesEditionComponent extends SinglePart
 
 	
 
+	
+
 }

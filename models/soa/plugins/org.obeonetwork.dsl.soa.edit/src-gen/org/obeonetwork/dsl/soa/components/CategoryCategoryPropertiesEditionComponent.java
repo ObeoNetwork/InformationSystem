@@ -208,4 +208,6 @@ public class CategoryCategoryPropertiesEditionComponent extends SinglePartProper
 
 	
 
+	
+
 }
