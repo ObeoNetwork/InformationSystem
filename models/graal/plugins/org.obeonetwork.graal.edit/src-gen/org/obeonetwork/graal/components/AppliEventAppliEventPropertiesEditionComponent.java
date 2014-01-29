@@ -259,4 +259,6 @@ public class AppliEventAppliEventPropertiesEditionComponent extends SinglePartPr
 
 	
 
+	
+
 }

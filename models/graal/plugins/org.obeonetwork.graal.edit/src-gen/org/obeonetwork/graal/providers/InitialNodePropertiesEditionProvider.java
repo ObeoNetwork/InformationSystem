@@ -6,15 +6,24 @@ package org.obeonetwork.graal.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
+
+import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
+
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.InitialNode;
+
 import org.obeonetwork.graal.components.InitialNodeInitialNodePropertiesEditionComponent;
 import org.obeonetwork.graal.components.InitialNodePropertiesEditionComponent;
 
@@ -22,7 +31,7 @@ import org.obeonetwork.graal.components.InitialNodePropertiesEditionComponent;
  * 
  * 
  */
-public class InitialNodePropertiesEditionProvider extends PropertiesEditingProviderImpl {
+public class InitialNodePropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
@@ -126,7 +135,7 @@ public class InitialNodePropertiesEditionProvider extends PropertiesEditingProvi
 	 * Provides the filter used by the plugin.xml to assign part forms.
 	 */
 	public static class EditionFilter implements IFilter {
-		
+	
 		/**
 		 * {@inheritDoc}
 		 * 

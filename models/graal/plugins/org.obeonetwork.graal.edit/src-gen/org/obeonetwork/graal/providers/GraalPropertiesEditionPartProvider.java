@@ -4,9 +4,13 @@
 package org.obeonetwork.graal.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.obeonetwork.graal.parts.GraalViewsRepository;
+
 import org.obeonetwork.graal.parts.forms.AbortNodePropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.ActorPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.AppliActionPropertiesEditionPartForm;
@@ -24,6 +28,7 @@ import org.obeonetwork.graal.parts.forms.UseCasePropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.UserActionPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.UserStoryPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.UserViewPropertiesEditionPartForm;
+
 import org.obeonetwork.graal.parts.impl.AbortNodePropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.ActorPropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.AppliActionPropertiesEditionPartImpl;
