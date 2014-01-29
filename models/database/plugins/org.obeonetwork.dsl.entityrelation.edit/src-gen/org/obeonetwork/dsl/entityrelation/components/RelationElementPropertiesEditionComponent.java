@@ -371,4 +371,6 @@ public class RelationElementPropertiesEditionComponent extends SinglePartPropert
 			return targetEntitySettings;
 	}
 
+	
+
 }

@@ -352,4 +352,6 @@ public class SequencePropertiesEditionComponent extends SinglePartPropertiesEdit
 
 	
 
+	
+
 }

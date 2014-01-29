@@ -4,9 +4,13 @@
 package org.obeonetwork.dsl.entityrelation.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.obeonetwork.dsl.entityrelation.parts.EntityrelationViewsRepository;
+
 import org.obeonetwork.dsl.entityrelation.parts.forms.AttributePropertiesEditionPartForm;
 import org.obeonetwork.dsl.entityrelation.parts.forms.EntityPropertiesEditionPartForm;
 import org.obeonetwork.dsl.entityrelation.parts.forms.IdentifierPropertiesEditionPartForm;
@@ -14,6 +18,7 @@ import org.obeonetwork.dsl.entityrelation.parts.forms.IdentifiersPropertiesEditi
 import org.obeonetwork.dsl.entityrelation.parts.forms.LogicalModelPropertiesEditionPartForm;
 import org.obeonetwork.dsl.entityrelation.parts.forms.RelationElementPropertiesEditionPartForm;
 import org.obeonetwork.dsl.entityrelation.parts.forms.RelationPropertiesEditionPartForm;
+
 import org.obeonetwork.dsl.entityrelation.parts.impl.AttributePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entityrelation.parts.impl.EntityPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entityrelation.parts.impl.IdentifierPropertiesEditionPartImpl;

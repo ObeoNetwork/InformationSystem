@@ -259,4 +259,6 @@ public class TypeInstancePropertiesEditionComponent extends SinglePartProperties
 
 	
 
+	
+
 }

@@ -6,14 +6,20 @@ package org.obeonetwork.dsl.database.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.Table;
+
 import org.obeonetwork.dsl.database.components.TableConstraintsPropertiesEditionComponent;
 import org.obeonetwork.dsl.database.components.TableForeignKeysPropertiesEditionComponent;
 import org.obeonetwork.dsl.database.components.TableIndexesPropertiesEditionComponent;
@@ -21,11 +27,13 @@ import org.obeonetwork.dsl.database.components.TablePrimaryKeyPropertiesEditionC
 import org.obeonetwork.dsl.database.components.TablePropertiesEditionComponent;
 import org.obeonetwork.dsl.database.components.TableTablePropertiesEditionComponent;
 
+import org.obeonetwork.dsl.typeslibrary.policies.CustomPropertiesEditingProvider;
+
 /**
  * 
  * 
  */
-public class TablePropertiesEditionProvider extends PropertiesEditingProviderImpl {
+public class TablePropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
@@ -144,7 +152,7 @@ public class TablePropertiesEditionProvider extends PropertiesEditingProviderImp
 	 * Provides the filter used by the plugin.xml to assign part forms.
 	 */
 	public static class EditionFilter implements IFilter {
-		
+	
 		/**
 		 * {@inheritDoc}
 		 * 

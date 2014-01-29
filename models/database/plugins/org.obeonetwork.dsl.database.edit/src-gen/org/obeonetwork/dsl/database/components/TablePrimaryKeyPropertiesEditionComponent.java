@@ -282,4 +282,6 @@ public class TablePrimaryKeyPropertiesEditionComponent extends SinglePartPropert
 			return pkCommentsSettings;
 	}
 
+	
+
 }

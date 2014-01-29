@@ -225,4 +225,6 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 
 	
 
+	
+
 }

@@ -6,21 +6,29 @@ package org.obeonetwork.dsl.typeslibrary.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.typeslibrary.ComplexNamedType;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
+
 import org.obeonetwork.dsl.typeslibrary.components.ComplexNamedTypePropertiesEditionComponent;
+
+import org.obeonetwork.dsl.typeslibrary.policies.CustomPropertiesEditingProvider;
 
 /**
  * 
  * 
  */
-public class ComplexNamedTypePropertiesEditionProvider extends PropertiesEditingProviderImpl {
+public class ComplexNamedTypePropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
@@ -119,7 +127,7 @@ public class ComplexNamedTypePropertiesEditionProvider extends PropertiesEditing
 	 * Provides the filter used by the plugin.xml to assign part forms.
 	 */
 	public static class EditionFilter implements IFilter {
-		
+	
 		/**
 		 * {@inheritDoc}
 		 * 

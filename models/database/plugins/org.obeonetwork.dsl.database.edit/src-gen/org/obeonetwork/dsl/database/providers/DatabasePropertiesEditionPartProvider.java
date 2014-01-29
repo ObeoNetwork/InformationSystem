@@ -4,9 +4,13 @@
 package org.obeonetwork.dsl.database.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
+
 import org.obeonetwork.dsl.database.parts.forms.ColumnPropertiesEditionPartForm;
 import org.obeonetwork.dsl.database.parts.forms.ConstraintPropertiesEditionPartForm;
 import org.obeonetwork.dsl.database.parts.forms.ConstraintsPropertiesEditionPartForm;
@@ -22,6 +26,7 @@ import org.obeonetwork.dsl.database.parts.forms.SchemaPropertiesEditionPartForm;
 import org.obeonetwork.dsl.database.parts.forms.SequencePropertiesEditionPartForm;
 import org.obeonetwork.dsl.database.parts.forms.TablePropertiesEditionPartForm;
 import org.obeonetwork.dsl.database.parts.forms.ViewPropertiesEditionPartForm;
+
 import org.obeonetwork.dsl.database.parts.impl.ColumnPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.database.parts.impl.ConstraintPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.database.parts.impl.ConstraintsPropertiesEditionPartImpl;

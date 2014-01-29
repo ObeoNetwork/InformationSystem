@@ -429,4 +429,6 @@ public class AttributePropertiesEditionComponent extends SinglePartPropertiesEdi
 			return literalsSettings;
 	}
 
+	
+
 }

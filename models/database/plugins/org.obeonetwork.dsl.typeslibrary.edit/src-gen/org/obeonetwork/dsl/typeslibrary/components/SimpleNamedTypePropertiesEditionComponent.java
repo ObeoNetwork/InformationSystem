@@ -236,4 +236,6 @@ public class SimpleNamedTypePropertiesEditionComponent extends SinglePartPropert
 
 	
 
+	
+
 }

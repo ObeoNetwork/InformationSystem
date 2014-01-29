@@ -367,4 +367,6 @@ public class IndexPropertiesEditionComponent extends SinglePartPropertiesEditing
 
 	
 
+	
+
 }

@@ -231,4 +231,6 @@ public class ComplexNamedTypePropertiesEditionComponent extends SinglePartProper
 
 	
 
+	
+
 }

@@ -200,4 +200,6 @@ public class SchemaPropertiesEditionComponent extends SinglePartPropertiesEditin
 
 	
 
+	
+
 }

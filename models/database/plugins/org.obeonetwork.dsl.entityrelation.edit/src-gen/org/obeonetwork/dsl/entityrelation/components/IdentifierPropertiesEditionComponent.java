@@ -242,4 +242,6 @@ public class IdentifierPropertiesEditionComponent extends SinglePartPropertiesEd
 
 	
 
+	
+
 }

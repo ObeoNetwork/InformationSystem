@@ -247,4 +247,6 @@ public class IndexElementPropertiesEditionComponent extends SinglePartProperties
 
 	
 
+	
+
 }

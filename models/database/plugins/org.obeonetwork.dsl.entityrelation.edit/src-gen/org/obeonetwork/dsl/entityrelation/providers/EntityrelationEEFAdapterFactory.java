@@ -4,6 +4,7 @@
 package org.obeonetwork.dsl.entityrelation.providers;
 
 import org.eclipse.emf.common.notify.Adapter;
+
 import org.obeonetwork.dsl.entityrelation.util.EntityRelationAdapterFactory;
 
 /**

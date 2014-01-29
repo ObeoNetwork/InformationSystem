@@ -4,9 +4,13 @@
 package org.obeonetwork.dsl.typeslibrary.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.obeonetwork.dsl.typeslibrary.parts.TypeslibraryViewsRepository;
+
 import org.obeonetwork.dsl.typeslibrary.parts.forms.ComplexNamedTypePropertiesEditionPartForm;
 import org.obeonetwork.dsl.typeslibrary.parts.forms.NativeTypePropertiesEditionPartForm;
 import org.obeonetwork.dsl.typeslibrary.parts.forms.NativeTypesLibraryPropertiesEditionPartForm;
@@ -14,6 +18,7 @@ import org.obeonetwork.dsl.typeslibrary.parts.forms.SimpleNamedTypePropertiesEdi
 import org.obeonetwork.dsl.typeslibrary.parts.forms.TypeInstancePropertiesEditionPartForm;
 import org.obeonetwork.dsl.typeslibrary.parts.forms.UserDefinedTypeRefPropertiesEditionPartForm;
 import org.obeonetwork.dsl.typeslibrary.parts.forms.UserDefinedTypesLibraryPropertiesEditionPartForm;
+
 import org.obeonetwork.dsl.typeslibrary.parts.impl.ComplexNamedTypePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.typeslibrary.parts.impl.NativeTypePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.typeslibrary.parts.impl.NativeTypesLibraryPropertiesEditionPartImpl;

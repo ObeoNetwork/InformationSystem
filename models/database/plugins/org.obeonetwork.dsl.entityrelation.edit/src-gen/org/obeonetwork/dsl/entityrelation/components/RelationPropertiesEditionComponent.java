@@ -566,4 +566,6 @@ public class RelationPropertiesEditionComponent extends SinglePartPropertiesEdit
 
 	
 
+	
+
 }

@@ -557,4 +557,6 @@ public class ColumnPropertiesEditionComponent extends SinglePartPropertiesEditin
 			return literalsSettings;
 	}
 
+	
+
 }
