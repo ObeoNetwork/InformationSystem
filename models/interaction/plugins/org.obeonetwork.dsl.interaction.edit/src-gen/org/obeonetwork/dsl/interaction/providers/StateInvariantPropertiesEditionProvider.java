@@ -15,11 +15,11 @@ import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 
-import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
-
 import org.eclipse.jface.viewers.IFilter;
 
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
+
+import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
 
 import org.obeonetwork.dsl.interaction.InteractionPackage;
 import org.obeonetwork.dsl.interaction.StateInvariant;
@@ -31,7 +31,7 @@ import org.obeonetwork.dsl.interaction.components.StateInvariantStateInvariantPr
  * 
  * 
  */
-public class StateInvariantPropertiesEditionProvider extends PropertiesEditingProviderImpl {
+public class StateInvariantPropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
@@ -135,7 +135,7 @@ public class StateInvariantPropertiesEditionProvider extends PropertiesEditingPr
 	 * Provides the filter used by the plugin.xml to assign part forms.
 	 */
 	public static class EditionFilter implements IFilter {
-		
+	
 		/**
 		 * {@inheritDoc}
 		 * 

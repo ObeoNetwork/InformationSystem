@@ -192,4 +192,6 @@ public class InteractionInteractionPropertiesEditionComponent extends SinglePart
 
 	
 
+	
+
 }
