@@ -208,4 +208,6 @@ public class BindingElementBindingElementPropertiesEditionComponent extends Sing
 
 	
 
+	
+
 }

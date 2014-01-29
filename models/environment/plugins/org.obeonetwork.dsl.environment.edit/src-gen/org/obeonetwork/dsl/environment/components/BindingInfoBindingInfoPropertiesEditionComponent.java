@@ -198,4 +198,6 @@ public class BindingInfoBindingInfoPropertiesEditionComponent extends SinglePart
 
 	
 
+	
+
 }

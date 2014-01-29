@@ -4,9 +4,13 @@
 package org.obeonetwork.dsl.environment.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
+
 import org.obeonetwork.dsl.environment.parts.forms.AnnotationPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.AttributePropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.BindingElementPropertiesEditionPartForm;
@@ -24,6 +28,7 @@ import org.obeonetwork.dsl.environment.parts.forms.PriorityDefinitionPropertiesE
 import org.obeonetwork.dsl.environment.parts.forms.PriorityPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.ReferencePropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.TypesDefinitionPropertiesEditionPartForm;
+
 import org.obeonetwork.dsl.environment.parts.impl.AnnotationPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.AttributePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.BindingElementPropertiesEditionPartImpl;

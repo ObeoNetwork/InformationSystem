@@ -9,6 +9,8 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.obeonetwork.dsl.environment.components,
  org.obeonetwork.dsl.environment.edit.specific.extensions,
+ org.obeonetwork.dsl.environment.edit.specific.policies,
+ org.obeonetwork.dsl.environment.filters,
  org.obeonetwork.dsl.environment.parts,
  org.obeonetwork.dsl.environment.provider,
  org.obeonetwork.dsl.environment.providers
@@ -17,6 +19,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.eef.runtime,
- org.eclipse.emf.ecore.edit;visibility:=reexport
+ org.eclipse.emf.ecore.edit;visibility:=reexport,
+ org.eclipse.emf.workspace
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

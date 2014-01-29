@@ -267,4 +267,6 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 
 	
 
+	
+
 }

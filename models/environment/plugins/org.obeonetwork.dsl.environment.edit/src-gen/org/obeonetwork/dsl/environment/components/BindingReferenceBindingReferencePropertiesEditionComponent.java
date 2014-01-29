@@ -208,4 +208,6 @@ public class BindingReferenceBindingReferencePropertiesEditionComponent extends 
 
 	
 
+	
+
 }

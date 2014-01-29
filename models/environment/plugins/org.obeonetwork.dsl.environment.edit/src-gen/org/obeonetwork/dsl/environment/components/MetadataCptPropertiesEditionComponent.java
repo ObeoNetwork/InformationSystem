@@ -103,7 +103,7 @@ public class MetadataCptPropertiesEditionComponent extends SinglePartPropertiesE
 					}
 			
 				});
-				// FIXME default case for filter body generation.
+				
 				// Start of user code for additional businessfilters for metadata
 				// End of user code
 			}
@@ -217,6 +217,8 @@ public class MetadataCptPropertiesEditionComponent extends SinglePartPropertiesE
 		return ret;
 	}
 
+
+	
 
 	
 
