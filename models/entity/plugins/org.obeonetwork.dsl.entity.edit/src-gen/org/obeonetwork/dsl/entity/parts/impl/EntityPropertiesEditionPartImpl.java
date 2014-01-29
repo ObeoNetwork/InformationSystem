@@ -230,7 +230,11 @@ public class EntityPropertiesEditionPartImpl extends CompositePropertiesEditionP
 
 			public EObject handleCreate() {
 				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EntityPropertiesEditionPartImpl.this, EntityViewsRepository.Entity_.Properties.superType, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null)); 
-				return null;
+				return getSuperType();
+			}
+
+			public void handleEdit(EObject element) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EntityPropertiesEditionPartImpl.this, EntityViewsRepository.Entity_.Properties.superType, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element)); 
 			}
 		};
 		//create widget

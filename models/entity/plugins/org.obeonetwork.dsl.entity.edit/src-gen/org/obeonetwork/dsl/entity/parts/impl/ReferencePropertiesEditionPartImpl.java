@@ -236,7 +236,11 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 
 			public EObject handleCreate() {
 				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ReferencePropertiesEditionPartImpl.this, EntityViewsRepository.Reference.Properties.type, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null)); 
-				return null;
+				return getType();
+			}
+
+			public void handleEdit(EObject element) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ReferencePropertiesEditionPartImpl.this, EntityViewsRepository.Reference.Properties.type, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element)); 
 			}
 		};
 		//create widget

@@ -157,7 +157,11 @@ public class InternalCriterionPropertiesEditionPartForm extends SectionPropertie
 
 			public EObject handleCreate() {
 				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InternalCriterionPropertiesEditionPartForm.this, EntityViewsRepository.InternalCriterion.Properties.target, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null)); 
-				return null;
+				return getTarget();
+			}
+
+			public void handleEdit(EObject element) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InternalCriterionPropertiesEditionPartForm.this, EntityViewsRepository.InternalCriterion.Properties.target, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element)); 
 			}
 
 		};

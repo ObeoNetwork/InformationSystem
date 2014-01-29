@@ -22,8 +22,6 @@ import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 
-import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
-
 import org.eclipse.jface.viewers.IFilter;
 
 import org.obeonetwork.dsl.entity.Block;
@@ -34,11 +32,13 @@ import org.obeonetwork.dsl.entity.components.BlockPropertiesEditionComponent;
 
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 
+import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
+
 /**
  * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
  * 
  */
-public class BlockPropertiesEditionProvider extends PropertiesEditingProviderImpl {
+public class BlockPropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
@@ -142,7 +142,7 @@ public class BlockPropertiesEditionProvider extends PropertiesEditingProviderImp
 	 * Provides the filter used by the plugin.xml to assign part forms.
 	 */
 	public static class EditionFilter implements IFilter {
-		
+	
 		/**
 		 * {@inheritDoc}
 		 * 

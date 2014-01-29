@@ -232,4 +232,6 @@ public class FinderFinderPropertiesEditionComponent extends SinglePartProperties
 
 	
 
+	
+
 }

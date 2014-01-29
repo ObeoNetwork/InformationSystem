@@ -271,4 +271,6 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 
 	
 
+	
+
 }
