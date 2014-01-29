@@ -4,6 +4,7 @@
 package org.obeonetwork.dsl.requirement.providers;
 
 import org.eclipse.emf.common.notify.Adapter;
+
 import org.obeonetwork.dsl.requirement.util.RequirementAdapterFactory;
 
 /**

@@ -354,4 +354,6 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 
 	
 
+	
+
 }

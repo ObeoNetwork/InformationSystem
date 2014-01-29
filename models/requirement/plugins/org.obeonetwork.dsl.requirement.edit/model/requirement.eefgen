@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <eef-gen:EEFGenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eef-gen="http://www.eclipse.org/emf/eef/generation/1.0.0" genDirectory="/org.obeonetwork.dsl.requirement.edit/src-gen">
-  <editionContexts basePackage="org.obeonetwork.dsl" descriptorsGenericPropertiesViews="true">
+  <editionContexts basePackage="org.obeonetwork.dsl" descriptorsGenericPropertiesViews="true" propertiesEditingProvidersSuperClass="org.obeonetwork.dsl.requirement.policies.CustomPropertiesEditingProvider">
     <PropertiesEditionContext href="requirement.components#_szypkMvEEd-iMcVUPxjMIw"/>
   </editionContexts>
   <viewsRepositories basePackage="org.obeonetwork.dsl.requirement" swtViews="true" formViews="true">

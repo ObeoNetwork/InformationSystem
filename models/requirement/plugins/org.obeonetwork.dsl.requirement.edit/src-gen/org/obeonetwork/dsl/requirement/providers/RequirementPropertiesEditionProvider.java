@@ -6,23 +6,31 @@ package org.obeonetwork.dsl.requirement.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-import org.eclipse.emf.eef.runtime.providers.impl.PropertiesEditingProviderImpl;
+
 import org.eclipse.jface.viewers.IFilter;
+
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
+
 import org.obeonetwork.dsl.requirement.components.RequirementAdvancedPropertiesEditionComponent;
 import org.obeonetwork.dsl.requirement.components.RequirementPropertiesEditionComponent;
 import org.obeonetwork.dsl.requirement.components.RequirementRequirementPropertiesEditionComponent;
+
+import org.obeonetwork.dsl.requirement.policies.CustomPropertiesEditingProvider;
 
 /**
  * 
  * 
  */
-public class RequirementPropertiesEditionProvider extends PropertiesEditingProviderImpl {
+public class RequirementPropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
@@ -126,7 +134,7 @@ public class RequirementPropertiesEditionProvider extends PropertiesEditingProvi
 	 * Provides the filter used by the plugin.xml to assign part forms.
 	 */
 	public static class EditionFilter implements IFilter {
-		
+	
 		/**
 		 * {@inheritDoc}
 		 * 

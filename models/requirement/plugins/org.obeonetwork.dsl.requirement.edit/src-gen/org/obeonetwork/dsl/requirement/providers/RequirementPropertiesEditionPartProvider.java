@@ -4,13 +4,18 @@
 package org.obeonetwork.dsl.requirement.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.obeonetwork.dsl.requirement.parts.RequirementViewsRepository;
+
 import org.obeonetwork.dsl.requirement.parts.forms.AdvancedPropertiesEditionPartForm;
 import org.obeonetwork.dsl.requirement.parts.forms.CategoryPropertiesEditionPartForm;
 import org.obeonetwork.dsl.requirement.parts.forms.RepositoryPropertiesEditionPartForm;
 import org.obeonetwork.dsl.requirement.parts.forms.RequirementPropertiesEditionPartForm;
+
 import org.obeonetwork.dsl.requirement.parts.impl.AdvancedPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.requirement.parts.impl.CategoryPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.requirement.parts.impl.RepositoryPropertiesEditionPartImpl;
