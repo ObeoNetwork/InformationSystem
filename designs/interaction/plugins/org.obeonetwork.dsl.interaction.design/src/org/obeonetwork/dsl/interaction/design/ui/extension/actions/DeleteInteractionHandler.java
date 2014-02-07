@@ -18,6 +18,10 @@ import fr.obeo.dsl.viewpoint.DRepresentation;
 import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
 import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
+import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectEditor;
+import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
+import fr.obeo.dsl.viewpoint.ui.business.api.session.IEditingSession;
+import fr.obeo.dsl.viewpoint.ui.business.api.session.SessionUIManager;
 import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class DeleteInteractionHandler extends AbstractHandler {
@@ -42,7 +46,8 @@ public class DeleteInteractionHandler extends AbstractHandler {
 					Collection<DRepresentation> representations = DialectManager.INSTANCE.getRepresentations(interaction, session);
 					// Delete representations
 					for (DRepresentation representation : representations) {
-						modelAccessor.eDelete(representation, semanticCrossReferencer);
+						closeEditor(session, representation);
+						DialectManager.INSTANCE.deleteRepresentation(representation, session);
 					}
 					// Delete interaction
 					modelAccessor.eDelete(interaction, semanticCrossReferencer);
@@ -61,6 +66,18 @@ public class DeleteInteractionHandler extends AbstractHandler {
 			}
 		}
 		return null;
+	}
+	
+	private void closeEditor(Session session, DRepresentation representation) {
+		IEditingSession editingSession = SessionUIManager.INSTANCE.getUISession(session);
+        if (editingSession != null) {
+            DialectEditor editor = editingSession.getEditor(representation);
+            if (editor != null) {
+                DialectUIManager.INSTANCE.closeEditor(editor, false);
+                editingSession.detachEditor(editor);
+            }
+        }
+		return;
 	}
 
 }
