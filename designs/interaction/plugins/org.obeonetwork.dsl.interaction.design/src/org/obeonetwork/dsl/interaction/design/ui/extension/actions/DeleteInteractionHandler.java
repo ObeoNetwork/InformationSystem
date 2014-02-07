@@ -47,8 +47,6 @@ public class DeleteInteractionHandler extends AbstractHandler {
 					// Delete interaction
 					modelAccessor.eDelete(interaction, semanticCrossReferencer);
 				}
-				
-				//TODO Delete diagrams
 			});
 		}
 		return null;
