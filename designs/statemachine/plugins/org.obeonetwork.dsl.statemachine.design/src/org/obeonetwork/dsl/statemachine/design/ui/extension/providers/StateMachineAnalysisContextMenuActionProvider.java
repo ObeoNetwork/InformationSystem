@@ -33,7 +33,7 @@ public class StateMachineAnalysisContextMenuActionProvider implements IContextMe
 					// Let's check if the "StateMachine" viewpoint is selected
 					Session session = SessionManager.INSTANCE.getSession((ObeoDSMObject)selectedObject);
 					if (session != null) {
-						for (Viewpoint viewpoint : session.getSelectedViewpoints()) {
+						for (Viewpoint viewpoint : session.getSelectedViewpoints(false)) {
 							if (isStateMachineViewpoint(viewpoint)) {
 								IAction action = computeAction((ObeoDSMObject)selectedObject);
 								if (action != null) {

@@ -13,7 +13,7 @@ public class NewStateMachineDiagramMenuAction extends Action implements IMenuCre
 	private ObeoDSMObject context;
 	
 	public NewStateMachineDiagramMenuAction(ObeoDSMObject context) {
-		setText("New ...");
+		setText("New state machine");
 		setId("1");
 		setMenuCreator(this);
 		this.context = context;

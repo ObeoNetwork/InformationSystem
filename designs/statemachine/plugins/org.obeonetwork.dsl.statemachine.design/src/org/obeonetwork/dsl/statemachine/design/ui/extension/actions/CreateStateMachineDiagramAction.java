@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.Collection;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.action.Action;
@@ -17,7 +16,6 @@ import org.obeonetwork.dsl.statemachine.StateMachineFactory;
 import org.obeonetwork.dsl.statemachine.design.Activator;
 import org.obeonetwork.dsl.statemachine.design.ui.extension.providers.StateMachineAnalysisContextMenuActionProvider;
 
-import fr.obeo.dsl.common.tools.api.editing.EditingDomainFactoryService;
 import fr.obeo.dsl.viewpoint.DRepresentation;
 import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
@@ -65,11 +63,13 @@ public class CreateStateMachineDiagramAction extends Action {
 		
 //		TransactionalEditingDomain editingDomain = EditingDomainService.getInstance().getEditingDomainProvider().getEditingDomain();
 		Session session = SessionManager.INSTANCE.getSession(context);
-		if (session == null || session.getSessionResource() == null || session.getSessionResource().getResourceSet() == null) {
+		if (session == null) {
 			return;
 		}
-		ResourceSet resourceSet = session.getSessionResource().getResourceSet();
-		TransactionalEditingDomain editingDomain = EditingDomainFactoryService.INSTANCE.getEditingDomainFactory().getEditingDomain(resourceSet);
+		TransactionalEditingDomain editingDomain = session.getTransactionalEditingDomain();
+		if (editingDomain == null) {
+			return;
+		}
 		
 		RecordingCommand cmd = new RecordingCommand(editingDomain, "Create Sequence diagram") {
 			protected void doExecute() {
@@ -85,9 +85,10 @@ public class CreateStateMachineDiagramAction extends Action {
 						
 						// Create a new state machine instance
 						StateMachine statemachine = StateMachineFactory.eINSTANCE.createStateMachine();
+						statemachine.setName(diagramName);
 						context.getBehaviours().add(statemachine);
 						
-						Collection<RepresentationDescription> descs = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(), statemachine);
+						Collection<RepresentationDescription> descs = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), statemachine);
 						for (RepresentationDescription desc : descs) {
 							Viewpoint viewpoint = (Viewpoint)desc.eContainer();
 							
@@ -97,7 +98,7 @@ public class CreateStateMachineDiagramAction extends Action {
 								if (DialectManager.INSTANCE.canCreate(statemachine, desc)) {
 									DRepresentation stateMachineDiagram = DialectManager.INSTANCE.createRepresentation(diagramName, statemachine, desc, session, new NullProgressMonitor());
 									if (stateMachineDiagram != null) {
-										DialectUIManager.INSTANCE.openEditor(session, stateMachineDiagram);
+										DialectUIManager.INSTANCE.openEditor(session, stateMachineDiagram, new NullProgressMonitor());
 									}
 								}
 							}
