@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.Collection;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.action.Action;
@@ -17,7 +16,6 @@ import org.obeonetwork.dsl.interaction.InteractionFactory;
 import org.obeonetwork.dsl.interaction.design.Activator;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionAnalysisContextMenuActionProvider;
 
-import fr.obeo.dsl.common.tools.api.editing.EditingDomainFactoryService;
 import fr.obeo.dsl.viewpoint.DRepresentation;
 import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
@@ -63,13 +61,14 @@ public class CreateSequenceDiagramAction extends Action {
 		
 		final Shell shell = Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getShell();
 		
-//		TransactionalEditingDomain editingDomain = EditingDomainService.getInstance().getEditingDomainProvider().getEditingDomain();
 		Session session = SessionManager.INSTANCE.getSession(context);
-		if (session == null || session.getSessionResource() == null || session.getSessionResource().getResourceSet() == null) {
+		if (session == null) {
 			return;
 		}
-		ResourceSet resourceSet = session.getSessionResource().getResourceSet();
-		TransactionalEditingDomain editingDomain = EditingDomainFactoryService.INSTANCE.getEditingDomainFactory().getEditingDomain(resourceSet);
+		TransactionalEditingDomain editingDomain = session.getTransactionalEditingDomain();
+		if (editingDomain == null) {
+			return;
+		}
 		
 		RecordingCommand cmd = new RecordingCommand(editingDomain, "Create Sequence diagram") {
 			protected void doExecute() {
@@ -85,9 +84,10 @@ public class CreateSequenceDiagramAction extends Action {
 						
 						// Create a new interaction instance
 						Interaction interaction = InteractionFactory.eINSTANCE.createInteraction();
+						interaction.setName(diagramName);
 						context.getBehaviours().add(interaction);
 						
-						Collection<RepresentationDescription> descs = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(), interaction);
+						Collection<RepresentationDescription> descs = DialectManager.INSTANCE.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), interaction);
 						for (RepresentationDescription desc : descs) {
 							Viewpoint viewpoint = (Viewpoint)desc.eContainer();
 							
@@ -97,7 +97,7 @@ public class CreateSequenceDiagramAction extends Action {
 								if (DialectManager.INSTANCE.canCreate(interaction, desc)) {
 									DRepresentation sequenceDiagram = DialectManager.INSTANCE.createRepresentation(diagramName, interaction, desc, session, new NullProgressMonitor());
 									if (sequenceDiagram != null) {
-										DialectUIManager.INSTANCE.openEditor(session, sequenceDiagram);
+										DialectUIManager.INSTANCE.openEditor(session, sequenceDiagram, new NullProgressMonitor());
 									}
 								}
 							}

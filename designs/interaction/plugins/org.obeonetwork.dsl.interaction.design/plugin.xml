@@ -7,4 +7,59 @@
 	       name="interaction">
     </component>
   </extension>
+  <extension
+        id="popup:org.eclipse.ui.popup.any?after=additions"
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="true"
+           locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+        <command
+              commandId="org.obeonetwork.dsl.interaction.design.command.delete.interaction"
+              icon="icons/delete.gif"
+              label="Delete interaction"
+              style="push">
+           <visibleWhen
+                 checkEnabled="false">
+              <with
+                    variable="selection">
+                 <and>
+                    <count
+                          value="1">
+                    </count>
+                    <iterate>
+                       <test
+                             forcePluginActivation="true"
+                             property="org.obeonetwork.dsl.interaction.design.propertyTester.isInteraction">
+                       </test>
+                    </iterate>
+                 </and>
+              </with>
+           </visibleWhen>
+        </command>
+     </menuContribution>
+  </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           id="org.obeonetwork.dsl.interaction.design.command.delete.interaction"
+           name="Delete interaction">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.handlers">
+     <handler
+           class="org.obeonetwork.dsl.interaction.design.ui.extension.actions.DeleteInteractionHandler"
+           commandId="org.obeonetwork.dsl.interaction.design.command.delete.interaction">
+     </handler>
+  </extension>
+  <extension
+        point="org.eclipse.core.expressions.propertyTesters">
+     <propertyTester
+           class="org.obeonetwork.dsl.interaction.design.ui.extension.actions.IsInteractionPropertyTester"
+           id="org.obeonetwork.dsl.interaction.design.propertyTester.isInteraction"
+           namespace="org.obeonetwork.dsl.interaction.design.propertyTester"
+           properties="isInteraction"
+           type="java.lang.Object">
+     </propertyTester>
+  </extension>
 </plugin>

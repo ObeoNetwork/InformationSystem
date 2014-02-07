@@ -13,7 +13,7 @@ public class NewSequenceDiagramMenuAction extends Action implements IMenuCreator
 	private ObeoDSMObject context;
 	
 	public NewSequenceDiagramMenuAction(ObeoDSMObject context) {
-		setText("New ...");
+		setText("New interaction");
 		setId("1");
 		setMenuCreator(this);
 		this.context = context;
