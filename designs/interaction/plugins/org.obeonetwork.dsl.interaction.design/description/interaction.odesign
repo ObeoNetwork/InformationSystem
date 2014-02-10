@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/diagram/sequence/description/2.0.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" xmlns:tool_1="http://www.obeo.fr/dsl/viewpoint/diagram/sequence/description/tool/2.0.0" name="interaction" version="6.7.0.201302071200">
   <ownedViewpoints name="Interaction">
-    <ownedRepresentations xsi:type="description_1:SequenceDiagramDescription" dropDescriptions="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DAD_Participant']" name="Sequence Diagram" domainClass="interaction.Interaction" rootExpression="&lt;%behaviours.nFirst%>" endsOrdering="&lt;%ends &amp;&amp; $eventEnds%>">
+    <ownedRepresentations xsi:type="description_1:SequenceDiagramDescription" dropDescriptions="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DAD_Participant']" name="Sequence Diagram" domainClass="interaction.Interaction" rootExpression="&lt;%behaviours.nFirst%>" endsOrdering="&lt;%ends &amp;&amp; $eventEnds%>" instanceRolesOrdering="&lt;%null%>">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.interaction/model/interaction.ecore#/"/>
       <defaultLayer name="Default">
@@ -95,30 +95,42 @@
         </containerMappings>
         <toolSections name="Tools">
           <ownedTools xsi:type="tool:ToolGroup" name="GRP_Participant">
-            <tools xsi:type="tool:NodeCreationDescription" name="CRE_Participant" label="Participant" nodeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']">
-              <variable name="container"/>
-              <viewVariable name="containerView"/>
+            <tools xsi:type="tool_1:InstanceRoleCreationTool" name="CRE_Participant" label="Participant" nodeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']">
+              <variable name="variable"/>
+              <viewVariable name="viewVariable"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.Participant" referenceName="participants">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="newParticipant&lt;%eContainer(&quot;Interaction&quot;).participants.nSize%>"/>
                   </subModelOperations>
+                  <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move participant" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
+                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceName" value="participants"/>
+                    <parameters name="element" value="&lt;%$instance%>"/>
+                    <parameters name="predecessor" value="&lt;%if ($predecessor){%>&lt;%$predecessor%>&lt;%}%>"/>
+                  </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
+              <predecessor name="predecessor"/>
             </tools>
-            <tools xsi:type="tool:NodeCreationDescription" name="CRE_TypedParticipant" label="Typed Participant" nodeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']">
-              <variable name="container">
-                <subVariables xsi:type="tool:SelectModelElementVariable" name="participantType" candidatesExpression="&lt;%($container.getAllRootsInSession().filter(&quot;ObeoDSMObject&quot;) + $container.getAllRootsInSession().eAllContents(&quot;ObeoDSMObject&quot;))%>" tree="true" rootExpression="&lt;%$container.getAllRootsInSession()%>" childrenExpression="&lt;%eContents()%>" message="Select a type for the new participant"/>
-              </variable>
-              <viewVariable name="containerView"/>
+            <tools xsi:type="tool_1:InstanceRoleCreationTool" name="CRE_TypedParticipant" label="Typed Participant" nodeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']">
+              <variable name="variable"/>
+              <viewVariable name="viewVariable"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.Participant" referenceName="participants">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="newParticipant&lt;%eContainer(&quot;Interaction&quot;).participants.nSize%>"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="&lt;%$participantType%>"/>
                   </subModelOperations>
+                  <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move participant" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
+                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceName" value="participants"/>
+                    <parameters name="element" value="&lt;%$instance%>"/>
+                    <parameters name="predecessor" value="&lt;%if ($predecessor){%>&lt;%$predecessor%>&lt;%}%>"/>
+                  </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
+              <predecessor name="predecessor"/>
             </tools>
           </ownedTools>
           <ownedTools xsi:type="tool:ToolGroup" name="CRE_Messages">
@@ -688,6 +700,22 @@
               </firstModelOperations>
             </onEventMovedOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:InstanceRoleReorderTool" name="Reorder participants" mappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']">
+            <predecessorBefore name="predecessorBefore"/>
+            <predecessorAfter name="predecessorAfter"/>
+            <instanceRoleMoved>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>">
+                <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%self.filter(&quot;Participant&quot;)%>">
+                  <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move start end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
+                    <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
+                    <parameters name="referenceName" value="participants"/>
+                    <parameters name="element" value="&lt;%self%>"/>
+                    <parameters name="predecessor" value="&lt;%if ($predecessorAfter){%>&lt;%$predecessorAfter%>&lt;%}%>"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </instanceRoleMoved>
+          </ownedTools>
           <subSections name="Usability">
             <subSections name="Participant">
               <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_Participant">
@@ -901,10 +929,6 @@
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newOperand%>">
                   <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$newOpEnd%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$startingEndPredecessor.semanticEnd.getOperand.finishingEnd%>"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$startingEndPredecessor.semanticEnd.getOperand%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$newOpEnd%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move operand start end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                   <parameters name="referenceOwner" value="&lt;%self%>"/>
