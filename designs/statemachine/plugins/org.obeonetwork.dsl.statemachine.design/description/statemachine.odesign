@@ -3,6 +3,7 @@
   <ownedViewpoints name="State Machine">
     <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='D%26D%20Tools']/@ownedTools[name='D%26D_States']" name="State Machine Diagram" titleExpression="&lt;%name%> State Machine Diagram" domainClass="statemachine.StateMachine" enablePopupBars="true">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#/"/>
+      <metamodel href="http://www.obeonetwork.org/dsl/environment/2.0.0#/"/>
       <diagramInitialisation>
         <firstModelOperations xsi:type="tool:If" conditionExpression="&lt;%states.filter(&quot;InitialState&quot;).nSize == 0%>">
           <subModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.InitialState" referenceName="states"/>
@@ -120,6 +121,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="OPE_ChangeParent" label="Change parent">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%eContainer(&quot;StateMachine&quot;).changeParentForStateMachine()%>"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Reused Tools">
           <subSections name="Direct Edit Tools">
@@ -222,5 +229,6 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.statemachine.design.services.StateMachineServices"/>
   </ownedViewpoints>
 </description:Group>
