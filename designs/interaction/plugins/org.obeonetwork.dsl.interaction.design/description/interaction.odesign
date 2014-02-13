@@ -721,7 +721,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:diagram">
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:target">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:changeParent"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:changeParentForInteraction"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>

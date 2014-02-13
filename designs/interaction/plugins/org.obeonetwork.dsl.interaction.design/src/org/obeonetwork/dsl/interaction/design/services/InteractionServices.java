@@ -507,11 +507,11 @@ public class InteractionServices {
     }    
 
     /**
-     * Change the parent of an interaction with the 
+     * Change the parent of an interaction with a selected one 
      * @param interaction
      * @return
      */
-    public Interaction changeParent(final Interaction interaction) {
+    public Interaction changeParentForInteraction(final Interaction interaction) {
     	Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
     	
     	AdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
