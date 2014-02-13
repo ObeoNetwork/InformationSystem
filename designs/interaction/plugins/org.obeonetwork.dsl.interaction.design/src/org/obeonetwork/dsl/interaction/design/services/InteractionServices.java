@@ -11,9 +11,19 @@ import java.util.List;
 import java.util.Set;
 import java.util.Stack;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
+import org.eclipse.ui.dialogs.ISelectionStatusValidator;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.interaction.CombinedFragment;
 import org.obeonetwork.dsl.interaction.End;
 import org.obeonetwork.dsl.interaction.Execution;
@@ -24,9 +34,15 @@ import org.obeonetwork.dsl.interaction.Message;
 import org.obeonetwork.dsl.interaction.Operand;
 import org.obeonetwork.dsl.interaction.Participant;
 import org.obeonetwork.dsl.interaction.StateInvariant;
+import org.obeonetwork.dsl.interaction.design.Activator;
+import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionContentProvider;
+import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionParentSelectionLabelProvider;
 
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
 import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
+import fr.obeo.mda.ecore.extender.business.api.permission.IPermissionAuthority;
+import fr.obeo.mda.ecore.extender.business.api.permission.LockStatus;
+import fr.obeo.mda.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
 
 /**
  * Java services for the sample 'Interaction' sequence diagrams.
@@ -489,5 +505,56 @@ public class InteractionServices {
             return false;
         }
     }    
-    
+
+    /**
+     * Change the parent of an interaction with the 
+     * @param interaction
+     * @return
+     */
+    public Interaction changeParent(final Interaction interaction) {
+    	Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+    	
+    	AdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+    	InteractionParentSelectionLabelProvider labelProvider = new InteractionParentSelectionLabelProvider(adapterFactory);
+    	InteractionParentSelectionContentProvider contentProvider = new InteractionParentSelectionContentProvider(adapterFactory);
+    	ElementTreeSelectionDialog dlg = new ElementTreeSelectionDialog(shell, labelProvider, contentProvider);
+    	dlg.setHelpAvailable(false);
+    	dlg.setValidator(new ISelectionStatusValidator() {
+			@Override
+			public IStatus validate(Object[] selection) {
+				Object selectedObject = selection[0];
+				if (selectedObject instanceof EObject) {
+					IPermissionAuthority authority = PermissionAuthorityRegistry.getDefault().getPermissionAuthority((EObject)selectedObject);
+					if (authority != null) {
+						LockStatus lockStatus = authority.getLockStatus((EObject)selectedObject);
+						if (LockStatus.LOCKED_BY_OTHER.equals(lockStatus)) {
+							return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "This element is locked by another user");
+						}
+					}
+				}
+				return new Status(IStatus.OK, Activator.PLUGIN_ID, "");
+			}
+		});
+    	
+    	dlg.setTitle("Change interaction's parent");
+    	dlg.setMessage("Select the new parent for the interaction");
+    	
+    	Session session = SessionManager.INSTANCE.getSession(interaction);
+		if (session == null) {
+			return interaction;
+		}
+		dlg.setInput(session.getSemanticResources().toArray());
+		dlg.setInitialSelection(interaction.eContainer());
+    	
+    	int btn = dlg.open();
+    	if (btn == Dialog.OK) {
+    		Object selectedElement = dlg.getFirstResult();
+    		if (selectedElement instanceof ObeoDSMObject && selectedElement != interaction.eContainer()) {
+    			// Change the parent
+    			((ObeoDSMObject)selectedElement).getBehaviours().add(interaction);
+    		}
+    	}
+    	
+    	return interaction;
+    }
 }

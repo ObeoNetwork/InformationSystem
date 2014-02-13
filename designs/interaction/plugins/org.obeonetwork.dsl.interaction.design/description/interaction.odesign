@@ -716,6 +716,16 @@
               </firstModelOperations>
             </instanceRoleMoved>
           </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="OPE_ChangeParent" label="Change parent">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:diagram">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:target">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:changeParent"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <subSections name="Usability">
             <subSections name="Participant">
               <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_Participant">
