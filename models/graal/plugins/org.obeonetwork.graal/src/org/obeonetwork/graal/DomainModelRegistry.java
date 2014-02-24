@@ -12,7 +12,6 @@ package org.obeonetwork.graal;
 
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.entity.Block;
 import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.soa.Category;

@@ -34,7 +34,9 @@ public class UseReferencesServices {
 	 * @return list of linked elements
 	 */
 	public Set<EObject> getUsedSystemsAndTasksAndGroups(TasksContainer container) {
-		return getUsedSystemsAndTasksAndGroups((TasksContainer)container.eContainer(), container);
+		Set<EObject> usedSystemsAndTasksAndGroups = getUsedSystemsAndTasksAndGroups((TasksContainer)container.eContainer(), container);
+		usedSystemsAndTasksAndGroups.remove(container);
+		return usedSystemsAndTasksAndGroups;
 	}
 	
 	/**
@@ -44,7 +46,9 @@ public class UseReferencesServices {
 	 * @return list of linked elements
 	 */
 	public Set<EObject> getUsedSystemsAndTasksAndGroups(Task task) {
-		return getUsedSystemsAndTasksAndGroups((TasksContainer)task.eContainer(), task);
+		Set<EObject> usedSystemsAndTasksAndGroups = getUsedSystemsAndTasksAndGroups((TasksContainer)task.eContainer(), task);
+		usedSystemsAndTasksAndGroups.remove(task);
+		return usedSystemsAndTasksAndGroups;
 	}
 	
 	/**
