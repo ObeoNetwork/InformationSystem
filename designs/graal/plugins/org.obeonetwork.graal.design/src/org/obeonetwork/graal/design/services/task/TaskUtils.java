@@ -302,7 +302,7 @@ public class TaskUtils {
 	private Set<Task> getAllUsedTasks(TasksGroup group) {
 		Set<Task> allTasks = new HashSet<Task>();
 		for (Task task : group.getOwnedTasks()) {
-			if (task.getUsedBy().size() > 0) {
+			if (!task.getUsedBy().isEmpty()) {
 				allTasks.add(task);
 			}
 		}
