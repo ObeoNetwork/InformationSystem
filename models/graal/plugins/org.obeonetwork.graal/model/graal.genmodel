@@ -4,7 +4,7 @@
     modelDirectory="/org.obeonetwork.graal/src" creationIcons="false" modelPluginID="org.obeonetwork.graal"
     modelName="Graal" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" containmentProxies="true"
-    complianceLevel="5.0" copyrightFields="false" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.entity/model/entity.genmodel#//entity ../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.soa/model/soa.genmodel#//soa">
+    complianceLevel="5.0" copyrightFields="false" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.entity/model/entity.genmodel#//entity ../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment platform:/plugin/org.obeonetwork.dsl.soa/model/soa.genmodel#//soa">
   <foreignModel>graal.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Graal" basePackage="org.obeonetwork" resource="XMI" disposableProviderFactory="true"
@@ -26,12 +26,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//Task/actors"/>
       <genOperations ecoreOperation="graal.ecore#//Task/getReferencedBy"/>
       <genOperations ecoreOperation="graal.ecore#//Task/getUsedBy"/>
+      <genOperations ecoreOperation="graal.ecore#//Task/getRelatedActors"/>
     </genClasses>
     <genClasses ecoreClass="graal.ecore#//System">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//System/subSystems"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//System/actors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//System/useCases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//System/userStories"/>
+      <genOperations ecoreOperation="graal.ecore#//System/getRelatedActors"/>
     </genClasses>
     <genClasses ecoreClass="graal.ecore#//Activity">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//Activity/nodes"/>
@@ -58,7 +60,8 @@
       <genOperations ecoreOperation="graal.ecore#//Transition/getContainingTask"/>
     </genClasses>
     <genClasses ecoreClass="graal.ecore#//TaskReference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//TaskReference/task"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference graal.ecore#//TaskReference/task"/>
     </genClasses>
     <genClasses ecoreClass="graal.ecore#//UserView"/>
     <genClasses ecoreClass="graal.ecore#//UserAction"/>
@@ -80,7 +83,9 @@
       <genOperations ecoreOperation="graal.ecore#//AbstractTask/getUseCase"/>
       <genOperations ecoreOperation="graal.ecore#//AbstractTask/getContainingSystem"/>
     </genClasses>
-    <genClasses ecoreClass="graal.ecore#//TasksGroup"/>
+    <genClasses ecoreClass="graal.ecore#//TasksGroup">
+      <genOperations ecoreOperation="graal.ecore#//TasksGroup/getRelatedActors"/>
+    </genClasses>
     <genClasses ecoreClass="graal.ecore#//UseCase">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//UseCase/actors"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//UseCase/tasks"/>

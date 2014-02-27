@@ -1102,16 +1102,20 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 
 		addEOperation(taskEClass, this.getTask(), "getUsedBy", 0, -1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(taskEClass, this.getActor(), "getRelatedActors", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(systemEClass, org.obeonetwork.graal.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSystem_SubSystems(), this.getSystem(), null, "subSystems", null, 0, -1, org.obeonetwork.graal.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_Actors(), this.getActor(), null, "actors", null, 0, -1, org.obeonetwork.graal.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_UseCases(), this.getUseCase(), null, "useCases", null, 0, -1, org.obeonetwork.graal.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_UserStories(), this.getUserStory(), null, "userStories", null, 0, -1, org.obeonetwork.graal.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		addEOperation(systemEClass, this.getActor(), "getRelatedActors", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(activityEClass, Activity.class, "Activity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActivity_Nodes(), this.getNode(), null, "nodes", null, 0, -1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActivity_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getActivity_SubActivities(), this.getActivity(), null, "subActivities", null, 0, -1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActivity_SubActivities(), this.getLoop(), null, "subActivities", null, 0, -1, Activity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(activityEClass, ecorePackage.getEBoolean(), "hasChildAttachedToUserStory", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getUserStory(), "userStory", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1168,6 +1172,8 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		addEOperation(abstractTaskEClass, this.getSystem(), "getContainingSystem", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(tasksGroupEClass, TasksGroup.class, "TasksGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(tasksGroupEClass, this.getActor(), "getRelatedActors", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUseCase_Actors(), this.getActor(), null, "actors", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

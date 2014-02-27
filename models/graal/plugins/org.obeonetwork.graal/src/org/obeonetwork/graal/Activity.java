@@ -65,7 +65,7 @@ public interface Activity extends GraalObject {
 
 	/**
 	 * Returns the value of the '<em><b>Sub Activities</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.graal.Activity}.
+	 * The list contents are of type {@link org.obeonetwork.graal.Loop}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sub Activities</em>' containment reference list isn't clear,
@@ -77,7 +77,7 @@ public interface Activity extends GraalObject {
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	EList<Activity> getSubActivities();
+	EList<Loop> getSubActivities();
 
 	/**
 	 * <!-- begin-user-doc -->

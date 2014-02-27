@@ -12,8 +12,12 @@ package org.obeonetwork.graal.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
@@ -95,10 +99,24 @@ public class TaskImpl extends ActivityImpl implements Task {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected TaskImpl() {
 		super();
+		eAdapters().add(new AdapterImpl() {
+			@Override
+			public void notifyChanged(Notification msg) {
+				if (msg.getEventType() == Notification.ADD || msg.getEventType() == Notification.ADD_MANY
+					|| msg.getEventType() == Notification.REMOVE || msg.getEventType() == Notification.REMOVE_MANY) {
+					if (msg.getFeature() == GraalPackage.Literals.TASK__USES) {
+						invalidateCacheRelatedActorsForUsedTasks();
+					} else if (msg.getFeature() == GraalPackage.Literals.TASK__ACTORS) {
+						invalidateCacheRelatedActors();
+						invalidateCacheRelatedActorsForUsedTasks();
+					}
+				}
+			}
+		});
 	}
 
 	/**
@@ -266,6 +284,60 @@ public class TaskImpl extends ActivityImpl implements Task {
 		}
 		
 		return ECollections.unmodifiableEList(new BasicEList<Task>(foundTasks));
+	}
+
+	/**
+	 * Set used to cache the related actors
+	 * @generated NOT
+	 */
+	private Set<Actor> cacheRelatedActors = null;
+
+	/**
+	 * Invalidate cache on this instance
+	 * @generated NOT
+	 */
+	protected void invalidateCacheRelatedActors() {
+		cacheRelatedActors = null;
+		// Invalidate cache on containing group or system
+		EObject parent = eContainer();
+		if (parent instanceof SystemImpl) {
+			((SystemImpl)parent).invalidateCacheRelatedActors();
+		} else  if (parent instanceof TasksGroupImpl) {
+			((TasksGroupImpl)parent).invalidateCacheRelatedActors();			
+		}
+	}
+
+	/**
+	 * Invalidate cache on used tasks
+	 * @generated NOT
+	 */
+	protected void invalidateCacheRelatedActorsForUsedTasks() {
+		for (Task usedTask : getUses()) {
+			if (usedTask instanceof TaskImpl) {
+				((TaskImpl)usedTask).invalidateCacheRelatedActors();
+			}
+		}
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Actor> getRelatedActors() {
+		// Calculate the list if it is not in cache
+		if (cacheRelatedActors == null) {
+			if (!getActors().isEmpty()) {
+				cacheRelatedActors = new HashSet<Actor>(getActors());
+			} else {
+				cacheRelatedActors = new HashSet<Actor>();
+				// Calculate list of actors based on using tasks
+				for (Task usingTask : getUsedBy()) {
+					cacheRelatedActors.addAll(usingTask.getRelatedActors());
+				}
+			}
+		}
+		return ECollections.unmodifiableEList(new BasicEList<Actor>(cacheRelatedActors));
 	}
 
 	/**

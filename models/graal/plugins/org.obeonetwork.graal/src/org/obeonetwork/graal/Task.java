@@ -134,6 +134,14 @@ public interface Task extends Activity, AbstractTask, UserStoryElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
+	EList<Actor> getRelatedActors();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
 	EList<TaskReference> getReferencedBy();
 
 } // Task

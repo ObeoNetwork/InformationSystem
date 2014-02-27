@@ -81,6 +81,14 @@ public interface System extends NamedElement, DomainModelRegistry, TasksContaine
 	EList<UserStory> getUserStories();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Actor> getRelatedActors();
+
+	/**
 	 * Returns the value of the '<em><b>Sub Systems</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.graal.System}.
 	 * <!-- begin-user-doc -->

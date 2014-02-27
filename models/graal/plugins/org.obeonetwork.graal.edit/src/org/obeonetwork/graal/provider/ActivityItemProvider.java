@@ -219,11 +219,6 @@ public class ActivityItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(GraalPackage.Literals.ACTIVITY__SUB_ACTIVITIES,
-				 GraalFactory.eINSTANCE.createTask()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraalPackage.Literals.ACTIVITY__SUB_ACTIVITIES,
 				 GraalFactory.eINSTANCE.createLoop()));
 	}
 

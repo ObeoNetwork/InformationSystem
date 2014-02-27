@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.graal.Activity;
 import org.obeonetwork.graal.GraalPackage;
+import org.obeonetwork.graal.Loop;
 import org.obeonetwork.graal.Node;
 import org.obeonetwork.graal.Task;
 import org.obeonetwork.graal.TaskReference;
@@ -87,8 +88,8 @@ public abstract class ActivityImpl extends GraalObjectImpl implements Activity {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Activity> getSubActivities() {
-		return (EList<Activity>)eDynamicGet(GraalPackage.ACTIVITY__SUB_ACTIVITIES, GraalPackage.Literals.ACTIVITY__SUB_ACTIVITIES, true, true);
+	public EList<Loop> getSubActivities() {
+		return (EList<Loop>)eDynamicGet(GraalPackage.ACTIVITY__SUB_ACTIVITIES, GraalPackage.Literals.ACTIVITY__SUB_ACTIVITIES, true, true);
 	}
 
 	/**
@@ -191,7 +192,7 @@ public abstract class ActivityImpl extends GraalObjectImpl implements Activity {
 				return;
 			case GraalPackage.ACTIVITY__SUB_ACTIVITIES:
 				getSubActivities().clear();
-				getSubActivities().addAll((Collection<? extends Activity>)newValue);
+				getSubActivities().addAll((Collection<? extends Loop>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

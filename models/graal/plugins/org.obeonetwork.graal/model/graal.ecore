@@ -4,6 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Activity #//AbstractTask #//UserStoryElement">
     <eOperations name="getReferencedBy" upperBound="-1" eType="#//TaskReference"/>
     <eOperations name="getUsedBy" upperBound="-1" eType="#//Task"/>
+    <eOperations name="getRelatedActors" upperBound="-1" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="uses" upperBound="-1" eType="#//Task"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="preconditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="postconditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -11,6 +12,7 @@
         eType="#//Actor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//NamedElement #//DomainModelRegistry #//TasksContainer">
+    <eOperations name="getRelatedActors" upperBound="-1" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subSystems" upperBound="-1"
         eType="#//System" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
@@ -30,7 +32,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
         eType="#//Transition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subActivities" upperBound="-1"
-        eType="#//Activity" containment="true"/>
+        eType="#//Loop" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operator" eSuperTypes="#//Node">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="#//OperatorKind"/>
@@ -86,7 +88,9 @@
     <eOperations name="getContainingSystem" eType="#//System"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TasksGroup" eSuperTypes="#//AbstractTask #//TasksContainer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TasksGroup" eSuperTypes="#//AbstractTask #//TasksContainer">
+    <eOperations name="getRelatedActors" upperBound="-1" eType="#//Actor"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UseCase" eSuperTypes="#//NamedElement #//DomainModelRegistry">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
         eType="#//Actor"/>
@@ -103,8 +107,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="NamedNode" abstract="true" eSuperTypes="#//Node #//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DomainModelRegistry" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dtoCategories" upperBound="-1"
-        eType="ecore:EClass ../../org.obeonetwork.dsl.soa/model/soa.ecore#//Category"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dtos" upperBound="-1" eType="ecore:EClass ../../org.obeonetwork.dsl.soa/model/soa.ecore#//ServiceDTO"/>
+        eType="ecore:EClass platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#//Category"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dtos" upperBound="-1" eType="ecore:EClass platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#//ServiceDTO"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entityBlocks" upperBound="-1"
         eType="ecore:EClass ../../org.obeonetwork.dsl.entity/model/entity.ecore#//Block"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"

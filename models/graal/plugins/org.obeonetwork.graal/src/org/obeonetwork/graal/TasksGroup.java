@@ -10,6 +10,8 @@
  */
 package org.obeonetwork.graal;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -22,5 +24,13 @@ package org.obeonetwork.graal;
  * @generated
  */
 public interface TasksGroup extends AbstractTask, TasksContainer {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Actor> getRelatedActors();
 
 } // TasksGroup

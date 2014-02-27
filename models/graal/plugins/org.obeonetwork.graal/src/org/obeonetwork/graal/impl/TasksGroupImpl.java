@@ -11,15 +11,23 @@
 package org.obeonetwork.graal.impl;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.graal.AbstractTask;
+import org.obeonetwork.graal.Actor;
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.Task;
 import org.obeonetwork.graal.TasksContainer;
@@ -45,10 +53,21 @@ public class TasksGroupImpl extends AbstractTaskImpl implements TasksGroup {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected TasksGroupImpl() {
 		super();
+		eAdapters().add(new AdapterImpl() {
+			@Override
+			public void notifyChanged(Notification msg) {
+				if (msg.getEventType() == Notification.ADD || msg.getEventType() == Notification.ADD_MANY
+					|| msg.getEventType() == Notification.REMOVE || msg.getEventType() == Notification.REMOVE_MANY) {
+					if (msg.getFeature() == GraalPackage.Literals.TASKS_CONTAINER__TASKS) {
+						invalidateCacheRelatedActors();
+					}
+				}
+			}
+		});
 	}
 
 	/**
@@ -95,6 +114,47 @@ public class TasksGroupImpl extends AbstractTaskImpl implements TasksGroup {
 				GraalPackage.Literals.TASKS_CONTAINER__OWNED_GROUPS,
 				groups.size(),
 				groups.toArray());
+	}
+	
+	/**
+	 * Set used to cache the related actors
+	 * @generated NOT
+	 */
+	private Set<Actor> cacheRelatedActors = null;
+
+	/**
+	 * Invalidate cache on this instance
+	 * @generated NOT
+	 */
+	protected void invalidateCacheRelatedActors() {
+		cacheRelatedActors = null;
+		// Invalidate parent cache
+		EObject parent = eContainer();
+		if (parent instanceof SystemImpl) {
+			((SystemImpl)parent).invalidateCacheRelatedActors();
+		} else  if (parent instanceof TasksGroupImpl) {
+			((TasksGroupImpl)parent).invalidateCacheRelatedActors();			
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Actor> getRelatedActors() {
+		// Calculate the list if it is not in cache
+		if (cacheRelatedActors == null) {
+			cacheRelatedActors = new HashSet<Actor>();
+			for (AbstractTask abstractTask : getTasks()) {
+				if (abstractTask instanceof Task) {
+					cacheRelatedActors.addAll(((Task)abstractTask).getActors());
+				} else if (abstractTask instanceof TasksGroup) {
+					cacheRelatedActors.addAll(((TasksGroup)abstractTask).getRelatedActors());
+				}
+			}
+		}
+		return ECollections.unmodifiableEList(new BasicEList<Actor>(cacheRelatedActors));
 	}
 
 	/**
