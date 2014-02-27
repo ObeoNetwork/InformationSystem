@@ -30,7 +30,6 @@ import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSet
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.graal.Activity;
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.Loop;
 import org.obeonetwork.graal.parts.GraalViewsRepository;
@@ -105,7 +104,7 @@ public class LoopLoopPropertiesEditionComponent extends SinglePartPropertiesEdit
 					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
 					 */
 					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						return (element instanceof String && element.equals("")) || (element instanceof Activity); //$NON-NLS-1$ 
+						return (element instanceof String && element.equals("")) || (element instanceof Loop); //$NON-NLS-1$ 
 					}
 			
 				});
@@ -180,7 +179,7 @@ public class LoopLoopPropertiesEditionComponent extends SinglePartPropertiesEdit
 			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
 				subActivitiesSettings.removeFromReference((EObject) event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				subActivitiesSettings.move(event.getNewIndex(), (Activity) event.getNewValue());
+				subActivitiesSettings.move(event.getNewIndex(), (Loop) event.getNewValue());
 			}
 		}
 		if (GraalViewsRepository.Loop.Properties.lowerBound == event.getAffectedEditor()) {

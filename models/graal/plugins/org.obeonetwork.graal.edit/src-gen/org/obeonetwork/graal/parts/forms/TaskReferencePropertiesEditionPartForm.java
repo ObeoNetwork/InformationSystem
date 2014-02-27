@@ -462,13 +462,8 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		if (current != null) {
 			task.setSelection(new StructuredSelection(settings.getValue()));
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.TaskReference.Properties.task);
-		if (eefElementEditorReadOnlyState && task.isEnabled()) {
-			task.setEnabled(false);
-			task.setToolTipText(GraalMessages.TaskReference_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !task.isEnabled()) {
-			task.setEnabled(true);
-		}	
+		task.setEnabled(false);
+		task.setToolTipText(GraalMessages.TaskReference_ReadOnly);
 		
 	}
 
@@ -484,13 +479,8 @@ public class TaskReferencePropertiesEditionPartForm extends SectionPropertiesEdi
 		} else {
 			task.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.TaskReference.Properties.task);
-		if (eefElementEditorReadOnlyState && task.isEnabled()) {
-			task.setEnabled(false);
-			task.setToolTipText(GraalMessages.TaskReference_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !task.isEnabled()) {
-			task.setEnabled(true);
-		}	
+		task.setEnabled(false);
+		task.setToolTipText(GraalMessages.TaskReference_ReadOnly);
 		
 	}
 

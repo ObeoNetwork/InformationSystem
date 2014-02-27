@@ -419,7 +419,7 @@
       <views xmi:id="__tvftR8dEeCC-oZI6xw5iw" name="TaskReference">
         <elements xsi:type="eef-views:Container" xmi:id="__tvfth8dEeCC-oZI6xw5iw" name="properties">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="__tvfvB8dEeCC-oZI6xw5iw" name="task">
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="__tvfvB8dEeCC-oZI6xw5iw" name="task" readOnly="true">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="__tvftx8dEeCC-oZI6xw5iw" name="description">
