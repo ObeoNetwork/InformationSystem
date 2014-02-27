@@ -10,7 +10,6 @@ import org.obeonetwork.dsl.interaction.Interaction;
  */
 public class IsInteractionPropertyTester extends PropertyTester {
 
-	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
 		if ("isInteraction".equals(property)) {
 			if (receiver instanceof Interaction) {

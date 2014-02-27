@@ -10,7 +10,6 @@ import org.obeonetwork.dsl.statemachine.StateMachine;
  */
 public class IsStateMachinePropertyTester extends PropertyTester {
 
-	@Override
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
 		if ("isStateMachine".equals(property)) {
 			if (receiver instanceof StateMachine) {

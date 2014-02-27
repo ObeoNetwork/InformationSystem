@@ -26,7 +26,6 @@ import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class DeleteInteractionHandler extends AbstractHandler {
 
-	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		final Interaction interaction = extractInteraction(event);
 		if (interaction == null) {

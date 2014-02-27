@@ -520,7 +520,6 @@ public class InteractionServices {
     	ElementTreeSelectionDialog dlg = new ElementTreeSelectionDialog(shell, labelProvider, contentProvider);
     	dlg.setHelpAvailable(false);
     	dlg.setValidator(new ISelectionStatusValidator() {
-			@Override
 			public IStatus validate(Object[] selection) {
 				Object selectedObject = selection[0];
 				if (selectedObject instanceof EObject) {

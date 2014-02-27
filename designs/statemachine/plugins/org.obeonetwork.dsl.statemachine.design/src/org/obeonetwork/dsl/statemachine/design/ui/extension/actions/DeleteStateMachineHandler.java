@@ -26,7 +26,6 @@ import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class DeleteStateMachineHandler extends AbstractHandler {
 
-	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		final StateMachine stateMachine = extractStateMachine(event);
 		if (stateMachine == null) {
