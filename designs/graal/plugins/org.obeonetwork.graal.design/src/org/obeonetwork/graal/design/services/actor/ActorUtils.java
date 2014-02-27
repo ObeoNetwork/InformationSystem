@@ -12,19 +12,19 @@ package org.obeonetwork.graal.design.services.actor;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.Actor;
+import org.obeonetwork.graal.GraalObject;
 import org.obeonetwork.graal.System;
 import org.obeonetwork.graal.Task;
 import org.obeonetwork.graal.TasksGroup;
 import org.obeonetwork.graal.UseCase;
+
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 
 /**
  * Utilities services concerning Actors
@@ -32,24 +32,21 @@ import org.obeonetwork.graal.UseCase;
  *
  */
 public class ActorUtils {
+	
 	/**
-	 * Get the list of actors that should be visually connected to a task
+	 * Get the list of actors that should be visually connected to a task or group
 	 * The list depends on inherited actors and already visible tasks on diagram 
 	 * @param abstractTask The AbstractTask for which we want the actors list
 	 * @param tasksOnDiagram List of visible tasks on diagram
 	 * @return List of Actors
 	 */
 	public Collection<Actor> getVisibleLinksToActors(AbstractTask abstractTask, List<Task> tasksOnDiagram) {
-		return getVisibleLinksToActors(abstractTask, tasksOnDiagram, new HashMap<Task, Collection<Actor>>());
-	}
-	
-	public Collection<Actor> getVisibleLinksToActors(AbstractTask abstractTask, List<Task> tasksOnDiagram, Map<Task, Collection<Actor>> cache) {
 		if (abstractTask instanceof Task) {
-			return getVisibleLinksToActorsFromTask((Task)abstractTask, tasksOnDiagram, cache);
+			return getVisibleLinksToActorsFromTask((Task)abstractTask, tasksOnDiagram);
 		} else if (abstractTask instanceof TasksGroup) {
-			return getVisibleLinksToActorsFromTasksGroup((TasksGroup)abstractTask, tasksOnDiagram, cache);
-		};
-		return null;
+			return ((TasksGroup)abstractTask).getRelatedActors();
+		}
+		return Collections.emptyList();
 	}
 	
 	/**
@@ -59,63 +56,48 @@ public class ActorUtils {
 	 * @param tasksOnDiagram List of visible tasks on diagram
 	 * @return List of Actors
 	 */
-	private Collection<Actor> getVisibleLinksToActorsFromTask(Task task, List<Task> tasksOnDiagram, Map<Task, Collection<Actor>> cache) {
-		List<Actor> actors = new ArrayList<Actor>();
-		
-		if (cache.containsKey(task)) {
-			return cache.get(task);
-		}
-		
-		// if at least one actor is specified directly on the task
-		// this definition replaces the possibly inherited actors
-		// If no actor is directly specified on the task, we look for
-		// actors specified on parents of this task unless the parent
-		// is visible on the same diagram
-		cache.put(task, actors);
-		if (task.getActors().isEmpty() == false) {
-			actors = task.getActors();
-		} else {
-			for (Task usingTask : task.getUsedBy()) {
-				if (!cache.containsKey(usingTask)) {
-					// if the task is visible on the same diagram we don't take its actors into account
-					if (!tasksOnDiagram.contains(usingTask)) {
-						actors.addAll(getVisibleLinksToActors(usingTask, tasksOnDiagram, cache));
-					}
+	private Collection<Actor> getVisibleLinksToActorsFromTask(Task task, final List<Task> tasksOnDiagram) {
+		if (task.getActors().isEmpty()) {
+			// Get using tasks that are displayed on diagram
+			List<Task> usingTasksOnDiagram = Lists.newArrayList(task.getUsedBy());
+			Iterables.retainAll(usingTasksOnDiagram, tasksOnDiagram);
+			
+			// Filter the related actors to keep those not already associated with a displayed using task
+			List<Actor> relatedActors = Lists.newArrayList(task.getRelatedActors());
+			for (Task usingTask : usingTasksOnDiagram) {
+				if (!relatedActors.isEmpty()) {
+					Iterables.removeAll(relatedActors, usingTask.getRelatedActors());
+				} else {
+					break;
 				}
 			}
+			// If some of the actors are not linked to displayed tasks
+			// we then have to display the whole actors list to prevent from misunderstanding
+			if (! relatedActors.isEmpty()) {
+				return task.getRelatedActors();
+			} else {
+				return Collections.emptyList();
+			}
+		} else {
+			return task.getActors();
 		}
-		cache.put(task, actors);
-		return actors;
 	}
 	
 	/**
-	 * Get the list of actors that should be visually connected to a TasksGroup
-	 * The list depends on inherited actors and already visible tasks on diagram 
-	 * @param tasksGroup The TasksGroup for which we want the actors list
-	 * @param tasksOnDiagram List of visible tasks on diagram
-	 * @return List of Actors
-	 */
-	private Collection<Actor> getVisibleLinksToActorsFromTasksGroup(TasksGroup tasksGroup, List<Task> tasksOnDiagram, Map<Task, Collection<Actor>> cache) {
-		List<Actor> actors = new ArrayList<Actor>();
-		for (AbstractTask abstractTask : tasksGroup.getOwnedTasks()) {
-			actors.addAll(getVisibleLinksToActors(abstractTask, tasksOnDiagram, cache));
-		}
-		return actors;
-	}
-	
-	/**
-	 * Returns the visible actors for a tasks group
-	 * @param group
+	 * Returns the visible actors for an object
+	 * Delegates to the service corresponding to the object's type
+	 * @param object
 	 * @return
 	 */
-	public Set<Actor> getVisibleActors(TasksGroup group) {
-		HashMap<Task, Set<Actor>> cache = new HashMap<Task, Set<Actor>>();
-		Set<Actor> actors = new LinkedHashSet<Actor>();
-		List<Actor> actorsLeft = getAllActorsInContext(group);
-		for (AbstractTask abstractTask : group.getTasks()) {
-			actors.addAll(internalGetVisibleActors(abstractTask, cache, actorsLeft));
+	public List<Actor> getVisibleActors(GraalObject object) {
+		if (object instanceof System) {
+			return ((System)object).getRelatedActors();
+		} else if (object instanceof TasksGroup) {
+			return ((TasksGroup)object).getRelatedActors();
+		} else if (object instanceof UseCase) {
+			return getVisibleActorsForUseCase((UseCase)object);
 		}
-		return actors;
+		return null;
 	}
 	
 	/**
@@ -123,89 +105,16 @@ public class ActorUtils {
 	 * @param useCase
 	 * @return
 	 */
-	public Set<Actor> getVisibleActors(UseCase	useCase) {
-		HashMap<Task, Set<Actor>> cache = new HashMap<Task, Set<Actor>>();
-		Set<Actor> actors = new LinkedHashSet<Actor>();
-		List<Actor> actorsLeft = getAllActorsInContext(useCase);
+	private List<Actor> getVisibleActorsForUseCase(UseCase useCase) {
+		List<Actor> actors = new ArrayList<Actor>();
+		
 		for (AbstractTask abstractTask : useCase.getTasks()) {
-			actors.addAll(internalGetVisibleActors(abstractTask, cache, actorsLeft));
-		}
-		return actors;
-	}
-	
-	/**
-	 * Returns the visible actors for a system
-	 * @param system
-	 * @return
-	 */
-	public Set<Actor> getVisibleActors(System system) {
-		HashMap<Task, Set<Actor>> cache = new HashMap<Task, Set<Actor>>();
-		Set<Actor> actors = new LinkedHashSet<Actor>();
-		List<Actor> actorsLeft = getAllActorsInContext(system);
-		for (AbstractTask abstractTask : system.getTasks()) {
-			actors.addAll(internalGetVisibleActors(abstractTask, cache, actorsLeft));
-		}
-		return actors;
-	}
-
-	/**
-	 * Collect the visible actors for a task, using an internal cache
-	 * @param abstractTask
-	 * @param cache Map to store already calculated links between Tasks and Actors
-	 * @param actorsLeft List of actors not yet in the final list (used to improve performance)
-	 * @return
-	 */
-	private Set<Actor> internalGetVisibleActors(AbstractTask abstractTask, Map<Task, Set<Actor>> cache, List<Actor> actorsLeft) {
-		if (!actorsLeft.isEmpty()) {
 			if (abstractTask instanceof Task) {
-				Task task = (Task)abstractTask;
-				
-				if (cache.containsKey(task)) {
-					return cache.get(task);
-				} else {
-					Set<Actor> actors = new LinkedHashSet<Actor>();
-					cache.put(task, actors);
-					if (task.getActors().isEmpty()) {
-						for (Task usingTask : task.getUsedBy()) {
-							if (!cache.containsKey(usingTask) && !actorsLeft.isEmpty()) {
-								actors.addAll(internalGetVisibleActors(usingTask, cache, actorsLeft));
-							}
-						}
-					} else {
-						actors.addAll(task.getActors());
-						actorsLeft.removeAll(actors);
-					}
-					cache.put(task, actors);
-					return actors;
-				}
+				actors.addAll(((Task)abstractTask).getRelatedActors());
 			} else if (abstractTask instanceof TasksGroup) {
-				Set<Actor> actors = new LinkedHashSet<Actor>();
-				TasksGroup group = (TasksGroup)abstractTask;
-				for (AbstractTask subTask : group.getTasks()) {
-					if (!actorsLeft.isEmpty()) {
-						actors.addAll(internalGetVisibleActors(subTask, cache, actorsLeft));
-					}
-				}
-				return actors;
+				actors.addAll(((TasksGroup)abstractTask).getRelatedActors());
 			}
 		}
-		return new LinkedHashSet<Actor>();
-	}
-	
-	private List<Actor> getAllActorsInContext(EObject object) {
-		System system = getParentSystem(object);
-		if (system != null) {
-			return new ArrayList<Actor>(system.getActors());
-		}
-		return null;
-	}
-	
-	private System getParentSystem(EObject object) {
-		if (object instanceof System) {
-			return (System)object;
-		} else if (object.eContainer() != null) {
-			return getParentSystem(object.eContainer());
-		}
-		return null;
+		return actors;
 	}
 }
