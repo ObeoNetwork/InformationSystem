@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.entity.Block;
+import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.environment.Reference;
 
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
@@ -43,23 +45,27 @@ public class ReferencesService {
 		return new ArrayList<Reference>(map.values());
 	}
 	
-	public List<org.obeonetwork.dsl.entity.Reference> getEntityOppositeReferences(EObject context, List<org.obeonetwork.dsl.entity.Reference> references) {
-		Map<String, org.obeonetwork.dsl.entity.Reference> map = new HashMap<String, org.obeonetwork.dsl.entity.Reference>();
-		for (org.obeonetwork.dsl.entity.Reference ref : references) {
+	public List<org.obeonetwork.dsl.entity.Reference> getEntityReferences(Block block) {
+		List<org.obeonetwork.dsl.entity.Reference> references = new ArrayList<org.obeonetwork.dsl.entity.Reference>();
+		for (Entity entity : block.getEntities()) {
+			references.addAll(entity.getReferences());
+		}
+		for (Block subBlock : block.getSubblocks()) {
+			references.addAll(getEntityReferences(subBlock));
+		}
+		return references;
+	}
+	
+	public List<org.obeonetwork.dsl.entity.Reference> getEntityOppositeReferences(Block block) {
+		List<org.obeonetwork.dsl.entity.Reference> bidiRefs = new ArrayList<org.obeonetwork.dsl.entity.Reference>();
+		for (org.obeonetwork.dsl.entity.Reference ref : getEntityReferences(block)) {
 			if (ref.getOppositeOf() != null) {
-				String key1 = ref.getOppositeOf().hashCode() + "" + ref.hashCode();
-				String key2 = ref.hashCode() + "" + ref.getOppositeOf().hashCode();
-				if (map.get(key1) == null && map.get(key2) == null) {
-					// Try to always return the same reference as first element
-					if (key1.compareTo(key2) > 0) {
-						map.put(key1, ref);
-					} else {
-						map.put(key2, ref.getOppositeOf());
-					}
+				if (!bidiRefs.contains(ref) && !bidiRefs.contains(ref.getOppositeOf())) {
+					bidiRefs.add(ref);
 				}
 			}
 		}
-		return new ArrayList<org.obeonetwork.dsl.entity.Reference>(map.values());
+		return bidiRefs;
 	}
 	
 	public void deleteEntityReferences(List<org.obeonetwork.dsl.entity.Reference> references) {
