@@ -11,14 +11,15 @@
 package org.obeonetwork.dsl.is.design.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.entity.Block;
 import org.obeonetwork.dsl.entity.Entity;
+import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.environment.Type;
+import org.obeonetwork.dsl.soa.Category;
+import org.obeonetwork.dsl.soa.DTORegistry;
 
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
 import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
@@ -26,23 +27,49 @@ import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class ReferencesService {
 	
-	public List<Reference> getDtoOppositeReferences(EObject context, List<Reference> references) {
-		Map<String, Reference> map = new HashMap<String, Reference>();
-		for (Reference ref : references) {
+	public List<Reference> getDtoReferences(DTORegistry registry) {
+		List<Reference> references = new ArrayList<Reference>();
+		for (Category category : registry.getOwnedCategories()) {
+			references.addAll(getDtoReferences(category));
+		}
+		return references;
+	}
+	
+	public List<Reference> getDtoReferences(Category category) {
+		List<Reference> references = new ArrayList<Reference>();
+		for (Type type : category.getTypes()) {
+			if (type instanceof DTO) {				
+			references.addAll(((DTO)type).getReferences());
+			}
+		}
+		for (Category subCategory : category.getOwnedCategories()) {
+			references.addAll(getDtoReferences(subCategory));
+		}
+		return references;
+	}
+	
+	public List<Reference> getDtoOppositeReferences(DTORegistry registry) {
+		List<Reference> bidiRefs = new ArrayList<Reference>();
+		for (Reference ref : getDtoReferences(registry)) {
 			if (ref.getOppositeOf() != null) {
-				String key1 = ref.getOppositeOf().hashCode() + "" + ref.hashCode();
-				String key2 = ref.hashCode() + "" + ref.getOppositeOf().hashCode();
-				if (map.get(key1) == null && map.get(key2) == null) {
-					// Try to always return the same reference as first element
-					if (key1.compareTo(key2) > 0) {
-						map.put(key1, ref);
-					} else {
-						map.put(key2, ref.getOppositeOf());
-					}
+				if (!bidiRefs.contains(ref) && !bidiRefs.contains(ref.getOppositeOf())) {
+					bidiRefs.add(ref);
 				}
 			}
 		}
-		return new ArrayList<Reference>(map.values());
+		return bidiRefs;
+	}
+	
+	public List<Reference> getDtoOppositeReferences(Category category) {
+		List<Reference> bidiRefs = new ArrayList<Reference>();
+		for (Reference ref : getDtoReferences(category)) {
+			if (ref.getOppositeOf() != null) {
+				if (!bidiRefs.contains(ref) && !bidiRefs.contains(ref.getOppositeOf())) {
+					bidiRefs.add(ref);
+				}
+			}
+		}
+		return bidiRefs;
 	}
 	
 	public List<org.obeonetwork.dsl.entity.Reference> getEntityReferences(Block block) {
