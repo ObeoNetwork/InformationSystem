@@ -92,8 +92,11 @@ public class RequirementsUtils {
 			return (UseCase) context;
 		} else if (context instanceof TasksGroup) {
 			return ((TasksGroup) context).getUseCase();
-		} else if (asTask(context) != null) {
-			return asTask(context).getUseCase();
+		} else {
+			Task asTask = asTask(context);
+			if (asTask != null) {
+				return asTask.getUseCase();
+			}
 		}
 		return null;
 	}
