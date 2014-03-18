@@ -11,7 +11,7 @@
 package org.obeonetwork.graal.impl;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -145,7 +145,7 @@ public class TasksGroupImpl extends AbstractTaskImpl implements TasksGroup {
 	public EList<Actor> getRelatedActors() {
 		// Calculate the list if it is not in cache
 		if (cacheRelatedActors == null) {
-			cacheRelatedActors = new HashSet<Actor>();
+			cacheRelatedActors = new LinkedHashSet<Actor>();
 			for (AbstractTask abstractTask : getTasks()) {
 				if (abstractTask instanceof Task) {
 					cacheRelatedActors.addAll(((Task)abstractTask).getActors());

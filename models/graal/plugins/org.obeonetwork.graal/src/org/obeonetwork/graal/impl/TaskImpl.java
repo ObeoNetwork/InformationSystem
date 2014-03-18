@@ -12,7 +12,7 @@ package org.obeonetwork.graal.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -328,9 +328,9 @@ public class TaskImpl extends ActivityImpl implements Task {
 		// Calculate the list if it is not in cache
 		if (cacheRelatedActors == null) {
 			if (!getActors().isEmpty()) {
-				cacheRelatedActors = new HashSet<Actor>(getActors());
+				cacheRelatedActors = new LinkedHashSet<Actor>(getActors());
 			} else {
-				cacheRelatedActors = new HashSet<Actor>();
+				cacheRelatedActors = new LinkedHashSet<Actor>();
 				// Calculate list of actors based on using tasks
 				for (Task usingTask : getUsedBy()) {
 					cacheRelatedActors.addAll(usingTask.getRelatedActors());

@@ -12,8 +12,8 @@ package org.obeonetwork.graal.design.services.task;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -279,7 +279,7 @@ public class TaskUtils {
 	 * @return Set of pointing Task instances
 	 */
 	private Set<Task> getTasksFromGroupUsingTask(TasksGroup usingGroup, Task usedTask) {
-		Set<Task> usingTasks = new HashSet<Task>();
+		Set<Task> usingTasks = new LinkedHashSet<Task>();
 		
 		for (Task usingTask : usedTask.getUsedBy()) {
 			if (usingGroup.getOwnedTasks().contains(usingTask)) {
@@ -300,7 +300,7 @@ public class TaskUtils {
 	 * @return Set of pointed Task instances
 	 */
 	private Set<Task> getAllUsedTasks(TasksGroup group) {
-		Set<Task> allTasks = new HashSet<Task>();
+		Set<Task> allTasks = new LinkedHashSet<Task>();
 		for (Task task : group.getOwnedTasks()) {
 			if (!task.getUsedBy().isEmpty()) {
 				allTasks.add(task);
