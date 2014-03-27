@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.graal.GraalPackage;
+import org.obeonetwork.graal.Node;
 import org.obeonetwork.graal.Transition;
 
 /**
@@ -188,10 +189,39 @@ public class TransitionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Transition)object).getGuard();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Transition_type") :
-			getString("_UI_Transition_type") + " " + label;
+		Transition transition = (Transition)object;
+		String label = transition.getGuard();
+		
+		StringBuilder fullLabel = label == null || label.length() == 0 ?
+				new StringBuilder(getString("_UI_Transition_type")) :
+				new StringBuilder(getString("_UI_Transition_type") + " " + label);
+
+		fullLabel.append(" (");
+		addNodeLabeltoTransitionLabel(transition.getSource(), fullLabel);
+		fullLabel.append(" --> ");
+		addNodeLabeltoTransitionLabel(transition.getTarget(), fullLabel);
+		fullLabel.append(")");
+		
+		return fullLabel.toString();
+	}
+	
+	/**
+	 * Add the label for the source or target node of a transition inside this transition's label
+	 * @param node
+	 * @param transitionLabel
+	 */
+	private void addNodeLabeltoTransitionLabel(Node node, StringBuilder transitionLabel) {
+		String nodeLabel = null;
+		if (node != null) {
+			IItemLabelProvider sourceLabelProvider = (IItemLabelProvider) getRootAdapterFactory()
+																			.adapt(node, IItemLabelProvider.class);
+			nodeLabel = sourceLabelProvider.getText(node);
+		}
+		if (nodeLabel != null) {
+			transitionLabel.append(nodeLabel);
+		} else {
+			transitionLabel.append("?");
+		}
 	}
 
 	/**
