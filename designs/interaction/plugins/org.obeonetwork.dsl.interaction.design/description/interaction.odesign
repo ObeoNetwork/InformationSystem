@@ -5,28 +5,28 @@
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.interaction/model/interaction.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings xsi:type="description_1:InstanceRoleMapping" name="SD_Participant" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DEL_Participant']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='EDT_Participant']" semanticCandidatesExpression="&lt;%participants%>" semanticElements="&lt;%self%>s" synchronizationLock="true" domainClass="interaction.Participant">
-          <borderedNodeMappings xsi:type="description_1:ExecutionMapping" name="SD_Lifeline" semanticCandidatesExpression="&lt;%self%>" semanticElements="&lt;%self%>" domainClass="interaction.Participant" startingEndFinderExpression="&lt;%self%>" finishingEndFinderExpression="&lt;%self%>">
-            <borderedNodeMappings xsi:type="description_1:ExecutionMapping" name="SD_Execution" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Execution']/@ownedTools[name='DEL_Execution']" semanticCandidatesExpression="&lt;%currentParticipant.getDirectEventsOn(self)%>" semanticElements="&lt;%self%>" domainClass="interaction.Execution" reusedBorderedNodeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_StateInvariant']" startingEndFinderExpression="&lt;%startingEnd%>" finishingEndFinderExpression="&lt;%finishingEnd%>">
+        <nodeMappings xsi:type="description_1:InstanceRoleMapping" name="SD_Participant" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DEL_Participant']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='EDT_Participant']" semanticCandidatesExpression="feature:participants" semanticElements="var:selfs" synchronizationLock="true" domainClass="interaction.Participant">
+          <borderedNodeMappings xsi:type="description_1:ExecutionMapping" name="SD_Lifeline" semanticCandidatesExpression="var:self" semanticElements="var:self" domainClass="interaction.Participant" startingEndFinderExpression="var:self" finishingEndFinderExpression="var:self">
+            <borderedNodeMappings xsi:type="description_1:ExecutionMapping" name="SD_Execution" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Execution']/@ownedTools[name='DEL_Execution']" semanticCandidatesExpression="&lt;%currentParticipant.getDirectEventsOn(self)%>" semanticElements="var:self" domainClass="interaction.Execution" reusedBorderedNodeMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_StateInvariant']" startingEndFinderExpression="feature:startingEnd" finishingEndFinderExpression="feature:finishingEnd">
               <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelExpression="" resizeKind="NORTH_SOUTH" width="2" height="5" color="//@userColorsPalettes[name='Dutch%20Seas']/@entries[name='Interpolated%20blue%20for%20Executions']">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </borderedNodeMappings>
-            <borderedNodeMappings xsi:type="description_1:EndOfLifeMapping" name="SD_EndOfLine" preconditionExpression="&lt;%isPointedByDestroyMessage()==true%>" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DEL_EndOfLife']" semanticCandidatesExpression="&lt;%self%>" semanticElements="&lt;%self%>" synchronizationLock="true" domainClass="interaction.Participant">
+            <borderedNodeMappings xsi:type="description_1:EndOfLifeMapping" name="SD_EndOfLine" preconditionExpression="&lt;%isPointedByDestroyMessage()==true%>" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DEL_EndOfLife']" semanticCandidatesExpression="var:self" semanticElements="var:self" synchronizationLock="true" domainClass="interaction.Participant">
               <style xsi:type="style:WorkspaceImageDescription" labelExpression="" sizeComputationExpression="4" workspacePath="/org.obeonetwork.dsl.interaction.design/images/eol.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </borderedNodeMappings>
-            <borderedNodeMappings xsi:type="description_1:EndOfLifeMapping" name="SD_EndOfLine_Redim" preconditionExpression="&lt;%isPointedByDestroyMessage()==false%>" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DEL_EndOfLife']" semanticCandidatesExpression="&lt;%self%>" semanticElements="&lt;%self%>" synchronizationLock="true" domainClass="interaction.Participant">
+            <borderedNodeMappings xsi:type="description_1:EndOfLifeMapping" name="SD_EndOfLine_Redim" preconditionExpression="&lt;%isPointedByDestroyMessage()==false%>" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Participant']/@ownedTools[name='DEL_EndOfLife']" semanticCandidatesExpression="var:self" semanticElements="var:self" synchronizationLock="true" domainClass="interaction.Participant">
               <style xsi:type="style:EllipseNodeDescription" labelExpression="" sizeComputationExpression="1" horizontalDiameterComputationExpression="1" verticalDiameterComputationExpression="1">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </borderedNodeMappings>
-            <borderedNodeMappings xsi:type="description_1:StateMapping" name="SD_StateInvariant" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='StateInvariant']/@ownedTools[name='DEL_StateInvariant']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='StateInvariant']/@ownedTools[name='EDT_StateInvariant']" semanticCandidatesExpression="&lt;%currentParticipant.getDirectEventsOn(self)%>" semanticElements="&lt;%self%>" synchronizationLock="true" domainClass="interaction.StateInvariant" startingEndFinderExpression="&lt;%startingEnd%>" finishingEndFinderExpression="&lt;%finishingEnd%>">
+            <borderedNodeMappings xsi:type="description_1:StateMapping" name="SD_StateInvariant" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='StateInvariant']/@ownedTools[name='DEL_StateInvariant']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='StateInvariant']/@ownedTools[name='EDT_StateInvariant']" semanticCandidatesExpression="&lt;%currentParticipant.getDirectEventsOn(self)%>" semanticElements="var:self" synchronizationLock="true" domainClass="interaction.StateInvariant" startingEndFinderExpression="feature:startingEnd" finishingEndFinderExpression="feature:finishingEnd">
               <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.interaction.design/images/state_invariant.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -44,7 +44,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </nodeMappings>
-        <edgeMappings xsi:type="description_1:BasicMessageMapping" name="SD_CallMessage" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='DEL_Message']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='EDT_Message']" semanticCandidatesExpression="&lt;%messages%>" semanticElements="&lt;%self%>" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetFinderExpression="&lt;%getReceivingContext%>" sourceFinderExpression="&lt;%getSendingContext%>" domainClass="interaction.CallMessage" useDomainElement="true" sendingEndFinderExpression="&lt;%startingEnd%>" receivingEndFinderExpression="&lt;%finishingEnd%>">
+        <edgeMappings xsi:type="description_1:BasicMessageMapping" name="SD_CallMessage" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='DEL_Message']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='EDT_Message']" semanticCandidatesExpression="feature:messages" semanticElements="var:self" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetFinderExpression="service:getReceivingContext" sourceFinderExpression="service:getSendingContext" domainClass="interaction.CallMessage" useDomainElement="true" sendingEndFinderExpression="feature:startingEnd" receivingEndFinderExpression="feature:finishingEnd">
           <style sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelExpression="&lt;%name%>">
@@ -52,7 +52,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings xsi:type="description_1:ReturnMessageMapping" name="SD_ReturnMessage" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='DEL_Message']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='EDT_Message']" semanticCandidatesExpression="&lt;%messages%>" semanticElements="&lt;%self%>" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetFinderExpression="&lt;%getReceivingContext%>" sourceFinderExpression="&lt;%getSendingContext%>" domainClass="interaction.ReturnMessage" useDomainElement="true" sendingEndFinderExpression="&lt;%startingEnd%>" receivingEndFinderExpression="&lt;%finishingEnd%>" invocationMessageFinderExpression="&lt;%invocationMessage%>">
+        <edgeMappings xsi:type="description_1:ReturnMessageMapping" name="SD_ReturnMessage" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='DEL_Message']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='EDT_Message']" semanticCandidatesExpression="feature:messages" semanticElements="var:self" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetFinderExpression="service:getReceivingContext" sourceFinderExpression="service:getSendingContext" domainClass="interaction.ReturnMessage" useDomainElement="true" sendingEndFinderExpression="feature:startingEnd" receivingEndFinderExpression="feature:finishingEnd" invocationMessageFinderExpression="feature:invocationMessage">
           <style lineStyle="dot" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelExpression="&lt;%name%>">
@@ -60,7 +60,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings xsi:type="description_1:CreationMessageMapping" name="SD_CreateParticipantMessage" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='DEL_Message']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='EDT_Message']" semanticCandidatesExpression="&lt;%messages%>" semanticElements="&lt;%self%>" sourceMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']" targetFinderExpression="&lt;%getReceivingContext%>" sourceFinderExpression="&lt;%getSendingContext%>" domainClass="interaction.CreateParticipantMessage" useDomainElement="true" sendingEndFinderExpression="&lt;%startingEnd%>" receivingEndFinderExpression="&lt;%finishingEnd%>">
+        <edgeMappings xsi:type="description_1:CreationMessageMapping" name="SD_CreateParticipantMessage" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='DEL_Message']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='EDT_Message']" semanticCandidatesExpression="feature:messages" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']" targetFinderExpression="service:getReceivingContext" sourceFinderExpression="service:getSendingContext" domainClass="interaction.CreateParticipantMessage" useDomainElement="true" sendingEndFinderExpression="feature:startingEnd" receivingEndFinderExpression="feature:finishingEnd">
           <style lineStyle="dash" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             <centerLabelStyleDescription labelExpression="&lt;%name%>">
@@ -68,7 +68,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings xsi:type="description_1:DestructionMessageMapping" name="SD_DestroyParticipantMessage" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='DEL_Message']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='EDT_Message']" semanticCandidatesExpression="&lt;%messages%>" semanticElements="&lt;%self%>" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_EndOfLine']" targetFinderExpression="&lt;%getReceivingContext%>" sourceFinderExpression="&lt;%getSendingContext%>" domainClass="interaction.DestroyParticipantMessage" useDomainElement="true" sendingEndFinderExpression="&lt;%startingEnd%>" receivingEndFinderExpression="&lt;%finishingEnd%>">
+        <edgeMappings xsi:type="description_1:DestructionMessageMapping" name="SD_DestroyParticipantMessage" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='DEL_Message']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@subSections[name='Message']/@ownedTools[name='EDT_Message']" semanticCandidatesExpression="feature:messages" semanticElements="var:self" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline'] //@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_Execution']" targetMapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_EndOfLine']" targetFinderExpression="service:getReceivingContext" sourceFinderExpression="service:getSendingContext" domainClass="interaction.DestroyParticipantMessage" useDomainElement="true" sendingEndFinderExpression="feature:startingEnd" receivingEndFinderExpression="feature:finishingEnd">
           <style lineStyle="dash" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
             <centerLabelStyleDescription labelExpression="&lt;%name%>">
@@ -76,8 +76,8 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings xsi:type="description_1:InteractionUseMapping" name="SD_InteractionUse" detailDescriptions="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='Navigation']/@ownedTools[name='CRENAV_To_UsedInteraction']" navigationDescriptions="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='Navigation']/@ownedTools[name='NAV_To_UsedInteraction']" preconditionExpression="&lt;%coveredParticipants.nSize > 0%>" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='InteractionUse']/@ownedTools[name='DEL_InteractionUse']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='InteractionUse']/@ownedTools[name='EDT_InteractionUse']" semanticCandidatesExpression="&lt;%interactionUses%>" semanticElements="&lt;%self%>" doubleClickDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='Navigation']/@ownedTools[name='DBL_Goto_Interaction_Diagram']" synchronizationLock="true" domainClass="interaction.InteractionUse" startingEndFinderExpression="&lt;%startingEnd%>" finishingEndFinderExpression="&lt;%finishingEnd%>" coveredLifelinesExpression="&lt;%coveredParticipants%>" centerLabelExpression="call(&lt;%interaction.name%>)">
-          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="&lt;%type%>" labelAlignment="LEFT">
+        <containerMappings xsi:type="description_1:InteractionUseMapping" name="SD_InteractionUse" detailDescriptions="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='Navigation']/@ownedTools[name='CRENAV_To_UsedInteraction']" navigationDescriptions="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='Navigation']/@ownedTools[name='NAV_To_UsedInteraction']" preconditionExpression="&lt;%coveredParticipants.nSize > 0%>" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='InteractionUse']/@ownedTools[name='DEL_InteractionUse']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='InteractionUse']/@ownedTools[name='EDT_InteractionUse']" semanticCandidatesExpression="feature:interactionUses" semanticElements="var:self" doubleClickDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='Navigation']/@ownedTools[name='DBL_Goto_Interaction_Diagram']" synchronizationLock="true" domainClass="interaction.InteractionUse" startingEndFinderExpression="feature:startingEnd" finishingEndFinderExpression="feature:finishingEnd" coveredLifelinesExpression="feature:coveredParticipants" centerLabelExpression="call(&lt;%interaction.name%>)">
+          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="feature:type" labelAlignment="LEFT">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -85,11 +85,11 @@
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
         </containerMappings>
-        <containerMappings xsi:type="description_1:CombinedFragmentMapping" name="SD_CombinedFragment" preconditionExpression="&lt;%coveredParticipants.nSize > 0%>" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='CombinedFragment']/@ownedTools[name='DEL_CombinedFragment']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='CombinedFragment']/@ownedTools[name='EDT_CombinedFragment']" semanticCandidatesExpression="&lt;%combinedFragments%>" semanticElements="&lt;%self%>" synchronizationLock="true" domainClass="interaction.CombinedFragment" startingEndFinderExpression="&lt;%startingEnd%>" finishingEndFinderExpression="&lt;%finishingEnd%>" coveredLifelinesExpression="&lt;%coveredParticipants%>">
-          <subContainerMappings xsi:type="description_1:OperandMapping" name="SD_Operand" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='CombinedFragment']/@ownedTools[name='DEL_Operand']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='CombinedFragment']/@ownedTools[name='EDT_Operand']" semanticCandidatesExpression="&lt;%ownedOperands%>" semanticElements="&lt;%self%>" domainClass="interaction.Operand" startingEndFinderExpression="&lt;%startingEnd%>" finishingEndFinderExpression="&lt;%finishingEnd%>">
+        <containerMappings xsi:type="description_1:CombinedFragmentMapping" name="SD_CombinedFragment" preconditionExpression="&lt;%coveredParticipants.nSize > 0%>" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='CombinedFragment']/@ownedTools[name='DEL_CombinedFragment']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='CombinedFragment']/@ownedTools[name='EDT_CombinedFragment']" semanticCandidatesExpression="feature:combinedFragments" semanticElements="var:self" synchronizationLock="true" domainClass="interaction.CombinedFragment" startingEndFinderExpression="feature:startingEnd" finishingEndFinderExpression="feature:finishingEnd" coveredLifelinesExpression="feature:coveredParticipants">
+          <subContainerMappings xsi:type="description_1:OperandMapping" name="SD_Operand" deletionDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='CombinedFragment']/@ownedTools[name='DEL_Operand']" labelDirectEdit="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability']/@subSections[name='CombinedFragment']/@ownedTools[name='EDT_Operand']" semanticCandidatesExpression="feature:ownedOperands" semanticElements="var:self" domainClass="interaction.Operand" startingEndFinderExpression="feature:startingEnd" finishingEndFinderExpression="feature:finishingEnd">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Dutch%20Seas']/@entries[name='Dutch%20teal']" showIcon="false" labelExpression="[&lt;%name%>]" labelColor="//@userColorsPalettes[name='Skyblue']/@entries[name='Evening_Skyblue']" labelAlignment="LEFT" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Dutch%20Seas']/@entries[name='Paleolitico']" foregroundColor="//@userColorsPalettes[name='Dutch%20Seas']/@entries[name='Paleolitico']"/>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Dutch%20Seas']/@entries[name='Dutch%20teal']" showIcon="false" labelExpression="&lt;%operator%>" labelColor="//@userColorsPalettes[name='Skyblue']/@entries[name='Evening_Skyblue']" labelAlignment="LEFT" backgroundColor="//@userColorsPalettes[name='Greens']/@entries[name='Interpolated%20green%20for%20Combined%20Fragments']" foregroundColor="//@userColorsPalettes[name='Greens']/@entries[name='Interpolated%20green%20for%20Combined%20Fragments']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Dutch%20Seas']/@entries[name='Dutch%20teal']" showIcon="false" labelExpression="feature:operator" labelColor="//@userColorsPalettes[name='Skyblue']/@entries[name='Evening_Skyblue']" labelAlignment="LEFT" backgroundColor="//@userColorsPalettes[name='Greens']/@entries[name='Interpolated%20green%20for%20Combined%20Fragments']" foregroundColor="//@userColorsPalettes[name='Greens']/@entries[name='Interpolated%20green%20for%20Combined%20Fragments']">
             <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
         </containerMappings>
@@ -99,14 +99,14 @@
               <variable name="variable"/>
               <viewVariable name="viewVariable"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.Participant" referenceName="participants">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="newParticipant&lt;%eContainer(&quot;Interaction&quot;).participants.nSize%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move participant" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="participants"/>
-                    <parameters name="element" value="&lt;%$instance%>"/>
+                    <parameters name="element" value="var:instance"/>
                     <parameters name="predecessor" value="&lt;%if ($predecessor){%>&lt;%$predecessor%>&lt;%}%>"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -117,15 +117,15 @@
               <variable name="variable"/>
               <viewVariable name="viewVariable"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.Participant" referenceName="participants">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="newParticipant&lt;%eContainer(&quot;Interaction&quot;).participants.nSize%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="&lt;%$participantType%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="var:participantType"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move participant" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="participants"/>
-                    <parameters name="element" value="&lt;%$instance%>"/>
+                    <parameters name="element" value="var:instance"/>
                     <parameters name="predecessor" value="&lt;%if ($predecessor){%>&lt;%$predecessor%>&lt;%}%>"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -146,31 +146,31 @@
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
                     <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$source.currentParticipant%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$callMsg%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="send_&lt;%owner.name%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="receivingEnd">
                     <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$target.currentParticipant%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$callMsg%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="receive_&lt;%owner.name%>"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$callMsg%>">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$sendingEnd%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$receivingEnd%>"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:callMsg">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:sendingEnd"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:receivingEnd"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move $sendingEnd" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%$sendingEnd%>"/>
+                    <parameters name="element" value="var:sendingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move $receivingEnd" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%$receivingEnd%>"/>
+                    <parameters name="element" value="var:receivingEnd"/>
                     <parameters name="predecessor" value="&lt;%$callMsg.startingEnd%>"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$callMsg%>">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:callMsg">
                     <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new call message position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.2"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -193,74 +193,74 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="e&lt;%eContainer(&quot;Interaction&quot;).executions.nSize%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.ReturnMessage" referenceName="messages" variableName="returnMsg">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="invocationMessage" valueExpression="&lt;%$callMsg%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="invocationMessage" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="m_return&lt;%eContainer(&quot;Interaction&quot;).messages.nSize %>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
                     <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$source.currentParticipant%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$callMsg%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="send_&lt;%owner.name%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.CompoundEnd" referenceName="ends" variableName="startExec">
                     <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$target.currentParticipant%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newExecution%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="otherOwner" valueExpression="&lt;%$callMsg%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newExecution"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="otherOwner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="start_&lt;%owner.name%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.CompoundEnd" referenceName="ends" variableName="endExec">
                     <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$target.currentParticipant%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newExecution%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="otherOwner" valueExpression="&lt;%$returnMsg%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newExecution"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="otherOwner" valueExpression="var:returnMsg"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="finish_&lt;%owner.name%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="receivingEnd">
                     <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$sendingEnd.context%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$returnMsg%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:returnMsg"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="receive_&lt;%owner.name%>"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$callMsg%>">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$sendingEnd%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$startExec%>"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:callMsg">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:sendingEnd"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:startExec"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newExecution%>">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$startExec%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$endExec%>"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newExecution">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:startExec"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:endExec"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$returnMsg%>">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$endExec%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$receivingEnd%>"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:returnMsg">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:endExec"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:receivingEnd"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move $startExec" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%$startExec%>"/>
+                    <parameters name="element" value="var:startExec"/>
                     <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessor){%>&lt;%$finishingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move $sendingEnd" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%$sendingEnd%>"/>
+                    <parameters name="element" value="var:sendingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move $endExec" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%$endExec%>"/>
-                    <parameters name="predecessor" value="&lt;%$startExec%>"/>
+                    <parameters name="element" value="var:endExec"/>
+                    <parameters name="predecessor" value="var:startExec"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move $receivingEnd" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%$receivingEnd%>"/>
-                    <parameters name="predecessor" value="&lt;%$endExec%>"/>
+                    <parameters name="element" value="var:receivingEnd"/>
+                    <parameters name="predecessor" value="var:endExec"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$callMsg%>">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:callMsg">
                     <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new call message position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.2"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newExecution%>">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newExecution">
                     <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new execution position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$returnMsg%>">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:returnMsg">
                     <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new return message position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.2"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -284,50 +284,50 @@
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
                     <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$source.currentParticipant%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$callMsg%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="send_&lt;%owner.name%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.CompoundEnd" referenceName="ends" variableName="startExec">
                     <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$target.currentParticipant%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newExecution%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="otherOwner" valueExpression="&lt;%$callMsg%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newExecution"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="otherOwner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="start_&lt;%owner.name%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="endExec">
                     <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$target.currentParticipant%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newExecution%>"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newExecution"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="finish_&lt;%owner.name%>"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$callMsg%>">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$sendingEnd%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$startExec%>"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:callMsg">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:sendingEnd"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:startExec"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newExecution%>">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$startExec%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$endExec%>"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newExecution">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:startExec"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:endExec"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move $startExec" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%$startExec%>"/>
+                    <parameters name="element" value="var:startExec"/>
                     <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessor){%>&lt;%$finishingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move $sendingEnd" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%$sendingEnd%>"/>
+                    <parameters name="element" value="var:sendingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move $endExec" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                    <parameters name="referenceOwner" value="&lt;%self%>"/>
+                    <parameters name="referenceOwner" value="var:self"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%$endExec%>"/>
-                    <parameters name="predecessor" value="&lt;%$startExec%>"/>
+                    <parameters name="element" value="var:endExec"/>
+                    <parameters name="predecessor" value="var:startExec"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$callMsg%>">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:callMsg">
                     <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new call message position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.2"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newExecution%>">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newExecution">
                     <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new execution position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -345,37 +345,37 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$source.eContainer(&quot;Interaction&quot;)%>">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.ReturnMessage" referenceName="messages" variableName="newMessage"/>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newMessage%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newMessage"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$source.currentParticipant%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="receivingEnd">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newMessage%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newMessage"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$target.currentParticipant%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newMessage%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$sendingEnd%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$receivingEnd%>"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newMessage">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:sendingEnd"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:receivingEnd"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move receivingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$receivingEnd%>"/>
+                  <parameters name="element" value="var:receivingEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessor){%>&lt;%$finishingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move sendingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$sendingEnd%>"/>
+                  <parameters name="element" value="var:sendingEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newMessage%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newMessage">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="m_return&lt;%eContainer(&quot;Interaction&quot;).messages.nSize %>"/>
                   <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new return message position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.2"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$sendingEnd%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:sendingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="send_&lt;%message.name%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$receivingEnd%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:receivingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="receive_&lt;%message.name%>"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -392,37 +392,37 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$source.eContainer(&quot;Interaction&quot;)%>">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.CreateParticipantMessage" referenceName="messages" variableName="newMessage"/>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newMessage%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newMessage"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$source.currentParticipant%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="receivingEnd">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newMessage%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newMessage"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$target.currentParticipant%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newMessage%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$sendingEnd%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$receivingEnd%>"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newMessage">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:sendingEnd"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:receivingEnd"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move sendingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$sendingEnd%>"/>
+                  <parameters name="element" value="var:sendingEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move receivingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$receivingEnd%>"/>
+                  <parameters name="element" value="var:receivingEnd"/>
                   <parameters name="predecessor" value="&lt;%$newMessage.startingEnd%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newMessage%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newMessage">
                   <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new call message position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.2"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="m_create&lt;%eContainer(&quot;Interaction&quot;).messages.nSize %>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$sendingEnd%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:sendingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="send_&lt;%message.name%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$receivingEnd%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:receivingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="receive_&lt;%message.name%>"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -437,40 +437,40 @@
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$source.eContainer(&quot;Interaction&quot;)%>">
-                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_EndOfLine']" containerViewExpression="&lt;%$targetView%>"/>
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@nodeMappings[name='SD_Participant']/@borderedNodeMappings[name='SD_Lifeline']/@borderedNodeMappings[name='SD_EndOfLine']" containerViewExpression="var:targetView"/>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.DestroyParticipantMessage" referenceName="messages" variableName="newMessage"/>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newMessage%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newMessage"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$source.currentParticipant%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="receivingEnd">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newMessage%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newMessage"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$target.currentParticipant%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newMessage%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$sendingEnd%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$receivingEnd%>"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newMessage">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:sendingEnd"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:receivingEnd"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move sendingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$sendingEnd%>"/>
+                  <parameters name="element" value="var:sendingEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move receivingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$receivingEnd%>"/>
+                  <parameters name="element" value="var:receivingEnd"/>
                   <parameters name="predecessor" value="&lt;%$newMessage.startingEnd%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newMessage%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newMessage">
                   <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new call message position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.2/@subModelOperations.2"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="m_destroy&lt;%eContainer(&quot;Interaction&quot;).messages.nSize %>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$sendingEnd%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:sendingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="send_&lt;%message.name%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$receivingEnd%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:receivingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="receive_&lt;%message.name%>"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -487,39 +487,39 @@
                   <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$container.currentParticipant%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="startingEnd">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newExecution%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newExecution"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$newExecution.owner%>"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="start_&lt;%context.name%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="finishingEnd">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newExecution%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newExecution"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$newExecution.owner%>"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="finish_&lt;%context.name%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newExecution%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$startingEnd%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$finishingEnd%>"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newExecution">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:startingEnd"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:finishingEnd"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move finishingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$finishingEnd%>"/>
+                  <parameters name="element" value="var:finishingEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessor){%>&lt;%$finishingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move startingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$startingEnd%>"/>
+                  <parameters name="element" value="var:startingEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newExecution%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newExecution">
                   <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new execution position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="e&lt;%eContainer(&quot;Interaction&quot;).executions.nSize%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$startingEnd%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:startingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="start_&lt;%execution.name%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$finishingEnd%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:finishingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="finish_&lt;%execution.name%>"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -536,37 +536,37 @@
                   <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$container.currentParticipant%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="startingEnd">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newState%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newState"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$newState.owner%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="finishingEnd">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newState%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newState"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="context" valueExpression="&lt;%$newState.owner%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newState%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$startingEnd%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$finishingEnd%>"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newState">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:startingEnd"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:finishingEnd"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move finishingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$finishingEnd%>"/>
+                  <parameters name="element" value="var:finishingEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessor){%>&lt;%$finishingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move startingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$startingEnd%>"/>
+                  <parameters name="element" value="var:startingEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newState%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newState">
                   <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust new state position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.2"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="s&lt;%eContainer(&quot;Interaction&quot;).stateInvariants.nSize%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$startingEnd%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:startingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="start_&lt;%state.name%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$finishingEnd%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:finishingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="finish_&lt;%state.name%>"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -578,123 +578,123 @@
             <startingEndPredecessorAfter name="startingEndPredecessorAfter"/>
             <finishingEndPredecessorAfter name="finishingEndPredecessorAfter"/>
             <onEventMovedOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;Execution&quot;)%>">
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move start end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%startingEnd%>"/>
+                    <parameters name="element" value="feature:startingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($startingEndPredecessorAfter){%>&lt;%$startingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move finish end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%finishingEnd%>"/>
+                    <parameters name="element" value="feature:finishingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessorAfter){%>&lt;%$finishingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Adjust execution position 2" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="executions"/>
-                    <parameters name="element" value="&lt;%self%>"/>
-                    <parameters name="predecessor" value="&lt;%computePredecessorForExecution()%>"/>
+                    <parameters name="element" value="var:self"/>
+                    <parameters name="predecessor" value="service:computePredecessorForExecution"/>
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;StateInvariant&quot;)%>">
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move start end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%startingEnd%>"/>
+                    <parameters name="element" value="feature:startingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($startingEndPredecessorAfter){%>&lt;%$startingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move finish end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%finishingEnd%>"/>
+                    <parameters name="element" value="feature:finishingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessorAfter){%>&lt;%$finishingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Adjust state position" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="stateInvariants"/>
-                    <parameters name="element" value="&lt;%self%>"/>
-                    <parameters name="predecessor" value="&lt;%computePredecessorForStateInvariant()%>"/>
+                    <parameters name="element" value="var:self"/>
+                    <parameters name="predecessor" value="service:computePredecessorForStateInvariant"/>
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;Message&quot;)%>">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%finishingEnd%>">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="feature:finishingEnd">
                     <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move sending end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                       <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                       <parameters name="referenceName" value="ends"/>
-                      <parameters name="element" value="&lt;%startingEnd%>"/>
+                      <parameters name="element" value="feature:startingEnd"/>
                       <parameters name="predecessor" value="&lt;%if ($startingEndPredecessorAfter){%>&lt;%$startingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%startingEnd%>">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="feature:startingEnd">
                     <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move receiving end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                       <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                       <parameters name="referenceName" value="ends"/>
-                      <parameters name="element" value="&lt;%finishingEnd%>"/>
+                      <parameters name="element" value="feature:finishingEnd"/>
                       <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessorAfter){%>&lt;%$finishingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                     </subModelOperations>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Adjust message position 2" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="messages"/>
-                    <parameters name="element" value="&lt;%self%>"/>
-                    <parameters name="predecessor" value="&lt;%computePredecessorForMessage()%>"/>
+                    <parameters name="element" value="var:self"/>
+                    <parameters name="predecessor" value="service:computePredecessorForMessage"/>
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;InteractionUse&quot;)%>">
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move start end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%startingEnd%>"/>
+                    <parameters name="element" value="feature:startingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($startingEndPredecessorAfter){%>&lt;%$startingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move finish end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%finishingEnd%>"/>
+                    <parameters name="element" value="feature:finishingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessorAfter){%>&lt;%$finishingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Adjust Interaction Use position" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="interactionUses"/>
-                    <parameters name="element" value="&lt;%self%>"/>
-                    <parameters name="predecessor" value="&lt;%computePredecessorForInteractionUse()%>"/>
+                    <parameters name="element" value="var:self"/>
+                    <parameters name="predecessor" value="service:computePredecessorForInteractionUse"/>
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;CombinedFragment&quot;)%>">
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move start end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%startingEnd%>"/>
+                    <parameters name="element" value="feature:startingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($startingEndPredecessorAfter){%>&lt;%$startingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move finish end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%finishingEnd%>"/>
+                    <parameters name="element" value="feature:finishingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessorAfter){%>&lt;%$finishingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Adjust CombinedFragment position" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="combinedFragments"/>
-                    <parameters name="element" value="&lt;%self%>"/>
-                    <parameters name="predecessor" value="&lt;%computePredecessorForCombinedFragment()%>"/>
+                    <parameters name="element" value="var:self"/>
+                    <parameters name="predecessor" value="service:computePredecessorForCombinedFragment"/>
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;Operand&quot;)%>">
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move start end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="ends"/>
-                    <parameters name="element" value="&lt;%startingEnd%>"/>
+                    <parameters name="element" value="feature:startingEnd"/>
                     <parameters name="predecessor" value="&lt;%if ($startingEndPredecessorAfter){%>&lt;%$startingEndPredecessorAfter.semanticEnd%>&lt;%}%>"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Adjust Operand position" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;CombinedFragment&quot;)%>"/>
                     <parameters name="referenceName" value="ownedOperands"/>
-                    <parameters name="element" value="&lt;%self%>"/>
-                    <parameters name="predecessor" value="&lt;%computePredecessorForOperand()%>"/>
+                    <parameters name="element" value="var:self"/>
+                    <parameters name="predecessor" value="service:computePredecessorForOperand"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -704,12 +704,12 @@
             <predecessorBefore name="predecessorBefore"/>
             <predecessorAfter name="predecessorAfter"/>
             <instanceRoleMoved>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%self.filter(&quot;Participant&quot;)%>">
                   <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move start end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                     <parameters name="referenceOwner" value="&lt;%eContainer(&quot;Interaction&quot;)%>"/>
                     <parameters name="referenceName" value="participants"/>
-                    <parameters name="element" value="&lt;%self%>"/>
+                    <parameters name="element" value="var:self"/>
                     <parameters name="predecessor" value="&lt;%if ($predecessorAfter){%>&lt;%$predecessorAfter%>&lt;%}%>"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -747,7 +747,7 @@
                 <elementView name="elementView"/>
                 <containerView name="containerView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>"/>
+                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element"/>
                 </initialOperation>
               </ownedTools>
               <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Participant" precondition="&lt;%filter(&quot;ObeoDSMObject&quot;)%>" forceRefresh="true" dragSource="PROJECT_EXPLORER">
@@ -756,10 +756,10 @@
                 <element name="element"/>
                 <newViewContainer name="newContainerView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newSemanticContainer%>">
+                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newSemanticContainer">
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.Participant" referenceName="participants">
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="newParticipant&lt;%eContainer(&quot;Interaction&quot;).participants.nSize%>"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="&lt;%$element%>"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="var:element"/>
                     </subModelOperations>
                   </firstModelOperations>
                 </initialOperation>
@@ -769,13 +769,13 @@
               <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_Message">
                 <mask mask="{0}"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%startingEnd%>">
+                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:startingEnd">
                       <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;CompoundEnd&quot;) == null%>">
                         <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="send_&lt;%$0%>"/>
                       </subModelOperations>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%finishingEnd%>">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="feature:finishingEnd">
                       <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%filter(&quot;CompoundEnd&quot;) == null%>">
                         <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="receive_&lt;%$0%>"/>
                       </subModelOperations>
@@ -824,7 +824,7 @@
         <toolSections name="Frames">
           <ownedTools xsi:type="tool_1:InteractionUseCreationTool" name="CRE_InteractionUse" label="InteractionUse" containerMappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@containerMappings[name='SD_InteractionUse']">
             <variable name="container">
-              <subVariables xsi:type="tool:SelectModelElementVariable" name="usedInteraction" candidatesExpression="&lt;%($container.getAllInteractionsInSession() + $container.getAllInteractionsInSession().ancestor).nMinimize()%>" tree="true" rootExpression="&lt;%$container.getAllRootsInSession()%>" childrenExpression="&lt;%eContents()%>" message="Choose an interaction"/>
+              <subVariables xsi:type="tool:SelectModelElementVariable" name="usedInteraction" candidatesExpression="&lt;%($container.getAllInteractionsInSession() + $container.getAllInteractionsInSession().ancestor).nMinimize()%>" tree="true" rootExpression="&lt;%$container.getAllRootsInSession()%>" childrenExpression="feature:eContents" message="Choose an interaction"/>
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -832,33 +832,33 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.InteractionUse" referenceName="interactionUses" variableName="newIU">
                   <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="ref.&lt;%eContainer(&quot;Interaction&quot;).interactionUses.nSize%>"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="interaction" valueExpression="&lt;%if ($usedInteraction.filter(&quot;Interaction&quot;)){%>&lt;%$usedInteraction%>&lt;%}%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="coveredParticipants" valueExpression="&lt;%$coverage%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="coveredParticipants" valueExpression="var:coverage"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="startingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="start_&lt;%$instance.name%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newIU%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newIU"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="finishingEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="finish_&lt;%$instance.name%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newIU%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newIU"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newIU%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$startingEnd%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$finishingEnd%>"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newIU">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:startingEnd"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:finishingEnd"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move finishingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$finishingEnd%>"/>
+                  <parameters name="element" value="var:finishingEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessor){%>&lt;%$finishingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move startingEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$startingEnd%>"/>
+                  <parameters name="element" value="var:startingEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newIU%>">
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newIU">
                   <subModelOperations xsi:type="tool:ExternalJavaActionCall" name="Adjust interaction use position" action="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Reorder%20InteractionFragments']/@onEventMovedOperation/@firstModelOperations/@subModelOperations.3/@subModelOperations.2"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -874,47 +874,47 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%eContainer(&quot;Interaction&quot;)%>">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.CombinedFragment" referenceName="combinedFragments" variableName="newCF">
                   <subModelOperations xsi:type="tool:SetValue" featureName="operator" valueExpression="alt.&lt;%eContainer.combinedFragments.nSize%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="coveredParticipants" valueExpression="&lt;%$coverage%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="coveredParticipants" valueExpression="var:coverage"/>
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.Operand" referenceName="ownedOperands" variableName="newOperand">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="condition1"/>
                   </subModelOperations>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="startCF">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="start_&lt;%$newCF.operator%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newCF%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newCF"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="finishCF">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="finish_&lt;%$newCF.operator%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newCF%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newCF"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="newOpEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="start_&lt;%$newOperand.name%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newOperand%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newOperand"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newCF%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$startCF%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$finishCF%>"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newCF">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:startCF"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:finishCF"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newOperand%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$newOpEnd%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="&lt;%$finishCF%>"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newOperand">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:newOpEnd"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="finishingEnd" valueExpression="var:finishCF"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move finishCF" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$finishCF%>"/>
+                  <parameters name="element" value="var:finishCF"/>
                   <parameters name="predecessor" value="&lt;%if ($finishingEndPredecessor){%>&lt;%$finishingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move newOpEnd" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$newOpEnd%>"/>
+                  <parameters name="element" value="var:newOpEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move startCF" icon="" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$startCF%>"/>
+                  <parameters name="element" value="var:startCF"/>
                   <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -935,21 +935,21 @@
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="newOpEnd">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="start_&lt;%$newOperand.name%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="&lt;%$newOperand%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="owner" valueExpression="var:newOperand"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newOperand%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="&lt;%$newOpEnd%>"/>
+                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newOperand">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="startingEnd" valueExpression="var:newOpEnd"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move operand start end" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
-                  <parameters name="referenceOwner" value="&lt;%self%>"/>
+                  <parameters name="referenceOwner" value="var:self"/>
                   <parameters name="referenceName" value="ends"/>
-                  <parameters name="element" value="&lt;%$newOpEnd%>"/>
+                  <parameters name="element" value="var:newOpEnd"/>
                   <parameters name="predecessor" value="&lt;%if ($startingEndPredecessor){%>&lt;%$startingEndPredecessor.semanticEnd%>&lt;%}%>"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ExternalJavaAction" name="Move operand" id="fr.obeo.dsl.viewpoint.business.api.action.moveElement">
                   <parameters name="referenceOwner" value="&lt;%$newOperand.eContainer%>"/>
                   <parameters name="referenceName" value="ownedOperands"/>
-                  <parameters name="element" value="&lt;%$newOperand%>"/>
+                  <parameters name="element" value="var:newOperand"/>
                   <parameters name="predecessor" value="&lt;%$newOperand.computePredecessorForOperand()%>"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -962,7 +962,7 @@
               <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_InteractionUse">
                 <mask mask="{0}"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>">
+                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                     <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="&lt;%$0%>"/>
                   </firstModelOperations>
                 </initialOperation>
@@ -980,7 +980,7 @@
               <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_CombinedFragment">
                 <mask mask="{0}"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>">
+                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                     <subModelOperations xsi:type="tool:SetValue" featureName="operator" valueExpression="&lt;%$0%>"/>
                   </firstModelOperations>
                 </initialOperation>
@@ -988,7 +988,7 @@
               <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_Operand">
                 <mask mask="{0}"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>">
+                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
                   </firstModelOperations>
                 </initialOperation>
@@ -1011,19 +1011,19 @@
               </ownedTools>
             </subSections>
             <subSections name="Navigation">
-              <ownedTools xsi:type="tool:DiagramNavigationDescription" name="NAV_To_UsedInteraction" label="Go to Sequence diagram" browseExpression="&lt;%interaction%>" navigationNameExpression="&lt;%name%> Sequence Diagram" diagramDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']">
+              <ownedTools xsi:type="tool:DiagramNavigationDescription" name="NAV_To_UsedInteraction" label="Go to Sequence diagram" browseExpression="feature:interaction" navigationNameExpression="&lt;%name%> Sequence Diagram" diagramDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']">
                 <containerViewVariable name="containerView"/>
                 <containerVariable name="container"/>
                 <representationNameVariable name="diagramName"/>
               </ownedTools>
-              <ownedTools xsi:type="tool:DiagramCreationDescription" name="CRENAV_To_UsedInteraction" label="Create Sequence diagram" titleExpression="&lt;%name%> Sequence Diagram" browseExpression="&lt;%interaction%>" diagramDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']">
+              <ownedTools xsi:type="tool:DiagramCreationDescription" name="CRENAV_To_UsedInteraction" label="Create Sequence diagram" titleExpression="&lt;%name%> Sequence Diagram" browseExpression="feature:interaction" diagramDescription="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']">
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>"/>
+                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                 </initialOperation>
                 <containerViewVariable name="containerView"/>
                 <representationNameVariable name="diagramName"/>
               </ownedTools>
-              <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Goto_Interaction_Diagram" precondition="&lt;%interaction%>" mappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@containerMappings[name='SD_InteractionUse']">
+              <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Goto_Interaction_Diagram" precondition="feature:interaction" mappings="//@ownedViewpoints[name='Interaction']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer/@containerMappings[name='SD_InteractionUse']">
                 <element name="element"/>
                 <elementView name="elementView"/>
                 <initialOperation>
