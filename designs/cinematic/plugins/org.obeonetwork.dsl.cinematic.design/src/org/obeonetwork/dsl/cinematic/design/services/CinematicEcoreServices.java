@@ -17,7 +17,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.NamedElement;
+import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
 import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
@@ -52,5 +54,31 @@ public class CinematicEcoreServices {
 		}
 		
 		return clone;
+	}
+	
+	/**
+	 * Return the abstractPackage container.
+	 * @param context the AbstractPackage
+	 * @return the container
+	 */
+	public AbstractPackage getAbstractPackageContainer(AbstractPackage context){
+		EObject container = context.eContainer();
+		AbstractPackage abstractPackageToReturn = null;
+		while (container.eContainer() != null && !(context.eContainer() instanceof AbstractPackage)){
+			container = container.eContainer();
+		}
+		if (container instanceof AbstractPackage){
+			abstractPackageToReturn = (AbstractPackage)container;
+		}
+		return abstractPackageToReturn;
+	}
+	
+	/**
+	 * Return the type name.
+	 * @param context the ViewEvent
+	 * @return String, name type
+	 */
+	public String getTypeName(ViewEvent context){		
+		return context.getType().getName();
 	}
 }

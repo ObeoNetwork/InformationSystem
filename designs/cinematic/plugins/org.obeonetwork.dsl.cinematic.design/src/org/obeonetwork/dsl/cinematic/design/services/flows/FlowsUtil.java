@@ -10,13 +10,31 @@
  */
 package org.obeonetwork.dsl.cinematic.design.services.flows;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
+import org.eclipse.emf.cdo.CDOLock;
+import org.eclipse.emf.cdo.CDOObjectHistory;
+import org.eclipse.emf.cdo.CDOState;
+import org.eclipse.emf.cdo.common.id.CDOID;
+import org.eclipse.emf.cdo.common.lock.CDOLockState;
+import org.eclipse.emf.cdo.common.revision.CDORevision;
+import org.eclipse.emf.cdo.eresource.CDOResource;
+import org.eclipse.emf.cdo.view.CDOView;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicEcoreServices;
@@ -24,10 +42,20 @@ import org.obeonetwork.dsl.cinematic.design.services.view.ViewUtil;
 import org.obeonetwork.dsl.cinematic.flow.Flow;
 import org.obeonetwork.dsl.cinematic.flow.FlowState;
 import org.obeonetwork.dsl.cinematic.flow.SubflowState;
+import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
+import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
+import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
+import org.obeonetwork.dsl.cinematic.view.ViewElement;
+import org.obeonetwork.dsl.cinematic.view.ViewEvent;
+import org.obeonetwork.dsl.environment.Behaviour;
+import org.obeonetwork.dsl.environment.BindingRegistry;
+import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.environment.MetaDataContainer;
+import org.obeonetwork.dsl.environment.Type;
 
 public class FlowsUtil {
 	
@@ -119,4 +147,71 @@ public class FlowsUtil {
 		}
 		return flows;
 	}
+	
+	/**
+	 * Verify that subflow is not null.
+	 * @param context the subflowState
+	 * @return boolean true if subflow is not null, false otherwise
+	 */
+	public Boolean isSubFlowNotNull(SubflowState context){
+		return context.getSubflow() != null;
+	}
+	
+	/**
+	 * Return the on size.
+	 * @param context the Transition.
+	 * @return The on size
+	 */
+	public Integer getOnSize(Transition context){
+		return context.getOn().size();
+	}
+	
+	/**
+	 * Return the viewContainers contained in the states of the context.
+	 * @param context the Flow
+	 * @return list of ViewContainer
+	 */
+	public List<ViewContainer> getStatesViewContainers(Flow context){
+		List<ViewContainer> statesViewContainers = new ArrayList<ViewContainer>();
+		for (FlowState flowState : context.getStates()){
+			if (flowState instanceof ViewState){
+				statesViewContainers.addAll(((ViewState) flowState).getViewContainers());
+			}
+		}
+		return statesViewContainers;
+	}
+	
+	/**
+	 * Return the flows contained in the subflowStates of context.
+	 * @param context the Flow.
+	 * @return list of Flow
+	 */
+	public List<Flow> getSubFlowInSubflowStates(Flow context){
+		List<Flow> subflowInSubflowStates = new ArrayList<Flow>();
+		for (FlowState flowState : context.getStates()){
+			if (flowState instanceof SubflowState){
+				subflowInSubflowStates.add(((SubflowState)flowState).getSubflow());
+			}
+		}
+		return subflowInSubflowStates;
+	}
+	
+	/**
+	 * Return all flows and ancestors.
+	 * @param context
+	 * @param flows the flows
+	 * @return flows and ancestors
+	 */
+	public List<EObject> getFlowsAndAncestors(EObject context, List<Flow> flows) {
+		List<EObject> containers = new ArrayList<EObject>(flows);
+		for (Flow flow : flows) {
+			EObject flowContainer = flow.eContainer();
+			while (flowContainer != null && !containers.contains(flowContainer)){
+				containers.add(flowContainer);			
+				flowContainer = flowContainer.eContainer();
+			}			
+		}
+		return containers;
+	}	
+		
 }

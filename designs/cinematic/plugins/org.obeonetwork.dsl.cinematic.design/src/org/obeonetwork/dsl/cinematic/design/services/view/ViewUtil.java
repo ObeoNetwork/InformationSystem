@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.cinematic.design.services.view;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
@@ -40,6 +41,30 @@ public class ViewUtil {
 		}
 		
 		return elements;
+	}
+	
+	/**
+	 * Return actions size.
+	 * @param context the AbstractViewElement
+	 * @return The actions size
+	 */
+	public Integer getActionsSize (AbstractViewElement context){
+		return context.getActions().size();
+	}
+	
+	/**
+	 * Return list of viewContainer present in its ownedElements.
+	 * @param context the ViewContainer
+	 * @return list of ViewContainer
+	 */
+	public List<ViewContainer> getViewContainers (ViewContainer context){
+		List<ViewContainer> viewContainers = new ArrayList<ViewContainer>();
+		for (AbstractViewElement ownedElement :context.getOwnedElements()){
+			if (ownedElement instanceof ViewContainerReference){
+				viewContainers.add(((ViewContainerReference)ownedElement).getViewContainer());
+			}
+		}
+		return viewContainers;
 	}
 	
 }
