@@ -13,7 +13,10 @@ package org.obeonetwork.dsl.database.design.services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -42,5 +45,18 @@ public class EcoreServices {
 			return session.getSemanticResources();
 		}
 		return Collections.emptyList();
+	}
+	
+	static public List<EObject> eAllContents(EObject context, Class<?> typeClass){
+		List<EObject> allContainedElements = new ArrayList<EObject>();
+		TreeIterator<EObject> allContents = context.eAllContents();
+		Iterator<EObject> iter = allContents;
+		while (iter.hasNext()){
+			EObject iterNext = iter.next();						
+			if (typeClass.isAssignableFrom(iterNext.getClass()) && !allContainedElements.contains(iterNext)){				
+				allContainedElements.add(iterNext);
+			}
+		}
+		return allContainedElements;
 	}
 }
