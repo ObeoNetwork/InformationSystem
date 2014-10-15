@@ -20,6 +20,7 @@ import org.obeonetwork.dsl.environment.BindingInfo;
 import org.obeonetwork.dsl.environment.BindingRegistry;
 import org.obeonetwork.dsl.environment.BoundableElement;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
@@ -133,7 +134,7 @@ public class BindingService {
 		return bindingInfo;
 	}
 	
-	public Collection<StructuredType> getAllBindableElementsFor(Category category, EObject target) {
+	public Collection<StructuredType> getAllBindableElementsFor(Category category, ObeoDSMObject target) {
 		if (target instanceof ServiceDTO) {
 			return internalGetAllBindableElementsFor(category, (ServiceDTO)target);
 		} else if (target instanceof Entity) {

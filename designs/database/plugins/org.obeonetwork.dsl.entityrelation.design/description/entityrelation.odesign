@@ -13,45 +13,45 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Entity Relation Diagram" titleExpression="&lt;%name%> Entity Relation" showOnStartup="true" domainClass="entityrelation.LogicalModel">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Entity Relation Diagram" titleExpression="[name + 'Entity Relation'/]" showOnStartup="true" domainClass="entityrelation.LogicalModel">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entityrelation/model/entityrelation.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#/"/>
       <defaultLayer name="Default">
         <edgeMappings name="ERD_Relation" labelDirectEdit="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_LogicalElement']" semanticCandidatesExpression="feature:relations" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@defaultLayer/@containerMappings[name='ERD_Entity']" targetMapping="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@defaultLayer/@containerMappings[name='ERD_Entity'] //@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ERD_Non_Referenced_External_Entity'] //@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ERD_Referenced_External_Entity']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="entityrelation.Relation" useDomainElement="true">
           <style targetArrow="NoDecoration" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="&lt;%name%>">
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
-          <conditionnalStyles predicateExpression="&lt;%(sourceCardinality == &quot;0..*&quot; || sourceCardinality == &quot;1..*&quot;) &amp;&amp; targetIsComposite == false%>">
+          <conditionnalStyles predicateExpression="[(sourceCardinality ='0..*' or sourceCardinality = '1') and targetIsComposite = false /]">
             <style targetArrow="OutputClosedArrow" sizeComputationExpression="1">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <centerLabelStyleDescription showIcon="false" labelExpression="&lt;%name%>">
+              <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="&lt;%(sourceCardinality == &quot;0..*&quot; || sourceCardinality == &quot;1..*&quot;) &amp;&amp; targetIsComposite == true%>">
+          <conditionnalStyles predicateExpression="[(sourceCardinality ='0..*' or sourceCardinality = '1') and targetIsComposite = true/]">
             <style targetArrow="OutputFillClosedArrow" sizeComputationExpression="1">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <centerLabelStyleDescription showIcon="false" labelExpression="&lt;%name%>">
+              <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="&lt;%(targetCardinality == &quot;0..*&quot; || targetCardinality == &quot;1..*&quot;) &amp;&amp; sourceIsComposite == false%>">
+          <conditionnalStyles predicateExpression="[(targetCardinality ='0..*' or targetCardinality = '1') and sourceIsComposite = false /]">
             <style sourceArrow="OutputClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="1">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <centerLabelStyleDescription showIcon="false" labelExpression="&lt;%name%>">
+              <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="&lt;%(targetCardinality == &quot;0..*&quot; || targetCardinality == &quot;1..*&quot;) &amp;&amp; sourceIsComposite == true%>">
+          <conditionnalStyles predicateExpression="[(targetCardinality ='0..*' or targetCardinality = '1') and sourceIsComposite = true/]">
             <style sourceArrow="OutputFillClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="1">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              <centerLabelStyleDescription showIcon="false" labelExpression="&lt;%name%>">
+              <centerLabelStyleDescription showIcon="false" labelExpression="feature:name">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
             </style>
@@ -86,7 +86,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="entityrelation.Entity" referenceName="entities">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Entity&lt;%eContainer.entities.nSize%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Entity' + eContainer(entityrelation::LogicalModel).entities->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -97,7 +97,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="entityrelation.Attribute" referenceName="attributes">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="attribute&lt;%eContainer.attributes.nSize%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['attribute' + eContainer(entityrelation::Entity).attributes->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -108,7 +108,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="entityrelation.Identifier" referenceName="identifiers">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="identifier_&lt;%eContainer.identifiers.nSize%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['identifier_' + eContainer(entityrelation::Entity).identifiers->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -120,7 +120,7 @@
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$source.createRelation($target)%>">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Relation &lt;%eContainer.nSize()%>"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Relation '+ eContainer()->size()/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -130,17 +130,17 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$source.eContainer%>">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[source.eContainer()/]">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="entityrelation.Entity" referenceName="entities" variableName="newEntity">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Relation_&lt;%eContainer.entities.nSize()%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Relation_' + eContainer(entityrelation::LogicalModel).entities->size()/]"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$source.createRelation($newEntity)%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Relation &lt;%eContainer.nSize()%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Relation '+ eContainer()->size()/]"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="targetCardinality" valueExpression="1..1"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="targetIsComposite" valueExpression="true"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$target.createRelation($newEntity)%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Relation &lt;%eContainer.nSize()%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Relation '+ eContainer()->size()/]"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="targetCardinality" valueExpression="1..1"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="targetIsComposite" valueExpression="true"/>
                 </subModelOperations>
@@ -150,7 +150,7 @@
         </toolSections>
       </defaultLayer>
       <optionalLayers name="External Entities" activeByDefault="true">
-        <containerMappings name="ERD_Non_Referenced_External_Entity" deletionDescription="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Entities']" semanticCandidatesExpression="&lt;%allNonReferencedExternalEntities%>" createElements="false" semanticElements="var:self" domainClass="entityrelation.Entity" childrenPresentation="List">
+        <containerMappings name="ERD_Non_Referenced_External_Entity" deletionDescription="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Entities']" semanticCandidatesExpression="service:allNonReferencedExternalEntities" createElements="false" semanticElements="var:self" domainClass="entityrelation.Entity" childrenPresentation="List">
           <subNodeMappings name="ERD_Ext_Attribute" deletionDescription="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Entities']" labelDirectEdit="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_LogicalElement']" semanticCandidatesExpression="feature:attributes" semanticElements="var:self" domainClass="entityrelation.Attribute">
             <style xsi:type="style:SquareDescription" labelExpression="service:getLogicalElementLabel" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -165,15 +165,15 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="&lt;%eContainer.name%>::&lt;%name%>">
+          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[eContainer(entityrelation::LogicalModel).name + '::' + name/]">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
           </style>
         </containerMappings>
-        <containerMappings name="ERD_Referenced_External_Entity" deletionDescription="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Entities']" semanticCandidatesExpression="&lt;%allReferencedExternalEntities%>" semanticElements="var:self" domainClass="entityrelation.Entity" reusedNodeMappings="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ERD_Non_Referenced_External_Entity']/@subNodeMappings[name='ERD_Ext_Attribute'] //@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ERD_Non_Referenced_External_Entity']/@subNodeMappings[name='ERD_Ext_Identifier']" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="&lt;%eContainer.name%>::&lt;%name%>">
+        <containerMappings name="ERD_Referenced_External_Entity" deletionDescription="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@toolSections.0/@ownedTools[name='DEL_Prevent_Deletion_Ext_Entities']" semanticCandidatesExpression="service:allReferencedExternalEntities" semanticElements="var:self" domainClass="entityrelation.Entity" reusedNodeMappings="//@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ERD_Non_Referenced_External_Entity']/@subNodeMappings[name='ERD_Ext_Attribute'] //@ownedViewpoints[name='Entity%20Relation']/@ownedRepresentations[name='Entity%20Relation%20Diagram']/@optionalLayers[name='External%20Entities']/@containerMappings[name='ERD_Non_Referenced_External_Entity']/@subNodeMappings[name='ERD_Ext_Identifier']" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[eContainer(entityrelation::LogicalModel).name + '::' + name/]">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -181,7 +181,7 @@
           </style>
         </containerMappings>
         <toolSections name="External Entities">
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="WIZ_ExternalEntity" label="External Entity" precondition="&lt;%filter(&quot;entityrelation.LogicalModel&quot;)%>" forceRefresh="true" candidatesExpression="&lt;%(allSelectableExternalEntities($diagram) + allSelectableExternalEntities($diagram).ancestor).nMinimize()%>" tree="true" rootExpression="service:allRoots" childrenExpression="feature:eContents" message="Select an external entity" iconPath="/org.obeonetwork.dsl.entityrelation.edit/icons/full/obj16/Entity.gif" windowTitle="Import external entity" windowImagePath="/org.obeonetwork.dsl.entityrelation.edit/icons/full/obj16/Entity.gif">
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="WIZ_ExternalEntity" label="External Entity" precondition="[oclIsKindOf(entityrelation::LogicalModel)/]" forceRefresh="true" candidatesExpression="[(allSelectableExternalEntities(diagram)->union(allSelectableExternalEntities(diagram).ancestors()))->asOrderedSet()/]" tree="true" rootExpression="service:allRoots" childrenExpression="feature:eContents" message="Select an external entity" iconPath="/org.obeonetwork.dsl.entityrelation.edit/icons/full/obj16/Entity.gif" windowTitle="Import external entity" windowImagePath="/org.obeonetwork.dsl.entityrelation.edit/icons/full/obj16/Entity.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -206,6 +206,6 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.entityrelation.design.services.label.EntityRelationEditLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.entityrelation.design.services.label.EntityRelationLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.entityrelation.design.services.EcoreServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.entityrelation.design.templates.entities"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.entityrelation.design.services.EntitiesServices"/>
   </ownedViewpoints>
 </description:Group>
