@@ -57,7 +57,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_ViewState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" domainClass="flow.ViewState">
-          <borderedNodeMappings name="FLD_FakeNodeForViewContainerBinding" preconditionExpression="false" semanticCandidatesExpression="&lt;%null%>" documentation="This fake bordered node is used to be able to specify a creation tool on it." domainClass="flow.ViewState">
+          <borderedNodeMappings name="FLD_FakeNodeForViewContainerBinding" preconditionExpression="false" semanticCandidatesExpression="null" documentation="This fake bordered node is used to be able to specify a creation tool on it." domainClass="flow.ViewState">
             <style xsi:type="style:SquareDescription" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

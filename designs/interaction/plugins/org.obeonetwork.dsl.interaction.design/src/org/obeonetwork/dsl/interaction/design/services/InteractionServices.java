@@ -1,6 +1,8 @@
 package org.obeonetwork.dsl.interaction.design.services;
 
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -25,6 +27,7 @@ import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.interaction.CombinedFragment;
+import org.obeonetwork.dsl.interaction.DestroyParticipantMessage;
 import org.obeonetwork.dsl.interaction.End;
 import org.obeonetwork.dsl.interaction.Execution;
 import org.obeonetwork.dsl.interaction.Interaction;
@@ -504,7 +507,115 @@ public class InteractionServices {
         } else {
             return false;
         }
-    }    
+    }   
+    
+    /**
+     * Retrieve the current participant.
+     * @param context the context on which is applied the service
+     * @return The participant.
+     */
+    public Participant currentParticipant(Participant context){
+    	return context;
+    }
+    
+    /**
+     * Retrieve the current participant.
+     * @param context the context on which is applied the service
+     * @return The participant.
+     */
+    public Participant currentParticipant(End context){
+    	return context.getContext();
+    }
+    
+    /**
+     * Retrieve the current participant.
+     * @param context the context on which is applied the service
+     * @return The participant.
+     */
+    public Participant currentParticipant(Execution context){
+    	return context.getOwner();
+    }
+    
+    /**
+     * Retrieve the current participant.
+     * @param context the context on which is applied the service
+     * @return The participant.
+     */
+    public Participant currentParticipant(StateInvariant context){
+    	return context.getOwner();
+    }
+    
+    /**
+     * Return true if the context is pointed by a DestroyParticipantMessage.
+     * @param context the context on which is applied the service
+     * @return boolean, true if the context is pointed by a DestroyParticipantMessage, false otherwise
+     */
+    public boolean isPointedByDestroyMessage(Participant context){
+    	boolean isPointedByDestroyMessage = false;
+    	Interaction interaction = null;    	
+    	EObject container = context.eContainer();
+    	while (container != null){
+    		if( container instanceof Interaction){
+    			interaction = (Interaction)container;
+    			//loop output
+    			container = null;
+    		}else{
+    			container = container.eContainer();
+    		}
+    	}
+    	if (interaction != null){
+    		List<Message> messages = interaction.getMessages();
+    		List<DestroyParticipantMessage> destroyParticipantMesssages = new ArrayList<DestroyParticipantMessage>();
+    		for (Message message : messages){
+    			// Retrieve DestroParticipantMessage
+    			if (message instanceof DestroyParticipantMessage){
+    				destroyParticipantMesssages.add((DestroyParticipantMessage)message);
+    			}
+    		}
+    		for (DestroyParticipantMessage destroyParticipantMessage : destroyParticipantMesssages){
+    			// Retrieve the finishingEnd that the context is the same as parameter
+    			if (destroyParticipantMessage.getFinishingEnd().getContext() == context){
+    				isPointedByDestroyMessage = true;
+    			}
+    		}    			
+    	}
+    	return isPointedByDestroyMessage;
+    }
+    
+    /**
+     * Create the label for the graphical participant element. 
+     * @param context the context which is applied the service
+     * @return the label participant
+     */
+    public String getParticipantLabel(Participant context){
+    	// Retrive the participant name
+    	String label = context.getName();
+    	// If a type is defined construct the label as name:type.name(type) 
+    	if (context.getType() != null){
+    		label = label.concat(":");
+    		label = label.concat("\n");
+    		Class<?> classType = context.getType().getClass();
+    		Method[] allMethods = classType.getMethods();
+    		for (Method method : allMethods) {
+    			String methodName = method.getName();
+    			if (methodName.contains("Name") && method.getParameterTypes().length == 0){
+    				try {
+    					label = label.concat(method.invoke(context.getType()).toString());
+    				} catch (IllegalArgumentException e) {							
+    					e.printStackTrace();
+    				} catch (IllegalAccessException e) {							
+    					e.printStackTrace();
+    				} catch (InvocationTargetException e) {							
+    					e.printStackTrace();
+    				}
+    			}
+    		}
+    		label = label.concat(" (");
+    		label = label.concat(context.getType().eClass().getName());
+    		label = label.concat(")");
+    	}
+    	return label;
+    } 
 
     /**
      * Change the parent of an interaction with a selected one 
@@ -556,4 +667,5 @@ public class InteractionServices {
     	
     	return interaction;
     }
+       
 }
