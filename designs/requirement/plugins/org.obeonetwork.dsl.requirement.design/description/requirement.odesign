@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/table/description/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="requirements" version="6.7.0.201302071200">
   <ownedViewpoints name="Requirements">
-    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Requirements Table" titleExpression="&lt;%table%> Requirements Table" domainClass="requirement.Repository">
-      <ownedLineMappings name="REQ_Repository" domainClass="requirement.Repository" semanticCandidatesExpression="var:self" headerLabelExpression="&lt;%name%>">
-        <ownedSubLines name="REQ_Category" reusedSubLines="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_Repository']/@ownedSubLines[name='REQ_Category']" reusedInMappings="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_Repository']/@ownedSubLines[name='REQ_Category']" domainClass="requirement.Category" semanticCandidatesExpression="feature:eContents" headerLabelExpression="&lt;%id%> - &lt;%name%>">
-          <ownedSubLines name="REQ_Requirement" domainClass="requirement.Requirement" semanticCandidatesExpression="feature:requirements" headerLabelExpression="&lt;%id%> - &lt;%name%>">
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Requirements Table" titleExpression="[name + ' Requirements Table'/]" domainClass="requirement.Repository">
+      <ownedLineMappings name="REQ_Repository" domainClass="requirement.Repository" semanticCandidatesExpression="var:self" headerLabelExpression="feature:name">
+        <ownedSubLines name="REQ_Category" reusedSubLines="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_Repository']/@ownedSubLines[name='REQ_Category']" reusedInMappings="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_Repository']/@ownedSubLines[name='REQ_Category']" domainClass="requirement.Category" semanticCandidatesExpression="feature:eContents" headerLabelExpression="[id + ' - ' + name/]">
+          <ownedSubLines name="REQ_Requirement" domainClass="requirement.Requirement" semanticCandidatesExpression="feature:requirements" headerLabelExpression="[id + ' - ' + name/]">
             <create name="REQ_Requirement" label="Create Requirement" forceRefresh="true">
               <variables name="root" documentation="The semantic element of the table."/>
               <variables name="element" documentation="The semantic currently edited element."/>
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
               <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Requirement" referenceName="requirements">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="&lt;%eContainer.id%>_&lt;%eContainer.requirements.nSize()%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(requirement::Category).id + '_' + eContainer(requirement::Category).requirements->size()/]"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New requirement"/>
                 </subModelOperations>
               </firstModelOperation>
@@ -22,7 +22,7 @@
               <variables name="container" documentation="The semantic element corresponding to the view container."/>
               <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="subCategories">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="CAT&lt;%eContainer.subCategories.nSize()%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT' + eContainer(requirement::Category).subCategories->size()/]"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
                 </subModelOperations>
               </firstModelOperation>
@@ -34,7 +34,7 @@
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
             <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Requirement" referenceName="requirements">
-                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="&lt;%eContainer.id%>_&lt;%eContainer.requirements.nSize()%>"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(requirement::Category).id + '_' + eContainer(requirement::Category).requirements->size()/]"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New requirement"/>
               </subModelOperations>
             </firstModelOperation>
@@ -45,7 +45,7 @@
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
             <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="subCategories">
-                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="CAT&lt;%eContainer.subCategories.nSize()%>"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT' + eContainer(requirement::Category).subCategories->size()/]"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
               </subModelOperations>
             </firstModelOperation>
@@ -57,34 +57,34 @@
           <variables name="container" documentation="The semantic element corresponding to the view container."/>
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
             <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="mainCategories">
-              <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="CAT&lt;%eContainer.mainCategories.nSize()%>"/>
+              <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT' + eContainer(requirement::Repository).mainCategories->size()/]"/>
               <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
             </subModelOperations>
           </firstModelOperation>
         </create>
       </ownedLineMappings>
       <ownedColumnMappings name="REQ_ID" label="" headerLabelExpression="ID" featureName="id"/>
-      <ownedColumnMappings name="REQ_Name" label="" headerLabelExpression="Name" featureName="name" labelExpression="&lt;%if ($lineSemantic.filter(&quot;requirement.Category&quot;) || $lineSemantic.filter(&quot;requirement.Requirement&quot;)){%>&lt;%$lineSemantic.name%>&lt;%}%>"/>
+      <ownedColumnMappings name="REQ_Name" label="" headerLabelExpression="Name" featureName="name" labelExpression="[if lineSemantic.oclIsKindOf(requirement::Category) or lineSemantic.oclIsKindOf(requirement::Requirement) then lineSemantic.oclAsType(requirement::NamedElement).name else '' endif/]"/>
       <ownedColumnMappings name="REQ_Type" label="" headerLabelExpression="Type" featureName="type"/>
       <ownedColumnMappings name="REQ_Subtype" label="" headerLabelExpression="Subtype" featureName="subtype"/>
       <ownedColumnMappings name="REQ_Status" label="" headerLabelExpression="Status" featureName="status"/>
       <ownedColumnMappings name="REQ_Statement" label="" headerLabelExpression="Statement" featureName="statement"/>
       <ownedColumnMappings name="REQ_Version" label="" headerLabelExpression="Version" canEdit="false" featureName="version"/>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Requirements Traceability Matrix" titleExpression="&lt;%table%> Requirements Traceability Matrix" domainClass="requirement.Repository">
-      <ownedLineMappings name="Repository" domainClass="requirement.Repository" semanticCandidatesExpression="var:self" headerLabelExpression="&lt;%name%>">
-        <ownedSubLines name="Category" reusedSubLines="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Traceability%20Matrix']/@ownedLineMappings[name='Repository']/@ownedSubLines[name='Category']" reusedInMappings="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Traceability%20Matrix']/@ownedLineMappings[name='Repository']/@ownedSubLines[name='Category']" domainClass="requirement.Category" semanticCandidatesExpression="feature:eContents" headerLabelExpression="&lt;%id%> - &lt;%name%>">
-          <ownedSubLines name="Requirement" domainClass="requirement.Requirement" semanticCandidatesExpression="feature:requirements" headerLabelExpression="&lt;%id%> - &lt;%name%>"/>
+    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Requirements Traceability Matrix" titleExpression="[name + ' Requirements Traceability Matrix'/]" domainClass="requirement.Repository">
+      <ownedLineMappings name="Repository" domainClass="requirement.Repository" semanticCandidatesExpression="var:self" headerLabelExpression="feature:name">
+        <ownedSubLines name="Category" reusedSubLines="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Traceability%20Matrix']/@ownedLineMappings[name='Repository']/@ownedSubLines[name='Category']" reusedInMappings="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Traceability%20Matrix']/@ownedLineMappings[name='Repository']/@ownedSubLines[name='Category']" domainClass="requirement.Category" semanticCandidatesExpression="feature:eContents" headerLabelExpression="[id + ' - ' + name/]">
+          <ownedSubLines name="Requirement" domainClass="requirement.Requirement" semanticCandidatesExpression="feature:requirements" headerLabelExpression="[id + ' - ' + name/]"/>
         </ownedSubLines>
       </ownedLineMappings>
-      <ownedColumnMappings name="Referenced Object" domainClass="EObject" semanticCandidatesExpression="&lt;%eAllContents(&quot;Requirement&quot;).referencedObject[eResource != null]%>"/>
+      <ownedColumnMappings name="Referenced Object" domainClass="EObject" semanticCandidatesExpression="[eAllContents(requirement::Requirement).referencedObject->select(not oclAsType(ecore::EObject).eResource().oclIsUndefined())/]"/>
       <intersection name="Cross" lineMapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Traceability%20Matrix']/@ownedLineMappings[name='Repository']/@ownedSubLines[name='Category']/@ownedSubLines[name='Requirement']" columnMapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Traceability%20Matrix']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="feature:referencedObject">
         <directEdit>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="columnSemantic" documentation="The semantic element corresponding to the column (only available for Intersection Mapping)."/>
           <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool:If" conditionExpression="&lt;%$0==&quot;&quot;%>">
+          <firstModelOperation xsi:type="tool:If" conditionExpression="[arg0 = ''/]">
             <subModelOperations xsi:type="tool:Unset" featureName="referencedObject" elementExpression="var:columnSemantic"/>
           </firstModelOperation>
           <mask mask="{0}"/>
