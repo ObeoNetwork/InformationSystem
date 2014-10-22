@@ -1,6 +1,9 @@
 package org.obeonetwork.dsl.statemachine.design.services;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -12,6 +15,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.statemachine.AbstractState;
+import org.obeonetwork.dsl.statemachine.Region;
+import org.obeonetwork.dsl.statemachine.State;
 import org.obeonetwork.dsl.statemachine.StateMachine;
 import org.obeonetwork.dsl.statemachine.design.Activator;
 import org.obeonetwork.dsl.statemachine.design.ui.extension.providers.StateMachineParentSelectionContentProvider;
@@ -35,7 +41,17 @@ public class StateMachineServices {
      * @param stateMachine
      * @return
      */
-    public StateMachine changeParentForStateMachine(final StateMachine stateMachine) {
+    public StateMachine changeParentForStateMachine(EObject context) {
+    	StateMachine stateMachine = null;    
+    	if (context instanceof StateMachine){
+    		stateMachine = (StateMachine)context;
+    	}else{
+    		EObject container = context.eContainer();
+    		while (!(container instanceof StateMachine) && container.eContainer() != null){
+    			container = container.eContainer();    			
+    		}
+    		stateMachine = (StateMachine)container;
+    	}
     	Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
     	
     	AdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
@@ -45,13 +61,15 @@ public class StateMachineServices {
     	dlg.setHelpAvailable(false);
     	dlg.setValidator(new ISelectionStatusValidator() {
 			public IStatus validate(Object[] selection) {
-				Object selectedObject = selection[0];
-				if (selectedObject instanceof EObject) {
-					IPermissionAuthority authority = PermissionAuthorityRegistry.getDefault().getPermissionAuthority((EObject)selectedObject);
-					if (authority != null) {
-						LockStatus lockStatus = authority.getLockStatus((EObject)selectedObject);
-						if (LockStatus.LOCKED_BY_OTHER.equals(lockStatus)) {
-							return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "This element is locked by another user");
+				if (selection.length > 0) {
+					Object selectedObject = selection[0];
+					if (selectedObject instanceof EObject) {
+						IPermissionAuthority authority = PermissionAuthorityRegistry.getDefault().getPermissionAuthority((EObject)selectedObject);
+						if (authority != null) {
+							LockStatus lockStatus = authority.getLockStatus((EObject)selectedObject);
+							if (LockStatus.LOCKED_BY_OTHER.equals(lockStatus)) {
+								return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "This element is locked by another user");
+							}
 						}
 					}
 				}
@@ -79,5 +97,23 @@ public class StateMachineServices {
     	}
     	
     	return stateMachine;
+    }
+    
+    public String evaluateLabel(EObject context){
+    	//['State_' + container.oclAsType(statemachine::StateMachine).states->filter(statemachine::State)->size()/]
+    	String label = "State_";
+    	List<AbstractState> abstractStates = null;
+    	if (context.eContainer() instanceof StateMachine){
+    		abstractStates = ((StateMachine)context.eContainer()).getStates();    		
+    	}else if (context.eContainer() instanceof Region){
+    		abstractStates = ((Region)context.eContainer()).getStates();  
+    	}
+    	List<State> states = new ArrayList<State>();
+		for (AbstractState absState : abstractStates){
+			if (absState instanceof State){
+				states.add((State)absState);
+			}
+		}
+		return label + states.size();
     }
 }
