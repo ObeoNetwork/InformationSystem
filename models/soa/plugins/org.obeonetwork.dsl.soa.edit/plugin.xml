@@ -148,24 +148,6 @@
                id="org.obeonetwork.dsl.soa.eef.section.Parameter"
                tab="Parameter">
          </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.soa.parts.forms.DTORegistryPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.soa.filters.DTORegistryTabPropertiesEditionSection"
-               id="org.obeonetwork.dsl.soa.eef.section.DTORegistry"
-               tab="DTORegistry">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.soa.parts.forms.CategoryPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.soa.filters.CategoryTabPropertiesEditionSection"
-               id="org.obeonetwork.dsl.soa.eef.section.Category"
-               tab="Category">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.soa.parts.forms.ServiceDTOPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.soa.filters.ServiceDTOTabPropertiesEditionSection"
-               id="org.obeonetwork.dsl.soa.eef.section.ServiceDTO"
-               tab="ServiceDTO">
-         </propertySection>
       </propertySections>
    </extension>
 </plugin>

@@ -105,18 +105,6 @@
               tab="Root">
         </propertySection>
         <propertySection
-              class="org.obeonetwork.dsl.entity.parts.forms.BlockPropertiesEditionPartForm"
-              filter="org.obeonetwork.dsl.entity.filters.BlockTabPropertiesEditionSection"
-              id="org.obeonetwork.dsl.entity.eef.section.Block"
-              tab="Block">
-        </propertySection>
-        <propertySection
-              class="org.obeonetwork.dsl.entity.parts.forms.ReferencePropertiesEditionPartForm"
-              filter="org.obeonetwork.dsl.entity.filters.ReferenceTabPropertiesEditionSection"
-              id="org.obeonetwork.dsl.entity.eef.section.Reference"
-              tab="Reference">
-        </propertySection>
-        <propertySection
               class="org.obeonetwork.dsl.entity.parts.forms.FinderPropertiesEditionPartForm"
               filter="org.obeonetwork.dsl.entity.filters.FinderTabPropertiesEditionSection"
               id="org.obeonetwork.dsl.entity.eef.section.Finder"
@@ -127,12 +115,6 @@
               filter="org.obeonetwork.dsl.entity.filters.EntityTabPropertiesEditionSection"
               id="org.obeonetwork.dsl.entity.eef.section.Entity"
               tab="Entity">
-        </propertySection>
-        <propertySection
-              class="org.obeonetwork.dsl.entity.parts.forms.AttributePropertiesEditionPartForm"
-              filter="org.obeonetwork.dsl.entity.filters.AttributeTabPropertiesEditionSection"
-              id="org.obeonetwork.dsl.entity.eef.section.Attribute"
-              tab="Attribute">
         </propertySection>
         <propertySection
               class="org.obeonetwork.dsl.entity.parts.forms.InternalCriterionPropertiesEditionPartForm"
