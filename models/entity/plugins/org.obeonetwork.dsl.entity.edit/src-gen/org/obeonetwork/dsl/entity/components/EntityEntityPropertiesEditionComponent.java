@@ -25,22 +25,23 @@ import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilt
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
+import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
+import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
 import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.entity.EntityFactory;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.entity.InheritanceKind;
 import org.obeonetwork.dsl.entity.parts.EntityPropertiesEditionPart;
 import org.obeonetwork.dsl.entity.parts.EntityViewsRepository;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.environment.StructuredType;
 
 
 // End of user code
@@ -92,7 +93,7 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 			
 			if (isAccessible(EntityViewsRepository.Entity_.Properties.superType)) {
 				// init part
-				superTypeSettings = new EObjectFlatComboSettings(entity, EntityPackage.eINSTANCE.getEntity_Supertype());
+				superTypeSettings = new EObjectFlatComboSettings(entity, EnvironmentPackage.eINSTANCE.getStructuredType_Supertype());
 				entityPart.initSuperType(superTypeSettings);
 				// set the button mode
 				entityPart.setSuperTypeButtonMode(ButtonsModeEnum.BROWSE);
@@ -147,7 +148,7 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 			return EnvironmentPackage.eINSTANCE.getType_Name();
 		}
 		if (editorKey == EntityViewsRepository.Entity_.Properties.superType) {
-			return EntityPackage.eINSTANCE.getEntity_Supertype();
+			return EnvironmentPackage.eINSTANCE.getStructuredType_Supertype();
 		}
 		if (editorKey == EntityViewsRepository.Entity_.Properties.estimatedVolumetry) {
 			return EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry();
@@ -179,18 +180,16 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 		}
 		if (EntityViewsRepository.Entity_.Properties.superType == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.SET) {
-				superTypeSettings.setToReference((Entity)event.getNewValue());
+				superTypeSettings.setToReference((StructuredType)event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
-				Entity eObject = EntityFactory.eINSTANCE.createEntity();
-				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, eObject, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(eObject, PropertiesEditingProvider.class);
+				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, superTypeSettings, editingContext.getAdapterFactory());
+				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(semanticObject, PropertiesEditingProvider.class);
 				if (provider != null) {
 					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy != null) {
+					if (policy instanceof CreateEditingPolicy) {
 						policy.execute();
 					}
 				}
-				superTypeSettings.setToReference(eObject);
 			}
 		}
 		if (EntityViewsRepository.Entity_.Properties.estimatedVolumetry == event.getAffectedEditor()) {
@@ -225,7 +224,7 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 					entityPart.setName("");
 				}
 			}
-			if (EntityPackage.eINSTANCE.getEntity_Supertype().equals(msg.getFeature()) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.superType))
+			if (EnvironmentPackage.eINSTANCE.getStructuredType_Supertype().equals(msg.getFeature()) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.superType))
 				entityPart.setSuperType((EObject)msg.getNewValue());
 			if (EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.estimatedVolumetry)) {
 				if (msg.getNewValue() != null) {
@@ -267,7 +266,7 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EnvironmentPackage.eINSTANCE.getType_Name(),
-			EntityPackage.eINSTANCE.getEntity_Supertype(),
+			EnvironmentPackage.eINSTANCE.getStructuredType_Supertype(),
 			EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry(),
 			EntityPackage.eINSTANCE.getEntity_EstimatedAccess(),
 			EntityPackage.eINSTANCE.getEntity_Historized(),

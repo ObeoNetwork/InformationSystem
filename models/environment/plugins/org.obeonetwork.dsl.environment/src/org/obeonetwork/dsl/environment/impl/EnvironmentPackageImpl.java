@@ -7,8 +7,6 @@
  * 
  * Contributors:
  *     Obeo - initial API and implementation
- *
- * $Id$
  */
 package org.obeonetwork.dsl.environment.impl;
 
@@ -18,7 +16,9 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
@@ -392,6 +392,15 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEnvironment_Namespaces() {
+		return (EReference) environmentEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getType() {
 		return typeEClass;
 	}
@@ -719,6 +728,76 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStructuredType_Supertype() {
+		return (EReference) structuredTypeEClass.getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStructuredType_AssociatedTypes() {
+		return (EReference) structuredTypeEClass.getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStructuredType_OwnedAttributes() {
+		return (EReference) structuredTypeEClass.getEStructuralFeatures()
+				.get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStructuredType_Attributes() {
+		return (EReference) structuredTypeEClass.getEStructuralFeatures()
+				.get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStructuredType_OwnedReferences() {
+		return (EReference) structuredTypeEClass.getEStructuralFeatures()
+				.get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStructuredType_References() {
+		return (EReference) structuredTypeEClass.getEStructuralFeatures()
+				.get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStructuredType_Properties() {
+		return (EReference) structuredTypeEClass.getEStructuralFeatures()
+				.get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDTO() {
 		return dtoEClass;
 	}
@@ -730,69 +809,6 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 */
 	public EReference getDTO_OwnedContainer() {
 		return (EReference) dtoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDTO_AssociatedTypes() {
-		return (EReference) dtoEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDTO_Properties() {
-		return (EReference) dtoEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDTO_References() {
-		return (EReference) dtoEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDTO_OwnedReferences() {
-		return (EReference) dtoEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDTO_Attributes() {
-		return (EReference) dtoEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDTO_OwnedAttributes() {
-		return (EReference) dtoEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDTO_Supertype() {
-		return (EReference) dtoEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -882,7 +898,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttribute_Dto() {
+	public EReference getAttribute_ContainingType() {
 		return (EReference) attributeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -927,7 +943,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReference_Type() {
+	public EReference getReference_ContainingType() {
 		return (EReference) referenceEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -936,7 +952,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReference_Dto() {
+	public EReference getReference_ReferencedType() {
 		return (EReference) referenceEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -965,6 +981,15 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 */
 	public EAttribute getProperty_Multiplicity() {
 		return (EAttribute) propertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProperty_IsIdentifier() {
+		return (EAttribute) propertyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1200,6 +1225,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		createEReference(environmentEClass, ENVIRONMENT__LINKS);
 		createEReference(environmentEClass, ENVIRONMENT__PRIORITY_DEFINITIONS);
 		createEReference(environmentEClass, ENVIRONMENT__TYPES_DEFINITION);
+		createEReference(environmentEClass, ENVIRONMENT__NAMESPACES);
 
 		typeEClass = createEClass(TYPE);
 		createEAttribute(typeEClass, TYPE__NAME);
@@ -1254,16 +1280,19 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		behaviourEClass = createEClass(BEHAVIOUR);
 
 		structuredTypeEClass = createEClass(STRUCTURED_TYPE);
+		createEReference(structuredTypeEClass, STRUCTURED_TYPE__SUPERTYPE);
+		createEReference(structuredTypeEClass,
+				STRUCTURED_TYPE__ASSOCIATED_TYPES);
+		createEReference(structuredTypeEClass,
+				STRUCTURED_TYPE__OWNED_ATTRIBUTES);
+		createEReference(structuredTypeEClass, STRUCTURED_TYPE__ATTRIBUTES);
+		createEReference(structuredTypeEClass,
+				STRUCTURED_TYPE__OWNED_REFERENCES);
+		createEReference(structuredTypeEClass, STRUCTURED_TYPE__REFERENCES);
+		createEReference(structuredTypeEClass, STRUCTURED_TYPE__PROPERTIES);
 
 		dtoEClass = createEClass(DTO);
 		createEReference(dtoEClass, DTO__OWNED_CONTAINER);
-		createEReference(dtoEClass, DTO__ASSOCIATED_TYPES);
-		createEReference(dtoEClass, DTO__PROPERTIES);
-		createEReference(dtoEClass, DTO__REFERENCES);
-		createEReference(dtoEClass, DTO__OWNED_REFERENCES);
-		createEReference(dtoEClass, DTO__ATTRIBUTES);
-		createEReference(dtoEClass, DTO__OWNED_ATTRIBUTES);
-		createEReference(dtoEClass, DTO__SUPERTYPE);
 
 		filterContainerEClass = createEClass(FILTER_CONTAINER);
 		createEReference(filterContainerEClass, FILTER_CONTAINER__OWNED_FILTERS);
@@ -1277,18 +1306,19 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEReference(attributeEClass, ATTRIBUTE__TYPE);
-		createEReference(attributeEClass, ATTRIBUTE__DTO);
+		createEReference(attributeEClass, ATTRIBUTE__CONTAINING_TYPE);
 
 		referenceEClass = createEClass(REFERENCE);
 		createEAttribute(referenceEClass, REFERENCE__IS_COMPOSITE);
 		createEAttribute(referenceEClass, REFERENCE__NAVIGABLE);
 		createEReference(referenceEClass, REFERENCE__OPPOSITE_OF);
-		createEReference(referenceEClass, REFERENCE__TYPE);
-		createEReference(referenceEClass, REFERENCE__DTO);
+		createEReference(referenceEClass, REFERENCE__CONTAINING_TYPE);
+		createEReference(referenceEClass, REFERENCE__REFERENCED_TYPE);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__NAME);
 		createEAttribute(propertyEClass, PROPERTY__MULTIPLICITY);
+		createEAttribute(propertyEClass, PROPERTY__IS_IDENTIFIER);
 
 		bindingInfoEClass = createEClass(BINDING_INFO);
 		createEReference(bindingInfoEClass, BINDING_INFO__REFERENCES);
@@ -1368,7 +1398,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		dtoEClass.getESuperTypes().add(this.getStructuredType());
 		filterContainerEClass.getESuperTypes().add(this.getObeoDSMObject());
 		filterEClass.getESuperTypes().add(this.getObeoDSMObject());
-		namespaceEClass.getESuperTypes().add(this.getObeoDSMObject());
+		namespaceEClass.getESuperTypes().add(this.getTypesDefinition());
 		attributeEClass.getESuperTypes().add(this.getProperty());
 		referenceEClass.getESuperTypes().add(this.getProperty());
 		propertyEClass.getESuperTypes().add(this.getObeoDSMObject());
@@ -1403,6 +1433,10 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getEnvironment_Namespaces(), this.getNamespace(), null,
+				"namespaces", null, 0, -1, Environment.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1543,6 +1577,49 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		initEClass(structuredTypeEClass, StructuredType.class,
 				"StructuredType", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStructuredType_Supertype(), this.getStructuredType(),
+				null, "supertype", null, 0, 1, StructuredType.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getStructuredType_AssociatedTypes(),
+				this.getStructuredType(), null, "associatedTypes", null, 0, -1,
+				StructuredType.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStructuredType_OwnedAttributes(),
+				this.getAttribute(), this.getAttribute_ContainingType(),
+				"ownedAttributes", null, 0, -1, StructuredType.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getStructuredType_Attributes(), this.getAttribute(),
+				null, "attributes", null, 0, -1, StructuredType.class,
+				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getStructuredType_OwnedReferences(),
+				this.getReference(), this.getReference_ContainingType(),
+				"ownedReferences", null, 0, -1, StructuredType.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getStructuredType_References(), this.getReference(),
+				null, "references", null, 0, -1, StructuredType.class,
+				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getStructuredType_Properties(), this.getProperty(),
+				null, "properties", null, 0, -1, StructuredType.class,
+				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
+				IS_ORDERED);
+
+		EOperation op = addEOperation(structuredTypeEClass,
+				ecorePackage.getEBoolean(), "isSubtypeOf", 1, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, this.getStructuredType(), "type", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		initEClass(dtoEClass, org.obeonetwork.dsl.environment.DTO.class, "DTO",
 				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1551,45 +1628,6 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				org.obeonetwork.dsl.environment.DTO.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDTO_AssociatedTypes(), this.getStructuredType(),
-				null, "associatedTypes", null, 0, -1,
-				org.obeonetwork.dsl.environment.DTO.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDTO_Properties(), this.getProperty(), null,
-				"properties", null, 0, -1,
-				org.obeonetwork.dsl.environment.DTO.class, IS_TRANSIENT,
-				IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getDTO_References(), this.getReference(), null,
-				"references", null, 0, -1,
-				org.obeonetwork.dsl.environment.DTO.class, IS_TRANSIENT,
-				IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getDTO_OwnedReferences(), this.getReference(),
-				this.getReference_Dto(), "ownedReferences", null, 0, -1,
-				org.obeonetwork.dsl.environment.DTO.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDTO_Attributes(), this.getAttribute(), null,
-				"attributes", null, 0, -1,
-				org.obeonetwork.dsl.environment.DTO.class, IS_TRANSIENT,
-				IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getDTO_OwnedAttributes(), this.getAttribute(),
-				this.getAttribute_Dto(), "ownedAttributes", null, 0, -1,
-				org.obeonetwork.dsl.environment.DTO.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDTO_Supertype(), this.getDTO(), null, "supertype",
-				null, 0, 1, org.obeonetwork.dsl.environment.DTO.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-
-		EOperation op = addEOperation(dtoEClass, ecorePackage.getEBoolean(),
-				"isSubtypeOf", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getDTO(), "dto", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(filterContainerEClass, FilterContainer.class,
 				"FilterContainer", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1626,11 +1664,11 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				"type", null, 1, 1, Attribute.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttribute_Dto(), this.getDTO(),
-				this.getDTO_OwnedAttributes(), "dto", null, 1, 1,
-				Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEReference(getAttribute_ContainingType(), this.getStructuredType(),
+				this.getStructuredType_OwnedAttributes(), "containingType",
+				null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1639,22 +1677,23 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReference_Navigable(), ecorePackage.getEBoolean(),
-				"navigable", null, 1, 1, Reference.class, !IS_TRANSIENT,
+				"navigable", "true", 1, 1, Reference.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_OppositeOf(), this.getReference(), null,
 				"oppositeOf", null, 0, 1, Reference.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_Type(), this.getDTO(), null, "type", null,
-				1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE,
+		initEReference(getReference_ContainingType(), this.getStructuredType(),
+				this.getStructuredType_OwnedReferences(), "containingType",
+				null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_Dto(), this.getDTO(),
-				this.getDTO_OwnedReferences(), "dto", null, 1, 1,
-				Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_ReferencedType(), this.getStructuredType(),
+				null, "referencedType", null, 1, 1, Reference.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		op = addEOperation(referenceEClass, ecorePackage.getEBoolean(),
 				"canBeOppositeOf", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1669,6 +1708,10 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				IS_ORDERED);
 		initEAttribute(getProperty_Multiplicity(), this.getMultiplicityKind(),
 				"multiplicity", null, 0, 1, Property.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_IsIdentifier(), ecorePackage.getEBoolean(),
+				"isIdentifier", null, 0, 1, Property.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 

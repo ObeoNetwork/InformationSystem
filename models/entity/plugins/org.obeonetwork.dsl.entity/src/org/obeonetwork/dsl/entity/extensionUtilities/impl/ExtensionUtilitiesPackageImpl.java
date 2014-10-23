@@ -217,9 +217,9 @@ public class ExtensionUtilitiesPackageImpl extends EPackageImpl implements
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(entityFilterEClass, EntityFilter.class, "EntityFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntityFilter_AttributeReferences(), theEntityPackage.getAttribute(), null, "attributeReferences", null, 0, -1, EntityFilter.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getEntityFilter_ReferenceReferences(), theEntityPackage.getReference(), null, "referenceReferences", null, 0, -1, EntityFilter.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getEntityFilter_OwnedPropertyReferences(), theEntityPackage.getProperty(), null, "ownedPropertyReferences", null, 0, -1, EntityFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntityFilter_AttributeReferences(), theEnvironmentPackage.getAttribute(), null, "attributeReferences", null, 0, -1, EntityFilter.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getEntityFilter_ReferenceReferences(), theEnvironmentPackage.getReference(), null, "referenceReferences", null, 0, -1, EntityFilter.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getEntityFilter_OwnedPropertyReferences(), theEnvironmentPackage.getProperty(), null, "ownedPropertyReferences", null, 0, -1, EntityFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntityFilter_Entity(), theEntityPackage.getEntity(), null, "entity", null, 1, 1, EntityFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 

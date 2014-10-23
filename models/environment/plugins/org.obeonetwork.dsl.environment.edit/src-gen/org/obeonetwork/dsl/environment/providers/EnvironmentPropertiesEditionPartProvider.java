@@ -16,6 +16,7 @@ import org.obeonetwork.dsl.environment.parts.forms.AttributePropertiesEditionPar
 import org.obeonetwork.dsl.environment.parts.forms.BindingElementPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.BindingInfoPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.BindingReferencePropertiesEditionPartForm;
+import org.obeonetwork.dsl.environment.parts.forms.DTOPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.EnumerationPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.EnvironmentPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.FieldPropertiesEditionPartForm;
@@ -34,6 +35,7 @@ import org.obeonetwork.dsl.environment.parts.impl.AttributePropertiesEditionPart
 import org.obeonetwork.dsl.environment.parts.impl.BindingElementPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.BindingInfoPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.BindingReferencePropertiesEditionPartImpl;
+import org.obeonetwork.dsl.environment.parts.impl.DTOPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.EnumerationPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.EnvironmentPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.FieldPropertiesEditionPartImpl;
@@ -169,6 +171,12 @@ public class EnvironmentPropertiesEditionPartProvider implements IPropertiesEdit
 				return new BindingElementPropertiesEditionPartImpl(component);
 			if (kind == EnvironmentViewsRepository.FORM_KIND)
 				return new BindingElementPropertiesEditionPartForm(component);
+		}
+		if (key == EnvironmentViewsRepository.DTO.class) {
+			if (kind == EnvironmentViewsRepository.SWT_KIND)
+				return new DTOPropertiesEditionPartImpl(component);
+			if (kind == EnvironmentViewsRepository.FORM_KIND)
+				return new DTOPropertiesEditionPartForm(component);
 		}
 		return null;
 	}

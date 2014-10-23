@@ -64,6 +64,9 @@ public class EnvironmentMessages extends NLS {
 	
 	public static String BindingElementPropertiesEditionPart_PropertiesGroupLabel;
 
+	
+	public static String DTOPropertiesEditionPart_PropertiesGroupLabel;
+
 
 	
 	public static String Environment_ReadOnly;
@@ -167,6 +170,12 @@ public class EnvironmentMessages extends NLS {
 	
 	public static String BindingElement_Part_Title;
 
+	
+	public static String DTO_ReadOnly;
+
+	
+	public static String DTO_Part_Title;
+
 
 	
 	public static String EnvironmentPropertiesEditionPart_NameLabel;
@@ -241,13 +250,16 @@ public class EnvironmentMessages extends NLS {
 	public static String AttributePropertiesEditionPart_MultiplicityLabel;
 
 	
+	public static String AttributePropertiesEditionPart_IdentifierLabel;
+
+	
 	public static String AttributePropertiesEditionPart_DescriptionLabel;
 
 	
 	public static String ReferencePropertiesEditionPart_NameLabel;
 
 	
-	public static String ReferencePropertiesEditionPart_TypeLabel;
+	public static String ReferencePropertiesEditionPart_ReferencedTypeLabel;
 
 	
 	public static String ReferencePropertiesEditionPart_MultiplicityLabel;
@@ -260,6 +272,9 @@ public class EnvironmentMessages extends NLS {
 
 	
 	public static String ReferencePropertiesEditionPart_OppositeOfLabel;
+
+	
+	public static String ReferencePropertiesEditionPart_IdentifierLabel;
 
 	
 	public static String ReferencePropertiesEditionPart_DescriptionLabel;
@@ -293,6 +308,18 @@ public class EnvironmentMessages extends NLS {
 
 	
 	public static String BindingElementPropertiesEditionPart_DescriptionLabel;
+
+	
+	public static String DTOPropertiesEditionPart_NameLabel;
+
+	
+	public static String DTOPropertiesEditionPart_SupertypeLabel;
+
+	
+	public static String DTOPropertiesEditionPart_AssociatedTypesLabel;
+
+	
+	public static String DTOPropertiesEditionPart_DescriptionLabel;
 
 
 	

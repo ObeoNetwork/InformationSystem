@@ -110,29 +110,6 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.entity.Block} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BlockItemProvider blockItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.entity.Block}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBlockAdapter() {
-		if (blockItemProvider == null) {
-			blockItemProvider = new BlockItemProvider(this);
-		}
-
-		return blockItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.entity.Entity} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,52 +130,6 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
 		}
 
 		return entityItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.entity.Attribute} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AttributeItemProvider attributeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.entity.Attribute}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAttributeAdapter() {
-		if (attributeItemProvider == null) {
-			attributeItemProvider = new AttributeItemProvider(this);
-		}
-
-		return attributeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.entity.Reference} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ReferenceItemProvider referenceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.entity.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createReferenceAdapter() {
-		if (referenceItemProvider == null) {
-			referenceItemProvider = new ReferenceItemProvider(this);
-		}
-
-		return referenceItemProvider;
 	}
 
 	/**
@@ -370,10 +301,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
 	 */
 	public void dispose() {
 		if (rootItemProvider != null) rootItemProvider.dispose();
-		if (blockItemProvider != null) blockItemProvider.dispose();
 		if (entityItemProvider != null) entityItemProvider.dispose();
-		if (attributeItemProvider != null) attributeItemProvider.dispose();
-		if (referenceItemProvider != null) referenceItemProvider.dispose();
 		if (finderItemProvider != null) finderItemProvider.dispose();
 		if (internalCriterionItemProvider != null) internalCriterionItemProvider.dispose();
 		if (externalCriterionItemProvider != null) externalCriterionItemProvider.dispose();

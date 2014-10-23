@@ -11,23 +11,15 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Action;
-import org.obeonetwork.dsl.environment.BoundableElement;
-import org.obeonetwork.dsl.environment.DTO;
-import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
-import org.obeonetwork.dsl.environment.StructuredType;
-import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.soa.Binding;
-import org.obeonetwork.dsl.soa.Category;
 import org.obeonetwork.dsl.soa.Component;
-import org.obeonetwork.dsl.soa.DTORegistry;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.Service;
-import org.obeonetwork.dsl.soa.ServiceDTO;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.Wire;
 
@@ -114,7 +106,7 @@ public class SoaSwitch<T> {
 			case SoaPackage.SYSTEM: {
 				org.obeonetwork.dsl.soa.System system = (org.obeonetwork.dsl.soa.System)theEObject;
 				T result = caseSystem(system);
-				if (result == null) result = caseNamespace(system);
+				if (result == null) result = caseTypesDefinition(system);
 				if (result == null) result = caseObeoDSMObject(system);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -173,32 +165,6 @@ public class SoaSwitch<T> {
 				Parameter parameter = (Parameter)theEObject;
 				T result = caseParameter(parameter);
 				if (result == null) result = caseObeoDSMObject(parameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SoaPackage.DTO_REGISTRY: {
-				DTORegistry dtoRegistry = (DTORegistry)theEObject;
-				T result = caseDTORegistry(dtoRegistry);
-				if (result == null) result = caseObeoDSMObject(dtoRegistry);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SoaPackage.CATEGORY: {
-				Category category = (Category)theEObject;
-				T result = caseCategory(category);
-				if (result == null) result = caseTypesDefinition(category);
-				if (result == null) result = caseObeoDSMObject(category);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SoaPackage.SERVICE_DTO: {
-				ServiceDTO serviceDTO = (ServiceDTO)theEObject;
-				T result = caseServiceDTO(serviceDTO);
-				if (result == null) result = caseDTO(serviceDTO);
-				if (result == null) result = caseStructuredType(serviceDTO);
-				if (result == null) result = caseType(serviceDTO);
-				if (result == null) result = caseObeoDSMObject(serviceDTO);
-				if (result == null) result = caseBoundableElement(serviceDTO);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -342,51 +308,6 @@ public class SoaSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DTO Registry</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DTO Registry</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDTORegistry(DTORegistry object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Category</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCategory(Category object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Service DTO</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Service DTO</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseServiceDTO(ServiceDTO object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Obeo DSM Object</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -398,21 +319,6 @@ public class SoaSwitch<T> {
 	 * @generated
 	 */
 	public T caseObeoDSMObject(ObeoDSMObject object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNamespace(Namespace object) {
 		return null;
 	}
 
@@ -443,66 +349,6 @@ public class SoaSwitch<T> {
 	 * @generated
 	 */
 	public T caseTypesDefinition(TypesDefinition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Boundable Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Boundable Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBoundableElement(BoundableElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseType(Type object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Structured Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Structured Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStructuredType(StructuredType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>DTO</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>DTO</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDTO(DTO object) {
 		return null;
 	}
 

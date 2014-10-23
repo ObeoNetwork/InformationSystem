@@ -1,14 +1,7 @@
-/*******************************************************************************
- * Copyright (c) 2008-2009 Obeo.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Obeo - initial API and implementation
- *******************************************************************************/
-package org.obeonetwork.dsl.entity.providers;
+/**
+ * Generated with Acceleo
+ */
+package org.obeonetwork.dsl.environment.providers;
 
 import java.util.List;
 
@@ -24,26 +17,25 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 
 import org.eclipse.jface.viewers.IFilter;
 
-import org.obeonetwork.dsl.entity.EntityPackage;
-import org.obeonetwork.dsl.entity.Reference;
+import org.obeonetwork.dsl.environment.DTO;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 
-import org.obeonetwork.dsl.entity.components.ReferencePropertiesEditionComponent;
-import org.obeonetwork.dsl.entity.components.ReferenceReferencePropertiesEditionComponent;
-
+import org.obeonetwork.dsl.environment.components.DTOBasePropertiesEditionComponent;
+import org.obeonetwork.dsl.environment.components.DTOPropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 
 import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * 
  * 
  */
-public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingProvider {
+public class DTOPropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
 	 */
-	public ReferencePropertiesEditionProvider() {
+	public DTOPropertiesEditionProvider() {
 		super();
 	}
 
@@ -51,7 +43,7 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 * Constructor with providers for super types.
 	 * @param superProviders providers to use for super types.
 	 */
-	public ReferencePropertiesEditionProvider(List<PropertiesEditingProvider> superProviders) {
+	public DTOPropertiesEditionProvider(List<PropertiesEditingProvider> superProviders) {
 		super(superProviders);
 	}
 
@@ -61,8 +53,8 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext) {
-		return (editingContext.getEObject() instanceof Reference) 
-					&& (EntityPackage.Literals.REFERENCE == editingContext.getEObject().eClass());
+		return (editingContext.getEObject() instanceof DTO) 
+					&& (EnvironmentPackage.Literals.DTO == editingContext.getEObject().eClass());
 	}
 
 	/**
@@ -71,7 +63,7 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext, String part) {
-		return (editingContext.getEObject() instanceof Reference) && (ReferenceReferencePropertiesEditionComponent.REFERENCE_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
+		return (editingContext.getEObject() instanceof DTO) && (DTOBasePropertiesEditionComponent.BASE_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
 	}
 
 	/**
@@ -81,7 +73,7 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof Reference) && (refinement == ReferenceReferencePropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
+		return (editingContext.getEObject() instanceof DTO) && (refinement == DTOBasePropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
 	}
 
 	/**
@@ -91,7 +83,7 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, String part, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof Reference) && ((ReferenceReferencePropertiesEditionComponent.REFERENCE_PART.equals(part) && refinement == ReferenceReferencePropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
+		return (editingContext.getEObject() instanceof DTO) && ((DTOBasePropertiesEditionComponent.BASE_PART.equals(part) && refinement == DTOBasePropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
 	}
 
 	/**
@@ -100,8 +92,8 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 * 
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode) {
-		if (editingContext.getEObject() instanceof Reference) {
-			return new ReferencePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+		if (editingContext.getEObject() instanceof DTO) {
+			return new DTOPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
 		return super.getPropertiesEditingComponent(editingContext, mode);
 	}
@@ -112,9 +104,9 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 * 
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part) {
-		if (editingContext.getEObject() instanceof Reference) {
-			if (ReferenceReferencePropertiesEditionComponent.REFERENCE_PART.equals(part))
-				return new ReferenceReferencePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+		if (editingContext.getEObject() instanceof DTO) {
+			if (DTOBasePropertiesEditionComponent.BASE_PART.equals(part))
+				return new DTOBasePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part))
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
@@ -127,10 +119,10 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 */
 	@SuppressWarnings("rawtypes")
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part, java.lang.Class refinement) {
-		if (editingContext.getEObject() instanceof Reference) {
-			if (ReferenceReferencePropertiesEditionComponent.REFERENCE_PART.equals(part)
-				&& refinement == ReferenceReferencePropertiesEditionComponent.class)
-				return new ReferenceReferencePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+		if (editingContext.getEObject() instanceof DTO) {
+			if (DTOBasePropertiesEditionComponent.BASE_PART.equals(part)
+				&& refinement == DTOBasePropertiesEditionComponent.class)
+				return new DTOBasePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part)
 				&& refinement == MetadataCptPropertiesEditionComponent.class)
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
@@ -150,7 +142,7 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 		 */
 		public boolean select(Object toTest) {
 			EObject eObj = EEFUtils.resolveSemanticObject(toTest);
-			return eObj != null && EntityPackage.Literals.REFERENCE == eObj.eClass();
+			return eObj != null && EnvironmentPackage.Literals.DTO == eObj.eClass();
 		}
 		
 	}

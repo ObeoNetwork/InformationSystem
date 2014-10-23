@@ -21,7 +21,7 @@ package org.obeonetwork.dsl.environment;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.Attribute#getType <em>Type</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.Attribute#getDto <em>Dto</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.Attribute#getContainingType <em>Containing Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,31 +64,31 @@ public interface Attribute extends Property {
 	void setType(PrimitiveType value);
 
 	/**
-	 * Returns the value of the '<em><b>Dto</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.environment.DTO#getOwnedAttributes <em>Owned Attributes</em>}'.
+	 * Returns the value of the '<em><b>Containing Type</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.environment.StructuredType#getOwnedAttributes <em>Owned Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Dto</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Containing Type</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dto</em>' container reference.
-	 * @see #setDto(DTO)
-	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getAttribute_Dto()
-	 * @see org.obeonetwork.dsl.environment.DTO#getOwnedAttributes
+	 * @return the value of the '<em>Containing Type</em>' container reference.
+	 * @see #setContainingType(StructuredType)
+	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getAttribute_ContainingType()
+	 * @see org.obeonetwork.dsl.environment.StructuredType#getOwnedAttributes
 	 * @model opposite="ownedAttributes" required="true" transient="false"
 	 * @generated
 	 */
-	DTO getDto();
+	StructuredType getContainingType();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.environment.Attribute#getDto <em>Dto</em>}' container reference.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.environment.Attribute#getContainingType <em>Containing Type</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dto</em>' container reference.
-	 * @see #getDto()
+	 * @param value the new value of the '<em>Containing Type</em>' container reference.
+	 * @see #getContainingType()
 	 * @generated
 	 */
-	void setDto(DTO value);
+	void setContainingType(StructuredType value);
 
 } // Attribute

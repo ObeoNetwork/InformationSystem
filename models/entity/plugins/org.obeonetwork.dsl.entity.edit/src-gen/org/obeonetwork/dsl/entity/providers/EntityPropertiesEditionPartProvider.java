@@ -18,22 +18,16 @@ import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
 
 import org.obeonetwork.dsl.entity.parts.EntityViewsRepository;
 
-import org.obeonetwork.dsl.entity.parts.forms.AttributePropertiesEditionPartForm;
-import org.obeonetwork.dsl.entity.parts.forms.BlockPropertiesEditionPartForm;
 import org.obeonetwork.dsl.entity.parts.forms.EntityPropertiesEditionPartForm;
 import org.obeonetwork.dsl.entity.parts.forms.ExternalCriterionPropertiesEditionPartForm;
 import org.obeonetwork.dsl.entity.parts.forms.FinderPropertiesEditionPartForm;
 import org.obeonetwork.dsl.entity.parts.forms.InternalCriterionPropertiesEditionPartForm;
-import org.obeonetwork.dsl.entity.parts.forms.ReferencePropertiesEditionPartForm;
 import org.obeonetwork.dsl.entity.parts.forms.RootPropertiesEditionPartForm;
 
-import org.obeonetwork.dsl.entity.parts.impl.AttributePropertiesEditionPartImpl;
-import org.obeonetwork.dsl.entity.parts.impl.BlockPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entity.parts.impl.EntityPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entity.parts.impl.ExternalCriterionPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entity.parts.impl.FinderPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entity.parts.impl.InternalCriterionPropertiesEditionPartImpl;
-import org.obeonetwork.dsl.entity.parts.impl.ReferencePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entity.parts.impl.RootPropertiesEditionPartImpl;
 
 /**
@@ -63,29 +57,11 @@ public class EntityPropertiesEditionPartProvider implements IPropertiesEditionPa
 			if (kind == EntityViewsRepository.FORM_KIND)
 				return new RootPropertiesEditionPartForm(component);
 		}
-		if (key == EntityViewsRepository.Block.class) {
-			if (kind == EntityViewsRepository.SWT_KIND)
-				return new BlockPropertiesEditionPartImpl(component);
-			if (kind == EntityViewsRepository.FORM_KIND)
-				return new BlockPropertiesEditionPartForm(component);
-		}
 		if (key == EntityViewsRepository.Entity_.class) {
 			if (kind == EntityViewsRepository.SWT_KIND)
 				return new EntityPropertiesEditionPartImpl(component);
 			if (kind == EntityViewsRepository.FORM_KIND)
 				return new EntityPropertiesEditionPartForm(component);
-		}
-		if (key == EntityViewsRepository.Attribute.class) {
-			if (kind == EntityViewsRepository.SWT_KIND)
-				return new AttributePropertiesEditionPartImpl(component);
-			if (kind == EntityViewsRepository.FORM_KIND)
-				return new AttributePropertiesEditionPartForm(component);
-		}
-		if (key == EntityViewsRepository.Reference.class) {
-			if (kind == EntityViewsRepository.SWT_KIND)
-				return new ReferencePropertiesEditionPartImpl(component);
-			if (kind == EntityViewsRepository.FORM_KIND)
-				return new ReferencePropertiesEditionPartForm(component);
 		}
 		if (key == EntityViewsRepository.Finder.class) {
 			if (kind == EntityViewsRepository.SWT_KIND)

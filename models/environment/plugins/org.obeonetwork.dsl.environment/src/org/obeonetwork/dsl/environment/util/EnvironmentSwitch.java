@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.environment.*;
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
@@ -311,6 +312,8 @@ public class EnvironmentSwitch<T> {
 		case EnvironmentPackage.NAMESPACE: {
 			Namespace namespace = (Namespace) theEObject;
 			T result = caseNamespace(namespace);
+			if (result == null)
+				result = caseTypesDefinition(namespace);
 			if (result == null)
 				result = caseObeoDSMObject(namespace);
 			if (result == null)

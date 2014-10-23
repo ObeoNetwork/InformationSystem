@@ -33,12 +33,12 @@ import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-import org.obeonetwork.dsl.entity.Attribute;
-import org.obeonetwork.dsl.entity.EntityFactory;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.entity.InternalCriterion;
 import org.obeonetwork.dsl.entity.parts.EntityViewsRepository;
 import org.obeonetwork.dsl.entity.parts.InternalCriterionPropertiesEditionPart;
+import org.obeonetwork.dsl.environment.Attribute;
+import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 
 
@@ -135,7 +135,7 @@ public class InternalCriterionInternalCriterionPropertiesEditionComponent extend
 			if (event.getKind() == PropertiesEditionEvent.SET) {
 				targetSettings.setToReference((Attribute)event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
-				Attribute eObject = EntityFactory.eINSTANCE.createAttribute();
+				Attribute eObject = EnvironmentFactory.eINSTANCE.createAttribute();
 				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, eObject, editingContext.getAdapterFactory());
 				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(eObject, PropertiesEditingProvider.class);
 				if (provider != null) {

@@ -83,6 +83,20 @@ public interface AttributePropertiesEditionPart {
 
 
 	/**
+	 * @return the identifier
+	 * 
+	 */
+	public Boolean getIdentifier();
+
+	/**
+	 * Defines a new identifier
+	 * @param newValue the new identifier to set
+	 * 
+	 */
+	public void setIdentifier(Boolean newValue);
+
+
+	/**
 	 * @return the description
 	 * 
 	 */

@@ -19,6 +19,7 @@ import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.PrimitiveType;
+import org.obeonetwork.dsl.environment.StructuredType;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +29,7 @@ import org.obeonetwork.dsl.environment.PrimitiveType;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.AttributeImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.AttributeImpl#getDto <em>Dto</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.AttributeImpl#getContainingType <em>Containing Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,9 +97,11 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTO getDto() {
-		return (DTO) eDynamicGet(EnvironmentPackage.ATTRIBUTE__DTO,
-				EnvironmentPackage.Literals.ATTRIBUTE__DTO, true, true);
+	public StructuredType getContainingType() {
+		return (StructuredType) eDynamicGet(
+				EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
+				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE, true,
+				true);
 	}
 
 	/**
@@ -106,9 +109,11 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTO basicGetDto() {
-		return (DTO) eDynamicGet(EnvironmentPackage.ATTRIBUTE__DTO,
-				EnvironmentPackage.Literals.ATTRIBUTE__DTO, false, true);
+	public StructuredType basicGetContainingType() {
+		return (StructuredType) eDynamicGet(
+				EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
+				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE, false,
+				true);
 	}
 
 	/**
@@ -116,9 +121,10 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDto(DTO newDto, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newDto,
-				EnvironmentPackage.ATTRIBUTE__DTO, msgs);
+	public NotificationChain basicSetContainingType(
+			StructuredType newContainingType, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newContainingType,
+				EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE, msgs);
 		return msgs;
 	}
 
@@ -127,9 +133,10 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDto(DTO newDto) {
-		eDynamicSet(EnvironmentPackage.ATTRIBUTE__DTO,
-				EnvironmentPackage.Literals.ATTRIBUTE__DTO, newDto);
+	public void setContainingType(StructuredType newContainingType) {
+		eDynamicSet(EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
+				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE,
+				newContainingType);
 	}
 
 	/**
@@ -141,10 +148,10 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EnvironmentPackage.ATTRIBUTE__DTO:
+		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetDto((DTO) otherEnd, msgs);
+			return basicSetContainingType((StructuredType) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -158,8 +165,8 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EnvironmentPackage.ATTRIBUTE__DTO:
-			return basicSetDto(null, msgs);
+		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
+			return basicSetContainingType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -173,9 +180,10 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	public NotificationChain eBasicRemoveFromContainerFeature(
 			NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case EnvironmentPackage.ATTRIBUTE__DTO:
+		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
 			return eInternalContainer().eInverseRemove(this,
-					EnvironmentPackage.DTO__OWNED_ATTRIBUTES, DTO.class, msgs);
+					EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES,
+					StructuredType.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -192,10 +200,10 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 			if (resolve)
 				return getType();
 			return basicGetType();
-		case EnvironmentPackage.ATTRIBUTE__DTO:
+		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
 			if (resolve)
-				return getDto();
-			return basicGetDto();
+				return getContainingType();
+			return basicGetContainingType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,8 +219,8 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 		case EnvironmentPackage.ATTRIBUTE__TYPE:
 			setType((PrimitiveType) newValue);
 			return;
-		case EnvironmentPackage.ATTRIBUTE__DTO:
-			setDto((DTO) newValue);
+		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
+			setContainingType((StructuredType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -229,8 +237,8 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 		case EnvironmentPackage.ATTRIBUTE__TYPE:
 			setType((PrimitiveType) null);
 			return;
-		case EnvironmentPackage.ATTRIBUTE__DTO:
-			setDto((DTO) null);
+		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
+			setContainingType((StructuredType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -246,8 +254,8 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 		switch (featureID) {
 		case EnvironmentPackage.ATTRIBUTE__TYPE:
 			return basicGetType() != null;
-		case EnvironmentPackage.ATTRIBUTE__DTO:
-			return basicGetDto() != null;
+		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
+			return basicGetContainingType() != null;
 		}
 		return super.eIsSet(featureID);
 	}

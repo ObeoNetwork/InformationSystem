@@ -289,75 +289,6 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.DTORegistry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DTORegistryItemProvider dtoRegistryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.DTORegistry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDTORegistryAdapter() {
-		if (dtoRegistryItemProvider == null) {
-			dtoRegistryItemProvider = new DTORegistryItemProvider(this);
-		}
-
-		return dtoRegistryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.Category} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategoryItemProvider categoryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.Category}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCategoryAdapter() {
-		if (categoryItemProvider == null) {
-			categoryItemProvider = new CategoryItemProvider(this);
-		}
-
-		return categoryItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.soa.ServiceDTO} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ServiceDTOItemProvider serviceDTOItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.soa.ServiceDTO}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createServiceDTOAdapter() {
-		if (serviceDTOItemProvider == null) {
-			serviceDTOItemProvider = new ServiceDTOItemProvider(this);
-		}
-
-		return serviceDTOItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -465,9 +396,6 @@ public class SoaItemProviderAdapterFactory extends SoaAdapterFactory implements 
 		if (operationItemProvider != null) operationItemProvider.dispose();
 		if (implementationComponentItemProvider != null) implementationComponentItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
-		if (dtoRegistryItemProvider != null) dtoRegistryItemProvider.dispose();
-		if (categoryItemProvider != null) categoryItemProvider.dispose();
-		if (serviceDTOItemProvider != null) serviceDTOItemProvider.dispose();
 	}
 
 }

@@ -7,20 +7,17 @@
  * 
  * Contributors:
  *     Obeo - initial API and implementation
- *
- * $Id$
  */
 package org.obeonetwork.dsl.environment.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.obeonetwork.dsl.environment.DTO;
+
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.environment.StructuredType;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,8 +29,8 @@ import org.obeonetwork.dsl.environment.Reference;
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#isIsComposite <em>Is Composite</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#isNavigable <em>Navigable</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getOppositeOf <em>Opposite Of</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getDto <em>Dto</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getContainingType <em>Containing Type</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getReferencedType <em>Referenced Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,6 +53,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @ordered
 	 */
 	protected static final boolean IS_COMPOSITE_EDEFAULT = false;
+
 	/**
 	 * The default value of the '{@link #isNavigable() <em>Navigable</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -64,7 +62,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean NAVIGABLE_EDEFAULT = false;
+	protected static final boolean NAVIGABLE_EDEFAULT = true;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,9 +163,11 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTO getType() {
-		return (DTO) eDynamicGet(EnvironmentPackage.REFERENCE__TYPE,
-				EnvironmentPackage.Literals.REFERENCE__TYPE, true, true);
+	public StructuredType getContainingType() {
+		return (StructuredType) eDynamicGet(
+				EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
+				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE, true,
+				true);
 	}
 
 	/**
@@ -175,9 +175,11 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DTO basicGetType() {
-		return (DTO) eDynamicGet(EnvironmentPackage.REFERENCE__TYPE,
-				EnvironmentPackage.Literals.REFERENCE__TYPE, false, true);
+	public StructuredType basicGetContainingType() {
+		return (StructuredType) eDynamicGet(
+				EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
+				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE, false,
+				true);
 	}
 
 	/**
@@ -185,86 +187,68 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(DTO newType) {
-		eDynamicSet(EnvironmentPackage.REFERENCE__TYPE,
-				EnvironmentPackage.Literals.REFERENCE__TYPE, newType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DTO getDto() {
-		return (DTO) eDynamicGet(EnvironmentPackage.REFERENCE__DTO,
-				EnvironmentPackage.Literals.REFERENCE__DTO, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DTO basicGetDto() {
-		return (DTO) eDynamicGet(EnvironmentPackage.REFERENCE__DTO,
-				EnvironmentPackage.Literals.REFERENCE__DTO, false, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDto(DTO newDto, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newDto,
-				EnvironmentPackage.REFERENCE__DTO, msgs);
+	public NotificationChain basicSetContainingType(
+			StructuredType newContainingType, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newContainingType,
+				EnvironmentPackage.REFERENCE__CONTAINING_TYPE, msgs);
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public void setDto(DTO newDto) {
-		if (newDto != eInternalContainer()
-				|| (eContainerFeatureID() != EnvironmentPackage.REFERENCE__DTO && newDto != null)) {
-			if (EcoreUtil.isAncestor(this, newDto))
-				throw new IllegalArgumentException(
-						"Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newDto != null)
-				msgs = ((InternalEObject) newDto).eInverseAdd(this,
-						EnvironmentPackage.DTO__OWNED_REFERENCES, DTO.class,
-						msgs);
-			msgs = eBasicSetContainer((InternalEObject) newDto,
-					EnvironmentPackage.REFERENCE__DTO, msgs);
-			if (msgs != null) {
-				msgs.dispatch();
-			} else {
-				// We check if the oppositeOf is still consistent
-				if (getOppositeOf() != null
-						&& !newDto.isSubtypeOf(getOppositeOf().getType())) {
-					setOppositeOf(null);
-				}
-			}
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					EnvironmentPackage.REFERENCE__DTO, newDto, newDto));
+	public void setContainingType(StructuredType newContainingType) {
+		eDynamicSet(EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
+				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE,
+				newContainingType);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
+	 */
+	public StructuredType getReferencedType() {
+		return (StructuredType) eDynamicGet(
+				EnvironmentPackage.REFERENCE__REFERENCED_TYPE,
+				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, true,
+				true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StructuredType basicGetReferencedType() {
+		return (StructuredType) eDynamicGet(
+				EnvironmentPackage.REFERENCE__REFERENCED_TYPE,
+				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, false,
+				true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferencedType(StructuredType newReferencedType) {
+		eDynamicSet(EnvironmentPackage.REFERENCE__REFERENCED_TYPE,
+				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE,
+				newReferencedType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public boolean canBeOppositeOf(Reference opposite) {
-		return (opposite != null && getDto() != null && getType() != null
-				&& opposite.getDto() != null && opposite.getType() != null
-				&& getDto().isSubtypeOf(opposite.getType()) && opposite
-				.getDto().isSubtypeOf(getType()));
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -276,10 +260,10 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EnvironmentPackage.REFERENCE__DTO:
+		case EnvironmentPackage.REFERENCE__CONTAINING_TYPE:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetDto((DTO) otherEnd, msgs);
+			return basicSetContainingType((StructuredType) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -293,8 +277,8 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EnvironmentPackage.REFERENCE__DTO:
-			return basicSetDto(null, msgs);
+		case EnvironmentPackage.REFERENCE__CONTAINING_TYPE:
+			return basicSetContainingType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -308,9 +292,10 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	public NotificationChain eBasicRemoveFromContainerFeature(
 			NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case EnvironmentPackage.REFERENCE__DTO:
+		case EnvironmentPackage.REFERENCE__CONTAINING_TYPE:
 			return eInternalContainer().eInverseRemove(this,
-					EnvironmentPackage.DTO__OWNED_REFERENCES, DTO.class, msgs);
+					EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES,
+					StructuredType.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -331,14 +316,14 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 			if (resolve)
 				return getOppositeOf();
 			return basicGetOppositeOf();
-		case EnvironmentPackage.REFERENCE__TYPE:
+		case EnvironmentPackage.REFERENCE__CONTAINING_TYPE:
 			if (resolve)
-				return getType();
-			return basicGetType();
-		case EnvironmentPackage.REFERENCE__DTO:
+				return getContainingType();
+			return basicGetContainingType();
+		case EnvironmentPackage.REFERENCE__REFERENCED_TYPE:
 			if (resolve)
-				return getDto();
-			return basicGetDto();
+				return getReferencedType();
+			return basicGetReferencedType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -360,11 +345,11 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 		case EnvironmentPackage.REFERENCE__OPPOSITE_OF:
 			setOppositeOf((Reference) newValue);
 			return;
-		case EnvironmentPackage.REFERENCE__TYPE:
-			setType((DTO) newValue);
+		case EnvironmentPackage.REFERENCE__CONTAINING_TYPE:
+			setContainingType((StructuredType) newValue);
 			return;
-		case EnvironmentPackage.REFERENCE__DTO:
-			setDto((DTO) newValue);
+		case EnvironmentPackage.REFERENCE__REFERENCED_TYPE:
+			setReferencedType((StructuredType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -387,11 +372,11 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 		case EnvironmentPackage.REFERENCE__OPPOSITE_OF:
 			setOppositeOf((Reference) null);
 			return;
-		case EnvironmentPackage.REFERENCE__TYPE:
-			setType((DTO) null);
+		case EnvironmentPackage.REFERENCE__CONTAINING_TYPE:
+			setContainingType((StructuredType) null);
 			return;
-		case EnvironmentPackage.REFERENCE__DTO:
-			setDto((DTO) null);
+		case EnvironmentPackage.REFERENCE__REFERENCED_TYPE:
+			setReferencedType((StructuredType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -411,10 +396,10 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 			return isNavigable() != NAVIGABLE_EDEFAULT;
 		case EnvironmentPackage.REFERENCE__OPPOSITE_OF:
 			return basicGetOppositeOf() != null;
-		case EnvironmentPackage.REFERENCE__TYPE:
-			return basicGetType() != null;
-		case EnvironmentPackage.REFERENCE__DTO:
-			return basicGetDto() != null;
+		case EnvironmentPackage.REFERENCE__CONTAINING_TYPE:
+			return basicGetContainingType() != null;
+		case EnvironmentPackage.REFERENCE__REFERENCED_TYPE:
+			return basicGetReferencedType() != null;
 		}
 		return super.eIsSet(featureID);
 	}

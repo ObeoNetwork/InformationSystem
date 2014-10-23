@@ -85,7 +85,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCreatedOn()
-	 * @generated NOT
+	 * @generated
 	 * @ordered
 	 */
 	protected static final Date CREATED_ON_EDEFAULT = null;
@@ -126,8 +126,10 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 						Date currentDate = new Date();
 						if (msg != null
 								&& msg.getFeature() != null
-								&& !msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON)
-								&& !msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON)) {
+								&& !msg.getFeature()
+										.equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON)
+								&& !msg.getFeature()
+										.equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON)) {
 							switch (msg.getEventType()) {
 							case Notification.MOVE:
 							case Notification.SET:

@@ -7,6 +7,7 @@
 package org.obeonetwork.dsl.soa.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
 import org.obeonetwork.dsl.soa.Parameter;
@@ -21,8 +22,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getLower <em>Lower</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getUpper <em>Upper</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#isIsUnique <em>Is Unique</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ParameterImpl#isIsOrdered <em>Is Ordered</em>}</li>
  * </ul>
@@ -48,23 +48,15 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 */
 	protected static final String NAME_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getLower() <em>Lower</em>}' attribute.
+	 * The default value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLower()
+	 * @see #getMultiplicity()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int LOWER_EDEFAULT = 1;
-	/**
-	 * The default value of the '{@link #getUpper() <em>Upper</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUpper()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int UPPER_EDEFAULT = 1;
+	protected static final MultiplicityKind MULTIPLICITY_EDEFAULT = MultiplicityKind.ZERO_ONE_LITERAL;
+
 	/**
 	 * The default value of the '{@link #isIsUnique() <em>Is Unique</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -153,8 +145,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getLower() {
-		return (Integer)eDynamicGet(SoaPackage.PARAMETER__LOWER, SoaPackage.Literals.PARAMETER__LOWER, true, true);
+	public MultiplicityKind getMultiplicity() {
+		return (MultiplicityKind)eDynamicGet(SoaPackage.PARAMETER__MULTIPLICITY, SoaPackage.Literals.PARAMETER__MULTIPLICITY, true, true);
 	}
 
 	/**
@@ -162,26 +154,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLower(int newLower) {
-		eDynamicSet(SoaPackage.PARAMETER__LOWER, SoaPackage.Literals.PARAMETER__LOWER, newLower);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getUpper() {
-		return (Integer)eDynamicGet(SoaPackage.PARAMETER__UPPER, SoaPackage.Literals.PARAMETER__UPPER, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUpper(int newUpper) {
-		eDynamicSet(SoaPackage.PARAMETER__UPPER, SoaPackage.Literals.PARAMETER__UPPER, newUpper);
+	public void setMultiplicity(MultiplicityKind newMultiplicity) {
+		eDynamicSet(SoaPackage.PARAMETER__MULTIPLICITY, SoaPackage.Literals.PARAMETER__MULTIPLICITY, newMultiplicity);
 	}
 
 	/**
@@ -233,10 +207,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				return basicGetType();
 			case SoaPackage.PARAMETER__NAME:
 				return getName();
-			case SoaPackage.PARAMETER__LOWER:
-				return getLower();
-			case SoaPackage.PARAMETER__UPPER:
-				return getUpper();
+			case SoaPackage.PARAMETER__MULTIPLICITY:
+				return getMultiplicity();
 			case SoaPackage.PARAMETER__IS_UNIQUE:
 				return isIsUnique();
 			case SoaPackage.PARAMETER__IS_ORDERED:
@@ -259,11 +231,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 			case SoaPackage.PARAMETER__NAME:
 				setName((String)newValue);
 				return;
-			case SoaPackage.PARAMETER__LOWER:
-				setLower((Integer)newValue);
-				return;
-			case SoaPackage.PARAMETER__UPPER:
-				setUpper((Integer)newValue);
+			case SoaPackage.PARAMETER__MULTIPLICITY:
+				setMultiplicity((MultiplicityKind)newValue);
 				return;
 			case SoaPackage.PARAMETER__IS_UNIQUE:
 				setIsUnique((Boolean)newValue);
@@ -289,11 +258,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 			case SoaPackage.PARAMETER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case SoaPackage.PARAMETER__LOWER:
-				setLower(LOWER_EDEFAULT);
-				return;
-			case SoaPackage.PARAMETER__UPPER:
-				setUpper(UPPER_EDEFAULT);
+			case SoaPackage.PARAMETER__MULTIPLICITY:
+				setMultiplicity(MULTIPLICITY_EDEFAULT);
 				return;
 			case SoaPackage.PARAMETER__IS_UNIQUE:
 				setIsUnique(IS_UNIQUE_EDEFAULT);
@@ -317,10 +283,8 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 				return basicGetType() != null;
 			case SoaPackage.PARAMETER__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
-			case SoaPackage.PARAMETER__LOWER:
-				return getLower() != LOWER_EDEFAULT;
-			case SoaPackage.PARAMETER__UPPER:
-				return getUpper() != UPPER_EDEFAULT;
+			case SoaPackage.PARAMETER__MULTIPLICITY:
+				return getMultiplicity() != MULTIPLICITY_EDEFAULT;
 			case SoaPackage.PARAMETER__IS_UNIQUE:
 				return isIsUnique() != IS_UNIQUE_EDEFAULT;
 			case SoaPackage.PARAMETER__IS_ORDERED:

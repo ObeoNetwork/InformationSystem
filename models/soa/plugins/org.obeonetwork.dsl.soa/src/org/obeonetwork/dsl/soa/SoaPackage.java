@@ -50,7 +50,7 @@ public interface SoaPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.obeonetwork.org/dsl/soa/2.0.0";
+	String eNS_URI = "http://www.obeonetwork.org/dsl/soa/3.0.0";
 
 	/**
 	 * The package namespace name.
@@ -85,7 +85,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__METADATAS = EnvironmentPackage.NAMESPACE__METADATAS;
+	int SYSTEM__METADATAS = EnvironmentPackage.TYPES_DEFINITION__METADATAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -94,7 +94,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__DESCRIPTION = EnvironmentPackage.NAMESPACE__DESCRIPTION;
+	int SYSTEM__DESCRIPTION = EnvironmentPackage.TYPES_DEFINITION__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
@@ -103,7 +103,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__KEYWORDS = EnvironmentPackage.NAMESPACE__KEYWORDS;
+	int SYSTEM__KEYWORDS = EnvironmentPackage.TYPES_DEFINITION__KEYWORDS;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -112,7 +112,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__BEHAVIOURS = EnvironmentPackage.NAMESPACE__BEHAVIOURS;
+	int SYSTEM__BEHAVIOURS = EnvironmentPackage.TYPES_DEFINITION__BEHAVIOURS;
 
 	/**
 	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
@@ -121,7 +121,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__BINDING_REGISTRIES = EnvironmentPackage.NAMESPACE__BINDING_REGISTRIES;
+	int SYSTEM__BINDING_REGISTRIES = EnvironmentPackage.TYPES_DEFINITION__BINDING_REGISTRIES;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -130,7 +130,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__VERSION = EnvironmentPackage.NAMESPACE__VERSION;
+	int SYSTEM__VERSION = EnvironmentPackage.TYPES_DEFINITION__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Created On</b></em>' attribute.
@@ -139,7 +139,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__CREATED_ON = EnvironmentPackage.NAMESPACE__CREATED_ON;
+	int SYSTEM__CREATED_ON = EnvironmentPackage.TYPES_DEFINITION__CREATED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
@@ -148,25 +148,16 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__MODIFIED_ON = EnvironmentPackage.NAMESPACE__MODIFIED_ON;
+	int SYSTEM__MODIFIED_ON = EnvironmentPackage.TYPES_DEFINITION__MODIFIED_ON;
 
 	/**
-	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_NAMESPACES = EnvironmentPackage.NAMESPACE__OWNED_NAMESPACES;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM__OWNER = EnvironmentPackage.NAMESPACE__OWNER;
+	int SYSTEM__TYPES = EnvironmentPackage.TYPES_DEFINITION__TYPES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -175,7 +166,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__NAME = EnvironmentPackage.NAMESPACE__NAME;
+	int SYSTEM__NAME = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Owned Components</b></em>' containment reference list.
@@ -184,7 +175,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_COMPONENTS = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 0;
+	int SYSTEM__OWNED_COMPONENTS = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Owned Wires</b></em>' containment reference list.
@@ -193,16 +184,16 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_WIRES = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 1;
+	int SYSTEM__OWNED_WIRES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Owned Dto Registry</b></em>' containment reference.
+	 * The feature id for the '<em><b>Namespaces</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_DTO_REGISTRY = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 2;
+	int SYSTEM__NAMESPACES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>System</em>' class.
@@ -211,7 +202,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 3;
+	int SYSTEM_FEATURE_COUNT = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ComponentImpl <em>Component</em>}' class.
@@ -1194,22 +1185,13 @@ public interface SoaPackage extends EPackage {
 	int PARAMETER__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Lower</b></em>' attribute.
+	 * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__LOWER = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Upper</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__UPPER = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
+	int PARAMETER__MULTIPLICITY = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Is Unique</b></em>' attribute.
@@ -1218,7 +1200,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__IS_UNIQUE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
+	int PARAMETER__IS_UNIQUE = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Is Ordered</b></em>' attribute.
@@ -1227,7 +1209,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__IS_ORDERED = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
+	int PARAMETER__IS_ORDERED = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -1236,406 +1218,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.DTORegistryImpl <em>DTO Registry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.soa.impl.DTORegistryImpl
-	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getDTORegistry()
-	 * @generated
-	 */
-	int DTO_REGISTRY = 9;
-
-	/**
-	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO_REGISTRY__METADATAS = EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO_REGISTRY__DESCRIPTION = EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO_REGISTRY__KEYWORDS = EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS;
-
-	/**
-	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO_REGISTRY__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
-
-	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO_REGISTRY__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO_REGISTRY__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Created On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO_REGISTRY__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO_REGISTRY__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Owned Categories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO_REGISTRY__OWNED_CATEGORIES = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>DTO Registry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO_REGISTRY_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.CategoryImpl <em>Category</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.soa.impl.CategoryImpl
-	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getCategory()
-	 * @generated
-	 */
-	int CATEGORY = 10;
-
-	/**
-	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__METADATAS = EnvironmentPackage.TYPES_DEFINITION__METADATAS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__DESCRIPTION = EnvironmentPackage.TYPES_DEFINITION__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__KEYWORDS = EnvironmentPackage.TYPES_DEFINITION__KEYWORDS;
-
-	/**
-	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__BEHAVIOURS = EnvironmentPackage.TYPES_DEFINITION__BEHAVIOURS;
-
-	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__BINDING_REGISTRIES = EnvironmentPackage.TYPES_DEFINITION__BINDING_REGISTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__VERSION = EnvironmentPackage.TYPES_DEFINITION__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Created On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__CREATED_ON = EnvironmentPackage.TYPES_DEFINITION__CREATED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__MODIFIED_ON = EnvironmentPackage.TYPES_DEFINITION__MODIFIED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__TYPES = EnvironmentPackage.TYPES_DEFINITION__TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__NAME = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Owned Categories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__OWNED_CATEGORIES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Category</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_FEATURE_COUNT = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ServiceDTOImpl <em>Service DTO</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.soa.impl.ServiceDTOImpl
-	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getServiceDTO()
-	 * @generated
-	 */
-	int SERVICE_DTO = 11;
-
-	/**
-	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__METADATAS = EnvironmentPackage.DTO__METADATAS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__DESCRIPTION = EnvironmentPackage.DTO__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__KEYWORDS = EnvironmentPackage.DTO__KEYWORDS;
-
-	/**
-	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__BEHAVIOURS = EnvironmentPackage.DTO__BEHAVIOURS;
-
-	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__BINDING_REGISTRIES = EnvironmentPackage.DTO__BINDING_REGISTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__VERSION = EnvironmentPackage.DTO__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Created On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__CREATED_ON = EnvironmentPackage.DTO__CREATED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__MODIFIED_ON = EnvironmentPackage.DTO__MODIFIED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__NAME = EnvironmentPackage.DTO__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type Definition</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__TYPE_DEFINITION = EnvironmentPackage.DTO__TYPE_DEFINITION;
-
-	/**
-	 * The feature id for the '<em><b>Owned Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__OWNED_CONTAINER = EnvironmentPackage.DTO__OWNED_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Associated Types</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__ASSOCIATED_TYPES = EnvironmentPackage.DTO__ASSOCIATED_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Properties</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__PROPERTIES = EnvironmentPackage.DTO__PROPERTIES;
-
-	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__REFERENCES = EnvironmentPackage.DTO__REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Owned References</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__OWNED_REFERENCES = EnvironmentPackage.DTO__OWNED_REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__ATTRIBUTES = EnvironmentPackage.DTO__ATTRIBUTES;
-
-	/**
-	 * The feature id for the '<em><b>Owned Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__OWNED_ATTRIBUTES = EnvironmentPackage.DTO__OWNED_ATTRIBUTES;
-
-	/**
-	 * The feature id for the '<em><b>Supertype</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO__SUPERTYPE = EnvironmentPackage.DTO__SUPERTYPE;
-
-	/**
-	 * The number of structural features of the '<em>Service DTO</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_DTO_FEATURE_COUNT = EnvironmentPackage.DTO_FEATURE_COUNT + 0;
+	int PARAMETER_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.
@@ -1645,7 +1228,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getInterfaceKind()
 	 * @generated
 	 */
-	int INTERFACE_KIND = 12;
+	int INTERFACE_KIND = 9;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.SynchronizationKind <em>Synchronization Kind</em>}' enum.
@@ -1655,7 +1238,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getSynchronizationKind()
 	 * @generated
 	 */
-	int SYNCHRONIZATION_KIND = 13;
+	int SYNCHRONIZATION_KIND = 10;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.BindingKind <em>Binding Kind</em>}' enum.
@@ -1665,7 +1248,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getBindingKind()
 	 * @generated
 	 */
-	int BINDING_KIND = 14;
+	int BINDING_KIND = 11;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.OperationKind <em>Operation Kind</em>}' enum.
@@ -1675,7 +1258,7 @@ public interface SoaPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getOperationKind()
 	 * @generated
 	 */
-	int OPERATION_KIND = 15;
+	int OPERATION_KIND = 12;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.System <em>System</em>}'.
@@ -1686,6 +1269,17 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSystem();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.System#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.soa.System#getName()
+	 * @see #getSystem()
+	 * @generated
+	 */
+	EAttribute getSystem_Name();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.System#getOwnedComponents <em>Owned Components</em>}'.
@@ -1710,15 +1304,15 @@ public interface SoaPackage extends EPackage {
 	EReference getSystem_OwnedWires();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.obeonetwork.dsl.soa.System#getOwnedDtoRegistry <em>Owned Dto Registry</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.System#getNamespaces <em>Namespaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Owned Dto Registry</em>'.
-	 * @see org.obeonetwork.dsl.soa.System#getOwnedDtoRegistry()
+	 * @return the meta object for the containment reference list '<em>Namespaces</em>'.
+	 * @see org.obeonetwork.dsl.soa.System#getNamespaces()
 	 * @see #getSystem()
 	 * @generated
 	 */
-	EReference getSystem_OwnedDtoRegistry();
+	EReference getSystem_Namespaces();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Component <em>Component</em>}'.
@@ -2109,26 +1703,15 @@ public interface SoaPackage extends EPackage {
 	EAttribute getParameter_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Parameter#getLower <em>Lower</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Parameter#getMultiplicity <em>Multiplicity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lower</em>'.
-	 * @see org.obeonetwork.dsl.soa.Parameter#getLower()
+	 * @return the meta object for the attribute '<em>Multiplicity</em>'.
+	 * @see org.obeonetwork.dsl.soa.Parameter#getMultiplicity()
 	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getParameter_Lower();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Parameter#getUpper <em>Upper</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Upper</em>'.
-	 * @see org.obeonetwork.dsl.soa.Parameter#getUpper()
-	 * @see #getParameter()
-	 * @generated
-	 */
-	EAttribute getParameter_Upper();
+	EAttribute getParameter_Multiplicity();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Parameter#isIsUnique <em>Is Unique</em>}'.
@@ -2151,69 +1734,6 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getParameter_IsOrdered();
-
-	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.DTORegistry <em>DTO Registry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>DTO Registry</em>'.
-	 * @see org.obeonetwork.dsl.soa.DTORegistry
-	 * @generated
-	 */
-	EClass getDTORegistry();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.DTORegistry#getOwnedCategories <em>Owned Categories</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owned Categories</em>'.
-	 * @see org.obeonetwork.dsl.soa.DTORegistry#getOwnedCategories()
-	 * @see #getDTORegistry()
-	 * @generated
-	 */
-	EReference getDTORegistry_OwnedCategories();
-
-	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Category <em>Category</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Category</em>'.
-	 * @see org.obeonetwork.dsl.soa.Category
-	 * @generated
-	 */
-	EClass getCategory();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.Category#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.obeonetwork.dsl.soa.Category#getName()
-	 * @see #getCategory()
-	 * @generated
-	 */
-	EAttribute getCategory_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.Category#getOwnedCategories <em>Owned Categories</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owned Categories</em>'.
-	 * @see org.obeonetwork.dsl.soa.Category#getOwnedCategories()
-	 * @see #getCategory()
-	 * @generated
-	 */
-	EReference getCategory_OwnedCategories();
-
-	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.ServiceDTO <em>Service DTO</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Service DTO</em>'.
-	 * @see org.obeonetwork.dsl.soa.ServiceDTO
-	 * @generated
-	 */
-	EClass getServiceDTO();
 
 	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}'.
@@ -2288,6 +1808,14 @@ public interface SoaPackage extends EPackage {
 		EClass SYSTEM = eINSTANCE.getSystem();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SYSTEM__NAME = eINSTANCE.getSystem_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Owned Components</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2304,12 +1832,12 @@ public interface SoaPackage extends EPackage {
 		EReference SYSTEM__OWNED_WIRES = eINSTANCE.getSystem_OwnedWires();
 
 		/**
-		 * The meta object literal for the '<em><b>Owned Dto Registry</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Namespaces</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SYSTEM__OWNED_DTO_REGISTRY = eINSTANCE.getSystem_OwnedDtoRegistry();
+		EReference SYSTEM__NAMESPACES = eINSTANCE.getSystem_Namespaces();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ComponentImpl <em>Component</em>}' class.
@@ -2616,20 +2144,12 @@ public interface SoaPackage extends EPackage {
 		EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Lower</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Multiplicity</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER__LOWER = eINSTANCE.getParameter_Lower();
-
-		/**
-		 * The meta object literal for the '<em><b>Upper</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARAMETER__UPPER = eINSTANCE.getParameter_Upper();
+		EAttribute PARAMETER__MULTIPLICITY = eINSTANCE.getParameter_Multiplicity();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Unique</b></em>' attribute feature.
@@ -2646,60 +2166,6 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER__IS_ORDERED = eINSTANCE.getParameter_IsOrdered();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.DTORegistryImpl <em>DTO Registry</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.soa.impl.DTORegistryImpl
-		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getDTORegistry()
-		 * @generated
-		 */
-		EClass DTO_REGISTRY = eINSTANCE.getDTORegistry();
-
-		/**
-		 * The meta object literal for the '<em><b>Owned Categories</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DTO_REGISTRY__OWNED_CATEGORIES = eINSTANCE.getDTORegistry_OwnedCategories();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.CategoryImpl <em>Category</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.soa.impl.CategoryImpl
-		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getCategory()
-		 * @generated
-		 */
-		EClass CATEGORY = eINSTANCE.getCategory();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CATEGORY__NAME = eINSTANCE.getCategory_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Owned Categories</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CATEGORY__OWNED_CATEGORIES = eINSTANCE.getCategory_OwnedCategories();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ServiceDTOImpl <em>Service DTO</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.soa.impl.ServiceDTOImpl
-		 * @see org.obeonetwork.dsl.soa.impl.SoaPackageImpl#getServiceDTO()
-		 * @generated
-		 */
-		EClass SERVICE_DTO = eINSTANCE.getServiceDTO();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.InterfaceKind <em>Interface Kind</em>}' enum.

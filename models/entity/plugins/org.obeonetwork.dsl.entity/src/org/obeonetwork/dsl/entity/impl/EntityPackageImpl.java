@@ -15,12 +15,9 @@ package org.obeonetwork.dsl.entity.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.obeonetwork.dsl.entity.Attribute;
-import org.obeonetwork.dsl.entity.Block;
 import org.obeonetwork.dsl.entity.Criterion;
 import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.entity.EntityFactory;
@@ -29,8 +26,6 @@ import org.obeonetwork.dsl.entity.ExternalCriterion;
 import org.obeonetwork.dsl.entity.Finder;
 import org.obeonetwork.dsl.entity.InheritanceKind;
 import org.obeonetwork.dsl.entity.InternalCriterion;
-import org.obeonetwork.dsl.entity.Property;
-import org.obeonetwork.dsl.entity.Reference;
 import org.obeonetwork.dsl.entity.Root;
 import org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage;
 import org.obeonetwork.dsl.entity.extensionUtilities.impl.ExtensionUtilitiesPackageImpl;
@@ -59,31 +54,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass blockEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass entityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propertyEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass attributeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass referenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -191,43 +162,21 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_Blocks() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRoot_Name() {
+		return (EAttribute)rootEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBlock() {
-		return blockEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBlock_Name() {
-		return (EAttribute)blockEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBlock_Entities() {
-		return (EReference)blockEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBlock_Subblocks() {
-		return (EReference)blockEClass.getEStructuralFeatures().get(2);
+	public EReference getRoot_Namespaces() {
+		return (EReference)rootEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -242,56 +191,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntity_OwnedAttributes() {
-		return (EReference)entityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntity_OwnedReferences() {
-		return (EReference)entityEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntity_Supertype() {
-		return (EReference)entityEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntity_Attributes() {
-		return (EReference)entityEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntity_References() {
-		return (EReference)entityEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntity_Properties() {
-		return (EReference)entityEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getEntity_EstimatedVolumetry() {
-		return (EAttribute)entityEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)entityEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -299,7 +200,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * @generated
 	 */
 	public EAttribute getEntity_EstimatedAccess() {
-		return (EAttribute)entityEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)entityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -307,7 +208,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * @generated
 	 */
 	public EAttribute getEntity_Historized() {
-		return (EAttribute)entityEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)entityEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -315,15 +216,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * @generated
 	 */
 	public EReference getEntity_OwnedFinders() {
-		return (EReference)entityEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntity_Block() {
-		return (EReference)entityEClass.getEStructuralFeatures().get(10);
+		return (EReference)entityEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -331,111 +224,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * @generated
 	 */
 	public EAttribute getEntity_InheritanceKind() {
-		return (EAttribute)entityEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getProperty() {
-		return propertyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProperty_Name() {
-		return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProperty_Multiplicity() {
-		return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProperty_IsPrimaryKey() {
-		return (EAttribute)propertyEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAttribute() {
-		return attributeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAttribute_Entity() {
-		return (EReference)attributeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAttribute_Type() {
-		return (EReference)attributeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getReference() {
-		return referenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getReference_Entity() {
-		return (EReference)referenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReference_IsComposite() {
-		return (EAttribute)referenceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getReference_OppositeOf() {
-		return (EReference)referenceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getReference_Type() {
-		return (EReference)referenceEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReference_Navigable() {
-		return (EAttribute)referenceEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)entityEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -578,42 +367,15 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
 		// Create classes and their features
 		rootEClass = createEClass(ROOT);
-		createEReference(rootEClass, ROOT__BLOCKS);
-
-		blockEClass = createEClass(BLOCK);
-		createEAttribute(blockEClass, BLOCK__NAME);
-		createEReference(blockEClass, BLOCK__ENTITIES);
-		createEReference(blockEClass, BLOCK__SUBBLOCKS);
+		createEAttribute(rootEClass, ROOT__NAME);
+		createEReference(rootEClass, ROOT__NAMESPACES);
 
 		entityEClass = createEClass(ENTITY);
-		createEReference(entityEClass, ENTITY__OWNED_ATTRIBUTES);
-		createEReference(entityEClass, ENTITY__OWNED_REFERENCES);
-		createEReference(entityEClass, ENTITY__SUPERTYPE);
-		createEReference(entityEClass, ENTITY__ATTRIBUTES);
-		createEReference(entityEClass, ENTITY__REFERENCES);
-		createEReference(entityEClass, ENTITY__PROPERTIES);
 		createEAttribute(entityEClass, ENTITY__ESTIMATED_VOLUMETRY);
 		createEAttribute(entityEClass, ENTITY__ESTIMATED_ACCESS);
 		createEAttribute(entityEClass, ENTITY__HISTORIZED);
 		createEReference(entityEClass, ENTITY__OWNED_FINDERS);
-		createEReference(entityEClass, ENTITY__BLOCK);
 		createEAttribute(entityEClass, ENTITY__INHERITANCE_KIND);
-
-		propertyEClass = createEClass(PROPERTY);
-		createEAttribute(propertyEClass, PROPERTY__NAME);
-		createEAttribute(propertyEClass, PROPERTY__MULTIPLICITY);
-		createEAttribute(propertyEClass, PROPERTY__IS_PRIMARY_KEY);
-
-		attributeEClass = createEClass(ATTRIBUTE);
-		createEReference(attributeEClass, ATTRIBUTE__ENTITY);
-		createEReference(attributeEClass, ATTRIBUTE__TYPE);
-
-		referenceEClass = createEClass(REFERENCE);
-		createEReference(referenceEClass, REFERENCE__ENTITY);
-		createEAttribute(referenceEClass, REFERENCE__IS_COMPOSITE);
-		createEReference(referenceEClass, REFERENCE__OPPOSITE_OF);
-		createEReference(referenceEClass, REFERENCE__TYPE);
-		createEAttribute(referenceEClass, REFERENCE__NAVIGABLE);
 
 		finderEClass = createEClass(FINDER);
 		createEAttribute(finderEClass, FINDER__NAME);
@@ -670,13 +432,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		rootEClass.getESuperTypes().add(theEnvironmentPackage.getNamespace());
-		blockEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		rootEClass.getESuperTypes().add(theEnvironmentPackage.getTypesDefinition());
 		entityEClass.getESuperTypes().add(theEnvironmentPackage.getStructuredType());
-		propertyEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
-		propertyEClass.getESuperTypes().add(theEnvironmentPackage.getBoundableElement());
-		attributeEClass.getESuperTypes().add(this.getProperty());
-		referenceEClass.getESuperTypes().add(this.getProperty());
 		finderEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		internalCriterionEClass.getESuperTypes().add(this.getCriterion());
 		criterionEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
@@ -684,48 +441,15 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRoot_Blocks(), this.getBlock(), null, "blocks", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBlock_Name(), ecorePackage.getEString(), "name", null, 1, 1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBlock_Entities(), this.getEntity(), this.getEntity_Block(), "entities", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBlock_Subblocks(), this.getBlock(), null, "subblocks", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRoot_Name(), ecorePackage.getEString(), "name", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoot_Namespaces(), theEnvironmentPackage.getNamespace(), null, "namespaces", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntity_OwnedAttributes(), this.getAttribute(), this.getAttribute_Entity(), "ownedAttributes", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntity_OwnedReferences(), this.getReference(), this.getReference_Entity(), "ownedReferences", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntity_Supertype(), this.getEntity(), null, "supertype", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntity_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Entity.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getEntity_References(), this.getReference(), null, "references", null, 0, -1, Entity.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getEntity_Properties(), this.getProperty(), null, "properties", null, 0, -1, Entity.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntity_EstimatedVolumetry(), ecorePackage.getEInt(), "estimatedVolumetry", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntity_EstimatedAccess(), ecorePackage.getEInt(), "estimatedAccess", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntity_Historized(), ecorePackage.getEBoolean(), "historized", null, 1, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntity_OwnedFinders(), this.getFinder(), this.getFinder_Entity(), "ownedFinders", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntity_Block(), this.getBlock(), this.getBlock_Entities(), "block", null, 1, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntity_InheritanceKind(), this.getInheritanceKind(), "inheritanceKind", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = addEOperation(entityEClass, ecorePackage.getEBoolean(), "isSubtypeOf", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getEntity(), "entity", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(propertyEClass, Property.class, "Property", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProperty_Multiplicity(), theEnvironmentPackage.getMultiplicityKind(), "multiplicity", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProperty_IsPrimaryKey(), ecorePackage.getEBoolean(), "isPrimaryKey", "false", 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttribute_Entity(), this.getEntity(), this.getEntity_OwnedAttributes(), "entity", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttribute_Type(), theEnvironmentPackage.getPrimitiveType(), null, "type", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReference_Entity(), this.getEntity(), this.getEntity_OwnedReferences(), "entity", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReference_IsComposite(), ecorePackage.getEBoolean(), "isComposite", "false", 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_OppositeOf(), this.getReference(), null, "oppositeOf", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_Type(), this.getEntity(), null, "type", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReference_Navigable(), ecorePackage.getEBoolean(), "navigable", "true", 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = addEOperation(referenceEClass, ecorePackage.getEBoolean(), "canBeOppositeOf", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getReference(), "opposite", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(finderEClass, Finder.class, "Finder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFinder_Name(), ecorePackage.getEString(), "name", null, 1, 1, Finder.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -735,7 +459,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		initEAttribute(getFinder_Multiplicity(), theEnvironmentPackage.getMultiplicityKind(), "multiplicity", null, 1, 1, Finder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(internalCriterionEClass, InternalCriterion.class, "InternalCriterion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInternalCriterion_Target(), this.getAttribute(), null, "target", null, 1, 1, InternalCriterion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInternalCriterion_Target(), theEnvironmentPackage.getAttribute(), null, "target", null, 1, 1, InternalCriterion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInternalCriterion_Name(), ecorePackage.getEString(), "name", null, 1, 1, InternalCriterion.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(criterionEClass, Criterion.class, "Criterion", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

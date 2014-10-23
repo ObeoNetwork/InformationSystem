@@ -37,8 +37,8 @@ import org.obeonetwork.dsl.environment.Namespace;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NamespaceItemProvider extends ObeoDSMObjectItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
+public class NamespaceItemProvider extends TypesDefinitionItemProvider
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,7 +133,7 @@ public class NamespaceItemProvider extends ObeoDSMObjectItemProvider implements
 	public Object getImage(Object object) {
 		if (object instanceof Namespace) {
 			Namespace ns = (Namespace) object;
-			if (ns.getOwnedNamespaces().size() == 0) {
+			if (ns.getOwnedNamespaces().isEmpty() && ns.getTypes().isEmpty()) {
 				return overlayImage(
 						object,
 						getResourceLocator().getImage(

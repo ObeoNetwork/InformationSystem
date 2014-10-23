@@ -67,103 +67,8 @@ public class DTOItemProvider extends StructuredTypeItemProvider implements
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAssociatedTypesPropertyDescriptor(object);
-			addPropertiesPropertyDescriptor(object);
-			addReferencesPropertyDescriptor(object);
-			addAttributesPropertyDescriptor(object);
-			addSupertypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Associated Types feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAssociatedTypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_DTO_associatedTypes_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_DTO_associatedTypes_feature", "_UI_DTO_type"),
-				EnvironmentPackage.Literals.DTO__ASSOCIATED_TYPES, true, false,
-				true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Properties feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPropertiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_DTO_properties_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_DTO_properties_feature", "_UI_DTO_type"),
-				EnvironmentPackage.Literals.DTO__PROPERTIES, false, false,
-				false, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the References feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_DTO_references_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_DTO_references_feature", "_UI_DTO_type"),
-				EnvironmentPackage.Literals.DTO__REFERENCES, false, false,
-				false, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Attributes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAttributesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_DTO_attributes_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_DTO_attributes_feature", "_UI_DTO_type"),
-				EnvironmentPackage.Literals.DTO__ATTRIBUTES, false, false,
-				false, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Supertype feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSupertypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_DTO_supertype_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_DTO_supertype_feature", "_UI_DTO_type"),
-				EnvironmentPackage.Literals.DTO__SUPERTYPE, true, false, true,
-				null, null, null));
 	}
 
 	/**
@@ -181,10 +86,6 @@ public class DTOItemProvider extends StructuredTypeItemProvider implements
 			super.getChildrenFeatures(object);
 			childrenFeatures
 					.add(EnvironmentPackage.Literals.DTO__OWNED_CONTAINER);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.DTO__OWNED_REFERENCES);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.DTO__OWNED_ATTRIBUTES);
 		}
 		return childrenFeatures;
 	}
@@ -250,8 +151,6 @@ public class DTOItemProvider extends StructuredTypeItemProvider implements
 
 		switch (notification.getFeatureID(DTO.class)) {
 		case EnvironmentPackage.DTO__OWNED_CONTAINER:
-		case EnvironmentPackage.DTO__OWNED_REFERENCES:
-		case EnvironmentPackage.DTO__OWNED_ATTRIBUTES:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			return;
@@ -274,14 +173,6 @@ public class DTOItemProvider extends StructuredTypeItemProvider implements
 		newChildDescriptors.add(createChildParameter(
 				EnvironmentPackage.Literals.DTO__OWNED_CONTAINER,
 				EnvironmentFactory.eINSTANCE.createFilterContainer()));
-
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.DTO__OWNED_REFERENCES,
-				EnvironmentFactory.eINSTANCE.createReference()));
-
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.DTO__OWNED_ATTRIBUTES,
-				EnvironmentFactory.eINSTANCE.createAttribute()));
 	}
 
 }

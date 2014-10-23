@@ -30,8 +30,11 @@ import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
@@ -50,6 +53,7 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 	protected Text name;
 	protected EMFComboViewer type;
 	protected EMFComboViewer multiplicity;
+	protected Button identifier;
 	protected Text description;
 
 
@@ -92,6 +96,7 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		propertiesStep.addStep(EnvironmentViewsRepository.Attribute.Properties.name);
 		propertiesStep.addStep(EnvironmentViewsRepository.Attribute.Properties.type);
 		propertiesStep.addStep(EnvironmentViewsRepository.Attribute.Properties.multiplicity);
+		propertiesStep.addStep(EnvironmentViewsRepository.Attribute.Properties.identifier);
 		propertiesStep.addStep(EnvironmentViewsRepository.Attribute.Properties.description);
 		
 		
@@ -110,6 +115,9 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 				}
 				if (key == EnvironmentViewsRepository.Attribute.Properties.multiplicity) {
 					return createMultiplicityEMFComboViewer(parent);
+				}
+				if (key == EnvironmentViewsRepository.Attribute.Properties.identifier) {
+					return createIdentifierCheckbox(parent);
 				}
 				if (key == EnvironmentViewsRepository.Attribute.Properties.description) {
 					return createDescriptionText(parent);
@@ -239,6 +247,36 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 		multiplicity.setID(EnvironmentViewsRepository.Attribute.Properties.multiplicity);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Attribute.Properties.multiplicity, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
 		// Start of user code for createMultiplicityEMFComboViewer
+
+		// End of user code
+		return parent;
+	}
+
+	
+	protected Composite createIdentifierCheckbox(Composite parent) {
+		identifier = new Button(parent, SWT.CHECK);
+		identifier.setText(getDescription(EnvironmentViewsRepository.Attribute.Properties.identifier, EnvironmentMessages.AttributePropertiesEditionPart_IdentifierLabel));
+		identifier.addSelectionListener(new SelectionAdapter() {
+
+			/**
+			 * {@inheritDoc}
+			 *
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 * 	
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				if (propertiesEditionComponent != null)
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(AttributePropertiesEditionPartImpl.this, EnvironmentViewsRepository.Attribute.Properties.identifier, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, new Boolean(identifier.getSelection())));
+			}
+
+		});
+		GridData identifierData = new GridData(GridData.FILL_HORIZONTAL);
+		identifierData.horizontalSpan = 2;
+		identifier.setLayoutData(identifierData);
+		EditingUtils.setID(identifier, EnvironmentViewsRepository.Attribute.Properties.identifier);
+		EditingUtils.setEEFtype(identifier, "eef::Checkbox"); //$NON-NLS-1$
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Attribute.Properties.identifier, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createIdentifierCheckbox
 
 		// End of user code
 		return parent;
@@ -438,6 +476,38 @@ public class AttributePropertiesEditionPartImpl extends CompositePropertiesEditi
 			multiplicity.setToolTipText(EnvironmentMessages.Attribute_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
 			multiplicity.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.environment.parts.AttributePropertiesEditionPart#getIdentifier()
+	 * 
+	 */
+	public Boolean getIdentifier() {
+		return Boolean.valueOf(identifier.getSelection());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.environment.parts.AttributePropertiesEditionPart#setIdentifier(Boolean newValue)
+	 * 
+	 */
+	public void setIdentifier(Boolean newValue) {
+		if (newValue != null) {
+			identifier.setSelection(newValue.booleanValue());
+		} else {
+			identifier.setSelection(false);
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Attribute.Properties.identifier);
+		if (eefElementEditorReadOnlyState && identifier.isEnabled()) {
+			identifier.setEnabled(false);
+			identifier.setToolTipText(EnvironmentMessages.Attribute_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !identifier.isEnabled()) {
+			identifier.setEnabled(true);
 		}	
 		
 	}

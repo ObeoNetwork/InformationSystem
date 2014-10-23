@@ -14,9 +14,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.BindingKind;
-import org.obeonetwork.dsl.soa.Category;
 import org.obeonetwork.dsl.soa.Component;
-import org.obeonetwork.dsl.soa.DTORegistry;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
@@ -24,7 +22,6 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.Service;
-import org.obeonetwork.dsl.soa.ServiceDTO;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SynchronizationKind;
@@ -54,7 +51,7 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	 */
 	public static SoaFactory init() {
 		try {
-			SoaFactory theSoaFactory = (SoaFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/soa/2.0.0"); 
+			SoaFactory theSoaFactory = (SoaFactory)EPackage.Registry.INSTANCE.getEFactory(SoaPackage.eNS_URI);
 			if (theSoaFactory != null) {
 				return theSoaFactory;
 			}
@@ -92,9 +89,6 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 			case SoaPackage.OPERATION: return (EObject)createOperation();
 			case SoaPackage.IMPLEMENTATION_COMPONENT: return (EObject)createImplementationComponent();
 			case SoaPackage.PARAMETER: return (EObject)createParameter();
-			case SoaPackage.DTO_REGISTRY: return (EObject)createDTORegistry();
-			case SoaPackage.CATEGORY: return (EObject)createCategory();
-			case SoaPackage.SERVICE_DTO: return (EObject)createServiceDTO();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -230,36 +224,6 @@ public class SoaFactoryImpl extends EFactoryImpl implements SoaFactory {
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DTORegistry createDTORegistry() {
-		DTORegistryImpl dtoRegistry = new DTORegistryImpl();
-		return dtoRegistry;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Category createCategory() {
-		CategoryImpl category = new CategoryImpl();
-		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ServiceDTO createServiceDTO() {
-		ServiceDTOImpl serviceDTO = new ServiceDTOImpl();
-		return serviceDTO;
 	}
 
 	/**

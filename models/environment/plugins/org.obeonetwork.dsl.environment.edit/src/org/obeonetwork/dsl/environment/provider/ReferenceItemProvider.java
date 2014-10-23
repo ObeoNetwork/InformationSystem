@@ -72,7 +72,7 @@ public class ReferenceItemProvider extends PropertyItemProvider implements
 			addIsCompositePropertyDescriptor(object);
 			addNavigablePropertyDescriptor(object);
 			addOppositeOfPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
+			addReferencedTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,20 +135,17 @@ public class ReferenceItemProvider extends PropertyItemProvider implements
 				EnvironmentPackage.Literals.REFERENCE__OPPOSITE_OF, true,
 				false, true, null, null, null) {
 
-			protected Collection getComboBoxObjects(Object object) {
+			protected Collection<Reference> getComboBoxObjects(Object object) {
 
-				Collection result = new ArrayList();
+				Collection<Reference> result = new ArrayList<Reference>();
 				// We always offer an empty choice
 				result.add(null);
 				if (object instanceof Reference) {
-					Collection collection = super.getComboBoxObjects(object);
-					for (Iterator iter = collection.iterator(); iter.hasNext();) {
-						EObject elem = (EObject) iter.next();
-						if (elem != null
-								&& elem instanceof Reference
-								&& ((Reference) elem)
-										.canBeOppositeOf((Reference) object)) {
-							result.add(elem);
+					Collection<?> collection = super.getComboBoxObjects(object);
+					for (Object object2 : collection) {
+						EObject elem = (EObject)object2;
+						if (elem != null && elem instanceof Reference && ((Reference) elem).canBeOppositeOf((Reference) object)) {
+							result.add((Reference)elem);
 						}
 					}
 				}
@@ -159,21 +156,22 @@ public class ReferenceItemProvider extends PropertyItemProvider implements
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Referenced Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addReferencedTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory)
 						.getRootAdapterFactory(),
 				getResourceLocator(),
-				getString("_UI_Reference_type_feature"),
+				getString("_UI_Reference_referencedType_feature"),
 				getString("_UI_PropertyDescriptor_description",
-						"_UI_Reference_type_feature", "_UI_Reference_type"),
-				EnvironmentPackage.Literals.REFERENCE__TYPE, true, false, true,
-				null, null, null));
+						"_UI_Reference_referencedType_feature",
+						"_UI_Reference_type"),
+				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, true,
+				false, true, null, null, null));
 	}
 
 	/**

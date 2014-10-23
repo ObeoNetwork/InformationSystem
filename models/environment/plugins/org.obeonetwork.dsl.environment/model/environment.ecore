@@ -73,18 +73,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Behaviour" abstract="true" eSuperTypes="#//ObeoDSMObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="StructuredType" abstract="true" eSuperTypes="#//Type">
-    <eOperations name="isSubtypeOf" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+    <eOperations name="isSubtypeOf" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="type" eType="#//StructuredType"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="supertype" eType="#//StructuredType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="associatedTypes" upperBound="-1"
         eType="#//StructuredType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedAttributes" eType="#//Attribute"
-        eOpposite="#//Attribute/dto"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedAttributes" upperBound="-1"
+        eType="#//Attribute" containment="true" eOpposite="#//Attribute/containingType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute" changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedReferences" eType="#//Reference"
-        eOpposite="#//Reference/type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedReferences" upperBound="-1"
+        eType="#//Reference" containment="true" eOpposite="#//Reference/containingType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
         eType="#//Reference" changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
@@ -114,8 +114,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Property">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//PrimitiveType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dto" lowerBound="1" eType="#//StructuredType"
-        eOpposite="#//StructuredType/ownedAttributes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containingType" lowerBound="1"
+        eType="#//StructuredType" eOpposite="#//StructuredType/ownedAttributes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Property">
     <eOperations name="canBeOppositeOf" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -126,8 +126,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="navigable" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="oppositeOf" eType="#//Reference"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//StructuredType"
-        eOpposite="#//StructuredType/ownedReferences"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containingType" lowerBound="1"
+        eType="#//StructuredType" eOpposite="#//StructuredType/ownedReferences"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedType" lowerBound="1"
+        eType="#//StructuredType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property" abstract="true" eSuperTypes="#//ObeoDSMObject #//BoundableElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

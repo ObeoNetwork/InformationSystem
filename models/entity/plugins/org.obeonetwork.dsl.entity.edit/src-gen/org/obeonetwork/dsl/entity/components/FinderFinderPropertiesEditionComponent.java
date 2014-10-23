@@ -79,7 +79,7 @@ public class FinderFinderPropertiesEditionComponent extends SinglePartProperties
 				finderPart.setCustomizedName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, finder.getCustomizedName()));
 			
 			if (isAccessible(EntityViewsRepository.Finder.Properties.multiplicity)) {
-				finderPart.initMultiplicity(EEFUtils.choiceOfValues(finder, EntityPackage.eINSTANCE.getProperty_Multiplicity()), finder.getMultiplicity());
+				finderPart.initMultiplicity(EEFUtils.choiceOfValues(finder, EntityPackage.eINSTANCE.getFinder_Multiplicity()), finder.getMultiplicity());
 			}
 			if (isAccessible(EntityViewsRepository.Finder.Properties.description))
 				finderPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, finder.getDescription()));
@@ -109,7 +109,7 @@ public class FinderFinderPropertiesEditionComponent extends SinglePartProperties
 			return EntityPackage.eINSTANCE.getFinder_CustomizedName();
 		}
 		if (editorKey == EntityViewsRepository.Finder.Properties.multiplicity) {
-			return EntityPackage.eINSTANCE.getProperty_Multiplicity();
+			return EntityPackage.eINSTANCE.getFinder_Multiplicity();
 		}
 		if (editorKey == EntityViewsRepository.Finder.Properties.description) {
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
@@ -150,7 +150,7 @@ public class FinderFinderPropertiesEditionComponent extends SinglePartProperties
 					finderPart.setCustomizedName("");
 				}
 			}
-			if (EntityPackage.eINSTANCE.getProperty_Multiplicity().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EntityViewsRepository.Finder.Properties.multiplicity))
+			if (EntityPackage.eINSTANCE.getFinder_Multiplicity().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EntityViewsRepository.Finder.Properties.multiplicity))
 				finderPart.setMultiplicity((MultiplicityKind)msg.getNewValue());
 			
 			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && finderPart != null && isAccessible(EntityViewsRepository.Finder.Properties.description)){
@@ -173,7 +173,7 @@ public class FinderFinderPropertiesEditionComponent extends SinglePartProperties
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EntityPackage.eINSTANCE.getFinder_CustomizedName(),
-			EntityPackage.eINSTANCE.getProperty_Multiplicity(),
+			EntityPackage.eINSTANCE.getFinder_Multiplicity(),
 			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
 		return new NotificationFilter[] {filter,};
 	}
@@ -209,9 +209,9 @@ public class FinderFinderPropertiesEditionComponent extends SinglePartProperties
 				if (EntityViewsRepository.Finder.Properties.multiplicity == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(EntityPackage.eINSTANCE.getProperty_Multiplicity().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EntityPackage.eINSTANCE.getFinder_Multiplicity().getEAttributeType(), (String)newValue);
 					}
-					ret = Diagnostician.INSTANCE.validate(EntityPackage.eINSTANCE.getProperty_Multiplicity().getEAttributeType(), newValue);
+					ret = Diagnostician.INSTANCE.validate(EntityPackage.eINSTANCE.getFinder_Multiplicity().getEAttributeType(), newValue);
 				}
 				if (EntityViewsRepository.Finder.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();

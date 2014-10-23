@@ -72,8 +72,7 @@ public class ParameterItemProvider
 
 			addTypePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addLowerPropertyDescriptor(object);
-			addUpperPropertyDescriptor(object);
+			addMultiplicityPropertyDescriptor(object);
 			addIsUniquePropertyDescriptor(object);
 			addIsOrderedPropertyDescriptor(object);
 		}
@@ -125,45 +124,23 @@ public class ParameterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Lower feature.
+	 * This adds a property descriptor for the Multiplicity feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLowerPropertyDescriptor(Object object) {
+	protected void addMultiplicityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_lower_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_lower_feature", "_UI_Parameter_type"),
-				 SoaPackage.Literals.PARAMETER__LOWER,
+				 getString("_UI_Parameter_multiplicity_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_multiplicity_feature", "_UI_Parameter_type"),
+				 SoaPackage.Literals.PARAMETER__MULTIPLICITY,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Upper feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUpperPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Parameter_upper_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_upper_feature", "_UI_Parameter_type"),
-				 SoaPackage.Literals.PARAMETER__UPPER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -275,8 +252,7 @@ public class ParameterItemProvider
 
 		switch (notification.getFeatureID(Parameter.class)) {
 			case SoaPackage.PARAMETER__NAME:
-			case SoaPackage.PARAMETER__LOWER:
-			case SoaPackage.PARAMETER__UPPER:
+			case SoaPackage.PARAMETER__MULTIPLICITY:
 			case SoaPackage.PARAMETER__IS_UNIQUE:
 			case SoaPackage.PARAMETER__IS_ORDERED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

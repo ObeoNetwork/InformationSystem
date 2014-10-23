@@ -18,7 +18,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 
 import org.obeonetwork.dsl.environment.providers.MetadataCptPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.NamespacePropertiesEditionProvider;
 import org.obeonetwork.dsl.environment.providers.TypesDefinitionPropertiesEditionProvider;
 
 import org.obeonetwork.dsl.soa.util.SoaAdapterFactory;
@@ -39,13 +38,13 @@ public class SoaEEFAdapterFactory extends SoaAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.soa.util.SoaAdapterFactory#createNamespaceAdapter()
+	 * @see org.obeonetwork.dsl.soa.util.SoaAdapterFactory#createTypesDefinitionAdapter()
 	 * 
 	 */
-	public Adapter createNamespaceAdapter() {
+	public Adapter createTypesDefinitionAdapter() {
 		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
 		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new NamespacePropertiesEditionProvider(providers);
+		return new TypesDefinitionPropertiesEditionProvider(providers);
 	}
 	/**
 	 * {@inheritDoc}
@@ -126,46 +125,6 @@ public class SoaEEFAdapterFactory extends SoaAdapterFactory {
 		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
 		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
 		return new ParameterPropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.soa.util.SoaAdapterFactory#createDTORegistryAdapter()
-	 * 
-	 */
-	public Adapter createDTORegistryAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new DTORegistryPropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.soa.util.SoaAdapterFactory#createTypesDefinitionAdapter()
-	 * 
-	 */
-	public Adapter createTypesDefinitionAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new TypesDefinitionPropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.soa.util.SoaAdapterFactory#createCategoryAdapter()
-	 * 
-	 */
-	public Adapter createCategoryAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new CategoryPropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.soa.util.SoaAdapterFactory#createServiceDTOAdapter()
-	 * 
-	 */
-	public Adapter createServiceDTOAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new ServiceDTOPropertiesEditionProvider(providers);
 	}
 
 }

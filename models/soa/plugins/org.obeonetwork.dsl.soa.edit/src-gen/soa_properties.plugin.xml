@@ -6,7 +6,7 @@
   <!-- EEF extensions -->
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.obeonetwork.org/dsl/soa/2.0.0"
+            uri="http://www.obeonetwork.org/dsl/soa/3.0.0"
             class="org.obeonetwork.dsl.soa.providers.SoaEEFAdapterFactory"
             supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
    </extension>
@@ -90,24 +90,6 @@
          <propertyTab
                id="Parameter"
                label="Parameter"
-               category="default">
-         </propertyTab>
-
-         <propertyTab
-               id="DTORegistry"
-               label="DTORegistry"
-               category="default">
-         </propertyTab>
-
-         <propertyTab
-               id="Category"
-               label="Category"
-               category="default">
-         </propertyTab>
-
-         <propertyTab
-               id="ServiceDTO"
-               label="ServiceDTO"
                category="default">
          </propertyTab>
 
@@ -211,42 +193,6 @@
                class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.soa.providers.ParameterPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.soa.section.Parameter"
-               tab="Metadatas">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.soa.parts.forms.DTORegistryPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.soa.providers.DTORegistryPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.soa.section.DTORegistry"
-               tab="DTORegistry">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.soa.providers.DTORegistryPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.soa.section.DTORegistry"
-               tab="Metadatas">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.soa.parts.forms.CategoryPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.soa.providers.CategoryPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.soa.section.Category"
-               tab="Category">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.soa.providers.CategoryPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.soa.section.Category"
-               tab="Metadatas">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.soa.parts.forms.ServiceDTOPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.soa.providers.ServiceDTOPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.soa.section.ServiceDTO"
-               tab="ServiceDTO">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.soa.providers.ServiceDTOPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.soa.section.ServiceDTO"
                tab="Metadatas">
          </propertySection>
       </propertySections>

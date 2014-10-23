@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.environment.Property;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.PropertyImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.PropertyImpl#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.PropertyImpl#isIsIdentifier <em>Is Identifier</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,6 +60,16 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 	 * @ordered
 	 */
 	protected static final MultiplicityKind MULTIPLICITY_EDEFAULT = MultiplicityKind.ZERO_ONE_LITERAL;
+
+	/**
+	 * The default value of the '{@link #isIsIdentifier() <em>Is Identifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsIdentifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_IDENTIFIER_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,6 +137,28 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsIdentifier() {
+		return (Boolean) eDynamicGet(
+				EnvironmentPackage.PROPERTY__IS_IDENTIFIER,
+				EnvironmentPackage.Literals.PROPERTY__IS_IDENTIFIER, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsIdentifier(boolean newIsIdentifier) {
+		eDynamicSet(EnvironmentPackage.PROPERTY__IS_IDENTIFIER,
+				EnvironmentPackage.Literals.PROPERTY__IS_IDENTIFIER,
+				newIsIdentifier);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isPathValid(BoundableElement root, String path) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -144,6 +177,8 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 			return getName();
 		case EnvironmentPackage.PROPERTY__MULTIPLICITY:
 			return getMultiplicity();
+		case EnvironmentPackage.PROPERTY__IS_IDENTIFIER:
+			return isIsIdentifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,6 +196,9 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 			return;
 		case EnvironmentPackage.PROPERTY__MULTIPLICITY:
 			setMultiplicity((MultiplicityKind) newValue);
+			return;
+		case EnvironmentPackage.PROPERTY__IS_IDENTIFIER:
+			setIsIdentifier((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,6 +218,9 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 		case EnvironmentPackage.PROPERTY__MULTIPLICITY:
 			setMultiplicity(MULTIPLICITY_EDEFAULT);
 			return;
+		case EnvironmentPackage.PROPERTY__IS_IDENTIFIER:
+			setIsIdentifier(IS_IDENTIFIER_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -197,6 +238,8 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 					.equals(getName());
 		case EnvironmentPackage.PROPERTY__MULTIPLICITY:
 			return getMultiplicity() != MULTIPLICITY_EDEFAULT;
+		case EnvironmentPackage.PROPERTY__IS_IDENTIFIER:
+			return isIsIdentifier() != IS_IDENTIFIER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
