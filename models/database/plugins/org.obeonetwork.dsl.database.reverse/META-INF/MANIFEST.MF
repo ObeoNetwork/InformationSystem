@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Reverse
+Bundle-SymbolicName: org.obeonetwork.dsl.database.reverse
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.obeonetwork.dsl.database;bundle-version="1.0.0"
+Export-Package: org.obeonetwork.dsl.database.reverse,
+ org.obeonetwork.dsl.database.reverse.decoders,
+ org.obeonetwork.dsl.database.reverse.decoders.impl,
+ org.obeonetwork.dsl.database.reverse.factories,
+ org.obeonetwork.dsl.database.reverse.source,
+ org.obeonetwork.dsl.database.reverse.utils
+Bundle-ClassPath: lib/mysql-connector-java-5.1.5-bin.jar,
+ lib/ojdbc5.jar,
+ .
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
