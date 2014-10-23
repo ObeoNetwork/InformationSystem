@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://org.obeonetwork.graal/1.0"
+            uri="http://www.obeonetwork.org/dsl/graal/2.0.0"
             class="org.obeonetwork.graal.GraalPackage"
             genModel="model/graal.genmodel"/>
    </extension>

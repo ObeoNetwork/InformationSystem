@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="soa" nsURI="http://www.obeonetwork.org/dsl/soa/2.0.0" nsPrefix="org.obeonetwork.dsl.soa">
-  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="soa" nsURI="http://www.obeonetwork.org/dsl/soa/3.0.0" nsPrefix="org.obeonetwork.dsl.soa">
+  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//TypesDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedComponents" upperBound="-1"
         eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedWires" upperBound="-1"
         eType="#//Wire" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedDtoRegistry" eType="#//DTORegistry"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namespaces" upperBound="-1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
@@ -53,8 +54,8 @@
     <eLiterals name="required" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SynchronizationKind">
-    <eLiterals name="synchone"/>
-    <eLiterals name="asynchrone" value="1"/>
+    <eLiterals name="synchronous" literal="synchronous"/>
+    <eLiterals name="asynchronous" value="1" literal="asynchronous"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
@@ -74,10 +75,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" lowerBound="1"
+        eType="ecore:EEnum ../../org.obeonetwork.dsl.environment/model/environment.ecore#//MultiplicityKind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUnique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOrdered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -94,14 +93,4 @@
     <eLiterals name="REQUEST_RESPONSE"/>
     <eLiterals name="ONE_WAY" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DTORegistry" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedCategories" upperBound="-1"
-        eType="#//Category" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//TypesDefinition">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedCategories" upperBound="-1"
-        eType="#//Category" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceDTO" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//DTO"/>
 </ecore:EPackage>
