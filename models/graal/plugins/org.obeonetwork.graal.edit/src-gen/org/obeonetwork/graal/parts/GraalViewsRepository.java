@@ -64,16 +64,10 @@ public class GraalViewsRepository {
 			public static String description = "graal::System::properties::description";
 			
 			
-			public static String dtoCategories = "graal::System::properties::dtoCategories";
+			public static String namespaces = "graal::System::properties::namespaces";
 			
 			
-			public static String dtos = "graal::System::properties::dtos";
-			
-			
-			public static String entityBlocks = "graal::System::properties::entityBlocks";
-			
-			
-			public static String entities = "graal::System::properties::entities";
+			public static String types = "graal::System::properties::types";
 			
 	
 		}
@@ -400,16 +394,10 @@ public class GraalViewsRepository {
 			public static String tasks = "graal::UseCase::properties::tasks";
 			
 			
-			public static String dtoCategories = "graal::UseCase::properties::dtoCategories";
+			public static String namespaces = "graal::UseCase::properties::namespaces";
 			
 			
-			public static String dtos = "graal::UseCase::properties::dtos";
-			
-			
-			public static String entityBlocks = "graal::UseCase::properties::entityBlocks";
-			
-			
-			public static String entities = "graal::UseCase::properties::entities";
+			public static String types = "graal::UseCase::properties::types";
 			
 	
 		}

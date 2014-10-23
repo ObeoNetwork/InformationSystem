@@ -12,6 +12,7 @@ Export-Package: org.obeonetwork.graal,
  org.obeonetwork.graal.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.cdo;visibility:=reexport,
  org.obeonetwork.dsl.environment;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
  org.obeonetwork.dsl.entity,

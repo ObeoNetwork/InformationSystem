@@ -14,10 +14,8 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.obeonetwork.dsl.entity.Block;
-import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.soa.Category;
-import org.obeonetwork.dsl.soa.ServiceDTO;
+import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.Actor;
 import org.obeonetwork.graal.DomainModelRegistry;
@@ -31,10 +29,8 @@ import org.obeonetwork.graal.UseCase;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getDtoCategories <em>Dto Categories</em>}</li>
- *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getDtos <em>Dtos</em>}</li>
- *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getEntityBlocks <em>Entity Blocks</em>}</li>
- *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getEntities <em>Entities</em>}</li>
+ *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getNamespaces <em>Namespaces</em>}</li>
+ *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getActors <em>Actors</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getIncludes <em>Includes</em>}</li>
@@ -70,8 +66,8 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Category> getDtoCategories() {
-		return (EList<Category>)eDynamicGet(GraalPackage.USE_CASE__DTO_CATEGORIES, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__DTO_CATEGORIES, true, true);
+	public EList<Namespace> getNamespaces() {
+		return (EList<Namespace>)eDynamicGet(GraalPackage.USE_CASE__NAMESPACES, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__NAMESPACES, true, true);
 	}
 
 	/**
@@ -80,28 +76,8 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<ServiceDTO> getDtos() {
-		return (EList<ServiceDTO>)eDynamicGet(GraalPackage.USE_CASE__DTOS, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__DTOS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	public EList<Block> getEntityBlocks() {
-		return (EList<Block>)eDynamicGet(GraalPackage.USE_CASE__ENTITY_BLOCKS, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__ENTITY_BLOCKS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	public EList<Entity> getEntities() {
-		return (EList<Entity>)eDynamicGet(GraalPackage.USE_CASE__ENTITIES, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__ENTITIES, true, true);
+	public EList<StructuredType> getTypes() {
+		return (EList<StructuredType>)eDynamicGet(GraalPackage.USE_CASE__TYPES, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__TYPES, true, true);
 	}
 
 	/**
@@ -152,14 +128,10 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraalPackage.USE_CASE__DTO_CATEGORIES:
-				return getDtoCategories();
-			case GraalPackage.USE_CASE__DTOS:
-				return getDtos();
-			case GraalPackage.USE_CASE__ENTITY_BLOCKS:
-				return getEntityBlocks();
-			case GraalPackage.USE_CASE__ENTITIES:
-				return getEntities();
+			case GraalPackage.USE_CASE__NAMESPACES:
+				return getNamespaces();
+			case GraalPackage.USE_CASE__TYPES:
+				return getTypes();
 			case GraalPackage.USE_CASE__ACTORS:
 				return getActors();
 			case GraalPackage.USE_CASE__TASKS:
@@ -181,21 +153,13 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraalPackage.USE_CASE__DTO_CATEGORIES:
-				getDtoCategories().clear();
-				getDtoCategories().addAll((Collection<? extends Category>)newValue);
+			case GraalPackage.USE_CASE__NAMESPACES:
+				getNamespaces().clear();
+				getNamespaces().addAll((Collection<? extends Namespace>)newValue);
 				return;
-			case GraalPackage.USE_CASE__DTOS:
-				getDtos().clear();
-				getDtos().addAll((Collection<? extends ServiceDTO>)newValue);
-				return;
-			case GraalPackage.USE_CASE__ENTITY_BLOCKS:
-				getEntityBlocks().clear();
-				getEntityBlocks().addAll((Collection<? extends Block>)newValue);
-				return;
-			case GraalPackage.USE_CASE__ENTITIES:
-				getEntities().clear();
-				getEntities().addAll((Collection<? extends Entity>)newValue);
+			case GraalPackage.USE_CASE__TYPES:
+				getTypes().clear();
+				getTypes().addAll((Collection<? extends StructuredType>)newValue);
 				return;
 			case GraalPackage.USE_CASE__ACTORS:
 				getActors().clear();
@@ -225,17 +189,11 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraalPackage.USE_CASE__DTO_CATEGORIES:
-				getDtoCategories().clear();
+			case GraalPackage.USE_CASE__NAMESPACES:
+				getNamespaces().clear();
 				return;
-			case GraalPackage.USE_CASE__DTOS:
-				getDtos().clear();
-				return;
-			case GraalPackage.USE_CASE__ENTITY_BLOCKS:
-				getEntityBlocks().clear();
-				return;
-			case GraalPackage.USE_CASE__ENTITIES:
-				getEntities().clear();
+			case GraalPackage.USE_CASE__TYPES:
+				getTypes().clear();
 				return;
 			case GraalPackage.USE_CASE__ACTORS:
 				getActors().clear();
@@ -261,14 +219,10 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraalPackage.USE_CASE__DTO_CATEGORIES:
-				return !getDtoCategories().isEmpty();
-			case GraalPackage.USE_CASE__DTOS:
-				return !getDtos().isEmpty();
-			case GraalPackage.USE_CASE__ENTITY_BLOCKS:
-				return !getEntityBlocks().isEmpty();
-			case GraalPackage.USE_CASE__ENTITIES:
-				return !getEntities().isEmpty();
+			case GraalPackage.USE_CASE__NAMESPACES:
+				return !getNamespaces().isEmpty();
+			case GraalPackage.USE_CASE__TYPES:
+				return !getTypes().isEmpty();
 			case GraalPackage.USE_CASE__ACTORS:
 				return !getActors().isEmpty();
 			case GraalPackage.USE_CASE__TASKS:
@@ -290,10 +244,8 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == DomainModelRegistry.class) {
 			switch (derivedFeatureID) {
-				case GraalPackage.USE_CASE__DTO_CATEGORIES: return GraalPackage.DOMAIN_MODEL_REGISTRY__DTO_CATEGORIES;
-				case GraalPackage.USE_CASE__DTOS: return GraalPackage.DOMAIN_MODEL_REGISTRY__DTOS;
-				case GraalPackage.USE_CASE__ENTITY_BLOCKS: return GraalPackage.DOMAIN_MODEL_REGISTRY__ENTITY_BLOCKS;
-				case GraalPackage.USE_CASE__ENTITIES: return GraalPackage.DOMAIN_MODEL_REGISTRY__ENTITIES;
+				case GraalPackage.USE_CASE__NAMESPACES: return GraalPackage.DOMAIN_MODEL_REGISTRY__NAMESPACES;
+				case GraalPackage.USE_CASE__TYPES: return GraalPackage.DOMAIN_MODEL_REGISTRY__TYPES;
 				default: return -1;
 			}
 		}
@@ -309,10 +261,8 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == DomainModelRegistry.class) {
 			switch (baseFeatureID) {
-				case GraalPackage.DOMAIN_MODEL_REGISTRY__DTO_CATEGORIES: return GraalPackage.USE_CASE__DTO_CATEGORIES;
-				case GraalPackage.DOMAIN_MODEL_REGISTRY__DTOS: return GraalPackage.USE_CASE__DTOS;
-				case GraalPackage.DOMAIN_MODEL_REGISTRY__ENTITY_BLOCKS: return GraalPackage.USE_CASE__ENTITY_BLOCKS;
-				case GraalPackage.DOMAIN_MODEL_REGISTRY__ENTITIES: return GraalPackage.USE_CASE__ENTITIES;
+				case GraalPackage.DOMAIN_MODEL_REGISTRY__NAMESPACES: return GraalPackage.USE_CASE__NAMESPACES;
+				case GraalPackage.DOMAIN_MODEL_REGISTRY__TYPES: return GraalPackage.USE_CASE__TYPES;
 				default: return -1;
 			}
 		}

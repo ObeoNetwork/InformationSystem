@@ -39,17 +39,11 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="__tuRfx8dEeCC-oZI6xw5iw" name="name" views="__tvfpB8dEeCC-oZI6xw5iw">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//NamedElement/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_spD3EJalEeCxeJYZTx8nbA" name="dtoCategories" views="_xvkGYJZvEeCxeJYZTx8nbA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/dtoCategories"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_spD3EJalEeCxeJYZTx8nbA" name="namespaces" views="_xvkGYJZvEeCxeJYZTx8nbA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/namespaces"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_1CxUAJalEeCxeJYZTx8nbA" name="dtos" views="_xvkGYZZvEeCxeJYZTx8nbA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/dtos"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_1PzDYJalEeCxeJYZTx8nbA" name="entityBlocks" views="_xvkGYpZvEeCxeJYZTx8nbA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/entityBlocks"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_1V0y4JalEeCxeJYZTx8nbA" name="entities" views="_xvktcJZvEeCxeJYZTx8nbA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/entities"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_1CxUAJalEeCxeJYZTx8nbA" name="types" views="_xvkGYZZvEeCxeJYZTx8nbA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/types"/>
         </properties>
         <referencedBinding xmi:id="__JRugGEyEeCM-J-6LVIX2g">
           <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
@@ -291,17 +285,11 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_e5W31TQ3EeCI19f7ry6csQ" name="name" views="_gAbqEjQ2EeCI19f7ry6csQ">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//NamedElement/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_8B4bMJalEeCxeJYZTx8nbA" name="dtoCategories" views="_yL8gYJZvEeCxeJYZTx8nbA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/dtoCategories"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Hbw60FrQEeSa5av8eAQsWQ" name="namespaces" views="_E2xOgFrQEeSa5av8eAQsWQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/namespaces"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_8B4bMZalEeCxeJYZTx8nbA" name="dtos" views="_yL8gYZZvEeCxeJYZTx8nbA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/dtos"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_8B4bMpalEeCxeJYZTx8nbA" name="entityBlocks" views="_yL8gYpZvEeCxeJYZTx8nbA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/entityBlocks"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_8B4bM5alEeCxeJYZTx8nbA" name="entities" views="_yL8gY5ZvEeCxeJYZTx8nbA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/entities"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_JENfUFrQEeSa5av8eAQsWQ" name="types" views="_E2xOgVrQEeSa5av8eAQsWQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/types"/>
         </properties>
         <referencedBinding xmi:id="_CMgO8GEzEeCM-J-6LVIX2g">
           <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
@@ -365,16 +353,10 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="__tvfoR8dEeCC-oZI6xw5iw" name="description">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xvkGYJZvEeCxeJYZTx8nbA" name="dtoCategories">
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xvkGYJZvEeCxeJYZTx8nbA" name="namespaces">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xvkGYZZvEeCxeJYZTx8nbA" name="dtos">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xvkGYpZvEeCxeJYZTx8nbA" name="entityBlocks">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xvktcJZvEeCxeJYZTx8nbA" name="entities">
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xvkGYZZvEeCxeJYZTx8nbA" name="types">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
         </elements>
@@ -603,16 +585,10 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_gAbqFDQ2EeCI19f7ry6csQ" name="tasks">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_yL8gYJZvEeCxeJYZTx8nbA" name="dtoCategories">
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_E2xOgFrQEeSa5av8eAQsWQ" name="namespaces">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_yL8gYZZvEeCxeJYZTx8nbA" name="dtos">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_yL8gYpZvEeCxeJYZTx8nbA" name="entityBlocks">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_yL8gY5ZvEeCxeJYZTx8nbA" name="entities">
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_E2xOgVrQEeSa5av8eAQsWQ" name="types">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
         </elements>

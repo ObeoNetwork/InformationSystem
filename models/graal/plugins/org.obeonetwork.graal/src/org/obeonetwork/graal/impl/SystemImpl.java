@@ -26,10 +26,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.obeonetwork.dsl.entity.Block;
-import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.soa.Category;
-import org.obeonetwork.dsl.soa.ServiceDTO;
+import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.Actor;
 import org.obeonetwork.graal.DomainModelRegistry;
@@ -47,10 +45,8 @@ import org.obeonetwork.graal.UserStory;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getDtoCategories <em>Dto Categories</em>}</li>
- *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getDtos <em>Dtos</em>}</li>
- *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getEntityBlocks <em>Entity Blocks</em>}</li>
- *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getEntities <em>Entities</em>}</li>
+ *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getNamespaces <em>Namespaces</em>}</li>
+ *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getOwnedTasks <em>Owned Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getOwnedGroups <em>Owned Groups</em>}</li>
@@ -102,8 +98,8 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Category> getDtoCategories() {
-		return (EList<Category>)eDynamicGet(GraalPackage.SYSTEM__DTO_CATEGORIES, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__DTO_CATEGORIES, true, true);
+	public EList<Namespace> getNamespaces() {
+		return (EList<Namespace>)eDynamicGet(GraalPackage.SYSTEM__NAMESPACES, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__NAMESPACES, true, true);
 	}
 
 	/**
@@ -112,28 +108,8 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<ServiceDTO> getDtos() {
-		return (EList<ServiceDTO>)eDynamicGet(GraalPackage.SYSTEM__DTOS, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__DTOS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	public EList<Block> getEntityBlocks() {
-		return (EList<Block>)eDynamicGet(GraalPackage.SYSTEM__ENTITY_BLOCKS, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__ENTITY_BLOCKS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	public EList<Entity> getEntities() {
-		return (EList<Entity>)eDynamicGet(GraalPackage.SYSTEM__ENTITIES, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__ENTITIES, true, true);
+	public EList<StructuredType> getTypes() {
+		return (EList<StructuredType>)eDynamicGet(GraalPackage.SYSTEM__TYPES, GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__TYPES, true, true);
 	}
 
 	/**
@@ -271,14 +247,10 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraalPackage.SYSTEM__DTO_CATEGORIES:
-				return getDtoCategories();
-			case GraalPackage.SYSTEM__DTOS:
-				return getDtos();
-			case GraalPackage.SYSTEM__ENTITY_BLOCKS:
-				return getEntityBlocks();
-			case GraalPackage.SYSTEM__ENTITIES:
-				return getEntities();
+			case GraalPackage.SYSTEM__NAMESPACES:
+				return getNamespaces();
+			case GraalPackage.SYSTEM__TYPES:
+				return getTypes();
 			case GraalPackage.SYSTEM__TASKS:
 				return getTasks();
 			case GraalPackage.SYSTEM__OWNED_TASKS:
@@ -306,21 +278,13 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraalPackage.SYSTEM__DTO_CATEGORIES:
-				getDtoCategories().clear();
-				getDtoCategories().addAll((Collection<? extends Category>)newValue);
+			case GraalPackage.SYSTEM__NAMESPACES:
+				getNamespaces().clear();
+				getNamespaces().addAll((Collection<? extends Namespace>)newValue);
 				return;
-			case GraalPackage.SYSTEM__DTOS:
-				getDtos().clear();
-				getDtos().addAll((Collection<? extends ServiceDTO>)newValue);
-				return;
-			case GraalPackage.SYSTEM__ENTITY_BLOCKS:
-				getEntityBlocks().clear();
-				getEntityBlocks().addAll((Collection<? extends Block>)newValue);
-				return;
-			case GraalPackage.SYSTEM__ENTITIES:
-				getEntities().clear();
-				getEntities().addAll((Collection<? extends Entity>)newValue);
+			case GraalPackage.SYSTEM__TYPES:
+				getTypes().clear();
+				getTypes().addAll((Collection<? extends StructuredType>)newValue);
 				return;
 			case GraalPackage.SYSTEM__TASKS:
 				getTasks().clear();
@@ -354,17 +318,11 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraalPackage.SYSTEM__DTO_CATEGORIES:
-				getDtoCategories().clear();
+			case GraalPackage.SYSTEM__NAMESPACES:
+				getNamespaces().clear();
 				return;
-			case GraalPackage.SYSTEM__DTOS:
-				getDtos().clear();
-				return;
-			case GraalPackage.SYSTEM__ENTITY_BLOCKS:
-				getEntityBlocks().clear();
-				return;
-			case GraalPackage.SYSTEM__ENTITIES:
-				getEntities().clear();
+			case GraalPackage.SYSTEM__TYPES:
+				getTypes().clear();
 				return;
 			case GraalPackage.SYSTEM__TASKS:
 				getTasks().clear();
@@ -393,14 +351,10 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraalPackage.SYSTEM__DTO_CATEGORIES:
-				return !getDtoCategories().isEmpty();
-			case GraalPackage.SYSTEM__DTOS:
-				return !getDtos().isEmpty();
-			case GraalPackage.SYSTEM__ENTITY_BLOCKS:
-				return !getEntityBlocks().isEmpty();
-			case GraalPackage.SYSTEM__ENTITIES:
-				return !getEntities().isEmpty();
+			case GraalPackage.SYSTEM__NAMESPACES:
+				return !getNamespaces().isEmpty();
+			case GraalPackage.SYSTEM__TYPES:
+				return !getTypes().isEmpty();
 			case GraalPackage.SYSTEM__TASKS:
 				return !getTasks().isEmpty();
 			case GraalPackage.SYSTEM__OWNED_TASKS:
@@ -438,10 +392,8 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == DomainModelRegistry.class) {
 			switch (derivedFeatureID) {
-				case GraalPackage.SYSTEM__DTO_CATEGORIES: return GraalPackage.DOMAIN_MODEL_REGISTRY__DTO_CATEGORIES;
-				case GraalPackage.SYSTEM__DTOS: return GraalPackage.DOMAIN_MODEL_REGISTRY__DTOS;
-				case GraalPackage.SYSTEM__ENTITY_BLOCKS: return GraalPackage.DOMAIN_MODEL_REGISTRY__ENTITY_BLOCKS;
-				case GraalPackage.SYSTEM__ENTITIES: return GraalPackage.DOMAIN_MODEL_REGISTRY__ENTITIES;
+				case GraalPackage.SYSTEM__NAMESPACES: return GraalPackage.DOMAIN_MODEL_REGISTRY__NAMESPACES;
+				case GraalPackage.SYSTEM__TYPES: return GraalPackage.DOMAIN_MODEL_REGISTRY__TYPES;
 				default: return -1;
 			}
 		}
@@ -465,10 +417,8 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == DomainModelRegistry.class) {
 			switch (baseFeatureID) {
-				case GraalPackage.DOMAIN_MODEL_REGISTRY__DTO_CATEGORIES: return GraalPackage.SYSTEM__DTO_CATEGORIES;
-				case GraalPackage.DOMAIN_MODEL_REGISTRY__DTOS: return GraalPackage.SYSTEM__DTOS;
-				case GraalPackage.DOMAIN_MODEL_REGISTRY__ENTITY_BLOCKS: return GraalPackage.SYSTEM__ENTITY_BLOCKS;
-				case GraalPackage.DOMAIN_MODEL_REGISTRY__ENTITIES: return GraalPackage.SYSTEM__ENTITIES;
+				case GraalPackage.DOMAIN_MODEL_REGISTRY__NAMESPACES: return GraalPackage.SYSTEM__NAMESPACES;
+				case GraalPackage.DOMAIN_MODEL_REGISTRY__TYPES: return GraalPackage.SYSTEM__TYPES;
 				default: return -1;
 			}
 		}

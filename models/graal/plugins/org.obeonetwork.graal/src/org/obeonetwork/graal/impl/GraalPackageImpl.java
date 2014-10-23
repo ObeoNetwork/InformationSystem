@@ -17,9 +17,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.graal.AbortNode;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.Activity;
@@ -300,8 +298,7 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		EntityPackage.eINSTANCE.eClass();
-		SoaPackage.eINSTANCE.eClass();
+		EnvironmentPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theGraalPackage.createPackageContents();
@@ -782,7 +779,7 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainModelRegistry_DtoCategories() {
+	public EReference getDomainModelRegistry_Namespaces() {
 		return (EReference)domainModelRegistryEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -791,26 +788,8 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainModelRegistry_Dtos() {
+	public EReference getDomainModelRegistry_Types() {
 		return (EReference)domainModelRegistryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDomainModelRegistry_EntityBlocks() {
-		return (EReference)domainModelRegistryEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDomainModelRegistry_Entities() {
-		return (EReference)domainModelRegistryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1003,10 +982,8 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		namedNodeEClass = createEClass(NAMED_NODE);
 
 		domainModelRegistryEClass = createEClass(DOMAIN_MODEL_REGISTRY);
-		createEReference(domainModelRegistryEClass, DOMAIN_MODEL_REGISTRY__DTO_CATEGORIES);
-		createEReference(domainModelRegistryEClass, DOMAIN_MODEL_REGISTRY__DTOS);
-		createEReference(domainModelRegistryEClass, DOMAIN_MODEL_REGISTRY__ENTITY_BLOCKS);
-		createEReference(domainModelRegistryEClass, DOMAIN_MODEL_REGISTRY__ENTITIES);
+		createEReference(domainModelRegistryEClass, DOMAIN_MODEL_REGISTRY__NAMESPACES);
+		createEReference(domainModelRegistryEClass, DOMAIN_MODEL_REGISTRY__TYPES);
 
 		tasksContainerEClass = createEClass(TASKS_CONTAINER);
 		createEReference(tasksContainerEClass, TASKS_CONTAINER__TASKS);
@@ -1049,8 +1026,6 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		SoaPackage theSoaPackage = (SoaPackage)EPackage.Registry.INSTANCE.getEPackage(SoaPackage.eNS_URI);
-		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		EnvironmentPackage theEnvironmentPackage = (EnvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(EnvironmentPackage.eNS_URI);
 
 		// Create type parameters
@@ -1187,10 +1162,8 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		initEClass(namedNodeEClass, NamedNode.class, "NamedNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(domainModelRegistryEClass, DomainModelRegistry.class, "DomainModelRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDomainModelRegistry_DtoCategories(), theSoaPackage.getCategory(), null, "dtoCategories", null, 0, -1, DomainModelRegistry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainModelRegistry_Dtos(), theSoaPackage.getServiceDTO(), null, "dtos", null, 0, -1, DomainModelRegistry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainModelRegistry_EntityBlocks(), theEntityPackage.getBlock(), null, "entityBlocks", null, 0, -1, DomainModelRegistry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainModelRegistry_Entities(), theEntityPackage.getEntity(), null, "entities", null, 0, -1, DomainModelRegistry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainModelRegistry_Namespaces(), theEnvironmentPackage.getNamespace(), null, "namespaces", null, 0, -1, DomainModelRegistry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainModelRegistry_Types(), theEnvironmentPackage.getStructuredType(), null, "types", null, 0, -1, DomainModelRegistry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tasksContainerEClass, TasksContainer.class, "TasksContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTasksContainer_Tasks(), this.getAbstractTask(), null, "tasks", null, 0, -1, TasksContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

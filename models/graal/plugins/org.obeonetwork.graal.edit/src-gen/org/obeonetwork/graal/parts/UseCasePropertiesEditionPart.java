@@ -90,169 +90,85 @@ public interface UseCasePropertiesEditionPart {
 
 
 	/**
-	 * Init the dtoCategories
-	 * @param settings settings for the dtoCategories ReferencesTable 
+	 * Init the namespaces
+	 * @param settings settings for the namespaces ReferencesTable 
 	 */
-	public void initDtoCategories(ReferencesTableSettings settings);
+	public void initNamespaces(ReferencesTableSettings settings);
 
 	/**
-	 * Update the dtoCategories
-	 * @param newValue the dtoCategories to update
+	 * Update the namespaces
+	 * @param newValue the namespaces to update
 	 * 
 	 */
-	public void updateDtoCategories();
+	public void updateNamespaces();
 
 	/**
-	 * Adds the given filter to the dtoCategories edition editor.
+	 * Adds the given filter to the namespaces edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addFilterToDtoCategories(ViewerFilter filter);
+	public void addFilterToNamespaces(ViewerFilter filter);
 
 	/**
-	 * Adds the given filter to the dtoCategories edition editor.
+	 * Adds the given filter to the namespaces edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addBusinessFilterToDtoCategories(ViewerFilter filter);
+	public void addBusinessFilterToNamespaces(ViewerFilter filter);
 
 	/**
-	 * @return true if the given element is contained inside the dtoCategories table
+	 * @return true if the given element is contained inside the namespaces table
 	 * 
 	 */
-	public boolean isContainedInDtoCategoriesTable(EObject element);
+	public boolean isContainedInNamespacesTable(EObject element);
 
 
 
 
 	/**
-	 * Init the dtos
-	 * @param settings settings for the dtos ReferencesTable 
+	 * Init the types
+	 * @param settings settings for the types ReferencesTable 
 	 */
-	public void initDtos(ReferencesTableSettings settings);
+	public void initTypes(ReferencesTableSettings settings);
 
 	/**
-	 * Update the dtos
-	 * @param newValue the dtos to update
+	 * Update the types
+	 * @param newValue the types to update
 	 * 
 	 */
-	public void updateDtos();
+	public void updateTypes();
 
 	/**
-	 * Adds the given filter to the dtos edition editor.
+	 * Adds the given filter to the types edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addFilterToDtos(ViewerFilter filter);
+	public void addFilterToTypes(ViewerFilter filter);
 
 	/**
-	 * Adds the given filter to the dtos edition editor.
+	 * Adds the given filter to the types edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addBusinessFilterToDtos(ViewerFilter filter);
+	public void addBusinessFilterToTypes(ViewerFilter filter);
 
 	/**
-	 * @return true if the given element is contained inside the dtos table
+	 * @return true if the given element is contained inside the types table
 	 * 
 	 */
-	public boolean isContainedInDtosTable(EObject element);
-
-
-
-
-	/**
-	 * Init the entityBlocks
-	 * @param settings settings for the entityBlocks ReferencesTable 
-	 */
-	public void initEntityBlocks(ReferencesTableSettings settings);
-
-	/**
-	 * Update the entityBlocks
-	 * @param newValue the entityBlocks to update
-	 * 
-	 */
-	public void updateEntityBlocks();
-
-	/**
-	 * Adds the given filter to the entityBlocks edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addFilterToEntityBlocks(ViewerFilter filter);
-
-	/**
-	 * Adds the given filter to the entityBlocks edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addBusinessFilterToEntityBlocks(ViewerFilter filter);
-
-	/**
-	 * @return true if the given element is contained inside the entityBlocks table
-	 * 
-	 */
-	public boolean isContainedInEntityBlocksTable(EObject element);
-
-
-
-
-	/**
-	 * Init the entities
-	 * @param settings settings for the entities ReferencesTable 
-	 */
-	public void initEntities(ReferencesTableSettings settings);
-
-	/**
-	 * Update the entities
-	 * @param newValue the entities to update
-	 * 
-	 */
-	public void updateEntities();
-
-	/**
-	 * Adds the given filter to the entities edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addFilterToEntities(ViewerFilter filter);
-
-	/**
-	 * Adds the given filter to the entities edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addBusinessFilterToEntities(ViewerFilter filter);
-
-	/**
-	 * @return true if the given element is contained inside the entities table
-	 * 
-	 */
-	public boolean isContainedInEntitiesTable(EObject element);
+	public boolean isContainedInTypesTable(EObject element);
 
 
 

@@ -52,7 +52,7 @@ public class GraalFactoryImpl extends EFactoryImpl implements GraalFactory {
 	 */
 	public static GraalFactory init() {
 		try {
-			GraalFactory theGraalFactory = (GraalFactory)EPackage.Registry.INSTANCE.getEFactory("http://org.obeonetwork.graal/1.0"); 
+			GraalFactory theGraalFactory = (GraalFactory)EPackage.Registry.INSTANCE.getEFactory(GraalPackage.eNS_URI);
 			if (theGraalFactory != null) {
 				return theGraalFactory;
 			}
