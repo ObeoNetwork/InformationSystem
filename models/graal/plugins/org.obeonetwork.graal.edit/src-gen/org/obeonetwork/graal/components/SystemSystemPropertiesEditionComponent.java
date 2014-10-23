@@ -23,13 +23,9 @@ import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-import org.obeonetwork.dsl.entity.Block;
-import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.soa.Category;
-import org.obeonetwork.dsl.soa.ServiceDTO;
-import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.System;
 import org.obeonetwork.graal.parts.GraalViewsRepository;
@@ -49,24 +45,14 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 
 	
 	/**
-	 * Settings for dtoCategories ReferencesTable
+	 * Settings for namespaces ReferencesTable
 	 */
-	private ReferencesTableSettings dtoCategoriesSettings;
+	private ReferencesTableSettings namespacesSettings;
 	
 	/**
-	 * Settings for dtos ReferencesTable
+	 * Settings for types ReferencesTable
 	 */
-	private ReferencesTableSettings dtosSettings;
-	
-	/**
-	 * Settings for entityBlocks ReferencesTable
-	 */
-	private ReferencesTableSettings entityBlocksSettings;
-	
-	/**
-	 * Settings for entities ReferencesTable
-	 */
-	private ReferencesTableSettings entitiesSettings;
+	private ReferencesTableSettings typesSettings;
 	
 	
 	/**
@@ -100,43 +86,25 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 			if (isAccessible(GraalViewsRepository.System.Properties.name))
 				systemPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, system.getName()));
 			
-			if (isAccessible(GraalViewsRepository.System.Properties.dtoCategories)) {
-				dtoCategoriesSettings = new ReferencesTableSettings(system, GraalPackage.eINSTANCE.getDomainModelRegistry_DtoCategories());
-				systemPart.initDtoCategories(dtoCategoriesSettings);
+			if (isAccessible(GraalViewsRepository.System.Properties.namespaces)) {
+				namespacesSettings = new ReferencesTableSettings(system, GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces());
+				systemPart.initNamespaces(namespacesSettings);
 			}
-			if (isAccessible(GraalViewsRepository.System.Properties.dtos)) {
-				dtosSettings = new ReferencesTableSettings(system, GraalPackage.eINSTANCE.getDomainModelRegistry_Dtos());
-				systemPart.initDtos(dtosSettings);
-			}
-			if (isAccessible(GraalViewsRepository.System.Properties.entityBlocks)) {
-				entityBlocksSettings = new ReferencesTableSettings(system, GraalPackage.eINSTANCE.getDomainModelRegistry_EntityBlocks());
-				systemPart.initEntityBlocks(entityBlocksSettings);
-			}
-			if (isAccessible(GraalViewsRepository.System.Properties.entities)) {
-				entitiesSettings = new ReferencesTableSettings(system, GraalPackage.eINSTANCE.getDomainModelRegistry_Entities());
-				systemPart.initEntities(entitiesSettings);
+			if (isAccessible(GraalViewsRepository.System.Properties.types)) {
+				typesSettings = new ReferencesTableSettings(system, GraalPackage.eINSTANCE.getDomainModelRegistry_Types());
+				systemPart.initTypes(typesSettings);
 			}
 			// init filters
 			
 			
-			if (isAccessible(GraalViewsRepository.System.Properties.dtoCategories)) {
-				systemPart.addFilterToDtoCategories(new EObjectFilter(SoaPackage.Literals.CATEGORY));
-				// Start of user code for additional businessfilters for dtoCategories
+			if (isAccessible(GraalViewsRepository.System.Properties.namespaces)) {
+				systemPart.addFilterToNamespaces(new EObjectFilter(EnvironmentPackage.Literals.NAMESPACE));
+				// Start of user code for additional businessfilters for namespaces
 				// End of user code
 			}
-			if (isAccessible(GraalViewsRepository.System.Properties.dtos)) {
-				systemPart.addFilterToDtos(new EObjectFilter(SoaPackage.Literals.SERVICE_DTO));
-				// Start of user code for additional businessfilters for dtos
-				// End of user code
-			}
-			if (isAccessible(GraalViewsRepository.System.Properties.entityBlocks)) {
-				systemPart.addFilterToEntityBlocks(new EObjectFilter(EntityPackage.Literals.BLOCK));
-				// Start of user code for additional businessfilters for entityBlocks
-				// End of user code
-			}
-			if (isAccessible(GraalViewsRepository.System.Properties.entities)) {
-				systemPart.addFilterToEntities(new EObjectFilter(EntityPackage.Literals.ENTITY));
-				// Start of user code for additional businessfilters for entities
+			if (isAccessible(GraalViewsRepository.System.Properties.types)) {
+				systemPart.addFilterToTypes(new EObjectFilter(EnvironmentPackage.Literals.STRUCTURED_TYPE));
+				// Start of user code for additional businessfilters for types
 				// End of user code
 			}
 			// init values for referenced views
@@ -146,8 +114,6 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 		}
 		setInitializing(false);
 	}
-
-
 
 
 
@@ -166,17 +132,11 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 		if (editorKey == GraalViewsRepository.System.Properties.name) {
 			return GraalPackage.eINSTANCE.getNamedElement_Name();
 		}
-		if (editorKey == GraalViewsRepository.System.Properties.dtoCategories) {
-			return GraalPackage.eINSTANCE.getDomainModelRegistry_DtoCategories();
+		if (editorKey == GraalViewsRepository.System.Properties.namespaces) {
+			return GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces();
 		}
-		if (editorKey == GraalViewsRepository.System.Properties.dtos) {
-			return GraalPackage.eINSTANCE.getDomainModelRegistry_Dtos();
-		}
-		if (editorKey == GraalViewsRepository.System.Properties.entityBlocks) {
-			return GraalPackage.eINSTANCE.getDomainModelRegistry_EntityBlocks();
-		}
-		if (editorKey == GraalViewsRepository.System.Properties.entities) {
-			return GraalPackage.eINSTANCE.getDomainModelRegistry_Entities();
+		if (editorKey == GraalViewsRepository.System.Properties.types) {
+			return GraalPackage.eINSTANCE.getDomainModelRegistry_Types();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -194,48 +154,26 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 		if (GraalViewsRepository.System.Properties.name == event.getAffectedEditor()) {
 			system.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (GraalViewsRepository.System.Properties.dtoCategories == event.getAffectedEditor()) {
+		if (GraalViewsRepository.System.Properties.namespaces == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				if (event.getNewValue() instanceof Category) {
-					dtoCategoriesSettings.addToReference((EObject) event.getNewValue());
+				if (event.getNewValue() instanceof Namespace) {
+					namespacesSettings.addToReference((EObject) event.getNewValue());
 				}
 			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				dtoCategoriesSettings.removeFromReference((EObject) event.getNewValue());
+				namespacesSettings.removeFromReference((EObject) event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				dtoCategoriesSettings.move(event.getNewIndex(), (Category) event.getNewValue());
+				namespacesSettings.move(event.getNewIndex(), (Namespace) event.getNewValue());
 			}
 		}
-		if (GraalViewsRepository.System.Properties.dtos == event.getAffectedEditor()) {
+		if (GraalViewsRepository.System.Properties.types == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				if (event.getNewValue() instanceof ServiceDTO) {
-					dtosSettings.addToReference((EObject) event.getNewValue());
+				if (event.getNewValue() instanceof StructuredType) {
+					typesSettings.addToReference((EObject) event.getNewValue());
 				}
 			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				dtosSettings.removeFromReference((EObject) event.getNewValue());
+				typesSettings.removeFromReference((EObject) event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				dtosSettings.move(event.getNewIndex(), (ServiceDTO) event.getNewValue());
-			}
-		}
-		if (GraalViewsRepository.System.Properties.entityBlocks == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				if (event.getNewValue() instanceof Block) {
-					entityBlocksSettings.addToReference((EObject) event.getNewValue());
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				entityBlocksSettings.removeFromReference((EObject) event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				entityBlocksSettings.move(event.getNewIndex(), (Block) event.getNewValue());
-			}
-		}
-		if (GraalViewsRepository.System.Properties.entities == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				if (event.getNewValue() instanceof Entity) {
-					entitiesSettings.addToReference((EObject) event.getNewValue());
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				entitiesSettings.removeFromReference((EObject) event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				entitiesSettings.move(event.getNewIndex(), (Entity) event.getNewValue());
+				typesSettings.move(event.getNewIndex(), (StructuredType) event.getNewValue());
 			}
 		}
 	}
@@ -262,14 +200,10 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 					systemPart.setName("");
 				}
 			}
-			if (GraalPackage.eINSTANCE.getDomainModelRegistry_DtoCategories().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.System.Properties.dtoCategories))
-				systemPart.updateDtoCategories();
-			if (GraalPackage.eINSTANCE.getDomainModelRegistry_Dtos().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.System.Properties.dtos))
-				systemPart.updateDtos();
-			if (GraalPackage.eINSTANCE.getDomainModelRegistry_EntityBlocks().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.System.Properties.entityBlocks))
-				systemPart.updateEntityBlocks();
-			if (GraalPackage.eINSTANCE.getDomainModelRegistry_Entities().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.System.Properties.entities))
-				systemPart.updateEntities();
+			if (GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.System.Properties.namespaces))
+				systemPart.updateNamespaces();
+			if (GraalPackage.eINSTANCE.getDomainModelRegistry_Types().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.System.Properties.types))
+				systemPart.updateTypes();
 			
 		}
 	}
@@ -284,10 +218,8 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
 			GraalPackage.eINSTANCE.getNamedElement_Name(),
-			GraalPackage.eINSTANCE.getDomainModelRegistry_DtoCategories(),
-			GraalPackage.eINSTANCE.getDomainModelRegistry_Dtos(),
-			GraalPackage.eINSTANCE.getDomainModelRegistry_EntityBlocks(),
-			GraalPackage.eINSTANCE.getDomainModelRegistry_Entities()		);
+			GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces(),
+			GraalPackage.eINSTANCE.getDomainModelRegistry_Types()		);
 		return new NotificationFilter[] {filter,};
 	}
 

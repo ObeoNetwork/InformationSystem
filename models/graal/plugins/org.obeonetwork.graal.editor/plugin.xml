@@ -22,6 +22,22 @@
       </wizard>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated graal -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.graal.presentation.GraalModelWizardID"
+            name="%_UI_GraalModelWizard_label"
+            class="org.obeonetwork.graal.presentation.GraalModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GraalModelFile.gif">
+         <description>%_UI_GraalModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
    <extension point="org.eclipse.ui.editors">
       <editor
             id="org.obeonetwork.graal.presentation.GraalEditorID"

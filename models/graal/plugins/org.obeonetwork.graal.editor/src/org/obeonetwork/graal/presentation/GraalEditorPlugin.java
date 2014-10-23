@@ -49,9 +49,7 @@ public final class GraalEditorPlugin extends EMFPlugin {
 	public GraalEditorPlugin() {
 		super
 			(new ResourceLocator [] {
-				EntityEditPlugin.INSTANCE,
 				EnvironmentEditPlugin.INSTANCE,
-				SoaEditPlugin.INSTANCE,
 			});
 	}
 

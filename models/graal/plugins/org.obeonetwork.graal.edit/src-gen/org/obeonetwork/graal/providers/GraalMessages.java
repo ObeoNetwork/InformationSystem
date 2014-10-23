@@ -199,16 +199,10 @@ public class GraalMessages extends NLS {
 	public static String SystemPropertiesEditionPart_DescriptionLabel;
 
 	
-	public static String SystemPropertiesEditionPart_DtoCategoriesLabel;
+	public static String SystemPropertiesEditionPart_NamespacesLabel;
 
 	
-	public static String SystemPropertiesEditionPart_DtosLabel;
-
-	
-	public static String SystemPropertiesEditionPart_EntityBlocksLabel;
-
-	
-	public static String SystemPropertiesEditionPart_EntitiesLabel;
+	public static String SystemPropertiesEditionPart_TypesLabel;
 
 	
 	public static String OperatorPropertiesEditionPart_KindLabel;
@@ -367,16 +361,10 @@ public class GraalMessages extends NLS {
 	public static String UseCasePropertiesEditionPart_TasksLabel;
 
 	
-	public static String UseCasePropertiesEditionPart_DtoCategoriesLabel;
+	public static String UseCasePropertiesEditionPart_NamespacesLabel;
 
 	
-	public static String UseCasePropertiesEditionPart_DtosLabel;
-
-	
-	public static String UseCasePropertiesEditionPart_EntityBlocksLabel;
-
-	
-	public static String UseCasePropertiesEditionPart_EntitiesLabel;
+	public static String UseCasePropertiesEditionPart_TypesLabel;
 
 	
 	public static String UserStoryPropertiesEditionPart_NameLabel;

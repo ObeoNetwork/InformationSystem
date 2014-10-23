@@ -47,7 +47,7 @@ public interface GraalPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://org.obeonetwork.graal/1.0";
+	String eNS_URI = "http://www.obeonetwork.org/dsl/graal/2.0.0";
 
 	/**
 	 * The package namespace name.
@@ -768,40 +768,22 @@ public interface GraalPackage extends EPackage {
 	int SYSTEM__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Dto Categories</b></em>' reference list.
+	 * The feature id for the '<em><b>Namespaces</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__DTO_CATEGORIES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SYSTEM__NAMESPACES = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Dtos</b></em>' reference list.
+	 * The feature id for the '<em><b>Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__DTOS = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Entity Blocks</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM__ENTITY_BLOCKS = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Entities</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM__ENTITIES = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int SYSTEM__TYPES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -810,7 +792,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__TASKS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int SYSTEM__TASKS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Owned Tasks</b></em>' reference list.
@@ -819,7 +801,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_TASKS = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int SYSTEM__OWNED_TASKS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Owned Groups</b></em>' reference list.
@@ -828,7 +810,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_GROUPS = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int SYSTEM__OWNED_GROUPS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Sub Systems</b></em>' containment reference list.
@@ -837,7 +819,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__SUB_SYSTEMS = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int SYSTEM__SUB_SYSTEMS = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -846,7 +828,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int SYSTEM__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Use Cases</b></em>' containment reference list.
@@ -855,7 +837,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__USE_CASES = NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int SYSTEM__USE_CASES = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>User Stories</b></em>' containment reference list.
@@ -864,7 +846,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__USER_STORIES = NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int SYSTEM__USER_STORIES = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>System</em>' class.
@@ -873,7 +855,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 11;
+	int SYSTEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -2725,40 +2707,22 @@ public interface GraalPackage extends EPackage {
 	int USE_CASE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Dto Categories</b></em>' reference list.
+	 * The feature id for the '<em><b>Namespaces</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE__DTO_CATEGORIES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int USE_CASE__NAMESPACES = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Dtos</b></em>' reference list.
+	 * The feature id for the '<em><b>Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE__DTOS = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Entity Blocks</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USE_CASE__ENTITY_BLOCKS = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Entities</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USE_CASE__ENTITIES = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int USE_CASE__TYPES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' reference list.
@@ -2767,7 +2731,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int USE_CASE__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
@@ -2776,7 +2740,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE__TASKS = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int USE_CASE__TASKS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Includes</b></em>' reference list.
@@ -2785,7 +2749,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE__INCLUDES = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int USE_CASE__INCLUDES = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference list.
@@ -2794,7 +2758,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE__EXTENDS = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int USE_CASE__EXTENDS = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Use Case</em>' class.
@@ -2803,7 +2767,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int USE_CASE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.graal.impl.DomainModelRegistryImpl <em>Domain Model Registry</em>}' class.
@@ -2816,40 +2780,22 @@ public interface GraalPackage extends EPackage {
 	int DOMAIN_MODEL_REGISTRY = 21;
 
 	/**
-	 * The feature id for the '<em><b>Dto Categories</b></em>' reference list.
+	 * The feature id for the '<em><b>Namespaces</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_MODEL_REGISTRY__DTO_CATEGORIES = 0;
+	int DOMAIN_MODEL_REGISTRY__NAMESPACES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Dtos</b></em>' reference list.
+	 * The feature id for the '<em><b>Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_MODEL_REGISTRY__DTOS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Entity Blocks</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_MODEL_REGISTRY__ENTITY_BLOCKS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Entities</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOMAIN_MODEL_REGISTRY__ENTITIES = 3;
+	int DOMAIN_MODEL_REGISTRY__TYPES = 1;
 
 	/**
 	 * The number of structural features of the '<em>Domain Model Registry</em>' class.
@@ -2858,7 +2804,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_MODEL_REGISTRY_FEATURE_COUNT = 4;
+	int DOMAIN_MODEL_REGISTRY_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.graal.impl.TasksContainerImpl <em>Tasks Container</em>}' class.
@@ -3595,48 +3541,26 @@ public interface GraalPackage extends EPackage {
 	EClass getDomainModelRegistry();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.graal.DomainModelRegistry#getDtoCategories <em>Dto Categories</em>}'.
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.graal.DomainModelRegistry#getNamespaces <em>Namespaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dto Categories</em>'.
-	 * @see org.obeonetwork.graal.DomainModelRegistry#getDtoCategories()
+	 * @return the meta object for the reference list '<em>Namespaces</em>'.
+	 * @see org.obeonetwork.graal.DomainModelRegistry#getNamespaces()
 	 * @see #getDomainModelRegistry()
 	 * @generated
 	 */
-	EReference getDomainModelRegistry_DtoCategories();
+	EReference getDomainModelRegistry_Namespaces();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.graal.DomainModelRegistry#getDtos <em>Dtos</em>}'.
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.graal.DomainModelRegistry#getTypes <em>Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dtos</em>'.
-	 * @see org.obeonetwork.graal.DomainModelRegistry#getDtos()
+	 * @return the meta object for the reference list '<em>Types</em>'.
+	 * @see org.obeonetwork.graal.DomainModelRegistry#getTypes()
 	 * @see #getDomainModelRegistry()
 	 * @generated
 	 */
-	EReference getDomainModelRegistry_Dtos();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.graal.DomainModelRegistry#getEntityBlocks <em>Entity Blocks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Entity Blocks</em>'.
-	 * @see org.obeonetwork.graal.DomainModelRegistry#getEntityBlocks()
-	 * @see #getDomainModelRegistry()
-	 * @generated
-	 */
-	EReference getDomainModelRegistry_EntityBlocks();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.graal.DomainModelRegistry#getEntities <em>Entities</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Entities</em>'.
-	 * @see org.obeonetwork.graal.DomainModelRegistry#getEntities()
-	 * @see #getDomainModelRegistry()
-	 * @generated
-	 */
-	EReference getDomainModelRegistry_Entities();
+	EReference getDomainModelRegistry_Types();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.graal.TasksContainer <em>Tasks Container</em>}'.
@@ -4217,36 +4141,20 @@ public interface GraalPackage extends EPackage {
 		EClass DOMAIN_MODEL_REGISTRY = eINSTANCE.getDomainModelRegistry();
 
 		/**
-		 * The meta object literal for the '<em><b>Dto Categories</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Namespaces</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOMAIN_MODEL_REGISTRY__DTO_CATEGORIES = eINSTANCE.getDomainModelRegistry_DtoCategories();
+		EReference DOMAIN_MODEL_REGISTRY__NAMESPACES = eINSTANCE.getDomainModelRegistry_Namespaces();
 
 		/**
-		 * The meta object literal for the '<em><b>Dtos</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Types</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOMAIN_MODEL_REGISTRY__DTOS = eINSTANCE.getDomainModelRegistry_Dtos();
-
-		/**
-		 * The meta object literal for the '<em><b>Entity Blocks</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOMAIN_MODEL_REGISTRY__ENTITY_BLOCKS = eINSTANCE.getDomainModelRegistry_EntityBlocks();
-
-		/**
-		 * The meta object literal for the '<em><b>Entities</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOMAIN_MODEL_REGISTRY__ENTITIES = eINSTANCE.getDomainModelRegistry_Entities();
+		EReference DOMAIN_MODEL_REGISTRY__TYPES = eINSTANCE.getDomainModelRegistry_Types();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.graal.impl.TasksContainerImpl <em>Tasks Container</em>}' class.

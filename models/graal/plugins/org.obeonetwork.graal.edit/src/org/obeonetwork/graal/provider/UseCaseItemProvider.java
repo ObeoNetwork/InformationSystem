@@ -61,10 +61,8 @@ public class UseCaseItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDtoCategoriesPropertyDescriptor(object);
-			addDtosPropertyDescriptor(object);
-			addEntityBlocksPropertyDescriptor(object);
-			addEntitiesPropertyDescriptor(object);
+			addNamespacesPropertyDescriptor(object);
+			addTypesPropertyDescriptor(object);
 			addActorsPropertyDescriptor(object);
 			addTasksPropertyDescriptor(object);
 			addIncludesPropertyDescriptor(object);
@@ -74,19 +72,19 @@ public class UseCaseItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Dto Categories feature.
+	 * This adds a property descriptor for the Namespaces feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDtoCategoriesPropertyDescriptor(Object object) {
+	protected void addNamespacesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DomainModelRegistry_dtoCategories_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DomainModelRegistry_dtoCategories_feature", "_UI_DomainModelRegistry_type"),
-				 GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__DTO_CATEGORIES,
+				 getString("_UI_DomainModelRegistry_namespaces_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DomainModelRegistry_namespaces_feature", "_UI_DomainModelRegistry_type"),
+				 GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__NAMESPACES,
 				 true,
 				 false,
 				 true,
@@ -96,63 +94,19 @@ public class UseCaseItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Dtos feature.
+	 * This adds a property descriptor for the Types feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDtosPropertyDescriptor(Object object) {
+	protected void addTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DomainModelRegistry_dtos_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DomainModelRegistry_dtos_feature", "_UI_DomainModelRegistry_type"),
-				 GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__DTOS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Entity Blocks feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEntityBlocksPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DomainModelRegistry_entityBlocks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DomainModelRegistry_entityBlocks_feature", "_UI_DomainModelRegistry_type"),
-				 GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__ENTITY_BLOCKS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Entities feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEntitiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DomainModelRegistry_entities_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DomainModelRegistry_entities_feature", "_UI_DomainModelRegistry_type"),
-				 GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__ENTITIES,
+				 getString("_UI_DomainModelRegistry_types_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DomainModelRegistry_types_feature", "_UI_DomainModelRegistry_type"),
+				 GraalPackage.Literals.DOMAIN_MODEL_REGISTRY__TYPES,
 				 true,
 				 false,
 				 true,

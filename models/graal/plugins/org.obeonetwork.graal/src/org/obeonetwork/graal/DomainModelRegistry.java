@@ -12,10 +12,8 @@ package org.obeonetwork.graal;
 
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
-import org.obeonetwork.dsl.entity.Block;
-import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.soa.Category;
-import org.obeonetwork.dsl.soa.ServiceDTO;
+import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.StructuredType;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,10 +23,8 @@ import org.obeonetwork.dsl.soa.ServiceDTO;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.graal.DomainModelRegistry#getDtoCategories <em>Dto Categories</em>}</li>
- *   <li>{@link org.obeonetwork.graal.DomainModelRegistry#getDtos <em>Dtos</em>}</li>
- *   <li>{@link org.obeonetwork.graal.DomainModelRegistry#getEntityBlocks <em>Entity Blocks</em>}</li>
- *   <li>{@link org.obeonetwork.graal.DomainModelRegistry#getEntities <em>Entities</em>}</li>
+ *   <li>{@link org.obeonetwork.graal.DomainModelRegistry#getNamespaces <em>Namespaces</em>}</li>
+ *   <li>{@link org.obeonetwork.graal.DomainModelRegistry#getTypes <em>Types</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,67 +35,35 @@ import org.obeonetwork.dsl.soa.ServiceDTO;
  */
 public interface DomainModelRegistry extends CDOObject {
 	/**
-	 * Returns the value of the '<em><b>Dto Categories</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.soa.Category}.
+	 * Returns the value of the '<em><b>Namespaces</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Namespace}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Dto Categories</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Namespaces</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dto Categories</em>' reference list.
-	 * @see org.obeonetwork.graal.GraalPackage#getDomainModelRegistry_DtoCategories()
+	 * @return the value of the '<em>Namespaces</em>' reference list.
+	 * @see org.obeonetwork.graal.GraalPackage#getDomainModelRegistry_Namespaces()
 	 * @model
 	 * @generated
 	 */
-	EList<Category> getDtoCategories();
+	EList<Namespace> getNamespaces();
 
 	/**
-	 * Returns the value of the '<em><b>Dtos</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.soa.ServiceDTO}.
+	 * Returns the value of the '<em><b>Types</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.environment.StructuredType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Dtos</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Types</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dtos</em>' reference list.
-	 * @see org.obeonetwork.graal.GraalPackage#getDomainModelRegistry_Dtos()
+	 * @return the value of the '<em>Types</em>' reference list.
+	 * @see org.obeonetwork.graal.GraalPackage#getDomainModelRegistry_Types()
 	 * @model
 	 * @generated
 	 */
-	EList<ServiceDTO> getDtos();
-
-	/**
-	 * Returns the value of the '<em><b>Entity Blocks</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.entity.Block}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Entity Blocks</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entity Blocks</em>' reference list.
-	 * @see org.obeonetwork.graal.GraalPackage#getDomainModelRegistry_EntityBlocks()
-	 * @model
-	 * @generated
-	 */
-	EList<Block> getEntityBlocks();
-
-	/**
-	 * Returns the value of the '<em><b>Entities</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.entity.Entity}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Entities</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entities</em>' reference list.
-	 * @see org.obeonetwork.graal.GraalPackage#getDomainModelRegistry_Entities()
-	 * @model
-	 * @generated
-	 */
-	EList<Entity> getEntities();
+	EList<StructuredType> getTypes();
 
 } // DomainModelRegistry
