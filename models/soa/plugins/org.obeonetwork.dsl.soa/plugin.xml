@@ -12,7 +12,7 @@
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://www.obeonetwork.org/dsl/soa/2.0.0" 
+       uri = "http://www.obeonetwork.org/dsl/soa/3.0.0" 
        class = "org.obeonetwork.dsl.soa.SoaPackage"
        genModel = "model/soa.genmodel" /> 
   </extension>

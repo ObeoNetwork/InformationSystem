@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="graal" nsURI="http://org.obeonetwork.graal/1.0" nsPrefix="graal">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="graal" nsURI="http://www.obeonetwork.org/dsl/graal/2.0.0" nsPrefix="graal">
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Activity #//AbstractTask #//UserStoryElement">
     <eOperations name="getReferencedBy" upperBound="-1" eType="#//TaskReference"/>
     <eOperations name="getUsedBy" upperBound="-1" eType="#//Task"/>
@@ -106,13 +106,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedNode" abstract="true" eSuperTypes="#//Node #//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="DomainModelRegistry" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dtoCategories" upperBound="-1"
-        eType="ecore:EClass platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#//Category"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dtos" upperBound="-1" eType="ecore:EClass platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#//ServiceDTO"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entityBlocks" upperBound="-1"
-        eType="ecore:EClass ../../org.obeonetwork.dsl.entity/model/entity.ecore#//Block"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
-        eType="ecore:EClass ../../org.obeonetwork.dsl.entity/model/entity.ecore#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namespaces" upperBound="-1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TasksContainer" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
