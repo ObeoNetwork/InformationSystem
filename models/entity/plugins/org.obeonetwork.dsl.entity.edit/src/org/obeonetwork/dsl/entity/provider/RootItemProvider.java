@@ -20,18 +20,22 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.entity.EntityFactory;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.entity.Root;
+import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.provider.NamespaceItemProvider;
+import org.obeonetwork.dsl.environment.provider.TypesDefinitionItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.entity.Root} object.
@@ -40,7 +44,7 @@ import org.obeonetwork.dsl.environment.provider.NamespaceItemProvider;
  * @generated
  */
 public class RootItemProvider
-	extends NamespaceItemProvider
+	extends TypesDefinitionItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -75,8 +79,31 @@ public class RootItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Root_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Root_name_feature", "_UI_Root_type"),
+				 EntityPackage.Literals.ROOT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -91,7 +118,7 @@ public class RootItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EntityPackage.Literals.ROOT__BLOCKS);
+			childrenFeatures.add(EntityPackage.Literals.ROOT__NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -138,7 +165,11 @@ public class RootItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return "Blocks";
+		String label = ((Root)object).getName();
+		if (label != null) {
+			return label;
+		}
+		return "Entities";
 	}
 
 	/**
@@ -153,7 +184,10 @@ public class RootItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Root.class)) {
-			case EntityPackage.ROOT__BLOCKS:
+			case EntityPackage.ROOT__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EntityPackage.ROOT__NAMESPACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -173,13 +207,13 @@ public class RootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EnvironmentPackage.Literals.NAMESPACE__OWNED_NAMESPACES,
-				 EntityFactory.eINSTANCE.createRoot()));
+				(EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES,
+				 EntityFactory.eINSTANCE.createEntity()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EntityPackage.Literals.ROOT__BLOCKS,
-				 EntityFactory.eINSTANCE.createBlock()));
+				(EntityPackage.Literals.ROOT__NAMESPACES,
+				 EnvironmentFactory.eINSTANCE.createNamespace()));
 	}
 
 	/**

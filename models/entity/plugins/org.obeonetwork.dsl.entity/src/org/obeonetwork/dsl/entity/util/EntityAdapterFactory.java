@@ -16,22 +16,19 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.obeonetwork.dsl.entity.Attribute;
-import org.obeonetwork.dsl.entity.Block;
+import org.obeonetwork.dsl.entity.*;
 import org.obeonetwork.dsl.entity.Criterion;
 import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.entity.ExternalCriterion;
 import org.obeonetwork.dsl.entity.Finder;
 import org.obeonetwork.dsl.entity.InternalCriterion;
-import org.obeonetwork.dsl.entity.Property;
-import org.obeonetwork.dsl.entity.Reference;
 import org.obeonetwork.dsl.entity.Root;
 import org.obeonetwork.dsl.environment.BoundableElement;
-import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
+import org.obeonetwork.dsl.environment.TypesDefinition;
 
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It
@@ -98,24 +95,8 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 				return createRootAdapter();
 			}
 			@Override
-			public Adapter caseBlock(Block object) {
-				return createBlockAdapter();
-			}
-			@Override
 			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
-			}
-			@Override
-			public Adapter caseProperty(Property object) {
-				return createPropertyAdapter();
-			}
-			@Override
-			public Adapter caseAttribute(Attribute object) {
-				return createAttributeAdapter();
-			}
-			@Override
-			public Adapter caseReference(Reference object) {
-				return createReferenceAdapter();
 			}
 			@Override
 			public Adapter caseFinder(Finder object) {
@@ -138,8 +119,8 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 				return createObeoDSMObjectAdapter();
 			}
 			@Override
-			public Adapter caseNamespace(Namespace object) {
-				return createNamespaceAdapter();
+			public Adapter caseTypesDefinition(TypesDefinition object) {
+				return createTypesDefinitionAdapter();
 			}
 			@Override
 			public Adapter caseBoundableElement(BoundableElement object) {
@@ -187,19 +168,6 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.entity.Block <em>Block</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that
-	 * we can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.entity.Block
-	 * @generated
-	 */
-	public Adapter createBlockAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.entity.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that
 	 * we can easily ignore cases; it's useful to ignore a case when inheritance
@@ -209,45 +177,6 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.entity.Property <em>Property</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that
-	 * we can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.entity.Property
-	 * @generated
-	 */
-	public Adapter createPropertyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.entity.Attribute <em>Attribute</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that
-	 * we can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.entity.Attribute
-	 * @generated
-	 */
-	public Adapter createAttributeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.entity.Reference <em>Reference</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that
-	 * we can easily ignore cases; it's useful to ignore a case when inheritance
-	 * will catch all the cases anyway. <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.entity.Reference
-	 * @generated
-	 */
-	public Adapter createReferenceAdapter() {
 		return null;
 	}
 
@@ -317,16 +246,16 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.Namespace <em>Namespace</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.TypesDefinition <em>Types Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.environment.Namespace
+	 * @see org.obeonetwork.dsl.environment.TypesDefinition
 	 * @generated
 	 */
-	public Adapter createNamespaceAdapter() {
+	public Adapter createTypesDefinitionAdapter() {
 		return null;
 	}
 

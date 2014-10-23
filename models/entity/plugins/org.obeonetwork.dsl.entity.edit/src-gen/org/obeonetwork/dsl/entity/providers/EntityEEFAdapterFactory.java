@@ -20,7 +20,7 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.obeonetwork.dsl.entity.util.EntityAdapterFactory;
 
 import org.obeonetwork.dsl.environment.providers.MetadataCptPropertiesEditionProvider;
-import org.obeonetwork.dsl.environment.providers.NamespacePropertiesEditionProvider;
+import org.obeonetwork.dsl.environment.providers.TypesDefinitionPropertiesEditionProvider;
 
 /**
  * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
@@ -38,13 +38,13 @@ public class EntityEEFAdapterFactory extends EntityAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.entity.util.EntityAdapterFactory#createNamespaceAdapter()
+	 * @see org.obeonetwork.dsl.entity.util.EntityAdapterFactory#createTypesDefinitionAdapter()
 	 * 
 	 */
-	public Adapter createNamespaceAdapter() {
+	public Adapter createTypesDefinitionAdapter() {
 		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
 		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new NamespacePropertiesEditionProvider(providers);
+		return new TypesDefinitionPropertiesEditionProvider(providers);
 	}
 	/**
 	 * {@inheritDoc}
@@ -58,16 +58,6 @@ public class EntityEEFAdapterFactory extends EntityAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.entity.util.EntityAdapterFactory#createBlockAdapter()
-	 * 
-	 */
-	public Adapter createBlockAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new BlockPropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
 	 * @see org.obeonetwork.dsl.entity.util.EntityAdapterFactory#createEntityAdapter()
 	 * 
 	 */
@@ -75,26 +65,6 @@ public class EntityEEFAdapterFactory extends EntityAdapterFactory {
 		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
 		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
 		return new EntityPropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.entity.util.EntityAdapterFactory#createAttributeAdapter()
-	 * 
-	 */
-	public Adapter createAttributeAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new AttributePropertiesEditionProvider(providers);
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.entity.util.EntityAdapterFactory#createReferenceAdapter()
-	 * 
-	 */
-	public Adapter createReferenceAdapter() {
-		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
-		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new ReferencePropertiesEditionProvider(providers);
 	}
 	/**
 	 * {@inheritDoc}

@@ -3,6 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="entity" nsURI="http://www.obeonetwork.org/dsl/entity/3.0.0"
     nsPrefix="oent">
   <eClassifiers xsi:type="ecore:EClass" name="Root" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//TypesDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="namespaces" upperBound="-1"
         eType="ecore:EClass ../../org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace"
         containment="true"/>

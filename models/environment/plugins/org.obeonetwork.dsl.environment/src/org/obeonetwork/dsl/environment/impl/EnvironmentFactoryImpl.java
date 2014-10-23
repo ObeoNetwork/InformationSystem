@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.obeonetwork.dsl.environment.*;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.BindingElement;
@@ -65,7 +66,7 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 	public static EnvironmentFactory init() {
 		try {
 			EnvironmentFactory theEnvironmentFactory = (EnvironmentFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http://www.obeonetwork.org/dsl/environment/2.0.0");
+					.getEFactory(EnvironmentPackage.eNS_URI);
 			if (theEnvironmentFactory != null) {
 				return theEnvironmentFactory;
 			}
@@ -303,7 +304,7 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 	 * @generated NOT
 	 */
 	public Reference createReference() {
-		ReferenceImpl reference = new ReferenceSpec();
+		Reference reference = new ReferenceSpec();
 		return reference;
 	}
 

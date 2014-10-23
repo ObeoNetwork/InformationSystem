@@ -1,14 +1,7 @@
-/*******************************************************************************
- * Copyright (c) 2008-2009 Obeo.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Obeo - initial API and implementation
- *******************************************************************************/
-package org.obeonetwork.dsl.soa.parts.forms;
+/**
+ * Generated with Acceleo
+ */
+package org.obeonetwork.dsl.environment.parts.forms;
 
 // Start of user code for imports
 import java.util.ArrayList;
@@ -16,62 +9,86 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
+
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
+
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
+
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
+
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
+
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
+
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
+
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.EObjectFlatComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
+
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
+
 import org.eclipse.emf.eef.runtime.ui.widgets.TabElementTreeSelectionDialog;
+
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
+
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
+
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
+
 import org.eclipse.swt.SWT;
+
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-import org.eclipse.ui.views.properties.tabbed.ISection;
-import org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart;
-import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
-import org.obeonetwork.dsl.soa.providers.SoaMessages;
+
+import org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart;
+import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
+
+import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
 
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * 
  * 
  */
-public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, ServiceDTOPropertiesEditionPart {
+public class DTOPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, DTOPropertiesEditionPart {
 
 	protected Text name;
 	protected EObjectFlatComboViewer supertype;
@@ -85,14 +102,14 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * For {@link ISection} use only.
 	 */
-	public ServiceDTOPropertiesEditionPartForm() { super(); }
+	public DTOPropertiesEditionPartForm() { super(); }
 
 	/**
 	 * Default constructor
 	 * @param editionComponent the {@link IPropertiesEditionComponent} that manage this part
 	 * 
 	 */
-	public ServiceDTOPropertiesEditionPartForm(IPropertiesEditionComponent editionComponent) {
+	public DTOPropertiesEditionPartForm(IPropertiesEditionComponent editionComponent) {
 		super(editionComponent);
 	}
 
@@ -122,31 +139,31 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	 * 
 	 */
 	public void createControls(final FormToolkit widgetFactory, Composite view) {
-		CompositionSequence serviceDTOStep = new BindingCompositionSequence(propertiesEditionComponent);
-		CompositionStep propertiesStep = serviceDTOStep.addStep(SoaViewsRepository.ServiceDTO.Properties.class);
-		propertiesStep.addStep(SoaViewsRepository.ServiceDTO.Properties.name);
-		propertiesStep.addStep(SoaViewsRepository.ServiceDTO.Properties.supertype);
-		propertiesStep.addStep(SoaViewsRepository.ServiceDTO.Properties.associatedTypes);
-		propertiesStep.addStep(SoaViewsRepository.ServiceDTO.Properties.description);
+		CompositionSequence dTOStep = new BindingCompositionSequence(propertiesEditionComponent);
+		CompositionStep propertiesStep = dTOStep.addStep(EnvironmentViewsRepository.DTO.Properties.class);
+		propertiesStep.addStep(EnvironmentViewsRepository.DTO.Properties.name);
+		propertiesStep.addStep(EnvironmentViewsRepository.DTO.Properties.supertype);
+		propertiesStep.addStep(EnvironmentViewsRepository.DTO.Properties.associatedTypes);
+		propertiesStep.addStep(EnvironmentViewsRepository.DTO.Properties.description);
 		
 		
-		composer = new PartComposer(serviceDTOStep) {
+		composer = new PartComposer(dTOStep) {
 
 			@Override
 			public Composite addToPart(Composite parent, Object key) {
-				if (key == SoaViewsRepository.ServiceDTO.Properties.class) {
+				if (key == EnvironmentViewsRepository.DTO.Properties.class) {
 					return createPropertiesGroup(widgetFactory, parent);
 				}
-				if (key == SoaViewsRepository.ServiceDTO.Properties.name) {
+				if (key == EnvironmentViewsRepository.DTO.Properties.name) {
 					return createNameText(widgetFactory, parent);
 				}
-				if (key == SoaViewsRepository.ServiceDTO.Properties.supertype) {
+				if (key == EnvironmentViewsRepository.DTO.Properties.supertype) {
 					return createSupertypeFlatComboViewer(parent, widgetFactory);
 				}
-				if (key == SoaViewsRepository.ServiceDTO.Properties.associatedTypes) {
+				if (key == EnvironmentViewsRepository.DTO.Properties.associatedTypes) {
 					return createAssociatedTypesReferencesTable(widgetFactory, parent);
 				}
-				if (key == SoaViewsRepository.ServiceDTO.Properties.description) {
+				if (key == EnvironmentViewsRepository.DTO.Properties.description) {
 					return createDescriptionTextarea(widgetFactory, parent);
 				}
 				return parent;
@@ -159,7 +176,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	 */
 	protected Composite createPropertiesGroup(FormToolkit widgetFactory, final Composite parent) {
 		Section propertiesSection = widgetFactory.createSection(parent, Section.TITLE_BAR | Section.TWISTIE | Section.EXPANDED);
-		propertiesSection.setText(SoaMessages.ServiceDTOPropertiesEditionPart_PropertiesGroupLabel);
+		propertiesSection.setText(EnvironmentMessages.DTOPropertiesEditionPart_PropertiesGroupLabel);
 		GridData propertiesSectionData = new GridData(GridData.FILL_HORIZONTAL);
 		propertiesSectionData.horizontalSpan = 3;
 		propertiesSection.setLayoutData(propertiesSectionData);
@@ -173,7 +190,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 
 	
 	protected Composite createNameText(FormToolkit widgetFactory, Composite parent) {
-		createDescription(parent, SoaViewsRepository.ServiceDTO.Properties.name, SoaMessages.ServiceDTOPropertiesEditionPart_NameLabel);
+		createDescription(parent, EnvironmentViewsRepository.DTO.Properties.name, EnvironmentMessages.DTOPropertiesEditionPart_NameLabel);
 		name = widgetFactory.createText(parent, ""); //$NON-NLS-1$
 		name.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
@@ -189,13 +206,13 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 			public void focusLost(FocusEvent e) {
 				if (propertiesEditionComponent != null) {
 					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
-							ServiceDTOPropertiesEditionPartForm.this,
-							SoaViewsRepository.ServiceDTO.Properties.name,
+							DTOPropertiesEditionPartForm.this,
+							EnvironmentViewsRepository.DTO.Properties.name,
 							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
 					propertiesEditionComponent
 							.firePropertiesChanged(new PropertiesEditionEvent(
-									ServiceDTOPropertiesEditionPartForm.this,
-									SoaViewsRepository.ServiceDTO.Properties.name,
+									DTOPropertiesEditionPartForm.this,
+									EnvironmentViewsRepository.DTO.Properties.name,
 									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
 									null, name.getText()));
 				}
@@ -209,7 +226,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 				if (propertiesEditionComponent != null) {
 					propertiesEditionComponent
 							.firePropertiesChanged(new PropertiesEditionEvent(
-									ServiceDTOPropertiesEditionPartForm.this,
+									DTOPropertiesEditionPartForm.this,
 									null,
 									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
 									null, null));
@@ -226,13 +243,13 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 			public void keyPressed(KeyEvent e) {
 				if (e.character == SWT.CR) {
 					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ServiceDTOPropertiesEditionPartForm.this, SoaViewsRepository.ServiceDTO.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartForm.this, EnvironmentViewsRepository.DTO.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
 				}
 			}
 		});
-		EditingUtils.setID(name, SoaViewsRepository.ServiceDTO.Properties.name);
+		EditingUtils.setID(name, EnvironmentViewsRepository.DTO.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.ServiceDTO.Properties.name, SoaViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.DTO.Properties.name, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
 		// Start of user code for createNameText
 
 		// End of user code
@@ -245,8 +262,8 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	 * 
 	 */
 	protected Composite createSupertypeFlatComboViewer(Composite parent, FormToolkit widgetFactory) {
-		createDescription(parent, SoaViewsRepository.ServiceDTO.Properties.supertype, SoaMessages.ServiceDTOPropertiesEditionPart_SupertypeLabel);
-		supertype = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(SoaViewsRepository.ServiceDTO.Properties.supertype, SoaViewsRepository.FORM_KIND));
+		createDescription(parent, EnvironmentViewsRepository.DTO.Properties.supertype, EnvironmentMessages.DTOPropertiesEditionPart_SupertypeLabel);
+		supertype = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(EnvironmentViewsRepository.DTO.Properties.supertype, EnvironmentViewsRepository.FORM_KIND));
 		widgetFactory.adapt(supertype);
 		supertype.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 		GridData supertypeData = new GridData(GridData.FILL_HORIZONTAL);
@@ -260,12 +277,12 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 			 */
 			public void selectionChanged(SelectionChangedEvent event) {
 				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ServiceDTOPropertiesEditionPartForm.this, SoaViewsRepository.ServiceDTO.Properties.supertype, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getSupertype()));
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartForm.this, EnvironmentViewsRepository.DTO.Properties.supertype, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getSupertype()));
 			}
 
 		});
-		supertype.setID(SoaViewsRepository.ServiceDTO.Properties.supertype);
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.ServiceDTO.Properties.supertype, SoaViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		supertype.setID(EnvironmentViewsRepository.DTO.Properties.supertype);
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.DTO.Properties.supertype, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
 		// Start of user code for createSupertypeFlatComboViewer
 
 		// End of user code
@@ -276,20 +293,20 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	 * 
 	 */
 	protected Composite createAssociatedTypesReferencesTable(FormToolkit widgetFactory, Composite parent) {
-		this.associatedTypes = new ReferencesTable(getDescription(SoaViewsRepository.ServiceDTO.Properties.associatedTypes, SoaMessages.ServiceDTOPropertiesEditionPart_AssociatedTypesLabel), new ReferencesTableListener	() {
+		this.associatedTypes = new ReferencesTable(getDescription(EnvironmentViewsRepository.DTO.Properties.associatedTypes, EnvironmentMessages.DTOPropertiesEditionPart_AssociatedTypesLabel), new ReferencesTableListener	() {
 			public void handleAdd() { addAssociatedTypes(); }
 			public void handleEdit(EObject element) { editAssociatedTypes(element); }
 			public void handleMove(EObject element, int oldIndex, int newIndex) { moveAssociatedTypes(element, oldIndex, newIndex); }
 			public void handleRemove(EObject element) { removeFromAssociatedTypes(element); }
 			public void navigateTo(EObject element) { }
 		});
-		this.associatedTypes.setHelpText(propertiesEditionComponent.getHelpContent(SoaViewsRepository.ServiceDTO.Properties.associatedTypes, SoaViewsRepository.FORM_KIND));
+		this.associatedTypes.setHelpText(propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.DTO.Properties.associatedTypes, EnvironmentViewsRepository.FORM_KIND));
 		this.associatedTypes.createControls(parent, widgetFactory);
 		this.associatedTypes.addSelectionListener(new SelectionAdapter() {
 			
 			public void widgetSelected(SelectionEvent e) {
 				if (e.item != null && e.item.getData() instanceof EObject) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ServiceDTOPropertiesEditionPartForm.this, SoaViewsRepository.ServiceDTO.Properties.associatedTypes, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartForm.this, EnvironmentViewsRepository.DTO.Properties.associatedTypes, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
 				}
 			}
 			
@@ -298,7 +315,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		associatedTypesData.horizontalSpan = 3;
 		this.associatedTypes.setLayoutData(associatedTypesData);
 		this.associatedTypes.disableMove();
-		associatedTypes.setID(SoaViewsRepository.ServiceDTO.Properties.associatedTypes);
+		associatedTypes.setID(EnvironmentViewsRepository.DTO.Properties.associatedTypes);
 		associatedTypes.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
 		// Start of user code for createAssociatedTypesReferencesTable
 
@@ -316,7 +333,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 			public void process(IStructuredSelection selection) {
 				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
 					EObject elem = (EObject) iter.next();
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ServiceDTOPropertiesEditionPartForm.this, SoaViewsRepository.ServiceDTO.Properties.associatedTypes,
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartForm.this, EnvironmentViewsRepository.DTO.Properties.associatedTypes,
 						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
 				}
 				associatedTypes.refresh();
@@ -329,7 +346,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	 * 
 	 */
 	protected void moveAssociatedTypes(EObject element, int oldIndex, int newIndex) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ServiceDTOPropertiesEditionPartForm.this, SoaViewsRepository.ServiceDTO.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartForm.this, EnvironmentViewsRepository.DTO.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
 		associatedTypes.refresh();
 	}
 
@@ -337,7 +354,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	 * 
 	 */
 	protected void removeFromAssociatedTypes(EObject element) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ServiceDTOPropertiesEditionPartForm.this, SoaViewsRepository.ServiceDTO.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartForm.this, EnvironmentViewsRepository.DTO.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
 		associatedTypes.refresh();
 	}
 
@@ -358,7 +375,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 
 	
 	protected Composite createDescriptionTextarea(FormToolkit widgetFactory, Composite parent) {
-		Label descriptionLabel = createDescription(parent, SoaViewsRepository.ServiceDTO.Properties.description, SoaMessages.ServiceDTOPropertiesEditionPart_DescriptionLabel);
+		Label descriptionLabel = createDescription(parent, EnvironmentViewsRepository.DTO.Properties.description, EnvironmentMessages.DTOPropertiesEditionPart_DescriptionLabel);
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
@@ -379,13 +396,13 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 			public void focusLost(FocusEvent e) {
 				if (propertiesEditionComponent != null) {
 					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
-							ServiceDTOPropertiesEditionPartForm.this,
-							SoaViewsRepository.ServiceDTO.Properties.description,
+							DTOPropertiesEditionPartForm.this,
+							EnvironmentViewsRepository.DTO.Properties.description,
 							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
 					propertiesEditionComponent
 							.firePropertiesChanged(new PropertiesEditionEvent(
-									ServiceDTOPropertiesEditionPartForm.this,
-									SoaViewsRepository.ServiceDTO.Properties.description,
+									DTOPropertiesEditionPartForm.this,
+									EnvironmentViewsRepository.DTO.Properties.description,
 									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
 									null, description.getText()));
 				}
@@ -399,16 +416,16 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 				if (propertiesEditionComponent != null) {
 					propertiesEditionComponent
 							.firePropertiesChanged(new PropertiesEditionEvent(
-									ServiceDTOPropertiesEditionPartForm.this,
+									DTOPropertiesEditionPartForm.this,
 									null,
 									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
 									null, null));
 				}
 			}
 		});
-		EditingUtils.setID(description, SoaViewsRepository.ServiceDTO.Properties.description);
+		EditingUtils.setID(description, EnvironmentViewsRepository.DTO.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.ServiceDTO.Properties.description, SoaViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.DTO.Properties.description, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
 		// Start of user code for createDescriptionTextArea
 
 		// End of user code
@@ -431,7 +448,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#getName()
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#getName()
 	 * 
 	 */
 	public String getName() {
@@ -441,7 +458,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#setName(String newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#setName(String newValue)
 	 * 
 	 */
 	public void setName(String newValue) {
@@ -450,10 +467,10 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.ServiceDTO.Properties.name);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.DTO.Properties.name);
 		if (eefElementEditorReadOnlyState && name.isEnabled()) {
 			name.setEnabled(false);
-			name.setToolTipText(SoaMessages.ServiceDTO_ReadOnly);
+			name.setToolTipText(EnvironmentMessages.DTO_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
 			name.setEnabled(true);
 		}	
@@ -463,7 +480,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#getSupertype()
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#getSupertype()
 	 * 
 	 */
 	public EObject getSupertype() {
@@ -478,17 +495,17 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#initSupertype(EObjectFlatComboSettings)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#initSupertype(EObjectFlatComboSettings)
 	 */
 	public void initSupertype(EObjectFlatComboSettings settings) {
 		supertype.setInput(settings);
 		if (current != null) {
 			supertype.setSelection(new StructuredSelection(settings.getValue()));
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.ServiceDTO.Properties.supertype);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.DTO.Properties.supertype);
 		if (eefElementEditorReadOnlyState && supertype.isEnabled()) {
 			supertype.setEnabled(false);
-			supertype.setToolTipText(SoaMessages.ServiceDTO_ReadOnly);
+			supertype.setToolTipText(EnvironmentMessages.DTO_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !supertype.isEnabled()) {
 			supertype.setEnabled(true);
 		}	
@@ -498,7 +515,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#setSupertype(EObject newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#setSupertype(EObject newValue)
 	 * 
 	 */
 	public void setSupertype(EObject newValue) {
@@ -507,10 +524,10 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			supertype.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.ServiceDTO.Properties.supertype);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.DTO.Properties.supertype);
 		if (eefElementEditorReadOnlyState && supertype.isEnabled()) {
 			supertype.setEnabled(false);
-			supertype.setToolTipText(SoaMessages.ServiceDTO_ReadOnly);
+			supertype.setToolTipText(EnvironmentMessages.DTO_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !supertype.isEnabled()) {
 			supertype.setEnabled(true);
 		}	
@@ -520,7 +537,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#setSupertypeButtonMode(ButtonsModeEnum newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#setSupertypeButtonMode(ButtonsModeEnum newValue)
 	 */
 	public void setSupertypeButtonMode(ButtonsModeEnum newValue) {
 		supertype.setButtonMode(newValue);
@@ -529,7 +546,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#addFilterSupertype(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#addFilterSupertype(ViewerFilter filter)
 	 * 
 	 */
 	public void addFilterToSupertype(ViewerFilter filter) {
@@ -539,7 +556,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#addBusinessFilterSupertype(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#addBusinessFilterSupertype(ViewerFilter filter)
 	 * 
 	 */
 	public void addBusinessFilterToSupertype(ViewerFilter filter) {
@@ -551,7 +568,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#initAssociatedTypes(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#initAssociatedTypes(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
 	 */
 	public void initAssociatedTypes(ReferencesTableSettings settings) {
 		if (current.eResource() != null && current.eResource().getResourceSet() != null)
@@ -559,10 +576,10 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		associatedTypes.setContentProvider(contentProvider);
 		associatedTypes.setInput(settings);
-		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.ServiceDTO.Properties.associatedTypes);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.DTO.Properties.associatedTypes);
 		if (eefElementEditorReadOnlyState && associatedTypes.getTable().isEnabled()) {
 			associatedTypes.setEnabled(false);
-			associatedTypes.setToolTipText(SoaMessages.ServiceDTO_ReadOnly);
+			associatedTypes.setToolTipText(EnvironmentMessages.DTO_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !associatedTypes.getTable().isEnabled()) {
 			associatedTypes.setEnabled(true);
 		}
@@ -572,7 +589,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#updateAssociatedTypes()
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#updateAssociatedTypes()
 	 * 
 	 */
 	public void updateAssociatedTypes() {
@@ -582,7 +599,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#addFilterAssociatedTypes(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#addFilterAssociatedTypes(ViewerFilter filter)
 	 * 
 	 */
 	public void addFilterToAssociatedTypes(ViewerFilter filter) {
@@ -592,7 +609,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#addBusinessFilterAssociatedTypes(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#addBusinessFilterAssociatedTypes(ViewerFilter filter)
 	 * 
 	 */
 	public void addBusinessFilterToAssociatedTypes(ViewerFilter filter) {
@@ -602,7 +619,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#isContainedInAssociatedTypesTable(EObject element)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#isContainedInAssociatedTypesTable(EObject element)
 	 * 
 	 */
 	public boolean isContainedInAssociatedTypesTable(EObject element) {
@@ -612,7 +629,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#getDescription()
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#getDescription()
 	 * 
 	 */
 	public String getDescription() {
@@ -622,7 +639,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ServiceDTOPropertiesEditionPart#setDescription(String newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#setDescription(String newValue)
 	 * 
 	 */
 	public void setDescription(String newValue) {
@@ -631,11 +648,11 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.ServiceDTO.Properties.description);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.DTO.Properties.description);
 		if (eefElementEditorReadOnlyState && description.isEnabled()) {
 			description.setEnabled(false);
 			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
-			description.setToolTipText(SoaMessages.ServiceDTO_ReadOnly);
+			description.setToolTipText(EnvironmentMessages.DTO_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
 			description.setEnabled(true);
 		}	
@@ -654,7 +671,7 @@ public class ServiceDTOPropertiesEditionPartForm extends SectionPropertiesEditin
 	 * 
 	 */
 	public String getTitle() {
-		return SoaMessages.ServiceDTO_Part_Title;
+		return EnvironmentMessages.DTO_Part_Title;
 	}
 
 	// Start of user code additional methods

@@ -29,12 +29,14 @@ import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionConte
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
+import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
 import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -45,7 +47,7 @@ import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
  * 
  */
 public class ParameterParameterPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {
@@ -89,14 +91,9 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 			if (isAccessible(SoaViewsRepository.Parameter.Properties.name))
 				parameterPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, parameter.getName()));
 			
-			if (isAccessible(SoaViewsRepository.Parameter.Properties.lower)) {
-				parameterPart.setLower(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, parameter.getLower()));
+			if (isAccessible(SoaViewsRepository.Parameter.Properties.multiplicity)) {
+				parameterPart.initMultiplicity(EEFUtils.choiceOfValues(parameter, SoaPackage.eINSTANCE.getParameter_Multiplicity()), parameter.getMultiplicity());
 			}
-			
-			if (isAccessible(SoaViewsRepository.Parameter.Properties.upper)) {
-				parameterPart.setUpper(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, parameter.getUpper()));
-			}
-			
 			if (isAccessible(SoaViewsRepository.Parameter.Properties.isUnique)) {
 				parameterPart.setIsUnique(parameter.isIsUnique());
 			}
@@ -119,7 +116,6 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 			
 			
 			
-			
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -127,7 +123,6 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 		}
 		setInitializing(false);
 	}
-
 
 
 
@@ -145,11 +140,8 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 		if (editorKey == SoaViewsRepository.Parameter.Properties.name) {
 			return SoaPackage.eINSTANCE.getParameter_Name();
 		}
-		if (editorKey == SoaViewsRepository.Parameter.Properties.lower) {
-			return SoaPackage.eINSTANCE.getParameter_Lower();
-		}
-		if (editorKey == SoaViewsRepository.Parameter.Properties.upper) {
-			return SoaPackage.eINSTANCE.getParameter_Upper();
+		if (editorKey == SoaViewsRepository.Parameter.Properties.multiplicity) {
+			return SoaPackage.eINSTANCE.getParameter_Multiplicity();
 		}
 		if (editorKey == SoaViewsRepository.Parameter.Properties.isUnique) {
 			return SoaPackage.eINSTANCE.getParameter_IsUnique();
@@ -176,11 +168,8 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 		if (SoaViewsRepository.Parameter.Properties.name == event.getAffectedEditor()) {
 			parameter.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (SoaViewsRepository.Parameter.Properties.lower == event.getAffectedEditor()) {
-			parameter.setLower((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
-		}
-		if (SoaViewsRepository.Parameter.Properties.upper == event.getAffectedEditor()) {
-			parameter.setUpper((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
+		if (SoaViewsRepository.Parameter.Properties.multiplicity == event.getAffectedEditor()) {
+			parameter.setMultiplicity((MultiplicityKind)event.getNewValue());
 		}
 		if (SoaViewsRepository.Parameter.Properties.isUnique == event.getAffectedEditor()) {
 			parameter.setIsUnique((Boolean)event.getNewValue());
@@ -222,20 +211,9 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 					parameterPart.setName("");
 				}
 			}
-			if (SoaPackage.eINSTANCE.getParameter_Lower().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.lower)) {
-				if (msg.getNewValue() != null) {
-					parameterPart.setLower(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
-				} else {
-					parameterPart.setLower("");
-				}
-			}
-			if (SoaPackage.eINSTANCE.getParameter_Upper().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.upper)) {
-				if (msg.getNewValue() != null) {
-					parameterPart.setUpper(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
-				} else {
-					parameterPart.setUpper("");
-				}
-			}
+			if (SoaPackage.eINSTANCE.getParameter_Multiplicity().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(SoaViewsRepository.Parameter.Properties.multiplicity))
+				parameterPart.setMultiplicity((MultiplicityKind)msg.getNewValue());
+			
 			if (SoaPackage.eINSTANCE.getParameter_IsUnique().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && parameterPart != null && isAccessible(SoaViewsRepository.Parameter.Properties.isUnique))
 				parameterPart.setIsUnique((Boolean)msg.getNewValue());
 			
@@ -264,8 +242,7 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			SoaPackage.eINSTANCE.getParameter_Name(),
-			SoaPackage.eINSTANCE.getParameter_Lower(),
-			SoaPackage.eINSTANCE.getParameter_Upper(),
+			SoaPackage.eINSTANCE.getParameter_Multiplicity(),
 			SoaPackage.eINSTANCE.getParameter_IsUnique(),
 			SoaPackage.eINSTANCE.getParameter_IsOrdered(),
 			SoaPackage.eINSTANCE.getParameter_Type(),
@@ -273,6 +250,16 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 		return new NotificationFilter[] {filter,};
 	}
 
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#isRequired(java.lang.Object, int)
+	 * 
+	 */
+	public boolean isRequired(Object key, int kind) {
+		return key == SoaViewsRepository.Parameter.Properties.multiplicity;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -291,19 +278,12 @@ public class ParameterParameterPropertiesEditionComponent extends SinglePartProp
 					}
 					ret = Diagnostician.INSTANCE.validate(SoaPackage.eINSTANCE.getParameter_Name().getEAttributeType(), newValue);
 				}
-				if (SoaViewsRepository.Parameter.Properties.lower == event.getAffectedEditor()) {
+				if (SoaViewsRepository.Parameter.Properties.multiplicity == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(SoaPackage.eINSTANCE.getParameter_Lower().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(SoaPackage.eINSTANCE.getParameter_Multiplicity().getEAttributeType(), (String)newValue);
 					}
-					ret = Diagnostician.INSTANCE.validate(SoaPackage.eINSTANCE.getParameter_Lower().getEAttributeType(), newValue);
-				}
-				if (SoaViewsRepository.Parameter.Properties.upper == event.getAffectedEditor()) {
-					Object newValue = event.getNewValue();
-					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(SoaPackage.eINSTANCE.getParameter_Upper().getEAttributeType(), (String)newValue);
-					}
-					ret = Diagnostician.INSTANCE.validate(SoaPackage.eINSTANCE.getParameter_Upper().getEAttributeType(), newValue);
+					ret = Diagnostician.INSTANCE.validate(SoaPackage.eINSTANCE.getParameter_Multiplicity().getEAttributeType(), newValue);
 				}
 				if (SoaViewsRepository.Parameter.Properties.isUnique == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();

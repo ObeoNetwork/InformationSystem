@@ -226,6 +226,9 @@ public class EnvironmentViewsRepository {
 			public static String multiplicity = "environment::Attribute::properties::multiplicity";
 			
 			
+			public static String identifier = "environment::Attribute::properties::identifier";
+			
+			
 			public static String description = "environment::Attribute::properties::description";
 			
 	
@@ -244,7 +247,7 @@ public class EnvironmentViewsRepository {
 			public static String name = "environment::Reference::properties::name";
 			
 			
-			public static String type = "environment::Reference::properties::type";
+			public static String referencedType = "environment::Reference::properties::referencedType";
 			
 			
 			public static String multiplicity = "environment::Reference::properties::multiplicity";
@@ -257,6 +260,9 @@ public class EnvironmentViewsRepository {
 			
 			
 			public static String oppositeOf = "environment::Reference::properties::oppositeOf";
+			
+			
+			public static String identifier = "environment::Reference::properties::identifier";
 			
 			
 			public static String description = "environment::Reference::properties::description";
@@ -338,6 +344,30 @@ public class EnvironmentViewsRepository {
 			
 			
 			public static String description = "environment::BindingElement::properties::description";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * DTO view descriptor
+	 * 
+	 */
+	public static class DTO {
+		public static class Properties {
+	
+			
+			public static String name = "environment::DTO::properties::name";
+			
+			
+			public static String supertype = "environment::DTO::properties::supertype";
+			
+			
+			public static String associatedTypes = "environment::DTO::properties::associatedTypes";
+			
+			
+			public static String description = "environment::DTO::properties::description";
 			
 	
 		}

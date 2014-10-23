@@ -105,11 +105,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_X0t61VWPEd6uwrZLki81EA" name="name" views="_X0uh9FWPEd6uwrZLki81EA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//Parameter/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_X0uh0FWPEd6uwrZLki81EA" name="lower" views="_X0uh9VWPEd6uwrZLki81EA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//Parameter/lower"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_X0uh0VWPEd6uwrZLki81EA" name="upper" views="_X0vI4FWPEd6uwrZLki81EA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//Parameter/upper"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_BN5nMFrMEeSa5av8eAQsWQ" name="multiplicity" views="_5508oFrLEeSa5av8eAQsWQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//Parameter/multiplicity"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_X0uh0lWPEd6uwrZLki81EA" name="isUnique" views="_X0vI4VWPEd6uwrZLki81EA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//Parameter/isUnique"/>
@@ -127,48 +124,6 @@
           <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//Parameter"/>
-      </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_X0uh1FWPEd6uwrZLki81EA" name="dTORegistry" views="_X0vI41WPEd6uwrZLki81EA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_52WdIFx5EeGoR8p8lACNQQ" name="categories" views="_vLNwIFx5EeGoR8p8lACNQQ" helpID="">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//DTORegistry/ownedCategories"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_8HKCIFx5EeGoR8p8lACNQQ" name="description" views="_rv8jJVx5EeGoR8p8lACNQQ">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
-        </properties>
-        <referencedBinding xmi:id="_F9nhIFDBEeChnsmr975lgQ">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
-        </referencedBinding>
-        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//DTORegistry"/>
-      </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_X0uh1VWPEd6uwrZLki81EA" name="category" views="_X0vI5FWPEd6uwrZLki81EA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_X0uh1lWPEd6uwrZLki81EA" name="name" views="_X0vI5lWPEd6uwrZLki81EA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//Category/name"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_LdMtIB8aEeC_porSarA8Jw" name="description" views="_FNRAIB8aEeC_porSarA8Jw">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
-        </properties>
-        <referencedBinding xmi:id="_GMBwkFDBEeChnsmr975lgQ">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
-        </referencedBinding>
-        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//Category"/>
-      </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_X0uh11WPEd6uwrZLki81EA" name="serviceDTO" views="_X0vI51WPEd6uwrZLki81EA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_X0uh2FWPEd6uwrZLki81EA" name="name" views="_X0vI6VWPEd6uwrZLki81EA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Type/name"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_p7Y_cCsDEeCoMrAXYUIoYA" name="supertype" views="_mQdl0SsDEeCoMrAXYUIoYA" helpID="">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//DTO/supertype"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_LsE2oB8aEeC_porSarA8Jw" name="description" views="_FiGAoB8aEeC_porSarA8Jw">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_kE6qMS1GEeCj_rNYqdZGIg" name="associatedTypes" views="_7AQE4S1DEeCuHdLCyt3ZXA" helpID="">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//DTO/associatedTypes"/>
-        </properties>
-        <referencedBinding xmi:id="_GhBJIFDBEeChnsmr975lgQ">
-          <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
-        </referencedBinding>
-        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//ServiceDTO"/>
       </bindings>
     </categories>
     <model href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.genmodel#//soa"/>
@@ -275,11 +230,8 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_X0uh9FWPEd6uwrZLki81EA" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_X0uh9VWPEd6uwrZLki81EA" name="lower">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_X0vI4FWPEd6uwrZLki81EA" name="upper">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_5508oFrLEeSa5av8eAQsWQ" name="multiplicity">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_X0vI4VWPEd6uwrZLki81EA" name="isUnique">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
@@ -291,45 +243,6 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.9"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_E1jDsB8aEeC_porSarA8Jw" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
-          </elements>
-        </elements>
-      </views>
-      <views xmi:id="_X0vI41WPEd6uwrZLki81EA" name="DTORegistry">
-        <elements xsi:type="eef-views:Container" xmi:id="_rv8jIVx5EeGoR8p8lACNQQ" name="properties">
-          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_vLNwIFx5EeGoR8p8lACNQQ" name="categories">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_rv8jJVx5EeGoR8p8lACNQQ" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
-          </elements>
-        </elements>
-      </views>
-      <views xmi:id="_X0vI5FWPEd6uwrZLki81EA" name="Category">
-        <elements xsi:type="eef-views:Container" xmi:id="_X0vI5VWPEd6uwrZLki81EA" name="properties">
-          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_X0vI5lWPEd6uwrZLki81EA" name="name">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_FNRAIB8aEeC_porSarA8Jw" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
-          </elements>
-        </elements>
-      </views>
-      <views xmi:id="_X0vI51WPEd6uwrZLki81EA" name="ServiceDTO">
-        <elements xsi:type="eef-views:Container" xmi:id="_X0vI6FWPEd6uwrZLki81EA" name="properties">
-          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_X0vI6VWPEd6uwrZLki81EA" name="name">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_mQdl0SsDEeCoMrAXYUIoYA" name="supertype">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_7AQE4S1DEeCuHdLCyt3ZXA" name="associatedTypes">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_FiGAoB8aEeC_porSarA8Jw" name="description">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>

@@ -13,11 +13,11 @@
 package org.obeonetwork.dsl.entity.extensionUtilities;
 
 import org.eclipse.emf.common.util.EList;
-import org.obeonetwork.dsl.entity.Attribute;
 import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.entity.Property;
-import org.obeonetwork.dsl.entity.Reference;
+import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.Filter;
+import org.obeonetwork.dsl.environment.Property;
+import org.obeonetwork.dsl.environment.Reference;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Entity Filter</b></em>'.
@@ -47,7 +47,7 @@ public interface EntityFilter extends Filter {
 
 	/**
 	 * Returns the value of the '<em><b>Attribute References</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.entity.Attribute}.
+	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Attribute}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Attribute References</em>' reference list
@@ -63,7 +63,7 @@ public interface EntityFilter extends Filter {
 
 	/**
 	 * Returns the value of the '<em><b>Reference References</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.entity.Reference}.
+	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Reference}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Reference References</em>' reference list
@@ -79,7 +79,7 @@ public interface EntityFilter extends Filter {
 
 	/**
 	 * Returns the value of the '<em><b>Owned Property References</b></em>' reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.entity.Property}.
+	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Property}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Owned Property References</em>' reference

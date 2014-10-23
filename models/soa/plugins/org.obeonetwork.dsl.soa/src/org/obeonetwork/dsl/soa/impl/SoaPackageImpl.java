@@ -15,9 +15,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.soa.Binding;
 import org.obeonetwork.dsl.soa.BindingKind;
-import org.obeonetwork.dsl.soa.Category;
 import org.obeonetwork.dsl.soa.Component;
-import org.obeonetwork.dsl.soa.DTORegistry;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.InterfaceKind;
@@ -25,7 +23,6 @@ import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.OperationKind;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.Service;
-import org.obeonetwork.dsl.soa.ServiceDTO;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.SynchronizationKind;
@@ -107,27 +104,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * @generated
 	 */
 	private EClass parameterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dtoRegistryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass categoryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass serviceDTOEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,8 +211,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSystem_OwnedComponents() {
-		return (EReference)systemEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSystem_Name() {
+		return (EAttribute)systemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -244,7 +220,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSystem_OwnedWires() {
+	public EReference getSystem_OwnedComponents() {
 		return (EReference)systemEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -253,8 +229,17 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSystem_OwnedDtoRegistry() {
+	public EReference getSystem_OwnedWires() {
 		return (EReference)systemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSystem_Namespaces() {
+		return (EReference)systemEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -586,7 +571,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_Lower() {
+	public EAttribute getParameter_Multiplicity() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -595,7 +580,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_Upper() {
+	public EAttribute getParameter_IsUnique() {
 		return (EAttribute)parameterEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -604,71 +589,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_IsUnique() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getParameter_IsOrdered() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDTORegistry() {
-		return dtoRegistryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDTORegistry_OwnedCategories() {
-		return (EReference)dtoRegistryEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCategory() {
-		return categoryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCategory_Name() {
-		return (EAttribute)categoryEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCategory_OwnedCategories() {
-		return (EReference)categoryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getServiceDTO() {
-		return serviceDTOEClass;
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -736,9 +658,10 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		// Create classes and their features
 		systemEClass = createEClass(SYSTEM);
+		createEAttribute(systemEClass, SYSTEM__NAME);
 		createEReference(systemEClass, SYSTEM__OWNED_COMPONENTS);
 		createEReference(systemEClass, SYSTEM__OWNED_WIRES);
-		createEReference(systemEClass, SYSTEM__OWNED_DTO_REGISTRY);
+		createEReference(systemEClass, SYSTEM__NAMESPACES);
 
 		componentEClass = createEClass(COMPONENT);
 		createEReference(componentEClass, COMPONENT__OWNED_SERVICES);
@@ -783,19 +706,9 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		parameterEClass = createEClass(PARAMETER);
 		createEReference(parameterEClass, PARAMETER__TYPE);
 		createEAttribute(parameterEClass, PARAMETER__NAME);
-		createEAttribute(parameterEClass, PARAMETER__LOWER);
-		createEAttribute(parameterEClass, PARAMETER__UPPER);
+		createEAttribute(parameterEClass, PARAMETER__MULTIPLICITY);
 		createEAttribute(parameterEClass, PARAMETER__IS_UNIQUE);
 		createEAttribute(parameterEClass, PARAMETER__IS_ORDERED);
-
-		dtoRegistryEClass = createEClass(DTO_REGISTRY);
-		createEReference(dtoRegistryEClass, DTO_REGISTRY__OWNED_CATEGORIES);
-
-		categoryEClass = createEClass(CATEGORY);
-		createEAttribute(categoryEClass, CATEGORY__NAME);
-		createEReference(categoryEClass, CATEGORY__OWNED_CATEGORIES);
-
-		serviceDTOEClass = createEClass(SERVICE_DTO);
 
 		// Create enums
 		interfaceKindEEnum = createEEnum(INTERFACE_KIND);
@@ -835,7 +748,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		systemEClass.getESuperTypes().add(theEnvironmentPackage.getNamespace());
+		systemEClass.getESuperTypes().add(theEnvironmentPackage.getTypesDefinition());
 		componentEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		serviceEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		wireEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
@@ -844,15 +757,13 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		operationEClass.getESuperTypes().add(theEnvironmentPackage.getAction());
 		implementationComponentEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		parameterEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
-		dtoRegistryEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
-		categoryEClass.getESuperTypes().add(theEnvironmentPackage.getTypesDefinition());
-		serviceDTOEClass.getESuperTypes().add(theEnvironmentPackage.getDTO());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(systemEClass, org.obeonetwork.dsl.soa.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSystem_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_OwnedComponents(), this.getComponent(), null, "ownedComponents", null, 0, -1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_OwnedWires(), this.getWire(), null, "ownedWires", null, 0, -1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSystem_OwnedDtoRegistry(), this.getDTORegistry(), null, "ownedDtoRegistry", null, 0, 1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSystem_Namespaces(), theEnvironmentPackage.getNamespace(), null, "namespaces", null, 0, -1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponent_OwnedServices(), this.getService(), null, "ownedServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -897,19 +808,9 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameter_Type(), theEnvironmentPackage.getType(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Lower(), ecorePackage.getEInt(), "lower", "1", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Upper(), ecorePackage.getEInt(), "upper", "1", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Multiplicity(), theEnvironmentPackage.getMultiplicityKind(), "multiplicity", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_IsUnique(), ecorePackage.getEBoolean(), "isUnique", "false", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_IsOrdered(), ecorePackage.getEBoolean(), "isOrdered", "true", 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dtoRegistryEClass, DTORegistry.class, "DTORegistry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDTORegistry_OwnedCategories(), this.getCategory(), null, "ownedCategories", null, 0, -1, DTORegistry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCategory_Name(), ecorePackage.getEString(), "name", null, 1, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCategory_OwnedCategories(), this.getCategory(), null, "ownedCategories", null, 0, -1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(serviceDTOEClass, ServiceDTO.class, "ServiceDTO", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(interfaceKindEEnum, InterfaceKind.class, "InterfaceKind");
@@ -917,8 +818,8 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		addEEnumLiteral(interfaceKindEEnum, InterfaceKind.REQUIRED_LITERAL);
 
 		initEEnum(synchronizationKindEEnum, SynchronizationKind.class, "SynchronizationKind");
-		addEEnumLiteral(synchronizationKindEEnum, SynchronizationKind.SYNCHONE_LITERAL);
-		addEEnumLiteral(synchronizationKindEEnum, SynchronizationKind.ASYNCHRONE_LITERAL);
+		addEEnumLiteral(synchronizationKindEEnum, SynchronizationKind.SYNCHRONOUS_LITERAL);
+		addEEnumLiteral(synchronizationKindEEnum, SynchronizationKind.ASYNCHRONOUS_LITERAL);
 
 		initEEnum(bindingKindEEnum, BindingKind.class, "BindingKind");
 		addEEnumLiteral(bindingKindEEnum, BindingKind.WEBSERVICE_LITERAL);

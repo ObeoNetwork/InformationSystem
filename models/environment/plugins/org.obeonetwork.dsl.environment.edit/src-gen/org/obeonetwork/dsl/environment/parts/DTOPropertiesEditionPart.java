@@ -1,30 +1,27 @@
-/*******************************************************************************
- * Copyright (c) 2008-2009 Obeo.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Obeo - initial API and implementation
- *******************************************************************************/
-package org.obeonetwork.dsl.soa.parts;
+/**
+ * Generated with Acceleo
+ */
+package org.obeonetwork.dsl.environment.parts;
 
 // Start of user code for imports
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
+
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
+
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
+
 import org.eclipse.jface.viewers.ViewerFilter;
 
 
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * 
  * 
  */
-public interface ServiceDTOPropertiesEditionPart {
+public interface DTOPropertiesEditionPart {
 
 	/**
 	 * @return the name

@@ -24,23 +24,22 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum SynchronizationKind implements Enumerator
 {
 	/**
-	 * The '<em><b>Synchone</b></em>' literal object.
+	 * The '<em><b>Synchronous</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SYNCHONE
+	 * @see #SYNCHRONOUS
 	 * @generated
 	 * @ordered
 	 */
-	SYNCHONE_LITERAL(0, "synchone", "synchone"),
-	/**
-	 * The '<em><b>Asynchrone</b></em>' literal object.
+	SYNCHRONOUS_LITERAL(0, "synchronous", "synchronous"), /**
+	 * The '<em><b>Asynchronous</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ASYNCHRONE
+	 * @see #ASYNCHRONOUS
 	 * @generated
 	 * @ordered
 	 */
-	ASYNCHRONE_LITERAL(1, "asynchrone", "asynchrone");
+	ASYNCHRONOUS_LITERAL(1, "asynchronous", "asynchronous");
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,34 +48,34 @@ public enum SynchronizationKind implements Enumerator
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * The '<em><b>Synchone</b></em>' literal value.
+	 * The '<em><b>Synchronous</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Synchone</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Synchronous</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #SYNCHONE_LITERAL
-	 * @model name="synchone"
+	 * @see #SYNCHRONOUS_LITERAL
+	 * @model name="synchronous"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SYNCHONE = 0;
+	public static final int SYNCHRONOUS = 0;
 
 	/**
-	 * The '<em><b>Asynchrone</b></em>' literal value.
+	 * The '<em><b>Asynchronous</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Asynchrone</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Asynchronous</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ASYNCHRONE_LITERAL
-	 * @model name="asynchrone"
+	 * @see #ASYNCHRONOUS_LITERAL
+	 * @model name="asynchronous"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ASYNCHRONE = 1;
+	public static final int ASYNCHRONOUS = 1;
 
 	/**
 	 * An array of all the '<em><b>Synchronization Kind</b></em>' enumerators.
@@ -86,8 +85,8 @@ public enum SynchronizationKind implements Enumerator
 	 */
 	private static final SynchronizationKind[] VALUES_ARRAY =
 		new SynchronizationKind[] {
-			SYNCHONE_LITERAL,
-			ASYNCHRONE_LITERAL,
+			SYNCHRONOUS_LITERAL,
+			ASYNCHRONOUS_LITERAL,
 		};
 
 	/**
@@ -138,8 +137,8 @@ public enum SynchronizationKind implements Enumerator
 	 */
 	public static SynchronizationKind get(int value) {
 		switch (value) {
-			case SYNCHONE: return SYNCHONE_LITERAL;
-			case ASYNCHRONE: return ASYNCHRONE_LITERAL;
+			case SYNCHRONOUS: return SYNCHRONOUS_LITERAL;
+			case ASYNCHRONOUS: return ASYNCHRONOUS_LITERAL;
 		}
 		return null;
 	}

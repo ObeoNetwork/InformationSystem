@@ -24,16 +24,7 @@ public class EntityMessages extends NLS {
 	public static String RootPropertiesEditionPart_PropertiesGroupLabel;
 
 	
-	public static String BlockPropertiesEditionPart_PropertiesGroupLabel;
-
-	
 	public static String EntityPropertiesEditionPart_PropertiesGroupLabel;
-
-	
-	public static String AttributePropertiesEditionPart_PropertiesGroupLabel;
-
-	
-	public static String ReferencePropertiesEditionPart_PropertiesGroupLabel;
 
 	
 	public static String FinderPropertiesEditionPart_PropertiesGroupLabel;
@@ -52,28 +43,10 @@ public class EntityMessages extends NLS {
 	public static String Root_Part_Title;
 
 	
-	public static String Block_ReadOnly;
-
-	
-	public static String Block_Part_Title;
-
-	
 	public static String Entity_ReadOnly;
 
 	
 	public static String Entity_Part_Title;
-
-	
-	public static String Attribute_ReadOnly;
-
-	
-	public static String Attribute_Part_Title;
-
-	
-	public static String Reference_ReadOnly;
-
-	
-	public static String Reference_Part_Title;
 
 	
 	public static String Finder_ReadOnly;
@@ -101,12 +74,6 @@ public class EntityMessages extends NLS {
 	public static String RootPropertiesEditionPart_DescriptionLabel;
 
 	
-	public static String BlockPropertiesEditionPart_NameLabel;
-
-	
-	public static String BlockPropertiesEditionPart_DescriptionLabel;
-
-	
 	public static String EntityPropertiesEditionPart_NameLabel;
 
 	
@@ -126,45 +93,6 @@ public class EntityMessages extends NLS {
 
 	
 	public static String EntityPropertiesEditionPart_DescriptionLabel;
-
-	
-	public static String AttributePropertiesEditionPart_NameLabel;
-
-	
-	public static String AttributePropertiesEditionPart_TypeLabel;
-
-	
-	public static String AttributePropertiesEditionPart_MultiplicityLabel;
-
-	
-	public static String AttributePropertiesEditionPart_IsPrimaryKeyLabel;
-
-	
-	public static String AttributePropertiesEditionPart_DescriptionLabel;
-
-	
-	public static String ReferencePropertiesEditionPart_NameLabel;
-
-	
-	public static String ReferencePropertiesEditionPart_TypeLabel;
-
-	
-	public static String ReferencePropertiesEditionPart_MultiplicityLabel;
-
-	
-	public static String ReferencePropertiesEditionPart_IsPrimaryKeyLabel;
-
-	
-	public static String ReferencePropertiesEditionPart_IsCompositeLabel;
-
-	
-	public static String ReferencePropertiesEditionPart_NavigableLabel;
-
-	
-	public static String ReferencePropertiesEditionPart_OppositeOfLabel;
-
-	
-	public static String ReferencePropertiesEditionPart_DescriptionLabel;
 
 	
 	public static String FinderPropertiesEditionPart_CustomizedNameLabel;

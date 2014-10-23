@@ -19,25 +19,19 @@ import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
 
 import org.obeonetwork.dsl.soa.parts.forms.BindingPropertiesEditionPartForm;
-import org.obeonetwork.dsl.soa.parts.forms.CategoryPropertiesEditionPartForm;
 import org.obeonetwork.dsl.soa.parts.forms.ComponentPropertiesEditionPartForm;
-import org.obeonetwork.dsl.soa.parts.forms.DTORegistryPropertiesEditionPartForm;
 import org.obeonetwork.dsl.soa.parts.forms.Interface_PropertiesEditionPartForm;
 import org.obeonetwork.dsl.soa.parts.forms.OperationPropertiesEditionPartForm;
 import org.obeonetwork.dsl.soa.parts.forms.ParameterPropertiesEditionPartForm;
-import org.obeonetwork.dsl.soa.parts.forms.ServiceDTOPropertiesEditionPartForm;
 import org.obeonetwork.dsl.soa.parts.forms.ServicePropertiesEditionPartForm;
 import org.obeonetwork.dsl.soa.parts.forms.SystemPropertiesEditionPartForm;
 import org.obeonetwork.dsl.soa.parts.forms.WirePropertiesEditionPartForm;
 
 import org.obeonetwork.dsl.soa.parts.impl.BindingPropertiesEditionPartImpl;
-import org.obeonetwork.dsl.soa.parts.impl.CategoryPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.soa.parts.impl.ComponentPropertiesEditionPartImpl;
-import org.obeonetwork.dsl.soa.parts.impl.DTORegistryPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.soa.parts.impl.Interface_PropertiesEditionPartImpl;
 import org.obeonetwork.dsl.soa.parts.impl.OperationPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.soa.parts.impl.ParameterPropertiesEditionPartImpl;
-import org.obeonetwork.dsl.soa.parts.impl.ServiceDTOPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.soa.parts.impl.ServicePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.soa.parts.impl.SystemPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.soa.parts.impl.WirePropertiesEditionPartImpl;
@@ -110,24 +104,6 @@ public class SoaPropertiesEditionPartProvider implements IPropertiesEditionPartP
 				return new ParameterPropertiesEditionPartImpl(component);
 			if (kind == SoaViewsRepository.FORM_KIND)
 				return new ParameterPropertiesEditionPartForm(component);
-		}
-		if (key == SoaViewsRepository.DTORegistry.class) {
-			if (kind == SoaViewsRepository.SWT_KIND)
-				return new DTORegistryPropertiesEditionPartImpl(component);
-			if (kind == SoaViewsRepository.FORM_KIND)
-				return new DTORegistryPropertiesEditionPartForm(component);
-		}
-		if (key == SoaViewsRepository.Category.class) {
-			if (kind == SoaViewsRepository.SWT_KIND)
-				return new CategoryPropertiesEditionPartImpl(component);
-			if (kind == SoaViewsRepository.FORM_KIND)
-				return new CategoryPropertiesEditionPartForm(component);
-		}
-		if (key == SoaViewsRepository.ServiceDTO.class) {
-			if (kind == SoaViewsRepository.SWT_KIND)
-				return new ServiceDTOPropertiesEditionPartImpl(component);
-			if (kind == SoaViewsRepository.FORM_KIND)
-				return new ServiceDTOPropertiesEditionPartForm(component);
 		}
 		return null;
 	}

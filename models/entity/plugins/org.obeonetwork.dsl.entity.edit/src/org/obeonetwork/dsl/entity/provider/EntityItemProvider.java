@@ -76,35 +76,12 @@ public class EntityItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSupertypePropertyDescriptor(object);
 			addEstimatedVolumetryPropertyDescriptor(object);
 			addEstimatedAccessPropertyDescriptor(object);
 			addHistorizedPropertyDescriptor(object);
 			addInheritanceKindPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Supertype feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSupertypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Entity_supertype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_supertype_feature", "_UI_Entity_type"),
-				 EntityPackage.Literals.ENTITY__SUPERTYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -207,8 +184,6 @@ public class EntityItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EntityPackage.Literals.ENTITY__OWNED_ATTRIBUTES);
-			childrenFeatures.add(EntityPackage.Literals.ENTITY__OWNED_REFERENCES);
 			childrenFeatures.add(EntityPackage.Literals.ENTITY__OWNED_FINDERS);
 		}
 		return childrenFeatures;
@@ -280,8 +255,6 @@ public class EntityItemProvider
 			case EntityPackage.ENTITY__INHERITANCE_KIND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EntityPackage.ENTITY__OWNED_ATTRIBUTES:
-			case EntityPackage.ENTITY__OWNED_REFERENCES:
 			case EntityPackage.ENTITY__OWNED_FINDERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -299,16 +272,6 @@ public class EntityItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EntityPackage.Literals.ENTITY__OWNED_ATTRIBUTES,
-				 EntityFactory.eINSTANCE.createAttribute()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EntityPackage.Literals.ENTITY__OWNED_REFERENCES,
-				 EntityFactory.eINSTANCE.createReference()));
 
 		newChildDescriptors.add
 			(createChildParameter

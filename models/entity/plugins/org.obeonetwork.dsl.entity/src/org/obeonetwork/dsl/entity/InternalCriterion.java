@@ -12,6 +12,8 @@
  */
 package org.obeonetwork.dsl.entity;
 
+import org.obeonetwork.dsl.environment.Attribute;
+
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Internal Criterion</b></em>'.
  * <!-- end-user-doc -->

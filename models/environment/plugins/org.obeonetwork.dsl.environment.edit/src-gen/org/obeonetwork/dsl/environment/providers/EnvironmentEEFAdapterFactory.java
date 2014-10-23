@@ -116,6 +116,16 @@ public class EnvironmentEEFAdapterFactory extends EnvironmentAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
+	 * @see org.obeonetwork.dsl.environment.util.EnvironmentAdapterFactory#createDTOAdapter()
+	 * 
+	 */
+	public Adapter createDTOAdapter() {
+		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
+		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
+		return new DTOPropertiesEditionProvider(providers);
+	}
+	/**
+	 * {@inheritDoc}
 	 * @see org.obeonetwork.dsl.environment.util.EnvironmentAdapterFactory#createFilterContainerAdapter()
 	 * 
 	 */

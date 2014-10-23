@@ -14,17 +14,22 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.provider.NamespaceItemProvider;
+import org.obeonetwork.dsl.environment.provider.TypesDefinitionItemProvider;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.dsl.soa.System;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.soa.System} object.
@@ -33,7 +38,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * @generated
  */
 public class SystemItemProvider
-	extends NamespaceItemProvider
+	extends TypesDefinitionItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -68,8 +73,31 @@ public class SystemItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_System_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_System_name_feature", "_UI_System_type"),
+				 SoaPackage.Literals.SYSTEM__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -86,7 +114,7 @@ public class SystemItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SoaPackage.Literals.SYSTEM__OWNED_COMPONENTS);
 			childrenFeatures.add(SoaPackage.Literals.SYSTEM__OWNED_WIRES);
-			childrenFeatures.add(SoaPackage.Literals.SYSTEM__OWNED_DTO_REGISTRY);
+			childrenFeatures.add(SoaPackage.Literals.SYSTEM__NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -133,6 +161,10 @@ public class SystemItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
+		String label = ((System)object).getName();
+		if (label != null) {
+			return label;
+		}
 		return "Components";
 	}
 
@@ -148,9 +180,12 @@ public class SystemItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(org.obeonetwork.dsl.soa.System.class)) {
+			case SoaPackage.SYSTEM__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case SoaPackage.SYSTEM__OWNED_COMPONENTS:
 			case SoaPackage.SYSTEM__OWNED_WIRES:
-			case SoaPackage.SYSTEM__OWNED_DTO_REGISTRY:
+			case SoaPackage.SYSTEM__NAMESPACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -170,11 +205,6 @@ public class SystemItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EnvironmentPackage.Literals.NAMESPACE__OWNED_NAMESPACES,
-				 SoaFactory.eINSTANCE.createSystem()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(SoaPackage.Literals.SYSTEM__OWNED_COMPONENTS,
 				 SoaFactory.eINSTANCE.createComponent()));
 
@@ -185,8 +215,8 @@ public class SystemItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SoaPackage.Literals.SYSTEM__OWNED_DTO_REGISTRY,
-				 SoaFactory.eINSTANCE.createDTORegistry()));
+				(SoaPackage.Literals.SYSTEM__NAMESPACES,
+				 EnvironmentFactory.eINSTANCE.createNamespace()));
 	}
 
 	/**

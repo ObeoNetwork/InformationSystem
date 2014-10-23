@@ -11,7 +11,10 @@
 package org.obeonetwork.dsl.soa.parts.forms;
 
 // Start of user code for imports
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.eef.runtime.EEFRuntimePlugin;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
@@ -25,8 +28,12 @@ import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
 import org.eclipse.emf.eef.runtime.ui.widgets.AdvancedEObjectFlatComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.AdvancedEObjectFlatComboViewer.EObjectFlatComboViewerListener;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
+import org.eclipse.emf.eef.runtime.ui.widgets.EMFComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
@@ -54,14 +61,13 @@ import org.obeonetwork.dsl.soa.providers.SoaMessages;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>Jï¿½rï¿½me Benois</a>
  * 
  */
 public class ParameterPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, ParameterPropertiesEditionPart {
 
 	protected Text name;
-	protected Text lower;
-	protected Text upper;
+	protected EMFComboViewer multiplicity;
 	protected Button isUnique;
 	protected Button isOrdered;
 	protected AdvancedEObjectFlatComboViewer type;
@@ -113,8 +119,7 @@ public class ParameterPropertiesEditionPartForm extends SectionPropertiesEditing
 		CompositionSequence parameterStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = parameterStep.addStep(SoaViewsRepository.Parameter.Properties.class);
 		propertiesStep.addStep(SoaViewsRepository.Parameter.Properties.name);
-		propertiesStep.addStep(SoaViewsRepository.Parameter.Properties.lower);
-		propertiesStep.addStep(SoaViewsRepository.Parameter.Properties.upper);
+		propertiesStep.addStep(SoaViewsRepository.Parameter.Properties.multiplicity);
 		propertiesStep.addStep(SoaViewsRepository.Parameter.Properties.isUnique);
 		propertiesStep.addStep(SoaViewsRepository.Parameter.Properties.isOrdered);
 		propertiesStep.addStep(SoaViewsRepository.Parameter.Properties.type);
@@ -131,11 +136,8 @@ public class ParameterPropertiesEditionPartForm extends SectionPropertiesEditing
 				if (key == SoaViewsRepository.Parameter.Properties.name) {
 					return createNameText(widgetFactory, parent);
 				}
-				if (key == SoaViewsRepository.Parameter.Properties.lower) {
-					return createLowerText(widgetFactory, parent);
-				}
-				if (key == SoaViewsRepository.Parameter.Properties.upper) {
-					return createUpperText(widgetFactory, parent);
+				if (key == SoaViewsRepository.Parameter.Properties.multiplicity) {
+					return createMultiplicityEMFComboViewer(widgetFactory, parent);
 				}
 				if (key == SoaViewsRepository.Parameter.Properties.isUnique) {
 					return createIsUniqueCheckbox(widgetFactory, parent);
@@ -240,136 +242,30 @@ public class ParameterPropertiesEditionPartForm extends SectionPropertiesEditing
 	}
 
 	
-	protected Composite createLowerText(FormToolkit widgetFactory, Composite parent) {
-		createDescription(parent, SoaViewsRepository.Parameter.Properties.lower, SoaMessages.ParameterPropertiesEditionPart_LowerLabel);
-		lower = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		lower.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
-		widgetFactory.paintBordersFor(parent);
-		GridData lowerData = new GridData(GridData.FILL_HORIZONTAL);
-		lower.setLayoutData(lowerData);
-		lower.addFocusListener(new FocusAdapter() {
-			/**
-			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
-							ParameterPropertiesEditionPartForm.this,
-							SoaViewsRepository.Parameter.Properties.lower,
-							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, lower.getText()));
-					propertiesEditionComponent
-							.firePropertiesChanged(new PropertiesEditionEvent(
-									ParameterPropertiesEditionPartForm.this,
-									SoaViewsRepository.Parameter.Properties.lower,
-									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
-									null, lower.getText()));
-				}
-			}
+	protected Composite createMultiplicityEMFComboViewer(FormToolkit widgetFactory, Composite parent) {
+		createDescription(parent, SoaViewsRepository.Parameter.Properties.multiplicity, SoaMessages.ParameterPropertiesEditionPart_MultiplicityLabel);
+		multiplicity = new EMFComboViewer(parent);
+		multiplicity.setContentProvider(new ArrayContentProvider());
+		multiplicity.setLabelProvider(new AdapterFactoryLabelProvider(EEFRuntimePlugin.getDefault().getAdapterFactory()));
+		GridData multiplicityData = new GridData(GridData.FILL_HORIZONTAL);
+		multiplicity.getCombo().setLayoutData(multiplicityData);
+		multiplicity.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			/**
-			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
-			 */
-			@Override
-			public void focusGained(FocusEvent e) {
-				if (propertiesEditionComponent != null) {
-					propertiesEditionComponent
-							.firePropertiesChanged(new PropertiesEditionEvent(
-									ParameterPropertiesEditionPartForm.this,
-									null,
-									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
-									null, null));
-				}
-			}
-		});
-		lower.addKeyListener(new KeyAdapter() {
-			/**
-			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
+			 * {@inheritDoc}
 			 * 
+			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+			 * 	
 			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void keyPressed(KeyEvent e) {
-				if (e.character == SWT.CR) {
-					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParameterPropertiesEditionPartForm.this, SoaViewsRepository.Parameter.Properties.lower, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, lower.getText()));
-				}
-			}
-		});
-		EditingUtils.setID(lower, SoaViewsRepository.Parameter.Properties.lower);
-		EditingUtils.setEEFtype(lower, "eef::Text"); //$NON-NLS-1$
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.Parameter.Properties.lower, SoaViewsRepository.FORM_KIND), null); //$NON-NLS-1$
-		// Start of user code for createLowerText
-
-		// End of user code
-		return parent;
-	}
-
-	
-	protected Composite createUpperText(FormToolkit widgetFactory, Composite parent) {
-		createDescription(parent, SoaViewsRepository.Parameter.Properties.upper, SoaMessages.ParameterPropertiesEditionPart_UpperLabel);
-		upper = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		upper.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
-		widgetFactory.paintBordersFor(parent);
-		GridData upperData = new GridData(GridData.FILL_HORIZONTAL);
-		upper.setLayoutData(upperData);
-		upper.addFocusListener(new FocusAdapter() {
-			/**
-			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
-							ParameterPropertiesEditionPartForm.this,
-							SoaViewsRepository.Parameter.Properties.upper,
-							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, upper.getText()));
-					propertiesEditionComponent
-							.firePropertiesChanged(new PropertiesEditionEvent(
-									ParameterPropertiesEditionPartForm.this,
-									SoaViewsRepository.Parameter.Properties.upper,
-									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
-									null, upper.getText()));
-				}
+			public void selectionChanged(SelectionChangedEvent event) {
+				if (propertiesEditionComponent != null)
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParameterPropertiesEditionPartForm.this, SoaViewsRepository.Parameter.Properties.multiplicity, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getMultiplicity()));
 			}
 
-			/**
-			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
-			 */
-			@Override
-			public void focusGained(FocusEvent e) {
-				if (propertiesEditionComponent != null) {
-					propertiesEditionComponent
-							.firePropertiesChanged(new PropertiesEditionEvent(
-									ParameterPropertiesEditionPartForm.this,
-									null,
-									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
-									null, null));
-				}
-			}
 		});
-		upper.addKeyListener(new KeyAdapter() {
-			/**
-			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void keyPressed(KeyEvent e) {
-				if (e.character == SWT.CR) {
-					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ParameterPropertiesEditionPartForm.this, SoaViewsRepository.Parameter.Properties.upper, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, upper.getText()));
-				}
-			}
-		});
-		EditingUtils.setID(upper, SoaViewsRepository.Parameter.Properties.upper);
-		EditingUtils.setEEFtype(upper, "eef::Text"); //$NON-NLS-1$
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.Parameter.Properties.upper, SoaViewsRepository.FORM_KIND), null); //$NON-NLS-1$
-		// Start of user code for createUpperText
+		multiplicity.setID(SoaViewsRepository.Parameter.Properties.multiplicity);
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(SoaViewsRepository.Parameter.Properties.multiplicity, SoaViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createMultiplicityEMFComboViewer
 
 		// End of user code
 		return parent;
@@ -578,31 +474,28 @@ public class ParameterPropertiesEditionPartForm extends SectionPropertiesEditing
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ParameterPropertiesEditionPart#getLower()
+	 * @see org.obeonetwork.dsl.soa.parts.ParameterPropertiesEditionPart#getMultiplicity()
 	 * 
 	 */
-	public String getLower() {
-		return lower.getText();
+	public Enumerator getMultiplicity() {
+		Enumerator selection = (Enumerator) ((StructuredSelection) multiplicity.getSelection()).getFirstElement();
+		return selection;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ParameterPropertiesEditionPart#setLower(String newValue)
-	 * 
+	 * @see org.obeonetwork.dsl.soa.parts.ParameterPropertiesEditionPart#initMultiplicity(Object input, Enumerator current)
 	 */
-	public void setLower(String newValue) {
-		if (newValue != null) {
-			lower.setText(newValue);
-		} else {
-			lower.setText(""); //$NON-NLS-1$
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.Parameter.Properties.lower);
-		if (eefElementEditorReadOnlyState && lower.isEnabled()) {
-			lower.setEnabled(false);
-			lower.setToolTipText(SoaMessages.Parameter_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !lower.isEnabled()) {
-			lower.setEnabled(true);
+	public void initMultiplicity(Object input, Enumerator current) {
+		multiplicity.setInput(input);
+		multiplicity.modelUpdating(new StructuredSelection(current));
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.Parameter.Properties.multiplicity);
+		if (eefElementEditorReadOnlyState && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(SoaMessages.Parameter_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
 		}	
 		
 	}
@@ -610,31 +503,17 @@ public class ParameterPropertiesEditionPartForm extends SectionPropertiesEditing
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ParameterPropertiesEditionPart#getUpper()
+	 * @see org.obeonetwork.dsl.soa.parts.ParameterPropertiesEditionPart#setMultiplicity(Enumerator newValue)
 	 * 
 	 */
-	public String getUpper() {
-		return upper.getText();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.soa.parts.ParameterPropertiesEditionPart#setUpper(String newValue)
-	 * 
-	 */
-	public void setUpper(String newValue) {
-		if (newValue != null) {
-			upper.setText(newValue);
-		} else {
-			upper.setText(""); //$NON-NLS-1$
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.Parameter.Properties.upper);
-		if (eefElementEditorReadOnlyState && upper.isEnabled()) {
-			upper.setEnabled(false);
-			upper.setToolTipText(SoaMessages.Parameter_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !upper.isEnabled()) {
-			upper.setEnabled(true);
+	public void setMultiplicity(Enumerator newValue) {
+		multiplicity.modelUpdating(new StructuredSelection(newValue));
+		boolean eefElementEditorReadOnlyState = isReadOnly(SoaViewsRepository.Parameter.Properties.multiplicity);
+		if (eefElementEditorReadOnlyState && multiplicity.isEnabled()) {
+			multiplicity.setEnabled(false);
+			multiplicity.setToolTipText(SoaMessages.Parameter_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !multiplicity.isEnabled()) {
+			multiplicity.setEnabled(true);
 		}	
 		
 	}

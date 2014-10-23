@@ -11,23 +11,15 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Action;
-import org.obeonetwork.dsl.environment.BoundableElement;
-import org.obeonetwork.dsl.environment.DTO;
-import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
-import org.obeonetwork.dsl.environment.StructuredType;
-import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 import org.obeonetwork.dsl.soa.Binding;
-import org.obeonetwork.dsl.soa.Category;
 import org.obeonetwork.dsl.soa.Component;
-import org.obeonetwork.dsl.soa.DTORegistry;
 import org.obeonetwork.dsl.soa.ImplementationComponent;
 import org.obeonetwork.dsl.soa.Interface;
 import org.obeonetwork.dsl.soa.Operation;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.Service;
-import org.obeonetwork.dsl.soa.ServiceDTO;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.Wire;
 
@@ -130,48 +122,16 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 				return createParameterAdapter();
 			}
 			@Override
-			public Adapter caseDTORegistry(DTORegistry object) {
-				return createDTORegistryAdapter();
-			}
-			@Override
-			public Adapter caseCategory(Category object) {
-				return createCategoryAdapter();
-			}
-			@Override
-			public Adapter caseServiceDTO(ServiceDTO object) {
-				return createServiceDTOAdapter();
-			}
-			@Override
 			public Adapter caseObeoDSMObject(ObeoDSMObject object) {
 				return createObeoDSMObjectAdapter();
-			}
-			@Override
-			public Adapter caseNamespace(Namespace object) {
-				return createNamespaceAdapter();
-			}
-			@Override
-			public Adapter caseAction(Action object) {
-				return createActionAdapter();
 			}
 			@Override
 			public Adapter caseTypesDefinition(TypesDefinition object) {
 				return createTypesDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseBoundableElement(BoundableElement object) {
-				return createBoundableElementAdapter();
-			}
-			@Override
-			public Adapter caseType(Type object) {
-				return createTypeAdapter();
-			}
-			@Override
-			public Adapter caseStructuredType(StructuredType object) {
-				return createStructuredTypeAdapter();
-			}
-			@Override
-			public Adapter caseDTO(DTO object) {
-				return createDTOAdapter();
+			public Adapter caseAction(Action object) {
+				return createActionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -320,48 +280,6 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.DTORegistry <em>DTO Registry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.soa.DTORegistry
-	 * @generated
-	 */
-	public Adapter createDTORegistryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.Category <em>Category</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.soa.Category
-	 * @generated
-	 */
-	public Adapter createCategoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.soa.ServiceDTO <em>Service DTO</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.soa.ServiceDTO
-	 * @generated
-	 */
-	public Adapter createServiceDTOAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.ObeoDSMObject <em>Obeo DSM Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -372,20 +290,6 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createObeoDSMObjectAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.Namespace <em>Namespace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.environment.Namespace
-	 * @generated
-	 */
-	public Adapter createNamespaceAdapter() {
 		return null;
 	}
 
@@ -414,62 +318,6 @@ public class SoaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypesDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.BoundableElement <em>Boundable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.environment.BoundableElement
-	 * @generated
-	 */
-	public Adapter createBoundableElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.Type <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.environment.Type
-	 * @generated
-	 */
-	public Adapter createTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.StructuredType <em>Structured Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.environment.StructuredType
-	 * @generated
-	 */
-	public Adapter createStructuredTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.DTO <em>DTO</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.environment.DTO
-	 * @generated
-	 */
-	public Adapter createDTOAdapter() {
 		return null;
 	}
 

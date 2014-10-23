@@ -6,6 +6,7 @@
  */
 package org.obeonetwork.dsl.soa;
 
+import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.Type;
 
@@ -19,8 +20,7 @@ import org.obeonetwork.dsl.environment.Type;
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getType <em>Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getLower <em>Lower</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getUpper <em>Upper</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsUnique <em>Is Unique</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsOrdered <em>Is Ordered</em>}</li>
  * </ul>
@@ -91,58 +91,33 @@ public interface Parameter extends ObeoDSMObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Lower</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
+	 * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.obeonetwork.dsl.environment.MultiplicityKind}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Lower</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Multiplicity</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lower</em>' attribute.
-	 * @see #setLower(int)
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_Lower()
-	 * @model default="1"
+	 * @return the value of the '<em>Multiplicity</em>' attribute.
+	 * @see org.obeonetwork.dsl.environment.MultiplicityKind
+	 * @see #setMultiplicity(MultiplicityKind)
+	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_Multiplicity()
+	 * @model required="true"
 	 * @generated
 	 */
-	int getLower();
+	MultiplicityKind getMultiplicity();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getLower <em>Lower</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getMultiplicity <em>Multiplicity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lower</em>' attribute.
-	 * @see #getLower()
+	 * @param value the new value of the '<em>Multiplicity</em>' attribute.
+	 * @see org.obeonetwork.dsl.environment.MultiplicityKind
+	 * @see #getMultiplicity()
 	 * @generated
 	 */
-	void setLower(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Upper</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Upper</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Upper</em>' attribute.
-	 * @see #setUpper(int)
-	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_Upper()
-	 * @model default="1"
-	 * @generated
-	 */
-	int getUpper();
-
-	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.soa.Parameter#getUpper <em>Upper</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Upper</em>' attribute.
-	 * @see #getUpper()
-	 * @generated
-	 */
-	void setUpper(int value);
+	void setMultiplicity(MultiplicityKind value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Unique</b></em>' attribute.

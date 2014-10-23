@@ -46,10 +46,10 @@ public class CinematicBindingServices {
 			return ((DTO) element).getName() + " (DTO)";
 		} else if (element instanceof Attribute) {
 			Attribute attribute = (Attribute) element;
-			return attribute.getDto().getName() + "." + attribute.getName() + " (DTO Attribute)";
+			return attribute.getContainingType().getName() + "." + attribute.getName() + " (DTO Attribute)";
 		} else if (element instanceof Reference) {
 			Reference reference = (Reference) element;
-			return reference.getDto().getName() + "." + reference.getName() + " (DTO Reference)";
+			return reference.getContainingType().getName() + "." + reference.getName() + " (DTO Reference)";
 		} else if (element.eClass().getEPackage().getNsURI().startsWith("http://www.obeonetwork.org/dsl/entity/")) {
 			if ("Entity".equals(element.eClass().getName())) {
 				return getNameByReflection(element) + " (Entity)";

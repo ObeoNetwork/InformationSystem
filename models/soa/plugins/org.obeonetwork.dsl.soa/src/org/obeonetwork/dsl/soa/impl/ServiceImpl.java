@@ -56,7 +56,7 @@ public class ServiceImpl extends ObeoDSMObjectImpl implements Service {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SynchronizationKind SYNCHRONIZATION_EDEFAULT = SynchronizationKind.SYNCHONE_LITERAL;
+	protected static final SynchronizationKind SYNCHRONIZATION_EDEFAULT = SynchronizationKind.SYNCHRONOUS_LITERAL;
 	/**
 	 * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->

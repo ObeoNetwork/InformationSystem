@@ -7,8 +7,6 @@
  * 
  * Contributors:
  *     Obeo - initial API and implementation
- *
- * $Id$
  */
 package org.obeonetwork.dsl.environment;
 
@@ -55,7 +53,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.obeonetwork.org/dsl/environment/2.0.0";
+	String eNS_URI = "http://www.obeonetwork.org/dsl/environment/3.0.0";
 
 	/**
 	 * The package namespace name.
@@ -73,76 +71,6 @@ public interface EnvironmentPackage extends EPackage {
 	 */
 	EnvironmentPackage eINSTANCE = org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl
 			.init();
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl <em>Environment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentImpl
-	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getEnvironment()
-	 * @generated
-	 */
-	int ENVIRONMENT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.TypeImpl <em>Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.environment.impl.TypeImpl
-	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getType()
-	 * @generated
-	 */
-	int TYPE = 1;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.environment.impl.PrimitiveTypeImpl
-	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getPrimitiveType()
-	 * @generated
-	 */
-	int PRIMITIVE_TYPE = 2;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.EnumerationImpl <em>Enumeration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.environment.impl.EnumerationImpl
-	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getEnumeration()
-	 * @generated
-	 */
-	int ENUMERATION = 3;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.FieldImpl <em>Field</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.environment.impl.FieldImpl
-	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getField()
-	 * @generated
-	 */
-	int FIELD = 4;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.ActionImpl <em>Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.environment.impl.ActionImpl
-	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getAction()
-	 * @generated
-	 */
-	int ACTION = 5;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.InterDSMLinkImpl <em>Inter DSM Link</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.environment.impl.InterDSMLinkImpl
-	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getInterDSMLink()
-	 * @generated
-	 */
-	int INTER_DSM_LINK = 6;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl <em>Obeo DSM Object</em>}' class.
@@ -234,6 +162,16 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBEO_DSM_OBJECT_FEATURE_COUNT = 8;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl <em>Environment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getEnvironment()
+	 * @generated
+	 */
+	int ENVIRONMENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -353,13 +291,32 @@ public interface EnvironmentPackage extends EPackage {
 	int ENVIRONMENT__TYPES_DEFINITION = OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Namespaces</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT__NAMESPACES = OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Environment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENVIRONMENT_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
+	int ENVIRONMENT_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 6;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.TypeImpl <em>Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.impl.TypeImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getType()
+	 * @generated
+	 */
+	int TYPE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -461,6 +418,16 @@ public interface EnvironmentPackage extends EPackage {
 	int TYPE_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.impl.PrimitiveTypeImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getPrimitiveType()
+	 * @generated
+	 */
+	int PRIMITIVE_TYPE = 2;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -558,6 +525,16 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.EnumerationImpl <em>Enumeration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.impl.EnumerationImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getEnumeration()
+	 * @generated
+	 */
+	int ENUMERATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -668,6 +645,16 @@ public interface EnvironmentPackage extends EPackage {
 	int ENUMERATION_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.FieldImpl <em>Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.impl.FieldImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getField()
+	 * @generated
+	 */
+	int FIELD = 4;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -758,6 +745,16 @@ public interface EnvironmentPackage extends EPackage {
 	int FIELD_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.ActionImpl <em>Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.impl.ActionImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getAction()
+	 * @generated
+	 */
+	int ACTION = 5;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -846,6 +843,16 @@ public interface EnvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.InterDSMLinkImpl <em>Inter DSM Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.impl.InterDSMLinkImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getInterDSMLink()
+	 * @generated
+	 */
+	int INTER_DSM_LINK = 6;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1522,13 +1529,76 @@ public interface EnvironmentPackage extends EPackage {
 	int STRUCTURED_TYPE__TYPE_DEFINITION = TYPE__TYPE_DEFINITION;
 
 	/**
+	 * The feature id for the '<em><b>Supertype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__SUPERTYPE = TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Associated Types</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__ASSOCIATED_TYPES = TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Owned Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__OWNED_ATTRIBUTES = TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__ATTRIBUTES = TYPE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Owned References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__OWNED_REFERENCES = TYPE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__REFERENCES = TYPE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__PROPERTIES = TYPE_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Structured Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURED_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+	int STRUCTURED_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.DTOImpl <em>DTO</em>}' class.
@@ -1631,6 +1701,69 @@ public interface EnvironmentPackage extends EPackage {
 	int DTO__TYPE_DEFINITION = STRUCTURED_TYPE__TYPE_DEFINITION;
 
 	/**
+	 * The feature id for the '<em><b>Supertype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__SUPERTYPE = STRUCTURED_TYPE__SUPERTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Associated Types</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__ASSOCIATED_TYPES = STRUCTURED_TYPE__ASSOCIATED_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Owned Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__OWNED_ATTRIBUTES = STRUCTURED_TYPE__OWNED_ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__ATTRIBUTES = STRUCTURED_TYPE__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Owned References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__OWNED_REFERENCES = STRUCTURED_TYPE__OWNED_REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__REFERENCES = STRUCTURED_TYPE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__PROPERTIES = STRUCTURED_TYPE__PROPERTIES;
+
+	/**
 	 * The feature id for the '<em><b>Owned Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1640,76 +1773,13 @@ public interface EnvironmentPackage extends EPackage {
 	int DTO__OWNED_CONTAINER = STRUCTURED_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Associated Types</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO__ASSOCIATED_TYPES = STRUCTURED_TYPE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Properties</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO__PROPERTIES = STRUCTURED_TYPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO__REFERENCES = STRUCTURED_TYPE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Owned References</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO__OWNED_REFERENCES = STRUCTURED_TYPE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO__ATTRIBUTES = STRUCTURED_TYPE_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Owned Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO__OWNED_ATTRIBUTES = STRUCTURED_TYPE_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Supertype</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DTO__SUPERTYPE = STRUCTURED_TYPE_FEATURE_COUNT + 7;
-
-	/**
 	 * The number of structural features of the '<em>DTO</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DTO_FEATURE_COUNT = STRUCTURED_TYPE_FEATURE_COUNT + 8;
+	int DTO_FEATURE_COUNT = STRUCTURED_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.FilterContainerImpl <em>Filter Container</em>}' class.
@@ -1919,7 +1989,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__METADATAS = OBEO_DSM_OBJECT__METADATAS;
+	int NAMESPACE__METADATAS = TYPES_DEFINITION__METADATAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1928,7 +1998,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__DESCRIPTION = OBEO_DSM_OBJECT__DESCRIPTION;
+	int NAMESPACE__DESCRIPTION = TYPES_DEFINITION__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
@@ -1937,7 +2007,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__KEYWORDS = OBEO_DSM_OBJECT__KEYWORDS;
+	int NAMESPACE__KEYWORDS = TYPES_DEFINITION__KEYWORDS;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -1946,7 +2016,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
+	int NAMESPACE__BEHAVIOURS = TYPES_DEFINITION__BEHAVIOURS;
 
 	/**
 	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
@@ -1955,7 +2025,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+	int NAMESPACE__BINDING_REGISTRIES = TYPES_DEFINITION__BINDING_REGISTRIES;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -1964,7 +2034,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__VERSION = OBEO_DSM_OBJECT__VERSION;
+	int NAMESPACE__VERSION = TYPES_DEFINITION__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Created On</b></em>' attribute.
@@ -1973,7 +2043,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+	int NAMESPACE__CREATED_ON = TYPES_DEFINITION__CREATED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
@@ -1982,7 +2052,16 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+	int NAMESPACE__MODIFIED_ON = TYPES_DEFINITION__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE__TYPES = TYPES_DEFINITION__TYPES;
 
 	/**
 	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
@@ -1991,7 +2070,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__OWNED_NAMESPACES = OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
+	int NAMESPACE__OWNED_NAMESPACES = TYPES_DEFINITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
@@ -2000,7 +2079,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__OWNER = OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+	int NAMESPACE__OWNER = TYPES_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2009,7 +2088,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__NAME = OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+	int NAMESPACE__NAME = TYPES_DEFINITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Namespace</em>' class.
@@ -2018,7 +2097,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
+	int NAMESPACE_FEATURE_COUNT = TYPES_DEFINITION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.PropertyImpl <em>Property</em>}' class.
@@ -2121,13 +2200,22 @@ public interface EnvironmentPackage extends EPackage {
 	int PROPERTY__MULTIPLICITY = OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Is Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__IS_IDENTIFIER = OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+	int PROPERTY_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -2230,6 +2318,15 @@ public interface EnvironmentPackage extends EPackage {
 	int ATTRIBUTE__MULTIPLICITY = PROPERTY__MULTIPLICITY;
 
 	/**
+	 * The feature id for the '<em><b>Is Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__IS_IDENTIFIER = PROPERTY__IS_IDENTIFIER;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2239,13 +2336,13 @@ public interface EnvironmentPackage extends EPackage {
 	int ATTRIBUTE__TYPE = PROPERTY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Dto</b></em>' container reference.
+	 * The feature id for the '<em><b>Containing Type</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__DTO = PROPERTY_FEATURE_COUNT + 1;
+	int ATTRIBUTE__CONTAINING_TYPE = PROPERTY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
@@ -2357,6 +2454,15 @@ public interface EnvironmentPackage extends EPackage {
 	int REFERENCE__MULTIPLICITY = PROPERTY__MULTIPLICITY;
 
 	/**
+	 * The feature id for the '<em><b>Is Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__IS_IDENTIFIER = PROPERTY__IS_IDENTIFIER;
+
+	/**
 	 * The feature id for the '<em><b>Is Composite</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2384,22 +2490,22 @@ public interface EnvironmentPackage extends EPackage {
 	int REFERENCE__OPPOSITE_OF = PROPERTY_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * The feature id for the '<em><b>Containing Type</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__TYPE = PROPERTY_FEATURE_COUNT + 3;
+	int REFERENCE__CONTAINING_TYPE = PROPERTY_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Dto</b></em>' container reference.
+	 * The feature id for the '<em><b>Referenced Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__DTO = PROPERTY_FEATURE_COUNT + 4;
+	int REFERENCE__REFERENCED_TYPE = PROPERTY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
@@ -3004,6 +3110,17 @@ public interface EnvironmentPackage extends EPackage {
 	EReference getEnvironment_TypesDefinition();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.Environment#getNamespaces <em>Namespaces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Namespaces</em>'.
+	 * @see org.obeonetwork.dsl.environment.Environment#getNamespaces()
+	 * @see #getEnvironment()
+	 * @generated
+	 */
+	EReference getEnvironment_Namespaces();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3385,6 +3502,83 @@ public interface EnvironmentPackage extends EPackage {
 	EClass getStructuredType();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.environment.StructuredType#getSupertype <em>Supertype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Supertype</em>'.
+	 * @see org.obeonetwork.dsl.environment.StructuredType#getSupertype()
+	 * @see #getStructuredType()
+	 * @generated
+	 */
+	EReference getStructuredType_Supertype();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.StructuredType#getAssociatedTypes <em>Associated Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Associated Types</em>'.
+	 * @see org.obeonetwork.dsl.environment.StructuredType#getAssociatedTypes()
+	 * @see #getStructuredType()
+	 * @generated
+	 */
+	EReference getStructuredType_AssociatedTypes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.StructuredType#getOwnedAttributes <em>Owned Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Owned Attributes</em>'.
+	 * @see org.obeonetwork.dsl.environment.StructuredType#getOwnedAttributes()
+	 * @see #getStructuredType()
+	 * @generated
+	 */
+	EReference getStructuredType_OwnedAttributes();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.StructuredType#getAttributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Attributes</em>'.
+	 * @see org.obeonetwork.dsl.environment.StructuredType#getAttributes()
+	 * @see #getStructuredType()
+	 * @generated
+	 */
+	EReference getStructuredType_Attributes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.StructuredType#getOwnedReferences <em>Owned References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Owned References</em>'.
+	 * @see org.obeonetwork.dsl.environment.StructuredType#getOwnedReferences()
+	 * @see #getStructuredType()
+	 * @generated
+	 */
+	EReference getStructuredType_OwnedReferences();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.StructuredType#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>References</em>'.
+	 * @see org.obeonetwork.dsl.environment.StructuredType#getReferences()
+	 * @see #getStructuredType()
+	 * @generated
+	 */
+	EReference getStructuredType_References();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.StructuredType#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @see org.obeonetwork.dsl.environment.StructuredType#getProperties()
+	 * @see #getStructuredType()
+	 * @generated
+	 */
+	EReference getStructuredType_Properties();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.DTO <em>DTO</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3404,83 +3598,6 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDTO_OwnedContainer();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.DTO#getAssociatedTypes <em>Associated Types</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Associated Types</em>'.
-	 * @see org.obeonetwork.dsl.environment.DTO#getAssociatedTypes()
-	 * @see #getDTO()
-	 * @generated
-	 */
-	EReference getDTO_AssociatedTypes();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.DTO#getProperties <em>Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Properties</em>'.
-	 * @see org.obeonetwork.dsl.environment.DTO#getProperties()
-	 * @see #getDTO()
-	 * @generated
-	 */
-	EReference getDTO_Properties();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.DTO#getReferences <em>References</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>References</em>'.
-	 * @see org.obeonetwork.dsl.environment.DTO#getReferences()
-	 * @see #getDTO()
-	 * @generated
-	 */
-	EReference getDTO_References();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.DTO#getOwnedReferences <em>Owned References</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owned References</em>'.
-	 * @see org.obeonetwork.dsl.environment.DTO#getOwnedReferences()
-	 * @see #getDTO()
-	 * @generated
-	 */
-	EReference getDTO_OwnedReferences();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.environment.DTO#getAttributes <em>Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Attributes</em>'.
-	 * @see org.obeonetwork.dsl.environment.DTO#getAttributes()
-	 * @see #getDTO()
-	 * @generated
-	 */
-	EReference getDTO_Attributes();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.DTO#getOwnedAttributes <em>Owned Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owned Attributes</em>'.
-	 * @see org.obeonetwork.dsl.environment.DTO#getOwnedAttributes()
-	 * @see #getDTO()
-	 * @generated
-	 */
-	EReference getDTO_OwnedAttributes();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.environment.DTO#getSupertype <em>Supertype</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Supertype</em>'.
-	 * @see org.obeonetwork.dsl.environment.DTO#getSupertype()
-	 * @see #getDTO()
-	 * @generated
-	 */
-	EReference getDTO_Supertype();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.FilterContainer <em>Filter Container</em>}'.
@@ -3578,15 +3695,15 @@ public interface EnvironmentPackage extends EPackage {
 	EReference getAttribute_Type();
 
 	/**
-	 * Returns the meta object for the container reference '{@link org.obeonetwork.dsl.environment.Attribute#getDto <em>Dto</em>}'.
+	 * Returns the meta object for the container reference '{@link org.obeonetwork.dsl.environment.Attribute#getContainingType <em>Containing Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Dto</em>'.
-	 * @see org.obeonetwork.dsl.environment.Attribute#getDto()
+	 * @return the meta object for the container reference '<em>Containing Type</em>'.
+	 * @see org.obeonetwork.dsl.environment.Attribute#getContainingType()
 	 * @see #getAttribute()
 	 * @generated
 	 */
-	EReference getAttribute_Dto();
+	EReference getAttribute_ContainingType();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Reference <em>Reference</em>}'.
@@ -3632,26 +3749,26 @@ public interface EnvironmentPackage extends EPackage {
 	EReference getReference_OppositeOf();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.environment.Reference#getType <em>Type</em>}'.
+	 * Returns the meta object for the container reference '{@link org.obeonetwork.dsl.environment.Reference#getContainingType <em>Containing Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see org.obeonetwork.dsl.environment.Reference#getType()
+	 * @return the meta object for the container reference '<em>Containing Type</em>'.
+	 * @see org.obeonetwork.dsl.environment.Reference#getContainingType()
 	 * @see #getReference()
 	 * @generated
 	 */
-	EReference getReference_Type();
+	EReference getReference_ContainingType();
 
 	/**
-	 * Returns the meta object for the container reference '{@link org.obeonetwork.dsl.environment.Reference#getDto <em>Dto</em>}'.
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.environment.Reference#getReferencedType <em>Referenced Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Dto</em>'.
-	 * @see org.obeonetwork.dsl.environment.Reference#getDto()
+	 * @return the meta object for the reference '<em>Referenced Type</em>'.
+	 * @see org.obeonetwork.dsl.environment.Reference#getReferencedType()
 	 * @see #getReference()
 	 * @generated
 	 */
-	EReference getReference_Dto();
+	EReference getReference_ReferencedType();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Property <em>Property</em>}'.
@@ -3684,6 +3801,17 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProperty_Multiplicity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.Property#isIsIdentifier <em>Is Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Identifier</em>'.
+	 * @see org.obeonetwork.dsl.environment.Property#isIsIdentifier()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EAttribute getProperty_IsIdentifier();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.BindingInfo <em>Binding Info</em>}'.
@@ -3983,6 +4111,15 @@ public interface EnvironmentPackage extends EPackage {
 		 */
 		EReference ENVIRONMENT__TYPES_DEFINITION = eINSTANCE
 				.getEnvironment_TypesDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Namespaces</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENVIRONMENT__NAMESPACES = eINSTANCE
+				.getEnvironment_Namespaces();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.TypeImpl <em>Type</em>}' class.
@@ -4314,6 +4451,69 @@ public interface EnvironmentPackage extends EPackage {
 		EClass STRUCTURED_TYPE = eINSTANCE.getStructuredType();
 
 		/**
+		 * The meta object literal for the '<em><b>Supertype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRUCTURED_TYPE__SUPERTYPE = eINSTANCE
+				.getStructuredType_Supertype();
+
+		/**
+		 * The meta object literal for the '<em><b>Associated Types</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRUCTURED_TYPE__ASSOCIATED_TYPES = eINSTANCE
+				.getStructuredType_AssociatedTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Owned Attributes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRUCTURED_TYPE__OWNED_ATTRIBUTES = eINSTANCE
+				.getStructuredType_OwnedAttributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRUCTURED_TYPE__ATTRIBUTES = eINSTANCE
+				.getStructuredType_Attributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Owned References</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRUCTURED_TYPE__OWNED_REFERENCES = eINSTANCE
+				.getStructuredType_OwnedReferences();
+
+		/**
+		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRUCTURED_TYPE__REFERENCES = eINSTANCE
+				.getStructuredType_References();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STRUCTURED_TYPE__PROPERTIES = eINSTANCE
+				.getStructuredType_Properties();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.DTOImpl <em>DTO</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4330,62 +4530,6 @@ public interface EnvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DTO__OWNED_CONTAINER = eINSTANCE.getDTO_OwnedContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Associated Types</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DTO__ASSOCIATED_TYPES = eINSTANCE.getDTO_AssociatedTypes();
-
-		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DTO__PROPERTIES = eINSTANCE.getDTO_Properties();
-
-		/**
-		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DTO__REFERENCES = eINSTANCE.getDTO_References();
-
-		/**
-		 * The meta object literal for the '<em><b>Owned References</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DTO__OWNED_REFERENCES = eINSTANCE.getDTO_OwnedReferences();
-
-		/**
-		 * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DTO__ATTRIBUTES = eINSTANCE.getDTO_Attributes();
-
-		/**
-		 * The meta object literal for the '<em><b>Owned Attributes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DTO__OWNED_ATTRIBUTES = eINSTANCE.getDTO_OwnedAttributes();
-
-		/**
-		 * The meta object literal for the '<em><b>Supertype</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DTO__SUPERTYPE = eINSTANCE.getDTO_Supertype();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.FilterContainerImpl <em>Filter Container</em>}' class.
@@ -4470,12 +4614,13 @@ public interface EnvironmentPackage extends EPackage {
 		EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Dto</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Containing Type</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ATTRIBUTE__DTO = eINSTANCE.getAttribute_Dto();
+		EReference ATTRIBUTE__CONTAINING_TYPE = eINSTANCE
+				.getAttribute_ContainingType();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -4513,20 +4658,22 @@ public interface EnvironmentPackage extends EPackage {
 		EReference REFERENCE__OPPOSITE_OF = eINSTANCE.getReference_OppositeOf();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Containing Type</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE__TYPE = eINSTANCE.getReference_Type();
+		EReference REFERENCE__CONTAINING_TYPE = eINSTANCE
+				.getReference_ContainingType();
 
 		/**
-		 * The meta object literal for the '<em><b>Dto</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Referenced Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE__DTO = eINSTANCE.getReference_Dto();
+		EReference REFERENCE__REFERENCED_TYPE = eINSTANCE
+				.getReference_ReferencedType();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.PropertyImpl <em>Property</em>}' class.
@@ -4554,6 +4701,15 @@ public interface EnvironmentPackage extends EPackage {
 		 */
 		EAttribute PROPERTY__MULTIPLICITY = eINSTANCE
 				.getProperty_Multiplicity();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Identifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY__IS_IDENTIFIER = eINSTANCE
+				.getProperty_IsIdentifier();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.BindingInfoImpl <em>Binding Info</em>}' class.

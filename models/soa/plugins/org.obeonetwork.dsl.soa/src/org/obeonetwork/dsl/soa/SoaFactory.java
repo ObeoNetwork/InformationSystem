@@ -113,33 +113,6 @@ public interface SoaFactory extends EFactory {
 	Parameter createParameter();
 
 	/**
-	 * Returns a new object of class '<em>DTO Registry</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>DTO Registry</em>'.
-	 * @generated
-	 */
-	DTORegistry createDTORegistry();
-
-	/**
-	 * Returns a new object of class '<em>Category</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Category</em>'.
-	 * @generated
-	 */
-	Category createCategory();
-
-	/**
-	 * Returns a new object of class '<em>Service DTO</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Service DTO</em>'.
-	 * @generated
-	 */
-	ServiceDTO createServiceDTO();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

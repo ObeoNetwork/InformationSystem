@@ -40,24 +40,6 @@ public class EntityViewsRepository {
 	}
 
 	/**
-	 * Block view descriptor
-	 * 
-	 */
-	public static class Block {
-		public static class Properties {
-	
-			
-			public static String name = "entity::Block::properties::name";
-			
-			
-			public static String description = "entity::Block::properties::description";
-			
-	
-		}
-	
-	}
-
-	/**
 	 * Entity view descriptor
 	 * 
 	 */
@@ -84,69 +66,6 @@ public class EntityViewsRepository {
 			
 			
 			public static String description = "entity::Entity_::properties::description";
-			
-	
-		}
-	
-	}
-
-	/**
-	 * Attribute view descriptor
-	 * 
-	 */
-	public static class Attribute {
-		public static class Properties {
-	
-			
-			public static String name = "entity::Attribute::properties::name";
-			
-			
-			public static String type = "entity::Attribute::properties::type";
-			
-			
-			public static String multiplicity = "entity::Attribute::properties::multiplicity";
-			
-			
-			public static String isPrimaryKey = "entity::Attribute::properties::isPrimaryKey";
-			
-			
-			public static String description = "entity::Attribute::properties::description";
-			
-	
-		}
-	
-	}
-
-	/**
-	 * Reference view descriptor
-	 * 
-	 */
-	public static class Reference {
-		public static class Properties {
-	
-			
-			public static String name = "entity::Reference::properties::name";
-			
-			
-			public static String type = "entity::Reference::properties::type";
-			
-			
-			public static String multiplicity = "entity::Reference::properties::multiplicity";
-			
-			
-			public static String isPrimaryKey = "entity::Reference::properties::isPrimaryKey";
-			
-			
-			public static String isComposite = "entity::Reference::properties::isComposite";
-			
-			
-			public static String navigable = "entity::Reference::properties::navigable";
-			
-			
-			public static String oppositeOf = "entity::Reference::properties::oppositeOf";
-			
-			
-			public static String description = "entity::Reference::properties::description";
 			
 	
 		}

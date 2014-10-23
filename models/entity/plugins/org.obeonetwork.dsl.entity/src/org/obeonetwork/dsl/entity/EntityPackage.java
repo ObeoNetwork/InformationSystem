@@ -53,7 +53,7 @@ public interface EntityPackage extends EPackage {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.obeonetwork.org/dsl/entity/2.0.0";
+	String eNS_URI = "http://www.obeonetwork.org/dsl/entity/3.0.0";
 
 	/**
 	 * The package namespace name.
@@ -85,7 +85,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__METADATAS = EnvironmentPackage.NAMESPACE__METADATAS;
+	int ROOT__METADATAS = EnvironmentPackage.TYPES_DEFINITION__METADATAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -94,7 +94,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__DESCRIPTION = EnvironmentPackage.NAMESPACE__DESCRIPTION;
+	int ROOT__DESCRIPTION = EnvironmentPackage.TYPES_DEFINITION__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
@@ -103,7 +103,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__KEYWORDS = EnvironmentPackage.NAMESPACE__KEYWORDS;
+	int ROOT__KEYWORDS = EnvironmentPackage.TYPES_DEFINITION__KEYWORDS;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -112,7 +112,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__BEHAVIOURS = EnvironmentPackage.NAMESPACE__BEHAVIOURS;
+	int ROOT__BEHAVIOURS = EnvironmentPackage.TYPES_DEFINITION__BEHAVIOURS;
 
 	/**
 	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
@@ -121,7 +121,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__BINDING_REGISTRIES = EnvironmentPackage.NAMESPACE__BINDING_REGISTRIES;
+	int ROOT__BINDING_REGISTRIES = EnvironmentPackage.TYPES_DEFINITION__BINDING_REGISTRIES;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -130,7 +130,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__VERSION = EnvironmentPackage.NAMESPACE__VERSION;
+	int ROOT__VERSION = EnvironmentPackage.TYPES_DEFINITION__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Created On</b></em>' attribute.
@@ -139,7 +139,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__CREATED_ON = EnvironmentPackage.NAMESPACE__CREATED_ON;
+	int ROOT__CREATED_ON = EnvironmentPackage.TYPES_DEFINITION__CREATED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
@@ -148,25 +148,16 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__MODIFIED_ON = EnvironmentPackage.NAMESPACE__MODIFIED_ON;
+	int ROOT__MODIFIED_ON = EnvironmentPackage.TYPES_DEFINITION__MODIFIED_ON;
 
 	/**
-	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__OWNED_NAMESPACES = EnvironmentPackage.NAMESPACE__OWNED_NAMESPACES;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOT__OWNER = EnvironmentPackage.NAMESPACE__OWNER;
+	int ROOT__TYPES = EnvironmentPackage.TYPES_DEFINITION__TYPES;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -175,15 +166,16 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__NAME = EnvironmentPackage.NAMESPACE__NAME;
+	int ROOT__NAME = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Namespaces</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__BLOCKS = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 0;
+	int ROOT__NAMESPACES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Root</em>' class. <!--
@@ -192,121 +184,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.entity.impl.BlockImpl <em>Block</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.entity.impl.BlockImpl
-	 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getBlock()
-	 * @generated
-	 */
-	int BLOCK = 1;
-
-	/**
-	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__METADATAS = EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__DESCRIPTION = EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__KEYWORDS = EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS;
-
-	/**
-	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
-
-	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Created On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Entities</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__ENTITIES = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Subblocks</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__SUBBLOCKS = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Block</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
+	int ROOT_FEATURE_COUNT = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.entity.impl.EntityImpl <em>Entity</em>}' class.
@@ -315,7 +193,7 @@ public interface EntityPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getEntity()
 	 * @generated
 	 */
-	int ENTITY = 2;
+	int ENTITY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -406,29 +284,30 @@ public interface EntityPackage extends EPackage {
 	int ENTITY__TYPE_DEFINITION = EnvironmentPackage.STRUCTURED_TYPE__TYPE_DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Owned Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTITY__OWNED_ATTRIBUTES = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Owned References</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTITY__OWNED_REFERENCES = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Supertype</b></em>' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__SUPERTYPE = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 2;
+	int ENTITY__SUPERTYPE = EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Associated Types</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__ASSOCIATED_TYPES = EnvironmentPackage.STRUCTURED_TYPE__ASSOCIATED_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Owned Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__OWNED_ATTRIBUTES = EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
@@ -436,7 +315,15 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__ATTRIBUTES = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 3;
+	int ENTITY__ATTRIBUTES = EnvironmentPackage.STRUCTURED_TYPE__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Owned References</b></em>' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__OWNED_REFERENCES = EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
@@ -444,7 +331,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__REFERENCES = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 4;
+	int ENTITY__REFERENCES = EnvironmentPackage.STRUCTURED_TYPE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' reference list.
@@ -452,7 +339,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__PROPERTIES = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 5;
+	int ENTITY__PROPERTIES = EnvironmentPackage.STRUCTURED_TYPE__PROPERTIES;
 
 	/**
 	 * The feature id for the '<em><b>Estimated Volumetry</b></em>' attribute.
@@ -460,7 +347,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__ESTIMATED_VOLUMETRY = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 6;
+	int ENTITY__ESTIMATED_VOLUMETRY = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Estimated Access</b></em>' attribute.
@@ -468,7 +355,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__ESTIMATED_ACCESS = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 7;
+	int ENTITY__ESTIMATED_ACCESS = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Historized</b></em>' attribute. <!--
@@ -477,7 +364,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__HISTORIZED = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 8;
+	int ENTITY__HISTORIZED = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Owned Finders</b></em>' containment reference list.
@@ -485,15 +372,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__OWNED_FINDERS = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>Block</b></em>' container reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTITY__BLOCK = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 10;
+	int ENTITY__OWNED_FINDERS = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Inheritance Kind</b></em>' attribute.
@@ -501,7 +380,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__INHERITANCE_KIND = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 11;
+	int ENTITY__INHERITANCE_KIND = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
@@ -509,406 +388,7 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 12;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.entity.impl.PropertyImpl <em>Property</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.entity.impl.PropertyImpl
-	 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getProperty()
-	 * @generated
-	 */
-	int PROPERTY = 3;
-
-	/**
-	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__METADATAS = EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__DESCRIPTION = EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__KEYWORDS = EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS;
-
-	/**
-	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__BEHAVIOURS = EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS;
-
-	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__BINDING_REGISTRIES = EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__VERSION = EnvironmentPackage.OBEO_DSM_OBJECT__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Created On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__CREATED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__MODIFIED_ON = EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__NAME = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__MULTIPLICITY = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Is Primary Key</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__IS_PRIMARY_KEY = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_FEATURE_COUNT = EnvironmentPackage.OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.entity.impl.AttributeImpl <em>Attribute</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.entity.impl.AttributeImpl
-	 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getAttribute()
-	 * @generated
-	 */
-	int ATTRIBUTE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__METADATAS = PROPERTY__METADATAS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__DESCRIPTION = PROPERTY__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__KEYWORDS = PROPERTY__KEYWORDS;
-
-	/**
-	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__BEHAVIOURS = PROPERTY__BEHAVIOURS;
-
-	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__BINDING_REGISTRIES = PROPERTY__BINDING_REGISTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__VERSION = PROPERTY__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Created On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__CREATED_ON = PROPERTY__CREATED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__MODIFIED_ON = PROPERTY__MODIFIED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__NAME = PROPERTY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__MULTIPLICITY = PROPERTY__MULTIPLICITY;
-
-	/**
-	 * The feature id for the '<em><b>Is Primary Key</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__IS_PRIMARY_KEY = PROPERTY__IS_PRIMARY_KEY;
-
-	/**
-	 * The feature id for the '<em><b>Entity</b></em>' container reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__ENTITY = PROPERTY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__TYPE = PROPERTY_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Attribute</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.entity.impl.ReferenceImpl <em>Reference</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.entity.impl.ReferenceImpl
-	 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getReference()
-	 * @generated
-	 */
-	int REFERENCE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__METADATAS = PROPERTY__METADATAS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__DESCRIPTION = PROPERTY__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__KEYWORDS = PROPERTY__KEYWORDS;
-
-	/**
-	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__BEHAVIOURS = PROPERTY__BEHAVIOURS;
-
-	/**
-	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__BINDING_REGISTRIES = PROPERTY__BINDING_REGISTRIES;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__VERSION = PROPERTY__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Created On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__CREATED_ON = PROPERTY__CREATED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__MODIFIED_ON = PROPERTY__MODIFIED_ON;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__NAME = PROPERTY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__MULTIPLICITY = PROPERTY__MULTIPLICITY;
-
-	/**
-	 * The feature id for the '<em><b>Is Primary Key</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__IS_PRIMARY_KEY = PROPERTY__IS_PRIMARY_KEY;
-
-	/**
-	 * The feature id for the '<em><b>Entity</b></em>' container reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__ENTITY = PROPERTY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Is Composite</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__IS_COMPOSITE = PROPERTY_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Opposite Of</b></em>' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__OPPOSITE_OF = PROPERTY_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__TYPE = PROPERTY_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Navigable</b></em>' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__NAVIGABLE = PROPERTY_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Reference</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 5;
+	int ENTITY_FEATURE_COUNT = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.entity.impl.FinderImpl <em>Finder</em>}' class.
@@ -917,7 +397,7 @@ public interface EntityPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getFinder()
 	 * @generated
 	 */
-	int FINDER = 6;
+	int FINDER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1047,7 +527,7 @@ public interface EntityPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getCriterion()
 	 * @generated
 	 */
-	int CRITERION = 8;
+	int CRITERION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1135,7 +615,7 @@ public interface EntityPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getInternalCriterion()
 	 * @generated
 	 */
-	int INTERNAL_CRITERION = 7;
+	int INTERNAL_CRITERION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1241,7 +721,7 @@ public interface EntityPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getExternalCriterion()
 	 * @generated
 	 */
-	int EXTERNAL_CRITERION = 9;
+	int EXTERNAL_CRITERION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1347,7 +827,7 @@ public interface EntityPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getInheritanceKind()
 	 * @generated
 	 */
-	int INHERITANCE_KIND = 10;
+	int INHERITANCE_KIND = 6;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.entity.Root <em>Root</em>}'.
@@ -1359,53 +839,26 @@ public interface EntityPackage extends EPackage {
 	EClass getRoot();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.entity.Root#getBlocks <em>Blocks</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Blocks</em>'.
-	 * @see org.obeonetwork.dsl.entity.Root#getBlocks()
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.entity.Root#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.entity.Root#getName()
 	 * @see #getRoot()
 	 * @generated
 	 */
-	EReference getRoot_Blocks();
+	EAttribute getRoot_Name();
 
 	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.entity.Block <em>Block</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Block</em>'.
-	 * @see org.obeonetwork.dsl.entity.Block
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.entity.Root#getNamespaces <em>Namespaces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Namespaces</em>'.
+	 * @see org.obeonetwork.dsl.entity.Root#getNamespaces()
+	 * @see #getRoot()
 	 * @generated
 	 */
-	EClass getBlock();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.entity.Block#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.obeonetwork.dsl.entity.Block#getName()
-	 * @see #getBlock()
-	 * @generated
-	 */
-	EAttribute getBlock_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.entity.Block#getEntities <em>Entities</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Entities</em>'.
-	 * @see org.obeonetwork.dsl.entity.Block#getEntities()
-	 * @see #getBlock()
-	 * @generated
-	 */
-	EReference getBlock_Entities();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.entity.Block#getSubblocks <em>Subblocks</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Subblocks</em>'.
-	 * @see org.obeonetwork.dsl.entity.Block#getSubblocks()
-	 * @see #getBlock()
-	 * @generated
-	 */
-	EReference getBlock_Subblocks();
+	EReference getRoot_Namespaces();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.entity.Entity <em>Entity</em>}'.
@@ -1415,66 +868,6 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEntity();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.entity.Entity#getOwnedAttributes <em>Owned Attributes</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owned Attributes</em>'.
-	 * @see org.obeonetwork.dsl.entity.Entity#getOwnedAttributes()
-	 * @see #getEntity()
-	 * @generated
-	 */
-	EReference getEntity_OwnedAttributes();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.entity.Entity#getOwnedReferences <em>Owned References</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owned References</em>'.
-	 * @see org.obeonetwork.dsl.entity.Entity#getOwnedReferences()
-	 * @see #getEntity()
-	 * @generated
-	 */
-	EReference getEntity_OwnedReferences();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.entity.Entity#getSupertype <em>Supertype</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Supertype</em>'.
-	 * @see org.obeonetwork.dsl.entity.Entity#getSupertype()
-	 * @see #getEntity()
-	 * @generated
-	 */
-	EReference getEntity_Supertype();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.entity.Entity#getAttributes <em>Attributes</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Attributes</em>'.
-	 * @see org.obeonetwork.dsl.entity.Entity#getAttributes()
-	 * @see #getEntity()
-	 * @generated
-	 */
-	EReference getEntity_Attributes();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.entity.Entity#getReferences <em>References</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>References</em>'.
-	 * @see org.obeonetwork.dsl.entity.Entity#getReferences()
-	 * @see #getEntity()
-	 * @generated
-	 */
-	EReference getEntity_References();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.entity.Entity#getProperties <em>Properties</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Properties</em>'.
-	 * @see org.obeonetwork.dsl.entity.Entity#getProperties()
-	 * @see #getEntity()
-	 * @generated
-	 */
-	EReference getEntity_Properties();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.entity.Entity#getEstimatedVolumetry <em>Estimated Volumetry</em>}'.
@@ -1517,16 +910,6 @@ public interface EntityPackage extends EPackage {
 	EReference getEntity_OwnedFinders();
 
 	/**
-	 * Returns the meta object for the container reference '{@link org.obeonetwork.dsl.entity.Entity#getBlock <em>Block</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Block</em>'.
-	 * @see org.obeonetwork.dsl.entity.Entity#getBlock()
-	 * @see #getEntity()
-	 * @generated
-	 */
-	EReference getEntity_Block();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.entity.Entity#getInheritanceKind <em>Inheritance Kind</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Inheritance Kind</em>'.
@@ -1535,133 +918,6 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEntity_InheritanceKind();
-
-	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.entity.Property <em>Property</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Property</em>'.
-	 * @see org.obeonetwork.dsl.entity.Property
-	 * @generated
-	 */
-	EClass getProperty();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.entity.Property#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.obeonetwork.dsl.entity.Property#getName()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EAttribute getProperty_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.entity.Property#getMultiplicity <em>Multiplicity</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Multiplicity</em>'.
-	 * @see org.obeonetwork.dsl.entity.Property#getMultiplicity()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EAttribute getProperty_Multiplicity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.entity.Property#isIsPrimaryKey <em>Is Primary Key</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Primary Key</em>'.
-	 * @see org.obeonetwork.dsl.entity.Property#isIsPrimaryKey()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EAttribute getProperty_IsPrimaryKey();
-
-	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.entity.Attribute <em>Attribute</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Attribute</em>'.
-	 * @see org.obeonetwork.dsl.entity.Attribute
-	 * @generated
-	 */
-	EClass getAttribute();
-
-	/**
-	 * Returns the meta object for the container reference '{@link org.obeonetwork.dsl.entity.Attribute#getEntity <em>Entity</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Entity</em>'.
-	 * @see org.obeonetwork.dsl.entity.Attribute#getEntity()
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	EReference getAttribute_Entity();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.entity.Attribute#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see org.obeonetwork.dsl.entity.Attribute#getType()
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	EReference getAttribute_Type();
-
-	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.entity.Reference <em>Reference</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Reference</em>'.
-	 * @see org.obeonetwork.dsl.entity.Reference
-	 * @generated
-	 */
-	EClass getReference();
-
-	/**
-	 * Returns the meta object for the container reference '{@link org.obeonetwork.dsl.entity.Reference#getEntity <em>Entity</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Entity</em>'.
-	 * @see org.obeonetwork.dsl.entity.Reference#getEntity()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EReference getReference_Entity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.entity.Reference#isIsComposite <em>Is Composite</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Composite</em>'.
-	 * @see org.obeonetwork.dsl.entity.Reference#isIsComposite()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EAttribute getReference_IsComposite();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.entity.Reference#getOppositeOf <em>Opposite Of</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Opposite Of</em>'.
-	 * @see org.obeonetwork.dsl.entity.Reference#getOppositeOf()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EReference getReference_OppositeOf();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.entity.Reference#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see org.obeonetwork.dsl.entity.Reference#getType()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EReference getReference_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.entity.Reference#isNavigable <em>Navigable</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Navigable</em>'.
-	 * @see org.obeonetwork.dsl.entity.Reference#isNavigable()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EAttribute getReference_Navigable();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.entity.Finder <em>Finder</em>}'.
@@ -1831,44 +1087,20 @@ public interface EntityPackage extends EPackage {
 		EClass ROOT = eINSTANCE.getRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Blocks</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EReference ROOT__BLOCKS = eINSTANCE.getRoot_Blocks();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.entity.impl.BlockImpl <em>Block</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.entity.impl.BlockImpl
-		 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getBlock()
-		 * @generated
-		 */
-		EClass BLOCK = eINSTANCE.getBlock();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BLOCK__NAME = eINSTANCE.getBlock_Name();
+		EAttribute ROOT__NAME = eINSTANCE.getRoot_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Namespaces</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BLOCK__ENTITIES = eINSTANCE.getBlock_Entities();
-
-		/**
-		 * The meta object literal for the '<em><b>Subblocks</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EReference BLOCK__SUBBLOCKS = eINSTANCE.getBlock_Subblocks();
+		EReference ROOT__NAMESPACES = eINSTANCE.getRoot_Namespaces();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.entity.impl.EntityImpl <em>Entity</em>}' class.
@@ -1878,50 +1110,6 @@ public interface EntityPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ENTITY = eINSTANCE.getEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Owned Attributes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTITY__OWNED_ATTRIBUTES = eINSTANCE.getEntity_OwnedAttributes();
-
-		/**
-		 * The meta object literal for the '<em><b>Owned References</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTITY__OWNED_REFERENCES = eINSTANCE.getEntity_OwnedReferences();
-
-		/**
-		 * The meta object literal for the '<em><b>Supertype</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTITY__SUPERTYPE = eINSTANCE.getEntity_Supertype();
-
-		/**
-		 * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTITY__ATTRIBUTES = eINSTANCE.getEntity_Attributes();
-
-		/**
-		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTITY__REFERENCES = eINSTANCE.getEntity_References();
-
-		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTITY__PROPERTIES = eINSTANCE.getEntity_Properties();
 
 		/**
 		 * The meta object literal for the '<em><b>Estimated Volumetry</b></em>' attribute feature.
@@ -1953,118 +1141,11 @@ public interface EntityPackage extends EPackage {
 		EReference ENTITY__OWNED_FINDERS = eINSTANCE.getEntity_OwnedFinders();
 
 		/**
-		 * The meta object literal for the '<em><b>Block</b></em>' container reference feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTITY__BLOCK = eINSTANCE.getEntity_Block();
-
-		/**
 		 * The meta object literal for the '<em><b>Inheritance Kind</b></em>' attribute feature.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ENTITY__INHERITANCE_KIND = eINSTANCE.getEntity_InheritanceKind();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.entity.impl.PropertyImpl <em>Property</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.entity.impl.PropertyImpl
-		 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getProperty()
-		 * @generated
-		 */
-		EClass PROPERTY = eINSTANCE.getProperty();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Multiplicity</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROPERTY__MULTIPLICITY = eINSTANCE.getProperty_Multiplicity();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Primary Key</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROPERTY__IS_PRIMARY_KEY = eINSTANCE.getProperty_IsPrimaryKey();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.entity.impl.AttributeImpl <em>Attribute</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.entity.impl.AttributeImpl
-		 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getAttribute()
-		 * @generated
-		 */
-		EClass ATTRIBUTE = eINSTANCE.getAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Entity</b></em>' container reference feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EReference ATTRIBUTE__ENTITY = eINSTANCE.getAttribute_Entity();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
-
-		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.entity.impl.ReferenceImpl <em>Reference</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.entity.impl.ReferenceImpl
-		 * @see org.obeonetwork.dsl.entity.impl.EntityPackageImpl#getReference()
-		 * @generated
-		 */
-		EClass REFERENCE = eINSTANCE.getReference();
-
-		/**
-		 * The meta object literal for the '<em><b>Entity</b></em>' container reference feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EReference REFERENCE__ENTITY = eINSTANCE.getReference_Entity();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Composite</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE__IS_COMPOSITE = eINSTANCE.getReference_IsComposite();
-
-		/**
-		 * The meta object literal for the '<em><b>Opposite Of</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REFERENCE__OPPOSITE_OF = eINSTANCE.getReference_OppositeOf();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REFERENCE__TYPE = eINSTANCE.getReference_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Navigable</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE__NAVIGABLE = eINSTANCE.getReference_Navigable();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.entity.impl.FinderImpl <em>Finder</em>}' class.

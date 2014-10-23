@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.soa.parts;
 
 // Start of user code for imports
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
@@ -20,7 +21,7 @@ import org.eclipse.jface.viewers.ViewerFilter;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
  * 
  */
 public interface ParameterPropertiesEditionPart {
@@ -40,31 +41,24 @@ public interface ParameterPropertiesEditionPart {
 
 
 	/**
-	 * @return the lower
+	 * @return the multiplicity
 	 * 
 	 */
-	public String getLower();
+	public Enumerator getMultiplicity();
 
 	/**
-	 * Defines a new lower
-	 * @param newValue the new lower to set
-	 * 
+	 * Init the multiplicity
+	 * @param input the viewer input
+	 * @param current the current value
 	 */
-	public void setLower(String newValue);
-
-
-	/**
-	 * @return the upper
-	 * 
-	 */
-	public String getUpper();
+	public void initMultiplicity(Object input, Enumerator current);
 
 	/**
-	 * Defines a new upper
-	 * @param newValue the new upper to set
+	 * Defines a new multiplicity
+	 * @param newValue the new multiplicity to set
 	 * 
 	 */
-	public void setUpper(String newValue);
+	public void setMultiplicity(Enumerator newValue);
 
 
 	/**

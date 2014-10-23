@@ -34,50 +34,50 @@ public interface ReferencePropertiesEditionPart {
 
 
 	/**
-	 * @return the type
+	 * @return the referencedType
 	 * 
 	 */
-	public EObject getType();
+	public EObject getReferencedType();
 
 	/**
-	 * Init the type
+	 * Init the referencedType
 	 * @param settings the combo setting
 	 */
-	public void initType(EObjectFlatComboSettings settings);
+	public void initReferencedType(EObjectFlatComboSettings settings);
 
 	/**
-	 * Defines a new type
-	 * @param newValue the new type to set
+	 * Defines a new referencedType
+	 * @param newValue the new referencedType to set
 	 * 
 	 */
-	public void setType(EObject newValue);
+	public void setReferencedType(EObject newValue);
 
 	/**
 	 * Defines the button mode
 	 * @param newValue the new mode to set
 	 * 
 	 */
-	public void setTypeButtonMode(ButtonsModeEnum newValue);
+	public void setReferencedTypeButtonMode(ButtonsModeEnum newValue);
 
 	/**
-	 * Adds the given filter to the type edition editor.
+	 * Adds the given filter to the referencedType edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addFilterToType(ViewerFilter filter);
+	public void addFilterToReferencedType(ViewerFilter filter);
 
 	/**
-	 * Adds the given filter to the type edition editor.
+	 * Adds the given filter to the referencedType edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addBusinessFilterToType(ViewerFilter filter);
+	public void addBusinessFilterToReferencedType(ViewerFilter filter);
 
 
 	/**
@@ -174,6 +174,20 @@ public interface ReferencePropertiesEditionPart {
 	 * 
 	 */
 	public void addBusinessFilterToOppositeOf(ViewerFilter filter);
+
+
+	/**
+	 * @return the identifier
+	 * 
+	 */
+	public Boolean getIdentifier();
+
+	/**
+	 * Defines a new identifier
+	 * @param newValue the new identifier to set
+	 * 
+	 */
+	public void setIdentifier(Boolean newValue);
 
 
 	/**

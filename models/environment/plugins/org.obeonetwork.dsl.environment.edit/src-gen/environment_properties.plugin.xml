@@ -6,7 +6,7 @@
   <!-- EEF extensions -->
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.obeonetwork.org/dsl/environment/2.0.0"
+            uri="http://www.obeonetwork.org/dsl/environment/3.0.0"
             class="org.obeonetwork.dsl.environment.providers.EnvironmentEEFAdapterFactory"
             supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
    </extension>
@@ -137,6 +137,12 @@
          <propertyTab
                id="BindingElement"
                label="BindingElement"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Base"
+               label="Base"
                category="default">
          </propertyTab>
 

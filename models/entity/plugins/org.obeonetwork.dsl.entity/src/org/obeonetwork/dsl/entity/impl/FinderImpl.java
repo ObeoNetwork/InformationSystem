@@ -110,9 +110,9 @@ public class FinderImpl extends ObeoDSMObjectImpl implements Finder {
 			result = customizedName;
 		} else {
 			result = "finder : ";
-			EList listCriterions = getCriterions();
+			EList<Criterion> listCriterions = getCriterions();
 			if (listCriterions != null) {
-				for (Iterator iter = listCriterions.iterator(); iter.hasNext();) {
+				for (Iterator<Criterion> iter = listCriterions.iterator(); iter.hasNext();) {
 					Criterion criterion = (Criterion) iter.next();
 					if (criterion instanceof InternalCriterion) {
 						InternalCriterion internalCriterion = (InternalCriterion) criterion;

@@ -68,6 +68,7 @@ public class PropertyItemProvider extends ObeoDSMObjectItemProvider implements
 
 			addNamePropertyDescriptor(object);
 			addMultiplicityPropertyDescriptor(object);
+			addIsIdentifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +112,26 @@ public class PropertyItemProvider extends ObeoDSMObjectItemProvider implements
 	}
 
 	/**
+	 * This adds a property descriptor for the Is Identifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsIdentifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_Property_isIdentifier_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Property_isIdentifier_feature",
+						"_UI_Property_type"),
+				EnvironmentPackage.Literals.PROPERTY__IS_IDENTIFIER, true,
+				false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null,
+				null));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -147,6 +168,7 @@ public class PropertyItemProvider extends ObeoDSMObjectItemProvider implements
 		switch (notification.getFeatureID(Property.class)) {
 		case EnvironmentPackage.PROPERTY__NAME:
 		case EnvironmentPackage.PROPERTY__MULTIPLICITY:
+		case EnvironmentPackage.PROPERTY__IS_IDENTIFIER:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
 			return;

@@ -45,15 +45,6 @@ public interface EntityFactory extends EFactory {
 	Root createRoot();
 
 	/**
-	 * Returns a new object of class '<em>Block</em>'.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * @return a new object of class '<em>Block</em>'.
-	 * @generated
-	 */
-	Block createBlock();
-
-	/**
 	 * Returns a new object of class '<em>Entity</em>'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -61,24 +52,6 @@ public interface EntityFactory extends EFactory {
 	 * @generated
 	 */
 	Entity createEntity();
-
-	/**
-	 * Returns a new object of class '<em>Attribute</em>'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Attribute</em>'.
-	 * @generated
-	 */
-	Attribute createAttribute();
-
-	/**
-	 * Returns a new object of class '<em>Reference</em>'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Reference</em>'.
-	 * @generated
-	 */
-	Reference createReference();
 
 	/**
 	 * Returns a new object of class '<em>Finder</em>'.

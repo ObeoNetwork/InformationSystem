@@ -54,11 +54,12 @@ import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
 public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, ReferencePropertiesEditionPart {
 
 	protected Text name;
-	protected EObjectFlatComboViewer type;
+	protected EObjectFlatComboViewer referencedType;
 	protected EMFComboViewer multiplicity;
 	protected Button isComposite;
 	protected Button navigable;
 	protected EObjectFlatComboViewer oppositeOf;
+	protected Button identifier;
 	protected Text description;
 
 
@@ -99,11 +100,12 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		CompositionSequence referenceStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = referenceStep.addStep(EnvironmentViewsRepository.Reference.Properties.class);
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.name);
-		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.type);
+		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.referencedType);
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.multiplicity);
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.isComposite);
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.navigable);
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.oppositeOf);
+		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.identifier);
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.description);
 		
 		
@@ -117,8 +119,8 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 				if (key == EnvironmentViewsRepository.Reference.Properties.name) {
 					return createNameText(parent);
 				}
-				if (key == EnvironmentViewsRepository.Reference.Properties.type) {
-					return createTypeFlatComboViewer(parent);
+				if (key == EnvironmentViewsRepository.Reference.Properties.referencedType) {
+					return createReferencedTypeFlatComboViewer(parent);
 				}
 				if (key == EnvironmentViewsRepository.Reference.Properties.multiplicity) {
 					return createMultiplicityEMFComboViewer(parent);
@@ -131,6 +133,9 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 				}
 				if (key == EnvironmentViewsRepository.Reference.Properties.oppositeOf) {
 					return createOppositeOfFlatComboViewer(parent);
+				}
+				if (key == EnvironmentViewsRepository.Reference.Properties.identifier) {
+					return createIdentifierCheckbox(parent);
 				}
 				if (key == EnvironmentViewsRepository.Reference.Properties.description) {
 					return createDescriptionText(parent);
@@ -209,23 +214,23 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 	 * @param parent the parent composite
 	 * 
 	 */
-	protected Composite createTypeFlatComboViewer(Composite parent) {
-		createDescription(parent, EnvironmentViewsRepository.Reference.Properties.type, EnvironmentMessages.ReferencePropertiesEditionPart_TypeLabel);
-		type = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(EnvironmentViewsRepository.Reference.Properties.type, EnvironmentViewsRepository.SWT_KIND));
-		type.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+	protected Composite createReferencedTypeFlatComboViewer(Composite parent) {
+		createDescription(parent, EnvironmentViewsRepository.Reference.Properties.referencedType, EnvironmentMessages.ReferencePropertiesEditionPart_ReferencedTypeLabel);
+		referencedType = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(EnvironmentViewsRepository.Reference.Properties.referencedType, EnvironmentViewsRepository.SWT_KIND));
+		referencedType.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
-		type.addSelectionChangedListener(new ISelectionChangedListener() {
+		referencedType.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			public void selectionChanged(SelectionChangedEvent event) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ReferencePropertiesEditionPartImpl.this, EnvironmentViewsRepository.Reference.Properties.type, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getType()));
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ReferencePropertiesEditionPartImpl.this, EnvironmentViewsRepository.Reference.Properties.referencedType, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getReferencedType()));
 			}
 
 		});
-		GridData typeData = new GridData(GridData.FILL_HORIZONTAL);
-		type.setLayoutData(typeData);
-		type.setID(EnvironmentViewsRepository.Reference.Properties.type);
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Reference.Properties.type, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createTypeFlatComboViewer
+		GridData referencedTypeData = new GridData(GridData.FILL_HORIZONTAL);
+		referencedType.setLayoutData(referencedTypeData);
+		referencedType.setID(EnvironmentViewsRepository.Reference.Properties.referencedType);
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Reference.Properties.referencedType, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createReferencedTypeFlatComboViewer
 
 		// End of user code
 		return parent;
@@ -348,6 +353,36 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 	}
 
 	
+	protected Composite createIdentifierCheckbox(Composite parent) {
+		identifier = new Button(parent, SWT.CHECK);
+		identifier.setText(getDescription(EnvironmentViewsRepository.Reference.Properties.identifier, EnvironmentMessages.ReferencePropertiesEditionPart_IdentifierLabel));
+		identifier.addSelectionListener(new SelectionAdapter() {
+
+			/**
+			 * {@inheritDoc}
+			 *
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 * 	
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				if (propertiesEditionComponent != null)
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ReferencePropertiesEditionPartImpl.this, EnvironmentViewsRepository.Reference.Properties.identifier, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, new Boolean(identifier.getSelection())));
+			}
+
+		});
+		GridData identifierData = new GridData(GridData.FILL_HORIZONTAL);
+		identifierData.horizontalSpan = 2;
+		identifier.setLayoutData(identifierData);
+		EditingUtils.setID(identifier, EnvironmentViewsRepository.Reference.Properties.identifier);
+		EditingUtils.setEEFtype(identifier, "eef::Checkbox"); //$NON-NLS-1$
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Reference.Properties.identifier, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createIdentifierCheckbox
+
+		// End of user code
+		return parent;
+	}
+
+	
 	protected Composite createDescriptionText(Composite parent) {
 		createDescription(parent, EnvironmentViewsRepository.Reference.Properties.description, EnvironmentMessages.ReferencePropertiesEditionPart_DescriptionLabel);
 		description = SWTUtils.createScrollableText(parent, SWT.BORDER);
@@ -444,12 +479,12 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#getType()
+	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#getReferencedType()
 	 * 
 	 */
-	public EObject getType() {
-		if (type.getSelection() instanceof StructuredSelection) {
-			Object firstElement = ((StructuredSelection) type.getSelection()).getFirstElement();
+	public EObject getReferencedType() {
+		if (referencedType.getSelection() instanceof StructuredSelection) {
+			Object firstElement = ((StructuredSelection) referencedType.getSelection()).getFirstElement();
 			if (firstElement instanceof EObject)
 				return (EObject) firstElement;
 		}
@@ -459,19 +494,19 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#initType(EObjectFlatComboSettings)
+	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#initReferencedType(EObjectFlatComboSettings)
 	 */
-	public void initType(EObjectFlatComboSettings settings) {
-		type.setInput(settings);
+	public void initReferencedType(EObjectFlatComboSettings settings) {
+		referencedType.setInput(settings);
 		if (current != null) {
-			type.setSelection(new StructuredSelection(settings.getValue()));
+			referencedType.setSelection(new StructuredSelection(settings.getValue()));
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.type);
-		if (eefElementEditorReadOnlyState && type.isEnabled()) {
-			type.setEnabled(false);
-			type.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
-			type.setEnabled(true);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.referencedType);
+		if (eefElementEditorReadOnlyState && referencedType.isEnabled()) {
+			referencedType.setEnabled(false);
+			referencedType.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !referencedType.isEnabled()) {
+			referencedType.setEnabled(true);
 		}	
 		
 	}
@@ -479,21 +514,21 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#setType(EObject newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#setReferencedType(EObject newValue)
 	 * 
 	 */
-	public void setType(EObject newValue) {
+	public void setReferencedType(EObject newValue) {
 		if (newValue != null) {
-			type.setSelection(new StructuredSelection(newValue));
+			referencedType.setSelection(new StructuredSelection(newValue));
 		} else {
-			type.setSelection(new StructuredSelection()); //$NON-NLS-1$
+			referencedType.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.type);
-		if (eefElementEditorReadOnlyState && type.isEnabled()) {
-			type.setEnabled(false);
-			type.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !type.isEnabled()) {
-			type.setEnabled(true);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.referencedType);
+		if (eefElementEditorReadOnlyState && referencedType.isEnabled()) {
+			referencedType.setEnabled(false);
+			referencedType.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !referencedType.isEnabled()) {
+			referencedType.setEnabled(true);
 		}	
 		
 	}
@@ -501,30 +536,30 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#setTypeButtonMode(ButtonsModeEnum newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#setReferencedTypeButtonMode(ButtonsModeEnum newValue)
 	 */
-	public void setTypeButtonMode(ButtonsModeEnum newValue) {
-		type.setButtonMode(newValue);
+	public void setReferencedTypeButtonMode(ButtonsModeEnum newValue) {
+		referencedType.setButtonMode(newValue);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#addFilterType(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#addFilterReferencedType(ViewerFilter filter)
 	 * 
 	 */
-	public void addFilterToType(ViewerFilter filter) {
-		type.addFilter(filter);
+	public void addFilterToReferencedType(ViewerFilter filter) {
+		referencedType.addFilter(filter);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#addBusinessFilterType(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#addBusinessFilterReferencedType(ViewerFilter filter)
 	 * 
 	 */
-	public void addBusinessFilterToType(ViewerFilter filter) {
-		type.addBusinessRuleFilter(filter);
+	public void addBusinessFilterToReferencedType(ViewerFilter filter) {
+		referencedType.addBusinessRuleFilter(filter);
 	}
 
 	/**
@@ -722,6 +757,38 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 	 */
 	public void addBusinessFilterToOppositeOf(ViewerFilter filter) {
 		oppositeOf.addBusinessRuleFilter(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#getIdentifier()
+	 * 
+	 */
+	public Boolean getIdentifier() {
+		return Boolean.valueOf(identifier.getSelection());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#setIdentifier(Boolean newValue)
+	 * 
+	 */
+	public void setIdentifier(Boolean newValue) {
+		if (newValue != null) {
+			identifier.setSelection(newValue.booleanValue());
+		} else {
+			identifier.setSelection(false);
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.identifier);
+		if (eefElementEditorReadOnlyState && identifier.isEnabled()) {
+			identifier.setEnabled(false);
+			identifier.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !identifier.isEnabled()) {
+			identifier.setEnabled(true);
+		}	
+		
 	}
 
 	/**

@@ -6,7 +6,7 @@
   <!-- EEF extensions -->
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.obeonetwork.org/dsl/entity/2.0.0"
+            uri="http://www.obeonetwork.org/dsl/entity/3.0.0"
             class="org.obeonetwork.dsl.entity.providers.EntityEEFAdapterFactory"
             supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
    </extension>
@@ -52,26 +52,8 @@
          </propertyTab>
 
          <propertyTab
-               id="Block"
-               label="Block"
-               category="default">
-         </propertyTab>
-
-         <propertyTab
                id="Entity"
                label="Entity"
-               category="default">
-         </propertyTab>
-
-         <propertyTab
-               id="Attribute"
-               label="Attribute"
-               category="default">
-         </propertyTab>
-
-         <propertyTab
-               id="Reference"
-               label="Reference"
                category="default">
          </propertyTab>
 
@@ -112,18 +94,6 @@
                tab="Metadatas">
          </propertySection>
          <propertySection
-               class="org.obeonetwork.dsl.entity.parts.forms.BlockPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.entity.providers.BlockPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.entity.section.Block"
-               tab="Block">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.entity.providers.BlockPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.entity.section.Block"
-               tab="Metadatas">
-         </propertySection>
-         <propertySection
                class="org.obeonetwork.dsl.entity.parts.forms.EntityPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.entity.providers.EntityPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.entity.section.Entity"
@@ -133,30 +103,6 @@
                class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.entity.providers.EntityPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.entity.section.Entity"
-               tab="Metadatas">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.entity.parts.forms.AttributePropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.entity.providers.AttributePropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.entity.section.Attribute"
-               tab="Attribute">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.entity.providers.AttributePropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.entity.section.Attribute"
-               tab="Metadatas">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.entity.parts.forms.ReferencePropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.entity.providers.ReferencePropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.entity.section.Reference"
-               tab="Reference">
-         </propertySection>
-         <propertySection
-               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.entity.providers.ReferencePropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.entity.section.Reference"
                tab="Metadatas">
          </propertySection>
          <propertySection

@@ -115,6 +115,8 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider
 					.add(EnvironmentPackage.Literals.ENVIRONMENT__PRIORITY_DEFINITIONS);
 			childrenFeatures
 					.add(EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION);
+			childrenFeatures
+					.add(EnvironmentPackage.Literals.ENVIRONMENT__NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -187,6 +189,7 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider
 		case EnvironmentPackage.ENVIRONMENT__LINKS:
 		case EnvironmentPackage.ENVIRONMENT__PRIORITY_DEFINITIONS:
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
+		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			return;
@@ -217,6 +220,37 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider
 		newChildDescriptors.add(createChildParameter(
 				EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION,
 				EnvironmentFactory.eINSTANCE.createTypesDefinition()));
+
+		newChildDescriptors.add(createChildParameter(
+				EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION,
+				EnvironmentFactory.eINSTANCE.createNamespace()));
+
+		newChildDescriptors.add(createChildParameter(
+				EnvironmentPackage.Literals.ENVIRONMENT__NAMESPACES,
+				EnvironmentFactory.eINSTANCE.createNamespace()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION
+				|| childFeature == EnvironmentPackage.Literals.ENVIRONMENT__NAMESPACES;
+
+		if (qualify) {
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature),
+					getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

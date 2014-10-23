@@ -173,10 +173,7 @@ public class SoaViewsRepository {
 			public static String name = "soa::Parameter::properties::name";
 			
 			
-			public static String lower = "soa::Parameter::properties::lower";
-			
-			
-			public static String upper = "soa::Parameter::properties::upper";
+			public static String multiplicity = "soa::Parameter::properties::multiplicity";
 			
 			
 			public static String isUnique = "soa::Parameter::properties::isUnique";
@@ -189,66 +186,6 @@ public class SoaViewsRepository {
 			
 			
 			public static String description = "soa::Parameter::properties::description";
-			
-	
-		}
-	
-	}
-
-	/**
-	 * DTORegistry view descriptor
-	 * 
-	 */
-	public static class DTORegistry {
-		public static class Properties {
-	
-			
-			public static String categories = "soa::DTORegistry::properties::categories";
-			
-			
-			public static String description = "soa::DTORegistry::properties::description";
-			
-	
-		}
-	
-	}
-
-	/**
-	 * Category view descriptor
-	 * 
-	 */
-	public static class Category {
-		public static class Properties {
-	
-			
-			public static String name = "soa::Category::properties::name";
-			
-			
-			public static String description = "soa::Category::properties::description";
-			
-	
-		}
-	
-	}
-
-	/**
-	 * ServiceDTO view descriptor
-	 * 
-	 */
-	public static class ServiceDTO {
-		public static class Properties {
-	
-			
-			public static String name = "soa::ServiceDTO::properties::name";
-			
-			
-			public static String supertype = "soa::ServiceDTO::properties::supertype";
-			
-			
-			public static String associatedTypes = "soa::ServiceDTO::properties::associatedTypes";
-			
-			
-			public static String description = "soa::ServiceDTO::properties::description";
 			
 	
 		}

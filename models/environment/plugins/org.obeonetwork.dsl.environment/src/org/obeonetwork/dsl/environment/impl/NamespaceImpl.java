@@ -37,7 +37,7 @@ import org.obeonetwork.dsl.environment.Namespace;
  *
  * @generated
  */
-public class NamespaceImpl extends ObeoDSMObjectImpl implements Namespace {
+public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

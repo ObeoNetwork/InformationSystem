@@ -13,9 +13,9 @@
 package org.obeonetwork.dsl.entity.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.obeonetwork.dsl.entity.Attribute;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.entity.InternalCriterion;
+import org.obeonetwork.dsl.environment.Attribute;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Internal Criterion</b></em>'.
@@ -84,7 +84,8 @@ public class InternalCriterionImpl extends CriterionImpl implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTarget(Attribute newTarget) {
@@ -98,8 +99,9 @@ public class InternalCriterionImpl extends CriterionImpl implements
 	 */
 	public String getName() {
 		String result = "";
-		if (getTarget() != null)
+		if (getTarget() != null) {
 			result = getTarget().getName();
+		}
 		return result;
 	}
 

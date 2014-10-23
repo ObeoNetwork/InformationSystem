@@ -16,22 +16,19 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.obeonetwork.dsl.entity.Attribute;
-import org.obeonetwork.dsl.entity.Block;
+import org.obeonetwork.dsl.entity.*;
 import org.obeonetwork.dsl.entity.Criterion;
 import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.entity.ExternalCriterion;
 import org.obeonetwork.dsl.entity.Finder;
 import org.obeonetwork.dsl.entity.InternalCriterion;
-import org.obeonetwork.dsl.entity.Property;
-import org.obeonetwork.dsl.entity.Reference;
 import org.obeonetwork.dsl.entity.Root;
 import org.obeonetwork.dsl.environment.BoundableElement;
-import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
+import org.obeonetwork.dsl.environment.TypesDefinition;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance
@@ -112,15 +109,8 @@ public class EntitySwitch<T> {
 			case EntityPackage.ROOT: {
 				Root root = (Root)theEObject;
 				T result = caseRoot(root);
-				if (result == null) result = caseNamespace(root);
+				if (result == null) result = caseTypesDefinition(root);
 				if (result == null) result = caseObeoDSMObject(root);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EntityPackage.BLOCK: {
-				Block block = (Block)theEObject;
-				T result = caseBlock(block);
-				if (result == null) result = caseObeoDSMObject(block);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -131,32 +121,6 @@ public class EntitySwitch<T> {
 				if (result == null) result = caseType(entity);
 				if (result == null) result = caseObeoDSMObject(entity);
 				if (result == null) result = caseBoundableElement(entity);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EntityPackage.PROPERTY: {
-				Property property = (Property)theEObject;
-				T result = caseProperty(property);
-				if (result == null) result = caseObeoDSMObject(property);
-				if (result == null) result = caseBoundableElement(property);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EntityPackage.ATTRIBUTE: {
-				Attribute attribute = (Attribute)theEObject;
-				T result = caseAttribute(attribute);
-				if (result == null) result = caseProperty(attribute);
-				if (result == null) result = caseObeoDSMObject(attribute);
-				if (result == null) result = caseBoundableElement(attribute);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EntityPackage.REFERENCE: {
-				Reference reference = (Reference)theEObject;
-				T result = caseReference(reference);
-				if (result == null) result = caseProperty(reference);
-				if (result == null) result = caseObeoDSMObject(reference);
-				if (result == null) result = caseBoundableElement(reference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -208,19 +172,6 @@ public class EntitySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
-	 * <!-- begin-user-doc --> This implementation returns null; returning a
-	 * non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Block</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBlock(Block object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
 	 * <!-- begin-user-doc --> This implementation returns null; returning a
 	 * non-null result will terminate the switch. <!-- end-user-doc -->
@@ -230,45 +181,6 @@ public class EntitySwitch<T> {
 	 * @generated
 	 */
 	public T caseEntity(Entity object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
-	 * <!-- begin-user-doc --> This implementation returns null; returning a
-	 * non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProperty(Property object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
-	 * <!-- begin-user-doc --> This implementation returns null; returning a
-	 * non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAttribute(Attribute object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
-	 * <!-- begin-user-doc --> This implementation returns null; returning a
-	 * non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseReference(Reference object) {
 		return null;
 	}
 
@@ -338,17 +250,17 @@ public class EntitySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Types Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Types Definition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNamespace(Namespace object) {
+	public T caseTypesDefinition(TypesDefinition object) {
 		return null;
 	}
 

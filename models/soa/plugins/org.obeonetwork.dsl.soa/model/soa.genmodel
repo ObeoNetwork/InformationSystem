@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2008-2009 Obeo.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    Obeo - initial API and implementation"
     modelDirectory="/org.obeonetwork.dsl.soa/src" creationIcons="false" modelPluginID="org.obeonetwork.dsl.soa"
     modelName="Soa" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
-    importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" containmentProxies="true"
+    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" containmentProxies="true"
     complianceLevel="5.0" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment">
   <foreignModel>soa.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
@@ -14,8 +14,8 @@
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//InterfaceKind/required"/>
     </genEnums>
     <genEnums ecoreEnum="soa.ecore#//SynchronizationKind">
-      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//SynchronizationKind/synchone"/>
-      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//SynchronizationKind/asynchrone"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//SynchronizationKind/synchronous"/>
+      <genEnumLiterals ecoreEnumLiteral="soa.ecore#//SynchronizationKind/asynchronous"/>
     </genEnums>
     <genEnums ecoreEnum="soa.ecore#//BindingKind">
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//BindingKind/webservice"/>
@@ -29,9 +29,10 @@
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//OperationKind/ONE_WAY"/>
     </genEnums>
     <genClasses ecoreClass="soa.ecore#//System">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//System/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedComponents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedWires"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedDtoRegistry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/namespaces"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Component">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Component/ownedServices"/>
@@ -67,6 +68,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/output"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/kind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/public"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/fault"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//ImplementationComponent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//ImplementationComponent/implement"/>
@@ -75,18 +77,9 @@
     <genClasses ecoreClass="soa.ecore#//Parameter">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Parameter/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/lower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/upper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/multiplicity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/isUnique"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Parameter/isOrdered"/>
     </genClasses>
-    <genClasses ecoreClass="soa.ecore#//DTORegistry">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//DTORegistry/ownedCategories"/>
-    </genClasses>
-    <genClasses ecoreClass="soa.ecore#//Category">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Category/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Category/ownedCategories"/>
-    </genClasses>
-    <genClasses ecoreClass="soa.ecore#//ServiceDTO"/>
   </genPackages>
 </genmodel:GenModel>

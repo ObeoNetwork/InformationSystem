@@ -77,6 +77,9 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 			if (isAccessible(EnvironmentViewsRepository.Attribute.Properties.multiplicity)) {
 				attributePart.initMultiplicity(EEFUtils.choiceOfValues(attribute, EnvironmentPackage.eINSTANCE.getProperty_Multiplicity()), attribute.getMultiplicity());
 			}
+			if (isAccessible(EnvironmentViewsRepository.Attribute.Properties.identifier)) {
+				attributePart.setIdentifier(attribute.isIsIdentifier());
+			}
 			if (isAccessible(EnvironmentViewsRepository.Attribute.Properties.description))
 				attributePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, attribute.getDescription()));
 			
@@ -87,6 +90,7 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 			
 			
 			
+			
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -94,6 +98,7 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 		}
 		setInitializing(false);
 	}
+
 
 
 
@@ -114,6 +119,9 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 		}
 		if (editorKey == EnvironmentViewsRepository.Attribute.Properties.multiplicity) {
 			return EnvironmentPackage.eINSTANCE.getProperty_Multiplicity();
+		}
+		if (editorKey == EnvironmentViewsRepository.Attribute.Properties.identifier) {
+			return EnvironmentPackage.eINSTANCE.getProperty_IsIdentifier();
 		}
 		if (editorKey == EnvironmentViewsRepository.Attribute.Properties.description) {
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
@@ -136,6 +144,9 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 		}
 		if (EnvironmentViewsRepository.Attribute.Properties.multiplicity == event.getAffectedEditor()) {
 			attribute.setMultiplicity((MultiplicityKind)event.getNewValue());
+		}
+		if (EnvironmentViewsRepository.Attribute.Properties.identifier == event.getAffectedEditor()) {
+			attribute.setIsIdentifier((Boolean)event.getNewValue());
 		}
 		if (EnvironmentViewsRepository.Attribute.Properties.description == event.getAffectedEditor()) {
 			attribute.setDescription((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
@@ -162,6 +173,9 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 			if (EnvironmentPackage.eINSTANCE.getProperty_Multiplicity().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EnvironmentViewsRepository.Attribute.Properties.multiplicity))
 				attributePart.setMultiplicity((MultiplicityKind)msg.getNewValue());
 			
+			if (EnvironmentPackage.eINSTANCE.getProperty_IsIdentifier().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.identifier))
+				attributePart.setIdentifier((Boolean)msg.getNewValue());
+			
 			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					attributePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
@@ -184,6 +198,7 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 			EnvironmentPackage.eINSTANCE.getProperty_Name(),
 			EnvironmentPackage.eINSTANCE.getAttribute_Type(),
 			EnvironmentPackage.eINSTANCE.getProperty_Multiplicity(),
+			EnvironmentPackage.eINSTANCE.getProperty_IsIdentifier(),
 			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
 		return new NotificationFilter[] {filter,};
 	}
@@ -222,6 +237,13 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getProperty_Multiplicity().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getProperty_Multiplicity().getEAttributeType(), newValue);
+				}
+				if (EnvironmentViewsRepository.Attribute.Properties.identifier == event.getAffectedEditor()) {
+					Object newValue = event.getNewValue();
+					if (newValue instanceof String) {
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getProperty_IsIdentifier().getEAttributeType(), (String)newValue);
+					}
+					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getProperty_IsIdentifier().getEAttributeType(), newValue);
 				}
 				if (EnvironmentViewsRepository.Attribute.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();

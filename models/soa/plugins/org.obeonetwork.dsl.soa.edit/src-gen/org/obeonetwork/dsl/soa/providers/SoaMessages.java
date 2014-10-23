@@ -44,15 +44,6 @@ public class SoaMessages extends NLS {
 	
 	public static String ParameterPropertiesEditionPart_PropertiesGroupLabel;
 
-	
-	public static String DTORegistryPropertiesEditionPart_PropertiesGroupLabel;
-
-	
-	public static String CategoryPropertiesEditionPart_PropertiesGroupLabel;
-
-	
-	public static String ServiceDTOPropertiesEditionPart_PropertiesGroupLabel;
-
 
 	
 	public static String System_ReadOnly;
@@ -101,24 +92,6 @@ public class SoaMessages extends NLS {
 
 	
 	public static String Parameter_Part_Title;
-
-	
-	public static String DTORegistry_ReadOnly;
-
-	
-	public static String DTORegistry_Part_Title;
-
-	
-	public static String Category_ReadOnly;
-
-	
-	public static String Category_Part_Title;
-
-	
-	public static String ServiceDTO_ReadOnly;
-
-	
-	public static String ServiceDTO_Part_Title;
 
 
 	
@@ -182,10 +155,7 @@ public class SoaMessages extends NLS {
 	public static String ParameterPropertiesEditionPart_NameLabel;
 
 	
-	public static String ParameterPropertiesEditionPart_LowerLabel;
-
-	
-	public static String ParameterPropertiesEditionPart_UpperLabel;
+	public static String ParameterPropertiesEditionPart_MultiplicityLabel;
 
 	
 	public static String ParameterPropertiesEditionPart_IsUniqueLabel;
@@ -198,30 +168,6 @@ public class SoaMessages extends NLS {
 
 	
 	public static String ParameterPropertiesEditionPart_DescriptionLabel;
-
-	
-	public static String DTORegistryPropertiesEditionPart_CategoriesLabel;
-
-	
-	public static String DTORegistryPropertiesEditionPart_DescriptionLabel;
-
-	
-	public static String CategoryPropertiesEditionPart_NameLabel;
-
-	
-	public static String CategoryPropertiesEditionPart_DescriptionLabel;
-
-	
-	public static String ServiceDTOPropertiesEditionPart_NameLabel;
-
-	
-	public static String ServiceDTOPropertiesEditionPart_SupertypeLabel;
-
-	
-	public static String ServiceDTOPropertiesEditionPart_AssociatedTypesLabel;
-
-	
-	public static String ServiceDTOPropertiesEditionPart_DescriptionLabel;
 
 
 	

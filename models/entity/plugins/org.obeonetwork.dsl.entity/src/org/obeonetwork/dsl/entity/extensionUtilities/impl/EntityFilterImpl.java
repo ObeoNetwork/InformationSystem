@@ -13,19 +13,18 @@
 package org.obeonetwork.dsl.entity.extensionUtilities.impl;
 
 import java.util.Collection;
-import java.util.Iterator;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreEList;
-import org.obeonetwork.dsl.entity.Attribute;
 import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.entity.Property;
-import org.obeonetwork.dsl.entity.Reference;
 import org.obeonetwork.dsl.entity.extensionUtilities.EntityFilter;
 import org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage;
+import org.obeonetwork.dsl.environment.Attribute;
+import org.obeonetwork.dsl.environment.Property;
+import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.impl.FilterImpl;
 
 /**
@@ -68,13 +67,17 @@ public class EntityFilterImpl extends FilterImpl implements EntityFilter {
 		return ExtensionUtilitiesPackage.Literals.ENTITY_FILTER;
 	}
 
+
+
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList getAttributeReferences() {
-		BasicEList result = new UniqueEList() {
+	public EList<Attribute> getAttributeReferences() {
+		BasicEList<Attribute> result = new UniqueEList<Attribute>() {
+			private static final long serialVersionUID = 971586213550724954L;
+
 			protected Object[] newData(int capacity) {
 				return new Attribute[capacity];
 			}
@@ -83,28 +86,27 @@ public class EntityFilterImpl extends FilterImpl implements EntityFilter {
 				return false;
 			}
 		};
-		Collection properties = getOwnedPropertyReferences();
-		for (Iterator iter = properties.iterator(); iter.hasNext();) {
-			Property property = (Property) iter.next();
+		for (Property property : getOwnedPropertyReferences()) {
 			if (property instanceof Attribute) {
-				result.add(property);
+				result.add((Attribute)property);
 			}
 		}
 		result.shrink();
-		EList unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare(
-				this, ExtensionUtilitiesPackage.eINSTANCE
-						.getEntityFilter_AttributeReferences(), result.size(),
+		EList<Attribute> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Attribute>(
+				this, ExtensionUtilitiesPackage.Literals.ENTITY_FILTER__ATTRIBUTE_REFERENCES, result.size(),
 				result.data());
 		return unmodifiableResult;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList getReferenceReferences() {
-		BasicEList result = new UniqueEList() {
+	public EList<Reference> getReferenceReferences() {
+		BasicEList<Reference> result = new UniqueEList<Reference>() {
+			private static final long serialVersionUID = 5391913769894408421L;
+
 			protected Object[] newData(int capacity) {
 				return new Reference[capacity];
 			}
@@ -113,15 +115,13 @@ public class EntityFilterImpl extends FilterImpl implements EntityFilter {
 				return false;
 			}
 		};
-		Collection properties = getOwnedPropertyReferences();
-		for (Iterator iter = properties.iterator(); iter.hasNext();) {
-			Property property = (Property) iter.next();
+		for (Property property : getOwnedPropertyReferences()) {
 			if (property instanceof Reference) {
-				result.add(property);
+				result.add((Reference)property);
 			}
 		}
 		result.shrink();
-		EList unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare(
+		EList<Reference> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Reference>(
 				this, ExtensionUtilitiesPackage.eINSTANCE
 						.getEntityFilter_ReferenceReferences(), result.size(),
 				result.data());

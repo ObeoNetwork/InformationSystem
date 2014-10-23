@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.entity.extensionUtilities.*;
 import org.obeonetwork.dsl.entity.extensionUtilities.EntityFilter;
 import org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage;
 import org.obeonetwork.dsl.environment.Filter;

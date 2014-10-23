@@ -23,6 +23,7 @@ import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.InterDSMLink;
+import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.PriorityDefinition;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 
@@ -38,6 +39,7 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getLinks <em>Links</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getPriorityDefinitions <em>Priority Definitions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getTypesDefinition <em>Types Definition</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getNamespaces <em>Namespaces</em>}</li>
  * </ul>
  * </p>
  *
@@ -223,6 +225,18 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<Namespace> getNamespaces() {
+		return (EList<Namespace>) eDynamicGet(
+				EnvironmentPackage.ENVIRONMENT__NAMESPACES,
+				EnvironmentPackage.Literals.ENVIRONMENT__NAMESPACES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
@@ -236,6 +250,9 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 			return basicSetPriorityDefinitions(null, msgs);
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
 			return basicSetTypesDefinition(null, msgs);
+		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
+			return ((InternalEList<?>) getNamespaces()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -262,6 +279,8 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 			if (resolve)
 				return getTypesDefinition();
 			return basicGetTypesDefinition();
+		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
+			return getNamespaces();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -292,6 +311,10 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
 			setTypesDefinition((TypesDefinition) newValue);
 			return;
+		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
+			getNamespaces().clear();
+			getNamespaces().addAll((Collection<? extends Namespace>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -319,6 +342,9 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
 			setTypesDefinition((TypesDefinition) null);
 			return;
+		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
+			getNamespaces().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -342,6 +368,8 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 			return basicGetPriorityDefinitions() != null;
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
 			return basicGetTypesDefinition() != null;
+		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
+			return !getNamespaces().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
