@@ -52,6 +52,21 @@
 		<module>../../../models/application/plugins/org.obeonetwork.dsl.application.editor</module>
 		<module>../../../models/application/features/org.obeonetwork.dsl.application.feature</module>
 		
+		<!-- models/database/ -->
+		<module>../../../models/database/plugins/org.obeonetwork.dsl.database</module>
+		<module>../../../models/database/plugins/org.obeonetwork.dsl.database.edit</module>
+		<module>../../../models/database/plugins/org.obeonetwork.dsl.database.editor</module>
+		<module>../../../models/database/features/org.obeonetwork.dsl.database.feature</module>
+
+		<module>../../../models/database/plugins/org.obeonetwork.dsl.entityrelation</module>
+		<module>../../../models/database/plugins/org.obeonetwork.dsl.entityrelation.edit</module>
+		<module>../../../models/database/plugins/org.obeonetwork.dsl.entityrelation.editor</module>
+		<module>../../../models/database/features/org.obeonetwork.dsl.entityrelation.feature</module>
+		
+		<module>../../../models/database/plugins/org.obeonetwork.dsl.typeslibrary</module>
+		<module>../../../models/database/plugins/org.obeonetwork.dsl.typeslibrary.edit</module>
+		<module>../../../models/database/plugins/org.obeonetwork.dsl.typeslibrary.editor</module>
+		<module>../../../models/database/features/org.obeonetwork.dsl.typelibrary.feature</module>
 
 		<!-- 
 		*********************************************************************************************
@@ -131,6 +146,14 @@
 		-->
 		<module>../../../generators/web/plugins/org.obeonetwork.informationsystem.gen.web</module>	
 		<module>../../../generators/web/features/org.obeonetwork.informationsystem.gen.web.feature</module>
+		
+		<!-- 
+		*********************************************************************************************
+		* Database Reverse Module
+		*********************************************************************************************
+		-->
+		<module>../../../reversers/database/plugins/org.obeonetwork.dsl.database.reverse</module>	
+		<module>../../../reversers/database/features/org.obeonetwork.dsl.database.reverse.feature</module>
 		
 		<!-- 
 		*********************************************************************************************
