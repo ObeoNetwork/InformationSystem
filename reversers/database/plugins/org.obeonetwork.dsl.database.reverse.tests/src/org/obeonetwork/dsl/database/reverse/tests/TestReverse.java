@@ -43,6 +43,24 @@ public class TestReverse {
 		checkEquality(database, databaseRef);
 		
 	}
+	
+	@Test
+	public void testOracle() {
+		
+		DataSource dataSource = new DataSource("XE", "NORTHWIND");
+
+		dataSource.setJdbcUrl("jdbc:oracle:thin:northwind/northwind@//localhost:1521/XE");
+		dataSource.setJdbcUsername("northwind");
+		dataSource.setJdbcPassword("northwind");
+		dataSource.setVendor("Oracle-11g");
+		
+		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
+		
+		DataBase databaseRef = loadModel("resources/oracle/outputRef.database", "pathmap://NativeDBTypes/Oracle-11g");
+		
+		checkEquality(database, databaseRef);
+		
+	}
 
 	private void checkEquality(DataBase database, DataBase databaseRef) {
 		assertTrue(database.getSchemas().size() == databaseRef.getSchemas().size());
