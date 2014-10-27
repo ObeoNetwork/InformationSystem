@@ -16,12 +16,12 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.obeonetwork.dsl.entity.Attribute;
-import org.obeonetwork.dsl.entity.Property;
-import org.obeonetwork.dsl.entity.Reference;
+import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.PrimitiveType;
+import org.obeonetwork.dsl.environment.Property;
+import org.obeonetwork.dsl.environment.Reference;
 
 public class EntityService {
 	

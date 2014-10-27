@@ -6,13 +6,12 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.entity.Property;
-import org.obeonetwork.dsl.entity.Reference;
+import org.obeonetwork.dsl.environment.Property;
+import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.TreeRoot;
 import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectFactory;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
-import org.obeonetwork.dsl.soa.ServiceDTO;
 
 public class DBoundElementContentProvider implements ITreeContentProvider {
 	
@@ -58,29 +57,16 @@ public class DBoundElementContentProvider implements ITreeContentProvider {
 	}
 	
 	private EObject[] getDelegatedChildren(EObject object) {
-		if (object instanceof Entity) {
-			Entity entity = (Entity)object;
+		if (object instanceof StructuredType) {
+			StructuredType structuredType = (StructuredType)object;
 			List<Property> properties = new ArrayList<Property>();
-			properties.addAll(entity.getAttributes());
-			properties.addAll(entity.getReferences());
-			return (EObject[]) properties.toArray(new EObject[]{});
-		} else if (object instanceof ServiceDTO) {
-			ServiceDTO dto = (ServiceDTO)object;
-			List<org.obeonetwork.dsl.environment.Property> properties = new ArrayList<org.obeonetwork.dsl.environment.Property>();
-			properties.addAll(dto.getAttributes());
-			properties.addAll(dto.getReferences());
+			properties.addAll(structuredType.getAttributes());
+			properties.addAll(structuredType.getReferences());
 			return (EObject[]) properties.toArray(new EObject[]{});
 		} else if (object instanceof Reference) {
 			Reference entityReference = (Reference)object;
-			if (entityReference.getType() != null) {
-				return getDelegatedChildren(entityReference.getType());
-			} else {
-				return new EObject[]{};
-			}
-		} else if (object instanceof org.obeonetwork.dsl.environment.Reference) {
-			org.obeonetwork.dsl.environment.Reference envReference = (org.obeonetwork.dsl.environment.Reference)object;
-			if (envReference.getType() != null) {
-				return getDelegatedChildren(envReference.getType());
+			if (entityReference.getReferencedType() != null) {
+				return getDelegatedChildren(entityReference.getReferencedType());
 			} else {
 				return new EObject[]{};
 			}

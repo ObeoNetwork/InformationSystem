@@ -35,8 +35,8 @@ public class DtoLabelsSwitch extends EnvironmentSwitch<String> {
 	@Override
 	public String caseReference(Reference object) {
 		String label = object.getName();
-		if (object.getType() != null && object.getType().getName() != null) {
-			label += " : " + object.getType().getName();
+		if (object.getReferencedType() != null && object.getReferencedType().getName() != null) {
+			label += " : " + object.getReferencedType().getName();
 		}
 		if (object.getMultiplicity() != null
 				&& (object.getMultiplicity().equals(MultiplicityKind.ZERO_STAR_LITERAL)

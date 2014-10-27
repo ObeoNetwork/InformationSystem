@@ -64,6 +64,7 @@ import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.FileEditorInput;
 import org.obeonetwork.dsl.environment.BindingInfo;
+import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.editor.undoredo.UndoRedoActionHandler;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.BindingTreeMapper;
@@ -263,10 +264,8 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 
 	private String getPropertyLabel(EObject property) {
 		String label = "";
-		if (property instanceof org.obeonetwork.dsl.entity.Property) {
-			label = ((org.obeonetwork.dsl.entity.Property)property).getName();
-		} else if (property instanceof org.obeonetwork.dsl.environment.Property) {
-			label = ((org.obeonetwork.dsl.environment.Property)property).getName();
+		if (property instanceof Property) {
+			label = ((Property)property).getName();
 		}
 		return label;
 	}
