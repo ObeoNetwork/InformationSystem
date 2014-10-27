@@ -25,23 +25,9 @@ public class SoaLabelSwitch extends SoaSwitch<String> {
 		}
 		// Multiplicity
 		label.append("[");
-		if (parameter.getLower() == parameter.getUpper()) {
-			label.append(translateBound(parameter.getLower()));
-		}else {
-			label.append(translateBound(parameter.getLower()));
-			label.append("..");
-			label.append(translateBound(parameter.getUpper()));
-		}
+		label.append(parameter.getMultiplicity());
 		label.append("]");
 		
 		return label.toString();
-	}
-	
-	private String translateBound(int bound) {
-		if (bound == -1) {
-			return "*"; 
-		} else {
-			return Integer.toString(bound);
-		}
 	}
 }

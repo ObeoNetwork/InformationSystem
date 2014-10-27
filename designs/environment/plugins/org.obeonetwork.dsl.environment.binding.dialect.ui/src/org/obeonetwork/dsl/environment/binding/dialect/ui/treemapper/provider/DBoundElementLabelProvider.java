@@ -123,8 +123,6 @@ public class DBoundElementLabelProvider implements ILabelProvider {
 	}
 	
 	private boolean isFromEntityMM(EObject eObject) {
-		return eObject instanceof Entity
-			|| eObject instanceof org.obeonetwork.dsl.entity.Attribute
-			|| eObject instanceof org.obeonetwork.dsl.entity.Reference;
+		return eObject instanceof Entity;
 	}
 }

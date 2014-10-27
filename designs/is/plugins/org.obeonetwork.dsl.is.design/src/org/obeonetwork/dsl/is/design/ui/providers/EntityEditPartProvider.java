@@ -12,8 +12,8 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpart.AbstractEditPartProv
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.CreateGraphicEditPartOperation;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.IEditPartOperation;
 import org.eclipse.gmf.runtime.notation.View;
-import org.obeonetwork.dsl.entity.Reference;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
+import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.is.design.service.EntityService;
 
 import fr.obeo.dsl.viewpoint.DSemanticDecorator;

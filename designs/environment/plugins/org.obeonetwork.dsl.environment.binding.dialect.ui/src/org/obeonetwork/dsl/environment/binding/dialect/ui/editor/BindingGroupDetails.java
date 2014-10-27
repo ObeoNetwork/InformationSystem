@@ -20,6 +20,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.dsl.environment.BindingElement;
 import org.obeonetwork.dsl.environment.BindingReference;
+import org.obeonetwork.dsl.environment.Property;
+import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.commands.UpdateMappingExpressionCommand;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
@@ -144,12 +146,10 @@ public class BindingGroupDetails {
 		private String getLabel() {
 			String label = null;
 			EObject target = element.getTarget();
-			if (target instanceof org.obeonetwork.dsl.entity.Property) {
-				label = ((org.obeonetwork.dsl.entity.Property)target).getName();
-			} else if (target instanceof org.obeonetwork.dsl.environment.Property) {
-				label = ((org.obeonetwork.dsl.environment.Property)target).getName();
-			} else if (target instanceof org.obeonetwork.dsl.environment.Type) {
-				label = ((org.obeonetwork.dsl.environment.Type)target).getName();
+			if (target instanceof Property) {
+				label = ((Property)target).getName();
+			} else if (target instanceof Type) {
+				label = ((Type)target).getName();
 			}
 			return label + " =";
 		}
