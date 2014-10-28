@@ -68,7 +68,7 @@ public interface Reference extends Property {
 
 	/**
 	 * Returns the value of the '<em><b>Navigable</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Navigable</em>' attribute isn't clear,
@@ -78,7 +78,7 @@ public interface Reference extends Property {
 	 * @return the value of the '<em>Navigable</em>' attribute.
 	 * @see #setNavigable(boolean)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getReference_Navigable()
-	 * @model default="true" required="true"
+	 * @model default="false" required="true"
 	 * @generated
 	 */
 	boolean isNavigable();

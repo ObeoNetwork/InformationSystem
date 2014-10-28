@@ -16,9 +16,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
@@ -28,14 +26,15 @@ import org.obeonetwork.dsl.environment.BindingInfo;
 import org.obeonetwork.dsl.environment.BindingReference;
 import org.obeonetwork.dsl.environment.BindingRegistry;
 import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.Field;
 import org.obeonetwork.dsl.environment.Filter;
 import org.obeonetwork.dsl.environment.FilterContainer;
 import org.obeonetwork.dsl.environment.InterDSMLink;
+import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
@@ -98,7 +97,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass fieldEClass = null;
+	private EClass literalEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -260,6 +259,13 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EClass boundableElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -446,7 +452,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEnumeration_Fields() {
+	public EReference getEnumeration_Literals() {
 		return (EReference) enumerationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -455,8 +461,8 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getField() {
-		return fieldEClass;
+	public EClass getLiteral() {
+		return literalEClass;
 	}
 
 	/**
@@ -464,8 +470,8 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getField_Name() {
-		return (EAttribute) fieldEClass.getEStructuralFeatures().get(0);
+	public EAttribute getLiteral_Name() {
+		return (EAttribute) literalEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1186,6 +1192,15 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDataType() {
+		return dataTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMultiplicityKind() {
 		return multiplicityKindEEnum;
 	}
@@ -1234,10 +1249,10 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		primitiveTypeEClass = createEClass(PRIMITIVE_TYPE);
 
 		enumerationEClass = createEClass(ENUMERATION);
-		createEReference(enumerationEClass, ENUMERATION__FIELDS);
+		createEReference(enumerationEClass, ENUMERATION__LITERALS);
 
-		fieldEClass = createEClass(FIELD);
-		createEAttribute(fieldEClass, FIELD__NAME);
+		literalEClass = createEClass(LITERAL);
+		createEAttribute(literalEClass, LITERAL__NAME);
 
 		actionEClass = createEClass(ACTION);
 		createEAttribute(actionEClass, ACTION__NAME);
@@ -1348,6 +1363,8 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 
 		boundableElementEClass = createEClass(BOUNDABLE_ELEMENT);
 
+		dataTypeEClass = createEClass(DATA_TYPE);
+
 		// Create enums
 		multiplicityKindEEnum = createEEnum(MULTIPLICITY_KIND);
 	}
@@ -1384,9 +1401,9 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		environmentEClass.getESuperTypes().add(this.getObeoDSMObject());
 		typeEClass.getESuperTypes().add(this.getObeoDSMObject());
 		typeEClass.getESuperTypes().add(this.getBoundableElement());
-		primitiveTypeEClass.getESuperTypes().add(this.getType());
-		enumerationEClass.getESuperTypes().add(this.getType());
-		fieldEClass.getESuperTypes().add(this.getObeoDSMObject());
+		primitiveTypeEClass.getESuperTypes().add(this.getDataType());
+		enumerationEClass.getESuperTypes().add(this.getDataType());
+		literalEClass.getESuperTypes().add(this.getObeoDSMObject());
 		actionEClass.getESuperTypes().add(this.getObeoDSMObject());
 		interDSMLinkEClass.getESuperTypes().add(this.getObeoDSMObject());
 		annotationEClass.getESuperTypes().add(this.getMetaData());
@@ -1407,6 +1424,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		bindingReferenceEClass.getESuperTypes().add(this.getObeoDSMObject());
 		bindingElementEClass.getESuperTypes().add(this.getObeoDSMObject());
 		bindingRegistryEClass.getESuperTypes().add(this.getObeoDSMObject());
+		dataTypeEClass.getESuperTypes().add(this.getType());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(environmentEClass, Environment.class, "Environment",
@@ -1454,15 +1472,15 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 
 		initEClass(enumerationEClass, Enumeration.class, "Enumeration",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumeration_Fields(), this.getField(), null,
-				"fields", null, 1, -1, Enumeration.class, !IS_TRANSIENT,
+		initEReference(getEnumeration_Literals(), this.getLiteral(), null,
+				"literals", null, 1, -1, Enumeration.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT,
+		initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getField_Name(), ecorePackage.getEString(), "name",
-				null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE,
+		initEAttribute(getLiteral_Name(), ecorePackage.getEString(), "name",
+				null, 1, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
@@ -1660,9 +1678,9 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttribute_Type(), this.getPrimitiveType(), null,
-				"type", null, 1, 1, Attribute.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getAttribute_Type(), this.getDataType(), null, "type",
+				null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_ContainingType(), this.getStructuredType(),
 				this.getStructuredType_OwnedAttributes(), "containingType",
@@ -1677,7 +1695,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReference_Navigable(), ecorePackage.getEBoolean(),
-				"navigable", "true", 1, 1, Reference.class, !IS_TRANSIENT,
+				"navigable", "false", 1, 1, Reference.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_OppositeOf(), this.getReference(), null,
@@ -1819,6 +1837,9 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
+
+		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(multiplicityKindEEnum, MultiplicityKind.class,

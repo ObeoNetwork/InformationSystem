@@ -13,7 +13,7 @@ package org.obeonetwork.dsl.environment.parts;
  * 
  * 
  */
-public interface FieldPropertiesEditionPart {
+public interface LiteralPropertiesEditionPart {
 
 	/**
 	 * @return the name

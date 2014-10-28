@@ -46,12 +46,12 @@ public interface Attribute extends Property {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
-	 * @see #setType(PrimitiveType)
+	 * @see #setType(DataType)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getAttribute_Type()
 	 * @model required="true"
 	 * @generated
 	 */
-	PrimitiveType getType();
+	DataType getType();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.environment.Attribute#getType <em>Type</em>}' reference.
@@ -61,7 +61,7 @@ public interface Attribute extends Property {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(PrimitiveType value);
+	void setType(DataType value);
 
 	/**
 	 * Returns the value of the '<em><b>Containing Type</b></em>' container reference.

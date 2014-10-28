@@ -19,9 +19,9 @@ import org.obeonetwork.dsl.environment.parts.forms.BindingReferencePropertiesEdi
 import org.obeonetwork.dsl.environment.parts.forms.DTOPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.EnumerationPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.EnvironmentPropertiesEditionPartForm;
-import org.obeonetwork.dsl.environment.parts.forms.FieldPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.FilterContainerPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.InterDSMLinkPropertiesEditionPartForm;
+import org.obeonetwork.dsl.environment.parts.forms.LiteralPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.NamespacePropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.PrimitiveTypePropertiesEditionPartForm;
@@ -38,9 +38,9 @@ import org.obeonetwork.dsl.environment.parts.impl.BindingReferencePropertiesEdit
 import org.obeonetwork.dsl.environment.parts.impl.DTOPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.EnumerationPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.EnvironmentPropertiesEditionPartImpl;
-import org.obeonetwork.dsl.environment.parts.impl.FieldPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.FilterContainerPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.InterDSMLinkPropertiesEditionPartImpl;
+import org.obeonetwork.dsl.environment.parts.impl.LiteralPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.MetadatasPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.NamespacePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.PrimitiveTypePropertiesEditionPartImpl;
@@ -88,11 +88,11 @@ public class EnvironmentPropertiesEditionPartProvider implements IPropertiesEdit
 			if (kind == EnvironmentViewsRepository.FORM_KIND)
 				return new EnumerationPropertiesEditionPartForm(component);
 		}
-		if (key == EnvironmentViewsRepository.Field.class) {
+		if (key == EnvironmentViewsRepository.Literal.class) {
 			if (kind == EnvironmentViewsRepository.SWT_KIND)
-				return new FieldPropertiesEditionPartImpl(component);
+				return new LiteralPropertiesEditionPartImpl(component);
 			if (kind == EnvironmentViewsRepository.FORM_KIND)
-				return new FieldPropertiesEditionPartForm(component);
+				return new LiteralPropertiesEditionPartForm(component);
 		}
 		if (key == EnvironmentViewsRepository.InterDSMLink.class) {
 			if (kind == EnvironmentViewsRepository.SWT_KIND)

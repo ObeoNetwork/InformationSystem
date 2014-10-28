@@ -151,10 +151,10 @@
                tab="Enumeration">
          </propertySection>
          <propertySection
-               class="org.obeonetwork.dsl.environment.parts.forms.FieldPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.environment.filters.FieldTabPropertiesEditionSection"
-               id="org.obeonetwork.dsl.environment.eef.section.Field"
-               tab="Field">
+               class="org.obeonetwork.dsl.environment.parts.forms.LiteralPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.environment.filters.LiteralTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.environment.eef.section.Literal"
+               tab="Literal">
          </propertySection>
          <propertySection
                class="org.obeonetwork.dsl.environment.parts.forms.InterDSMLinkPropertiesEditionPartForm"

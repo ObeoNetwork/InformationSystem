@@ -61,7 +61,7 @@ public class EnvironmentViewsRepository {
 			public static String name = "environment::Enumeration::properties::name";
 			
 			
-			public static String fields = "environment::Enumeration::properties::fields";
+			public static String literals = "environment::Enumeration::properties::literals";
 			
 			
 			public static String description = "environment::Enumeration::properties::description";
@@ -72,17 +72,17 @@ public class EnvironmentViewsRepository {
 	}
 
 	/**
-	 * Field view descriptor
+	 * Literal view descriptor
 	 * 
 	 */
-	public static class Field {
+	public static class Literal {
 		public static class Properties {
 	
 			
-			public static String name = "environment::Field::properties::name";
+			public static String name = "environment::Literal::properties::name";
 			
 			
-			public static String description = "environment::Field::properties::description";
+			public static String description = "environment::Literal::properties::description";
 			
 	
 		}

@@ -5,32 +5,46 @@ package org.obeonetwork.dsl.environment.parts.forms;
 
 // Start of user code for imports
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
+
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
+
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
+
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
+
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
+
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
+
 import org.eclipse.swt.SWT;
+
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
+
 import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-import org.eclipse.ui.views.properties.tabbed.ISection;
+
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
-import org.obeonetwork.dsl.environment.parts.FieldPropertiesEditionPart;
+import org.obeonetwork.dsl.environment.parts.LiteralPropertiesEditionPart;
+
 import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
 
 // End of user code
@@ -39,7 +53,7 @@ import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
  * 
  * 
  */
-public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, FieldPropertiesEditionPart {
+public class LiteralPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, LiteralPropertiesEditionPart {
 
 	protected Text name;
 	protected Text description;
@@ -49,14 +63,14 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	/**
 	 * For {@link ISection} use only.
 	 */
-	public FieldPropertiesEditionPartForm() { super(); }
+	public LiteralPropertiesEditionPartForm() { super(); }
 
 	/**
 	 * Default constructor
 	 * @param editionComponent the {@link IPropertiesEditionComponent} that manage this part
 	 * 
 	 */
-	public FieldPropertiesEditionPartForm(IPropertiesEditionComponent editionComponent) {
+	public LiteralPropertiesEditionPartForm(IPropertiesEditionComponent editionComponent) {
 		super(editionComponent);
 	}
 
@@ -86,23 +100,23 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	 * 
 	 */
 	public void createControls(final FormToolkit widgetFactory, Composite view) {
-		CompositionSequence fieldStep = new BindingCompositionSequence(propertiesEditionComponent);
-		CompositionStep propertiesStep = fieldStep.addStep(EnvironmentViewsRepository.Field.Properties.class);
-		propertiesStep.addStep(EnvironmentViewsRepository.Field.Properties.name);
-		propertiesStep.addStep(EnvironmentViewsRepository.Field.Properties.description);
+		CompositionSequence literalStep = new BindingCompositionSequence(propertiesEditionComponent);
+		CompositionStep propertiesStep = literalStep.addStep(EnvironmentViewsRepository.Literal.Properties.class);
+		propertiesStep.addStep(EnvironmentViewsRepository.Literal.Properties.name);
+		propertiesStep.addStep(EnvironmentViewsRepository.Literal.Properties.description);
 		
 		
-		composer = new PartComposer(fieldStep) {
+		composer = new PartComposer(literalStep) {
 
 			@Override
 			public Composite addToPart(Composite parent, Object key) {
-				if (key == EnvironmentViewsRepository.Field.Properties.class) {
+				if (key == EnvironmentViewsRepository.Literal.Properties.class) {
 					return createPropertiesGroup(widgetFactory, parent);
 				}
-				if (key == EnvironmentViewsRepository.Field.Properties.name) {
+				if (key == EnvironmentViewsRepository.Literal.Properties.name) {
 					return createNameText(widgetFactory, parent);
 				}
-				if (key == EnvironmentViewsRepository.Field.Properties.description) {
+				if (key == EnvironmentViewsRepository.Literal.Properties.description) {
 					return createDescriptionText(widgetFactory, parent);
 				}
 				return parent;
@@ -115,7 +129,7 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	 */
 	protected Composite createPropertiesGroup(FormToolkit widgetFactory, final Composite parent) {
 		Section propertiesSection = widgetFactory.createSection(parent, Section.TITLE_BAR | Section.TWISTIE | Section.EXPANDED);
-		propertiesSection.setText(EnvironmentMessages.FieldPropertiesEditionPart_PropertiesGroupLabel);
+		propertiesSection.setText(EnvironmentMessages.LiteralPropertiesEditionPart_PropertiesGroupLabel);
 		GridData propertiesSectionData = new GridData(GridData.FILL_HORIZONTAL);
 		propertiesSectionData.horizontalSpan = 3;
 		propertiesSection.setLayoutData(propertiesSectionData);
@@ -129,7 +143,7 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 
 	
 	protected Composite createNameText(FormToolkit widgetFactory, Composite parent) {
-		createDescription(parent, EnvironmentViewsRepository.Field.Properties.name, EnvironmentMessages.FieldPropertiesEditionPart_NameLabel);
+		createDescription(parent, EnvironmentViewsRepository.Literal.Properties.name, EnvironmentMessages.LiteralPropertiesEditionPart_NameLabel);
 		name = widgetFactory.createText(parent, ""); //$NON-NLS-1$
 		name.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
@@ -145,13 +159,13 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 			public void focusLost(FocusEvent e) {
 				if (propertiesEditionComponent != null) {
 					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
-							FieldPropertiesEditionPartForm.this,
-							EnvironmentViewsRepository.Field.Properties.name,
+							LiteralPropertiesEditionPartForm.this,
+							EnvironmentViewsRepository.Literal.Properties.name,
 							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
 					propertiesEditionComponent
 							.firePropertiesChanged(new PropertiesEditionEvent(
-									FieldPropertiesEditionPartForm.this,
-									EnvironmentViewsRepository.Field.Properties.name,
+									LiteralPropertiesEditionPartForm.this,
+									EnvironmentViewsRepository.Literal.Properties.name,
 									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
 									null, name.getText()));
 				}
@@ -165,7 +179,7 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 				if (propertiesEditionComponent != null) {
 					propertiesEditionComponent
 							.firePropertiesChanged(new PropertiesEditionEvent(
-									FieldPropertiesEditionPartForm.this,
+									LiteralPropertiesEditionPartForm.this,
 									null,
 									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
 									null, null));
@@ -182,13 +196,13 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 			public void keyPressed(KeyEvent e) {
 				if (e.character == SWT.CR) {
 					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(FieldPropertiesEditionPartForm.this, EnvironmentViewsRepository.Field.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(LiteralPropertiesEditionPartForm.this, EnvironmentViewsRepository.Literal.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
 				}
 			}
 		});
-		EditingUtils.setID(name, EnvironmentViewsRepository.Field.Properties.name);
+		EditingUtils.setID(name, EnvironmentViewsRepository.Literal.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Field.Properties.name, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Literal.Properties.name, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
 		// Start of user code for createNameText
 
 		// End of user code
@@ -197,7 +211,7 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 
 	
 	protected Composite createDescriptionText(FormToolkit widgetFactory, Composite parent) {
-		createDescription(parent, EnvironmentViewsRepository.Field.Properties.description, EnvironmentMessages.FieldPropertiesEditionPart_DescriptionLabel);
+		createDescription(parent, EnvironmentViewsRepository.Literal.Properties.description, EnvironmentMessages.LiteralPropertiesEditionPart_DescriptionLabel);
 		description = widgetFactory.createText(parent, ""); //$NON-NLS-1$
 		description.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
 		widgetFactory.paintBordersFor(parent);
@@ -213,13 +227,13 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 			public void focusLost(FocusEvent e) {
 				if (propertiesEditionComponent != null) {
 					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
-							FieldPropertiesEditionPartForm.this,
-							EnvironmentViewsRepository.Field.Properties.description,
+							LiteralPropertiesEditionPartForm.this,
+							EnvironmentViewsRepository.Literal.Properties.description,
 							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
 					propertiesEditionComponent
 							.firePropertiesChanged(new PropertiesEditionEvent(
-									FieldPropertiesEditionPartForm.this,
-									EnvironmentViewsRepository.Field.Properties.description,
+									LiteralPropertiesEditionPartForm.this,
+									EnvironmentViewsRepository.Literal.Properties.description,
 									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
 									null, description.getText()));
 				}
@@ -233,7 +247,7 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 				if (propertiesEditionComponent != null) {
 					propertiesEditionComponent
 							.firePropertiesChanged(new PropertiesEditionEvent(
-									FieldPropertiesEditionPartForm.this,
+									LiteralPropertiesEditionPartForm.this,
 									null,
 									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
 									null, null));
@@ -250,13 +264,13 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 			public void keyPressed(KeyEvent e) {
 				if (e.character == SWT.CR) {
 					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(FieldPropertiesEditionPartForm.this, EnvironmentViewsRepository.Field.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(LiteralPropertiesEditionPartForm.this, EnvironmentViewsRepository.Literal.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
 				}
 			}
 		});
-		EditingUtils.setID(description, EnvironmentViewsRepository.Field.Properties.description);
+		EditingUtils.setID(description, EnvironmentViewsRepository.Literal.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Field.Properties.description, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Literal.Properties.description, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
 		// Start of user code for createDescriptionText
 
 		// End of user code
@@ -279,7 +293,7 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.FieldPropertiesEditionPart#getName()
+	 * @see org.obeonetwork.dsl.environment.parts.LiteralPropertiesEditionPart#getName()
 	 * 
 	 */
 	public String getName() {
@@ -289,7 +303,7 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.FieldPropertiesEditionPart#setName(String newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.LiteralPropertiesEditionPart#setName(String newValue)
 	 * 
 	 */
 	public void setName(String newValue) {
@@ -298,10 +312,10 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Field.Properties.name);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Literal.Properties.name);
 		if (eefElementEditorReadOnlyState && name.isEnabled()) {
 			name.setEnabled(false);
-			name.setToolTipText(EnvironmentMessages.Field_ReadOnly);
+			name.setToolTipText(EnvironmentMessages.Literal_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
 			name.setEnabled(true);
 		}	
@@ -311,7 +325,7 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.FieldPropertiesEditionPart#getDescription()
+	 * @see org.obeonetwork.dsl.environment.parts.LiteralPropertiesEditionPart#getDescription()
 	 * 
 	 */
 	public String getDescription() {
@@ -321,7 +335,7 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.FieldPropertiesEditionPart#setDescription(String newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.LiteralPropertiesEditionPart#setDescription(String newValue)
 	 * 
 	 */
 	public void setDescription(String newValue) {
@@ -330,10 +344,10 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Field.Properties.description);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Literal.Properties.description);
 		if (eefElementEditorReadOnlyState && description.isEnabled()) {
 			description.setEnabled(false);
-			description.setToolTipText(EnvironmentMessages.Field_ReadOnly);
+			description.setToolTipText(EnvironmentMessages.Literal_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
 			description.setEnabled(true);
 		}	
@@ -352,7 +366,7 @@ public class FieldPropertiesEditionPartForm extends SectionPropertiesEditingPart
 	 * 
 	 */
 	public String getTitle() {
-		return EnvironmentMessages.Field_Part_Title;
+		return EnvironmentMessages.Literal_Part_Title;
 	}
 
 	// Start of user code additional methods

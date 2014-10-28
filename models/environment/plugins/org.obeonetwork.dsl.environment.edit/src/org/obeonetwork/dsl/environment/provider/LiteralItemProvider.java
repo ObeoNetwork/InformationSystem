@@ -7,8 +7,6 @@
  * 
  * Contributors:
  *     Obeo - initial API and implementation
- *
- * $Id$
  */
 package org.obeonetwork.dsl.environment.provider;
 
@@ -17,6 +15,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -26,16 +25,17 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.Field;
+import org.obeonetwork.dsl.environment.Literal;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.environment.Field} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.environment.Literal} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FieldItemProvider extends ObeoDSMObjectItemProvider implements
+public class LiteralItemProvider extends ObeoDSMObjectItemProvider implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
@@ -51,7 +51,7 @@ public class FieldItemProvider extends ObeoDSMObjectItemProvider implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldItemProvider(AdapterFactory adapterFactory) {
+	public LiteralItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -82,15 +82,15 @@ public class FieldItemProvider extends ObeoDSMObjectItemProvider implements
 				((ComposeableAdapterFactory) adapterFactory)
 						.getRootAdapterFactory(),
 				getResourceLocator(),
-				getString("_UI_Field_name_feature"),
+				getString("_UI_Literal_name_feature"),
 				getString("_UI_PropertyDescriptor_description",
-						"_UI_Field_name_feature", "_UI_Field_type"),
-				EnvironmentPackage.Literals.FIELD__NAME, true, false, false,
+						"_UI_Literal_name_feature", "_UI_Literal_type"),
+				EnvironmentPackage.Literals.LITERAL__NAME, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This returns Field.gif.
+	 * This returns Literal.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -98,7 +98,7 @@ public class FieldItemProvider extends ObeoDSMObjectItemProvider implements
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Field"));
+				getResourceLocator().getImage("full/obj16/Literal"));
 	}
 
 	/**
@@ -119,9 +119,9 @@ public class FieldItemProvider extends ObeoDSMObjectItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Field) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Field_type")
-				: getString("_UI_Field_type") + " " + label;
+		String label = ((Literal) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Literal_type")
+				: getString("_UI_Literal_type") + " " + label;
 	}
 
 	/**
@@ -135,8 +135,8 @@ public class FieldItemProvider extends ObeoDSMObjectItemProvider implements
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Field.class)) {
-		case EnvironmentPackage.FIELD__NAME:
+		switch (notification.getFeatureID(Literal.class)) {
+		case EnvironmentPackage.LITERAL__NAME:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
 			return;

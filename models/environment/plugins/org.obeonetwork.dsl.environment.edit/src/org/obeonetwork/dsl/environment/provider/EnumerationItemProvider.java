@@ -35,7 +35,7 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumerationItemProvider extends TypeItemProvider implements
+public class EnumerationItemProvider extends DataTypeItemProvider implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
@@ -84,7 +84,7 @@ public class EnumerationItemProvider extends TypeItemProvider implements
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(EnvironmentPackage.Literals.ENUMERATION__FIELDS);
+					.add(EnvironmentPackage.Literals.ENUMERATION__LITERALS);
 		}
 		return childrenFeatures;
 	}
@@ -149,7 +149,7 @@ public class EnumerationItemProvider extends TypeItemProvider implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Enumeration.class)) {
-		case EnvironmentPackage.ENUMERATION__FIELDS:
+		case EnvironmentPackage.ENUMERATION__LITERALS:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			return;
@@ -170,8 +170,8 @@ public class EnumerationItemProvider extends TypeItemProvider implements
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.ENUMERATION__FIELDS,
-				EnvironmentFactory.eINSTANCE.createField()));
+				EnvironmentPackage.Literals.ENUMERATION__LITERALS,
+				EnvironmentFactory.eINSTANCE.createLiteral()));
 	}
 
 }

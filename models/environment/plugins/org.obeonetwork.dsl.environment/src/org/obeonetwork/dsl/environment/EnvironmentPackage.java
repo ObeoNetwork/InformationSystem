@@ -418,6 +418,115 @@ public interface EnvironmentPackage extends EPackage {
 	int TYPE_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.DataTypeImpl <em>Data Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.impl.DataTypeImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getDataType()
+	 * @generated
+	 */
+	int DATA_TYPE = 28;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__METADATAS = TYPE__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__DESCRIPTION = TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__KEYWORDS = TYPE__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__BEHAVIOURS = TYPE__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__BINDING_REGISTRIES = TYPE__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__VERSION = TYPE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__CREATED_ON = TYPE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__MODIFIED_ON = TYPE__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__NAME = TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type Definition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__TYPE_DEFINITION = TYPE__TYPE_DEFINITION;
+
+	/**
+	 * The number of structural features of the '<em>Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,7 +543,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__METADATAS = TYPE__METADATAS;
+	int PRIMITIVE_TYPE__METADATAS = DATA_TYPE__METADATAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -443,7 +552,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__DESCRIPTION = TYPE__DESCRIPTION;
+	int PRIMITIVE_TYPE__DESCRIPTION = DATA_TYPE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
@@ -452,7 +561,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__KEYWORDS = TYPE__KEYWORDS;
+	int PRIMITIVE_TYPE__KEYWORDS = DATA_TYPE__KEYWORDS;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -461,7 +570,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__BEHAVIOURS = TYPE__BEHAVIOURS;
+	int PRIMITIVE_TYPE__BEHAVIOURS = DATA_TYPE__BEHAVIOURS;
 
 	/**
 	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
@@ -470,7 +579,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__BINDING_REGISTRIES = TYPE__BINDING_REGISTRIES;
+	int PRIMITIVE_TYPE__BINDING_REGISTRIES = DATA_TYPE__BINDING_REGISTRIES;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -479,7 +588,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__VERSION = TYPE__VERSION;
+	int PRIMITIVE_TYPE__VERSION = DATA_TYPE__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Created On</b></em>' attribute.
@@ -488,7 +597,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__CREATED_ON = TYPE__CREATED_ON;
+	int PRIMITIVE_TYPE__CREATED_ON = DATA_TYPE__CREATED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
@@ -497,7 +606,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__MODIFIED_ON = TYPE__MODIFIED_ON;
+	int PRIMITIVE_TYPE__MODIFIED_ON = DATA_TYPE__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -506,7 +615,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__NAME = TYPE__NAME;
+	int PRIMITIVE_TYPE__NAME = DATA_TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type Definition</b></em>' container reference.
@@ -515,7 +624,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE__TYPE_DEFINITION = TYPE__TYPE_DEFINITION;
+	int PRIMITIVE_TYPE__TYPE_DEFINITION = DATA_TYPE__TYPE_DEFINITION;
 
 	/**
 	 * The number of structural features of the '<em>Primitive Type</em>' class.
@@ -524,7 +633,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+	int PRIMITIVE_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.EnumerationImpl <em>Enumeration</em>}' class.
@@ -543,7 +652,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__METADATAS = TYPE__METADATAS;
+	int ENUMERATION__METADATAS = DATA_TYPE__METADATAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -552,7 +661,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__DESCRIPTION = TYPE__DESCRIPTION;
+	int ENUMERATION__DESCRIPTION = DATA_TYPE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
@@ -561,7 +670,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__KEYWORDS = TYPE__KEYWORDS;
+	int ENUMERATION__KEYWORDS = DATA_TYPE__KEYWORDS;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -570,7 +679,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__BEHAVIOURS = TYPE__BEHAVIOURS;
+	int ENUMERATION__BEHAVIOURS = DATA_TYPE__BEHAVIOURS;
 
 	/**
 	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
@@ -579,7 +688,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__BINDING_REGISTRIES = TYPE__BINDING_REGISTRIES;
+	int ENUMERATION__BINDING_REGISTRIES = DATA_TYPE__BINDING_REGISTRIES;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -588,7 +697,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__VERSION = TYPE__VERSION;
+	int ENUMERATION__VERSION = DATA_TYPE__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Created On</b></em>' attribute.
@@ -597,7 +706,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__CREATED_ON = TYPE__CREATED_ON;
+	int ENUMERATION__CREATED_ON = DATA_TYPE__CREATED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
@@ -606,7 +715,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__MODIFIED_ON = TYPE__MODIFIED_ON;
+	int ENUMERATION__MODIFIED_ON = DATA_TYPE__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -615,7 +724,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__NAME = TYPE__NAME;
+	int ENUMERATION__NAME = DATA_TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type Definition</b></em>' container reference.
@@ -624,16 +733,16 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__TYPE_DEFINITION = TYPE__TYPE_DEFINITION;
+	int ENUMERATION__TYPE_DEFINITION = DATA_TYPE__TYPE_DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Literals</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION__FIELDS = TYPE_FEATURE_COUNT + 0;
+	int ENUMERATION__LITERALS = DATA_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Enumeration</em>' class.
@@ -642,17 +751,17 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATION_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
+	int ENUMERATION_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.FieldImpl <em>Field</em>}' class.
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.LiteralImpl <em>Literal</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.obeonetwork.dsl.environment.impl.FieldImpl
-	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getField()
+	 * @see org.obeonetwork.dsl.environment.impl.LiteralImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getLiteral()
 	 * @generated
 	 */
-	int FIELD = 4;
+	int LITERAL = 4;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -661,7 +770,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__METADATAS = OBEO_DSM_OBJECT__METADATAS;
+	int LITERAL__METADATAS = OBEO_DSM_OBJECT__METADATAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -670,7 +779,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__DESCRIPTION = OBEO_DSM_OBJECT__DESCRIPTION;
+	int LITERAL__DESCRIPTION = OBEO_DSM_OBJECT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
@@ -679,7 +788,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__KEYWORDS = OBEO_DSM_OBJECT__KEYWORDS;
+	int LITERAL__KEYWORDS = OBEO_DSM_OBJECT__KEYWORDS;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -688,7 +797,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
+	int LITERAL__BEHAVIOURS = OBEO_DSM_OBJECT__BEHAVIOURS;
 
 	/**
 	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
@@ -697,7 +806,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
+	int LITERAL__BINDING_REGISTRIES = OBEO_DSM_OBJECT__BINDING_REGISTRIES;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -706,7 +815,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__VERSION = OBEO_DSM_OBJECT__VERSION;
+	int LITERAL__VERSION = OBEO_DSM_OBJECT__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Created On</b></em>' attribute.
@@ -715,7 +824,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
+	int LITERAL__CREATED_ON = OBEO_DSM_OBJECT__CREATED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
@@ -724,7 +833,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
+	int LITERAL__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -733,16 +842,16 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD__NAME = OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
+	int LITERAL__NAME = OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Field</em>' class.
+	 * The number of structural features of the '<em>Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+	int LITERAL_FEATURE_COUNT = OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.ActionImpl <em>Action</em>}' class.
@@ -3042,7 +3151,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getMultiplicityKind()
 	 * @generated
 	 */
-	int MULTIPLICITY_KIND = 28;
+	int MULTIPLICITY_KIND = 29;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Environment <em>Environment</em>}'.
@@ -3173,36 +3282,36 @@ public interface EnvironmentPackage extends EPackage {
 	EClass getEnumeration();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.Enumeration#getFields <em>Fields</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.Enumeration#getLiterals <em>Literals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Fields</em>'.
-	 * @see org.obeonetwork.dsl.environment.Enumeration#getFields()
+	 * @return the meta object for the containment reference list '<em>Literals</em>'.
+	 * @see org.obeonetwork.dsl.environment.Enumeration#getLiterals()
 	 * @see #getEnumeration()
 	 * @generated
 	 */
-	EReference getEnumeration_Fields();
+	EReference getEnumeration_Literals();
 
 	/**
-	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Field <em>Field</em>}'.
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Literal <em>Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Field</em>'.
-	 * @see org.obeonetwork.dsl.environment.Field
+	 * @return the meta object for class '<em>Literal</em>'.
+	 * @see org.obeonetwork.dsl.environment.Literal
 	 * @generated
 	 */
-	EClass getField();
+	EClass getLiteral();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.Field#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.environment.Literal#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.obeonetwork.dsl.environment.Field#getName()
-	 * @see #getField()
+	 * @see org.obeonetwork.dsl.environment.Literal#getName()
+	 * @see #getLiteral()
 	 * @generated
 	 */
-	EAttribute getField_Name();
+	EAttribute getLiteral_Name();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Action <em>Action</em>}'.
@@ -4029,6 +4138,16 @@ public interface EnvironmentPackage extends EPackage {
 	EClass getBoundableElement();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.DataType <em>Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Type</em>'.
+	 * @see org.obeonetwork.dsl.environment.DataType
+	 * @generated
+	 */
+	EClass getDataType();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4168,22 +4287,22 @@ public interface EnvironmentPackage extends EPackage {
 		EClass ENUMERATION = eINSTANCE.getEnumeration();
 
 		/**
-		 * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Literals</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATION__FIELDS = eINSTANCE.getEnumeration_Fields();
+		EReference ENUMERATION__LITERALS = eINSTANCE.getEnumeration_Literals();
 
 		/**
-		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.FieldImpl <em>Field</em>}' class.
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.LiteralImpl <em>Literal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.obeonetwork.dsl.environment.impl.FieldImpl
-		 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getField()
+		 * @see org.obeonetwork.dsl.environment.impl.LiteralImpl
+		 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getLiteral()
 		 * @generated
 		 */
-		EClass FIELD = eINSTANCE.getField();
+		EClass LITERAL = eINSTANCE.getLiteral();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -4191,7 +4310,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FIELD__NAME = eINSTANCE.getField_Name();
+		EAttribute LITERAL__NAME = eINSTANCE.getLiteral_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.ActionImpl <em>Action</em>}' class.
@@ -4891,6 +5010,16 @@ public interface EnvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOUNDABLE_ELEMENT = eINSTANCE.getBoundableElement();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.DataTypeImpl <em>Data Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.environment.impl.DataTypeImpl
+		 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getDataType()
+		 * @generated
+		 */
+		EClass DATA_TYPE = eINSTANCE.getDataType();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}' enum.

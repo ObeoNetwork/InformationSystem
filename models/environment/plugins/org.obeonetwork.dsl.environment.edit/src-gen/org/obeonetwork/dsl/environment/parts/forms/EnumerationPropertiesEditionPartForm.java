@@ -54,9 +54,9 @@ import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
 public class EnumerationPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, EnumerationPropertiesEditionPart {
 
 	protected Text name;
-	protected ReferencesTable fields;
-	protected List<ViewerFilter> fieldsBusinessFilters = new ArrayList<ViewerFilter>();
-	protected List<ViewerFilter> fieldsFilters = new ArrayList<ViewerFilter>();
+	protected ReferencesTable literals;
+	protected List<ViewerFilter> literalsBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> literalsFilters = new ArrayList<ViewerFilter>();
 	protected Text description;
 
 
@@ -104,7 +104,7 @@ public class EnumerationPropertiesEditionPartForm extends SectionPropertiesEditi
 		CompositionSequence enumerationStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = enumerationStep.addStep(EnvironmentViewsRepository.Enumeration.Properties.class);
 		propertiesStep.addStep(EnvironmentViewsRepository.Enumeration.Properties.name);
-		propertiesStep.addStep(EnvironmentViewsRepository.Enumeration.Properties.fields);
+		propertiesStep.addStep(EnvironmentViewsRepository.Enumeration.Properties.literals);
 		propertiesStep.addStep(EnvironmentViewsRepository.Enumeration.Properties.description);
 		
 		
@@ -118,8 +118,8 @@ public class EnumerationPropertiesEditionPartForm extends SectionPropertiesEditi
 				if (key == EnvironmentViewsRepository.Enumeration.Properties.name) {
 					return createNameText(widgetFactory, parent);
 				}
-				if (key == EnvironmentViewsRepository.Enumeration.Properties.fields) {
-					return createFieldsTableComposition(widgetFactory, parent);
+				if (key == EnvironmentViewsRepository.Enumeration.Properties.literals) {
+					return createLiteralsTableComposition(widgetFactory, parent);
 				}
 				if (key == EnvironmentViewsRepository.Enumeration.Properties.description) {
 					return createDescriptionText(widgetFactory, parent);
@@ -218,48 +218,48 @@ public class EnumerationPropertiesEditionPartForm extends SectionPropertiesEditi
 	 * @param container
 	 * 
 	 */
-	protected Composite createFieldsTableComposition(FormToolkit widgetFactory, Composite parent) {
-		this.fields = new ReferencesTable(getDescription(EnvironmentViewsRepository.Enumeration.Properties.fields, EnvironmentMessages.EnumerationPropertiesEditionPart_FieldsLabel), new ReferencesTableListener() {
+	protected Composite createLiteralsTableComposition(FormToolkit widgetFactory, Composite parent) {
+		this.literals = new ReferencesTable(getDescription(EnvironmentViewsRepository.Enumeration.Properties.literals, EnvironmentMessages.EnumerationPropertiesEditionPart_LiteralsLabel), new ReferencesTableListener() {
 			public void handleAdd() {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EnumerationPropertiesEditionPartForm.this, EnvironmentViewsRepository.Enumeration.Properties.fields, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null));
-				fields.refresh();
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EnumerationPropertiesEditionPartForm.this, EnvironmentViewsRepository.Enumeration.Properties.literals, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null));
+				literals.refresh();
 			}
 			public void handleEdit(EObject element) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EnumerationPropertiesEditionPartForm.this, EnvironmentViewsRepository.Enumeration.Properties.fields, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element));
-				fields.refresh();
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EnumerationPropertiesEditionPartForm.this, EnvironmentViewsRepository.Enumeration.Properties.literals, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element));
+				literals.refresh();
 			}
 			public void handleMove(EObject element, int oldIndex, int newIndex) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EnumerationPropertiesEditionPartForm.this, EnvironmentViewsRepository.Enumeration.Properties.fields, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
-				fields.refresh();
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EnumerationPropertiesEditionPartForm.this, EnvironmentViewsRepository.Enumeration.Properties.literals, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+				literals.refresh();
 			}
 			public void handleRemove(EObject element) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EnumerationPropertiesEditionPartForm.this, EnvironmentViewsRepository.Enumeration.Properties.fields, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
-				fields.refresh();
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EnumerationPropertiesEditionPartForm.this, EnvironmentViewsRepository.Enumeration.Properties.literals, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+				literals.refresh();
 			}
 			public void navigateTo(EObject element) { }
 		});
-		for (ViewerFilter filter : this.fieldsFilters) {
-			this.fields.addFilter(filter);
+		for (ViewerFilter filter : this.literalsFilters) {
+			this.literals.addFilter(filter);
 		}
-		this.fields.setHelpText(propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Enumeration.Properties.fields, EnvironmentViewsRepository.FORM_KIND));
-		this.fields.createControls(parent, widgetFactory);
-		this.fields.addSelectionListener(new SelectionAdapter() {
+		this.literals.setHelpText(propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Enumeration.Properties.literals, EnvironmentViewsRepository.FORM_KIND));
+		this.literals.createControls(parent, widgetFactory);
+		this.literals.addSelectionListener(new SelectionAdapter() {
 			
 			public void widgetSelected(SelectionEvent e) {
 				if (e.item != null && e.item.getData() instanceof EObject) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EnumerationPropertiesEditionPartForm.this, EnvironmentViewsRepository.Enumeration.Properties.fields, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EnumerationPropertiesEditionPartForm.this, EnvironmentViewsRepository.Enumeration.Properties.literals, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
 				}
 			}
 			
 		});
-		GridData fieldsData = new GridData(GridData.FILL_HORIZONTAL);
-		fieldsData.horizontalSpan = 3;
-		this.fields.setLayoutData(fieldsData);
-		this.fields.setLowerBound(1);
-		this.fields.setUpperBound(-1);
-		fields.setID(EnvironmentViewsRepository.Enumeration.Properties.fields);
-		fields.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
-		// Start of user code for createFieldsTableComposition
+		GridData literalsData = new GridData(GridData.FILL_HORIZONTAL);
+		literalsData.horizontalSpan = 3;
+		this.literals.setLayoutData(literalsData);
+		this.literals.setLowerBound(1);
+		this.literals.setUpperBound(-1);
+		literals.setID(EnvironmentViewsRepository.Enumeration.Properties.literals);
+		literals.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createLiteralsTableComposition
 
 		// End of user code
 		return parent;
@@ -383,20 +383,20 @@ public class EnumerationPropertiesEditionPartForm extends SectionPropertiesEditi
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart#initFields(EObject current, EReference containingFeature, EReference feature)
+	 * @see org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart#initLiterals(EObject current, EReference containingFeature, EReference feature)
 	 */
-	public void initFields(ReferencesTableSettings settings) {
+	public void initLiterals(ReferencesTableSettings settings) {
 		if (current.eResource() != null && current.eResource().getResourceSet() != null)
 			this.resourceSet = current.eResource().getResourceSet();
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
-		fields.setContentProvider(contentProvider);
-		fields.setInput(settings);
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Enumeration.Properties.fields);
-		if (eefElementEditorReadOnlyState && fields.isEnabled()) {
-			fields.setEnabled(false);
-			fields.setToolTipText(EnvironmentMessages.Enumeration_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !fields.isEnabled()) {
-			fields.setEnabled(true);
+		literals.setContentProvider(contentProvider);
+		literals.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Enumeration.Properties.literals);
+		if (eefElementEditorReadOnlyState && literals.isEnabled()) {
+			literals.setEnabled(false);
+			literals.setToolTipText(EnvironmentMessages.Enumeration_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !literals.isEnabled()) {
+			literals.setEnabled(true);
 		}	
 		
 	}
@@ -404,44 +404,44 @@ public class EnumerationPropertiesEditionPartForm extends SectionPropertiesEditi
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart#updateFields()
+	 * @see org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart#updateLiterals()
 	 * 
 	 */
-	public void updateFields() {
-	fields.refresh();
+	public void updateLiterals() {
+	literals.refresh();
 }
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart#addFilterFields(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart#addFilterLiterals(ViewerFilter filter)
 	 * 
 	 */
-	public void addFilterToFields(ViewerFilter filter) {
-		fieldsFilters.add(filter);
-		if (this.fields != null) {
-			this.fields.addFilter(filter);
+	public void addFilterToLiterals(ViewerFilter filter) {
+		literalsFilters.add(filter);
+		if (this.literals != null) {
+			this.literals.addFilter(filter);
 		}
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart#addBusinessFilterFields(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart#addBusinessFilterLiterals(ViewerFilter filter)
 	 * 
 	 */
-	public void addBusinessFilterToFields(ViewerFilter filter) {
-		fieldsBusinessFilters.add(filter);
+	public void addBusinessFilterToLiterals(ViewerFilter filter) {
+		literalsBusinessFilters.add(filter);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart#isContainedInFieldsTable(EObject element)
+	 * @see org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart#isContainedInLiteralsTable(EObject element)
 	 * 
 	 */
-	public boolean isContainedInFieldsTable(EObject element) {
-		return ((ReferencesTableSettings)fields.getInput()).contains(element);
+	public boolean isContainedInLiteralsTable(EObject element) {
+		return ((ReferencesTableSettings)literals.getInput()).contains(element);
 	}
 
 	/**

@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.Field;
+import org.obeonetwork.dsl.environment.Literal;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,13 +30,13 @@ import org.obeonetwork.dsl.environment.Field;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.EnumerationImpl#getFields <em>Fields</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.EnumerationImpl#getLiterals <em>Literals</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class EnumerationImpl extends TypeImpl implements Enumeration {
+public class EnumerationImpl extends DataTypeImpl implements Enumeration {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,10 +69,10 @@ public class EnumerationImpl extends TypeImpl implements Enumeration {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Field> getFields() {
-		return (EList<Field>) eDynamicGet(
-				EnvironmentPackage.ENUMERATION__FIELDS,
-				EnvironmentPackage.Literals.ENUMERATION__FIELDS, true, true);
+	public EList<Literal> getLiterals() {
+		return (EList<Literal>) eDynamicGet(
+				EnvironmentPackage.ENUMERATION__LITERALS,
+				EnvironmentPackage.Literals.ENUMERATION__LITERALS, true, true);
 	}
 
 	/**
@@ -84,8 +84,9 @@ public class EnumerationImpl extends TypeImpl implements Enumeration {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case EnvironmentPackage.ENUMERATION__FIELDS:
-			return ((InternalEList<?>) getFields()).basicRemove(otherEnd, msgs);
+		case EnvironmentPackage.ENUMERATION__LITERALS:
+			return ((InternalEList<?>) getLiterals()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -98,8 +99,8 @@ public class EnumerationImpl extends TypeImpl implements Enumeration {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EnvironmentPackage.ENUMERATION__FIELDS:
-			return getFields();
+		case EnvironmentPackage.ENUMERATION__LITERALS:
+			return getLiterals();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,9 +114,9 @@ public class EnumerationImpl extends TypeImpl implements Enumeration {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EnvironmentPackage.ENUMERATION__FIELDS:
-			getFields().clear();
-			getFields().addAll((Collection<? extends Field>) newValue);
+		case EnvironmentPackage.ENUMERATION__LITERALS:
+			getLiterals().clear();
+			getLiterals().addAll((Collection<? extends Literal>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -129,8 +130,8 @@ public class EnumerationImpl extends TypeImpl implements Enumeration {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EnvironmentPackage.ENUMERATION__FIELDS:
-			getFields().clear();
+		case EnvironmentPackage.ENUMERATION__LITERALS:
+			getLiterals().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -144,8 +145,8 @@ public class EnumerationImpl extends TypeImpl implements Enumeration {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EnvironmentPackage.ENUMERATION__FIELDS:
-			return !getFields().isEmpty();
+		case EnvironmentPackage.ENUMERATION__LITERALS:
+			return !getLiterals().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

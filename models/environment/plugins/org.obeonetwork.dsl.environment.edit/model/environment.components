@@ -40,8 +40,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3c3CzEeCNPbrYssPTmA" name="name" views="_Z4_3yHCzEeCNPbrYssPTmA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Type/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3dXCzEeCNPbrYssPTmA" name="fields" views="_Z4_3ynCzEeCNPbrYssPTmA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Enumeration/fields"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3dXCzEeCNPbrYssPTmA" name="literals" views="_Z4_3ynCzEeCNPbrYssPTmA">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Enumeration/literals"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3cHCzEeCNPbrYssPTmA" name="description" views="_Z4_3xXCzEeCNPbrYssPTmA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
@@ -49,15 +49,15 @@
         <referencedBinding xmi:id="_WhA9AHC1EeCNPbrYssPTmA" binding="_65K3QHC0EeCNPbrYssPTmA"/>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Enumeration"/>
       </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_Z4_3dnCzEeCNPbrYssPTmA" name="field" views="_Z4_3y3CzEeCNPbrYssPTmA">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_Z4_3dnCzEeCNPbrYssPTmA" name="literal" views="_Z4_3y3CzEeCNPbrYssPTmA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3enCzEeCNPbrYssPTmA" name="name" views="_Z4_30HCzEeCNPbrYssPTmA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Field/name"/>
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Literal/name"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3d3CzEeCNPbrYssPTmA" name="description" views="_Z4_3zXCzEeCNPbrYssPTmA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
         <referencedBinding xmi:id="_XWudAHC1EeCNPbrYssPTmA" binding="_65K3QHC0EeCNPbrYssPTmA"/>
-        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Field"/>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Literal"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_Z4_3e3CzEeCNPbrYssPTmA" name="interDSMLink" views="_Z4_30XCzEeCNPbrYssPTmA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3f3CzEeCNPbrYssPTmA" name="name" views="_Z4_31nCzEeCNPbrYssPTmA">
@@ -259,7 +259,7 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_3yHCzEeCNPbrYssPTmA" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_3ynCzEeCNPbrYssPTmA" name="fields">
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_3ynCzEeCNPbrYssPTmA" name="literals">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_3xXCzEeCNPbrYssPTmA" name="description">
@@ -267,7 +267,7 @@
           </elements>
         </elements>
       </views>
-      <views xmi:id="_Z4_3y3CzEeCNPbrYssPTmA" name="Field">
+      <views xmi:id="_Z4_3y3CzEeCNPbrYssPTmA" name="Literal">
         <elements xsi:type="eef-views:Container" xmi:id="_Z4_3zHCzEeCNPbrYssPTmA" name="properties">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_30HCzEeCNPbrYssPTmA" name="name">

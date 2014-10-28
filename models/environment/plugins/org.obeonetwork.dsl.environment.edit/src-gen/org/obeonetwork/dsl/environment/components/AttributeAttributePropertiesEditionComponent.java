@@ -22,9 +22,9 @@ import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingCo
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.obeonetwork.dsl.environment.Attribute;
+import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
-import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.environment.parts.AttributePropertiesEditionPart;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 
@@ -140,7 +140,7 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 			attribute.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
 		if (EnvironmentViewsRepository.Attribute.Properties.type == event.getAffectedEditor()) {
-			attribute.setType(!"".equals(event.getNewValue()) ? (PrimitiveType) event.getNewValue() : null);
+			attribute.setType(!"".equals(event.getNewValue()) ? (DataType) event.getNewValue() : null);
 		}
 		if (EnvironmentViewsRepository.Attribute.Properties.multiplicity == event.getAffectedEditor()) {
 			attribute.setMultiplicity((MultiplicityKind)event.getNewValue());

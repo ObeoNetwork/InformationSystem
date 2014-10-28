@@ -62,7 +62,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean NAVIGABLE_EDEFAULT = true;
+	protected static final boolean NAVIGABLE_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -7,29 +7,28 @@
  * 
  * Contributors:
  *     Obeo - initial API and implementation
- *
- * $Id$
  */
 package org.obeonetwork.dsl.environment.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.Field;
+import org.obeonetwork.dsl.environment.Literal;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Field</b></em>'.
+ * An implementation of the model object '<em><b>Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.FieldImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.LiteralImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FieldImpl extends ObeoDSMObjectImpl implements Field {
+public class LiteralImpl extends ObeoDSMObjectImpl implements Literal {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,7 +51,7 @@ public class FieldImpl extends ObeoDSMObjectImpl implements Field {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FieldImpl() {
+	protected LiteralImpl() {
 		super();
 	}
 
@@ -63,7 +62,7 @@ public class FieldImpl extends ObeoDSMObjectImpl implements Field {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EnvironmentPackage.Literals.FIELD;
+		return EnvironmentPackage.Literals.LITERAL;
 	}
 
 	/**
@@ -72,8 +71,8 @@ public class FieldImpl extends ObeoDSMObjectImpl implements Field {
 	 * @generated
 	 */
 	public String getName() {
-		return (String) eDynamicGet(EnvironmentPackage.FIELD__NAME,
-				EnvironmentPackage.Literals.FIELD__NAME, true, true);
+		return (String) eDynamicGet(EnvironmentPackage.LITERAL__NAME,
+				EnvironmentPackage.Literals.LITERAL__NAME, true, true);
 	}
 
 	/**
@@ -82,8 +81,8 @@ public class FieldImpl extends ObeoDSMObjectImpl implements Field {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(EnvironmentPackage.FIELD__NAME,
-				EnvironmentPackage.Literals.FIELD__NAME, newName);
+		eDynamicSet(EnvironmentPackage.LITERAL__NAME,
+				EnvironmentPackage.Literals.LITERAL__NAME, newName);
 	}
 
 	/**
@@ -94,7 +93,7 @@ public class FieldImpl extends ObeoDSMObjectImpl implements Field {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case EnvironmentPackage.FIELD__NAME:
+		case EnvironmentPackage.LITERAL__NAME:
 			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -108,7 +107,7 @@ public class FieldImpl extends ObeoDSMObjectImpl implements Field {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case EnvironmentPackage.FIELD__NAME:
+		case EnvironmentPackage.LITERAL__NAME:
 			setName((String) newValue);
 			return;
 		}
@@ -123,7 +122,7 @@ public class FieldImpl extends ObeoDSMObjectImpl implements Field {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case EnvironmentPackage.FIELD__NAME:
+		case EnvironmentPackage.LITERAL__NAME:
 			setName(NAME_EDEFAULT);
 			return;
 		}
@@ -138,11 +137,11 @@ public class FieldImpl extends ObeoDSMObjectImpl implements Field {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case EnvironmentPackage.FIELD__NAME:
+		case EnvironmentPackage.LITERAL__NAME:
 			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT
 					.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //FieldImpl
+} //LiteralImpl

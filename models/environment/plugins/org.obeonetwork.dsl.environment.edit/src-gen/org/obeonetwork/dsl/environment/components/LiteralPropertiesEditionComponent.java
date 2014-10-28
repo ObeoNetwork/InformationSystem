@@ -6,14 +6,21 @@ package org.obeonetwork.dsl.environment.components;
 // Start of user code for imports
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
+
 import org.eclipse.emf.eef.runtime.impl.components.ComposedPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-import org.obeonetwork.dsl.environment.Field;
+
+import org.obeonetwork.dsl.environment.Literal;
+
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
-import org.obeonetwork.dsl.environment.parts.FieldPropertiesEditionPart;
+import org.obeonetwork.dsl.environment.parts.LiteralPropertiesEditionPart;
 
 // End of user code
 
@@ -21,19 +28,19 @@ import org.obeonetwork.dsl.environment.parts.FieldPropertiesEditionPart;
  * 
  * 
  */
-public class FieldPropertiesEditionComponent extends ComposedPropertiesEditionComponent {
+public class LiteralPropertiesEditionComponent extends ComposedPropertiesEditionComponent {
 
 	/**
-	 * The Field part
+	 * The Literal part
 	 * 
 	 */
-	private FieldPropertiesEditionPart fieldPart;
+	private LiteralPropertiesEditionPart literalPart;
 
 	/**
-	 * The FieldFieldPropertiesEditionComponent sub component
+	 * The LiteralLiteralPropertiesEditionComponent sub component
 	 * 
 	 */
-	protected FieldFieldPropertiesEditionComponent fieldFieldPropertiesEditionComponent;
+	protected LiteralLiteralPropertiesEditionComponent literalLiteralPropertiesEditionComponent;
 
 	/**
 	 * The MetadataCptPropertiesEditionComponent sub component
@@ -44,17 +51,17 @@ public class FieldPropertiesEditionComponent extends ComposedPropertiesEditionCo
 	/**
 	 * Parameterized constructor
 	 * 
-	 * @param field the EObject to edit
+	 * @param literal the EObject to edit
 	 * 
 	 */
-	public FieldPropertiesEditionComponent(PropertiesEditingContext editingContext, EObject field, String editing_mode) {
+	public LiteralPropertiesEditionComponent(PropertiesEditingContext editingContext, EObject literal, String editing_mode) {
 		super(editingContext, editing_mode);
-		if (field instanceof Field) {
+		if (literal instanceof Literal) {
 			PropertiesEditingProvider provider = null;
-			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(field, PropertiesEditingProvider.class);
-			fieldFieldPropertiesEditionComponent = (FieldFieldPropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, FieldFieldPropertiesEditionComponent.FIELD_PART, FieldFieldPropertiesEditionComponent.class);
-			addSubComponent(fieldFieldPropertiesEditionComponent);
-			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(field, PropertiesEditingProvider.class);
+			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(literal, PropertiesEditingProvider.class);
+			literalLiteralPropertiesEditionComponent = (LiteralLiteralPropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, LiteralLiteralPropertiesEditionComponent.LITERAL_PART, LiteralLiteralPropertiesEditionComponent.class);
+			addSubComponent(literalLiteralPropertiesEditionComponent);
+			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(literal, PropertiesEditingProvider.class);
 			metadataCptPropertiesEditionComponent = (MetadataCptPropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, MetadataCptPropertiesEditionComponent.METADATAS_PART, MetadataCptPropertiesEditionComponent.class);
 			addSubComponent(metadataCptPropertiesEditionComponent);
 		}
@@ -68,9 +75,9 @@ public class FieldPropertiesEditionComponent extends ComposedPropertiesEditionCo
 	 * 
 	 */
 	public IPropertiesEditionPart getPropertiesEditionPart(int kind, String key) {
-		if (FieldFieldPropertiesEditionComponent.FIELD_PART.equals(key)) {
-			fieldPart = (FieldPropertiesEditionPart)fieldFieldPropertiesEditionComponent.getPropertiesEditionPart(kind, key);
-			return (IPropertiesEditionPart)fieldPart;
+		if (LiteralLiteralPropertiesEditionComponent.LITERAL_PART.equals(key)) {
+			literalPart = (LiteralPropertiesEditionPart)literalLiteralPropertiesEditionComponent.getPropertiesEditionPart(kind, key);
+			return (IPropertiesEditionPart)literalPart;
 		}
 		return super.getPropertiesEditionPart(kind, key);
 	}
@@ -84,9 +91,9 @@ public class FieldPropertiesEditionComponent extends ComposedPropertiesEditionCo
 	 * 
 	 */
 	public void setPropertiesEditionPart(java.lang.Object key, int kind, IPropertiesEditionPart propertiesEditionPart) {
-		if (EnvironmentViewsRepository.Field.class == key) {
+		if (EnvironmentViewsRepository.Literal.class == key) {
 			super.setPropertiesEditionPart(key, kind, propertiesEditionPart);
-			fieldPart = (FieldPropertiesEditionPart)propertiesEditionPart;
+			literalPart = (LiteralPropertiesEditionPart)propertiesEditionPart;
 		}
 	}
 
@@ -99,7 +106,7 @@ public class FieldPropertiesEditionComponent extends ComposedPropertiesEditionCo
 	 * 
 	 */
 	public void initPart(java.lang.Object key, int kind, EObject element, ResourceSet allResource) {
-		if (key == EnvironmentViewsRepository.Field.class) {
+		if (key == EnvironmentViewsRepository.Literal.class) {
 			super.initPart(key, kind, element, allResource);
 		}
 		if (key == EnvironmentViewsRepository.Metadatas.class) {

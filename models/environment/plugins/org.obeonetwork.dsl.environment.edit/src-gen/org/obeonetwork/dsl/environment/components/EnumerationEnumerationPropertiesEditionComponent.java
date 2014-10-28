@@ -31,7 +31,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.Field;
+import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.parts.EnumerationPropertiesEditionPart;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 
@@ -49,9 +49,9 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 
 	
 	/**
-	 * Settings for fields ReferencesTable
+	 * Settings for literals ReferencesTable
 	 */
-	protected ReferencesTableSettings fieldsSettings;
+	protected ReferencesTableSettings literalsSettings;
 	
 	
 	/**
@@ -83,28 +83,28 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.name))
 				enumerationPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, enumeration.getName()));
 			
-			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.fields)) {
-				fieldsSettings = new ReferencesTableSettings(enumeration, EnvironmentPackage.eINSTANCE.getEnumeration_Fields());
-				enumerationPart.initFields(fieldsSettings);
+			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.literals)) {
+				literalsSettings = new ReferencesTableSettings(enumeration, EnvironmentPackage.eINSTANCE.getEnumeration_Literals());
+				enumerationPart.initLiterals(literalsSettings);
 			}
 			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.description))
 				enumerationPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, enumeration.getDescription()));
 			
 			// init filters
 			
-			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.fields)) {
-				enumerationPart.addFilterToFields(new ViewerFilter() {
+			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.literals)) {
+				enumerationPart.addFilterToLiterals(new ViewerFilter() {
 					/**
 					 * {@inheritDoc}
 					 * 
 					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
 					 */
 					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						return (element instanceof Field);
+						return (element instanceof Literal);
 					}
 			
 				});
-				// Start of user code for additional businessfilters for fields
+				// Start of user code for additional businessfilters for literals
 				// End of user code
 			}
 			
@@ -129,8 +129,8 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 		if (editorKey == EnvironmentViewsRepository.Enumeration.Properties.name) {
 			return EnvironmentPackage.eINSTANCE.getType_Name();
 		}
-		if (editorKey == EnvironmentViewsRepository.Enumeration.Properties.fields) {
-			return EnvironmentPackage.eINSTANCE.getEnumeration_Fields();
+		if (editorKey == EnvironmentViewsRepository.Enumeration.Properties.literals) {
+			return EnvironmentPackage.eINSTANCE.getEnumeration_Literals();
 		}
 		if (editorKey == EnvironmentViewsRepository.Enumeration.Properties.description) {
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
@@ -148,9 +148,9 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 		if (EnvironmentViewsRepository.Enumeration.Properties.name == event.getAffectedEditor()) {
 			enumeration.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (EnvironmentViewsRepository.Enumeration.Properties.fields == event.getAffectedEditor()) {
+		if (EnvironmentViewsRepository.Enumeration.Properties.literals == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, fieldsSettings, editingContext.getAdapterFactory());
+				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, literalsSettings, editingContext.getAdapterFactory());
 				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(semanticObject, PropertiesEditingProvider.class);
 				if (provider != null) {
 					PropertiesEditingPolicy policy = provider.getPolicy(context);
@@ -168,9 +168,9 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 					}
 				}
 			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				fieldsSettings.removeFromReference((EObject) event.getNewValue());
+				literalsSettings.removeFromReference((EObject) event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				fieldsSettings.move(event.getNewIndex(), (Field) event.getNewValue());
+				literalsSettings.move(event.getNewIndex(), (Literal) event.getNewValue());
 			}
 		}
 		if (EnvironmentViewsRepository.Enumeration.Properties.description == event.getAffectedEditor()) {
@@ -193,8 +193,8 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 					enumerationPart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getEnumeration_Fields().equals(msg.getFeature()) && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.fields))
-				enumerationPart.updateFields();
+			if (EnvironmentPackage.eINSTANCE.getEnumeration_Literals().equals(msg.getFeature()) && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.literals))
+				enumerationPart.updateLiterals();
 			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && enumerationPart != null && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.description)) {
 				if (msg.getNewValue() != null) {
 					enumerationPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
@@ -215,7 +215,7 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EnvironmentPackage.eINSTANCE.getType_Name(),
-			EnvironmentPackage.eINSTANCE.getEnumeration_Fields(),
+			EnvironmentPackage.eINSTANCE.getEnumeration_Literals(),
 			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
 		return new NotificationFilter[] {filter,};
 	}
@@ -228,7 +228,7 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 	 * 
 	 */
 	public boolean isRequired(Object key, int kind) {
-		return key == EnvironmentViewsRepository.Enumeration.Properties.name || key == EnvironmentViewsRepository.Enumeration.Properties.fields;
+		return key == EnvironmentViewsRepository.Enumeration.Properties.name || key == EnvironmentViewsRepository.Enumeration.Properties.literals;
 	}
 
 	/**

@@ -143,9 +143,12 @@ public class ReferenceItemProvider extends PropertyItemProvider implements
 				if (object instanceof Reference) {
 					Collection<?> collection = super.getComboBoxObjects(object);
 					for (Object object2 : collection) {
-						EObject elem = (EObject)object2;
-						if (elem != null && elem instanceof Reference && ((Reference) elem).canBeOppositeOf((Reference) object)) {
-							result.add((Reference)elem);
+						EObject elem = (EObject) object2;
+						if (elem != null
+								&& elem instanceof Reference
+								&& ((Reference) elem)
+										.canBeOppositeOf((Reference) object)) {
+							result.add((Reference) elem);
 						}
 					}
 				}

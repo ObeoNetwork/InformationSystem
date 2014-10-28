@@ -58,13 +58,13 @@ public class EnvironmentEEFAdapterFactory extends EnvironmentAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
-	 * @see org.obeonetwork.dsl.environment.util.EnvironmentAdapterFactory#createFieldAdapter()
+	 * @see org.obeonetwork.dsl.environment.util.EnvironmentAdapterFactory#createLiteralAdapter()
 	 * 
 	 */
-	public Adapter createFieldAdapter() {
+	public Adapter createLiteralAdapter() {
 		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
 		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new FieldPropertiesEditionProvider(providers);
+		return new LiteralPropertiesEditionProvider(providers);
 	}
 	/**
 	 * {@inheritDoc}

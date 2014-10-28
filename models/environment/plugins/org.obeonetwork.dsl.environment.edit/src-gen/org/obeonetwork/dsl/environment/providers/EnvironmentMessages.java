@@ -23,7 +23,7 @@ public class EnvironmentMessages extends NLS {
 	public static String EnumerationPropertiesEditionPart_PropertiesGroupLabel;
 
 	
-	public static String FieldPropertiesEditionPart_PropertiesGroupLabel;
+	public static String LiteralPropertiesEditionPart_PropertiesGroupLabel;
 
 	
 	public static String InterDSMLinkPropertiesEditionPart_PropertiesGroupLabel;
@@ -87,10 +87,10 @@ public class EnvironmentMessages extends NLS {
 	public static String Enumeration_Part_Title;
 
 	
-	public static String Field_ReadOnly;
+	public static String Literal_ReadOnly;
 
 	
-	public static String Field_Part_Title;
+	public static String Literal_Part_Title;
 
 	
 	public static String InterDSMLink_ReadOnly;
@@ -193,16 +193,16 @@ public class EnvironmentMessages extends NLS {
 	public static String EnumerationPropertiesEditionPart_NameLabel;
 
 	
-	public static String EnumerationPropertiesEditionPart_FieldsLabel;
+	public static String EnumerationPropertiesEditionPart_LiteralsLabel;
 
 	
 	public static String EnumerationPropertiesEditionPart_DescriptionLabel;
 
 	
-	public static String FieldPropertiesEditionPart_NameLabel;
+	public static String LiteralPropertiesEditionPart_NameLabel;
 
 	
-	public static String FieldPropertiesEditionPart_DescriptionLabel;
+	public static String LiteralPropertiesEditionPart_DescriptionLabel;
 
 	
 	public static String InterDSMLinkPropertiesEditionPart_NameLabel;
