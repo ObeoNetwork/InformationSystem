@@ -65,13 +65,13 @@ public interface EnvironmentFactory extends EFactory {
 	Enumeration createEnumeration();
 
 	/**
-	 * Returns a new object of class '<em>Field</em>'.
+	 * Returns a new object of class '<em>Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Field</em>'.
+	 * @return a new object of class '<em>Literal</em>'.
 	 * @generated
 	 */
-	Field createField();
+	Literal createLiteral();
 
 	/**
 	 * Returns a new object of class '<em>Inter DSM Link</em>'.

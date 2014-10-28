@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.environment.Enumeration#getFields <em>Fields</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.Enumeration#getLiterals <em>Literals</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Enumeration extends Type {
+public interface Enumeration extends DataType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,19 +39,19 @@ public interface Enumeration extends Type {
 	String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Field}.
+	 * Returns the value of the '<em><b>Literals</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Literal}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Fields</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Literals</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fields</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getEnumeration_Fields()
+	 * @return the value of the '<em>Literals</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getEnumeration_Literals()
 	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
-	EList<Field> getFields();
+	EList<Literal> getLiterals();
 
 } // Enumeration

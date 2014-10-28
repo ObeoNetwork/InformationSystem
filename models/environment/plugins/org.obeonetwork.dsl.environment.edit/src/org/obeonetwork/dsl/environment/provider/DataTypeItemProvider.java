@@ -7,8 +7,6 @@
  * 
  * Contributors:
  *     Obeo - initial API and implementation
- *
- * $Id$
  */
 package org.obeonetwork.dsl.environment.provider;
 
@@ -17,21 +15,23 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.obeonetwork.dsl.environment.PrimitiveType;
+
+import org.obeonetwork.dsl.environment.DataType;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.environment.PrimitiveType} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.environment.DataType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PrimitiveTypeItemProvider extends DataTypeItemProvider implements
+public class DataTypeItemProvider extends TypeItemProvider implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
@@ -47,7 +47,7 @@ public class PrimitiveTypeItemProvider extends DataTypeItemProvider implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveTypeItemProvider(AdapterFactory adapterFactory) {
+	public DataTypeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,18 +64,6 @@ public class PrimitiveTypeItemProvider extends DataTypeItemProvider implements
 
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns PrimitiveType.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/PrimitiveType"));
 	}
 
 	/**
@@ -96,9 +84,9 @@ public class PrimitiveTypeItemProvider extends DataTypeItemProvider implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PrimitiveType) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_PrimitiveType_type")
-				: getString("_UI_PrimitiveType_type") + " " + label;
+		String label = ((DataType) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_DataType_type")
+				: getString("_UI_DataType_type") + " " + label;
 	}
 
 	/**

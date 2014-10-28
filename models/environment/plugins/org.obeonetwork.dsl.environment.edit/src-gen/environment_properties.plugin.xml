@@ -63,8 +63,8 @@
          </propertyTab>
 
          <propertyTab
-               id="Field"
-               label="Field"
+               id="Literal"
+               label="Literal"
                category="default">
          </propertyTab>
 
@@ -189,15 +189,15 @@
                tab="Metadatas">
          </propertySection>
          <propertySection
-               class="org.obeonetwork.dsl.environment.parts.forms.FieldPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.environment.providers.FieldPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.environment.section.Field"
-               tab="Field">
+               class="org.obeonetwork.dsl.environment.parts.forms.LiteralPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.environment.providers.LiteralPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.environment.section.Literal"
+               tab="Literal">
          </propertySection>
          <propertySection
                class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
-               filter="org.obeonetwork.dsl.environment.providers.FieldPropertiesEditionProvider$EditionFilter"
-               id="org.obeonetwork.dsl.environment.section.Field"
+               filter="org.obeonetwork.dsl.environment.providers.LiteralPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.environment.section.Literal"
                tab="Metadatas">
          </propertySection>
          <propertySection

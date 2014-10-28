@@ -16,7 +16,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.obeonetwork.dsl.environment.*;
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
@@ -27,13 +26,14 @@ import org.obeonetwork.dsl.environment.BindingReference;
 import org.obeonetwork.dsl.environment.BindingRegistry;
 import org.obeonetwork.dsl.environment.BoundableElement;
 import org.obeonetwork.dsl.environment.DTO;
+import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.Field;
 import org.obeonetwork.dsl.environment.Filter;
 import org.obeonetwork.dsl.environment.FilterContainer;
 import org.obeonetwork.dsl.environment.InterDSMLink;
+import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.Namespace;
@@ -129,8 +129,8 @@ public class EnvironmentAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseField(Field object) {
-			return createFieldAdapter();
+		public Adapter caseLiteral(Literal object) {
+			return createLiteralAdapter();
 		}
 
 		@Override
@@ -249,6 +249,11 @@ public class EnvironmentAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseDataType(DataType object) {
+			return createDataTypeAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -324,16 +329,16 @@ public class EnvironmentAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.Field <em>Field</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.Literal <em>Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.obeonetwork.dsl.environment.Field
+	 * @see org.obeonetwork.dsl.environment.Literal
 	 * @generated
 	 */
-	public Adapter createFieldAdapter() {
+	public Adapter createLiteralAdapter() {
 		return null;
 	}
 
@@ -656,6 +661,20 @@ public class EnvironmentAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBoundableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.DataType <em>Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.environment.DataType
+	 * @generated
+	 */
+	public Adapter createDataTypeAdapter() {
 		return null;
 	}
 

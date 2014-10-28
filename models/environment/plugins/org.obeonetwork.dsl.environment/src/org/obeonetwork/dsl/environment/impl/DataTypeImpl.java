@@ -7,25 +7,24 @@
  * 
  * Contributors:
  *     Obeo - initial API and implementation
- *
- * $Id$
  */
 package org.obeonetwork.dsl.environment.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
+import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.PrimitiveType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Primitive Type</b></em>'.
+ * An implementation of the model object '<em><b>Data Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class PrimitiveTypeImpl extends DataTypeImpl implements PrimitiveType {
+public abstract class DataTypeImpl extends TypeImpl implements DataType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,7 +37,7 @@ public class PrimitiveTypeImpl extends DataTypeImpl implements PrimitiveType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PrimitiveTypeImpl() {
+	protected DataTypeImpl() {
 		super();
 	}
 
@@ -49,7 +48,7 @@ public class PrimitiveTypeImpl extends DataTypeImpl implements PrimitiveType {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EnvironmentPackage.Literals.PRIMITIVE_TYPE;
+		return EnvironmentPackage.Literals.DATA_TYPE;
 	}
 
-} //PrimitiveTypeImpl
+} //DataTypeImpl

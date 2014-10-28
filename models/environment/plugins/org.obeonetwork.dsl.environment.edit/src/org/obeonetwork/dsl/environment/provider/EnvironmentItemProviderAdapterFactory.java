@@ -158,26 +158,26 @@ public class EnvironmentItemProviderAdapterFactory extends
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.environment.Field} instances.
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.environment.Literal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FieldItemProvider fieldItemProvider;
+	protected LiteralItemProvider literalItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.obeonetwork.dsl.environment.Field}.
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.environment.Literal}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createFieldAdapter() {
-		if (fieldItemProvider == null) {
-			fieldItemProvider = new FieldItemProvider(this);
+	public Adapter createLiteralAdapter() {
+		if (literalItemProvider == null) {
+			literalItemProvider = new LiteralItemProvider(this);
 		}
 
-		return fieldItemProvider;
+		return literalItemProvider;
 	}
 
 	/**
@@ -613,8 +613,8 @@ public class EnvironmentItemProviderAdapterFactory extends
 			primitiveTypeItemProvider.dispose();
 		if (enumerationItemProvider != null)
 			enumerationItemProvider.dispose();
-		if (fieldItemProvider != null)
-			fieldItemProvider.dispose();
+		if (literalItemProvider != null)
+			literalItemProvider.dispose();
 		if (interDSMLinkItemProvider != null)
 			interDSMLinkItemProvider.dispose();
 		if (metaDataContainerItemProvider != null)

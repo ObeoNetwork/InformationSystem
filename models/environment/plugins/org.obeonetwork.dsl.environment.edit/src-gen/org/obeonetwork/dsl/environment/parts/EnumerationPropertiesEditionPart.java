@@ -34,45 +34,45 @@ public interface EnumerationPropertiesEditionPart {
 
 
 	/**
-	 * Init the fields
+	 * Init the literals
 	 * @param current the current value
 	 * @param containgFeature the feature where to navigate if necessary
 	 * @param feature the feature to manage
 	 */
-	public void initFields(ReferencesTableSettings settings);
+	public void initLiterals(ReferencesTableSettings settings);
 
 	/**
-	 * Update the fields
-	 * @param newValue the fields to update
+	 * Update the literals
+	 * @param newValue the literals to update
 	 * 
 	 */
-	public void updateFields();
+	public void updateLiterals();
 
 	/**
-	 * Adds the given filter to the fields edition editor.
+	 * Adds the given filter to the literals edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addFilterToFields(ViewerFilter filter);
+	public void addFilterToLiterals(ViewerFilter filter);
 
 	/**
-	 * Adds the given filter to the fields edition editor.
+	 * Adds the given filter to the literals edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addBusinessFilterToFields(ViewerFilter filter);
+	public void addBusinessFilterToLiterals(ViewerFilter filter);
 
 	/**
-	 * @return true if the given element is contained inside the fields table
+	 * @return true if the given element is contained inside the literals table
 	 * 
 	 */
-	public boolean isContainedInFieldsTable(EObject element);
+	public boolean isContainedInLiteralsTable(EObject element);
 
 
 	/**

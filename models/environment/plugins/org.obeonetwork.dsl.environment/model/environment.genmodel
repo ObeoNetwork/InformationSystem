@@ -33,10 +33,10 @@
     </genClasses>
     <genClasses ecoreClass="environment.ecore#//PrimitiveType"/>
     <genClasses ecoreClass="environment.ecore#//Enumeration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Enumeration/fields"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Enumeration/literals"/>
     </genClasses>
-    <genClasses ecoreClass="environment.ecore#//Field">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Field/name"/>
+    <genClasses ecoreClass="environment.ecore#//Literal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Literal/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="environment.ecore#//Action">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Action/name"/>
@@ -148,5 +148,6 @@
         <genParameters ecoreParameter="environment.ecore#//BoundableElement/isPathValid/path"/>
       </genOperations>
     </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//DataType"/>
   </genPackages>
 </genmodel:GenModel>

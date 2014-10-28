@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.obeonetwork.dsl.environment.*;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.BindingElement;
@@ -29,9 +28,9 @@ import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.Field;
 import org.obeonetwork.dsl.environment.FilterContainer;
 import org.obeonetwork.dsl.environment.InterDSMLink;
+import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Namespace;
@@ -100,8 +99,8 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 			return (EObject) createPrimitiveType();
 		case EnvironmentPackage.ENUMERATION:
 			return (EObject) createEnumeration();
-		case EnvironmentPackage.FIELD:
-			return (EObject) createField();
+		case EnvironmentPackage.LITERAL:
+			return (EObject) createLiteral();
 		case EnvironmentPackage.INTER_DSM_LINK:
 			return (EObject) createInterDSMLink();
 		case EnvironmentPackage.META_DATA_CONTAINER:
@@ -203,9 +202,9 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Field createField() {
-		FieldImpl field = new FieldImpl();
-		return field;
+	public Literal createLiteral() {
+		LiteralImpl literal = new LiteralImpl();
+		return literal;
 	}
 
 	/**

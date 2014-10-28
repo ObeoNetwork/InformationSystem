@@ -16,7 +16,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.obeonetwork.dsl.environment.*;
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
@@ -27,13 +26,14 @@ import org.obeonetwork.dsl.environment.BindingReference;
 import org.obeonetwork.dsl.environment.BindingRegistry;
 import org.obeonetwork.dsl.environment.BoundableElement;
 import org.obeonetwork.dsl.environment.DTO;
+import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.Field;
 import org.obeonetwork.dsl.environment.Filter;
 import org.obeonetwork.dsl.environment.FilterContainer;
 import org.obeonetwork.dsl.environment.InterDSMLink;
+import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.Namespace;
@@ -148,6 +148,8 @@ public class EnvironmentSwitch<T> {
 			PrimitiveType primitiveType = (PrimitiveType) theEObject;
 			T result = casePrimitiveType(primitiveType);
 			if (result == null)
+				result = caseDataType(primitiveType);
+			if (result == null)
 				result = caseType(primitiveType);
 			if (result == null)
 				result = caseObeoDSMObject(primitiveType);
@@ -161,6 +163,8 @@ public class EnvironmentSwitch<T> {
 			Enumeration enumeration = (Enumeration) theEObject;
 			T result = caseEnumeration(enumeration);
 			if (result == null)
+				result = caseDataType(enumeration);
+			if (result == null)
 				result = caseType(enumeration);
 			if (result == null)
 				result = caseObeoDSMObject(enumeration);
@@ -170,11 +174,11 @@ public class EnvironmentSwitch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case EnvironmentPackage.FIELD: {
-			Field field = (Field) theEObject;
-			T result = caseField(field);
+		case EnvironmentPackage.LITERAL: {
+			Literal literal = (Literal) theEObject;
+			T result = caseLiteral(literal);
 			if (result == null)
-				result = caseObeoDSMObject(field);
+				result = caseObeoDSMObject(literal);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -400,6 +404,19 @@ public class EnvironmentSwitch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case EnvironmentPackage.DATA_TYPE: {
+			DataType dataType = (DataType) theEObject;
+			T result = caseDataType(dataType);
+			if (result == null)
+				result = caseType(dataType);
+			if (result == null)
+				result = caseObeoDSMObject(dataType);
+			if (result == null)
+				result = caseBoundableElement(dataType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -466,17 +483,17 @@ public class EnvironmentSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Field</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Field</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Literal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseField(Field object) {
+	public T caseLiteral(Literal object) {
 		return null;
 	}
 
@@ -822,6 +839,21 @@ public class EnvironmentSwitch<T> {
 	 * @generated
 	 */
 	public T caseBoundableElement(BoundableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataType(DataType object) {
 		return null;
 	}
 

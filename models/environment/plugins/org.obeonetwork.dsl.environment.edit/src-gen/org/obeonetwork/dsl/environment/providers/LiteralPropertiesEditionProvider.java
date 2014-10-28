@@ -18,10 +18,10 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.jface.viewers.IFilter;
 
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.Field;
+import org.obeonetwork.dsl.environment.Literal;
 
-import org.obeonetwork.dsl.environment.components.FieldFieldPropertiesEditionComponent;
-import org.obeonetwork.dsl.environment.components.FieldPropertiesEditionComponent;
+import org.obeonetwork.dsl.environment.components.LiteralLiteralPropertiesEditionComponent;
+import org.obeonetwork.dsl.environment.components.LiteralPropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 
 import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
@@ -30,12 +30,12 @@ import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEd
  * 
  * 
  */
-public class FieldPropertiesEditionProvider extends CustomPropertiesEditingProvider {
+public class LiteralPropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
 	 */
-	public FieldPropertiesEditionProvider() {
+	public LiteralPropertiesEditionProvider() {
 		super();
 	}
 
@@ -43,7 +43,7 @@ public class FieldPropertiesEditionProvider extends CustomPropertiesEditingProvi
 	 * Constructor with providers for super types.
 	 * @param superProviders providers to use for super types.
 	 */
-	public FieldPropertiesEditionProvider(List<PropertiesEditingProvider> superProviders) {
+	public LiteralPropertiesEditionProvider(List<PropertiesEditingProvider> superProviders) {
 		super(superProviders);
 	}
 
@@ -53,8 +53,8 @@ public class FieldPropertiesEditionProvider extends CustomPropertiesEditingProvi
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext) {
-		return (editingContext.getEObject() instanceof Field) 
-					&& (EnvironmentPackage.Literals.FIELD == editingContext.getEObject().eClass());
+		return (editingContext.getEObject() instanceof Literal) 
+					&& (EnvironmentPackage.Literals.LITERAL == editingContext.getEObject().eClass());
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class FieldPropertiesEditionProvider extends CustomPropertiesEditingProvi
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext, String part) {
-		return (editingContext.getEObject() instanceof Field) && (FieldFieldPropertiesEditionComponent.FIELD_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
+		return (editingContext.getEObject() instanceof Literal) && (LiteralLiteralPropertiesEditionComponent.LITERAL_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class FieldPropertiesEditionProvider extends CustomPropertiesEditingProvi
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof Field) && (refinement == FieldFieldPropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
+		return (editingContext.getEObject() instanceof Literal) && (refinement == LiteralLiteralPropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class FieldPropertiesEditionProvider extends CustomPropertiesEditingProvi
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, String part, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof Field) && ((FieldFieldPropertiesEditionComponent.FIELD_PART.equals(part) && refinement == FieldFieldPropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
+		return (editingContext.getEObject() instanceof Literal) && ((LiteralLiteralPropertiesEditionComponent.LITERAL_PART.equals(part) && refinement == LiteralLiteralPropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
 	}
 
 	/**
@@ -92,8 +92,8 @@ public class FieldPropertiesEditionProvider extends CustomPropertiesEditingProvi
 	 * 
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode) {
-		if (editingContext.getEObject() instanceof Field) {
-			return new FieldPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+		if (editingContext.getEObject() instanceof Literal) {
+			return new LiteralPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
 		return super.getPropertiesEditingComponent(editingContext, mode);
 	}
@@ -104,9 +104,9 @@ public class FieldPropertiesEditionProvider extends CustomPropertiesEditingProvi
 	 * 
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part) {
-		if (editingContext.getEObject() instanceof Field) {
-			if (FieldFieldPropertiesEditionComponent.FIELD_PART.equals(part))
-				return new FieldFieldPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+		if (editingContext.getEObject() instanceof Literal) {
+			if (LiteralLiteralPropertiesEditionComponent.LITERAL_PART.equals(part))
+				return new LiteralLiteralPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part))
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
@@ -119,10 +119,10 @@ public class FieldPropertiesEditionProvider extends CustomPropertiesEditingProvi
 	 */
 	@SuppressWarnings("rawtypes")
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part, java.lang.Class refinement) {
-		if (editingContext.getEObject() instanceof Field) {
-			if (FieldFieldPropertiesEditionComponent.FIELD_PART.equals(part)
-				&& refinement == FieldFieldPropertiesEditionComponent.class)
-				return new FieldFieldPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+		if (editingContext.getEObject() instanceof Literal) {
+			if (LiteralLiteralPropertiesEditionComponent.LITERAL_PART.equals(part)
+				&& refinement == LiteralLiteralPropertiesEditionComponent.class)
+				return new LiteralLiteralPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part)
 				&& refinement == MetadataCptPropertiesEditionComponent.class)
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
@@ -142,7 +142,7 @@ public class FieldPropertiesEditionProvider extends CustomPropertiesEditingProvi
 		 */
 		public boolean select(Object toTest) {
 			EObject eObj = EEFUtils.resolveSemanticObject(toTest);
-			return eObj != null && EnvironmentPackage.Literals.FIELD == eObj.eClass();
+			return eObj != null && EnvironmentPackage.Literals.LITERAL == eObj.eClass();
 		}
 		
 	}

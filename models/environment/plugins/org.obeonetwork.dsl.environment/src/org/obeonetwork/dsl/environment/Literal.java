@@ -7,28 +7,26 @@
  * 
  * Contributors:
  *     Obeo - initial API and implementation
- *
- * $Id$
  */
 package org.obeonetwork.dsl.environment;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Field</b></em>'.
+ * A representation of the model object '<em><b>Literal</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.environment.Field#getName <em>Name</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.environment.Literal#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getField()
+ * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getLiteral()
  * @model
  * @generated
  */
-public interface Field extends ObeoDSMObject {
+public interface Literal extends ObeoDSMObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,14 +44,14 @@ public interface Field extends ObeoDSMObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getField_Name()
+	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getLiteral_Name()
 	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.obeonetwork.dsl.environment.Field#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.obeonetwork.dsl.environment.Literal#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -62,4 +60,4 @@ public interface Field extends ObeoDSMObject {
 	 */
 	void setName(String value);
 
-} // Field
+} // Literal

@@ -16,9 +16,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.obeonetwork.dsl.environment.Attribute;
-import org.obeonetwork.dsl.environment.DTO;
+import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.environment.StructuredType;
 
 /**
@@ -67,8 +66,8 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveType getType() {
-		return (PrimitiveType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__TYPE,
+	public DataType getType() {
+		return (DataType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__TYPE,
 				EnvironmentPackage.Literals.ATTRIBUTE__TYPE, true, true);
 	}
 
@@ -77,8 +76,8 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveType basicGetType() {
-		return (PrimitiveType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__TYPE,
+	public DataType basicGetType() {
+		return (DataType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__TYPE,
 				EnvironmentPackage.Literals.ATTRIBUTE__TYPE, false, true);
 	}
 
@@ -87,7 +86,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(PrimitiveType newType) {
+	public void setType(DataType newType) {
 		eDynamicSet(EnvironmentPackage.ATTRIBUTE__TYPE,
 				EnvironmentPackage.Literals.ATTRIBUTE__TYPE, newType);
 	}
@@ -217,7 +216,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case EnvironmentPackage.ATTRIBUTE__TYPE:
-			setType((PrimitiveType) newValue);
+			setType((DataType) newValue);
 			return;
 		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
 			setContainingType((StructuredType) newValue);
@@ -235,7 +234,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case EnvironmentPackage.ATTRIBUTE__TYPE:
-			setType((PrimitiveType) null);
+			setType((DataType) null);
 			return;
 		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
 			setContainingType((StructuredType) null);
