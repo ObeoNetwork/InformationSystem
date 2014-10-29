@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_Z8s4kF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:03:57.593+0100" modifiedOn="2014-10-28T18:04:08.296+0100">
+  <namespaces xmi:id="_bixegF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:04:11.726+0100" modifiedOn="2014-10-29T11:55:17.581+0100" name="blk1">
+    <ownedNamespaces xmi:id="_cjn3gF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:04:17.746+0100" modifiedOn="2014-10-28T18:05:37.996+0100" name="blk2">
+      <types xsi:type="oent:Entity" xmi:id="_ebk3oF7EEeSWnuhhgfhS7w" description="Entity with no supertype&#xD;&#xA;" createdOn="2014-10-28T18:04:27.675+0100" modifiedOn="2014-10-28T18:10:12.474+0100" name="Entity2.1" estimatedVolumetry="15" estimatedAccess="56" historized="true" inheritanceKind="TABLE_PER_CLASS_HIERARCHY">
+        <ownedAttributes xmi:id="_tTg8QF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:06:07.492+0100" modifiedOn="2014-10-28T18:06:18.655+0100" name="att1" isIdentifier="true">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_vTXUIF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:06:07.492+0100" modifiedOn="2014-10-28T18:06:29.001+0100" name="att2" multiplicity="1">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EawKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_vaEZEF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:06:07.492+0100" modifiedOn="2014-10-28T18:06:36.511+0100" name="att3" multiplicity="0..*">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EqwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_vgpiMF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:06:07.492+0100" modifiedOn="2014-10-28T18:06:43.964+0100" name="att4" multiplicity="1..*" isIdentifier="true">
+          <type xsi:type="oenv:PrimitiveType" href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_Rz2FoF7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:10:12.474+0100" modifiedOn="2014-10-28T18:10:28.105+0100" name="refOpposite1" oppositeOf="_PXTKsF7FEeSWnuhhgfhS7w" referencedType="_o6OAwF7EEeSWnuhhgfhS7w"/>
+      </types>
+      <types xsi:type="oent:Entity" xmi:id="_o6OAwF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:05:37.996+0100" modifiedOn="2014-10-28T18:09:56.060+0100" name="Entity2.2">
+        <ownedReferences xmi:id="_PXTKsF7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:09:56.059+0100" modifiedOn="2014-10-28T18:10:28.105+0100" name="refOppposite2" oppositeOf="_Rz2FoF7FEeSWnuhhgfhS7w" referencedType="_ebk3oF7EEeSWnuhhgfhS7w"/>
+      </types>
+    </ownedNamespaces>
+    <ownedNamespaces xmi:id="_dcv34F7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:04:24.192+0100" modifiedOn="2014-10-28T18:05:48.462+0100" name="blk3">
+      <types xsi:type="oent:Entity" xmi:id="_kii14F7EEeSWnuhhgfhS7w" description="Entity with a supertype" createdOn="2014-10-28T18:05:08.670+0100" modifiedOn="2014-10-28T18:09:20.990+0100" name="Entity3.1" supertype="_ebk3oF7EEeSWnuhhgfhS7w">
+        <ownedReferences xmi:id="_1AU28F7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:06:59.167+0100" modifiedOn="2014-10-28T18:07:15.174+0100" name="ref1" isIdentifier="true" isComposite="true" referencedType="_qeB84F7EEeSWnuhhgfhS7w"/>
+        <ownedReferences xmi:id="_4vJ5IF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:07:24.210+0100" modifiedOn="2014-10-28T18:07:36.534+0100" name="ref2" multiplicity="1" isComposite="true" referencedType="_ebk3oF7EEeSWnuhhgfhS7w"/>
+        <ownedReferences xmi:id="_7FGc0F7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:07:39.933+0100" modifiedOn="2014-10-28T18:07:56.050+0100" name="ref3" isIdentifier="true"/>
+        <ownedReferences xmi:id="_-URHgF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:08:01.656+0100" modifiedOn="2014-10-28T18:08:13.603+0100" name="ref4" multiplicity="1..*" isIdentifier="true" isComposite="true" navigable="false" referencedType="_o6OAwF7EEeSWnuhhgfhS7w"/>
+        <ownedReferences xmi:id="_BRS5UF7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:08:21.477+0100" modifiedOn="2014-10-28T18:08:41.111+0100" name="ref5" referencedType="_kii14F7EEeSWnuhhgfhS7w"/>
+        <ownedReferences xmi:id="_Evp2kF7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:08:44.793+0100" modifiedOn="2014-10-28T18:08:56.885+0100" name="ref6" isIdentifier="true" navigable="false" referencedType="_ebk3oF7EEeSWnuhhgfhS7w"/>
+        <ownedReferences xmi:id="_HCElIF7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:09:00.146+0100" modifiedOn="2014-10-28T18:09:18.146+0100" name="ref7" isIdentifier="true" isComposite="true" navigable="false" referencedType="_ebk3oF7EEeSWnuhhgfhS7w"/>
+        <ownedReferences xmi:id="_KI2v4F7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:09:20.990+0100" modifiedOn="2014-10-28T18:09:30.372+0100" name="ref8" navigable="false" referencedType="_o6OAwF7EEeSWnuhhgfhS7w"/>
+      </types>
+      <types xsi:type="oent:Entity" xmi:id="_qeB84F7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:05:48.462+0100" modifiedOn="2014-10-28T18:12:59.283+0100" name="Entity3.2" inheritanceKind="TABLE_PER_CLASS_HIERARCHY">
+        <ownedFinders xmi:id="_X5tQoF7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:10:53.354+0100" modifiedOn="2014-10-28T18:12:36.320+0100" customizedName="customized" multiplicity="1">
+          <criterions xsi:type="oent:InternalCriterion" xmi:id="_cGFKcF7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:11:27.155+0100" modifiedOn="2014-10-28T18:11:27.155+0100" target="_tTg8QF7EEeSWnuhhgfhS7w"/>
+          <criterions xsi:type="oent:ExternalCriterion" xmi:id="_fMN08F7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:11:48.028+0100" modifiedOn="2014-10-28T18:12:07.017+0100" name="extCriterion" type="_qeB84F7EEeSWnuhhgfhS7w"/>
+        </ownedFinders>
+        <ownedFinders xmi:id="_qqqOMF7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:10:53.354+0100" modifiedOn="2014-10-28T18:13:12.116+0100" customizedName="customized2">
+          <criterions xsi:type="oent:InternalCriterion" xmi:id="_qqqOMV7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:11:27.155+0100" modifiedOn="2014-10-28T18:11:27.155+0100" target="_tTg8QF7EEeSWnuhhgfhS7w"/>
+          <criterions xsi:type="oent:ExternalCriterion" xmi:id="_qqqOMl7FEeSWnuhhgfhS7w" createdOn="2014-10-28T18:11:48.028+0100" modifiedOn="2014-10-28T18:12:07.017+0100" name="extCriterion" type="_qeB84F7EEeSWnuhhgfhS7w"/>
+        </ownedFinders>
+      </types>
+    </ownedNamespaces>
+  </namespaces>
+</oent:Root>

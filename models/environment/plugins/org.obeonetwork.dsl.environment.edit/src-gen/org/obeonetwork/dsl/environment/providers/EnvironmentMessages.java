@@ -65,7 +65,7 @@ public class EnvironmentMessages extends NLS {
 	public static String BindingElementPropertiesEditionPart_PropertiesGroupLabel;
 
 	
-	public static String DTOPropertiesEditionPart_PropertiesGroupLabel;
+	public static String DtoPropertiesEditionPart_PropertiesGroupLabel;
 
 
 	
@@ -171,10 +171,10 @@ public class EnvironmentMessages extends NLS {
 	public static String BindingElement_Part_Title;
 
 	
-	public static String DTO_ReadOnly;
+	public static String Dto_ReadOnly;
 
 	
-	public static String DTO_Part_Title;
+	public static String Dto_Part_Title;
 
 
 	
@@ -310,16 +310,16 @@ public class EnvironmentMessages extends NLS {
 	public static String BindingElementPropertiesEditionPart_DescriptionLabel;
 
 	
-	public static String DTOPropertiesEditionPart_NameLabel;
+	public static String DtoPropertiesEditionPart_NameLabel;
 
 	
-	public static String DTOPropertiesEditionPart_SupertypeLabel;
+	public static String DtoPropertiesEditionPart_SupertypeLabel;
 
 	
-	public static String DTOPropertiesEditionPart_AssociatedTypesLabel;
+	public static String DtoPropertiesEditionPart_AssociatedTypesLabel;
 
 	
-	public static String DTOPropertiesEditionPart_DescriptionLabel;
+	public static String DtoPropertiesEditionPart_DescriptionLabel;
 
 
 	

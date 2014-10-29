@@ -21,7 +21,7 @@ import org.eclipse.jface.viewers.ViewerFilter;
  * 
  * 
  */
-public interface DTOPropertiesEditionPart {
+public interface DtoPropertiesEditionPart {
 
 	/**
 	 * @return the name

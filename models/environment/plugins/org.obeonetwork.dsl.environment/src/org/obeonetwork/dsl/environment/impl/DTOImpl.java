@@ -32,7 +32,7 @@ import org.obeonetwork.dsl.environment.FilterContainer;
  *
  * @generated
  */
-public abstract class DTOImpl extends StructuredTypeImpl implements DTO {
+public class DTOImpl extends StructuredTypeImpl implements DTO {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

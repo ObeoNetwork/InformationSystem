@@ -88,8 +88,7 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 				enumerationPart.initLiterals(literalsSettings);
 			}
 			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.description))
-				enumerationPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, enumeration.getDescription()));
-			
+				enumerationPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, enumeration.getDescription()));
 			// init filters
 			
 			if (isAccessible(EnvironmentViewsRepository.Enumeration.Properties.literals)) {
@@ -195,7 +194,7 @@ public class EnumerationEnumerationPropertiesEditionComponent extends SinglePart
 			}
 			if (EnvironmentPackage.eINSTANCE.getEnumeration_Literals().equals(msg.getFeature()) && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.literals))
 				enumerationPart.updateLiterals();
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && enumerationPart != null && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && enumerationPart != null && isAccessible(EnvironmentViewsRepository.Enumeration.Properties.description)){
 				if (msg.getNewValue() != null) {
 					enumerationPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

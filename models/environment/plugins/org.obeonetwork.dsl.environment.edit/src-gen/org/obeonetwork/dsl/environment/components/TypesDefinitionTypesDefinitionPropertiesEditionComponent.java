@@ -66,8 +66,7 @@ public class TypesDefinitionTypesDefinitionPropertiesEditionComponent extends Si
 			final TypesDefinitionPropertiesEditionPart typesDefinitionPart = (TypesDefinitionPropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(EnvironmentViewsRepository.TypesDefinition.Properties.description))
-				typesDefinitionPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, typesDefinition.getDescription()));
-			
+				typesDefinitionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, typesDefinition.getDescription()));
 			// init filters
 			
 			// init values for referenced views
@@ -112,7 +111,7 @@ public class TypesDefinitionTypesDefinitionPropertiesEditionComponent extends Si
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			TypesDefinitionPropertiesEditionPart typesDefinitionPart = (TypesDefinitionPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && typesDefinitionPart != null && isAccessible(EnvironmentViewsRepository.TypesDefinition.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && typesDefinitionPart != null && isAccessible(EnvironmentViewsRepository.TypesDefinition.Properties.description)){
 				if (msg.getNewValue() != null) {
 					typesDefinitionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

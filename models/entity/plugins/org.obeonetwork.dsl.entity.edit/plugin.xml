@@ -12,7 +12,7 @@
     
   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
     <factory 
-       uri = "http://www.obeonetwork.org/dsl/entity/2.0.0" 
+       uri = "http://www.obeonetwork.org/dsl/entity/3.0.0" 
        class = "org.obeonetwork.dsl.entity.provider.EntityItemProviderAdapterFactory" 
        supportedTypes = 
          "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -21,6 +21,13 @@
           org.eclipse.emf.edit.provider.IItemLabelProvider
           org.eclipse.emf.edit.provider.IItemPropertySource" />
   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated entity -->
+      <extender
+            uri="http://www.obeonetwork.org/dsl/environment/3.0.0"
+            class="org.obeonetwork.dsl.entity.provider.EntityItemProviderAdapterFactory$EnvironmentChildCreationExtender"/>
+   </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated entity -->
@@ -39,7 +46,7 @@
      <factory
            class="org.obeonetwork.dsl.entity.providers.EntityEEFAdapterFactory"
            supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"
-           uri="http://www.obeonetwork.org/dsl/entity/2.0.0">
+           uri="http://www.obeonetwork.org/dsl/entity/3.0.0">
      </factory>
   </extension>
   <extension
@@ -59,23 +66,8 @@
         </propertyTab>
         <propertyTab
               category="semantic &amp; extension"
-              id="Block"
-              label="Block">
-        </propertyTab>
-        <propertyTab
-              category="semantic &amp; extension"
               id="Entity"
               label="Entity">
-        </propertyTab>
-        <propertyTab
-              category="semantic &amp; extension"
-              id="Attribute"
-              label="Attribute">
-        </propertyTab>
-        <propertyTab
-              category="semantic &amp; extension"
-              id="Reference"
-              label="Reference">
         </propertyTab>
         <propertyTab
               category="semantic &amp; extension"

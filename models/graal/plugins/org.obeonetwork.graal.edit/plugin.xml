@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://org.obeonetwork.graal/1.0"
+            uri="http://www.obeonetwork.org/dsl/graal/2.0.0"
             class="org.obeonetwork.graal.provider.GraalItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -25,7 +25,7 @@
 <!-- EEF extensions -->
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://org.obeonetwork.graal/1.0"
+            uri="http://www.obeonetwork.org/dsl/graal/2.0.0"
             class="org.obeonetwork.graal.providers.GraalEEFAdapterFactory"
             supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
    </extension>

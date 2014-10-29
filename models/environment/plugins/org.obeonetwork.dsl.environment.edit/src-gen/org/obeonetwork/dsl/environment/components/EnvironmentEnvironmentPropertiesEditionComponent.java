@@ -69,8 +69,7 @@ public class EnvironmentEnvironmentPropertiesEditionComponent extends SinglePart
 				environmentPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, environment.getName()));
 			
 			if (isAccessible(EnvironmentViewsRepository.Environment_.Properties.description))
-				environmentPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, environment.getDescription()));
-			
+				environmentPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, environment.getDescription()));
 			// init filters
 			
 			
@@ -130,7 +129,7 @@ public class EnvironmentEnvironmentPropertiesEditionComponent extends SinglePart
 					environmentPart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && environmentPart != null && isAccessible(EnvironmentViewsRepository.Environment_.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && environmentPart != null && isAccessible(EnvironmentViewsRepository.Environment_.Properties.description)){
 				if (msg.getNewValue() != null) {
 					environmentPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

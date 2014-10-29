@@ -11,13 +11,13 @@
 package org.obeonetwork.dsl.environment.util;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.obeonetwork.dsl.environment.migration.EnvironmentXMLHelper;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,18 +47,8 @@ public class EnvironmentResourceImpl extends XMIResourceImpl {
 
 	@Override
 	public void save(Map<?, ?> options) throws IOException {
-		if (options == null
-				|| !options.containsKey(XMLResource.OPTION_URI_HANDLER)) {
-			Map<Object, Object> saveOptions = new HashMap<Object, Object>();
-			if (options != null) {
-				saveOptions.putAll(options);
-			}
-			saveOptions.put(XMLResource.OPTION_URI_HANDLER,
-					new URIHandlerImpl.PlatformSchemeAware());
-			super.save(saveOptions);
-		} else {
-			super.save(options);
-		}
+		getEObjectToExtensionMap().clear();
+		super.save(options);
 	}
 
 	/**
@@ -66,6 +56,20 @@ public class EnvironmentResourceImpl extends XMIResourceImpl {
 	 */
 	protected boolean useUUIDs() {
 		return true;
+	}
+
+	@Override
+	public EObject getEObject(String uriFragment) {
+		EObject rewrittenFragment = super.getEObject(uriFragment);
+
+		// TODO Migration code here
+
+		return rewrittenFragment;
+	}
+
+	@Override
+	protected XMLHelper createXMLHelper() {
+		return new EnvironmentXMLHelper(this);
 	}
 
 } //EnvironmentResourceImpl

@@ -69,8 +69,7 @@ public class PrimitiveTypePrimitiveTypePropertiesEditionComponent extends Single
 				primitiveTypePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, primitiveType.getName()));
 			
 			if (isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.description))
-				primitiveTypePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, primitiveType.getDescription()));
-			
+				primitiveTypePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, primitiveType.getDescription()));
 			// init filters
 			
 			
@@ -130,7 +129,7 @@ public class PrimitiveTypePrimitiveTypePropertiesEditionComponent extends Single
 					primitiveTypePart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && primitiveTypePart != null && isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && primitiveTypePart != null && isAccessible(EnvironmentViewsRepository.PrimitiveType.Properties.description)){
 				if (msg.getNewValue() != null) {
 					primitiveTypePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Environment Metamodel Tests
+Bundle-SymbolicName: org.obeonetwork.dsl.migration.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Obeo
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit,
+ org.eclipse.emf.common,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi

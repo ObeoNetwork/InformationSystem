@@ -13,7 +13,7 @@
     
   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
     <factory 
-       uri = "http://www.obeonetwork.org/dsl/environment/2.0.0" 
+       uri = "http://www.obeonetwork.org/dsl/environment/3.0.0" 
        class = "org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFactory" 
        supportedTypes = 
          "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -26,7 +26,7 @@
 	<!-- EEF extensions -->
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.obeonetwork.org/dsl/environment/2.0.0"
+            uri="http://www.obeonetwork.org/dsl/environment/3.0.0"
             class="org.obeonetwork.dsl.environment.providers.EnvironmentEEFAdapterFactory"
             supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
    </extension>
@@ -62,8 +62,8 @@
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
-               id="Field"
-               label="Field">
+               id="Literal"
+               label="Literal">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
@@ -97,6 +97,11 @@
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
+               id="Namespace"
+               label="Namespace">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
                id="Attribute"
                label="Attribute">
          </propertyTab>
@@ -104,6 +109,11 @@
                category="semantic &amp; extension"
                id="Reference"
                label="Reference">
+         </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="Dto"
+               label="DTO">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
@@ -187,6 +197,12 @@
                tab="FilterContainer">
          </propertySection>
          <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.NamespacePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.environment.filters.NamespaceTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.environment.eef.section.Namespace"
+               tab="Namespace">
+         </propertySection>
+         <propertySection
                class="org.obeonetwork.dsl.environment.parts.forms.AttributePropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.environment.filters.AttributeTabPropertiesEditionSection"
                id="org.obeonetwork.dsl.environment.eef.section.Attribute"
@@ -197,6 +213,12 @@
                filter="org.obeonetwork.dsl.environment.filters.ReferenceTabPropertiesEditionSection"
                id="org.obeonetwork.dsl.environment.eef.section.Reference"
                tab="Reference">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.DtoPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.environment.filters.DtoTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.environment.eef.section.DTO"
+               tab="Dto">
          </propertySection>
          <propertySection
                class="org.obeonetwork.dsl.environment.parts.forms.BindingInfoPropertiesEditionPartForm"

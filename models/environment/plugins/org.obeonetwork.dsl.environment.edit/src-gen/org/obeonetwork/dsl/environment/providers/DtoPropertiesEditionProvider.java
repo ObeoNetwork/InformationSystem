@@ -20,8 +20,8 @@ import org.eclipse.jface.viewers.IFilter;
 import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 
-import org.obeonetwork.dsl.environment.components.DTOBasePropertiesEditionComponent;
-import org.obeonetwork.dsl.environment.components.DTOPropertiesEditionComponent;
+import org.obeonetwork.dsl.environment.components.DtoDtoPropertiesEditionComponent;
+import org.obeonetwork.dsl.environment.components.DtoPropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 
 import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
@@ -30,12 +30,12 @@ import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEd
  * 
  * 
  */
-public class DTOPropertiesEditionProvider extends CustomPropertiesEditingProvider {
+public class DtoPropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
 	 */
-	public DTOPropertiesEditionProvider() {
+	public DtoPropertiesEditionProvider() {
 		super();
 	}
 
@@ -43,7 +43,7 @@ public class DTOPropertiesEditionProvider extends CustomPropertiesEditingProvide
 	 * Constructor with providers for super types.
 	 * @param superProviders providers to use for super types.
 	 */
-	public DTOPropertiesEditionProvider(List<PropertiesEditingProvider> superProviders) {
+	public DtoPropertiesEditionProvider(List<PropertiesEditingProvider> superProviders) {
 		super(superProviders);
 	}
 
@@ -63,7 +63,7 @@ public class DTOPropertiesEditionProvider extends CustomPropertiesEditingProvide
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext, String part) {
-		return (editingContext.getEObject() instanceof DTO) && (DTOBasePropertiesEditionComponent.BASE_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
+		return (editingContext.getEObject() instanceof DTO) && (DtoDtoPropertiesEditionComponent.DTO_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class DTOPropertiesEditionProvider extends CustomPropertiesEditingProvide
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof DTO) && (refinement == DTOBasePropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
+		return (editingContext.getEObject() instanceof DTO) && (refinement == DtoDtoPropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class DTOPropertiesEditionProvider extends CustomPropertiesEditingProvide
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, String part, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof DTO) && ((DTOBasePropertiesEditionComponent.BASE_PART.equals(part) && refinement == DTOBasePropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
+		return (editingContext.getEObject() instanceof DTO) && ((DtoDtoPropertiesEditionComponent.DTO_PART.equals(part) && refinement == DtoDtoPropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
 	}
 
 	/**
@@ -93,7 +93,7 @@ public class DTOPropertiesEditionProvider extends CustomPropertiesEditingProvide
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode) {
 		if (editingContext.getEObject() instanceof DTO) {
-			return new DTOPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			return new DtoPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
 		return super.getPropertiesEditingComponent(editingContext, mode);
 	}
@@ -105,8 +105,8 @@ public class DTOPropertiesEditionProvider extends CustomPropertiesEditingProvide
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part) {
 		if (editingContext.getEObject() instanceof DTO) {
-			if (DTOBasePropertiesEditionComponent.BASE_PART.equals(part))
-				return new DTOBasePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			if (DtoDtoPropertiesEditionComponent.DTO_PART.equals(part))
+				return new DtoDtoPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part))
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
@@ -120,9 +120,9 @@ public class DTOPropertiesEditionProvider extends CustomPropertiesEditingProvide
 	@SuppressWarnings("rawtypes")
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part, java.lang.Class refinement) {
 		if (editingContext.getEObject() instanceof DTO) {
-			if (DTOBasePropertiesEditionComponent.BASE_PART.equals(part)
-				&& refinement == DTOBasePropertiesEditionComponent.class)
-				return new DTOBasePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			if (DtoDtoPropertiesEditionComponent.DTO_PART.equals(part)
+				&& refinement == DtoDtoPropertiesEditionComponent.class)
+				return new DtoDtoPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part)
 				&& refinement == MetadataCptPropertiesEditionComponent.class)
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);

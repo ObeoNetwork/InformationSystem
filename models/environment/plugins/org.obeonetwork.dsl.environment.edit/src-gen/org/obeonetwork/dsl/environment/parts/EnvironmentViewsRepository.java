@@ -351,23 +351,23 @@ public class EnvironmentViewsRepository {
 	}
 
 	/**
-	 * DTO view descriptor
+	 * Dto view descriptor
 	 * 
 	 */
-	public static class DTO {
+	public static class Dto {
 		public static class Properties {
 	
 			
-			public static String name = "environment::DTO::properties::name";
+			public static String name = "environment::Dto::properties::name";
 			
 			
-			public static String supertype = "environment::DTO::properties::supertype";
+			public static String supertype = "environment::Dto::properties::supertype";
 			
 			
-			public static String associatedTypes = "environment::DTO::properties::associatedTypes";
+			public static String associatedTypes = "environment::Dto::properties::associatedTypes";
 			
 			
-			public static String description = "environment::DTO::properties::description";
+			public static String description = "environment::Dto::properties::description";
 			
 	
 		}

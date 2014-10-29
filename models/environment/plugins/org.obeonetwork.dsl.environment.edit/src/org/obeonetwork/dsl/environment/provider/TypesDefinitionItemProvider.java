@@ -176,6 +176,10 @@ public class TypesDefinitionItemProvider extends ObeoDSMObjectItemProvider
 		newChildDescriptors.add(createChildParameter(
 				EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES,
 				EnvironmentFactory.eINSTANCE.createEnumeration()));
+
+		newChildDescriptors.add(createChildParameter(
+				EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES,
+				EnvironmentFactory.eINSTANCE.createDTO()));
 	}
 
 }

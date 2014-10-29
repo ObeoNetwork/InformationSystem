@@ -73,7 +73,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart;
+import org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 
 import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
@@ -84,7 +84,7 @@ import org.obeonetwork.dsl.environment.providers.EnvironmentMessages;
  * 
  * 
  */
-public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, DTOPropertiesEditionPart {
+public class DtoPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, DtoPropertiesEditionPart {
 
 	protected Text name;
 	protected EObjectFlatComboViewer supertype;
@@ -100,7 +100,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	 * @param editionComponent the {@link IPropertiesEditionComponent} that manage this part
 	 * 
 	 */
-	public DTOPropertiesEditionPartImpl(IPropertiesEditionComponent editionComponent) {
+	public DtoPropertiesEditionPartImpl(IPropertiesEditionComponent editionComponent) {
 		super(editionComponent);
 	}
 
@@ -128,31 +128,31 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	 * 
 	 */
 	public void createControls(Composite view) { 
-		CompositionSequence dTOStep = new BindingCompositionSequence(propertiesEditionComponent);
-		CompositionStep propertiesStep = dTOStep.addStep(EnvironmentViewsRepository.DTO.Properties.class);
-		propertiesStep.addStep(EnvironmentViewsRepository.DTO.Properties.name);
-		propertiesStep.addStep(EnvironmentViewsRepository.DTO.Properties.supertype);
-		propertiesStep.addStep(EnvironmentViewsRepository.DTO.Properties.associatedTypes);
-		propertiesStep.addStep(EnvironmentViewsRepository.DTO.Properties.description);
+		CompositionSequence dtoStep = new BindingCompositionSequence(propertiesEditionComponent);
+		CompositionStep propertiesStep = dtoStep.addStep(EnvironmentViewsRepository.Dto.Properties.class);
+		propertiesStep.addStep(EnvironmentViewsRepository.Dto.Properties.name);
+		propertiesStep.addStep(EnvironmentViewsRepository.Dto.Properties.supertype);
+		propertiesStep.addStep(EnvironmentViewsRepository.Dto.Properties.associatedTypes);
+		propertiesStep.addStep(EnvironmentViewsRepository.Dto.Properties.description);
 		
 		
-		composer = new PartComposer(dTOStep) {
+		composer = new PartComposer(dtoStep) {
 
 			@Override
 			public Composite addToPart(Composite parent, Object key) {
-				if (key == EnvironmentViewsRepository.DTO.Properties.class) {
+				if (key == EnvironmentViewsRepository.Dto.Properties.class) {
 					return createPropertiesGroup(parent);
 				}
-				if (key == EnvironmentViewsRepository.DTO.Properties.name) {
+				if (key == EnvironmentViewsRepository.Dto.Properties.name) {
 					return createNameText(parent);
 				}
-				if (key == EnvironmentViewsRepository.DTO.Properties.supertype) {
+				if (key == EnvironmentViewsRepository.Dto.Properties.supertype) {
 					return createSupertypeFlatComboViewer(parent);
 				}
-				if (key == EnvironmentViewsRepository.DTO.Properties.associatedTypes) {
+				if (key == EnvironmentViewsRepository.Dto.Properties.associatedTypes) {
 					return createAssociatedTypesAdvancedReferencesTable(parent);
 				}
-				if (key == EnvironmentViewsRepository.DTO.Properties.description) {
+				if (key == EnvironmentViewsRepository.Dto.Properties.description) {
 					return createDescriptionTextarea(parent);
 				}
 				return parent;
@@ -166,7 +166,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	 */
 	protected Composite createPropertiesGroup(Composite parent) {
 		Group propertiesGroup = new Group(parent, SWT.NONE);
-		propertiesGroup.setText(EnvironmentMessages.DTOPropertiesEditionPart_PropertiesGroupLabel);
+		propertiesGroup.setText(EnvironmentMessages.DtoPropertiesEditionPart_PropertiesGroupLabel);
 		GridData propertiesGroupData = new GridData(GridData.FILL_HORIZONTAL);
 		propertiesGroupData.horizontalSpan = 3;
 		propertiesGroup.setLayoutData(propertiesGroupData);
@@ -178,7 +178,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 
 	
 	protected Composite createNameText(Composite parent) {
-		createDescription(parent, EnvironmentViewsRepository.DTO.Properties.name, EnvironmentMessages.DTOPropertiesEditionPart_NameLabel);
+		createDescription(parent, EnvironmentViewsRepository.Dto.Properties.name, EnvironmentMessages.DtoPropertiesEditionPart_NameLabel);
 		name = SWTUtils.createScrollableText(parent, SWT.BORDER);
 		GridData nameData = new GridData(GridData.FILL_HORIZONTAL);
 		name.setLayoutData(nameData);
@@ -194,7 +194,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
 				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartImpl.this, EnvironmentViewsRepository.DTO.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DtoPropertiesEditionPartImpl.this, EnvironmentViewsRepository.Dto.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
 			}
 
 		});
@@ -211,14 +211,14 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 			public void keyPressed(KeyEvent e) {
 				if (e.character == SWT.CR) {
 					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartImpl.this, EnvironmentViewsRepository.DTO.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
+						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DtoPropertiesEditionPartImpl.this, EnvironmentViewsRepository.Dto.Properties.name, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, name.getText()));
 				}
 			}
 
 		});
-		EditingUtils.setID(name, EnvironmentViewsRepository.DTO.Properties.name);
+		EditingUtils.setID(name, EnvironmentViewsRepository.Dto.Properties.name);
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.DTO.Properties.name, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Dto.Properties.name, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
 		// Start of user code for createNameText
 
 		// End of user code
@@ -230,21 +230,21 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	 * 
 	 */
 	protected Composite createSupertypeFlatComboViewer(Composite parent) {
-		createDescription(parent, EnvironmentViewsRepository.DTO.Properties.supertype, EnvironmentMessages.DTOPropertiesEditionPart_SupertypeLabel);
-		supertype = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(EnvironmentViewsRepository.DTO.Properties.supertype, EnvironmentViewsRepository.SWT_KIND));
+		createDescription(parent, EnvironmentViewsRepository.Dto.Properties.supertype, EnvironmentMessages.DtoPropertiesEditionPart_SupertypeLabel);
+		supertype = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(EnvironmentViewsRepository.Dto.Properties.supertype, EnvironmentViewsRepository.SWT_KIND));
 		supertype.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
 		supertype.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			public void selectionChanged(SelectionChangedEvent event) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartImpl.this, EnvironmentViewsRepository.DTO.Properties.supertype, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getSupertype()));
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DtoPropertiesEditionPartImpl.this, EnvironmentViewsRepository.Dto.Properties.supertype, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getSupertype()));
 			}
 
 		});
 		GridData supertypeData = new GridData(GridData.FILL_HORIZONTAL);
 		supertype.setLayoutData(supertypeData);
-		supertype.setID(EnvironmentViewsRepository.DTO.Properties.supertype);
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.DTO.Properties.supertype, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		supertype.setID(EnvironmentViewsRepository.Dto.Properties.supertype);
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Dto.Properties.supertype, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
 		// Start of user code for createSupertypeFlatComboViewer
 
 		// End of user code
@@ -255,7 +255,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	 * 
 	 */
 	protected Composite createAssociatedTypesAdvancedReferencesTable(Composite parent) {
-		String label = getDescription(EnvironmentViewsRepository.DTO.Properties.associatedTypes, EnvironmentMessages.DTOPropertiesEditionPart_AssociatedTypesLabel);		 
+		String label = getDescription(EnvironmentViewsRepository.Dto.Properties.associatedTypes, EnvironmentMessages.DtoPropertiesEditionPart_AssociatedTypesLabel);		 
 		this.associatedTypes = new ReferencesTable(label, new ReferencesTableListener() {
 			public void handleAdd() { addAssociatedTypes(); }
 			public void handleEdit(EObject element) { editAssociatedTypes(element); }
@@ -263,13 +263,13 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 			public void handleRemove(EObject element) { removeFromAssociatedTypes(element); }
 			public void navigateTo(EObject element) { }
 		});
-		this.associatedTypes.setHelpText(propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.DTO.Properties.associatedTypes, EnvironmentViewsRepository.SWT_KIND));
+		this.associatedTypes.setHelpText(propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Dto.Properties.associatedTypes, EnvironmentViewsRepository.SWT_KIND));
 		this.associatedTypes.createControls(parent);
 		this.associatedTypes.addSelectionListener(new SelectionAdapter() {
 			
 			public void widgetSelected(SelectionEvent e) {
 				if (e.item != null && e.item.getData() instanceof EObject) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartImpl.this, EnvironmentViewsRepository.DTO.Properties.associatedTypes, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DtoPropertiesEditionPartImpl.this, EnvironmentViewsRepository.Dto.Properties.associatedTypes, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
 				}
 			}
 			
@@ -278,7 +278,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 		associatedTypesData.horizontalSpan = 3;
 		this.associatedTypes.setLayoutData(associatedTypesData);
 		this.associatedTypes.disableMove();
-		associatedTypes.setID(EnvironmentViewsRepository.DTO.Properties.associatedTypes);
+		associatedTypes.setID(EnvironmentViewsRepository.Dto.Properties.associatedTypes);
 		associatedTypes.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
 		return parent;
 	}
@@ -293,7 +293,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 			public void process(IStructuredSelection selection) {
 				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
 					EObject elem = (EObject) iter.next();
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartImpl.this, EnvironmentViewsRepository.DTO.Properties.associatedTypes,
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DtoPropertiesEditionPartImpl.this, EnvironmentViewsRepository.Dto.Properties.associatedTypes,
 						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
 				}
 				associatedTypes.refresh();
@@ -306,7 +306,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	 * 
 	 */
 	protected void moveAssociatedTypes(EObject element, int oldIndex, int newIndex) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartImpl.this, EnvironmentViewsRepository.DTO.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DtoPropertiesEditionPartImpl.this, EnvironmentViewsRepository.Dto.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
 		associatedTypes.refresh();
 	}
 
@@ -314,7 +314,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	 * 
 	 */
 	protected void removeFromAssociatedTypes(EObject element) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartImpl.this, EnvironmentViewsRepository.DTO.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DtoPropertiesEditionPartImpl.this, EnvironmentViewsRepository.Dto.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
 		associatedTypes.refresh();
 	}
 
@@ -335,7 +335,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 
 	
 	protected Composite createDescriptionTextarea(Composite parent) {
-		Label descriptionLabel = createDescription(parent, EnvironmentViewsRepository.DTO.Properties.description, EnvironmentMessages.DTOPropertiesEditionPart_DescriptionLabel);
+		Label descriptionLabel = createDescription(parent, EnvironmentViewsRepository.Dto.Properties.description, EnvironmentMessages.DtoPropertiesEditionPart_DescriptionLabel);
 		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
 		descriptionLabelData.horizontalSpan = 3;
 		descriptionLabel.setLayoutData(descriptionLabelData);
@@ -355,13 +355,13 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 			 */
 			public void focusLost(FocusEvent e) {
 				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DTOPropertiesEditionPartImpl.this, EnvironmentViewsRepository.DTO.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DtoPropertiesEditionPartImpl.this, EnvironmentViewsRepository.Dto.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
 			}
 
 		});
-		EditingUtils.setID(description, EnvironmentViewsRepository.DTO.Properties.description);
+		EditingUtils.setID(description, EnvironmentViewsRepository.Dto.Properties.description);
 		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.DTO.Properties.description, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Dto.Properties.description, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
 		// Start of user code for createDescriptionTextArea
 
 		// End of user code
@@ -384,7 +384,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#getName()
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#getName()
 	 * 
 	 */
 	public String getName() {
@@ -394,7 +394,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#setName(String newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#setName(String newValue)
 	 * 
 	 */
 	public void setName(String newValue) {
@@ -403,10 +403,10 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 		} else {
 			name.setText(""); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.DTO.Properties.name);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Dto.Properties.name);
 		if (eefElementEditorReadOnlyState && name.isEnabled()) {
 			name.setEnabled(false);
-			name.setToolTipText(EnvironmentMessages.DTO_ReadOnly);
+			name.setToolTipText(EnvironmentMessages.Dto_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !name.isEnabled()) {
 			name.setEnabled(true);
 		}	
@@ -416,7 +416,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#getSupertype()
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#getSupertype()
 	 * 
 	 */
 	public EObject getSupertype() {
@@ -431,17 +431,17 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#initSupertype(EObjectFlatComboSettings)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#initSupertype(EObjectFlatComboSettings)
 	 */
 	public void initSupertype(EObjectFlatComboSettings settings) {
 		supertype.setInput(settings);
 		if (current != null) {
 			supertype.setSelection(new StructuredSelection(settings.getValue()));
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.DTO.Properties.supertype);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Dto.Properties.supertype);
 		if (eefElementEditorReadOnlyState && supertype.isEnabled()) {
 			supertype.setEnabled(false);
-			supertype.setToolTipText(EnvironmentMessages.DTO_ReadOnly);
+			supertype.setToolTipText(EnvironmentMessages.Dto_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !supertype.isEnabled()) {
 			supertype.setEnabled(true);
 		}	
@@ -451,7 +451,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#setSupertype(EObject newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#setSupertype(EObject newValue)
 	 * 
 	 */
 	public void setSupertype(EObject newValue) {
@@ -460,10 +460,10 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 		} else {
 			supertype.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.DTO.Properties.supertype);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Dto.Properties.supertype);
 		if (eefElementEditorReadOnlyState && supertype.isEnabled()) {
 			supertype.setEnabled(false);
-			supertype.setToolTipText(EnvironmentMessages.DTO_ReadOnly);
+			supertype.setToolTipText(EnvironmentMessages.Dto_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !supertype.isEnabled()) {
 			supertype.setEnabled(true);
 		}	
@@ -473,7 +473,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#setSupertypeButtonMode(ButtonsModeEnum newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#setSupertypeButtonMode(ButtonsModeEnum newValue)
 	 */
 	public void setSupertypeButtonMode(ButtonsModeEnum newValue) {
 		supertype.setButtonMode(newValue);
@@ -482,7 +482,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#addFilterSupertype(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#addFilterSupertype(ViewerFilter filter)
 	 * 
 	 */
 	public void addFilterToSupertype(ViewerFilter filter) {
@@ -492,7 +492,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#addBusinessFilterSupertype(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#addBusinessFilterSupertype(ViewerFilter filter)
 	 * 
 	 */
 	public void addBusinessFilterToSupertype(ViewerFilter filter) {
@@ -504,7 +504,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#initAssociatedTypes(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#initAssociatedTypes(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
 	 */
 	public void initAssociatedTypes(ReferencesTableSettings settings) {
 		if (current.eResource() != null && current.eResource().getResourceSet() != null)
@@ -512,10 +512,10 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		associatedTypes.setContentProvider(contentProvider);
 		associatedTypes.setInput(settings);
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.DTO.Properties.associatedTypes);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Dto.Properties.associatedTypes);
 		if (eefElementEditorReadOnlyState && associatedTypes.getTable().isEnabled()) {
 			associatedTypes.setEnabled(false);
-			associatedTypes.setToolTipText(EnvironmentMessages.DTO_ReadOnly);
+			associatedTypes.setToolTipText(EnvironmentMessages.Dto_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !associatedTypes.getTable().isEnabled()) {
 			associatedTypes.setEnabled(true);
 		}
@@ -525,7 +525,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#updateAssociatedTypes()
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#updateAssociatedTypes()
 	 * 
 	 */
 	public void updateAssociatedTypes() {
@@ -535,7 +535,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#addFilterAssociatedTypes(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#addFilterAssociatedTypes(ViewerFilter filter)
 	 * 
 	 */
 	public void addFilterToAssociatedTypes(ViewerFilter filter) {
@@ -545,7 +545,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#addBusinessFilterAssociatedTypes(ViewerFilter filter)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#addBusinessFilterAssociatedTypes(ViewerFilter filter)
 	 * 
 	 */
 	public void addBusinessFilterToAssociatedTypes(ViewerFilter filter) {
@@ -555,7 +555,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#isContainedInAssociatedTypesTable(EObject element)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#isContainedInAssociatedTypesTable(EObject element)
 	 * 
 	 */
 	public boolean isContainedInAssociatedTypesTable(EObject element) {
@@ -565,7 +565,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#getDescription()
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#getDescription()
 	 * 
 	 */
 	public String getDescription() {
@@ -575,7 +575,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart#setDescription(String newValue)
+	 * @see org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart#setDescription(String newValue)
 	 * 
 	 */
 	public void setDescription(String newValue) {
@@ -584,11 +584,11 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 		} else {
 			description.setText(""); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.DTO.Properties.description);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Dto.Properties.description);
 		if (eefElementEditorReadOnlyState && description.isEnabled()) {
 			description.setEnabled(false);
 			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
-			description.setToolTipText(EnvironmentMessages.DTO_ReadOnly);
+			description.setToolTipText(EnvironmentMessages.Dto_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
 			description.setEnabled(true);
 		}	
@@ -607,7 +607,7 @@ public class DTOPropertiesEditionPartImpl extends CompositePropertiesEditionPart
 	 * 
 	 */
 	public String getTitle() {
-		return EnvironmentMessages.DTO_Part_Title;
+		return EnvironmentMessages.Dto_Part_Title;
 	}
 
 	// Start of user code additional methods

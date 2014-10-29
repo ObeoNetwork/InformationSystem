@@ -40,31 +40,4 @@
         contributorClass="org.obeonetwork.dsl.environment.presentation.EnvironmentActionBarContributor" >
     </editor>
   </extension>    
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated environment -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.obeonetwork.dsl.environment.presentation.EnvironmentModelWizardID"
-            name="%_UI_EnvironmentModelWizard_label"
-            class="org.obeonetwork.dsl.environment.presentation.EnvironmentModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/EnvironmentModelFile.gif">
-         <description>%_UI_EnvironmentModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated environment -->
-      <editor
-            id="org.obeonetwork.dsl.environment.presentation.EnvironmentEditorID"
-            name="%_UI_EnvironmentEditor_label"
-            icon="icons/full/obj16/EnvironmentModelFile.gif"
-            extensions="environment"
-            class="org.obeonetwork.dsl.environment.presentation.EnvironmentEditor"
-            contributorClass="org.obeonetwork.dsl.environment.presentation.EnvironmentActionBarContributor">
-      </editor>
-   </extension>
 </plugin>
