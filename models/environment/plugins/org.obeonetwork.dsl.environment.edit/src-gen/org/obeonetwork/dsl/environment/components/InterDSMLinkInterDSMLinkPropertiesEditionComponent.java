@@ -90,8 +90,7 @@ public class InterDSMLinkInterDSMLinkPropertiesEditionComponent extends SinglePa
 				interDSMLinkPart.setTargetButtonMode(ButtonsModeEnum.BROWSE);
 			}
 			if (isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.description))
-				interDSMLinkPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, interDSMLink.getDescription()));
-			
+				interDSMLinkPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, interDSMLink.getDescription()));
 			// init filters
 			
 			if (isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.target)) {
@@ -189,7 +188,7 @@ public class InterDSMLinkInterDSMLinkPropertiesEditionComponent extends SinglePa
 			}
 			if (EnvironmentPackage.eINSTANCE.getInterDSMLink_Target().equals(msg.getFeature()) && interDSMLinkPart != null && isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.target))
 				interDSMLinkPart.setTarget((EObject)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && interDSMLinkPart != null && isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && interDSMLinkPart != null && isAccessible(EnvironmentViewsRepository.InterDSMLink.Properties.description)){
 				if (msg.getNewValue() != null) {
 					interDSMLinkPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

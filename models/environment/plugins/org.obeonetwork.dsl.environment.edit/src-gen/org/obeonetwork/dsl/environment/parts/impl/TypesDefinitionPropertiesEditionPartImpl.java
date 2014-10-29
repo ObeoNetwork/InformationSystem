@@ -17,12 +17,11 @@ import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
-import org.eclipse.swt.events.KeyAdapter;
-import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 import org.obeonetwork.dsl.environment.parts.TypesDefinitionPropertiesEditionPart;
@@ -87,7 +86,7 @@ public class TypesDefinitionPropertiesEditionPartImpl extends CompositePropertie
 					return createPropertiesGroup(parent);
 				}
 				if (key == EnvironmentViewsRepository.TypesDefinition.Properties.description) {
-					return createDescriptionText(parent);
+					return createDescriptionTextarea(parent);
 				}
 				return parent;
 			}
@@ -111,10 +110,16 @@ public class TypesDefinitionPropertiesEditionPartImpl extends CompositePropertie
 	}
 
 	
-	protected Composite createDescriptionText(Composite parent) {
-		createDescription(parent, EnvironmentViewsRepository.TypesDefinition.Properties.description, EnvironmentMessages.TypesDefinitionPropertiesEditionPart_DescriptionLabel);
-		description = SWTUtils.createScrollableText(parent, SWT.BORDER);
+	protected Composite createDescriptionTextarea(Composite parent) {
+		Label descriptionLabel = createDescription(parent, EnvironmentViewsRepository.TypesDefinition.Properties.description, EnvironmentMessages.TypesDefinitionPropertiesEditionPart_DescriptionLabel);
+		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
+		descriptionLabelData.horizontalSpan = 3;
+		descriptionLabel.setLayoutData(descriptionLabelData);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
+		descriptionData.horizontalSpan = 2;
+		descriptionData.heightHint = 80;
+		descriptionData.widthHint = 200;
 		description.setLayoutData(descriptionData);
 		description.addFocusListener(new FocusAdapter() {
 
@@ -124,36 +129,16 @@ public class TypesDefinitionPropertiesEditionPartImpl extends CompositePropertie
 			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
 			 * 
 			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
 				if (propertiesEditionComponent != null)
 					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(TypesDefinitionPropertiesEditionPartImpl.this, EnvironmentViewsRepository.TypesDefinition.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
 			}
 
 		});
-		description.addKeyListener(new KeyAdapter() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void keyPressed(KeyEvent e) {
-				if (e.character == SWT.CR) {
-					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(TypesDefinitionPropertiesEditionPartImpl.this, EnvironmentViewsRepository.TypesDefinition.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
-				}
-			}
-
-		});
 		EditingUtils.setID(description, EnvironmentViewsRepository.TypesDefinition.Properties.description);
-		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
+		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.TypesDefinition.Properties.description, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDescriptionText
+		// Start of user code for createDescriptionTextArea
 
 		// End of user code
 		return parent;
@@ -197,6 +182,7 @@ public class TypesDefinitionPropertiesEditionPartImpl extends CompositePropertie
 		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.TypesDefinition.Properties.description);
 		if (eefElementEditorReadOnlyState && description.isEnabled()) {
 			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
 			description.setToolTipText(EnvironmentMessages.TypesDefinition_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
 			description.setEnabled(true);

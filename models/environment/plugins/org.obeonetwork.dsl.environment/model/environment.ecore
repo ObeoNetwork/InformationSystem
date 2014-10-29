@@ -90,7 +90,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property" changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DTO" abstract="true" eSuperTypes="#//StructuredType">
+  <eClassifiers xsi:type="ecore:EClass" name="DTO" eSuperTypes="#//StructuredType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownedContainer" eType="#//FilterContainer"
         containment="true"/>
   </eClassifiers>
@@ -124,7 +124,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isComposite" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="navigable" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="oppositeOf" eType="#//Reference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containingType" lowerBound="1"
         eType="#//StructuredType" eOpposite="#//StructuredType/ownedReferences"/>

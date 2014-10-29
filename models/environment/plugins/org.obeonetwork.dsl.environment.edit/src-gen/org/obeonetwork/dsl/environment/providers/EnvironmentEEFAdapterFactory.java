@@ -122,7 +122,7 @@ public class EnvironmentEEFAdapterFactory extends EnvironmentAdapterFactory {
 	public Adapter createDTOAdapter() {
 		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
 		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
-		return new DTOPropertiesEditionProvider(providers);
+		return new DtoPropertiesEditionProvider(providers);
 	}
 	/**
 	 * {@inheritDoc}

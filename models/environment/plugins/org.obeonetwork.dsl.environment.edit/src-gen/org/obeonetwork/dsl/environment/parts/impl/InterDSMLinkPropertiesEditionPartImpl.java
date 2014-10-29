@@ -33,6 +33,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 import org.obeonetwork.dsl.environment.parts.InterDSMLinkPropertiesEditionPart;
@@ -106,7 +107,7 @@ public class InterDSMLinkPropertiesEditionPartImpl extends CompositePropertiesEd
 					return createTargetFlatComboViewer(parent);
 				}
 				if (key == EnvironmentViewsRepository.InterDSMLink.Properties.description) {
-					return createDescriptionText(parent);
+					return createDescriptionTextarea(parent);
 				}
 				return parent;
 			}
@@ -205,10 +206,16 @@ public class InterDSMLinkPropertiesEditionPartImpl extends CompositePropertiesEd
 	}
 
 	
-	protected Composite createDescriptionText(Composite parent) {
-		createDescription(parent, EnvironmentViewsRepository.InterDSMLink.Properties.description, EnvironmentMessages.InterDSMLinkPropertiesEditionPart_DescriptionLabel);
-		description = SWTUtils.createScrollableText(parent, SWT.BORDER);
+	protected Composite createDescriptionTextarea(Composite parent) {
+		Label descriptionLabel = createDescription(parent, EnvironmentViewsRepository.InterDSMLink.Properties.description, EnvironmentMessages.InterDSMLinkPropertiesEditionPart_DescriptionLabel);
+		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
+		descriptionLabelData.horizontalSpan = 3;
+		descriptionLabel.setLayoutData(descriptionLabelData);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
+		descriptionData.horizontalSpan = 2;
+		descriptionData.heightHint = 80;
+		descriptionData.widthHint = 200;
 		description.setLayoutData(descriptionData);
 		description.addFocusListener(new FocusAdapter() {
 
@@ -218,36 +225,16 @@ public class InterDSMLinkPropertiesEditionPartImpl extends CompositePropertiesEd
 			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
 			 * 
 			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
 				if (propertiesEditionComponent != null)
 					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InterDSMLinkPropertiesEditionPartImpl.this, EnvironmentViewsRepository.InterDSMLink.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
 			}
 
 		});
-		description.addKeyListener(new KeyAdapter() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void keyPressed(KeyEvent e) {
-				if (e.character == SWT.CR) {
-					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(InterDSMLinkPropertiesEditionPartImpl.this, EnvironmentViewsRepository.InterDSMLink.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
-				}
-			}
-
-		});
 		EditingUtils.setID(description, EnvironmentViewsRepository.InterDSMLink.Properties.description);
-		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
+		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.InterDSMLink.Properties.description, EnvironmentViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDescriptionText
+		// Start of user code for createDescriptionTextArea
 
 		// End of user code
 		return parent;
@@ -409,6 +396,7 @@ public class InterDSMLinkPropertiesEditionPartImpl extends CompositePropertiesEd
 		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.InterDSMLink.Properties.description);
 		if (eefElementEditorReadOnlyState && description.isEnabled()) {
 			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
 			description.setToolTipText(EnvironmentMessages.InterDSMLink_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
 			description.setEnabled(true);

@@ -19,7 +19,7 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 
 import org.obeonetwork.dsl.environment.DTO;
 
-import org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart;
+import org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 
 // End of user code
@@ -28,19 +28,19 @@ import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
  * 
  * 
  */
-public class DTOPropertiesEditionComponent extends ComposedPropertiesEditionComponent {
+public class DtoPropertiesEditionComponent extends ComposedPropertiesEditionComponent {
 
 	/**
-	 * The Base part
+	 * The Dto part
 	 * 
 	 */
-	private DTOPropertiesEditionPart basePart;
+	private DtoPropertiesEditionPart dtoPart;
 
 	/**
-	 * The DTOBasePropertiesEditionComponent sub component
+	 * The DtoDtoPropertiesEditionComponent sub component
 	 * 
 	 */
-	protected DTOBasePropertiesEditionComponent dTOBasePropertiesEditionComponent;
+	protected DtoDtoPropertiesEditionComponent dtoDtoPropertiesEditionComponent;
 
 	/**
 	 * The MetadataCptPropertiesEditionComponent sub component
@@ -54,13 +54,13 @@ public class DTOPropertiesEditionComponent extends ComposedPropertiesEditionComp
 	 * @param dTO the EObject to edit
 	 * 
 	 */
-	public DTOPropertiesEditionComponent(PropertiesEditingContext editingContext, EObject dTO, String editing_mode) {
+	public DtoPropertiesEditionComponent(PropertiesEditingContext editingContext, EObject dTO, String editing_mode) {
 		super(editingContext, editing_mode);
 		if (dTO instanceof DTO) {
 			PropertiesEditingProvider provider = null;
 			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(dTO, PropertiesEditingProvider.class);
-			dTOBasePropertiesEditionComponent = (DTOBasePropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, DTOBasePropertiesEditionComponent.BASE_PART, DTOBasePropertiesEditionComponent.class);
-			addSubComponent(dTOBasePropertiesEditionComponent);
+			dtoDtoPropertiesEditionComponent = (DtoDtoPropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, DtoDtoPropertiesEditionComponent.DTO_PART, DtoDtoPropertiesEditionComponent.class);
+			addSubComponent(dtoDtoPropertiesEditionComponent);
 			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(dTO, PropertiesEditingProvider.class);
 			metadataCptPropertiesEditionComponent = (MetadataCptPropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, MetadataCptPropertiesEditionComponent.METADATAS_PART, MetadataCptPropertiesEditionComponent.class);
 			addSubComponent(metadataCptPropertiesEditionComponent);
@@ -75,9 +75,9 @@ public class DTOPropertiesEditionComponent extends ComposedPropertiesEditionComp
 	 * 
 	 */
 	public IPropertiesEditionPart getPropertiesEditionPart(int kind, String key) {
-		if (DTOBasePropertiesEditionComponent.BASE_PART.equals(key)) {
-			basePart = (DTOPropertiesEditionPart)dTOBasePropertiesEditionComponent.getPropertiesEditionPart(kind, key);
-			return (IPropertiesEditionPart)basePart;
+		if (DtoDtoPropertiesEditionComponent.DTO_PART.equals(key)) {
+			dtoPart = (DtoPropertiesEditionPart)dtoDtoPropertiesEditionComponent.getPropertiesEditionPart(kind, key);
+			return (IPropertiesEditionPart)dtoPart;
 		}
 		return super.getPropertiesEditionPart(kind, key);
 	}
@@ -91,9 +91,9 @@ public class DTOPropertiesEditionComponent extends ComposedPropertiesEditionComp
 	 * 
 	 */
 	public void setPropertiesEditionPart(java.lang.Object key, int kind, IPropertiesEditionPart propertiesEditionPart) {
-		if (EnvironmentViewsRepository.DTO.class == key) {
+		if (EnvironmentViewsRepository.Dto.class == key) {
 			super.setPropertiesEditionPart(key, kind, propertiesEditionPart);
-			basePart = (DTOPropertiesEditionPart)propertiesEditionPart;
+			dtoPart = (DtoPropertiesEditionPart)propertiesEditionPart;
 		}
 	}
 
@@ -106,7 +106,7 @@ public class DTOPropertiesEditionComponent extends ComposedPropertiesEditionComp
 	 * 
 	 */
 	public void initPart(java.lang.Object key, int kind, EObject element, ResourceSet allResource) {
-		if (key == EnvironmentViewsRepository.DTO.class) {
+		if (key == EnvironmentViewsRepository.Dto.class) {
 			super.initPart(key, kind, element, allResource);
 		}
 		if (key == EnvironmentViewsRepository.Metadatas.class) {

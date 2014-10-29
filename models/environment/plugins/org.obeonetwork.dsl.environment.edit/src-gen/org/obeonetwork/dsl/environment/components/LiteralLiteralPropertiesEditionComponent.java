@@ -79,8 +79,7 @@ public class LiteralLiteralPropertiesEditionComponent extends SinglePartProperti
 				literalPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, literal.getName()));
 			
 			if (isAccessible(EnvironmentViewsRepository.Literal.Properties.description))
-				literalPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, literal.getDescription()));
-			
+				literalPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, literal.getDescription()));
 			// init filters
 			
 			
@@ -140,7 +139,7 @@ public class LiteralLiteralPropertiesEditionComponent extends SinglePartProperti
 					literalPart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && literalPart != null && isAccessible(EnvironmentViewsRepository.Literal.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && literalPart != null && isAccessible(EnvironmentViewsRepository.Literal.Properties.description)){
 				if (msg.getNewValue() != null) {
 					literalPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

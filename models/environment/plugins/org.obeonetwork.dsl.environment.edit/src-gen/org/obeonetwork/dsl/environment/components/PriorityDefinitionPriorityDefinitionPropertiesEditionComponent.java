@@ -66,8 +66,7 @@ public class PriorityDefinitionPriorityDefinitionPropertiesEditionComponent exte
 			final PriorityDefinitionPropertiesEditionPart priorityDefinitionPart = (PriorityDefinitionPropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(EnvironmentViewsRepository.PriorityDefinition.Properties.description))
-				priorityDefinitionPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, priorityDefinition.getDescription()));
-			
+				priorityDefinitionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, priorityDefinition.getDescription()));
 			// init filters
 			
 			// init values for referenced views
@@ -112,7 +111,7 @@ public class PriorityDefinitionPriorityDefinitionPropertiesEditionComponent exte
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			PriorityDefinitionPropertiesEditionPart priorityDefinitionPart = (PriorityDefinitionPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && priorityDefinitionPart != null && isAccessible(EnvironmentViewsRepository.PriorityDefinition.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && priorityDefinitionPart != null && isAccessible(EnvironmentViewsRepository.PriorityDefinition.Properties.description)){
 				if (msg.getNewValue() != null) {
 					priorityDefinitionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

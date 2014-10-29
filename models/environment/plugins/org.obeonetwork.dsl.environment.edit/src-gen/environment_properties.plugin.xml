@@ -141,8 +141,8 @@
          </propertyTab>
 
          <propertyTab
-               id="Base"
-               label="Base"
+               id="Dto"
+               label="Dto"
                category="default">
          </propertyTab>
 
@@ -336,6 +336,18 @@
                class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.environment.providers.BindingElementPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.environment.section.BindingElement"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.DtoPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.environment.providers.DtoPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.environment.section.DTO"
+               tab="Dto">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.environment.providers.DtoPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.environment.section.DTO"
                tab="Metadatas">
          </propertySection>
       </propertySections>

@@ -54,7 +54,7 @@ import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.StructuredType;
 
-import org.obeonetwork.dsl.environment.parts.DTOPropertiesEditionPart;
+import org.obeonetwork.dsl.environment.parts.DtoPropertiesEditionPart;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 
 
@@ -64,10 +64,10 @@ import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
  * 
  * 
  */
-public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditingComponent {
+public class DtoDtoPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {
 
 	
-	public static String BASE_PART = "Base"; //$NON-NLS-1$
+	public static String DTO_PART = "Dto"; //$NON-NLS-1$
 
 	
 	/**
@@ -85,11 +85,11 @@ public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditi
 	 * Default constructor
 	 * 
 	 */
-	public DTOBasePropertiesEditionComponent(PropertiesEditingContext editingContext, EObject dTO, String editing_mode) {
+	public DtoDtoPropertiesEditionComponent(PropertiesEditingContext editingContext, EObject dTO, String editing_mode) {
 		super(editingContext, dTO, editing_mode);
-		parts = new String[] { BASE_PART };
+		parts = new String[] { DTO_PART };
 		repositoryKey = EnvironmentViewsRepository.class;
-		partKey = EnvironmentViewsRepository.DTO.class;
+		partKey = EnvironmentViewsRepository.Dto.class;
 	}
 
 	/**
@@ -105,28 +105,28 @@ public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditi
 			editingPart.setContext(elt, allResource);
 			
 			final DTO dTO = (DTO)elt;
-			final DTOPropertiesEditionPart basePart = (DTOPropertiesEditionPart)editingPart;
+			final DtoPropertiesEditionPart dtoPart = (DtoPropertiesEditionPart)editingPart;
 			// init values
-			if (isAccessible(EnvironmentViewsRepository.DTO.Properties.name))
-				basePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dTO.getName()));
+			if (isAccessible(EnvironmentViewsRepository.Dto.Properties.name))
+				dtoPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, dTO.getName()));
 			
-			if (isAccessible(EnvironmentViewsRepository.DTO.Properties.supertype)) {
+			if (isAccessible(EnvironmentViewsRepository.Dto.Properties.supertype)) {
 				// init part
 				supertypeSettings = new EObjectFlatComboSettings(dTO, EnvironmentPackage.eINSTANCE.getStructuredType_Supertype());
-				basePart.initSupertype(supertypeSettings);
+				dtoPart.initSupertype(supertypeSettings);
 				// set the button mode
-				basePart.setSupertypeButtonMode(ButtonsModeEnum.BROWSE);
+				dtoPart.setSupertypeButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (isAccessible(EnvironmentViewsRepository.DTO.Properties.description))
-				basePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, dTO.getDescription()));
-			if (isAccessible(EnvironmentViewsRepository.DTO.Properties.associatedTypes)) {
+			if (isAccessible(EnvironmentViewsRepository.Dto.Properties.description))
+				dtoPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, dTO.getDescription()));
+			if (isAccessible(EnvironmentViewsRepository.Dto.Properties.associatedTypes)) {
 				associatedTypesSettings = new ReferencesTableSettings(dTO, EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes());
-				basePart.initAssociatedTypes(associatedTypesSettings);
+				dtoPart.initAssociatedTypes(associatedTypesSettings);
 			}
 			// init filters
 			
-			if (isAccessible(EnvironmentViewsRepository.DTO.Properties.supertype)) {
-				basePart.addFilterToSupertype(new ViewerFilter() {
+			if (isAccessible(EnvironmentViewsRepository.Dto.Properties.supertype)) {
+				dtoPart.addFilterToSupertype(new ViewerFilter() {
 				
 					/**
 					 * {@inheritDoc}
@@ -142,8 +142,8 @@ public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditi
 				// End of user code
 			}
 			
-			if (isAccessible(EnvironmentViewsRepository.DTO.Properties.associatedTypes)) {
-				basePart.addFilterToAssociatedTypes(new EObjectFilter(EnvironmentPackage.Literals.STRUCTURED_TYPE));
+			if (isAccessible(EnvironmentViewsRepository.Dto.Properties.associatedTypes)) {
+				dtoPart.addFilterToAssociatedTypes(new EObjectFilter(EnvironmentPackage.Literals.STRUCTURED_TYPE));
 				// Start of user code for additional businessfilters for associatedTypes
 				// End of user code
 			}
@@ -166,16 +166,16 @@ public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditi
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
 	 */
 	public EStructuralFeature associatedFeature(Object editorKey) {
-		if (editorKey == EnvironmentViewsRepository.DTO.Properties.name) {
-			return EnvironmentPackage.eINSTANCE.getEnvironment_Name();
+		if (editorKey == EnvironmentViewsRepository.Dto.Properties.name) {
+			return EnvironmentPackage.eINSTANCE.getType_Name();
 		}
-		if (editorKey == EnvironmentViewsRepository.DTO.Properties.supertype) {
+		if (editorKey == EnvironmentViewsRepository.Dto.Properties.supertype) {
 			return EnvironmentPackage.eINSTANCE.getStructuredType_Supertype();
 		}
-		if (editorKey == EnvironmentViewsRepository.DTO.Properties.description) {
+		if (editorKey == EnvironmentViewsRepository.Dto.Properties.description) {
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
 		}
-		if (editorKey == EnvironmentViewsRepository.DTO.Properties.associatedTypes) {
+		if (editorKey == EnvironmentViewsRepository.Dto.Properties.associatedTypes) {
 			return EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes();
 		}
 		return super.associatedFeature(editorKey);
@@ -188,10 +188,10 @@ public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditi
 	 */
 	public void updateSemanticModel(final IPropertiesEditionEvent event) {
 		DTO dTO = (DTO)semanticObject;
-		if (EnvironmentViewsRepository.DTO.Properties.name == event.getAffectedEditor()) {
+		if (EnvironmentViewsRepository.Dto.Properties.name == event.getAffectedEditor()) {
 			dTO.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (EnvironmentViewsRepository.DTO.Properties.supertype == event.getAffectedEditor()) {
+		if (EnvironmentViewsRepository.Dto.Properties.supertype == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.SET) {
 				supertypeSettings.setToReference((StructuredType)event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
@@ -205,10 +205,10 @@ public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditi
 				}
 			}
 		}
-		if (EnvironmentViewsRepository.DTO.Properties.description == event.getAffectedEditor()) {
+		if (EnvironmentViewsRepository.Dto.Properties.description == event.getAffectedEditor()) {
 			dTO.setDescription((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (EnvironmentViewsRepository.DTO.Properties.associatedTypes == event.getAffectedEditor()) {
+		if (EnvironmentViewsRepository.Dto.Properties.associatedTypes == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
 				if (event.getNewValue() instanceof StructuredType) {
 					associatedTypesSettings.addToReference((EObject) event.getNewValue());
@@ -228,25 +228,25 @@ public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditi
 	public void updatePart(Notification msg) {
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
-			DTOPropertiesEditionPart basePart = (DTOPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getEnvironment_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EnvironmentViewsRepository.DTO.Properties.name)) {
+			DtoPropertiesEditionPart dtoPart = (DtoPropertiesEditionPart)editingPart;
+			if (EnvironmentPackage.eINSTANCE.getType_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && dtoPart != null && isAccessible(EnvironmentViewsRepository.Dto.Properties.name)) {
 				if (msg.getNewValue() != null) {
-					basePart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
+					dtoPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
-					basePart.setName("");
+					dtoPart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getStructuredType_Supertype().equals(msg.getFeature()) && basePart != null && isAccessible(EnvironmentViewsRepository.DTO.Properties.supertype))
-				basePart.setSupertype((EObject)msg.getNewValue());
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(EnvironmentViewsRepository.DTO.Properties.description)){
+			if (EnvironmentPackage.eINSTANCE.getStructuredType_Supertype().equals(msg.getFeature()) && dtoPart != null && isAccessible(EnvironmentViewsRepository.Dto.Properties.supertype))
+				dtoPart.setSupertype((EObject)msg.getNewValue());
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && dtoPart != null && isAccessible(EnvironmentViewsRepository.Dto.Properties.description)){
 				if (msg.getNewValue() != null) {
-					basePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
+					dtoPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
-					basePart.setDescription("");
+					dtoPart.setDescription("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes().equals(msg.getFeature())  && isAccessible(EnvironmentViewsRepository.DTO.Properties.associatedTypes))
-				basePart.updateAssociatedTypes();
+			if (EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes().equals(msg.getFeature())  && isAccessible(EnvironmentViewsRepository.Dto.Properties.associatedTypes))
+				dtoPart.updateAssociatedTypes();
 			
 		}
 	}
@@ -259,7 +259,7 @@ public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditi
 	@Override
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
-			EnvironmentPackage.eINSTANCE.getEnvironment_Name(),
+			EnvironmentPackage.eINSTANCE.getType_Name(),
 			EnvironmentPackage.eINSTANCE.getStructuredType_Supertype(),
 			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
 			EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes()		);
@@ -274,7 +274,7 @@ public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditi
 	 * 
 	 */
 	public boolean isRequired(Object key, int kind) {
-		return key == EnvironmentViewsRepository.DTO.Properties.name;
+		return key == EnvironmentViewsRepository.Dto.Properties.name;
 	}
 
 	/**
@@ -287,14 +287,14 @@ public class DTOBasePropertiesEditionComponent extends SinglePartPropertiesEditi
 		Diagnostic ret = Diagnostic.OK_INSTANCE;
 		if (event.getNewValue() != null) {
 			try {
-				if (EnvironmentViewsRepository.DTO.Properties.name == event.getAffectedEditor()) {
+				if (EnvironmentViewsRepository.Dto.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getEnvironment_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getType_Name().getEAttributeType(), (String)newValue);
 					}
-					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getEnvironment_Name().getEAttributeType(), newValue);
+					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getType_Name().getEAttributeType(), newValue);
 				}
-				if (EnvironmentViewsRepository.DTO.Properties.description == event.getAffectedEditor()) {
+				if (EnvironmentViewsRepository.Dto.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
 						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().getEAttributeType(), (String)newValue);

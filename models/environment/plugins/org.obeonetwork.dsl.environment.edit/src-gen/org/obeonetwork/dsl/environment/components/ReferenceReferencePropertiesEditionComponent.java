@@ -119,8 +119,7 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 				referencePart.setIdentifier(reference.isIsIdentifier());
 			}
 			if (isAccessible(EnvironmentViewsRepository.Reference.Properties.description))
-				referencePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, reference.getDescription()));
-			
+				referencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, reference.getDescription()));
 			// init filters
 			
 			if (isAccessible(EnvironmentViewsRepository.Reference.Properties.referencedType)) {
@@ -298,7 +297,7 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 			if (EnvironmentPackage.eINSTANCE.getProperty_IsIdentifier().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && referencePart != null && isAccessible(EnvironmentViewsRepository.Reference.Properties.identifier))
 				referencePart.setIdentifier((Boolean)msg.getNewValue());
 			
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && referencePart != null && isAccessible(EnvironmentViewsRepository.Reference.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && referencePart != null && isAccessible(EnvironmentViewsRepository.Reference.Properties.description)){
 				if (msg.getNewValue() != null) {
 					referencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

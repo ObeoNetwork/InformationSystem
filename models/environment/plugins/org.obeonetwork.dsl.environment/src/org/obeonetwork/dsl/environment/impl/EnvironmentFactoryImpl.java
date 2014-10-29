@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.obeonetwork.dsl.environment.*;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.BindingElement;
@@ -113,6 +114,8 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 			return (EObject) createPriority();
 		case EnvironmentPackage.TYPES_DEFINITION:
 			return (EObject) createTypesDefinition();
+		case EnvironmentPackage.DTO:
+			return (EObject) createDTO();
 		case EnvironmentPackage.FILTER_CONTAINER:
 			return (EObject) createFilterContainer();
 		case EnvironmentPackage.NAMESPACE:
@@ -265,6 +268,16 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 	public TypesDefinition createTypesDefinition() {
 		TypesDefinitionImpl typesDefinition = new TypesDefinitionImpl();
 		return typesDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DTO createDTO() {
+		DTOImpl dto = new DTOImpl();
+		return dto;
 	}
 
 	/**

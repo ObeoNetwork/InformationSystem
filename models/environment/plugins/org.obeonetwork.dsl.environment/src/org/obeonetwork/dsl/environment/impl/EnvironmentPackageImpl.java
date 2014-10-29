@@ -1640,7 +1640,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				IS_ORDERED);
 
 		initEClass(dtoEClass, org.obeonetwork.dsl.environment.DTO.class, "DTO",
-				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDTO_OwnedContainer(), this.getFilterContainer(),
 				null, "ownedContainer", null, 0, 1,
 				org.obeonetwork.dsl.environment.DTO.class, !IS_TRANSIENT,
@@ -1695,7 +1695,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReference_Navigable(), ecorePackage.getEBoolean(),
-				"navigable", "false", 1, 1, Reference.class, !IS_TRANSIENT,
+				"navigable", "true", 1, 1, Reference.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_OppositeOf(), this.getReference(), null,

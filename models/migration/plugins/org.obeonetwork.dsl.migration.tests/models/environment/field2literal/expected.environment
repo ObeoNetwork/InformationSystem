@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oenv:Environment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_3RbxMF60EeSWnuhhgfhS7w" createdOn="2014-10-28T16:12:42.425+0100" modifiedOn="2014-10-28T16:12:50.872+0100">
+  <typesDefinition xmi:id="_4h5TgF60EeSWnuhhgfhS7w" createdOn="2014-10-28T16:15:02.330+0100" modifiedOn="2014-10-28T16:15:02.330+0100">
+    <types xsi:type="oenv:Enumeration" xmi:id="_MHk5oF61EeSWnuhhgfhS7w" createdOn="2014-10-28T16:15:02.330+0100" modifiedOn="2014-10-28T16:15:21.733+0100" name="Enum1">
+      <literals xmi:id="_MsWaoF61EeSWnuhhgfhS7w" createdOn="2014-10-28T16:15:17.873+0100" modifiedOn="2014-10-28T16:15:17.873+0100" name="Field1"/>
+    </types>
+  </typesDefinition>
+</oenv:Environment>

@@ -66,8 +66,7 @@ public class FilterContainerFilterContainerPropertiesEditionComponent extends Si
 			final FilterContainerPropertiesEditionPart filterContainerPart = (FilterContainerPropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(EnvironmentViewsRepository.FilterContainer.Properties.description))
-				filterContainerPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, filterContainer.getDescription()));
-			
+				filterContainerPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, filterContainer.getDescription()));
 			// init filters
 			
 			// init values for referenced views
@@ -112,7 +111,7 @@ public class FilterContainerFilterContainerPropertiesEditionComponent extends Si
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			FilterContainerPropertiesEditionPart filterContainerPart = (FilterContainerPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && filterContainerPart != null && isAccessible(EnvironmentViewsRepository.FilterContainer.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && filterContainerPart != null && isAccessible(EnvironmentViewsRepository.FilterContainer.Properties.description)){
 				if (msg.getNewValue() != null) {
 					filterContainerPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

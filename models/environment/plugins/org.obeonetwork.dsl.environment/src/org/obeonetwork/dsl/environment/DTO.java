@@ -25,7 +25,7 @@ package org.obeonetwork.dsl.environment;
  * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getDTO()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface DTO extends StructuredType {

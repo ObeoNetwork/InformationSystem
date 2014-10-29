@@ -69,8 +69,7 @@ public class PriorityPriorityPropertiesEditionComponent extends SinglePartProper
 				priorityPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, priority.getName()));
 			
 			if (isAccessible(EnvironmentViewsRepository.Priority.Properties.description))
-				priorityPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, priority.getDescription()));
-			
+				priorityPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, priority.getDescription()));
 			// init filters
 			
 			
@@ -130,7 +129,7 @@ public class PriorityPriorityPropertiesEditionComponent extends SinglePartProper
 					priorityPart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && priorityPart != null && isAccessible(EnvironmentViewsRepository.Priority.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && priorityPart != null && isAccessible(EnvironmentViewsRepository.Priority.Properties.description)){
 				if (msg.getNewValue() != null) {
 					priorityPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

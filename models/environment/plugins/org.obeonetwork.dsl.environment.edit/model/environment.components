@@ -208,9 +208,9 @@
         <referencedBinding xmi:id="_91fLZP_jEeCQir_iIC_y4Q" binding="_65K3QHC0EeCNPbrYssPTmA"/>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//BindingElement"/>
       </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A2efUFrEEeSp8I2rNbfleQ" name="DTO" views="_1_txIFrDEeSp8I2rNbfleQ">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A2efUFrEEeSp8I2rNbfleQ" name="dto" views="_1_txIFrDEeSp8I2rNbfleQ">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_FlDuUFrEEeSp8I2rNbfleQ" name="name" views="_6t-QAFrDEeSp8I2rNbfleQ">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Environment/name"/>
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Type/name"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_MZIqMFrEEeSp8I2rNbfleQ" name="supertype" views="_6t-QAVrDEeSp8I2rNbfleQ">
           <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/supertype"/>
@@ -238,7 +238,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_3tnCzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -249,7 +249,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_3vnCzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -263,7 +263,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_3xXCzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -274,7 +274,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_3zXCzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -288,7 +288,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_303CzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -307,7 +307,7 @@
         <elements xsi:type="eef-views:Container" xmi:id="_Z4_34HCzEeCNPbrYssPTmA" name="properties">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_34XCzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -318,7 +318,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_353CzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -326,7 +326,7 @@
         <elements xsi:type="eef-views:Container" xmi:id="_Z4_37HCzEeCNPbrYssPTmA" name="properties">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_37XCzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -334,7 +334,7 @@
         <elements xsi:type="eef-views:Container" xmi:id="_Z4_38XCzEeCNPbrYssPTmA" name="properties">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_38nCzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -345,7 +345,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_3-HCzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -365,7 +365,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_3_3CzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -394,7 +394,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_4CHCzEeCNPbrYssPTmA" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>
@@ -448,7 +448,7 @@
           </elements>
         </elements>
       </views>
-      <views xmi:id="_1_txIFrDEeSp8I2rNbfleQ" name="DTO">
+      <views xmi:id="_1_txIFrDEeSp8I2rNbfleQ" name="Dto">
         <elements xsi:type="eef-views:Container" xmi:id="_3lZ8kFrDEeSp8I2rNbfleQ" name="properties">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_6t-QAFrDEeSp8I2rNbfleQ" name="name">

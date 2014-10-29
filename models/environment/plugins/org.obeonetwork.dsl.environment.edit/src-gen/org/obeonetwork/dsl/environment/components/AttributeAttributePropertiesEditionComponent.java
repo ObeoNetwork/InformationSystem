@@ -81,8 +81,7 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 				attributePart.setIdentifier(attribute.isIsIdentifier());
 			}
 			if (isAccessible(EnvironmentViewsRepository.Attribute.Properties.description))
-				attributePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, attribute.getDescription()));
-			
+				attributePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, attribute.getDescription()));
 			// init filters
 			
 			// Start of user code for additional businessfilters for type
@@ -176,7 +175,7 @@ public class AttributeAttributePropertiesEditionComponent extends SinglePartProp
 			if (EnvironmentPackage.eINSTANCE.getProperty_IsIdentifier().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.identifier))
 				attributePart.setIdentifier((Boolean)msg.getNewValue());
 			
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && attributePart != null && isAccessible(EnvironmentViewsRepository.Attribute.Properties.description)){
 				if (msg.getNewValue() != null) {
 					attributePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

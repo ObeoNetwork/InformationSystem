@@ -69,8 +69,7 @@ public class NamespaceNamespacePropertiesEditionComponent extends SinglePartProp
 				namespacePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, namespace.getName()));
 			
 			if (isAccessible(EnvironmentViewsRepository.Namespace.Properties.description))
-				namespacePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, namespace.getDescription()));
-			
+				namespacePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, namespace.getDescription()));
 			// init filters
 			
 			
@@ -130,7 +129,7 @@ public class NamespaceNamespacePropertiesEditionComponent extends SinglePartProp
 					namespacePart.setName("");
 				}
 			}
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && namespacePart != null && isAccessible(EnvironmentViewsRepository.Namespace.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && namespacePart != null && isAccessible(EnvironmentViewsRepository.Namespace.Properties.description)){
 				if (msg.getNewValue() != null) {
 					namespacePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

@@ -128,6 +128,15 @@ public interface EnvironmentFactory extends EFactory {
 	TypesDefinition createTypesDefinition();
 
 	/**
+	 * Returns a new object of class '<em>DTO</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>DTO</em>'.
+	 * @generated
+	 */
+	DTO createDTO();
+
+	/**
 	 * Returns a new object of class '<em>Filter Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
