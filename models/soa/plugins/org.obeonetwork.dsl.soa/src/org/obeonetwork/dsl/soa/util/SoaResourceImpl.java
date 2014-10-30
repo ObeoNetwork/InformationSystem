@@ -15,10 +15,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
-
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.obeonetwork.dsl.soa.migration.SoaXMLHelper;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,6 +67,23 @@ public class SoaResourceImpl extends XMIResourceImpl {
 	 */
 	protected boolean useUUIDs() {
 		return true;
+	}
+	
+	@Override
+	public EObject getEObject(String uriFragment) {
+		if (uriFragment == null) {
+			return null;
+		}
+		EObject rewrittenFragment = super.getEObject(uriFragment);
+		
+		// TODO Migration code here
+		
+		return rewrittenFragment;
+	}
+	
+	@Override
+	protected XMLHelper createXMLHelper() {
+		return new SoaXMLHelper(this);
 	}
 
 } //SoaResourceImpl
