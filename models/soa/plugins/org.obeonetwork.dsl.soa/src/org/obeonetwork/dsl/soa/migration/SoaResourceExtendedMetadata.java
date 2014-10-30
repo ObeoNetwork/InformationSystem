@@ -1,19 +1,22 @@
-package org.obeonetwork.dsl.entity.migration;
+package org.obeonetwork.dsl.soa.migration;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
-import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.soa.SoaPackage;
 
-public class EntityResourceExtendedMetadata extends BasicExtendedMetaData {
+public class SoaResourceExtendedMetadata extends BasicExtendedMetaData {
 
-	public String oldEntityURI = "http://www.obeonetwork.org/dsl/entity/2.0.0";
-	public String newEntityURI = "http://www.obeonetwork.org/dsl/entity/3.0.0";
+
+	public String oldSoaURI = "http://www.obeonetwork.org/dsl/soa/2.0.0";
+	public String newSoaURI = "http://www.obeonetwork.org/dsl/soa/3.0.0";
+	
 	public String oldEnvironmentURI = "http://www.obeonetwork.org/dsl/environment/2.0.0";
 	public String newEnvironmentURI = "http://www.obeonetwork.org/dsl/environment/3.0.0";
+	
 	
 	@Override
 	public EPackage getPackage(String namespace) {
@@ -21,8 +24,8 @@ public class EntityResourceExtendedMetadata extends BasicExtendedMetaData {
 		 * if the system is asking for an old namespace, let's return the
 		 * current EPackage instance.
 		 */
-		if (oldEntityURI.equals(namespace)) {
-			return EntityPackage.eINSTANCE;
+		if (oldSoaURI.equals(namespace)) {
+			return SoaPackage.eINSTANCE;
 		}
 		if (oldEnvironmentURI.equals(namespace)) {
 			return EnvironmentPackage.eINSTANCE;
@@ -35,9 +38,8 @@ public class EntityResourceExtendedMetadata extends BasicExtendedMetaData {
 		EClassifier eClassifier = super.getType(ePackage, name);
 		if (eClassifier == null) {
 
-			// Block => Namespace
-			if ("Block".equals(name)) {
-				return EnvironmentPackage.eINSTANCE.getNamespace();
+			if ("ServiceDTO".equals(name)) {
+				return EnvironmentPackage.Literals.DTO;
 			}
 		}
 		return eClassifier;
@@ -71,35 +73,35 @@ public class EntityResourceExtendedMetadata extends BasicExtendedMetaData {
 		 * Test on eClass and name to put the right feature into the "found" variable
 		 */
 		
-		if (eClass == EntityPackage.eINSTANCE.getRoot()) {
-			// Root.blocks => Root.namespaces
-			if ("blocks".equals(name)) {
-				found = EntityPackage.eINSTANCE.getRoot_Namespaces();
+		if (eClass == SoaPackage.Literals.SYSTEM) {
+			if ("ownedDtoRegistry".equals(name)) {
+				return SoaPackage.Literals.SYSTEM__NAMESPACES;
 			}
-		} else if (eClass == EnvironmentPackage.eINSTANCE.getNamespace()) {
-			// Block.subblocks => Namespace.ownedNamespaces
-			if ("subblocks".equals(name)) {
-				found = EnvironmentPackage.eINSTANCE.getNamespace_OwnedNamespaces();
-			}
-			// Block.entities => TypesDefinitions.types
-			if ("entities".equals(name)) {
-				found = EnvironmentPackage.eINSTANCE.getTypesDefinition_Types();
-			}
-		} else if (eClass == EnvironmentPackage.eINSTANCE.getAttribute()) {
-			if ("isPrimaryKey".equals(name)) {
-				found = EnvironmentPackage.eINSTANCE.getProperty_IsIdentifier();
-			}
-			if ("type".equals(name)) {
-				found = EnvironmentPackage.eINSTANCE.getAttribute_Type();
-			}
-		} else if (eClass == EnvironmentPackage.eINSTANCE.getReference()) {
-			if ("isPrimaryKey".equals(name)) {
-				found = EnvironmentPackage.eINSTANCE.getProperty_IsIdentifier();
-			}
-			if ("type".equals(name)) {
-				found = EnvironmentPackage.eINSTANCE.getReference_ReferencedType();
+			if ("ownedNamespaces".equals(name)) {
+				return SoaPackage.Literals.SYSTEM__NAMESPACES;
 			}
 		}
+		if (eClass == EnvironmentPackage.Literals.NAMESPACE) {
+			if ("ownedCategories".equals(name)) {
+				return EnvironmentPackage.Literals.NAMESPACE__OWNED_NAMESPACES;
+			}
+		}
+		if (eClass == EnvironmentPackage.Literals.ENUMERATION) {
+			if ("fields".equals(name)) {
+				return EnvironmentPackage.Literals.ENUMERATION__LITERALS;
+			}
+		}
+		if (eClass == EnvironmentPackage.Literals.ATTRIBUTE) {
+			if ("type".equals(name)) {
+				return EnvironmentPackage.Literals.ATTRIBUTE__TYPE;
+			}
+		}
+		if (eClass == EnvironmentPackage.Literals.REFERENCE) {
+			if ("type".equals(name)) {
+				return EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE;
+			}
+		}
+		
 		
 		return found;
 	}
@@ -119,9 +121,6 @@ public class EntityResourceExtendedMetadata extends BasicExtendedMetaData {
 		 * Here we could redefine the way a type is transformed in a name during
 		 * the save.
 		 */
-//		if (eClassifier == EnvironmentPackage.eINSTANCE.getType()) {
-//			return EntityPackage.eINSTANCE.getEntity().getName();
-//		}
 		
 		return super.getName(eClassifier);
 	}

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmi:id="_Z8s4kF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:03:57.593+0100" modifiedOn="2014-10-28T18:04:08.296+0100">
-  <blocks xmi:id="_bixegF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:04:11.726+0100" modifiedOn="2014-10-29T11:55:17.581+0100" name="blk1">
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmi:id="_Z8s4kF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:03:57.593+0100" modifiedOn="2014-10-28T18:04:08.296+0100">
+  <blocks xmi:id="_bixegF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:04:11.726+0100" modifiedOn="2014-10-30T15:52:53.588+0100" name="blk1">
+    <metadatas xmi:id="_bU7JQGBEEeSjza5bRaI8SA">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_bsxBgGBEEeSjza5bRaI8SA" title="ann1" body="body1&#xD;&#xA;"/>
+    </metadatas>
     <subblocks xmi:id="_cjn3gF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:04:17.746+0100" modifiedOn="2014-10-28T18:05:37.996+0100" name="blk2">
       <entities xmi:id="_ebk3oF7EEeSWnuhhgfhS7w" description="Entity with no supertype&#xD;&#xA;" createdOn="2014-10-28T18:04:27.675+0100" modifiedOn="2014-10-28T18:10:12.474+0100" name="Entity2.1" estimatedVolumetry="15" estimatedAccess="56" historized="true" inheritanceKind="TABLE_PER_CLASS_HIERARCHY">
         <ownedAttributes xmi:id="_tTg8QF7EEeSWnuhhgfhS7w" createdOn="2014-10-28T18:06:07.492+0100" modifiedOn="2014-10-28T18:06:18.655+0100" name="att1" isPrimaryKey="true">

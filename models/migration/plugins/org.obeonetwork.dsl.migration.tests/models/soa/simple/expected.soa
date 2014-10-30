@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soa:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmlns:soa="http://www.obeonetwork.org/dsl/soa/3.0.0" xmi:id="_4a9sIGAUEeSMVf3Tzr0_UA" createdOn="2014-10-30T10:12:32.984+0100" modifiedOn="2014-10-30T10:13:28.269+0100" name="Sys1">
+  <namespaces xmi:id="_BTl5sGAVEeSMVf3Tzr0_UA" createdOn="2014-10-30T10:13:34.929+0100" modifiedOn="2014-10-30T10:13:38.089+0100" name="cat1">
+    <types xsi:type="oenv:DTO" xmi:id="_CHwhkGAVEeSMVf3Tzr0_UA" createdOn="2014-10-30T10:13:38.089+0100" modifiedOn="2014-10-30T10:13:44.761+0100" name="Dto1"/>
+  </namespaces>
+</soa:System>

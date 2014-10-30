@@ -58,7 +58,7 @@ public interface SoaPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "org.obeonetwork.dsl.soa";
+	String eNS_PREFIX = "soa";
 
 	/**
 	 * The singleton instance of the package.
