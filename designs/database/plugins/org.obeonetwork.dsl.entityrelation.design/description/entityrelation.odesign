@@ -13,7 +13,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Entity Relation Diagram" titleExpression="[name + 'Entity Relation'/]" showOnStartup="true" domainClass="entityrelation.LogicalModel">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Entity Relation Diagram" titleExpression="[name + ' Entity Relation'/]" showOnStartup="true" domainClass="entityrelation.LogicalModel">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entityrelation/model/entityrelation.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#/"/>
       <defaultLayer name="Default">
