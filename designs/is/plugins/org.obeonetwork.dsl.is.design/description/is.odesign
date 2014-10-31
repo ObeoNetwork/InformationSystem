@@ -77,7 +77,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_ExternalEntity']" name="Entity Diagram" titleExpression="[name + ' Entity Diagam'/]" domainClass="entity.Block" preconditionExpression="">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@optionalLayers[name='External%20Entities']/@toolSections.0/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_ExternalEntity']" name="Entity Diagram" titleExpression="[name + ' Entity Diagram'/]" domainClass="entity.Block" preconditionExpression="">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <defaultLayer name="Default Layer" icon="">
