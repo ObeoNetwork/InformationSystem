@@ -101,6 +101,14 @@ public class SoaResourceExtendedMetadata extends BasicExtendedMetaData {
 				return EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE;
 			}
 		}
+		if (eClass == SoaPackage.Literals.PARAMETER) {
+			if ("lower".equals(name)) {
+				return null;
+			}
+			if ("upper".equals(name)) {
+				return null;
+			}
+		}
 		
 		
 		return found;
