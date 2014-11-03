@@ -1108,7 +1108,7 @@
       </optionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="User Stories Table" titleExpression="User Stories Table" domainClass="graal.System">
-      <metamodel href="http://org.obeonetwork.graal/1.0#/"/>
+      <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
       <ownedLineMappings name="UST_UserStory" domainClass="graal.UserStory" semanticCandidatesExpression="feature:userStories"/>
       <ownedCreateLine name="CRE_UserStory" label="User story" forceRefresh="true" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedLineMappings[name='UST_UserStory']">
         <variables name="root" documentation="The semantic element of the table."/>

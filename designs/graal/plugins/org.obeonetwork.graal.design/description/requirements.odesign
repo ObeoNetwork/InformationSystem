@@ -3,7 +3,7 @@
   <ownedViewpoints name="VP_Graal_Req" label="Requirements (Graal consolidated view)" modelFileExtension="*.requirement">
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Req_CTab_Task" label="Requirements - Task tracability matrix" domainClass="requirement.Repository">
       <metamodel href="http://www.obeonetwork.org/dsl/requirement/1.0#/"/>
-      <metamodel href="http://org.obeonetwork.graal/1.0#/"/>
+      <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
       <ownedLineMappings name="ReqTask_Lin_Repository" label="Repository" domainClass="requirement.Repository" semanticCandidatesExpression="var:self" headerLabelExpression="feature:name">
         <ownedSubLines name="ReqTask_Lin_Category" label="Category" reusedSubLines="//@ownedViewpoints[name='VP_Graal_Req']/@ownedRepresentations[name='Req_CTab_Task']/@ownedLineMappings[name='ReqTask_Lin_Repository']/@ownedSubLines[name='ReqTask_Lin_Category']" reusedInMappings="//@ownedViewpoints[name='VP_Graal_Req']/@ownedRepresentations[name='Req_CTab_Task']/@ownedLineMappings[name='ReqTask_Lin_Repository']/@ownedSubLines[name='ReqTask_Lin_Category']" domainClass="requirement.Category" semanticCandidatesExpression="feature:eContents" headerLabelExpression="[id + ' - ' + name/]">
           <ownedSubLines name="ReqTask_Lin_Requirement" label="Requirement" domainClass="requirement.Requirement" semanticCandidatesExpression="feature:requirements" headerLabelExpression="[id + ' - ' + name/]"/>
@@ -25,7 +25,7 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Req_CTab_UC" label="Requirements - UseCase tracability matrix" domainClass="requirement.Repository">
       <metamodel href="http://www.obeonetwork.org/dsl/requirement/1.0#/"/>
-      <metamodel href="http://org.obeonetwork.graal/1.0#/"/>
+      <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
       <ownedLineMappings name="ReqUC_Lin_Repository" label="Repository" domainClass="requirement.Repository" semanticCandidatesExpression="var:self" headerLabelExpression="feature:name">
         <ownedSubLines name="ReqUC_Lin_Category" label="Category" reusedSubLines="//@ownedViewpoints[name='VP_Graal_Req']/@ownedRepresentations[name='Req_CTab_UC']/@ownedLineMappings[name='ReqUC_Lin_Repository']/@ownedSubLines[name='ReqUC_Lin_Category']" reusedInMappings="//@ownedViewpoints[name='VP_Graal_Req']/@ownedRepresentations[name='Req_CTab_UC']/@ownedLineMappings[name='ReqUC_Lin_Repository']/@ownedSubLines[name='ReqUC_Lin_Category']" domainClass="requirement.Category" semanticCandidatesExpression="feature:eContents" headerLabelExpression="[id + ' - ' + name/]">
           <ownedSubLines name="ReqUC_Lin_Requirement" label="Requirement" domainClass="requirement.Requirement" semanticCandidatesExpression="feature:requirements" headerLabelExpression="[id + ' - ' + name/]"/>
