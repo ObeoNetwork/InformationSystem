@@ -1376,8 +1376,10 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 	}
 	
 	private void setVisibilityOnWidget(Control widget, boolean visible) {
-		((GridData)widget.getLayoutData()).exclude = !visible;
-		widget.setVisible(visible);
+		if (widget != null) {
+			((GridData)widget.getLayoutData()).exclude = !visible;
+			widget.setVisible(visible);
+		}
 	}
 	
 	private Composite getMainComposite() {
