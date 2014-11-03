@@ -59,7 +59,7 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[containerView.oclAsType(viewpoint::DDiagram).target/]">
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[containerView.oclAsType(viewpoint::DSemanticDecorator).target/]">
                   <subModelOperations xsi:type="tool:SetValue" featureName="blocks" valueExpression="[elementView.oclAsType(viewpoint::DEdge).sourceNode.oclAsType(viewpoint::DNode).target/]"/>
                 </firstModelOperations>
               </initialOperation>
