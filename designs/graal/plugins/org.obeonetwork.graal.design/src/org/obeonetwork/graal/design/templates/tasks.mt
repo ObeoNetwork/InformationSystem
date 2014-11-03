@@ -1,5 +1,5 @@
 <%
-metamodel http://org.obeonetwork.graal/1.0
+metamodel http://www.obeonetwork.org/dsl/graal/2.0.0
 %>
 
 <%script type="graal.AbstractTask" name="tasksAndGroupsUsed"%>
