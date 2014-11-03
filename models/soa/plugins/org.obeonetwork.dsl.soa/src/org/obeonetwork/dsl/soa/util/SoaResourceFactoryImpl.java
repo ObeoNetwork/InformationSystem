@@ -77,6 +77,7 @@ public class SoaResourceFactoryImpl extends ResourceFactoryImpl {
 		saveOptions.put(XMLResource.OPTION_RESOURCE_HANDLER, resourceHandler);
 		
 		Map<Object, Object> loadOptions = result.getDefaultLoadOptions();
+		loadOptions.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
 		loadOptions.put(XMLResource.OPTION_DEFER_ATTACHMENT, Boolean.TRUE);
 		loadOptions.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
 		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);

@@ -24,6 +24,10 @@ public class SoaXMLHelper extends XMIHelperImpl {
 					super.setValue(object, feature, "asynchronous", position);
 					return;
 			}
+			if ("synchone".equals(value)) {
+				super.setValue(object, feature, "synchronous", position);
+				return;
+		}
 		}
 		
 		super.setValue(object, feature, value, position);

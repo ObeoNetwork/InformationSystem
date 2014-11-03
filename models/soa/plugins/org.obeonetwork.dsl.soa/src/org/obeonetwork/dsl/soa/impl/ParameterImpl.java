@@ -55,7 +55,7 @@ public class ParameterImpl extends ObeoDSMObjectImpl implements Parameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final MultiplicityKind MULTIPLICITY_EDEFAULT = MultiplicityKind.ZERO_ONE_LITERAL;
+	protected static final MultiplicityKind MULTIPLICITY_EDEFAULT = MultiplicityKind.ONE_LITERAL;
 
 	/**
 	 * The default value of the '{@link #isIsUnique() <em>Is Unique</em>}' attribute.

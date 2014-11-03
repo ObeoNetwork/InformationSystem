@@ -92,6 +92,7 @@ public interface Parameter extends ObeoDSMObject {
 
 	/**
 	 * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * The literals are from the enumeration {@link org.obeonetwork.dsl.environment.MultiplicityKind}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -103,7 +104,7 @@ public interface Parameter extends ObeoDSMObject {
 	 * @see org.obeonetwork.dsl.environment.MultiplicityKind
 	 * @see #setMultiplicity(MultiplicityKind)
 	 * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter_Multiplicity()
-	 * @model required="true"
+	 * @model default="1" required="true"
 	 * @generated
 	 */
 	MultiplicityKind getMultiplicity();
