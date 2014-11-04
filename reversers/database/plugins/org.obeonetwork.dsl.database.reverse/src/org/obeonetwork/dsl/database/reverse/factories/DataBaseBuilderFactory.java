@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import org.obeonetwork.dsl.database.reverse.decoders.DataBaseBuilder;
 import org.obeonetwork.dsl.database.reverse.decoders.impl.DefaultDataBaseBuilder;
+import org.obeonetwork.dsl.database.reverse.decoders.impl.H2DataBaseBuilder;
 import org.obeonetwork.dsl.database.reverse.decoders.impl.MySQLDataBaseBuilder;
 import org.obeonetwork.dsl.database.reverse.decoders.impl.OracleDataBaseBuilder;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
@@ -14,6 +15,7 @@ public class DataBaseBuilderFactory {
 	
 	private static final String DB_ORACLE_11G = "Oracle-11g";
 	private static final String DB_MYSQL_5 = "MySQL-5";
+	private static final String DB_H2_13 = "H2-1.3";
 	
 	private DataSource dataSource;
 	
@@ -26,7 +28,9 @@ public class DataBaseBuilderFactory {
 			return new MySQLDataBaseBuilder(dataSource, progressListener, queries);
 		} else if(DB_ORACLE_11G.equals(dataSource.getVendor())){
 			return new OracleDataBaseBuilder(dataSource, progressListener, queries);
-		}else {
+		} else if(DB_H2_13.equals(dataSource.getVendor())){
+			return new H2DataBaseBuilder(dataSource, progressListener, queries);
+		} else {
 			return new DefaultDataBaseBuilder(dataSource, progressListener, queries);
 		}
 	}

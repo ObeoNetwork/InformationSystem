@@ -37,6 +37,8 @@ public abstract class AbstractDataBaseBuilder implements DataBaseBuilder {
 	
 	private DataBase dataBase;
 	
+	private Connection connection;
+	
 	protected TableContainer tableContainer;
 	
 	public AbstractDataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
@@ -47,9 +49,14 @@ public abstract class AbstractDataBaseBuilder implements DataBaseBuilder {
 		return dataBase;
 	}
 	
+	@Override
+	public Connection getConnection() {
+		return connection;
+	}
+	
 	private void initialize(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
 		
-		Connection connection = createConnection(source);
+		connection = createConnection(source);
 		if (connection != null) {	
 			try {
 				this.metaData = connection.getMetaData();	
@@ -79,6 +86,7 @@ public abstract class AbstractDataBaseBuilder implements DataBaseBuilder {
 		
 		this.queries = queries;
 		dataBase = buildDataBase(source.getDatabaseName());
+		queries.registerDatabase(dataBase);
 		tableContainer = dataBase;
 		if (isSet(source.getSchemaName())) {
 			tableContainer = buildSchema(source.getSchemaName(), (DataBase) tableContainer);

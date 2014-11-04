@@ -6,6 +6,7 @@ import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.reverse.decoders.DataBaseBuilder;
 import org.obeonetwork.dsl.database.reverse.factories.DataBaseBuilderFactory;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
+import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
 
@@ -23,9 +24,10 @@ public class DatabaseReverser {
 	private static DataBase doReverse(DataSource source, Queries queries, ProgressListener progressListener) {
 				
 			DataBaseBuilderFactory factory = new DataBaseBuilderFactory(source);
+			DataBaseBuilder builder = null;
 			
 			try {
-				DataBaseBuilder builder = factory.createDataBaseBuilder(queries, progressListener);
+				builder = factory.createDataBaseBuilder(queries, progressListener);
 					
 				builder.buildTables();
 				builder.buildForeignKeys();
@@ -34,6 +36,10 @@ public class DatabaseReverser {
 				return builder.getDataBase(); 
 			} catch(SQLException e) {
 				e.printStackTrace();
+			} finally {
+				if (builder != null) {
+					JdbcUtils.closeConnection(builder.getConnection());
+				}	
 			}
 			
 			return null;
