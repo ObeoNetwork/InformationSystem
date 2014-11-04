@@ -1,0 +1,206 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _TrMrAD8XEeS7B9A6IeM5WA
+Element-Name: TestingUseCasesMainViewTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _6SSqAGNdEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/3/14 2:32 PM
+Testcase-Type: ecl
+Verifications: _BdfdED8aEeS7B9A6IeM5WA
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in graal.odesign/Use Cases Main View
+- Tool Use Case
+- Tool Extend
+- Too Include
+- Tool Navigate to Use Case diagram
+- Tool Create Use Case Diagram
+- Tool UCM_Delete_Extend
+- Tool UCM_Delete_Include
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Use Cases Main View" 
+    | double-click
+with [get-editor "Use Cases Main View"] {
+    get-diagram -index 1 | get-edit-part -name "Use Cases Main View" | mouse-move 723 76 -height 313 -width 728
+    with [get-palette] {
+        get-palette-entry Extend | mouse-move 33 0 -height 23 -width 125
+        // Check Tool Use Case
+        with [get-palette-entry "Use Case"] {
+            mouse-move 39 13 button1 -height 23 -width 125
+            mouse-press 39 13 button1 -height 23 -width 125
+            mouse-release 39 13 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Use Cases Main View"] {
+        mouse-move 512 38 button1 -height 313 -width 728
+        mouse-press 512 38 button1 -height 313 -width 728
+        mouse-release 512 38 button1 524288 -height 313 -width 728
+    }
+    get-diagram -index 1 | get-edit-part -name "Use Cases Main View" | get-edit-part -name "UC - Use Case 5" 
+        | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -mask ALT -height 7 -width 7
+}
+get-editor "Use Cases Main View" | get-diagram -index 1 | get-edit-part -name "Use Cases Main View" | get-edit-part 
+    -name "UC - Use Case 5" | get-edit-part -className WorkspaceImageEditPart | get-figure "0/0" 
+    | get-property "getText()" | equals "UC - Use Case 5" | verify-true
+with [get-editor "Use Cases Main View"] {
+    get-diagram -index 1 | get-edit-part -name "Use Cases Main View" | mouse-move 727 98 -height 313 -width 728
+    // Check Tool Extend
+    with [get-palette | get-palette-entry Extend] {
+        mouse-move 65 10 button1 -height 23 -width 125
+        mouse-press 65 10 button1 -height 23 -width 125
+        mouse-release 65 10 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Use Cases Main View"] {
+        mouse-move 679 80 -height 313 -width 728
+        with [get-edit-part -name "UC - Use Case 5" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 53 24 button1 -height 54 -width 160
+            mouse-press 53 24 button1 -height 54 -width 160
+            mouse-release 53 24 button1 524288 -height 54 -width 160
+        }
+        mouse-move 492 263 -height 313 -width 728
+        with [get-edit-part -name "UC - Proceed to checkout" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-hover 81 32 -height 54 -width 160
+            mouse-move 81 32 button1 -height 54 -width 160
+            mouse-press 81 32 button1 -height 54 -width 160
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Use Cases Main View"] {
+        with [get-edit-part -name "UC - Proceed to checkout" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-release 81 32 button1 524288 -height 54 -width 160
+            mouse-hover 81 32 -height 54 -width 160
+        }
+        mouse-move 228 202 -height 313 -width 728
+    }
+}
+with [get-editor "Use Cases Main View" | get-diagram -index 1 | get-edit-part -name "Use Cases Main View" 
+    | get-edit-part -name "UC - Proceed to checkout" | get-target-connection 1] {
+    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        | equals "UC - Proceed to checkout" | verify-true
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        | equals "UC - Use Case 5" | verify-true
+}
+with [get-editor "Use Cases Main View"] {
+    get-diagram -index 1 | get-edit-part -name "Use Cases Main View" | mouse-move 718 106 -height 313 -width 728
+    // Check Too Include
+    with [get-palette | get-palette-entry Include] {
+        mouse-move 48 14 button1 -height 23 -width 125
+        mouse-press 48 14 button1 -height 23 -width 125
+        mouse-release 48 14 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Use Cases Main View"] {
+        mouse-move 541 94 -height 313 -width 728
+        with [get-edit-part -name "UC - Use Case 5" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 38 31 button1 -height 54 -width 160
+            mouse-press 38 31 button1 -height 54 -width 160
+            mouse-release 38 31 button1 524288 -height 54 -width 160
+        }
+        mouse-move 465 88 -height 313 -width 735
+        with [get-edit-part -name "UC - Buy books" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 84 22 button1 -height 54 -width 160
+            mouse-press 84 22 button1 -height 54 -width 160
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Use Cases Main View"] {
+        with [get-edit-part -name "UC - Buy books" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-release 84 22 button1 524288 -height 54 -width 160
+            mouse-hover 84 22 -height 54 -width 160
+        }
+        mouse-move 225 100 -height 313 -width 728
+    }
+}
+with [get-editor "Use Cases Main View" | get-diagram -index 1 | get-edit-part -name "Use Cases Main View" 
+    | get-edit-part -name "UC - Buy books" | get-target-connection 0] {
+    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        | equals "UC - Buy books" | verify-true
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        | equals "UC - Use Case 5" | verify-true
+}
+with [get-editor "Use Cases Main View" | get-diagram -index 1 | get-edit-part -name "Use Cases Main View"] {
+    mouse-move 621 97 -height 313 -width 728
+    with [get-edit-part -name "UC - Use Case 5" | get-edit-part -className WorkspaceImageEditPart] {
+        mouse-move 83 30 button1 -height 54 -width 160
+        mouse-press 83 30 button1 -height 54 -width 160
+        mouse-release 83 30 button1 524288 -height 54 -width 160
+        mouse-press 83 30 button1 -height 54 -width 160
+        // Check  Tool Navigate to Use Case diagram
+        mouse-double-click 83 30 button1 -height 54 -width 160
+    }
+}
+get-window "New Representation" | get-button OK | click
+get-editor "UC - Use Case 5 Use Case Diagram" | get-diagram -index 1 | get-edit-part 
+    -name "UC - Use Case 5 Use Case Diagram" | mouse-move 129 0 -height 309 -width 728
+with [get-editor "Use Cases Main View" | get-diagram -index 1] {
+    with [get-edit-part -name "Use Cases Main View"] {
+        mouse-move 673 51 -height 313 -width 728
+        with [get-edit-part -name "UC - Use Case 5" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 67 28 button3 -height 54 -width 160
+            mouse-press 67 28 button3 -height 54 -width 160
+            mouse-release 67 28 button3 2097152 -height 54 -width 160
+        }
+    }
+    // Check Tool Create Use Case Diagram
+    get-menu "Navigate/New detail : Create Use Case Diagram" | click
+}
+get-window "New Representation" | get-button OK | click
+get-editor "UC - Use Case 5 Use Case Diagram" -index 1 | get-diagram -index 1 | get-edit-part 
+    -name "UC - Use Case 5 Use Case Diagram" | mouse-move 176 4 -height 309 -width 728
+with [get-editor "Use Cases Main View" | get-diagram -index 1] {
+    key-type "" "\\u0000"
+    with [get-edit-part -name "Use Cases Main View"] {
+        mouse-move 355 37 button1 -height 313 -width 728
+        mouse-press 355 37 button1 -height 313 -width 728
+        mouse-release 355 37 button1 524288 -height 313 -width 728
+        mouse-move 0 88 -height 313 -width 728
+    }
+}
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Use Case UC - Use Case 5"
+get-editor "Use Cases Main View" | get-diagram -index 1 | get-edit-part -name "Use Cases Main View" | mouse-move 0 243 
+    -height 313 -width 728
+with [get-editor "Use Cases Main View" | get-diagram -index 1] {
+    with [get-edit-part -name "Use Cases Main View"] {
+        mouse-move 490 85 -height 313 -width 728
+        with [get-edit-part -name "UC - Buy books" | get-target-connection 0 | get-edit-part 
+            -className DEdgeNameEditPart] {
+            mouse-move 31 0 button1 -height 13 -width 70
+            mouse-press 31 0 button1 -height 13 -width 70
+            mouse-release 31 0 button1 524288 -height 13 -width 70
+            get-handle MoveHandle -index 1 | mouse-hover 32 1 -height 15 -width 72
+        }
+    }
+    // Check Tool UCM_Delete_Extend
+    key-type Del
+    get-edit-part -name "Use Cases Main View" | mouse-move 87 97 -height 313 -width 728
+}
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Use Case UC - Use Case 5"
+get-view Properties | get-tree | get-item Includes | get-property "getData().getValueAsString()" | equals "" 
+    | verify-true
+with [get-editor "Use Cases Main View" | get-diagram -index 1] {
+    with [get-edit-part -name "Use Cases Main View"] {
+        mouse-move 562 128 -height 313 -width 728
+        with [get-edit-part -name "UC - Proceed to checkout" | get-target-connection 1] {
+            mouse-move 59 49 button1 -height 144 -width 99
+            mouse-press 59 49 button1 -height 144 -width 99
+            mouse-release 61 51 button1 524288 -height 148 -width 102
+        }
+    }
+    // Check Tool UCM_Delete_Include
+    key-type Del
+    get-edit-part -name "Use Cases Main View" | mouse-hover 560 128 -height 313 -width 728
+}
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Use Case UC - Use Case 5"
+get-view Properties | get-tree | get-item Extends | get-property "getData().getValueAsString()" | equals "" 
+    | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

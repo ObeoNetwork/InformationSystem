@@ -1,0 +1,1362 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingStateMachineDiagramTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _s8ftkGNdEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/3/14 2:32 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in statemachine.odesign/State Machine Diagram
+- Tool Initial State
+- Tool Final State
+- Tool Transition -- Can not be tested
+- Tool Region
+- Tool State
+- Tool OPE_ChangeParent -- Can not be tested
+- Tool EDT_States&RegionsLabel 
+- Tool EDT_TransitionsGuard -- Can not be tested
+- Tool Del_Region
+- Tool Del_State
+- Tool D&D_States
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Obeo Designer For IS/StateMachine Model"
+    with [get-button "Next >"] {
+        click
+        click
+    }
+    get-combo -after [get-label "Model Object"] | select "State Machine"
+    get-button Finish | click
+}
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore/My.statemachine" | double-click
+    select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
+}
+with [get-window "Select resources to add"] {
+    get-button "Browse Workspace..." | click
+    with [get-window "File Selection"] {
+        get-tree | select "E-BookStore/My.statemachine"
+        get-button OK | click
+    }
+    get-button OK | click
+}
+with [get-window "Viewpoints Selection" | get-table] {
+    select [get-item "" -index 6]
+    get-cell 6 0 | check
+}
+get-window "Viewpoints Selection" | get-button OK | click
+get-view "Model Explorer" | get-tree | select "E-BookStore/My.statemachine/State Machine" 
+    | get-menu "New Representation/State Machine Diagram" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+    mouse-move 358 266 -height 309 -width 645
+    mouse-move 358 266 -height 309 -width 645
+    mouse-move 328 261 -height 309 -width 645
+    mouse-move 328 261 -height 309 -width 645
+    mouse-move 307 256 -height 309 -width 645
+    mouse-move 307 256 -height 309 -width 645
+    mouse-move 288 254 -height 309 -width 645
+    mouse-move 288 254 -height 309 -width 645
+    mouse-move 271 252 -height 309 -width 645
+    mouse-move 271 252 -height 309 -width 645
+    mouse-move 244 248 -height 309 -width 645
+    mouse-move 244 248 -height 309 -width 645
+    mouse-move 207 244 -height 309 -width 645
+    mouse-move 207 244 -height 309 -width 645
+    mouse-move 171 237 -height 309 -width 645
+    mouse-move 171 237 -height 309 -width 645
+    mouse-move 137 234 -height 309 -width 645
+    mouse-move 137 234 -height 309 -width 645
+    mouse-move 121 231 -height 309 -width 645
+    mouse-move 121 231 -height 309 -width 645
+    mouse-move 81 224 -height 309 -width 645
+    mouse-move 81 224 -height 309 -width 645
+    mouse-move 34 214 -height 309 -width 645
+    mouse-move 34 214 -height 309 -width 645
+    mouse-move 0 203 -height 309 -width 645
+    mouse-move 0 203 -height 309 -width 645
+    mouse-move 2 179 -height 309 -width 645
+    mouse-move 2 179 -height 309 -width 645
+    mouse-move 17 178 -height 309 -width 645
+    mouse-move 17 178 -height 309 -width 645
+    mouse-move 55 180 -height 309 -width 645
+    mouse-move 55 180 -height 309 -width 645
+    mouse-move 124 180 -height 309 -width 645
+    mouse-move 124 180 -height 309 -width 645
+    mouse-move 190 180 -height 309 -width 645
+    mouse-move 190 180 -height 309 -width 645
+    mouse-move 268 180 -height 309 -width 645
+    mouse-move 268 180 -height 309 -width 645
+    mouse-move 334 180 -height 309 -width 645
+    mouse-move 334 180 -height 309 -width 645
+    mouse-move 398 180 -height 309 -width 645
+    mouse-move 398 180 -height 309 -width 645
+    mouse-move 454 179 -height 309 -width 645
+    mouse-move 454 179 -height 309 -width 645
+    mouse-move 507 173 -height 309 -width 645
+    mouse-move 507 173 -height 309 -width 645
+    mouse-move 551 166 -height 309 -width 645
+    mouse-move 551 166 -height 309 -width 645
+    mouse-move 585 153 -height 309 -width 645
+    mouse-move 585 153 -height 309 -width 645
+    mouse-move 610 145 -height 309 -width 645
+    mouse-move 610 145 -height 309 -width 645
+    mouse-move 635 137 -height 309 -width 645
+    mouse-move 635 137 -height 309 -width 645
+}
+with [get-editor " State Machine Diagram" | get-palette] {
+    with [get-palette-entry Transition] {
+        mouse-move 14 11 -height 23 -width 125
+        mouse-move 14 11 -height 23 -width 125
+        mouse-move 21 9 -height 23 -width 125
+        mouse-move 21 9 -height 23 -width 125
+        mouse-move 27 6 -height 23 -width 125
+        mouse-move 27 6 -height 23 -width 125
+        mouse-move 30 5 -height 23 -width 125
+        mouse-move 30 5 -height 23 -width 125
+        mouse-move 34 1 -height 23 -width 125
+        mouse-move 34 1 -height 23 -width 125
+        mouse-move 35 0 -height 23 -width 125
+        mouse-move 35 0 -height 23 -width 125
+    }
+    with [get-palette-entry "Final State"] {
+        mouse-move 36 19 -height 23 -width 125
+        mouse-move 36 19 -height 23 -width 125
+    }
+    // Check Tool Initial State
+    with [get-palette-entry "Initial State"] {
+        mouse-move 61 13 -height 23 -width 125
+        mouse-move 61 13 -height 23 -width 125
+        mouse-move 61 13 button1 -height 23 -width 125
+        mouse-move 61 13 button1 -height 23 -width 125
+        mouse-press 61 13 button1 -height 23 -width 125
+        mouse-press 61 13 button1 -height 23 -width 125
+        mouse-release 61 13 button1 524288 -height 23 -width 125
+        mouse-move 60 13 -height 23 -width 125
+        mouse-move 60 13 -height 23 -width 125
+        mouse-move 58 13 -height 23 -width 125
+        mouse-move 58 13 -height 23 -width 125
+        mouse-move 55 13 -height 23 -width 125
+        mouse-move 55 13 -height 23 -width 125
+        mouse-move 51 13 -height 23 -width 125
+        mouse-move 51 13 -height 23 -width 125
+        mouse-move 46 13 -height 23 -width 125
+        mouse-move 46 13 -height 23 -width 125
+        mouse-move 35 13 -height 23 -width 125
+        mouse-move 35 13 -height 23 -width 125
+        mouse-move 22 13 -height 23 -width 125
+        mouse-move 22 13 -height 23 -width 125
+        mouse-move 14 13 -height 23 -width 125
+        mouse-move 14 13 -height 23 -width 125
+    }
+}
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+    mouse-move 374 65 -height 309 -width 645
+    mouse-move 374 65 -height 309 -width 645
+    mouse-move 359 65 -height 309 -width 645
+    mouse-move 359 65 -height 309 -width 645
+    mouse-move 341 65 -height 309 -width 645
+    mouse-move 341 65 -height 309 -width 645
+    mouse-move 326 65 -height 309 -width 645
+    mouse-move 326 65 -height 309 -width 645
+    mouse-move 312 65 -height 309 -width 645
+    mouse-move 312 65 -height 309 -width 645
+    mouse-move 301 65 -height 309 -width 645
+    mouse-move 301 65 -height 309 -width 645
+    mouse-move 292 66 -height 309 -width 645
+    mouse-move 292 66 -height 309 -width 645
+    mouse-move 281 66 -height 309 -width 645
+    mouse-move 281 66 -height 309 -width 645
+    mouse-move 273 66 -height 309 -width 645
+    mouse-move 273 66 -height 309 -width 645
+    mouse-move 267 67 -height 309 -width 645
+    mouse-move 267 67 -height 309 -width 645
+    mouse-move 261 68 -height 309 -width 645
+    mouse-move 261 68 -height 309 -width 645
+    mouse-move 258 68 -height 309 -width 645
+    mouse-move 258 68 -height 309 -width 645
+    mouse-move 254 69 -height 309 -width 645
+    mouse-move 254 69 -height 309 -width 645
+    mouse-move 253 69 -height 309 -width 645
+    mouse-move 253 69 -height 309 -width 645
+    mouse-move 252 69 -height 309 -width 645
+    mouse-move 252 69 -height 309 -width 645
+    mouse-move 250 69 -height 309 -width 645
+    mouse-move 250 69 -height 309 -width 645
+    mouse-move 249 70 -height 309 -width 645
+    mouse-move 249 70 -height 309 -width 645
+    mouse-move 246 70 -height 309 -width 645
+    mouse-move 246 70 -height 309 -width 645
+    mouse-move 245 70 -height 309 -width 645
+    mouse-move 245 70 -height 309 -width 645
+    mouse-move 243 70 -height 309 -width 645
+    mouse-move 243 70 -height 309 -width 645
+    mouse-move 241 70 -height 309 -width 645
+    mouse-move 241 70 -height 309 -width 645
+    mouse-move 240 70 -height 309 -width 645
+    mouse-move 240 70 -height 309 -width 645
+    mouse-move 238 70 -height 309 -width 645
+    mouse-move 238 70 -height 309 -width 645
+    mouse-move 235 70 -height 309 -width 645
+    mouse-move 235 70 -height 309 -width 645
+    mouse-move 231 70 -height 309 -width 645
+    mouse-move 231 70 -height 309 -width 645
+    mouse-move 226 70 -height 309 -width 645
+    mouse-move 226 70 -height 309 -width 645
+    mouse-move 221 71 -height 309 -width 645
+    mouse-move 221 71 -height 309 -width 645
+    mouse-move 216 72 -height 309 -width 645
+    mouse-move 216 72 -height 309 -width 645
+    mouse-move 210 72 -height 309 -width 645
+    mouse-move 210 72 -height 309 -width 645
+    mouse-move 207 72 -height 309 -width 645
+    mouse-move 207 72 -height 309 -width 645
+    mouse-move 206 72 -height 309 -width 645
+    mouse-move 206 72 -height 309 -width 645
+    mouse-move 203 73 -height 309 -width 645
+    mouse-move 203 73 -height 309 -width 645
+    mouse-move 202 73 -height 309 -width 645
+    mouse-move 202 73 -height 309 -width 645
+    mouse-move 201 73 -height 309 -width 645
+    mouse-move 201 73 -height 309 -width 645
+    mouse-move 201 73 button1 -height 309 -width 645
+    mouse-move 201 73 button1 -height 309 -width 645
+    mouse-press 201 73 button1 -height 309 -width 645
+    mouse-press 201 73 button1 -height 309 -width 645
+    mouse-release 201 73 button1 524288 -height 309 -width 645
+}
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+    mouse-move 396 93 -height 309 -width 645
+    mouse-move 396 93 -height 309 -width 645
+    mouse-move 427 94 -height 309 -width 645
+    mouse-move 427 94 -height 309 -width 645
+    mouse-move 463 94 -height 309 -width 645
+    mouse-move 463 94 -height 309 -width 645
+    mouse-move 497 94 -height 309 -width 645
+    mouse-move 497 94 -height 309 -width 645
+    mouse-move 525 94 -height 309 -width 645
+    mouse-move 525 94 -height 309 -width 645
+    mouse-move 536 94 -height 309 -width 645
+    mouse-move 536 94 -height 309 -width 645
+    mouse-move 566 94 -height 309 -width 645
+    mouse-move 566 94 -height 309 -width 645
+    mouse-move 598 93 -height 309 -width 645
+    mouse-move 598 93 -height 309 -width 645
+    mouse-move 620 93 -height 309 -width 645
+    mouse-move 620 93 -height 309 -width 645
+    mouse-move 635 92 -height 309 -width 645
+    mouse-move 635 92 -height 309 -width 645
+}
+// Check Tool Final State
+with [get-editor " State Machine Diagram" | get-palette | get-palette-entry "Final State"] {
+    mouse-move 13 20 -height 23 -width 125
+    mouse-move 13 20 -height 23 -width 125
+    mouse-move 18 20 -height 23 -width 125
+    mouse-move 18 20 -height 23 -width 125
+    mouse-move 23 20 -height 23 -width 125
+    mouse-move 23 20 -height 23 -width 125
+    mouse-move 24 19 -height 23 -width 125
+    mouse-move 24 19 -height 23 -width 125
+    mouse-move 26 18 -height 23 -width 125
+    mouse-move 26 18 -height 23 -width 125
+    mouse-move 28 17 -height 23 -width 125
+    mouse-move 28 17 -height 23 -width 125
+    mouse-move 28 16 -height 23 -width 125
+    mouse-move 28 16 -height 23 -width 125
+    mouse-move 30 15 -height 23 -width 125
+    mouse-move 30 15 -height 23 -width 125
+    mouse-move 32 12 -height 23 -width 125
+    mouse-move 32 12 -height 23 -width 125
+    mouse-move 33 12 -height 23 -width 125
+    mouse-move 33 12 -height 23 -width 125
+    mouse-move 35 9 -height 23 -width 125
+    mouse-move 35 9 -height 23 -width 125
+    mouse-move 38 9 -height 23 -width 125
+    mouse-move 38 9 -height 23 -width 125
+    mouse-move 40 7 -height 23 -width 125
+    mouse-move 40 7 -height 23 -width 125
+    mouse-move 41 6 -height 23 -width 125
+    mouse-move 41 6 -height 23 -width 125
+    mouse-move 42 6 -height 23 -width 125
+    mouse-move 42 6 -height 23 -width 125
+    mouse-move 43 5 -height 23 -width 125
+    mouse-move 43 5 -height 23 -width 125
+    mouse-move 44 5 -height 23 -width 125
+    mouse-move 44 5 -height 23 -width 125
+    mouse-move 44 6 -height 23 -width 125
+    mouse-move 44 6 -height 23 -width 125
+    mouse-move 44 7 -height 23 -width 125
+    mouse-move 44 7 -height 23 -width 125
+    mouse-move 44 8 -height 23 -width 125
+    mouse-move 44 8 -height 23 -width 125
+    mouse-move 44 9 -height 23 -width 125
+    mouse-move 44 9 -height 23 -width 125
+    mouse-move 44 10 -height 23 -width 125
+    mouse-move 44 10 -height 23 -width 125
+    mouse-move 44 10 button1 -height 23 -width 125
+    mouse-press 44 10 button1 -height 23 -width 125
+    mouse-press 44 10 button1 -height 23 -width 125
+    mouse-release 44 10 button1 524288 -height 23 -width 125
+    mouse-move 42 10 -height 23 -width 125
+    mouse-move 42 10 -height 23 -width 125
+    mouse-move 38 10 -height 23 -width 125
+    mouse-move 38 10 -height 23 -width 125
+    mouse-move 31 10 -height 23 -width 125
+    mouse-move 31 10 -height 23 -width 125
+    mouse-move 20 12 -height 23 -width 125
+    mouse-move 20 12 -height 23 -width 125
+}
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+    mouse-move 636 90 -height 309 -width 645
+    mouse-move 636 90 -height 309 -width 645
+    mouse-move 621 90 -height 309 -width 645
+    mouse-move 621 90 -height 309 -width 645
+    mouse-move 607 91 -height 309 -width 645
+    mouse-move 607 91 -height 309 -width 645
+    mouse-move 595 92 -height 309 -width 645
+    mouse-move 595 92 -height 309 -width 645
+    mouse-move 582 94 -height 309 -width 645
+    mouse-move 582 94 -height 309 -width 645
+    mouse-move 571 94 -height 309 -width 645
+    mouse-move 571 94 -height 309 -width 645
+    mouse-move 554 95 -height 309 -width 645
+    mouse-move 554 95 -height 309 -width 645
+    mouse-move 538 97 -height 309 -width 645
+    mouse-move 538 97 -height 309 -width 645
+    mouse-move 523 98 -height 309 -width 645
+    mouse-move 523 98 -height 309 -width 645
+    mouse-move 516 99 -height 309 -width 645
+    mouse-move 516 99 -height 309 -width 645
+    mouse-move 504 102 -height 309 -width 645
+    mouse-move 504 102 -height 309 -width 645
+    mouse-move 495 103 -height 309 -width 645
+    mouse-move 495 103 -height 309 -width 645
+    mouse-move 479 106 -height 309 -width 645
+    mouse-move 479 106 -height 309 -width 645
+    mouse-move 465 111 -height 309 -width 645
+    mouse-move 465 111 -height 309 -width 645
+    mouse-move 450 117 -height 309 -width 645
+    mouse-move 450 117 -height 309 -width 645
+    mouse-move 439 121 -height 309 -width 645
+    mouse-move 439 121 -height 309 -width 645
+    mouse-move 427 125 -height 309 -width 645
+    mouse-move 427 125 -height 309 -width 645
+    mouse-move 416 129 -height 309 -width 645
+    mouse-move 416 129 -height 309 -width 645
+    mouse-move 405 131 -height 309 -width 645
+    mouse-move 405 131 -height 309 -width 645
+    mouse-move 395 131 -height 309 -width 645
+    mouse-move 395 131 -height 309 -width 645
+    mouse-move 387 133 -height 309 -width 645
+    mouse-move 387 133 -height 309 -width 645
+    mouse-move 380 135 -height 309 -width 645
+    mouse-move 380 135 -height 309 -width 645
+    mouse-move 375 136 -height 309 -width 645
+    mouse-move 375 136 -height 309 -width 645
+    mouse-move 371 136 -height 309 -width 645
+    mouse-move 371 136 -height 309 -width 645
+    mouse-move 368 137 -height 309 -width 645
+    mouse-move 368 137 -height 309 -width 645
+    mouse-move 365 137 -height 309 -width 645
+    mouse-move 365 137 -height 309 -width 645
+    mouse-move 361 137 -height 309 -width 645
+    mouse-move 361 137 -height 309 -width 645
+    mouse-move 355 137 -height 309 -width 645
+    mouse-move 355 137 -height 309 -width 645
+    mouse-move 350 137 -height 309 -width 645
+    mouse-move 350 137 -height 309 -width 645
+    mouse-move 343 139 -height 309 -width 645
+    mouse-move 343 139 -height 309 -width 645
+    mouse-move 334 140 -height 309 -width 645
+    mouse-move 334 140 -height 309 -width 645
+    mouse-move 329 140 -height 309 -width 645
+    mouse-move 329 140 -height 309 -width 645
+    mouse-move 320 141 -height 309 -width 645
+    mouse-move 320 141 -height 309 -width 645
+    mouse-move 316 142 -height 309 -width 645
+    mouse-move 316 142 -height 309 -width 645
+    mouse-move 315 144 -height 309 -width 645
+    mouse-move 315 144 -height 309 -width 645
+    mouse-move 310 145 -height 309 -width 645
+    mouse-move 310 145 -height 309 -width 645
+    mouse-move 307 146 -height 309 -width 645
+    mouse-move 307 146 -height 309 -width 645
+    mouse-move 300 147 -height 309 -width 645
+    mouse-move 300 147 -height 309 -width 645
+    mouse-move 293 147 -height 309 -width 645
+    mouse-move 293 147 -height 309 -width 645
+    mouse-move 287 148 -height 309 -width 645
+    mouse-move 287 148 -height 309 -width 645
+    mouse-move 279 149 -height 309 -width 645
+    mouse-move 279 149 -height 309 -width 645
+    mouse-move 270 151 -height 309 -width 645
+    mouse-move 270 151 -height 309 -width 645
+    mouse-move 263 152 -height 309 -width 645
+    mouse-move 263 152 -height 309 -width 645
+    mouse-move 262 152 -height 309 -width 645
+    mouse-move 262 152 -height 309 -width 645
+    mouse-move 255 154 -height 309 -width 645
+    mouse-move 255 154 -height 309 -width 645
+    mouse-move 252 157 -height 309 -width 645
+    mouse-move 252 157 -height 309 -width 645
+    mouse-move 248 159 -height 309 -width 645
+    mouse-move 248 159 -height 309 -width 645
+    mouse-move 244 161 -height 309 -width 645
+    mouse-move 244 161 -height 309 -width 645
+    mouse-move 239 161 -height 309 -width 645
+    mouse-move 239 161 -height 309 -width 645
+    mouse-move 237 161 -height 309 -width 645
+    mouse-move 237 161 -height 309 -width 645
+    mouse-move 236 162 -height 309 -width 645
+    mouse-move 236 162 -height 309 -width 645
+    mouse-move 234 162 -height 309 -width 645
+    mouse-move 234 162 -height 309 -width 645
+    mouse-move 231 162 -height 309 -width 645
+    mouse-move 231 162 -height 309 -width 645
+    mouse-move 228 162 -height 309 -width 645
+    mouse-move 228 162 -height 309 -width 645
+    mouse-move 225 162 -height 309 -width 645
+    mouse-move 225 162 -height 309 -width 645
+    mouse-move 224 162 -height 309 -width 645
+    mouse-move 224 162 -height 309 -width 645
+    mouse-hover 224 162 -height 309 -width 645
+    mouse-hover 224 162 -height 309 -width 645
+    mouse-move 224 162 button1 -height 309 -width 645
+    mouse-press 224 162 button1 -height 309 -width 645
+    mouse-press 224 162 button1 -height 309 -width 645
+    mouse-release 224 162 button1 524288 -height 309 -width 645
+}
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+    with [get-edit-part -name "" -index 2 | get-handle ResizeHandle -index 6] {
+        mouse-hover 4 4 -height 7 -width 7
+        mouse-hover 4 4 -height 7 -width 7
+    }
+    mouse-move 258 162 -height 309 -width 645
+    mouse-move 258 162 -height 309 -width 645
+    mouse-move 267 164 -height 309 -width 645
+    mouse-move 267 164 -height 309 -width 645
+    mouse-move 279 164 -height 309 -width 645
+    mouse-move 279 164 -height 309 -width 645
+    mouse-move 308 164 -height 309 -width 645
+    mouse-move 308 164 -height 309 -width 645
+    mouse-move 339 164 -height 309 -width 645
+    mouse-move 339 164 -height 309 -width 645
+    mouse-move 583 146 -height 309 -width 645
+    mouse-move 583 146 -height 309 -width 645
+    mouse-move 586 145 -height 309 -width 645
+    mouse-move 586 145 -height 309 -width 645
+    mouse-move 587 145 -height 309 -width 645
+    mouse-move 587 145 -height 309 -width 645
+    mouse-move 588 144 -height 309 -width 645
+    mouse-move 588 144 -height 309 -width 645
+    mouse-move 589 144 -height 309 -width 645
+    mouse-move 589 144 -height 309 -width 645
+    mouse-move 590 144 -height 309 -width 645
+    mouse-move 590 144 -height 309 -width 645
+    mouse-move 591 143 -height 309 -width 645
+    mouse-move 591 143 -height 309 -width 645
+    mouse-move 592 143 -height 309 -width 645
+    mouse-move 592 143 -height 309 -width 645
+    mouse-move 594 143 -height 309 -width 645
+    mouse-move 594 143 -height 309 -width 645
+    mouse-move 597 143 -height 309 -width 645
+    mouse-move 597 143 -height 309 -width 645
+    mouse-move 600 143 -height 309 -width 645
+    mouse-move 600 143 -height 309 -width 645
+    mouse-move 604 143 -height 309 -width 645
+    mouse-move 604 143 -height 309 -width 645
+    mouse-move 609 143 -height 309 -width 645
+    mouse-move 609 143 -height 309 -width 645
+    mouse-move 615 142 -height 309 -width 645
+    mouse-move 615 142 -height 309 -width 645
+    mouse-move 619 142 -height 309 -width 645
+    mouse-move 619 142 -height 309 -width 645
+    mouse-move 621 142 -height 309 -width 645
+    mouse-move 621 142 -height 309 -width 645
+    mouse-move 625 142 -height 309 -width 645
+    mouse-move 625 142 -height 309 -width 645
+    mouse-move 626 142 -height 309 -width 645
+    mouse-move 626 142 -height 309 -width 645
+    mouse-move 627 141 -height 309 -width 645
+    mouse-move 627 141 -height 309 -width 645
+    mouse-move 629 140 -height 309 -width 645
+    mouse-move 629 140 -height 309 -width 645
+    mouse-move 632 139 -height 309 -width 645
+    mouse-move 632 139 -height 309 -width 645
+    mouse-move 635 137 -height 309 -width 645
+    mouse-move 635 137 -height 309 -width 645
+    mouse-move 636 136 -height 309 -width 645
+    mouse-move 636 136 -height 309 -width 645
+    mouse-move 641 132 -height 309 -width 645
+    mouse-move 641 132 -height 309 -width 645
+}
+with [get-editor " State Machine Diagram" | get-palette] {
+    with [get-palette-entry Transition] {
+        mouse-move 13 17 -height 23 -width 125
+        mouse-move 13 17 -height 23 -width 125
+        mouse-move 18 14 -height 23 -width 125
+        mouse-move 18 14 -height 23 -width 125
+        mouse-move 23 11 -height 23 -width 125
+        mouse-move 23 11 -height 23 -width 125
+        mouse-move 25 9 -height 23 -width 125
+        mouse-move 25 9 -height 23 -width 125
+        mouse-move 26 9 -height 23 -width 125
+        mouse-move 26 9 -height 23 -width 125
+        mouse-move 27 8 -height 23 -width 125
+        mouse-move 27 8 -height 23 -width 125
+        mouse-move 28 8 -height 23 -width 125
+        mouse-move 28 8 -height 23 -width 125
+        mouse-move 29 8 -height 23 -width 125
+        mouse-move 29 8 -height 23 -width 125
+        mouse-move 30 8 -height 23 -width 125
+        mouse-move 30 8 -height 23 -width 125
+        mouse-move 30 10 -height 23 -width 125
+        mouse-move 30 10 -height 23 -width 125
+        mouse-move 30 11 -height 23 -width 125
+        mouse-move 30 11 -height 23 -width 125
+        mouse-move 32 13 -height 23 -width 125
+        mouse-move 32 13 -height 23 -width 125
+        mouse-move 32 14 -height 23 -width 125
+        mouse-move 32 14 -height 23 -width 125
+        mouse-move 33 15 -height 23 -width 125
+        mouse-move 33 15 -height 23 -width 125
+        mouse-move 34 16 -height 23 -width 125
+        mouse-move 34 16 -height 23 -width 125
+        mouse-move 35 17 -height 23 -width 125
+        mouse-move 35 17 -height 23 -width 125
+        mouse-move 37 19 -height 23 -width 125
+        mouse-move 37 19 -height 23 -width 125
+        mouse-move 38 19 -height 23 -width 125
+        mouse-move 38 19 -height 23 -width 125
+    }
+    // Check Tool Region
+    with [get-palette-entry Region] {
+        mouse-move 41 15 -height 23 -width 125
+        mouse-move 41 15 -height 23 -width 125
+        mouse-move 41 15 button1 -height 23 -width 125
+        mouse-press 41 15 button1 -height 23 -width 125
+        mouse-press 41 15 button1 -height 23 -width 125
+        mouse-release 41 15 button1 524288 -height 23 -width 125
+        mouse-move 38 15 -height 23 -width 125
+        mouse-move 38 15 -height 23 -width 125
+        mouse-move 33 15 -height 23 -width 125
+        mouse-move 33 15 -height 23 -width 125
+        mouse-move 25 15 -height 23 -width 125
+        mouse-move 25 15 -height 23 -width 125
+        mouse-move 13 14 -height 23 -width 125
+        mouse-move 13 14 -height 23 -width 125
+    }
+}
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+    mouse-move 633 126 -height 309 -width 645
+    mouse-move 633 126 -height 309 -width 645
+    mouse-move 610 125 -height 309 -width 645
+    mouse-move 610 125 -height 309 -width 645
+    mouse-move 585 120 -height 309 -width 645
+    mouse-move 585 120 -height 309 -width 645
+    mouse-move 561 116 -height 309 -width 645
+    mouse-move 561 116 -height 309 -width 645
+    mouse-move 409 108 -height 309 -width 645
+    mouse-move 409 108 -height 309 -width 645
+    mouse-move 410 108 -height 309 -width 645
+    mouse-move 410 108 -height 309 -width 645
+    mouse-move 411 108 -height 309 -width 645
+    mouse-move 411 108 -height 309 -width 645
+    mouse-move 412 108 -height 309 -width 645
+    mouse-move 412 108 -height 309 -width 645
+    mouse-move 413 108 -height 309 -width 645
+    mouse-move 413 108 -height 309 -width 645
+    mouse-move 415 108 -height 309 -width 645
+    mouse-move 415 108 -height 309 -width 645
+    mouse-move 418 108 -height 309 -width 645
+    mouse-move 418 108 -height 309 -width 645
+    mouse-move 421 108 -height 309 -width 645
+    mouse-move 421 108 -height 309 -width 645
+    mouse-move 425 107 -height 309 -width 645
+    mouse-move 425 107 -height 309 -width 645
+    mouse-move 428 107 -height 309 -width 645
+    mouse-move 428 107 -height 309 -width 645
+    mouse-move 431 107 -height 309 -width 645
+    mouse-move 431 107 -height 309 -width 645
+    mouse-move 434 106 -height 309 -width 645
+    mouse-move 434 106 -height 309 -width 645
+    mouse-move 436 106 -height 309 -width 645
+    mouse-move 436 106 -height 309 -width 645
+    mouse-move 439 106 -height 309 -width 645
+    mouse-move 439 106 -height 309 -width 645
+    mouse-move 442 106 -height 309 -width 645
+    mouse-move 442 106 -height 309 -width 645
+    mouse-move 443 106 -height 309 -width 645
+    mouse-move 443 106 -height 309 -width 645
+    mouse-move 443 106 button1 -height 309 -width 645
+    mouse-press 443 106 button1 -height 309 -width 645
+    mouse-press 443 106 button1 -height 309 -width 645
+    mouse-release 443 106 button1 524288 -height 309 -width 645
+}
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram" 
+    | get-edit-part -name "new Region 1" | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    mouse-move 14 2 -height 68 -width 148
+    mouse-move 14 2 -height 68 -width 148
+    mouse-move 36 9 -height 68 -width 148
+    mouse-move 36 9 -height 68 -width 148
+    mouse-move 47 12 -height 68 -width 148
+    mouse-move 47 12 -height 68 -width 148
+    mouse-move 59 16 -height 68 -width 148
+    mouse-move 59 16 -height 68 -width 148
+}
+// Check Tool State
+with [get-editor " State Machine Diagram" | get-palette | get-palette-entry State] {
+    mouse-move 9 4 -height 23 -width 125
+    mouse-move 9 4 -height 23 -width 125
+    mouse-move 11 4 -height 23 -width 125
+    mouse-move 11 4 -height 23 -width 125
+    mouse-move 13 4 -height 23 -width 125
+    mouse-move 13 4 -height 23 -width 125
+    mouse-move 14 4 -height 23 -width 125
+    mouse-move 14 4 -height 23 -width 125
+    mouse-move 17 5 -height 23 -width 125
+    mouse-move 17 5 -height 23 -width 125
+    mouse-move 18 5 -height 23 -width 125
+    mouse-move 18 5 -height 23 -width 125
+    mouse-move 19 5 -height 23 -width 125
+    mouse-move 19 5 -height 23 -width 125
+    mouse-move 20 5 -height 23 -width 125
+    mouse-move 20 5 -height 23 -width 125
+    mouse-move 20 6 -height 23 -width 125
+    mouse-move 20 6 -height 23 -width 125
+    mouse-move 21 6 -height 23 -width 125
+    mouse-move 21 6 -height 23 -width 125
+    mouse-move 21 7 -height 23 -width 125
+    mouse-move 21 7 -height 23 -width 125
+    mouse-move 22 8 -height 23 -width 125
+    mouse-move 22 8 -height 23 -width 125
+    mouse-move 23 8 -height 23 -width 125
+    mouse-move 23 8 -height 23 -width 125
+    mouse-move 23 9 -height 23 -width 125
+    mouse-move 23 9 -height 23 -width 125
+    mouse-move 23 10 -height 23 -width 125
+    mouse-move 23 10 -height 23 -width 125
+    mouse-move 23 10 button1 -height 23 -width 125
+    mouse-press 23 10 button1 -height 23 -width 125
+    mouse-press 23 10 button1 -height 23 -width 125
+    mouse-release 23 10 button1 524288 -height 23 -width 125
+    mouse-move 22 10 -height 23 -width 125
+    mouse-move 22 10 -height 23 -width 125
+    mouse-move 19 10 -height 23 -width 125
+    mouse-move 19 10 -height 23 -width 125
+    mouse-move 15 10 -height 23 -width 125
+    mouse-move 15 10 -height 23 -width 125
+}
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+    mouse-move 636 157 -height 309 -width 645
+    mouse-move 636 157 -height 309 -width 645
+    mouse-move 621 156 -height 309 -width 645
+    mouse-move 621 156 -height 309 -width 645
+    with [get-edit-part -name "new Region 1"] {
+        mouse-move 149 50 -height 70 -width 150
+        mouse-move 149 50 -height 70 -width 150
+        with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 118 52 -height 68 -width 148
+            mouse-move 118 52 -height 68 -width 148
+        }
+    }
+    mouse-move 320 208 -height 309 -width 645
+    mouse-move 320 208 -height 309 -width 645
+    mouse-move 319 211 -height 309 -width 645
+    mouse-move 319 211 -height 309 -width 645
+    mouse-move 317 213 -height 309 -width 645
+    mouse-move 317 213 -height 309 -width 645
+    mouse-move 316 214 -height 309 -width 645
+    mouse-move 316 214 -height 309 -width 645
+    mouse-move 315 216 -height 309 -width 645
+    mouse-move 315 216 -height 309 -width 645
+    mouse-move 314 217 -height 309 -width 645
+    mouse-move 314 217 -height 309 -width 645
+    mouse-move 314 218 -height 309 -width 645
+    mouse-move 314 218 -height 309 -width 645
+    mouse-move 314 219 -height 309 -width 645
+    mouse-move 314 219 -height 309 -width 645
+    mouse-move 314 220 -height 309 -width 645
+    mouse-move 314 220 -height 309 -width 645
+    mouse-move 314 221 -height 309 -width 645
+    mouse-move 314 221 -height 309 -width 645
+    mouse-move 314 222 -height 309 -width 645
+    mouse-move 314 222 -height 309 -width 645
+    mouse-move 314 224 -height 309 -width 645
+    mouse-move 314 224 -height 309 -width 645
+    mouse-move 314 225 -height 309 -width 645
+    mouse-move 314 225 -height 309 -width 645
+    mouse-move 314 225 button1 -height 309 -width 645
+    mouse-press 314 225 button1 -height 309 -width 645
+    mouse-press 314 225 button1 -height 309 -width 645
+    mouse-release 314 225 button1 524288 -height 309 -width 645
+}
+with [get-editor " State Machine Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name " State Machine Diagram"] {
+        with [get-edit-part -name "State_1" | get-handle ResizeHandle -index 6] {
+            mouse-hover 4 4 -height 7 -width 7
+            mouse-hover 4 4 -height 7 -width 7
+        }
+        mouse-move 391 223 -height 309 -width 645
+        mouse-move 391 223 -height 309 -width 645
+        mouse-move 405 222 -height 309 -width 645
+        mouse-move 405 222 -height 309 -width 645
+        mouse-move 420 222 -height 309 -width 645
+        mouse-move 420 222 -height 309 -width 645
+        mouse-move 433 222 -height 309 -width 645
+        mouse-move 433 222 -height 309 -width 645
+        mouse-move 444 220 -height 309 -width 645
+        mouse-move 444 220 -height 309 -width 645
+        mouse-move 458 220 -height 309 -width 645
+        mouse-move 458 220 -height 309 -width 645
+        mouse-move 467 217 -height 309 -width 645
+        mouse-move 467 217 -height 309 -width 645
+        mouse-move 473 217 -height 309 -width 645
+        mouse-move 473 217 -height 309 -width 645
+        mouse-move 481 215 -height 309 -width 645
+        mouse-move 481 215 -height 309 -width 645
+        mouse-move 489 211 -height 309 -width 645
+        mouse-move 489 211 -height 309 -width 645
+        mouse-move 496 209 -height 309 -width 645
+        mouse-move 496 209 -height 309 -width 645
+        mouse-move 498 209 -height 309 -width 645
+        mouse-move 498 209 -height 309 -width 645
+        mouse-move 503 209 -height 309 -width 645
+        mouse-move 503 209 -height 309 -width 645
+        mouse-move 509 208 -height 309 -width 645
+        mouse-move 509 208 -height 309 -width 645
+        mouse-move 513 207 -height 309 -width 645
+        mouse-move 513 207 -height 309 -width 645
+        mouse-move 517 206 -height 309 -width 645
+        mouse-move 517 206 -height 309 -width 645
+        mouse-move 520 206 -height 309 -width 645
+        mouse-move 520 206 -height 309 -width 645
+        mouse-move 522 206 -height 309 -width 645
+        mouse-move 522 206 -height 309 -width 645
+        mouse-move 522 205 -height 309 -width 645
+        mouse-move 522 205 -height 309 -width 645
+        mouse-move 524 205 -height 309 -width 645
+        mouse-move 524 205 -height 309 -width 645
+        mouse-move 524 204 -height 309 -width 645
+        mouse-move 524 204 -height 309 -width 645
+        mouse-move 525 202 -height 309 -width 645
+        mouse-move 525 202 -height 309 -width 645
+        mouse-move 525 200 -height 309 -width 645
+        mouse-move 525 200 -height 309 -width 645
+        mouse-move 526 196 -height 309 -width 645
+        mouse-move 526 196 -height 309 -width 645
+        mouse-move 526 194 -height 309 -width 645
+        mouse-move 526 194 -height 309 -width 645
+        mouse-move 526 192 -height 309 -width 645
+        mouse-move 526 192 -height 309 -width 645
+        mouse-move 526 190 -height 309 -width 645
+        mouse-move 526 190 -height 309 -width 645
+        mouse-move 525 186 -height 309 -width 645
+        mouse-move 525 186 -height 309 -width 645
+        mouse-move 525 183 -height 309 -width 645
+        mouse-move 525 183 -height 309 -width 645
+        mouse-move 524 180 -height 309 -width 645
+        mouse-move 524 180 -height 309 -width 645
+        mouse-move 523 177 -height 309 -width 645
+        mouse-move 523 177 -height 309 -width 645
+        with [get-edit-part -name "new Region 1"] {
+            mouse-move 79 69 -height 70 -width 150
+            mouse-move 79 69 -height 70 -width 150
+            mouse-move 79 68 -height 70 -width 150
+            mouse-move 79 68 -height 70 -width 150
+            with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-move 79 66 -height 68 -width 148
+                mouse-move 79 66 -height 68 -width 148
+                mouse-move 79 65 -height 68 -width 148
+                mouse-move 79 65 -height 68 -width 148
+                mouse-move 79 64 -height 68 -width 148
+                mouse-move 79 64 -height 68 -width 148
+                mouse-move 79 63 -height 68 -width 148
+                mouse-move 79 63 -height 68 -width 148
+                mouse-move 79 62 -height 68 -width 148
+                mouse-move 79 62 -height 68 -width 148
+                mouse-move 79 61 -height 68 -width 148
+                mouse-move 79 61 -height 68 -width 148
+                mouse-move 79 60 -height 68 -width 148
+                mouse-move 79 60 -height 68 -width 148
+                mouse-move 79 59 -height 68 -width 148
+                mouse-move 79 59 -height 68 -width 148
+                mouse-move 79 59 button1 -height 68 -width 148
+                mouse-press 79 59 button1 -height 68 -width 148
+                mouse-press 79 59 button1 -height 68 -width 148
+                mouse-release 79 59 button1 524288 -height 68 -width 148
+                mouse-hover 79 59 -height 68 -width 148
+                mouse-hover 79 59 -height 68 -width 148
+            }
+        }
+    }
+    // Check Tool EDT_States&RegionsLabel 
+    key-type F2
+    with [get-edit-part -name " State Machine Diagram" | get-edit-part -name "new Region 1"] {
+        get-edit-part -className DNodeContainerNameEditPart | activate-direct-edit
+        with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 94 25 -height 68 -width 148
+            mouse-move 94 25 -height 68 -width 148
+            mouse-move 96 22 -height 68 -width 148
+            mouse-move 96 22 -height 68 -width 148
+        }
+    }
+}
+get-editor " State Machine Diagram" | get-editbox | click-text "1:1" "1:13"
+get-editor " State Machine Diagram" | get-editbox | click-text "1:13"
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram" 
+    | get-edit-part -name "new Region 1" | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    mouse-move 125 22 -height 68 -width 148
+    mouse-move 125 22 -height 68 -width 148
+    mouse-move 125 25 -height 68 -width 148
+    mouse-move 125 25 -height 68 -width 148
+    mouse-move 126 27 -height 68 -width 148
+    mouse-move 126 27 -height 68 -width 148
+    mouse-move 126 30 -height 68 -width 148
+    mouse-move 126 30 -height 68 -width 148
+    mouse-move 127 31 -height 68 -width 148
+    mouse-move 127 31 -height 68 -width 148
+    mouse-move 129 45 -height 68 -width 148
+    mouse-move 129 45 -height 68 -width 148
+    mouse-hover 129 45 -height 68 -width 148
+    mouse-hover 129 45 -height 68 -width 148
+}
+get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_"
+get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_R"
+get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_Re"
+get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_Ren"
+get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_Rena"
+get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_Renam"
+get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_Rename"
+get-editor " State Machine Diagram" | get-editbox | key-type Enter
+with [get-editor " State Machine Diagram" | get-diagram -index 1] {
+    commit-direct-edit
+    key-type Enter
+    with [get-edit-part -name " State Machine Diagram"] {
+        mouse-move 610 165 -height 309 -width 645
+        mouse-move 610 165 -height 309 -width 645
+        mouse-move 636 177 -height 309 -width 645
+        mouse-move 636 177 -height 309 -width 645
+        mouse-move 636 178 -height 309 -width 645
+        mouse-move 636 178 -height 309 -width 645
+        mouse-move 636 179 -height 309 -width 645
+        mouse-move 636 179 -height 309 -width 645
+        mouse-hover 636 179 -height 309 -width 645
+        mouse-hover 636 179 -height 309 -width 645
+        with [get-edit-part -name "new Region 1_Rename" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 68 37 -height 68 -width 152
+            mouse-move 68 37 -height 68 -width 152
+        }
+        mouse-move 406 111 -height 309 -width 645
+        mouse-move 406 111 -height 309 -width 645
+        mouse-move 332 93 -height 309 -width 645
+        mouse-move 332 93 -height 309 -width 645
+        mouse-move 246 69 -height 309 -width 645
+        mouse-move 246 69 -height 309 -width 645
+        mouse-move 152 43 -height 309 -width 645
+        mouse-move 152 43 -height 309 -width 645
+        mouse-move 61 16 -height 309 -width 645
+        mouse-move 61 16 -height 309 -width 645
+    }
+}																						          
+get-view "Model Explorer" | get-tree | get-item "E-BookStore/My.statemachine/State Machine/Region new Region 1_Rename" 
+    | get-property "getText()" | equals "Region new Region 1_Rename" | verify-true
+with [get-editor " State Machine Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name " State Machine Diagram"] {
+        mouse-move 5 119 -height 309 -width 645
+        mouse-move 5 119 -height 309 -width 645
+        mouse-move 31 145 -height 309 -width 645
+        mouse-move 31 145 -height 309 -width 645
+        mouse-move 45 161 -height 309 -width 645
+        mouse-move 45 161 -height 309 -width 645
+        mouse-move 63 177 -height 309 -width 645
+        mouse-move 63 177 -height 309 -width 645
+        mouse-move 81 194 -height 309 -width 645
+        mouse-move 81 194 -height 309 -width 645
+        mouse-move 104 210 -height 309 -width 645
+        mouse-move 104 210 -height 309 -width 645
+        mouse-move 132 227 -height 309 -width 645
+        mouse-move 132 227 -height 309 -width 645
+        mouse-move 161 241 -height 309 -width 645
+        mouse-move 161 241 -height 309 -width 645
+        mouse-move 182 250 -height 309 -width 645
+        mouse-move 182 250 -height 309 -width 645
+        mouse-move 197 256 -height 309 -width 645
+        mouse-move 197 256 -height 309 -width 645
+        mouse-move 222 264 -height 309 -width 645
+        mouse-move 222 264 -height 309 -width 645
+        mouse-move 247 272 -height 309 -width 645
+        mouse-move 247 272 -height 309 -width 645
+        mouse-move 267 278 -height 309 -width 645
+        mouse-move 267 278 -height 309 -width 645
+        mouse-move 281 283 -height 309 -width 645
+        mouse-move 281 283 -height 309 -width 645
+        mouse-move 294 287 -height 309 -width 645
+        mouse-move 294 287 -height 309 -width 645
+        mouse-move 302 288 -height 309 -width 645
+        mouse-move 302 288 -height 309 -width 645
+        mouse-move 309 289 -height 309 -width 645
+        mouse-move 309 289 -height 309 -width 645
+        with [get-edit-part -name "State_1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 1 64 -height 68 -width 148
+            mouse-move 1 64 -height 68 -width 148
+            mouse-move 7 65 -height 68 -width 148
+            mouse-move 7 65 -height 68 -width 148
+            mouse-move 11 65 -height 68 -width 148
+            mouse-move 11 65 -height 68 -width 148
+            mouse-move 14 65 -height 68 -width 148
+            mouse-move 14 65 -height 68 -width 148
+            mouse-move 17 65 -height 68 -width 148
+            mouse-move 17 65 -height 68 -width 148
+            mouse-move 18 65 -height 68 -width 148
+            mouse-move 18 65 -height 68 -width 148
+            mouse-move 20 65 -height 68 -width 148
+            mouse-move 20 65 -height 68 -width 148
+            mouse-move 22 65 -height 68 -width 148
+            mouse-move 22 65 -height 68 -width 148
+            mouse-move 23 65 -height 68 -width 148
+            mouse-move 23 65 -height 68 -width 148
+            mouse-move 24 65 -height 68 -width 148
+            mouse-move 24 65 -height 68 -width 148
+            mouse-move 59 40 -height 68 -width 148
+            mouse-move 59 40 -height 68 -width 148
+            mouse-move 59 40 button1 -height 68 -width 148
+            mouse-move 59 40 button1 -height 68 -width 148
+            mouse-press 59 40 button1 -height 68 -width 148
+            mouse-press 59 40 button1 -height 68 -width 148
+            mouse-release 59 40 button1 524288 -height 68 -width 148
+            mouse-hover 59 40 -height 68 -width 148
+            mouse-hover 59 40 -height 68 -width 148
+        }
+    }
+    key-type F2
+    with [get-edit-part -name " State Machine Diagram" | get-edit-part -name "State_1"] {
+        get-edit-part -className DNodeContainerNameEditPart | activate-direct-edit
+        with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 62 40 -height 68 -width 148
+            mouse-move 62 40 -height 68 -width 148
+            mouse-move 64 40 -height 68 -width 148
+            mouse-move 64 40 -height 68 -width 148
+            mouse-move 66 40 -height 68 -width 148
+            mouse-move 66 40 -height 68 -width 148
+            mouse-move 68 40 -height 68 -width 148
+            mouse-move 68 40 -height 68 -width 148
+            mouse-move 102 25 -height 68 -width 148
+            mouse-move 102 25 -height 68 -width 148
+            mouse-move 102 24 -height 68 -width 148
+            mouse-move 102 24 -height 68 -width 148
+        }
+    }
+}
+get-editor " State Machine Diagram" | get-editbox | click-text "1:1" "1:8"
+get-editor " State Machine Diagram" | get-editbox | click-text "1:8"
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram" 
+    | get-edit-part -name "State_1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    mouse-move 108 23 -height 68 -width 148
+    mouse-move 108 23 -height 68 -width 148
+    mouse-move 108 24 -height 68 -width 148
+    mouse-move 108 24 -height 68 -width 148
+    mouse-move 107 24 -height 68 -width 148
+    mouse-move 107 24 -height 68 -width 148
+    mouse-move 106 24 -height 68 -width 148
+    mouse-move 106 24 -height 68 -width 148
+    mouse-hover 106 24 -height 68 -width 148
+    mouse-hover 106 24 -height 68 -width 148
+}
+get-editor " State Machine Diagram" | get-editbox | set-text "State_1_"
+get-editor " State Machine Diagram" | get-editbox | set-text "State_1_R"
+get-editor " State Machine Diagram" | get-editbox | set-text "State_1_Re"
+get-editor " State Machine Diagram" | get-editbox | set-text "State_1_Ren"
+get-editor " State Machine Diagram" | get-editbox | set-text "State_1_Rena"
+get-editor " State Machine Diagram" | get-editbox | set-text "State_1_Renam"
+get-editor " State Machine Diagram" | get-editbox | set-text "State_1_Rename"
+get-editor " State Machine Diagram" | get-editbox | key-type Enter
+with [get-editor " State Machine Diagram" | get-diagram -index 1] {
+    commit-direct-edit
+    key-type Enter
+    with [get-edit-part -name " State Machine Diagram"] {
+        with [get-edit-part -name "State_1_Rename" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 104 24 -height 68 -width 148
+            mouse-move 104 24 -height 68 -width 148
+            mouse-move 100 24 -height 68 -width 148
+            mouse-move 100 24 -height 68 -width 148
+            mouse-move 96 24 -height 68 -width 148
+            mouse-move 96 24 -height 68 -width 148
+            mouse-move 91 24 -height 68 -width 148
+            mouse-move 91 24 -height 68 -width 148
+            mouse-move 87 24 -height 68 -width 148
+            mouse-move 87 24 -height 68 -width 148
+            mouse-move 80 24 -height 68 -width 148
+            mouse-move 80 24 -height 68 -width 148
+            mouse-move 73 23 -height 68 -width 148
+            mouse-move 73 23 -height 68 -width 148
+            mouse-move 67 21 -height 68 -width 148
+            mouse-move 67 21 -height 68 -width 148
+            mouse-move 60 21 -height 68 -width 148
+            mouse-move 60 21 -height 68 -width 148
+            mouse-move 52 19 -height 68 -width 148
+            mouse-move 52 19 -height 68 -width 148
+            mouse-move 43 17 -height 68 -width 148
+            mouse-move 43 17 -height 68 -width 148
+            mouse-move 31 14 -height 68 -width 148
+            mouse-move 31 14 -height 68 -width 148
+            mouse-move 21 13 -height 68 -width 148
+            mouse-move 21 13 -height 68 -width 148
+            mouse-move 13 11 -height 68 -width 148
+            mouse-move 13 11 -height 68 -width 148
+            mouse-move 4 9 -height 68 -width 148
+            mouse-move 4 9 -height 68 -width 148
+        }
+        mouse-move 307 231 -height 309 -width 645
+        mouse-move 307 231 -height 309 -width 645
+        mouse-move 300 226 -height 309 -width 645
+        mouse-move 300 226 -height 309 -width 645
+        mouse-move 288 222 -height 309 -width 645
+        mouse-move 288 222 -height 309 -width 645
+        mouse-move 277 216 -height 309 -width 645
+        mouse-move 277 216 -height 309 -width 645
+        mouse-move 267 211 -height 309 -width 645
+        mouse-move 267 211 -height 309 -width 645
+        mouse-move 253 206 -height 309 -width 645
+        mouse-move 253 206 -height 309 -width 645
+        mouse-move 238 201 -height 309 -width 645
+        mouse-move 238 201 -height 309 -width 645
+        mouse-move 226 197 -height 309 -width 645
+        mouse-move 226 197 -height 309 -width 645
+        mouse-move 209 190 -height 309 -width 645
+        mouse-move 209 190 -height 309 -width 645
+        mouse-move 192 183 -height 309 -width 645
+        mouse-move 192 183 -height 309 -width 645
+        mouse-move 166 174 -height 309 -width 645
+        mouse-move 166 174 -height 309 -width 645
+        mouse-move 137 164 -height 309 -width 645
+        mouse-move 137 164 -height 309 -width 645
+        mouse-move 106 152 -height 309 -width 645
+        mouse-move 106 152 -height 309 -width 645
+        mouse-move 74 137 -height 309 -width 645
+        mouse-move 74 137 -height 309 -width 645
+        mouse-move 37 121 -height 309 -width 645
+        mouse-move 37 121 -height 309 -width 645
+        mouse-move 3 108 -height 309 -width 645
+        mouse-move 3 108 -height 309 -width 645
+    }
+}
+get-view "Model Explorer" | get-tree | get-item "E-BookStore/My.statemachine/State Machine/Region new Region 1_Rename" 
+    | get-property "getText()" | equals "Region new Region 1_Rename" | verify-true
+with [get-editor " State Machine Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name " State Machine Diagram"] {
+        mouse-move 456 307 -height 309 -width 645
+        mouse-move 456 307 -height 309 -width 645
+        mouse-move 454 300 -height 309 -width 645
+        mouse-move 454 300 -height 309 -width 645
+        mouse-move 452 295 -height 309 -width 645
+        mouse-move 452 295 -height 309 -width 645
+        with [get-edit-part -name "State_1_Rename" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 136 64 -height 68 -width 148
+            mouse-move 136 64 -height 68 -width 148
+            mouse-move 134 62 -height 68 -width 148
+            mouse-move 134 62 -height 68 -width 148
+            mouse-move 133 58 -height 68 -width 148
+            mouse-move 133 58 -height 68 -width 148
+            mouse-move 133 55 -height 68 -width 148
+            mouse-move 133 55 -height 68 -width 148
+            mouse-move 133 52 -height 68 -width 148
+            mouse-move 133 52 -height 68 -width 148
+            mouse-move 132 51 -height 68 -width 148
+            mouse-move 132 51 -height 68 -width 148
+            mouse-move 130 47 -height 68 -width 148
+            mouse-move 130 47 -height 68 -width 148
+            mouse-move 130 46 -height 68 -width 148
+            mouse-move 130 46 -height 68 -width 148
+            mouse-move 129 45 -height 68 -width 148
+            mouse-move 129 45 -height 68 -width 148
+            mouse-move 129 44 -height 68 -width 148
+            mouse-move 129 44 -height 68 -width 148
+            mouse-move 129 43 -height 68 -width 148
+            mouse-move 129 43 -height 68 -width 148
+            mouse-move 129 43 button1 -height 68 -width 148
+            mouse-move 129 43 button1 -height 68 -width 148
+            mouse-press 129 43 button1 -height 68 -width 148
+            mouse-press 129 43 button1 -height 68 -width 148
+            mouse-move 131 41 -mask 524288 -height 68 -width 148
+        }
+    }
+    // Check Tool D&D_States
+    mouse-drag 451 272 -mask 524288 -height 309 -width 645
+    with [get-edit-part -name " State Machine Diagram" | get-edit-part -name "new Region 1_Rename" | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-drag 99 58 button1 524288 -height 68 -width 152
+        mouse-release 99 58 button1 524288 -height 68 -width 152
+    }
+}
+with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+    with [get-edit-part -name "new Region 1_Rename" | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-hover 99 58 -height 117 -width 341
+        mouse-hover 99 58 -height 117 -width 341
+        mouse-move 92 58 -height 117 -width 341
+        mouse-move 92 58 -height 117 -width 341
+        mouse-move 67 58 -height 117 -width 341
+        mouse-move 67 58 -height 117 -width 341
+        mouse-move 34 58 -height 117 -width 341
+        mouse-move 34 58 -height 117 -width 341
+    }
+    mouse-move 424 163 -height 309 -width 786
+    mouse-move 424 163 -height 309 -width 786
+}
+get-view "Model Explorer" | get-tree | get-item "E-BookStore/My.statemachine/State Machine/Region new Region 1_Rename" 
+    | get-property "getItems().TreeItem[0].getText()" | equals "State State_1_Rename" | verify-true
+with [get-editor " State Machine Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name " State Machine Diagram"] {
+        mouse-move 107 106 -height 309 -width 786
+        mouse-move 107 106 -height 309 -width 786
+        mouse-move 141 118 -height 309 -width 786
+        mouse-move 141 118 -height 309 -width 786
+        mouse-move 169 128 -height 309 -width 786
+        mouse-move 169 128 -height 309 -width 786
+        mouse-move 188 132 -height 309 -width 786
+        mouse-move 188 132 -height 309 -width 786
+        mouse-move 202 134 -height 309 -width 786
+        mouse-move 202 134 -height 309 -width 786
+        mouse-move 214 136 -height 309 -width 786
+        mouse-move 214 136 -height 309 -width 786
+        mouse-move 224 138 -height 309 -width 786
+        mouse-move 224 138 -height 309 -width 786
+        mouse-move 234 139 -height 309 -width 786
+        mouse-move 234 139 -height 309 -width 786
+        mouse-move 242 141 -height 309 -width 786
+        mouse-move 242 141 -height 309 -width 786
+        mouse-move 247 141 -height 309 -width 786
+        mouse-move 247 141 -height 309 -width 786
+        mouse-move 251 141 -height 309 -width 786
+        mouse-move 251 141 -height 309 -width 786
+        mouse-move 254 141 -height 309 -width 786
+        mouse-move 254 141 -height 309 -width 786
+        mouse-move 258 141 -height 309 -width 786
+        mouse-move 258 141 -height 309 -width 786
+        mouse-move 261 141 -height 309 -width 786
+        mouse-move 261 141 -height 309 -width 786
+        mouse-move 264 141 -height 309 -width 786
+        mouse-move 264 141 -height 309 -width 786
+        mouse-move 268 142 -height 309 -width 786
+        mouse-move 268 142 -height 309 -width 786
+        mouse-move 272 142 -height 309 -width 786
+        mouse-move 272 142 -height 309 -width 786
+        mouse-move 275 142 -height 309 -width 786
+        mouse-move 275 142 -height 309 -width 786
+        mouse-move 280 142 -height 309 -width 786
+        mouse-move 280 142 -height 309 -width 786
+        mouse-move 283 142 -height 309 -width 786
+        mouse-move 283 142 -height 309 -width 786
+        mouse-move 287 142 -height 309 -width 786
+        mouse-move 287 142 -height 309 -width 786
+        mouse-move 294 142 -height 309 -width 786
+        mouse-move 294 142 -height 309 -width 786
+        mouse-move 300 142 -height 309 -width 786
+        mouse-move 300 142 -height 309 -width 786
+        mouse-move 308 144 -height 309 -width 786
+        mouse-move 308 144 -height 309 -width 786
+        mouse-move 317 146 -height 309 -width 786
+        mouse-move 317 146 -height 309 -width 786
+        mouse-move 329 149 -height 309 -width 786
+        mouse-move 329 149 -height 309 -width 786
+        mouse-move 341 152 -height 309 -width 786
+        mouse-move 341 152 -height 309 -width 786
+        mouse-move 351 156 -height 309 -width 786
+        mouse-move 351 156 -height 309 -width 786
+        mouse-move 365 160 -height 309 -width 786
+        mouse-move 365 160 -height 309 -width 786
+        mouse-move 383 163 -height 309 -width 786
+        mouse-move 383 163 -height 309 -width 786
+        mouse-move 403 171 -height 309 -width 786
+        mouse-move 403 171 -height 309 -width 786
+        mouse-move 421 173 -height 309 -width 786
+        mouse-move 421 173 -height 309 -width 786
+        mouse-move 437 176 -height 309 -width 786
+        mouse-move 437 176 -height 309 -width 786
+        with [get-edit-part -name "new Region 1_Rename" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 10 73 -height 117 -width 341
+            mouse-move 10 73 -height 117 -width 341
+            mouse-move 20 74 -height 117 -width 341
+            mouse-move 20 74 -height 117 -width 341
+            mouse-move 32 76 -height 117 -width 341
+            mouse-move 32 76 -height 117 -width 341
+            mouse-move 40 76 -height 117 -width 341
+            mouse-move 40 76 -height 117 -width 341
+            mouse-move 57 77 -height 117 -width 341
+            mouse-move 57 77 -height 117 -width 341
+            mouse-move 63 77 -height 117 -width 341
+            mouse-move 63 77 -height 117 -width 341
+            mouse-move 68 77 -height 117 -width 341
+            mouse-move 68 77 -height 117 -width 341
+            mouse-move 72 77 -height 117 -width 341
+            mouse-move 72 77 -height 117 -width 341
+            mouse-move 77 77 -height 117 -width 341
+            mouse-move 77 77 -height 117 -width 341
+            mouse-move 80 77 -height 117 -width 341
+            mouse-move 80 77 -height 117 -width 341
+            mouse-move 84 77 -height 117 -width 341
+            mouse-move 84 77 -height 117 -width 341
+            mouse-move 87 77 -height 117 -width 341
+            mouse-move 87 77 -height 117 -width 341
+            mouse-move 90 77 -height 117 -width 341
+            mouse-move 90 77 -height 117 -width 341
+            mouse-move 94 77 -height 117 -width 341
+            mouse-move 94 77 -height 117 -width 341
+            mouse-move 97 77 -height 117 -width 341
+            mouse-move 97 77 -height 117 -width 341
+            mouse-move 98 77 -height 117 -width 341
+            mouse-move 98 77 -height 117 -width 341
+            mouse-move 100 77 -height 117 -width 341
+            mouse-move 100 77 -height 117 -width 341
+            mouse-move 101 77 -height 117 -width 341
+            mouse-move 101 77 -height 117 -width 341
+            mouse-move 102 77 -height 117 -width 341
+            mouse-move 102 77 -height 117 -width 341
+            mouse-move 104 77 -height 117 -width 341
+            mouse-move 104 77 -height 117 -width 341
+            mouse-move 106 77 -height 117 -width 341
+            mouse-move 106 77 -height 117 -width 341
+            mouse-move 109 77 -height 117 -width 341
+            mouse-move 109 77 -height 117 -width 341
+            mouse-move 112 78 -height 117 -width 341
+            mouse-move 112 78 -height 117 -width 341
+            mouse-move 115 78 -height 117 -width 341
+            mouse-move 115 78 -height 117 -width 341
+            mouse-move 118 78 -height 117 -width 341
+            mouse-move 118 78 -height 117 -width 341
+            mouse-move 122 79 -height 117 -width 341
+            mouse-move 122 79 -height 117 -width 341
+            mouse-move 125 79 -height 117 -width 341
+            mouse-move 125 79 -height 117 -width 341
+            mouse-move 131 79 -height 117 -width 341
+            mouse-move 131 79 -height 117 -width 341
+            mouse-move 136 80 -height 117 -width 341
+            mouse-move 136 80 -height 117 -width 341
+            mouse-move 142 81 -height 117 -width 341
+            mouse-move 142 81 -height 117 -width 341
+            mouse-move 148 82 -height 117 -width 341
+            mouse-move 148 82 -height 117 -width 341
+            mouse-move 155 82 -height 117 -width 341
+            mouse-move 155 82 -height 117 -width 341
+            mouse-move 159 82 -height 117 -width 341
+            mouse-move 159 82 -height 117 -width 341
+            mouse-move 163 83 -height 117 -width 341
+            mouse-move 163 83 -height 117 -width 341
+            mouse-move 166 83 -height 117 -width 341
+            mouse-move 166 83 -height 117 -width 341
+            mouse-move 170 83 -height 117 -width 341
+            mouse-move 170 83 -height 117 -width 341
+            mouse-move 173 83 -height 117 -width 341
+            mouse-move 173 83 -height 117 -width 341
+            mouse-move 174 83 -height 117 -width 341
+            mouse-move 174 83 -height 117 -width 341
+            mouse-move 177 83 -height 117 -width 341
+            mouse-move 177 83 -height 117 -width 341
+            mouse-move 178 83 -height 117 -width 341
+            mouse-move 178 83 -height 117 -width 341
+            mouse-move 180 82 -height 117 -width 341
+            mouse-move 180 82 -height 117 -width 341
+            mouse-move 182 82 -height 117 -width 341
+            mouse-move 182 82 -height 117 -width 341
+            mouse-move 184 82 -height 117 -width 341
+            mouse-move 184 82 -height 117 -width 341
+            with [get-edit-part -name "State_1_Rename" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 0 41 -height 68 -width 148
+                mouse-move 0 41 -height 68 -width 148
+                mouse-move 3 40 -height 68 -width 148
+                mouse-move 3 40 -height 68 -width 148
+                mouse-move 5 40 -height 68 -width 148
+                mouse-move 5 40 -height 68 -width 148
+                mouse-move 9 40 -height 68 -width 148
+                mouse-move 9 40 -height 68 -width 148
+                mouse-move 10 40 -height 68 -width 148
+                mouse-move 10 40 -height 68 -width 148
+                mouse-move 13 40 -height 68 -width 148
+                mouse-move 13 40 -height 68 -width 148
+                mouse-move 14 40 -height 68 -width 148
+                mouse-move 14 40 -height 68 -width 148
+                mouse-move 14 40 button1 -height 68 -width 148
+                mouse-move 14 40 button1 -height 68 -width 148
+                mouse-press 14 40 button1 -height 68 -width 148
+                mouse-press 14 40 button1 -height 68 -width 148
+                mouse-release 14 40 button1 524288 -height 68 -width 148
+            }
+            mouse-move 336 81 -height 117 -width 341
+            mouse-move 336 81 -height 117 -width 341
+            with [get-edit-part -name "State_1_Rename"] {
+                mouse-move 149 40 -height 70 -width 150
+                mouse-move 149 40 -height 70 -width 150
+                with [get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                    mouse-move 64 40 -height 68 -width 148
+                    mouse-move 64 40 -height 68 -width 148
+                    mouse-hover 64 40 -height 68 -width 148
+                    mouse-hover 64 40 -height 68 -width 148
+                }
+            }
+        }
+    }
+    // Check Tool Del_Region
+    key-type Del
+    with [get-edit-part -name " State Machine Diagram"] {
+        mouse-move 553 187 -height 309 -width 645
+        mouse-move 553 187 -height 309 -width 645
+        mouse-move 551 187 -height 309 -width 645
+        mouse-move 551 187 -height 309 -width 645
+        mouse-move 550 187 -height 309 -width 645
+        mouse-move 550 187 -height 309 -width 645
+        mouse-move 549 187 -height 309 -width 645
+        mouse-move 549 187 -height 309 -width 645
+        mouse-move 548 187 -height 309 -width 645
+        mouse-move 548 187 -height 309 -width 645
+        mouse-move 546 187 -height 309 -width 645
+        mouse-move 546 187 -height 309 -width 645
+        mouse-move 543 187 -height 309 -width 645
+        mouse-move 543 187 -height 309 -width 645
+        mouse-move 539 187 -height 309 -width 645
+        mouse-move 539 187 -height 309 -width 645
+        mouse-move 533 187 -height 309 -width 645
+        mouse-move 533 187 -height 309 -width 645
+        mouse-move 526 185 -height 309 -width 645
+        mouse-move 526 185 -height 309 -width 645
+        with [get-edit-part -name "new Region 1_Rename" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 39 43 -height 68 -width 152
+            mouse-move 39 43 -height 68 -width 152
+            mouse-move 39 43 button1 -height 68 -width 152
+            mouse-press 39 43 button1 -height 68 -width 152
+            mouse-press 39 43 button1 -height 68 -width 152
+            mouse-release 39 43 button1 524288 -height 68 -width 152
+        }
+    }
+    // Check Tool Del_State
+    key-type Del
+    with [get-edit-part -name " State Machine Diagram"] {
+        mouse-hover 482 149 -height 309 -width 645
+        mouse-hover 482 149 -height 309 -width 645
+    }
+    key-type "M1+z"
+}
+get-editor " State Machine Diagram" | get-diagram -index 1 | key-type "M1+z"
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

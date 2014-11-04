@@ -1,0 +1,710 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _TrMrAD8XEeS7B9A6IeM5WA
+Element-Name: TestingUseCaseDiagramTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _6QUUEGNdEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/3/14 2:32 PM
+Testcase-Type: ecl
+Verifications: _BdfdED8aEeS7B9A6IeM5WA
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in graal.odesign/Use Case Diagram
+- Tool New task
+- Tool Existing task
+- Tool Graal -- Can not be tested
+- Tool UCD_Delete_TasksGroup
+- Tool DAD_Task - Can not be tested
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Use Case UC - Search and add\r\n"
+    + "books to basket" | get-menu "New Representation/UC - Search and addbooks to basket Use Case Diagram" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram"] {
+    mouse-move 376 250 -height 309 -width 733
+    mouse-move 376 250 -height 309 -width 733
+    mouse-move 374 247 -height 309 -width 733
+    mouse-move 374 247 -height 309 -width 733
+    mouse-move 374 246 -height 309 -width 733
+    mouse-move 374 246 -height 309 -width 733
+    mouse-move 373 246 -height 309 -width 733
+    mouse-move 373 246 -height 309 -width 733
+    mouse-move 373 244 -height 309 -width 733
+    mouse-move 373 244 -height 309 -width 733
+    mouse-move 373 243 -height 309 -width 733
+    mouse-move 373 243 -height 309 -width 733
+    mouse-move 376 243 -height 309 -width 733
+    mouse-move 376 243 -height 309 -width 733
+    mouse-move 385 238 -height 309 -width 733
+    mouse-move 385 238 -height 309 -width 733
+    mouse-move 393 235 -height 309 -width 733
+    mouse-move 393 235 -height 309 -width 733
+    mouse-move 410 229 -height 309 -width 733
+    mouse-move 410 229 -height 309 -width 733
+    mouse-move 424 224 -height 309 -width 733
+    mouse-move 424 224 -height 309 -width 733
+    mouse-move 458 216 -height 309 -width 733
+    mouse-move 458 216 -height 309 -width 733
+    mouse-move 477 212 -height 309 -width 733
+    mouse-move 477 212 -height 309 -width 733
+    mouse-move 498 209 -height 309 -width 733
+    mouse-move 498 209 -height 309 -width 733
+    mouse-move 684 179 -height 309 -width 733
+    mouse-move 684 179 -height 309 -width 733
+    mouse-move 712 179 -height 309 -width 733
+    mouse-move 712 179 -height 309 -width 733
+}
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-palette] {
+    with [get-palette-entry "Works on"] {
+        mouse-move 20 10 -height 23 -width 125
+        mouse-move 20 10 -height 23 -width 125
+        mouse-move 30 8 -height 23 -width 125
+        mouse-move 30 8 -height 23 -width 125
+        mouse-move 38 3 -height 23 -width 125
+        mouse-move 38 3 -height 23 -width 125
+    }
+    with [get-palette-entry Actor] {
+        mouse-move 43 21 -height 23 -width 125
+        mouse-move 43 21 -height 23 -width 125
+        mouse-move 49 12 -height 23 -width 125
+        mouse-move 49 12 -height 23 -width 125
+        mouse-move 51 6 -height 23 -width 125
+        mouse-move 51 6 -height 23 -width 125
+        mouse-move 53 3 -height 23 -width 125
+        mouse-move 53 3 -height 23 -width 125
+    }
+    with [get-palette-entry Use] {
+        mouse-move 59 22 -height 23 -width 125
+        mouse-move 59 22 -height 23 -width 125
+        mouse-move 60 20 -height 23 -width 125
+        mouse-move 60 20 -height 23 -width 125
+        mouse-move 62 18 -height 23 -width 125
+        mouse-move 62 18 -height 23 -width 125
+        mouse-move 62 17 -height 23 -width 125
+        mouse-move 62 17 -height 23 -width 125
+        mouse-move 62 16 -height 23 -width 125
+        mouse-move 62 16 -height 23 -width 125
+        mouse-move 63 14 -height 23 -width 125
+        mouse-move 63 14 -height 23 -width 125
+        mouse-move 64 11 -height 23 -width 125
+        mouse-move 64 11 -height 23 -width 125
+        mouse-move 64 8 -height 23 -width 125
+        mouse-move 64 8 -height 23 -width 125
+        mouse-move 65 6 -height 23 -width 125
+        mouse-move 65 6 -height 23 -width 125
+        mouse-move 66 4 -height 23 -width 125
+        mouse-move 66 4 -height 23 -width 125
+        mouse-move 67 1 -height 23 -width 125
+        mouse-move 67 1 -height 23 -width 125
+    }
+    with [get-palette-entry "Existing task"] {
+        mouse-move 70 19 -height 23 -width 125
+        mouse-move 70 19 -height 23 -width 125
+        mouse-move 71 15 -height 23 -width 125
+        mouse-move 71 15 -height 23 -width 125
+        mouse-move 71 11 -height 23 -width 125
+        mouse-move 71 11 -height 23 -width 125
+        mouse-move 72 6 -height 23 -width 125
+        mouse-move 72 6 -height 23 -width 125
+        mouse-move 72 2 -height 23 -width 125
+        mouse-move 72 2 -height 23 -width 125
+    }
+    // Check Tool New task
+    with [get-palette-entry "New task"] {
+        mouse-move 72 21 -height 23 -width 125
+        mouse-move 72 21 -height 23 -width 125
+        mouse-move 72 18 -height 23 -width 125
+        mouse-move 72 18 -height 23 -width 125
+        mouse-move 72 15 -height 23 -width 125
+        mouse-move 72 15 -height 23 -width 125
+        mouse-move 72 12 -height 23 -width 125
+        mouse-move 72 12 -height 23 -width 125
+        mouse-move 72 10 -height 23 -width 125
+        mouse-move 72 10 -height 23 -width 125
+        mouse-move 70 9 -height 23 -width 125
+        mouse-move 70 9 -height 23 -width 125
+        mouse-move 70 7 -height 23 -width 125
+        mouse-move 70 7 -height 23 -width 125
+        mouse-move 69 6 -height 23 -width 125
+        mouse-move 69 6 -height 23 -width 125
+        mouse-move 68 5 -height 23 -width 125
+        mouse-move 68 5 -height 23 -width 125
+        mouse-move 67 5 -height 23 -width 125
+        mouse-move 67 5 -height 23 -width 125
+        mouse-move 67 4 -height 23 -width 125
+        mouse-move 67 4 -height 23 -width 125
+        mouse-move 67 5 -height 23 -width 125
+        mouse-move 67 5 -height 23 -width 125
+        mouse-move 67 6 -height 23 -width 125
+        mouse-move 67 6 -height 23 -width 125
+        mouse-move 67 8 -height 23 -width 125
+        mouse-move 67 8 -height 23 -width 125
+        mouse-move 67 9 -height 23 -width 125
+        mouse-move 67 9 -height 23 -width 125
+        mouse-move 67 9 button1 -height 23 -width 125
+        mouse-move 67 9 button1 -height 23 -width 125
+        mouse-press 67 9 button1 -height 23 -width 125
+        mouse-press 67 9 button1 -height 23 -width 125
+        mouse-release 67 9 button1 524288 -height 23 -width 125
+        mouse-move 66 9 -height 23 -width 125
+        mouse-move 66 9 -height 23 -width 125
+        mouse-move 64 10 -height 23 -width 125
+        mouse-move 64 10 -height 23 -width 125
+        mouse-move 62 10 -height 23 -width 125
+        mouse-move 62 10 -height 23 -width 125
+        mouse-move 59 11 -height 23 -width 125
+        mouse-move 59 11 -height 23 -width 125
+        mouse-move 53 11 -height 23 -width 125
+        mouse-move 53 11 -height 23 -width 125
+        mouse-move 45 11 -height 23 -width 125
+        mouse-move 45 11 -height 23 -width 125
+        mouse-move 33 11 -height 23 -width 125
+        mouse-move 33 11 -height 23 -width 125
+        mouse-move 19 11 -height 23 -width 125
+        mouse-move 19 11 -height 23 -width 125
+    }
+}
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram"] {
+    mouse-move 722 60 -height 309 -width 733
+    mouse-move 722 60 -height 309 -width 733
+    mouse-move 699 60 -height 309 -width 733
+    mouse-move 699 60 -height 309 -width 733
+    mouse-move 682 60 -height 309 -width 733
+    mouse-move 682 60 -height 309 -width 733
+    mouse-move 667 58 -height 309 -width 733
+    mouse-move 667 58 -height 309 -width 733
+    mouse-move 653 56 -height 309 -width 733
+    mouse-move 653 56 -height 309 -width 733
+    mouse-move 641 55 -height 309 -width 733
+    mouse-move 641 55 -height 309 -width 733
+    mouse-move 630 53 -height 309 -width 733
+    mouse-move 630 53 -height 309 -width 733
+    mouse-move 619 52 -height 309 -width 733
+    mouse-move 619 52 -height 309 -width 733
+    mouse-move 610 51 -height 309 -width 733
+    mouse-move 610 51 -height 309 -width 733
+    mouse-move 605 50 -height 309 -width 733
+    mouse-move 605 50 -height 309 -width 733
+    mouse-move 600 50 -height 309 -width 733
+    mouse-move 600 50 -height 309 -width 733
+    mouse-move 597 49 -height 309 -width 733
+    mouse-move 597 49 -height 309 -width 733
+    mouse-move 596 49 -height 309 -width 733
+    mouse-move 596 49 -height 309 -width 733
+    mouse-move 594 49 -height 309 -width 733
+    mouse-move 594 49 -height 309 -width 733
+    mouse-move 592 49 -height 309 -width 733
+    mouse-move 592 49 -height 309 -width 733
+    mouse-move 591 49 -height 309 -width 733
+    mouse-move 591 49 -height 309 -width 733
+    mouse-move 590 49 -height 309 -width 733
+    mouse-move 590 49 -height 309 -width 733
+    mouse-move 589 49 -height 309 -width 733
+    mouse-move 589 49 -height 309 -width 733
+    mouse-move 588 48 -height 309 -width 733
+    mouse-move 588 48 -height 309 -width 733
+    mouse-move 586 48 -height 309 -width 733
+    mouse-move 586 48 -height 309 -width 733
+    mouse-move 584 48 -height 309 -width 733
+    mouse-move 584 48 -height 309 -width 733
+    mouse-move 581 48 -height 309 -width 733
+    mouse-move 581 48 -height 309 -width 733
+    mouse-move 577 48 -height 309 -width 733
+    mouse-move 577 48 -height 309 -width 733
+    mouse-move 572 47 -height 309 -width 733
+    mouse-move 572 47 -height 309 -width 733
+    mouse-move 569 47 -height 309 -width 733
+    mouse-move 569 47 -height 309 -width 733
+    mouse-move 565 46 -height 309 -width 733
+    mouse-move 565 46 -height 309 -width 733
+    mouse-move 563 46 -height 309 -width 733
+    mouse-move 563 46 -height 309 -width 733
+    mouse-move 561 45 -height 309 -width 733
+    mouse-move 561 45 -height 309 -width 733
+    mouse-move 560 44 -height 309 -width 733
+    mouse-move 560 44 -height 309 -width 733
+    mouse-move 558 43 -height 309 -width 733
+    mouse-move 558 43 -height 309 -width 733
+    mouse-move 554 41 -height 309 -width 733
+    mouse-move 554 41 -height 309 -width 733
+    mouse-move 551 41 -height 309 -width 733
+    mouse-move 551 41 -height 309 -width 733
+    mouse-move 549 40 -height 309 -width 733
+    mouse-move 549 40 -height 309 -width 733
+    mouse-move 547 38 -height 309 -width 733
+    mouse-move 547 38 -height 309 -width 733
+    mouse-move 544 37 -height 309 -width 733
+    mouse-move 544 37 -height 309 -width 733
+    mouse-move 542 35 -height 309 -width 733
+    mouse-move 542 35 -height 309 -width 733
+    mouse-move 540 34 -height 309 -width 733
+    mouse-move 540 34 -height 309 -width 733
+    mouse-move 537 32 -height 309 -width 733
+    mouse-move 537 32 -height 309 -width 733
+    mouse-move 535 31 -height 309 -width 733
+    mouse-move 535 31 -height 309 -width 733
+    mouse-move 534 30 -height 309 -width 733
+    mouse-move 534 30 -height 309 -width 733
+    mouse-move 533 29 -height 309 -width 733
+    mouse-move 533 29 -height 309 -width 733
+    mouse-move 533 28 -height 309 -width 733
+    mouse-move 533 28 -height 309 -width 733
+    mouse-move 533 27 -height 309 -width 733
+    mouse-move 533 27 -height 309 -width 733
+    mouse-move 533 26 -height 309 -width 733
+    mouse-move 533 26 -height 309 -width 733
+    mouse-move 533 26 button1 -height 309 -width 733
+    mouse-move 533 26 button1 -height 309 -width 733
+    mouse-press 533 26 button1 -height 309 -width 733
+    mouse-press 533 26 button1 -height 309 -width 733
+    mouse-release 533 26 button1 524288 -height 309 -width 733
+}
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-edit-part -name Task10 | get-handle ResizeHandle -index 6] {
+    mouse-hover 4 4 -height 7 -width 7
+    mouse-hover 4 4 -height 7 -width 7
+}
+get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-edit-part -name Task10 | get-edit-part -className WorkspaceImageEditPart 
+    | get-figure "0/0" | get-property "getText()" | equals Task10 | verify-true
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram"] {
+    mouse-move 22 64 -height 309 -width 733
+    mouse-move 22 64 -height 309 -width 733
+    mouse-move 112 73 -height 309 -width 733
+    mouse-move 112 73 -height 309 -width 733
+    mouse-move 289 98 -height 309 -width 733
+    mouse-move 289 98 -height 309 -width 733
+    mouse-move 364 104 -height 309 -width 733
+    mouse-move 364 104 -height 309 -width 733
+    mouse-move 437 111 -height 309 -width 733
+    mouse-move 437 111 -height 309 -width 733
+    mouse-move 547 119 -height 309 -width 733
+    mouse-move 547 119 -height 309 -width 733
+    mouse-move 580 119 -height 309 -width 733
+    mouse-move 580 119 -height 309 -width 733
+    mouse-move 603 119 -height 309 -width 733
+    mouse-move 603 119 -height 309 -width 733
+    mouse-move 618 120 -height 309 -width 733
+    mouse-move 618 120 -height 309 -width 733
+    mouse-move 627 120 -height 309 -width 733
+    mouse-move 627 120 -height 309 -width 733
+    mouse-move 631 120 -height 309 -width 733
+    mouse-move 631 120 -height 309 -width 733
+    mouse-move 634 120 -height 309 -width 733
+    mouse-move 634 120 -height 309 -width 733
+    mouse-move 635 120 -height 309 -width 733
+    mouse-move 635 120 -height 309 -width 733
+    mouse-move 636 118 -height 309 -width 733
+    mouse-move 636 118 -height 309 -width 733
+    mouse-move 637 117 -height 309 -width 733
+    mouse-move 637 117 -height 309 -width 733
+    mouse-move 637 113 -height 309 -width 733
+    mouse-move 637 113 -height 309 -width 733
+    mouse-move 637 110 -height 309 -width 733
+    mouse-move 637 110 -height 309 -width 733
+    mouse-move 637 108 -height 309 -width 733
+    mouse-move 637 108 -height 309 -width 733
+    mouse-move 638 106 -height 309 -width 733
+    mouse-move 638 106 -height 309 -width 733
+    mouse-move 638 105 -height 309 -width 733
+    mouse-move 638 105 -height 309 -width 733
+    mouse-move 639 104 -height 309 -width 733
+    mouse-move 639 104 -height 309 -width 733
+    mouse-move 639 102 -height 309 -width 733
+    mouse-move 639 102 -height 309 -width 733
+    mouse-move 640 101 -height 309 -width 733
+    mouse-move 640 101 -height 309 -width 733
+    mouse-move 641 101 -height 309 -width 733
+    mouse-move 641 101 -height 309 -width 733
+    mouse-move 644 101 -height 309 -width 733
+    mouse-move 644 101 -height 309 -width 733
+    mouse-move 649 101 -height 309 -width 733
+    mouse-move 649 101 -height 309 -width 733
+    mouse-move 656 100 -height 309 -width 733
+    mouse-move 656 100 -height 309 -width 733
+    mouse-move 687 94 -height 309 -width 733
+    mouse-move 687 94 -height 309 -width 733
+    mouse-move 697 89 -height 309 -width 733
+    mouse-move 697 89 -height 309 -width 733
+    mouse-move 706 86 -height 309 -width 733
+    mouse-move 706 86 -height 309 -width 733
+    mouse-move 707 86 -height 309 -width 733
+    mouse-move 707 86 -height 309 -width 733
+    mouse-move 715 83 -height 309 -width 733
+    mouse-move 715 83 -height 309 -width 733
+    mouse-move 722 81 -height 309 -width 733
+    mouse-move 722 81 -height 309 -width 733
+    mouse-move 731 80 -height 309 -width 733
+    mouse-move 731 80 -height 309 -width 733
+}
+// Check Tool Existing task
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-palette | get-palette-entry "Existing task"] {
+    mouse-move 11 6 -height 23 -width 125
+    mouse-move 11 6 -height 23 -width 125
+    mouse-move 22 6 -height 23 -width 125
+    mouse-move 22 6 -height 23 -width 125
+    mouse-move 27 6 -height 23 -width 125
+    mouse-move 27 6 -height 23 -width 125
+    mouse-move 32 6 -height 23 -width 125
+    mouse-move 32 6 -height 23 -width 125
+    mouse-move 35 5 -height 23 -width 125
+    mouse-move 35 5 -height 23 -width 125
+    mouse-move 36 5 -height 23 -width 125
+    mouse-move 36 5 -height 23 -width 125
+    mouse-move 37 5 -height 23 -width 125
+    mouse-move 37 5 -height 23 -width 125
+    mouse-move 38 5 -height 23 -width 125
+    mouse-move 38 5 -height 23 -width 125
+    mouse-move 38 6 -height 23 -width 125
+    mouse-move 38 6 -height 23 -width 125
+    mouse-move 38 6 button1 -height 23 -width 125
+    mouse-move 38 6 button1 -height 23 -width 125
+    mouse-press 38 6 button1 -height 23 -width 125
+    mouse-press 38 6 button1 -height 23 -width 125
+    mouse-release 38 6 button1 524288 -height 23 -width 125
+    mouse-move 35 6 -height 23 -width 125
+    mouse-move 35 6 -height 23 -width 125
+    mouse-move 32 6 -height 23 -width 125
+    mouse-move 32 6 -height 23 -width 125
+    mouse-move 28 7 -height 23 -width 125
+    mouse-move 28 7 -height 23 -width 125
+    mouse-move 17 11 -height 23 -width 125
+    mouse-move 17 11 -height 23 -width 125
+}
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram"] {
+    mouse-move 709 104 -height 309 -width 733
+    mouse-move 709 104 -height 309 -width 733
+    mouse-move 674 120 -height 309 -width 733
+    mouse-move 674 120 -height 309 -width 733
+    with [get-edit-part -name "Add book to shopping cart"] {
+        mouse-move 119 51 -height 73 -width 150
+        mouse-move 119 51 -height 73 -width 150
+        mouse-move 87 58 -height 73 -width 150
+        mouse-move 87 58 -height 73 -width 150
+        mouse-move 1 73 -height 73 -width 150
+        mouse-move 1 73 -height 73 -width 150
+    }
+    mouse-move 290 209 -height 309 -width 733
+    mouse-move 290 209 -height 309 -width 733
+    mouse-move 281 211 -height 309 -width 733
+    mouse-move 281 211 -height 309 -width 733
+    mouse-move 270 216 -height 309 -width 733
+    mouse-move 270 216 -height 309 -width 733
+    mouse-move 268 218 -height 309 -width 733
+    mouse-move 268 218 -height 309 -width 733
+    mouse-move 263 219 -height 309 -width 733
+    mouse-move 263 219 -height 309 -width 733
+    mouse-move 260 222 -height 309 -width 733
+    mouse-move 260 222 -height 309 -width 733
+    mouse-move 257 224 -height 309 -width 733
+    mouse-move 257 224 -height 309 -width 733
+    mouse-move 257 226 -height 309 -width 733
+    mouse-move 257 226 -height 309 -width 733
+    mouse-move 256 226 -height 309 -width 733
+    mouse-move 256 226 -height 309 -width 733
+    mouse-move 255 227 -height 309 -width 733
+    mouse-move 255 227 -height 309 -width 733
+    mouse-move 254 228 -height 309 -width 733
+    mouse-move 254 228 -height 309 -width 733
+    mouse-move 253 229 -height 309 -width 733
+    mouse-move 253 229 -height 309 -width 733
+    mouse-move 251 230 -height 309 -width 733
+    mouse-move 251 230 -height 309 -width 733
+    mouse-move 247 231 -height 309 -width 733
+    mouse-move 247 231 -height 309 -width 733
+    mouse-move 241 233 -height 309 -width 733
+    mouse-move 241 233 -height 309 -width 733
+    mouse-move 235 234 -height 309 -width 733
+    mouse-move 235 234 -height 309 -width 733
+    mouse-move 233 235 -height 309 -width 733
+    mouse-move 233 235 -height 309 -width 733
+    mouse-move 226 235 -height 309 -width 733
+    mouse-move 226 235 -height 309 -width 733
+    mouse-move 223 235 -height 309 -width 733
+    mouse-move 223 235 -height 309 -width 733
+    mouse-move 215 235 -height 309 -width 733
+    mouse-move 215 235 -height 309 -width 733
+    mouse-move 204 236 -height 309 -width 733
+    mouse-move 204 236 -height 309 -width 733
+    mouse-move 194 237 -height 309 -width 733
+    mouse-move 194 237 -height 309 -width 733
+    mouse-move 187 238 -height 309 -width 733
+    mouse-move 187 238 -height 309 -width 733
+    mouse-move 181 239 -height 309 -width 733
+    mouse-move 181 239 -height 309 -width 733
+    mouse-move 178 239 -height 309 -width 733
+    mouse-move 178 239 -height 309 -width 733
+    mouse-move 177 239 -height 309 -width 733
+    mouse-move 177 239 -height 309 -width 733
+    mouse-move 177 239 button1 -height 309 -width 733
+    mouse-move 177 239 button1 -height 309 -width 733
+    mouse-press 177 239 button1 -height 309 -width 733
+    mouse-press 177 239 button1 -height 309 -width 733
+    mouse-release 177 239 button1 524288 -height 309 -width 733
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Task Enter payment\r\n"
+        + "informations"
+    get-button Finish | click
+}
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram"] {
+    mouse-hover 20 107 -height 395 -width 733
+    mouse-hover 20 107 -height 395 -width 733
+}
+get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-edit-part -name "Enter payment\r\n"
+    + "informations" | get-figure "0/0/0/0" | get-property "getText()" | equals "Enter payment\n"
+    + "informations" | verify-true
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "UC - Search and add\r\n"
+        + "books to basket Use Case Diagram"] {
+        with [get-edit-part -name "Search books"] {
+            mouse-move 24 55 -height 73 -width 150
+            mouse-move 24 55 -height 73 -width 150
+        }
+        mouse-move 157 235 -height 395 -width 733
+        mouse-move 157 235 -height 395 -width 733
+        with [get-edit-part -name "Enter payment\r\n"
+            + "informations"] {
+            mouse-move 55 "-5" -height 73 -width 150
+            mouse-move 55 "-5" -height 73 -width 150
+            mouse-move 88 4 -height 73 -width 150
+            mouse-move 88 4 -height 73 -width 150
+            mouse-move 121 11 -height 73 -width 150
+            mouse-move 121 11 -height 73 -width 150
+            mouse-move 139 13 -height 73 -width 150
+            mouse-move 139 13 -height 73 -width 150
+            mouse-move 148 15 -height 73 -width 150
+            mouse-move 148 15 -height 73 -width 150
+        }
+        mouse-move 369 284 -height 395 -width 733
+        mouse-move 369 284 -height 395 -width 733
+        mouse-move 379 284 -height 395 -width 733
+        mouse-move 379 284 -height 395 -width 733
+        mouse-move 385 284 -height 395 -width 733
+        mouse-move 385 284 -height 395 -width 733
+        mouse-move 388 284 -height 395 -width 733
+        mouse-move 388 284 -height 395 -width 733
+        mouse-move 388 282 -height 395 -width 733
+        mouse-move 388 282 -height 395 -width 733
+        mouse-move 387 279 -height 395 -width 733
+        mouse-move 387 279 -height 395 -width 733
+        mouse-move 382 274 -height 395 -width 733
+        mouse-move 382 274 -height 395 -width 733
+        mouse-move 374 267 -height 395 -width 733
+        mouse-move 374 267 -height 395 -width 733
+        mouse-move 367 262 -height 395 -width 733
+        mouse-move 367 262 -height 395 -width 733
+        mouse-move 361 256 -height 395 -width 733
+        mouse-move 361 256 -height 395 -width 733
+        mouse-move 359 252 -height 395 -width 733
+        mouse-move 359 252 -height 395 -width 733
+        mouse-move 357 251 -height 395 -width 733
+        mouse-move 357 251 -height 395 -width 733
+        mouse-move 358 250 -height 395 -width 733
+        mouse-move 358 250 -height 395 -width 733
+        mouse-move 361 250 -height 395 -width 733
+        mouse-move 361 250 -height 395 -width 733
+        mouse-move 364 250 -height 395 -width 733
+        mouse-move 364 250 -height 395 -width 733
+        mouse-move 368 249 -height 395 -width 733
+        mouse-move 368 249 -height 395 -width 733
+        mouse-move 373 249 -height 395 -width 733
+        mouse-move 373 249 -height 395 -width 733
+        mouse-move 380 248 -height 395 -width 733
+        mouse-move 380 248 -height 395 -width 733
+        mouse-move 385 247 -height 395 -width 733
+        mouse-move 385 247 -height 395 -width 733
+        mouse-move 393 246 -height 395 -width 733
+        mouse-move 393 246 -height 395 -width 733
+        mouse-move 401 246 -height 395 -width 733
+        mouse-move 401 246 -height 395 -width 733
+        mouse-move 410 246 -height 395 -width 733
+        mouse-move 410 246 -height 395 -width 733
+        mouse-move 418 245 -height 395 -width 733
+        mouse-move 418 245 -height 395 -width 733
+        mouse-move 428 245 -height 395 -width 733
+        mouse-move 428 245 -height 395 -width 733
+        mouse-move 436 245 -height 395 -width 733
+        mouse-move 436 245 -height 395 -width 733
+        mouse-move 456 245 -height 395 -width 733
+        mouse-move 456 245 -height 395 -width 733
+        mouse-move 461 245 -height 395 -width 733
+        mouse-move 461 245 -height 395 -width 733
+        mouse-move 465 245 -height 395 -width 733
+        mouse-move 465 245 -height 395 -width 733
+        mouse-move 469 245 -height 395 -width 733
+        mouse-move 469 245 -height 395 -width 733
+        mouse-move 470 245 -height 395 -width 733
+        mouse-move 470 245 -height 395 -width 733
+        mouse-move 471 245 -height 395 -width 733
+        mouse-move 471 245 -height 395 -width 733
+        mouse-move 471 245 button3 -height 395 -width 733
+        mouse-move 471 245 button3 -height 395 -width 733
+        mouse-press 471 245 button3 -height 395 -width 733
+        mouse-press 471 245 button3 -height 395 -width 733
+        mouse-release 471 245 button3 2097152 -height 394 -width 733
+    }
+}
+get-eclipse-window | key-type "" "\\u0000"
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "UC - Search and add\r\n"
+        + "books to basket Use Case Diagram"] {
+        mouse-move 142 43 -height 394 -width 733
+        mouse-move 142 43 -height 394 -width 733
+        mouse-move 179 68 -height 394 -width 733
+        mouse-move 179 68 -height 394 -width 733
+        mouse-move 188 72 -height 394 -width 733
+        mouse-move 188 72 -height 394 -width 733
+        mouse-move 191 73 -height 394 -width 733
+        mouse-move 191 73 -height 394 -width 733
+        mouse-move 197 75 -height 394 -width 733
+        mouse-move 197 75 -height 394 -width 733
+        mouse-move 203 77 -height 394 -width 733
+        mouse-move 203 77 -height 394 -width 733
+        mouse-move 208 80 -height 394 -width 733
+        mouse-move 208 80 -height 394 -width 733
+        mouse-move 216 83 -height 394 -width 733
+        mouse-move 216 83 -height 394 -width 733
+        mouse-move 225 85 -height 394 -width 733
+        mouse-move 225 85 -height 394 -width 733
+        mouse-move 233 90 -height 394 -width 733
+        mouse-move 233 90 -height 394 -width 733
+        mouse-move 242 92 -height 394 -width 733
+        mouse-move 242 92 -height 394 -width 733
+        mouse-move 252 94 -height 394 -width 733
+        mouse-move 252 94 -height 394 -width 733
+        mouse-move 270 102 -height 394 -width 733
+        mouse-move 270 102 -height 394 -width 733
+        mouse-move 281 104 -height 394 -width 733
+        mouse-move 281 104 -height 394 -width 733
+        mouse-move 291 107 -height 394 -width 733
+        mouse-move 291 107 -height 394 -width 733
+        mouse-move 301 111 -height 394 -width 733
+        mouse-move 301 111 -height 394 -width 733
+        mouse-move 311 114 -height 394 -width 733
+        mouse-move 311 114 -height 394 -width 733
+        mouse-move 327 119 -height 394 -width 733
+        mouse-move 327 119 -height 394 -width 733
+        mouse-move 334 120 -height 394 -width 733
+        mouse-move 334 120 -height 394 -width 733
+        mouse-move 341 122 -height 394 -width 733
+        mouse-move 341 122 -height 394 -width 733
+        mouse-move 347 123 -height 394 -width 733
+        mouse-move 347 123 -height 394 -width 733
+        mouse-move 351 125 -height 394 -width 733
+        mouse-move 351 125 -height 394 -width 733
+        mouse-move 356 127 -height 394 -width 733
+        mouse-move 356 127 -height 394 -width 733
+        mouse-move 363 129 -height 394 -width 733
+        mouse-move 363 129 -height 394 -width 733
+        with [get-edit-part -name "Search books"] {
+            mouse-move 151 "-4" -height 73 -width 150
+            mouse-move 151 "-4" -height 73 -width 150
+        }
+        mouse-move 371 131 -height 394 -width 733
+        mouse-move 371 131 -height 394 -width 733
+        mouse-move 375 131 -height 394 -width 733
+        mouse-move 375 131 -height 394 -width 733
+        mouse-move 379 131 -height 394 -width 733
+        mouse-move 379 131 -height 394 -width 733
+        mouse-move 385 131 -height 394 -width 733
+        mouse-move 385 131 -height 394 -width 733
+        mouse-move 391 131 -height 394 -width 733
+        mouse-move 391 131 -height 394 -width 733
+        mouse-move 396 131 -height 394 -width 733
+        mouse-move 396 131 -height 394 -width 733
+        mouse-move 402 130 -height 394 -width 733
+        mouse-move 402 130 -height 394 -width 733
+        mouse-move 410 129 -height 394 -width 733
+        mouse-move 410 129 -height 394 -width 733
+        mouse-move 416 127 -height 394 -width 733
+        mouse-move 416 127 -height 394 -width 733
+        mouse-move 426 125 -height 394 -width 733
+        mouse-move 426 125 -height 394 -width 733
+        mouse-move 427 125 -height 394 -width 733
+        mouse-move 427 125 -height 394 -width 733
+        mouse-move 430 124 -height 394 -width 733
+        mouse-move 430 124 -height 394 -width 733
+        mouse-move 434 124 -height 394 -width 733
+        mouse-move 434 124 -height 394 -width 733
+        mouse-move 437 123 -height 394 -width 733
+        mouse-move 437 123 -height 394 -width 733
+        mouse-move 440 122 -height 394 -width 733
+        mouse-move 440 122 -height 394 -width 733
+        mouse-move 441 121 -height 394 -width 733
+        mouse-move 441 121 -height 394 -width 733
+        mouse-move 441 119 -height 394 -width 733
+        mouse-move 441 119 -height 394 -width 733
+        mouse-move 440 117 -height 394 -width 733
+        mouse-move 440 117 -height 394 -width 733
+        mouse-move 439 116 -height 394 -width 733
+        mouse-move 439 116 -height 394 -width 733
+        mouse-move 438 116 -height 394 -width 733
+        mouse-move 438 116 -height 394 -width 733
+        mouse-move 445 116 -height 394 -width 733
+        mouse-move 445 116 -height 394 -width 733
+        mouse-move 456 116 -height 394 -width 733
+        mouse-move 456 116 -height 394 -width 733
+        mouse-move 477 116 -height 394 -width 733
+        mouse-move 477 116 -height 394 -width 733
+        mouse-move 487 116 -height 394 -width 733
+        mouse-move 487 116 -height 394 -width 733
+        mouse-move 495 115 -height 394 -width 733
+        mouse-move 495 115 -height 394 -width 733
+        mouse-move 502 115 -height 394 -width 733
+        mouse-move 502 115 -height 394 -width 733
+        mouse-move 512 113 -height 394 -width 733
+        mouse-move 512 113 -height 394 -width 733
+        mouse-move 515 111 -height 394 -width 733
+        mouse-move 515 111 -height 394 -width 733
+        mouse-move 544 107 -height 394 -width 733
+        mouse-move 544 107 -height 394 -width 733
+        mouse-move 550 105 -height 394 -width 733
+        mouse-move 550 105 -height 394 -width 733
+        mouse-move 556 102 -height 394 -width 733
+        mouse-move 556 102 -height 394 -width 733
+        mouse-move 561 100 -height 394 -width 733
+        mouse-move 561 100 -height 394 -width 733
+        with [get-edit-part -name Task10 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 44 56 button1 -height 73 -width 150
+            mouse-press 44 56 button1 -height 73 -width 150
+            mouse-press 44 56 button1 -height 73 -width 150
+            mouse-release 44 56 button1 524288 -height 73 -width 150
+            mouse-hover 44 39 -height 73 -width 150
+            mouse-hover 44 39 -height 73 -width 150
+        }
+    }
+    // Tool UCD_Delete_TasksGroup
+    key-type Del
+    key-type "M1+z"
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

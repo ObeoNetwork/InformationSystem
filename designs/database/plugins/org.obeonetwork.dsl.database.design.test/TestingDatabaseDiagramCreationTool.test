@@ -1,0 +1,430 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingDatabaseDiagramCreationTool
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _pUfhkGNcEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/3/14 2:25 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all creation Tool defines in database.odesign
+- Tool CRE_Table
+- Tool CRE_View
+- Tool CRE_Column
+- Tool CRE_PKColumn
+- Tool CRE_PrimaryKey
+- Tool CRE_ForeignKey
+- Tool CRE_Schema
+- Tool CRE_Index
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Obeo Designer For IS/Database Model"
+    get-button "Next >" | click
+    get-button Finish | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
+with [get-window "Select resources to add"] {
+    get-button "Browse Workspace..." | click
+    with [get-window "File Selection"] {
+        get-tree | select "E-BookStore/My.database"
+        get-button OK | click
+    }
+    get-button OK | click
+}
+with [get-window "Viewpoints Selection" | get-table] {
+    select [get-item "" -index 1]
+    get-cell 1 0 | check
+}
+get-window "Viewpoints Selection" | get-button OK | click
+get-view "Model Explorer" | get-tree | select "E-BookStore/My.database/Data Base My" 
+    | get-menu "New Representation/My Database" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "My Database"] {
+    get-diagram -index 1 | get-edit-part -name "My Database" | mouse-move 278 286 -height 349 -width 596
+    with [get-palette | get-palette-entry Table] {
+        mouse-move 53 8 button1 -height 23 -width 125
+        mouse-press 53 8 button1 -height 23 -width 125
+        mouse-release 53 8 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 57 78 button1 -height 349 -width 596
+        mouse-press 57 78 button1 -height 349 -width 596
+        mouse-release 57 78 button1 524288 -height 349 -width 596
+    }
+    // Check Tool CRE_Table
+    with [get-palette | get-palette-entry Table] {
+        mouse-move 57 12 button1 -height 23 -width 125
+        mouse-press 57 12 button1 -height 23 -width 125
+        mouse-release 57 12 button1 524288 -height 23 -width 125
+        mouse-move 20 14 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 376 93 button1 -height 349 -width 596
+        mouse-press 376 93 button1 -height 349 -width 596
+        mouse-release 376 93 button1 524288 -height 349 -width 596
+    }
+    get-diagram -index 1 | get-edit-part -name "My Database" | mouse-move 595 91 -height 349 -width 596
+    // Check Tool CRE_View
+    with [get-palette | get-palette-entry View] {
+        mouse-move 56 13 -height 23 -width 125
+        mouse-hover 56 13 -height 23 -width 125
+        mouse-move 56 13 button1 -height 23 -width 125
+        mouse-press 56 13 button1 -height 23 -width 125
+        mouse-release 56 13 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 107 246 button1 -height 349 -width 596
+        mouse-press 107 246 button1 -height 349 -width 596
+        mouse-release 107 246 button1 524288 -height 349 -width 596
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 113 109 -height 349 -width 596
+        mouse-move 5 83 -height 349 -width 596
+    }
+}
+get-eclipse-window | key-type "" "\\u0000"
+with [get-editor "My Database" | get-diagram -index 1 | get-edit-part -name "My Database"] {
+    with [get-edit-part -name Table1] {
+        mouse-move 32 21 -height 41 -width 56
+        with [get-edit-part -className DNodeListNameEditPart] {
+            mouse-move 25 9 button1 -height 16 -width 52
+            mouse-press 25 9 button1 -height 16 -width 52
+            mouse-release 25 9 button1 524288 -height 16 -width 52
+            mouse-hover 39 11 -height 16 -width 52
+        }
+    }
+    mouse-move 15 89 -height 349 -width 596
+}
+with [get-editor "My Database" | get-diagram -index 1 | get-edit-part -name "My Database"] {
+    get-edit-part -name Table1 | get-edit-part -className DNodeListNameEditPart | get-property "getEditText()" 
+        | equals Table1 | verify-true
+    get-edit-part -name Table2 | get-edit-part -className DNodeListNameEditPart | get-property "getEditText()" 
+        | equals Table2 | verify-true
+    get-edit-part -name View3 | get-edit-part -className DNodeListNameEditPart | get-property "getEditText()" 
+        | equals View3 | verify-true
+}
+with [get-editor "My Database"] {
+    get-diagram -index 1 | get-edit-part -name "My Database" | mouse-move 595 66 -height 349 -width 596
+    // Check Tool CRE_Column
+    with [get-palette | get-palette-entry Column] {
+        mouse-move 38 8 button1 -height 23 -width 125
+        mouse-press 38 8 button1 -height 23 -width 125
+        mouse-release 38 8 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 460 121 -height 349 -width 596
+        with [get-edit-part -name Table1 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 27 7 button1 -height 12 -width 52
+            mouse-press 27 7 button1 -height 12 -width 52
+            mouse-release 27 7 button1 524288 -height 12 -width 52
+        }
+    }
+}
+get-editor "My Database" | get-diagram -index 1 | get-edit-part -name "My Database" | get-edit-part -name Table1 
+    | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name "column1 : <undefined>" 
+    | get-property "getEditText()" | equals "column1 : <undefined>" | verify-true
+with [get-editor "My Database"] {
+    get-diagram -index 1 | get-edit-part -name "My Database" | mouse-move 575 11 -height 349 -width 596
+    with [get-palette] {
+        get-palette-entry Select | mouse-move 11 7 -height 19 -width 19
+        get-palette-entry "Zoom In" | mouse-move 8 7 -height 19 -width 19
+        get-palette-entry "Zoom Out" | mouse-move 4 7 -height 19 -width 19
+        get-palette-entry Note | mouse-move 9 8 -height 19 -width 19
+        get-palette-entry Pin | mouse-move 13 8 -height 19 -width 19
+        get-palette-entry Table | mouse-move 106 19 -height 23 -width 125
+        get-palette-entry View | mouse-move 88 20 -height 23 -width 125
+        get-palette-entry Column | mouse-move 65 21 -height 23 -width 125
+        // Check Tool CRE_PKColumn
+        with [get-palette-entry "PK Column"] {
+            mouse-move 56 15 button1 -height 23 -width 125
+            mouse-press 56 15 button1 -height 23 -width 125
+            mouse-release 56 15 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 212 96 -height 349 -width 596
+        with [get-edit-part -name Table1] {
+            mouse-move 37 19 button1 -height 47 -width 140
+            mouse-press 37 19 button1 -height 47 -width 140
+            mouse-release 37 19 button1 524288 -height 47 -width 140
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        get-edit-part -name Table1 | mouse-hover 37 19 -height 79 -width 140
+        mouse-move 16 81 -height 349 -width 596
+    }
+}
+with [get-editor "My Database" | get-diagram -index 1 | get-edit-part -name "My Database" | get-edit-part -name Table1 
+    | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+    get-edit-part -name "column2 : <undefined>" | get-property "getEditText()" | equals "column2 : <undefined>" 
+        | verify-true
+    get-edit-part -name "Table1_PK" | get-property "getEditText()" | equals "Table1_PK" | verify-true
+}
+with [get-editor "My Database"] {
+    get-diagram -index 1 | get-edit-part -name "My Database" | mouse-move 594 125 -height 349 -width 596
+    with [get-palette] {
+        get-palette-entry "PK Column" | mouse-move 28 21 -height 23 -width 125
+        // Check Tool CRE_PrimaryKey
+        with [get-palette-entry "Primary Key"] {
+            mouse-move 59 14 button1 -height 23 -width 125
+            mouse-press 59 14 button1 -height 23 -width 125
+            mouse-release 59 14 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 432 127 -height 349 -width 596
+        with [get-edit-part -name Table2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 26 5 button1 -height 12 -width 52
+            mouse-press 26 5 button1 -height 12 -width 52
+            mouse-release 26 5 button1 524288 -height 12 -width 52
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        get-edit-part -name Table2 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+            -name "PK_Table2" | mouse-hover 22 3 -height 16 -width 69
+        mouse-move 204 95 -height 349 -width 596
+        mouse-move 15 77 -height 349 -width 596
+    }
+}
+get-editor "My Database" | get-diagram -index 1 | get-edit-part -name "My Database" | get-edit-part -name Table2 
+    | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name "PK_Table2" 
+    | get-property "getEditText()" | equals "PK_Table2" | verify-true
+with [get-editor "My Database"] {
+    with [get-palette] {
+    	// Check Tool CRE_ForeignKey
+        with [get-palette-entry "Foreign Key"] {
+            mouse-move 60 9 button1 -height 23 -width 125
+            mouse-press 60 9 button1 -height 23 -width 125
+            mouse-release 60 9 button1 524288 -height 23 -width 125
+            mouse-move 31 2 -height 23 -width 125
+        }
+        get-palette-entry "Primary Key" | mouse-move 15 20 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        with [get-edit-part -name Table2] {
+            mouse-move 12 10 -height 47 -width 81
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 9 7 button1 -height 16 -width 52
+                mouse-press 9 7 button1 -height 16 -width 52
+                mouse-release 9 7 button1 524288 -height 16 -width 52
+            }
+        }
+        mouse-move 197 96 -height 349 -width 596
+        with [get-edit-part -name Table1] {
+            mouse-move 97 17 -height 79 -width 140
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 45 11 button1 -height 16 -width 52
+                mouse-press 45 11 button1 -height 16 -width 52
+            }
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        with [get-edit-part -name Table1 | get-edit-part -className DNodeListNameEditPart] {
+            mouse-release 45 11 button1 524288 -height 16 -width 52
+            mouse-hover 45 11 -height 16 -width 52
+        }
+        mouse-move 356 127 -height 349 -width 596
+        mouse-move 595 156 -height 349 -width 596
+    }
+    with [get-palette | get-palette-entry "Foreign Key"] {
+        mouse-move 43 7 button1 -height 23 -width 125
+        mouse-press 43 7 button1 -height 23 -width 125
+        mouse-release 43 7 button1 524288 -height 23 -width 125
+        mouse-move 35 1 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        with [get-edit-part -name Table2] {
+            mouse-move 23 8 button1 -height 63 -width 140
+            mouse-press 23 8 button1 -height 63 -width 140
+            mouse-release 23 8 button1 524288 -height 63 -width 140
+        }
+        with [get-edit-part -name Table1] {
+            mouse-move 98 15 -height 79 -width 140
+            mouse-hover 98 15 -height 79 -width 140
+            mouse-move 98 15 button1 -height 79 -width 140
+            mouse-press 98 15 button1 -height 79 -width 140
+            mouse-release 98 15 button1 524288 -height 79 -width 140
+            mouse-hover 98 15 -height 79 -width 140
+        }
+    }
+    with [get-palette | get-palette-entry "Foreign Key"] {
+        mouse-move 87 8 -height 23 -width 125
+        mouse-hover 87 8 -height 23 -width 125
+        mouse-move 87 8 button1 -height 23 -width 125
+        mouse-press 87 8 button1 -height 23 -width 125
+        mouse-release 87 8 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 143 244 -height 349 -width 596
+        with [get-edit-part -name Table1] {
+            mouse-move 114 13 button1 -height 79 -width 140
+            mouse-press 114 13 button1 -height 79 -width 140
+            mouse-release 114 13 button1 524288 -height 79 -width 140
+        }
+        with [get-edit-part -name Table2] {
+            mouse-move 24 12 -height 63 -width 140
+            mouse-hover 24 12 -height 63 -width 140
+            mouse-move 24 12 button1 -height 63 -width 140
+            mouse-press 24 12 button1 -height 63 -width 140
+            mouse-release 24 12 button1 524288 -height 63 -width 140
+            mouse-hover 24 12 -height 63 -width 140
+        }
+        mouse-move 594 89 -height 349 -width 596
+    }
+    with [get-palette] {
+        get-palette-entry View | mouse-move 15 0 -height 23 -width 125
+        with [get-palette-entry Table] {
+            mouse-move 49 11 button1 -height 23 -width 125
+            mouse-press 49 11 button1 -height 23 -width 125
+            mouse-release 49 11 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 345 236 button1 -height 349 -width 596
+        mouse-press 345 236 button1 -height 349 -width 596
+        mouse-release 345 236 button1 524288 -height 349 -width 596
+    }
+    get-diagram -index 1 | get-edit-part -name "My Database" | mouse-move 594 178 -height 349 -width 596
+    with [get-palette | get-palette-entry "Foreign Key"] {
+        mouse-move 46 12 button1 -height 23 -width 125
+        mouse-press 46 12 button1 -height 23 -width 125
+        mouse-release 46 12 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 200 130 -height 349 -width 596
+        with [get-edit-part -name Table1] {
+            mouse-move 97 10 -height 79 -width 140
+            mouse-hover 97 10 -height 79 -width 140
+            mouse-move 97 10 button1 -height 79 -width 140
+            mouse-press 97 10 button1 -height 79 -width 140
+            mouse-release 97 10 button1 524288 -height 79 -width 140
+        }
+        mouse-move 356 233 -height 349 -width 596
+        with [get-edit-part -name Table4] {
+            mouse-move 14 2 -height 41 -width 56
+            get-edit-part -className DNodeListNameEditPart | mouse-hover 15 6 -height 16 -width 52
+            mouse-move 21 21 -height 41 -width 56
+            with [get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+                mouse-move 28 8 -height 12 -width 52
+                mouse-hover 28 8 -height 12 -width 52
+                mouse-move 30 5 -height 12 -width 52
+                mouse-hover 30 5 -height 12 -width 52
+                mouse-move 30 5 button1 -height 12 -width 52
+                mouse-press 30 5 button1 -height 12 -width 52
+                mouse-release 30 5 button1 524288 -height 12 -width 52
+                mouse-hover 30 5 -height 12 -width 52
+            }
+        }
+        mouse-move 242 346 -height 349 -width 596
+    }
+}
+get-view "Error Log" | click
+with [get-editor "My Database"] {
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        with [get-edit-part -name Table1] {
+            mouse-move 85 22 -height 79 -width 140
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 42 4 button1 -height 16 -width 52
+                mouse-press 42 4 button1 -height 16 -width 52
+                mouse-release 42 4 button1 524288 -height 16 -width 52
+                mouse-hover 42 4 -height 16 -width 52
+            }
+            mouse-move 122 16 button1 -height 79 -width 140
+            mouse-press 122 16 button1 -height 79 -width 140
+            mouse-release 122 16 button1 524288 -height 79 -width 140
+        }
+        mouse-move 355 103 -height 349 -width 596
+        mouse-move 595 119 -height 349 -width 596
+    }
+    with [get-palette] {
+        get-palette-entry "PK Column" | mouse-move 13 20 -height 23 -width 125
+        with [get-palette-entry "Foreign Key"] {
+            mouse-move 55 8 button1 -height 23 -width 125
+            mouse-press 55 8 button1 -height 23 -width 125
+            mouse-release 55 8 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        with [get-edit-part -name Table4] {
+            mouse-move 52 3 -height 41 -width 56
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-hover 25 8 -height 16 -width 52
+                mouse-move 25 8 button1 -height 16 -width 52
+                mouse-press 25 8 button1 -height 16 -width 52
+                mouse-release 25 8 button1 524288 -height 16 -width 52
+            }
+        }
+        with [get-edit-part -name Table1] {
+            mouse-move 63 22 -height 79 -width 140
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-hover 12 3 -height 16 -width 52
+                mouse-move 12 3 button1 -height 16 -width 52
+                mouse-press 12 3 button1 -height 16 -width 52
+            }
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        with [get-edit-part -name Table1 | get-edit-part -className DNodeListNameEditPart] {
+            mouse-release 12 3 button1 524288 -height 16 -width 52
+            mouse-hover 12 3 -height 16 -width 52
+        }
+        mouse-move 593 244 -height 349 -width 596
+    }
+    // Check Tool CRE_Schema
+    with [get-palette | get-palette-entry Schema] {
+        mouse-move 54 10 button1 -height 23 -width 125
+        mouse-press 54 10 button1 -height 23 -width 125
+        mouse-release 54 10 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 219 268 button1 -height 349 -width 596
+        mouse-press 219 268 button1 -height 349 -width 596
+        mouse-release 219 268 button1 524288 -height 349 -width 596
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        with [get-edit-part -name Schema1 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 49 38 button1 -height 68 -width 148
+            mouse-press 49 38 button1 -height 68 -width 148
+            mouse-move 48 38 -mask 524288 -height 68 -width 148
+        }
+        mouse-drag 222 325 button1 524288 -height 353 -width 596
+        mouse-release 222 325 button1 524288 -height 353 -width 596
+        with [get-edit-part -name Schema1 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 92 21 -height 68 -width 148
+            mouse-hover 92 21 -height 68 -width 148
+        }
+        mouse-move 593 285 -height 356 -width 596
+    }
+    // Check Tool CRE_Index
+    with [get-palette | get-palette-entry Index -index 1] {
+        mouse-move 52 10 button1 -height 23 -width 125
+        mouse-press 52 10 button1 -height 23 -width 125
+        mouse-release 52 10 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Database"] {
+        mouse-move 448 157 -height 356 -width 596
+        with [get-edit-part -name Table2] {
+            mouse-move 36 15 button1 -height 63 -width 140
+            mouse-press 36 15 button1 -height 63 -width 140
+            mouse-release 36 15 button1 524288 -height 63 -width 140
+        }
+    }
+    get-diagram -index 1 | get-edit-part -name "My Database" | mouse-move 5 65 -height 355 -width 596
+}
+get-editor "My Database" | get-diagram -index 1 | get-edit-part -name "My Database" | get-edit-part -name Table2 
+    | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part -name Index1 
+    | get-property "getEditText()" | equals Index1 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

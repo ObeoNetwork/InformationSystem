@@ -1,0 +1,866 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingActionsPlanTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _6MdHwGNdEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/3/14 2:33 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in graal.odesign/Actions Plan
+- Tool Initial Node
+- Tool Final Node
+- Tool Abort Node
+- Tool AppliEvent
+- Tool AppliAction
+- Tool UserView
+- Tool UserAction
+- Tool New Task
+- Tool Existing Task
+- Tool And
+- Tool Or
+- Tool Xor
+- Tool Loop
+- Tool Transition
+- Tool Interrupt
+- Tool Abort
+- Tool Delete TaskReference
+- Tool Delete Node
+- Tool Delete Loop
+- Tool AP_ReconnectSource_Transition --Can not be tested
+- Tool AP_ReconnectTarget_Transition --Can not be tested
+- Tool Navigation Actions Plan
+- Tool Create Actions Plan -- Can not be tested
+- Tool Go To Actions Plan
+- Tool DAD_ExistingTask -- Can not be tested
+- Tool DAD_Node -- Can not be tested
+- Tool DAD_Loop - Can not be tested
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Buy books/Buy books Actions Plan" | double-click
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 554 85 -height 381 -width 1015
+    with [get-palette] {
+        get-palette-entry "Final Node" | mouse-move 42 1 -height 23 -width 125
+        // Check Tool Initial Node
+        with [get-palette-entry "Initial Node"] {
+            mouse-move 47 10 button1 -height 23 -width 125
+            mouse-press 47 10 button1 -height 23 -width 125
+            mouse-release 47 10 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 28 54 button1 -height 381 -width 1015
+        mouse-press 28 54 button1 -height 381 -width 1015
+        mouse-release 28 54 button1 524288 -height 381 -width 1015
+    }
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 5 62 -height 381 -width 1015
+}
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name "" -index 1] {
+    get-property text | equals "" | verify-true
+    get-property className | equals "fr.obeo.dsl.viewpoint.diagram.internal.edit.parts.DNodeEditPart" | verify-true
+    get-property itemAddress | equals "[0, 8]" | verify-true
+    get-property selected | equals true | verify-true
+    get-property x | equals 28 | verify-true
+    get-property y | equals 54 | verify-true
+    get-property width | equals 20 | verify-true
+    get-property height | equals 20 | verify-true
+    get-property childrenCount | equals 1 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#B0B0B0" | verify-true
+}
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 460 146 -height 381 -width 1015
+    with [get-palette] {
+        get-palette-entry "Appli Event" | mouse-move 122 7 -height 23 -width 125
+        get-palette-entry "Abort Node" | mouse-move 118 3 -height 23 -width 125
+        // Check Tool Final Node
+        with [get-palette-entry "Final Node"] {
+            mouse-move 83 13 button1 -height 23 -width 125
+            mouse-press 83 13 button1 -height 23 -width 125
+            mouse-release 83 13 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 106 55 button1 -height 381 -width 1015
+        mouse-press 106 55 button1 -height 381 -width 1015
+        mouse-release 106 55 button1 524288 -height 381 -width 1015
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        get-edit-part -name "" -index 2 | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+        mouse-move 91 63 -height 381 -width 1015
+    }
+}
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name "" -index 2 | get-figure "0/0/0/0"] {
+    get-property text | equals "" | verify-true
+    get-property tooltip | equals "" | verify-true
+    get-property className | equals "fr.obeo.dsl.viewpoint.diagram.ui.tools.api.figure.ViewpointWrapLabel" | verify-true
+    get-property selected | equals false | verify-true
+    get-property x | equals 106 | verify-true
+    get-property y | equals 55 | verify-true
+    get-property width | equals 20 | verify-true
+    get-property height | equals 19 | verify-true
+    get-property childrenCount | equals 0 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#000000" | verify-true
+}
+with [get-editor "Buy books Actions Plan"] {
+    with [get-palette] {
+        get-palette-entry "Zoom In" | mouse-move 18 1 -height 19 -width 19
+        get-palette-entry "Zoom Out" | mouse-move 3 17 -height 19 -width 19
+        get-palette-entry "Final Node" | mouse-move 47 22 -height 23 -width 125
+        // Check Tool Abort Node
+        with [get-palette-entry "Abort Node"] {
+            mouse-move 48 8 button1 -height 23 -width 125
+            mouse-press 48 8 button1 -height 23 -width 125
+            mouse-release 48 8 button1 524288 -height 23 -width 125
+            mouse-move 12 2 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 202 59 button1 -height 381 -width 1015
+        mouse-press 202 59 button1 -height 381 -width 1015
+        mouse-release 202 59 button1 524288 -height 381 -width 1015
+    }
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name "" -index 3 
+        | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+}
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name "" -index 3] {
+    get-property text | equals "" | verify-true
+    get-property className | equals "fr.obeo.dsl.viewpoint.diagram.internal.edit.parts.DNodeEditPart" | verify-true
+    get-property itemAddress | equals "[0, 10]" | verify-true
+    get-property selected | equals true | verify-true
+    get-property x | equals 202 | verify-true
+    get-property y | equals 59 | verify-true
+    get-property width | equals 20 | verify-true
+    get-property height | equals 20 | verify-true
+    get-property childrenCount | equals 1 | verify-true
+    get-property backgroundColor | equals "#FFFFFF" | verify-true
+    get-property foregroundColor | equals "#B0B0B0" | verify-true
+}
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 549 124 -height 381 -width 1015
+    // Check Tool AppliEvent
+    with [get-palette | get-palette-entry "Appli Event"] {
+        mouse-move 44 6 button1 -height 23 -width 125
+        mouse-press 44 6 button1 -height 23 -width 125
+        mouse-release 44 6 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 303 43 button1 -height 381 -width 1015
+        mouse-press 303 43 button1 -height 381 -width 1015
+        mouse-release 303 43 button1 524288 -height 381 -width 1015
+    }
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name AppliEvent1 
+        | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+}
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name AppliEvent1 | get-figure "0/0/0/0" | get-property "getText()" | equals AppliEvent1 
+    | verify-true
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 634 178 -height 381 -width 1015
+    with [get-palette] {
+        get-palette-entry "User View" | mouse-move 102 0 -height 23 -width 125
+        // Check Tool AppliAction
+        with [get-palette-entry "Appli Action"] {
+            mouse-move 86 12 button1 -height 23 -width 125
+            mouse-press 86 12 button1 -height 23 -width 125
+            mouse-release 86 12 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 369 125 -height 381 -width 1015
+        mouse-move 56 111 button1 -height 381 -width 1015
+        mouse-press 56 111 button1 -height 381 -width 1015
+        mouse-release 56 111 button1 524288 -height 381 -width 1015
+    }
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name AppliAction2 
+        | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+}
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name AppliAction2 | get-figure "0/0/0/0" | get-property "getText()" | equals AppliAction2 
+    | verify-true
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 446 291 -height 381 -width 1015
+    with [get-palette] {
+        get-palette-entry Interrupt | mouse-move 69 0 -height 23 -width 125
+        get-palette-entry Transition | mouse-move 69 4 -height 23 -width 125
+        get-palette-entry Or | mouse-move 69 0 -height 23 -width 125
+        get-palette-entry And | mouse-move 65 6 -height 23 -width 125
+        with [get-palette-entry "Actions dialog"] {
+            mouse-move 61 69 button1 -height 75 -width 125
+            mouse-press 61 69 button1 -height 75 -width 125
+            mouse-release 61 69 button1 524288 -height 75 -width 125
+            mouse-hover 61 69 -height 75 -width 125
+        }
+        get-palette-entry "User Action" | mouse-move 61 1 -height 23 -width 125
+        // Check Tool UserView
+        with [get-palette-entry "User View"] {
+            mouse-move 61 15 button1 -height 23 -width 125
+            mouse-press 61 15 button1 -height 23 -width 125
+            mouse-release 61 15 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 340 125 -height 381 -width 1015
+        mouse-move 253 123 button1 -height 381 -width 1015
+        mouse-press 253 123 button1 -height 381 -width 1015
+        mouse-release 253 123 button1 524288 -height 381 -width 1015
+    }
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name UserView2 
+        | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+}
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name UserView2 | get-figure "0/0/0/0" | get-property "getText()" | equals UserView2 | verify-true
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 541 97 -height 381 -width 1015
+    with [get-palette] {
+        with [get-palette-entry "Final Node"] {
+            mouse-move 11 0 -height 23 -width 125
+            mouse-move 51 17 -height 23 -width 125
+        }
+        get-palette-entry "Abort Node" | mouse-move 56 20 -height 23 -width 125
+        get-palette-entry "Appli Action" | mouse-move 66 22 -height 23 -width 125
+        get-palette-entry "User View" | mouse-move 61 22 -height 23 -width 125
+        with [get-palette-entry "Actions dialog"] {
+            mouse-move 60 73 button1 -height 75 -width 125
+            mouse-press 60 73 button1 -height 75 -width 125
+            mouse-release 60 73 button1 524288 -height 75 -width 125
+        }
+        // Check Tool UserAction
+        with [get-palette-entry "User Action"] {
+            mouse-move 66 10 -height 23 -width 125
+            mouse-hover 66 10 -height 23 -width 125
+            mouse-move 66 10 button1 -height 23 -width 125
+            mouse-press 66 10 button1 -height 23 -width 125
+            mouse-release 66 10 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 510 12 button1 -height 381 -width 1015
+        mouse-press 510 12 button1 -height 381 -width 1015
+        mouse-release 510 12 button1 524288 -height 381 -width 1015
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        get-edit-part -name UserAction3 | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+        mouse-move 494 12 -height 381 -width 1015
+    }
+}
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name UserAction3 | get-figure "0/0/0/0" | get-property "getText()" | equals UserAction3 
+    | verify-true
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 644 160 -height 381 -width 1015
+    with [get-palette] {
+        get-palette-entry "User Action" | mouse-move 99 21 -height 23 -width 125
+        with [get-palette-entry "Actions dialog"] {
+            mouse-move 60 72 button1 -height 75 -width 125
+            mouse-press 60 72 button1 -height 75 -width 125
+            mouse-release 60 72 button1 524288 -height 75 -width 125
+        }
+        // Check Tool New Task
+        with [get-palette-entry "New Task"] {
+            mouse-move 59 14 button1 -height 23 -width 125
+            mouse-press 59 14 button1 -height 23 -width 125
+            mouse-release 59 14 button1 524288 -height 23 -width 125
+        }        
+        get-palette-entry "Existing task" | mouse-move 20 5 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 303 288 button1 -height 381 -width 1015
+        mouse-press 303 288 button1 -height 381 -width 1015
+        mouse-release 303 288 button1 524288 -height 381 -width 1015
+    }
+}
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name Task10 | get-edit-part -className WorkspaceImageEditPart | get-figure "0/0" 
+    | get-property "getText()" | equals Task10 | verify-true
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name UserAction3 
+        | mouse-move 90 80 -height 73 -width 150
+    with [get-palette] {
+        get-palette-entry "User Action" | mouse-move 29 22 -height 23 -width 125
+        get-palette-entry "New Task" | mouse-move 35 18 -height 23 -width 125
+        with [get-palette-entry "Actions dialog"] {
+            mouse-move 60 71 button1 -height 75 -width 125
+            mouse-press 60 71 button1 -height 75 -width 125
+        }
+        // Check Tool Existing Task
+        with [get-palette-entry "Existing task"] {
+            mouse-press 60 21 button1 -height 23 -width 125
+            mouse-release 60 21 button1 524288 -height 23 -width 125
+            mouse-move 60 4 button1 -height 23 -width 125
+            mouse-press 60 4 button1 -height 23 -width 125
+            mouse-release 60 4 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 442 130 -height 381 -width 1015
+        mouse-move 148 19 button1 -height 381 -width 1015
+        mouse-press 148 19 button1 -height 381 -width 1015
+        mouse-release 148 19 button1 524288 -height 381 -width 1015
+    }
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Task Login"
+    get-button Finish | click
+}
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | mouse-move 120 42 -height 381 -width 1015
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name Login | get-figure "0/0/0/0" | get-property "getText()" | equals Login | verify-true
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name checkout 
+        | mouse-move 2 19 -height 73 -width 150
+    // Check Tool And
+    with [get-palette | get-palette-entry And] {
+        mouse-move 77 22 -height 23 -width 125
+        mouse-move 66 16 button1 -height 23 -width 125
+        mouse-press 66 16 button1 -height 23 -width 125
+        mouse-release 66 16 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 483 211 -height 381 -width 1015
+        mouse-move 133 295 button1 -height 381 -width 1015
+        mouse-press 133 295 button1 -height 381 -width 1015
+        mouse-release 133 295 button1 524288 -height 381 -width 1015
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        get-edit-part -name AND | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+        mouse-move 9 268 -height 381 -width 1015
+    }
+}
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name AND | get-figure "0/0/0/0" | get-property "getText()" | equals AND | verify-true
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 288 300 -height 381 -width 1015
+    with [get-palette] {
+        get-palette-entry Interrupt | mouse-move 24 3 -height 23 -width 125
+        get-palette-entry Transition | mouse-move 20 4 -height 23 -width 125
+        get-palette-entry Xor | mouse-move 23 1 -height 23 -width 125
+        // Check Tool Or
+        with [get-palette-entry Or] {
+            mouse-move 39 11 button1 -height 23 -width 125
+            mouse-press 39 11 button1 -height 23 -width 125
+            mouse-release 39 11 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 500 249 -height 381 -width 1015
+        mouse-move 211 291 button1 -height 381 -width 1015
+        mouse-press 211 291 button1 -height 381 -width 1015
+        mouse-release 211 291 button1 524288 -height 381 -width 1015
+    }
+}
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name OR | get-figure "0/0/0/0" | get-property "getText()" | equals OR | verify-true
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name checkout 
+        | mouse-move 2 54 -height 73 -width 150
+    with [get-palette] {
+        with [get-palette-entry Operators] {
+            mouse-move 67 71 button1 -height 75 -width 125
+            mouse-press 67 71 button1 -height 75 -width 125
+            mouse-release 67 71 button1 524288 -height 75 -width 125
+        }
+        get-palette-entry Loop | mouse-move 63 0 -height 23 -width 125
+        // Check Tool Xor
+        with [get-palette-entry Xor] {
+            mouse-move 46 13 button1 -height 23 -width 125
+            mouse-press 46 13 button1 -height 23 -width 125
+            mouse-release 46 13 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 542 245 button1 -height 381 -width 1015
+        mouse-press 542 245 button1 -height 381 -width 1015
+        mouse-release 542 245 button1 524288 -height 381 -width 1015
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        get-edit-part -name XOR | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+        mouse-move 496 245 -height 381 -width 1015
+    }
+}
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name XOR | get-figure "0/0/0/0" | get-property "getText()" | equals XOR | verify-true
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name checkout 
+        | mouse-move 3 37 -height 73 -width 150
+    with [get-palette] {
+        get-palette-entry Xor | mouse-move 35 22 -height 23 -width 125
+        with [get-palette-entry Operators] {
+            mouse-move 61 71 button1 -height 75 -width 125
+            mouse-press 61 71 button1 -height 75 -width 125
+        }
+        // Check Tool Loop
+        with [get-palette-entry Loop] {
+            mouse-press 61 21 button1 -height 23 -width 125
+            mouse-release 61 21 button1 524288 -height 23 -width 125
+            mouse-move 59 11 button1 -height 23 -width 125
+            mouse-press 59 11 button1 -height 23 -width 125
+            mouse-release 59 11 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 581 244 -height 381 -width 1015
+        mouse-move 477 121 button1 -height 381 -width 1015
+        mouse-press 477 121 button1 -height 381 -width 1015
+        mouse-release 477 121 button1 524288 -height 381 -width 1015
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Buy books Actions Plan"] {
+            mouse-move 458 172 -height 381 -width 1015
+            mouse-hover 458 172 -height 381 -width 1015
+            mouse-move 412 174 -height 381 -width 1015
+        }
+        key-type "" "\\u0000"
+        get-edit-part -name "Buy books Actions Plan" | mouse-hover 412 174 -height 381 -width 1015
+        key-type "" "\\u0000"
+    }
+}
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 639 276 -height 381 -width 1015
+    // Check Tool Transition
+    with [get-palette | get-palette-entry Transition] {
+        mouse-move 55 9 button1 -height 23 -width 125
+        mouse-press 55 9 button1 -height 23 -width 125
+        mouse-release 55 9 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 477 241 -height 381 -width 1015
+        with [get-edit-part -name Login] {
+            mouse-move 45 27 button1 -height 73 -width 150
+            mouse-press 45 27 button1 -height 73 -width 150
+            mouse-release 45 27 button1 524288 -height 73 -width 150
+            mouse-move 24 67 -height 73 -width 150
+        }
+        with [get-edit-part -name AppliAction2] {
+            mouse-move 72 34 -height 74 -width 150
+            mouse-hover 72 34 -height 74 -width 150
+            mouse-move 72 34 button1 -height 74 -width 150
+            mouse-press 72 34 button1 -height 74 -width 150
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name AppliAction2] {
+        get-edit-part -className WorkspaceImageEditPart | mouse-release 72 34 button1 524288 -height 74 -width 150
+        mouse-hover 72 34 -height 74 -width 150
+    }
+}
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name AppliAction2 | get-target-connection 0] {
+    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        | equals AppliAction2 | verify-true
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        | equals Login | verify-true
+}
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name "create account" 
+        | mouse-move 89 0 -height 73 -width 150
+    with [get-palette] {    	
+        get-palette-entry Transition | mouse-move 64 22 -height 23 -width 125
+        // Check Tool Interrupt
+        with [get-palette-entry Interrupt] {
+            mouse-move 57 13 button1 -height 23 -width 125
+            mouse-press 57 13 button1 -height 23 -width 125
+            mouse-release 57 13 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 601 276 -height 381 -width 1015
+        with [get-edit-part -name AppliEvent1] {
+            mouse-move 35 45 button1 -height 74 -width 150
+            mouse-press 35 45 button1 -height 74 -width 150
+            mouse-release 35 45 button1 524288 -height 74 -width 150
+            mouse-move "-4" 72 -height 74 -width 150
+        }
+        with [get-edit-part -name "Get homepage data"] {
+            mouse-move 104 18 -height 85 -width 172
+            mouse-hover 104 18 -height 85 -width 172
+            mouse-move 104 18 button1 -height 85 -width 172
+            mouse-press 104 18 button1 -height 85 -width 172
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part 
+        -name "Get homepage data"] {
+        get-edit-part -className WorkspaceImageEditPart | mouse-release 104 18 button1 524288 -height 85 -width 172
+        mouse-hover 104 18 -height 85 -width 172
+    }
+}
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name "Get homepage data" | get-target-connection 1] {
+    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        | equals "Get homepage data" | verify-true
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        | equals AppliEvent1 | verify-true
+}
+with [get-editor "Buy books Actions Plan"] {
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 628 283 -height 381 -width 1015
+    with [get-palette] {
+        with [get-palette-entry Transitions] {
+            mouse-move 55 70 button1 -height 76 -width 125
+            mouse-press 55 70 button1 -height 76 -width 125
+        }
+        // Check Tool Abort
+        with [get-palette-entry Abort] {
+            mouse-press 55 19 button1 -height 23 -width 125
+            mouse-release 55 19 button1 524288 -height 23 -width 125
+            mouse-hover 55 19 -height 23 -width 125
+            mouse-press 55 19 button1 -height 23 -width 125
+            mouse-release 55 19 button1 524288 -height 23 -width 125
+            mouse-move 55 13 button1 -height 23 -width 125
+            mouse-press 55 13 button1 -height 23 -width 125
+            mouse-release 55 13 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 542 198 -height 381 -width 1015
+        with [get-edit-part -name UserAction3] {
+            mouse-move 40 42 button1 -height 73 -width 150
+            mouse-press 40 42 button1 -height 73 -width 150
+            mouse-release 40 42 button1 524288 -height 73 -width 150
+        }
+        mouse-move 466 102 -height 381 -width 1015
+        with [get-edit-part -name UserView2] {
+            mouse-move 102 39 -height 73 -width 150
+            mouse-hover 102 39 -height 73 -width 150
+            mouse-move 102 39 button1 -height 73 -width 150
+            mouse-press 102 39 button1 -height 73 -width 150
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name UserView2] {
+        get-edit-part -className WorkspaceImageEditPart | mouse-release 102 39 button1 524288 -height 73 -width 150
+        mouse-hover 102 39 -height 73 -width 150
+    }
+}
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name UserView2 | get-target-connection 0] {
+    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        | equals UserView2 | verify-true
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        | equals UserAction3 | verify-true
+}
+with [get-editor "Buy books Actions Plan"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Buy books Actions Plan"] {
+            with [get-edit-part -name AppliEvent1] {
+                mouse-move 142 68 button1 -height 74 -width 150
+                mouse-press 142 68 button1 -height 74 -width 150
+                mouse-release 142 68 button1 524288 -height 74 -width 150
+                mouse-move 154 61 -height 74 -width 150
+            }
+            with [get-edit-part -name UserView2 | get-target-connection 0] {
+                mouse-move 89 25 button1 -height 74 -width 134
+                mouse-press 89 25 button1 -height 74 -width 134
+                mouse-release 91 27 button1 524288 -height 78 -width 138
+            }
+            mouse-move 485 96 -height 381 -width 1015
+            mouse-hover 485 96 -height 381 -width 1015
+        }
+        // Check Tool Delete TaskReference
+        key-type Del
+        key-type "M1+z"
+    }
+    get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | mouse-move 1 92 -height 381 -width 1015
+}
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Buy books/User Action UserAction3"
+get-view Properties | get-tree | get-item "Outgoing Transitions" | get-property "getText()" 
+    | equals "Outgoing Transitions" | verify-true
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1] {
+    with [get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 485 95 -height 381 -width 1015
+        with [get-edit-part -name UserView2 | get-target-connection 0] {
+            mouse-move 101 23 button1 -height 74 -width 134
+            mouse-press 101 23 button1 -height 74 -width 134
+            mouse-release 103 25 button1 524288 -height 78 -width 138
+            mouse-hover 99 25 -height 78 -width 138
+        }
+    }
+    key-type Del
+    with [get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 474 89 -height 381 -width 1015
+        mouse-hover 474 89 -height 381 -width 1015
+        mouse-move 459 89 -height 381 -width 1015
+        with [get-edit-part -name AppliEvent1] {
+            mouse-move 120 44 -height 74 -width 150
+            mouse-hover 120 44 -height 74 -width 150
+            mouse-move 52 30 -height 74 -width 150
+        }
+    }
+}
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Buy books/User Action UserAction3"
+get-view Properties | get-tree | get-item "Outgoing Transitions" | get-property "columns[1]" | equals "" | verify-true
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+    mouse-move 181 103 -height 381 -width 1015
+    with [get-edit-part -name AppliAction2 | get-target-connection 0] {
+        mouse-move 23 23 button1 -height 46 -width 46
+        mouse-press 23 23 button1 -height 46 -width 46
+        mouse-release 25 25 button1 524288 -height 50 -width 50
+        get-handle BendpointCreationInvisibleHandle | mouse-hover 2 3 -height 5 -width 5
+    }
+    mouse-move 4 110 -height 381 -width 1015
+}
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.graal/System E-BookStore/Task Buy books/Task Reference Login"
+with [get-editor "Buy books Actions Plan"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Buy books Actions Plan"] {
+            with [get-edit-part -name "" -index 1] {
+                mouse-move 3 18 button1 -height 20 -width 20
+                mouse-press 3 18 button1 -height 20 -width 20
+                mouse-release 3 18 button1 524288 -height 20 -width 20
+            }
+            mouse-move 92 100 -height 381 -width 1015
+            mouse-hover 92 100 -height 381 -width 1015
+        }
+        // Check Tool Delete Node
+        key-type Del
+        with [get-edit-part -name "Buy books Actions Plan"] {
+            mouse-move 41 74 button1 -height 381 -width 1015
+            mouse-press 41 74 button1 -height 381 -width 1015
+            mouse-release 41 74 button1 524288 -height 381 -width 1015
+            mouse-hover 41 74 -height 381 -width 1015
+            mouse-move 93 73 -height 381 -width 1015
+            with [get-edit-part -name Login] {
+                mouse-move 26 58 button1 -height 73 -width 150
+                mouse-press 26 58 button1 -height 73 -width 150
+                mouse-release 26 58 button1 524288 -height 73 -width 150
+                mouse-hover 26 58 -height 73 -width 150
+            }
+        }
+        key-type Del
+        key-type "M1+z"
+        with [get-edit-part -name "Buy books Actions Plan"] {
+            mouse-move 174 104 -height 381 -width 1015
+            with [get-edit-part -name AppliEvent1] {
+                mouse-move 55 41 button1 -height 74 -width 150
+                mouse-press 55 41 button1 -height 74 -width 150
+                mouse-release 55 41 button1 524288 -height 74 -width 150
+                mouse-hover 55 41 -height 74 -width 150
+            }
+            mouse-move 494 92 -height 381 -width 1015
+            get-edit-part -name UserAction3 | mouse-move 60 80 -height 73 -width 150
+            /**with [get-edit-part -name "Invalid feature as name" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-move 105 35 button1 -height 68 -width 163
+                mouse-press 105 35 button1 -height 68 -width 163
+                mouse-release 105 35 button1 524288 -height 68 -width 163
+                mouse-hover 105 35 -height 68 -width 163
+            }**/
+        }
+        // Check Tool Delete Loop
+        key-type Del
+        key-type "M1+z"
+        with [get-edit-part -name "Buy books Actions Plan"] {
+            mouse-move 107 104 -height 381 -width 1015
+            with [get-edit-part -name AppliAction2] {
+                mouse-move 50 31 button3 -height 74 -width 150
+                mouse-press 50 31 button3 -height 74 -width 150
+                mouse-release 50 31 button3 2097152 -height 74 -width 150
+            }
+            mouse-press 44 55 button1 -height 381 -width 1015
+            mouse-move 44 55 -mask 524288 -height 381 -width 1015
+            mouse-drag 44 55 button1 524288 -height 381 -width 1015
+            mouse-release 44 55 button1 524288 -height 381 -width 1015
+            mouse-hover 44 55 -height 381 -width 1015
+            with [get-edit-part -name AppliEvent1] {
+                mouse-move 51 32 -height 74 -width 150
+                mouse-hover 51 32 -height 74 -width 150
+            }
+            mouse-move 726 74 -height 381 -width 1015
+        }
+    }
+    with [get-palette] {
+        get-palette-entry "Final Node" | mouse-move 40 22 -height 23 -width 125
+        get-palette-entry "Abort Node" | mouse-move 71 22 -height 23 -width 125
+        with [get-palette-entry "Actions dialog"] {
+            mouse-move 65 25 button1 -height 75 -width 125
+            mouse-press 65 25 button1 -height 75 -width 125
+            mouse-release 65 25 button1 524288 -height 75 -width 125
+            mouse-hover 65 25 -height 75 -width 125
+            mouse-press 65 25 button1 -height 75 -width 125
+            mouse-release 65 25 button1 524288 -height 75 -width 125
+            mouse-move 65 24 button1 -height 75 -width 125
+            mouse-press 65 24 button1 -height 75 -width 125
+            mouse-release 65 24 button1 524288 -height 75 -width 125
+            mouse-hover 65 24 -height 75 -width 125
+        }
+        get-palette-entry "Appli Event" | mouse-move 71 19 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        get-edit-part -name AppliEvent1 | mouse-move 46 73 -height 74 -width 150
+        with [get-edit-part -name UserAction3] {
+            mouse-move 76 50 -height 73 -width 150
+            mouse-hover 76 50 -height 73 -width 150
+            mouse-move 76 50 button1 -height 73 -width 150
+            mouse-press 76 50 button1 -height 73 -width 150
+            mouse-release 76 50 button1 524288 -height 73 -width 150
+            mouse-press 76 50 button3 -height 73 -width 150
+            mouse-release 76 50 button3 2097152 -height 73 -width 150
+        }
+        mouse-press 512 118 button1 -height 381 -width 1015
+        mouse-move 512 118 -mask 524288 -height 381 -width 1015
+        mouse-drag 512 118 button1 524288 -height 381 -width 1015
+        mouse-release 512 118 button1 524288 -height 381 -width 1015
+    }
+    with [get-palette] {
+        get-palette-entry "Appli Action" | mouse-move 63 21 -height 23 -width 125
+        with [get-palette-entry "User View"] {
+            mouse-move 64 11 button1 -height 23 -width 125
+            mouse-press 64 11 button1 -height 23 -width 125
+            mouse-release 64 11 button1 524288 -height 23 -width 125
+            mouse-move 64 21 -height 23 -width 125
+        }
+        with [get-palette-entry Operators] {
+            mouse-move 64 0 button1 -height 75 -width 125
+            mouse-press 64 0 button1 -height 75 -width 125
+            mouse-release 64 0 button1 524288 -height 75 -width 125
+        }
+        with [get-palette-entry "User View"] {
+            mouse-move 64 10 button1 -height 23 -width 125
+            mouse-press 64 10 button1 -height 23 -width 125
+            mouse-release 64 10 button1 524288 -height 23 -width 125
+            mouse-move 65 21 -height 23 -width 125
+        }
+        with [get-palette-entry "User Action"] {
+            mouse-move 65 7 button1 -height 23 -width 125
+            mouse-press 65 7 button1 -height 23 -width 125
+            mouse-release 65 7 button1 524288 -height 23 -width 125
+            mouse-move 13 6 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 22 22 button1 -height 381 -width 1015
+        mouse-press 22 22 button1 -height 381 -width 1015
+        mouse-release 22 22 button1 524288 -height 381 -width 1015
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" | get-edit-part -name UserAction4] {
+        mouse-move 35 31 button1 -height 73 -width 150
+        mouse-press 35 31 button1 -height 73 -width 150
+        mouse-release 35 31 button1 524288 -height 73 -width 150
+        activate-direct-edit
+    }
+    get-editbox | click-text "1:1"
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Buy books Actions Plan" | get-edit-part -name UserAction4] {
+            mouse-move 27 39 button3 -height 73 -width 150
+            mouse-press 27 39 button3 -height 73 -width 150
+        }
+        commit-direct-edit
+        with [get-edit-part -name "Buy books Actions Plan"] {
+            get-edit-part -name UserAction4 | mouse-release 27 39 button3 2097152 -height 73 -width 150
+            mouse-press 231 25 button1 -height 381 -width 1015
+            mouse-move 231 25 -mask 524288 -height 381 -width 1015
+            mouse-drag 231 25 button1 524288 -height 381 -width 1015
+            mouse-release 231 25 button1 524288 -height 381 -width 1015
+            with [get-edit-part -name UserAction4] {
+                mouse-move 36 42 button1 -height 73 -width 150
+                mouse-press 36 42 button1 -height 73 -width 150
+                mouse-release 36 42 button1 524288 -height 73 -width 150
+                mouse-press 36 42 button1 -height 73 -width 150
+                mouse-double-click 36 42 button1 -height 73 -width 150
+                mouse-release 36 42 button1 524288 -height 73 -width 150
+                mouse-hover 36 42 -height 73 -width 150
+            }
+            mouse-move 351 25 -height 381 -width 1015
+            mouse-move 509 168 -height 381 -width 1015
+            mouse-hover 509 168 -height 381 -width 1015
+            with [get-edit-part -name "Constitute shopping\r\n"
+                + "cart" | get-target-connection 0] {
+                mouse-move 52 46 button1 -height 83 -width 117
+                mouse-press 52 46 button1 -height 83 -width 117
+                mouse-release 54 48 button1 524288 -height 87 -width 121
+                mouse-press 54 48 button3 -height 87 -width 121
+                mouse-release 54 48 button3 2097152 -height 87 -width 121
+                mouse-press 28 64 button1 -height 87 -width 121
+                mouse-move 28 64 -mask 524288 -height 87 -width 121
+            }
+            mouse-drag 483 181 button1 524288 -height 381 -width 1015
+            mouse-release 483 181 button1 524288 -height 381 -width 1015
+            get-edit-part -name "Constitute shopping\r\n"
+                + "cart" | get-target-connection 0 | mouse-hover 28 64 -mask ALT -height 87 -width 121
+            mouse-move 385 36 -height 381 -width 1015
+            mouse-move 723 150 -height 381 -width 1015
+        }
+    }
+    with [get-palette] {
+        get-palette-entry "Appli Action" | mouse-move 58 22 -height 23 -width 125
+        get-palette-entry "User View" | mouse-move 90 22 -height 23 -width 125
+        with [get-palette-entry "Actions dialog"] {
+            mouse-move 61 88 button1 -height 93 -width 125
+            mouse-press 61 88 button1 -height 93 -width 125
+            mouse-release 61 88 button1 524288 -height 93 -width 125
+            mouse-hover 61 88 -height 93 -width 125
+        }
+        get-palette-entry "Existing task" | mouse-move 20 1 -height 23 -width 125
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Buy books Actions Plan"] {
+            mouse-move 550 97 -height 381 -width 1015
+            with [get-edit-part -name "Constitute shopping\r\n"
+                + "cart" | get-edit-part -className WorkspaceImageEditPart] {
+                mouse-move 33 45 button1 -height 73 -width 150
+                mouse-press 33 45 button1 -height 73 -width 150
+                mouse-release 33 45 button1 524288 -height 73 -width 150
+                mouse-press 33 45 button3 -height 73 -width 150
+                mouse-release 33 45 button3 2097152 -height 73 -width 150
+            }
+        }
+        // Check Tool Navigation Actions Plan
+        get-menu "Navigate/Open Actions Plan : Constitute shopping cart Actions Plan" | click
+    }
+}
+with [get-editor "Constitute shopping cart Actions Plan"] {
+    get-palette | get-palette-entry "Appli Event" | mouse-move 10 1 -height 23 -width 125
+    get-diagram -index 1 | get-edit-part -name "Constitute shopping cart Actions Plan" | mouse-move 33 1 -height 309 
+        -width 728
+}
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1] {
+    with [get-edit-part -name "Buy books Actions Plan"] {
+        mouse-move 563 145 -height 381 -width 1015
+        get-edit-part -name "Constitute shopping\r\n"
+            + "cart" | get-edit-part -className WorkspaceImageEditPart | mouse-hover 40 52 -height 73 -width 150
+        mouse-move 533 100 -height 381 -width 1015
+        with [get-edit-part -name "Constitute shopping\r\n"
+            + "cart" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 39 41 button3 -height 73 -width 150
+            mouse-press 39 41 button3 -height 73 -width 150
+            mouse-release 39 41 button3 2097152 -height 73 -width 150
+        }
+    }
+    get-menu "Navigate/New detail : Create Actions Plan" | click
+}
+get-window "New Representation" | get-button OK | click
+get-window "Error creating the representation" | get-button OK | click
+with [get-editor "Buy books Actions Plan" | get-diagram -index 1 | get-edit-part -name "Buy books Actions Plan" 
+    | get-edit-part -name "Constitute shopping\r\n"
+    + "cart" | get-edit-part -className WorkspaceImageEditPart] {
+    mouse-move 46 47 button1 -height 73 -width 150
+    mouse-press 46 47 button1 -height 73 -width 150
+    mouse-release 46 47 button1 524288 -height 73 -width 150
+    mouse-press 46 47 button1 -height 73 -width 150
+    // Check Tool Go To Actions Plan
+    mouse-double-click 46 47 button1 -height 73 -width 150
+}
+with [get-editor "Constitute shopping cart Actions Plan" | get-diagram -index 1 | get-edit-part 
+    -name "Constitute shopping cart Actions Plan"] {
+    mouse-release 606 117 button1 524288 -height 309 -width 728
+    mouse-move 562 115 -height 309 -width 728
+    mouse-move 165 10 -height 309 -width 728
+}
+get-editor "Buy books Actions Plan" | get-diagram -index 1 | key-type "" "\\u0000" -times 2
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

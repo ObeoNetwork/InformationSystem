@@ -1,0 +1,75 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingCinematicTreeUIStructureToolCreationViewElement
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _CC7msGNcEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/3/14 2:21 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing tool Creation for UIS_ViewElement defines in cinematic.odesign/UI Structure.
+- Tool CRE_ViewEvent
+- Tool CRE_ViewAction
+- Tool CRE_DataBinding
+- Tool CRE_Duplicate
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/E-BookStore UI Structure" | double-click
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text" | click
+    // Check Tool CRE_ViewEvent
+    select "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text" | get-menu Event | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Widget Event Type onKeyPressed"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text/onKeyPressed : onKeyPressed" 
+    | get-property "getText()" | equals "onKeyPressed : onKeyPressed" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text" | click
+    // Check Tool CRE_ViewAction
+    select "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text" | get-menu Action | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text/action1" | get-property "getText()" 
+    | equals action1 | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text" | click
+    // Check Tool CRE_DataBinding
+    select "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text" | get-menu "Data Binding" | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Components/DTO Registry/Category main/Service DTO ShoppingCart/Reference lines"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text/ShoppingCart.lines \\(DTO Reference\\)" 
+    | get-property "getText()" | equals "ShoppingCart.lines (DTO Reference)" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text" | click
+    // Check Tool CRE_Duplicate
+    select "E-BookStore/Checkout/PaymentForm : Page/cardNumber : Text" | get-menu Duplicate | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber copy : Text" | get-property "getText()" 
+    | equals "cardNumber copy : Text" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber copy : Text/onKeyPressed : onKeyPressed" 
+        | get-property "getText()" | equals "onKeyPressed : onKeyPressed" | verify-true
+    get-item "E-BookStore/Checkout/PaymentForm : Page/cardNumber copy : Text/action1" | get-property "getText()" 
+        | equals action1 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

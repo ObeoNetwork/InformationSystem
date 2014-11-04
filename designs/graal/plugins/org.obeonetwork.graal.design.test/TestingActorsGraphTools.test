@@ -1,0 +1,120 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _TrMrAD8XEeS7B9A6IeM5WA
+Element-Name: TestingActorsGraphTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _6N0ZsGNdEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/3/14 2:32 PM
+Testcase-Type: ecl
+Verifications: _BdfdED8aEeS7B9A6IeM5WA
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in graal.odesign/Actors Graph
+- Tool Actor
+- Tool Inherits
+- Tool Delete Inherits
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Actors Graph" 
+    | double-click
+with [get-editor "Actors Graph"] {
+	// Check Tool Actor
+    with [get-palette | get-palette-entry Actor] {
+        mouse-move 44 9 button1 -height 23 -width 125
+        mouse-press 44 9 button1 -height 23 -width 125
+        mouse-release 44 9 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Actors Graph"] {
+        mouse-move 371 59 button1 -height 309 -width 728
+        mouse-press 371 59 button1 -height 309 -width 728
+        mouse-release 371 59 button1 524288 -height 309 -width 728
+    }
+    get-diagram -index 1 | get-edit-part -name "Actors Graph" | get-edit-part -name "Actor 3" | get-handle ResizeHandle 
+        -index 6 | mouse-hover 4 4 -mask ALT -height 7 -width 7
+}
+get-editor "Actors Graph" | get-diagram -index 1 | get-edit-part -name "Actors Graph" | get-edit-part -name "Actor 3" 
+    | get-edit-part -name "Actor 3" | get-property "getEditText()" | equals "Actor 3" | verify-true
+with [get-editor "Actors Graph"] {
+    get-diagram -index 1 | get-edit-part -name "Actors Graph" | mouse-move 725 80 -height 309 -width 728
+    // Check Tool Inherits
+    with [get-palette | get-palette-entry Inherits] {
+        mouse-move 44 9 button1 -height 23 -width 125
+        mouse-press 44 9 button1 -height 23 -width 125
+        mouse-release 44 9 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Actors Graph"] {
+        mouse-move 404 83 -height 309 -width 728
+        with [get-edit-part -name "Actor 3" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 15 5 button1 -height 59 -width 30
+            mouse-press 15 5 button1 -height 59 -width 30
+            mouse-release 15 5 button1 524288 -height 59 -width 30
+        }
+        mouse-move 181 42 -height 309 -width 728
+        with [get-edit-part -name Visitor | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-hover 9 8 -height 59 -width 30
+            mouse-move 9 8 button1 -height 59 -width 30
+            mouse-press 9 8 button1 -height 59 -width 30
+        }
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Actors Graph" | get-edit-part -name Visitor | get-edit-part 
+            -className WorkspaceImageEditPart] {
+            mouse-release 9 8 button1 524288 -height 59 -width 30
+            mouse-hover 9 8 -height 59 -width 30
+        }
+        key-type "" "\\u0000"
+    }
+}
+with [get-editor "Actors Graph" | get-diagram -index 1 | get-edit-part -name "Actors Graph" | get-edit-part 
+    -name Visitor | get-target-connection 1] {
+    get-property "getTarget().getChildren().DNodeNameEditPart[0].getEditText()" | equals Visitor | verify-true
+    get-property "getSource().getChildren().DNodeNameEditPart[0].getEditText()" | equals "Actor 3" | verify-true
+}
+get-editor "Actors Graph" | get-diagram -index 1 | get-edit-part -name "Actors Graph" | mouse-move 7 35 -height 309 
+    -width 728
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Actor Actor 3" 
+    | key-type "" "\\u0000"
+with [get-editor "Actors Graph" | get-diagram -index 1] {
+    with [get-edit-part -name "Actors Graph"] {
+        mouse-move 279 45 -height 309 -width 728
+        with [get-edit-part -name Visitor | get-target-connection 1] {
+            mouse-move 112 28 button1 -height 56 -width 218
+            mouse-press 112 28 button1 -height 56 -width 218
+            mouse-release 114 29 button1 524288 -height 59 -width 222
+            mouse-move 120 30 button1 -height 59 -width 222
+            mouse-press 120 30 button1 -height 59 -width 222
+            mouse-release 120 30 button1 524288 -height 59 -width 222
+            mouse-hover 120 30 -height 59 -width 222
+        }
+    }
+    // Check Tool Delete Inherits
+    key-type Del
+    get-edit-part -name "Actors Graph" | mouse-move 0 66 -height 309 -width 728
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Actor Actor 3"
+with [get-editor "Actors Graph" | get-diagram -index 1 | get-edit-part -name "Actors Graph"] {
+    mouse-move 230 155 -height 309 -width 728
+    with [get-edit-part -name Customer | get-edit-part -className WorkspaceImageEditPart] {
+        mouse-move 18 14 button1 -height 59 -width 30
+        mouse-press 18 14 button1 -height 59 -width 30
+        mouse-release 18 14 button1 524288 -height 59 -width 30
+        mouse-hover 18 14 -height 59 -width 30
+    }
+    mouse-move 2 160 -height 309 -width 728
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Actor Customer"
+get-editor "Actors Graph" | get-diagram -index 1 | get-edit-part -name "Actors Graph" | mouse-move 12 194 -height 309 
+    -width 728
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Actor Actor 3"
+get-view Properties | get-tree | get-item "Super Actor" | get-property "getData().getValueAsString()" | equals "" 
+    | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
