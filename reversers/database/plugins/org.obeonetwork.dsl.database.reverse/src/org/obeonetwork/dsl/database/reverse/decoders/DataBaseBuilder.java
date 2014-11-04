@@ -1,5 +1,7 @@
 package org.obeonetwork.dsl.database.reverse.decoders;
 
+import java.sql.Connection;
+
 import org.obeonetwork.dsl.database.DataBase;
 
 
@@ -12,5 +14,7 @@ public interface DataBaseBuilder {
 	void post();
 	
 	DataBase getDataBase();
+	
+	Connection getConnection();
 	
 }

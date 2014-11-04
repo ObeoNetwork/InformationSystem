@@ -1,5 +1,6 @@
 package org.obeonetwork.dsl.database.reverse.tests;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -8,13 +9,19 @@ import java.util.Map;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.EqualityHelper;
 import org.junit.Test;
 import org.obeonetwork.dsl.database.DataBase;
+import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.DatabasePackage;
+import org.obeonetwork.dsl.database.NamedElement;
 import org.obeonetwork.dsl.database.reverse.DatabaseReverser;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
@@ -61,21 +68,52 @@ public class TestReverse {
 		checkEquality(database, databaseRef);
 		
 	}
-
-	private void checkEquality(DataBase database, DataBase databaseRef) {
-		assertTrue(database.getSchemas().size() == databaseRef.getSchemas().size());
-		assertTrue(database.getTables().size() == databaseRef.getTables().size());
-		assertTrue(database.getSequences().size() == databaseRef.getSequences().size());
-		assertTrue(database.getUsedLibraries().size() == databaseRef.getUsedLibraries().size());
-
-		EqualityHelper helper = new TestEqualityHelper();
-		assertTrue(helper.equals(database, databaseRef));	
+	
+	@Test
+	public void testH2Embedded() {
 		
-		List<EObject> eltsDatabase = Lists.newArrayList(database.eAllContents());
-		List<EObject> eltsDatabaseRef = Lists.newArrayList(databaseRef.eAllContents());
-		for (int i = 0; i < eltsDatabaseRef.size(); i++) {
-			assertTrue(helper.equals(eltsDatabaseRef.get(i), eltsDatabase.get(i)));
-		}
+		String databaseLocation = getH2DatabaseLocation(this.getClass(), "input");
+		
+		DataSource dataSource = new DataSource(databaseLocation, "PUBLIC");
+
+		dataSource.setJdbcUrl("jdbc:h2:" + databaseLocation);
+		dataSource.setJdbcUsername("sa");
+		dataSource.setVendor("H2-1.3");
+		
+		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
+		
+		DataBase databaseRef = loadModel("resources/h2/outputRef.database", "pathmap://NativeDBTypes/H2-1.3");
+		
+		checkEquality(database, databaseRef);
+		
+	}
+	
+	@Test
+	public void testH2Server() {
+	
+		String databaseLocation = getH2DatabaseLocation(this.getClass(), "input");
+			
+		DataSource dataSource = new DataSource(databaseLocation, "PUBLIC");
+
+		dataSource.setJdbcUrl("jdbc:h2:tcp://localhost/" + databaseLocation);
+		dataSource.setJdbcUsername("sa");
+		dataSource.setVendor("H2-1.3");
+		
+		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
+		
+		DataBase databaseRef = loadModel("resources/h2/outputRef.database", "pathmap://NativeDBTypes/H2-1.3");
+		
+		checkEquality(database, databaseRef);
+		
+	}
+
+	private static void checkEquality(DataBase database, DataBase databaseRef) {
+		assertEquals("The number of schemas is different.", databaseRef.getSchemas().size(), database.getSchemas().size());
+		assertEquals("The number of tables is different.", databaseRef.getTables().size(), database.getTables().size());
+		assertEquals("The number of sequences is different.", databaseRef.getSequences().size(), database.getSequences().size());
+		assertEquals("The number of used libraries is different.", databaseRef.getUsedLibraries().size(), database.getUsedLibraries().size());
+
+		new TestEqualityHelper().equals(database, databaseRef);	
 	}
 	
 	private static DataBase loadModel(String databaseTestPluginRelativePath, String typesLibraryPathmapUri) {
@@ -105,6 +143,12 @@ public class TestReverse {
 		return (DataBase) resourceDatabase.getContents().get(0);
 	}
 	
+	private static String getH2DatabaseLocation(Class testClass, String databaseName) {
+		String databaseLocation = testClass.getClassLoader().getResource("h2/" + databaseName + ".h2.db").getPath();
+		databaseLocation = databaseLocation.substring(1, databaseLocation.lastIndexOf("/"));
+		return databaseLocation + "/" + databaseName;
+	}
+	
 	private static class TestEqualityHelper extends EqualityHelper {
 		
 		@Override
@@ -116,6 +160,36 @@ public class TestReverse {
 				return true;
 			}
 			return super.haveEqualAttribute(eObject1, eObject2, attribute);
+		}
+		
+		@Override
+		protected boolean haveEqualFeature(EObject eObject1, EObject eObject2,
+				EStructuralFeature feature) {
+			boolean result = super.haveEqualFeature(eObject1, eObject2, feature);
+			assertTrue("The " + feature.getClass().getInterfaces()[0].getSimpleName() + " '" + feature.getName() + "' on " + getName(eObject1)  + " is different", result);
+			return result;
+		}
+		
+		private static String getName(EObject obj) {
+			String result = obj.eClass().getName();
+			if (obj instanceof NamedElement) {
+				result += " '" + ((NamedElement)obj).getName() + "'";
+			} else if (obj instanceof DatabaseElement) {
+				result += " '" + ((DatabaseElement)obj).getID() + "'";
+			} else {
+				List<EAttribute> attributes = obj.eClass().getEAllAttributes();
+				if (!attributes.isEmpty()) {
+					for (EAttribute eAttribute : attributes) {
+						Object value = ((InternalEObject)obj).eGet(eAttribute);
+						if (value instanceof String) {
+							result += eAttribute.getName() + ": '" + value + "'";
+						}
+					}
+				} else {
+					result += " '" + obj.toString() + "'";
+				}
+			}
+			return result;
 		}
 	}
 
