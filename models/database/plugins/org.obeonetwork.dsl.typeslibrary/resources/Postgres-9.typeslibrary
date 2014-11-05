@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_Zj69UBEnEeGTa_JlZYBw1A" kind="physicalTypes" name="Postgres-9">
+  <nativeTypes xmi:id="_iBb3cGTMEeSmq67_vSAzgg" name="BOOL"/>
+  <nativeTypes xmi:id="_i9DyMGTMEeSmq67_vSAzgg" name="BOX"/>
+  <nativeTypes xmi:id="_j3zjMGTMEeSmq67_vSAzgg" name="CHAR"/>
+  <nativeTypes xmi:id="_kxaEsGTMEeSmq67_vSAzgg" name="CHAR(%n)" spec="Length"/>
+  <nativeTypes xmi:id="_rydFkGTMEeSmq67_vSAzgg" name="CIDR"/>
+  <nativeTypes xmi:id="_taT0MGTMEeSmq67_vSAzgg" name="CIRCLE"/>
+  <nativeTypes xmi:id="_wIM90GTMEeSmq67_vSAzgg" name="DATE"/>
+  <nativeTypes xmi:id="_xZkfEGTMEeSmq67_vSAzgg" name="DECIMAL"/>
+  <nativeTypes xmi:id="_ygVS0GTMEeSmq67_vSAzgg" name="DECIMAL(%n)" spec="Length"/>
+  <nativeTypes xmi:id="_yxBaMGTMEeSmq67_vSAzgg" name="DECIMAL(%n,%p)" spec="LengthAndPrecision"/>
+  <nativeTypes xmi:id="_68m7kGTMEeSmq67_vSAzgg" name="FLOAT4"/>
+  <nativeTypes xmi:id="_8GhJ8GTMEeSmq67_vSAzgg" name="FLOAT8"/>
+  <nativeTypes xmi:id="_9W0UMGTMEeSmq67_vSAzgg" name="INET"/>
+  <nativeTypes xmi:id="__VwGEGTMEeSmq67_vSAzgg" name="INT2"/>
+  <nativeTypes xmi:id="_ArM2EGTNEeSmq67_vSAzgg" name="INT4"/>
+  <nativeTypes xmi:id="_Brkt8GTNEeSmq67_vSAzgg" name="INT8"/>
+  <nativeTypes xmi:id="_C2oL0GTNEeSmq67_vSAzgg" name="INTERVAL"/>
+  <nativeTypes xmi:id="_E_ShcGTNEeSmq67_vSAzgg" name="LINE"/>
+  <nativeTypes xmi:id="_F-IvUGTNEeSmq67_vSAzgg" name="LSEG"/>
+  <nativeTypes xmi:id="_HOiAMGTNEeSmq67_vSAzgg" name="MONEY"/>
+  <nativeTypes xmi:id="_Ibx2cGTNEeSmq67_vSAzgg" name="NUMERIC"/>
+  <nativeTypes xmi:id="_KTdw0GTNEeSmq67_vSAzgg" name="NUMERIC(%n)" spec="Length"/>
+  <nativeTypes xmi:id="_LqP9kGTNEeSmq67_vSAzgg" name="NUMERIC(%n,%p)" spec="LengthAndPrecision"/>
+  <nativeTypes xmi:id="_PFWLcGTNEeSmq67_vSAzgg" name="PATH"/>
+  <nativeTypes xmi:id="_RKAK0GTNEeSmq67_vSAzgg" name="POINT"/>
+  <nativeTypes xmi:id="_Texp0GTNEeSmq67_vSAzgg" name="POLYGON"/>
+  <nativeTypes xmi:id="_Vvu_0GTNEeSmq67_vSAzgg" name="SERIAL"/>
+  <nativeTypes xmi:id="_X2UR0GTNEeSmq67_vSAzgg" name="TEXT"/>
+  <nativeTypes xmi:id="_ZJw2sGTNEeSmq67_vSAzgg" name="TIME"/>
+  <nativeTypes xmi:id="_ad-QkGTNEeSmq67_vSAzgg" name="TIME WITH TIME ZONE"/>
+  <nativeTypes xmi:id="_cVwRkGTNEeSmq67_vSAzgg" name="TIMESTAMP"/>
+  <nativeTypes xmi:id="_dzaiYGTNEeSmq67_vSAzgg" name="TIMESTAMP WITH TIME ZONE"/>
+  <nativeTypes xmi:id="_hn9LAGTNEeSmq67_vSAzgg" name="VARCHAR(%n)" spec="Length"/>
+</typeslibrary:NativeTypesLibrary>
