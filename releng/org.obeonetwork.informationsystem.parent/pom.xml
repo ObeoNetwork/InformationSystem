@@ -18,8 +18,9 @@
   <properties>
     <tycho-version>0.14.1</tycho-version>
     <platform-version-name>indigo</platform-version-name>
-    <od-site>http://download.eclipse.org/sirius/updates/nightly/latest/luna/</od-site>
-    <eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/1.3/</eef-site>
+    <od-site>http://update.obeo.fr/release/designer/6.2.0/juno3/update/repository/</od-site>
+    <sirius-site>http://download.eclipse.org/sirius/updates/releases/2.0.0/luna/</sirius-site>
+    <eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/</eef-site>
     <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site>
     <eclipse-site>http://download.eclipse.org/releases/luna</eclipse-site>
     <orbit-site>http://mirror.update.eclipse.obeo.fr/orbit-R20120526062928/</orbit-site>
