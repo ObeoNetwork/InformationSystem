@@ -17,8 +17,7 @@
 
   <properties>
     <tycho-version>0.14.1</tycho-version>
-    <platform-version-name>indigo</platform-version-name>
-    <od-site>http://update.obeo.fr/release/designer/6.2.0/juno3/update/repository/</od-site>
+    <platform-version-name>indigo</platform-version-name>    
     <sirius-site>http://download.eclipse.org/sirius/updates/releases/2.0.0/luna/</sirius-site>
     <eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/</eef-site>
     <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site>
