@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_dsz0MGUGEeSgkuc78_R2UQ" techID="_dmMO0GUGEeSgkuc78_R2UQ" name="postgres">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Postgres-9#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_ds0bQGUGEeSgkuc78_R2UQ" techID="_dmSVcGUGEeSgkuc78_R2UQ" name="public">
+    <tables xsi:type="database:Table" xmi:id="_ds0bQWUGEeSgkuc78_R2UQ" comments="une adresse de personne" techID="_dm3kQGUGEeSgkuc78_R2UQ" name="aw_adresse">
+      <columns xmi:id="_ds0bQmUGEeSgkuc78_R2UQ" techID="_dm-R8GUGEeSgkuc78_R2UQ" name="adresse_id" defaultValue="" indexElements="_ds0bVGUGEeSgkuc78_R2UQ" primaryKey="_ds0bUGUGEeSgkuc78_R2UQ" sequence="_ds2QgmUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bQ2UGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds0bRGUGEeSgkuc78_R2UQ" comments="la rue de l'adresse" techID="_dm-R8WUGEeSgkuc78_R2UQ" name="rue" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bRWUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds0bRmUGEeSgkuc78_R2UQ" techID="_dm-R8mUGEeSgkuc78_R2UQ" name="codepostal" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bR2UGEeSgkuc78_R2UQ" length="5" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_KTdw0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds0bSGUGEeSgkuc78_R2UQ" comments="la ville de l'adresse" techID="_dm-R82UGEeSgkuc78_R2UQ" name="ville" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bSWUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds0bSmUGEeSgkuc78_R2UQ" techID="_dm-R9GUGEeSgkuc78_R2UQ" name="personne_id" defaultValue="" indexElements="_ds0bVmUGEeSgkuc78_R2UQ" foreignKeyElements="_ds0bUmUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bS2UGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds0bTGUGEeSgkuc78_R2UQ" techID="_dm-R9WUGEeSgkuc78_R2UQ" name="xdmaj" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bTWUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds0bTmUGEeSgkuc78_R2UQ" techID="_dnEYkGUGEeSgkuc78_R2UQ" name="xtopsup" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bT2UGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds0bUGUGEeSgkuc78_R2UQ" techID="_dnEYkWUGEeSgkuc78_R2UQ" name="aw_adresse_pk" columns="_ds0bQmUGEeSgkuc78_R2UQ"/>
+      <foreignKeys xmi:id="_ds0bUWUGEeSgkuc78_R2UQ" techID="_dpbwEGUGEeSgkuc78_R2UQ" name="adresse_personne_id_fk" target="_ds1CgGUGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds0bUmUGEeSgkuc78_R2UQ" techID="_dpcXIGUGEeSgkuc78_R2UQ" fkColumn="_ds0bSmUGEeSgkuc78_R2UQ" pkColumn="_ds1CgWUGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_ds0bU2UGEeSgkuc78_R2UQ" techID="_dnKfMGUGEeSgkuc78_R2UQ" name="aw_adresse_pk" unique="true">
+        <elements xmi:id="_ds0bVGUGEeSgkuc78_R2UQ" techID="_dnKfMWUGEeSgkuc78_R2UQ" column="_ds0bQmUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_ds0bVWUGEeSgkuc78_R2UQ" techID="_dnKfMmUGEeSgkuc78_R2UQ" name="aw_adresse_personne_id_idx">
+        <elements xmi:id="_ds0bVmUGEeSgkuc78_R2UQ" techID="_dnKfM2UGEeSgkuc78_R2UQ" column="_ds0bSmUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds0bV2UGEeSgkuc78_R2UQ" comments="une comp&#x201a;tence" techID="_dnKfNGUGEeSgkuc78_R2UQ" name="aw_competence">
+      <columns xmi:id="_ds0bWGUGEeSgkuc78_R2UQ" techID="_dnQl0GUGEeSgkuc78_R2UQ" name="competence_id" defaultValue="" indexElements="_ds0bYmUGEeSgkuc78_R2UQ" primaryKey="_ds0bYGUGEeSgkuc78_R2UQ" sequence="_ds2Qg2UGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bWWUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds0bWmUGEeSgkuc78_R2UQ" comments="le libell&#x201a; de la comp&#x201a;tence" techID="_dnQl0WUGEeSgkuc78_R2UQ" name="libelle" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bW2UGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds0bXGUGEeSgkuc78_R2UQ" techID="_dnQl0mUGEeSgkuc78_R2UQ" name="xdmaj" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bXWUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds0bXmUGEeSgkuc78_R2UQ" techID="_dnQl02UGEeSgkuc78_R2UQ" name="xtopsup" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bX2UGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds0bYGUGEeSgkuc78_R2UQ" techID="_dnQl1GUGEeSgkuc78_R2UQ" name="aw_competence_pk" columns="_ds0bWGUGEeSgkuc78_R2UQ"/>
+      <indexes xmi:id="_ds0bYWUGEeSgkuc78_R2UQ" techID="_dnWscGUGEeSgkuc78_R2UQ" name="aw_competence_pk" unique="true">
+        <elements xmi:id="_ds0bYmUGEeSgkuc78_R2UQ" techID="_dnWscWUGEeSgkuc78_R2UQ" column="_ds0bWGUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds0bY2UGEeSgkuc78_R2UQ" techID="_dnWscmUGEeSgkuc78_R2UQ" name="aw_competence_id">
+      <columns xmi:id="_ds0bZGUGEeSgkuc78_R2UQ" techID="_dnWsc2UGEeSgkuc78_R2UQ" name="personne_id" defaultValue="" indexElements="_ds1CUmUGEeSgkuc78_R2UQ" primaryKey="_ds0baGUGEeSgkuc78_R2UQ" foreignKeyElements="_ds1CUGUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bZWUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds0bZmUGEeSgkuc78_R2UQ" techID="_dnczEGUGEeSgkuc78_R2UQ" name="competence_id" defaultValue="" indexElements="_ds1CU2UGEeSgkuc78_R2UQ" primaryKey="_ds0baGUGEeSgkuc78_R2UQ" foreignKeyElements="_ds0bamUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds0bZ2UGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds0baGUGEeSgkuc78_R2UQ" techID="_dnfPUGUGEeSgkuc78_R2UQ" name="aw_competence_id_pk" columns="_ds0bZGUGEeSgkuc78_R2UQ _ds0bZmUGEeSgkuc78_R2UQ"/>
+      <foreignKeys xmi:id="_ds0baWUGEeSgkuc78_R2UQ" techID="_dp_wwGUGEeSgkuc78_R2UQ" name="competence_id_competence_fk" target="_ds0bV2UGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds0bamUGEeSgkuc78_R2UQ" techID="_dp_wwWUGEeSgkuc78_R2UQ" fkColumn="_ds0bZmUGEeSgkuc78_R2UQ" pkColumn="_ds0bWGUGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_ds0ba2UGEeSgkuc78_R2UQ" techID="_dp_wwmUGEeSgkuc78_R2UQ" name="competence_id_personne_fk" target="_ds1CgGUGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds1CUGUGEeSgkuc78_R2UQ" techID="_dp_ww2UGEeSgkuc78_R2UQ" fkColumn="_ds0bZGUGEeSgkuc78_R2UQ" pkColumn="_ds1CgWUGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_ds1CUWUGEeSgkuc78_R2UQ" techID="_dni5sGUGEeSgkuc78_R2UQ" name="aw_competence_id_pk" unique="true">
+        <elements xmi:id="_ds1CUmUGEeSgkuc78_R2UQ" techID="_dni5sWUGEeSgkuc78_R2UQ" column="_ds0bZGUGEeSgkuc78_R2UQ" asc="true"/>
+        <elements xmi:id="_ds1CU2UGEeSgkuc78_R2UQ" techID="_dni5smUGEeSgkuc78_R2UQ" column="_ds0bZmUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds1CVGUGEeSgkuc78_R2UQ" techID="_dni5s2UGEeSgkuc78_R2UQ" name="aw_competence_perso">
+      <columns xmi:id="_ds1CVWUGEeSgkuc78_R2UQ" techID="_dnl9AGUGEeSgkuc78_R2UQ" name="competence_perso_id" defaultValue="" indexElements="_ds1CX2UGEeSgkuc78_R2UQ" primaryKey="_ds1CXWUGEeSgkuc78_R2UQ" sequence="_ds2QhGUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CVmUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CV2UGEeSgkuc78_R2UQ" techID="_dnl9AWUGEeSgkuc78_R2UQ" name="libelle" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CWGUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CWWUGEeSgkuc78_R2UQ" techID="_dnl9AmUGEeSgkuc78_R2UQ" name="xdmaj" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CWmUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CW2UGEeSgkuc78_R2UQ" techID="_dnl9A2UGEeSgkuc78_R2UQ" name="xtopsup" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CXGUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds1CXWUGEeSgkuc78_R2UQ" techID="_dnpAUGUGEeSgkuc78_R2UQ" name="aw_competence_perso_pk" columns="_ds1CVWUGEeSgkuc78_R2UQ"/>
+      <indexes xmi:id="_ds1CXmUGEeSgkuc78_R2UQ" techID="_dnsqsGUGEeSgkuc78_R2UQ" name="aw_competence_perso_pk" unique="true">
+        <elements xmi:id="_ds1CX2UGEeSgkuc78_R2UQ" techID="_dnsqsWUGEeSgkuc78_R2UQ" column="_ds1CVWUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds1CYGUGEeSgkuc78_R2UQ" techID="_dnsqsmUGEeSgkuc78_R2UQ" name="aw_mail">
+      <columns xmi:id="_ds1CYWUGEeSgkuc78_R2UQ" techID="_dnvuAGUGEeSgkuc78_R2UQ" name="mail_id" defaultValue="" indexElements="_ds1CcWUGEeSgkuc78_R2UQ" primaryKey="_ds1CbWUGEeSgkuc78_R2UQ" sequence="_ds2Qh2UGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CYmUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CY2UGEeSgkuc78_R2UQ" techID="_dnvuAWUGEeSgkuc78_R2UQ" name="pro" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CZGUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CZWUGEeSgkuc78_R2UQ" techID="_dnvuAmUGEeSgkuc78_R2UQ" name="mail" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CZmUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CZ2UGEeSgkuc78_R2UQ" techID="_dnvuA2UGEeSgkuc78_R2UQ" name="personne_id" defaultValue="" indexElements="_ds1Cc2UGEeSgkuc78_R2UQ" foreignKeyElements="_ds1Cb2UGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CaGUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CaWUGEeSgkuc78_R2UQ" techID="_dnwVEGUGEeSgkuc78_R2UQ" name="xdmaj" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CamUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1Ca2UGEeSgkuc78_R2UQ" techID="_dnwVEWUGEeSgkuc78_R2UQ" name="xtopsup" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CbGUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds1CbWUGEeSgkuc78_R2UQ" techID="_dnyxUGUGEeSgkuc78_R2UQ" name="aw_mail_pk" columns="_ds1CYWUGEeSgkuc78_R2UQ"/>
+      <foreignKeys xmi:id="_ds1CbmUGEeSgkuc78_R2UQ" techID="_dqoC4GUGEeSgkuc78_R2UQ" name="mail_personne_fk" target="_ds1CgGUGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds1Cb2UGEeSgkuc78_R2UQ" techID="_dqoC4WUGEeSgkuc78_R2UQ" fkColumn="_ds1CZ2UGEeSgkuc78_R2UQ" pkColumn="_ds1CgWUGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_ds1CcGUGEeSgkuc78_R2UQ" techID="_dn10oGUGEeSgkuc78_R2UQ" name="aw_mail_pk" unique="true">
+        <elements xmi:id="_ds1CcWUGEeSgkuc78_R2UQ" techID="_dn2bsGUGEeSgkuc78_R2UQ" column="_ds1CYWUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_ds1CcmUGEeSgkuc78_R2UQ" techID="_dn2bsWUGEeSgkuc78_R2UQ" name="aw_mail_personne_idx">
+        <elements xmi:id="_ds1Cc2UGEeSgkuc78_R2UQ" techID="_dn2bsmUGEeSgkuc78_R2UQ" column="_ds1CZ2UGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds1CdGUGEeSgkuc78_R2UQ" techID="_dn2bs2UGEeSgkuc78_R2UQ" name="aw_permission">
+      <columns xmi:id="_ds1CdWUGEeSgkuc78_R2UQ" techID="_dn5fAGUGEeSgkuc78_R2UQ" name="permission_id" defaultValue="" indexElements="_ds1Cf2UGEeSgkuc78_R2UQ" primaryKey="_ds1CfWUGEeSgkuc78_R2UQ" sequence="_ds2QimUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CdmUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1Cd2UGEeSgkuc78_R2UQ" comments="le nom de la permission" techID="_dn5fAWUGEeSgkuc78_R2UQ" name="nompermission" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CeGUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CeWUGEeSgkuc78_R2UQ" techID="_dn5fAmUGEeSgkuc78_R2UQ" name="xdmaj" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CemUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1Ce2UGEeSgkuc78_R2UQ" techID="_dn6GEGUGEeSgkuc78_R2UQ" name="xtopsup" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CfGUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds1CfWUGEeSgkuc78_R2UQ" techID="_dn8iUGUGEeSgkuc78_R2UQ" name="aw_permission_pk" columns="_ds1CdWUGEeSgkuc78_R2UQ"/>
+      <indexes xmi:id="_ds1CfmUGEeSgkuc78_R2UQ" techID="_dn_loGUGEeSgkuc78_R2UQ" name="aw_permission_pk" unique="true">
+        <elements xmi:id="_ds1Cf2UGEeSgkuc78_R2UQ" techID="_dn_loWUGEeSgkuc78_R2UQ" column="_ds1CdWUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds1CgGUGEeSgkuc78_R2UQ" comments="Une personne" techID="_doAMsGUGEeSgkuc78_R2UQ" name="aw_personne">
+      <columns xmi:id="_ds1CgWUGEeSgkuc78_R2UQ" techID="_doDQAGUGEeSgkuc78_R2UQ" name="personne_id" defaultValue="" indexElements="_ds1Cl2UGEeSgkuc78_R2UQ" primaryKey="_ds1ClWUGEeSgkuc78_R2UQ" sequence="_ds2QgWUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CgmUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1Cg2UGEeSgkuc78_R2UQ" comments="le nom de la personne" techID="_doDQAWUGEeSgkuc78_R2UQ" name="nom" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1ChGUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1ChWUGEeSgkuc78_R2UQ" comments="le pr&#x201a;nom de la personne" techID="_doDQAmUGEeSgkuc78_R2UQ" name="prenom" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1ChmUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1Ch2UGEeSgkuc78_R2UQ" comments="indicateur si la personne est civile ou non" techID="_doDQA2UGEeSgkuc78_R2UQ" name="civil" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CiGUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CiWUGEeSgkuc78_R2UQ" comments="la date de naissance de la personne" techID="_doDQBGUGEeSgkuc78_R2UQ" name="date_naissance" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CimUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1Ci2UGEeSgkuc78_R2UQ" techID="_doD3EGUGEeSgkuc78_R2UQ" name="salaire" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CjGUGEeSgkuc78_R2UQ" length="14" precision="2">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CjWUGEeSgkuc78_R2UQ" techID="_doD3EWUGEeSgkuc78_R2UQ" name="version" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CjmUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1Cj2UGEeSgkuc78_R2UQ" techID="_doD3EmUGEeSgkuc78_R2UQ" name="grade_id" nullable="true" defaultValue="" indexElements="_ds1CmWUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CkGUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CkWUGEeSgkuc78_R2UQ" techID="_doD3E2UGEeSgkuc78_R2UQ" name="xdmaj" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CkmUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1Ck2UGEeSgkuc78_R2UQ" techID="_doD3FGUGEeSgkuc78_R2UQ" name="xtopsup" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1ClGUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds1ClWUGEeSgkuc78_R2UQ" techID="_doG6YGUGEeSgkuc78_R2UQ" name="aw_personne_pk" columns="_ds1CgWUGEeSgkuc78_R2UQ"/>
+      <indexes xmi:id="_ds1ClmUGEeSgkuc78_R2UQ" techID="_doKkwGUGEeSgkuc78_R2UQ" name="aw_personne_pk" unique="true">
+        <elements xmi:id="_ds1Cl2UGEeSgkuc78_R2UQ" techID="_doKkwWUGEeSgkuc78_R2UQ" column="_ds1CgWUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_ds1CmGUGEeSgkuc78_R2UQ" techID="_doKkwmUGEeSgkuc78_R2UQ" name="aw_personne_grade_idx">
+        <elements xmi:id="_ds1CmWUGEeSgkuc78_R2UQ" techID="_doKkw2UGEeSgkuc78_R2UQ" column="_ds1Cj2UGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds1CmmUGEeSgkuc78_R2UQ" techID="_doKkxGUGEeSgkuc78_R2UQ" name="aw_personne_n_competence_perso">
+      <columns xmi:id="_ds1Cm2UGEeSgkuc78_R2UQ" techID="_doNoEGUGEeSgkuc78_R2UQ" name="personne_n_competence_perso_id" defaultValue="" indexElements="_ds1pbWUGEeSgkuc78_R2UQ" primaryKey="_ds1pZ2UGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1CnGUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1CnWUGEeSgkuc78_R2UQ" techID="_doNoEWUGEeSgkuc78_R2UQ" name="competenceperso_id" defaultValue="" indexElements="_ds1pb2UGEeSgkuc78_R2UQ" foreignKeyElements="_ds1paWUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pYGUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pYWUGEeSgkuc78_R2UQ" techID="_doOPIGUGEeSgkuc78_R2UQ" name="personne_id" defaultValue="" indexElements="_ds1pcWUGEeSgkuc78_R2UQ" foreignKeyElements="_ds1pa2UGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pYmUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pY2UGEeSgkuc78_R2UQ" techID="_doOPIWUGEeSgkuc78_R2UQ" name="xdmaj" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pZGUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pZWUGEeSgkuc78_R2UQ" techID="_doOPImUGEeSgkuc78_R2UQ" name="xtopsup" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pZmUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds1pZ2UGEeSgkuc78_R2UQ" techID="_doQrYGUGEeSgkuc78_R2UQ" name="aw_personne_n_competence_pe_pk" columns="_ds1Cm2UGEeSgkuc78_R2UQ"/>
+      <foreignKeys xmi:id="_ds1paGUGEeSgkuc78_R2UQ" techID="_draGAGUGEeSgkuc78_R2UQ" name="personne_n_co_competenceper_fk" target="_ds1CVGUGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds1paWUGEeSgkuc78_R2UQ" techID="_draGAWUGEeSgkuc78_R2UQ" fkColumn="_ds1CnWUGEeSgkuc78_R2UQ" pkColumn="_ds1CVWUGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_ds1pamUGEeSgkuc78_R2UQ" techID="_draGAmUGEeSgkuc78_R2UQ" name="personne_n_co_personne_fk" target="_ds1CgGUGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds1pa2UGEeSgkuc78_R2UQ" techID="_draGA2UGEeSgkuc78_R2UQ" fkColumn="_ds1pYWUGEeSgkuc78_R2UQ" pkColumn="_ds1CgWUGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_ds1pbGUGEeSgkuc78_R2UQ" techID="_doUVwGUGEeSgkuc78_R2UQ" name="aw_personne_n_competence_pe_pk" unique="true">
+        <elements xmi:id="_ds1pbWUGEeSgkuc78_R2UQ" techID="_doUVwWUGEeSgkuc78_R2UQ" column="_ds1Cm2UGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_ds1pbmUGEeSgkuc78_R2UQ" techID="_doUVwmUGEeSgkuc78_R2UQ" name="aw_personne_n_competencepe_idx">
+        <elements xmi:id="_ds1pb2UGEeSgkuc78_R2UQ" techID="_doUVw2UGEeSgkuc78_R2UQ" column="_ds1CnWUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_ds1pcGUGEeSgkuc78_R2UQ" techID="_doUVxGUGEeSgkuc78_R2UQ" name="aw_personne_n_personne_idx">
+        <elements xmi:id="_ds1pcWUGEeSgkuc78_R2UQ" techID="_doUVxWUGEeSgkuc78_R2UQ" column="_ds1pYWUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds1pcmUGEeSgkuc78_R2UQ" techID="_doUVxmUGEeSgkuc78_R2UQ" name="aw_role">
+      <columns xmi:id="_ds1pc2UGEeSgkuc78_R2UQ" techID="_doXZEGUGEeSgkuc78_R2UQ" name="role_id" defaultValue="" indexElements="_ds1pfWUGEeSgkuc78_R2UQ" primaryKey="_ds1pe2UGEeSgkuc78_R2UQ" sequence="_ds2QiWUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pdGUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pdWUGEeSgkuc78_R2UQ" comments="le nom du r&#x201c;le" techID="_doXZEWUGEeSgkuc78_R2UQ" name="nom_role" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pdmUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pd2UGEeSgkuc78_R2UQ" techID="_doXZEmUGEeSgkuc78_R2UQ" name="xdmaj" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1peGUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1peWUGEeSgkuc78_R2UQ" techID="_doYAIGUGEeSgkuc78_R2UQ" name="xtopsup" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pemUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds1pe2UGEeSgkuc78_R2UQ" techID="_doZ1UGUGEeSgkuc78_R2UQ" name="aw_role_pk" columns="_ds1pc2UGEeSgkuc78_R2UQ"/>
+      <indexes xmi:id="_ds1pfGUGEeSgkuc78_R2UQ" techID="_dodfsGUGEeSgkuc78_R2UQ" name="aw_role_pk" unique="true">
+        <elements xmi:id="_ds1pfWUGEeSgkuc78_R2UQ" techID="_dodfsWUGEeSgkuc78_R2UQ" column="_ds1pc2UGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds1pfmUGEeSgkuc78_R2UQ" techID="_doeGwGUGEeSgkuc78_R2UQ" name="aw_role_utilisateur">
+      <columns xmi:id="_ds1pf2UGEeSgkuc78_R2UQ" techID="_dogjAGUGEeSgkuc78_R2UQ" name="utilisateur_id" defaultValue="" indexElements="_ds1piWUGEeSgkuc78_R2UQ" primaryKey="_ds1pg2UGEeSgkuc78_R2UQ" foreignKeyElements="_ds1ph2UGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pgGUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pgWUGEeSgkuc78_R2UQ" techID="_dohKEGUGEeSgkuc78_R2UQ" name="role_id" defaultValue="" indexElements="_ds1pimUGEeSgkuc78_R2UQ" primaryKey="_ds1pg2UGEeSgkuc78_R2UQ" foreignKeyElements="_ds1phWUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pgmUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds1pg2UGEeSgkuc78_R2UQ" techID="_doi_QGUGEeSgkuc78_R2UQ" name="aw_role_utilisateur_pk" columns="_ds1pf2UGEeSgkuc78_R2UQ _ds1pgWUGEeSgkuc78_R2UQ"/>
+      <foreignKeys xmi:id="_ds1phGUGEeSgkuc78_R2UQ" techID="_dr84kGUGEeSgkuc78_R2UQ" name="role_utilisat_role_fk" target="_ds1pcmUGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds1phWUGEeSgkuc78_R2UQ" techID="_dr84kWUGEeSgkuc78_R2UQ" fkColumn="_ds1pgWUGEeSgkuc78_R2UQ" pkColumn="_ds1pc2UGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_ds1phmUGEeSgkuc78_R2UQ" techID="_dr84kmUGEeSgkuc78_R2UQ" name="role_utilisat_utilisateur_fk" target="_ds1prGUGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds1ph2UGEeSgkuc78_R2UQ" techID="_dr84k2UGEeSgkuc78_R2UQ" fkColumn="_ds1pf2UGEeSgkuc78_R2UQ" pkColumn="_ds1prWUGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_ds1piGUGEeSgkuc78_R2UQ" techID="_dompoGUGEeSgkuc78_R2UQ" name="aw_role_utilisateur_pk" unique="true">
+        <elements xmi:id="_ds1piWUGEeSgkuc78_R2UQ" techID="_donQsGUGEeSgkuc78_R2UQ" column="_ds1pf2UGEeSgkuc78_R2UQ" asc="true"/>
+        <elements xmi:id="_ds1pimUGEeSgkuc78_R2UQ" techID="_donQsWUGEeSgkuc78_R2UQ" column="_ds1pgWUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds1pi2UGEeSgkuc78_R2UQ" techID="_donQsmUGEeSgkuc78_R2UQ" name="aw_rolepermission">
+      <columns xmi:id="_ds1pjGUGEeSgkuc78_R2UQ" techID="_dops8GUGEeSgkuc78_R2UQ" name="role_id" defaultValue="" indexElements="_ds1plmUGEeSgkuc78_R2UQ" primaryKey="_ds1pkGUGEeSgkuc78_R2UQ" foreignKeyElements="_ds1plGUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pjWUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pjmUGEeSgkuc78_R2UQ" techID="_dops8WUGEeSgkuc78_R2UQ" name="permission_id" defaultValue="" indexElements="_ds1pl2UGEeSgkuc78_R2UQ" primaryKey="_ds1pkGUGEeSgkuc78_R2UQ" foreignKeyElements="_ds1pkmUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pj2UGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds1pkGUGEeSgkuc78_R2UQ" techID="_dosJMGUGEeSgkuc78_R2UQ" name="aw_rolepermission_pk" columns="_ds1pjGUGEeSgkuc78_R2UQ _ds1pjmUGEeSgkuc78_R2UQ"/>
+      <foreignKeys xmi:id="_ds1pkWUGEeSgkuc78_R2UQ" techID="_dsN-UGUGEeSgkuc78_R2UQ" name="rolepermissio_permission_fk" target="_ds1CdGUGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds1pkmUGEeSgkuc78_R2UQ" techID="_dsN-UWUGEeSgkuc78_R2UQ" fkColumn="_ds1pjmUGEeSgkuc78_R2UQ" pkColumn="_ds1CdWUGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_ds1pk2UGEeSgkuc78_R2UQ" techID="_dsN-UmUGEeSgkuc78_R2UQ" name="rolepermissio_role_fk" target="_ds1pcmUGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds1plGUGEeSgkuc78_R2UQ" techID="_dsN-U2UGEeSgkuc78_R2UQ" fkColumn="_ds1pjGUGEeSgkuc78_R2UQ" pkColumn="_ds1pc2UGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_ds1plWUGEeSgkuc78_R2UQ" techID="_dovzkGUGEeSgkuc78_R2UQ" name="aw_rolepermission_pk" unique="true">
+        <elements xmi:id="_ds1plmUGEeSgkuc78_R2UQ" techID="_dovzkWUGEeSgkuc78_R2UQ" column="_ds1pjGUGEeSgkuc78_R2UQ" asc="true"/>
+        <elements xmi:id="_ds1pl2UGEeSgkuc78_R2UQ" techID="_dovzkmUGEeSgkuc78_R2UQ" column="_ds1pjmUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds1pmGUGEeSgkuc78_R2UQ" comments="Contact t&#x201a;l&#x201a;phonique" techID="_dovzk2UGEeSgkuc78_R2UQ" name="aw_telephone">
+      <columns xmi:id="_ds1pmWUGEeSgkuc78_R2UQ" techID="_doy24GUGEeSgkuc78_R2UQ" name="telephone_id" defaultValue="" indexElements="_ds1pqWUGEeSgkuc78_R2UQ" primaryKey="_ds1ppWUGEeSgkuc78_R2UQ" sequence="_ds2QhmUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pmmUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pm2UGEeSgkuc78_R2UQ" techID="_doy24WUGEeSgkuc78_R2UQ" name="pro" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pnGUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pnWUGEeSgkuc78_R2UQ" techID="_dozd8GUGEeSgkuc78_R2UQ" name="numero" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pnmUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pn2UGEeSgkuc78_R2UQ" techID="_dozd8WUGEeSgkuc78_R2UQ" name="personne_id" defaultValue="" indexElements="_ds1pq2UGEeSgkuc78_R2UQ" foreignKeyElements="_ds1pp2UGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1poGUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1poWUGEeSgkuc78_R2UQ" techID="_dozd8mUGEeSgkuc78_R2UQ" name="xdmaj" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1pomUGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1po2UGEeSgkuc78_R2UQ" techID="_dozd82UGEeSgkuc78_R2UQ" name="xtopsup" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1ppGUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds1ppWUGEeSgkuc78_R2UQ" techID="_do16MGUGEeSgkuc78_R2UQ" name="aw_telephone_pk" columns="_ds1pmWUGEeSgkuc78_R2UQ"/>
+      <foreignKeys xmi:id="_ds1ppmUGEeSgkuc78_R2UQ" techID="_dsfrIGUGEeSgkuc78_R2UQ" name="telephone_personne_fk" target="_ds1CgGUGEeSgkuc78_R2UQ">
+        <elements xmi:id="_ds1pp2UGEeSgkuc78_R2UQ" techID="_dsgSMGUGEeSgkuc78_R2UQ" fkColumn="_ds1pn2UGEeSgkuc78_R2UQ" pkColumn="_ds1CgWUGEeSgkuc78_R2UQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_ds1pqGUGEeSgkuc78_R2UQ" techID="_do5kkGUGEeSgkuc78_R2UQ" name="aw_telephone_pk" unique="true">
+        <elements xmi:id="_ds1pqWUGEeSgkuc78_R2UQ" techID="_do5kkWUGEeSgkuc78_R2UQ" column="_ds1pmWUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_ds1pqmUGEeSgkuc78_R2UQ" techID="_do5kkmUGEeSgkuc78_R2UQ" name="aw_telephone_personne_idx">
+        <elements xmi:id="_ds1pq2UGEeSgkuc78_R2UQ" techID="_do5kk2UGEeSgkuc78_R2UQ" column="_ds1pn2UGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ds1prGUGEeSgkuc78_R2UQ" techID="_do5klGUGEeSgkuc78_R2UQ" name="aw_utilisateur">
+      <columns xmi:id="_ds1prWUGEeSgkuc78_R2UQ" techID="_do8n4GUGEeSgkuc78_R2UQ" name="utilisateur_id" defaultValue="" indexElements="_ds2QgGUGEeSgkuc78_R2UQ" primaryKey="_ds2QfmUGEeSgkuc78_R2UQ" sequence="_ds2QiGUGEeSgkuc78_R2UQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1prmUGEeSgkuc78_R2UQ" length="19" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_Brkt8GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds1pr2UGEeSgkuc78_R2UQ" comments="l'identifiant de connexion de l'utilisateur" techID="_do8n4WUGEeSgkuc78_R2UQ" name="identifiant" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds1psGUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds2QcGUGEeSgkuc78_R2UQ" comments="le mot de passe de connexion de l'utilisateur" techID="_do9O8GUGEeSgkuc78_R2UQ" name="mdp" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds2QcWUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds2QcmUGEeSgkuc78_R2UQ" comments="le nom de l'utilisateur" techID="_do9O8WUGEeSgkuc78_R2UQ" name="nom" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds2Qc2UGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds2QdGUGEeSgkuc78_R2UQ" comments="le pr&#x201a;nom de l'utilisateur" techID="_do9O8mUGEeSgkuc78_R2UQ" name="prenom" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds2QdWUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds2QdmUGEeSgkuc78_R2UQ" comments="l'adresse email de l'utilisateur" techID="_do9O82UGEeSgkuc78_R2UQ" name="email" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds2Qd2UGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds2QeGUGEeSgkuc78_R2UQ" techID="_do9O9GUGEeSgkuc78_R2UQ" name="mdph" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds2QeWUGEeSgkuc78_R2UQ" length="100" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds2QemUGEeSgkuc78_R2UQ" techID="_do92AGUGEeSgkuc78_R2UQ" name="xdmaj" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds2Qe2UGEeSgkuc78_R2UQ" length="29" precision="6">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_cVwRkGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ds2QfGUGEeSgkuc78_R2UQ" techID="_do92AWUGEeSgkuc78_R2UQ" name="xtopsup" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ds2QfWUGEeSgkuc78_R2UQ" length="1" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_iBb3cGTMEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_ds2QfmUGEeSgkuc78_R2UQ" techID="_do_rMGUGEeSgkuc78_R2UQ" name="aw_utilisateur_pk" columns="_ds1prWUGEeSgkuc78_R2UQ"/>
+      <indexes xmi:id="_ds2Qf2UGEeSgkuc78_R2UQ" techID="_dpDVkGUGEeSgkuc78_R2UQ" name="aw_utilisateur_pk" unique="true">
+        <elements xmi:id="_ds2QgGUGEeSgkuc78_R2UQ" techID="_dpDVkWUGEeSgkuc78_R2UQ" column="_ds1prWUGEeSgkuc78_R2UQ" asc="true"/>
+      </indexes>
+    </tables>
+    <sequences xmi:id="_ds2QgWUGEeSgkuc78_R2UQ" techID="_dpGY4GUGEeSgkuc78_R2UQ" name="aw_personne_seq" start="1000" increment="1" minValue="1" maxValue="-1" columns="_ds1CgWUGEeSgkuc78_R2UQ"/>
+    <sequences xmi:id="_ds2QgmUGEeSgkuc78_R2UQ" techID="_dpG_8GUGEeSgkuc78_R2UQ" name="aw_adresse_seq" start="1000" increment="1" minValue="1" maxValue="-1" columns="_ds0bQmUGEeSgkuc78_R2UQ"/>
+    <sequences xmi:id="_ds2Qg2UGEeSgkuc78_R2UQ" techID="_dpG_8WUGEeSgkuc78_R2UQ" name="aw_competence_seq" start="1000" increment="1" minValue="1" maxValue="-1" columns="_ds0bWGUGEeSgkuc78_R2UQ"/>
+    <sequences xmi:id="_ds2QhGUGEeSgkuc78_R2UQ" techID="_dpG_8mUGEeSgkuc78_R2UQ" name="aw_competence_perso_seq" start="1000" increment="1" minValue="1" maxValue="-1" columns="_ds1CVWUGEeSgkuc78_R2UQ"/>
+    <sequences xmi:id="_ds2QhWUGEeSgkuc78_R2UQ" techID="_dpG_82UGEeSgkuc78_R2UQ" name="aw_personne_n_competence_p_seq" start="1000" increment="1" minValue="1" maxValue="-1"/>
+    <sequences xmi:id="_ds2QhmUGEeSgkuc78_R2UQ" techID="_dpG_9GUGEeSgkuc78_R2UQ" name="aw_telephone_seq" start="1000" increment="1" minValue="1" maxValue="-1" columns="_ds1pmWUGEeSgkuc78_R2UQ"/>
+    <sequences xmi:id="_ds2Qh2UGEeSgkuc78_R2UQ" techID="_dpHnAGUGEeSgkuc78_R2UQ" name="aw_mail_seq" start="1000" increment="1" minValue="1" maxValue="-1" columns="_ds1CYWUGEeSgkuc78_R2UQ"/>
+    <sequences xmi:id="_ds2QiGUGEeSgkuc78_R2UQ" techID="_dpHnAWUGEeSgkuc78_R2UQ" name="aw_utilisateur_seq" start="1000" increment="1" minValue="1" maxValue="-1" columns="_ds1prWUGEeSgkuc78_R2UQ"/>
+    <sequences xmi:id="_ds2QiWUGEeSgkuc78_R2UQ" techID="_dpHnAmUGEeSgkuc78_R2UQ" name="aw_role_seq" start="1000" increment="1" minValue="1" maxValue="-1" columns="_ds1pc2UGEeSgkuc78_R2UQ"/>
+    <sequences xmi:id="_ds2QimUGEeSgkuc78_R2UQ" techID="_dpHnA2UGEeSgkuc78_R2UQ" name="aw_permission_seq" start="1000" increment="1" minValue="1" maxValue="-1" columns="_ds1CdWUGEeSgkuc78_R2UQ"/>
+  </schemas>
+</database:DataBase>

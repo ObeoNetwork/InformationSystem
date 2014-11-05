@@ -106,6 +106,24 @@ public class TestReverse {
 		checkEquality(database, databaseRef);
 		
 	}
+	
+	@Test
+	public void testPostgres() {
+	
+		DataSource dataSource = new DataSource("postgres", "public");
+
+		dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/postgres");
+		dataSource.setJdbcUsername("postgres");
+		dataSource.setJdbcPassword("admin");
+		dataSource.setVendor("Postgres-9");
+		
+		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
+		
+		DataBase databaseRef = loadModel("resources/postgres/outputRef.database", "pathmap://NativeDBTypes/Postgres-9");
+		
+		checkEquality(database, databaseRef);
+		
+	}
 
 	private static void checkEquality(DataBase database, DataBase databaseRef) {
 		assertEquals("The number of schemas is different.", databaseRef.getSchemas().size(), database.getSchemas().size());
