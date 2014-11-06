@@ -27,12 +27,12 @@
 
   <repositories>
   	<repository>
-      <id>od</id>
+      <id>sirius</id>
       <layout>p2</layout>
-      <url>${od-site}</url>
+      <url>${sirius-site}</url>
     </repository>
     <repository>
-      <id>juno3</id>
+      <id>luna</id>
       <layout>p2</layout>
       <url>${eclipse-site}</url>
     </repository>
