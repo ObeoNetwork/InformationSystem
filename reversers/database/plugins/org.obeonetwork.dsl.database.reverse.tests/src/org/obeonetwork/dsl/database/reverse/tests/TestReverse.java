@@ -124,6 +124,24 @@ public class TestReverse {
 		checkEquality(database, databaseRef);
 		
 	}
+	
+	@Test
+	public void testSQLServer() {
+	
+		DataSource dataSource = new DataSource("Northwind", "dbo");
+
+		dataSource.setJdbcUrl("jdbc:sqlserver://localhost:1433;databaseName=Northwind");
+		dataSource.setJdbcUsername("testUser");
+		dataSource.setJdbcPassword("test");
+		dataSource.setVendor("SQLServer-2008");
+		
+		DataBase database = DatabaseReverser.reverse(dataSource, new MultiDataBaseQueries(), null);
+		
+		DataBase databaseRef = loadModel("resources/sqlserver/outputRef.database", "pathmap://NativeDBTypes/SQLServer-2008");
+		
+		checkEquality(database, databaseRef);
+		
+	}
 
 	private static void checkEquality(DataBase database, DataBase databaseRef) {
 		assertEquals("The number of schemas is different.", databaseRef.getSchemas().size(), database.getSchemas().size());

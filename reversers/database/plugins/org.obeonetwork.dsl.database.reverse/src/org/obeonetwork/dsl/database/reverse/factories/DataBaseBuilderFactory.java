@@ -8,6 +8,7 @@ import org.obeonetwork.dsl.database.reverse.decoders.impl.H2DataBaseBuilder;
 import org.obeonetwork.dsl.database.reverse.decoders.impl.MySQLDataBaseBuilder;
 import org.obeonetwork.dsl.database.reverse.decoders.impl.OracleDataBaseBuilder;
 import org.obeonetwork.dsl.database.reverse.decoders.impl.PostGresDataBaseBuilder;
+import org.obeonetwork.dsl.database.reverse.decoders.impl.SQLServerDataBaseBuilder;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
@@ -18,6 +19,7 @@ public class DataBaseBuilderFactory {
 	private static final String DB_MYSQL_5 = "MySQL-5";
 	private static final String DB_H2_13 = "H2-1.3";
 	private static final String DB_POSTGRES_9 = "Postgres-9";
+	private static final String DB_SQLSERVER_2008 = "SQLServer-2008";
 	
 	private DataSource dataSource;
 	
@@ -34,6 +36,8 @@ public class DataBaseBuilderFactory {
 			return new H2DataBaseBuilder(dataSource, progressListener, queries);
 		} else if(DB_POSTGRES_9.equals(dataSource.getVendor())){
 			return new PostGresDataBaseBuilder(dataSource, progressListener, queries);
+		} else if(DB_SQLSERVER_2008.equals(dataSource.getVendor())){
+			return new SQLServerDataBaseBuilder(dataSource, progressListener, queries);
 		} else {
 			return new DefaultDataBaseBuilder(dataSource, progressListener, queries);
 		}
