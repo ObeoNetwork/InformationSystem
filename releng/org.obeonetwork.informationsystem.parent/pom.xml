@@ -27,7 +27,7 @@
 
   <repositories>
   	<repository>
-      <id>od/id>
+      <id>od</id>
       <layout>p2</layout>
       <url>${od-site}</url>
     </repository>
