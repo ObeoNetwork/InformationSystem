@@ -18,7 +18,7 @@
   <properties>
     <tycho-version>0.14.1</tycho-version>
     <platform-version-name>indigo</platform-version-name>    
-    <sirius-site>http://download.eclipse.org/sirius/updates/releases/2.0.0/luna/</sirius-site>
+    <od-site>http://update.obeo.fr/integration/od/ce/repository/</od-site>
     <eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/</eef-site>
     <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site>
     <eclipse-site>http://download.eclipse.org/releases/luna/</eclipse-site>
@@ -27,9 +27,9 @@
 
   <repositories>
   	<repository>
-      <id>sirius</id>
+      <id>od/id>
       <layout>p2</layout>
-      <url>${sirius-site}</url>
+      <url>${od-site}</url>
     </repository>
     <repository>
       <id>luna</id>
