@@ -18,13 +18,13 @@ import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditor
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage;
 
-import fr.obeo.dsl.viewpoint.description.DocumentedElement;
-import fr.obeo.dsl.viewpoint.description.EndUserDocumentedElement;
-import fr.obeo.dsl.viewpoint.description.IdentifiedElement;
-import fr.obeo.dsl.viewpoint.description.RepresentationDescription;
-import fr.obeo.dsl.viewpoint.description.tool.AbstractToolDescription;
-import fr.obeo.dsl.viewpoint.description.tool.RepresentationCreationDescription;
-import fr.obeo.dsl.viewpoint.description.tool.ToolEntry;
+import org.eclipse.sirius.viewpoint.description.DocumentedElement;
+import org.eclipse.sirius.viewpoint.description.EndUserDocumentedElement;
+import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
+import org.eclipse.sirius.viewpoint.description.tool.RepresentationCreationDescription;
+import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -174,13 +174,13 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.viewpoint.description.DocumentedElement <em>Documented Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.description.DocumentedElement <em>Documented Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.viewpoint.description.DocumentedElement
+	 * @see org.eclipse.sirius.viewpoint.description.DocumentedElement
 	 * @generated
 	 */
 	public Adapter createDocumentedElementAdapter() {
@@ -188,13 +188,13 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.viewpoint.description.EndUserDocumentedElement <em>End User Documented Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.description.EndUserDocumentedElement <em>End User Documented Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.viewpoint.description.EndUserDocumentedElement
+	 * @see org.eclipse.sirius.viewpoint.description.EndUserDocumentedElement
 	 * @generated
 	 */
 	public Adapter createEndUserDocumentedElementAdapter() {
@@ -202,13 +202,13 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.viewpoint.description.IdentifiedElement <em>Identified Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.description.IdentifiedElement <em>Identified Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.viewpoint.description.IdentifiedElement
+	 * @see org.eclipse.sirius.viewpoint.description.IdentifiedElement
 	 * @generated
 	 */
 	public Adapter createIdentifiedElementAdapter() {
@@ -216,13 +216,13 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.viewpoint.description.RepresentationDescription <em>Representation Description</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.description.RepresentationDescription <em>Representation Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.viewpoint.description.RepresentationDescription
+	 * @see org.eclipse.sirius.viewpoint.description.RepresentationDescription
 	 * @generated
 	 */
 	public Adapter createRepresentationDescriptionAdapter() {
@@ -230,13 +230,13 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.viewpoint.description.tool.ToolEntry <em>Entry</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.description.tool.ToolEntry <em>Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.viewpoint.description.tool.ToolEntry
+	 * @see org.eclipse.sirius.viewpoint.description.tool.ToolEntry
 	 * @generated
 	 */
 	public Adapter createToolEntryAdapter() {
@@ -244,13 +244,13 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.viewpoint.description.tool.AbstractToolDescription <em>Abstract Tool Description</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription <em>Abstract Tool Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.viewpoint.description.tool.AbstractToolDescription
+	 * @see org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription
 	 * @generated
 	 */
 	public Adapter createAbstractToolDescriptionAdapter() {
@@ -258,13 +258,13 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.viewpoint.description.tool.RepresentationCreationDescription <em>Representation Creation Description</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.description.tool.RepresentationCreationDescription <em>Representation Creation Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.viewpoint.description.tool.RepresentationCreationDescription
+	 * @see org.eclipse.sirius.viewpoint.description.tool.RepresentationCreationDescription
 	 * @generated
 	 */
 	public Adapter createRepresentationCreationDescriptionAdapter() {

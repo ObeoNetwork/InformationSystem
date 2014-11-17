@@ -21,9 +21,9 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage;
 
-import fr.obeo.dsl.viewpoint.description.EndUserDocumentedElement;
-import fr.obeo.dsl.viewpoint.description.IdentifiedElement;
-import fr.obeo.dsl.viewpoint.description.impl.DocumentedElementImpl;
+import org.eclipse.sirius.viewpoint.description.EndUserDocumentedElement;
+import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
+import org.eclipse.sirius.viewpoint.description.impl.DocumentedElementImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -468,14 +468,14 @@ public class DBindingEditorDescriptionImpl extends DocumentedElementImpl impleme
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == EndUserDocumentedElement.class) {
 			switch (derivedFeatureID) {
-				case DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__END_USER_DOCUMENTATION: return fr.obeo.dsl.viewpoint.description.DescriptionPackage.END_USER_DOCUMENTED_ELEMENT__END_USER_DOCUMENTATION;
+				case DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__END_USER_DOCUMENTATION: return org.eclipse.sirius.viewpoint.description.DescriptionPackage.END_USER_DOCUMENTED_ELEMENT__END_USER_DOCUMENTATION;
 				default: return -1;
 			}
 		}
 		if (baseClass == IdentifiedElement.class) {
 			switch (derivedFeatureID) {
-				case DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__NAME: return fr.obeo.dsl.viewpoint.description.DescriptionPackage.IDENTIFIED_ELEMENT__NAME;
-				case DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__LABEL: return fr.obeo.dsl.viewpoint.description.DescriptionPackage.IDENTIFIED_ELEMENT__LABEL;
+				case DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__NAME: return org.eclipse.sirius.viewpoint.description.DescriptionPackage.IDENTIFIED_ELEMENT__NAME;
+				case DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__LABEL: return org.eclipse.sirius.viewpoint.description.DescriptionPackage.IDENTIFIED_ELEMENT__LABEL;
 				default: return -1;
 			}
 		}
@@ -491,14 +491,14 @@ public class DBindingEditorDescriptionImpl extends DocumentedElementImpl impleme
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == EndUserDocumentedElement.class) {
 			switch (baseFeatureID) {
-				case fr.obeo.dsl.viewpoint.description.DescriptionPackage.END_USER_DOCUMENTED_ELEMENT__END_USER_DOCUMENTATION: return DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__END_USER_DOCUMENTATION;
+				case org.eclipse.sirius.viewpoint.description.DescriptionPackage.END_USER_DOCUMENTED_ELEMENT__END_USER_DOCUMENTATION: return DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__END_USER_DOCUMENTATION;
 				default: return -1;
 			}
 		}
 		if (baseClass == IdentifiedElement.class) {
 			switch (baseFeatureID) {
-				case fr.obeo.dsl.viewpoint.description.DescriptionPackage.IDENTIFIED_ELEMENT__NAME: return DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__NAME;
-				case fr.obeo.dsl.viewpoint.description.DescriptionPackage.IDENTIFIED_ELEMENT__LABEL: return DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__LABEL;
+				case org.eclipse.sirius.viewpoint.description.DescriptionPackage.IDENTIFIED_ELEMENT__NAME: return DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__NAME;
+				case org.eclipse.sirius.viewpoint.description.DescriptionPackage.IDENTIFIED_ELEMENT__LABEL: return DescriptionPackage.DBINDING_EDITOR_DESCRIPTION__LABEL;
 				default: return -1;
 			}
 		}

@@ -21,7 +21,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
-            contributorId="fr.obeo.dsl.viewpoint.diagram"
+            contributorId="org.eclipse.sirius.diagram"
             labelProvider="org.eclipse.emf.eef.runtime.ui.utils.EEFLabelProvider">
          <propertyCategory
                category="default">
@@ -37,7 +37,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram">
          <propertyTab
                id="Metadatas"
                label="Metadatas"
@@ -145,7 +145,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
       <propertySections
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram">
          <propertySection
                class="org.obeonetwork.dsl.environment.parts.forms.EnvironmentPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.environment.providers.EnvironmentPropertiesEditionProvider$EditionFilter"

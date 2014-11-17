@@ -12,7 +12,7 @@ package org.obeonetwork.dsl.environment.bindingdialect;
 
 import org.eclipse.emf.common.util.EList;
 
-import fr.obeo.dsl.viewpoint.DRepresentationElement;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
 
 /**
  * <!-- begin-user-doc -->

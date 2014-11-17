@@ -30,7 +30,7 @@ import org.obeonetwork.tools.requirement.core.util.RequirementService;
 import org.obeonetwork.tools.requirement.wizard.util.LinkedRequirementsLabelProvider;
 import org.obeonetwork.tools.requirement.wizard.util.RequirementsRepositoriesContentProvider;
 
-import fr.obeo.dsl.viewpoint.ui.tools.api.views.ViewHelper;
+import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
 
 /**
  * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>

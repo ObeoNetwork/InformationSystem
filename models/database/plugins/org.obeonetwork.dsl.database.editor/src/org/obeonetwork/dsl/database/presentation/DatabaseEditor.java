@@ -137,7 +137,7 @@ public class DatabaseEditor
 	/**
 	 * @generated NOT
 	 */
-	public static final String PROPERTIES_CONTRIBUTOR = "fr.obeo.dsl.viewpoint.diagram";
+	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram";
 	
 	/**
 	 * <!-- begin-user-doc -->

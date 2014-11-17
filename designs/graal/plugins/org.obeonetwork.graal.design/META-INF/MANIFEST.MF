@@ -3,24 +3,26 @@ Bundle-Name: Graal Viewpoint
 Bundle-SymbolicName: org.obeonetwork.graal.design;singleton:=true
 Bundle-Version: 1.2.0.qualifier
 Bundle-Activator: org.obeonetwork.graal.design.Activator
-Require-Bundle: fr.obeo.acceleo.gen,
- org.eclipse.ui,
+Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- fr.obeo.dsl.viewpoint,
  org.eclipse.emf.eef.runtime;visibility:=reexport,
- fr.obeo.dsl.common,
  org.obeonetwork.dsl.requirement,
  org.eclipse.gmf.runtime.common.core,
  org.eclipse.gmf.runtime.notation,
  org.eclipse.gmf.runtime.diagram.ui,
- fr.obeo.dsl.viewpoint.diagram,
- fr.obeo.dsl.common.ui,
  org.eclipse.core.expressions,
  org.obeonetwork.graal,
  org.obeonetwork.graal.edit,
- fr.obeo.dsl.viewpoint.table,
- fr.obeo.dsl.viewpoint.collab,
- fr.obeo.mda.ecore.extender
+ org.eclipse.sirius;bundle-version="2.0.0",
+ org.eclipse.sirius.common;bundle-version="2.0.0",
+ org.eclipse.sirius.diagram;bundle-version="2.0.0",
+ org.eclipse.sirius.common.ui;bundle-version="2.0.0",
+ org.eclipse.sirius.table;bundle-version="2.0.0",
+ org.eclipse.sirius.ecore.extender;bundle-version="2.0.0",
+ com.google.guava;bundle-version="15.0.0",
+ org.eclipse.sirius.ext.emf;bundle-version="2.0.0",
+ org.eclipse.sirius.diagram.ui;bundle-version="2.0.0",
+ org.eclipse.sirius.ext.draw2d;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: www.obeo.fr

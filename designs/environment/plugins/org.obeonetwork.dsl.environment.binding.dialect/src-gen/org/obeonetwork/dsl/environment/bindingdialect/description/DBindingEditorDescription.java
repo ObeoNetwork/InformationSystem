@@ -10,7 +10,7 @@
  */
 package org.obeonetwork.dsl.environment.bindingdialect.description;
 
-import fr.obeo.dsl.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,13 +2,11 @@ package org.obeonetwork.graal.design.services.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-
-import com.google.common.base.Predicate;
-
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.ext.emf.EReferencePredicate;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
 public class DeleteUtils {
 	public static void delete(EObject object, Session session, ModelAccessor modelAccessor) {
@@ -20,7 +18,7 @@ public class DeleteUtils {
 		if (vpModelAccessor == null) {
 			vpModelAccessor = vpSession.getModelAccessor();
 		}
-		vpModelAccessor.eDelete(object, vpSession.getSemanticCrossReferencer(), new Predicate<EReference>() {
+		vpModelAccessor.eDelete(object, vpSession.getSemanticCrossReferencer(), new EReferencePredicate() {
 	        public boolean apply(EReference reference) {
 	            return DSemanticDecorator.class.isAssignableFrom(reference.getContainerClass());
 	        }

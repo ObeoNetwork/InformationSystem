@@ -29,8 +29,8 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.PrimitiveType;
 
-import fr.obeo.dsl.viewpoint.AbstractDNode;
-import fr.obeo.dsl.viewpoint.DDiagram;
+import org.eclipse.sirius.diagram.AbstractDNode;
+import org.eclipse.sirius.diagram.DDiagram;
 
 public class EntityService {
 	

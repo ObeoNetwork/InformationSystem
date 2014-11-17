@@ -16,8 +16,8 @@ import org.obeonetwork.dsl.database.ForeignKeyElement;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 
-import fr.obeo.dsl.viewpoint.AbstractDNode;
-import fr.obeo.dsl.viewpoint.DSemanticDiagram;
+import org.eclipse.sirius.diagram.AbstractDNode;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 public class DatabaseServices {
 	public ForeignKey createForeignKey(Table source, Table target) {

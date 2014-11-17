@@ -16,6 +16,7 @@ import java.util.Collection;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -27,10 +28,9 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.is.design.service.ProvidedModelsService;
-
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.tools.api.command.semantic.AddSemanticResourceCommand;
-import fr.obeo.dsl.viewpoint.ui.business.api.session.SessionEditorInput;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 
 public class ImportEnvironmentModelHandler extends AbstractHandler {
 
@@ -51,7 +51,7 @@ public class ImportEnvironmentModelHandler extends AbstractHandler {
 		if (selectedEnvironment != null) {
 			TransactionalEditingDomain ted = session.getTransactionalEditingDomain();
 			if (ted != null) {
-				ted.getCommandStack().execute(new AddSemanticResourceCommand(session, selectedEnvironment.eResource().getURI()));
+				ted.getCommandStack().execute(new AddSemanticResourceCommand(session, selectedEnvironment.eResource().getURI(), new NullProgressMonitor()));
 				MessageDialog.openInformation(shell, "Import Environment model", "The model has been added as a semantic ressource");
 			}
 		}

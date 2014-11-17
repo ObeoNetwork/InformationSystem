@@ -16,13 +16,13 @@ import org.obeonetwork.dsl.statemachine.StateMachineFactory;
 import org.obeonetwork.dsl.statemachine.design.Activator;
 import org.obeonetwork.dsl.statemachine.design.ui.extension.providers.StateMachineAnalysisContextMenuActionProvider;
 
-import fr.obeo.dsl.viewpoint.DRepresentation;
-import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.dsl.viewpoint.description.RepresentationDescription;
-import fr.obeo.dsl.viewpoint.description.Viewpoint;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 
 public class CreateStateMachineDiagramAction extends Action {
 

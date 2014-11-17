@@ -9,15 +9,14 @@ import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.IContextMenuActionProvider;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.interaction.Interaction;
 import org.obeonetwork.dsl.interaction.design.ui.extension.actions.CreateSequenceDiagramAction;
 import org.obeonetwork.dsl.interaction.design.ui.extension.actions.NewSequenceDiagramMenuAction;
-
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.dsl.viewpoint.description.Viewpoint;
-import fr.obeo.dsl.viewpoint.ui.tools.internal.views.sessionview.extension.IContextMenuActionProvider;
 
 public class InteractionAnalysisContextMenuActionProvider implements IContextMenuActionProvider {
 	
@@ -33,7 +32,7 @@ public class InteractionAnalysisContextMenuActionProvider implements IContextMen
 					// Let's check if the "Interaction" viewpoint is selected
 					Session session = SessionManager.INSTANCE.getSession((ObeoDSMObject)selectedObject);
 					if (session != null) {
-						for (Viewpoint viewpoint : session.getSelectedViewpoints()) {
+						for (Viewpoint viewpoint : session.getSelectedViewpoints(true)) {
 							if (isInteractionViewpoint(viewpoint)) {
 								IAction action = computeAction((ObeoDSMObject)selectedObject);
 								if (action != null) {

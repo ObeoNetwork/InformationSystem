@@ -11,7 +11,7 @@
 package org.obeonetwork.dsl.environment.bindingdialect.description.provider;
 
 
-import fr.obeo.dsl.viewpoint.description.tool.provider.RepresentationCreationDescriptionItemProvider;
+import org.eclipse.sirius.viewpoint.description.tool.provider.RepresentationCreationDescriptionItemProvider;
 
 import java.util.Collection;
 import java.util.List;

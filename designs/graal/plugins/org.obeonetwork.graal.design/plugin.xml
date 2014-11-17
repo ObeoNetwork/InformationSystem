@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
-  <extension point="fr.obeo.dsl.viewpoint.componentization">
+  <extension point="org.eclipse.sirius.componentization">
     <component class="org.obeonetwork.graal.design.Activator"
                id="org.obeonetwork.graal.design"
 	       name="graal">
@@ -15,7 +15,7 @@
       </decoratorProvider>
    </extension>
    <extension
-         point="fr.obeo.dsl.viewpoint.featureExtensions">
+         point="org.eclipse.sirius.featureExtensions">
       <feature
             class="org.obeonetwork.graal.design.extension.GraalFeatureExtension">
          </feature>
@@ -171,7 +171,7 @@
 	<extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
-            contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID"
+            contributorId="org.eclipse.sirius.table.ui.EditorID"
             labelProvider="org.obeonetwork.graal.design.ui.eef.CustomEEFLabelProvider">
          <propertyCategory
                category="default">
@@ -181,7 +181,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID">
+            contributorId="org.eclipse.sirius.table.ui.EditorID">
          <propertyTab
                category="default"
                id="UserStory"
@@ -193,7 +193,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
       <propertySections
-            contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID">
+            contributorId="org.eclipse.sirius.table.ui.EditorID">
          <propertySection
                class="org.obeonetwork.graal.design.ui.eef.CustomUserStoryPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.design.ui.eef.UserStoryTabPropertiesEditionSection"

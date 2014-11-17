@@ -27,9 +27,9 @@ import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.ServiceDTO;
 import org.obeonetwork.dsl.soa.Wire;
 
-import fr.obeo.dsl.viewpoint.AbstractDNode;
-import fr.obeo.dsl.viewpoint.DNodeContainer;
-import fr.obeo.dsl.viewpoint.DSemanticDiagram;
+import org.eclipse.sirius.diagram.AbstractDNode;
+import org.eclipse.sirius.diagram.DNodeContainer;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 public class SOAService {
 	

@@ -43,7 +43,7 @@
     <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram">
          <propertyCategory
                category="default">
          </propertyCategory>
@@ -59,7 +59,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram">
          <propertyTab
                label="DataBase"
                category="semantic &amp; extension"
@@ -149,7 +149,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
       <propertySections
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram">
          <propertySection
                class="org.obeonetwork.dsl.database.parts.forms.DataBasePropertiesEditionPartForm"
                id="org.obeonetwork.dsl.database.section.DataBase"

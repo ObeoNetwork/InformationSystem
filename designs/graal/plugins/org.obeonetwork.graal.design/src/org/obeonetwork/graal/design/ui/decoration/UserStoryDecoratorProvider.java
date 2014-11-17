@@ -17,9 +17,9 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorProvider;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.obeonetwork.graal.GraalObject;
 
-import fr.obeo.dsl.viewpoint.diagram.edit.api.part.IAbstractDiagramNodeEditPart;
-import fr.obeo.dsl.viewpoint.diagram.edit.api.part.IDiagramEdgeEditPart;
-import fr.obeo.dsl.viewpoint.diagram.edit.api.part.IDiagramElementEditPart;
+import org.eclipse.sirius.diagram.ui.edit.api.part.IAbstractDiagramNodeEditPart;
+import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramEdgeEditPart;
+import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 
 /**
  * Graphical decorators provider to display User story information

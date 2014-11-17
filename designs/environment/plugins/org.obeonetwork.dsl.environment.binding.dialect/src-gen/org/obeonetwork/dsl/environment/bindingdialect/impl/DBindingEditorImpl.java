@@ -30,10 +30,10 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
 
-import fr.obeo.dsl.viewpoint.DRepresentationElement;
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
-import fr.obeo.dsl.viewpoint.ViewpointPackage;
-import fr.obeo.dsl.viewpoint.impl.DRepresentationImpl;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.impl.DRepresentationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -362,7 +362,7 @@ public class DBindingEditorImpl extends DRepresentationImpl implements DBindingE
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see fr.obeo.dsl.viewpoint.impl.DRepresentationImpl#getOwnedRepresentationElements()
+	 * @see org.eclipse.sirius.viewpoint.impl.DRepresentationImpl#getOwnedRepresentationElements()
 	 */
 	@Override
 	public EList<DRepresentationElement> getOwnedRepresentationElements() {
@@ -378,7 +378,7 @@ public class DBindingEditorImpl extends DRepresentationImpl implements DBindingE
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see fr.obeo.dsl.viewpoint.impl.DRepresentationImpl#getRepresentationElements()
+	 * @see org.eclipse.sirius.viewpoint.impl.DRepresentationImpl#getRepresentationElements()
 	 */
 	@Override
 	public EList<DRepresentationElement> getRepresentationElements() {

@@ -359,12 +359,6 @@ public class Memcache extends AbstractAcceleoGenerator {
 	@Override
 	public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(org.obeonetwork.dsl.entity.EntityPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.entity.EntityPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.entity.EntityPackage.eINSTANCE);
-        }
-        if (!isInWorkspace(org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage.class)) {
-            resourceSet.getPackageRegistry().put(org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage.eINSTANCE.getNsURI(), org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage.eINSTANCE);
-        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

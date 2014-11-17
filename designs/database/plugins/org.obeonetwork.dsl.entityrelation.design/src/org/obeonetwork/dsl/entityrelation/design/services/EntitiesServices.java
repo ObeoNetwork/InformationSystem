@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import fr.obeo.dsl.viewpoint.AbstractDNode;
-import fr.obeo.dsl.viewpoint.DSemanticDiagram;
+import org.eclipse.sirius.diagram.AbstractDNode;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.obeonetwork.dsl.entityrelation.Entity;
 import org.obeonetwork.dsl.entityrelation.LogicalModel;
 import org.obeonetwork.dsl.entityrelation.Relation;

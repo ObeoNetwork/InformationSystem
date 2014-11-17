@@ -16,17 +16,17 @@ import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.is.design.service.EnvironmentService;
 
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
-import fr.obeo.dsl.viewpoint.diagram.internal.edit.parts.DEdgeBeginNameEditPart;
-import fr.obeo.dsl.viewpoint.diagram.internal.edit.parts.DEdgeEndNameEditPart;
-import fr.obeo.dsl.viewpoint.diagram.part.ViewpointVisualIDRegistry;
-import fr.obeo.dsl.viewpoint.diagram.tools.api.command.GMFCommandWrapper;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeBeginNameEditPart;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEndNameEditPart;
+import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
+import org.eclipse.sirius.diagram.ui.tools.api.command.GMFCommandWrapper;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
 public class EnvironmentEditPartProvider  extends AbstractEditPartProvider {
 	
 	@Override
 	public IGraphicalEditPart createGraphicEditPart(View view) {
-		switch (ViewpointVisualIDRegistry.getVisualID(view)) {
+		switch (SiriusVisualIDRegistry.getVisualID(view)) {
 
 		case DEdgeBeginNameEditPart.VISUAL_ID:
 			DEdgeBeginNameEditPart dEdgePart = new DEdgeBeginNameEditPart(view) {
@@ -60,7 +60,7 @@ public class EnvironmentEditPartProvider  extends AbstractEditPartProvider {
 			View view = ((IEditPartOperation)operation).getView();
 			if (view.getElement() instanceof DSemanticDecorator) {
 				if (((DSemanticDecorator)view.getElement()).getTarget() instanceof Reference) {
-					switch (ViewpointVisualIDRegistry.getVisualID(view)) {
+					switch (SiriusVisualIDRegistry.getVisualID(view)) {
 
 						case DEdgeBeginNameEditPart.VISUAL_ID:
 							return true;

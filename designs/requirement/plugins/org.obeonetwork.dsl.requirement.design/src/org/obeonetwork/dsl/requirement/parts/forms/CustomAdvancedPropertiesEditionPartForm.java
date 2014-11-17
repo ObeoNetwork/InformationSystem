@@ -13,7 +13,7 @@ package org.obeonetwork.dsl.requirement.parts.forms;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
 
 /**

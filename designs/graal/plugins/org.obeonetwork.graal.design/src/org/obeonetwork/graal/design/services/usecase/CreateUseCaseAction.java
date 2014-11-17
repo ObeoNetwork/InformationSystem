@@ -24,7 +24,7 @@ import org.obeonetwork.graal.System;
 import org.obeonetwork.graal.UseCase;
 import org.obeonetwork.graal.design.services.task.TaskUtils;
 
-import fr.obeo.dsl.viewpoint.AbstractDNode;
+import org.eclipse.sirius.diagram.AbstractDNode;
 
 /**
  * Class used to create a new Use case from selected asks or tasksGroups

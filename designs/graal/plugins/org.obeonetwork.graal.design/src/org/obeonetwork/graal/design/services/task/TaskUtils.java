@@ -37,13 +37,13 @@ import org.obeonetwork.graal.TasksGroup;
 import org.obeonetwork.graal.Transition;
 import org.obeonetwork.graal.design.services.util.DeleteUtils;
 
-import fr.obeo.dsl.viewpoint.DDiagram;
-import fr.obeo.dsl.viewpoint.DDiagramElement;
-import fr.obeo.dsl.viewpoint.DNode;
-import fr.obeo.dsl.viewpoint.DSemanticDiagram;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 
 /**
  * Utilities services concerning Tasks and TasksGroups

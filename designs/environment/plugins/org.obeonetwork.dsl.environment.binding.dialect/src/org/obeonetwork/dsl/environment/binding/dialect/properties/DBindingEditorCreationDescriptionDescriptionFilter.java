@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorCreationDescription;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage;
 
-import fr.obeo.dsl.viewpoint.editor.properties.filters.common.ViewpointPropertyFilter;
+import org.eclipse.sirius.editor.properties.filters.common.ViewpointPropertyFilter;
 
 /**
  * @author sthibaudeau

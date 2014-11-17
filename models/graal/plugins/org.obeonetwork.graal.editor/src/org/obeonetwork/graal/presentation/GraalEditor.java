@@ -145,7 +145,7 @@ public class GraalEditor
 	/**
 	 * @generated NOT
 	 */
-	public static final String PROPERTIES_CONTRIBUTOR = "fr.obeo.dsl.viewpoint.diagram";
+	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram";
 	
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.

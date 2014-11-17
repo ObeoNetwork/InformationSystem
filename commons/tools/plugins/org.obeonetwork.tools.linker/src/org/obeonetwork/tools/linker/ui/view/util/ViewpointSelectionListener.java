@@ -11,8 +11,8 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
 
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
-import fr.obeo.dsl.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
 /**
  * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>

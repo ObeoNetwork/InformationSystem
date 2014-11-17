@@ -38,7 +38,7 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
    <extension
-         point="fr.obeo.dsl.viewpoint.ui.dialectui">
+         point="org.eclipse.sirius.ui.dialectui">
       <dialectUI
             class="org.obeonetwork.dsl.environment.binding.dialect.ui.dialect.BindingDialectUI">
       </dialectUI>

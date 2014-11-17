@@ -18,7 +18,8 @@
   <properties>
     <tycho-version>0.14.1</tycho-version>
     <platform-version-name>indigo</platform-version-name>    
-    <od-site>http://update.obeo.fr/integration/od/ce/repository/</od-site>
+    <od-site>http://update.obeo.fr/integration/designer/7.0/standard/latest/repository/</od-site>
+    <od-site2>http://update.obeo.fr/integration/designer/7.0/community/latest/repository</od-site2>
     <eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/</eef-site>
     <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site>
     <eclipse-site>http://download.eclipse.org/releases/luna/</eclipse-site>
@@ -32,6 +33,11 @@
       <url>${od-site}</url>
     </repository>
     <repository>
+      <id>od2</id>
+      <layout>p2</layout>
+      <url>${od-site2}</url>
+    </repository>
+    <repository>
       <id>luna</id>
       <layout>p2</layout>
       <url>${eclipse-site}</url>
@@ -41,11 +47,11 @@
       <layout>p2</layout>
       <url>${eef-site}</url>
     </repository>
-    <!--<repository>
+    <repository>
       <id>acceleo</id>
       <layout>p2</layout>
       <url>${acceleo-site}</url>
-    </repository>-->
+    </repository>
     <repository>
       <id>orbit</id>
       <layout>p2</layout>
@@ -159,7 +165,7 @@
   
   <profiles>
     <profile>
-      <id>platform-indigo</id>
+      <id>platform-luna</id>
       <activation>
         <property>
           <name>platform-version-name</name>
@@ -167,8 +173,8 @@
         </property>
       </activation>
       <properties>
-        <eclipse-site>http://download.eclipse.org/releases/indigo</eclipse-site>
-        <platform-version>[3.7,3.8)</platform-version>
+        <eclipse-site>>http://download.eclipse.org/releases/luna</eclipse-site>
+        <platform-version>[4.3,4.4)</platform-version>
         <swtbot-site>http://download.eclipse.org/technology/swtbot/indigo/dev-build/update-site</swtbot-site>
       </properties>
     </profile>

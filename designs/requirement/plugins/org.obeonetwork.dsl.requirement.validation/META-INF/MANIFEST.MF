@@ -7,13 +7,13 @@ Bundle-Activator: org.obeonetwork.dsl.requirement.validation.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.expressions,
- fr.obeo.dsl.viewpoint.ui,
  org.eclipse.emf.common.ui,
  org.eclipse.emf.transaction,
  org.obeonetwork.dsl.requirement,
  org.eclipse.emf.edit.ui,
  org.eclipse.emf.ecore.xmi,
- org.obeonetwork.dsl.requirement.editor
+ org.obeonetwork.dsl.requirement.editor,
+ org.eclipse.sirius.ui;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: Obeo.fr

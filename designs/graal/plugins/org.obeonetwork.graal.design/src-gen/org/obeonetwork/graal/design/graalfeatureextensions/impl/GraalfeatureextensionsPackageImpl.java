@@ -6,7 +6,7 @@
  */
 package org.obeonetwork.graal.design.graalfeatureextensions.impl;
 
-import fr.obeo.dsl.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;

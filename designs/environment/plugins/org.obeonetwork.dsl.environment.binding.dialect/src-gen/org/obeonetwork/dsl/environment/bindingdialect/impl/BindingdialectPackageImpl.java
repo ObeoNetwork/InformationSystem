@@ -22,7 +22,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage;
 import org.obeonetwork.dsl.environment.bindingdialect.description.impl.DescriptionPackageImpl;
 
-import fr.obeo.dsl.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
 /**
  * <!-- begin-user-doc -->

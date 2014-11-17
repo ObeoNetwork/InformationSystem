@@ -23,11 +23,11 @@ import org.obeonetwork.dsl.statemachine.design.Activator;
 import org.obeonetwork.dsl.statemachine.design.ui.extension.providers.StateMachineParentSelectionContentProvider;
 import org.obeonetwork.dsl.statemachine.design.ui.extension.providers.StateMachineParentSelectionLabelProvider;
 
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.mda.ecore.extender.business.api.permission.IPermissionAuthority;
-import fr.obeo.mda.ecore.extender.business.api.permission.LockStatus;
-import fr.obeo.mda.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
+import org.eclipse.sirius.ecore.extender.business.api.permission.LockStatus;
+import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
 
 /**
  * Java services for the Statemachine diagram.

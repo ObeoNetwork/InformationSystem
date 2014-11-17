@@ -10,8 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.binding.dialect;
 
-import fr.obeo.dsl.viewpoint.business.api.dialect.Dialect;
-import fr.obeo.dsl.viewpoint.business.api.dialect.DialectServices;
+import org.eclipse.sirius.business.api.dialect.Dialect;
+import org.eclipse.sirius.business.api.dialect.DialectServices;
 
 /**
  * Extension to provide Binding dialect
@@ -25,7 +25,7 @@ public class BindingDialect implements Dialect {
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see fr.obeo.dsl.viewpoint.business.api.dialect.Dialect#getName()
+	 * @see org.eclipse.sirius.viewpoint.business.api.dialect.Dialect#getName()
 	 */
 	public String getName() {
 		return "BindingDialect";
@@ -34,7 +34,7 @@ public class BindingDialect implements Dialect {
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see fr.obeo.dsl.viewpoint.business.api.dialect.Dialect#getServices()
+	 * @see org.eclipse.sirius.viewpoint.business.api.dialect.Dialect#getServices()
 	 */
 	public DialectServices getServices() {
 		if (services == null) {

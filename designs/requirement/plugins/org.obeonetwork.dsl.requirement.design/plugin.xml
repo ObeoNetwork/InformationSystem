@@ -14,7 +14,7 @@
 -->
 <plugin>
 		<extension
-				point="fr.obeo.dsl.viewpoint.componentization">
+				point="org.eclipse.sirius.componentization">
 		<component
 				class="org.obeonetwork.dsl.requirement.design.Activator" id="org.obeonetwork.dsl.requirement.design" name="requirement">
 		</component>
@@ -25,7 +25,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
-            contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID"
+            contributorId="org.eclipse.sirius.table.ui.EditorID"
             labelProvider="org.obeonetwork.dsl.requirement.parts.forms.CustomEEFLabelProvider">
          <propertyCategory
                category="default">
@@ -41,7 +41,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID">
+            contributorId="org.eclipse.sirius.table.ui.EditorID">
          <propertyTab
                category="default"
                id="Repository"
@@ -71,7 +71,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
       <propertySections
-            contributorId="fr.obeo.dsl.viewpoint.table.ui.EditorID">
+            contributorId="org.eclipse.sirius.table.ui.EditorID">
          <propertySection
                class="org.obeonetwork.dsl.requirement.parts.forms.CustomRepositoryPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.requirement.filters.RepositoryTabPropertiesEditionSection"

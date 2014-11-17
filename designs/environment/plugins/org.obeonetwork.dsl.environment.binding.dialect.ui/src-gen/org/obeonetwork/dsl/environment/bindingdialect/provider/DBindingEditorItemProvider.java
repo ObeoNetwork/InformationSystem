@@ -11,9 +11,9 @@
 package org.obeonetwork.dsl.environment.bindingdialect.provider;
 
 
-import fr.obeo.dsl.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
-import fr.obeo.dsl.viewpoint.provider.DRepresentationItemProvider;
+import org.eclipse.sirius.viewpoint.provider.DRepresentationItemProvider;
 
 import java.util.Collection;
 import java.util.List;

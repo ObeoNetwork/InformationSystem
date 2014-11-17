@@ -6,9 +6,9 @@
  */
 package org.obeonetwork.graal.design.graalfeatureextensions.impl;
 
-import fr.obeo.dsl.viewpoint.DAnalysis;
+import org.eclipse.sirius.viewpoint.DAnalysis;
 
-import fr.obeo.dsl.viewpoint.impl.DFeatureExtensionImpl;
+import org.eclipse.sirius.viewpoint.impl.DFeatureExtensionImpl;
 
 import java.util.Collection;
 

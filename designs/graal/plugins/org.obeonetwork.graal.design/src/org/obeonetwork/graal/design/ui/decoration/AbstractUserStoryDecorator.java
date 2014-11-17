@@ -32,15 +32,15 @@ import org.obeonetwork.graal.design.graalfeatureextensions.Graalfeatureextension
 import org.obeonetwork.graal.design.graalfeatureextensions.UIConfiguration;
 import org.obeonetwork.graal.design.services.configuration.UIConfigurationServices;
 
-import fr.obeo.dsl.viewpoint.DAnalysis;
-import fr.obeo.dsl.viewpoint.DDiagramElement;
-import fr.obeo.dsl.viewpoint.DDiagramElementContainer;
-import fr.obeo.dsl.viewpoint.DEdge;
-import fr.obeo.dsl.viewpoint.DNode;
-import fr.obeo.dsl.viewpoint.EdgeTarget;
-import fr.obeo.dsl.viewpoint.business.api.query.EObjectQuery;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.diagram.edit.api.part.IDiagramElementEditPart;
+import org.eclipse.sirius.viewpoint.DAnalysis;
+import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.DDiagramElementContainer;
+import org.eclipse.sirius.diagram.DEdge;
+import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.EdgeTarget;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 
 /**
  * User story decorators' superclass

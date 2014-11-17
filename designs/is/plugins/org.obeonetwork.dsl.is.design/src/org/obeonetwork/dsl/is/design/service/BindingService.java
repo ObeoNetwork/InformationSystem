@@ -29,13 +29,13 @@ import org.obeonetwork.dsl.soa.DTORegistry;
 import org.obeonetwork.dsl.soa.ServiceDTO;
 import org.obeonetwork.dsl.soa.System;
 
-import fr.obeo.dsl.viewpoint.DRepresentation;
-import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.dsl.viewpoint.description.RepresentationDescription;
-import fr.obeo.dsl.viewpoint.description.Viewpoint;
-import fr.obeo.dsl.viewpoint.ui.business.api.session.UserSession;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.business.api.session.UserSession;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 
 public class BindingService {
 	

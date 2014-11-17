@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
-import fr.obeo.dsl.viewpoint.description.tool.ToolPackage;
+import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,7 +88,7 @@ public interface DescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR_DESCRIPTION__DOCUMENTATION = fr.obeo.dsl.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__DOCUMENTATION;
+	int DBINDING_EDITOR_DESCRIPTION__DOCUMENTATION = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>End User Documentation</b></em>' attribute.
@@ -97,7 +97,7 @@ public interface DescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR_DESCRIPTION__END_USER_DOCUMENTATION = fr.obeo.dsl.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__END_USER_DOCUMENTATION;
+	int DBINDING_EDITOR_DESCRIPTION__END_USER_DOCUMENTATION = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__END_USER_DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -106,7 +106,7 @@ public interface DescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR_DESCRIPTION__NAME = fr.obeo.dsl.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__NAME;
+	int DBINDING_EDITOR_DESCRIPTION__NAME = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -115,7 +115,7 @@ public interface DescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR_DESCRIPTION__LABEL = fr.obeo.dsl.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__LABEL;
+	int DBINDING_EDITOR_DESCRIPTION__LABEL = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Title Expression</b></em>' attribute.
@@ -124,7 +124,7 @@ public interface DescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR_DESCRIPTION__TITLE_EXPRESSION = fr.obeo.dsl.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__TITLE_EXPRESSION;
+	int DBINDING_EDITOR_DESCRIPTION__TITLE_EXPRESSION = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__TITLE_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Initialisation</b></em>' attribute.
@@ -133,7 +133,7 @@ public interface DescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR_DESCRIPTION__INITIALISATION = fr.obeo.dsl.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__INITIALISATION;
+	int DBINDING_EDITOR_DESCRIPTION__INITIALISATION = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__INITIALISATION;
 
 	/**
 	 * The feature id for the '<em><b>Metamodel</b></em>' reference list.
@@ -142,7 +142,7 @@ public interface DescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR_DESCRIPTION__METAMODEL = fr.obeo.dsl.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__METAMODEL;
+	int DBINDING_EDITOR_DESCRIPTION__METAMODEL = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__METAMODEL;
 
 	/**
 	 * The feature id for the '<em><b>Show On Startup</b></em>' attribute.
@@ -151,7 +151,7 @@ public interface DescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR_DESCRIPTION__SHOW_ON_STARTUP = fr.obeo.dsl.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__SHOW_ON_STARTUP;
+	int DBINDING_EDITOR_DESCRIPTION__SHOW_ON_STARTUP = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION__SHOW_ON_STARTUP;
 
 	/**
 	 * The number of structural features of the '<em>DBinding Editor Description</em>' class.
@@ -160,7 +160,7 @@ public interface DescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DBINDING_EDITOR_DESCRIPTION_FEATURE_COUNT = fr.obeo.dsl.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION_FEATURE_COUNT + 0;
+	int DBINDING_EDITOR_DESCRIPTION_FEATURE_COUNT = org.eclipse.sirius.viewpoint.description.DescriptionPackage.REPRESENTATION_DESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.bindingdialect.description.impl.DBindingEditorCreationDescriptionImpl <em>DBinding Editor Creation Description</em>}' class.

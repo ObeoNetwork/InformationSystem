@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <eef-gen:EEFGenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eef-gen="http://www.eclipse.org/emf/eef/generation/1.0.0" genDirectory="/org.obeonetwork.dsl.environment.edit/src-gen">
-  <editionContexts basePackage="org.obeonetwork.dsl" descriptorsContributorID="fr.obeo.dsl.viewpoint.diagram" descriptorsGenericPropertiesViews="true" propertiesEditingProvidersSuperClass="org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider">
+  <editionContexts basePackage="org.obeonetwork.dsl" descriptorsContributorID="org.eclipse.sirius.diagram" descriptorsGenericPropertiesViews="true" propertiesEditingProvidersSuperClass="org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider">
     <PropertiesEditionContext href="environment.components#_Z4_3YHCzEeCNPbrYssPTmA"/>
   </editionContexts>
   <viewsRepositories basePackage="org.obeonetwork.dsl.environment" swtViews="true" formViews="true">

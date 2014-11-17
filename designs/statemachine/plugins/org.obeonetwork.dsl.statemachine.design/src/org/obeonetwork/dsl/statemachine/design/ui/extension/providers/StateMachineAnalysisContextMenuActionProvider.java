@@ -14,10 +14,10 @@ import org.obeonetwork.dsl.statemachine.StateMachine;
 import org.obeonetwork.dsl.statemachine.design.ui.extension.actions.CreateStateMachineDiagramAction;
 import org.obeonetwork.dsl.statemachine.design.ui.extension.actions.NewStateMachineDiagramMenuAction;
 
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.dsl.viewpoint.description.Viewpoint;
-import fr.obeo.dsl.viewpoint.ui.tools.internal.views.sessionview.extension.IContextMenuActionProvider;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.IContextMenuActionProvider;
 
 public class StateMachineAnalysisContextMenuActionProvider implements IContextMenuActionProvider {
 	
