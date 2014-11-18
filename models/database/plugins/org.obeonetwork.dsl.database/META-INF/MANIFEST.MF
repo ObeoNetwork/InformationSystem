@@ -9,6 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.obeonetwork.dsl.database,
  org.obeonetwork.dsl.database.impl,
+ org.obeonetwork.dsl.database.spec,
  org.obeonetwork.dsl.database.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,

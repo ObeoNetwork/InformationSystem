@@ -9,13 +9,11 @@ import java.util.Map;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.EqualityHelper;
 import org.junit.Test;
 import org.obeonetwork.dsl.database.DataBase;
@@ -28,8 +26,6 @@ import org.obeonetwork.dsl.database.reverse.utils.MultiDataBaseQueries;
 import org.obeonetwork.dsl.database.util.DatabaseResourceFactoryImpl;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryResourceFactoryImpl;
-
-import com.google.common.collect.Lists;
 
 public class TestReverse {
 
@@ -74,7 +70,7 @@ public class TestReverse {
 		
 		String databaseLocation = getH2DatabaseLocation(this.getClass(), "input");
 		
-		DataSource dataSource = new DataSource(databaseLocation, "PUBLIC");
+		DataSource dataSource = new DataSource("appli1", "PUBLIC");
 
 		dataSource.setJdbcUrl("jdbc:h2:" + databaseLocation);
 		dataSource.setJdbcUsername("sa");
@@ -93,7 +89,7 @@ public class TestReverse {
 	
 		String databaseLocation = getH2DatabaseLocation(this.getClass(), "input");
 			
-		DataSource dataSource = new DataSource(databaseLocation, "PUBLIC");
+		DataSource dataSource = new DataSource("appli1", "PUBLIC");
 
 		dataSource.setJdbcUrl("jdbc:h2:tcp://localhost/" + databaseLocation);
 		dataSource.setJdbcUsername("sa");
