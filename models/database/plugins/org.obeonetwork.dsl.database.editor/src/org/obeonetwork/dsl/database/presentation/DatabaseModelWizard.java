@@ -22,78 +22,67 @@ import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
 import org.eclipse.emf.common.CommonPlugin;
-
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.xmi.XMLResource;
-
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-
 import org.eclipse.jface.dialogs.MessageDialog;
-
 import org.eclipse.jface.viewers.IStructuredSelection;
-
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
-
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.NamedElement;
 import org.obeonetwork.dsl.database.provider.DatabaseEditPlugin;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
-
-
+import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 import org.eclipse.core.runtime.Path;
-
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.H2_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.LOGICAL_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.MYSQL_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.ORACLE_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.POSTGRES_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.SQLSERVER_PATHMAP;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_LOGICAL_TYPES;
 
 
 /**
@@ -103,12 +92,6 @@ import org.eclipse.ui.PartInitException;
  * @generated
  */
 public class DatabaseModelWizard extends Wizard implements INewWizard {
-	private static final String PATHMAP_ORACLE_11G = "pathmap://NativeDBTypes/Oracle-11g";
-	private static final String PATHMAP_MY_SQL_5 = "pathmap://NativeDBTypes/MySQL-5";
-	private static final String PATHMAP_LOGICAL_TYPES = "pathmap://LogicalDBTypes";
-	private static final String DB_ORACLE_11G = "Oracle-11g";
-	private static final String DB_MY_SQL_5 = "MySQL-5";
-	private static final String DB_LOGICAL_TYPES = "Logical Types";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -289,12 +272,18 @@ public class DatabaseModelWizard extends Wizard implements INewWizard {
 								Resource typesLibraryResource = null; 
 								// We set the types library
 								String dbVendor = initialObjectCreationPage.dbVendorField.getText();
-								if (DB_MY_SQL_5.equals(dbVendor)) {
-									typesLibraryResource = resourceSet.getResource(URI.createURI(PATHMAP_MY_SQL_5), true);
+								if (DB_MYSQL_5.equals(dbVendor)) {
+									typesLibraryResource = resourceSet.getResource(URI.createURI(MYSQL_PATHMAP), true);
 								} else if (DB_ORACLE_11G.equals(dbVendor)) {
-									typesLibraryResource = resourceSet.getResource(URI.createURI(PATHMAP_ORACLE_11G), true);
+									typesLibraryResource = resourceSet.getResource(URI.createURI(ORACLE_PATHMAP), true);
+								} else if (DB_H2_13.equals(dbVendor)) {
+									typesLibraryResource = resourceSet.getResource(URI.createURI(H2_PATHMAP), true);
+								} else if (DB_POSTGRES_9.equals(dbVendor)) {
+									typesLibraryResource = resourceSet.getResource(URI.createURI(POSTGRES_PATHMAP), true);
+								} else if (DB_SQLSERVER_2008.equals(dbVendor)) {
+									typesLibraryResource = resourceSet.getResource(URI.createURI(SQLSERVER_PATHMAP), true);
 								} else if (DB_LOGICAL_TYPES.equals(dbVendor)) {
-									typesLibraryResource = resourceSet.getResource(URI.createURI(PATHMAP_LOGICAL_TYPES), true);
+									typesLibraryResource = resourceSet.getResource(URI.createURI(LOGICAL_PATHMAP), true);
 								}
 								if (typesLibraryResource != null) {
 									EObject typesRoot = typesLibraryResource.getContents().get(0);
@@ -643,8 +632,11 @@ public class DatabaseModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getDBVendors() {
 			if (dbVendors == null) {
 				dbVendors = new ArrayList<String>();
-				dbVendors.add(DB_MY_SQL_5);
+				dbVendors.add(DB_MYSQL_5);
 				dbVendors.add(DB_ORACLE_11G);
+				dbVendors.add(DB_H2_13);
+				dbVendors.add(DB_POSTGRES_9);
+				dbVendors.add(DB_SQLSERVER_2008);
 				dbVendors.add(DB_LOGICAL_TYPES);
 			}
 			return dbVendors;

@@ -12,11 +12,12 @@ import org.obeonetwork.dsl.database.reverse.decoders.impl.SQLServerDataBaseBuild
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
 import org.obeonetwork.dsl.database.reverse.utils.Queries;
-import static org.obeonetwork.dsl.database.reverse.DatabaseConstants.DB_H2_13;
-import static org.obeonetwork.dsl.database.reverse.DatabaseConstants.DB_MYSQL_5;
-import static org.obeonetwork.dsl.database.reverse.DatabaseConstants.DB_ORACLE_11G;
-import static org.obeonetwork.dsl.database.reverse.DatabaseConstants.DB_POSTGRES_9;
-import static org.obeonetwork.dsl.database.reverse.DatabaseConstants.DB_SQLSERVER_2008;
+
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
 
 public class DataBaseBuilderFactory {
 	

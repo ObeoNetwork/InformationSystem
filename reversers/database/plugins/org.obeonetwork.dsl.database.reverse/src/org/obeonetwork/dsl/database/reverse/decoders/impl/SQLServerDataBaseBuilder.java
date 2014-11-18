@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
-import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
@@ -66,7 +65,8 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 		column.setType(typeInstance);
 		
 		if (identity != null) {
-			buildSequence(owner, table, column, identity);
+			//buildSequence(owner, table, column, identity);
+			column.setAutoincrement(true);
 		}
 		
 		String defaultValue = rs.getString(13);
@@ -74,9 +74,6 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 			defaultValue = "";
 		}
 		column.setDefaultValue(defaultValue.trim());
-		if (rs.getMetaData().getColumnCount() >= 23) {
-			column.setAutoincrement("YES".equals(rs.getString(23)));
-		}
 
 		String columnComments = getRealComments(getColumnComments(metaData, rs, owner.getName(), table.getName(), columnName));
 		if (columnComments == null || columnComments.length() == 0) {
@@ -125,10 +122,10 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 		return viewQuery;
 	}
 
-	private void buildSequence(TableContainer owner, AbstractTable table, Column column, Identity identity) {		
-		Sequence sequence = CreationUtils.createSequence(owner, table.getName() + "_seq", identity.increment, 0, Integer.MAX_VALUE, identity.start);		
-    	column.setSequence(sequence);
-	}
+//	private void buildSequence(TableContainer owner, AbstractTable table, Column column, Identity identity) {		
+//		Sequence sequence = CreationUtils.createSequence(owner, table.getName() + "_seq", identity.increment, 0, Integer.MAX_VALUE, identity.start);		
+//    	column.setSequence(sequence);
+//	}
 	
 	private static Identity getIdentity(String columnType) {
 		Identity identity = new Identity();

@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.database.reverse;
+package org.obeonetwork.dsl.database.spec;
 
 public interface DatabaseConstants {
 	static final String DB_ORACLE_11G = "Oracle-11g";
@@ -6,4 +6,6 @@ public interface DatabaseConstants {
 	static final String DB_H2_13 = "H2-1.3";
 	static final String DB_POSTGRES_9 = "Postgres-9";
 	static final String DB_SQLSERVER_2008 = "SQLServer-2008";
+	
+	static final String DB_LOGICAL_TYPES = "Logical Types";
 }
