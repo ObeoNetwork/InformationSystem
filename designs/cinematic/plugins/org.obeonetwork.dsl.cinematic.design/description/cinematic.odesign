@@ -94,14 +94,14 @@
           </style>
         </nodeMappings>
         <edgeMappings name="FLD_Transition" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:transitions" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" targetExpression="var:self" domainClass="flow.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Source']">
-          <style>
+          <style sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="service:getCinematicLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
           <conditionnalStyles predicateExpression="service:getOnSize">
-            <style>
+            <style sizeComputationExpression="1">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <centerLabelStyleDescription labelExpression="service:getCinematicLabel" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -420,8 +420,8 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[elementView.oclAsType(viewpoint::DEdge).sourceNode.oclAsType(viewpoint::DNodeList).target/]">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="[elementView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNodeList).target/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[elementView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNodeList).target/]">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="[elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -432,7 +432,7 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[edgeView.oclAsType(viewpoint::DEdge).sourceNode.oclAsType(viewpoint::DNodeList).target/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[edgeView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNodeList).target/]">
                 <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="var:source"/>
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(flow::ViewState).viewContainers->includes(target)=false/]">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainers" valueExpression="var:target"/>
@@ -449,10 +449,10 @@
             <element name="element"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="[edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNodeList).target/]"/>
+                <subModelOperations xsi:type="tool_1:Unset" featureName="viewContainers" elementExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(cinematic::flow::ViewState).viewContainers->includes(edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNodeList).target)=false/]">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainers" valueExpression="[edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNodeList).target/]"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(cinematic::flow::ViewState).viewContainers->includes(edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target)=false/]">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="viewContainers" valueExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -605,7 +605,7 @@
       </defaultLayer>
       <additionalLayers name="Dependencies" activeByDefault="true">
         <edgeMappings name="PAD_Flow_To_ViewContainer" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']" targetFinderExpression="service:getViewContainerAssociateAndAncestors">
-          <style lineStyle="dash">
+          <style lineStyle="dash" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -613,7 +613,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="PAD_ViewContainer_To_ViewContainer" semanticCandidatesExpression="&lt;%" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']" targetFinderExpression="service:getViewContainers" sourceFinderExpression="feature:eContainer" domainClass="view.ViewContainerReference">
-          <style>
+          <style sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="references">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -621,7 +621,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="PAD_Flow_To_Subflow" semanticCandidatesExpression="&lt;%" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']" targetFinderExpression="service:getSubFlowInSubflowStates" sourceFinderExpression="feature:eContainer" domainClass="view.ViewContainerReference">
-          <style>
+          <style sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1145,8 +1145,7 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicEcoreServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.util.CinematicDebugServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil"/>    
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.flows.FlowsUtil"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicDropServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicToolkitsServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.cinematic.design.services.CinematicBindingServices"/>

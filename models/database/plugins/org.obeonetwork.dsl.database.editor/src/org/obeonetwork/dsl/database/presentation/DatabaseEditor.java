@@ -137,7 +137,7 @@ public class DatabaseEditor
 	/**
 	 * @generated NOT
 	 */
-	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram";
+	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram.ui";
 	
 	/**
 	 * <!-- begin-user-doc -->

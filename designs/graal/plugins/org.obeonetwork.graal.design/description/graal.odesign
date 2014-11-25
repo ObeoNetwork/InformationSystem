@@ -45,7 +45,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_System']" name="Tasks Graph" titleExpression="Tasks Graph" domainClass="graal.System" preconditionExpression="[eInverse()->filter(viewpoint::DDiagram)->select(d: viewpoint::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Tasks Graph')->size() &lt; 1/]">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_System']" name="Tasks Graph" titleExpression="Tasks Graph" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Tasks Graph')->size() &lt; 1/]">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description:CompositeLayout" padding="20"/>
       <defaultLayer name="Default">
@@ -93,7 +93,7 @@
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[diagram.oclAsType(viewpoint::DSemanticDiagram).target/]">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[diagram.oclAsType(diagram::DSemanticDiagram).target/]">
                 <subModelOperations xsi:type="tool:If" conditionExpression="[element.oclIsKindOf(graal::Task)/]">
                   <subModelOperations xsi:type="tool:SetValue" featureName="tasks" valueExpression="var:element"/>
                 </subModelOperations>
@@ -184,7 +184,7 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.deleteTaskUseTaskEdge(elementView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNode).target.oclAsType(graal::AbstractTask))/]"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.deleteTaskUseTaskEdge(elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target.oclAsType(graal::AbstractTask))/]"/>
               </initialOperation>
             </ownedTools>
             <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="TG_ReconnectSource_Use" reconnectionKind="RECONNECT_SOURCE">
@@ -195,8 +195,8 @@
               <element name="element"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[source.deleteTaskUseTaskEdge(edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNode).target.oclAsType(graal::AbstractTask))/]"/>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[executeCreateUseRelationshipAction(target.oclAsType(ecore::EObject), edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNode).target)/]"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[source.deleteTaskUseTaskEdge(edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target.oclAsType(graal::AbstractTask))/]"/>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[executeCreateUseRelationshipAction(target.oclAsType(ecore::EObject), edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target)/]"/>
                 </firstModelOperations>
               </initialOperation>
               <edgeView name="edgeView"/>
@@ -303,7 +303,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
                   <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
-                    <subModelOperations xsi:type="tool:Unset" featureName="actors" elementExpression="[elementView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNode).target/]"/>
+                    <subModelOperations xsi:type="tool:Unset" featureName="actors" elementExpression="[elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target/]"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -314,7 +314,7 @@
               <containerView name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
-                  <subModelOperations xsi:type="tool:For" expression="[elementView.incomingEdges.sourceNode.oclAsType(viewpoint::DNode).target/]" iteratorName="task">
+                  <subModelOperations xsi:type="tool:For" expression="[elementView.incomingEdges.sourceNode.oclAsType(diagram::DNode).target/]" iteratorName="task">
                     <subModelOperations xsi:type="tool:Unset" featureName="actors" elementExpression="var:element"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:DeleteView"/>
@@ -330,11 +330,11 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
                   <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
-                    <subModelOperations xsi:type="tool:Unset" featureName="actors" elementExpression="[edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNodeList).target/]"/>
+                    <subModelOperations xsi:type="tool:Unset" featureName="actors" elementExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="actors" valueExpression="[edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNodeList).target/]"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="actors" valueExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -345,7 +345,7 @@
         </toolSections>
       </optionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_ExistingTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Node'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Loop']" name="Actions Plan" titleExpression="[name + ' Actions Plan'/]" domainClass="graal.Task" preconditionExpression="[eInverse()->filter(viewpoint::DDiagram)->select(d: viewpoint::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Actions Plan')->size() &lt; 1/]" rootExpression="">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_ExistingTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Node'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Loop']" name="Actions Plan" titleExpression="[name + ' Actions Plan'/]" domainClass="graal.Task" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Actions Plan')->size() &lt; 1/]" rootExpression="">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description:CompositeLayout" padding="15" direction="LeftToRight"/>
       <diagramInitialisation>
@@ -772,7 +772,7 @@
             <containerVariable name="container"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="Create Actions Plan" titleExpression="[name + ' Actions Plan'/]" browseExpression="feature:task" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="Create Actions Plan" titleExpression="[task.name + ' Actions Plan'/]" browseExpression="feature:task" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']">
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
@@ -834,7 +834,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Actors Graph" titleExpression="Actors Graph" domainClass="graal.System" preconditionExpression="[eInverse()->filter(viewpoint::DDiagram)->select(d: viewpoint::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Actors Graph')->size() &lt; 1/]">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Actors Graph" titleExpression="Actors Graph" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Actors Graph')->size() &lt; 1/]">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description:CompositeLayout" direction="bottomToTop"/>
       <defaultLayer name="Default">
@@ -886,7 +886,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask']" name="TasksGroup Graph" titleExpression="[name + ' Tasks Graph'/]" domainClass="graal.TasksGroup" preconditionExpression="[eInverse()->filter(viewpoint::DDiagram)->select(d: viewpoint::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'TasksGroup Graph')->size() &lt; 1/]">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask']" name="TasksGroup Graph" titleExpression="[name + ' Tasks Graph'/]" domainClass="graal.TasksGroup" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'TasksGroup Graph')->size() &lt; 1/]">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description:CompositeLayout"/>
       <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@edgeMappings[name='TG_Use']">
@@ -898,7 +898,7 @@
         <toolSections name="Actors" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Works%20on'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_REC_AbstractTaskToActor']"/>
       </optionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Use Cases Main View" titleExpression="Use Cases Main View" domainClass="graal.System" preconditionExpression="[eInverse()->filter(viewpoint::DDiagram)->select(d: viewpoint::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Use Cases Main View')->size() &lt; 1/]">
+    <ownedRepresentations xsi:type="description:DiagramDescription" name="Use Cases Main View" titleExpression="Use Cases Main View" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Use Cases Main View')->size() &lt; 1/]">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description:CompositeLayout"/>
       <defaultLayer name="Default">
@@ -978,8 +978,8 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.oclAsType(viewpoint::DEdge).sourceNode.oclAsType(viewpoint::DNode).target/]">
-                  <subModelOperations xsi:type="tool:Unset" featureName="extends" elementExpression="[elementView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNode).target/]"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNode).target/]">
+                  <subModelOperations xsi:type="tool:Unset" featureName="extends" elementExpression="[elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target/]"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -988,9 +988,9 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.oclAsType(viewpoint::DEdge).sourceNode.oclAsType(viewpoint::DNode).target/]">
-                  <subModelOperations xsi:type="tool:Unset" featureName="includes" elementExpression="[elementView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNode).target/]"/>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="[(oclAsType(graal::UseCase).tasks.oclAsType(graal::AbstractTask).tasksUsed().eInverse(graal::UseCase)->excluding(self))->includes(elementView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DNode).target)/]">
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNode).target/]">
+                  <subModelOperations xsi:type="tool:Unset" featureName="includes" elementExpression="[elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target/]"/>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="[(oclAsType(graal::UseCase).tasks.oclAsType(graal::AbstractTask).tasksUsed().eInverse(graal::UseCase)->excluding(self))->includes(elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target)/]">
                     <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[displayInfo('Information', 'Some &lt;includes> links can not be deleted because they are calculated from relationships between tasks.')/]"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -1040,7 +1040,7 @@
                       <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Task' + eContainer(graal::System).tasks->size()/]"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['T'+ eContainer(graal::System).tasks->size()/]"/>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[diagram.oclAsType(viewpoint::DSemanticDiagram).target/]">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[diagram.oclAsType(diagram::DSemanticDiagram).target/]">
                       <subModelOperations xsi:type="tool:SetValue" featureName="tasks" valueExpression="var:newTask"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -1059,7 +1059,7 @@
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[diagram.oclAsType(viewpoint::DSemanticDiagram).target/]">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[diagram.oclAsType(diagram::DSemanticDiagram).target/]">
                 <subModelOperations xsi:type="tool:If" conditionExpression="[element.oclIsKindOf(graal::Task)/]">
                   <subModelOperations xsi:type="tool:SetValue" featureName="tasks" valueExpression="var:element"/>
                 </subModelOperations>

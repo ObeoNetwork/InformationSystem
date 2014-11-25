@@ -38,7 +38,7 @@
   <extension
         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
      <propertyTabs
-           contributorId="org.eclipse.sirius.diagram">
+           contributorId="org.eclipse.sirius.diagram.ui">
         <propertyTab
               category="semantic &amp; extension"
               id="Root"
@@ -84,7 +84,7 @@
   <extension
         point="org.eclipse.ui.views.properties.tabbed.propertySections">
      <propertySections
-           contributorId="org.eclipse.sirius.diagram">
+           contributorId="org.eclipse.sirius.diagram.ui">
         <propertySection
               class="org.obeonetwork.dsl.entity.parts.forms.RootPropertiesEditionPartForm"
               filter="org.obeonetwork.dsl.entity.filters.RootTabPropertiesEditionSection"

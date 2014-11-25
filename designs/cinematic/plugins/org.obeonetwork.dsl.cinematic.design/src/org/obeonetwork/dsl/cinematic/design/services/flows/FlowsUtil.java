@@ -10,31 +10,14 @@
  */
 package org.obeonetwork.dsl.cinematic.design.services.flows;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import org.eclipse.emf.cdo.CDOLock;
-import org.eclipse.emf.cdo.CDOObjectHistory;
-import org.eclipse.emf.cdo.CDOState;
-import org.eclipse.emf.cdo.common.id.CDOID;
-import org.eclipse.emf.cdo.common.lock.CDOLockState;
-import org.eclipse.emf.cdo.common.revision.CDORevision;
-import org.eclipse.emf.cdo.eresource.CDOResource;
-import org.eclipse.emf.cdo.view.CDOView;
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.design.services.CinematicEcoreServices;
@@ -44,18 +27,9 @@ import org.obeonetwork.dsl.cinematic.flow.FlowState;
 import org.obeonetwork.dsl.cinematic.flow.SubflowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
-import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
-import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
-import org.obeonetwork.dsl.cinematic.view.ViewElement;
-import org.obeonetwork.dsl.cinematic.view.ViewEvent;
-import org.obeonetwork.dsl.environment.Behaviour;
-import org.obeonetwork.dsl.environment.BindingRegistry;
-import org.obeonetwork.dsl.environment.BoundableElement;
-import org.obeonetwork.dsl.environment.MetaDataContainer;
-import org.obeonetwork.dsl.environment.Type;
 
 public class FlowsUtil {
 	
@@ -213,5 +187,37 @@ public class FlowsUtil {
 		}
 		return containers;
 	}	
+	
+	public List<EObject> getViewContainersPossible(EObject context,
+			List<ViewContainer> viewContainers) {
+		List<EObject> viewContainersAncestors = new ArrayList<EObject>();
+		// Add to the list, the ViewContainer Ancestors if they are not already
+		// on the list.
+		for (ViewContainer viewContainer : viewContainers) {
+			viewContainersAncestors.add(viewContainer);
+			EObject objectContainer = viewContainer.eContainer();
+			while (objectContainer != null) {
+				if (!viewContainersAncestors.contains(objectContainer)) {
+					viewContainersAncestors.add(objectContainer);
+				}
+				objectContainer = objectContainer.eContainer();
+			}
+		}
+		// Removing duplicates, if duplicates are present
+		Set<EObject> set = new HashSet<EObject>();
+		set.addAll(viewContainersAncestors);
+		return new ArrayList<EObject>(set);
+	}
+
+	public List<EObject> getFlowsAndContainer(EObject context, List<Flow> flows) {
+		List<EObject> containers = new ArrayList<EObject>(flows);
+		for (Flow flow : flows) {
+			if (flow.eContainer() instanceof AbstractPackage) {
+				containers.add((AbstractPackage) flow.eContainer());
+			}
+		}
+		return containers;
+	}
+
 		
 }

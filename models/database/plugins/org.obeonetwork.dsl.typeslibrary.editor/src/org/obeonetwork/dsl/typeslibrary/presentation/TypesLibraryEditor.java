@@ -141,7 +141,7 @@ public class TypesLibraryEditor
 	/**
 	 * @generated NOT
 	 */
-	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram";
+	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram.ui";
 	/**
 	 * <!-- begin-user-doc -->
 	 * @implements ITabbedPropertySheetPageContributor

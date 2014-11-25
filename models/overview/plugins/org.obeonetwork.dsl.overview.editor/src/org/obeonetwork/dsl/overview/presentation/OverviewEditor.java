@@ -133,7 +133,7 @@ public abstract class OverviewEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker, ITabbedPropertySheetPageContributor {
 	
-	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram";
+	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram.ui";
 	
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.

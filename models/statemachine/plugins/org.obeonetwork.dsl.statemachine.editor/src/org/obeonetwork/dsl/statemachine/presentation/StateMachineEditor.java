@@ -127,7 +127,7 @@ public class StateMachineEditor
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, 
 	IViewerProvider, IGotoMarker, ITabbedPropertySheetPageContributor  {
 	
-	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram";
+	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram.ui";
 	
 	
 	/**

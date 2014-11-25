@@ -149,7 +149,7 @@ public class EntityEditor extends MultiPageEditorPart implements
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	//public static final String PROPERTIES_CONTRIBUTOR = "org.obeonetwork.dsl.entity.properties";
-	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram";
+	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram.ui";
 
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
