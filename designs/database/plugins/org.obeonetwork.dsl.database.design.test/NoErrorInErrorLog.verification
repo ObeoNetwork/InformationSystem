@@ -3,9 +3,9 @@ Format-Version: 1.0
 Element-Name: NoErrorInErrorLog
 Element-Type: verification
 Element-Version: 2.0
-Id: _k0SFwGNcEeSg_dTG4Ei-uQ
+Id: _hSB-sHO9EeSUf6gvpqUh1A
 Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/3/14 2:23 PM
+Save-Time: 11/24/14 10:37 AM
 Verification-Type: org.eclipse.rcptt.verifications.log
 
 ------=_.errorlog.verification-3ceb5b18-8b7c-3939-9191-416e6e78eb57
@@ -17,7 +17,7 @@ ALLOWED:
 4 0 org.eclipse.rcptt.* Message:.*
 DENIED:
 4 0 org.obeo.network.* Message:.*
-4 0 fr.obeo.* Message:.*
+4 0 org.eclipse.sirius.* Message:.*
 4 0 org.eclipse.acceleo.* Message:.*
 
 ------=_.errorlog.verification-3ceb5b18-8b7c-3939-9191-416e6e78eb57--

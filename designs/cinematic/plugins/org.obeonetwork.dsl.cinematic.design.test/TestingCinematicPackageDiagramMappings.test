@@ -47,13 +47,13 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit
     // Check PAD_Flow
     with [get-edit-part -name Checkout | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
         get-property "getClassName()" 
-            | equals "fr.obeo.dsl.viewpoint.diagram.internal.edit.parts.DNodeContainerViewNodeContainerCompartment2EditPart" 
+            | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerViewNodeContainerCompartment2EditPart" 
             | verify-true
         get-property "getModel().getElement().getName()" | equals Checkout | verify-true
     }
     //Check PAD_ViewContainer
     with [get-edit-part -name "Login : Page"] {
-        get-property "getClassName()" | equals "fr.obeo.dsl.viewpoint.diagram.internal.edit.parts.DNodeList2EditPart" 
+        get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeList2EditPart" 
             | verify-true
         get-property "getChildren().DNodeListName2EditPart[0].getEditText()" | equals "Login : Page" | verify-true
         get-property "getChildren().DNodeListViewNodeListCompartmentEditPart[1].getChildren().DNodeListElementEditPart[0].getEditText()" 
@@ -72,7 +72,7 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit
     }
     // Check PAD_Flow_To_Subflow
     with [get-edit-part -name Checkout | get-target-connection 0] {
-        get-property "getClassName()" | equals "fr.obeo.dsl.viewpoint.diagram.internal.edit.parts.DEdgeEditPart" 
+        get-property "getClassName()" | equals "org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEditPart" 
             | verify-true
         get-property "getTarget().getChildren().DNodeContainerName2EditPart[0].getEditText()" | equals Checkout 
             | verify-true

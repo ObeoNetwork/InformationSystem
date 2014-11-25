@@ -72,12 +72,12 @@ with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part 
 with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
     with [get-edit-part -name "" -index 3 | get-figure "0/0/0"] {
     //Check  FLD_ViewState mapping 
-        get-property className | equals "fr.obeo.dsl.viewpoint.diagram.ui.tools.api.figure.WorkspaceImageFigure" 
+        get-property className | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.WorkspaceImageFigure" 
             | verify-true
         get-property "getImageAspectRatio()" | equals "1.0434782608695652" | verify-true
     }   
     get-edit-part -name "" | get-edit-part -className WorkspaceImageEditPart | get-figure 0 | get-property className 
-        | equals "fr.obeo.dsl.viewpoint.diagram.ui.tools.api.figure.WorkspaceImageFigure" | verify-true
+        | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.WorkspaceImageFigure" | verify-true
 }
 with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
     mouse-move 213 99 -height 463 -width 858
@@ -92,7 +92,7 @@ with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part 
 }
 get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram" | get-edit-part 
     -name "" -index 1 | get-edit-part -className WorkspaceImageEditPart | get-figure "0/0" | get-property className 
-    | equals "fr.obeo.dsl.viewpoint.diagram.ui.tools.api.figure.ViewpointWrapLabel" | verify-true
+    | equals "org.eclipse.sirius.diagram.ui.tools.api.figure.SiriusWrapLabel" | verify-true
 with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
     mouse-move 703 151 -height 463 -width 858
     // Check FLD_ViewContainer
@@ -125,7 +125,7 @@ with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part 
     }
      // Check FLD_ActionState mapping
     get-edit-part -name "Send email" | get-edit-part -className WorkspaceImageEditPart 
-        | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getSubStringText()" 
+        | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getSubStringText()" 
         | equals "Send email" | verify-true
 }
 with [get-editor "Checkout Flow Diagram"] {

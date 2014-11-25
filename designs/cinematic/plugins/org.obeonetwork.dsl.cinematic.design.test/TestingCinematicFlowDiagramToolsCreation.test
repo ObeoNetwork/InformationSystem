@@ -67,9 +67,9 @@ with [get-editor "Main Flow Diagram"] {
 }
 with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
     -name Checkout | get-target-connection 1] {
-    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals Checkout | verify-true
-    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals "Create Account Page" | verify-true
 }
 with [get-editor "Main Flow Diagram"] {
@@ -96,7 +96,7 @@ with [get-editor "Main Flow Diagram"] {
 }
 get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
     -name View3 | get-edit-part -className WorkspaceImageEditPart 
-    | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
     | equals View3 | verify-true
 with [get-editor "Main Flow Diagram"] {
     get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | mouse-move 772 232 -height 493 -width 908
@@ -123,7 +123,7 @@ with [get-editor "Main Flow Diagram"] {
 }
 get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
     -name Action6 | get-edit-part -className WorkspaceImageEditPart 
-    | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
     | equals Action6 | verify-true
 with [get-editor "Main Flow Diagram"] {
     get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | mouse-move 907 270 -height 506 -width 908
@@ -142,7 +142,7 @@ with [get-editor "Main Flow Diagram"] {
 }
 get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
     -name AsyncEvent1 | get-edit-part -className WorkspaceImageEditPart 
-    | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
     | equals AsyncEvent1 | verify-true
 with [get-editor "Main Flow Diagram"] {
     get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | mouse-move 728 269 -height 525 -width 908
@@ -180,7 +180,7 @@ with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -nam
 }
 get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
     -name Checkout -index 1 | get-edit-part -className WorkspaceImageEditPart 
-    | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
     | equals Checkout | verify-true
 with [get-editor "Main Flow Diagram"] {
     get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | mouse-move 885 303 -height 522 -width 933
@@ -210,7 +210,7 @@ with [get-editor "Main Flow Diagram"] {
 }
 get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | get-edit-part 
     -name Flow2 | get-edit-part -className WorkspaceImageEditPart 
-    | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    | get-property "getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
     | equals Flow2 | verify-true
 with [get-editor "Main Flow Diagram"] {
     get-diagram -index 1 | get-edit-part -name "Main Flow Diagram" | mouse-move 809 318 -height 522 -width 930
@@ -446,7 +446,7 @@ with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -nam
     -name "HomePage : Page" | get-target-connection 1] {
     get-property "getTarget().getChildren().DNodeListNameEditPart[0].getEditText()" | equals "HomePage : Page" 
         | verify-true
-    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals "Create Account Page" | verify-true
 }
 with [get-editor "Main Flow Diagram"] {
@@ -506,7 +506,7 @@ with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -nam
     with [get-target-connection 0] {
         get-property "getTarget().getChildren().DNodeListNameEditPart[0].getEditText()" | equals "CartLines : Table" 
             | verify-true
-        get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
             | equals "Display Homepage" | verify-true
     }
 }
@@ -551,7 +551,7 @@ with [get-editor "Main Flow Diagram" | get-diagram -index 1 | get-edit-part -nam
     with [get-target-connection 0] {
         get-property "getTarget().getChildren().DNodeListNameEditPart[0].getEditText()" 
             | equals "ViewContainer4 : Table" | verify-true
-        get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+        get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().SVGWorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
             | equals "Display Homepage" | verify-true
     }
 }

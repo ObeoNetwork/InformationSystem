@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _8bzwsGNcEeSg_dTG4Ei-uQ
 Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/3/14 2:26 PM
+Save-Time: 11/20/14 5:23 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -44,11 +44,10 @@ with [get-window "Select resources to add"] {
     }
     get-button OK | click
 }
-with [get-window "Viewpoints Selection" | get-table] {
-    select [get-item "" -index 1]
-    get-cell 1 0 | check
+with [get-window "Viewpoints Selection"] {
+    get-table | get-item "Entity Relation" | check
+    get-button OK | click
 }
-get-window "Viewpoints Selection" | get-button OK | click
 get-editor "My.entityrelation" | close
 with [get-view "Model Explorer"] {
     click
@@ -266,7 +265,7 @@ with [get-editor "My Entity Relation" | get-diagram -index 1 | get-edit-part -na
     mouse-move 215 116 -height 309 -width 596
     mouse-move 0 176 -height 309 -width 596
 }
-get-view "Model Explorer" | get-tree | select "\\*E-BookStore" | get-menu "New/Other..." | click
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu "New/Other..." | click
 with [get-window New] {
     get-tree | select "Obeo Designer For IS/Entity Relation Model"
     with [get-button "Next >"] {
@@ -275,6 +274,7 @@ with [get-window New] {
     }
     get-button Finish | click
 }
+
 get-view "Model Explorer" | get-tree | select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
 with [get-window "Select resources to add"] {
     get-button "Browse Workspace..." | click

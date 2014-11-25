@@ -1,15 +1,13 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
-Contexts: _TrMrAD8XEeS7B9A6IeM5WA
 Element-Name: TestingTasksGraphTools
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6O6l4GNdEeSg_dTG4Ei-uQ
 Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/3/14 2:32 PM
+Save-Time: 11/21/14 10:21 AM
 Testcase-Type: ecl
-Verifications: _BdfdED8aEeS7B9A6IeM5WA
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
 Content-Type: text/plain
@@ -147,9 +145,9 @@ with [get-editor "Tasks Graph"] {
 }
 with [get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-edit-part -name Task10 
     | get-target-connection 0] {
-    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals Task10 | verify-true
-    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals "Constitute shopping\n"
         + "cart" | verify-true
 }
@@ -422,7 +420,7 @@ with [get-editor "Tasks Graph"] {
 with [get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-edit-part -name Toto 
     | get-target-connection 1] {
     get-property "getTarget().getChildren().DNodeNameEditPart[0].getEditText()" | equals Toto | verify-true
-    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals "Search books" | verify-true
 }
 with [get-editor "Tasks Graph" | get-diagram -index 1] {

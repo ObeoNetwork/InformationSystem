@@ -1,15 +1,13 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
-Contexts: _TrMrAD8XEeS7B9A6IeM5WA
 Element-Name: TestingUseCasesMainViewTools
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6SSqAGNdEeSg_dTG4Ei-uQ
 Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/3/14 2:32 PM
+Save-Time: 11/21/14 4:16 PM
 Testcase-Type: ecl
-Verifications: _BdfdED8aEeS7B9A6IeM5WA
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
 Content-Type: text/plain
@@ -84,9 +82,9 @@ with [get-editor "Use Cases Main View"] {
 }
 with [get-editor "Use Cases Main View" | get-diagram -index 1 | get-edit-part -name "Use Cases Main View" 
     | get-edit-part -name "UC - Proceed to checkout" | get-target-connection 1] {
-    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals "UC - Proceed to checkout" | verify-true
-    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals "UC - Use Case 5" | verify-true
 }
 with [get-editor "Use Cases Main View"] {
@@ -120,9 +118,9 @@ with [get-editor "Use Cases Main View"] {
 }
 with [get-editor "Use Cases Main View" | get-diagram -index 1 | get-edit-part -name "Use Cases Main View" 
     | get-edit-part -name "UC - Buy books" | get-target-connection 0] {
-    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals "UC - Buy books" | verify-true
-    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().ViewpointWrapLabel[0].getText()" 
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
         | equals "UC - Use Case 5" | verify-true
 }
 with [get-editor "Use Cases Main View" | get-diagram -index 1 | get-edit-part -name "Use Cases Main View"] {
@@ -149,7 +147,7 @@ with [get-editor "Use Cases Main View" | get-diagram -index 1] {
         }
     }
     // Check Tool Create Use Case Diagram
-    get-menu "Navigate/New detail : Create Use Case Diagram" | click
+    get-menu "New/Create Use Case Diagram" | click
 }
 get-window "New Representation" | get-button OK | click
 get-editor "UC - Use Case 5 Use Case Diagram" -index 1 | get-diagram -index 1 | get-edit-part 
