@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="graal" version="6.7.0.201302071200">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="graal" version="8.1.0">
   <ownedViewpoints name="Graal Methodology" modelFileExtension="*.graal">
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Reused Description" domainClass="graal.System" preconditionExpression="false">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" domainClass="graal.System" preconditionExpression="false">
       <defaultLayer name="Default">
         <toolSections name="Reused tools">
           <ownedTools xsi:type="tool:DirectEditLabel" name="Generic Edit Label">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%editGraalLabel($0)%>"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:editGraalLabel(arg0)"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Actions Plan" titleExpression="[name + ' Actions Plan'/]" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']">
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Tasksgroup Graph" titleExpression="[name + ' Tasksgroup Graph/]" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='TasksGroup%20Graph']">
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Tasks Graph" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']">
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
@@ -37,17 +37,17 @@
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="tasks"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="tasks"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_System']" name="Tasks Graph" titleExpression="Tasks Graph" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Tasks Graph')->size() &lt; 1/]">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_System']" name="Tasks Graph" titleExpression="Tasks Graph" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Tasks Graph')->size() &lt; 1/]">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
-      <layout xsi:type="description:CompositeLayout" padding="20"/>
+      <layout xsi:type="description_1:CompositeLayout" padding="20"/>
       <defaultLayer name="Default">
         <nodeMappings name="TG_Task" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Actions%20Plan']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Task']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:tasks" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='Go%20To%20Actions%20Plan%20Representation']" domainClass="graal.Task">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:computeGraalLabel" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/task.png">
@@ -82,20 +82,20 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.Task" referenceName="tasks">
-                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(graal::System).getNextAvailableTaskId()/]"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Task' + id.substring(2)/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Task" referenceName="tasks">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="[eContainer(graal::System).getNextAvailableTaskId()/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Task' + id.substring(2)/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Existing task" forceRefresh="true" candidatesExpression="[candidatesExpresssionForExistingTask(diagram)/]" tree="true" rootExpression="[getSystem().tasks/]" childrenExpression="feature:tasks" message="Choose an existing task to be added on this diagram" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Task.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Existing task" forceRefresh="true" candidatesExpression="[candidatesExpresssionForExistingTask(diagram)/]" tree="true" rootExpression="[getSystem().tasks/]" childrenExpression="feature:tasks" message="Choose an existing task to be added on this diagram" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Task.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[diagram.oclAsType(diagram::DSemanticDiagram).target/]">
-                <subModelOperations xsi:type="tool:If" conditionExpression="[element.oclIsKindOf(graal::Task)/]">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="tasks" valueExpression="var:element"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[diagram.oclAsType(diagram::DSemanticDiagram).target/]">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclIsKindOf(graal::Task)/]">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="tasks" valueExpression="var:element"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -104,9 +104,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.TasksGroup" referenceName="tasks">
-                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(graal::System).getNextAvailableTasksGroupId()/]"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Group' + id.substring(1)/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.TasksGroup" referenceName="tasks">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="[eContainer(graal::System).getNextAvailableTasksGroupId()/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Group' + id.substring(1)/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -114,8 +114,8 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.System" referenceName="subSystems">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['SubSystem' + eContainer().oclAsType(graal::System).subSystems->size()/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.System" referenceName="subSystems">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['SubSystem' + eContainer().oclAsType(graal::System).subSystems->size()/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -125,29 +125,29 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%executeCreateUseRelationshipAction($source, $target)%>"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:executeCreateUseRelationshipAction(source, target)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="Graal" label="Graal">
-            <menuItemDescription xsi:type="tool:OperationAction" name="Group tasks" precondition="&lt;%canExecuteGroupAction($views)%>" forceRefresh="true">
+          <ownedTools xsi:type="tool_1:PopupMenu" name="Graal" label="Graal">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Group tasks" precondition="service:canExecuteGroupAction(views)" forceRefresh="true">
               <view name="views"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%executeGroupAction($views)%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:executeGroupAction(views)"/>
               </initialOperation>
             </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Ungroup tasks" precondition="&lt;%canExecuteUngroupAction($views)%>" forceRefresh="true">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Ungroup tasks" precondition="service:canExecuteUngroupAction(views)" forceRefresh="true">
               <view name="views"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%executeUngroupAction($views)%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:executeUngroupAction(views)"/>
               </initialOperation>
             </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Create use case" precondition="&lt;%canExecuteCreateUseCaseAction($views)%>">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Create use case" precondition="service:canExecuteCreateUseCaseAction(views)">
               <view name="views"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:If" conditionExpression="[executeCreateUseCaseAction(views) &lt;> null/]">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[eContainer(graal::System)/]">
+                <firstModelOperations xsi:type="tool_1:If" conditionExpression="[executeCreateUseCaseAction(views) &lt;> null/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[eContainer(graal::System)/]">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -160,7 +160,7 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.deleteTask%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.deleteTask()"/>
               </initialOperation>
             </ownedTools>
             <ownedTools xsi:type="tool:DeleteElementDescription" name="TG_Delete_TasksGroup" forceRefresh="true">
@@ -168,7 +168,7 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.oclAsType(graal::TasksGroup).deleteTasksGroup()/]"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.deleteTasksGroup()"/>
               </initialOperation>
             </ownedTools>
             <ownedTools xsi:type="tool:DeleteElementDescription" name="TG_Delete_System" forceRefresh="true">
@@ -176,7 +176,7 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.deleteSystem%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.deleteSystem"/>
               </initialOperation>
             </ownedTools>
             <ownedTools xsi:type="tool:DeleteElementDescription" name="TG_Delete_TaskUse" forceRefresh="true">
@@ -184,7 +184,7 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.deleteTaskUseTaskEdge(elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target.oclAsType(graal::AbstractTask))/]"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.deleteTaskUseTaskEdge(elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target.oclAsType(graal::AbstractTask))/]"/>
               </initialOperation>
             </ownedTools>
             <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="TG_ReconnectSource_Use" reconnectionKind="RECONNECT_SOURCE">
@@ -194,9 +194,9 @@
               <targetView name="targetView"/>
               <element name="element"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[source.deleteTaskUseTaskEdge(edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target.oclAsType(graal::AbstractTask))/]"/>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[executeCreateUseRelationshipAction(target.oclAsType(ecore::EObject), edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target)/]"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.deleteTaskUseTaskEdge(edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target.oclAsType(graal::AbstractTask))/]"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[executeCreateUseRelationshipAction(target.oclAsType(ecore::EObject), edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target)/]"/>
                 </firstModelOperations>
               </initialOperation>
               <edgeView name="edgeView"/>
@@ -208,9 +208,9 @@
               <targetView name="targetView"/>
               <element name="element"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.deleteTaskUseTaskEdge($source)%>"/>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%executeCreateUseRelationshipAction($element, $target)%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.deleteTaskUseTaskEdge(source)"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:executeCreateUseRelationshipAction(element, target)"/>
                 </firstModelOperations>
               </initialOperation>
               <edgeView name="edgeView"/>
@@ -242,22 +242,22 @@
               <element name="element"/>
               <newViewContainer name="newContainerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="subSystems"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="subSystems"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
           </subSections>
         </toolSections>
       </defaultLayer>
-      <optionalLayers name="Actors" activeByDefault="true">
-        <nodeMappings name="TG_Actor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Actor']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="service:getVisibleActors" domainClass="graal.Actor">
+      <additionalLayers name="Actors" activeByDefault="true">
+        <nodeMappings name="TG_Actor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Actor']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="service:getVisibleActors" domainClass="graal.Actor">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:computeGraalLabel" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="TG_Edge_AbstractTaskToActor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Edge_AbstractTaskToActor']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']" targetFinderExpression="[getVisibleLinksToActors(diagram.visibleTasks())/]" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_REC_AbstractTaskToActor']">
+        <edgeMappings name="TG_Edge_AbstractTaskToActor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Edge_AbstractTaskToActor']" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']" targetFinderExpression="[getVisibleLinksToActors(diagram.visibleTasks())/]" reconnections="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_REC_AbstractTaskToActor']">
           <style lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -265,7 +265,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="TG_Edge_UsedForCreateEdgeTool" documentation="This mapping is never displayed (see target finder expression = false).&#xD;&#xA;It is used to be able to define a creation tool on it, so that the user can draw a line in the usual way (from actor to task)" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task']" targetFinderExpression="false">
+        <edgeMappings name="TG_Edge_UsedForCreateEdgeTool" documentation="This mapping is never displayed (see target finder expression = false).&#xD;&#xA;It is used to be able to define a creation tool on it, so that the user can draw a line in the usual way (from actor to task)" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@nodeMappings[name='TG_Actor']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task']" targetFinderExpression="false">
           <style lineStyle="dash" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -274,24 +274,24 @@
           </style>
         </edgeMappings>
         <toolSections name="Actors">
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Actor" precondition="[oclIsKindOf(graal::Task)/]" forceRefresh="true" candidatesExpression="[candidatesExpressionForExistingActors(diagram)/]" tree="true" rootExpression="[rootExpressionForExistingActors(diagram)/]" childrenExpression="feature:subActors" message="Choose an existing actor to be added on this diagram" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Actor.gif" windowTitle="Add an actor">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Actor" precondition="[oclIsKindOf(graal::Task)/]" forceRefresh="true" candidatesExpression="[candidatesExpressionForExistingActors(diagram)/]" tree="true" rootExpression="[rootExpressionForExistingActors(diagram)/]" childrenExpression="feature:subActors" message="Choose an existing actor to be added on this diagram" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Actor.gif" windowTitle="Add an actor">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:SetValue" featureName="actors" valueExpression="var:element"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="actors" valueExpression="var:element"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Works on" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_UsedForCreateEdgeTool']" iconPath="/org.obeonetwork.graal.design/images/works_on.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Works on" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_UsedForCreateEdgeTool']" iconPath="/org.obeonetwork.graal.design/images/works_on.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
-                <subModelOperations xsi:type="tool:SetValue" featureName="actors" valueExpression="var:source"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="actors" valueExpression="var:source"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -301,9 +301,9 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
-                    <subModelOperations xsi:type="tool:Unset" featureName="actors" elementExpression="[elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target/]"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="actors" elementExpression="[elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target/]"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -313,11 +313,11 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
-                  <subModelOperations xsi:type="tool:For" expression="[elementView.incomingEdges.sourceNode.oclAsType(diagram::DNode).target/]" iteratorName="task">
-                    <subModelOperations xsi:type="tool:Unset" featureName="actors" elementExpression="var:element"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                  <subModelOperations xsi:type="tool_1:For" expression="[elementView.incomingEdges.sourceNode.oclAsType(diagram::DNode).target/]" iteratorName="task">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="actors" elementExpression="var:element"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:DeleteView"/>
+                  <subModelOperations xsi:type="tool_1:DeleteView"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -328,13 +328,13 @@
               <targetView name="targetView"/>
               <element name="element"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
-                    <subModelOperations xsi:type="tool:Unset" featureName="actors" elementExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="actors" elementExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
-                    <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="actors" valueExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="actors" valueExpression="[edgeView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNodeList).target/]"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -343,15 +343,15 @@
             </ownedTools>
           </subSections>
         </toolSections>
-      </optionalLayers>
+      </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_ExistingTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Node'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Loop']" name="Actions Plan" titleExpression="[name + ' Actions Plan'/]" domainClass="graal.Task" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Actions Plan')->size() &lt; 1/]" rootExpression="">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_ExistingTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Node'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Loop']" name="Actions Plan" titleExpression="[name + ' Actions Plan'/]" domainClass="graal.Task" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Actions Plan')->size() &lt; 1/]" rootExpression="">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
-      <layout xsi:type="description:CompositeLayout" padding="15" direction="LeftToRight"/>
+      <layout xsi:type="description_1:CompositeLayout" padding="15" direction="LeftToRight"/>
       <diagramInitialisation>
-        <firstModelOperations xsi:type="tool:If" conditionExpression="[nodes->filter(graal::InitialNode)->size() = 0/]">
-          <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.InitialNode" referenceName="nodes">
-            <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+        <firstModelOperations xsi:type="tool_1:If" conditionExpression="[nodes->filter(graal::InitialNode)->size() = 0/]">
+          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.InitialNode" referenceName="nodes">
+            <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
           </subModelOperations>
         </firstModelOperations>
       </diagramInitialisation>
@@ -490,8 +490,8 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.InitialNode" referenceName="nodes">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.InitialNode" referenceName="nodes">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -499,8 +499,8 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.FinalNode" referenceName="nodes">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.FinalNode" referenceName="nodes">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -508,8 +508,8 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.AbortNode" referenceName="nodes">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.AbortNode" referenceName="nodes">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -519,9 +519,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.AppliEvent" referenceName="nodes">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['AppliEvent' + eContainer(graal::Activity).nodes->filter(graal::AppliEvent)->size()/]"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.AppliEvent" referenceName="nodes">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['AppliEvent' + eContainer(graal::Activity).nodes->filter(graal::AppliEvent)->size()/]"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -529,9 +529,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.AppliAction" referenceName="nodes">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['AppliAction' + eContainer(graal::Activity).nodes->filter(graal::AppliAction)->size()/]"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.AppliAction" referenceName="nodes">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['AppliAction' + eContainer(graal::Activity).nodes->filter(graal::AppliAction)->size()/]"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -539,9 +539,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.UserView" referenceName="nodes">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['UserView' + eContainer(graal::Activity).nodes->filter(graal::UserView)->size()/]"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.UserView" referenceName="nodes">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['UserView' + eContainer(graal::Activity).nodes->filter(graal::UserView)->size()/]"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -549,9 +549,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.UserAction" referenceName="nodes">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['UserAction' + eContainer(graal::Activity).nodes->filter(graal::UserAction)->size()/]"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.UserAction" referenceName="nodes">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['UserAction' + eContainer(graal::Activity).nodes->filter(graal::UserAction)->size()/]"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -559,42 +559,42 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[eContainer(graal::TasksContainer)/]">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.Task" referenceName="tasks" variableName="createdTask">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Task' + eContainer(graal::System).tasks->size()/]"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['T'+ eContainer(graal::System).tasks->size()/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[eContainer(graal::TasksContainer)/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Task" referenceName="tasks" variableName="createdTask">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Task' + eContainer(graal::System).tasks->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="['T'+ eContainer(graal::System).tasks->size()/]"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.TaskReference" referenceName="nodes">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="task" valueExpression="var:createdTask"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.TaskReference" referenceName="nodes">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="task" valueExpression="var:createdTask"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="uses" valueExpression="var:createdTask"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="uses" valueExpression="var:createdTask"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Loop)/]">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[eContainer(graal::Task)/]">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="uses" valueExpression="var:createdTask"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::Loop)/]">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[eContainer(graal::Task)/]">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="uses" valueExpression="var:createdTask"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Existing task" candidatesExpression="[eContainer(graal::System).eAllContents(graal::AbstractTask)/]" tree="true" rootExpression="[getSystem().tasks/]" childrenExpression="feature:tasks" message="Choose an existing task to be added on this diagram" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Task.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Existing task" candidatesExpression="[eContainer(graal::System).eAllContents(graal::AbstractTask)/]" tree="true" rootExpression="[getSystem().tasks/]" childrenExpression="feature:tasks" message="Choose an existing task to be added on this diagram" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Task.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.TaskReference" referenceName="nodes">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="task" valueExpression="var:element"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.TaskReference" referenceName="nodes">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="task" valueExpression="var:element"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uses" valueExpression="var:element"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="uses" valueExpression="var:element"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Loop)/]">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[eContainer(graal::Task)/]">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="uses" valueExpression="var:element"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::Loop)/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[eContainer(graal::Task)/]">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="uses" valueExpression="var:element"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -606,9 +606,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.Operator" referenceName="nodes">
-                <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="and"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Operator" referenceName="nodes">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="and"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -616,9 +616,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.Operator" referenceName="nodes">
-                <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="or"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Operator" referenceName="nodes">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="or"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -626,9 +626,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.Operator" referenceName="nodes">
-                <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="xor"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Operator" referenceName="nodes">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="xor"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -636,65 +636,65 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.Loop" referenceName="subActivities">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.InitialNode" referenceName="nodes">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Loop" referenceName="subActivities">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.InitialNode" referenceName="nodes">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.FinalNode" referenceName="nodes">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.FinalNode" referenceName="nodes">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:SetValue" featureName="lowerBound" valueExpression="0"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="upperBound" valueExpression="-1"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initLoopAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="lowerBound" valueExpression="0"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="upperBound" valueExpression="-1"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initLoopAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Transitions">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Transition" precondition="&lt;%$preSource.isTransitionValid($preTarget)%>" edgeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Transition" precondition="service:preSource.isTransitionValid(preTarget)" edgeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%getCloserCommonDirectParent($source, $target)%>">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.Transition" referenceName="transitions">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="normal"/>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initTransitionAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:getCloserCommonDirectParent(source, target)">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Transition" referenceName="transitions">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="normal"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initTransitionAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Interrupt" precondition="&lt;%$preSource.isTransitionValid($preTarget)%>" edgeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Interrupt.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Interrupt" precondition="service:preSource.isTransitionValid(preTarget)" edgeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Interrupt.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%getCloserCommonDirectParent($source, $target)%>">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.Transition" referenceName="transitions">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="interrupt"/>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initTransitionAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:getCloserCommonDirectParent(source, target)">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Transition" referenceName="transitions">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="interrupt"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initTransitionAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Abort" precondition="&lt;%$preSource.isTransitionValid($preTarget)%>" edgeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Interrupt.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Abort" precondition="service:preSource.isTransitionValid(preTarget)" edgeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Interrupt.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%getCloserCommonDirectParent($source, $target)%>">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.Transition" referenceName="transitions">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="abort"/>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initTransitionAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:getCloserCommonDirectParent(source, target)">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Transition" referenceName="transitions">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="abort"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initTransitionAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -706,13 +706,13 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[eContainer(graal::Task)/]">
-                <subModelOperations xsi:type="tool:If" conditionExpression="[oclAsType(graal::Activity).nodes->filter(graal::TaskReference)->select(task = element.oclAsType(graal::TaskReference).task)->size() = 1/]">
-                  <subModelOperations xsi:type="tool:Unset" featureName="uses" elementExpression="[element.oclAsType(graal::TaskReference).task/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[eContainer(graal::Task)/]">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(graal::Activity).nodes->filter(graal::TaskReference)->select(task = element.oclAsType(graal::TaskReference).task)->size() = 1/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="uses" elementExpression="[element.oclAsType(graal::TaskReference).task/]"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.eContainer(graal::Activity)/]">
-                  <subModelOperations xsi:type="tool:Unset" featureName="transitions" elementExpression="[element.oclAsType(graal::Node).incomingTransitions->union(element.oclAsType(graal::Node).outgoingTransitions)/]"/>
-                  <subModelOperations xsi:type="tool:Unset" featureName="nodes" elementExpression="var:element"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer(graal::Activity)/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="transitions" elementExpression="[element.oclAsType(graal::Node).incomingTransitions->union(element.oclAsType(graal::Node).outgoingTransitions)/]"/>
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="nodes" elementExpression="var:element"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -722,9 +722,9 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.eContainer(graal::Activity)/]">
-                <subModelOperations xsi:type="tool:Unset" featureName="transitions" elementExpression="[element.oclAsType(graal::Node).incomingTransitions->union(element.oclAsType(graal::Node).outgoingTransitions)/]"/>
-                <subModelOperations xsi:type="tool:Unset" featureName="nodes" elementExpression="var:element"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer(graal::Activity)/]">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="transitions" elementExpression="[element.oclAsType(graal::Node).incomingTransitions->union(element.oclAsType(graal::Node).outgoingTransitions)/]"/>
+                <subModelOperations xsi:type="tool_1:Unset" featureName="nodes" elementExpression="var:element"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -733,36 +733,36 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.eContainer().eContainer(graal::Activity)/]">
-                <subModelOperations xsi:type="tool:Unset" featureName="transitions" elementExpression="[element.oclAsType(graal::Activity).nodes.incomingTransitions->union(element.oclAsType(graal::Activity).nodes.outgoingTransitions)/]"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool:RemoveElement"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer().eContainer(graal::Activity)/]">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="transitions" elementExpression="[element.oclAsType(graal::Activity).nodes.incomingTransitions->union(element.oclAsType(graal::Activity).nodes.outgoingTransitions)/]"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="AP_ReconnectSource_Transition" precondition="&lt;%$element.isTransitionReconnectionValid($source, $target)%>" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="AP_ReconnectSource_Transition" precondition="service:element.isTransitionReconnectionValid(source, target)" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="AP_ReconnectTarget_Transition" precondition="&lt;%$element.isTransitionReconnectionValid($source, $target)%>">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="AP_ReconnectTarget_Transition" precondition="service:element.isTransitionReconnectionValid(source, target)">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
@@ -774,7 +774,7 @@
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Create Actions Plan" titleExpression="[task.name + ' Actions Plan'/]" browseExpression="feature:task" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']">
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
@@ -792,16 +792,16 @@
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="newSemanticContainer">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.TaskReference" referenceName="nodes">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="task" valueExpression="var:element"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="newSemanticContainer">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.TaskReference" referenceName="nodes">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="task" valueExpression="var:element"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="uses" valueExpression="var:element"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::Task)/]">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="uses" valueExpression="var:element"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::Loop)/]">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[eContainer(graal::Task)/]">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="uses" valueExpression="var:element"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::Loop)/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[eContainer(graal::Task)/]">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="uses" valueExpression="var:element"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -813,9 +813,9 @@
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="nodes"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="nodes"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -825,18 +825,18 @@
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="subActivities"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="subActivities"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[initNodeAfterCreation(eContainer(graal::System).userStories->asSequence())/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Actors Graph" titleExpression="Actors Graph" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Actors Graph')->size() &lt; 1/]">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Actors Graph" titleExpression="Actors Graph" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Actors Graph')->size() &lt; 1/]">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
-      <layout xsi:type="description:CompositeLayout" direction="bottomToTop"/>
+      <layout xsi:type="description_1:CompositeLayout" direction="bottomToTop"/>
       <defaultLayer name="Default">
         <nodeMappings name="AG_Actor" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:actors" domainClass="graal.Actor">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:computeGraalLabel" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
@@ -857,8 +857,8 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="graal.Actor" referenceName="actors">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Actor ' + eContainer(graal::System).actors->size()/]"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Actor" referenceName="actors">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Actor ' + eContainer(graal::System).actors->size()/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -868,8 +868,8 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool:SetValue" featureName="superActor" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="superActor" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -879,28 +879,28 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:Unset" featureName="superActor" elementExpression="[element.oclAsType(graal::Actor).superActor/]"/>
+                <firstModelOperations xsi:type="tool_1:Unset" featureName="superActor" elementExpression="[element.oclAsType(graal::Actor).superActor/]"/>
               </initialOperation>
             </ownedTools>
           </subSections>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask']" name="TasksGroup Graph" titleExpression="[name + ' Tasks Graph'/]" domainClass="graal.TasksGroup" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'TasksGroup Graph')->size() &lt; 1/]">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask']" name="TasksGroup Graph" titleExpression="[name + ' Tasks Graph'/]" domainClass="graal.TasksGroup" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'TasksGroup Graph')->size() &lt; 1/]">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
-      <layout xsi:type="description:CompositeLayout"/>
+      <layout xsi:type="description_1:CompositeLayout"/>
       <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@edgeMappings[name='TG_Use']">
         <toolSections name="Tasks" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@ownedTools[name='Existing%20task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_Use'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='Go%20To%20Tasksgroup%20Tasks%20Graph'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='Go%20To%20Actions%20Plan%20Representation'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@ownedTools[name='Graal']">
           <subSections name="Usability tools" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask']"/>
         </toolSections>
       </defaultLayer>
-      <optionalLayers name="Actors" reusedMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_AbstractTaskToActor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_UsedForCreateEdgeTool']" activeByDefault="true">
-        <toolSections name="Actors" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Works%20on'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_REC_AbstractTaskToActor']"/>
-      </optionalLayers>
+      <additionalLayers name="Actors" reusedMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@nodeMappings[name='TG_Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_AbstractTaskToActor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_UsedForCreateEdgeTool']" activeByDefault="true">
+        <toolSections name="Actors" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Works%20on'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_REC_AbstractTaskToActor']"/>
+      </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Use Cases Main View" titleExpression="Use Cases Main View" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Use Cases Main View')->size() &lt; 1/]">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Use Cases Main View" titleExpression="Use Cases Main View" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Use Cases Main View')->size() &lt; 1/]">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
-      <layout xsi:type="description:CompositeLayout"/>
+      <layout xsi:type="description_1:CompositeLayout"/>
       <defaultLayer name="Default">
         <nodeMappings name="UCM_UseCase" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Use%20Case%20Diagram']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:useCases" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Navigate%20to%20Use%20Case%20diagram']" domainClass="graal.UseCase">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:computeGraalLabel" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.graal.design/images/use_case.png">
@@ -929,9 +929,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.UseCase" referenceName="useCases">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['UC - Use Case ' + eContainer(graal::System).useCases->size()/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.UseCase" referenceName="useCases">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['UC - Use Case ' + eContainer(graal::System).useCases->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -942,8 +942,8 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool:SetValue" featureName="extends" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="extends" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -953,8 +953,8 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool:SetValue" featureName="includes" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="includes" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -967,7 +967,7 @@
           </ownedTools>
           <ownedTools xsi:type="tool:DiagramCreationDescription" name="Create Use Case Diagram" diagramDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']">
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
@@ -978,8 +978,8 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNode).target/]">
-                  <subModelOperations xsi:type="tool:Unset" featureName="extends" elementExpression="[elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target/]"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[elementView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNode).target/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="extends" elementExpression="[elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target/]"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -988,10 +988,10 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[elementView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNode).target/]">
-                  <subModelOperations xsi:type="tool:Unset" featureName="includes" elementExpression="[elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target/]"/>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="[(oclAsType(graal::UseCase).tasks.oclAsType(graal::AbstractTask).tasksUsed().eInverse(graal::UseCase)->excluding(self))->includes(elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target)/]">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[displayInfo('Information', 'Some &lt;includes> links can not be deleted because they are calculated from relationships between tasks.')/]"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[elementView.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNode).target/]">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="includes" elementExpression="[elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target/]"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[(oclAsType(graal::UseCase).tasks.oclAsType(graal::AbstractTask).tasksUsed().eInverse(graal::UseCase)->excluding(self))->includes(elementView.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target)/]">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[displayInfo('Information', 'Some &lt;includes> links can not be deleted because they are calculated from relationships between tasks.')/]"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -999,14 +999,14 @@
           </subSections>
         </toolSections>
       </defaultLayer>
-      <optionalLayers name="Actors" activeByDefault="true">
-        <nodeMappings name="UCM_Actor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Actor']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="[useCases.getVisibleActors()/]" domainClass="graal.Actor">
+      <additionalLayers name="Actors" activeByDefault="true">
+        <nodeMappings name="UCM_Actor" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Actor']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="[useCases.getVisibleActors()/]" domainClass="graal.Actor">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:computeGraalLabel" workspacePath="/org.obeonetwork.graal.design/images/actor.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="UCM_ActorWorksOnUseCase" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@optionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']" targetFinderExpression="service:getVisibleActors">
+        <edgeMappings name="UCM_ActorWorksOnUseCase" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@nodeMappings[name='UCM_UseCase']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@additionalLayers[name='Actors']/@nodeMappings[name='UCM_Actor']" targetFinderExpression="service:getVisibleActors">
           <style lineStyle="dash" sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -1014,11 +1014,11 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-      </optionalLayers>
+      </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Task']" name="Use Case Diagram" titleExpression="[name + ' Use Case Diagram'/]" domainClass="graal.UseCase">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Task']" name="Use Case Diagram" titleExpression="[name + ' Use Case Diagram'/]" domainClass="graal.UseCase">
       <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
-      <layout xsi:type="description:CompositeLayout"/>
+      <layout xsi:type="description_1:CompositeLayout"/>
       <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@edgeMappings[name='TG_Use'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task']">
         <containerMappings name="UCD_TasksGroup" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='UCD_Delete_TasksGroup']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:tasks" domainClass="graal.TasksGroup" reusedNodeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task']" reusedContainerMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@defaultLayer/@containerMappings[name='UCD_TasksGroup']">
           <style xsi:type="style:FlatContainerStyleDescription" labelExpression="service:computeGraalLabel">
@@ -1033,50 +1033,50 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::UseCase)/]">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[eContainer(graal::System)/]">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.Task" referenceName="tasks" variableName="newTask">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Task' + eContainer(graal::System).tasks->size()/]"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['T'+ eContainer(graal::System).tasks->size()/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::UseCase)/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[eContainer(graal::System)/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Task" referenceName="tasks" variableName="newTask">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Task' + eContainer(graal::System).tasks->size()/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="['T'+ eContainer(graal::System).tasks->size()/]"/>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[diagram.oclAsType(diagram::DSemanticDiagram).target/]">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="tasks" valueExpression="var:newTask"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[diagram.oclAsType(diagram::DSemanticDiagram).target/]">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="tasks" valueExpression="var:newTask"/>
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(graal::TasksGroup)/]">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.Task" referenceName="tasks" variableName="newTask2">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Task' + eContainer(graal::System).tasks->size()/]"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['T'+ eContainer(graal::System).tasks->size()/]"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(graal::TasksGroup)/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.Task" referenceName="tasks" variableName="newTask2">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Task' + eContainer(graal::System).tasks->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="['T'+ eContainer(graal::System).tasks->size()/]"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Existing task" candidatesExpression="[eContainer(graal::System).eAllContents(graal::AbstractTask)->asSet() -  diagram.eAllContents()->filter(viewpoint::DSemanticDecorator).target->filter(graal::Task)->asSet()/]" tree="true" rootExpression="[getSystem().tasks/]" childrenExpression="feature:tasks" message="Choose an existing task to be added on this diagram" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Task.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Existing task" candidatesExpression="[eContainer(graal::System).eAllContents(graal::AbstractTask)->asSet() -  diagram.eAllContents()->filter(viewpoint::DSemanticDecorator).target->filter(graal::Task)->asSet()/]" tree="true" rootExpression="[getSystem().tasks/]" childrenExpression="feature:tasks" message="Choose an existing task to be added on this diagram" iconPath="/org.obeonetwork.graal.edit/icons/full/obj16/Task.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[diagram.oclAsType(diagram::DSemanticDiagram).target/]">
-                <subModelOperations xsi:type="tool:If" conditionExpression="[element.oclIsKindOf(graal::Task)/]">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="tasks" valueExpression="var:element"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[diagram.oclAsType(diagram::DSemanticDiagram).target/]">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[element.oclIsKindOf(graal::Task)/]">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="tasks" valueExpression="var:element"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:PopupMenu" name="Graal" label="Graal">
-            <menuItemDescription xsi:type="tool:OperationAction" name="Create use case" precondition="&lt;%canExecuteCreateUseCaseAction($views)%>">
+          <ownedTools xsi:type="tool_1:PopupMenu" name="Graal" label="Graal">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Create use case" precondition="service:canExecuteCreateUseCaseAction(views)">
               <view name="views"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%executeCreateUseCaseAction($views)%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:executeCreateUseCaseAction(views)"/>
               </initialOperation>
             </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Remove from use case" precondition="&lt;%canExecuteRemoveFromUseCaseAction($views)%>">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Remove from use case" precondition="service:canExecuteRemoveFromUseCaseAction(views)">
               <view name="views"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[diagram.target.executeRemoveFromUseCaseAction(views)/]"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[diagram.target.executeRemoveFromUseCaseAction(views)/]"/>
               </initialOperation>
             </menuItemDescription>
           </ownedTools>
@@ -1086,7 +1086,7 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.oclAsType(graal::TasksGroup).deleteTasksGroup()/]"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.oclAsType(graal::TasksGroup).deleteTasksGroup()/]"/>
               </initialOperation>
             </ownedTools>
             <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Task" precondition="[oclIsKindOf(graal::Task)/]" dragSource="PROJECT_EXPLORER">
@@ -1095,28 +1095,28 @@
               <element name="element"/>
               <newViewContainer name="newContainerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newSemanticContainer">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="tasks" valueExpression="var:element"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newSemanticContainer">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="tasks" valueExpression="var:element"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
           </subSections>
         </toolSections>
       </defaultLayer>
-      <optionalLayers name="Actors" reusedMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@nodeMappings[name='TG_Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_AbstractTaskToActor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_UsedForCreateEdgeTool']" activeByDefault="true">
-        <toolSections name="Actors" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@optionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Works%20on']"/>
-      </optionalLayers>
+      <additionalLayers name="Actors" reusedMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@nodeMappings[name='TG_Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_AbstractTaskToActor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@edgeMappings[name='TG_Edge_UsedForCreateEdgeTool']" activeByDefault="true">
+        <toolSections name="Actors" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Actor'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@additionalLayers[name='Actors']/@toolSections.0/@ownedTools[name='Works%20on']"/>
+      </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="User Stories Table" titleExpression="User Stories Table" domainClass="graal.System">
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="User Stories Table" titleExpression="User Stories Table" domainClass="graal.System">
       <metamodel href="http://org.obeonetwork.graal/1.0#/"/>
       <ownedLineMappings name="UST_UserStory" domainClass="graal.UserStory" semanticCandidatesExpression="feature:userStories"/>
       <ownedCreateLine name="CRE_UserStory" label="User story" forceRefresh="true" mapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedLineMappings[name='UST_UserStory']">
         <variables name="root" documentation="The semantic element of the table."/>
         <variables name="element" documentation="The semantic currently edited element."/>
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
-        <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
-          <subModelOperations xsi:type="tool:CreateInstance" typeName="graal.UserStory" referenceName="userStories">
-            <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['UserStory' + eContainer(graal::System).userStories->size()/]"/>
+        <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="graal.UserStory" referenceName="userStories">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['UserStory' + eContainer(graal::System).userStories->size()/]"/>
           </subModelOperations>
         </firstModelOperation>
       </ownedCreateLine>

@@ -667,5 +667,13 @@ public class InteractionServices {
     	
     	return interaction;
     }
+    
+    public EObject getPredecessor(EObject context, EObject predecessor){
+    	if (predecessor != null){
+    		return predecessor;
+    	} else { 
+    		return null;
+    	}
+    }
        
 }

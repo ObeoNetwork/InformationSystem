@@ -105,7 +105,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="ED_Inheritance_Entity_Entity" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Del_Inheritance']" semanticCandidatesExpression="&lt;%current.eAllContents%>" semanticElements="" sourceMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_Non_Referenced_Entity_External']" targetMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_Non_Referenced_Entity_External']" targetFinderExpression="feature:supertype" reconnections="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Inheritance_Target'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Inheritance_Source']">
+        <edgeMappings name="ED_Inheritance_Entity_Entity" deletionDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Del_Inheritance']" semanticCandidatesExpression="feature:eAllContents" semanticElements="" sourceMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_Non_Referenced_Entity_External']" targetMapping="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@containerMappings[name='ED_Block_Container']/@subContainerMappings[name='ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_Referenced_Entity_External'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@additionalLayers[name='External%20Entities']/@containerMappings[name='ED_Non_Referenced_Entity_External']" targetFinderExpression="feature:supertype" reconnections="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Inheritance_Target'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entity%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Inheritance_Source']">
           <style targetArrow="InputClosedArrow" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -421,8 +421,8 @@
                 <mask mask="{0}"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%getReferenceNameFromString($0)%>"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="&lt;%getMultiplicityKindFromString($0)%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:getReferenceNameFromString(arg0)"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="service:getMultiplicityKindFromString(arg0)"/>
                   </firstModelOperations>
                 </initialOperation>
               </ownedTools>
@@ -430,9 +430,9 @@
                 <mask mask="{0}"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%getAttributeNameFromString($0)%>"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="&lt;%getMultiplicityKindFromString($0)%>"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="&lt;%getAttributeTypeFromString($0)%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:getAttributeNameFromString(arg0)"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="service:getMultiplicityKindFromString(arg0)"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getAttributeTypeFromString(arg0)"/>
                   </firstModelOperations>
                 </initialOperation>
               </ownedTools>
@@ -619,7 +619,7 @@
                 <elementView name="elementView"/>
                 <containerView name="containerView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$selectedElements.deleteEntityReferences()%>"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:selectedElements.deleteEntityReferences()"/>
                 </initialOperation>
               </ownedTools>
               <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_BidiReference">
@@ -1186,7 +1186,7 @@
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="output">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="output&lt;%eContainer.output.nSize%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['output' + eContainer(soa::Operation).input->size()/]"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType"/>
                   </subModelOperations>
                 </firstModelOperations>
@@ -1571,8 +1571,8 @@
               <mask mask="{0}"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%getRefNameFromString($0)%>"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="&lt;%getMultKindFromString($0)%>"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:getRefNameFromString(arg0)"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="service:getMultKindFromString(arg0)"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -1580,9 +1580,9 @@
               <mask mask="{0}"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%getAttrNameFromString($0)%>"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="&lt;%getMultKindFromString($0)%>"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="&lt;%getAttrTypeFromString($0)%>"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:getAttrNameFromString(arg0)"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="service:getMultKindFromString(arg0)"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getAttrTypeFromString(arg0)"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -1810,7 +1810,7 @@
                 <elementView name="elementView"/>
                 <containerView name="containerView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$selectedElements.deleteDtoReferences()%>"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:selectedElements.deleteDtoReferences"/>
                 </initialOperation>
               </ownedTools>
               <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_DT_BidiReference">
@@ -2144,8 +2144,8 @@
               <mask mask="{0}"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%getRefNameFromString($0)%>"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="&lt;%getMultKindFromString($0)%>"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:getRefNameFromString(arg0)"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="service:getMultKindFromString(arg0)"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -2153,9 +2153,9 @@
               <mask mask="{0}"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%getAttrNameFromString($0)%>"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="&lt;%getMultKindFromString($0)%>"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="&lt;%getAttrTypeFromString($0)%>"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:getAttrNameFromString(arg0)"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="service:getMultKindFromString(arg0)"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getAttrTypeFromString(arg0)"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -2400,7 +2400,7 @@
                 <elementView name="elementView"/>
                 <containerView name="containerView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$selectedElements.deleteDtoReferences()%>"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:selectedElements.deleteDtoReferences"/>
                 </initialOperation>
               </ownedTools>
               <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_BidiReference">
@@ -2627,7 +2627,7 @@
               <subVariables xsi:type="tool_1:AcceleoVariable" name="category" computationExpression="[views.eContainer(diagram::DSemanticDiagram).target/]"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="firstElement" computationExpression="[views.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNode).target.oclAsType(environment::BindingInfo).getBindingOpposite(views.oclAsType(diagram::DEdge).targetNode.oclAsType(diagram::DNode).target)/]"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="bindableElements" computationExpression="[category.oclAsType(soa::Category).getAllBindableElementsFor(firstElement.oclAsType(environment::ObeoDSMObject))->asSet() - category.oclAsType(soa::Category).getBoundElementsWithTarget(firstElement)->asSet()/]"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="secondElement" candidatesExpression="[bindableElements.oclAsType(OclAny)->asSequence()->union(bindableElements.ancestors()->asSequence())->asOrderedSet()/]" tree="true" rootExpression="&lt;%$category.allRoots%>" childrenExpression="feature:eContents" message="Choose the second bound element"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="secondElement" candidatesExpression="[bindableElements.oclAsType(OclAny)->asSequence()->union(bindableElements.ancestors()->asSequence())->asOrderedSet()/]" tree="true" rootExpression="[category.allRoots()/]" childrenExpression="feature:eContents" message="Choose the second bound element"/>
             </view>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[views.oclAsType(diagram::DEdge).sourceNode.oclAsType(diagram::DNode).target.oclAsType(environment::BindingInfo).changeBindingTarget(firstElement.oclAsType(environment::BoundableElement), secondElement.oclAsType(environment::BoundableElement))/]"/>
