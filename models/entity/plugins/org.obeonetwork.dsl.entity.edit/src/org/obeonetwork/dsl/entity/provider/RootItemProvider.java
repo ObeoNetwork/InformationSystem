@@ -118,7 +118,7 @@ public class RootItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EntityPackage.Literals.ROOT__NAMESPACES);
+			childrenFeatures.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -187,7 +187,7 @@ public class RootItemProvider
 			case EntityPackage.ROOT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EntityPackage.ROOT__NAMESPACES:
+			case EntityPackage.ROOT__OWNED_NAMESPACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -212,7 +212,7 @@ public class RootItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EntityPackage.Literals.ROOT__NAMESPACES,
+				(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
 				 EnvironmentFactory.eINSTANCE.createNamespace()));
 	}
 

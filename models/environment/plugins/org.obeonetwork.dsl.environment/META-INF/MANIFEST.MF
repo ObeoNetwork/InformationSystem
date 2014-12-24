@@ -9,9 +9,12 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.environment.impl,
+ org.obeonetwork.dsl.environment.migration,
+ org.obeonetwork.dsl.environment.spec,
  org.obeonetwork.dsl.environment.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
- org.eclipse.emf.cdo;visibility:=reexport
+ org.eclipse.emf.cdo;visibility:=reexport,
+ org.obeonetwork.tools.migration
 Bundle-ActivationPolicy: lazy

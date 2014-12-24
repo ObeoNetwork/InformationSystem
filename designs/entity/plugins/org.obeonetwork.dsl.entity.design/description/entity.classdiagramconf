@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classdiagramconf:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:classdiagramconf="http://www.obeonetwork.org/dsl/classdiagramconf/1.0.0" name="Entity diagrams configuration" description="">
+  <viewpoint href="entity.odesign#//@ownedViewpoints[name='Entity%20Views']"/>
+  <diagrams id="Hierarchy" descriptionId="Entities Namespaces Hierarchy">
+    <children id="namespaceContainer">
+      <stringValues id="semanticCandidates" value="feature:ownedNamespaces"/>
+    </children>
+    <children id="section">
+      <children id="namespace">
+        <stringValues id="label" value="Namespace"/>
+        <stringValues id="creation.label" value="Namespace"/>
+        <stringValues id="creation.containmentFeature" value="ownedNamespaces"/>
+      </children>
+      <children id="usability">
+        <children id="diagramCreation">
+          <stringValues id="label" value="New Entities Diagram"/>
+        </children>
+      </children>
+    </children>
+    <stringValues id="label" value="Entities Namespaces Hierarchy"/>
+    <stringValues id="titleExpression" value="Entities Namespaces Hierarchy"/>
+    <stringValues id="domainClass" value="entity.Root"/>
+    <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
+    <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
+  </diagrams>
+  <diagrams id="ClassDiagram" descriptionId="Entities Diagram">
+    <children id="StructuredTypeMapping">
+      <stringValues id="id" value="ED_Entity"/>
+      <stringValues id="label" value="ED_Entity"/>
+      <stringValues id="domainClass" value="entity.Entity"/>
+    </children>
+    <children id="ExternalTypesLayer">
+      <children id="section">
+        <children id="creation.externalType">
+          <stringValues id="id" value="External entity"/>
+          <stringValues id="label" value="External entity"/>
+          <stringValues id="candidatesExpression" value="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'Entity')/]"/>
+          <stringValues id="rootExpression" value="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'Entity')->select(eContainer().oclIsUndefined())/]"/>
+          <stringValues id="message" value="Select an external entity"/>
+          <stringValues id="filterExpression" value="[oclIsKindOf(entity::Entity)/]"/>
+        </children>
+        <stringValues id="id" value="External entities"/>
+      </children>
+      <stringValues id="id" value="External Entities"/>
+      <stringValues id="label" value="External Entities"/>
+    </children>
+    <children id="section">
+      <children id="namespace">
+        <stringValues id="label" value="Namespace"/>
+        <stringValues id="creation.label" value="Namespace"/>
+        <stringValues id="creation.containmentFeature" value="ownedNamespaces"/>
+      </children>
+      <children id="structuredType">
+        <children id="creation">
+          <stringValues id="label" value="Entity"/>
+          <stringValues id="defaultName" value="['Entity' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+        </children>
+        <children id="fromOtherType">
+          <stringValues id="label" value="Entity from DTO"/>
+          <stringValues id="listExpression" value="[self.getAllStructuredTypes('DTO')/]"/>
+          <stringValues id="selectionMessage" value="Select a DTO"/>
+        </children>
+        <stringValues id="label" value="Entity"/>
+      </children>
+      <children id="enumeration">
+        <stringValues id="label" value="Enumeration"/>
+      </children>
+      <children id="relation">
+        <stringValues id="label" value="Relation"/>
+        <booleanValues id="enableRelation" value="true"/>
+        <booleanValues id="enableComposition" value="true"/>
+        <booleanValues id="enableInheritance" value="true"/>
+      </children>
+      <children id="bidiRelation">
+        <stringValues id="label" value="Bidirectional Relation"/>
+        <booleanValues id="enableRelation" value="true"/>
+        <booleanValues id="enableComposition" value="true"/>
+      </children>
+      <children id="usability">
+        <children id="diagramCreation">
+          <stringValues id="label" value="New Entities Diagram"/>
+        </children>
+        <children id="dragdrop.structuredtype">
+          <stringValues id="id" value="DAD_ED_Entity"/>
+          <stringValues id="precondition" value="[oclIsKindOf(entity::Entity)/]"/>
+        </children>
+      </children>
+    </children>
+    <stringValues id="label" value="Entities Diagram"/>
+    <stringValues id="titleExpression" value="[name + ' - Entities diagram'/]"/>
+    <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
+    <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
+  </diagrams>
+  <colors name="Namespace_background" red="209" green="209" blue="209"/>
+  <colors name="Namespace_foreground" red="255" green="255" blue="255"/>
+  <colors name="Namespace_color"/>
+  <colors name="Namespace_border" red="136" green="136" blue="136"/>
+  <colors name="StructuredType_background" red="204" green="242" blue="166"/>
+  <colors name="StructuredType_foreground" red="255" green="255" blue="255"/>
+  <colors name="StructuredType_color"/>
+  <colors name="StructuredType_border" red="138" green="226" blue="52"/>
+  <colors name="Enumeration_background" red="255" green="245" blue="181"/>
+  <colors name="Enumeration_foreground" red="255" green="255" blue="255"/>
+  <colors name="Enumeration_color"/>
+  <colors name="Enumeration_border" red="214" green="197" blue="66"/>
+  <colors name="ExternalType_background" red="253" green="206" blue="137"/>
+  <colors name="ExternalType_foreground" red="255" green="255" blue="255"/>
+  <colors name="ExternalType_color"/>
+  <colors name="ExternalType_border" red="252" green="175" blue="62"/>
+  <javaExtensions>org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices</javaExtensions>
+</classdiagramconf:Configuration>

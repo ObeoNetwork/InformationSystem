@@ -105,7 +105,7 @@ public class NamespaceItemProvider extends TypesDefinitionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
-					.add(EnvironmentPackage.Literals.NAMESPACE__OWNED_NAMESPACES);
+					.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -203,9 +203,10 @@ public class NamespaceItemProvider extends TypesDefinitionItemProvider
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.NAMESPACE__OWNED_NAMESPACES,
-				EnvironmentFactory.eINSTANCE.createNamespace()));
+		newChildDescriptors
+				.add(createChildParameter(
+						EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+						EnvironmentFactory.eINSTANCE.createNamespace()));
 	}
 
 }

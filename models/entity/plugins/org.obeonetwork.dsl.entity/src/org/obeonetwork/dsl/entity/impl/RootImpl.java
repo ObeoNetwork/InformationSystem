@@ -21,7 +21,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.entity.Root;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.impl.TypesDefinitionImpl;
 
 /**
@@ -30,8 +32,8 @@ import org.obeonetwork.dsl.environment.impl.TypesDefinitionImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.obeonetwork.dsl.entity.impl.RootImpl#getOwnedNamespaces <em>Owned Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.RootImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.entity.impl.RootImpl#getNamespaces <em>Namespaces</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,8 +96,23 @@ public class RootImpl extends TypesDefinitionImpl implements Root {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Namespace> getNamespaces() {
-		return (EList<Namespace>)eDynamicGet(EntityPackage.ROOT__NAMESPACES, EntityPackage.Literals.ROOT__NAMESPACES, true, true);
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EntityPackage.ROOT__OWNED_NAMESPACES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedNamespaces()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<Namespace> getOwnedNamespaces() {
+		return (EList<Namespace>)eDynamicGet(EntityPackage.ROOT__OWNED_NAMESPACES, EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES, true, true);
 	}
 
 	/**
@@ -106,8 +123,8 @@ public class RootImpl extends TypesDefinitionImpl implements Root {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EntityPackage.ROOT__NAMESPACES:
-				return ((InternalEList<?>)getNamespaces()).basicRemove(otherEnd, msgs);
+			case EntityPackage.ROOT__OWNED_NAMESPACES:
+				return ((InternalEList<?>)getOwnedNamespaces()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -120,10 +137,10 @@ public class RootImpl extends TypesDefinitionImpl implements Root {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case EntityPackage.ROOT__OWNED_NAMESPACES:
+				return getOwnedNamespaces();
 			case EntityPackage.ROOT__NAME:
 				return getName();
-			case EntityPackage.ROOT__NAMESPACES:
-				return getNamespaces();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -137,12 +154,12 @@ public class RootImpl extends TypesDefinitionImpl implements Root {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case EntityPackage.ROOT__OWNED_NAMESPACES:
+				getOwnedNamespaces().clear();
+				getOwnedNamespaces().addAll((Collection<? extends Namespace>)newValue);
+				return;
 			case EntityPackage.ROOT__NAME:
 				setName((String)newValue);
-				return;
-			case EntityPackage.ROOT__NAMESPACES:
-				getNamespaces().clear();
-				getNamespaces().addAll((Collection<? extends Namespace>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -156,11 +173,11 @@ public class RootImpl extends TypesDefinitionImpl implements Root {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case EntityPackage.ROOT__OWNED_NAMESPACES:
+				getOwnedNamespaces().clear();
+				return;
 			case EntityPackage.ROOT__NAME:
 				setName(NAME_EDEFAULT);
-				return;
-			case EntityPackage.ROOT__NAMESPACES:
-				getNamespaces().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -174,12 +191,44 @@ public class RootImpl extends TypesDefinitionImpl implements Root {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case EntityPackage.ROOT__OWNED_NAMESPACES:
+				return !getOwnedNamespaces().isEmpty();
 			case EntityPackage.ROOT__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
-			case EntityPackage.ROOT__NAMESPACES:
-				return !getNamespaces().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == NamespacesContainer.class) {
+			switch (derivedFeatureID) {
+				case EntityPackage.ROOT__OWNED_NAMESPACES: return EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == NamespacesContainer.class) {
+			switch (baseFeatureID) {
+				case EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES: return EntityPackage.ROOT__OWNED_NAMESPACES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } // RootImpl

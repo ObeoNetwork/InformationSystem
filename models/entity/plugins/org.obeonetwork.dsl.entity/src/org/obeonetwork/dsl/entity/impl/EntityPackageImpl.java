@@ -171,15 +171,6 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRoot_Namespaces() {
-		return (EReference)rootEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -368,7 +359,6 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		// Create classes and their features
 		rootEClass = createEClass(ROOT);
 		createEAttribute(rootEClass, ROOT__NAME);
-		createEReference(rootEClass, ROOT__NAMESPACES);
 
 		entityEClass = createEClass(ENTITY);
 		createEAttribute(entityEClass, ENTITY__ESTIMATED_VOLUMETRY);
@@ -433,6 +423,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
 		// Add supertypes to classes
 		rootEClass.getESuperTypes().add(theEnvironmentPackage.getTypesDefinition());
+		rootEClass.getESuperTypes().add(theEnvironmentPackage.getNamespacesContainer());
 		entityEClass.getESuperTypes().add(theEnvironmentPackage.getStructuredType());
 		finderEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		internalCriterionEClass.getESuperTypes().add(this.getCriterion());
@@ -442,7 +433,6 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRoot_Name(), ecorePackage.getEString(), "name", null, 0, 1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Namespaces(), theEnvironmentPackage.getNamespace(), null, "namespaces", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEntity_EstimatedVolumetry(), ecorePackage.getEInt(), "estimatedVolumetry", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

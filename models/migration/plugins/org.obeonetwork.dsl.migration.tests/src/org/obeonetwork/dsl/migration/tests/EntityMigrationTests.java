@@ -16,6 +16,11 @@ public class EntityMigrationTests extends MigrationTests {
 	}
 	
 	@Test
+	public void testFragment() {
+		testMigration("fragment");
+	}
+	
+	@Test
 	public void testMigrationNotNeeded() {
 		String folder = "migrationNotNeeded";
 		testMigration(folder);

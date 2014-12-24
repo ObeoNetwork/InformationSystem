@@ -12,8 +12,7 @@
  */
 package org.obeonetwork.dsl.entity;
 
-import org.eclipse.emf.common.util.EList;
-import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 
 /**
@@ -24,7 +23,6 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.entity.Root#getName <em>Name</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.entity.Root#getNamespaces <em>Namespaces</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,7 +30,7 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  * @model
  * @generated
  */
-public interface Root extends TypesDefinition {
+public interface Root extends TypesDefinition, NamespacesContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,21 +63,5 @@ public interface Root extends TypesDefinition {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Namespaces</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Namespace}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Namespaces</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Namespaces</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.entity.EntityPackage#getRoot_Namespaces()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<Namespace> getNamespaces();
 
 } // Root

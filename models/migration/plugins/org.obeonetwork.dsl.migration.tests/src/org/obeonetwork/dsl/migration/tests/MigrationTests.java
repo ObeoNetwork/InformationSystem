@@ -29,8 +29,35 @@ abstract public class MigrationTests {
 	protected void testMigration(String folder) {
 		String sourceModelPath = getFullPathForBeforeModel(folder);
 		String expectedModelPath = getFullPathForExpectedModel(folder);
+		
+		
+		URI sourceModelURI = URI.createPlatformPluginURI(PLUGIN_ID + "/" + sourceModelPath, true);
+		ResourceSet set = loadResource(sourceModelURI);
+		
+	}
+	
+	protected void testMigrationWithFragments(String folder, String fragmentsNames) {
+		String sourceModelPath = getFullPathForBeforeModel(folder);
+		String expectedModelPath = getFullPathForExpectedModel(folder);
+		
+		
+		URI sourceModelURI = URI.createPlatformPluginURI(PLUGIN_ID + "/" + sourceModelPath, true);
+		loadResource(sourceModelURI);
+		
+		
 		testMigration(sourceModelPath, expectedModelPath);
 	}
+	
+	protected ResourceSet loadResource(URI sourceModelURI) {
+		ResourceSet set = new ResourceSetImpl();
+		set.getResource(sourceModelURI, true);
+		return set;
+	}
+	
+	protected void assertResourceEquals(String actualModel, String expectedModel) {
+		
+	}
+
 
 	protected void testMigration(String sourceModelPath, String expectedModelPath) {
 		URI sourceModelURI = URI.createPlatformPluginURI(PLUGIN_ID + "/" + sourceModelPath, true);
@@ -72,11 +99,15 @@ abstract public class MigrationTests {
 	}
 	
 	protected String getFullPathForBeforeModel(String folder) {
-		return getFullPath(folder + "/before." + getModelFileExtension());
+		return getFullPathForFile(folder, "before." + getModelFileExtension());
 	}
 	
 	protected String getFullPathForExpectedModel(String folder) {
-		return getFullPath(folder + "/expected." + getModelFileExtension());
+		return getFullPathForFile(folder, "expected." + getModelFileExtension());
+	}
+	
+	protected String getFullPathForFile(String folder, String fileName) {
+		return getFullPath(folder + "/" + fileName);
 	}
 	
 	protected String getFullPath(String path) {

@@ -108,6 +108,8 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures
+					.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
+			childrenFeatures
 					.add(EnvironmentPackage.Literals.ENVIRONMENT__ACTIONS);
 			childrenFeatures
 					.add(EnvironmentPackage.Literals.ENVIRONMENT__LINKS);
@@ -115,8 +117,6 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider
 					.add(EnvironmentPackage.Literals.ENVIRONMENT__PRIORITY_DEFINITIONS);
 			childrenFeatures
 					.add(EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.ENVIRONMENT__NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -185,11 +185,11 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
 			return;
+		case EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES:
 		case EnvironmentPackage.ENVIRONMENT__ACTIONS:
 		case EnvironmentPackage.ENVIRONMENT__LINKS:
 		case EnvironmentPackage.ENVIRONMENT__PRIORITY_DEFINITIONS:
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
-		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			return;
@@ -209,6 +209,11 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
+		newChildDescriptors
+				.add(createChildParameter(
+						EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+						EnvironmentFactory.eINSTANCE.createNamespace()));
+
 		newChildDescriptors.add(createChildParameter(
 				EnvironmentPackage.Literals.ENVIRONMENT__LINKS,
 				EnvironmentFactory.eINSTANCE.createInterDSMLink()));
@@ -224,10 +229,6 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider
 		newChildDescriptors.add(createChildParameter(
 				EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION,
 				EnvironmentFactory.eINSTANCE.createNamespace()));
-
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.ENVIRONMENT__NAMESPACES,
-				EnvironmentFactory.eINSTANCE.createNamespace()));
 	}
 
 	/**
@@ -242,8 +243,8 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider
 		Object childFeature = feature;
 		Object childObject = child;
 
-		boolean qualify = childFeature == EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION
-				|| childFeature == EnvironmentPackage.Literals.ENVIRONMENT__NAMESPACES;
+		boolean qualify = childFeature == EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES
+				|| childFeature == EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION;
 
 		if (qualify) {
 			return getString("_UI_CreateChild_text2", new Object[] {

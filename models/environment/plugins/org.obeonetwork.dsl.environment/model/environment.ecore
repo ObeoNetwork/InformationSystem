@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="environment" nsURI="http://www.obeonetwork.org/dsl/environment/3.0.0"
     nsPrefix="oenv">
-  <eClassifiers xsi:type="ecore:EClass" name="Environment" eSuperTypes="#//ObeoDSMObject">
+  <eClassifiers xsi:type="ecore:EClass" name="Environment" eSuperTypes="#//ObeoDSMObject #//NamespacesContainer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
@@ -12,8 +12,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typesDefinition" eType="#//TypesDefinition"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="namespaces" upperBound="-1"
-        eType="#//Namespace" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//ObeoDSMObject #//BoundableElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -105,11 +103,9 @@
     <eLiterals name="ZERO_STAR" value="2" literal="0..*"/>
     <eLiterals name="ONE_STAR" value="3" literal="1..*"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Namespace" eSuperTypes="#//TypesDefinition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedNamespaces" upperBound="-1"
-        eType="#//Namespace" containment="true" eOpposite="#//Namespace/owner"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Namespace"
-        eOpposite="#//Namespace/ownedNamespaces"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Namespace" eSuperTypes="#//TypesDefinition #//NamespacesContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//NamespacesContainer"
+        eOpposite="#//NamespacesContainer/ownedNamespaces"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//Property">
@@ -182,4 +178,8 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamespacesContainer" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedNamespaces" upperBound="-1"
+        eType="#//Namespace" containment="true" eOpposite="#//Namespace/owner"/>
+  </eClassifiers>
 </ecore:EPackage>

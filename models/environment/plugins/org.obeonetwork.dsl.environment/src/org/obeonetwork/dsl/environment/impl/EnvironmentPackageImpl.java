@@ -39,6 +39,7 @@ import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.environment.Priority;
@@ -272,6 +273,13 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass namespacesContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum multiplicityKindEEnum = null;
 
 	/**
@@ -391,15 +399,6 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 */
 	public EReference getEnvironment_TypesDefinition() {
 		return (EReference) environmentEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEnvironment_Namespaces() {
-		return (EReference) environmentEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -859,7 +858,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNamespace_OwnedNamespaces() {
+	public EReference getNamespace_Owner() {
 		return (EReference) namespaceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -868,17 +867,8 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNamespace_Owner() {
-		return (EReference) namespaceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getNamespace_Name() {
-		return (EAttribute) namespaceEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) namespaceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1201,6 +1191,25 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNamespacesContainer() {
+		return namespacesContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNamespacesContainer_OwnedNamespaces() {
+		return (EReference) namespacesContainerEClass.getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMultiplicityKind() {
 		return multiplicityKindEEnum;
 	}
@@ -1240,7 +1249,6 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		createEReference(environmentEClass, ENVIRONMENT__LINKS);
 		createEReference(environmentEClass, ENVIRONMENT__PRIORITY_DEFINITIONS);
 		createEReference(environmentEClass, ENVIRONMENT__TYPES_DEFINITION);
-		createEReference(environmentEClass, ENVIRONMENT__NAMESPACES);
 
 		typeEClass = createEClass(TYPE);
 		createEAttribute(typeEClass, TYPE__NAME);
@@ -1315,7 +1323,6 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		filterEClass = createEClass(FILTER);
 
 		namespaceEClass = createEClass(NAMESPACE);
-		createEReference(namespaceEClass, NAMESPACE__OWNED_NAMESPACES);
 		createEReference(namespaceEClass, NAMESPACE__OWNER);
 		createEAttribute(namespaceEClass, NAMESPACE__NAME);
 
@@ -1365,6 +1372,10 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 
 		dataTypeEClass = createEClass(DATA_TYPE);
 
+		namespacesContainerEClass = createEClass(NAMESPACES_CONTAINER);
+		createEReference(namespacesContainerEClass,
+				NAMESPACES_CONTAINER__OWNED_NAMESPACES);
+
 		// Create enums
 		multiplicityKindEEnum = createEEnum(MULTIPLICITY_KIND);
 	}
@@ -1399,6 +1410,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 
 		// Add supertypes to classes
 		environmentEClass.getESuperTypes().add(this.getObeoDSMObject());
+		environmentEClass.getESuperTypes().add(this.getNamespacesContainer());
 		typeEClass.getESuperTypes().add(this.getObeoDSMObject());
 		typeEClass.getESuperTypes().add(this.getBoundableElement());
 		primitiveTypeEClass.getESuperTypes().add(this.getDataType());
@@ -1416,6 +1428,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		filterContainerEClass.getESuperTypes().add(this.getObeoDSMObject());
 		filterEClass.getESuperTypes().add(this.getObeoDSMObject());
 		namespaceEClass.getESuperTypes().add(this.getTypesDefinition());
+		namespaceEClass.getESuperTypes().add(this.getNamespacesContainer());
 		attributeEClass.getESuperTypes().add(this.getProperty());
 		referenceEClass.getESuperTypes().add(this.getProperty());
 		propertyEClass.getESuperTypes().add(this.getObeoDSMObject());
@@ -1451,10 +1464,6 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getEnvironment_Namespaces(), this.getNamespace(), null,
-				"namespaces", null, 0, -1, Environment.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1661,16 +1670,11 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 
 		initEClass(namespaceEClass, Namespace.class, "Namespace", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNamespace_OwnedNamespaces(), this.getNamespace(),
-				this.getNamespace_Owner(), "ownedNamespaces", null, 0, -1,
-				Namespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getNamespace_Owner(), this.getNamespace(),
-				this.getNamespace_OwnedNamespaces(), "owner", null, 0, 1,
-				Namespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEReference(getNamespace_Owner(), this.getNamespacesContainer(),
+				this.getNamespacesContainer_OwnedNamespaces(), "owner", null,
+				0, 1, Namespace.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNamespace_Name(), ecorePackage.getEString(), "name",
 				null, 0, 1, Namespace.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
@@ -1840,6 +1844,16 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 
 		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(namespacesContainerEClass, NamespacesContainer.class,
+				"NamespacesContainer", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNamespacesContainer_OwnedNamespaces(),
+				this.getNamespace(), this.getNamespace_Owner(),
+				"ownedNamespaces", null, 0, -1, NamespacesContainer.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(multiplicityKindEEnum, MultiplicityKind.class,

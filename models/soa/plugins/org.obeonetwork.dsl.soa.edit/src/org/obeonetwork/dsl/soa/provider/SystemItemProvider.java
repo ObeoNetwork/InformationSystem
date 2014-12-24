@@ -112,9 +112,9 @@ public class SystemItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 			childrenFeatures.add(SoaPackage.Literals.SYSTEM__OWNED_COMPONENTS);
 			childrenFeatures.add(SoaPackage.Literals.SYSTEM__OWNED_WIRES);
-			childrenFeatures.add(SoaPackage.Literals.SYSTEM__NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -183,9 +183,9 @@ public class SystemItemProvider
 			case SoaPackage.SYSTEM__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case SoaPackage.SYSTEM__OWNED_NAMESPACES:
 			case SoaPackage.SYSTEM__OWNED_COMPONENTS:
 			case SoaPackage.SYSTEM__OWNED_WIRES:
-			case SoaPackage.SYSTEM__NAMESPACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -205,6 +205,11 @@ public class SystemItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+				 EnvironmentFactory.eINSTANCE.createNamespace()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(SoaPackage.Literals.SYSTEM__OWNED_COMPONENTS,
 				 SoaFactory.eINSTANCE.createComponent()));
 
@@ -212,11 +217,6 @@ public class SystemItemProvider
 			(createChildParameter
 				(SoaPackage.Literals.SYSTEM__OWNED_WIRES,
 				 SoaFactory.eINSTANCE.createWire()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SoaPackage.Literals.SYSTEM__NAMESPACES,
-				 EnvironmentFactory.eINSTANCE.createNamespace()));
 	}
 
 	/**

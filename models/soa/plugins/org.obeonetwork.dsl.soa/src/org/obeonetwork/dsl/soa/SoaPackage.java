@@ -160,13 +160,22 @@ public interface SoaPackage extends EPackage {
 	int SYSTEM__TYPES = EnvironmentPackage.TYPES_DEFINITION__TYPES;
 
 	/**
+	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__OWNED_NAMESPACES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__NAME = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 0;
+	int SYSTEM__NAME = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Owned Components</b></em>' containment reference list.
@@ -175,7 +184,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_COMPONENTS = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 1;
+	int SYSTEM__OWNED_COMPONENTS = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Owned Wires</b></em>' containment reference list.
@@ -184,16 +193,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_WIRES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Namespaces</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM__NAMESPACES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 3;
+	int SYSTEM__OWNED_WIRES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>System</em>' class.
@@ -1304,17 +1304,6 @@ public interface SoaPackage extends EPackage {
 	EReference getSystem_OwnedWires();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.System#getNamespaces <em>Namespaces</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Namespaces</em>'.
-	 * @see org.obeonetwork.dsl.soa.System#getNamespaces()
-	 * @see #getSystem()
-	 * @generated
-	 */
-	EReference getSystem_Namespaces();
-
-	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.soa.Component <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1830,14 +1819,6 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SYSTEM__OWNED_WIRES = eINSTANCE.getSystem_OwnedWires();
-
-		/**
-		 * The meta object literal for the '<em><b>Namespaces</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SYSTEM__NAMESPACES = eINSTANCE.getSystem_Namespaces();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.soa.impl.ComponentImpl <em>Component</em>}' class.

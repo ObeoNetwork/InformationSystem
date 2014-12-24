@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.obeonetwork.tools.classdiagramgenerator;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.obeonetwork.tools.classdiagramconfiguration,
+ org.obeonetwork.tools.classdiagramconfiguration.impl,
+ org.obeonetwork.tools.classdiagramconfiguration.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.cdo;visibility:=reexport,
+ fr.obeo.dsl.viewpoint;visibility:=reexport
+Bundle-ActivationPolicy: lazy

@@ -12,7 +12,7 @@
     
   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
     <factory 
-       uri = "http://www.obeonetwork.org/dsl/soa/2.0.0" 
+       uri = "http://www.obeonetwork.org/dsl/soa/3.0.0" 
        class = "org.obeonetwork.dsl.soa.provider.SoaItemProviderAdapterFactory" 
        supportedTypes = 
          "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -25,7 +25,7 @@
   <!-- EEF extensions -->
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.obeonetwork.org/dsl/soa/2.0.0"
+            uri="http://www.obeonetwork.org/dsl/soa/3.0.0"
             class="org.obeonetwork.dsl.soa.providers.SoaEEFAdapterFactory"
             supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
    </extension>

@@ -14,19 +14,16 @@ import java.io.IOException;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.xmi.XMLHelper;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
-import org.obeonetwork.dsl.entity.migration.EntityXMLHelper;
+import org.obeonetwork.tools.migration.XMIResourceWithMigrationSupportImpl;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
  * @see org.obeonetwork.dsl.entity.util.EntityResourceFactoryImpl
- * @generated
+ * @generated NOT
  */
-public class EntityResourceImpl extends XMIResourceImpl {
+public class EntityResourceImpl extends XMIResourceWithMigrationSupportImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,23 +53,6 @@ public class EntityResourceImpl extends XMIResourceImpl {
 	 */
 	protected boolean useUUIDs() {
 		return true;
-	}
-	
-	@Override
-	public EObject getEObject(String uriFragment) {
-		if (uriFragment == null) {
-			return null;
-		}
-		EObject rewrittenFragment = super.getEObject(uriFragment);
-		
-		// TODO Migration code here
-		
-		return rewrittenFragment;
-	}
-	
-	@Override
-	protected XMLHelper createXMLHelper() {
-		return new EntityXMLHelper(this);
 	}
 
 } //EntityResourceImpl

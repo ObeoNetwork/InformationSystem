@@ -25,6 +25,7 @@ import org.obeonetwork.dsl.entity.Finder;
 import org.obeonetwork.dsl.entity.InternalCriterion;
 import org.obeonetwork.dsl.entity.Root;
 import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
@@ -121,6 +122,10 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTypesDefinition(TypesDefinition object) {
 				return createTypesDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseNamespacesContainer(NamespacesContainer object) {
+				return createNamespacesContainerAdapter();
 			}
 			@Override
 			public Adapter caseBoundableElement(BoundableElement object) {
@@ -256,6 +261,20 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypesDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.NamespacesContainer <em>Namespaces Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.environment.NamespacesContainer
+	 * @generated
+	 */
+	public Adapter createNamespacesContainerAdapter() {
 		return null;
 	}
 

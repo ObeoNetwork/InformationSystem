@@ -7,7 +7,7 @@
     editorPluginClass="org.obeonetwork.dsl.environment.presentation.EnvironmentEditorPlugin"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     codeFormatting="true" importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic"
-    containmentProxies="true" complianceLevel="5.0" runtimeVersion="2.6" interfaceNamePattern=""
+    containmentProxies="true" complianceLevel="5.0" runtimeVersion="2.7" interfaceNamePattern=""
     classNamePattern="">
   <foreignModel>environment.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
@@ -25,7 +25,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Environment/links"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Environment/priorityDefinitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Environment/typesDefinition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Environment/namespaces"/>
     </genClasses>
     <genClasses image="false" ecoreClass="environment.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Type/name"/>
@@ -93,7 +92,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="environment.ecore#//Filter"/>
     <genClasses ecoreClass="environment.ecore#//Namespace">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Namespace/ownedNamespaces"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//Namespace/owner"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Namespace/name"/>
     </genClasses>
@@ -149,5 +147,8 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="environment.ecore#//DataType"/>
+    <genClasses image="false" ecoreClass="environment.ecore#//NamespacesContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//NamespacesContainer/ownedNamespaces"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
