@@ -27,7 +27,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.environment.Environment#getLinks <em>Links</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Environment#getPriorityDefinitions <em>Priority Definitions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Environment#getTypesDefinition <em>Types Definition</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.Environment#getNamespaces <em>Namespaces</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,7 +34,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Environment extends ObeoDSMObject {
+public interface Environment extends ObeoDSMObject, NamespacesContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,21 +151,5 @@ public interface Environment extends ObeoDSMObject {
 	 * @generated
 	 */
 	void setTypesDefinition(TypesDefinition value);
-
-	/**
-	 * Returns the value of the '<em><b>Namespaces</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Namespace}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Namespaces</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Namespaces</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getEnvironment_Namespaces()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<Namespace> getNamespaces();
 
 } // Environment

@@ -22,7 +22,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.environment.Namespace#getOwnedNamespaces <em>Owned Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Namespace#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Namespace#getName <em>Name</em>}</li>
  * </ul>
@@ -32,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Namespace extends TypesDefinition {
+public interface Namespace extends TypesDefinition, NamespacesContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -41,26 +40,8 @@ public interface Namespace extends TypesDefinition {
 	String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * Returns the value of the '<em><b>Owned Namespaces</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.environment.Namespace}.
-	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.environment.Namespace#getOwner <em>Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Owned Namespaces</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owned Namespaces</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getNamespace_OwnedNamespaces()
-	 * @see org.obeonetwork.dsl.environment.Namespace#getOwner
-	 * @model opposite="owner" containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<Namespace> getOwnedNamespaces();
-
-	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.environment.Namespace#getOwnedNamespaces <em>Owned Namespaces</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.environment.NamespacesContainer#getOwnedNamespaces <em>Owned Namespaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Owner</em>' container reference isn't clear,
@@ -68,13 +49,13 @@ public interface Namespace extends TypesDefinition {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owner</em>' container reference.
-	 * @see #setOwner(Namespace)
+	 * @see #setOwner(NamespacesContainer)
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getNamespace_Owner()
-	 * @see org.obeonetwork.dsl.environment.Namespace#getOwnedNamespaces
+	 * @see org.obeonetwork.dsl.environment.NamespacesContainer#getOwnedNamespaces
 	 * @model opposite="ownedNamespaces" transient="false"
 	 * @generated
 	 */
-	Namespace getOwner();
+	NamespacesContainer getOwner();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.environment.Namespace#getOwner <em>Owner</em>}' container reference.
@@ -84,7 +65,7 @@ public interface Namespace extends TypesDefinition {
 	 * @see #getOwner()
 	 * @generated
 	 */
-	void setOwner(Namespace value);
+	void setOwner(NamespacesContainer value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

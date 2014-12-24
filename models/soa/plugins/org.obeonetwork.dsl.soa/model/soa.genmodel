@@ -4,7 +4,7 @@
     modelDirectory="/org.obeonetwork.dsl.soa/src" creationIcons="false" modelPluginID="org.obeonetwork.dsl.soa"
     modelName="Soa" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" containmentProxies="true"
-    complianceLevel="5.0" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment">
+    complianceLevel="5.0" runtimeVersion="2.7" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment">
   <foreignModel>soa.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Soa" basePackage="org.obeonetwork.dsl" resource="XMI" disposableProviderFactory="true"
@@ -32,7 +32,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//System/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedComponents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedWires"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/namespaces"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Component">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Component/ownedServices"/>

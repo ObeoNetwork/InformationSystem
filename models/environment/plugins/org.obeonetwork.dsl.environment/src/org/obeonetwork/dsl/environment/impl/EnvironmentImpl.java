@@ -24,6 +24,7 @@ import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.InterDSMLink;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.PriorityDefinition;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 
@@ -34,12 +35,12 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getOwnedNamespaces <em>Owned Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getLinks <em>Links</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getPriorityDefinitions <em>Priority Definitions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getTypesDefinition <em>Types Definition</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl#getNamespaces <em>Namespaces</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +81,19 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 	@Override
 	protected EClass eStaticClass() {
 		return EnvironmentPackage.Literals.ENVIRONMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<Namespace> getOwnedNamespaces() {
+		return (EList<Namespace>) eDynamicGet(
+				EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES,
+				EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+				true, true);
 	}
 
 	/**
@@ -226,10 +240,15 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EList<Namespace> getNamespaces() {
-		return (EList<Namespace>) eDynamicGet(
-				EnvironmentPackage.ENVIRONMENT__NAMESPACES,
-				EnvironmentPackage.Literals.ENVIRONMENT__NAMESPACES, true, true);
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOwnedNamespaces())
+					.basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -241,6 +260,9 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES:
+			return ((InternalEList<?>) getOwnedNamespaces()).basicRemove(
+					otherEnd, msgs);
 		case EnvironmentPackage.ENVIRONMENT__ACTIONS:
 			return ((InternalEList<?>) getActions())
 					.basicRemove(otherEnd, msgs);
@@ -250,9 +272,6 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 			return basicSetPriorityDefinitions(null, msgs);
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
 			return basicSetTypesDefinition(null, msgs);
-		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
-			return ((InternalEList<?>) getNamespaces()).basicRemove(otherEnd,
-					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -265,6 +284,8 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES:
+			return getOwnedNamespaces();
 		case EnvironmentPackage.ENVIRONMENT__NAME:
 			return getName();
 		case EnvironmentPackage.ENVIRONMENT__ACTIONS:
@@ -279,8 +300,6 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 			if (resolve)
 				return getTypesDefinition();
 			return basicGetTypesDefinition();
-		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
-			return getNamespaces();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,6 +313,11 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES:
+			getOwnedNamespaces().clear();
+			getOwnedNamespaces().addAll(
+					(Collection<? extends Namespace>) newValue);
+			return;
 		case EnvironmentPackage.ENVIRONMENT__NAME:
 			setName((String) newValue);
 			return;
@@ -311,10 +335,6 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
 			setTypesDefinition((TypesDefinition) newValue);
 			return;
-		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
-			getNamespaces().clear();
-			getNamespaces().addAll((Collection<? extends Namespace>) newValue);
-			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -327,6 +347,9 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES:
+			getOwnedNamespaces().clear();
+			return;
 		case EnvironmentPackage.ENVIRONMENT__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -342,9 +365,6 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
 			setTypesDefinition((TypesDefinition) null);
 			return;
-		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
-			getNamespaces().clear();
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -357,6 +377,8 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES:
+			return !getOwnedNamespaces().isEmpty();
 		case EnvironmentPackage.ENVIRONMENT__NAME:
 			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT
 					.equals(getName());
@@ -368,10 +390,44 @@ public class EnvironmentImpl extends ObeoDSMObjectImpl implements Environment {
 			return basicGetPriorityDefinitions() != null;
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
 			return basicGetTypesDefinition() != null;
-		case EnvironmentPackage.ENVIRONMENT__NAMESPACES:
-			return !getNamespaces().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == NamespacesContainer.class) {
+			switch (derivedFeatureID) {
+			case EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES:
+				return EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == NamespacesContainer.class) {
+			switch (baseFeatureID) {
+			case EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES:
+				return EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //EnvironmentImpl

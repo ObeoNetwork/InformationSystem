@@ -160,22 +160,22 @@ public interface EntityPackage extends EPackage {
 	int ROOT__TYPES = EnvironmentPackage.TYPES_DEFINITION__TYPES;
 
 	/**
+	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__OWNED_NAMESPACES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT__NAME = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Namespaces</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOT__NAMESPACES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 1;
+	int ROOT__NAME = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Root</em>' class. <!--
@@ -850,17 +850,6 @@ public interface EntityPackage extends EPackage {
 	EAttribute getRoot_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.entity.Root#getNamespaces <em>Namespaces</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Namespaces</em>'.
-	 * @see org.obeonetwork.dsl.entity.Root#getNamespaces()
-	 * @see #getRoot()
-	 * @generated
-	 */
-	EReference getRoot_Namespaces();
-
-	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.entity.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Entity</em>'.
@@ -1093,14 +1082,6 @@ public interface EntityPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROOT__NAME = eINSTANCE.getRoot_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Namespaces</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROOT__NAMESPACES = eINSTANCE.getRoot_Namespaces();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.entity.impl.EntityImpl <em>Entity</em>}' class.

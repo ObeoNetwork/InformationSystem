@@ -238,15 +238,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSystem_Namespaces() {
-		return (EReference)systemEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getComponent() {
 		return componentEClass;
 	}
@@ -661,7 +652,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		createEAttribute(systemEClass, SYSTEM__NAME);
 		createEReference(systemEClass, SYSTEM__OWNED_COMPONENTS);
 		createEReference(systemEClass, SYSTEM__OWNED_WIRES);
-		createEReference(systemEClass, SYSTEM__NAMESPACES);
 
 		componentEClass = createEClass(COMPONENT);
 		createEReference(componentEClass, COMPONENT__OWNED_SERVICES);
@@ -749,6 +739,7 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 
 		// Add supertypes to classes
 		systemEClass.getESuperTypes().add(theEnvironmentPackage.getTypesDefinition());
+		systemEClass.getESuperTypes().add(theEnvironmentPackage.getNamespacesContainer());
 		componentEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		serviceEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
 		wireEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
@@ -763,7 +754,6 @@ public class SoaPackageImpl extends EPackageImpl implements SoaPackage {
 		initEAttribute(getSystem_Name(), ecorePackage.getEString(), "name", null, 0, 1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_OwnedComponents(), this.getComponent(), null, "ownedComponents", null, 0, -1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_OwnedWires(), this.getWire(), null, "ownedWires", null, 0, -1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSystem_Namespaces(), theEnvironmentPackage.getNamespace(), null, "namespaces", null, 0, -1, org.obeonetwork.dsl.soa.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponent_OwnedServices(), this.getService(), null, "ownedServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

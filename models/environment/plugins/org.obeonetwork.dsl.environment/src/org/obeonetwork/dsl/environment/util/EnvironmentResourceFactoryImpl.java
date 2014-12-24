@@ -18,13 +18,12 @@ import java.util.Map;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
-import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.XMLParserPool;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLParserPoolImpl;
-import org.obeonetwork.dsl.environment.migration.EnvironmentResourceExtendedMetadata;
-import org.obeonetwork.dsl.environment.migration.EnvironmentResourceHandler;
+import org.obeonetwork.dsl.environment.migration.EnvironmentMigrationHelper;
+import org.obeonetwork.tools.migration.XMIResourceWithMigrationSupportImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,10 +63,8 @@ public class EnvironmentResourceFactoryImpl extends ResourceFactoryImpl {
 	 */
 	@Override
 	public Resource createResource(URI uri) {
-		XMIResource result = new EnvironmentResourceImpl(uri);
-
-		EnvironmentResourceExtendedMetadata extendedMetadata = new EnvironmentResourceExtendedMetadata();
-		XMLResource.ResourceHandler resourceHandler = new EnvironmentResourceHandler();
+		XMIResourceWithMigrationSupportImpl result = new EnvironmentResourceImpl(
+				uri);
 
 		Map<Object, Object> saveOptions = result.getDefaultSaveOptions();
 		saveOptions.put(XMLResource.OPTION_URI_HANDLER,
@@ -75,9 +72,6 @@ public class EnvironmentResourceFactoryImpl extends ResourceFactoryImpl {
 		saveOptions.put(XMLResource.OPTION_CONFIGURATION_CACHE, Boolean.TRUE);
 		saveOptions
 				.put(XMLResource.OPTION_USE_CACHED_LOOKUP_TABLE, lookupTable);
-		saveOptions
-				.put(XMLResource.OPTION_EXTENDED_META_DATA, extendedMetadata);
-		saveOptions.put(XMLResource.OPTION_RESOURCE_HANDLER, resourceHandler);
 
 		Map<Object, Object> loadOptions = result.getDefaultLoadOptions();
 		loadOptions.put(XMLResource.OPTION_DEFER_ATTACHMENT, Boolean.TRUE);
@@ -88,9 +82,8 @@ public class EnvironmentResourceFactoryImpl extends ResourceFactoryImpl {
 		loadOptions.put(XMLResource.OPTION_USE_PARSER_POOL, parserPool);
 		loadOptions.put(XMLResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP,
 				nameToFeatureMap);
-		loadOptions
-				.put(XMLResource.OPTION_EXTENDED_META_DATA, extendedMetadata);
-		loadOptions.put(XMLResource.OPTION_RESOURCE_HANDLER, resourceHandler);
+
+		result.attachMigrationHelper(new EnvironmentMigrationHelper());
 
 		return result;
 	}

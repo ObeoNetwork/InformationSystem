@@ -246,13 +246,22 @@ public interface EnvironmentPackage extends EPackage {
 	int ENVIRONMENT__MODIFIED_ON = OBEO_DSM_OBJECT__MODIFIED_ON;
 
 	/**
+	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT__OWNED_NAMESPACES = OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENVIRONMENT__NAME = OBEO_DSM_OBJECT_FEATURE_COUNT + 0;
+	int ENVIRONMENT__NAME = OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
@@ -261,7 +270,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENVIRONMENT__ACTIONS = OBEO_DSM_OBJECT_FEATURE_COUNT + 1;
+	int ENVIRONMENT__ACTIONS = OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
@@ -270,7 +279,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENVIRONMENT__LINKS = OBEO_DSM_OBJECT_FEATURE_COUNT + 2;
+	int ENVIRONMENT__LINKS = OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Priority Definitions</b></em>' containment reference.
@@ -279,7 +288,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENVIRONMENT__PRIORITY_DEFINITIONS = OBEO_DSM_OBJECT_FEATURE_COUNT + 3;
+	int ENVIRONMENT__PRIORITY_DEFINITIONS = OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Types Definition</b></em>' containment reference.
@@ -288,16 +297,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENVIRONMENT__TYPES_DEFINITION = OBEO_DSM_OBJECT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Namespaces</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENVIRONMENT__NAMESPACES = OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
+	int ENVIRONMENT__TYPES_DEFINITION = OBEO_DSM_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Environment</em>' class.
@@ -3144,6 +3144,34 @@ public interface EnvironmentPackage extends EPackage {
 	int BOUNDABLE_ELEMENT_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.NamespacesContainerImpl <em>Namespaces Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.environment.impl.NamespacesContainerImpl
+	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getNamespacesContainer()
+	 * @generated
+	 */
+	int NAMESPACES_CONTAINER = 29;
+
+	/**
+	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACES_CONTAINER__OWNED_NAMESPACES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Namespaces Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACES_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3151,7 +3179,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getMultiplicityKind()
 	 * @generated
 	 */
-	int MULTIPLICITY_KIND = 29;
+	int MULTIPLICITY_KIND = 30;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Environment <em>Environment</em>}'.
@@ -3217,17 +3245,6 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEnvironment_TypesDefinition();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.Environment#getNamespaces <em>Namespaces</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Namespaces</em>'.
-	 * @see org.obeonetwork.dsl.environment.Environment#getNamespaces()
-	 * @see #getEnvironment()
-	 * @generated
-	 */
-	EReference getEnvironment_Namespaces();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.Type <em>Type</em>}'.
@@ -3750,17 +3767,6 @@ public interface EnvironmentPackage extends EPackage {
 	EClass getNamespace();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.Namespace#getOwnedNamespaces <em>Owned Namespaces</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owned Namespaces</em>'.
-	 * @see org.obeonetwork.dsl.environment.Namespace#getOwnedNamespaces()
-	 * @see #getNamespace()
-	 * @generated
-	 */
-	EReference getNamespace_OwnedNamespaces();
-
-	/**
 	 * Returns the meta object for the container reference '{@link org.obeonetwork.dsl.environment.Namespace#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4148,6 +4154,27 @@ public interface EnvironmentPackage extends EPackage {
 	EClass getDataType();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.environment.NamespacesContainer <em>Namespaces Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Namespaces Container</em>'.
+	 * @see org.obeonetwork.dsl.environment.NamespacesContainer
+	 * @generated
+	 */
+	EClass getNamespacesContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.environment.NamespacesContainer#getOwnedNamespaces <em>Owned Namespaces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Owned Namespaces</em>'.
+	 * @see org.obeonetwork.dsl.environment.NamespacesContainer#getOwnedNamespaces()
+	 * @see #getNamespacesContainer()
+	 * @generated
+	 */
+	EReference getNamespacesContainer_OwnedNamespaces();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4230,15 +4257,6 @@ public interface EnvironmentPackage extends EPackage {
 		 */
 		EReference ENVIRONMENT__TYPES_DEFINITION = eINSTANCE
 				.getEnvironment_TypesDefinition();
-
-		/**
-		 * The meta object literal for the '<em><b>Namespaces</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENVIRONMENT__NAMESPACES = eINSTANCE
-				.getEnvironment_Namespaces();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.TypeImpl <em>Type</em>}' class.
@@ -4690,15 +4708,6 @@ public interface EnvironmentPackage extends EPackage {
 		EClass NAMESPACE = eINSTANCE.getNamespace();
 
 		/**
-		 * The meta object literal for the '<em><b>Owned Namespaces</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NAMESPACE__OWNED_NAMESPACES = eINSTANCE
-				.getNamespace_OwnedNamespaces();
-
-		/**
 		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5020,6 +5029,25 @@ public interface EnvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATA_TYPE = eINSTANCE.getDataType();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.NamespacesContainerImpl <em>Namespaces Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.environment.impl.NamespacesContainerImpl
+		 * @see org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl#getNamespacesContainer()
+		 * @generated
+		 */
+		EClass NAMESPACES_CONTAINER = eINSTANCE.getNamespacesContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Owned Namespaces</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAMESPACES_CONTAINER__OWNED_NAMESPACES = eINSTANCE
+				.getNamespacesContainer_OwnedNamespaces();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}' enum.

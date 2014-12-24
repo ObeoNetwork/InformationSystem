@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ClassDiagramConfiguration -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.obeonetwork.tools.classdiagramconfiguration.presentation.ClassDiagramConfigurationModelWizardID"
+            name="%_UI_ClassDiagramConfigurationModelWizard_label"
+            class="org.obeonetwork.tools.classdiagramconfiguration.presentation.ClassDiagramConfigurationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ClassDiagramConfigurationModelFile.gif">
+         <description>%_UI_ClassDiagramConfigurationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ClassDiagramConfiguration -->
+      <editor
+            id="org.obeonetwork.tools.classdiagramconfiguration.presentation.ClassDiagramConfigurationEditorID"
+            name="%_UI_ClassDiagramConfigurationEditor_label"
+            icon="icons/full/obj16/ClassDiagramConfigurationModelFile.gif"
+            extensions="classdiagramconf"
+            class="org.obeonetwork.tools.classdiagramconfiguration.presentation.ClassDiagramConfigurationEditor"
+            contributorClass="org.obeonetwork.tools.classdiagramconfiguration.presentation.ClassDiagramConfigurationActionBarContributor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.obeonetwork.tools.classdiagramgenerator.editor.commands.generatevsm"
+            name="Generate VSM">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.obeonetwork.tools.classdiagramconfiguration.presentation.handlers.GenerateVsmHandler"
+            commandId="org.obeonetwork.tools.classdiagramgenerator.editor.commands.generatevsm">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="true"
+            locationURI="popup:org.obeonetwork.tools.classdiagramconfiguration.presentation.ClassDiagramConfigurationEditorID?after=additions">
+         <command
+               commandId="org.obeonetwork.tools.classdiagramgenerator.editor.commands.generatevsm"
+               icon="icons/full/obj16/generate.gif"
+               id="org.obeonetwork.tools.classdiagramgenerator.editor.menus.sampleCommand">
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>
