@@ -18,6 +18,9 @@
    <feature url="features/org.obeonetwork.dsl.soa.gen.java.spring.hibernate.feature_2.3.0.qualifier.jar" id="org.obeonetwork.dsl.soa.gen.java.spring.hibernate.feature" version="2.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.generators"/>
    </feature>
+   <feature url="features/org.obeonetwork.dsl.soa.gen.contracts.feature_2.3.0.qualifier.jar" id="org.obeonetwork.dsl.soa.gen.contracts.feature" version="2.3.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.generators"/>
+   </feature>
    <feature url="features/org.obeonetwork.acceleo.feature_2.3.0.qualifier.jar" id="org.obeonetwork.acceleo.feature" version="2.3.0.qualifier">
       <category name="org.obeonetwork.informationsystem.generators"/>
    </feature>

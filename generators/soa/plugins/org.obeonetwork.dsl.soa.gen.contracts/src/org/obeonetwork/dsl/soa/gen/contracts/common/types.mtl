@@ -1,0 +1,67 @@
+[comment encoding = UTF-8 /]
+[module types('http://www.obeonetwork.org/dsl/environment/2.0.0', 'http://www.obeonetwork.org/dsl/soa/2.0.0')]
+
+[import org::obeonetwork::dsl::soa::gen::contracts::services::namespaceServices/]
+
+
+[template public genXsdTypeName(aType : Type, xsdPrefix : String) post (trim())]
+[if (aType.isPrimitiveType())]
+[xsdPrefix/]:[aType.convertPrimitiveToXsdType()/]
+[elseif (not aType.eContainer(Category).oclIsUndefined())]
+[let aCategory : Category = aType.eContainer(Category).oclAsType(Category)]
+[aCategory.getNamespacePrefix()/]:[aType.name/]
+[/let]
+[/if]
+[/template]
+
+[template public genXsdTypeName(aType : Type, ctxCategory : Category, xsdPrefix : String, tnsPrefix : String) post (trim())]
+[if (aType.isPrimitiveType())]
+[xsdPrefix/]:[aType.convertPrimitiveToXsdType()/]
+[elseif (not aType.eContainer(Category).oclIsUndefined())]
+   [let aCategory : Category = aType.eContainer(Category).oclAsType(Category)]
+      [if (aCategory <> ctxCategory)]
+[aCategory.getNamespacePrefix()/]:[aType.name/]
+      [else]
+[tnsPrefix/]:[aType.name/]
+      [/if]
+   [/let]
+[/if]
+[/template]
+
+[query public isPrimitiveType(aType : Type) : Boolean = aType.oclIsTypeOf(PrimitiveType) /]
+
+[template public convertPrimitiveToXsdType(aType : Type) post (trim())]
+[if (aType.name = 'String')]
+string
+[elseif (aType.name = 'Integer')]
+int
+[elseif (aType.name = 'Long')]
+long
+[elseif (aType.name = 'Date')]
+dateTime
+[elseif (aType.name = 'Float')]
+float
+[elseif (aType.name = 'Double')]
+double
+[elseif (aType.name = 'Boolean')]
+boolean
+[/if]
+[/template]
+
+[template public genStringRestriction(minLength : Integer, maxLength : Integer, xsdPrefix : String) post (trim())]
+<[xsdPrefix/]:simpleType>
+  <[xsdPrefix/]:restriction base="[xsdPrefix/]:string">
+    [if (minLength <> -1)]<[xsdPrefix/]:minLength value="[minLength/]"></[xsdPrefix/]:minLength>[/if]
+    [if (maxLength <> -1)]<[xsdPrefix/]:maxLength value="[maxLength/]"></[xsdPrefix/]:maxLength>[/if]
+  </[xsdPrefix/]:restriction>
+</[xsdPrefix/]:simpleType>
+[/template]
+
+[template public genIntegerRestriction(minInclusive : Integer, maxInclusive : Integer, xsdPrefix : String) post (trim())]
+<[xsdPrefix/]:simpleType>
+  <[xsdPrefix/]:restriction base="xs:int">
+    [if (minInclusive <> -1)]<[xsdPrefix/]:minInclusive value="[minInclusive/]"></[xsdPrefix/]:minInclusive>[/if]
+    [if (maxInclusive <> -1)]<[xsdPrefix/]:maxInclusive value="[maxInclusive/]"></[xsdPrefix/]:maxInclusive>[/if]
+  </[xsdPrefix/]:restriction>
+</[xsdPrefix/]:simpleType>
+[/template]

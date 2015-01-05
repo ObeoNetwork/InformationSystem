@@ -1,0 +1,23 @@
+[comment encoding = UTF-8 /]
+[module common('http://www.obeonetwork.org/dsl/environment/2.0.0')]
+
+
+[template public genXsdObjectDocumentation(obj : ObeoDSMObject, xsPrefix : String) post (trim())]
+[if (not obj.description.oclIsUndefined())]
+<[xsPrefix/]:annotation>
+  <[xsPrefix/]:documentation>
+    [obj.description/]
+  </[xsPrefix/]:documentation>
+</[xsPrefix/]:annotation>
+[/if]
+[/template]
+
+[template public genMultiplicity(multiplicity : MultiplicityKind) post (trim())]
+[if (multiplicity = MultiplicityKind::ZERO_ONE)]
+minOccurs="0"
+[elseif (multiplicity = MultiplicityKind::ONE_STAR)]
+maxOccurs="unbounded"
+[elseif (multiplicity = MultiplicityKind::ZERO_STAR)]
+minOccurs="0" maxOccurs="unbounded"
+[/if]
+[/template]

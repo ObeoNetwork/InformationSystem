@@ -1,0 +1,162 @@
+[comment encoding = UTF-8 /]
+[module wsdlFile('http://www.obeonetwork.org/dsl/environment/2.0.0', 'http://www.obeonetwork.org/dsl/soa/2.0.0')]
+
+[import org::obeonetwork::dsl::soa::gen::contracts::common::common /]
+[import org::obeonetwork::dsl::soa::gen::contracts::common::types /]
+[import org::obeonetwork::dsl::soa::gen::contracts::files::xsdFile /]
+[import org::obeonetwork::dsl::soa::gen::contracts::services::namespaceServices /]
+
+
+[template public genFullPathFile(aService : Service) post (trim())]
+[if (aService.version.oclIsUndefined())]
+   [aService.name.concat('.wsdl')/]
+[else]
+   [aService.name.concat('-v').concat(aService.version.toString()).concat('.wsdl')/]
+[/if]
+[/template]
+
+[template public genWsdlFileBody(aService : Service)]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="[aService.name/]"
+        xmlns:tns="[aService.getTargetNamespace()/]" targetNamespace="[aService.getTargetNamespace()/]">
+  [aService.genWSDLTypes()/]
+  [aService.genWSDLMessages()/]
+  [aService.genWSDLBinding()/]
+  [aService.genWSDLPortType()/]
+  [aService.genWSDLService()/]
+</wsdl:definitions>
+[/template]
+
+[template protected genWSDLTypes(aService : Service)]
+<wsdl:types>
+  <xsd:schema targetNamespace="[aService.getTargetNamespace()/]"
+    [for (aCategory : Category | aService.getAllDTOCategories())]
+      xmlns:[aCategory.getNamespacePrefix()/]="[aCategory.getTargetNamespace()/]"
+    [/for]
+  >
+  [for (aCategory : Category | aService.getAllDTOCategories())]
+    <xsd:import schemaLocation="[aCategory.genFullPathFile()/]" namespace="[aCategory.getTargetNamespace()/]"></xsd:import>
+  [/for]
+  [for (anOperation : Operation | aService.ownedInterface.ownedOperations)]
+    <xsd:element name="[anOperation.name/]">
+      <xsd:complexType>
+        <xsd:sequence>
+        [for (input : Parameter | anOperation.input)]
+          <xsd:element name="[input.name/]" type="[input.type.genXsdTypeName('xsd')/]"
+            minOccurs="[input.lower/]" maxOccurs="[input.upper/]"/>
+        [/for]
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    [if (anOperation.kind = OperationKind::REQUEST_RESPONSE)]
+    <xsd:element name="[anOperation.name/]Response">
+      <xsd:complexType>
+        <xsd:sequence>
+        [for (output : Parameter | anOperation.output)]
+          <xsd:element name="[output.name/]" type="[output.type.genXsdTypeName('xsd')/]"
+            minOccurs="[output.lower/]" maxOccurs="[output.upper/]"/>
+        [/for]
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    [if (anOperation.fault->size() <> 0)]
+    [for (aParam : Parameter | anOperation.fault)]
+    <xsd:element name="[anOperation.name/][aParam.name/]" type="[aParam.type.genXsdTypeName('xsd')/]"/>
+    [/for]
+    [/if]
+    [/if]
+  [/for]
+  </xsd:schema>
+</wsdl:types>
+[/template]
+
+[template protected genWSDLMessages(aService : Service)]
+
+[for (anOperation : Operation | aService.ownedInterface.ownedOperations)]
+<wsdl:message name="[anOperation.name/]Request">
+  <wsdl:part element="tns:[anOperation.name/]" name="parameters"/>
+</wsdl:message>
+[if (anOperation.kind = OperationKind::REQUEST_RESPONSE)]
+<wsdl:message name="[anOperation.name/]Response">
+  <wsdl:part element="tns:[anOperation.name/]Response" name="parameters"/>
+</wsdl:message>
+[if (anOperation.fault->size() <> 0)]
+[for (aParam : Parameter | anOperation.fault)]
+<wsdl:message name="[anOperation.name/][aParam.name/]">
+  <wsdl:part element="tns:[anOperation.name/][aParam.name/]" name="parameters"/> 
+</wsdl:message>
+[/for]
+[/if]
+[/if]
+[/for]
+[/template]
+
+[template protected genWSDLBinding(aService : Service)]
+<wsdl:binding name="[aService.name/]SOAP" type="tns:[aService.name/]">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  [for (anOperation : Operation | aService.ownedInterface.ownedOperations)]
+  <wsdl:operation name="[anOperation.name/]">
+    <soap:operation soapAction="[aService.getTargetNamespace()/]/[anOperation.name/]"/>
+    <wsdl:input>
+      <soap:body use="literal"/>
+    </wsdl:input>
+    [if (anOperation.kind = OperationKind::REQUEST_RESPONSE)]
+    <wsdl:output>
+      <soap:body use="literal"/>
+    </wsdl:output>
+    [if (anOperation.fault->size() <> 0)]
+    [for (aParam : Parameter | anOperation.fault)]
+    <wsdl:fault name="[aParam.name/]"></wsdl:fault>
+    [/for]
+    [/if]
+    [/if]
+  </wsdl:operation>
+  [/for]
+</wsdl:binding>
+[/template]
+
+[template protected genWSDLPortType(aService : Service)]
+<wsdl:portType name="[aService.name/]">
+  [for (anOperation : Operation | aService.ownedInterface.ownedOperations)]
+  <wsdl:operation name="[anOperation.name/]">
+    <wsdl:input message="tns:[anOperation.name/]Request"/>
+    [if (anOperation.kind = OperationKind::REQUEST_RESPONSE)]
+    <wsdl:output message="tns:[anOperation.name/]Response"/>
+    [if (anOperation.fault->size() <> 0)]
+    [for (aParam : Parameter | anOperation.fault)]
+    <wsdl:fault name="[aParam.name/]" message="tns:[anOperation.name/][aParam.name/]"/>
+    [/for]
+    [/if]
+    [/if]
+  </wsdl:operation>
+  [/for]
+</wsdl:portType>
+[/template]
+
+[template protected genWSDLService(aService : Service)]
+<wsdl:service name="[aService.name/]">
+  <wsdl:port binding="tns:[aService.name/]SOAP" name="[aService.name/]Port">
+    <soap:address location="http://www.example.org/"/>
+  </wsdl:port>
+</wsdl:service>
+[/template]
+
+
+[query protected getAllDTOCategories(aService : Service) : Sequence(Category) =
+        Sequence(Category){}
+                ->merge(aService.ownedInterface.ownedOperations.input.type->filter(DTO).eContainer(Category))
+        ->merge(aService.ownedInterface.ownedOperations.output.type->filter(DTO).eContainer(Category))
+                ->asOrderedSet()->asSequence()
+/]
+
+[query private merge(firstSequence : Sequence(T), secondSequence : Sequence(T)) : Sequence(Type) =
+     if not (firstSequence->size() = 0) then
+         firstSequence->union(secondSequence)
+     else if not (secondSequence->size() = 0) then
+            secondSequence
+         else
+             Sequence(Type){}
+         endif
+     endif
+/]

@@ -1,0 +1,80 @@
+[comment encoding = UTF-8 /]
+[module xsdFile('http://www.obeonetwork.org/dsl/soa/2.0.0', 'http://www.obeonetwork.org/dsl/environment/2.0.0', 'http://www.obeonetwork.org/dsl/entity/2.0.0')]
+
+[import org::obeonetwork::dsl::soa::gen::contracts::common::common /]
+[import org::obeonetwork::dsl::soa::gen::contracts::common::attributes /]
+[import org::obeonetwork::dsl::soa::gen::contracts::common::entities /]
+[import org::obeonetwork::dsl::soa::gen::contracts::common::references /]
+[import org::obeonetwork::dsl::soa::gen::contracts::common::types /]
+[import org::obeonetwork::dsl::soa::gen::contracts::services::namespaceServices /]
+
+
+[template public genFullPathFile(aCategory : Category) post (trim())]
+[let system : System = aCategory.eContainer(System).oclAsType(System)]
+[if (system.version.oclIsUndefined())]
+   [system.name.concat(aCategory.name).concat('.xsd')/]
+[else]
+   [system.name.concat('-').concat(aCategory.name).concat('-v').concat(system.version.toString()).concat('.xsd')/]
+[/if]
+[/let]
+[/template]
+
+[template public genXsdFileBody(aCategory : Category)]
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="[aCategory.getTargetNamespace()/]" xmlns:tns="[aCategory.getTargetNamespace()/]"
+[for (aCategory : Category | aCategory.getReferencedDTOCategories())]
+    xmlns:[aCategory.getNamespacePrefix()/]="[aCategory.getTargetNamespace()/]"
+[/for]>
+[for (aCategory : Category | aCategory.getReferencedDTOCategories())]
+  <xs:import schemaLocation="[aCategory.genFullPathFile()/]" namespace="[aCategory.getTargetNamespace()/]"></xs:import>
+[/for]
+  [aCategory.genXsdObjectDocumentation('xs')/]
+  [aCategory.genXsdTypes()/]
+</xs:schema>
+[/template]
+
+[template public genXsdTypes(aCategory : Category) post (trim())]
+[for (aType : Type | aCategory.types)]
+  <xs:complexType name="[aType.name/]">
+    [aType.genXsdObjectDocumentation('xs')/][aType.genXsdTypeContent()/]
+  </xs:complexType>
+[/for]
+[/template]
+
+[template public genXsdTypeContent(aType : Type) post (trim())]
+[if (aType.oclIsKindOf(DTO))]
+[if (not aType.oclAsType(DTO).supertype.oclIsUndefined())]
+<xs:complexContent>
+  <xs:extension base="[genXsdTypeName(aType.oclAsType(DTO).supertype, aType.eContainer(Category), 'xs', 'tns')/]">
+    [aType.genXsdElementsSequence()/]
+  </xs:extension>
+</xs:complexContent>
+[else]
+[aType.genXsdElementsSequence()/]
+[/if]
+[/if]
+[/template]
+
+[template public genXsdElementsSequence(aType : Type) post (trim())]
+<xs:sequence>
+[for (att : ObeoDSMObject | aType.oclAsType(DTO).getAllAttributes())]
+  [att.genXsdElement()/]
+[/for]
+[for (ref : Reference | aType.oclAsType(DTO).references)]
+  [ref.genXsdElement()/]
+[/for]
+</xs:sequence>
+[/template]
+
+[query protected getAllAttributes(aDto : DTO) : Sequence(Attribute) =
+        aDto.ownedAttributes->asSequence()
+                ->union(aDto.associatedTypes.oclAsType(Entity).ownedAttributes->asSequence()) /]
+
+[query protected getReferencedDTOCategories(aCategory : Category) : Sequence(Category) =
+        aCategory.eAllContents(DTO).references.type.eContainer(Category)->select(c|c <> aCategory)
+                ->union(aCategory.getDTOSupertypes().eContainer(Category)->select(c|c <> aCategory))
+/]
+
+[query protected getDTOSupertypes(aCategory : Category) : Sequence(Type) =
+        Sequence(Type){}->union(aCategory.eAllContents(DTO).supertype->select(t|not t.oclIsUndefined()))
+/]

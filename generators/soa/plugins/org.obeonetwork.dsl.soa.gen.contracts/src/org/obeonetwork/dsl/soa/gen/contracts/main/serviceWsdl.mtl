@@ -1,0 +1,18 @@
+[comment encoding = UTF-8 /]
+[module serviceWsdl('http://www.obeonetwork.org/dsl/overview/2.0.0', 'http://www.obeonetwork.org/dsl/soa/2.0.0')/]
+
+[import org::obeonetwork::dsl::soa::gen::contracts::files::wsdlFile /]
+
+
+[template public serviceWsdl(aRoot : Root)]
+[comment @main /]
+[aRoot.ownedElements.eAllContents(Component).generateServiceWsdl()/]        
+[/template]
+
+[template public generateServiceWsdl(aComponent : Component)]
+[for (aService : Service | aComponent.ownedServices)]
+[file ('main/resources/' + aService.genFullPathFile(), false, 'UTF-8')]
+[aService.genWsdlFileBody()/]
+[/file]
+[/for]
+[/template]
