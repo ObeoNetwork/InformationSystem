@@ -18,7 +18,7 @@
   <properties>
     <tycho-version>0.14.1</tycho-version>
     <platform-version-name>indigo</platform-version-name>    
-    <od-site>http://update.obeo.fr/integration/designer/7.0/standard/latest/repository/</od-site>
+    <od-site>http://update.obeo.fr/integration/designer/7.0/team/latest/repository/</od-site>
     <od-site2>http://update.obeo.fr/integration/designer/7.0/community/latest/repository</od-site2>
     <eef-site>http://download.eclipse.org/modeling/emft/eef/updates/releases/</eef-site>
     <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site>
