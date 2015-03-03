@@ -1,8 +1,8 @@
 <%
 metamodel http://www.obeonetwork.org/dsl/soa/2.0.0
 
-import org.obeonetwork.dsl.is.design.service.EcoreService
-import org.obeonetwork.dsl.is.design.service.DiagramService
+import org.obeonetwork.dsl.soa.design.services.EcoreService
+import org.obeonetwork.dsl.soa.design.services.DiagramService
 %>
 
 <%-- Retrieve all non referenced external components excluding those already displayed on the diagram --%>

@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.is.design.service;
+package org.obeonetwork.dsl.soa.design.services;
 
 import fr.obeo.dsl.viewpoint.DDiagram;
 import fr.obeo.dsl.viewpoint.description.Layer;

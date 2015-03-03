@@ -26,8 +26,8 @@ public interface IMigrationHelper {
 	public XMLHelper createXMLHelper(XMLResource resource);
 
 	/* From ExtendedMetaData */
-	public Map<String, EPackage> getOldURIToPackageMap();
-	public EPackage getPackage(String namespace);
+	public Map<String, String> getOldURIToPackageMap();
+	public String getCorrespondingNamespace(String namespace);
 	public EClassifier getType(EPackage ePackage, String name);
 	public String getNamespace(EPackage ePackage);
 	public String getName(EClassifier eClassifier);

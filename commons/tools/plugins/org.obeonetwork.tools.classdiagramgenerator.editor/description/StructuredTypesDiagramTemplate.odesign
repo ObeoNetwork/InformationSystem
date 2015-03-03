@@ -218,7 +218,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Entity from DTO" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="{ClassDiagram.section.structuredType.fromOtherType.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']">
             <variable name="container">
               <subVariables xsi:type="tool:SelectModelElementVariable" name="selectedTypes" candidatesExpression="{ClassDiagram.section.structuredType.fromOtherType.listExpression}" multiple="true" message="{ClassDiagram.section.structuredType.fromOtherType.selectionMessage}"/>
             </variable>
@@ -227,7 +227,7 @@
               <firstModelOperations xsi:type="tool:For" expression="var:selectedTypes" iteratorName="associatedType">
                 <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="{ClassDiagram.StructuredTypeMapping.domainClass}" referenceName="types">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="{ClassDiagram.section.structuredType.creation.defaultName}" valueExpression="['Entity' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="{ClassDiagram.section.structuredType.creation.defaultName}"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="associatedTypes" valueExpression="var:associatedType"/>
                   </subModelOperations>
                 </subModelOperations>

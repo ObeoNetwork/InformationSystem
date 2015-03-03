@@ -32,20 +32,6 @@ import org.obeonetwork.tools.migration.MigrationXMLHelper;
 
 public class SoaMigrationHelper extends BasicMigrationHelper {
 	
-	public static final String SOA_URI_OLD = "http://www.obeonetwork.org/dsl/soa/2.0.0";
-	public static final String SOA_URI_NEW = "http://www.obeonetwork.org/dsl/soa/3.0.0";
-	
-	public static final String ENVIRONMENT_URI_OLD = "http://www.obeonetwork.org/dsl/environment/2.0.0";
-	public static final String ENVIRONMENT_URI_NEW = "http://www.obeonetwork.org/dsl/environment/3.0.0";
-	
-	@Override
-	public Map<String, EPackage> getOldURIToPackageMap() {
-		Map<String, EPackage> newPackagesMap = new HashMap<String, EPackage>();
-		newPackagesMap.put(SOA_URI_OLD, SoaPackage.eINSTANCE);
-		newPackagesMap.put(ENVIRONMENT_URI_OLD, EnvironmentPackage.eINSTANCE);
-		return newPackagesMap;
-	}
-	
 	@Override
 	public EClassifier getType(EPackage ePackage, String name) {
 		if ("ServiceDTO".equals(name)) {

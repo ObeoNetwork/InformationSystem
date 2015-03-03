@@ -1,8 +1,5 @@
 package org.obeonetwork.dsl.entity.migration;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EFactory;
@@ -18,20 +15,6 @@ import org.obeonetwork.tools.migration.MigrationXMLHelper;
 
 public class EntityMigrationHelper extends BasicMigrationHelper{
 
-	public static final String ENTITY_URI_OLD = "http://www.obeonetwork.org/dsl/entity/2.0.0";
-	public static final String ENTITY_URI_NEW = "http://www.obeonetwork.org/dsl/entity/3.0.0";
-	
-	public static final String ENVIRONMENT_URI_OLD = "http://www.obeonetwork.org/dsl/environment/2.0.0";
-	public static final String ENVIRONMENT_URI_NEW = "http://www.obeonetwork.org/dsl/environment/3.0.0";
-	
-	@Override
-	public Map<String, EPackage> getOldURIToPackageMap() {
-		Map<String, EPackage> newPackagesMap = new HashMap<String, EPackage>();
-		newPackagesMap.put(ENTITY_URI_OLD, EntityPackage.eINSTANCE);
-		newPackagesMap.put(ENVIRONMENT_URI_OLD, EnvironmentPackage.eINSTANCE);
-		return newPackagesMap;
-	}
-	
 	@Override
 	public EClassifier getType(EPackage ePackage, String name) {
 		// Block => Namespace
@@ -87,6 +70,7 @@ public class EntityMigrationHelper extends BasicMigrationHelper{
 		if (type == EnvironmentPackage.eINSTANCE.getDataType()) {
 			return parentHelper.originalCreateObject(EnvironmentFactory.eINSTANCE, EnvironmentPackage.Literals.PRIMITIVE_TYPE);
 		}
+		
 		return null;
 	}
 }

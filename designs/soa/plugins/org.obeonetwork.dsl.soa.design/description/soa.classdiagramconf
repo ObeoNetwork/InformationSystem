@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classdiagramconf:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:classdiagramconf="http://www.obeonetwork.org/dsl/classdiagramconf/1.0.0" name="DTO diagrams configuration" description="">
+  <viewpoint href="soa.odesign#//@ownedViewpoints[name='Soa%20Views']"/>
+  <diagrams id="Hierarchy" descriptionId="DTO Namespaces Hierarchy">
+    <children id="namespaceContainer">
+      <stringValues id="semanticCandidates" value="feature:ownedNamespaces"/>
+    </children>
+    <children id="section">
+      <children id="namespace">
+        <stringValues id="label" value="Namespace"/>
+        <stringValues id="creation.label" value="Namespace"/>
+        <stringValues id="creation.containmentFeature" value="ownedNamespaces"/>
+      </children>
+      <children id="usability">
+        <children id="diagramCreation">
+          <stringValues id="label" value="New DTO Diagram"/>
+        </children>
+      </children>
+    </children>
+    <stringValues id="label" value="DTO Namespaces Hierarchy"/>
+    <stringValues id="titleExpression" value="DTO Namespaces Hierarchy"/>
+    <stringValues id="domainClass" value="soa.System"/>
+    <metamodels>http://www.obeonetwork.org/dsl/soa/3.0.0</metamodels>
+    <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
+  </diagrams>
+  <diagrams id="ClassDiagram" descriptionId="DTO Diagram">
+    <children id="StructuredTypeMapping">
+      <stringValues id="id" value="DD_DTO"/>
+      <stringValues id="label" value="DD_DTO"/>
+      <stringValues id="domainClass" value="environment.DTO"/>
+    </children>
+    <children id="ExternalTypesLayer">
+      <children id="section">
+        <children id="creation.externalType">
+          <stringValues id="id" value="External DTO"/>
+          <stringValues id="label" value="External DTO"/>
+          <stringValues id="candidatesExpression" value="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'DTO')/]"/>
+          <stringValues id="rootExpression" value="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'DTO')->select(eContainer().oclIsUndefined())/]"/>
+          <stringValues id="message" value="Select an external DTO"/>
+          <stringValues id="filterExpression" value="[oclIsKindOf(environment::DTO)/]"/>
+        </children>
+        <stringValues id="id" value="External DTOs"/>
+      </children>
+      <stringValues id="id" value="External DTOs"/>
+      <stringValues id="label" value="External DTOs"/>
+    </children>
+    <children id="section">
+      <children id="namespace">
+        <stringValues id="label" value="Namespace"/>
+        <stringValues id="creation.label" value="Namespace"/>
+        <stringValues id="creation.containmentFeature" value="ownedNamespaces"/>
+      </children>
+      <children id="structuredType">
+        <children id="creation">
+          <stringValues id="label" value="DTO"/>
+          <stringValues id="defaultName" value="['DTO' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+        </children>
+        <children id="fromOtherType">
+          <stringValues id="label" value="DTO from Entity"/>
+          <stringValues id="listExpression" value="[self.getAllStructuredTypes('Entity')/]"/>
+          <stringValues id="selectionMessage" value="Select an Entity"/>
+        </children>
+        <stringValues id="label" value="DTO"/>
+      </children>
+      <children id="enumeration">
+        <stringValues id="label" value="Enumeration"/>
+      </children>
+      <children id="relation">
+        <stringValues id="label" value="Relation"/>
+        <booleanValues id="enableRelation" value="true"/>
+        <booleanValues id="enableComposition" value="true"/>
+        <booleanValues id="enableInheritance" value="true"/>
+      </children>
+      <children id="bidiRelation">
+        <stringValues id="label" value="Bidirectional Relation"/>
+        <booleanValues id="enableRelation" value="true"/>
+        <booleanValues id="enableComposition" value="true"/>
+      </children>
+      <children id="usability">
+        <children id="diagramCreation">
+          <stringValues id="label" value="New DTO Diagram"/>
+        </children>
+        <children id="dragdrop.structuredtype">
+          <stringValues id="id" value="DAD_DD_DTO"/>
+          <stringValues id="precondition" value="[oclIsKindOf(environment::DTO)/]"/>
+        </children>
+      </children>
+    </children>
+    <stringValues id="label" value="DTO Diagram"/>
+    <stringValues id="titleExpression" value="[name + ' - DTO diagram'/]"/>
+    <metamodels>http://www.obeonetwork.org/dsl/soa/3.0.0</metamodels>
+    <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
+  </diagrams>
+  <colors name="Namespace_background" red="209" green="209" blue="209"/>
+  <colors name="Namespace_foreground" red="255" green="255" blue="255"/>
+  <colors name="Namespace_color"/>
+  <colors name="Namespace_border" red="136" green="136" blue="136"/>
+  <colors name="StructuredType_background" red="255" green="245" blue="181"/>
+  <colors name="StructuredType_foreground" red="255" green="255" blue="255"/>
+  <colors name="StructuredType_color"/>
+  <colors name="StructuredType_border" red="214" green="197" blue="66"/>
+  <colors name="Enumeration_background" red="255" green="245" blue="181"/>
+  <colors name="Enumeration_foreground" red="255" green="255" blue="255"/>
+  <colors name="Enumeration_color"/>
+  <colors name="Enumeration_border" red="214" green="197" blue="66"/>
+  <colors name="ExternalType_background" red="253" green="206" blue="137"/>
+  <colors name="ExternalType_foreground" red="255" green="255" blue="255"/>
+  <colors name="ExternalType_color"/>
+  <colors name="ExternalType_border" red="252" green="175" blue="62"/>
+  <javaExtensions>org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices</javaExtensions>
+</classdiagramconf:Configuration>

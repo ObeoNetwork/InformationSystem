@@ -14,7 +14,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpart.IEditPartOperation;
 import org.eclipse.gmf.runtime.notation.View;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Reference;
-import org.obeonetwork.dsl.is.design.service.EntityService;
+import org.obeonetwork.dsl.environment.design.services.PropertiesServices;
 
 import fr.obeo.dsl.viewpoint.DSemanticDecorator;
 import fr.obeo.dsl.viewpoint.diagram.internal.edit.parts.DEdgeBeginNameEditPart;
@@ -91,8 +91,8 @@ public class EntityEditPartProvider extends AbstractEditPartProvider {
 							Reference reference = (Reference)target;
 							Reference oppositeReference =reference.getOppositeOf();
 							if (oppositeReference != null) {
-								String name = EntityService.getReferenceNameFromString(oppositeReference, labelText);
-								MultiplicityKind multiplicity = EntityService.getMultiplicityKindFromString(oppositeReference, labelText);
+								String name = PropertiesServices.getRefNameFromString(oppositeReference, labelText);
+								MultiplicityKind multiplicity = PropertiesServices.getMultKindFromString(oppositeReference, labelText);
 								oppositeReference.setName(name);
 								oppositeReference.setMultiplicity(multiplicity);
 							}
@@ -120,8 +120,8 @@ public class EntityEditPartProvider extends AbstractEditPartProvider {
 						EObject target = ((DSemanticDecorator)element).getTarget();
 						if (target instanceof Reference) {
 							Reference reference = (Reference)target;
-							String name = EntityService.getReferenceNameFromString(reference, labelText);
-							MultiplicityKind multiplicity = EntityService.getMultiplicityKindFromString(reference, labelText);
+							String name = PropertiesServices.getRefNameFromString(reference, labelText);
+							MultiplicityKind multiplicity = PropertiesServices.getMultKindFromString(reference, labelText);
 							reference.setName(name);
 							reference.setMultiplicity(multiplicity);
 						}

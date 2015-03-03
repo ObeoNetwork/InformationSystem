@@ -22,11 +22,11 @@ public class PropertiesServices {
 		return getPropNameFromString(attribute, inputString);
 	}
 
-	public String getRefNameFromString(Reference ref, String inputString) {
+	public static String getRefNameFromString(Reference ref, String inputString) {
 		return getPropNameFromString(ref, inputString);
 	}
 	
-	private String getPropNameFromString(Property property, String inputString) {		
+	private static String getPropNameFromString(Property property, String inputString) {		
 		int start = inputString.indexOf("[");
 		int end = inputString.indexOf("]");
 		String name="";
@@ -42,7 +42,7 @@ public class PropertiesServices {
 		}
 	}
 	
-	public MultiplicityKind getMultKindFromString(Property property, String inputString) {
+	public static MultiplicityKind getMultKindFromString(Property property, String inputString) {
 		int start = inputString.indexOf("[");
 		int end = inputString.indexOf("]");		
 		if (end != -1 && start != -1 && start < end) {

@@ -16,10 +16,10 @@ public class MigrationExtendedMetaData extends BasicExtendedMetaData {
 	
 	@Override
 	public EPackage getPackage(String namespace) {
-		EPackage pkg = migrationHelper.getPackage(namespace);
-		if (pkg != null) {
+		String newNamespace = migrationHelper.getCorrespondingNamespace(namespace);
+		if (newNamespace != null) {
 			migrationHelper.setMigrationNeeded(true);
-			return pkg;
+			return super.getPackage(newNamespace);
 		}
 		return super.getPackage(namespace);
 	}

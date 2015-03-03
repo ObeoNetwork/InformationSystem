@@ -1,8 +1,8 @@
 package org.obeonetwork.tools.migration;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
@@ -18,6 +18,17 @@ import org.eclipse.emf.ecore.xmi.XMLResource.ResourceHandler;
 
 abstract public class BasicMigrationHelper implements IMigrationHelper {
 	
+	public static final String ENTITY_URI_OLD = "http://www.obeonetwork.org/dsl/entity/2.0.0";
+	public static final String ENTITY_URI_NEW = "http://www.obeonetwork.org/dsl/entity/3.0.0";
+	
+	public static final String ENVIRONMENT_URI_OLD = "http://www.obeonetwork.org/dsl/environment/2.0.0";
+	public static final String ENVIRONMENT_URI_NEW = "http://www.obeonetwork.org/dsl/environment/3.0.0";
+	
+	public static final String SOA_URI_OLD = "http://www.obeonetwork.org/dsl/soa/2.0.0";
+	public static final String SOA_URI_NEW = "http://www.obeonetwork.org/dsl/soa/3.0.0";
+	
+	private static Map<String, String> oldUriToNewUri = null;
+	
 	private boolean migrationNeeded = false;
 	
 	public boolean isMigrationNeeded() {
@@ -28,7 +39,15 @@ abstract public class BasicMigrationHelper implements IMigrationHelper {
 		this.migrationNeeded = migrationNeeded;
 	}
 
-	abstract public Map<String, EPackage> getOldURIToPackageMap();
+	public Map<String, String> getOldURIToPackageMap() {
+		if (oldUriToNewUri == null) {
+			oldUriToNewUri = new HashMap<String, String>();
+			oldUriToNewUri.put(ENVIRONMENT_URI_OLD, ENVIRONMENT_URI_NEW);
+			oldUriToNewUri.put(ENTITY_URI_OLD, ENTITY_URI_NEW);
+			oldUriToNewUri.put(SOA_URI_OLD, SOA_URI_NEW);
+		}
+		return oldUriToNewUri;
+	}
 	
 	@Override
 	public ExtendedMetaData getExtendedMetaData() {
@@ -49,16 +68,12 @@ abstract public class BasicMigrationHelper implements IMigrationHelper {
 	public XMLHelper createXMLHelper(XMLResource resource) {
 		return new MigrationXMLHelper(resource, this);
 	}
-
+	
 	@Override
-	public EPackage getPackage(String namespace) {
-		for (Entry<String, EPackage> packageMapping : getOldURIToPackageMap().entrySet()) {
-			if (packageMapping.getKey().equals(namespace)) {
-				return packageMapping.getValue();
-			}
-		}
-		return null;
+	public String getCorrespondingNamespace(String namespace) {
+		return getOldURIToPackageMap().get(namespace);
 	}
+	
 
 	@Override
 	public EClassifier getType(EPackage ePackage, String name) {

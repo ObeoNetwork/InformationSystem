@@ -1,11 +1,13 @@
 Manifest-Version: 1.0
 Bundle-Name: org.obeonetwork.dsl.soa.design
-Bundle-SymbolicName: org.obeonetwork.dsl.soa.design;singleton=true
+Bundle-SymbolicName: org.obeonetwork.dsl.soa.design;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-Activator: org.obeonetwork.dsl.soa.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  fr.obeo.dsl.viewpoint,
- fr.obeo.dsl.common.acceleo.mtl
+ fr.obeo.dsl.common.acceleo.mtl,
+ org.obeonetwork.dsl.soa
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ManifestVersion: 2

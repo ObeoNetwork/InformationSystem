@@ -8,12 +8,22 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package org.obeonetwork.dsl.is.design.service.label;
+package org.obeonetwork.dsl.soa.design.services;
 
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.soa.Parameter;
 import org.obeonetwork.dsl.soa.util.SoaSwitch;
 
-public class SoaLabelSwitch extends SoaSwitch<String> {
+public class SOALabelService extends SoaSwitch<String> {
+	
+	/**
+	 * Computes the label for an object from SOA meta-model
+	 * @param context Object for which we want to compute a label
+	 * @return computed label
+	 */
+	public String computeSoaLabel(ObeoDSMObject context) {
+		return doSwitch(context);
+	}
 	
 	@Override
 	public String caseParameter(Parameter parameter) {

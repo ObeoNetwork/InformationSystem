@@ -18,7 +18,7 @@
         <acceleoCompiler 
             sourceFolder="${target.folder}"
             outputFolder="${target.folder}"
-            dependencies=""
+            dependencies="${target.folder}/../../fr.obeo.dsl.viewpoint;"
             binaryResource="false"
             packagesToRegister="">
         </acceleoCompiler>

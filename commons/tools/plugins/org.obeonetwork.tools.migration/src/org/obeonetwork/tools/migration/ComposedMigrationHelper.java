@@ -62,15 +62,6 @@ public class ComposedMigrationHelper extends BasicMigrationHelper {
 	}
 
 	@Override
-	public Map<String, EPackage> getOldURIToPackageMap() {
-		Map<String, EPackage> packages = new HashMap<String, EPackage>();
-		for (IMigrationHelper migrationHelper : migrationHelpers) {
-			packages.putAll(migrationHelper.getOldURIToPackageMap());
-		}
-		return packages;
-	}
-
-	@Override
 	public EClassifier getType(EPackage ePackage, String name) {
 		for (IMigrationHelper migrationHelper : migrationHelpers) {
 			EClassifier type = migrationHelper.getType(ePackage, name);

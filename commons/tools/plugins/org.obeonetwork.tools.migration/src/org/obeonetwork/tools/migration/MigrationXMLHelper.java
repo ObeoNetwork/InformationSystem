@@ -25,6 +25,11 @@ public class MigrationXMLHelper extends XMIHelperImpl {
 			}
 		}
 		
+		// Check if factory and type match
+		if (!eFactory.getEPackage().equals(type.getEPackage())) {
+			return super.createObject(type.getEPackage().getEFactoryInstance(), type);
+		}
+		
 		return super.createObject(eFactory, type);
 	}
 	
