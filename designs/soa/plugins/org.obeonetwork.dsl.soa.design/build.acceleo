@@ -18,7 +18,7 @@
         <acceleoCompiler 
             sourceFolder="${target.folder}"
             outputFolder="${target.folder}"
-            dependencies="${target.folder}/../../fr.obeo.dsl.viewpoint;"
+            dependencies="${target.folder}/../../fr.obeo.dsl.viewpoint;${target.folder}/../../org.obeonetwork.dsl.soa;${target.folder}/../../org.obeonetwork.dsl.environment;${target.folder}/../../org.obeonetwork.tools.migration;"
             binaryResource="false"
             packagesToRegister="">
         </acceleoCompiler>
