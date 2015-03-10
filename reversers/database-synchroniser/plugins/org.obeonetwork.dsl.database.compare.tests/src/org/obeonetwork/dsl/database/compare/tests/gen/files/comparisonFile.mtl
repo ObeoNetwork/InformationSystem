@@ -1,0 +1,28 @@
+[comment encoding = UTF-8 /]
+[module comparisonFile('http://www.eclipse.org/emf/compare','http://www.obeonetwork.org/dsl/database/evolution/1.0','http://www.obeonetwork.org/dsl/database/1.0')]
+
+[import org::obeonetwork::dsl::database::compare::tests::gen::services::utilServices /]
+
+[template public genComparison(aComparison : Comparison)]
+[file ('result.txt', false, 'UTF-8')]
+[aComparison.matches->select(aMatch : Match | aMatch.left.oclIsKindOf(DataBase)).genComparison()/]
+[/file]
+[/template]
+
+[template public genComparison(aMatch : Match)]
+[aMatch.getLabel()/]
+[aMatch.genDifferences()/]	
+[/template]
+
+[template public genDifferences(aMatch : Match)]
+[for (aDiff : DBDiff | aMatch.differences->filter(DBDiff))]
+	[aDiff.genDifferences()/]
+[/for]
+[/template]
+
+[template public genDifferences(aDiff: Diff)]
++ [aDiff.getLabel()/]
+[for (aSubDiff : Diff | aDiff.getSubDifferences())]
+	[aSubDiff.genDifferences()/]	
+[/for]
+[/template]

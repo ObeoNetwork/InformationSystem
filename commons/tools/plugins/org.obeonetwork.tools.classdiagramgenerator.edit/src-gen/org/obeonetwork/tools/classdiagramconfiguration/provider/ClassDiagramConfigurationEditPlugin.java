@@ -5,8 +5,7 @@ package org.obeonetwork.tools.classdiagramconfiguration.provider;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-
-import fr.obeo.dsl.viewpoint.provider.ViewpointEditPlugin;
+import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 
 /**
  * This is the central singleton for the ClassDiagramConfiguration edit plugin.
@@ -40,8 +39,8 @@ public final class ClassDiagramConfigurationEditPlugin extends EMFPlugin {
 	public ClassDiagramConfigurationEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     ViewpointEditPlugin.INSTANCE,
 		     EcoreEditPlugin.INSTANCE,
+		     SiriusEditPlugin.INSTANCE,
 		   });
 	}
 

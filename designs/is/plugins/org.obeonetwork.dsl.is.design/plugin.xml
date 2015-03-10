@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 
 <plugin>
-		<extension point="fr.obeo.dsl.viewpoint.componentization">
+		<extension point="org.eclipse.sirius.componentization">
 			<component class="org.obeonetwork.dsl.is.design.Activator" id="org.obeonetwork.dsl.is.design" name="is">
 			</component>
 		</extension>
@@ -66,7 +66,7 @@
       </propertyTester>
    </extension>
    <extension
-         point="fr.obeo.dsl.viewpoint.sessionManagerListener">
+         point="org.eclipse.sirius.sessionManagerListener">
       <listener
             class="org.obeonetwork.dsl.is.design.ui.selector.UpdateDAnalysisSelectorSessionListener">
       </listener>

@@ -10,11 +10,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore,
  org.obeonetwork.dsl.environment,
  org.eclipse.gmf.runtime.diagram.ui,
- fr.obeo.dsl.viewpoint.diagram,
  org.eclipse.ui.ide,
  org.obeonetwork.tools.linker,
  com.google.guava,
- fr.obeo.mda.ecore.extender
+ org.eclipse.sirius.diagram;bundle-version="2.0.0",
+ org.eclipse.sirius.ecore.extender;bundle-version="2.0.0",
+ org.eclipse.sirius.ext.emf;bundle-version="2.0.0"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.tools.classdiagramgenerator/src-gen"
+    creationIcons="false" editDirectory="/org.obeonetwork.tools.classdiagramgenerator.edit/src-gen"
+    editorDirectory="/org.obeonetwork.tools.classdiagramgenerator.editor/src-gen"
+    modelPluginID="org.obeonetwork.tools.classdiagramgenerator" modelName="ClassDiagramConfiguration"
+    rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
+    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="../../fr.obeo.dsl.viewpoint/model/contribution.genmodel#//contribution ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../fr.obeo.dsl.viewpoint/model/viewpoint.genmodel#//viewpoint"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>ClassDiagramConfiguration.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <genPackages prefix="ClassDiagramConfiguration" basePackage="org.obeonetwork.tools"
+      disposableProviderFactory="true" multipleEditorPages="false" fileExtensions="classdiagramconf"
+      ecorePackage="ClassDiagramConfiguration.ecore#/">
+    <genClasses ecoreClass="ClassDiagramConfiguration.ecore#//ConfigurationElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//ConfigurationElement/id"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//ConfigurationElement/fullQualifiedId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagramConfiguration.ecore#//ConfigurationElement/children"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagramConfiguration.ecore#//ConfigurationElement/stringValues"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagramConfiguration.ecore#//ConfigurationElement/booleanValues"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagramConfiguration.ecore#//Configuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//Configuration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//Configuration/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagramConfiguration.ecore#//Configuration/viewpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagramConfiguration.ecore#//Configuration/diagrams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagramConfiguration.ecore#//Configuration/colors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//Configuration/javaExtensions"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagramConfiguration.ecore#//DiagramConf">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//DiagramConf/descriptionId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//DiagramConf/metamodels"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ClassDiagramConfiguration.ecore#//ConfigurationValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//ConfigurationValue/id"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//ConfigurationValue/fullQualifiedId"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagramConfiguration.ecore#//StringValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//StringValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagramConfiguration.ecore#//BooleanValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//BooleanValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagramConfiguration.ecore#//ColorInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//ColorInfo/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//ColorInfo/red"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//ColorInfo/green"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagramConfiguration.ecore#//ColorInfo/blue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

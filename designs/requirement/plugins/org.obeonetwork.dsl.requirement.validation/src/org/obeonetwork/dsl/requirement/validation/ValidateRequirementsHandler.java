@@ -39,7 +39,7 @@ import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.presentation.RequirementEditor;
 
-import fr.obeo.dsl.viewpoint.ui.business.api.session.SessionEditorInput;
+import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 
 
 public class ValidateRequirementsHandler extends AbstractHandler {

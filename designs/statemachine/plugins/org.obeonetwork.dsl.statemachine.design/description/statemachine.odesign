@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="statemachine" version="6.7.0.201302071200">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="statemachine" version="6.7.0.201302071200">
   <ownedViewpoints name="State Machine">
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='D%26D%20Tools']/@ownedTools[name='D%26D_States']" name="State Machine Diagram" titleExpression="&lt;%name%> State Machine Diagram" domainClass="statemachine.StateMachine" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='D%26D%20Tools']/@ownedTools[name='D%26D_States']" name="State Machine Diagram" titleExpression="[name + ' State Machine Diagram'/]" domainClass="statemachine.StateMachine" enablePopupBars="true">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/environment/2.0.0#/"/>
       <diagramInitialisation>
-        <firstModelOperations xsi:type="tool:If" conditionExpression="&lt;%states.filter(&quot;InitialState&quot;).nSize == 0%>">
+        <firstModelOperations xsi:type="tool:If" conditionExpression="[states->filter(statemachine::InitialState)->size() = 0/]">
           <subModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.InitialState" referenceName="states"/>
         </firstModelOperations>
       </diagramInitialisation>
       <defaultLayer name="State Machine">
-        <nodeMappings name="SM_InitialState" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" semanticCandidatesExpression="&lt;%states.filter(&quot;InitialState&quot;)%>" documentation="Initial State" domainClass="statemachine.InitialState">
+        <nodeMappings name="SM_InitialState" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" semanticCandidatesExpression="[states->filter(statemachine::InitialState)/]" documentation="Initial State" domainClass="statemachine.InitialState">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" resizeKind="NSEW" arcWidth="0" arcHeight="0" roundedCorner="true" workspacePath="/org.obeonetwork.dsl.statemachine.design/icons/StateInitNode.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="SM_FinalState" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" semanticCandidatesExpression="&lt;%states.filter(&quot;FinalState&quot;)%>" documentation="Final State" domainClass="statemachine.FinalState">
+        <nodeMappings name="SM_FinalState" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" semanticCandidatesExpression="[states->filter(statemachine::FinalState)/]" documentation="Final State" domainClass="statemachine.FinalState">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" resizeKind="NSEW" arcWidth="0" arcHeight="0" roundedCorner="true" workspacePath="/org.obeonetwork.dsl.statemachine.design/icons/StateFinalNode.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="SM_Transition" labelDirectEdit="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Direct%20Edit%20Tools']/@ownedTools[name='EDT_TransitionsGuard']" semanticCandidatesExpression="&lt;%transitions%>" semanticElements="&lt;%self%>" documentation="For the moment: Transitions are only created in the StateMachine, Regions don't have transitions (although the metamodel allows to create transitions in regions)&#xD;&#xA;&#xD;&#xA;" sourceMapping="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_InitialState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_InitialStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State']" targetMapping="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_FinalState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_FinalStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State']" targetFinderExpression="&lt;%to%>" sourceFinderExpression="&lt;%from%>" domainClass="statemachine.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Reconnection%20Tools']/@ownedTools[name='RT_from'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Reconnection%20Tools']/@ownedTools[name='RT_to']">
+        <edgeMappings name="SM_Transition" labelDirectEdit="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Direct%20Edit%20Tools']/@ownedTools[name='EDT_TransitionsGuard']" semanticCandidatesExpression="feature:transitions" semanticElements="var:self" documentation="For the moment: Transitions are only created in the StateMachine, Regions don't have transitions (although the metamodel allows to create transitions in regions)&#xD;&#xA;&#xD;&#xA;" sourceMapping="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_InitialState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_InitialStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State']" targetMapping="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_FinalState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_FinalStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" domainClass="statemachine.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Reconnection%20Tools']/@ownedTools[name='RT_from'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Reconnection%20Tools']/@ownedTools[name='RT_to']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_chocolate']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="[&lt;%guard%>]">
+            <centerLabelStyleDescription showIcon="false" labelExpression="['[' + guard + ']'/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
-          <conditionnalStyles predicateExpression="&lt;%guard==&quot;&quot;%>">
+          <conditionnalStyles predicateExpression="[guard.oclIsUndefined()/]">
             <style sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               <centerLabelStyleDescription showIcon="false">
@@ -38,7 +38,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <containerMappings name="SM_State" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" labelDirectEdit="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Direct%20Edit%20Tools']/@ownedTools[name='EDT_States%26RegionsLabel']" semanticCandidatesExpression="&lt;%states.filter(&quot;State&quot;)%>" documentation="State" domainClass="statemachine.State">
+        <containerMappings name="SM_State" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" labelDirectEdit="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Direct%20Edit%20Tools']/@ownedTools[name='EDT_States%26RegionsLabel']" semanticCandidatesExpression="[states->filter(statemachine::State)/]" documentation="State" domainClass="statemachine.State">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="25" arcHeight="25" borderSizeComputationExpression="2" labelSize="10" roundedCorner="true">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_chocolate']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -46,20 +46,20 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="SM_Region" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_Region']" labelDirectEdit="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Direct%20Edit%20Tools']/@ownedTools[name='EDT_States%26RegionsLabel']" semanticCandidatesExpression="&lt;%regions%>" documentation="Region" domainClass="statemachine.Region" dropDescriptions="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='D%26D%20Tools']/@ownedTools[name='D%26D_States']">
-          <subNodeMappings name="SM_InitialStateInRegion" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" semanticCandidatesExpression="&lt;%states.filter(&quot;InitialState&quot;)%>" documentation="Initial State" domainClass="statemachine.InitialState">
+        <containerMappings name="SM_Region" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_Region']" labelDirectEdit="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Direct%20Edit%20Tools']/@ownedTools[name='EDT_States%26RegionsLabel']" semanticCandidatesExpression="feature:regions" documentation="Region" domainClass="statemachine.Region" dropDescriptions="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='D%26D%20Tools']/@ownedTools[name='D%26D_States']">
+          <subNodeMappings name="SM_InitialStateInRegion" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" semanticCandidatesExpression="[states->filter(statemachine::InitialState)/]" documentation="Initial State" domainClass="statemachine.InitialState">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" resizeKind="NSEW" arcWidth="0" arcHeight="0" roundedCorner="true" workspacePath="/org.obeonetwork.dsl.statemachine.design/icons/StateInitNode.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="SM_FinalStateInRegion" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" semanticCandidatesExpression="&lt;%states.filter(&quot;FinalState&quot;)%>" documentation="Final State" domainClass="statemachine.FinalState">
+          <subNodeMappings name="SM_FinalStateInRegion" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" semanticCandidatesExpression="[states->filter(statemachine::FinalState)/]" documentation="Final State" domainClass="statemachine.FinalState">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" resizeKind="NSEW" arcWidth="0" arcHeight="0" roundedCorner="true" workspacePath="/org.obeonetwork.dsl.statemachine.design/icons/StateFinalNode.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <subContainerMappings name="SM_StateInRegion" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" labelDirectEdit="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Direct%20Edit%20Tools']/@ownedTools[name='EDT_States%26RegionsLabel']" semanticCandidatesExpression="&lt;%states.filter(&quot;State&quot;)%>" documentation="State" domainClass="statemachine.State">
+          <subContainerMappings name="SM_StateInRegion" deletionDescription="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Delete%20Tools']/@ownedTools[name='Del_State']" labelDirectEdit="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Direct%20Edit%20Tools']/@ownedTools[name='EDT_States%26RegionsLabel']" semanticCandidatesExpression="[states->filter(statemachine::State)/]" documentation="State" domainClass="statemachine.State">
             <style xsi:type="style:FlatContainerStyleDescription" arcWidth="25" arcHeight="25" borderSizeComputationExpression="2" labelSize="10" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_chocolate']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -95,10 +95,10 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$source.eContainer(&quot;StateMachine&quot;)%>">
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[source.oclAsType(statemachine::AbstractState).eContainer(statemachine::StateMachine)/]">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.Transition" referenceName="transitions">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="from" valueExpression="&lt;%$source%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="to" valueExpression="&lt;%$target%>"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="from" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="to" valueExpression="var:target"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -108,7 +108,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.Region" referenceName="regions">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="new Region &lt;%eContainer.regions.nSize%>"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['new Region ' + eContainer(statemachine::StateMachine).regions->size()/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -117,14 +117,14 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.State" referenceName="states">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="State_&lt;%$container.states.filter(&quot;State&quot;).nSize()%>"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:evaluateLabel"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:OperationAction" name="OPE_ChangeParent" label="Change parent">
             <view name="views"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%eContainer(&quot;StateMachine&quot;).changeParentForStateMachine()%>"/>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:changeParentForStateMachine"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -133,13 +133,13 @@
             <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_States&amp;RegionsLabel">
               <mask mask="{0}"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:arg0"/>
               </initialOperation>
             </ownedTools>
             <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_TransitionsGuard">
               <mask mask="{0}"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:SetValue" featureName="guard" valueExpression="&lt;%$0%>"/>
+                <firstModelOperations xsi:type="tool:SetValue" featureName="guard" valueExpression="var:arg0"/>
               </initialOperation>
             </ownedTools>
           </subSections>
@@ -149,12 +149,12 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                  <subModelOperations xsi:type="tool:For" expression="&lt;%states%>" iteratorName="state">
-                    <subModelOperations xsi:type="tool:For" expression="&lt;%incomingTransitions%>" iteratorName="incomingTransition">
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool:For" expression="feature:states" iteratorName="state">
+                    <subModelOperations xsi:type="tool:For" expression="feature:incomingTransitions" iteratorName="incomingTransition">
                       <subModelOperations xsi:type="tool:RemoveElement"/>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool:For" expression="&lt;%outcomingTransitions%>" iteratorName="outcomingTransition">
+                    <subModelOperations xsi:type="tool:For" expression="feature:outcomingTransitions" iteratorName="outcomingTransition">
                       <subModelOperations xsi:type="tool:RemoveElement"/>
                     </subModelOperations>
                     <subModelOperations xsi:type="tool:RemoveElement"/>
@@ -168,11 +168,11 @@
               <elementView name="elementView"/>
               <containerView name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                  <subModelOperations xsi:type="tool:For" expression="&lt;%incomingTransitions%>" iteratorName="incomingTransition">
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool:For" expression="feature:incomingTransitions" iteratorName="incomingTransition">
                     <subModelOperations xsi:type="tool:RemoveElement"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:For" expression="&lt;%outcomingTransitions%>" iteratorName="outcomingTransition">
+                  <subModelOperations xsi:type="tool:For" expression="feature:outcomingTransitions" iteratorName="outcomingTransition">
                     <subModelOperations xsi:type="tool:RemoveElement"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:RemoveElement"/>
@@ -181,18 +181,18 @@
             </ownedTools>
           </subSections>
           <subSections name="D&amp;D Tools">
-            <ownedTools xsi:type="tool:ContainerDropDescription" name="D&amp;D_States" precondition="&lt;%filter(&quot;AbstractState&quot;)%>" forceRefresh="true" mappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_FinalState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_InitialState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_FinalStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_InitialStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State']" dragSource="BOTH">
+            <ownedTools xsi:type="tool:ContainerDropDescription" name="D&amp;D_States" precondition="[oclIsKindOf(statemachine::AbstractState)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_FinalState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_InitialState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_FinalStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_InitialStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State']" dragSource="BOTH">
               <oldContainer name="oldSemanticContainer"/>
               <newContainer name="newSemanticContainer"/>
               <element name="element"/>
               <newViewContainer name="newContainerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%$newSemanticContainer.filter(&quot;Region&quot;)%>">
-                    <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="states"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="[newSemanticContainer.oclIsKindOf(statemachine::Region)/]">
+                    <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="states"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%$newSemanticContainer.filter(&quot;StateMachine&quot;)%>">
-                    <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="states"/>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="[newSemanticContainer.oclIsKindOf(statemachine::StateMachine)/]">
+                    <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="states"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -206,8 +206,8 @@
               <targetView name="targetView"/>
               <element name="element"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="from" valueExpression="&lt;%$target%>"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="from" valueExpression="var:target"/>
                 </firstModelOperations>
               </initialOperation>
               <edgeView name="edgeView"/>
@@ -219,8 +219,8 @@
               <targetView name="targetView"/>
               <element name="element"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="to" valueExpression="&lt;%$target%>"/>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="to" valueExpression="var:target"/>
                 </firstModelOperations>
               </initialOperation>
               <edgeView name="edgeView"/>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_0hLQwGuPEeK15tgGdM8cCw" techID="_0hKpsGuPEeK15tgGdM8cCw" name="My">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_2dksAGuPEeK15tgGdM8cCw" comments="abracadabra modifié !!!&#xD;&#xA;" techID="_2JKiQ2uPEeK15tgGdM8cCw" name="sdsqd">
+    <tables xsi:type="database:Table" xmi:id="_3irS4GuPEeK15tgGdM8cCw" comments="qdqs" techID="_3MtC4WuPEeK15tgGdM8cCw" name="T2dsqd">
+      <columns xmi:id="_4YlnMGuPEeK15tgGdM8cCw" comments="sdsqd" techID="_39090GuPEeK15tgGdM8cCw" name="C2">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_4YlnMWuPEeK15tgGdM8cCw" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_KOB5cHIMEeKjRsN5OJ-I8A" techID="_J_GFkHIMEeKjRsN5OJ-I8A" name="ColonneSupprimée">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_KOB5cXIMEeKjRsN5OJ-I8A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_gDGWAHIREeKjRsN5OJ-I8A" techID="_fnbGoHIREeKjRsN5OJ-I8A" name="ColTypeChange">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_gDGWAXIREeKjRsN5OJ-I8A" length="255">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <constraints xmi:id="_17OFYHH8EeKjRsN5OJ-I8A" techID="_1n5gw3H8EeKjRsN5OJ-I8A" name="A_CHK" expression="verif"/>
+      <constraints xmi:id="_O2xREHIKEeKjRsN5OJ-I8A" techID="_OnUf03IKEeKjRsN5OJ-I8A" name="C_CHK" expression="supprimé"/>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_bF3YEHHyEeKjRsN5OJ-I8A" techID="_az_k8XHyEeKjRsN5OJ-I8A" name="Supprimée"/>
+    <tables xsi:type="database:Table" xmi:id="_GTO50HH2EeKjRsN5OJ-I8A" techID="_GBpakXH2EeKjRsN5OJ-I8A" name="C">
+      <columns xmi:id="_HBSSoHH2EeKjRsN5OJ-I8A" techID="_GpxxkHH2EeKjRsN5OJ-I8A" name="AvecSeq" sequence="_-I2SUHH1EeKjRsN5OJ-I8A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_HBSSoXH2EeKjRsN5OJ-I8A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_iNygMHH2EeKjRsN5OJ-I8A" techID="_h451UHH2EeKjRsN5OJ-I8A" name="AvecSeqInitialement" sequence="_BHDI0HH2EeKjRsN5OJ-I8A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_iNygMXH2EeKjRsN5OJ-I8A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_fAUD8HQtEeKEQaBTmSS_iA" techID="_ev63gHQtEeKEQaBTmSS_iA" name="nomInitial">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_fAUD8XQtEeKEQaBTmSS_iA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_wN_UEHQxEeKEQaBTmSS_iA" techID="_wAKTcHQxEeKEQaBTmSS_iA" name="AvecSeq2" sequence="_t2X8cHQxEeKEQaBTmSS_iA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_wN_UEXQxEeKEQaBTmSS_iA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="__c5csHIMEeKjRsN5OJ-I8A" techID="__P-bAXIMEeKjRsN5OJ-I8A" name="TableAvecPKChangeantDeColonne">
+      <columns xmi:id="_BxLzgHINEeKjRsN5OJ-I8A" techID="_BXF4gHINEeKjRsN5OJ-I8A" name="A" primaryKey="_CU3vYXINEeKjRsN5OJ-I8A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_BxLzgXINEeKjRsN5OJ-I8A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_DUh1kHINEeKjRsN5OJ-I8A" techID="_DJiGgHINEeKjRsN5OJ-I8A" name="B">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_DUh1kXINEeKjRsN5OJ-I8A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_CU3vYXINEeKjRsN5OJ-I8A" techID="_CU3vYHINEeKjRsN5OJ-I8A" name="TableAvecPKChangeantDeColonne_PK" columns="_BxLzgHINEeKjRsN5OJ-I8A"/>
+    </tables>
+    <sequences xmi:id="_-I2SUHH1EeKjRsN5OJ-I8A" techID="_7gUJ0nH1EeKjRsN5OJ-I8A" name="A" start="10" columns="_HBSSoHH2EeKjRsN5OJ-I8A"/>
+    <sequences xmi:id="_BHDI0HH2EeKjRsN5OJ-I8A" techID="_A1018nH2EeKjRsN5OJ-I8A" name="BSupprimée" cycle="true" columns="_iNygMHH2EeKjRsN5OJ-I8A"/>
+    <sequences xmi:id="_t2X8cHQxEeKEQaBTmSS_iA" techID="_tqbLInQxEeKEQaBTmSS_iA" name="C" columns="_wN_UEHQxEeKEQaBTmSS_iA"/>
+  </schemas>
+</database:DataBase>

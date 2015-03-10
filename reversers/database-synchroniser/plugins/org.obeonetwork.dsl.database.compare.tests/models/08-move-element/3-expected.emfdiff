@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff:ComparisonResourceSnapshot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dbevolution="http://www.obeonetwork.org/dsl/database/evolution/1.0" xmlns:diff="http://www.eclipse.org/emf/compare/diff/1.1" xmlns:match="http://www.eclipse.org/emf/compare/match/1.1" date="2013-02-14T10:58:27.361+0100">
+  <diff>
+    <ownedElements xsi:type="dbevolution:DatabaseChangeSet" diffModel="//@diff">
+      <subDiffElements xsi:type="dbevolution:AlterSchema">
+        <subDiffElements xsi:type="dbevolution:AddTable">
+          <rightParent href="platform:/resource/compare2/08-move-element/2-input.database#_5M2twHX4EeKPfoy_XD155w"/>
+          <leftElement href="platform:/resource/compare2/08-move-element/1-input.database#_7YxywHX4EeKPfoy_XD155w"/>
+          <table href="platform:/resource/compare2/08-move-element/1-input.database#_7YxywHX4EeKPfoy_XD155w"/>
+        </subDiffElements>
+        <schema href="platform:/resource/compare2/08-move-element/2-input.database#_5M2twHX4EeKPfoy_XD155w"/>
+      </subDiffElements>
+      <subDiffElements xsi:type="dbevolution:AlterSchema">
+        <subDiffElements xsi:type="dbevolution:AlterTable">
+          <subDiffElements xsi:type="dbevolution:AddColumnChange">
+            <rightParent href="platform:/resource/compare2/08-move-element/2-input.database#_4aCKcHaMEeKZ3IEmN7Xf4g"/>
+            <leftElement href="platform:/resource/compare2/08-move-element/1-input.database#_7FWhMnaMEeKZ3IEmN7Xf4g"/>
+            <column href="platform:/resource/compare2/08-move-element/1-input.database#_7FWhMnaMEeKZ3IEmN7Xf4g"/>
+          </subDiffElements>
+          <rightParent href="platform:/resource/compare2/08-move-element/2-input.database#_4aCKcHaMEeKZ3IEmN7Xf4g"/>
+          <table href="platform:/resource/compare2/08-move-element/2-input.database#_4aCKcHaMEeKZ3IEmN7Xf4g"/>
+        </subDiffElements>
+        <subDiffElements xsi:type="dbevolution:AlterTable">
+          <subDiffElements xsi:type="dbevolution:RemoveColumnChange">
+            <leftParent href="platform:/resource/compare2/08-move-element/1-input.database#_7FWhMXaMEeKZ3IEmN7Xf4g"/>
+            <rightElement href="platform:/resource/compare2/08-move-element/2-input.database#_53g1EHaMEeKZ3IEmN7Xf4g"/>
+            <column href="platform:/resource/compare2/08-move-element/2-input.database#_53g1EHaMEeKZ3IEmN7Xf4g"/>
+          </subDiffElements>
+          <rightParent href="platform:/resource/compare2/08-move-element/2-input.database#_3hf_8HaMEeKZ3IEmN7Xf4g"/>
+          <table href="platform:/resource/compare2/08-move-element/2-input.database#_3hf_8HaMEeKZ3IEmN7Xf4g"/>
+        </subDiffElements>
+        <schema href="platform:/resource/compare2/08-move-element/2-input.database#_2eqC4HaMEeKZ3IEmN7Xf4g"/>
+      </subDiffElements>
+      <subDiffElements xsi:type="dbevolution:AlterSchema">
+        <subDiffElements xsi:type="dbevolution:RemoveTable">
+          <leftParent href="platform:/resource/compare2/08-move-element/1-input.database#_6nQ2QHX4EeKPfoy_XD155w"/>
+          <rightElement href="platform:/resource/compare2/08-move-element/2-input.database#_7YxywHX4EeKPfoy_XD155w"/>
+          <table href="platform:/resource/compare2/08-move-element/2-input.database#_7YxywHX4EeKPfoy_XD155w"/>
+        </subDiffElements>
+        <schema href="platform:/resource/compare2/08-move-element/2-input.database#_6nQ2QHX4EeKPfoy_XD155w"/>
+      </subDiffElements>
+    </ownedElements>
+    <leftRoots href="platform:/resource/compare2/08-move-element/1-input.database#_UxPggXQwEeKEQaBTmSS_iA"/>
+    <rightRoots href="platform:/resource/compare2/08-move-element/2-input.database#_UxPggXQwEeKEQaBTmSS_iA"/>
+  </diff>
+  <match>
+    <matchedElements xsi:type="match:Match2Elements" similarity="1.0">
+      <subMatchElements xsi:type="match:Match2Elements" similarity="1.0">
+        <leftElement href="platform:/resource/compare2/08-move-element/1-input.database#_5M2twHX4EeKPfoy_XD155w"/>
+        <rightElement href="platform:/resource/compare2/08-move-element/2-input.database#_5M2twHX4EeKPfoy_XD155w"/>
+      </subMatchElements>
+      <subMatchElements xsi:type="match:Match2Elements" similarity="1.0">
+        <leftElement href="platform:/resource/compare2/08-move-element/1-input.database#_6nQ2QHX4EeKPfoy_XD155w"/>
+        <rightElement href="platform:/resource/compare2/08-move-element/2-input.database#_6nQ2QHX4EeKPfoy_XD155w"/>
+      </subMatchElements>
+      <subMatchElements xsi:type="match:Match2Elements" similarity="1.0">
+        <subMatchElements xsi:type="match:Match2Elements" similarity="1.0">
+          <leftElement href="platform:/resource/compare2/08-move-element/1-input.database#_7FWhMXaMEeKZ3IEmN7Xf4g"/>
+          <rightElement href="platform:/resource/compare2/08-move-element/2-input.database#_3hf_8HaMEeKZ3IEmN7Xf4g"/>
+        </subMatchElements>
+        <subMatchElements xsi:type="match:Match2Elements" similarity="1.0">
+          <leftElement href="platform:/resource/compare2/08-move-element/1-input.database#_7FWhNHaMEeKZ3IEmN7Xf4g"/>
+          <rightElement href="platform:/resource/compare2/08-move-element/2-input.database#_4aCKcHaMEeKZ3IEmN7Xf4g"/>
+        </subMatchElements>
+        <leftElement href="platform:/resource/compare2/08-move-element/1-input.database#_7FWhMHaMEeKZ3IEmN7Xf4g"/>
+        <rightElement href="platform:/resource/compare2/08-move-element/2-input.database#_2eqC4HaMEeKZ3IEmN7Xf4g"/>
+      </subMatchElements>
+      <leftElement href="platform:/resource/compare2/08-move-element/1-input.database#_UxPggXQwEeKEQaBTmSS_iA"/>
+      <rightElement href="platform:/resource/compare2/08-move-element/2-input.database#_UxPggXQwEeKEQaBTmSS_iA"/>
+    </matchedElements>
+    <unmatchedElements>
+      <element href="platform:/resource/compare2/08-move-element/1-input.database#_7YxywHX4EeKPfoy_XD155w"/>
+    </unmatchedElements>
+    <unmatchedElements>
+      <element href="platform:/resource/compare2/08-move-element/1-input.database#_7FWhMnaMEeKZ3IEmN7Xf4g"/>
+    </unmatchedElements>
+    <unmatchedElements side="Right">
+      <element href="platform:/resource/compare2/08-move-element/2-input.database#_7YxywHX4EeKPfoy_XD155w"/>
+    </unmatchedElements>
+    <unmatchedElements side="Right">
+      <element href="platform:/resource/compare2/08-move-element/2-input.database#_53g1EHaMEeKZ3IEmN7Xf4g"/>
+    </unmatchedElements>
+    <leftRoots href="platform:/resource/compare2/08-move-element/1-input.database#_UxPggXQwEeKEQaBTmSS_iA"/>
+    <rightRoots href="platform:/resource/compare2/08-move-element/2-input.database#_UxPggXQwEeKEQaBTmSS_iA"/>
+  </match>
+</diff:ComparisonResourceSnapshot>

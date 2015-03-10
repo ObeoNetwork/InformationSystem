@@ -3,12 +3,11 @@ Bundle-Name: Requirement viewpoint
 Bundle-SymbolicName: org.obeonetwork.dsl.requirement.design;singleton:=true
 Bundle-Version: 1.2.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.requirement.design.Activator
-Require-Bundle: fr.obeo.acceleo.gen,
- org.eclipse.ui,
+Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- fr.obeo.dsl.viewpoint,
  org.obeonetwork.dsl.requirement.edit,
- fr.obeo.dsl.viewpoint.table
+ org.eclipse.sirius;bundle-version="2.0.0",
+ org.eclipse.sirius.table;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: Obeo.fr

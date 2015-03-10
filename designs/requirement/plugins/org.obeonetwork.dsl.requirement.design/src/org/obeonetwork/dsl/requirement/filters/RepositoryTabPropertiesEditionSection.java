@@ -5,7 +5,7 @@ import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.eclipse.jface.viewers.IFilter;
 import org.obeonetwork.dsl.requirement.Repository;
 
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
 public class RepositoryTabPropertiesEditionSection implements IFilter {
 

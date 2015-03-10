@@ -1,0 +1,20 @@
+Data Base 2-input
+	+ Alter Schema S3 - 2 change(s)
+		+ Alter Table T32 - 1 change(s)
+			+ Add Column Change C1
+				
+			
+		+ Alter Table T31 - 1 change(s)
+			+ Remove Column Change C1
+				
+			
+	
+	+ Alter Schema S1 - 1 change(s)
+		+ Add Table T1
+			
+	
+	+ Alter Schema S2 - 1 change(s)
+		+ Remove Table T1
+			
+	
+	

@@ -34,7 +34,7 @@ public class CinematicLabelServices {
 	private static FlowEditLabelSwitch flowEditSwitch = new FlowEditLabelSwitch();
 	private static ViewEditLabelSwitch viewEditSwitch = new ViewEditLabelSwitch();
 
-	public static String getCinematicLabel(EObject eObject) {
+	public String getCinematicLabel(EObject eObject) {
 		String packagePrefix = eObject.eClass().getEPackage().getNsPrefix();
 		if ("cinematic".equals(packagePrefix)) {
 			return cinematicSwitch.doSwitch(eObject);

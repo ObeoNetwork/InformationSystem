@@ -1,0 +1,16 @@
+Data Base 2-input
+	+ Alter Table Table1 - 3 change(s)
+		+ Update COL3 : INTEGER - 1 change(s)
+			+ Native Type [nativeType unset]
+				
+			
+		+ Update Col2 : DATE - 1 change(s)
+			+ Native Type [nativeType unset]
+				
+			
+		+ Update Col1 : DATE - 1 change(s)
+			+ Native Type [nativeType changed]
+				
+			
+	
+	

@@ -3,14 +3,15 @@
 package org.obeonetwork.tools.classdiagramconfiguration.impl;
 
 import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-
 import org.obeonetwork.tools.classdiagramconfiguration.BooleanValue;
 import org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationPackage;
 import org.obeonetwork.tools.classdiagramconfiguration.ConfigurationElement;
@@ -33,7 +34,7 @@ import org.obeonetwork.tools.classdiagramconfiguration.StringValue;
  *
  * @generated
  */
-public class ConfigurationElementImpl extends CDOObjectImpl implements ConfigurationElement {
+public class ConfigurationElementImpl extends MinimalEObjectImpl.Container implements ConfigurationElement {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -45,6 +46,16 @@ public class ConfigurationElementImpl extends CDOObjectImpl implements Configura
 	protected static final String ID_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getFullQualifiedId() <em>Full Qualified Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,6 +64,36 @@ public class ConfigurationElementImpl extends CDOObjectImpl implements Configura
 	 * @ordered
 	 */
 	protected static final String FULL_QUALIFIED_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getChildren() <em>Children</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChildren()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConfigurationElement> children;
+
+	/**
+	 * The cached value of the '{@link #getStringValues() <em>String Values</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStringValues()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StringValue> stringValues;
+
+	/**
+	 * The cached value of the '{@link #getBooleanValues() <em>Boolean Values</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBooleanValues()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BooleanValue> booleanValues;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,18 +119,8 @@ public class ConfigurationElementImpl extends CDOObjectImpl implements Configura
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getId() {
-		return (String)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__ID, ClassDiagramConfigurationPackage.Literals.CONFIGURATION_ELEMENT__ID, true, true);
+		return id;
 	}
 
 	/**
@@ -98,7 +129,10 @@ public class ConfigurationElementImpl extends CDOObjectImpl implements Configura
 	 * @generated
 	 */
 	public void setId(String newId) {
-		eDynamicSet(ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__ID, ClassDiagramConfigurationPackage.Literals.CONFIGURATION_ELEMENT__ID, newId);
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__ID, oldId, id));
 	}
 
 	/**
@@ -111,7 +145,7 @@ public class ConfigurationElementImpl extends CDOObjectImpl implements Configura
 			return ((ConfigurationElement)eContainer()).getFullQualifiedId() + "." + getId();
 		} else {
 			return getId();
-		}		
+		}
 	}
 
 	/**
@@ -121,7 +155,10 @@ public class ConfigurationElementImpl extends CDOObjectImpl implements Configura
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<ConfigurationElement> getChildren() {
-		return (EList<ConfigurationElement>)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__CHILDREN, ClassDiagramConfigurationPackage.Literals.CONFIGURATION_ELEMENT__CHILDREN, true, true);
+		if (children == null) {
+			children = new EObjectContainmentEList<ConfigurationElement>(ConfigurationElement.class, this, ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__CHILDREN);
+		}
+		return children;
 	}
 
 	/**
@@ -131,7 +168,10 @@ public class ConfigurationElementImpl extends CDOObjectImpl implements Configura
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<StringValue> getStringValues() {
-		return (EList<StringValue>)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__STRING_VALUES, ClassDiagramConfigurationPackage.Literals.CONFIGURATION_ELEMENT__STRING_VALUES, true, true);
+		if (stringValues == null) {
+			stringValues = new EObjectContainmentEList<StringValue>(StringValue.class, this, ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__STRING_VALUES);
+		}
+		return stringValues;
 	}
 
 	/**
@@ -141,7 +181,10 @@ public class ConfigurationElementImpl extends CDOObjectImpl implements Configura
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<BooleanValue> getBooleanValues() {
-		return (EList<BooleanValue>)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__BOOLEAN_VALUES, ClassDiagramConfigurationPackage.Literals.CONFIGURATION_ELEMENT__BOOLEAN_VALUES, true, true);
+		if (booleanValues == null) {
+			booleanValues = new EObjectContainmentEList<BooleanValue>(BooleanValue.class, this, ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__BOOLEAN_VALUES);
+		}
+		return booleanValues;
 	}
 
 	/**
@@ -245,17 +288,33 @@ public class ConfigurationElementImpl extends CDOObjectImpl implements Configura
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__ID:
-				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__FULL_QUALIFIED_ID:
 				return FULL_QUALIFIED_ID_EDEFAULT == null ? getFullQualifiedId() != null : !FULL_QUALIFIED_ID_EDEFAULT.equals(getFullQualifiedId());
 			case ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__CHILDREN:
-				return !getChildren().isEmpty();
+				return children != null && !children.isEmpty();
 			case ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__STRING_VALUES:
-				return !getStringValues().isEmpty();
+				return stringValues != null && !stringValues.isEmpty();
 			case ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT__BOOLEAN_VALUES:
-				return !getBooleanValues().isEmpty();
+				return booleanValues != null && !booleanValues.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ConfigurationElementImpl

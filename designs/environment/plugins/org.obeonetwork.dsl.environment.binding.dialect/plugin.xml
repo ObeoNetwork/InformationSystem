@@ -34,14 +34,14 @@
             genModel="model/bindingdialect.genmodel"/>
    </extension>
    <extension
-         point="fr.obeo.dsl.viewpoint.dialect">
+         point="org.eclipse.sirius.dialect">
       <dialect
             class="org.obeonetwork.dsl.environment.binding.dialect.BindingDialect">
       </dialect>
    </extension>
    
      <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-    <propertySections contributorId="fr.obeo.dsl.viewpoint.editor.editorPlugin.ViewpointEditorContributor">
+    <propertySections contributorId="org.eclipse.sirius.editor.editorPlugin.ViewpointEditorContributor">
   	  <propertySection
                class="org.obeonetwork.dsl.environment.binding.dialect.properties.DBindingEditorCreationDescriptionDescriptionPropertySection"
                id="description.section.bindingEditorCreationDescription.Description"

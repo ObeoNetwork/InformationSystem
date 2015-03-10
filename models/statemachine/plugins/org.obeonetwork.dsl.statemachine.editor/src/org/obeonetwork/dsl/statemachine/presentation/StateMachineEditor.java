@@ -127,7 +127,7 @@ public class StateMachineEditor
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, 
 	IViewerProvider, IGotoMarker, ITabbedPropertySheetPageContributor  {
 	
-	public static final String PROPERTIES_CONTRIBUTOR = "fr.obeo.dsl.viewpoint.diagram";
+	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram.ui";
 	
 	
 	/**

@@ -25,7 +25,7 @@ import org.obeonetwork.graal.TasksContainer;
 import org.obeonetwork.graal.TasksGroup;
 import org.obeonetwork.graal.design.services.task.TaskUtils;
 
-import fr.obeo.dsl.viewpoint.AbstractDNode;
+import org.eclipse.sirius.diagram.AbstractDNode;
 
 /**
  * Class used to group tasks into a new group

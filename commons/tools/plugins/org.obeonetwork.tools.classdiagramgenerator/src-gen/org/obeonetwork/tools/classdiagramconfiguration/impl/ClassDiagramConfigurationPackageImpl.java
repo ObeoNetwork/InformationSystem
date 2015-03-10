@@ -2,14 +2,14 @@
  */
 package org.obeonetwork.tools.classdiagramconfiguration.impl;
 
-import fr.obeo.dsl.viewpoint.ViewpointPackage;
-import fr.obeo.dsl.viewpoint.description.DescriptionPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
 import org.obeonetwork.tools.classdiagramconfiguration.BooleanValue;
 import org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationFactory;
 import org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationPackage;

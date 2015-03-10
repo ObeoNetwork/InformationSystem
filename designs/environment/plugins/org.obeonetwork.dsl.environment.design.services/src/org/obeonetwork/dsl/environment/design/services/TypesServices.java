@@ -18,6 +18,7 @@ import java.util.Set;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.obeonetwork.dsl.environment.Environment;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
@@ -25,8 +26,6 @@ import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.TypesDefinition;
-
-import fr.obeo.dsl.viewpoint.DSemanticDiagram;
 
 public class TypesServices {
 	

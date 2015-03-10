@@ -1,0 +1,235 @@
+[comment encoding = UTF-8 /]
+[module TableGen(
+ 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
+ 'http://www.obeonetwork.org/dsl/database/1.0',
+ 'http://www.eclipse.org/emf/compare',
+ 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[template public genSQLForTables(changeSet : Comparison) post(trim())]
+[if (changeSet.eAllContents(AddTable)->size()>0)]
+	[file ('create-tables.sql', false, 'UTF-8')]
+		[for (addTable : AddTable | changeSet.eAllContents(AddTable))]
+[addTable.genCreateTable()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(RemoveTable)->size()>0)]
+	[file ('drop-tables.sql', false, 'UTF-8')]
+		[for (removeTable : RemoveTable | changeSet.eAllContents(RemoveTable))]
+[removeTable.genDropTable()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(AlterTable)->size()>0)]
+	[file ('alter-tables.sql', false, 'UTF-8')]
+		[for (alterTable : AlterTable | changeSet.eAllContents(AlterTable))]
+[alterTable.genAlterTable()/]
+		[/for]
+	[/file]
+[/if]
+[/template]
+
+[comment ----------- TABLE ----------- /]
+[template private genTableDoc(table : Table) post(trim())]
+-- ==============================================================
+--  Table : [table.name()/]                                    
+-- ==============================================================
+[/template]
+
+[template private genDropTable(removeTable : RemoveTable) post(trim())]
+[let table : Table = removeTable.table.oclAsType(Table)]
+[table.genTableDoc()/]
+[table.genDropSynonym()/]
+DROP TABLE [table.name()/];
+[/let]
+[/template]
+
+[template private genStorageClause(table : Table) ? (table.isTargetOracle()) post(trim())]
+[if (table.owner.oclIsKindOf(Schema))]
+storage
+(
+    initial 10K
+    next 10K
+    minextents 1
+    maxextents unlimited
+    pctincrease 50
+    freelists 1
+    freelist groups 1
+    optimal NULL
+    buffer_pool default
+)
+tablespace TS_DATA_[table.getSchemaName()/][/if]
+[/template]
+
+[template private getSchemaName(table : Table) post(trim())]
+[table.owner.oclAsType(Schema).name.toUpper()/]
+[/template]
+
+[template private genDropSynonym(table : Table) ? (table.owner.oclIsKindOf(Schema) and table.isTargetOracle()) post(trim())]
+DROP PUBLIC SYNONYM [table.name()/];
+[/template]
+
+[template private genCreateSynonym(table : Table) ? (table.owner.oclIsKindOf(Schema) and table.isTargetOracle()) post(trim()) ]
+CREATE PUBLIC SYNONYM [table.name()/] FOR [table.getSchemaName()/].[table.name()/];
+[/template]
+
+[template private genCreateTable(addTable : AddTable) post(trim())]
+[let table : Table = addTable.table.oclAsType(Table)]
+[table.genTableDoc()/]
+[table.genDropSynonym()/]
+
+DROP TABLE [table.name()/];
+CREATE TABLE [table.name()/](
+[table.columnsDef()/]
+)
+[table.genStorageClause()/];
+
+[table.genCreateSynonym()/]
+
+[table.genCreateTableComment()/]
+
+[table.genCreateColumnsComment()/]
+[/let]
+[/template]
+
+[template private genAlterTable(alterTable : AlterTable) post(trim())]
+[alterTable.table.genTableDoc()/]
+[for (diff : Diff | alterTable.getSubDiffs())]
+	[if (diff.oclIsTypeOf(RenameTableChange))]
+		[let change : RenameTableChange = diff.oclAsType(RenameTableChange)]
+[change.table.genRenameTable(change.newTable.oclAsType(Table))/]
+
+		[/let]
+	[elseif (diff.oclIsTypeOf(UpdateTableCommentChange))]
+[diff.oclAsType(UpdateTableCommentChange).table.genUpdateTableComment()/]
+	
+	[elseif (diff.oclIsTypeOf(AddColumnChange))]
+[diff.oclAsType(AddColumnChange).column.genAddColumn()/]
+
+	[elseif (diff.oclIsTypeOf(RemoveColumnChange))]
+[diff.oclAsType(RemoveColumnChange).column.genDropColumn()/]
+
+	[elseif (diff.oclIsTypeOf(RenameColumnChange))]
+		[let change : RenameColumnChange = diff.oclAsType(RenameColumnChange)]
+[change.column.genRenameColumn(change.newColumn.oclAsType(Column))/]
+
+		[/let]
+	[elseif (diff.oclIsTypeOf(UpdateColumnChange))]
+[diff.oclAsType(UpdateColumnChange).column.genUpdateColumn()/]
+
+	[elseif (diff.oclIsTypeOf(UpdateColumnCommentChange))]
+[diff.oclAsType(UpdateColumnCommentChange).column.genUpdateColumnComment()/]
+
+	[/if]
+[/for]
+
+[/template]
+
+[template private genCreateTableComment(table : Table) ? (table.comments<>null and table.comments.size()>0) post(trim())]
+COMMENT ON TABLE [table.name/] IS '[table.comments.replaceAll('\'','\'\'')/]';
+[/template]
+
+[template private genUpdateTableComment(table : Table) post(trim())]
+[table.genCreateTableComment()/]
+[/template]
+
+[template private genRenameTable(oldTable : Table, newTable : Table) post(trim())]
+ALTER TABLE [oldTable.name()/] RENAME TO [newTable.name()/];
+[/template]
+
+[template private genCreateColumnsComment(table : Table) post(trim())]
+[for (column : Column | table.columns)]
+[column.genCreateColumnComment()/]
+[/for]
+[/template]
+
+[template public name(table : Table) post(trim())]
+[table.name.toUpper()/]
+[/template]
+
+[comment ----------- COLUMN ----------- /]
+
+[template private genAddColumn(column : Column) post(trim())]
+ALTER TABLE [column.owner.oclAsType(Table).name()/] ADD [column.columnDef()/];
+[column.genCreateColumnComment()/]
+[/template]
+
+[template private genDropColumn(column : Column) post(trim())]
+ALTER TABLE [column.owner.oclAsType(Table).name()/] DROP COLUMN [column.name()/];
+[/template]
+
+[template private genUpdateColumn(column : Column) post(trim())]
+ALTER TABLE [column.owner.oclAsType(Table).name()/] MODIFY [column.columnDef()/];
+[/template]
+
+[template private genRenameColumn(oldColumn : Column, newColumn : Column) post(trim())]
+ALTER TABLE [newColumn.owner.oclAsType(Table).name()/] RENAME COLUMN [oldColumn.name()/] TO [newColumn.name()/];
+[/template]
+
+[template private genCreateColumnComment(column : Column) ? (column.comments<>null and column.comments.size()>0) post(trim())]
+COMMENT ON COLUMN [column.owner.oclAsType(Table).name()/].[column.name()/] IS '[column.comments.replaceAll('\'','\'\'')/]';
+[/template]
+
+[template private genUpdateColumnComment(column : Column) post(trim())]
+[column.genCreateColumnComment()/]
+[/template]
+
+[template private columnsDef(table : Table)]
+[for (column : Column | table.columns) separator(',\n')]
+    [column.columnDef()/][/for]
+[/template]
+
+[template private columnDef(column : Column) post(trim())]
+[column.name()/] [column.dataType()/][column.default()/][column.nullable()/][column.autoIncrement()/]
+[/template]
+
+[template public name(column : Column) post(trim())]
+[column.name/]
+[/template]
+
+[template private dataType(column : Column) post(trim())]
+[column.type.oclAsType(TypeInstance).dataType()/][if (column.autoincrement and column.isTargetSqlServer())] IDENTITY (1, 1)[/if]
+[/template]
+
+[template private dataType(type : TypeInstance) ? (type.nativeType.oclIsUndefined()) ]
+[/template]
+
+[template private dataType(type : TypeInstance) ? (not type.nativeType.oclIsUndefined()) ]
+[type.getType()/]
+[/template]
+
+[template private default(column : Column)]
+[if (column.defaultValue<>null and column.defaultValue.size()>0)] default [column.defaultValue()/][/if]
+[/template]
+
+[comment TODO support '' quoted defaultValue with several template with guard /]
+[template private defaultValue(column : Column) post(trim())]
+[column.defaultValue/]
+[/template]
+
+[template private nullable(column : Column)]
+[if (column.nullable)] NULL[else] NOT NULL[/if]
+[/template]
+
+[template private autoIncrement(column : Column)]
+[if (column.autoincrement and column.isTargetMySql())] AUTO_INCREMENT[/if]
+[/template]
+
+[query public getType(arg0 : TypeInstance) : String
+	= invoke('org.obeonetwork.dsl.database.sqlgen.TypesServices', 'getType(org.obeonetwork.dsl.typeslibrary.TypeInstance)', Sequence{arg0}) /]
+
+[query public isTargetOracle(arg0 : DatabaseElement) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.TypesServices', 'isTargetOracle(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+
+[query public isTargetMySql(arg0 : DatabaseElement) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.TypesServices', 'isTargetMySql(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+
+[query public isTargetSqlServer(arg0 : DatabaseElement) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.TypesServices', 'isTargetSqlServer(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+
+[query private getSubDiffs(diff : Diff) : Sequence(Diff)
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.UtilServices', 'getSubDiffs(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]

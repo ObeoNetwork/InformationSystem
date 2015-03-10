@@ -42,7 +42,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram.ui">
          <propertyTab
                category="semantic &amp; extension"
                id="NativeTypesLibrary"
@@ -83,7 +83,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
       <propertySections
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram.ui">
          <propertySection
                class="org.obeonetwork.dsl.typeslibrary.parts.forms.NativeTypesLibraryPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.typeslibrary.filters.NativeTypesLibraryTabPropertiesEditionSection"

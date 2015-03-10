@@ -1,0 +1,22 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module.
+ */]
+[module utilServices('http://www.obeonetwork.org/dsl/database/evolution/1.0','http://www.eclipse.org/emf/compare')/]
+
+[**
+ * The documentation of the query
+ * @param arg0
+ */]
+[query public getLabel(arg0 : OclAny) : String
+	= invoke('org.obeonetwork.dsl.database.compare.tests.gen.services.UtilServices', 'getLabel(org.eclipse.emf.ecore.EObject)', Sequence{arg0})
+/]
+
+[**
+ * The documentation of the query
+ * @param arg0
+ */]
+[query public getSubDifferences(arg0 : Diff) : Sequence(Diff)
+	= invoke('org.obeonetwork.dsl.database.compare.tests.gen.services.UtilServices', 'getSubDifferences(org.eclipse.emf.compare.Diff)', Sequence{arg0})
+/]
+

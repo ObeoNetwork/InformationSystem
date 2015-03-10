@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff:ComparisonResourceSnapshot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dbevolution="http://www.obeonetwork.org/dsl/database/evolution/1.0" xmlns:diff="http://www.eclipse.org/emf/compare/diff/1.1" xmlns:match="http://www.eclipse.org/emf/compare/match/1.1" date="2013-02-05T18:08:04.039+0100">
+  <diff>
+    <ownedElements xsi:type="dbevolution:DatabaseChangeSet" diffModel="//@diff">
+      <subDiffElements xsi:type="dbevolution:RemoveSchema">
+        <subDiffElements xsi:type="dbevolution:RemoveTable">
+          <leftParent href="platform:/resource/compare2/2-input.database#_jZf-MG-tEeKjvtG3KOti6Q"/>
+          <rightElement href="platform:/resource/compare2/2-input.database#_lk6F0G-tEeKjvtG3KOti6Q"/>
+          <table href="platform:/resource/compare2/2-input.database#_lk6F0G-tEeKjvtG3KOti6Q"/>
+        </subDiffElements>
+        <subDiffElements xsi:type="dbevolution:RemoveSequence">
+          <leftParent href="platform:/resource/compare2/2-input.database#_jZf-MG-tEeKjvtG3KOti6Q"/>
+          <rightElement href="platform:/resource/compare2/2-input.database#_pXF-AG-tEeKjvtG3KOti6Q"/>
+          <sequence href="platform:/resource/compare2/2-input.database#_pXF-AG-tEeKjvtG3KOti6Q"/>
+        </subDiffElements>
+        <schema href="platform:/resource/compare2/2-input.database#_jZf-MG-tEeKjvtG3KOti6Q"/>
+      </subDiffElements>
+    </ownedElements>
+    <ownedElements xsi:type="diff:DiffGroup">
+      <subDiffElements xsi:type="diff:DiffGroup">
+        <subDiffElements xsi:type="diff:ModelElementChangeRightTarget">
+          <leftParent href="platform:/resource/compare2/1-input.database#_g7dOcW-tEeKjvtG3KOti6Q"/>
+          <rightElement href="platform:/resource/compare2/2-input.database#_jZf-MG-tEeKjvtG3KOti6Q"/>
+        </subDiffElements>
+        <rightParent href="platform:/resource/compare2/1-input.database#_g7dOcW-tEeKjvtG3KOti6Q"/>
+      </subDiffElements>
+    </ownedElements>
+    <leftRoots href="platform:/resource/compare2/1-input.database#_g7dOcW-tEeKjvtG3KOti6Q"/>
+    <rightRoots href="platform:/resource/compare2/2-input.database#_g7dOcW-tEeKjvtG3KOti6Q"/>
+  </diff>
+  <match>
+    <matchedElements xsi:type="match:Match2Elements" similarity="1.0">
+      <leftElement href="platform:/resource/compare2/1-input.database#_g7dOcW-tEeKjvtG3KOti6Q"/>
+      <rightElement href="platform:/resource/compare2/2-input.database#_g7dOcW-tEeKjvtG3KOti6Q"/>
+    </matchedElements>
+    <unmatchedElements side="Right">
+      <element href="platform:/resource/compare2/2-input.database#_jZf-MG-tEeKjvtG3KOti6Q"/>
+    </unmatchedElements>
+    <leftRoots href="platform:/resource/compare2/1-input.database#_g7dOcW-tEeKjvtG3KOti6Q"/>
+    <rightRoots href="platform:/resource/compare2/2-input.database#_g7dOcW-tEeKjvtG3KOti6Q"/>
+  </match>
+</diff:ComparisonResourceSnapshot>

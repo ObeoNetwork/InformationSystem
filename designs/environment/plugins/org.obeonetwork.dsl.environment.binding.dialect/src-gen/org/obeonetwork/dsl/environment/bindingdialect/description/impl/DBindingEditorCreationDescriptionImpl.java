@@ -28,9 +28,9 @@ import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditor
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage;
 
-import fr.obeo.dsl.viewpoint.description.RepresentationDescription;
-import fr.obeo.dsl.viewpoint.description.RepresentationElementMapping;
-import fr.obeo.dsl.viewpoint.description.tool.impl.RepresentationCreationDescriptionImpl;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.RepresentationElementMapping;
+import org.eclipse.sirius.viewpoint.description.tool.impl.RepresentationCreationDescriptionImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -182,7 +182,7 @@ public class DBindingEditorCreationDescriptionImpl extends RepresentationCreatio
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see fr.obeo.dsl.viewpoint.description.tool.impl.RepresentationCreationDescriptionImpl#getMappings()
+	 * @see org.eclipse.sirius.viewpoint.description.tool.impl.RepresentationCreationDescriptionImpl#getMappings()
 	 * @generated NOT
 	 */
 	@Override
@@ -200,7 +200,7 @@ public class DBindingEditorCreationDescriptionImpl extends RepresentationCreatio
 			final EObject eReferencer = setting.getEObject();
 			final EStructuralFeature eFeature = setting.getEStructuralFeature();
 			if (eReferencer instanceof RepresentationElementMapping
-					&& eFeature.equals(fr.obeo.dsl.viewpoint.description.DescriptionPackage.eINSTANCE
+					&& eFeature.equals(org.eclipse.sirius.viewpoint.description.DescriptionPackage.eINSTANCE
 							.getRepresentationElementMapping_DetailDescriptions())) {
 				mappings.add((RepresentationElementMapping)eReferencer);
 			}
@@ -211,7 +211,7 @@ public class DBindingEditorCreationDescriptionImpl extends RepresentationCreatio
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see fr.obeo.dsl.viewpoint.description.tool.impl.RepresentationCreationDescriptionImpl#basicGetRepresentationDescription()
+	 * @see org.eclipse.sirius.viewpoint.description.tool.impl.RepresentationCreationDescriptionImpl#basicGetRepresentationDescription()
 	 * @generated NOT
 	 */
 	@Override
@@ -222,7 +222,7 @@ public class DBindingEditorCreationDescriptionImpl extends RepresentationCreatio
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see fr.obeo.dsl.viewpoint.description.tool.impl.RepresentationCreationDescriptionImpl#getRepresentationDescription()
+	 * @see org.eclipse.sirius.viewpoint.description.tool.impl.RepresentationCreationDescriptionImpl#getRepresentationDescription()
 	 * @generated NOT
 	 */
 	@Override

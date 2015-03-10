@@ -29,7 +29,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoration;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.obeonetwork.graal.UserStory;
 
-import fr.obeo.dsl.viewpoint.diagram.tools.api.draw2d.ui.figures.FigureUtilities;
+import org.eclipse.sirius.ext.draw2d.figure.FigureUtilities;
 
 /**
  * Decorator for nodes to display User Story information

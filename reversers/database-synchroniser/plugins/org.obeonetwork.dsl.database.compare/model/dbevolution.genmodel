@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.dsl.database.compare/src" modelPluginID="org.obeonetwork.dsl.database.compare"
+    modelName="Dbevolution" importerID="org.eclipse.emf.importer.cdo" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="../../org.obeonetwork.dsl.database/model/database.genmodel#//database platform:/plugin/org.eclipse.emf.compare/model/compare.genmodel#//compare platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.obeonetwork.dsl.typeslibrary/model/typeslibrary.genmodel#//typeslibrary">
+  <foreignModel>dbevolution.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <genPackages prefix="Dbevolution" basePackage="org.obeonetwork.dsl.database" disposableProviderFactory="true"
+      ecorePackage="dbevolution.ecore#/">
+    <genClasses ecoreClass="dbevolution.ecore#//DatabaseChangeSet"/>
+    <genClasses image="false" ecoreClass="dbevolution.ecore#//TableChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//TableChange/table"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//AddTable"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RemoveTable"/>
+    <genClasses ecoreClass="dbevolution.ecore#//AlterTable"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RenameTableChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//RenameTableChange/newTable"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//UpdateTableCommentChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//UpdateTableCommentChange/newTable"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dbevolution.ecore#//ColumnChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//ColumnChange/column"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//AddColumnChange"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RemoveColumnChange"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RenameColumnChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//RenameColumnChange/newColumn"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//UpdateColumnChange"/>
+    <genClasses ecoreClass="dbevolution.ecore#//UpdateColumnCommentChange"/>
+    <genClasses image="false" ecoreClass="dbevolution.ecore#//PrimaryKeyChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//PrimaryKeyChange/primaryKey"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//AddPrimaryKey"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RemovePrimaryKey"/>
+    <genClasses ecoreClass="dbevolution.ecore#//UpdatePrimaryKey">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//UpdatePrimaryKey/newPrimaryKey"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dbevolution.ecore#//IndexChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//IndexChange/index"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//AddIndex"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RemoveIndex"/>
+    <genClasses ecoreClass="dbevolution.ecore#//UpdateIndex">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//UpdateIndex/newIndex"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dbevolution.ecore#//ForeignKeyChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//ForeignKeyChange/foreignKey"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//AddForeignKey"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RemoveForeignKey"/>
+    <genClasses ecoreClass="dbevolution.ecore#//UpdateForeignKey">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//UpdateForeignKey/newForeignKey"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dbevolution.ecore#//ConstraintChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//ConstraintChange/constraint"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//AddConstraint"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RemoveConstraint"/>
+    <genClasses ecoreClass="dbevolution.ecore#//UpdateConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//UpdateConstraint/newConstraint"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dbevolution.ecore#//SequenceChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//SequenceChange/sequence"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//AddSequence"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RemoveSequence"/>
+    <genClasses ecoreClass="dbevolution.ecore#//UpdateSequence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//UpdateSequence/newSequence"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//SchemaChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//SchemaChange/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//AddSchema"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RemoveSchema"/>
+    <genClasses ecoreClass="dbevolution.ecore#//AlterSchema"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RenameSchemaChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//RenameSchemaChange/newSchema"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//UpdateSchemaCommentChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//UpdateSchemaCommentChange/newSchema"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dbevolution.ecore#//DBDiff">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//DBDiff/target"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

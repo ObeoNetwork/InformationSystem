@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff:ComparisonResourceSnapshot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dbevolution="http://www.obeonetwork.org/dsl/database/evolution/1.0" xmlns:diff="http://www.eclipse.org/emf/compare/diff/1.1" xmlns:match="http://www.eclipse.org/emf/compare/match/1.1" date="2013-02-05T11:01:41.544+0100">
+  <diff>
+    <ownedElements xsi:type="dbevolution:DatabaseChangeSet" diffModel="//@diff">
+      <subDiffElements xsi:type="dbevolution:AlterSchema">
+        <subDiffElements xsi:type="dbevolution:RenameSchemaChange">
+          <attribute href="http://www.obeonetwork.org/dsl/database/1.0#//NamedElement/name"/>
+          <leftElement href="platform:/resource/safran173-1/1-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+          <rightElement href="platform:/resource/safran173-1/2-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+          <schema href="platform:/resource/safran173-1/2-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+          <newSchema href="platform:/resource/safran173-1/1-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+        </subDiffElements>
+        <subDiffElements xsi:type="dbevolution:AlterTable">
+          <subDiffElements xsi:type="dbevolution:RenameTableChange">
+            <attribute href="http://www.obeonetwork.org/dsl/database/1.0#//NamedElement/name"/>
+            <leftElement href="platform:/resource/safran173-1/1-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+            <rightElement href="platform:/resource/safran173-1/2-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+            <table href="platform:/resource/safran173-1/2-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+            <newTable href="platform:/resource/safran173-1/1-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+          </subDiffElements>
+          <rightParent href="platform:/resource/safran173-1/2-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+          <table href="platform:/resource/safran173-1/2-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+        </subDiffElements>
+        <schema href="platform:/resource/safran173-1/2-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+      </subDiffElements>
+    </ownedElements>
+    <ownedElements xsi:type="diff:DiffGroup">
+      <subDiffElements xsi:type="diff:DiffGroup">
+        <subDiffElements xsi:type="diff:DiffGroup">
+          <subDiffElements xsi:type="diff:UpdateAttribute">
+            <attribute href="http://www.obeonetwork.org/dsl/database/1.0#//NamedElement/name"/>
+            <leftElement href="platform:/resource/safran173-1/1-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+            <rightElement href="platform:/resource/safran173-1/2-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+          </subDiffElements>
+          <subDiffElements xsi:type="diff:DiffGroup">
+            <subDiffElements xsi:type="diff:UpdateAttribute">
+              <attribute href="http://www.obeonetwork.org/dsl/database/1.0#//NamedElement/name"/>
+              <leftElement href="platform:/resource/safran173-1/1-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+              <rightElement href="platform:/resource/safran173-1/2-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+            </subDiffElements>
+            <rightParent href="platform:/resource/safran173-1/2-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+          </subDiffElements>
+          <rightParent href="platform:/resource/safran173-1/2-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+        </subDiffElements>
+        <rightParent href="platform:/resource/safran173-1/2-input.database#_0hLQwGuPEeK15tgGdM8cCw"/>
+      </subDiffElements>
+    </ownedElements>
+    <leftRoots href="platform:/resource/safran173-1/1-input.database#_0hLQwGuPEeK15tgGdM8cCw"/>
+    <rightRoots href="platform:/resource/safran173-1/2-input.database#_0hLQwGuPEeK15tgGdM8cCw"/>
+  </diff>
+  <match>
+    <matchedElements xsi:type="match:Match2Elements" similarity="1.0">
+      <subMatchElements xsi:type="match:Match2Elements">
+        <subMatchElements xsi:type="match:Match2Elements">
+          <subMatchElements xsi:type="match:Match2Elements">
+            <subMatchElements xsi:type="match:Match2Elements" similarity="1.0">
+              <subMatchElements xsi:type="match:Match2Elements">
+                <leftElement href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+                <rightElement href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+              </subMatchElements>
+              <leftElement href="platform:/resource/safran173-1/1-input.database#_4YlnMWuPEeK15tgGdM8cCw"/>
+              <rightElement href="platform:/resource/safran173-1/2-input.database#_4YlnMWuPEeK15tgGdM8cCw"/>
+            </subMatchElements>
+            <leftElement href="platform:/resource/safran173-1/1-input.database#_4YlnMGuPEeK15tgGdM8cCw"/>
+            <rightElement href="platform:/resource/safran173-1/2-input.database#_4YlnMGuPEeK15tgGdM8cCw"/>
+          </subMatchElements>
+          <leftElement href="platform:/resource/safran173-1/1-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+          <rightElement href="platform:/resource/safran173-1/2-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+        </subMatchElements>
+        <leftElement href="platform:/resource/safran173-1/1-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+        <rightElement href="platform:/resource/safran173-1/2-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+      </subMatchElements>
+      <leftElement href="platform:/resource/safran173-1/1-input.database#_0hLQwGuPEeK15tgGdM8cCw"/>
+      <rightElement href="platform:/resource/safran173-1/2-input.database#_0hLQwGuPEeK15tgGdM8cCw"/>
+    </matchedElements>
+    <leftRoots href="platform:/resource/safran173-1/1-input.database#_0hLQwGuPEeK15tgGdM8cCw"/>
+    <rightRoots href="platform:/resource/safran173-1/2-input.database#_0hLQwGuPEeK15tgGdM8cCw"/>
+  </match>
+</diff:ComparisonResourceSnapshot>

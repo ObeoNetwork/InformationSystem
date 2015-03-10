@@ -16,11 +16,11 @@ import java.util.Collection;
 import org.eclipse.emf.cdo.common.protocol.CDOProtocolConstants;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import fr.obeo.dsl.viewpoint.DAnalysis;
-import fr.obeo.dsl.viewpoint.DRepresentation;
-import fr.obeo.dsl.viewpoint.business.api.session.danalysis.DAnalysisSelector;
-import fr.obeo.dsl.viewpoint.table.metamodel.table.DTable;
-import fr.obeo.dsl.viewpoint.tree.DTree;
+import org.eclipse.sirius.viewpoint.DAnalysis;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSelector;
+import org.eclipse.sirius.table.metamodel.table.DTable;
+import org.eclipse.sirius.tree.DTree;
 
 /**
  * A {@link DAnalysisSelector} to have {@link DRepresentation} creation done

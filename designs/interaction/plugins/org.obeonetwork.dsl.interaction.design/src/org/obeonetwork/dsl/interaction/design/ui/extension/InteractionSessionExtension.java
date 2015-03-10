@@ -4,10 +4,10 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionAnalysisContextMenuActionProvider;
 import org.obeonetwork.dsl.interaction.design.ui.extension.providers.InteractionAnalysisTreeProvider;
 
-import fr.obeo.dsl.viewpoint.ui.tools.api.views.ViewHelper;
-import fr.obeo.dsl.viewpoint.ui.tools.internal.views.ViewHelperImpl;
-import fr.obeo.dsl.viewpoint.ui.tools.internal.views.sessionview.extension.IContextMenuActionProvider;
-import fr.obeo.dsl.viewpoint.ui.tools.internal.views.sessionview.extension.ISessionViewExtension;
+import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
+import org.eclipse.sirius.ui.tools.internal.views.ViewHelperImpl;
+import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.IContextMenuActionProvider;
+import org.eclipse.sirius.ui.tools.internal.views.modelexplorer.extension.ISessionViewExtension;
 
 public class InteractionSessionExtension {
 

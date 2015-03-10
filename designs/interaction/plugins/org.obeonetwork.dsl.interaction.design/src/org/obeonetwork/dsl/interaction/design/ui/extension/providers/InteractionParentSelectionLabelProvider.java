@@ -9,9 +9,9 @@ import org.eclipse.jface.viewers.IDecoration;
 import org.eclipse.swt.graphics.Image;
 import org.obeonetwork.dsl.interaction.design.Activator;
 
-import fr.obeo.mda.ecore.extender.business.api.permission.IPermissionAuthority;
-import fr.obeo.mda.ecore.extender.business.api.permission.LockStatus;
-import fr.obeo.mda.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
+import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
+import org.eclipse.sirius.ecore.extender.business.api.permission.LockStatus;
+import org.eclipse.sirius.ecore.extender.business.api.permission.PermissionAuthorityRegistry;
 
 public class InteractionParentSelectionLabelProvider extends AdapterFactoryLabelProvider {
 

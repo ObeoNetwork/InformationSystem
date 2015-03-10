@@ -14,15 +14,15 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.statemachine.StateMachine;
 
-import fr.obeo.dsl.viewpoint.DRepresentation;
-import fr.obeo.dsl.viewpoint.business.api.dialect.DialectManager;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectEditor;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
-import fr.obeo.dsl.viewpoint.ui.business.api.session.IEditingSession;
-import fr.obeo.dsl.viewpoint.ui.business.api.session.SessionUIManager;
-import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.ui.business.api.session.IEditingSession;
+import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class DeleteStateMachineHandler extends AbstractHandler {
 

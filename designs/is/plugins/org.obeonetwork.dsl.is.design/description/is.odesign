@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" name="Obeo Designer For IS" version="6.7.0.201302071200">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="Obeo Designer For IS" version="8.1.0">
   <ownedViewpoints name="IS Views" modelFileExtension="ois">
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Overview Diagram" showOnStartup="true" domainClass="overview.Root" preconditionExpression="">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Overview Diagram" showOnStartup="true" domainClass="overview.Root" preconditionExpression="">
       <metamodel href="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
       <defaultLayer name="Overview">
-        <nodeMappings name="RootEObject" semanticCandidatesExpression="&lt;%current.eContents()%>" doubleClickDescription="//@ownedViewpoints[name='IS%20Views']/@ownedRepresentations[name='Overview%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='Open%20main%20diagram']" domainClass="EObject">
+        <nodeMappings name="RootEObject" labelDirectEdit="//@ownedViewpoints[name='IS%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:eContents" doubleClickDescription="//@ownedViewpoints[name='IS%20Views']/@ownedRepresentations[name='Overview%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability']/@ownedTools[name='Open%20main%20diagram']" domainClass="EObject">
           <style xsi:type="style:BundledImageDescription" labelExpression="null">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="&lt;%eClass.ePackage.name+&quot;.&quot;+eClass.name==&quot;soa.System&quot;%>">
-            <style xsi:type="style:BundledImageDescription" labelExpression="SOA&lt;%if (name.length() > 0){%>::&lt;%}%>&lt;%name%>" sizeComputationExpression="5">
+          <conditionnalStyles predicateExpression="[oclIsKindOf(soa::System)/]">
+            <style xsi:type="style:BundledImageDescription" labelExpression="[if oclAsType(soa::System).name->size() > 0 then 'SOA'.concat('::').concat(oclAsType(soa::System).name) else 'SOA' endif/]" sizeComputationExpression="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="&lt;%eClass.ePackage.name+&quot;.&quot;+eClass.name==&quot;entity.Root&quot;%>">
-            <style xsi:type="style:BundledImageDescription" labelExpression="Entity&lt;%if (name.length() > 0){%>::&lt;%}%>&lt;%name%>" sizeComputationExpression="5">
+          <conditionnalStyles predicateExpression="[oclIsKindOf(entity::Root)/]">
+            <style xsi:type="style:BundledImageDescription" labelExpression="[if oclAsType(entity::Root).name->size() > 0 then 'Entity'.concat('::').concat(oclAsType(entity::Root).name) else 'Entity' endif/]" sizeComputationExpression="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="&lt;%eClass.ePackage.name+&quot;.&quot;+eClass.name==&quot;cinematic.CinematicRoot&quot;%>">
-            <style xsi:type="style:BundledImageDescription" labelExpression="Cinematic&lt;%if (name.length() > 0){%>::&lt;%}%>&lt;%name%>" sizeComputationExpression="5">
+          <conditionnalStyles predicateExpression="[oclIsKindOf(cinematic::CinematicRoot)/]">
+            <style xsi:type="style:BundledImageDescription" labelExpression="[if oclAsType(cinematic::CinematicRoot).name->size() > 0 then 'Cinematic'.concat('::').concat(oclAsType(cinematic::CinematicRoot).name) else 'Cinematic' endif/]" sizeComputationExpression="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
@@ -42,8 +42,8 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:CreateInstance" typeName="entity.Root" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Root_&lt;%eContainer.ownedElements.filter(&quot;entity.Root&quot;).nSize%>"/>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="entity.Root" referenceName="ownedElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Root_'.concat(eContainer(overview::Root).ownedElements->filter(entity::Root)->size().toString())/]"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -51,8 +51,8 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:CreateInstance" typeName="cinematic.CinematicRoot" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Root_&lt;%eContainer.ownedElements.filter(&quot;cinematic.CinematicRoot&quot;).nSize%>"/>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cinematic.CinematicRoot" referenceName="ownedElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Root_'.concat(eContainer(overview::Root).ownedElements->filter(cinematic::CinematicRoot)->size().toString())/]"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -60,8 +60,8 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:CreateInstance" typeName="soa.System" referenceName="ownedElements">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="System_&lt;%eContainer.ownedElements.filter(&quot;soa.System&quot;).nSize%>"/>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.System" referenceName="ownedElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['System_'.concat(eContainer(overview::Root).ownedElements->filter(soa::System)->size().toString())/]"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -71,20 +71,20 @@
               <element name="element"/>
               <elementView name="elementView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%eClass.ePackage.name+&quot;.&quot;+eClass.name==&quot;soa.System&quot;%>">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(soa::System)/]">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true">
                       <diagramDescription href="../../org.obeonetwork.dsl.soa.design/description/soa.odesign#//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%eClass.ePackage.name+&quot;.&quot;+eClass.name==&quot;entity.Root&quot;%>">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(entity::Root)/]">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true">
                       <diagramDescription href="../../org.obeonetwork.dsl.entity.design/description/entity.odesign#//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%eClass.ePackage.name+&quot;.&quot;+eClass.name==&quot;cinematic.CinematicRoot&quot;%>">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(cinematic::CinematicRoot)/]">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true">
-                      <diagramDescription href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']"/>
+                      <diagramDescription href="../../org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -94,13 +94,13 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Reused Tools" domainClass="soa.System" preconditionExpression="false">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Tools" domainClass="soa.System" preconditionExpression="false">
       <defaultLayer name="Default">
         <toolSections name="Usability Tools">
-          <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Reused Name Direct Edit">
+          <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Reused Name Direct Edit" forceRefresh="true">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

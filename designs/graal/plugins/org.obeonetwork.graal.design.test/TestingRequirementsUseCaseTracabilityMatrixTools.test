@@ -1,0 +1,39 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingRequirementsUseCaseTracabilityMatrixTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _6OiLYGNdEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/21/14 10:48 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in requirements.odesign/Requirements - UseCase tracability matrix
+- Tool direct edit -- Can not be tested
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree | select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
+with [get-window "Select resources to add"] {
+    get-button "Browse Workspace..." | click
+    with [get-window "File Selection"] {
+        get-tree | select "E-BookStore/E-BookStore.requirement"
+        get-button OK | click
+    }
+    get-button OK | click
+}
+with [get-window "Viewpoints Selection"] {
+    get-table | get-item VP_Graal_Req | check
+    get-button OK | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.requirement/Repository E-BookStore" 
+    | get-menu "New Representation/new Requirements - UseCase tracability matrix" | click
+get-window "New Representation" | get-button OK | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

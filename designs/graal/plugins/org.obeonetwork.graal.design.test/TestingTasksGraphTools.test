@@ -1,0 +1,456 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingTasksGraphTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _6O6l4GNdEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/21/14 10:21 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in graal.odesign/Tasks Graph
+- Tool CRE_Task
+- Tool Existing task
+- Tool CRE_TasksGroup
+- Tool CRE_System
+- Tool CRE_Use
+- Tool Graal -- Can not be tested
+- Tool TG_Delete_Task
+- Tool TG_Delete_TasksGroup
+- Tool TG_Delete_System
+- Tool TG_Delete_TaskUse
+- Tool TG_ReconnectSource_Use --Can not be tested
+- Tool TG_ReconnectTarget_Use --Can not be tested
+- Tool Go To Actions Plan Representation
+- Tool Go To Tasksgroup Tasks Graph
+- Tool Go To System Tasks Graph
+- Tool DAD_System -- Can not be tested
+- Tool Actor
+- Tool Works on
+- Tool TG_Delete_Edge_AbstractTaskToActor
+- Tool TG_Delete_Actor
+- Tool TG_REC_AbstractTaskToActor -- Can not be tested
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore/Tasks Graph" 
+    | double-click
+with [get-editor "Tasks Graph"] {
+    get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-edit-part -name "Buy books" | mouse-move 27 64 
+        -height 73 -width 150
+    with [get-palette] {
+        get-palette-entry TasksGroup | mouse-move 13 0 -height 23 -width 125
+        get-palette-entry "Existing task" | mouse-move 22 0 -height 23 -width 125
+        // Check Tool CRE_Task
+        with [get-palette-entry Task] {
+            mouse-move 37 12 button1 -height 23 -width 125
+            mouse-press 37 12 button1 -height 23 -width 125
+            mouse-release 37 12 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+        mouse-move 76 72 button1 -height 401 -width 1140
+        mouse-press 76 72 button1 -height 401 -width 1140
+        mouse-release 76 72 button1 524288 -height 401 -width 1140
+    }
+    get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-edit-part -name Task10 | get-handle ResizeHandle 
+        -index 6 | mouse-hover 4 4 -height 7 -width 7
+}
+get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-edit-part -name Task10 
+    | get-edit-part -className WorkspaceImageEditPart | get-figure "0/0" | get-property "getSubStringText()" 
+    | equals Task10 | verify-true
+with [get-editor "Tasks Graph"] {
+    get-diagram -index 1 | get-edit-part -name "Tasks Graph" | mouse-move 648 172 -height 401 -width 1140
+    with [get-palette] {
+        get-palette-entry Use | mouse-move 54 0 -height 23 -width 125
+        get-palette-entry System | mouse-move 56 1 -height 23 -width 125
+        // Check Tool CRE_TasksGroup
+        with [get-palette-entry TasksGroup] {
+            mouse-move 56 14 button1 -height 23 -width 125
+            mouse-press 56 14 button1 -height 23 -width 125
+            mouse-release 56 14 button1 524288 -height 23 -width 125
+            mouse-move 13 14 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+        mouse-move 57 207 button1 -height 401 -width 1140
+        mouse-press 57 207 button1 -height 401 -width 1140
+        mouse-release 57 207 button1 524288 -height 401 -width 1140
+    }
+    get-diagram -index 1 | get-figure "0/1/0/0" | mouse-hover 52 202 -height 401 -width 1140
+}
+get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-edit-part -name GroupG1 
+    | get-edit-part -className WorkspaceImageEditPart | get-figure "0/0" | get-property "getText()" | equals GroupG1 
+    | verify-true
+with [get-editor "Tasks Graph"] {
+	// Check Tool CRE_System
+    with [get-palette | get-palette-entry System] {
+        mouse-move 42 11 button1 -height 23 -width 125
+        mouse-press 42 11 button1 -height 23 -width 125
+        mouse-release 42 11 button1 524288 -height 23 -width 125
+        mouse-move 16 9 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+        mouse-move 332 63 button1 -height 401 -width 1140
+        mouse-press 332 63 button1 -height 401 -width 1140
+        mouse-release 332 63 button1 524288 -height 401 -width 1140
+    }
+    with [get-diagram -index 1] {
+        get-figure "0/1/0/0" | mouse-hover 327 58 -height 401 -width 1140
+        key-type "" "\\u0000"
+    }
+}
+get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-figure "13/0" 
+    | get-property "getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" | equals SubSystem1 
+    | verify-true
+with [get-editor "Tasks Graph"] {
+    get-diagram -index 1 | get-edit-part -name "Tasks Graph" | mouse-move 636 153 -height 401 -width 1140
+    // Check Tool CRE_Use
+    with [get-palette | get-palette-entry Use] {
+        mouse-move 47 0 -height 23 -width 125
+        mouse-move 42 10 button1 -height 23 -width 125
+        mouse-press 42 10 button1 -height 23 -width 125
+        mouse-release 42 10 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+        mouse-move 470 134 -height 401 -width 1140
+        mouse-move 278 209 -height 401 -width 1140
+        with [get-edit-part -name "Constitute shopping\r\n"
+            + "cart" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 47 44 button1 -height 73 -width 150
+            mouse-press 47 44 button1 -height 73 -width 150
+            mouse-release 47 44 button1 524288 -height 73 -width 150
+        }
+        mouse-move 217 146 -height 401 -width 1140
+        with [get-edit-part -name Task10 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-hover 67 27 -height 73 -width 150
+            mouse-move 67 27 button1 -height 73 -width 150
+            mouse-press 67 27 button1 -height 73 -width 150
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+        with [get-edit-part -name Task10 | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-release 67 27 button1 524288 -height 73 -width 150
+            mouse-hover 67 27 -height 73 -width 150
+        }
+        mouse-move 8 85 -height 401 -width 1140
+    }
+}
+with [get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-edit-part -name Task10 
+    | get-target-connection 0] {
+    get-property "getTarget().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
+        | equals Task10 | verify-true
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
+        | equals "Constitute shopping\n"
+        + "cart" | verify-true
+}
+with [get-editor "Tasks Graph" | get-diagram -index 1] {
+    with [get-edit-part -name "Tasks Graph"] {
+        mouse-move 32 39 button3 -height 401 -width 1140
+        mouse-press 32 39 button3 -height 401 -width 1140
+        mouse-release 32 39 button3 2097152 -height 401 -width 1140
+    }
+}
+with [get-editor "Tasks Graph" | get-diagram -index 1] {
+    with [get-edit-part -name "Tasks Graph"] {
+        mouse-hover 338 266 -height 401 -width 1140
+        mouse-move 27 120 -height 401 -width 1140
+        mouse-hover 27 120 -height 401 -width 1140
+        mouse-move 27 120 button3 -height 401 -width 1140
+        mouse-press 27 120 button3 -height 401 -width 1140
+        mouse-release 27 120 button3 2097152 -height 401 -width 1140
+    }    
+}
+with [get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+    mouse-hover 366 270 -height 401 -width 1140
+    mouse-move 284 313 -height 401 -width 1140
+}
+get-view "Model Explorer" | get-tree | key-type "" "\\u0000"
+with [get-editor "Tasks Graph"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Tasks Graph"] {
+            mouse-move 73 69 -height 401 -width 1140
+            with [get-edit-part -name Task10 | get-edit-part -className WorkspaceImageEditPart] {
+                mouse-move 23 52 button1 -height 73 -width 150
+                mouse-press 23 52 button1 -height 73 -width 150
+                mouse-release 23 52 button1 524288 -height 73 -width 150
+                mouse-hover 23 52 -height 73 -width 150
+            }
+        }
+        // Check Tool TG_Delete_Task
+        key-type Del
+        key-type "" "\\u0000"
+        key-type "M1+z"
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Tasks Graph"] {
+            mouse-move 106 206 -height 401 -width 1140
+            with [get-edit-part -name GroupG1 | get-edit-part -className WorkspaceImageEditPart] {
+                mouse-move 49 44 button1 -height 75 -width 150
+                mouse-press 49 44 button1 -height 75 -width 150
+                mouse-release 49 44 button1 524288 -height 75 -width 150
+                mouse-hover 49 44 -height 75 -width 150
+            }
+        }
+        // Check Tool TG_Delete_TasksGroup
+        key-type Del
+        with [get-edit-part -name "Tasks Graph"] {
+            mouse-press 106 251 button1 -height 401 -width 1140
+            mouse-release 106 251 button1 524288 -height 401 -width 1140
+            mouse-hover 106 251 -mask CTRL -height 401 -width 1140
+        }
+        key-type "M1+z"
+    }
+    with [get-diagram -index 1] {
+        get-edit-part -name "Tasks Graph" | mouse-move 34 34 -height 401 -width 1140
+        key-type "" "\\u0000"
+        with [get-edit-part -name "Tasks Graph"] {
+            mouse-move 327 111 -height 401 -width 1140
+            with [get-edit-part -name SubSystem1 | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-move 64 27 button1 -height 68 -width 148
+                mouse-press 64 27 button1 -height 68 -width 148
+                mouse-release 64 27 button1 524288 -height 68 -width 148
+                mouse-hover 64 27 -height 68 -width 148
+            }
+        }
+        // Check Tool TG_Delete_System
+        key-type Del
+        with [get-edit-part -name "Tasks Graph"] {
+            mouse-press 396 90 button1 -height 401 -width 1140
+            mouse-release 396 90 button1 524288 -height 401 -width 1140
+            mouse-hover 396 90 -mask CTRL -height 401 -width 1140
+        }
+        key-type "M1+z"
+    }
+    with [get-diagram -index 1] {
+        get-edit-part -name "Tasks Graph" | mouse-move 133 34 -height 401 -width 1140
+        key-type "" "\\u0000"
+        with [get-edit-part -name "Tasks Graph"] {
+            mouse-move 333 60 -height 401 -width 1140
+            with [get-edit-part -name SubSystem1 | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-move 60 50 -height 68 -width 148
+                mouse-hover 60 50 -height 68 -width 148
+            }
+            mouse-move 260 175 button1 -height 401 -width 1140
+            mouse-press 260 175 button1 -height 401 -width 1140
+            mouse-release 260 175 button1 524288 -height 401 -width 1140
+            mouse-move 263 175 -height 401 -width 1140
+            with [get-edit-part -name Task10 | get-target-connection 0] {
+                mouse-move 68 41 button1 -height 67 -width 100
+                mouse-press 68 41 button1 -height 67 -width 100
+                mouse-release 70 43 button1 524288 -height 71 -width 104
+            }
+            get-edit-part -name "Constitute shopping\r\n"
+                + "cart" | get-edit-part -className WorkspaceImageEditPart | mouse-hover 65 29 -height 73 -width 150
+        }
+        // Check Tool TG_Delete_TaskUse
+        key-type Del
+    }
+    get-diagram -index 1 | key-type "M1+z"
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Tasks Graph"] {
+            mouse-move 215 194 button1 -height 401 -width 1140
+            mouse-press 215 194 button1 -height 401 -width 1140
+            mouse-release 215 194 button1 524288 -height 401 -width 1140
+            mouse-hover 215 194 -height 401 -width 1140
+            mouse-move 2 13 -height 401 -width 1140
+        }
+        key-type "" "\\u0000"
+        get-edit-part -name "Tasks Graph" | mouse-hover 2 13 -height 401 -width 1140
+    }
+}
+with [get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+    mouse-move 118 146 -height 401 -width 1140
+    with [get-edit-part -name Task10 | get-edit-part -className WorkspaceImageEditPart] {
+        mouse-move 59 48 button1 -height 73 -width 150
+        mouse-press 59 48 button1 -height 73 -width 150
+        mouse-release 59 48 button1 524288 -height 73 -width 150
+        mouse-press 59 48 button1 -height 73 -width 150
+        // Check Tool Go To Actions Plan Representation
+        mouse-double-click 59 48 button1 -height 73 -width 150
+    }
+}
+get-window "New Representation" | get-button OK | click
+get-editor "Task10 Actions Plan" | get-diagram -index 1 | get-edit-part -name "Task10 Actions Plan" | mouse-move 47 0 
+    -height 309 -width 645
+with [get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+    mouse-move 114 205 -height 401 -width 1140
+    with [get-edit-part -name GroupG1 | get-edit-part -className WorkspaceImageEditPart] {
+        mouse-move 68 34 button1 -height 75 -width 150
+        mouse-press 68 34 button1 -height 75 -width 150
+        mouse-release 68 34 button1 524288 -height 75 -width 150
+        mouse-press 68 34 button1 -height 75 -width 150
+        // Check Tool Go To Tasksgroup Tasks Graph
+        mouse-double-click 68 34 button1 -height 75 -width 150
+    }
+}
+get-window "New Representation" | get-button OK | click
+get-editor "GroupG1 Tasks Graph" | get-diagram -index 1 | get-edit-part -name "GroupG1 Tasks Graph" | mouse-move 80 0 
+    -height 309 -width 645
+with [get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+    mouse-move 317 89 -height 401 -width 1140
+    with [get-edit-part -name SubSystem1 | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 108 37 button1 -height 68 -width 148
+        mouse-press 108 37 button1 -height 68 -width 148
+        mouse-release 108 37 button1 524288 -height 68 -width 148
+        mouse-press 108 37 button1 -height 68 -width 148
+        // Check Tool Go To System Tasks Graph
+        mouse-double-click 108 37 button1 -height 68 -width 148
+    }
+}
+get-window "New Representation" | get-button OK | click
+get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph" | mouse-move 6 51 -height 401 
+    -width 1140
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal" | double-click
+with [get-editor "E-BookStore.graal" | get-tree] {
+    select "platform:\\/resource\\/E-BookStore\\/E-BookStore.graal/System E-BookStore" | get-menu "New Child/Actor" 
+        | click
+    get-item "platform:\\/resource\\/E-BookStore\\/E-BookStore.graal/System E-BookStore/Actor" | click
+}
+with [get-view Properties | get-section Properties] {
+    get-editbox -after [get-label "Name:"] | set-text Toto
+    get-editbox -after [get-label "Description:"] | click-text
+    get-editbox -after [get-label "Name:"] | set-text Toto
+    get-editbox -after [get-label "Description:"] | click-text
+    with [get-editbox -after [get-label "Name:"]] {
+        set-text Toto
+        click-text 1 5
+    }
+}
+with [get-editor "E-BookStore.graal" | get-tree] {
+    get-item "platform:\\/resource\\/E-BookStore\\/E-BookStore.graal/System E-BookStore/Actor Toto" | click
+    key-type "M1+s"
+}
+get-window "Reload the resource?" | get-button Yes | click
+with [get-editor "Tasks Graph"] {
+    with [get-palette] {
+        get-palette-entry TasksGroup | mouse-move 34 19 -height 23 -width 125
+        get-palette-entry System | mouse-move 49 10 -height 23 -width 125
+    }
+    get-palette | get-palette-entry Use | mouse-move 60 21 -height 23 -width 125
+    // Check Tool Actor
+    with [get-palette | get-palette-entry Actor] {
+        mouse-move 55 12 button1 -height 23 -width 125
+        mouse-press 55 12 button1 -height 23 -width 125
+        mouse-release 55 12 button1 524288 -height 23 -width 125
+        mouse-move 24 10 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+        mouse-move 525 254 -height 401 -width 1140
+        with [get-edit-part -name "Constitute shopping\r\n"
+            + "cart" | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 42 29 button1 -height 73 -width 150
+            mouse-press 42 29 button1 -height 73 -width 150
+            mouse-release 42 29 button1 524288 -height 73 -width 150
+        }
+    }
+}
+with [get-window "Add an actor"] {
+    get-tree | select "Actor Toto"
+    get-button Finish | click
+}
+with [get-editor "Tasks Graph"] {
+    with [get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+        mouse-move 204 239 -height 405 -width 1144
+        mouse-hover 200 235 -height 401 -width 1140
+        mouse-move 279 236 -height 401 -width 1140
+        mouse-move 433 245 -height 401 -width 1140
+        with [get-edit-part -name Toto | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-hover 13 24 -height 59 -width 30
+            mouse-move 13 24 button1 -height 59 -width 30
+            mouse-press 13 24 button1 -height 59 -width 30
+            mouse-move 12 24 -mask 524288 -height 59 -width 30
+        }
+        mouse-drag 131 174 button1 524288 -height 401 -width 1140
+        mouse-release 131 174 button1 524288 -height 401 -width 1140
+        get-edit-part -name Toto | get-edit-part -className WorkspaceImageEditPart | mouse-hover 13 24 -height 59 
+            -width 30
+        mouse-move 634 320 -height 401 -width 1140
+    }
+    // Check Tool Works on
+    with [get-palette | get-palette-entry "Works on"] {
+        mouse-move 58 13 button1 -height 23 -width 125
+        mouse-press 58 13 button1 -height 23 -width 125
+        mouse-release 58 13 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+        mouse-move 153 186 -height 401 -width 1140
+        get-edit-part -name Toto | get-edit-part -className WorkspaceImageEditPart | mouse-hover 13 29 -height 59 
+            -width 30
+    }
+    get-palette | key-type ESC
+}
+get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-edit-part -name Toto 
+    | get-edit-part -name Toto | get-property "getEditText()" | equals Toto | verify-true
+with [get-editor "Tasks Graph"] {
+    with [get-palette | get-palette-entry "Works on"] {
+        mouse-move 60 15 button1 -height 23 -width 125
+        mouse-press 60 15 button1 -height 23 -width 125
+        mouse-release 60 15 button1 524288 -height 23 -width 125
+        mouse-move 20 15 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Tasks Graph"] {
+        mouse-move 118 170 -height 401 -width 1140
+        with [get-edit-part -name Toto | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 15 20 button1 -height 59 -width 30
+            mouse-press 15 20 button1 -height 59 -width 30
+            mouse-release 15 20 button1 524288 -height 59 -width 30
+        }
+        mouse-move 148 303 -height 401 -width 1140
+        with [get-edit-part -name "Search books"] {
+            mouse-move 53 35 button1 -height 73 -width 150
+            mouse-press 53 35 button1 -height 73 -width 150
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-edit-part -name "Search books"] {
+        mouse-release 53 35 button1 524288 -height 73 -width 150
+        mouse-hover 53 35 -height 73 -width 150
+    }
+}
+with [get-editor "Tasks Graph" | get-diagram -index 1 | get-edit-part -name "Tasks Graph" | get-edit-part -name Toto 
+    | get-target-connection 1] {
+    get-property "getTarget().getChildren().DNodeNameEditPart[0].getEditText()" | equals Toto | verify-true
+    get-property "getSource().getChildren().WorkspaceImageEditPart[0].getFigure().getChildren().WorkspaceImageFigure[0].getChildren().SiriusWrapLabel[0].getText()" 
+        | equals "Search books" | verify-true
+}
+with [get-editor "Tasks Graph" | get-diagram -index 1] {
+    with [get-edit-part -name "Tasks Graph"] {
+        mouse-move 100 243 button1 -height 401 -width 1140
+        mouse-press 100 243 button1 -height 401 -width 1140
+        mouse-release 100 243 button1 524288 -height 401 -width 1140
+        with [get-edit-part -name Toto | get-target-connection 1] {
+            mouse-move 26 51 button1 -height 138 -width 61
+            mouse-press 26 51 button1 -height 138 -width 61
+            mouse-release 27 53 button1 524288 -height 142 -width 63
+            mouse-hover 27 53 -height 142 -width 63
+        }
+    }
+    // Check Tool TG_Delete_Edge_AbstractTaskToActor
+    key-type Del
+    with [get-edit-part -name "Tasks Graph"] {
+        with [get-edit-part -name Toto | get-edit-part -className WorkspaceImageEditPart] {
+            mouse-move 13 34 button1 -height 59 -width 30
+            mouse-press 13 34 button1 -height 59 -width 30
+            mouse-move 14 34 -mask 524288 -height 59 -width 30
+        }
+        mouse-drag 134 184 button1 524288 -height 401 -width 1140
+        mouse-release 134 184 button1 524288 -height 401 -width 1140
+    }
+    // Check Tool TG_Delete_Actor
+    key-type Del
+    with [get-edit-part -name "Tasks Graph"] {
+        mouse-hover 143 199 -height 401 -width 1140
+        mouse-move 17 225 -height 401 -width 1140
+    }
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

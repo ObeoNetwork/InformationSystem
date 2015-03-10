@@ -2,7 +2,7 @@
  */
 package org.obeonetwork.tools.classdiagramconfiguration;
 
-import org.eclipse.emf.cdo.CDOObject;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,10 +19,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationPackage#getConfigurationValue()
  * @model abstract="true"
- * @extends CDOObject
  * @generated
  */
-public interface ConfigurationValue extends CDOObject {
+public interface ConfigurationValue extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->

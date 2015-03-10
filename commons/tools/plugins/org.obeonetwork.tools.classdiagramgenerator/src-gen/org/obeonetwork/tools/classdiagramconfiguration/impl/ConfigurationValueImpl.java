@@ -2,8 +2,10 @@
  */
 package org.obeonetwork.tools.classdiagramconfiguration.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationPackage;
 import org.obeonetwork.tools.classdiagramconfiguration.ConfigurationElement;
 import org.obeonetwork.tools.classdiagramconfiguration.ConfigurationValue;
@@ -22,7 +24,7 @@ import org.obeonetwork.tools.classdiagramconfiguration.ConfigurationValue;
  *
  * @generated
  */
-public abstract class ConfigurationValueImpl extends CDOObjectImpl implements ConfigurationValue {
+public abstract class ConfigurationValueImpl extends MinimalEObjectImpl.Container implements ConfigurationValue {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -32,6 +34,16 @@ public abstract class ConfigurationValueImpl extends CDOObjectImpl implements Co
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getFullQualifiedId() <em>Full Qualified Id</em>}' attribute.
@@ -67,18 +79,8 @@ public abstract class ConfigurationValueImpl extends CDOObjectImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getId() {
-		return (String)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION_VALUE__ID, ClassDiagramConfigurationPackage.Literals.CONFIGURATION_VALUE__ID, true, true);
+		return id;
 	}
 
 	/**
@@ -87,7 +89,10 @@ public abstract class ConfigurationValueImpl extends CDOObjectImpl implements Co
 	 * @generated
 	 */
 	public void setId(String newId) {
-		eDynamicSet(ClassDiagramConfigurationPackage.CONFIGURATION_VALUE__ID, ClassDiagramConfigurationPackage.Literals.CONFIGURATION_VALUE__ID, newId);
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.CONFIGURATION_VALUE__ID, oldId, id));
 	}
 
 	/**
@@ -158,11 +163,27 @@ public abstract class ConfigurationValueImpl extends CDOObjectImpl implements Co
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ClassDiagramConfigurationPackage.CONFIGURATION_VALUE__ID:
-				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case ClassDiagramConfigurationPackage.CONFIGURATION_VALUE__FULL_QUALIFIED_ID:
 				return FULL_QUALIFIED_ID_EDEFAULT == null ? getFullQualifiedId() != null : !FULL_QUALIFIED_ID_EDEFAULT.equals(getFullQualifiedId());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ConfigurationValueImpl

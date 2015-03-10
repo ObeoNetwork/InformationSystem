@@ -1,6 +1,0 @@
-[
-{"id": 1, "chocoProxies" : [{"id": 1, "desc": "Le commit du matin1"}], "officeProxy": {"id": 1, "desc": "Bureau vente"}, "nickname": "hmarchadour", "shortNickname": "HM1", "firstName": "hugo1", "lastName": "marchadour", "email": "hugo1.marchadour@obeo.fr", "level": 1, "xp": 10},
-{"id": 2, "chocoProxies" : [], "officeProxy": {"id": 1, "desc": "Bureau vente"}, "nickname": "moderator", "shortNickname": "HM2", "firstName": "hugo2", "lastName": "marchadour", "email": "hugo2.marchadour@obeo.fr", "level": 2, "xp": 20},
-{"id": 3, "chocoProxies" : [{"id": 2, "desc": "Le commit du matin2"}, {"id": 3, "desc": "Le commit du matin3"}], "officeProxy": {"id": 1, "desc": "Bureau vente"}, "nickname": "admin", "shortNickname": "HM3", "firstName": "hugo3", "lastName": "marchadour", "email": "hugo3.marchadour@obeo.fr", "level": 3, "xp": 30},
-{"id": 4, "chocoProxies" : [{"id": 4, "desc": "Le commit du matin4"}], "officeProxy": {"id": 2, "desc": "Bureau produit2"}, "nickname": "hmarchadour4", "shortNickname": "HM4", "firstName": "hugo4", "lastName": "marchadour", "email": "hugo4.marchadour@obeo.fr", "level": 4, "xp": 40}
-]

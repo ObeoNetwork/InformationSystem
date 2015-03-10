@@ -15,8 +15,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
- fr.obeo.dsl.viewpoint.ui;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
+ org.eclipse.sirius.ui;visibility:=reexport,
  org.eclipse.ui,
- fr.obeo.dsl.viewpoint.ui
+ org.eclipse.sirius
 Bundle-ActivationPolicy: lazy

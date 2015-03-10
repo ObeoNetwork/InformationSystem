@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_g7dOcW-tEeKjvtG3KOti6Q" techID="_g7dOcG-tEeKjvtG3KOti6Q" name="1-input">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/MySQL-5#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_jZf-MG-tEeKjvtG3KOti6Q" comments="coucou" techID="_jLvPA2-tEeKjvtG3KOti6Q" name="S1">
+    <tables xsi:type="database:Table" xmi:id="_lk6F0G-tEeKjvtG3KOti6Q" techID="_lRNtwW-tEeKjvtG3KOti6Q" name="T1">
+      <columns xmi:id="_mayk8G-tEeKjvtG3KOti6Q" techID="_mEp84G-tEeKjvtG3KOti6Q" name="C1" primaryKey="_nBcVQW-tEeKjvtG3KOti6Q" sequence="_pXF-AG-tEeKjvtG3KOti6Q" autoincrement="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_mayk8W-tEeKjvtG3KOti6Q">
+          <nativeType href="pathmap://NativeDBTypes/MySQL-5#_Zj8LdhEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_nBcVQW-tEeKjvtG3KOti6Q" techID="_nBcVQG-tEeKjvtG3KOti6Q" name="T1_PK" columns="_mayk8G-tEeKjvtG3KOti6Q"/>
+    </tables>
+    <sequences xmi:id="_pXF-AG-tEeKjvtG3KOti6Q" techID="_pE6B0m-tEeKjvtG3KOti6Q" name="Seq1" start="10" increment="1" cycle="true" columns="_mayk8G-tEeKjvtG3KOti6Q"/>
+  </schemas>
+</database:DataBase>

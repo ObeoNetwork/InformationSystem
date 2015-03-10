@@ -43,7 +43,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram.ui">
          <propertyTab
                category="semantic &amp; extension"
                id="StateMachine"
@@ -84,7 +84,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
       <propertySections
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram.ui">
          <propertySection
                class="org.obeonetwork.dsl.statemachine.parts.forms.StateMachinePropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.statemachine.filters.StateMachineTabPropertiesEditionSection"

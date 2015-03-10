@@ -1,0 +1,93 @@
+[comment encoding = UTF-8 /]
+[module PrimaryKeyGen(
+ 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
+ 'http://www.obeonetwork.org/dsl/database/1.0',
+ 'http://www.eclipse.org/emf/compare',
+ 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::TableGen /]
+
+[template public genSQLForPrimaryKeys(changeSet : Comparison) post(trim())]
+[if (changeSet.eAllContents(AddPrimaryKey)->notEmpty())]
+	[file ('create-pk.sql', false, 'UTF-8')]
+		[for (addPk : AddPrimaryKey | changeSet.eAllContents(AddPrimaryKey))]
+[addPk.genCreatePK()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[let removePrimaryKeyDiffs : Sequence(RemovePrimaryKey) = changeSet.getRemovePrimaryKeyDiffs()]
+[if (removePrimaryKeyDiffs->notEmpty())]
+	[file ('drop-pk.sql', false, 'UTF-8')]
+		[for (removePK : RemovePrimaryKey | removePrimaryKeyDiffs)]
+[removePK.genDropPK()/]
+
+		[/for]
+	[/file]
+[/if]
+[/let]
+
+[if (changeSet.eAllContents(UpdatePrimaryKey)->notEmpty())]
+	[file ('alter-pk.sql', false, 'UTF-8')]
+		[for (updatePK : UpdatePrimaryKey | changeSet.eAllContents(UpdatePrimaryKey))]
+[updatePK.genAlterPK()/]
+
+		[/for]
+	[/file]
+[/if]
+[/template]
+
+[template private genPKDoc(primaryKey : PrimaryKey) post(trim())]
+-- ==============================================================
+--  Primary Key : [primaryKey.name/]                                    
+-- ==============================================================
+[/template]
+
+[template private genCreatePK(addPK : AddPrimaryKey) post(trim())]
+[addPK.primaryKey.genPKDoc()/]
+[addPK.primaryKey.genCreatePK()/]
+[/template]
+
+[template private genDropPK(removePK : RemovePrimaryKey) post(trim())]
+[removePK.primaryKey.genPKDoc()/]
+[removePK.primaryKey.genDropPK()/]
+[/template]
+
+[template private genAlterPK(updatePK : UpdatePrimaryKey) post(trim())]
+[updatePK.newPrimaryKey.genPKDoc()/]
+[updatePK.primaryKey.genDropPK()/]
+[updatePK.newPrimaryKey.genCreatePK()/]
+[/template]
+
+[template private genCreatePK(pk : PrimaryKey) post(trim())]
+[if (pk.columns->notEmpty())]
+[let table : Table = pk.columns->first().owner.oclAsType(Table)]
+CREATE UNIQUE INDEX [pk.genPkConstraintName()/] ON [table.name()/]([pk.columns.name->sep(', ')/]);
+ALTER TABLE [table.name()/] ADD (CONSTRAINT [pk.genPkConstraintName()/] PRIMARY KEY([pk.columns.name->sep(', ')/]));[/let]
+[/if]
+[/template]
+
+[template private genDropPK(pk : PrimaryKey) post(trim())]
+[let table : Table = pk.columns->first().owner.oclAsType(Table)]
+ALTER TABLE [table.name()/] DROP CONSTRAINT [pk.genPkConstraintName()/];[/let]
+[/template]
+
+[template public genPkConstraintName(pk : PrimaryKey) post (trim())]
+[pk.owner.name/]_PK1_1
+[/template]
+
+[query private getRemovePrimaryKeyDiffs(comparison : Comparison) : Sequence(RemovePrimaryKey) =
+comparison.getDifferences()
+	->filter(RemovePrimaryKey)
+	->reject(getRelatedDiff().isRelatedToRemoveTable())
+	->asSequence()
+/]
+
+[query private isRelatedToRemoveTable(diff : Diff) : Boolean =
+not diff.oclIsUndefined() and diff.oclIsKindOf(RemoveTable) 
+/]
+
+
+[query private getRelatedDiff(diff : Diff) : Diff
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.UtilServices', 'getRelatedDiff(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]

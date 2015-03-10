@@ -16,7 +16,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Configuration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" eType="ecore:EClass ../../fr.obeo.dsl.viewpoint/model/viewpoint.ecore#//description/Viewpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewpoint" eType="ecore:EClass ../../org.eclipse.sirius/model/viewpoint.ecore#//description/Viewpoint"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diagrams" upperBound="-1"
         eType="#//DiagramConf" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="colors" upperBound="-1"

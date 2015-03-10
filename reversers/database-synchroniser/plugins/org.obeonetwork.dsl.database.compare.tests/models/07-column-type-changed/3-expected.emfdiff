@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diff:ComparisonResourceSnapshot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dbevolution="http://www.obeonetwork.org/dsl/database/evolution/1.0" xmlns:diff="http://www.eclipse.org/emf/compare/diff/1.1" xmlns:match="http://www.eclipse.org/emf/compare/match/1.1" date="2013-02-11T17:29:22.727+0100">
+  <diff>
+    <ownedElements xsi:type="dbevolution:DatabaseChangeSet" diffModel="//@diff">
+      <subDiffElements xsi:type="dbevolution:AlterTable">
+        <subDiffElements xsi:type="dbevolution:UpdateColumnChange">
+          <subDiffElements xsi:type="diff:UpdateReference">
+            <reference href="http://www.obeonetwork.org/dsl/typeslibrary/1.0#//TypeInstance/nativeType"/>
+            <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_kDRKAXQ5EeKEQaBTmSS_iA"/>
+            <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_kDRKAXQ5EeKEQaBTmSS_iA"/>
+            <leftTarget href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNhEnEeGTa_JlZYBw1A"/>
+            <rightTarget href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+          </subDiffElements>
+          <rightParent href="platform:/resource/compare2/07-column-type-changed/2-input.database#_kDRKAHQ5EeKEQaBTmSS_iA"/>
+          <column href="platform:/resource/compare2/07-column-type-changed/2-input.database#_kDRKAHQ5EeKEQaBTmSS_iA"/>
+        </subDiffElements>
+        <subDiffElements xsi:type="dbevolution:UpdateColumnChange">
+          <subDiffElements xsi:type="diff:UpdateReference">
+            <reference href="http://www.obeonetwork.org/dsl/typeslibrary/1.0#//TypeInstance/nativeType"/>
+            <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_CzH0oXRdEeKEQaBTmSS_iA"/>
+            <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_duN2MHRqEeKEQaBTmSS_iA"/>
+            <leftTarget href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+          </subDiffElements>
+          <rightParent href="platform:/resource/compare2/07-column-type-changed/2-input.database#_CzH0oHRdEeKEQaBTmSS_iA"/>
+          <column href="platform:/resource/compare2/07-column-type-changed/2-input.database#_CzH0oHRdEeKEQaBTmSS_iA"/>
+        </subDiffElements>
+        <subDiffElements xsi:type="dbevolution:UpdateColumnChange">
+          <subDiffElements xsi:type="diff:UpdateReference">
+            <reference href="http://www.obeonetwork.org/dsl/typeslibrary/1.0#//TypeInstance/nativeType"/>
+            <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_SHyCwXRjEeKEQaBTmSS_iA"/>
+            <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_Tp1EU3RjEeKEQaBTmSS_iA"/>
+            <leftTarget href="pathmap://NativeDBTypes/Oracle-11g#_cUwtRxEnEeGTa_JlZYBw1A"/>
+          </subDiffElements>
+          <rightParent href="platform:/resource/compare2/07-column-type-changed/2-input.database#_SHyCwHRjEeKEQaBTmSS_iA"/>
+          <column href="platform:/resource/compare2/07-column-type-changed/2-input.database#_SHyCwHRjEeKEQaBTmSS_iA"/>
+        </subDiffElements>
+        <rightParent href="platform:/resource/compare2/07-column-type-changed/2-input.database#_ix624HQ5EeKEQaBTmSS_iA"/>
+        <table href="platform:/resource/compare2/07-column-type-changed/2-input.database#_ix624HQ5EeKEQaBTmSS_iA"/>
+      </subDiffElements>
+    </ownedElements>
+    <leftRoots href="platform:/resource/compare2/07-column-type-changed/1-input.database#_iKJFMXQ5EeKEQaBTmSS_iA"/>
+    <rightRoots href="platform:/resource/compare2/07-column-type-changed/2-input.database#_iKJFMXQ5EeKEQaBTmSS_iA"/>
+  </diff>
+  <match>
+    <matchedElements xsi:type="match:Match2Elements" similarity="1.0">
+      <subMatchElements xsi:type="match:Match2Elements" similarity="1.0">
+        <subMatchElements xsi:type="match:Match2Elements" similarity="1.0">
+          <subMatchElements xsi:type="match:Match2Elements" similarity="0.942857142857143">
+            <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_kDRKAXQ5EeKEQaBTmSS_iA"/>
+            <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_kDRKAXQ5EeKEQaBTmSS_iA"/>
+          </subMatchElements>
+          <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_kDRKAHQ5EeKEQaBTmSS_iA"/>
+          <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_kDRKAHQ5EeKEQaBTmSS_iA"/>
+        </subMatchElements>
+        <subMatchElements xsi:type="match:Match2Elements" similarity="1.0">
+          <subMatchElements xsi:type="match:Match2Elements" similarity="0.8600000000000001">
+            <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_KB_1IHRoEeKcL8_S-vwMqw"/>
+            <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_CzH0oXRdEeKEQaBTmSS_iA"/>
+          </subMatchElements>
+          <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_F3gLoHRdEeKEQaBTmSS_iA"/>
+          <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_CzH0oHRdEeKEQaBTmSS_iA"/>
+        </subMatchElements>
+        <subMatchElements xsi:type="match:Match2Elements" similarity="1.0">
+          <subMatchElements xsi:type="match:Match2Elements" similarity="0.8461538461538463">
+            <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_Tp1EU3RjEeKEQaBTmSS_iA"/>
+            <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_SHyCwXRjEeKEQaBTmSS_iA"/>
+          </subMatchElements>
+          <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_Tp1EUnRjEeKEQaBTmSS_iA"/>
+          <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_SHyCwHRjEeKEQaBTmSS_iA"/>
+        </subMatchElements>
+        <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_ix624HQ5EeKEQaBTmSS_iA"/>
+        <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_ix624HQ5EeKEQaBTmSS_iA"/>
+      </subMatchElements>
+      <leftElement href="platform:/resource/compare2/07-column-type-changed/1-input.database#_iKJFMXQ5EeKEQaBTmSS_iA"/>
+      <rightElement href="platform:/resource/compare2/07-column-type-changed/2-input.database#_iKJFMXQ5EeKEQaBTmSS_iA"/>
+    </matchedElements>
+    <leftRoots href="platform:/resource/compare2/07-column-type-changed/1-input.database#_iKJFMXQ5EeKEQaBTmSS_iA"/>
+    <rightRoots href="platform:/resource/compare2/07-column-type-changed/2-input.database#_iKJFMXQ5EeKEQaBTmSS_iA"/>
+  </match>
+</diff:ComparisonResourceSnapshot>

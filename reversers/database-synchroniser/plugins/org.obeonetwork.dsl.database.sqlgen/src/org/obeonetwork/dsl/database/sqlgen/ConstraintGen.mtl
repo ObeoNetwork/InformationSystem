@@ -1,0 +1,70 @@
+[comment encoding = UTF-8 /]
+[module ConstraintGen(
+ 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
+ 'http://www.obeonetwork.org/dsl/database/1.0',
+ 'http://www.eclipse.org/emf/compare',
+ 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::TableGen /]
+
+[template public genSQLForConstraints(changeSet : Comparison) post(trim())]
+[if (changeSet.eAllContents(AddConstraint)->size()>0)]
+	[file ('create-constraint.sql', false, 'UTF-8')]
+		[for (addConstraint : AddConstraint | changeSet.eAllContents(AddConstraint))]
+[addConstraint.genCreateConstraint()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(RemoveConstraint)->size()>0)]
+	[file ('drop-constraint.sql', false, 'UTF-8')]
+		[for (removeConstraint : RemoveConstraint | changeSet.eAllContents(RemoveConstraint))]
+[removeConstraint.genDropConstraint()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(UpdateConstraint)->size()>0)]
+	[file ('alter-constraint.sql', false, 'UTF-8')]
+		[for (updateConstraint : UpdateConstraint | changeSet.eAllContents(UpdateConstraint))]
+[updateConstraint.genAlterConstraint()/]
+
+		[/for]
+	[/file]
+[/if]
+[/template]
+
+[template private genConstraintDoc(constraint : Constraint) post(trim())]
+-- ==============================================================
+--  Constraint : [constraint.name/]                                    
+-- ==============================================================
+[/template]
+
+[template private genCreateConstraint(addConstraint : AddConstraint) post(trim())]
+[addConstraint.constraint.genConstraintDoc()/]
+[addConstraint.constraint.oclAsType(Constraint).genCreateConstraint()/]
+[/template]
+
+[template private genDropConstraint(removeConstraint : RemoveConstraint) post(trim())]
+[removeConstraint.constraint.genConstraintDoc()/]
+[removeConstraint.constraint.oclAsType(Constraint).genDropConstraint()/]
+[/template]
+
+[template private genAlterConstraint(updateConstraint : UpdateConstraint) post(trim())]
+[updateConstraint.newConstraint.genConstraintDoc()/]
+[updateConstraint.constraint.oclAsType(Constraint).genDropConstraint()/]
+[updateConstraint.newConstraint.oclAsType(Constraint).genCreateConstraint()/]
+[/template]
+
+[template private genCreateConstraint(constraint : Constraint) post(trim())]
+[let table : Table = constraint.owner]
+ALTER TABLE [table.name()/] ADD CONSTRAINT [constraint.name/] 
+	CHECK([constraint.expression/]);[/let]
+[/template]
+
+[template private genDropConstraint(constraint : Constraint) post(trim())]
+[let table : Table = constraint.owner]
+ALTER TABLE [table.name()/] DROP CONSTRAINT [constraint.name/];[/let]
+[/template]

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_r66zQCyFEeGeuuMkQkWP9w" name="testdb">
+  <schemas xmi:id="_r67aUCyFEeGeuuMkQkWP9w" name="NORTHWIND">
+    <tables xsi:type="database:Table" xmi:id="_r68osCyFEeGeuuMkQkWP9w" name="PRODUCTS">
+      <columns xmi:id="_r69PgCyFEeGeuuMkQkWP9w" name="PRODUCTID" defaultValue="" indexElements="_r69PmiyFEeGeuuMkQkWP9w" primaryKey="_r69PlCyFEeGeuuMkQkWP9w">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_r69PgSyFEeGeuuMkQkWP9w" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_r69PgiyFEeGeuuMkQkWP9w" name="PRODUCTNAME" defaultValue="" indexElements="_r69PnCyFEeGeuuMkQkWP9w">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_r69PgyyFEeGeuuMkQkWP9w" length="40">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_r69PhiyFEeGeuuMkQkWP9w" name="CATEGORYID" nullable="true" defaultValue="" foreignKeyElements="_r69PliyFEeGeuuMkQkWP9w">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_r69PhyyFEeGeuuMkQkWP9w" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_r69PhCyFEeGeuuMkQkWP9w" name="SUPPLIERID" nullable="true" defaultValue="" foreignKeyElements="_r69PmCyFEeGeuuMkQkWP9w">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_r69PhSyFEeGeuuMkQkWP9w" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_r69PiCyFEeGeuuMkQkWP9w" name="QUANTITYPERUNIT" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_r69PiSyFEeGeuuMkQkWP9w" length="20">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_r69PjCyFEeGeuuMkQkWP9w" name="UNITSINSTOCK" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_r69PjSyFEeGeuuMkQkWP9w" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_r69PjiyFEeGeuuMkQkWP9w" name="UNITSONORDER" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_r69PjyyFEeGeuuMkQkWP9w" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_r69PkCyFEeGeuuMkQkWP9w" name="REORDERLEVEL" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_r69PkSyFEeGeuuMkQkWP9w" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_r69PiiyFEeGeuuMkQkWP9w" name="UNITPRICE" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_r69PiyyFEeGeuuMkQkWP9w" length="12" precision="2">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_r69PkiyFEeGeuuMkQkWP9w" name="DISCONTINUED" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_r69PkyyFEeGeuuMkQkWP9w" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_r69PlCyFEeGeuuMkQkWP9w" name="PK_PRODUCTS" columns="_r69PgCyFEeGeuuMkQkWP9w"/>
+      <foreignKeys xmi:id="_r69PlSyFEeGeuuMkQkWP9w" name="FK_PRODUCTS_CATEGORIES">
+        <elements xmi:id="_r69PliyFEeGeuuMkQkWP9w" fkColumn="_r69PhiyFEeGeuuMkQkWP9w"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_r69PlyyFEeGeuuMkQkWP9w" name="FK_PRODUCTS_SUPPLIERS">
+        <elements xmi:id="_r69PmCyFEeGeuuMkQkWP9w" fkColumn="_r69PhCyFEeGeuuMkQkWP9w"/>
+      </foreignKeys>
+      <constraints xmi:id="_kTPB8DxkEeGYnoxw5gsD_g" name="UnitPriceGreaterThanTen" expression="UNITPRICE>10"/>
+      <indexes xmi:id="_r69PmSyFEeGeuuMkQkWP9w" name="PK_PRODUCTS">
+        <elements xmi:id="_r69PmiyFEeGeuuMkQkWP9w" column="_r69PgCyFEeGeuuMkQkWP9w"/>
+      </indexes>
+      <indexes xmi:id="_r69PmyyFEeGeuuMkQkWP9w" name="PRODUCTS_PRODUCTNAME">
+        <elements xmi:id="_r69PnCyFEeGeuuMkQkWP9w" column="_r69PgiyFEeGeuuMkQkWP9w"/>
+      </indexes>
+    </tables>
+  </schemas>
+</database:DataBase>

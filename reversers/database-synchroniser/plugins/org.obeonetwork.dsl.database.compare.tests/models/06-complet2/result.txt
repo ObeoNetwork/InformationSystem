@@ -1,0 +1,200 @@
+Data Base 2-input
+	+ Alter Schema S8 - 2 change(s)
+		+ Alter Table T1_1 - 1 change(s)
+			+ Update Foreign Key T1_2_FK
+				+ Table T1_3 [target changed]
+					
+				+ C12 : INT [pkColumn changed]
+					
+				+ C22 : INT [pkColumn changed]
+					
+				
+			
+		+ Alter Table T1_4 - 1 change(s)
+			+ Update C1 : DECIMAL(12, 10) - 2 change(s)
+				+ 10 [length changed]
+					
+				+ 2 [precision changed]
+					
+				
+			
+	
+	+ Alter Schema S6 - 1 change(s)
+		+ Alter Table T1_1 - 1 change(s)
+			+ Update Foreign Key T1_2_FK
+				+ T1_2_FK_Renamed [name changed]
+					
+				+ C3 : INT [pkColumn changed]
+					
+				
+			
+	
+	+ Alter Schema S5 - 1 change(s)
+		+ Alter Table T1_1 - 1 change(s)
+			+ Update Foreign Key T1_2_FK
+				+ T1_2_FK2 -> C2 [elements delete]
+					
+				
+			
+	
+	+ Alter Schema S4 - 1 change(s)
+		+ Alter Table T1_1 - 1 change(s)
+			+ Update Foreign Key T1_2_FK
+				+ T1_2_FK2 -> C2 [elements add]
+					
+				+ modified [comments set]
+					
+				
+			
+	
+	+ Alter Schema AlterSchema - 8 change(s)
+		+ Alter Table T1 - 7 change(s)
+			+ Update C3 : INT - 1 change(s)
+				+ Native Type [nativeType unset]
+					
+				
+			+ Update Primary Key T1_PK
+				+ C2 : INT [columns add]
+					
+				
+			+ Update Constraint CHK2Update
+				+ modified expression [expression changed]
+					
+				
+			+ Add Column Change T5_ID
+				
+			+ Add Foreign Key T2_FK
+				
+			+ Add Constraint CHK1Add
+				
+			+ Remove Constraint CHK3Remove
+				
+			
+		+ Alter Table T4 - 1 change(s)
+			+ Add Primary Key T4_PK
+				
+			
+		+ Alter Table T3 - 1 change(s)
+			+ Update Primary Key T3_PK
+				+ T3_PK_RENAMED [name changed]
+					
+				
+			
+		+ Alter Table T2 - 1 change(s)
+			+ Remove Primary Key T2_PK
+				
+			
+		+ Update Sequence S1
+			+ 10 [start set]
+				
+			+ 1 [increment set]
+				
+			
+		+ Remove Sequence S2Removed
+			
+		+ Update Schema Comment Change AlterSchema
+			
+		+ Rename Schema Change AlterSchema
+			
+	
+	+ Alter Schema S7 - 7 change(s)
+		+ Alter Table T7_7 - 1 change(s)
+			+ Update Index IDX1
+				+ C2 : INT [column changed]
+					
+				
+			
+		+ Alter Table T7_6 - 1 change(s)
+			+ Update Index IDX1
+				+ false [asc changed]
+					
+				
+			
+		+ Alter Table T7_5 - 1 change(s)
+			+ Update Index IDX1
+				+ C3 DESC [elements delete]
+					
+				
+			
+		+ Alter Table T7_4 - 1 change(s)
+			+ Update Index IDX1
+				+ C1 ASC [elements add]
+					
+				
+			
+		+ Alter Table T7_3 - 1 change(s)
+			+ Update Index IDX1
+				+ IDX1Renamed [name changed]
+					
+				+ true [unique changed]
+					
+				
+			
+		+ Alter Table T7_2 - 1 change(s)
+			+ Add Index IDX1
+				
+			
+		+ Alter Table T7_1 - 2 change(s)
+			+ Remove Index IDX1
+				
+			+ true [nullable changed]
+				
+			
+	
+	+ Alter Schema ExistingSchema - 2 change(s)
+		+ Alter Table T1_1 - 1 change(s)
+			+ Remove Foreign Key T1_2_FK
+				
+			
+		+ Rename Schema Change ExistingSchema
+			
+	
+	+ Alter Table AlterTable - 7 change(s)
+		+ Update UpdateColumnChangedType : DATE - 1 change(s)
+			+ Native Type [nativeType changed]
+				
+			
+		+ Add Column Change AddColumn2
+			
+		+ Remove Column Change RemoveColumn2
+			
+		+ Update Table Comment Change AlterTable
+			
+		+ Rename Table Change AlterTable
+			
+		+ Update Column Comment Change UpdateColumn2Renamed
+			
+		+ Rename Column Change UpdateColumn2
+			
+	
+	+ Add Table AddTable
+	
+	+ Remove Table RemoveTable
+	
+	+ Add Sequence S1
+	
+	+ Add Schema AddSchema
+		+ Add Table T1
+			+ Add Primary Key T1_PK
+				
+			+ Add Foreign Key FK1
+				
+			+ Add Constraint CHK1
+				
+			+ Add Index IDX1
+				
+			
+		+ Add Table T2
+			+ Add Primary Key T2_PK
+				
+			
+		+ Add Sequence S1
+			
+	
+	+ Remove Schema RemoveSchema
+		+ Remove Table T1
+			
+		+ Remove Sequence S1
+			
+	
+	

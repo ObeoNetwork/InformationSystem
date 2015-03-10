@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:style="http://www.obeo.fr/dsl/viewpoint/description/style/1.1.0" xmlns:tool="http://www.obeo.fr/dsl/viewpoint/description/tool/1.1.0" xmlns:validation="http://www.obeo.fr/dsl/viewpoint/description/validation/1.1.0" name="Soa" version="6.7.0.201302071200">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="Soa" version="8.1.0">
   <ownedViewpoints name="SOA Views" modelFileExtension="soa ois">
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Component']" name="SOA Diagram" titleExpression="&lt;%name%> SOA Diagram" domainClass="soa.System">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Component']" name="SOA Diagram" titleExpression="[name + ' SOA Diagram'/]" domainClass="soa.System">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
       <defaultLayer name="Default Layer">
-        <edgeMappings name="SOAD_Wire" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="" semanticElements="&lt;%current%>" sourceMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" targetMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided']" targetFinderExpression="&lt;%dest%>" sourceFinderExpression="&lt;%source%>" domainClass="soa.Wire" useDomainElement="true" reconnections="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Wire_Target'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Wire_Source']">
+        <edgeMappings name="SOAD_Wire" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" targetMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided']" targetFinderExpression="feature:dest" sourceFinderExpression="feature:source" domainClass="soa.Wire" useDomainElement="true" reconnections="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Wire_Target'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Wire_Source']">
           <style sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
             <centerLabelStyleDescription>
@@ -40,9 +40,9 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Component" referenceName="ownedComponents">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Component &lt;%eContainer.ownedComponents.nSize%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Component" referenceName="ownedComponents">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Component &lt;%eContainer.ownedComponents.nSize%>"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -53,10 +53,10 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="&lt;%getProvidedLiteral()%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="ProvidedService&lt;%$container.providedServices.nSize%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="&lt;%getProvidedLiteral()%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="ProvidedService&lt;%$container.providedServices.nSize%>"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -65,10 +65,10 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="&lt;%getRequiredLiteral()%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="RequiredService&lt;%$container.requiredServices.nSize%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="&lt;%getRequiredLiteral()%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="RequiredService&lt;%$container.requiredServices.nSize%>"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -81,10 +81,10 @@
               <sourceViewVariable name="sourceView"/>
               <targetViewVariable name="targetView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$source.eContainer(&quot;System&quot;)%>">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Wire" referenceName="ownedWires">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="&lt;%$source%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="dest" valueExpression="&lt;%$target%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$source.eContainer(&quot;System&quot;)%>">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Wire" referenceName="ownedWires">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="&lt;%$source%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="&lt;%$target%>"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -92,7 +92,7 @@
             <subSections name="Usability Tools">
               <ownedTools xsi:type="tool:DiagramCreationDescription" name="Component Contract" forceRefresh="true" titleExpression="&lt;%name%> Component Contract" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']">
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%current%>"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%current%>"/>
                 </initialOperation>
                 <containerViewVariable name="containerView"/>
                 <representationNameVariable name="diagramName"/>
@@ -100,7 +100,7 @@
               <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Name Direct Edit SOA">
                 <mask mask="{0}"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
+                  <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
                 </initialOperation>
               </ownedTools>
               <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Component" precondition="&lt;%filter(&quot;soa.Component&quot;)%>" dragSource="PROJECT_EXPLORER">
@@ -109,8 +109,8 @@
                 <element name="element"/>
                 <newViewContainer name="newContainerView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                    <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="ownedComponents"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
+                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="ownedComponents"/>
                   </firstModelOperations>
                 </initialOperation>
               </ownedTools>
@@ -120,16 +120,16 @@
                 <element name="element"/>
                 <newViewContainer name="newContainerView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                    <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="ownedServices"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
+                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="ownedServices"/>
                   </firstModelOperations>
                 </initialOperation>
               </ownedTools>
-              <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to component contract diagram" forceRefresh="true" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@optionalLayers[name='External%20Components']/@containerMappings[name='SOAD_NonReferenced_External_Component'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@optionalLayers[name='External%20Components']/@containerMappings[name='SOAD_Referenced_External_Component']">
+              <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to component contract diagram" forceRefresh="true" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@containerMappings[name='SOAD_NonReferenced_External_Component'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@containerMappings[name='SOAD_Referenced_External_Component']">
                 <element name="element"/>
                 <elementView name="elementView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element.eContainer(&quot;Component&quot;)%>">
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element.eContainer(&quot;Component&quot;)%>">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']"/>
                   </firstModelOperations>
                 </initialOperation>
@@ -141,8 +141,8 @@
                 <targetView name="targetView"/>
                 <element name="element"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="dest" valueExpression="&lt;%$target%>"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="&lt;%$target%>"/>
                   </firstModelOperations>
                 </initialOperation>
                 <edgeView name="edgeView"/>
@@ -154,8 +154,8 @@
                 <targetView name="targetView"/>
                 <element name="element"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="&lt;%$target%>"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="&lt;%$target%>"/>
                   </firstModelOperations>
                 </initialOperation>
                 <edgeView name="edgeView"/>
@@ -164,8 +164,8 @@
           </subSections>
         </toolSections>
       </defaultLayer>
-      <optionalLayers name="External Components">
-        <containerMappings name="SOAD_Referenced_External_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@optionalLayers[name='External%20Components']/@toolSections.0/@ownedTools[name='Prevent%20deletion%20of%20external%20components']" semanticCandidatesExpression="&lt;%allReferencedExternalComponents%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" reusedBorderedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
+      <additionalLayers name="External Components">
+        <containerMappings name="SOAD_Referenced_External_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@toolSections.0/@ownedTools[name='Prevent%20deletion%20of%20external%20components']" semanticCandidatesExpression="&lt;%allReferencedExternalComponents%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" reusedBorderedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
           <style xsi:type="style:FlatContainerStyleDescription" labelFormat="bold" showIcon="false" roundedCorner="true" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -173,7 +173,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </containerMappings>
-        <containerMappings name="SOAD_NonReferenced_External_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@optionalLayers[name='External%20Components']/@toolSections.0/@ownedTools[name='Delete%20view%20on%20non%20referenced%20external%20components']" semanticCandidatesExpression="&lt;%allNonReferencedExternalComponents%>" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" reusedBorderedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
+        <containerMappings name="SOAD_NonReferenced_External_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@toolSections.0/@ownedTools[name='Delete%20view%20on%20non%20referenced%20external%20components']" semanticCandidatesExpression="&lt;%allNonReferencedExternalComponents%>" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" reusedBorderedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
           <style xsi:type="style:FlatContainerStyleDescription" labelFormat="bold" showIcon="false" roundedCorner="true" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -182,13 +182,13 @@
           </style>
         </containerMappings>
         <toolSections name="External Components">
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Ext. Component" precondition="&lt;%filter(&quot;soa.System&quot;)%>" forceRefresh="true" candidatesExpression="&lt;%(allSelectableExternalComponents($containerView) + allSelectableExternalComponents($containerView).ancestor()).nMinimize()%>" tree="true" rootExpression="&lt;%allRoots%>" childrenExpression="&lt;%eContents()%>" iconPath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif" windowTitle="Import external Component" windowImagePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Ext. Component" precondition="&lt;%filter(&quot;soa.System&quot;)%>" forceRefresh="true" candidatesExpression="&lt;%(allSelectableExternalComponents($containerView) + allSelectableExternalComponents($containerView).ancestor()).nMinimize()%>" tree="true" rootExpression="&lt;%allRoots%>" childrenExpression="&lt;%eContents()%>" iconPath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif" windowTitle="Import external Component" windowImagePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@optionalLayers[name='External%20Components']/@containerMappings[name='SOAD_NonReferenced_External_Component']" containerViewExpression="&lt;%$containerView%>"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@containerMappings[name='SOAD_NonReferenced_External_Component']" containerViewExpression="&lt;%$containerView%>"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -197,7 +197,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%self%>"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%self%>"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete view on non referenced external components">
@@ -205,15 +205,15 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$elementView%>">
-                <subModelOperations xsi:type="tool:DeleteView"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$elementView%>">
+                <subModelOperations xsi:type="tool_1:DeleteView"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
-      </optionalLayers>
+      </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Service']" name="Component Contract Diagram" titleExpression="&lt;%name%> Component Contract" domainClass="soa.Component">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Service']" name="Component Contract Diagram" titleExpression="&lt;%name%> Component Contract" domainClass="soa.Component">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
@@ -276,10 +276,10 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="&lt;%getProvidedLiteral()%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="ProvidedService&lt;%$container.providedServices.nSize%>"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="&lt;%getProvidedLiteral()%>"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="ProvidedService&lt;%$container.providedServices.nSize%>"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -288,10 +288,10 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="kind" valueExpression="&lt;%getRequiredLiteral()%>"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="RequiredService&lt;%$container.requiredServices.nSize%>"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="&lt;%getRequiredLiteral()%>"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="RequiredService&lt;%$container.requiredServices.nSize%>"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -303,8 +303,8 @@
               <element name="element"/>
               <newViewContainer name="newContainerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                  <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="ownedServices"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
+                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="ownedServices"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -316,15 +316,15 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%!ownedInterface%>">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Interface" referenceName="ownedInterface">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="&lt;%$container.name%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="&lt;%!ownedInterface%>">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Interface" referenceName="ownedInterface">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%$container.name%>"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%ownedInterface%>">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Operation" referenceName="ownedOperations">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="Operation&lt;%eContainer.ownedOperations.nSize%>"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%ownedInterface%>">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Operation" referenceName="ownedOperations">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Operation&lt;%eContainer.ownedOperations.nSize%>"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -336,10 +336,10 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Parameter" referenceName="input">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="input&lt;%eContainer.input.nSize%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="input">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="input&lt;%eContainer.input.nSize%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -348,10 +348,10 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Parameter" referenceName="output">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="output&lt;%eContainer.output.nSize%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="output">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="output&lt;%eContainer.output.nSize%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -360,10 +360,10 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$container%>">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Parameter" referenceName="fault">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="fault&lt;%eContainer.fault.nSize%>"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="fault">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="fault&lt;%eContainer.fault.nSize%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -376,14 +376,14 @@
               <element name="element"/>
               <newViewContainer name="newContainerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$newSemanticContainer%>">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="&lt;%!ownedInterface%>">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="soa.Interface" referenceName="ownedInterface">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="&lt;%$newSemanticContainer.name%>"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$newSemanticContainer%>">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="&lt;%!ownedInterface%>">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Interface" referenceName="ownedInterface">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%$newSemanticContainer.name%>"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="&lt;%$element%>">
-                    <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="&lt;%$newSemanticContainer.ownedInterface%>" featureName="ownedOperations"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
+                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="&lt;%$newSemanticContainer.ownedInterface%>" featureName="ownedOperations"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -392,22 +392,22 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="DTO Namespaces Hierarchy" label="DTO Namespaces Hierarchy" titleExpression="DTO Namespaces Hierarchy" domainClass="soa.System" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="DTO Namespaces Hierarchy" label="DTO Namespaces Hierarchy" titleExpression="DTO Namespaces Hierarchy" domainClass="soa.System" enablePopupBars="true">
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
       <defaultLayer name="Default">
-        <containerMappings name="ND_Namespace" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Namespace%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" reusedContainerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
+        <containerMappings name="ND_Namespace" semanticCandidatesExpression="feature:ownedNamespaces" domainClass="environment.Namespace">
           <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_border']" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_foreground']"/>
         </containerMappings>
         <toolSections name="Namespace" label="Namespace">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Namespace" label="Namespace" forceRefresh="true" containerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Namespace" label="Namespace" forceRefresh="true">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['namespace_' + eContainer().oclAsType(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['namespace_' + eContainer().oclAsType(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -417,43 +417,43 @@
           <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Namespace Name Direct Edit" forceRefresh="true">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:arg0"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New Class Diagram" label="New DTO Diagram" forceRefresh="true" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New Class Diagram" label="New DTO Diagram" forceRefresh="true">
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Class Diagram" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Class Diagram">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Namespace" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Namespace" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Switch">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Switch">
                   <cases conditionExpression="[newSemanticContainer.ancestors()->includes(element)/]">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[displayWarning('Drop namespace', 'A namespace can not be dropped onto one of its children.')/]"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[displayWarning('Drop namespace', 'A namespace can not be dropped onto one of its children.')/]"/>
                   </cases>
                   <default>
-                    <subModelOperations xsi:type="tool:Switch">
+                    <subModelOperations xsi:type="tool_1:Switch">
                       <cases conditionExpression="[oclIsKindOf(environment::Namespace)/]">
-                        <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
+                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </cases>
                       <default>
-                        <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
+                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </default>
                     </subModelOperations>
                   </default>
@@ -464,12 +464,12 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="DTO Diagram" label="DTO Diagram" titleExpression="[name + ' - DTO diagram'/]" domainClass="environment.Namespace" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="DTO Diagram" label="DTO Diagram" titleExpression="[name + ' - DTO diagram'/]" domainClass="environment.Namespace" enablePopupBars="true">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
       <defaultLayer name="Default">
-        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="[oppositeOf.oclIsUndefined()/]" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Reference']" semanticCandidatesExpression="[getReferences()/]" sourceMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Target'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Reference_Source']">
+        <edgeMappings name="ED_Reference_Type_Type" preconditionExpression="[oppositeOf.oclIsUndefined()/]" semanticCandidatesExpression="[getReferences()/]" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
           <style targetArrow="NoDecoration" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="[name + ' [' + multiplicity.toString() + ']'/]">
@@ -493,7 +493,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="ED_Inheritance_Type_Type" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_Inheritance']" sourceMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_Referenced']" targetFinderExpression="feature:supertype" reconnections="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Inheritance_Target'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_Inheritance_Source']">
+        <edgeMappings name="ED_Inheritance_Type_Type" targetFinderExpression="feature:supertype">
           <style targetArrow="InputClosedArrow" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false">
@@ -501,7 +501,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ED_BidiReference_Type_Type" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_ED_BidiReference']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_BidiReference']" semanticCandidatesExpression="[getOppositeReferences(diagram)/]" semanticElements="[self->asSequence()->including(oppositeOf)/]" sourceMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true" reconnections="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Target'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='REC_ED_BidiReference_Source']">
+        <edgeMappings name="ED_BidiReference_Type_Type" semanticCandidatesExpression="[getOppositeReferences(diagram)/]" semanticElements="[self->asSequence()->including(oppositeOf)/]" targetFinderExpression="feature:referencedType" sourceFinderExpression="feature:containingType" domainClass="environment.Reference" useDomainElement="true">
           <style targetArrow="NoDecoration" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <beginLabelStyleDescription showIcon="false" labelExpression="[oppositeOf.name + ' [' + oppositeOf.multiplicity.toString() + ']'/]">
@@ -515,11 +515,11 @@
             </endLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="ED_Namespace" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace">
+        <containerMappings name="ED_Namespace" semanticCandidatesExpression="feature:ownedNamespaces" domainClass="environment.Namespace">
           <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_border']" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_foreground']"/>
         </containerMappings>
-        <containerMappings name="DD_DTO" label="DD_DTO" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:types" domainClass="environment.DTO" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Attribute']" childrenPresentation="List">
-          <subNodeMappings name="ED_Attribute" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_ED_Attribute']" semanticCandidatesExpression="feature:ownedAttributes" domainClass="environment.Attribute">
+        <containerMappings name="DD_DTO" label="DD_DTO" semanticCandidatesExpression="feature:types" domainClass="environment.DTO" childrenPresentation="List">
+          <subNodeMappings name="ED_Attribute" semanticCandidatesExpression="feature:ownedAttributes" domainClass="environment.Attribute">
             <style xsi:type="style:SquareDescription" labelExpression="[oclAsType(environment::ObeoDSMObject).getEnvironmentLabel()/]" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -535,8 +535,8 @@
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='StructuredType_border']" labelSize="10" labelExpression="[oclAsType(environment::ObeoDSMObject).getEnvironmentLabel()/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='StructuredType_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='StructuredType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='StructuredType_foreground']"/>
         </containerMappings>
-        <containerMappings name="ED_Enumeration" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:types" domainClass="environment.Enumeration" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Literal']" childrenPresentation="List">
-          <subNodeMappings name="ED_Literal" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='EDT_Generic']" semanticCandidatesExpression="feature:literals" domainClass="environment.Literal">
+        <containerMappings name="ED_Enumeration" semanticCandidatesExpression="feature:types" domainClass="environment.Enumeration" childrenPresentation="List">
+          <subNodeMappings name="ED_Literal" semanticCandidatesExpression="feature:literals" domainClass="environment.Literal">
             <style xsi:type="style:SquareDescription" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -546,30 +546,30 @@
           <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='Enumeration_border']" labelSize="10" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='Enumeration_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Enumeration_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Enumeration_foreground']"/>
         </containerMappings>
         <toolSections name="Namespace" label="Namespace">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Namespace" label="Namespace" forceRefresh="true" containerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='ED_Namespace']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Namespace" label="Namespace" forceRefresh="true">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['namespace_' + eContainer().oclAsType(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Namespace" referenceName="ownedNamespaces">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['namespace_' + eContainer().oclAsType(environment::NamespacesContainer).ownedNamespaces->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New Class Diagram" label="New DTO Diagram" forceRefresh="true" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New Class Diagram" label="New DTO Diagram" forceRefresh="true">
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Class Diagram" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='ED_Namespace']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Class Diagram">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -579,18 +579,18 @@
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Switch">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Switch">
                   <cases conditionExpression="[newSemanticContainer.ancestors()->includes(element)/]">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="[displayWarning('Drop namespace', 'A namespace can not be dropped onto one of its children.')/]"/>
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[displayWarning('Drop namespace', 'A namespace can not be dropped onto one of its children.')/]"/>
                   </cases>
                   <default>
-                    <subModelOperations xsi:type="tool:Switch">
+                    <subModelOperations xsi:type="tool_1:Switch">
                       <cases conditionExpression="[oclIsKindOf(environment::Namespace)/]">
-                        <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
+                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </cases>
                       <default>
-                        <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
+                        <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedNamespaces"/>
                       </default>
                     </subModelOperations>
                   </default>
@@ -600,145 +600,245 @@
           </ownedTools>
         </toolSections>
         <toolSections name="DTO">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DTO" forceRefresh="true" containerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DTO" forceRefresh="true">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="environment.DTO" referenceName="types">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['DTO' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.DTO" referenceName="types">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['DTO' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DTO from Entity" forceRefresh="true" containerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DTO from Entity" forceRefresh="true">
             <variable name="container">
-              <subVariables xsi:type="tool:SelectModelElementVariable" name="selectedTypes" candidatesExpression="[self.getAllStructuredTypes('Entity')/]" multiple="true" message="Select an Entity"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedTypes" candidatesExpression="[self.getAllStructuredTypes('Entity')/]" multiple="true" message="Select an Entity"/>
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:For" expression="var:selectedTypes" iteratorName="associatedType">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="environment.DTO" referenceName="types">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['DTO' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="associatedTypes" valueExpression="var:associatedType"/>
+              <firstModelOperations xsi:type="tool_1:For" expression="var:selectedTypes" iteratorName="associatedType">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.DTO" referenceName="types">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['DTO' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="associatedTypes" valueExpression="var:associatedType"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Attribute" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_Attribute']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Attribute" forceRefresh="true">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="environment.Attribute" referenceName="ownedAttributes">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['attribute' + eContainer().oclAsType(environment::StructuredType).ownedAttributes->size()/]"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="[getStringPrimitiveType()/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Attribute" referenceName="ownedAttributes">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['attribute' + eContainer().oclAsType(environment::StructuredType).ownedAttributes->size()/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="[getStringPrimitiveType()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name=" Enumeration">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Enumeration" forceRefresh="true" containerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='ED_Enumeration']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Enumeration" forceRefresh="true">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="environment.Enumeration" referenceName="types">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Enum' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Enumeration" referenceName="types">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Enum' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Literal" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='ED_Enumeration']/@subNodeMappings[name='ED_Literal']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Literal" forceRefresh="true">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="environment.Literal" referenceName="literals">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['literal' + eContainer().oclAsType(environment::Enumeration).literals->size()/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Literal" referenceName="literals">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['literal' + eContainer().oclAsType(environment::Enumeration).literals->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name=" Relation"/>
-        <toolSections name="Bidirectional Relation"/>
+        <toolSections name=" Relation">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Relation" forceRefresh="true">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Composition" forceRefresh="true" iconPath="/org.obeonetwork.dsl.is.design/description/images/environment/Composition.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="true"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Inheritance" forceRefresh="true" iconPath="/org.obeonetwork.dsl.is.design/description/images/environment/Inheritance.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="supertype" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Bidirectional Relation">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Bidirectional Relation" forceRefresh="true">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="firstReference">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="&lt;%$source%>"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="oppositeOf" valueExpression="var:firstReference"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Bidirectional Composition" forceRefresh="true">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="firstReference">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="true"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[target.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="&lt;%$source%>"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="oppositeOf" valueExpression="var:firstReference"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
         <toolSections name="Usability tools">
           <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="EDT_Generic" forceRefresh="true" inputLabelExpression="feature:name">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:arg0"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_ED_Attribute" forceRefresh="true">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="[getAttrNameFromString(arg0)/]"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="multiplicity" valueExpression="[getMultKindFromString(arg0)/]"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="[getAttrTypeFromString(arg0)/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[getAttrNameFromString(arg0)/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="[getMultKindFromString(arg0)/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="[getAttrTypeFromString(arg0)/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_ED_Reference">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="[getRefNameFromString(arg0)/]"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="multiplicity" valueExpression="[getMultKindFromString(arg0)/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[getRefNameFromString(arg0)/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="[getMultKindFromString(arg0)/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_ED_BidiReference">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_DD_DTO" precondition="[oclIsKindOf(environment::DTO)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_DD_DTO" precondition="[oclIsKindOf(environment::DTO)/]" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="types"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="types"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="[oclIsKindOf(environment::Enumeration)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='ED_Enumeration']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Enumeration" precondition="[oclIsKindOf(environment::Enumeration)/]" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="types"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="types"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Attribute" precondition="[oclIsKindOf(environment::Attribute)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_Attribute']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Attribute" precondition="[oclIsKindOf(environment::Attribute)/]" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedAttributes"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedAttributes"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="[oclIsKindOf(environment::Literal)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_Attribute']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="[oclIsKindOf(environment::Literal)/]" forceRefresh="true" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="literals"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="literals"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -747,7 +847,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:deleteObeoDSMObject"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_Inheritance" forceRefresh="true">
@@ -755,20 +855,20 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Unset" featureName="supertype" elementExpression="feature:supertype"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="supertype" elementExpression="feature:supertype"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_BidiReference" forceRefresh="true">
             <element name="element">
-              <subVariables xsi:type="tool:SelectModelElementVariable" name="selectedElements" candidatesExpression="[self->asSequence()->including(oppositeOf)/]" multiple="true" message="Select references to be deleted"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElements" candidatesExpression="[self->asSequence()->including(oppositeOf)/]" multiple="true" message="Select references to be deleted"/>
             </element>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:For" expression="var:selectedElements" iteratorName="selectedReference">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:deleteObeoDSMObject"/>
+              <firstModelOperations xsi:type="tool_1:For" expression="var:selectedElements" iteratorName="selectedReference">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -777,7 +877,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="REC_ED_Reference_Target" forceRefresh="true">
@@ -787,8 +887,8 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:SetValue" featureName="referencedType" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
@@ -800,8 +900,8 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:SetValue" featureName="containingType" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="containingType" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
@@ -813,8 +913,8 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:SetValue" featureName="supertype" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="supertype" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
@@ -826,10 +926,10 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool:Unset" featureName="supertype" elementExpression="[edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DSemanticDecorator).target/]"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="supertype" valueExpression="[edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DSemanticDecorator).target/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="supertype" elementExpression="[edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DSemanticDecorator).target/]"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="supertype" valueExpression="[edgeView.oclAsType(viewpoint::DEdge).targetNode.oclAsType(viewpoint::DSemanticDecorator).target/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -842,7 +942,7 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.reconnectBidiReferenceTarget(source, target)/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.reconnectBidiReferenceTarget(source, target)/]"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
@@ -853,39 +953,39 @@
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.reconnectBidiReferenceSource(source, target)/]"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.reconnectBidiReferenceSource(source, target)/]"/>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="feature:isComposite">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="sourceArrow" value="Diamond"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="sourceArrow" value="Diamond"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[oppositeOf.isComposite/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="targetArrow" value="Diamond"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="targetArrow" value="Diamond"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[not isComposite and oppositeOf.navigable/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="sourceArrow" value="InputArrow"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="sourceArrow" value="InputArrow"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[not oppositeOf.isComposite and navigable/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@edgeMappings[name='ED_BidiReference_Type_Type']/@style" attributeName="targetArrow" value="InputArrow"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="targetArrow" value="InputArrow"/>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[oclAsType(environment::StructuredType).associatedTypes->notEmpty()/]">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@style" attributeName="labelFormat" value="italic"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="labelFormat" value="italic"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
-      <optionalLayers name="{Classdiagram.ExternalTypesLayer.id}" label="External DTOs" activeByDefault="true">
-        <containerMappings name="ED_ExternalStructuredType_Referenced" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="[getAllReferencedStructuredTypes(diagram)/]" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.DTO" childrenPresentation="List">
-          <subNodeMappings name="ED_ExternalAttribute" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="feature:ownedAttributes" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.Attribute">
+      <additionalLayers name="{Classdiagram.ExternalTypesLayer.id}" label="External DTOs" activeByDefault="true">
+        <containerMappings name="ED_ExternalStructuredType_Referenced" semanticCandidatesExpression="[getAllReferencedStructuredTypes(diagram)/]" domainClass="environment.DTO" childrenPresentation="List">
+          <subNodeMappings name="ED_ExternalAttribute" semanticCandidatesExpression="feature:ownedAttributes" domainClass="environment.Attribute">
             <style xsi:type="style:SquareDescription" labelExpression="[oclAsType(environment::ObeoDSMObject).getEnvironmentLabel()/]" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="ED_ExternalAssociatedAttribute" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="[associatedTypes.attributes/]" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.Attribute">
+          <subNodeMappings name="ED_ExternalAssociatedAttribute" semanticCandidatesExpression="[associatedTypes.attributes/]" domainClass="environment.Attribute">
             <style xsi:type="style:SquareDescription" labelFormat="italic" labelExpression="[oclAsType(environment::ObeoDSMObject).getEntityLabel()/]" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -894,18 +994,18 @@
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="service:getEntityQualifiedName" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']"/>
         </containerMappings>
-        <containerMappings name="ED_ExternalStructuredType_NotReferenced" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='DEL_ED_ExternalEntity_NotReferenced']" semanticCandidatesExpression="[getAllNotReferencedStructuredTypes(diagram)/]" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.DTO" reusedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_Attribute'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_AssociatedAttribute']" childrenPresentation="List">
+        <containerMappings name="ED_ExternalStructuredType_NotReferenced" semanticCandidatesExpression="[getAllNotReferencedStructuredTypes(diagram)/]" createElements="false" domainClass="environment.DTO" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="service:getEntityQualifiedName" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']"/>
         </containerMappings>
         <toolSections name="External entities">
-          <ownedTools xsi:type="tool:SelectionWizardDescription" name="External DTO" label="External DTO" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" candidatesExpression="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'DTO')/]" multiple="true" tree="true" rootExpression="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'DTO')->select(eContainer().oclIsUndefined())/]" childrenExpression="feature:eContents" message="Select an external DTO" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="External DTO" label="External DTO" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" candidatesExpression="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'DTO')/]" multiple="true" tree="true" rootExpression="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'DTO')->select(eContainer().oclIsUndefined())/]" childrenExpression="feature:eContents" message="Select an external DTO" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:For" expression="var:element" iteratorName="selectedElement">
-                <subModelOperations xsi:type="tool:If" conditionExpression="[oclIsKindOf(environment::DTO)/]">
-                  <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced']" containerViewExpression="var:containerView"/>
+              <firstModelOperations xsi:type="tool_1:For" expression="var:element" iteratorName="selectedElement">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclIsKindOf(environment::DTO)/]">
+                  <subModelOperations xsi:type="tool:CreateView" containerViewExpression="var:containerView"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -917,42 +1017,42 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
-                <subModelOperations xsi:type="tool:DeleteView"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                <subModelOperations xsi:type="tool_1:DeleteView"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="New DTO Diagram" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New external Entities diagram" label="New DTO Diagram" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]">
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Go to external Entities diagram" label="New DTO Diagram" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']">
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Go to external Entities diagram" label="New DTO Diagram" forceRefresh="true" browseExpression="[eContainer(environment::Namespace)/]">
             <containerViewVariable name="containerView"/>
             <containerVariable name="container"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Go to external class diagram" forceRefresh="true" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_NotReferenced'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_Referenced'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_Referenced']/@subNodeMappings[name='ED_ExternalAssociatedAttribute'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@optionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@containerMappings[name='ED_ExternalStructuredType_Referenced']/@subNodeMappings[name='ED_ExternalAttribute']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_Go to external class diagram" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[element.eContainer(environment::Namespace)/]">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer(environment::Namespace)/]">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
-      </optionalLayers>
+      </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description:DiagramDescription" name="Reused Tools" domainClass="overview.Root" preconditionExpression="false">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Tools" domainClass="overview.Root" preconditionExpression="false">
       <defaultLayer name="Default">
         <toolSections name="Usability Tools">
           <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Reused Name Direct Edit" forceRefresh="true">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

@@ -12,13 +12,11 @@ package org.obeonetwork.dsl.soa.design.services;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 
 public class EcoreService {
 
@@ -34,13 +32,5 @@ public class EcoreService {
 		}
 		
 		return roots;
-	}
-	
-	static public Collection<Resource> getAllSemanticResourcesInSession(EObject any) {
-		Session session = SessionManager.INSTANCE.getSession(any);
-		if (session != null) {
-			return session.getSemanticResources();
-		}
-		return Collections.emptyList();
 	}
 }

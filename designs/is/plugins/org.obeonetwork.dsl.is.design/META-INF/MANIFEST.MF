@@ -3,27 +3,31 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.is.design;singleton:=true
 Bundle-Version: 2.4.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.is.design.Activator
-Require-Bundle: fr.obeo.acceleo.gen,
- org.eclipse.ui,
+Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- fr.obeo.dsl.viewpoint,
  org.obeonetwork.dsl.cinematic,
  org.obeonetwork.dsl.entity,
  org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.soa,
- fr.obeo.dsl.common,
  org.eclipse.emf.eef.runtime,
  org.eclipse.gmf.runtime.diagram.ui,
- fr.obeo.dsl.viewpoint.diagram,
  org.obeonetwork.dsl.environment.binding.dialect,
  org.obeonetwork.dsl.overview,
  org.obeonetwork.dsl.cinematic.design,
  org.eclipse.core.expressions,
- fr.obeo.dsl.viewpoint.table,
- fr.obeo.dsl.viewpoint.tree,
  org.obeonetwork.dsl.environment.design.services,
  org.obeonetwork.dsl.entity.design,
- org.obeonetwork.dsl.soa.design
+ org.obeonetwork.dsl.soa.design,
+ org.eclipse.sirius,
+ org.eclipse.sirius.common,
+ org.eclipse.sirius.diagram,
+ org.eclipse.sirius.ecore.extender,
+ org.eclipse.sirius.table,
+ org.eclipse.sirius.tree,
+ org.eclipse.sirius.ui,
+ com.google.guava;bundle-version="15.0.0",
+ org.eclipse.sirius.ext.emf,
+ org.eclipse.sirius.diagram.ui
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

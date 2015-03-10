@@ -3,13 +3,12 @@ package org.obeonetwork.dsl.environment.design.services;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.obeonetwork.dsl.environment.StructuredType;
 
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Sets;
-
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
-import fr.obeo.dsl.viewpoint.DSemanticDiagram;
 
 public class DesignServices {
 

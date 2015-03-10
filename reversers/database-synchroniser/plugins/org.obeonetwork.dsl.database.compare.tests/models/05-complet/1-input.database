@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_0hLQwGuPEeK15tgGdM8cCw" techID="_0hKpsGuPEeK15tgGdM8cCw" name="My">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_2dksAGuPEeK15tgGdM8cCw" comments="abracadabra modifié !!!&#xD;&#xA;" techID="_2JKiQ2uPEeK15tgGdM8cCw" name="sdsqd">
+    <tables xsi:type="database:Table" xmi:id="_3irS4GuPEeK15tgGdM8cCw" comments="qdqs" techID="_3MtC4WuPEeK15tgGdM8cCw" name="T2dsqd">
+      <columns xmi:id="_4YlnMGuPEeK15tgGdM8cCw" comments="sdsqd" techID="_39090GuPEeK15tgGdM8cCw" name="C2">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_4YlnMWuPEeK15tgGdM8cCw" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_354MoHILEeKjRsN5OJ-I8A" techID="_3kCfgHILEeKjRsN5OJ-I8A" name="NouvelleColonne" primaryKey="_6Q8xsXILEeKjRsN5OJ-I8A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_354MoXILEeKjRsN5OJ-I8A" length="10" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ipkpAnIREeKjRsN5OJ-I8A" techID="_fnbGoHIREeKjRsN5OJ-I8A" name="ColTypeChange">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ipkpA3IREeKjRsN5OJ-I8A" length="255">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_6Q8xsXILEeKjRsN5OJ-I8A" techID="_6Q8xsHILEeKjRsN5OJ-I8A" name="T2dsqd_PK" columns="_354MoHILEeKjRsN5OJ-I8A"/>
+      <constraints xmi:id="_6QL6gHH8EeKjRsN5OJ-I8A" techID="_1n5gw3H8EeKjRsN5OJ-I8A" name="A_CHK" expression="expression modifiée"/>
+      <constraints xmi:id="_KE6EkHIKEeKjRsN5OJ-I8A" techID="_Jj7ec3IKEeKjRsN5OJ-I8A" name="B_CHK" expression="nouveau"/>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_ACn0MHHyEeKjRsN5OJ-I8A" comments="nouvelle table" techID="__zi2YXHxEeKjRsN5OJ-I8A" name="Nouvelle">
+      <columns xmi:id="_7dKtMHILEeKjRsN5OJ-I8A" techID="_7PKtcHILEeKjRsN5OJ-I8A" name="id" primaryKey="_A6LvgXIMEeKjRsN5OJ-I8A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_7dKtMXILEeKjRsN5OJ-I8A" length="20" precision="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_CI17AHIMEeKjRsN5OJ-I8A" techID="_BxcHoHIMEeKjRsN5OJ-I8A" name="FK_column" foreignKeyElements="_G4eS4XIMEeKjRsN5OJ-I8A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_CI17AXIMEeKjRsN5OJ-I8A" length="10" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_A6LvgXIMEeKjRsN5OJ-I8A" techID="_A6LvgHIMEeKjRsN5OJ-I8A" name="Nouvelle_PK" columns="_7dKtMHILEeKjRsN5OJ-I8A"/>
+      <foreignKeys xmi:id="_FQjS0HIMEeKjRsN5OJ-I8A" techID="_FEfz0nIMEeKjRsN5OJ-I8A" name="FK_vers_T2" target="_3irS4GuPEeK15tgGdM8cCw">
+        <elements xmi:id="_G4eS4XIMEeKjRsN5OJ-I8A" techID="_G4eS4HIMEeKjRsN5OJ-I8A" fkColumn="_CI17AHIMEeKjRsN5OJ-I8A" pkColumn="_354MoHILEeKjRsN5OJ-I8A"/>
+      </foreignKeys>
+      <constraints xmi:id="_MSFt0HIKEeKjRsN5OJ-I8A" techID="_L_9cAHIKEeKjRsN5OJ-I8A" name="A_cHK" expression="nouveau&#xD;&#xA;"/>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_I3gNYHH2EeKjRsN5OJ-I8A" techID="_GBpakXH2EeKjRsN5OJ-I8A" name="C">
+      <columns xmi:id="_I3gNYXH2EeKjRsN5OJ-I8A" techID="_GpxxkHH2EeKjRsN5OJ-I8A" name="AvecSeq" sequence="_7tSO0HH1EeKjRsN5OJ-I8A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_I3gNYnH2EeKjRsN5OJ-I8A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_nd-AYXH2EeKjRsN5OJ-I8A" techID="_h451UHH2EeKjRsN5OJ-I8A" name="AvecSeqInitialement">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_nd-AYnH2EeKjRsN5OJ-I8A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_hVucIHQtEeKEQaBTmSS_iA" techID="_ev63gHQtEeKEQaBTmSS_iA" name="nomModifie" sequence="_vaD8wXQxEeKEQaBTmSS_iA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_hVucIXQtEeKEQaBTmSS_iA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_y29hcHQxEeKEQaBTmSS_iA" techID="_wAKTcHQxEeKEQaBTmSS_iA" name="AvecSeq2">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_y29hcXQxEeKEQaBTmSS_iA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_FgWz8HINEeKjRsN5OJ-I8A" techID="__P-bAXIMEeKjRsN5OJ-I8A" name="TableAvecPKChangeantDeColonne">
+      <columns xmi:id="_FgWz8XINEeKjRsN5OJ-I8A" techID="_BXF4gHINEeKjRsN5OJ-I8A" name="A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_FgWz8nINEeKjRsN5OJ-I8A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_FgWz83INEeKjRsN5OJ-I8A" techID="_DJiGgHINEeKjRsN5OJ-I8A" name="B" primaryKey="_FgWz9XINEeKjRsN5OJ-I8A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_FgWz9HINEeKjRsN5OJ-I8A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_FgWz9XINEeKjRsN5OJ-I8A" techID="_CU3vYHINEeKjRsN5OJ-I8A" name="TableAvecPKChangeantDeColonne_PK" columns="_FgWz83INEeKjRsN5OJ-I8A"/>
+    </tables>
+    <sequences xmi:id="_7tSO0HH1EeKjRsN5OJ-I8A" comments="qds" techID="_7gUJ0nH1EeKjRsN5OJ-I8A" name="A" start="2" cycle="true" columns="_I3gNYXH2EeKjRsN5OJ-I8A"/>
+    <sequences xmi:id="_CoIhEHH2EeKjRsN5OJ-I8A" techID="_CavlUnH2EeKjRsN5OJ-I8A" name="CNouvelle" start="1" increment="2" minValue="12" cacheSize="12"/>
+    <sequences xmi:id="_vaD8wXQxEeKEQaBTmSS_iA" techID="_tqbLInQxEeKEQaBTmSS_iA" name="C" columns="_hVucIHQtEeKEQaBTmSS_iA"/>
+  </schemas>
+</database:DataBase>

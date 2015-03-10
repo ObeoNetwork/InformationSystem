@@ -1,0 +1,94 @@
+[comment encoding = UTF-8 /]
+[module SequenceGen(
+ 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
+ 'http://www.obeonetwork.org/dsl/database/1.0',
+ 'http://www.eclipse.org/emf/compare')/]
+
+[template public genSQLForSequences(changeSet : Comparison) post(trim())]
+[if (changeSet.eAllContents(AddSequence)->size()>0)]
+	[file ('create-sequences.sql', false, 'UTF-8')]
+		[for (addSequence : AddSequence | changeSet.eAllContents(AddSequence))]
+[addSequence.genCreateSequence()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(RemoveSequence)->size()>0)]
+	[file ('drop-sequences.sql', false, 'UTF-8')]
+		[for (removeSequence : RemoveSequence | changeSet.eAllContents(RemoveSequence))]
+[removeSequence.genDropSequence()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(UpdateSequence)->size()>0)]
+	[file ('alter-sequences.sql', false, 'UTF-8')]
+		[for (updateSequence : UpdateSequence | changeSet.eAllContents(UpdateSequence))]
+[updateSequence.genUpdateSequence()/]
+
+		[/for]
+	[/file]
+[/if]
+[/template]
+
+[comment ----------- SEQUENCE ----------- /]
+[template private genUpdateSequence(updateSequence : UpdateSequence) post(trim())]
+[if (updateSequence.sequence.name = updateSequence.newSequence.name)]
+[updateSequence.newSequence.genUpdateSequence()/]
+[else]
+[updateSequence.sequence.genDropSequence()/]
+[updateSequence.newSequence.genCreateSequence()/]
+[/if]
+[/template]
+
+[template private genUpdateSequence(sequence : Sequence) post(trim())]
+ALTER SEQUENCE [sequence.name()/][sequence.genIncrementBy()/][sequence.genStartWith()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genCycle()/];
+[/template]
+
+[template private genDropSequence(removeSequence : RemoveSequence) post(trim())]
+[removeSequence.sequence.genDropSequence()/]
+[/template]
+
+[template private genDropSequence(sequence : Sequence) post(trim())]
+DROP SEQUENCE [sequence.name()/];
+[/template]
+
+[template private genCreateSequence(addSequence : AddSequence) post(trim())]
+[addSequence.sequence.genCreateSequence()/]
+[/template]
+
+[template private genCreateSequence(sequence : Sequence) post(trim())]
+CREATE SEQUENCE [sequence.name()/][sequence.genIncrementBy()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genStartWith()/][sequence.genCache()/][sequence.genCycle()/];
+[/template]
+
+[query private isValidValue(value : Integer) : Boolean = not value.oclIsInvalid() and not value.oclIsUndefined() /]
+
+[template private genIncrementBy(sequence : Sequence) ? (sequence.increment.isValidValue())]
+ INCREMENT BY [sequence.increment/]
+[/template]
+
+[template private genStartWith(sequence : Sequence) ? (sequence.start.isValidValue())]
+ START WITH [sequence.start/]
+[/template]
+
+[template private genMinValue(sequence : Sequence) ? (sequence.minValue.isValidValue())]
+ MINVALUE [sequence.minValue/]
+[/template]
+
+[template private genMaxValue(sequence : Sequence) ? (sequence.maxValue.isValidValue())]
+ MAXVALUE [sequence.maxValue/]
+[/template]
+
+[template private genCycle(sequence : Sequence)]
+[if (sequence.cycle.oclIsInvalid() or sequence.cycle = false)] NOCYCLE[else] CYCLE[/if]
+[/template]
+
+[template private genCache(sequence : Sequence) ? (sequence.cacheSize.isValidValue())]
+ CACHE [sequence.cacheSize/]
+[/template]
+
+[template private name(sequence : Sequence) post(trim())]
+[sequence.name.toUpper()/]
+[/template]

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.obeonetwork.org/dsl/database/evolution/1.0"
+            class="org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage"
+            genModel="model/dbevolution.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.postProcessor">
+      <processor
+            class="org.obeonetwork.dsl.database.compare.extensions.processor.DatabasePostProcessor"
+            ordinal="20">
+         <nsURI
+               value="http://www.obeonetwork.org/dsl/database/1.0">
+         </nsURI>
+      </processor>
+   </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.matchEngine">
+      <engineFactory
+            class="org.obeonetwork.dsl.database.compare.extensions.match.DatabaseMatchEngineFactory"
+            ranking="20">
+      </engineFactory>
+   </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.loadOnDemandPolicy">
+      <policy
+            class="org.obeonetwork.dsl.database.compare.extensions.policy.DependenciesLoadOnDemandPolicy">
+      </policy>
+   </extension>
+   
+
+</plugin>

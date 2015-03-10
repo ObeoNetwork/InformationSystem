@@ -19,8 +19,8 @@ import org.obeonetwork.graal.TasksGroup;
 import org.obeonetwork.graal.UseCase;
 import org.obeonetwork.graal.design.services.util.DeleteUtils;
 
-import fr.obeo.dsl.viewpoint.AbstractDNode;
-import fr.obeo.dsl.viewpoint.DDiagramElement;
+import org.eclipse.sirius.diagram.AbstractDNode;
+import org.eclipse.sirius.diagram.DDiagramElement;
 
 /**
  * Class used to ungroup a group i.e. extract all the tasks in a group and remove the group

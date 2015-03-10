@@ -2,9 +2,9 @@
  */
 package org.obeonetwork.tools.classdiagramconfiguration;
 
-import fr.obeo.dsl.viewpoint.description.Viewpoint;
-import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,10 +25,9 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationPackage#getConfiguration()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface Configuration extends CDOObject {
+public interface Configuration extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

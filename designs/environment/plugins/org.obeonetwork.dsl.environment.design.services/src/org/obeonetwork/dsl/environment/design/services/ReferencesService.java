@@ -17,14 +17,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 
 import com.google.common.collect.Sets;
-
-import fr.obeo.dsl.viewpoint.DSemanticDiagram;
 
 public class ReferencesService {
 	

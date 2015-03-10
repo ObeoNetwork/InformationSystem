@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: DAO Tests Plug-in
-Bundle-SymbolicName: org.obeonetwork.dsl.entity.gen.java.dao.tests
-Bundle-Version: 2.2.0.qualifier
-Require-Bundle: org.obeonetwork.dsl.entity.gen.java.dao,
- org.obeonetwork.dsl.entity.tests
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Bundle-Vendor: Obeo.fr

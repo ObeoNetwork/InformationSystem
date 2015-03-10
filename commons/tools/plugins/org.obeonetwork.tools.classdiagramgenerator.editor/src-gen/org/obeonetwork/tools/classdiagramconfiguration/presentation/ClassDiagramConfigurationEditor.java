@@ -14,7 +14,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -40,6 +39,12 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.description.audit.provider.AuditItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.description.provider.DescriptionItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.description.style.provider.StyleItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.description.tool.provider.ToolItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.description.validation.provider.ValidationItemProviderAdapterFactory;
+import org.eclipse.sirius.viewpoint.provider.ViewpointItemProviderAdapterFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -110,16 +115,6 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.obeonetwork.tools.classdiagramconfiguration.provider.ClassDiagramConfigurationItemProviderAdapterFactory;
-
-import fr.obeo.dsl.viewpoint.description.audit.provider.AuditItemProviderAdapterFactory;
-import fr.obeo.dsl.viewpoint.description.concern.provider.ConcernItemProviderAdapterFactory;
-import fr.obeo.dsl.viewpoint.description.contribution.provider.ContributionItemProviderAdapterFactory;
-import fr.obeo.dsl.viewpoint.description.filter.provider.FilterItemProviderAdapterFactory;
-import fr.obeo.dsl.viewpoint.description.provider.DescriptionItemProviderAdapterFactory;
-import fr.obeo.dsl.viewpoint.description.style.provider.StyleItemProviderAdapterFactory;
-import fr.obeo.dsl.viewpoint.description.tool.provider.ToolItemProviderAdapterFactory;
-import fr.obeo.dsl.viewpoint.description.validation.provider.ValidationItemProviderAdapterFactory;
-import fr.obeo.dsl.viewpoint.provider.ViewpointItemProviderAdapterFactory;
 
 
 /**
@@ -615,16 +610,13 @@ public class ClassDiagramConfigurationEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ClassDiagramConfigurationItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ContributionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ViewpointItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DescriptionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new StyleItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ToolItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new FilterItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ValidationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AuditItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ConcernItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

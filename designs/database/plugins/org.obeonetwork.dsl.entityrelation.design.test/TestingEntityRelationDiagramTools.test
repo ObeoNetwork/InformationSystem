@@ -1,0 +1,316 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingEntityRelationDiagramTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _8bzwsGNcEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/20/14 5:23 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in entityRelation.odesign/EntityRelationDiagram
+- Tool Edit label
+- Tool CRE_Entity
+- Tool CRE_Attribute
+- Tool CRE_Identifier
+- Tool CRE_Relation
+- Tool CRE_RelationNN
+- Tool WIZ_ExternalEntity
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Obeo Designer For IS/Entity Relation Model"
+    with [get-button "Next >"] {
+        click
+        click
+    }
+    get-button Finish | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
+with [get-window "Select resources to add"] {
+    get-button "Browse Workspace..." | click
+    with [get-window "File Selection"] {
+        get-tree | select "E-BookStore/My.entityrelation"
+        get-button OK | click
+    }
+    get-button OK | click
+}
+with [get-window "Viewpoints Selection"] {
+    get-table | get-item "Entity Relation" | check
+    get-button OK | click
+}
+get-editor "My.entityrelation" | close
+with [get-view "Model Explorer"] {
+    click
+    get-tree | select "E-BookStore/My.entityrelation/Logical Model My" 
+        | get-menu "New Representation/My Entity Relation" | click
+}
+get-window "New Representation" | get-button OK | click
+get-editor "My Entity Relation" | get-diagram -index 1 | get-edit-part -name "My Entity Relation" | mouse-move 297 265 
+    -height 309 -width 596
+with [get-editor "My Entity Relation"] {
+    get-diagram -index 1 | get-edit-part -name "My Entity Relation" | mouse-move 594 51 -height 309 -width 596
+    // Check Tool CRE_Entity
+    with [get-palette | get-palette-entry Entity] {
+        mouse-move 47 5 button1 -height 23 -width 125
+        mouse-press 47 5 button1 -height 23 -width 125
+        mouse-release 47 5 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation"] {
+        mouse-move 62 73 button1 -height 309 -width 596
+        mouse-press 62 73 button1 -height 309 -width 596
+        mouse-release 62 73 button1 524288 -height 309 -width 596
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "My Entity Relation" | get-edit-part -name Entity1] {
+            get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+            mouse-move 5 3 -height 41 -width 58
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 26 13 button1 -height 16 -width 54
+                mouse-press 26 13 button1 -height 16 -width 54
+                mouse-release 26 13 button1 524288 -height 16 -width 54
+                mouse-hover 26 13 -height 16 -width 54
+            }
+        }
+        key-type F2
+        get-edit-part -name "My Entity Relation" | get-edit-part -name Entity1 | get-edit-part 
+            -className DNodeListNameEditPart | activate-direct-edit
+    }
+    get-editbox | click-text "1:8"
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation"] {
+        mouse-move 134 120 -height 309 -width 596
+        mouse-hover 134 120 -height 309 -width 596
+    }
+    // Check Tool Edit label
+    get-editbox | set-text Entity1Rename
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "My Entity Relation"] {
+            mouse-move 125 114 -height 309 -width 596
+            get-edit-part -name Entity1 | mouse-move 57 23 -height 41 -width 99
+        }
+        commit-direct-edit
+    }
+}
+get-editor "My Entity Relation" | get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part 
+    -name Entity1Rename | get-edit-part -className DNodeListNameEditPart | get-property "getEditText()" 
+    | equals Entity1Rename | verify-true
+with [get-editor "My Entity Relation"] {
+    get-diagram -index 1 | get-edit-part -name "My Entity Relation" | mouse-move 591 139 -height 309 -width 596
+    with [get-palette] {
+        get-palette-entry Relation | mouse-move 27 2 -height 23 -width 125
+        get-palette-entry Identifier | mouse-move 50 0 -height 23 -width 125
+        // Check Tool CRE_Attribute
+        with [get-palette-entry Attribute] {
+            mouse-move 60 5 button1 -height 23 -width 125
+            mouse-press 60 5 button1 -height 23 -width 125
+            mouse-release 60 5 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part -name Entity1Rename] {
+        mouse-move 84 25 -height 41 -width 99
+        with [get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 53 5 button1 -height 12 -width 95
+            mouse-press 53 5 button1 -height 12 -width 95
+            mouse-release 53 5 button1 524288 -height 12 -width 95
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation"] {
+        get-edit-part -name Entity1Rename | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
+            | get-edit-part -name "attribute1 : <undefined>" | mouse-hover 49 3 -height 16 -width 133
+        mouse-move 588 108 -height 309 -width 596
+    }
+    // Check Tool CRE_Identifier
+    with [get-palette | get-palette-entry Identifier] {
+        mouse-move 50 13 button1 -height 23 -width 125
+        mouse-press 50 13 button1 -height 23 -width 125
+        mouse-release 50 13 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part -name Entity1Rename] {
+        mouse-move 95 22 -height 47 -width 145
+        with [get-edit-part -className DNodeListNameEditPart] {
+            mouse-move 78 8 button1 -height 16 -width 95
+            mouse-press 78 8 button1 -height 16 -width 95
+            mouse-release 78 8 button1 524288 -height 16 -width 95
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation"] {
+        get-edit-part -name Entity1Rename | get-edit-part -className DNodeListNameEditPart | mouse-hover 78 8 
+            -height 16 -width 95
+        mouse-move 583 107 -height 309 -width 596
+    }
+    with [get-palette] {
+        with [get-palette-entry Identifier] {
+            mouse-move 47 21 -height 23 -width 125
+            mouse-move 54 0 -height 23 -width 125
+        }
+        get-palette-entry Attribute | mouse-move 54 2 -height 23 -width 125
+        with [get-palette-entry Entity] {
+            mouse-move 46 14 button1 -height 23 -width 125
+            mouse-press 46 14 button1 -height 23 -width 125
+            mouse-release 46 14 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation"] {
+        mouse-move 340 83 button1 -height 309 -width 596
+        mouse-press 340 83 button1 -height 309 -width 596
+        mouse-release 340 83 button1 524288 -height 309 -width 596
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation"] {
+        get-edit-part -name Entity2 | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+        mouse-move 594 95 -height 309 -width 596
+    }
+    with [get-palette] {
+        get-palette-entry Identifier | mouse-move 53 22 -height 23 -width 125
+        // Check Tool CRE_Relation
+        with [get-palette-entry Relation] {
+            mouse-move 52 11 button1 -height 23 -width 125
+            mouse-press 52 11 button1 -height 23 -width 125
+            mouse-release 52 11 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation"] {
+        mouse-move 401 104 -height 309 -width 596
+        with [get-edit-part -name Entity2 | get-edit-part -className DNodeListNameEditPart] {
+            mouse-move 18 6 button1 -height 16 -width 54
+            mouse-press 18 6 button1 -height 16 -width 54
+            mouse-release 18 6 button1 524288 -height 16 -width 54
+        }
+        mouse-move 209 87 -height 309 -width 596
+        with [get-edit-part -name Entity1Rename] {
+            mouse-move 128 13 -height 63 -width 145
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-hover 75 6 -height 16 -width 95
+                mouse-move 75 6 button1 -height 16 -width 95
+                mouse-press 75 6 button1 -height 16 -width 95
+            }
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part -name Entity1Rename 
+        | get-edit-part -className DNodeListNameEditPart] {
+        mouse-release 75 6 button1 524288 -height 16 -width 95
+        mouse-hover 75 6 -height 16 -width 95
+    }
+}
+get-editor "My Entity Relation" | get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part 
+    -name Entity1Rename | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+    -name "identifier_1" | get-property "getEditText()" | equals "identifier_1" | verify-true
+get-editor "My Entity Relation" | get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part 
+    -name Entity1Rename | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+    -name "attribute1 : <undefined>" | get-property "getEditText()" | equals "attribute1 : <undefined>" | verify-true
+with [get-editor "My Entity Relation" | get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part 
+    -name Entity1Rename | get-target-connection 0] {
+    get-property "getTarget().getChildren().DNodeListNameEditPart[0].getEditText()" | equals Entity1Rename | verify-true
+    get-property "getSource().getChildren().DNodeListNameEditPart[0].getEditText()" | equals Entity2 | verify-true
+    get-property "getChildren().DEdgeNameEditPart[0].getEditText()" | equals "Relation 1" | verify-true
+}
+with [get-editor "My Entity Relation"] {
+    get-diagram -index 1 | get-edit-part -name "My Entity Relation" | mouse-move 594 211 -height 309 -width 596
+    with [get-palette] {
+        get-palette-entry "External Entity" | mouse-move 10 6 -height 23 -width 125
+        // Check Tool CRE_RelationNN
+        with [get-palette-entry "Relation n..n"] {
+            mouse-move 59 7 button1 -height 23 -width 125
+            mouse-press 59 7 button1 -height 23 -width 125
+            mouse-release 59 7 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation"] {
+        mouse-move 208 118 -height 309 -width 596
+        with [get-edit-part -name Entity1Rename] {
+            mouse-move 62 21 -height 63 -width 145
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 45 7 button1 -height 16 -width 95
+                mouse-press 45 7 button1 -height 16 -width 95
+                mouse-release 45 7 button1 524288 -height 16 -width 95
+            }
+        }
+        mouse-move 213 92 -height 309 -width 596
+        with [get-edit-part -name Entity2 | get-edit-part -className DNodeListNameEditPart] {
+            mouse-move 35 6 button1 -height 16 -width 54
+            mouse-press 35 6 button1 -height 16 -width 54
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part -name Entity2 | get-edit-part 
+        -className DNodeListNameEditPart] {
+        mouse-release 35 6 button1 524288 -height 16 -width 54
+        mouse-hover 35 6 -height 16 -width 54
+    }
+}
+get-editor "My Entity Relation" | get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part 
+    -name "Relation_3" | get-edit-part -className DNodeListNameEditPart | get-property "getEditText()" 
+    | equals "Relation_3" | verify-true
+with [get-editor "My Entity Relation" | get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part 
+    -name "Relation_3" | get-target-connection 0] {
+    get-property "getTarget().getChildren().DNodeListNameEditPart[0].getEditText()" | equals "Relation_3" | verify-true
+    get-property "getSource().getChildren().DNodeListNameEditPart[0].getEditText()" | equals Entity1Rename | verify-true
+}
+with [get-editor "My Entity Relation" | get-diagram -index 1 | get-edit-part -name "My Entity Relation" | get-edit-part 
+    -name "Relation_3" | get-target-connection 1] {
+    get-property "getTarget().getChildren().DNodeListNameEditPart[0].getEditText()" | equals "Relation_3" | verify-true
+    get-property "getSource().getChildren().DNodeListNameEditPart[0].getEditText()" | equals Entity2 | verify-true
+}
+with [get-editor "My Entity Relation"] {
+    get-diagram -index 1 | get-edit-part -name "My Entity Relation" | mouse-move 595 168 -height 309 -width 596        
+}
+with [get-editor "My Entity Relation" | get-diagram -index 1 | get-edit-part -name "My Entity Relation"] {
+    mouse-move 215 116 -height 309 -width 596
+    mouse-move 0 176 -height 309 -width 596
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Obeo Designer For IS/Entity Relation Model"
+    with [get-button "Next >"] {
+        click
+        click
+    }
+    get-button Finish | click
+}
+
+get-view "Model Explorer" | get-tree | select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
+with [get-window "Select resources to add"] {
+    get-button "Browse Workspace..." | click
+    with [get-window "File Selection"] {
+        get-tree | select "E-BookStore/My1.entityrelation"
+        get-button OK | click
+    }
+    get-button OK | click
+}
+get-window "Viewpoints Selection" | get-button OK | click
+get-view "Model Explorer" | get-tree | select "E-BookStore/My1.entityrelation/Logical Model My1" 
+    | get-menu "New Representation/My1 Entity Relation" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "My1 Entity Relation"] {
+    get-diagram -index 1 | get-edit-part -name "My1 Entity Relation" | mouse-move 594 189 -height 309 -width 596
+    // Check Tool WIZ_ExternalEntity
+    with [get-palette | get-palette-entry "External Entity"] {
+        mouse-move 63 6 button1 -height 23 -width 125
+        mouse-press 63 6 button1 -height 23 -width 125
+        mouse-release 63 6 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "My1 Entity Relation"] {
+        mouse-move 258 159 button1 -height 309 -width 596
+        mouse-press 258 159 button1 -height 309 -width 596
+        mouse-release 258 159 button1 524288 -height 309 -width 596
+    }
+}
+with [get-window "Import external entity"] {
+    get-tree | select "Logical Model My/Entity Entity2"
+    get-button Finish | click
+}
+with [get-editor "My1 Entity Relation" | get-diagram -index 1 | get-edit-part -name "My1 Entity Relation"] {
+    mouse-hover 117 96 -height 309 -width 596
+    mouse-move 32 62 -height 309 -width 596
+}
+get-editor "My1 Entity Relation" | get-diagram -index 1 | get-edit-part -name "My1 Entity Relation" | get-edit-part 
+    -name "My::Entity2" | get-edit-part -className DNodeListNameEditPart | get-property "getEditText()" 
+    | equals "My::Entity2" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

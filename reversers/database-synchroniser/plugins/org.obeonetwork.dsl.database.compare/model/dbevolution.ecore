@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dbevolution" nsURI="http://www.obeonetwork.org/dsl/database/evolution/1.0"
+    nsPrefix="dbevolution">
+  <eClassifiers xsi:type="ecore:EClass" name="DatabaseChangeSet" eSuperTypes="platform:/plugin/org.eclipse.emf.compare/model/compare.ecore#//Comparison"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TableChange" abstract="true" eSuperTypes="#//DBDiff">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Table"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddTable" eSuperTypes="#//TableChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveTable" eSuperTypes="#//TableChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AlterTable" eSuperTypes="#//TableChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RenameTableChange" eSuperTypes="#//TableChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newTable" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Table"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateTableCommentChange" eSuperTypes="#//TableChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newTable" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Table"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColumnChange" abstract="true" eSuperTypes="#//DBDiff">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="column" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Column"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddColumnChange" eSuperTypes="#//ColumnChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveColumnChange" eSuperTypes="#//ColumnChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RenameColumnChange" eSuperTypes="#//ColumnChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newColumn" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Column"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateColumnChange" eSuperTypes="#//ColumnChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateColumnCommentChange" eSuperTypes="#//ColumnChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryKeyChange" abstract="true" eSuperTypes="#//DBDiff">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryKey" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//PrimaryKey"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddPrimaryKey" eSuperTypes="#//PrimaryKeyChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemovePrimaryKey" eSuperTypes="#//PrimaryKeyChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdatePrimaryKey" eSuperTypes="#//PrimaryKeyChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newPrimaryKey" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//PrimaryKey"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IndexChange" abstract="true" eSuperTypes="#//DBDiff">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="index" lowerBound="1" eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Index"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddIndex" eSuperTypes="#//IndexChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveIndex" eSuperTypes="#//IndexChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateIndex" eSuperTypes="#//IndexChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newIndex" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Index"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ForeignKeyChange" abstract="true" eSuperTypes="#//DBDiff">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="foreignKey" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//ForeignKey"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddForeignKey" eSuperTypes="#//ForeignKeyChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveForeignKey" eSuperTypes="#//ForeignKeyChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateForeignKey" eSuperTypes="#//ForeignKeyChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newForeignKey" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//ForeignKey"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstraintChange" abstract="true" eSuperTypes="#//DBDiff">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Constraint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddConstraint" eSuperTypes="#//ConstraintChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveConstraint" eSuperTypes="#//ConstraintChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateConstraint" eSuperTypes="#//ConstraintChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newConstraint" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Constraint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceChange" abstract="true" eSuperTypes="#//DBDiff">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequence" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Sequence"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddSequence" eSuperTypes="#//SequenceChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveSequence" eSuperTypes="#//SequenceChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateSequence" eSuperTypes="#//SequenceChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newSequence" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Sequence"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaChange" eSuperTypes="#//DBDiff">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schema" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Schema"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddSchema" eSuperTypes="#//SchemaChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveSchema" eSuperTypes="#//SchemaChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AlterSchema" eSuperTypes="#//SchemaChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RenameSchemaChange" eSuperTypes="#//SchemaChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newSchema" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Schema"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateSchemaCommentChange" eSuperTypes="#//SchemaChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newSchema" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//Schema"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DBDiff" abstract="true" eSuperTypes="platform:/plugin/org.eclipse.emf.compare/model/compare.ecore#//Diff">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+  </eClassifiers>
+</ecore:EPackage>

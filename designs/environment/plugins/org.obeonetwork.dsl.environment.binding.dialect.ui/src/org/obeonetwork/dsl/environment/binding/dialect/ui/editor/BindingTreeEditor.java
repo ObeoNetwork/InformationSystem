@@ -75,23 +75,23 @@ import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.Tr
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
-
-import fr.obeo.dsl.common.ui.ViewPointTransPlugin;
-import fr.obeo.dsl.viewpoint.DRepresentation;
-import fr.obeo.dsl.viewpoint.ViewpointPlugin;
-import fr.obeo.dsl.viewpoint.business.api.dialect.command.RefreshRepresentationCommand;
-import fr.obeo.dsl.viewpoint.business.api.preferences.DesignerPreferencesKeys;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionListener;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionStatus;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DefaultDialectEditorDialogFactory;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectEditor;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectEditorDialogFactory;
-import fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectUIManager;
-import fr.obeo.dsl.viewpoint.ui.business.api.session.IEditingSession;
-import fr.obeo.dsl.viewpoint.ui.business.api.session.SessionEditorInput;
-import fr.obeo.dsl.viewpoint.ui.business.api.session.SessionUIManager;
-import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.common.ui.SiriusTransPlugin;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
+import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
+import org.eclipse.sirius.business.api.preferences.SiriusPreferencesKeys;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionListener;
+import org.eclipse.sirius.business.api.session.SessionStatus;
+import org.eclipse.sirius.ui.business.api.dialect.DefaultDialectEditorDialogFactory;
+import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
+import org.eclipse.sirius.ui.business.api.dialect.DialectEditorDialogFactory;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.ui.business.api.session.IEditingSession;
+import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
+import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 
 /**
  * @author sthibaudeau
@@ -293,7 +293,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		final IEditingSession uiSession = SessionUIManager.INSTANCE.getOrCreateUISession(this.session);
 		uiSession.open();
 		uiSession.attachEditor(this);
-		setAccessor(ViewpointPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(getBindingEditorRepresentation()));
+		setAccessor(SiriusPlugin.getDefault().getModelAccessorRegistry().getModelAccessor(getBindingEditorRepresentation()));
 
 		/*
 		 * let's activate the model listening
@@ -358,7 +358,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectEditor#getRepresentation()
+	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectEditor#getRepresentation()
 	 */
 	public DRepresentation getRepresentation() {
 		return getBindingEditorRepresentation();
@@ -393,9 +393,9 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	protected boolean isAutoRefresh() {
 		boolean autoRefresh = false;
 		try {
-			autoRefresh = ViewpointPlugin.getDefault().getPluginPreferences().getBoolean(DesignerPreferencesKeys.PREF_AUTO_REFRESH.name());
+			autoRefresh = SiriusPlugin.getDefault().getPluginPreferences().getBoolean(SiriusPreferencesKeys.PREF_AUTO_REFRESH.name());
 		} catch (final IllegalArgumentException e) {
-			ViewPointTransPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, ViewPointTransPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e));
+			SiriusTransPlugin.getPlugin().getLog().log(new Status(IStatus.ERROR, SiriusTransPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e));
 		}
 		return autoRefresh;
 	}
@@ -403,7 +403,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectEditor#setDialogFactory(fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectEditorDialogFactory)
+	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectEditor#setDialogFactory(org.eclipse.sirius.ui.business.api.dialect.DialectEditorDialogFactory)
 	 */
 	public void setDialogFactory(DialectEditorDialogFactory dialogFactory) {
 		myDialogFactory = dialogFactory;
@@ -412,7 +412,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see fr.obeo.dsl.viewpoint.ui.business.api.dialect.DialectEditor#validateRepresentation()
+	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectEditor#validateRepresentation()
 	 */
 	public void validateRepresentation() {
 		// TODO Auto-generated method stub
@@ -451,7 +451,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	 * 
 	 */
 	protected void performSave(final boolean overwrite, final IProgressMonitor progressMonitor) {
-		session.save();
+		session.save(progressMonitor);
 	}
 
 	/**
@@ -574,7 +574,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 	}
 
 	private void launchRefresh() {
-		getEditingDomain().getCommandStack().execute(new RefreshRepresentationCommand(getEditingDomain(), getBindingEditorRepresentation()));
+		getEditingDomain().getCommandStack().execute(new RefreshRepresentationsCommand(getEditingDomain(), new NullProgressMonitor()));
 		doRefresh();
 	}
 

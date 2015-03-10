@@ -4,12 +4,10 @@
     creationIcons="false" editDirectory="/org.obeonetwork.tools.classdiagramgenerator.edit/src-gen"
     editorDirectory="/org.obeonetwork.tools.classdiagramgenerator.editor/src-gen"
     modelPluginID="org.obeonetwork.tools.classdiagramgenerator" modelName="ClassDiagramConfiguration"
-    rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
-    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" complianceLevel="6.0"
-    copyrightFields="false" usedGenPackages="../../fr.obeo.dsl.viewpoint/model/contribution.genmodel#//contribution ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../fr.obeo.dsl.viewpoint/model/viewpoint.genmodel#//viewpoint"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.sirius/model/viewpoint.genmodel#//viewpoint"
     operationReflection="true" importOrganizing="true">
   <foreignModel>ClassDiagramConfiguration.ecore</foreignModel>
-  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="ClassDiagramConfiguration" basePackage="org.obeonetwork.tools"
       disposableProviderFactory="true" multipleEditorPages="false" fileExtensions="classdiagramconf"
       ecorePackage="ClassDiagramConfiguration.ecore#/">

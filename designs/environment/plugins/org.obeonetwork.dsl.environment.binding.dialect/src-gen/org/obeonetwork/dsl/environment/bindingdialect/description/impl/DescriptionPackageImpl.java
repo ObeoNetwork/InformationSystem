@@ -21,8 +21,8 @@ import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionFac
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage;
 import org.obeonetwork.dsl.environment.bindingdialect.impl.BindingdialectPackageImpl;
 
-import fr.obeo.dsl.viewpoint.ViewpointPackage;
-import fr.obeo.dsl.viewpoint.description.tool.ToolPackage;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.sirius.viewpoint.description.tool.ToolPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -206,7 +206,7 @@ public class DescriptionPackageImpl extends EPackageImpl implements DescriptionP
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		fr.obeo.dsl.viewpoint.description.DescriptionPackage theDescriptionPackage_1 = (fr.obeo.dsl.viewpoint.description.DescriptionPackage)EPackage.Registry.INSTANCE.getEPackage(fr.obeo.dsl.viewpoint.description.DescriptionPackage.eNS_URI);
+		org.eclipse.sirius.viewpoint.description.DescriptionPackage theDescriptionPackage_1 = (org.eclipse.sirius.viewpoint.description.DescriptionPackage)EPackage.Registry.INSTANCE.getEPackage(org.eclipse.sirius.viewpoint.description.DescriptionPackage.eNS_URI);
 		ToolPackage theToolPackage = (ToolPackage)EPackage.Registry.INSTANCE.getEPackage(ToolPackage.eNS_URI);
 
 		// Create type parameters

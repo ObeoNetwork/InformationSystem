@@ -1,0 +1,165 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingCinematicTreeUIStructureToolCreation
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _CATJcGNcEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/3/14 2:21 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing Tree UI Structure Creation tools  for UIS_Package and UIS_ViewContainer defines in cinematic.odesign/UI Structure.
+- Tool UIS_Package/CRE_SubPackage
+- Tool UIS_Package/CRE_ViewContainer
+- Tool UIS_Package/CRE_UsedToolkit
+- Tool UIS_ContainedViewContainer/CRE_Duplicate
+- Tool UIS_ContainedViewContainer/CRE_ViewContainer
+- Tool UIS_ContainedViewContainer/CRE_ViewElement
+- Tool UIS_ContainedViewContainer/CRE_ViewContainerReference
+- Tool UIS_ContainedViewContainer/CRE_ViewEvent
+- Tool UIS_ContainedViewContainer/CRE_ViewAction
+- Tool UIS_ContainedViewContainer/CRE_DataBinding
+- Tool UIS_ContainedViewContainer/CRE_Duplicate
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree 
+    | select "E-BookStore/E-BookStore.cinematic/Cinematic Root E-BookStore/E-BookStore UI Structure" | double-click
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout" | click
+    // Check Tool UIS_Package/CRE_SubPackage
+    select "E-BookStore/Checkout" | get-menu Package | click
+    get-item "E-BookStore/Checkout/Package1" | click
+}
+get-editor "E-BookStore UI Structure" | get-tree | get-item "E-BookStore/Checkout/Package1" | get-property "getText()" 
+    | equals Package1 | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout" | click    
+    // Check Tool UIS_Package/CRE_ViewContainer
+    select "E-BookStore/Checkout" | get-menu "View Container" | click
+}
+with [get-window "Selection Wizard"] {
+	// Check Tool UIS_Package/CRE_UsedToolkit
+    get-tree | select "Toolkit Web/Widget Table"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | get-property "getText()" 
+    | equals "ViewContainer1 : Table" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout" | click
+    // Check Tool UIS_ContainedViewContainer/CRE_Duplicate
+    select "E-BookStore/Checkout" | get-menu Duplicate | click
+}
+get-editor "E-BookStore UI Structure" | get-tree | get-item "E-BookStore/Checkout copy" | get-property "getText()" 
+    | equals "Checkout copy" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | click
+    // Check Tool UIS_ContainedViewContainer/CRE_ViewContainer
+    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | get-menu "View Container" | click
+}
+with [get-window "Selection Wizard"] {	
+    get-tree | select "Toolkit Web/Widget Page"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer3 : Page" 
+    | get-property "getText()" | equals "ViewContainer3 : Page" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | click
+    // Check Tool UIS_ContainedViewContainer/CRE_ViewElement
+    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | get-menu "View Element" | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Radio"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/viewElement1 : Radio" 
+    | get-property "getText()" | equals "viewElement1 : Radio" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | click
+    // Check Tool UIS_ContainedViewContainer/CRE_ViewContainerReference
+    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | get-menu "View Container Reference" 
+        | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree 
+        | select "Cinematic Root E-BookStore/View Container HomePage : Page/View Container ShoppingCart : Panel/View Container CartLines : Table"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/cartLines : CartLines" 
+    | get-property "getText()" | equals "cartLines : CartLines" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | click
+    // Check Tool UIS_ContainedViewContainer/CRE_ViewEvent
+    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | get-menu Event | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Widget Event Type onFocusLost"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/onFocusLost : onFocusLost" 
+    | get-property "getText()" | equals "onFocusLost : onFocusLost" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | click
+    // Check UIS_ContainedViewContainer/Tool CRE_ViewAction
+    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | get-menu Action | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/action1" | get-property "getText()" 
+    | equals action1 | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | click
+    // Check UIS_ContainedViewContainer/Tool CRE_DataBinding
+    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | get-menu "Data Binding" | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Components/DTO Registry/Category main/Service DTO ShoopingCartLine/Reference book"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ShoopingCartLine.book \\(DTO Reference\\)" 
+    | get-property "getText()" | equals "ShoopingCartLine.book (DTO Reference)" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | click
+    // Check Tool UIS_ContainedViewContainer/CRE_Duplicate
+    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table" | get-menu Duplicate | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 copy : Table" | get-property "getText()" 
+    | equals "ViewContainer1 copy : Table" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer1 : Panel" | click
+    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer1 : Panel" 
+    // Check Tool UIS_ContainedViewContainer/CRE_ViewContainer 
+        | get-menu "View Container" | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Table"
+    get-button Finish | click
+}
+get-editor "E-BookStore UI Structure" | get-tree 
+    | get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer1 : Panel/ViewContainer1 : Table" 
+    | get-property "getText()" | equals "ViewContainer1 : Table" | verify-true
+with [get-editor "E-BookStore UI Structure" | get-tree] {
+    get-item "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer1 : Panel" | click
+    select "E-BookStore/Checkout/PaymentForm : Page/ViewContainer1 : Table/ViewContainer1 : Panel" 
+    	// Check Tool UIS_ContainedViewContainer/CRE_ViewElement
+        | get-menu "View Element" | click
+}
+with [get-window "Selection Wizard"] {
+    get-tree | select "Toolkit Web/Widget Password"
+    get-button Finish | click
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

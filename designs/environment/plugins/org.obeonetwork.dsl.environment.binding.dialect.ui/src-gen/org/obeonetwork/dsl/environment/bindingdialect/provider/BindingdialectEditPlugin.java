@@ -10,7 +10,7 @@
  */
 package org.obeonetwork.dsl.environment.bindingdialect.provider;
 
-import fr.obeo.dsl.viewpoint.provider.ViewpointEditPlugin;
+import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
 
@@ -58,7 +58,7 @@ public final class BindingdialectEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     EcoreEditPlugin.INSTANCE,
-		     ViewpointEditPlugin.INSTANCE,
+		     SiriusEditPlugin.INSTANCE,
 		   });
 	}
 

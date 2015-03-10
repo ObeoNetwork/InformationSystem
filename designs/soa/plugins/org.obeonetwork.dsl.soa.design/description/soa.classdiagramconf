@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classdiagramconf:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:classdiagramconf="http://www.obeonetwork.org/dsl/classdiagramconf/1.0.0" name="DTO diagrams configuration" description="">
-  <viewpoint href="soa.odesign#//@ownedViewpoints[name='Soa%20Views']"/>
+  <viewpoint href="soa.odesign#//@ownedViewpoints[name='SOA%20Views']"/>
   <diagrams id="Hierarchy" descriptionId="DTO Namespaces Hierarchy">
     <children id="namespaceContainer">
       <stringValues id="semanticCandidates" value="feature:ownedNamespaces"/>

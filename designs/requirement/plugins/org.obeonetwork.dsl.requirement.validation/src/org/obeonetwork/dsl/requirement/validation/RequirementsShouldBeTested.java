@@ -22,8 +22,8 @@ import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.presentation.EnhancedRequirementEditor;
 
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.ui.business.api.session.SessionEditorInput;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 
 public class RequirementsShouldBeTested extends PropertyTester {
 

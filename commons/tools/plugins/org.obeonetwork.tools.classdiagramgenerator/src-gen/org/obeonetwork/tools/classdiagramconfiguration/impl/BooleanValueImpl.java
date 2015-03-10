@@ -2,8 +2,9 @@
  */
 package org.obeonetwork.tools.classdiagramconfiguration.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.obeonetwork.tools.classdiagramconfiguration.BooleanValue;
 import org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationPackage;
 
@@ -32,6 +33,16 @@ public class BooleanValueImpl extends ConfigurationValueImpl implements BooleanV
 	protected static final boolean VALUE_EDEFAULT = false;
 
 	/**
+	 * The cached value of the '{@link #isValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean value = VALUE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -56,7 +67,7 @@ public class BooleanValueImpl extends ConfigurationValueImpl implements BooleanV
 	 * @generated
 	 */
 	public boolean isValue() {
-		return (Boolean)eDynamicGet(ClassDiagramConfigurationPackage.BOOLEAN_VALUE__VALUE, ClassDiagramConfigurationPackage.Literals.BOOLEAN_VALUE__VALUE, true, true);
+		return value;
 	}
 
 	/**
@@ -65,7 +76,10 @@ public class BooleanValueImpl extends ConfigurationValueImpl implements BooleanV
 	 * @generated
 	 */
 	public void setValue(boolean newValue) {
-		eDynamicSet(ClassDiagramConfigurationPackage.BOOLEAN_VALUE__VALUE, ClassDiagramConfigurationPackage.Literals.BOOLEAN_VALUE__VALUE, newValue);
+		boolean oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.BOOLEAN_VALUE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -121,9 +135,25 @@ public class BooleanValueImpl extends ConfigurationValueImpl implements BooleanV
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ClassDiagramConfigurationPackage.BOOLEAN_VALUE__VALUE:
-				return isValue() != VALUE_EDEFAULT;
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (value: ");
+		result.append(value);
+		result.append(')');
+		return result.toString();
 	}
 
 } //BooleanValueImpl

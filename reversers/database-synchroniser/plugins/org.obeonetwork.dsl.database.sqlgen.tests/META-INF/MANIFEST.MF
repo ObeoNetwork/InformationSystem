@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests
+Bundle-SymbolicName: org.obeonetwork.dsl.database.sqlgen.tests
+Bundle-Version: 1.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.obeonetwork.dsl.database,
+ org.obeonetwork.dsl.database.compare,
+ org.obeonetwork.dsl.database.sqlgen,
+ org.junit,
+ org.eclipse.acceleo.common,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.emf.common,
+ com.google.guava

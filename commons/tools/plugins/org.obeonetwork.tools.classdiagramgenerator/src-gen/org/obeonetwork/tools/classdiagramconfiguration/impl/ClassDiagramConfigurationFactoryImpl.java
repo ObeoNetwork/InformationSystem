@@ -56,12 +56,12 @@ public class ClassDiagramConfigurationFactoryImpl extends EFactoryImpl implement
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT: return (EObject)createConfigurationElement();
-			case ClassDiagramConfigurationPackage.CONFIGURATION: return (EObject)createConfiguration();
-			case ClassDiagramConfigurationPackage.DIAGRAM_CONF: return (EObject)createDiagramConf();
-			case ClassDiagramConfigurationPackage.STRING_VALUE: return (EObject)createStringValue();
-			case ClassDiagramConfigurationPackage.BOOLEAN_VALUE: return (EObject)createBooleanValue();
-			case ClassDiagramConfigurationPackage.COLOR_INFO: return (EObject)createColorInfo();
+			case ClassDiagramConfigurationPackage.CONFIGURATION_ELEMENT: return createConfigurationElement();
+			case ClassDiagramConfigurationPackage.CONFIGURATION: return createConfiguration();
+			case ClassDiagramConfigurationPackage.DIAGRAM_CONF: return createDiagramConf();
+			case ClassDiagramConfigurationPackage.STRING_VALUE: return createStringValue();
+			case ClassDiagramConfigurationPackage.BOOLEAN_VALUE: return createBooleanValue();
+			case ClassDiagramConfigurationPackage.COLOR_INFO: return createColorInfo();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

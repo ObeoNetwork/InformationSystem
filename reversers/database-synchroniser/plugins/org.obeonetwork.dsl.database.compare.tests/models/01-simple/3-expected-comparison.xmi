@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<compare:Comparison xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:compare="http://www.eclipse.org/emf/compare">
+  <matchedResources leftURI="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/1-input.database" rightURI="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/2-input.database"/>
+  <matches>
+    <submatches>
+      <submatches>
+        <submatches>
+          <submatches>
+            <left href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/1-input.database#_4YlnMWuPEeK15tgGdM8cCw"/>
+            <right href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/2-input.database#_4YlnMWuPEeK15tgGdM8cCw"/>
+          </submatches>
+          <differences xsi:type="compare:ReferenceChange" requires="//@matches.0/@submatches.0/@submatches.0/@differences.0" requiredBy="//@matches.0/@submatches.1/@submatches.0/@differences.0" kind="MOVE">
+            <reference href="http://www.obeonetwork.org/dsl/database/1.0#//Column/type"/>
+            <value href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/1-input.database#_4YlnMWuPEeK15tgGdM8cCw"/>
+          </differences>
+          <left href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/1-input.database#_4YlnMGuPEeK15tgGdM8cCw"/>
+        </submatches>
+        <differences xsi:type="compare:ReferenceChange" requires="//@matches.0/@submatches.0/@differences.0" requiredBy="//@matches.0/@submatches.0/@submatches.0/@submatches.0/@differences.0">
+          <reference href="http://www.obeonetwork.org/dsl/database/1.0#//AbstractTable/columns"/>
+          <value href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/1-input.database#_4YlnMGuPEeK15tgGdM8cCw"/>
+        </differences>
+        <left href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/1-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+      </submatches>
+      <differences xsi:type="compare:ReferenceChange" requires="//@matches.0/@differences.0" requiredBy="//@matches.0/@submatches.0/@submatches.0/@differences.0">
+        <reference href="http://www.obeonetwork.org/dsl/database/1.0#//TableContainer/tables"/>
+        <value href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/1-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+      </differences>
+      <left href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/1-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+    </submatches>
+    <submatches>
+      <submatches>
+        <submatches>
+          <right href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/2-input.database#_4YlnMGuPEeK15tgGdM8cCw"/>
+        </submatches>
+        <differences xsi:type="compare:ReferenceChange" requires="//@matches.0/@submatches.0/@submatches.0/@submatches.0/@differences.0" requiredBy="//@matches.0/@submatches.1/@differences.0" kind="DELETE">
+          <reference href="http://www.obeonetwork.org/dsl/database/1.0#//AbstractTable/columns"/>
+          <value href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/2-input.database#_4YlnMGuPEeK15tgGdM8cCw"/>
+        </differences>
+        <right href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/2-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+      </submatches>
+      <differences xsi:type="compare:ReferenceChange" requires="//@matches.0/@submatches.1/@submatches.0/@differences.0" requiredBy="//@matches.0/@differences.1" kind="DELETE">
+        <reference href="http://www.obeonetwork.org/dsl/database/1.0#//TableContainer/tables"/>
+        <value href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/2-input.database#_3irS4GuPEeK15tgGdM8cCw"/>
+      </differences>
+      <right href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/2-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+    </submatches>
+    <differences xsi:type="compare:ReferenceChange" requiredBy="//@matches.0/@submatches.0/@differences.0">
+      <reference href="http://www.obeonetwork.org/dsl/database/1.0#//DataBase/schemas"/>
+      <value href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/1-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+    </differences>
+    <differences xsi:type="compare:ReferenceChange" requires="//@matches.0/@submatches.1/@differences.0" kind="DELETE">
+      <reference href="http://www.obeonetwork.org/dsl/database/1.0#//DataBase/schemas"/>
+      <value href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/2-input.database#_2dksAGuPEeK15tgGdM8cCw"/>
+    </differences>
+    <left href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/1-input.database#_0hLQwGuPEeK15tgGdM8cCw"/>
+    <right href="platform:/resource/org.obeonetwork.dsl.database.compare.tests/models/01-simple/2-input.database#_0hLQwGuPEeK15tgGdM8cCw"/>
+  </matches>
+</compare:Comparison>

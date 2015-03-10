@@ -2,14 +2,18 @@
  */
 package org.obeonetwork.tools.classdiagramconfiguration.impl;
 
-import fr.obeo.dsl.viewpoint.description.Viewpoint;
 import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationPackage;
 import org.obeonetwork.tools.classdiagramconfiguration.ColorInfo;
 import org.obeonetwork.tools.classdiagramconfiguration.Configuration;
@@ -33,7 +37,7 @@ import org.obeonetwork.tools.classdiagramconfiguration.DiagramConf;
  *
  * @generated
  */
-public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
+public class ConfigurationImpl extends MinimalEObjectImpl.Container implements Configuration {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -45,6 +49,16 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,6 +67,56 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getViewpoint() <em>Viewpoint</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getViewpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected Viewpoint viewpoint;
+
+	/**
+	 * The cached value of the '{@link #getDiagrams() <em>Diagrams</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDiagrams()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DiagramConf> diagrams;
+
+	/**
+	 * The cached value of the '{@link #getColors() <em>Colors</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColors()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ColorInfo> colors;
+
+	/**
+	 * The cached value of the '{@link #getJavaExtensions() <em>Java Extensions</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJavaExtensions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> javaExtensions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,18 +142,8 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
-		return (String)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION__NAME, ClassDiagramConfigurationPackage.Literals.CONFIGURATION__NAME, true, true);
+		return name;
 	}
 
 	/**
@@ -98,7 +152,10 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(ClassDiagramConfigurationPackage.CONFIGURATION__NAME, ClassDiagramConfigurationPackage.Literals.CONFIGURATION__NAME, newName);
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.CONFIGURATION__NAME, oldName, name));
 	}
 
 	/**
@@ -107,7 +164,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public String getDescription() {
-		return (String)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION__DESCRIPTION, ClassDiagramConfigurationPackage.Literals.CONFIGURATION__DESCRIPTION, true, true);
+		return description;
 	}
 
 	/**
@@ -116,7 +173,10 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
-		eDynamicSet(ClassDiagramConfigurationPackage.CONFIGURATION__DESCRIPTION, ClassDiagramConfigurationPackage.Literals.CONFIGURATION__DESCRIPTION, newDescription);
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.CONFIGURATION__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -125,7 +185,15 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public Viewpoint getViewpoint() {
-		return (Viewpoint)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION__VIEWPOINT, ClassDiagramConfigurationPackage.Literals.CONFIGURATION__VIEWPOINT, true, true);
+		if (viewpoint != null && viewpoint.eIsProxy()) {
+			InternalEObject oldViewpoint = (InternalEObject)viewpoint;
+			viewpoint = (Viewpoint)eResolveProxy(oldViewpoint);
+			if (viewpoint != oldViewpoint) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ClassDiagramConfigurationPackage.CONFIGURATION__VIEWPOINT, oldViewpoint, viewpoint));
+			}
+		}
+		return viewpoint;
 	}
 
 	/**
@@ -134,7 +202,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public Viewpoint basicGetViewpoint() {
-		return (Viewpoint)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION__VIEWPOINT, ClassDiagramConfigurationPackage.Literals.CONFIGURATION__VIEWPOINT, false, true);
+		return viewpoint;
 	}
 
 	/**
@@ -143,7 +211,10 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public void setViewpoint(Viewpoint newViewpoint) {
-		eDynamicSet(ClassDiagramConfigurationPackage.CONFIGURATION__VIEWPOINT, ClassDiagramConfigurationPackage.Literals.CONFIGURATION__VIEWPOINT, newViewpoint);
+		Viewpoint oldViewpoint = viewpoint;
+		viewpoint = newViewpoint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.CONFIGURATION__VIEWPOINT, oldViewpoint, viewpoint));
 	}
 
 	/**
@@ -153,7 +224,10 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<DiagramConf> getDiagrams() {
-		return (EList<DiagramConf>)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION__DIAGRAMS, ClassDiagramConfigurationPackage.Literals.CONFIGURATION__DIAGRAMS, true, true);
+		if (diagrams == null) {
+			diagrams = new EObjectContainmentEList<DiagramConf>(DiagramConf.class, this, ClassDiagramConfigurationPackage.CONFIGURATION__DIAGRAMS);
+		}
+		return diagrams;
 	}
 
 	/**
@@ -163,7 +237,10 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<ColorInfo> getColors() {
-		return (EList<ColorInfo>)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION__COLORS, ClassDiagramConfigurationPackage.Literals.CONFIGURATION__COLORS, true, true);
+		if (colors == null) {
+			colors = new EObjectContainmentEList<ColorInfo>(ColorInfo.class, this, ClassDiagramConfigurationPackage.CONFIGURATION__COLORS);
+		}
+		return colors;
 	}
 
 	/**
@@ -173,7 +250,10 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<String> getJavaExtensions() {
-		return (EList<String>)eDynamicGet(ClassDiagramConfigurationPackage.CONFIGURATION__JAVA_EXTENSIONS, ClassDiagramConfigurationPackage.Literals.CONFIGURATION__JAVA_EXTENSIONS, true, true);
+		if (javaExtensions == null) {
+			javaExtensions = new EDataTypeUniqueEList<String>(String.class, this, ClassDiagramConfigurationPackage.CONFIGURATION__JAVA_EXTENSIONS);
+		}
+		return javaExtensions;
 	}
 
 	/**
@@ -290,19 +370,39 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ClassDiagramConfigurationPackage.CONFIGURATION__NAME:
-				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ClassDiagramConfigurationPackage.CONFIGURATION__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case ClassDiagramConfigurationPackage.CONFIGURATION__VIEWPOINT:
-				return basicGetViewpoint() != null;
+				return viewpoint != null;
 			case ClassDiagramConfigurationPackage.CONFIGURATION__DIAGRAMS:
-				return !getDiagrams().isEmpty();
+				return diagrams != null && !diagrams.isEmpty();
 			case ClassDiagramConfigurationPackage.CONFIGURATION__COLORS:
-				return !getColors().isEmpty();
+				return colors != null && !colors.isEmpty();
 			case ClassDiagramConfigurationPackage.CONFIGURATION__JAVA_EXTENSIONS:
-				return !getJavaExtensions().isEmpty();
+				return javaExtensions != null && !javaExtensions.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", description: ");
+		result.append(description);
+		result.append(", javaExtensions: ");
+		result.append(javaExtensions);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ConfigurationImpl

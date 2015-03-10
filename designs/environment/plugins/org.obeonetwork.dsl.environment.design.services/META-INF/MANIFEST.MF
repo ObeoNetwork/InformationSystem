@@ -6,7 +6,10 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Obeo
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.obeonetwork.dsl.environment,
- fr.obeo.dsl.viewpoint,
- fr.obeo.mda.ecore.extender,
- org.eclipse.jface
+ org.eclipse.jface,
+ org.eclipse.sirius,
+ org.eclipse.sirius.ecore.extender,
+ org.eclipse.sirius.ext.emf,
+ com.google.guava,
+ org.eclipse.sirius.diagram
 Export-Package: org.obeonetwork.dsl.environment.design.services

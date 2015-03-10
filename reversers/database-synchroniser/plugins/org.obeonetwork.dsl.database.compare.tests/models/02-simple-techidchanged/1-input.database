@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_0hLQwGuPEeK15tgGdM8cCw" techID="_0hKpsGuPEeK15tgGdM8cCw" name="My">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_2dksAGuPEeK15tgGdM8cCw" comments="abracadabra" techID="aaaa" name="sdsqd">
+    <tables xsi:type="database:Table" xmi:id="_3irS4GuPEeK15tgGdM8cCw" techID="_3MtC4WuPEeK15tgGdM8cCw" name="T2dsqd">
+      <columns xmi:id="_4YlnMGuPEeK15tgGdM8cCw" techID="_39090GuPEeK15tgGdM8cCw" name="C2">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_4YlnMWuPEeK15tgGdM8cCw" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

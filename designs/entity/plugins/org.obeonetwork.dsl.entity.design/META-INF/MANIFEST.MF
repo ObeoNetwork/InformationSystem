@@ -5,17 +5,14 @@ Bundle-Version: 1.0.0
 Bundle-Activator: org.obeonetwork.dsl.entity.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- fr.obeo.dsl.viewpoint,
- fr.obeo.dsl.common.acceleo.mtl,
  org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.environment.edit,
  org.obeonetwork.dsl.entity,
  org.obeonetwork.dsl.entity.edit,
- org.obeonetwork.dsl.environment.design.services
+ org.obeonetwork.dsl.environment.design.services,
+ org.eclipse.sirius
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: www.obeo.fr
 Bundle-ManifestVersion: 2
-Export-Package: org.obeonetwork.dsl.entity.design,
- org.obeonetwork.dsl.entity.design.services.label,
- org.obeonetwork.dsl.entity.design.services.label.specific
+Export-Package: org.obeonetwork.dsl.entity.design

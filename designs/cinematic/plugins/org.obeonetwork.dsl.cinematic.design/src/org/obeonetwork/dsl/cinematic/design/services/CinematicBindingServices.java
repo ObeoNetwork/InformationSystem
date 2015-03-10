@@ -12,6 +12,9 @@ package org.obeonetwork.dsl.cinematic.design.services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -109,6 +112,26 @@ public class CinematicBindingServices {
 			}
 		}
 		return bindingInfos;
+	}
+	
+	public List<EObject> getBindingElementsAndContainers(EObject context,
+			List<EObject> bindingElements) {
+		List<EObject> bindingElementsContainersAncestors = new ArrayList<EObject>(bindingElements);
+		// Add to the list, the Ancestors if they are not already
+		// on the list.
+		for (EObject bindingElement : bindingElements) {			
+			EObject objectContainer = bindingElement.eContainer();			
+			while (objectContainer != null) {
+				if (!bindingElementsContainersAncestors.contains(objectContainer)) {
+					bindingElementsContainersAncestors.add(objectContainer);									
+				}
+				objectContainer = objectContainer.eContainer();
+			}
+		}		
+		// Removing duplicates, if duplicates are present
+		Set<EObject> set = new HashSet<EObject>();
+		set.addAll(bindingElementsContainersAncestors);
+		return new ArrayList<EObject>(set);
 	}
 	
 	private BindingRegistry getGlobalBindingRegistry(CinematicElement element) {

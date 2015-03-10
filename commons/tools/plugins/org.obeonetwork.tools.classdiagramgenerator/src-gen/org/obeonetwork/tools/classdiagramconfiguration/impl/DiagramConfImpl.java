@@ -3,8 +3,11 @@
 package org.obeonetwork.tools.classdiagramconfiguration.impl;
 
 import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationPackage;
 import org.obeonetwork.tools.classdiagramconfiguration.DiagramConf;
 
@@ -34,6 +37,25 @@ public class DiagramConfImpl extends ConfigurationElementImpl implements Diagram
 	protected static final String DESCRIPTION_ID_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getDescriptionId() <em>Description Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescriptionId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String descriptionId = DESCRIPTION_ID_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getMetamodels() <em>Metamodels</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMetamodels()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> metamodels;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -58,7 +80,7 @@ public class DiagramConfImpl extends ConfigurationElementImpl implements Diagram
 	 * @generated
 	 */
 	public String getDescriptionId() {
-		return (String)eDynamicGet(ClassDiagramConfigurationPackage.DIAGRAM_CONF__DESCRIPTION_ID, ClassDiagramConfigurationPackage.Literals.DIAGRAM_CONF__DESCRIPTION_ID, true, true);
+		return descriptionId;
 	}
 
 	/**
@@ -67,7 +89,10 @@ public class DiagramConfImpl extends ConfigurationElementImpl implements Diagram
 	 * @generated
 	 */
 	public void setDescriptionId(String newDescriptionId) {
-		eDynamicSet(ClassDiagramConfigurationPackage.DIAGRAM_CONF__DESCRIPTION_ID, ClassDiagramConfigurationPackage.Literals.DIAGRAM_CONF__DESCRIPTION_ID, newDescriptionId);
+		String oldDescriptionId = descriptionId;
+		descriptionId = newDescriptionId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.DIAGRAM_CONF__DESCRIPTION_ID, oldDescriptionId, descriptionId));
 	}
 
 	/**
@@ -77,7 +102,10 @@ public class DiagramConfImpl extends ConfigurationElementImpl implements Diagram
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<String> getMetamodels() {
-		return (EList<String>)eDynamicGet(ClassDiagramConfigurationPackage.DIAGRAM_CONF__METAMODELS, ClassDiagramConfigurationPackage.Literals.DIAGRAM_CONF__METAMODELS, true, true);
+		if (metamodels == null) {
+			metamodels = new EDataTypeUniqueEList<String>(String.class, this, ClassDiagramConfigurationPackage.DIAGRAM_CONF__METAMODELS);
+		}
+		return metamodels;
 	}
 
 	/**
@@ -143,11 +171,29 @@ public class DiagramConfImpl extends ConfigurationElementImpl implements Diagram
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ClassDiagramConfigurationPackage.DIAGRAM_CONF__DESCRIPTION_ID:
-				return DESCRIPTION_ID_EDEFAULT == null ? getDescriptionId() != null : !DESCRIPTION_ID_EDEFAULT.equals(getDescriptionId());
+				return DESCRIPTION_ID_EDEFAULT == null ? descriptionId != null : !DESCRIPTION_ID_EDEFAULT.equals(descriptionId);
 			case ClassDiagramConfigurationPackage.DIAGRAM_CONF__METAMODELS:
-				return !getMetamodels().isEmpty();
+				return metamodels != null && !metamodels.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (descriptionId: ");
+		result.append(descriptionId);
+		result.append(", metamodels: ");
+		result.append(metamodels);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DiagramConfImpl

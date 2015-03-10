@@ -2,10 +2,10 @@
  */
 package org.obeonetwork.tools.classdiagramconfiguration.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationPackage;
 import org.obeonetwork.tools.classdiagramconfiguration.ColorInfo;
 
@@ -25,7 +25,7 @@ import org.obeonetwork.tools.classdiagramconfiguration.ColorInfo;
  *
  * @generated
  */
-public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
+public class ColorInfoImpl extends MinimalEObjectImpl.Container implements ColorInfo {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -35,6 +35,16 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRed() <em>Red</em>}' attribute.
@@ -47,6 +57,16 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	protected static final int RED_EDEFAULT = 0;
 
 	/**
+	 * The cached value of the '{@link #getRed() <em>Red</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRed()
+	 * @generated
+	 * @ordered
+	 */
+	protected int red = RED_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getGreen() <em>Green</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,6 +77,16 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	protected static final int GREEN_EDEFAULT = 0;
 
 	/**
+	 * The cached value of the '{@link #getGreen() <em>Green</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGreen()
+	 * @generated
+	 * @ordered
+	 */
+	protected int green = GREEN_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getBlue() <em>Blue</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +95,16 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	 * @ordered
 	 */
 	protected static final int BLUE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getBlue() <em>Blue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBlue()
+	 * @generated
+	 * @ordered
+	 */
+	protected int blue = BLUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,18 +130,8 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getName() {
-		return (String)eDynamicGet(ClassDiagramConfigurationPackage.COLOR_INFO__NAME, ClassDiagramConfigurationPackage.Literals.COLOR_INFO__NAME, true, true);
+		return name;
 	}
 
 	/**
@@ -110,7 +140,10 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(ClassDiagramConfigurationPackage.COLOR_INFO__NAME, ClassDiagramConfigurationPackage.Literals.COLOR_INFO__NAME, newName);
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.COLOR_INFO__NAME, oldName, name));
 	}
 
 	/**
@@ -119,7 +152,7 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	 * @generated
 	 */
 	public int getRed() {
-		return (Integer)eDynamicGet(ClassDiagramConfigurationPackage.COLOR_INFO__RED, ClassDiagramConfigurationPackage.Literals.COLOR_INFO__RED, true, true);
+		return red;
 	}
 
 	/**
@@ -128,7 +161,10 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	 * @generated
 	 */
 	public void setRed(int newRed) {
-		eDynamicSet(ClassDiagramConfigurationPackage.COLOR_INFO__RED, ClassDiagramConfigurationPackage.Literals.COLOR_INFO__RED, newRed);
+		int oldRed = red;
+		red = newRed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.COLOR_INFO__RED, oldRed, red));
 	}
 
 	/**
@@ -137,7 +173,7 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	 * @generated
 	 */
 	public int getGreen() {
-		return (Integer)eDynamicGet(ClassDiagramConfigurationPackage.COLOR_INFO__GREEN, ClassDiagramConfigurationPackage.Literals.COLOR_INFO__GREEN, true, true);
+		return green;
 	}
 
 	/**
@@ -146,7 +182,10 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	 * @generated
 	 */
 	public void setGreen(int newGreen) {
-		eDynamicSet(ClassDiagramConfigurationPackage.COLOR_INFO__GREEN, ClassDiagramConfigurationPackage.Literals.COLOR_INFO__GREEN, newGreen);
+		int oldGreen = green;
+		green = newGreen;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.COLOR_INFO__GREEN, oldGreen, green));
 	}
 
 	/**
@@ -155,7 +194,7 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	 * @generated
 	 */
 	public int getBlue() {
-		return (Integer)eDynamicGet(ClassDiagramConfigurationPackage.COLOR_INFO__BLUE, ClassDiagramConfigurationPackage.Literals.COLOR_INFO__BLUE, true, true);
+		return blue;
 	}
 
 	/**
@@ -164,7 +203,10 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	 * @generated
 	 */
 	public void setBlue(int newBlue) {
-		eDynamicSet(ClassDiagramConfigurationPackage.COLOR_INFO__BLUE, ClassDiagramConfigurationPackage.Literals.COLOR_INFO__BLUE, newBlue);
+		int oldBlue = blue;
+		blue = newBlue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.COLOR_INFO__BLUE, oldBlue, blue));
 	}
 
 	/**
@@ -244,15 +286,37 @@ public class ColorInfoImpl extends CDOObjectImpl implements ColorInfo {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ClassDiagramConfigurationPackage.COLOR_INFO__NAME:
-				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ClassDiagramConfigurationPackage.COLOR_INFO__RED:
-				return getRed() != RED_EDEFAULT;
+				return red != RED_EDEFAULT;
 			case ClassDiagramConfigurationPackage.COLOR_INFO__GREEN:
-				return getGreen() != GREEN_EDEFAULT;
+				return green != GREEN_EDEFAULT;
 			case ClassDiagramConfigurationPackage.COLOR_INFO__BLUE:
-				return getBlue() != BLUE_EDEFAULT;
+				return blue != BLUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", red: ");
+		result.append(red);
+		result.append(", green: ");
+		result.append(green);
+		result.append(", blue: ");
+		result.append(blue);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ColorInfoImpl

@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SQL Generator
+Bundle-SymbolicName: org.obeonetwork.dsl.database.sqlgen
+Bundle-Version: 1.1.0.qualifier
+Bundle-Vendor: Obeo Network
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.ocl,
+ org.eclipse.ocl.ecore,
+ org.eclipse.acceleo.model,
+ org.eclipse.acceleo.engine;visibility:=reexport,
+ org.obeonetwork.dsl.database.compare,
+ org.eclipse.acceleo.parser,
+ org.obeonetwork.dsl.database,
+ org.eclipse.emf.edit.ui
+Bundle-ActivationPolicy: lazy
+Export-Package: org.obeonetwork.dsl.database.sqlgen,
+ org.obeonetwork.dsl.database.sqlgen.services
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -1,0 +1,74 @@
+[comment encoding = UTF-8 /]
+[module ForeignKeyGen(
+ 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
+ 'http://www.obeonetwork.org/dsl/database/1.0',
+ 'http://www.eclipse.org/emf/compare',
+ 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::TableGen /]
+
+[template public genSQLForForeignKeys(changeSet : Comparison) post(trim())]
+[if (changeSet.eAllContents(AddForeignKey)->size()>0)]
+	[file ('create-fk.sql', false, 'UTF-8')]
+		[for (addPk : AddForeignKey | changeSet.eAllContents(AddForeignKey))]
+[addPk.genCreateFK()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(RemoveForeignKey)->size()>0)]
+	[file ('drop-fk.sql', false, 'UTF-8')]
+		[for (removeFK : RemoveForeignKey | changeSet.eAllContents(RemoveForeignKey))]
+[removeFK.genDropFK()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(UpdateForeignKey)->size()>0)]
+	[file ('alter-fk.sql', false, 'UTF-8')]
+		[for (updateFK : UpdateForeignKey | changeSet.eAllContents(UpdateForeignKey))]
+[updateFK.genAlterFK()/]
+
+		[/for]
+	[/file]
+[/if]
+[/template]
+
+[template private genFKDoc(foreignKey : ForeignKey) post(trim())]
+-- ==============================================================
+--  Foreign Key : [foreignKey.name/]                                    
+-- ==============================================================
+[/template]
+
+[template private genCreateFK(addFK : AddForeignKey) post(trim())]
+[addFK.foreignKey.oclAsType(ForeignKey).genFKDoc()/]
+[addFK.foreignKey.oclAsType(ForeignKey).genCreateFK()/]
+[/template]
+
+[template private genDropFK(removeFK : RemoveForeignKey) post(trim())]
+[removeFK.foreignKey.oclAsType(ForeignKey).genFKDoc()/]
+[removeFK.foreignKey.oclAsType(ForeignKey).genDropFK()/]
+[/template]
+
+[template private genAlterFK(updateFK : UpdateForeignKey) post(trim())]
+[updateFK.newForeignKey.oclAsType(ForeignKey).genFKDoc()/]
+[updateFK.foreignKey.oclAsType(ForeignKey).genDropFK()/]
+[updateFK.newForeignKey.oclAsType(ForeignKey).genCreateFK()/]
+[/template]
+
+[template private genCreateFK(fk : ForeignKey) post(trim())]
+[if (fk.elements->forAll(not pkColumn.oclIsUndefined()))]
+[let sourceTable : Table = fk.owner]
+[let targetTable : Table = fk.elements.pkColumn->first().owner.oclAsType(Table)]
+ALTER TABLE [sourceTable.name()/] 
+	ADD (CONSTRAINT [fk.name/] FOREIGN KEY([fk.elements.fkColumn.name->sep(', ')/]) 
+	REFERENCES [targetTable.name()/]([fk.elements.pkColumn.name->sep(', ')/]));[/let][/let]
+[/if]
+[/template]
+
+[template private genDropFK(fk : ForeignKey) post(trim())]
+[let table : Table = fk.owner]
+ALTER TABLE [table.name()/] DROP CONSTRAINT [fk.name/];[/let]
+[/template]

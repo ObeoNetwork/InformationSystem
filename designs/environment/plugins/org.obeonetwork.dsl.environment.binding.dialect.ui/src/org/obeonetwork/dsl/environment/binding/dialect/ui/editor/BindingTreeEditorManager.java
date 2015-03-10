@@ -3,7 +3,7 @@ package org.obeonetwork.dsl.environment.binding.dialect.ui.editor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
-import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class BindingTreeEditorManager {
 

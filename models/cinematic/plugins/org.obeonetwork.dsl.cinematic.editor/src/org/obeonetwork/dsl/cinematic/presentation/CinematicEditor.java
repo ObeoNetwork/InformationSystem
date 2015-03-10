@@ -136,7 +136,7 @@ public class CinematicEditor
 	/**
 	 * @generated NOT
 	 */
-	public static final String PROPERTIES_CONTRIBUTOR = "fr.obeo.dsl.viewpoint.diagram";
+	public static final String PROPERTIES_CONTRIBUTOR = "org.eclipse.sirius.diagram.ui";
 	
 	/** (non-Javadoc)
 	 * @see org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor#getContributorId()

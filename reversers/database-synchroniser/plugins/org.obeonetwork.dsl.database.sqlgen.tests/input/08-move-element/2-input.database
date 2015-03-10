@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_UxPggXQwEeKEQaBTmSS_iA" techID="_UxPggHQwEeKEQaBTmSS_iA" name="2-input">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_5M2twHX4EeKPfoy_XD155w" techID="_47mls3X4EeKPfoy_XD155w" name="S1"/>
+  <schemas xmi:id="_6nQ2QHX4EeKPfoy_XD155w" techID="_6ZLW83X4EeKPfoy_XD155w" name="S2">
+    <tables xsi:type="database:Table" xmi:id="_7YxywHX4EeKPfoy_XD155w" techID="_7M3dsXX4EeKPfoy_XD155w" name="T1"/>
+  </schemas>
+  <schemas xmi:id="_2eqC4HaMEeKZ3IEmN7Xf4g" techID="_2J2Qg3aMEeKZ3IEmN7Xf4g" name="S3">
+    <tables xsi:type="database:Table" xmi:id="_3hf_8HaMEeKZ3IEmN7Xf4g" techID="_3UQ1MXaMEeKZ3IEmN7Xf4g" name="T31">
+      <columns xmi:id="_53g1EHaMEeKZ3IEmN7Xf4g" techID="_5qfFsHaMEeKZ3IEmN7Xf4g" name="C1">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_53g1EXaMEeKZ3IEmN7Xf4g">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwtRhEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_4aCKcHaMEeKZ3IEmN7Xf4g" techID="_4MgEwXaMEeKZ3IEmN7Xf4g" name="T32"/>
+  </schemas>
+</database:DataBase>

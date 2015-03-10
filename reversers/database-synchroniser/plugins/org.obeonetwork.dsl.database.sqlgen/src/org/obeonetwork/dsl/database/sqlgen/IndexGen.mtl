@@ -1,0 +1,87 @@
+[comment encoding = UTF-8 /]
+[module IndexGen(
+ 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
+ 'http://www.obeonetwork.org/dsl/database/1.0',
+ 'http://www.eclipse.org/emf/compare',
+ 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::TableGen /]
+
+[template public genSQLForIndex(changeSet : Comparison) post(trim())]
+[if (changeSet.eAllContents(AddIndex)->size()>0)]
+	[file ('create-index.sql', false, 'UTF-8')]
+		[for (addIndex : AddIndex | changeSet.eAllContents(AddIndex))]
+[addIndex.genCreateIndex()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(RemoveIndex)->size()>0)]
+	[file ('drop-index.sql', false, 'UTF-8')]
+		[for (removeIndex : RemoveIndex | changeSet.eAllContents(RemoveIndex))]
+[removeIndex.genDropIndex()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(UpdateIndex)->size()>0)]
+	[file ('alter-index.sql', false, 'UTF-8')]
+		[for (updateIndex : UpdateIndex | changeSet.eAllContents(UpdateIndex))]
+[updateIndex.genAlterIndex()/]
+
+		[/for]
+	[/file]
+[/if]
+[/template]
+
+[template private genIndexDoc(index : Index) post(trim())]
+-- ==============================================================
+--  Index : [index.name/]                                    
+-- ==============================================================
+[/template]
+
+[template private genCreateIndex(addIndex : AddIndex) ? (addIndex.index.ID<>addIndex.index.owner.primaryKey.ID) post(trim())]
+[addIndex.index.genIndexDoc()/]
+[addIndex.index.oclAsType(Index).genCreateIndex()/]
+[/template]
+
+[template private genDropIndex(removeIndex : RemoveIndex) post(trim())]
+[removeIndex.index.genIndexDoc()/]
+[removeIndex.index.oclAsType(Index).genDropIndex()/]
+[/template]
+
+[template private genAlterIndex(updateIndex : UpdateIndex) post(trim())]
+[updateIndex.newIndex.genIndexDoc()/]
+[updateIndex.index.oclAsType(Index).genDropIndex()/]
+[updateIndex.newIndex.oclAsType(Index).genCreateIndex()/]
+[/template]
+
+[template private genStorageClause(index : Index)]
+[if (index.owner.owner.oclIsKindOf(Schema))]
+
+  pctfree 10
+  pctused 40
+  initrans 1
+  online
+  compute statistics
+  tablespace TS_INDEX_[index.owner.owner.oclAsType(Schema).name.toUpper()/]
+  logging
+  nosort
+  noparallel
+  parallel
+  (
+       1
+  )[/if]
+[/template]
+
+[template private genCreateIndex(index : Index) ? (index.ID<>index.owner.primaryKey.ID) post(trim())]
+[if (index.elements->forAll(not column.oclIsUndefined()))]
+CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.owner.name()/]([index.elements.column.name->sep(', ')/])[index.genStorageClause()/]; 
+[/if]
+[/template]
+
+[template private genDropIndex(index : Index) ? (index.ID<>index.owner.primaryKey.ID) post(trim())]
+ALTER TABLE [index.owner.name()/] DROP INDEX [index.name/];
+[/template]

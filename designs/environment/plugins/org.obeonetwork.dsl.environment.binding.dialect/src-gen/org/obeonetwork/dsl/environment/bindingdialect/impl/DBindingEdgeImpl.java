@@ -19,7 +19,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 
-import fr.obeo.dsl.viewpoint.impl.DRepresentationElementImpl;
+import org.eclipse.sirius.viewpoint.impl.DRepresentationElementImpl;
 
 /**
  * <!-- begin-user-doc -->

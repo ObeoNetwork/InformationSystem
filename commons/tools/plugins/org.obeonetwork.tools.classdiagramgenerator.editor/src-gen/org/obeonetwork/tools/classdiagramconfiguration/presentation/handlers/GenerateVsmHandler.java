@@ -12,11 +12,11 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.tools.classdiagramconfiguration.Configuration;
 
-import fr.obeo.dsl.viewpoint.description.RepresentationDescription;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.

@@ -2,8 +2,9 @@
  */
 package org.obeonetwork.tools.classdiagramconfiguration.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.obeonetwork.tools.classdiagramconfiguration.ClassDiagramConfigurationPackage;
 import org.obeonetwork.tools.classdiagramconfiguration.StringValue;
 
@@ -32,6 +33,16 @@ public class StringValueImpl extends ConfigurationValueImpl implements StringVal
 	protected static final String VALUE_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -56,7 +67,7 @@ public class StringValueImpl extends ConfigurationValueImpl implements StringVal
 	 * @generated
 	 */
 	public String getValue() {
-		return (String)eDynamicGet(ClassDiagramConfigurationPackage.STRING_VALUE__VALUE, ClassDiagramConfigurationPackage.Literals.STRING_VALUE__VALUE, true, true);
+		return value;
 	}
 
 	/**
@@ -65,7 +76,10 @@ public class StringValueImpl extends ConfigurationValueImpl implements StringVal
 	 * @generated
 	 */
 	public void setValue(String newValue) {
-		eDynamicSet(ClassDiagramConfigurationPackage.STRING_VALUE__VALUE, ClassDiagramConfigurationPackage.Literals.STRING_VALUE__VALUE, newValue);
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramConfigurationPackage.STRING_VALUE__VALUE, oldValue, value));
 	}
 
 	/**
@@ -121,9 +135,25 @@ public class StringValueImpl extends ConfigurationValueImpl implements StringVal
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ClassDiagramConfigurationPackage.STRING_VALUE__VALUE:
-				return VALUE_EDEFAULT == null ? getValue() != null : !VALUE_EDEFAULT.equals(getValue());
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (value: ");
+		result.append(value);
+		result.append(')');
+		return result.toString();
 	}
 
 } //StringValueImpl

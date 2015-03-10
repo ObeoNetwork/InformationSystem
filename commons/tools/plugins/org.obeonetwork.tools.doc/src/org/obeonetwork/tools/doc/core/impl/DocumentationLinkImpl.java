@@ -5,17 +5,15 @@ package org.obeonetwork.tools.doc.core.impl;
 
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.ext.emf.EReferencePredicate;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.tools.doc.core.DocumentationLink;
-
-import com.google.common.base.Predicate;
-
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
 
 /**
  * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
@@ -118,7 +116,7 @@ public class DocumentationLinkImpl implements DocumentationLink {
 		Session session = SessionManager.INSTANCE.getSession(annotation);
 		if (session != null) {
 			ModelAccessor vpModelAccessor = session.getModelAccessor();
-			vpModelAccessor.eDelete(annotation, session.getSemanticCrossReferencer(), new Predicate<EReference>() {
+			vpModelAccessor.eDelete(annotation, session.getSemanticCrossReferencer(), new EReferencePredicate() {
 		        public boolean apply(EReference reference) {
 		            return DSemanticDecorator.class.isAssignableFrom(reference.getContainerClass());
 		        }

@@ -1,0 +1,58 @@
+Data Base My
+	+ Alter Schema sdsqd - 8 change(s)
+		+ Alter Table T2dsqd - 7 change(s)
+			+ Update ColTypeChange : Texte(255) - 1 change(s)
+				+ Native Type [nativeType changed]
+					
+				
+			+ Update Constraint A_CHK
+				+ expression modifiée [expression changed]
+					
+				
+			+ Add Column Change NouvelleColonne
+				
+			+ Remove Column Change ColonneSupprimée
+				
+			+ Add Primary Key T2dsqd_PK
+				
+			+ Add Constraint B_CHK
+				
+			+ Remove Constraint C_CHK
+				
+			
+		+ Alter Table TableAvecPKChangeantDeColonne - 1 change(s)
+			+ Update Primary Key TableAvecPKChangeantDeColonne_PK
+				+ B : Texte() [columns add]
+					
+				+ A : Texte() [columns delete]
+					
+				
+			
+		+ Alter Table C - 1 change(s)
+			+ Rename Column Change nomInitial
+				
+			
+		+ Update Sequence A
+			+ qds [comments set]
+				
+			+ 2 [start changed]
+				
+			+ true [cycle changed]
+				
+			
+		+ Add Table Nouvelle
+			+ Add Primary Key Nouvelle_PK
+				
+			+ Add Foreign Key FK_vers_T2
+				
+			+ Add Constraint A_cHK
+				
+			
+		+ Remove Table Supprimée
+			
+		+ Add Sequence CNouvelle
+			
+		+ Remove Sequence BSupprimée
+			
+	
+	

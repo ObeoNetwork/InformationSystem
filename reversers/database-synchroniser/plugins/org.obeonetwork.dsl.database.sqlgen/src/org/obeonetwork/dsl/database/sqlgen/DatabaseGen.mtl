@@ -1,0 +1,25 @@
+[comment encoding = UTF-8 /]
+[module DatabaseGen(
+ 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
+ 'http://www.obeonetwork.org/dsl/database/1.0',
+ 'http://www.eclipse.org/emf/compare',
+ 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::TableGen /]
+[import org::obeonetwork::dsl::database::sqlgen::PrimaryKeyGen /]
+[import org::obeonetwork::dsl::database::sqlgen::ConstraintGen /]
+[import org::obeonetwork::dsl::database::sqlgen::ForeignKeyGen /]
+[import org::obeonetwork::dsl::database::sqlgen::IndexGen /]
+[import org::obeonetwork::dsl::database::sqlgen::SequenceGen /]
+
+[template public genSQLForDatabase(changeSet : Comparison) post(trim())]
+[comment @main /]
+
+[changeSet.genSQLForTables()/]
+[changeSet.genSQLForPrimaryKeys()/]
+[changeSet.genSQLForConstraints()/]
+[changeSet.genSQLForForeignKeys()/]
+[changeSet.genSQLForIndex()/]
+[changeSet.genSQLForSequences()/]
+
+[/template]

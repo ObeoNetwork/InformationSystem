@@ -142,7 +142,7 @@
       <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram.ui">
          <propertyTab
                id="Package"
                label="Package"
@@ -160,7 +160,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
       <propertySections
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram.ui">
          <propertySection
                class="org.obeonetwork.dsl.cinematic.parts.forms.Package_PropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.filters.PackageTabPropertiesEditionSection"
@@ -181,7 +181,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram.ui">
          <propertyTab
                id="ViewContainer"
                label="ViewContainer"
@@ -241,7 +241,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
       <propertySections
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram.ui">
          <propertySection
                class="org.obeonetwork.dsl.cinematic.view.parts.forms.ViewContainerPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.filters.ViewContainerTabPropertiesEditionSection"
@@ -279,7 +279,7 @@
       <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
       <propertyTabs
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram.ui">
          <propertyTab
                id="Flow"
                label="Flow"
@@ -357,7 +357,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
       <propertySections
-            contributorId="fr.obeo.dsl.viewpoint.diagram">
+            contributorId="org.eclipse.sirius.diagram.ui">
          <propertySection
                class="org.obeonetwork.dsl.cinematic.flow.parts.forms.FlowPropertiesEditionPartForm"
                filter="org.obeonetwork.dsl.cinematic.filters.FlowTabPropertiesEditionSection"

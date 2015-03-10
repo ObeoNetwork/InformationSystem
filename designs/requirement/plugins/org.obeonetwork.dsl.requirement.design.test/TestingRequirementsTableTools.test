@@ -1,0 +1,82 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingRequirementsTableTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _b8ZCkGNdEeSg_dTG4Ei-uQ
+Runtime-Version: 1.5.2.201408180747
+Save-Time: 11/21/14 9:30 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in requirement.odesign/Requirements Table
+- REQ_Repository/Tool REQ_CreateCategory
+- REQ_Repository/REQ_Category/Tool REQ_Requirement
+- REQ_Repository/REQ_Category/Tool REQ_CreateCategory
+- REQ_Repository/REQ_Category/REQ_Requirement/Tool REQ_Requirement
+- REQ_Repository/REQ_Category/REQ_Requirement/Tool REQ_CreateCategory
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.requirement/Repository E-BookStore" 
+    | get-menu "New Representation/E-BookStore Requirements Table" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "E-BookStore Requirements Table" | get-tree] {
+    get-cell 0 0 | mouse down Right -count 1
+    get-cell 0 0 | mouse up Right -count 1
+    // Check REQ_Repository/Tool REQ_CreateCategory
+    select "E-BookStore" | get-menu "Create Category" | click
+}
+get-editor "E-BookStore Requirements Table" | get-tree | get-item "E-BookStore" 
+    | get-property "getItems().TreeItem[1].getText()" | equals "CAT2 - New category" | verify-true
+with [get-editor "E-BookStore Requirements Table" | get-tree] {
+    get-item "E-BookStore" | expand
+    get-cell 1 0 | mouse down Right -count 1
+    get-cell 1 0 | mouse up Right -count 1
+    // Check REQ_Repository/REQ_Category/Tool REQ_Requirement
+    select "E-BookStore/ - NewCategory" | get-menu "Create Requirement" | click
+}
+get-editor "E-BookStore Requirements Table" | get-tree | get-item "E-BookStore/ - NewCategory" 
+    | get-property "getItems().TreeItem[3].getText()" | equals "_4 - New requirement" | verify-true
+with [get-editor "E-BookStore Requirements Table" | get-tree] {
+    get-item "E-BookStore" | expand
+    get-cell 1 0 | mouse down Right -count 1
+    get-cell 1 0 | mouse up Right -count 1
+    // Check REQ_Repository/REQ_Category/Tool REQ_CreateCategory
+    select "E-BookStore/ - NewCategory" | get-menu "Create Category" | click
+}
+get-editor "E-BookStore Requirements Table" | get-tree | get-item "E-BookStore/ - NewCategory" 
+    | get-property "getItems().TreeItem[4].getText()" | equals "CAT1 - New category" | verify-true
+with [get-editor "E-BookStore Requirements Table" | get-tree] {
+    get-item "E-BookStore/ - NewCategory" | expand
+    get-cell 6 0 | click
+    get-item "E-BookStore/ - NewCategory" | expand
+    get-cell 6 0 | mouse down Right -count 1
+    get-cell 6 0 | mouse up Right -count 1
+    select "E-BookStore/ - NewCategory/CAT1 - New category" | get-menu "Create Requirement" | click
+    get-item "E-BookStore/ - NewCategory/CAT1 - New category" | expand
+    get-cell 7 0 | mouse down Right -count 1
+    get-cell 7 0 | mouse up Right -count 1
+    // Check REQ_Repository/REQ_Category/REQ_Requirement/Tool REQ_Requirement
+    select "E-BookStore/ - NewCategory/CAT1 - New category/CAT1_1 - New requirement" | get-menu "Create Requirement" 
+        | click
+    get-item "E-BookStore/ - NewCategory/CAT1 - New category" | expand
+    get-cell 7 0 | mouse down Right -count 1
+    get-cell 7 0 | mouse up Right -count 1
+    // Check REQ_Repository/REQ_Category/REQ_Requirement/Tool REQ_CreateCategory
+    select "E-BookStore/ - NewCategory/CAT1 - New category/CAT1_1 - New requirement" | get-menu "Create Category" 
+        | click
+}
+with [get-editor "E-BookStore Requirements Table" | get-tree] {
+    get-item "E-BookStore/ - NewCategory/CAT1 - New category" | get-property "getItems().TreeItem[1].getText()" 
+        | equals "CAT1_2 - New requirement" | verify-true
+    get-item "E-BookStore/ - NewCategory/CAT1 - New category" | get-property "getItems().TreeItem[2].getText()" 
+        | equals "CAT1 - New category" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

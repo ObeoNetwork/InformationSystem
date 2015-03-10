@@ -18,13 +18,13 @@ import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditor
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage;
 
-import fr.obeo.dsl.viewpoint.description.DocumentedElement;
-import fr.obeo.dsl.viewpoint.description.EndUserDocumentedElement;
-import fr.obeo.dsl.viewpoint.description.IdentifiedElement;
-import fr.obeo.dsl.viewpoint.description.RepresentationDescription;
-import fr.obeo.dsl.viewpoint.description.tool.AbstractToolDescription;
-import fr.obeo.dsl.viewpoint.description.tool.RepresentationCreationDescription;
-import fr.obeo.dsl.viewpoint.description.tool.ToolEntry;
+import org.eclipse.sirius.viewpoint.description.DocumentedElement;
+import org.eclipse.sirius.viewpoint.description.EndUserDocumentedElement;
+import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
+import org.eclipse.sirius.viewpoint.description.tool.RepresentationCreationDescription;
+import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
 
 /**
  * <!-- begin-user-doc -->

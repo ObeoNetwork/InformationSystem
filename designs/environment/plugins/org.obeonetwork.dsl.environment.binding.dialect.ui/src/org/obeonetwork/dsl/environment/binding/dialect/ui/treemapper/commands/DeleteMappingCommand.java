@@ -8,9 +8,9 @@ import org.obeonetwork.dsl.environment.BindingElement;
 import org.obeonetwork.dsl.environment.BindingReference;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManager;
-import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class DeleteMappingCommand extends RecordingCommand {
 

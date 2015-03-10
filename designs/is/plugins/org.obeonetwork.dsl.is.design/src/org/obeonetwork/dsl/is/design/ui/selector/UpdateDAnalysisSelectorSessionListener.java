@@ -10,13 +10,13 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.is.design.ui.selector;
 
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionListener;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionManagerListener2;
-import fr.obeo.dsl.viewpoint.business.api.session.SessionService;
-import fr.obeo.dsl.viewpoint.business.api.session.danalysis.DAnalysisSelector;
-import fr.obeo.dsl.viewpoint.business.api.session.danalysis.DAnalysisSession;
-import fr.obeo.dsl.viewpoint.business.api.session.danalysis.DAnalysisSessionService;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManagerListener;
+import org.eclipse.sirius.business.api.session.SessionListener;
+import org.eclipse.sirius.business.api.session.SessionService;
+import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSelector;
+import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSession;
+import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSessionService;
 
 /**
  * A {@link SessionListener} used to change the DAnalysisSelector of any opened
@@ -26,7 +26,7 @@ import fr.obeo.dsl.viewpoint.business.api.session.danalysis.DAnalysisSessionServ
  * @author <a href="mailto:stephane.thibaudeau@obeo.fr">Stephane Thibaudeau</a>
  * 
  */
-public class UpdateDAnalysisSelectorSessionListener extends SessionManagerListener2.Stub {
+public class UpdateDAnalysisSelectorSessionListener extends SessionManagerListener.Stub {
 
     @Override
     public void notifyAddSession(Session newSession) {

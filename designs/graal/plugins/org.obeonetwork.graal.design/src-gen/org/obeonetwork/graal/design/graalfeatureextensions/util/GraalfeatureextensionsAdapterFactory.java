@@ -6,7 +6,7 @@
  */
 package org.obeonetwork.graal.design.graalfeatureextensions.util;
 
-import fr.obeo.dsl.viewpoint.DFeatureExtension;
+import org.eclipse.sirius.viewpoint.DFeatureExtension;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -116,13 +116,13 @@ public class GraalfeatureextensionsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.obeo.dsl.viewpoint.DFeatureExtension <em>DFeature Extension</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.DFeatureExtension <em>DFeature Extension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.obeo.dsl.viewpoint.DFeatureExtension
+	 * @see org.eclipse.sirius.viewpoint.DFeatureExtension
 	 * @generated
 	 */
 	public Adapter createDFeatureExtensionAdapter() {

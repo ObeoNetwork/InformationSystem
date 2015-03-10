@@ -33,6 +33,15 @@ import org.eclipse.emf.ecore.xml.type.AnyType;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.sirius.viewpoint.description.DescriptionFactory;
+import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
+import org.eclipse.sirius.viewpoint.description.Group;
+import org.eclipse.sirius.viewpoint.description.JavaExtension;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.UserColor;
+import org.eclipse.sirius.viewpoint.description.UserColorsPalette;
+import org.eclipse.sirius.viewpoint.description.UserFixedColor;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.swt.widgets.Display;
 import org.obeonetwork.tools.classdiagramconfiguration.BooleanValue;
 import org.obeonetwork.tools.classdiagramconfiguration.ColorInfo;
@@ -41,16 +50,6 @@ import org.obeonetwork.tools.classdiagramconfiguration.ConfigurationElement;
 import org.obeonetwork.tools.classdiagramconfiguration.DiagramConf;
 import org.obeonetwork.tools.classdiagramconfiguration.StringValue;
 import org.obeonetwork.tools.classdiagramconfiguration.presentation.ClassDiagramConfigurationEditorPlugin;
-
-import fr.obeo.dsl.viewpoint.description.DescriptionFactory;
-import fr.obeo.dsl.viewpoint.description.DescriptionPackage;
-import fr.obeo.dsl.viewpoint.description.Group;
-import fr.obeo.dsl.viewpoint.description.JavaExtension;
-import fr.obeo.dsl.viewpoint.description.RepresentationDescription;
-import fr.obeo.dsl.viewpoint.description.UserColor;
-import fr.obeo.dsl.viewpoint.description.UserColorsPalette;
-import fr.obeo.dsl.viewpoint.description.UserFixedColor;
-import fr.obeo.dsl.viewpoint.description.Viewpoint;
 
 public class ClassDiagramGenerator {
 	private static final String GENERATOR_OPTIONAL_NODE = "generatorOptionalNode";
@@ -192,15 +191,27 @@ public class ClassDiagramGenerator {
 			
 			for (Entry<String, Collection<EObject>> optionalNodeEntry : optionalNodes.entrySet()) {
 				String optionalNodeId = optionalNodeEntry.getKey();
+				if (optionalNodeId.startsWith("{")) {
+					optionalNodeId = optionalNodeId.substring(1);
+				}
+				if (optionalNodeId.endsWith("}")) {
+					optionalNodeId = optionalNodeId.substring(0, optionalNodeId.length() - 1);
+				}
 				
 				// Check if we have informations on this node
+				boolean toBeDeleted = true;
 				for (GenerationInfo generationInfo : generationInfos) {
+						
 					Boolean optionalNodeActivated = generationInfo.getBooleanInfos().get(optionalNodeId);
 					if (optionalNodeActivated == null || optionalNodeActivated == Boolean.FALSE) {
-						// Remove the node
-						for (EObject object : optionalNodeEntry.getValue()) {
-							EcoreUtil.delete(object);						
-						}
+						toBeDeleted = false;
+						break;
+					}
+				}
+				if (toBeDeleted) {
+					// Remove the node
+					for (EObject object : optionalNodeEntry.getValue()) {
+						EcoreUtil.delete(object);						
 					}
 				}
 			}

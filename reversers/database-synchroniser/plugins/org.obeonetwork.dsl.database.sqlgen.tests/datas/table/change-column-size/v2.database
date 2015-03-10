@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="ASCII"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_Qt1FQW-AEeGwyrxC10AKtA" name="ORCL">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_Qt6k0G-AEeGwyrxC10AKtA" name="NORTHWIND">
+    <tables xsi:type="database:Table" xmi:id="_Qt6k0W-AEeGwyrxC10AKtA" name="CATEGORIES">
+      <columns xmi:id="_Qt6k0m-AEeGwyrxC10AKtA" name="CATEGORYID" defaultValue="" indexElements="_Qt6k3G-AEeGwyrxC10AKtA" primaryKey="_Qt6k2m-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k02-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k1G-AEeGwyrxC10AKtA" name="CATEGORYNAME" defaultValue="" indexElements="_Qt6k3m-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k1W-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k1m-AEeGwyrxC10AKtA" name="DESCRIPTION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k12-AEeGwyrxC10AKtA" length="2000">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k2G-AEeGwyrxC10AKtA" name="PICTURE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k2W-AEeGwyrxC10AKtA" length="4000">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGMxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_Qt6k2m-AEeGwyrxC10AKtA" name="PK_CATEGORIES" columns="_Qt6k0m-AEeGwyrxC10AKtA"/>
+      <indexes xmi:id="_Qt6k22-AEeGwyrxC10AKtA" name="PK_CATEGORIES">
+        <elements xmi:id="_Qt6k3G-AEeGwyrxC10AKtA" column="_Qt6k0m-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt6k3W-AEeGwyrxC10AKtA" name="CATEGORIES_CATEGORYNAME">
+        <elements xmi:id="_Qt6k3m-AEeGwyrxC10AKtA" column="_Qt6k1G-AEeGwyrxC10AKtA"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Qt6k32-AEeGwyrxC10AKtA" name="CUSTOMERS">
+      <columns xmi:id="_Qt6k4G-AEeGwyrxC10AKtA" name="CUSTOMERID" defaultValue="" indexElements="_Qt7L5m-AEeGwyrxC10AKtA" primaryKey="_Qt7L5G-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k4W-AEeGwyrxC10AKtA" length="5">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNhEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k4m-AEeGwyrxC10AKtA" name="COMPANYNAME" defaultValue="" indexElements="_Qt7L6m-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k42-AEeGwyrxC10AKtA" length="40">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k5G-AEeGwyrxC10AKtA" name="CONTACTNAME" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k5W-AEeGwyrxC10AKtA" length="31">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k5m-AEeGwyrxC10AKtA" name="CONTACTTITLE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k52-AEeGwyrxC10AKtA" length="30">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k6G-AEeGwyrxC10AKtA" name="ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k6W-AEeGwyrxC10AKtA" length="60">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k6m-AEeGwyrxC10AKtA" name="CITY" nullable="true" defaultValue="" indexElements="_Qt7L6G-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k62-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k7G-AEeGwyrxC10AKtA" name="REGION" nullable="true" defaultValue="" indexElements="_Qt7L7m-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k7W-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k7m-AEeGwyrxC10AKtA" name="POSTALCODE" nullable="true" defaultValue="" indexElements="_Qt7L7G-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k72-AEeGwyrxC10AKtA" length="10">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt6k8G-AEeGwyrxC10AKtA" name="COUNTRY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt6k8W-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7L4G-AEeGwyrxC10AKtA" name="PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7L4W-AEeGwyrxC10AKtA" length="24">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7L4m-AEeGwyrxC10AKtA" name="FAX" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7L42-AEeGwyrxC10AKtA" length="24">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_Qt7L5G-AEeGwyrxC10AKtA" name="PK_CUSTOMERS" columns="_Qt6k4G-AEeGwyrxC10AKtA"/>
+      <indexes xmi:id="_Qt7L5W-AEeGwyrxC10AKtA" name="PK_CUSTOMERS">
+        <elements xmi:id="_Qt7L5m-AEeGwyrxC10AKtA" column="_Qt6k4G-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7L52-AEeGwyrxC10AKtA" name="CUSTOMERS_CITY">
+        <elements xmi:id="_Qt7L6G-AEeGwyrxC10AKtA" column="_Qt6k6m-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7L6W-AEeGwyrxC10AKtA" name="CUSTOMERS_COMPANYNAME">
+        <elements xmi:id="_Qt7L6m-AEeGwyrxC10AKtA" column="_Qt6k4m-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7L62-AEeGwyrxC10AKtA" name="CUSTOMERS_POSTALCODE">
+        <elements xmi:id="_Qt7L7G-AEeGwyrxC10AKtA" column="_Qt6k7m-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7L7W-AEeGwyrxC10AKtA" name="CUSTOMERS_REGION">
+        <elements xmi:id="_Qt7L7m-AEeGwyrxC10AKtA" column="_Qt6k7G-AEeGwyrxC10AKtA"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Qt7L72-AEeGwyrxC10AKtA" name="EMPLOYEES">
+      <columns xmi:id="_Qt7L8G-AEeGwyrxC10AKtA" name="EMPLOYEEID" defaultValue="" indexElements="_Qt7MGG-AEeGwyrxC10AKtA" primaryKey="_Qt7MFG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7L8W-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7L8m-AEeGwyrxC10AKtA" name="rf_zfct_lib" defaultValue="" indexElements="_Qt7MGm-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7L82-AEeGwyrxC10AKtA" length="20">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7L9G-AEeGwyrxC10AKtA" name="FIRSTNAME" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7L9W-AEeGwyrxC10AKtA" length="10">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7L9m-AEeGwyrxC10AKtA" name="TITLE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7L92-AEeGwyrxC10AKtA" length="30">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7L-G-AEeGwyrxC10AKtA" name="TITLEOFCOURTESY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7L-W-AEeGwyrxC10AKtA" length="25">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7L-m-AEeGwyrxC10AKtA" name="BIRTHDATE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7L-2-AEeGwyrxC10AKtA" length="7">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7L_G-AEeGwyrxC10AKtA" name="HIREDATE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7L_W-AEeGwyrxC10AKtA" length="7">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7L_m-AEeGwyrxC10AKtA" name="ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7L_2-AEeGwyrxC10AKtA" length="60">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MAG-AEeGwyrxC10AKtA" name="CITY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MAW-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MAm-AEeGwyrxC10AKtA" name="REGION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MA2-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MBG-AEeGwyrxC10AKtA" name="POSTALCODE" nullable="true" defaultValue="" indexElements="_Qt7MHG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MBW-AEeGwyrxC10AKtA" length="10">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MBm-AEeGwyrxC10AKtA" name="COUNTRY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MB2-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MCG-AEeGwyrxC10AKtA" name="HOMEPHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MCW-AEeGwyrxC10AKtA" length="24">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MCm-AEeGwyrxC10AKtA" name="EXTENSION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MC2-AEeGwyrxC10AKtA" length="4">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MDG-AEeGwyrxC10AKtA" name="PHOTO" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MDW-AEeGwyrxC10AKtA" length="4000">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGMxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MDm-AEeGwyrxC10AKtA" name="NOTES" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MD2-AEeGwyrxC10AKtA" length="4000">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MEG-AEeGwyrxC10AKtA" name="REPORTSTO" nullable="true" defaultValue="" foreignKeyElements="_Qt7MFm-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MEW-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MEm-AEeGwyrxC10AKtA" name="PHOTOPATH" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7ME2-AEeGwyrxC10AKtA" length="255">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_Qt7MFG-AEeGwyrxC10AKtA" name="PK_EMPLOYEES" columns="_Qt7L8G-AEeGwyrxC10AKtA"/>
+      <foreignKeys xmi:id="_Qt7MFW-AEeGwyrxC10AKtA" name="FK_EMPLOYEES_EMPLOYEES" target="_Qt7L72-AEeGwyrxC10AKtA">
+        <elements xmi:id="_Qt7MFm-AEeGwyrxC10AKtA" fkColumn="_Qt7MEG-AEeGwyrxC10AKtA" pkColumn="_Qt7L8G-AEeGwyrxC10AKtA"/>
+      </foreignKeys>
+      <indexes xmi:id="_Qt7MF2-AEeGwyrxC10AKtA" name="PK_EMPLOYEES">
+        <elements xmi:id="_Qt7MGG-AEeGwyrxC10AKtA" column="_Qt7L8G-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7MGW-AEeGwyrxC10AKtA" name="IX_EMPLOYEES_LASTNAME">
+        <elements xmi:id="_Qt7MGm-AEeGwyrxC10AKtA" column="_Qt7L8m-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7MG2-AEeGwyrxC10AKtA" name="IX_EMPLOYEES_POSTALCODE">
+        <elements xmi:id="_Qt7MHG-AEeGwyrxC10AKtA" column="_Qt7MBG-AEeGwyrxC10AKtA"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Qt7MHW-AEeGwyrxC10AKtA" name="ORDER_DETAILS">
+      <columns xmi:id="_Qt7MHm-AEeGwyrxC10AKtA" name="ORDERID" defaultValue="" indexElements="_Qt7y8W-AEeGwyrxC10AKtA" primaryKey="_Qt7MKG-AEeGwyrxC10AKtA" foreignKeyElements="_Qt7MKm-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MH2-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MIG-AEeGwyrxC10AKtA" name="PRODUCTID" defaultValue="" indexElements="_Qt7y8m-AEeGwyrxC10AKtA" primaryKey="_Qt7MKG-AEeGwyrxC10AKtA" foreignKeyElements="_Qt7MLG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MIW-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MIm-AEeGwyrxC10AKtA" name="UNITPRICE" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MI2-AEeGwyrxC10AKtA" length="12" precision="2">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MJG-AEeGwyrxC10AKtA" name="QUANTITY" nullable="true" defaultValue="1">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MJW-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7MJm-AEeGwyrxC10AKtA" name="DISCOUNT" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7MJ2-AEeGwyrxC10AKtA" length="63">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwtRBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_Qt7MKG-AEeGwyrxC10AKtA" name="PK_ORDER_DETAILS" columns="_Qt7MHm-AEeGwyrxC10AKtA _Qt7MIG-AEeGwyrxC10AKtA"/>
+      <foreignKeys xmi:id="_Qt7MKW-AEeGwyrxC10AKtA" name="FK_ORDER_DETAILS_ORDERS" target="_Qt7y82-AEeGwyrxC10AKtA">
+        <elements xmi:id="_Qt7MKm-AEeGwyrxC10AKtA" fkColumn="_Qt7MHm-AEeGwyrxC10AKtA" pkColumn="_Qt7y9G-AEeGwyrxC10AKtA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_Qt7MK2-AEeGwyrxC10AKtA" name="FK_ORDER_DETAILS_PRODUCTS" target="_Qt7zJW-AEeGwyrxC10AKtA">
+        <elements xmi:id="_Qt7MLG-AEeGwyrxC10AKtA" fkColumn="_Qt7MIG-AEeGwyrxC10AKtA" pkColumn="_Qt7zJm-AEeGwyrxC10AKtA"/>
+      </foreignKeys>
+      <indexes xmi:id="_Qt7y8G-AEeGwyrxC10AKtA" name="PK_ORDER_DETAILS">
+        <elements xmi:id="_Qt7y8W-AEeGwyrxC10AKtA" column="_Qt7MHm-AEeGwyrxC10AKtA"/>
+        <elements xmi:id="_Qt7y8m-AEeGwyrxC10AKtA" column="_Qt7MIG-AEeGwyrxC10AKtA"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Qt7y82-AEeGwyrxC10AKtA" name="ORDERS">
+      <columns xmi:id="_Qt7y9G-AEeGwyrxC10AKtA" name="ORDERID" defaultValue="" indexElements="_Qt7zGG-AEeGwyrxC10AKtA" primaryKey="_Qt7zEG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7y9W-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7y9m-AEeGwyrxC10AKtA" name="CUSTOMERID" nullable="true" defaultValue="" indexElements="_Qt7zGm-AEeGwyrxC10AKtA" foreignKeyElements="_Qt7zEm-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7y92-AEeGwyrxC10AKtA" length="5">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNhEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7y-G-AEeGwyrxC10AKtA" name="EMPLOYEEID" nullable="true" defaultValue="" indexElements="_Qt7zHG-AEeGwyrxC10AKtA" foreignKeyElements="_Qt7zFG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7y-W-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7y-m-AEeGwyrxC10AKtA" name="ORDERDATE" nullable="true" defaultValue="" indexElements="_Qt7zHm-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7y-2-AEeGwyrxC10AKtA" length="7">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7y_G-AEeGwyrxC10AKtA" name="REQUIREDDATE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7y_W-AEeGwyrxC10AKtA" length="7">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7y_m-AEeGwyrxC10AKtA" name="SHIPPEDDATE" nullable="true" defaultValue="" indexElements="_Qt7zIG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7y_2-AEeGwyrxC10AKtA" length="7">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zAG-AEeGwyrxC10AKtA" name="SHIPVIA" nullable="true" defaultValue="" indexElements="_Qt7zIm-AEeGwyrxC10AKtA" foreignKeyElements="_Qt7zFm-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zAW-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zAm-AEeGwyrxC10AKtA" name="FREIGHT" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zA2-AEeGwyrxC10AKtA" length="12" precision="2">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zBG-AEeGwyrxC10AKtA" name="SHIPNAME" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zBW-AEeGwyrxC10AKtA" length="40">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zBm-AEeGwyrxC10AKtA" name="SHIPADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zB2-AEeGwyrxC10AKtA" length="60">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zCG-AEeGwyrxC10AKtA" name="SHIPCITY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zCW-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zCm-AEeGwyrxC10AKtA" name="SHIPREGION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zC2-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zDG-AEeGwyrxC10AKtA" name="SHIPPOSTALCODE" nullable="true" defaultValue="" indexElements="_Qt7zJG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zDW-AEeGwyrxC10AKtA" length="10">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zDm-AEeGwyrxC10AKtA" name="SHIPCOUNTRY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zD2-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_Qt7zEG-AEeGwyrxC10AKtA" name="PK_ORDERS" columns="_Qt7y9G-AEeGwyrxC10AKtA"/>
+      <foreignKeys xmi:id="_Qt7zEW-AEeGwyrxC10AKtA" name="FK_ORDERS_CUSTOMERS" target="_Qt6k32-AEeGwyrxC10AKtA">
+        <elements xmi:id="_Qt7zEm-AEeGwyrxC10AKtA" fkColumn="_Qt7y9m-AEeGwyrxC10AKtA" pkColumn="_Qt6k4G-AEeGwyrxC10AKtA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_Qt7zE2-AEeGwyrxC10AKtA" name="FK_ORDERS_EMPLOYEES" target="_Qt7L72-AEeGwyrxC10AKtA">
+        <elements xmi:id="_Qt7zFG-AEeGwyrxC10AKtA" fkColumn="_Qt7y-G-AEeGwyrxC10AKtA" pkColumn="_Qt7L8G-AEeGwyrxC10AKtA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_Qt7zFW-AEeGwyrxC10AKtA" name="FK_ORDERS_SHIPPERS" target="_Qt8aBW-AEeGwyrxC10AKtA">
+        <elements xmi:id="_Qt7zFm-AEeGwyrxC10AKtA" fkColumn="_Qt7zAG-AEeGwyrxC10AKtA" pkColumn="_Qt8aBm-AEeGwyrxC10AKtA"/>
+      </foreignKeys>
+      <indexes xmi:id="_Qt7zF2-AEeGwyrxC10AKtA" name="PK_ORDERS">
+        <elements xmi:id="_Qt7zGG-AEeGwyrxC10AKtA" column="_Qt7y9G-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7zGW-AEeGwyrxC10AKtA" name="ORDERS_CUSTOMERID">
+        <elements xmi:id="_Qt7zGm-AEeGwyrxC10AKtA" column="_Qt7y9m-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7zG2-AEeGwyrxC10AKtA" name="ORDERS_EMPLOYEEID">
+        <elements xmi:id="_Qt7zHG-AEeGwyrxC10AKtA" column="_Qt7y-G-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7zHW-AEeGwyrxC10AKtA" name="ORDERS_ORDERDATE">
+        <elements xmi:id="_Qt7zHm-AEeGwyrxC10AKtA" column="_Qt7y-m-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7zH2-AEeGwyrxC10AKtA" name="ORDERS_SHIPPEDDATE">
+        <elements xmi:id="_Qt7zIG-AEeGwyrxC10AKtA" column="_Qt7y_m-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7zIW-AEeGwyrxC10AKtA" name="ORDERS_SHIPPERSORDERS">
+        <elements xmi:id="_Qt7zIm-AEeGwyrxC10AKtA" column="_Qt7zAG-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt7zI2-AEeGwyrxC10AKtA" name="ORDERS_SHIPPOSTALCODE">
+        <elements xmi:id="_Qt7zJG-AEeGwyrxC10AKtA" column="_Qt7zDG-AEeGwyrxC10AKtA"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Qt7zJW-AEeGwyrxC10AKtA" name="PRODUCTS">
+      <columns xmi:id="_Qt7zJm-AEeGwyrxC10AKtA" name="PRODUCTID" defaultValue="" indexElements="_Qt8aAm-AEeGwyrxC10AKtA" primaryKey="_Qt7zOm-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zJ2-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zKG-AEeGwyrxC10AKtA" name="PRODUCTNAME" defaultValue="" indexElements="_Qt8aBG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zKW-AEeGwyrxC10AKtA" length="40">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zKm-AEeGwyrxC10AKtA" name="SUPPLIERID" nullable="true" defaultValue="" foreignKeyElements="_Qt8aAG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zK2-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zLG-AEeGwyrxC10AKtA" name="CATEGORYID" nullable="true" defaultValue="" foreignKeyElements="_Qt7zPG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zLW-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zLm-AEeGwyrxC10AKtA" name="QUANTITYPERUNIT" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zL2-AEeGwyrxC10AKtA" length="20">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zMG-AEeGwyrxC10AKtA" name="UNITPRICE" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zMW-AEeGwyrxC10AKtA" length="12" precision="2">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zMm-AEeGwyrxC10AKtA" name="UNITSINSTOCK" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zM2-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zNG-AEeGwyrxC10AKtA" name="UNITSONORDER" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zNW-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zNm-AEeGwyrxC10AKtA" name="REORDERLEVEL" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zN2-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt7zOG-AEeGwyrxC10AKtA" name="DISCONTINUED" nullable="true" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt7zOW-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_Qt7zOm-AEeGwyrxC10AKtA" name="PK_PRODUCTS" columns="_Qt7zJm-AEeGwyrxC10AKtA"/>
+      <foreignKeys xmi:id="_Qt7zO2-AEeGwyrxC10AKtA" name="FK_PRODUCTS_CATEGORIES" target="_Qt6k0W-AEeGwyrxC10AKtA">
+        <elements xmi:id="_Qt7zPG-AEeGwyrxC10AKtA" fkColumn="_Qt7zLG-AEeGwyrxC10AKtA" pkColumn="_Qt6k0m-AEeGwyrxC10AKtA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_Qt7zPW-AEeGwyrxC10AKtA" name="FK_PRODUCTS_SUPPLIERS" target="_Qt8aD2-AEeGwyrxC10AKtA">
+        <elements xmi:id="_Qt8aAG-AEeGwyrxC10AKtA" fkColumn="_Qt7zKm-AEeGwyrxC10AKtA" pkColumn="_Qt8aEG-AEeGwyrxC10AKtA"/>
+      </foreignKeys>
+      <indexes xmi:id="_Qt8aAW-AEeGwyrxC10AKtA" name="PK_PRODUCTS">
+        <elements xmi:id="_Qt8aAm-AEeGwyrxC10AKtA" column="_Qt7zJm-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt8aA2-AEeGwyrxC10AKtA" name="PRODUCTS_PRODUCTNAME">
+        <elements xmi:id="_Qt8aBG-AEeGwyrxC10AKtA" column="_Qt7zKG-AEeGwyrxC10AKtA"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Qt8aBW-AEeGwyrxC10AKtA" name="SHIPPERS">
+      <columns xmi:id="_Qt8aBm-AEeGwyrxC10AKtA" name="SHIPPERID" defaultValue="" indexElements="_Qt8aDm-AEeGwyrxC10AKtA" primaryKey="_Qt8aDG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aB2-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aCG-AEeGwyrxC10AKtA" name="COMPANYNAME" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aCW-AEeGwyrxC10AKtA" length="40">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aCm-AEeGwyrxC10AKtA" name="PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aC2-AEeGwyrxC10AKtA" length="24">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_Qt8aDG-AEeGwyrxC10AKtA" name="PK_SHIPPERS" columns="_Qt8aBm-AEeGwyrxC10AKtA"/>
+      <indexes xmi:id="_Qt8aDW-AEeGwyrxC10AKtA" name="PK_SHIPPERS">
+        <elements xmi:id="_Qt8aDm-AEeGwyrxC10AKtA" column="_Qt8aBm-AEeGwyrxC10AKtA"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_Qt8aD2-AEeGwyrxC10AKtA" name="SUPPLIERS">
+      <columns xmi:id="_Qt8aEG-AEeGwyrxC10AKtA" name="SUPPLIERID" defaultValue="" indexElements="_Qt8aKm-AEeGwyrxC10AKtA" primaryKey="_Qt8aKG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aEW-AEeGwyrxC10AKtA" length="22">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aEm-AEeGwyrxC10AKtA" name="COMPANYNAME" defaultValue="" indexElements="_Qt8aLG-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aE2-AEeGwyrxC10AKtA" length="40">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aFG-AEeGwyrxC10AKtA" name="CONTACTNAME" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aFW-AEeGwyrxC10AKtA" length="30">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aFm-AEeGwyrxC10AKtA" name="CONTACTTITLE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aF2-AEeGwyrxC10AKtA" length="30">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aGG-AEeGwyrxC10AKtA" name="ADDRESS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aGW-AEeGwyrxC10AKtA" length="60">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aGm-AEeGwyrxC10AKtA" name="CITY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aG2-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aHG-AEeGwyrxC10AKtA" name="REGION" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aHW-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aHm-AEeGwyrxC10AKtA" name="POSTALCODE" nullable="true" defaultValue="" indexElements="_Qt8aLm-AEeGwyrxC10AKtA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aH2-AEeGwyrxC10AKtA" length="10">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aIG-AEeGwyrxC10AKtA" name="COUNTRY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aIW-AEeGwyrxC10AKtA" length="15">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aIm-AEeGwyrxC10AKtA" name="PHONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aI2-AEeGwyrxC10AKtA" length="24">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aJG-AEeGwyrxC10AKtA" name="FAX" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aJW-AEeGwyrxC10AKtA" length="24">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Qt8aJm-AEeGwyrxC10AKtA" name="HOMEPAGE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Qt8aJ2-AEeGwyrxC10AKtA" length="2000">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_Qt8aKG-AEeGwyrxC10AKtA" name="PK_SUPPLIERS" columns="_Qt8aEG-AEeGwyrxC10AKtA"/>
+      <indexes xmi:id="_Qt8aKW-AEeGwyrxC10AKtA" name="PK_SUPPLIERS">
+        <elements xmi:id="_Qt8aKm-AEeGwyrxC10AKtA" column="_Qt8aEG-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt8aK2-AEeGwyrxC10AKtA" name="SUPPLIERS_COMPANYNAME">
+        <elements xmi:id="_Qt8aLG-AEeGwyrxC10AKtA" column="_Qt8aEm-AEeGwyrxC10AKtA"/>
+      </indexes>
+      <indexes xmi:id="_Qt8aLW-AEeGwyrxC10AKtA" name="SUPPLIERS_POSTALCODE">
+        <elements xmi:id="_Qt8aLm-AEeGwyrxC10AKtA" column="_Qt8aHm-AEeGwyrxC10AKtA"/>
+      </indexes>
+    </tables>
+    <sequences xmi:id="_Qt8aL2-AEeGwyrxC10AKtA" name="SEQ_EMPLOYEES" start="1000" increment="1" minValue="1" maxValue="268435455"/>
+    <sequences xmi:id="_Qt8aMG-AEeGwyrxC10AKtA" name="SEQ_TOTO" start="4" increment="1" minValue="1" maxValue="268435455"/>
+  </schemas>
+</database:DataBase>

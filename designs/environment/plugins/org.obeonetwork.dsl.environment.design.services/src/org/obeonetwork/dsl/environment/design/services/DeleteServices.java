@@ -6,19 +6,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.ext.emf.EReferencePredicate;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
-
-import com.google.common.base.Predicate;
-
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
-import fr.obeo.dsl.viewpoint.business.api.query.EObjectQuery;
-import fr.obeo.dsl.viewpoint.business.api.session.Session;
-import fr.obeo.mda.ecore.extender.business.api.accessor.ModelAccessor;
 
 public class DeleteServices {
 	
@@ -61,7 +59,7 @@ public class DeleteServices {
 		if (vpModelAccessor == null) {
 			vpModelAccessor = vpSession.getModelAccessor();
 		}
-		vpModelAccessor.eDelete(object, vpSession.getSemanticCrossReferencer(), new Predicate<EReference>() {
+		vpModelAccessor.eDelete(object, vpSession.getSemanticCrossReferencer(), new EReferencePredicate() {
 	        public boolean apply(EReference reference) {
 	            return DSemanticDecorator.class.isAssignableFrom(reference.getContainerClass());
 	        }

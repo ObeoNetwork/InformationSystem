@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_CRPFcW6nEeGberngguy19w" name="2-modelv1">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_CwWDUG6nEeGberngguy19w" name="Schema1">
+    <tables xsi:type="database:Table" xmi:id="_DuOA0G6nEeGberngguy19w" name="Table1">
+      <columns xmi:id="_EdNNwG6nEeGberngguy19w" name="col1">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_EdNNwW6nEeGberngguy19w">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_IsAJcG6nEeGberngguy19w" name="col2">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_IsAJcW6nEeGberngguy19w">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUxUXBEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

@@ -41,7 +41,7 @@ import org.obeonetwork.tools.requirement.RequirementLinkerPlugin;
 import org.obeonetwork.tools.requirement.core.util.RequirementService;
 import org.obeonetwork.tools.requirement.wizard.util.RequirementsRepositoriesContentProvider;
 
-import fr.obeo.dsl.viewpoint.ui.tools.api.views.ViewHelper;
+import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
 
 public class LinkRequirementsDialog extends TitleAreaDialog {
 

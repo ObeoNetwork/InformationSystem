@@ -19,15 +19,15 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 
-import fr.obeo.dsl.viewpoint.DLabelled;
-import fr.obeo.dsl.viewpoint.DMappingBased;
-import fr.obeo.dsl.viewpoint.DRefreshable;
-import fr.obeo.dsl.viewpoint.DRepresentation;
-import fr.obeo.dsl.viewpoint.DRepresentationElement;
-import fr.obeo.dsl.viewpoint.DSemanticDecorator;
-import fr.obeo.dsl.viewpoint.DStylizable;
-import fr.obeo.dsl.viewpoint.description.DModelElement;
-import fr.obeo.dsl.viewpoint.description.DocumentedElement;
+import org.eclipse.sirius.viewpoint.DLabelled;
+import org.eclipse.sirius.viewpoint.DMappingBased;
+import org.eclipse.sirius.viewpoint.DRefreshable;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.DStylizable;
+import org.eclipse.sirius.viewpoint.description.DModelElement;
+import org.eclipse.sirius.viewpoint.description.DocumentedElement;
 
 /**
  * <!-- begin-user-doc -->
