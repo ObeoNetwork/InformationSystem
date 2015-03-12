@@ -78,7 +78,26 @@
    <feature url="features/org.obeonetwork.dsl.ecorebinding.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.ecorebinding.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
+   <feature url="features/org.obeonetwork.dsl.database.synchronizer_3.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.synchronizer" version="3.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.reversers"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.database.reverse.feature_3.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.reverse.feature" version="3.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.reversers"/>
+   </feature>
+   <feature url="features/org.obeonetwork.tools.migration.feature_3.0.0.qualifier.jar" id="org.obeonetwork.tools.migration.feature" version="3.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.commons"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.environment.design.services.feature_3.0.0.qualifier.jar" id="org.obeonetwork.dsl.environment.design.services.feature" version="3.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.designs"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.soa.design.feature_3.0.0.qualifier.jar" id="org.obeonetwork.dsl.soa.design.feature" version="3.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.designs"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.entity.design.feature_3.0.0.qualifier.jar" id="org.obeonetwork.dsl.entity.design.feature" version="3.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.designs"/>
+   </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>
+   <category-def name="org.obeonetwork.informationsystem.reversers" label="Information System - Reversers"/>
 </site>
