@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.is.design;singleton:=true
-Bundle-Version: 2.4.0.qualifier
+Bundle-Version: 3.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.is.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -11,7 +11,6 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.soa,
  org.eclipse.emf.eef.runtime,
  org.eclipse.gmf.runtime.diagram.ui,
- org.obeonetwork.dsl.environment.binding.dialect,
  org.obeonetwork.dsl.overview,
  org.obeonetwork.dsl.cinematic.design,
  org.eclipse.core.expressions,

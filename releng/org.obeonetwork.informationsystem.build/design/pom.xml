@@ -139,6 +139,9 @@
 		<module>../../../commons/tools/features/org.obeonetwork.tools.linker.feature</module>
 		
 		<module>../../../commons/tools/plugins/org.obeonetwork.tools.requirement</module>
+		
+		<module>../../../commons/tools/plugins/org.obeonetwork.tools.migration</module>
+		<module>../../../commons/tools/features/org.obeonetwork.tools.migration.feature</module>
 
 		<!-- 
 		*********************************************************************************************
@@ -146,10 +149,15 @@
 		*********************************************************************************************
 		-->
 		<!-- designs/environment/ -->
+<!--
 		<module>../../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.dialect</module>
 		<module>../../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.dialect.ui</module>
 		
 		<module>../../../designs/environment/features/org.obeonetwork.dsl.environment.binding.dialect.feature</module>
+-->
+		<module>../../../designs/environment/plugins/org.obeonetwork.dsl.environment.design.services</module>
+		
+		<module>../../../designs/environment/features/org.obeonetwork.dsl.environment.design.services.feature</module>
 		
 		<!-- designs/cinematic/ -->
 		<module>../../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design</module>
@@ -184,9 +192,34 @@
 		
 		<module>../../../designs/statemachine/features/org.obeonetwork.dsl.statemachine.design.feature</module>
 		
+		<!-- designs/entity/ -->
+		<module>../../../designs/entity/plugins/org.obeonetwork.dsl.entity.design</module>
+		<module>../../../designs/entity/features/org.obeonetwork.dsl.entity.design.feature</module>
+		
+		<!-- designs/soa/ -->
+		<module>../../../designs/soa/plugins/org.obeonetwork.dsl.soa.design</module>
+		<module>../../../designs/soa/features/org.obeonetwork.dsl.soa.design.feature</module>
+		
 		<!-- designs/is/ -->
 		<module>../../../designs/is/plugins/org.obeonetwork.dsl.is.design</module>
 		<module>../../../designs/is/features/org.obeonetwork.dsl.feature.is.design</module>
+		
+		<!-- 
+		*********************************************************************************************
+		* Reversers
+		*********************************************************************************************
+		-->
+		
+		<!-- reversers/database/ -->
+		<module>../../../reversers/database/features/org.obeonetwork.dsl.database.reverse.feature</module>
+		<module>../../../reversers/database/plugins/org.obeonetwork.dsl.database.reverse</module>
+		
+		<!-- reversers/database-synchroniser/ -->
+		<module>../../../reversers/database-synchroniser/features/org.obeonetwork.dsl.database.synchronizer</module>
+		<module>../../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.compare</module>
+		<module>../../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.compare.edit</module>
+		<module>../../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.sqlgen</module>
+		<module>../../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.sqlgen.ui</module>
 		
 		<!-- 
 		*********************************************************************************************

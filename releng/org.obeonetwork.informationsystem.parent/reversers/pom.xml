@@ -10,16 +10,120 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>parent</artifactId>
-		<version>2.4.0-SNAPSHOT</version>
+		<version>3.0.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>reversers.parent</artifactId>
-	<version>2.4.0-SNAPSHOT</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Reversers Parent</name>
+	
+	<repositories>
+		<repository>
+	       <id>Eclipse - Acceleo Snapshots</id>
+	       <!--<url>http://www.obeo.fr/download/acceleo/maven/snapshots</url>-->
+	       <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+	     </repository>
+	     <repository>
+	       <id>Eclipse - Acceleo Releases</id>
+	       <!--<url>http://www.obeo.fr/download/acceleo/maven/releases/indigo</url>-->
+	       <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+	   </repository>
+   </repositories>
+   
+     <build>
+  	<sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <resolver>p2</resolver>
+        </configuration>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <!--<plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-compiler-plugin</artifactId>
+          <version>${tycho-version}</version>
+          <configuration>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.4.1</version>
+          <configuration>
+            <encoding>ISO-8859-1</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.3</version>
+        </plugin>-->
+        <plugin>
+         <groupId>org.eclipse.acceleo</groupId>
+        <artifactId>org.eclipse.acceleo.maven</artifactId>
+        <version>3.5.0-SNAPSHOT</version>
+         <executions>
+           <execution>
+             <id>acceleo-compile</id>
+             <phase>compile</phase>
+             <goals>
+               <goal>acceleo-compile</goal>
+             </goals>
+           </execution>
+         </executions>
+       </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  
+	<pluginRepositories>
+     <pluginRepository>
+       <id>Eclipse - Acceleo Snapshots</id>
+       <!--<url>http://www.obeo.fr/download/acceleo/maven/snapshots</url>-->
+       <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+     </pluginRepository>
+     <pluginRepository>
+       <id>Eclipse - Acceleo Releases</id>
+       <!--<url>http://www.obeo.fr/download/acceleo/maven/releases/indigo</url>-->
+       <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+     </pluginRepository>
+   </pluginRepositories>
+	
+	
+	<dependencies>
+     <dependency>
+       <groupId>org.eclipse.acceleo</groupId>
+       <artifactId>org.eclipse.acceleo.maven</artifactId>
+       <version>3.5.0-SNAPSHOT</version>
+     </dependency>
+     <dependency>
+       <groupId>org.eclipse.acceleo</groupId>
+       <artifactId>org.eclipse.acceleo.engine</artifactId>
+       <version>3.5.0-SNAPSHOT</version>
+     </dependency>
+     <dependency>
+       <groupId>org.slf4j</groupId>
+       <artifactId>slf4j-simple</artifactId>
+       <version>1.6.4</version>
+     </dependency>
+   </dependencies>
 
 </project>

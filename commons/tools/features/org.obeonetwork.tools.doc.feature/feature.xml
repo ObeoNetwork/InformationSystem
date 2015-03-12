@@ -216,7 +216,7 @@ Each party waives its rights to a jury trial in any resulting
 litigation.
    </license>
    <requires>
-      <import feature="org.obeonetwork.dsl.feature.environment" version="2.4.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.environment" version="3.0.0" match="greaterOrEqual"/>
       <import feature="org.obeonetwork.tools.linker.feature" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 

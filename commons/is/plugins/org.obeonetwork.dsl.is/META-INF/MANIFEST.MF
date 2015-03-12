@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: IS Feature
 Bundle-SymbolicName: org.obeonetwork.dsl.is;singleton:=true
-Bundle-Version: 2.4.0.qualifier
+Bundle-Version: 3.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.is.Activator
 Bundle-Vendor: Obeo.fr
 Require-Bundle: org.eclipse.ui,

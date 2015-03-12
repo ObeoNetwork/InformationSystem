@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.database.compare.edit;singleton:=true
-Bundle-Version: 1.1.0.qualifier
+Bundle-Version: 3.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.obeonetwork.dsl.database.dbevolution.provider.DbevolutionEditPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -18,7 +18,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
  org.obeonetwork.dsl.typeslibrary;visibility:=reexport,
  org.obeonetwork.dsl.typeslibrary.edit;visibility:=reexport,
- org.eclipse.emf.compare.edit;bundle-version="3.0.1",
- com.google.guava;bundle-version="11.0.1"
+ org.eclipse.emf.compare.edit,
+ com.google.guava
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

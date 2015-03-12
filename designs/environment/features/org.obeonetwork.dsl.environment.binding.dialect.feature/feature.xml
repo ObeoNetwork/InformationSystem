@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.dsl.environment.binding.dialect.feature"
       label="Environment Binding Dialect"
-      version="2.4.0.qualifier"
+      version="3.0.0.qualifier"
       provider-name="Obeo.fr">
 
    <description url="http://marketplace.obeonetwork.com/">
@@ -225,9 +225,9 @@ litigation.
       <import feature="org.eclipse.sirius.specifier.ide.ui" version="2.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="2.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.nebula.treemapper.feature" version="0.1.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.soa" version="2.4.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.entity" version="2.4.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.environment" version="2.4.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.soa" version="3.0.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.entity" version="3.0.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.environment" version="3.0.0" match="greaterOrEqual"/>
       <import feature="fr.obeo.dsl.designer.ce.feature" version="7.0.0.201411120842"/>
       <import feature="fr.obeo.mda.license" version="1.0.0.201104040800"/>
    </requires>
