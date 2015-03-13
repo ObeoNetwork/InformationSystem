@@ -5,10 +5,14 @@ Bundle-Version: 3.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.soa.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.obeonetwork.dsl.soa,
  org.eclipse.sirius,
  org.eclipse.sirius.common.acceleo.mtl,
- org.eclipse.sirius.diagram
+ org.eclipse.sirius.diagram,
+ org.obeonetwork.dsl.environment,
+ org.obeonetwork.dsl.environment.edit,
+ org.obeonetwork.dsl.soa,
+ org.obeonetwork.dsl.soa.edit,
+ org.obeonetwork.dsl.environment.design.services
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ManifestVersion: 2
