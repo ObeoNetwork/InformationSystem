@@ -17,14 +17,28 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.obeonetwork.dsl.cinematic.AbstractPackage;
+import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.NamedElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
-
 public class CinematicEcoreServices {
+	
+	public CinematicRoot getCinematicRoot(EObject any) {
+		if (any instanceof CinematicRoot) {
+			return (CinematicRoot)any;
+		} else if (any instanceof DSemanticDecorator) {
+			return getCinematicRoot(((DSemanticDecorator)any).getTarget());
+		} else if (any == null) {
+			return null;
+		} else {
+			return getCinematicRoot(any.eContainer());
+			
+		}
+	}
 	
 	public static Collection<EObject> getAllRootsForCinematic(EObject any) {
 		Collection<EObject> roots = new ArrayList<EObject>();

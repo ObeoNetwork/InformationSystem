@@ -27,12 +27,14 @@ import org.obeonetwork.dsl.cinematic.toolkits.util.ToolkitsProvider;
 
 public class CinematicToolkitsServices {
 
-	public static Collection<Toolkit> getCinematicProvidedToolkits(EObject context, Collection<Toolkit> alreadyUsedToolkits) {
+	public static Collection<Toolkit> getCinematicProvidedToolkits(CinematicRoot cinematicRoot) {
 		Collection<Toolkit> toolkits = new ArrayList<Toolkit>();
 		Collection<URI> toolkitsURI = new ArrayList<URI>();
 		
+		Collection<Toolkit> alreadyUsedToolkits = new ArrayList<Toolkit>(cinematicRoot.getToolkits());
+		
 		// Get toolkits in ResourceSet
-		Collection<Toolkit> toolkitsInResourceSet = getToolkitsInResourceSet(context);
+		Collection<Toolkit> toolkitsInResourceSet = getToolkitsInResourceSet(cinematicRoot);
 		for (Toolkit toolkitInResourceSet : toolkitsInResourceSet) {
 			// We do not propose the already used toolkits
 			if (!alreadyUsedToolkits.contains(toolkitInResourceSet)) {

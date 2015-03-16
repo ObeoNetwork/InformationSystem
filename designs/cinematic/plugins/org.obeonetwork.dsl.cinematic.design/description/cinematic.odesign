@@ -15,8 +15,8 @@
         </ownedTools>
         <ownedTools xsi:type="tool_1:OperationAction" name="MNU_AssociateToolkit" label="Associate toolkit" icon="/org.obeonetwork.dsl.cinematic.edit/icons/full/obj16/Toolkit.gif">
           <view name="views">
-            <subVariables xsi:type="tool_1:AcceleoVariable" name="cinematicRoot" computationExpression="[target.eContainer(cinematic::CinematicRoot)/]"/>
-            <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedToolkit" candidatesExpression="[getCinematicProvidedToolkits(cinematicRoot.oclAsType(cinematic::CinematicRoot).toolkits)/]" message="Select a toolkit to associate"/>
+            <subVariables xsi:type="tool_1:AcceleoVariable" name="cinematicRoot" computationExpression="service:getCinematicRoot()"/>
+            <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedToolkit" candidatesExpression="service:cinematicRoot.getCinematicProvidedToolkits()" message="Select a toolkit to associate"/>
           </view>
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semanticElement.associateToolkit(selectedToolkit)"/>
