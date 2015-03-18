@@ -72,7 +72,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="Entities Diagram" label="Entities Diagram" titleExpression="[name + ' - Entities diagram'/]" domainClass="environment.Namespace" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Entity'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="Entities Diagram" label="Entities Diagram" titleExpression="[name + ' - Entities diagram'/]" domainClass="environment.Namespace" preconditionExpression="[ancestors()->filter(entity::Root)->notEmpty()/]" enablePopupBars="true">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <defaultLayer name="Default">
@@ -333,7 +333,7 @@
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="&lt;%$source%>"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
@@ -360,7 +360,7 @@
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="&lt;%$source%>"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
@@ -656,18 +656,18 @@
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Entity Table" domainClass="entity.Root">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
-      <ownedLineMappings name="EntityLine" domainClass="entity.Entity" headerLabelExpression="&lt;%name%>"/>
-      <ownedColumnMappings name="NB Attributes" headerLabelExpression="NB Attributes" canEdit="&lt;%false%>" featureName="ownedAttributes" labelExpression="&lt;%ownedAttributes.nSize%>"/>
-      <ownedColumnMappings name="estimatedVolumetry" headerLabelExpression="Estimated Volumetry" canEdit="&lt;%true%>" featureName="estimatedVolumetry" labelExpression="&lt;%estimatedVolumetry%>">
+      <ownedLineMappings name="EntityLine" domainClass="entity.Entity" headerLabelExpression="feature:name"/>
+      <ownedColumnMappings name="NB Attributes" headerLabelExpression="NB Attributes" canEdit="false" featureName="ownedAttributes" labelExpression="[ownedAttributes->size()/]"/>
+      <ownedColumnMappings name="estimatedVolumetry" headerLabelExpression="Estimated Volumetry" canEdit="true" featureName="estimatedVolumetry" labelExpression="feature:estimatedVolumetry">
         <directEdit>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="root" documentation="The semantic element of the table."/>
-          <firstModelOperation xsi:type="tool_1:SetValue" featureName="estimatedVolumetry" valueExpression="&lt;%$0%>"/>
+          <firstModelOperation xsi:type="tool_1:SetValue" featureName="estimatedVolumetry" valueExpression="var:arg0"/>
           <mask mask="{0}"/>
         </directEdit>
       </ownedColumnMappings>
-      <ownedColumnMappings name="historized" headerLabelExpression="Historized" canEdit="&lt;%true%>" featureName="historized" labelExpression="&lt;%historized%>"/>
+      <ownedColumnMappings name="historized" headerLabelExpression="Historized" canEdit="true" featureName="historized" labelExpression="feature:historized"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.TypesServices"/>

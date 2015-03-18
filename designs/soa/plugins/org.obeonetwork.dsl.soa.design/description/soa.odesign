@@ -2,9 +2,9 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="Soa" version="8.1.0">
   <ownedViewpoints name="SOA Views" modelFileExtension="soa ois">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Component']" name="SOA Diagram" titleExpression="[name + ' SOA Diagram'/]" domainClass="soa.System">
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
       <defaultLayer name="Default Layer">
         <edgeMappings name="SOAD_Wire" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" targetMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided']" targetFinderExpression="feature:dest" sourceFinderExpression="feature:source" domainClass="soa.Wire" useDomainElement="true" reconnections="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Wire_Target'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Wire_Source']">
           <style sizeComputationExpression="1">
@@ -14,14 +14,14 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="SOAD_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="&lt;%ownedComponents%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
-          <borderedNodeMappings name="SOAD_Service_Provided" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="&lt;%providedServices%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Service">
+        <containerMappings name="SOAD_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="feature:ownedComponents" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
+          <borderedNodeMappings name="SOAD_Service_Provided" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="feature:providedServices" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Service">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="2" workspacePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Service.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings name="SOAD_Service_Required" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="&lt;%requiredServices%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Service">
+          <borderedNodeMappings name="SOAD_Service_Required" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="feature:requiredServices" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Service">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="2" workspacePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Reference.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -40,9 +40,9 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Component" referenceName="ownedComponents">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Component &lt;%eContainer.ownedComponents.nSize%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Component ' + eContainer().oclAsType(soa::System).ownedComponents->size()/]"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -53,10 +53,10 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="&lt;%getProvidedLiteral()%>"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="ProvidedService&lt;%$container.providedServices.nSize%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getProvidedLiteral()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ProvidedService'+container.oclAsType(soa::Component).providedServices->size()/]"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -65,10 +65,10 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="&lt;%getRequiredLiteral()%>"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="RequiredService&lt;%$container.requiredServices.nSize%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getRequiredLiteral()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['RequiredService' + container.oclAsType(soa::Component).requiredServices->size()/]"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -81,18 +81,18 @@
               <sourceViewVariable name="sourceView"/>
               <targetViewVariable name="targetView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$source.eContainer(&quot;System&quot;)%>">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer(soa::System)/]">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Wire" referenceName="ownedWires">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="&lt;%$source%>"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="&lt;%$target%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
             <subSections name="Usability Tools">
-              <ownedTools xsi:type="tool:DiagramCreationDescription" name="Component Contract" forceRefresh="true" titleExpression="&lt;%name%> Component Contract" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']">
+              <ownedTools xsi:type="tool:DiagramCreationDescription" name="Component Contract" forceRefresh="true" titleExpression="[name + ' Component Contract'/]" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']">
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%current%>"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
                 </initialOperation>
                 <containerViewVariable name="containerView"/>
                 <representationNameVariable name="diagramName"/>
@@ -100,28 +100,28 @@
               <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Name Direct Edit SOA">
                 <mask mask="{0}"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
+                  <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
                 </initialOperation>
               </ownedTools>
-              <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Component" precondition="&lt;%filter(&quot;soa.Component&quot;)%>" dragSource="PROJECT_EXPLORER">
+              <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Component" precondition="[oclIsKindOf(soa::Component)/]" dragSource="PROJECT_EXPLORER">
                 <oldContainer name="oldSemanticContainer"/>
                 <newContainer name="newSemanticContainer"/>
                 <element name="element"/>
                 <newViewContainer name="newContainerView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
-                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="ownedComponents"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedComponents"/>
                   </firstModelOperations>
                 </initialOperation>
               </ownedTools>
-              <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Service" precondition="&lt;%filter(&quot;soa.Service&quot;)%>" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dragSource="BOTH">
+              <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Service" precondition="[oclIsKindOf(soa::Service)/]" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dragSource="BOTH">
                 <oldContainer name="oldSemanticContainer"/>
                 <newContainer name="newSemanticContainer"/>
                 <element name="element"/>
                 <newViewContainer name="newContainerView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
-                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="ownedServices"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedServices"/>
                   </firstModelOperations>
                 </initialOperation>
               </ownedTools>
@@ -129,7 +129,7 @@
                 <element name="element"/>
                 <elementView name="elementView"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element.eContainer(&quot;Component&quot;)%>">
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element.eContainer(soa::Component)/]">
                     <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']"/>
                   </firstModelOperations>
                 </initialOperation>
@@ -141,8 +141,8 @@
                 <targetView name="targetView"/>
                 <element name="element"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="&lt;%$target%>"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dest" valueExpression="var:target"/>
                   </firstModelOperations>
                 </initialOperation>
                 <edgeView name="edgeView"/>
@@ -154,8 +154,8 @@
                 <targetView name="targetView"/>
                 <element name="element"/>
                 <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="&lt;%$target%>"/>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:target"/>
                   </firstModelOperations>
                 </initialOperation>
                 <edgeView name="edgeView"/>
@@ -165,7 +165,7 @@
         </toolSections>
       </defaultLayer>
       <additionalLayers name="External Components">
-        <containerMappings name="SOAD_Referenced_External_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@toolSections.0/@ownedTools[name='Prevent%20deletion%20of%20external%20components']" semanticCandidatesExpression="&lt;%allReferencedExternalComponents%>" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" reusedBorderedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
+        <containerMappings name="SOAD_Referenced_External_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@toolSections.0/@ownedTools[name='Prevent%20deletion%20of%20external%20components']" semanticCandidatesExpression="service:allReferencedExternalComponents()" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" reusedBorderedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
           <style xsi:type="style:FlatContainerStyleDescription" labelFormat="bold" showIcon="false" roundedCorner="true" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -173,7 +173,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </containerMappings>
-        <containerMappings name="SOAD_NonReferenced_External_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@toolSections.0/@ownedTools[name='Delete%20view%20on%20non%20referenced%20external%20components']" semanticCandidatesExpression="&lt;%allNonReferencedExternalComponents%>" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" reusedBorderedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
+        <containerMappings name="SOAD_NonReferenced_External_Component" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Component%20Contract']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@toolSections.0/@ownedTools[name='Delete%20view%20on%20non%20referenced%20external%20components']" semanticCandidatesExpression="service:allNonReferencedExternalComponents()" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Go%20to%20component%20contract%20diagram']" domainClass="soa.Component" reusedBorderedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Service']">
           <style xsi:type="style:FlatContainerStyleDescription" labelFormat="bold" showIcon="false" roundedCorner="true" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -182,13 +182,13 @@
           </style>
         </containerMappings>
         <toolSections name="External Components">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Ext. Component" precondition="&lt;%filter(&quot;soa.System&quot;)%>" forceRefresh="true" candidatesExpression="&lt;%(allSelectableExternalComponents($containerView) + allSelectableExternalComponents($containerView).ancestor()).nMinimize()%>" tree="true" rootExpression="&lt;%allRoots%>" childrenExpression="&lt;%eContents()%>" iconPath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif" windowTitle="Import external Component" windowImagePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Ext. Component" precondition="[oclIsKindOf(soa::System)/]" forceRefresh="true" candidatesExpression="[oclAsType(soa::System).allSelectableExternalComponents(containerView)->union(oclAsType(soa::System).allSelectableExternalComponents(containerView).ancestors())->asOrderedSet()/]" tree="true" rootExpression="service:allRoots()" childrenExpression="feature:eContents" iconPath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif" windowTitle="Import external Component" windowImagePath="/org.obeonetwork.dsl.soa.edit/icons/full/obj16/Component.gif">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
-                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@containerMappings[name='SOAD_NonReferenced_External_Component']" containerViewExpression="&lt;%$containerView%>"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@additionalLayers[name='External%20Components']/@containerMappings[name='SOAD_NonReferenced_External_Component']" containerViewExpression="var:containerView"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -197,7 +197,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%self%>"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete view on non referenced external components">
@@ -205,7 +205,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$elementView%>">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
                 <subModelOperations xsi:type="tool_1:DeleteView"/>
               </firstModelOperations>
             </initialOperation>
@@ -213,37 +213,37 @@
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Service']" name="Component Contract Diagram" titleExpression="&lt;%name%> Component Contract" domainClass="soa.Component">
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Service']" name="Component Contract Diagram" titleExpression="[name + ' Component Contract'/]" domainClass="soa.Component">
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
       <validationSet>
         <ownedRules xsi:type="validation:SemanticValidationRule" level="ERROR" message="The parameter name cannot use reserved words." targetClass="soa.Parameter">
-          <audits auditExpression="&lt;%name!=&quot;return&quot; &amp;&amp; name!=&quot;public&quot; &amp;&amp; name!=&quot;private&quot; &amp;&amp; name!=&quot;protected&quot; &amp;&amp; name!=&quot;class&quot; &amp;&amp; name!=&quot;interface&quot; &amp;&amp; name!=&quot;package&quot; &amp;&amp; name!=&quot;extends&quot; &amp;&amp; name!=&quot;implements&quot; &amp;&amp; name!=&quot;int&quot; &amp;&amp; name!=&quot;double&quot; &amp;&amp; name!=&quot;float&quot;%>"/>
+          <audits auditExpression="[name&lt;>'return' and name&lt;>'public' and name&lt;>'private' and name&lt;>'protected' and name&lt;>'class' and name&lt;>'interface' and name&lt;>'package' and name&lt;>'extends' and name&lt;>'implements' and name&lt;>'int' and name&lt;>'double' and name&lt;>'float'/]"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" level="ERROR" message="The operation name cannot use reserved words." targetClass="soa.Operation">
-          <audits auditExpression="&lt;%name!=&quot;return&quot; &amp;&amp; name!=&quot;public&quot; &amp;&amp; name!=&quot;private&quot; &amp;&amp; name!=&quot;protected&quot; &amp;&amp; name!=&quot;class&quot; &amp;&amp; name!=&quot;interface&quot; &amp;&amp; name!=&quot;package&quot; &amp;&amp; name!=&quot;extends&quot; &amp;&amp; name!=&quot;implements&quot; &amp;&amp; name!=&quot;int&quot; &amp;&amp; name!=&quot;double&quot; &amp;&amp; name!=&quot;float&quot;%>"/>
+          <audits auditExpression="[name&lt;>'return' and name&lt;>'public' and name&lt;>'private' and name&lt;>'protected' and name&lt;>'class' and name&lt;>'interface' and name&lt;>'package' and name&lt;>'extends' and name&lt;>'implements' and name&lt;>'int' and name&lt;>'double' and name&lt;>'float'/]"/>
         </ownedRules>
       </validationSet>
       <defaultLayer name="Default Layer">
-        <containerMappings name="Cc_ServiceInterface_CM" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="&lt;%ownedServices%>" domainClass="soa.Service" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Operation']">
-          <subContainerMappings name="Cc_Operation_CM" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="&lt;%ownedInterface.ownedOperations%>" domainClass="soa.Operation" childrenPresentation="List">
-            <subNodeMappings name="Cc_In_Param" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="&lt;%input%>" domainClass="soa.Parameter">
-              <style xsi:type="style:SquareDescription" labelExpression="&lt;%computeSoaLabel()%>" labelAlignment="LEFT">
+        <containerMappings name="Cc_ServiceInterface_CM" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedServices" domainClass="soa.Service" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Operation']">
+          <subContainerMappings name="Cc_Operation_CM" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="[ownedInterface.ownedOperations/]" domainClass="soa.Operation" childrenPresentation="List">
+            <subNodeMappings name="Cc_In_Param" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:input" domainClass="soa.Parameter">
+              <style xsi:type="style:SquareDescription" labelExpression="service:computeSoaLabel()" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="Cc_Out_Param" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="&lt;%output%>" domainClass="soa.Parameter">
-              <style xsi:type="style:SquareDescription" labelFormat="italic" labelExpression="&lt;%computeSoaLabel()%>" labelAlignment="LEFT">
+            <subNodeMappings name="Cc_Out_Param" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:output" domainClass="soa.Parameter">
+              <style xsi:type="style:SquareDescription" labelFormat="italic" labelExpression="service:computeSoaLabel()" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="Cc_Fault_Param" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="&lt;%fault%>" domainClass="soa.Parameter">
-              <style xsi:type="style:SquareDescription" labelExpression="&lt;%computeSoaLabel()%>" labelAlignment="LEFT">
+            <subNodeMappings name="Cc_Fault_Param" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Reused%20Tools']/@defaultLayer/@toolSections.0/@ownedTools[name='Reused%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:fault" domainClass="soa.Parameter">
+              <style xsi:type="style:SquareDescription" labelExpression="service:computeSoaLabel()" labelAlignment="LEFT">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -262,7 +262,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
-          <conditionnalStyles predicateExpression="&lt;%isRequiredService%>">
+          <conditionnalStyles predicateExpression="service:isRequiredService()">
             <style xsi:type="style:FlatContainerStyleDescription" labelSize="10" backgroundStyle="GradientTopToBottom">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -276,10 +276,10 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="&lt;%getProvidedLiteral()%>"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="ProvidedService&lt;%$container.providedServices.nSize%>"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getProvidedLiteral()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ProvidedService'+container.oclAsType(soa::Component).providedServices->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -288,23 +288,23 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Service" referenceName="ownedServices">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="&lt;%getRequiredLiteral()%>"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="RequiredService&lt;%$container.requiredServices.nSize%>"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="service:getRequiredLiteral()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['RequiredService' + container.oclAsType(soa::Component).requiredServices->size()/]"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <subSections name="Usability tools">
-            <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Service" precondition="&lt;%filter(&quot;soa.Service&quot;)%>" dragSource="PROJECT_EXPLORER">
+            <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Service" precondition="[oclIsKindOf(soa::Service)/]" dragSource="PROJECT_EXPLORER">
               <oldContainer name="oldSemanticContainer"/>
               <newContainer name="newSemanticContainer"/>
               <element name="element"/>
               <newViewContainer name="newContainerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
-                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="&lt;%$newSemanticContainer%>" featureName="ownedServices"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ownedServices"/>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
@@ -316,15 +316,15 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="&lt;%!ownedInterface%>">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(soa::Service).ownedInterface.oclIsUndefined()/]">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Interface" referenceName="ownedInterface">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%$container.name%>"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[container.oclAsType(soa::Service).name/]"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%ownedInterface%>">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:ownedInterface">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Operation" referenceName="ownedOperations">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Operation&lt;%eContainer.ownedOperations.nSize%>"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Operation' + eContainer().oclAsType(soa::Interface).ownedOperations->size()/]"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -336,10 +336,10 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="input">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="input&lt;%eContainer.input.nSize%>"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['input' + eContainer(soa::Operation).input->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -348,10 +348,10 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="output">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="output&lt;%eContainer.output.nSize%>"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['output' + eContainer(soa::Operation).input->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -360,30 +360,30 @@
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$container%>">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="fault">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="fault&lt;%eContainer.fault.nSize%>"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="&lt;%getStringPrimitiveType()%>"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['fault' + eContainer(soa::Operation).fault->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
           </subSections>
           <subSections name="Usability tools">
-            <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Operation" precondition="&lt;%filter(&quot;soa.Operation&quot;)%>" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']" dragSource="BOTH">
+            <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_Operation" precondition="[oclIsKindOf(soa::Operation)/]" mappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@containerMappings[name='Cc_ServiceInterface_CM']/@subContainerMappings[name='Cc_Operation_CM']" dragSource="BOTH">
               <oldContainer name="oldSemanticContainer"/>
               <newContainer name="newSemanticContainer"/>
               <element name="element"/>
               <newViewContainer name="newContainerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$newSemanticContainer%>">
-                  <subModelOperations xsi:type="tool_1:If" conditionExpression="&lt;%!ownedInterface%>">
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newSemanticContainer">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[oclAsType(soa::Service).ownedInterface.oclIsUndefined()/]">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Interface" referenceName="ownedInterface">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%$newSemanticContainer.name%>"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[newSemanticContainer.oclAsType(soa::Service).name/]"/>
                     </subModelOperations>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="&lt;%$element%>">
-                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="&lt;%$newSemanticContainer.ownedInterface%>" featureName="ownedOperations"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="[newSemanticContainer.oclAsType(soa::Service).ownedInterface/]" featureName="ownedOperations"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -464,7 +464,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="DTO Diagram" label="DTO Diagram" titleExpression="[name + ' - DTO diagram'/]" domainClass="environment.Namespace" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="DTO Diagram" label="DTO Diagram" titleExpression="[name + ' - DTO diagram'/]" domainClass="environment.Namespace" preconditionExpression="[ancestors()->filter(soa::System)->notEmpty()/]" enablePopupBars="true">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
@@ -726,7 +726,7 @@
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="&lt;%$source%>"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
@@ -753,7 +753,7 @@
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="navigable" valueExpression="true"/>
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.Reference" referenceName="ownedReferences" variableName="secondReference">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="&lt;%$source%>"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="referencedType" valueExpression="var:source"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="isComposite" valueExpression="false"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[source.oclAsType(environment::StructuredType).name.trim() + 's'/]"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="ZERO_STAR"/>
@@ -1052,7 +1052,7 @@
           <ownedTools xsi:type="tool:DirectEditLabel" documentation="Edit the name feature of the element" name="Reused Name Direct Edit" forceRefresh="true">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

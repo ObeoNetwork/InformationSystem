@@ -88,6 +88,7 @@
     </children>
     <stringValues id="label" value="Entities Diagram"/>
     <stringValues id="titleExpression" value="[name + ' - Entities diagram'/]"/>
+    <stringValues id="precondition" value="[ancestors()->filter(entity::Root)->notEmpty()/]"/>
     <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
     <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
   </diagrams>

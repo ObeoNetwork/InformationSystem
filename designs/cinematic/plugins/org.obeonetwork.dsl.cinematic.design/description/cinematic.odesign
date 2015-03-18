@@ -19,7 +19,7 @@
             <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedToolkit" candidatesExpression="service:cinematicRoot.getCinematicProvidedToolkits()" message="Select a toolkit to associate"/>
           </view>
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semanticElement.associateToolkit(selectedToolkit)"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:cinematicRoot.associateToolkit(selectedToolkit)"/>
           </initialOperation>
         </ownedTools>
       </toolSection>
