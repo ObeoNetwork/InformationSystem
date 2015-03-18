@@ -11,6 +11,19 @@
 package org.obeonetwork.dsl.database.presentation;
 
 
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_LOGICAL_TYPES;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
+import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.H2_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.LOGICAL_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.MYSQL_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.ORACLE_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.POSTGRES_PATHMAP;
+import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.SQLSERVER_PATHMAP;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -21,16 +34,6 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
-import org.eclipse.emf.common.CommonPlugin;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -38,13 +41,26 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
@@ -52,6 +68,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
@@ -62,27 +82,6 @@ import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.NamedElement;
 import org.obeonetwork.dsl.database.provider.DatabaseEditPlugin;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
-import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
-
-import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.H2_PATHMAP;
-import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.LOGICAL_PATHMAP;
-import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.MYSQL_PATHMAP;
-import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.ORACLE_PATHMAP;
-import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.POSTGRES_PATHMAP;
-import static org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil.SQLSERVER_PATHMAP;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_H2_13;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_MYSQL_5;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_ORACLE_11G;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_POSTGRES_9;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_SQLSERVER_2008;
-import static org.obeonetwork.dsl.database.spec.DatabaseConstants.DB_LOGICAL_TYPES;
 
 
 /**
@@ -632,12 +631,12 @@ public class DatabaseModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getDBVendors() {
 			if (dbVendors == null) {
 				dbVendors = new ArrayList<String>();
+				dbVendors.add(DB_LOGICAL_TYPES);
 				dbVendors.add(DB_MYSQL_5);
 				dbVendors.add(DB_ORACLE_11G);
 				dbVendors.add(DB_H2_13);
 				dbVendors.add(DB_POSTGRES_9);
 				dbVendors.add(DB_SQLSERVER_2008);
-				dbVendors.add(DB_LOGICAL_TYPES);
 			}
 			return dbVendors;
 		}
