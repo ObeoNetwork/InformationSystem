@@ -16,5 +16,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.environment;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
  org.obeonetwork.dsl.entity,
- org.obeonetwork.dsl.soa
+ org.obeonetwork.dsl.soa,
+ org.obeonetwork.tools.migration
 Bundle-ActivationPolicy: lazy
