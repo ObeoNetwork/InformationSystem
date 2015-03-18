@@ -339,7 +339,7 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="input">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['input' + eContainer(soa::Operation).input->size()/]"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="[getStringPrimitiveType()/]"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -351,7 +351,7 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="output">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['output' + eContainer(soa::Operation).input->size()/]"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="[getStringPrimitiveType()/]"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -363,7 +363,7 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="soa.Parameter" referenceName="fault">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['fault' + eContainer(soa::Operation).fault->size()/]"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:getStringPrimitiveType()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="[getStringPrimitiveType()/]"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -847,7 +847,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:[deleteObeoDSMObject()/]Object"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_Inheritance" forceRefresh="true">
@@ -868,7 +868,7 @@
             <containerView name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:For" expression="var:selectedElements" iteratorName="selectedReference">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:deleteObeoDSMObject"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[deleteObeoDSMObject()/]"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -992,10 +992,10 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="[getEnvironmentQualifiedName()/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']"/>
         </containerMappings>
         <containerMappings name="ED_ExternalStructuredType_NotReferenced" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='DEL_ED_ExternalEntity_NotReferenced']" semanticCandidatesExpression="[getAllNotReferencedStructuredTypes(diagram)/]" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.DTO" reusedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_Attribute'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_AssociatedAttribute']" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="[getEnvironmentQualifiedName()/]" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']"/>
         </containerMappings>
         <toolSections name="External entities">
           <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="External DTO" label="External DTO" precondition="[oclIsKindOf(environment::Namespace)/]" forceRefresh="true" candidatesExpression="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'DTO')/]" multiple="true" tree="true" rootExpression="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'DTO')->select(eContainer().oclIsUndefined())/]" childrenExpression="feature:eContents" message="Select an external DTO" iconPath="/org.obeonetwork.dsl.entity.edit/icons/full/obj16/Entity.gif">
