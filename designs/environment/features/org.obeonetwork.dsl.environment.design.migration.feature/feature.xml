@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.obeonetwork.dsl.entity.design.feature"
-      label="Entity Designer Feature"
-      version="3.0.0.qualifier"
+      id="org.obeonetwork.dsl.environment.design.migration.feature"
+      label="IS Representations Files Migration Feature"
+      version="1.0.0.qualifier"
       provider-name="Obeo">
 
    <description url="http://www.example.com/description">
@@ -17,12 +17,8 @@
       [Enter License Description here.]
    </license>
 
-   <requires>
-      <import feature="org.obeonetwork.dsl.environment.design.migration.feature" version="1.0.0.qualifier"/>
-   </requires>
-
    <plugin
-         id="org.obeonetwork.dsl.entity.design"
+         id="org.obeonetwork.dsl.environment.design.migration"
          download-size="0"
          install-size="0"
          version="0.0.0"

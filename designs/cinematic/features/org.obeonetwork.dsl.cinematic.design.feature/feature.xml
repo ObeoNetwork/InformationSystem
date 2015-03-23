@@ -227,6 +227,7 @@ litigation.
       <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="2.0.0.201410241344"/>
       <import feature="fr.obeo.dsl.designer.ce.feature" version="7.0.0.201411120842"/>
       <import feature="fr.obeo.mda.license" version="1.0.0.201104040800"/>
+      <import plugin="org.obeonetwork.dsl.environment.design.migration"/>
    </requires>
 
    <plugin

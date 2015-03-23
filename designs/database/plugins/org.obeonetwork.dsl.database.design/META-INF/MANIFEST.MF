@@ -17,3 +17,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ManifestVersion: 2
 Export-Package: org.obeonetwork.dsl.database.design.services,
  org.obeonetwork.dsl.database.design.services.label
+Bundle-Vendor: www.obeo.fr

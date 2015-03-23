@@ -37,6 +37,9 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 		if ("ServiceDTO".equals(name)) {
 			return EnvironmentPackage.Literals.DTO;
 		}
+		if ("Cateogry".equals(name)) {
+			return EnvironmentPackage.Literals.NAMESPACE;
+		}
 		return null;
 	}
 

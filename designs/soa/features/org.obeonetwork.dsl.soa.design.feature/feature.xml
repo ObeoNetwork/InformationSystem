@@ -17,6 +17,10 @@
       [Enter License Description here.]
    </license>
 
+   <requires>
+      <import feature="org.obeonetwork.dsl.environment.design.migration.feature" version="1.0.0.qualifier"/>
+   </requires>
+
    <plugin
          id="org.obeonetwork.dsl.soa.design"
          download-size="0"

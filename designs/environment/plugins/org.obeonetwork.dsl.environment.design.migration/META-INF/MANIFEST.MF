@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sirius Migration for Environment Metamodel
+Bundle-SymbolicName: org.obeonetwork.dsl.environment.design.migration;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: www.obeo.fr
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.sirius,
+ org.eclipse.emf.ecore,
+ org.eclipse.osgi,
+ org.eclipse.sirius.ext.base,
+ org.obeonetwork.tools.migration
+Export-Package: org.obeonetwork.dsl.environment.design.migration
