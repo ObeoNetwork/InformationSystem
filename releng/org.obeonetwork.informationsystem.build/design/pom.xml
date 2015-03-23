@@ -159,6 +159,10 @@
 		
 		<module>../../../designs/environment/features/org.obeonetwork.dsl.environment.design.services.feature</module>
 		
+		<module>../../../designs/environment/plugins/org.obeonetwork.dsl.environment.design.migration</module>
+		
+		<module>../../../designs/environment/features/org.obeonetwork.dsl.environment.design.migration.feature</module>
+		
 		<!-- designs/cinematic/ -->
 		<module>../../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design</module>
 		
