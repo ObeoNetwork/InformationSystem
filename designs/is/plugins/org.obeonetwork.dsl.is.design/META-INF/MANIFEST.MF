@@ -5,9 +5,9 @@ Bundle-Version: 3.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.is.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
+ org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.cinematic,
  org.obeonetwork.dsl.entity,
- org.obeonetwork.dsl.environment,
  org.obeonetwork.dsl.soa,
  org.eclipse.emf.eef.runtime,
  org.eclipse.gmf.runtime.diagram.ui,

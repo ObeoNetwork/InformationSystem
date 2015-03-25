@@ -17,9 +17,15 @@ import java.util.Set;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.eclipse.emf.ecore.util.EcoreUtil.UsageCrossReferencer;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.obeonetwork.dsl.environment.Environment;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.PrimitiveType;
@@ -81,11 +87,43 @@ public class TypesServices {
 			for (Reference reference : existingType.getOwnedReferences()) {
 				referencedTypes.add(reference.getReferencedType());
 			}
+			referencedTypes.addAll(getAllReferencingStructuredTypes(existingType));
 		}
 		
 		referencedTypes.removeAll(namespace.getTypes());
 		
 		return referencedTypes;
+	}
+	
+	private Collection<StructuredType> getAllReferencingStructuredTypes(StructuredType referencedType) {
+		Collection<StructuredType> referencingTypes = new HashSet<StructuredType>();
+		
+		Session session = new EObjectQuery(referencedType).getSession();
+		Collection<Setting> inverseReferences = null;
+		ECrossReferenceAdapter xReferencer = null;
+		if (session != null) {
+			xReferencer = session.getSemanticCrossReferencer();
+		}
+		
+		if (xReferencer != null) {
+			inverseReferences = xReferencer.getInverseReferences(referencedType);
+		} else {
+			if (referencedType.eResource() != null && referencedType.eResource().getResourceSet() != null) {
+				inverseReferences = UsageCrossReferencer.find(referencedType, referencedType.eResource().getResourceSet());
+			}
+		}
+		
+		if (inverseReferences != null) {
+			for (Setting setting : inverseReferences) {
+				if (setting.getEObject() instanceof StructuredType && setting.getEStructuralFeature() == EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE) {
+					referencingTypes.add((StructuredType)setting.getEObject());
+				}else if (setting.getEObject() instanceof Reference && setting.getEStructuralFeature() == EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE) {
+					referencingTypes.add(((Reference)setting.getEObject()).getContainingType());
+				}
+			}
+		}
+		
+		return referencingTypes;
 	}
 	
 	public Collection<StructuredType> getAllStructuredTypes(EObject context, String typeName) {

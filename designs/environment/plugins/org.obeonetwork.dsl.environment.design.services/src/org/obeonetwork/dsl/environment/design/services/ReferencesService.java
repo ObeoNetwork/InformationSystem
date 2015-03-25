@@ -18,29 +18,23 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
-import org.obeonetwork.dsl.environment.Type;
 
 import com.google.common.collect.Sets;
 
 public class ReferencesService {
 	
-	public List<Reference> getReferences(Namespace namespace) {
+	public List<Reference> getReferences(DSemanticDiagram diagram) {
+		Set<StructuredType> types = DesignServices.getDisplayedStructuredTypes(diagram);
 		List<Reference> references = new ArrayList<Reference>();
-		for (Type type : namespace.getTypes()) {
-			if (type instanceof StructuredType) {
-				references.addAll(((StructuredType)type).getReferences());
-			}
-		}
-		for (Namespace subNamespace : namespace.getOwnedNamespaces()) {
-			references.addAll(getReferences(subNamespace));
+		for (StructuredType type : types) {
+			references.addAll(type.getOwnedReferences());
 		}
 		return references;
 	}
 	
-	public List<Reference> getOppositeReferences(Namespace namespace, DSemanticDiagram diagram) {
+	public List<Reference> getOppositeReferences(DSemanticDiagram diagram) {
 		Collection<StructuredType> structuredTypes = DesignServices.getDisplayedStructuredTypes(diagram);
 		Set<Reference> references = Sets.newLinkedHashSet();
 		for (StructuredType structuredType : structuredTypes) {
@@ -57,18 +51,6 @@ public class ReferencesService {
 			}
 		}
 		return new ArrayList<Reference>(map.values());
-	}
-	
-	public List<Reference> getOppositeReferences2(Namespace namespace) {
-		List<Reference> bidiRefs = new ArrayList<Reference>();
-		for (Reference ref : getReferences(namespace)) {
-			if (ref.getOppositeOf() != null) {
-				if (!bidiRefs.contains(ref) && !bidiRefs.contains(ref.getOppositeOf())) {
-					bidiRefs.add(ref);
-				}
-			}
-		}
-		return bidiRefs;
 	}
 	
 	public Reference reconnectBidiReferenceTarget(Reference reference, StructuredType source, StructuredType target) {
