@@ -15,11 +15,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
-import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
 import org.obeonetwork.dsl.cinematic.view.ViewElement;
@@ -31,6 +32,8 @@ import org.obeonetwork.dsl.cinematic.view.ViewElement;
  * 
  */
 public class CinematicWidgetServices {
+
+	private static final String CREATE_VIEW_CONTAINER_TITLE = "Create View container";
 
 	/**
 	 * Retrieves widgets that have the property isContainer set to true and
@@ -129,10 +132,14 @@ public class CinematicWidgetServices {
 		}
 		if (cinematicRoot != null) {
 			List<Toolkit> toolkits = cinematicRoot.getToolkits();
-			for (Toolkit toolkit : toolkits) {
-				for (Widget widget : toolkit.getWidgets()) {
-					if (widget.isIsContainer()) {
-						widgetsIsContainer.add(widget);
+			if (toolkits.isEmpty()) {
+				MessageDialog.openInformation(Display.getDefault().getActiveShell(), CREATE_VIEW_CONTAINER_TITLE, "No toolkit has been associated yet.\nPlease use the 'Associate toolkit' tool on the root level.");
+			} else {
+				for (Toolkit toolkit : toolkits) {
+					for (Widget widget : toolkit.getWidgets()) {
+						if (widget.isIsContainer()) {
+							widgetsIsContainer.add(widget);
+						}
 					}
 				}
 			}
@@ -141,8 +148,8 @@ public class CinematicWidgetServices {
 	}
 
 	/**
-	 * Retrieve the list of toolkits and their widgets * @param context context
-	 * 
+	 * Retrieve the list of toolkits and their widgets
+	 * @param context context
 	 * @param widgets
 	 *            the list of widgets that have the property isContainer set to
 	 *            true

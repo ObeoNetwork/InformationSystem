@@ -1137,7 +1137,7 @@
           <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.associateToolkit(selectedToolkit)"/>
           <variables name="root" documentation="The semantic element of the tree."/>
           <variables name="element" documentation="The semantic currently edited element.">
-            <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedToolkit" candidatesExpression="service:getCinematicProvidedToolkits(element)" message="Select a toolkit to associate"/>
+            <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedToolkit" candidatesExpression="service:root.getCinematicProvidedToolkits()" message="Select a toolkit to associate"/>
           </variables>
           <variables name="container" documentation="The semantic element corresponding to the view container."/>
         </create>
