@@ -40,7 +40,7 @@ public class CinematicDropServices {
 					// We're going to move the element into this containment feature
 					Object oldValues = container.eGet(eReference, true);
 					if (oldValues instanceof Collection) {
-						((Collection)oldValues).add(element);
+						((Collection<EObject>)oldValues).add(element);
 					}
 //					container.eSet(eReference, oldValues);
 					return element;

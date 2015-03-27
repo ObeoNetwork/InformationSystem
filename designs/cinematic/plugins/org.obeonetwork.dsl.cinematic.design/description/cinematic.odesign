@@ -797,7 +797,7 @@
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.createCinematicBindingInfo(selectedElement)"/>
               <variables name="root" documentation="The semantic element of the tree."/>
               <variables name="element" documentation="The semantic currently edited element.">
-                <subVariables xsi:type="tool_1:AcceleoVariable" name="allBoundableElements" computationExpression="[container.getAllRootsForCinematic().eAllContents()->select(oclIsKindOf(environment::DTO) or oclIsKindOf(environment::Property) or oclIsKindOf(entity::Entity) or oclIsKindOf(entity::Property))/]"/>
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="allBoundableElements" computationExpression="[container.getAllRootsForCinematic().eAllContents()->select(oclIsKindOf(environment::StructuredType) or oclIsKindOf(environment::Property))/]"/>
                 <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="service:getBindingElementsAndContainers(allBoundableElements)"/>
                 <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="[allCandidates->select(eContainer().oclIsUndefined() or (not allCandidates->includes(eContainer())))/]" childrenExpression="feature:eContents" message="Select an element to bind"/>
               </variables>
@@ -857,7 +857,7 @@
               <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.createCinematicBindingInfo(selectedElement)"/>
               <variables name="root" documentation="The semantic element of the tree."/>
               <variables name="element" documentation="The semantic currently edited element.">
-                <subVariables xsi:type="tool_1:AcceleoVariable" name="allBoundableElements" computationExpression="[container.getAllRootsForCinematic().eAllContents()->select(oclIsKindOf(environment::DTO) or oclIsKindOf(environment::Property) or oclIsKindOf(entity::Entity) or oclIsKindOf(entity::Property))/]"/>
+                <subVariables xsi:type="tool_1:AcceleoVariable" name="allBoundableElements" computationExpression="[container.getAllRootsForCinematic().eAllContents()->select(oclIsKindOf(environment::StructuredType) or oclIsKindOf(environment::Property))/]"/>
                 <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="service:getBindingElementsAndContainers(allBoundableElements)"/>
                 <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="[allCandidates->select(eContainer().oclIsUndefined() or (not allCandidates->includes(eContainer())))/]" childrenExpression="feature:eContents" message="Select an element to bind"/>
               </variables>
@@ -979,7 +979,7 @@
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </style>
             </conditionalStyles>
-            <conditionalStyles predicateExpression="[oclAsType(environment::BindingInfo).getCinematicBoundElement().oclIsKindOf(entity::Property)/]">
+            <conditionalStyles predicateExpression="[oclAsType(environment::BindingInfo).getCinematicBoundElement().oclIsKindOf(environment::Property)/]">
               <style labelExpression="service:getCinematicBindingInfoLabel" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/databinding/EntityPropertyBinding.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -1071,7 +1071,7 @@
             <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="service:element.createCinematicBindingInfo(selectedElement)"/>
             <variables name="root" documentation="The semantic element of the tree."/>
             <variables name="element" documentation="The semantic currently edited element.">
-              <subVariables xsi:type="tool_1:AcceleoVariable" name="allBoundableElements" computationExpression="[container.getAllRootsForCinematic().eAllContents()->select(oclIsKindOf(environment::DTO) or oclIsKindOf(environment::Property) or oclIsKindOf(entity::Entity) or oclIsKindOf(entity::Property))/]"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="allBoundableElements" computationExpression="[container.getAllRootsForCinematic().eAllContents()->select(oclIsKindOf(environment::StructuredType) or oclIsKindOf(environment::Property))/]"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="allCandidates" computationExpression="service:getBindingElementsAndContainers(allBoundableElements)"/>
               <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedElement" candidatesExpression="var:allCandidates" tree="true" rootExpression="[allCandidates->select(eContainer().oclIsUndefined() or (not allCandidates->includes(eContainer())))/]" childrenExpression="feature:eContents" message="Select an element to bind"/>
             </variables>

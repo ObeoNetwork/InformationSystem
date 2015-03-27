@@ -17,19 +17,17 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.obeonetwork.dsl.cinematic.CinematicElement;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
-import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.BindingInfo;
 import org.obeonetwork.dsl.environment.BindingRegistry;
 import org.obeonetwork.dsl.environment.BoundableElement;
-import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
-import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.environment.Property;
+import org.obeonetwork.dsl.environment.StructuredType;
 
 /**
  * This class is used to handle binding informations 
@@ -37,6 +35,8 @@ import org.obeonetwork.dsl.environment.Reference;
  *
  */
 public class CinematicBindingServices {
+	private static final String TYPE_NAME_PATTERN = "%1s (%2s)";
+	private static final String PROPERTY_NAME_PATTERN = "%1s.%2s (%3s %4s)";
 	
 	private static AdapterFactoryLabelProvider aflp = new AdapterFactoryLabelProvider(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
 	
@@ -45,34 +45,30 @@ public class CinematicBindingServices {
 		if (element == null) {
 			element = bindingInfo;
 		}
-		if (element instanceof DTO) {
-			return ((DTO) element).getName() + " (DTO)";
-		} else if (element instanceof Attribute) {
-			Attribute attribute = (Attribute) element;
-			return attribute.getContainingType().getName() + "." + attribute.getName() + " (DTO Attribute)";
-		} else if (element instanceof Reference) {
-			Reference reference = (Reference) element;
-			return reference.getContainingType().getName() + "." + reference.getName() + " (DTO Reference)";
-		} else if (element.eClass().getEPackage().getNsURI().startsWith("http://www.obeonetwork.org/dsl/entity/")) {
-			if ("Entity".equals(element.eClass().getName())) {
-				return getNameByReflection(element) + " (Entity)";
-			} else if ("Attribute".equals(element.eClass().getName())) {
-				return  getNameByReflection(element.eContainer()) + "." +  getNameByReflection(element) + " (Entity Attribute)";
-			} else if ("Reference".equals(element.eClass().getName())) {
-				return  getNameByReflection(element.eContainer()) + "." +  getNameByReflection(element) + " (Entity Reference)";
-			}
-			return null;
+		if (element instanceof StructuredType) {
+			return getLabelForStructuredType((StructuredType)element);
+		} else if (element instanceof Property) {
+			return getLabelForStructuredTypeProperty((Property)element);
 		} else {
 			return getGenericLabel(element);
 		}
 	}
 	
-	private String getNameByReflection(EObject object) {
-		if (object == null) {
-			return null;
+	private String getLabelForStructuredType(StructuredType type) {
+		String typePattern = TYPE_NAME_PATTERN;
+		return String.format(typePattern, type.getName(), type.eClass().getName());
+	}
+	
+	private String getLabelForStructuredTypeProperty(Property property) {
+		String propertyPattern = PROPERTY_NAME_PATTERN;
+		if (property.eContainer() instanceof StructuredType) {
+			StructuredType type = (StructuredType)property.eContainer();
+			return String.format(propertyPattern, type.getName(), property.getName(), type.eClass().getName(), property.eClass().getName());
+		} else {
+			// Should never ever happen but though let's handle this case
+			String typePattern = TYPE_NAME_PATTERN;
+			return String.format(typePattern, property.getName(), property.eClass().getName());
 		}
-		EStructuralFeature nameFeature = object.eClass().getEStructuralFeature("name");
-		return object.eGet(nameFeature).toString();
 	}
 	
 	public BoundableElement getCinematicBoundElement(BindingInfo bindingInfo) {
@@ -114,8 +110,7 @@ public class CinematicBindingServices {
 		return bindingInfos;
 	}
 	
-	public List<EObject> getBindingElementsAndContainers(EObject context,
-			List<EObject> bindingElements) {
+	public List<EObject> getBindingElementsAndContainers(EObject context, List<EObject> bindingElements) {
 		List<EObject> bindingElementsContainersAncestors = new ArrayList<EObject>(bindingElements);
 		// Add to the list, the Ancestors if they are not already
 		// on the list.
