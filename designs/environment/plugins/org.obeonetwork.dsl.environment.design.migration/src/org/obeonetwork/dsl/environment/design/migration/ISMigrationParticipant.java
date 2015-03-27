@@ -36,25 +36,78 @@ public class ISMigrationParticipant extends AbstractMigrationParticipant {
 		return new Version(8,1,1);
 	}
 	
+	
+	
+//	@Override
+//	public EStructuralFeature getAttribute(EClass eClass, String name,
+//			String loadedVersion) {
+//		// TODO Auto-generated method stub
+//		System.out.println("attribute : " + eClass.getName() + "." + name);
+//		return super.getAttribute(eClass, name, loadedVersion);
+//	}
+//
+//
+//
+//	@Override
+//	public EStructuralFeature getLocalElement(EClass eClass, String name,
+//			String loadedVersion) {
+//		// TODO Auto-generated method stub
+//		System.out.println("localelement : " + eClass.getName() + "." + name);
+//		return super.getLocalElement(eClass, name, loadedVersion);
+//	}
+//
+//
+//
+//	@Override
+//	public Object getValue(EObject object, EStructuralFeature feature,
+//			Object value, String loadedVersion) {
+//		// TODO Auto-generated method stub
+//		System.out.println("value : " + feature.getName() + "." + value);
+//		return super.getValue(object, feature, value, loadedVersion);
+//	}
+//
+//
+//
+//	@Override
+//	public Option<String> getNewFragment(String uriFragment) {
+//		// TODO Auto-generated method stub
+//		System.out.println("uriFragment : " + uriFragment);
+//		return super.getNewFragment(uriFragment);
+//	}
+
+
+
+	@Override
+	public EPackage getPackage(String namespace, String loadedVersion) {
+		String newNsURI = getEPackagesMapping().get(namespace);
+		if (newNsURI != null) {
+			EPackage newEPackage = getPackageFromRegistry(newNsURI);
+			if (newEPackage != null) {
+				return newEPackage;
+			}
+		}
+		return super.getPackage(namespace, loadedVersion);
+	}
+	
 	@Override
 	public EClassifier getType(EPackage ePackage, String name, String loadedVersion) {
-		String oldEPackageURI = ePackage.getNsURI();
+		String ePackageURI = ePackage.getNsURI();
 		String newEPackageURI = null;
 		String newEClassName = null;
 		
-		EClassLocation newEClass = getNewEClass(oldEPackageURI, name);
+		EClassLocation newEClass = getNewEClass(ePackageURI, name);
 		if (newEClass != null) {
 			newEPackageURI = newEClass.getEPackageNsURI();
 			newEClassName = newEClass.getEClassName();
 		} else {
 			// Try to convert EPackage
-			newEPackageURI = getEPackagesMapping().get(oldEPackageURI);
+			newEPackageURI = ePackageURI;
 			newEClassName = name;
 		}
 		
 		// Get Classifier from registry
 		if (newEPackageURI != null && newEClassName != null) {
-			EPackage newEPackage = EPackage.Registry.INSTANCE.getEPackage(newEPackageURI);
+			EPackage newEPackage = getPackageFromRegistry(newEPackageURI);
 			if (newEPackage != null) {
 				EClassifier eClassifier = newEPackage.getEClassifier(newEClassName);
 				if (eClassifier != null) {
@@ -74,6 +127,10 @@ public class ISMigrationParticipant extends AbstractMigrationParticipant {
 		return null;
 	}
 	
+	private EPackage getPackageFromRegistry(String nsURI) {
+		return EPackage.Registry.INSTANCE.getEPackage(nsURI);
+	}
+	
 	/**
 	 * 
 	 */
@@ -88,12 +145,15 @@ public class ISMigrationParticipant extends AbstractMigrationParticipant {
 		
 		Map<String, EClassLocation> ePackageMapppings = new HashMap<String, EClassLocation>();
 		ePackageMapppings.put("Block", new EClassLocation(BasicMigrationHelper.ENVIRONMENT_URI_NEW, "Namespace"));
-		eClassesMapping.put(BasicMigrationHelper.ENTITY_URI_OLD, ePackageMapppings);
+		ePackageMapppings.put("Property", new EClassLocation(BasicMigrationHelper.ENVIRONMENT_URI_NEW, "Property"));
+		ePackageMapppings.put("Attribute", new EClassLocation(BasicMigrationHelper.ENVIRONMENT_URI_NEW, "Attribute"));
+		ePackageMapppings.put("Reference", new EClassLocation(BasicMigrationHelper.ENVIRONMENT_URI_NEW, "Reference"));
+		eClassesMapping.put(BasicMigrationHelper.ENTITY_URI_NEW, ePackageMapppings);
 		
 		ePackageMapppings = new HashMap<String, EClassLocation>();
 		ePackageMapppings.put("Category", new EClassLocation(BasicMigrationHelper.ENVIRONMENT_URI_NEW, "Namespace"));
 		ePackageMapppings.put("ServiceDTO", new EClassLocation(BasicMigrationHelper.ENVIRONMENT_URI_NEW, "DTO"));
-		eClassesMapping.put(BasicMigrationHelper.SOA_URI_OLD, ePackageMapppings);
+		eClassesMapping.put(BasicMigrationHelper.SOA_URI_NEW, ePackageMapppings);
 	}
 	
 	private static Map<String, String> getEPackagesMapping() {
