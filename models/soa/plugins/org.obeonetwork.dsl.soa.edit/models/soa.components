@@ -4,7 +4,7 @@
     <categories xmi:id="_X0t6wlWPEd6uwrZLki81EA" name="soa">
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_X0t6w1WPEd6uwrZLki81EA" name="system" views="_X0uh21WPEd6uwrZLki81EA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_X0t6xFWPEd6uwrZLki81EA" name="name" views="_X0uh3VWPEd6uwrZLki81EA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Namespace/name"/>
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.soa/model/soa.ecore#//System/name"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_HSoKIB8aEeC_porSarA8Jw" name="description" views="_AWsSwB8aEeC_porSarA8Jw">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>

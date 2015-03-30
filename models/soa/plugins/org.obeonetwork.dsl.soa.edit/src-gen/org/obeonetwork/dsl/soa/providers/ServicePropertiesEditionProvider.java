@@ -35,7 +35,7 @@ import org.obeonetwork.dsl.soa.components.ServicePropertiesEditionComponent;
 import org.obeonetwork.dsl.soa.components.ServiceServicePropertiesEditionComponent;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
  * 
  */
 public class ServicePropertiesEditionProvider extends CustomPropertiesEditingProvider {

@@ -23,7 +23,7 @@ import org.obeonetwork.dsl.environment.providers.TypesDefinitionPropertiesEditio
 import org.obeonetwork.dsl.soa.util.SoaAdapterFactory;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
  * 
  */
 public class SoaEEFAdapterFactory extends SoaAdapterFactory {

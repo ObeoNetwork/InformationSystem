@@ -28,6 +28,7 @@ import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
 import org.obeonetwork.dsl.soa.parts.SystemPropertiesEditionPart;
@@ -36,7 +37,7 @@ import org.obeonetwork.dsl.soa.parts.SystemPropertiesEditionPart;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
  * 
  */
 public class SystemSystemPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {
@@ -98,7 +99,7 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 	 */
 	public EStructuralFeature associatedFeature(Object editorKey) {
 		if (editorKey == SoaViewsRepository.System.Properties.name) {
-			return EnvironmentPackage.eINSTANCE.getNamespace_Name();
+			return SoaPackage.eINSTANCE.getSystem_Name();
 		}
 		if (editorKey == SoaViewsRepository.System.Properties.description) {
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
@@ -129,7 +130,7 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			SystemPropertiesEditionPart systemPart = (SystemPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getNamespace_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && systemPart != null && isAccessible(SoaViewsRepository.System.Properties.name)) {
+			if (SoaPackage.eINSTANCE.getSystem_Name().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && systemPart != null && isAccessible(SoaViewsRepository.System.Properties.name)) {
 				if (msg.getNewValue() != null) {
 					systemPart.setName(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
@@ -155,7 +156,7 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 	@Override
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
-			EnvironmentPackage.eINSTANCE.getNamespace_Name(),
+			SoaPackage.eINSTANCE.getSystem_Name(),
 			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
 		return new NotificationFilter[] {filter,};
 	}
@@ -174,9 +175,9 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 				if (SoaViewsRepository.System.Properties.name == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getNamespace_Name().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(SoaPackage.eINSTANCE.getSystem_Name().getEAttributeType(), (String)newValue);
 					}
-					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getNamespace_Name().getEAttributeType(), newValue);
+					ret = Diagnostician.INSTANCE.validate(SoaPackage.eINSTANCE.getSystem_Name().getEAttributeType(), newValue);
 				}
 				if (SoaViewsRepository.System.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();

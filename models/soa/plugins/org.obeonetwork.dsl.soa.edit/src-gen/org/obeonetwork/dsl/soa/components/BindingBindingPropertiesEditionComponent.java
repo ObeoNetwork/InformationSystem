@@ -39,7 +39,7 @@ import org.obeonetwork.dsl.soa.parts.SoaViewsRepository;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
  * 
  */
 public class BindingBindingPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {

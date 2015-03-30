@@ -13,7 +13,7 @@ package org.obeonetwork.dsl.soa.providers;
 import org.eclipse.osgi.util.NLS;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>Jerome Benois</a>
  * 
  */
 public class SoaMessages extends NLS {
