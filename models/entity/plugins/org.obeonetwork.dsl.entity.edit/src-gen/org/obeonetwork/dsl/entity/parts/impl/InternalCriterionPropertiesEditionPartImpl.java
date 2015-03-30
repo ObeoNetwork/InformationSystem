@@ -45,7 +45,7 @@ import org.obeonetwork.dsl.entity.providers.EntityMessages;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>JÃ©rÃ´me Benois</a>
  * 
  */
 public class InternalCriterionPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, InternalCriterionPropertiesEditionPart {

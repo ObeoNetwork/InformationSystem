@@ -31,7 +31,7 @@ import org.obeonetwork.dsl.entity.parts.impl.InternalCriterionPropertiesEditionP
 import org.obeonetwork.dsl.entity.parts.impl.RootPropertiesEditionPartImpl;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>JÃ©rÃ´me Benois</a>
  * 
  */
 public class EntityPropertiesEditionPartProvider implements IPropertiesEditionPartProvider {

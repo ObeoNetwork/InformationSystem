@@ -13,7 +13,7 @@ package org.obeonetwork.dsl.entity.providers;
 import org.eclipse.osgi.util.NLS;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>JÃ©rÃ´me Benois</a>
  * 
  */
 public class EntityMessages extends NLS {

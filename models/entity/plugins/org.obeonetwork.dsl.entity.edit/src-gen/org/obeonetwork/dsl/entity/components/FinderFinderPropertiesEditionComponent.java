@@ -39,7 +39,7 @@ import org.obeonetwork.dsl.environment.MultiplicityKind;
 // End of user code
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>JÃ©rÃ´me Benois</a>
  * 
  */
 public class FinderFinderPropertiesEditionComponent extends SinglePartPropertiesEditingComponent {

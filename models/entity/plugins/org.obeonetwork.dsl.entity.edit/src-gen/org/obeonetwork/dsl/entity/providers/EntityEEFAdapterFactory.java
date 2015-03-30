@@ -23,7 +23,7 @@ import org.obeonetwork.dsl.environment.providers.MetadataCptPropertiesEditionPro
 import org.obeonetwork.dsl.environment.providers.TypesDefinitionPropertiesEditionProvider;
 
 /**
- * @author <a href="mailto:jerome.benois@obeo.fr>Jérôme Benois</a>
+ * @author <a href="mailto:jerome.benois@obeo.fr>JÃ©rÃ´me Benois</a>
  * 
  */
 public class EntityEEFAdapterFactory extends EntityAdapterFactory {
