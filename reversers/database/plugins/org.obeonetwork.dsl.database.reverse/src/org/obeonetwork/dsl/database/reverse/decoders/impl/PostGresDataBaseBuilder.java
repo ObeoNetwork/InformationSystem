@@ -22,19 +22,12 @@ import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 
 public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 	
-	private static final String JDBC_POSTGRES_DRIVER = "org.postgresql.Driver";
-	
 	private static final String TYPES_LIBRARY_POSTGRES_PATHMAP = "pathmap://NativeDBTypes/Postgres-9";
 	
 	private static final String TYPES_LIBRARY_POSTGRES_FILENAME = "Postgres-9.typeslibrary";
 	
 	public PostGresDataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
 		super(source, progressListener, queries);
-	}
-	
-	@Override
-	protected String getJdbcDriverClassName() {
-		return JDBC_POSTGRES_DRIVER;
 	}
 	
 	@Override

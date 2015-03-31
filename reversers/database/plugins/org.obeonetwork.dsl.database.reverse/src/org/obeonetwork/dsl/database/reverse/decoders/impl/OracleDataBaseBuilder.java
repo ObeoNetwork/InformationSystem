@@ -26,8 +26,6 @@ import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 
 public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 
-	private static final String JDBC_ORACLE_DRIVER = "oracle.jdbc.OracleDriver";
-	
 	private static final String TYPES_LIBRARY_ORACLE_PATHMAP = "pathmap://NativeDBTypes/Oracle-11g";
 	
 	private static final String TYPES_LIBRARY_ORACLE_FILENAME = "Oracle-11g.typeslibrary";
@@ -44,11 +42,6 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 	public void buildTables() {
 		super.buildTables();
 		buildSequences(metaData, tableContainer);
-	}
-	
-	@Override
-	protected String getJdbcDriverClassName() {
-		return JDBC_ORACLE_DRIVER;
 	}
 	
 	@Override

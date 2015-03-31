@@ -3,7 +3,6 @@ package org.obeonetwork.dsl.database.reverse.decoders;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import org.eclipse.emf.common.EMFPlugin;
@@ -17,6 +16,7 @@ import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
+import org.obeonetwork.dsl.database.reverse.source.DataSourceException;
 import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
 import org.obeonetwork.dsl.database.reverse.utils.JdbcUtils;
 import org.obeonetwork.dsl.database.reverse.utils.ProgressListener;
@@ -55,8 +55,12 @@ public abstract class AbstractDataBaseBuilder implements DataBaseBuilder {
 	}
 	
 	private void initialize(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
-		
-		connection = createConnection(source);
+		connection = null;
+		try {
+			connection = source.getConnection();
+		} catch (DataSourceException e) {
+			throw new SQLException("Unable to connect to database", e.getCause());
+		}
 		if (connection != null) {	
 			try {
 				this.metaData = connection.getMetaData();	
@@ -120,8 +124,6 @@ public abstract class AbstractDataBaseBuilder implements DataBaseBuilder {
 		}
 	}
 	
-	protected abstract String getJdbcDriverClassName();
-	
 	protected abstract String getTypesLibraryUriPathmap();
 	
 	protected abstract String getTypesLibraryFileName();
@@ -164,18 +166,4 @@ public abstract class AbstractDataBaseBuilder implements DataBaseBuilder {
 		progressListener.progressTo(1, "Post process the database model.");
 	}
 	
-	private Connection createConnection(DataSource source) {
-		Connection connection = null;
-		try {
-			Class.forName(getJdbcDriverClassName());			
-			return DriverManager.getConnection(source.getJdbcUrl(),
-					source.getJdbcUsername(), source.getJdbcPassword());
-		} catch(Exception ex) {
-			ex.printStackTrace();
-			JdbcUtils.closeConnection(connection);
-			connection = null;
-		}
-		return connection;
-	}
-
 }

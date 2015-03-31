@@ -20,8 +20,6 @@ import org.obeonetwork.dsl.database.reverse.utils.Queries;
 
 public class MySQLDataBaseBuilder extends DefaultDataBaseBuilder {
 	
-	private static final String JDBC_MYSQL_DRIVER = "com.mysql.jdbc.Driver";
-	
 	private static final String TYPES_LIBRARY_MYSQL_PATHMAP = "pathmap://NativeDBTypes/MySQL-5";
 	
 	private static final String TYPES_LIBRARY_MYSQL_FILENAME = "MySQL-5.typeslibrary";
@@ -34,12 +32,7 @@ public class MySQLDataBaseBuilder extends DefaultDataBaseBuilder {
 	public void post() {
 		removeIndexForFK(tableContainer);
 	}
-	
-	@Override
-	protected String getJdbcDriverClassName() {
-		return JDBC_MYSQL_DRIVER;
-	}
-	
+		
 	@Override
 	protected String getTypesLibraryUriPathmap() {
 		return TYPES_LIBRARY_MYSQL_PATHMAP;

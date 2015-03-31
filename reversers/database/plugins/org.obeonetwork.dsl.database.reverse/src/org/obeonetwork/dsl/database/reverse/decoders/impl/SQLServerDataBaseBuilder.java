@@ -19,19 +19,12 @@ import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 
 public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 	
-	private static final String JDBC_SQLSERVER_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	
 	private static final String TYPES_LIBRARY_SQLSERVER_PATHMAP = "pathmap://NativeDBTypes/SQLServer-2008";
 	
 	private static final String TYPES_LIBRARY_SQLSERVER_FILENAME = "SQLServer-2008.typeslibrary";
 	
 	public SQLServerDataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
 		super(source, progressListener, queries);
-	}
-	
-	@Override
-	protected String getJdbcDriverClassName() {
-		return JDBC_SQLSERVER_DRIVER;
 	}
 	
 	@Override

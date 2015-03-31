@@ -373,18 +373,11 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 
 	@Override
 	protected String getTypesLibraryUriPathmap() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	protected String getTypesLibraryFileName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	protected String getJdbcDriverClassName() {
 		return null;
 	}
 

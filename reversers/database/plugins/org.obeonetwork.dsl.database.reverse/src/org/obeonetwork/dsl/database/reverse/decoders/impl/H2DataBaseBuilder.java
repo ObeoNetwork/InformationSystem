@@ -22,19 +22,12 @@ import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 
 public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
 	
-	private static final String JDBC_H2_DRIVER = "org.h2.Driver";
-	
 	private static final String TYPES_LIBRARY_H2_PATHMAP = "pathmap://NativeDBTypes/H2-1.3";
 	
 	private static final String TYPES_LIBRARY_H2_FILENAME = "H2-1.3.typeslibrary";
 	
 	public H2DataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
 		super(source, progressListener, queries);
-	}
-	
-	@Override
-	protected String getJdbcDriverClassName() {
-		return JDBC_H2_DRIVER;
 	}
 	
 	@Override
