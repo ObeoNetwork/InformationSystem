@@ -12,15 +12,14 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpart.AbstractEditPartProv
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.CreateGraphicEditPartOperation;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.IEditPartOperation;
 import org.eclipse.gmf.runtime.notation.View;
-import org.obeonetwork.dsl.environment.MultiplicityKind;
-import org.obeonetwork.dsl.environment.Reference;
-import org.obeonetwork.dsl.environment.design.services.PropertiesServices;
-
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeBeginNameEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DEdgeEndNameEditPart;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
 import org.eclipse.sirius.diagram.ui.tools.api.command.GMFCommandWrapper;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.obeonetwork.dsl.environment.MultiplicityKind;
+import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.environment.design.services.PropertiesServices;
 
 public class EntityEditPartProvider extends AbstractEditPartProvider {
 	
