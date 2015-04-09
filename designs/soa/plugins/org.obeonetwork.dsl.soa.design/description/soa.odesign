@@ -392,7 +392,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="DTO Namespaces Hierarchy" label="DTO Namespaces Hierarchy" titleExpression="DTO Namespaces Hierarchy" domainClass="soa.System" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="DTO Namespaces Hierarchy" label="DTO Namespaces Hierarchy" titleExpression="DTO Namespaces Hierarchy" domainClass="soa.System">
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
@@ -464,7 +464,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="DTO Diagram" label="DTO Diagram" titleExpression="[name + ' - DTO diagram'/]" domainClass="environment.Namespace" preconditionExpression="[ancestors()->filter(soa::System)->notEmpty()/]" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_DD_DTO'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="DTO Diagram" label="DTO Diagram" titleExpression="[name + ' - DTO diagram'/]" domainClass="environment.Namespace" preconditionExpression="[ancestors()->filter(soa::System)->notEmpty()/]">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
