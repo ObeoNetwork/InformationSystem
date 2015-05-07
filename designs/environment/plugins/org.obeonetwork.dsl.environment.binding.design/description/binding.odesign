@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="binding" version="8.1.0">
+  <ownedViewpoints name="IS Databinding" modelFileExtension="ois soa entity environment">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Databinding diagram" titleExpression="[name + ' Databinding'/]" domainClass="environment.Namespace">
+      <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
+      <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="DBI_BindingInfo" detailDescriptions="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_BindingEditor']" semanticCandidatesExpression="service:getRelatedBindingInfos()" doubleClickDescription="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_OpenBindingEditor']" domainClass="environment.BindingInfo">
+          <style xsi:type="style:WorkspaceImageDescription" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.environment.binding.design/icons/BindingInfo.gif">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="DBI_BoundElement" deletionDescription="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_PreventDeletion']" sourceMapping="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']" targetMapping="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@containerMappings[name='DBI_StructuredType']" targetFinderExpression="feature:targets" reconnections="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='REC_BoundElement']">
+          <style targetArrow="NoDecoration" sizeComputationExpression="1">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="DBI_StructuredType" deletionDescription="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="[getRelatedBindingInfos()->asSequence().oclAsType(environment::BindingInfo).targets/]" domainClass="environment.StructuredType">
+          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[name + ' (' + eClass().name + ')'/]">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Binding">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_BindingInfo" label="New binding" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']">
+            <variable name="container">
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="left" candidatesExpression="feature:types" message="Choose the first element"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="bindableElements" computationExpression="service:containerView.getAllBindableElements(left)"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="right" candidatesExpression="[bindableElements.ancestors()->asSet()->addAll(bindableElements->asSet())/]" tree="true" rootExpression="service:allRoots()" childrenExpression="feature:eContents" message="Choose the second element"/>
+            </variable>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:container.getBindingRegistry()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.BindingInfo" referenceName="bindingInfos">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="left" valueExpression="var:left"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="right" valueExpression="var:right"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_BindingOnExistingElement" label="Bind existing element" precondition="[oclIsKindOf(environment::StructuredType)/]" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']" extraMappings="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@containerMappings[name='DBI_StructuredType']">
+            <variable name="container">
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="left" computationExpression="var:self"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="bindableElements" computationExpression="[containerView.eContainer(diagram::DSemanticDiagram).getAllBindableElements(left)/]"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="right" candidatesExpression="[bindableElements.ancestors()->asSet()->addAll(bindableElements->asSet())/]" tree="true" rootExpression="service:allRoots()" childrenExpression="feature:eContents" message="Choose the second element"/>
+            </variable>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:debugContext()">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[diagram.target/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:getBindingRegistry()">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.BindingInfo" referenceName="bindingInfos">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="left" valueExpression="var:left"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="right" valueExpression="var:right"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Usability">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_PreventDeletion" precondition="false">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="REC_BoundElement" forceRefresh="true">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.reconnectBindingTarget(source, target)"/>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="description_2:DBindingEditorCreationDescription" name="CRE_BindingEditor" label="Binding Details" description="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Binding%20Details']"/>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_OpenBindingEditor" mappings="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.openBindingEditor()">
+                <subModelOperations xsi:type="tool_1:ChangeContext"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:DBindingEditorDescription" name="Binding Details" titleExpression="service:computeBindingEditorName()"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.binding.design.service.BindingService"/>
+  </ownedViewpoints>
+</description:Group>

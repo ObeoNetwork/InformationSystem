@@ -28,6 +28,19 @@ import org.eclipse.emf.edit.tree.provider.TreeItemProviderAdapterFactory;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIServices;
+import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
+import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DRepresentationElement;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
+import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.sirius.viewpoint.description.RepresentationExtensionDescription;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
@@ -40,20 +53,6 @@ import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditor
 import org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionFactory;
 import org.obeonetwork.dsl.environment.bindingdialect.description.provider.DescriptionItemProviderAdapterFactory;
 import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectItemProviderAdapterFactory;
-import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.DRepresentationElement;
-import org.eclipse.sirius.viewpoint.DSemanticDecorator;
-import org.eclipse.sirius.business.api.dialect.DialectManager;
-import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
-import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
-import org.eclipse.sirius.viewpoint.description.RepresentationExtensionDescription;
-import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUIServices;
-import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
-import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 
 /**
  * @author sthibaudeau
@@ -178,7 +177,7 @@ public class BindingDialectUIServices implements DialectUIServices {
             if (result instanceof IEditorPart && canHandleEditor((IEditorPart) result)) {
                 // Activation of the refresh of the DBindingEditor property page
                 if (result instanceof BindingTreeEditor) {
-                	// TODO vérifier s'il faut enlever des choses
+                	// TODO vï¿½rifier s'il faut enlever des choses
                     doRefresh((DBindingEditor) representation, domain);
                 }
                 return (IEditorPart) result;

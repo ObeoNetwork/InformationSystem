@@ -41,7 +41,7 @@
    </extension>
    
      <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-    <propertySections contributorId="org.eclipse.sirius.editor.editorPlugin.ViewpointEditorContributor">
+    <propertySections contributorId="org.eclipse.sirius.editor.editorPlugin.SiriusEditorContributor">
   	  <propertySection
                class="org.obeonetwork.dsl.environment.binding.dialect.properties.DBindingEditorCreationDescriptionDescriptionPropertySection"
                id="description.section.bindingEditorCreationDescription.Description"

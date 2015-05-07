@@ -5,14 +5,23 @@ import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Reference;
+import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.util.EnvironmentSwitch;
 
-public class DtoLabelsSwitch extends EnvironmentSwitch<String> {
+public class StructuredTypeLabelsSwitch extends EnvironmentSwitch<String> {
+	
+	private static final String TYPE_NAME_PATTERN = "%1s : %2s";
 	
 	public String getLabel(EObject eObject) {
 		return doSwitch(eObject);
 	}
-
+	
+	@Override
+	public String caseStructuredType(StructuredType object) {
+		String typePattern = TYPE_NAME_PATTERN;
+		return String.format(typePattern, object.getName(), object.eClass().getName());
+	}
+	
 	@Override
 	public String caseDTO(DTO object) {
 		return object.getName() + " : DTO";

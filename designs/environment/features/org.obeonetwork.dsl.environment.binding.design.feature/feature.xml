@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.obeonetwork.dsl.environment.binding.dialect.feature"
-      label="Environment Binding Dialect"
-      version="3.0.0.qualifier"
+      id="org.obeonetwork.dsl.environment.binding.design.feature"
+      label="Obeonetwork Databinding Modeler Feature"
+      version="1.0.0.qualifier"
       provider-name="Obeo.fr">
 
-   <description url="http://marketplace.obeonetwork.com/">
-      ObeoNetwork - Environment Designer
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
    </description>
 
    <copyright url="http://www.obeo.fr/legal.php?lang=en">
-      Copyright (c) 2013 Obeo.
+      Copyright (c) 2015 Obeo.
 All rights reserved. This program and the accompanying materials
 are made available under the terms of the Eclipse Public License
 v1.0 which accompanies this distribution, and is available at
@@ -217,44 +217,11 @@ litigation.
    </license>
 
    <requires>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipse.emf.ecore.xmi"/>
-      <import plugin="org.eclipse.jface"/>
-      <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.ui.views.properties.tabbed"/>
-      <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.eclipse.sirius" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.editor" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.ext.base" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.sirius.ecore.extender" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore.edit"/>
-      <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="org.eclipse.core.commands"/>
-      <import plugin="org.eclipse.swt"/>
-      <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.eclipse.emf.common.ui"/>
-      <import plugin="org.eclipse.emf.transaction"/>
-      <import plugin="org.eclipse.emf.workspace"/>
-      <import plugin="org.eclipse.nebula.treemapper"/>
-      <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="org.obeonetwork.dsl.environment.common"/>
-      <import plugin="org.eclipse.draw2d"/>
-      <import plugin="org.eclipse.sirius.ui"/>
-      <import plugin="org.eclipse.sirius.common.ui"/>
-      <import plugin="org.eclipse.sirius.common"/>
-      <import plugin="org.obeonetwork.dsl.environment"/>
+      <import feature="org.obeonetwork.dsl.environment.binding.dialect.feature" version="3.0.0.qualifier"/>
    </requires>
 
    <plugin
-         id="org.obeonetwork.dsl.environment.binding.dialect"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.obeonetwork.dsl.environment.binding.dialect.ui"
+         id="org.obeonetwork.dsl.environment.binding.design"
          download-size="0"
          install-size="0"
          version="0.0.0"

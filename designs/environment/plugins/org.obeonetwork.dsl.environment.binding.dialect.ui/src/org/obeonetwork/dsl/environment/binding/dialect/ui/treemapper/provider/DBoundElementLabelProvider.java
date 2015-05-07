@@ -17,12 +17,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
-import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.environment.Attribute;
-import org.obeonetwork.dsl.environment.DTO;
-import org.obeonetwork.dsl.environment.Reference;
-import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.DtoLabelsSwitch;
-import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.EntityLabelsSwitch;
+import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.StructuredTypeLabelsSwitch;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectItemProviderAdapterFactory;
 
@@ -33,8 +28,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectIte
 public class DBoundElementLabelProvider implements ILabelProvider {
 
 	final AdapterFactoryLabelProvider labelProvider;
-	final DtoLabelsSwitch dtoLabelsSwitch;
-	final EntityLabelsSwitch entityLabelsSwitch;
+	final StructuredTypeLabelsSwitch dtoLabelsSwitch;
 	
 	/**
 	 * 
@@ -45,8 +39,7 @@ public class DBoundElementLabelProvider implements ILabelProvider {
 		factory.addAdapterFactory(new TreeItemProviderAdapterFactory());
 		labelProvider = new AdapterFactoryLabelProvider(factory);
 		
-		dtoLabelsSwitch = new DtoLabelsSwitch();
-		entityLabelsSwitch = new EntityLabelsSwitch();
+		dtoLabelsSwitch = new StructuredTypeLabelsSwitch();
 	}
 
 	/**
@@ -72,11 +65,7 @@ public class DBoundElementLabelProvider implements ILabelProvider {
 	 * @see org.eclipse.jface.viewers.IBaseLabelProvider#isLabelProperty(java.lang.Object, java.lang.String)
 	 */
 	public boolean isLabelProperty(Object element, String property) {
-		if (element instanceof DBoundElement) {			
-			return isFromEnvironmentMM(((DBoundElement)element).getTarget())
-				|| isFromEntityMM(((DBoundElement)element).getTarget());
-		}
-		return false;
+		return true;
 	}
 
 	/**
@@ -107,22 +96,18 @@ public class DBoundElementLabelProvider implements ILabelProvider {
 	public String getText(Object element) {
 		if (element instanceof DBoundElement) {
 			EObject target = ((DBoundElement)element).getTarget();
-			if (isFromEnvironmentMM(target)) {
-				return dtoLabelsSwitch.getLabel(target);
-			} else if (isFromEntityMM(target)) {
-				return entityLabelsSwitch.getLabel(target);
-			}
+			return dtoLabelsSwitch.getLabel(target);
 		}
 		return null;
 	}
-	
-	private boolean isFromEnvironmentMM(EObject eObject) {
-		return eObject instanceof DTO
-			|| eObject instanceof Attribute
-			|| eObject instanceof Reference;
-	}
-	
-	private boolean isFromEntityMM(EObject eObject) {
-		return eObject instanceof Entity;
-	}
+//	
+//	private boolean isFromEnvironmentMM(EObject eObject) {
+//		return eObject instanceof DTO
+//			|| eObject instanceof Attribute
+//			|| eObject instanceof Reference;
+//	}
+//	
+//	private boolean isFromEntityMM(EObject eObject) {
+//		return eObject instanceof Entity;
+//	}
 }
