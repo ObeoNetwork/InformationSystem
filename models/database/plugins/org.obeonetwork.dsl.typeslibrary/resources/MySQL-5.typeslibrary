@@ -3,14 +3,11 @@
   <nativeTypes xmi:id="_Zj69UREnEeGTa_JlZYBw1A" name="bigint" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Zj69UhEnEeGTa_JlZYBw1A" name="binary" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew_xEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
   <nativeTypes xmi:id="_Zj69UxEnEeGTa_JlZYBw1A" name="bit" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj7kYBEnEeGTa_JlZYBw1A" name="blob">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-REnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj7kYREnEeGTa_JlZYBw1A" name="bool">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
@@ -19,16 +16,13 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj7kYxEnEeGTa_JlZYBw1A" name="char" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew9BEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_Zj7kZBEnEeGTa_JlZYBw1A" name="char binary" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew9BEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj7kZREnEeGTa_JlZYBw1A" name="date">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew_REnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj7kZhEnEeGTa_JlZYBw1A" name="datetime">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew_REnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj7kZxEnEeGTa_JlZYBw1A" name="dec" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
@@ -39,14 +33,11 @@
   <nativeTypes xmi:id="_Zj8LcREnEeGTa_JlZYBw1A" name="double" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Zj8LchEnEeGTa_JlZYBw1A" name="double precision" spec="LengthAndPrecision">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew8BEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
   <nativeTypes xmi:id="_Zj8LcxEnEeGTa_JlZYBw1A" name="enum" spec="Enum">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8LdBEnEeGTa_JlZYBw1A" name="fixed" spec="LengthAndPrecision">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8LdREnEeGTa_JlZYBw1A" name="float" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
@@ -58,63 +49,51 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8LeBEnEeGTa_JlZYBw1A" name="longblob">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-REnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8LeREnEeGTa_JlZYBw1A" name="longtext">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew9hEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8LehEnEeGTa_JlZYBw1A" name="mediumblob">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-REnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8LexEnEeGTa_JlZYBw1A" name="mediumint" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4REnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8LfBEnEeGTa_JlZYBw1A" name="mediumtext">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew9hEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8LfREnEeGTa_JlZYBw1A" name="numeric" spec="LengthAndPrecision">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_Zj8ygBEnEeGTa_JlZYBw1A" name="real" spec="LengthAndPrecision">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_Zj8ygREnEeGTa_JlZYBw1A" name="set" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yghEnEeGTa_JlZYBw1A" name="smallint" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8ygxEnEeGTa_JlZYBw1A" name="text">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew9BEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yhBEnEeGTa_JlZYBw1A" name="time">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew_REnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yhREnEeGTa_JlZYBw1A" name="timestamp" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew_REnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yhhEnEeGTa_JlZYBw1A" name="tinyblob">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew_xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yhxEnEeGTa_JlZYBw1A" name="tinyint" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yiBEnEeGTa_JlZYBw1A" name="tinytext">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew9BEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_Zj8yiREnEeGTa_JlZYBw1A" name="varbinary" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWexABEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yihEnEeGTa_JlZYBw1A" name="varchar" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew9REnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_Zj8yixEnEeGTa_JlZYBw1A" name="varchar binary" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWexABEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yjBEnEeGTa_JlZYBw1A" name="year(2)">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew_REnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yjREnEeGTa_JlZYBw1A" name="year(4)">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew_REnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
 </typeslibrary:NativeTypesLibrary>
