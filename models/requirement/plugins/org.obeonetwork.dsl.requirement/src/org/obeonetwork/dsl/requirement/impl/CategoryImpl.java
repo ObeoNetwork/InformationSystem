@@ -54,7 +54,7 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  *
  * @generated
  */
-public class CategoryImpl extends NamedElementImpl implements Category {
+public class CategoryImpl extends CategoriesContainerImpl implements Category {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

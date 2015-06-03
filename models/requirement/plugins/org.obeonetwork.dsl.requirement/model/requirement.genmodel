@@ -46,5 +46,6 @@
     <genClasses image="false" ecoreClass="requirement.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute requirement.ecore#//NamedElement/name"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="requirement.ecore#//CategoriesContainer"/>
   </genPackages>
 </genmodel:GenModel>

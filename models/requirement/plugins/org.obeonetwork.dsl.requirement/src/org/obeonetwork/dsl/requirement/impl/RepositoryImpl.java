@@ -44,7 +44,7 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  *
  * @generated
  */
-public class RepositoryImpl extends NamedElementImpl implements Repository {
+public class RepositoryImpl extends CategoriesContainerImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
