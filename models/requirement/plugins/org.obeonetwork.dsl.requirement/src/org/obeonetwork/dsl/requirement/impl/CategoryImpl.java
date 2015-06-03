@@ -12,25 +12,23 @@
  */
 package org.obeonetwork.dsl.requirement.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
@@ -100,6 +98,7 @@ public class CategoryImpl extends CategoriesContainerImpl implements Category {
 	public EList<Requirement> getRequirements() {
 		return (EList<Requirement>)eDynamicGet(RequirementPackage.CATEGORY__REQUIREMENTS, RequirementPackage.Literals.CATEGORY__REQUIREMENTS, true, true);
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

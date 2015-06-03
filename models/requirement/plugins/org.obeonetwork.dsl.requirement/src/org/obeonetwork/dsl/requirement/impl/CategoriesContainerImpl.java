@@ -10,9 +10,15 @@
  */
 package org.obeonetwork.dsl.requirement.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.Collection;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.obeonetwork.dsl.requirement.CategoriesContainer;
+import org.obeonetwork.dsl.requirement.Category;
+import org.obeonetwork.dsl.requirement.Repository;
+import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
 
 /**
@@ -20,6 +26,11 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  * An implementation of the model object '<em><b>Categories Container</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.obeonetwork.dsl.requirement.impl.CategoriesContainerImpl#getOwnedCategories <em>Owned Categories</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.requirement.impl.CategoriesContainerImpl#getOwnedRequirements <em>Owned Requirements</em>}</li>
+ * </ul>
  * </p>
  *
  * @generated
@@ -49,6 +60,66 @@ public abstract class CategoriesContainerImpl extends NamedElementImpl implement
 	@Override
 	protected EClass eStaticClass() {
 		return RequirementPackage.Literals.CATEGORIES_CONTAINER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<Category> getOwnedCategories() {
+		if(this instanceof Category){
+			return new BasicEList<Category>(((Category)this).getSubCategories());
+		}else if(this instanceof Repository){
+			return new BasicEList<Category>(new BasicEList<Category>(((Repository)this).getMainCategories()));
+		}
+		return (EList<Category>)eDynamicGet(RequirementPackage.CATEGORIES_CONTAINER__OWNED_CATEGORIES, RequirementPackage.Literals.CATEGORIES_CONTAINER__OWNED_CATEGORIES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<Requirement> getOwnedRequirements() {
+		if(this instanceof Category){
+			return new BasicEList<Requirement>(((Category)this).getRequirements());
+		}
+		return (EList<Requirement>)eDynamicGet(RequirementPackage.CATEGORIES_CONTAINER__OWNED_REQUIREMENTS, RequirementPackage.Literals.CATEGORIES_CONTAINER__OWNED_REQUIREMENTS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case RequirementPackage.CATEGORIES_CONTAINER__OWNED_CATEGORIES:
+				return getOwnedCategories();
+			case RequirementPackage.CATEGORIES_CONTAINER__OWNED_REQUIREMENTS:
+				return getOwnedRequirements();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case RequirementPackage.CATEGORIES_CONTAINER__OWNED_CATEGORIES:
+				return !getOwnedCategories().isEmpty();
+			case RequirementPackage.CATEGORIES_CONTAINER__OWNED_REQUIREMENTS:
+				return !getOwnedRequirements().isEmpty();
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //CategoriesContainerImpl

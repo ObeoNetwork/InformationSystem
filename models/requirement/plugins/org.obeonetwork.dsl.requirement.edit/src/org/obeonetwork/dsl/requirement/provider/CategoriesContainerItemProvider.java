@@ -17,9 +17,11 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import org.obeonetwork.dsl.requirement.CategoriesContainer;
+import org.obeonetwork.dsl.requirement.RequirementPackage;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.requirement.CategoriesContainer} object.
@@ -56,8 +58,54 @@ public class CategoriesContainerItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addOwnedCategoriesPropertyDescriptor(object);
+			addOwnedRequirementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Owned Categories feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnedCategoriesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CategoriesContainer_ownedCategories_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoriesContainer_ownedCategories_feature", "_UI_CategoriesContainer_type"),
+				 RequirementPackage.Literals.CATEGORIES_CONTAINER__OWNED_CATEGORIES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Owned Requirements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnedRequirementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CategoriesContainer_ownedRequirements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoriesContainer_ownedRequirements_feature", "_UI_CategoriesContainer_type"),
+				 RequirementPackage.Literals.CATEGORIES_CONTAINER__OWNED_REQUIREMENTS,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

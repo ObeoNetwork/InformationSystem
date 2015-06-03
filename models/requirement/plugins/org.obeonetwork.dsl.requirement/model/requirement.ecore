@@ -49,5 +49,11 @@
     <eLiterals name="technical" value="1" literal="technical"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CategoriesContainer" abstract="true"
-      eSuperTypes="#//NamedElement"/>
+      eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedCategories" upperBound="-1"
+        eType="#//Category" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedRequirements" upperBound="-1"
+        eType="#//Requirement" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+  </eClassifiers>
 </ecore:EPackage>

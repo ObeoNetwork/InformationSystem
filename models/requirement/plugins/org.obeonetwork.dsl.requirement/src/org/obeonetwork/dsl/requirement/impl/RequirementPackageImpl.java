@@ -396,6 +396,24 @@ public class RequirementPackageImpl extends EPackageImpl implements RequirementP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCategoriesContainer_OwnedCategories() {
+		return (EReference)categoriesContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCategoriesContainer_OwnedRequirements() {
+		return (EReference)categoriesContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getRequirementType() {
 		return requirementTypeEEnum;
 	}
@@ -458,6 +476,8 @@ public class RequirementPackageImpl extends EPackageImpl implements RequirementP
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		categoriesContainerEClass = createEClass(CATEGORIES_CONTAINER);
+		createEReference(categoriesContainerEClass, CATEGORIES_CONTAINER__OWNED_CATEGORIES);
+		createEReference(categoriesContainerEClass, CATEGORIES_CONTAINER__OWNED_REQUIREMENTS);
 
 		// Create enums
 		requirementTypeEEnum = createEEnum(REQUIREMENT_TYPE);
@@ -527,6 +547,8 @@ public class RequirementPackageImpl extends EPackageImpl implements RequirementP
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(categoriesContainerEClass, CategoriesContainer.class, "CategoriesContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCategoriesContainer_OwnedCategories(), this.getCategory(), null, "ownedCategories", null, 0, -1, CategoriesContainer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getCategoriesContainer_OwnedRequirements(), this.getRequirement(), null, "ownedRequirements", null, 0, -1, CategoriesContainer.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(requirementTypeEEnum, RequirementType.class, "RequirementType");
