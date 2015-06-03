@@ -123,7 +123,7 @@
   <nativeTypes xmi:id="_Lquq0GBQEeS9uKH-UlSsiQ" name="BYTEA"/>
   <nativeTypes xmi:id="_Lquq0WBQEeS9uKH-UlSsiQ" name="BYTEA(%n)" spec="Length"/>
   <nativeTypes xmi:id="_TsSGcGBQEeS9uKH-UlSsiQ" name="OTHER"/>
-  <nativeTypes xmi:id="_bW4aoGBQEeS9uKH-UlSsiQ" name="VARCHAR" spec="Length">
+  <nativeTypes xmi:id="_bW4aoGBQEeS9uKH-UlSsiQ" name="VARCHAR">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_bW4aoWBQEeS9uKH-UlSsiQ" name="VARCHAR(%n)" spec="Length">
