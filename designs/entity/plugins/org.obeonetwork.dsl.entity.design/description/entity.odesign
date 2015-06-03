@@ -227,7 +227,7 @@
               <firstModelOperations xsi:type="tool_1:For" expression="var:selectedTypes" iteratorName="associatedType">
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="entity.Entity" referenceName="types">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Entity' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="[associatedType.oclAsType(environment::Type).name/]"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="associatedTypes" valueExpression="var:associatedType"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -654,8 +654,8 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Entity Table" domainClass="entity.Root">
-      <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
-      <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
+      <metamodel href="../../../plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
+      <metamodel href="../../../plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <ownedLineMappings name="EntityLine" domainClass="entity.Entity" headerLabelExpression="feature:name"/>
       <ownedColumnMappings name="NB Attributes" headerLabelExpression="NB Attributes" canEdit="false" featureName="ownedAttributes" labelExpression="[ownedAttributes->size()/]"/>
       <ownedColumnMappings name="estimatedVolumetry" headerLabelExpression="Estimated Volumetry" canEdit="true" featureName="estimatedVolumetry" labelExpression="feature:estimatedVolumetry">

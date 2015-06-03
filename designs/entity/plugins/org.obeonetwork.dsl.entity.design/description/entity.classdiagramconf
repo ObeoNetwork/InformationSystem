@@ -59,6 +59,7 @@
           <stringValues id="label" value="Entity from DTO"/>
           <stringValues id="listExpression" value="[self.getAllStructuredTypes('DTO')/]"/>
           <stringValues id="selectionMessage" value="Select a DTO"/>
+          <stringValues id="defaultName" value="[associatedType.oclAsType(environment::Type).name/]"/>
         </children>
         <stringValues id="label" value="Entity"/>
       </children>

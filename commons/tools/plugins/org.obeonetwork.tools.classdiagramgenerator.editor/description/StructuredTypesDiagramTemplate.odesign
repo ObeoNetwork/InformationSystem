@@ -227,7 +227,7 @@
               <firstModelOperations xsi:type="tool_1:For" expression="var:selectedTypes" iteratorName="associatedType">
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="{ClassDiagram.StructuredTypeMapping.domainClass}" referenceName="types">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="{ClassDiagram.section.structuredType.creation.defaultName}"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="{ClassDiagram.section.structuredType.fromOtherType.defaultName}"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="associatedTypes" valueExpression="var:associatedType"/>
                   </subModelOperations>
                 </subModelOperations>
