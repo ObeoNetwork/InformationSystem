@@ -10,14 +10,11 @@
  */
 package org.obeonetwork.dsl.requirement.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.obeonetwork.dsl.requirement.CategoriesContainer;
 import org.obeonetwork.dsl.requirement.Category;
-import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
 
@@ -65,15 +62,10 @@ public abstract class CategoriesContainerImpl extends NamedElementImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Category> getOwnedCategories() {
-		if(this instanceof Category){
-			return new BasicEList<Category>(((Category)this).getSubCategories());
-		}else if(this instanceof Repository){
-			return new BasicEList<Category>(new BasicEList<Category>(((Repository)this).getMainCategories()));
-		}
 		return (EList<Category>)eDynamicGet(RequirementPackage.CATEGORIES_CONTAINER__OWNED_CATEGORIES, RequirementPackage.Literals.CATEGORIES_CONTAINER__OWNED_CATEGORIES, true, true);
 	}
 
