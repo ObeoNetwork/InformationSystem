@@ -13,7 +13,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.requirement.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport,
- org.eclipse.emf.eef.runtime.extended;visibility:=reexport
+ org.eclipse.ui.ide;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy

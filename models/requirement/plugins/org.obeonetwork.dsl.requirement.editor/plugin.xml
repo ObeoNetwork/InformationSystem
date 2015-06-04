@@ -27,14 +27,16 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
+      <!-- @generated requirement -->
       <editor
             id="org.obeonetwork.dsl.requirement.presentation.RequirementEditorID"
             name="%_UI_RequirementEditor_label"
             icon="icons/full/obj16/RequirementModelFile.gif"
             extensions="requirement"
-            class="org.obeonetwork.dsl.requirement.presentation.EnhancedRequirementEditor"
+            class="org.obeonetwork.dsl.requirement.presentation.RequirementEditor"
             contributorClass="org.obeonetwork.dsl.requirement.presentation.RequirementActionBarContributor">
       </editor>
    </extension>
+
 
 </plugin>

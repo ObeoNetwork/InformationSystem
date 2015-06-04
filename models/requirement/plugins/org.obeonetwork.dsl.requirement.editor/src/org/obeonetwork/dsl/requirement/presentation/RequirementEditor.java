@@ -1,12 +1,19 @@
 /**
- * <copyright>
- * </copyright>
- *
+ * Copyright (c) 2010 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
  */
 package org.obeonetwork.dsl.requirement.presentation;
 
+
 import java.io.IOException;
 import java.io.InputStream;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -16,6 +23,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -24,23 +32,23 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.emf.eef.runtime.ui.EEFExtendedRuntime;
-import org.eclipse.emf.eef.runtime.ui.editor.InteractiveEEFEditor;
-import org.eclipse.emf.eef.runtime.ui.editors.pages.tree.EEFTreeMDFormPage;
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -49,16 +57,23 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+
 import org.eclipse.swt.SWT;
+
 import org.eclipse.swt.custom.CTabFolder;
+
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
+
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
+
 import org.eclipse.swt.graphics.Point;
+
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
+
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -66,64 +81,95 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
+
 import org.eclipse.ui.dialogs.SaveAsDialog;
+
 import org.eclipse.ui.ide.IGotoMarker;
+
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
+
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
+
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.ui.MarkerHelper;
+
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
+
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
+
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
+
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
+
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
+
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
+
 import org.obeonetwork.dsl.requirement.provider.RequirementItemProviderAdapterFactory;
+
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
+
 /**
- * This is an example of a requirement model editor.
- * 
+ * This is an example of a Requirement model editor.
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
+ * @generated
  */
-public class RequirementEditor extends InteractiveEEFEditor {
-
-
+public class RequirementEditor
+	extends MultiPageEditorPart
+	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2010 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
+
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -131,6 +177,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected AdapterFactoryEditingDomain editingDomain;
+
 	/**
 	 * This is the one adapter factory used for providing views of the model.
 	 * <!-- begin-user-doc -->
@@ -138,6 +185,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected ComposedAdapterFactory adapterFactory;
+
 	/**
 	 * This is the content outline page.
 	 * <!-- begin-user-doc -->
@@ -145,6 +193,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected IContentOutlinePage contentOutlinePage;
+
 	/**
 	 * This is a kludge...
 	 * <!-- begin-user-doc -->
@@ -152,6 +201,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected IStatusLineManager contentOutlineStatusLineManager;
+
 	/**
 	 * This is the content outline page's viewer.
 	 * <!-- begin-user-doc -->
@@ -159,6 +209,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected TreeViewer contentOutlineViewer;
+
 	/**
 	 * This is the property sheet page.
 	 * <!-- begin-user-doc -->
@@ -166,6 +217,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
+
 	/**
 	 * This is the viewer that shadows the selection in the content outline.
 	 * The parent relation must be correctly defined for this to work.
@@ -174,6 +226,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected TreeViewer selectionViewer;
+
 	/**
 	 * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content outline viewer.
 	 * <!-- begin-user-doc -->
@@ -181,6 +234,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected Viewer currentViewer;
+
 	/**
 	 * This listens to which ever viewer is active.
 	 * <!-- begin-user-doc -->
@@ -188,6 +242,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected ISelectionChangedListener selectionChangedListener;
+
 	/**
 	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to this editor.
 	 * <!-- begin-user-doc -->
@@ -195,6 +250,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
+
 	/**
 	 * This keeps track of the selection of the editor as a whole.
 	 * <!-- begin-user-doc -->
@@ -202,6 +258,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected ISelection editorSelection = StructuredSelection.EMPTY;
+
 	/**
 	 * The MarkerHelper is responsible for creating workspace resource markers presented
 	 * in Eclipse's Problems View.
@@ -210,6 +267,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected MarkerHelper markerHelper = new EditUIMarkerHelper();
+
 	/**
 	 * This listens for when the outline becomes active
 	 * <!-- begin-user-doc -->
@@ -249,6 +307,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 				// Ignore.
 			}
 		};
+
 	/**
 	 * Resources that have been removed since last activation.
 	 * <!-- begin-user-doc -->
@@ -256,6 +315,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected Collection<Resource> removedResources = new ArrayList<Resource>();
+
 	/**
 	 * Resources that have been changed since last activation.
 	 * <!-- begin-user-doc -->
@@ -263,6 +323,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected Collection<Resource> changedResources = new ArrayList<Resource>();
+
 	/**
 	 * Resources that have been saved.
 	 * <!-- begin-user-doc -->
@@ -270,6 +331,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected Collection<Resource> savedResources = new ArrayList<Resource>();
+
 	/**
 	 * Map to store the diagnostic associated with a resource.
 	 * <!-- begin-user-doc -->
@@ -277,6 +339,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
+
 	/**
 	 * Controls whether the problem indication should be updated.
 	 * <!-- begin-user-doc -->
@@ -284,6 +347,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	 * @generated
 	 */
 	protected boolean updateProblemIndication = true;
+
 	/**
 	 * Adapter used to update the problem indication when resources are demanded loaded.
 	 * <!-- begin-user-doc -->
@@ -344,6 +408,7 @@ public class RequirementEditor extends InteractiveEEFEditor {
 				}
 			}
 		};
+
 	/**
 	 * This listens for workspace changes.
 	 * <!-- begin-user-doc -->
@@ -1485,53 +1550,4 @@ public class RequirementEditor extends InteractiveEEFEditor {
 	protected boolean showOutlineView() {
 		return false;
 	}
-
-	/**
-	 * {@inheritDoc}
-	 * @see org.eclipse.emf.eef.runtime.ui.editor.InteractiveEEFEditor#contributePages()
-	 */
-	protected void contributePages() {
-		try {
-			{
-				Object input = null;
-				if (getEditingDomain().getResourceSet() != null && getEditingDomain().getResourceSet().getResources().size() > 0) {
-					input = getEditingDomain().getResourceSet().getResources().get(0);
-				}
-				
-				{
-					final EEFTreeMDFormPage page = new EEFTreeMDFormPage(RequirementEditor.this, "main") {
-					
-						/**
-						 * {@inheritDoc}
-						 * @see org.eclipse.ui.forms.editor.FormPage#createPartControl(org.eclipse.swt.widgets.Composite)
-						 */
-						public void createPartControl(Composite parent) {
-							super.createPartControl(parent);
-							getModelViewer().addSelectionChangedListener(new ISelectionChangedListener() {
-								// This just notifies those things that are affected by the section.
-								//
-								public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
-									RequirementEditor.this.setSelection(selectionChangedEvent.getSelection());
-								}
-							}
-						
-							);
-						}
-						
-					};
-					page.setInitialMasterPartToolBarVisibility(false);
-					page.setAdapterFactory(adapterFactory);
-					page.setEditingDomain(editingDomain);
-					page.setInput(input);
-					addPage(page);
-				}
-			}
-		} catch (PartInitException e) {
-			EEFExtendedRuntime.getPlugin().log(e);
-		}
-	}
-	
-	
-
 }
-	
