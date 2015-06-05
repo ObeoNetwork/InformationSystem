@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,9 +24,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.obeonetwork.dsl.environment.Enumeration;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.provider.NamespaceItemProvider;
+import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.environment.provider.TypesDefinitionItemProvider;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
@@ -217,6 +219,23 @@ public class SystemItemProvider
 			(createChildParameter
 				(SoaPackage.Literals.SYSTEM__OWNED_WIRES,
 				 SoaFactory.eINSTANCE.createWire()));
+		//remove Primitive type and Enumeration from newChildDescriptors, see SAFRAN-219.
+		if(object instanceof System){
+		CommandParameter enumerationChild =null;
+		CommandParameter primitiveTypeChild =null;
+		for (Object child : newChildDescriptors) {
+			CommandParameter commandParameter=		((CommandParameter)child);
+			Object value = commandParameter.getValue();
+			if(value instanceof Enumeration){
+				 enumerationChild = commandParameter;
+			}else if(value instanceof PrimitiveType){
+				primitiveTypeChild=commandParameter;
+			}
+		}
+		newChildDescriptors.remove(enumerationChild);
+		newChildDescriptors.remove(primitiveTypeChild);
+		}
+		
 	}
 
 	/**
