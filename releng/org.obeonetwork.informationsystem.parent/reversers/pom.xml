@@ -94,12 +94,12 @@
      <pluginRepository>
        <id>Eclipse - Acceleo Snapshots</id>
        <!--<url>http://www.obeo.fr/download/acceleo/maven/snapshots</url>-->
-       <url>http://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+       <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
      </pluginRepository>
      <pluginRepository>
        <id>Eclipse - Acceleo Releases</id>
        <!--<url>http://www.obeo.fr/download/acceleo/maven/releases/indigo</url>-->
-       <url>http://repo.eclipse.org/content/repositories/acceleo-releases</url>
+       <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
      </pluginRepository>
    </pluginRepositories>
 	
