@@ -2,7 +2,7 @@
 <typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_Zj69UBEnEeGTa_JlZYBw1A" kind="physicalTypes" name="Postgres-9">
   <nativeTypes xmi:id="_fXqYcG5GEeS0qO0NdvQESw" name="BIT(%n)" spec="Length"/>
   <nativeTypes xmi:id="_jTNA8G5GEeS0qO0NdvQESw" name="BIT VARYING(%n)" spec="Length"/>
-  <nativeTypes xmi:id="_gkPOMA9FEeWx2fc4XxdPig" name="VARBIT" spec="Length"/>
+  <nativeTypes xmi:id="_gkPOMA9FEeWx2fc4XxdPig" name="VARBIT"/>
   <nativeTypes xmi:id="_S3MhgG5GEeS0qO0NdvQESw" name="BIGINT">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
