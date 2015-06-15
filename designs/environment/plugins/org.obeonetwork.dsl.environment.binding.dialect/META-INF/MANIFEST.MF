@@ -20,8 +20,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
  org.eclipse.ui.views.properties.tabbed,
  org.eclipse.emf.edit,
- org.eclipse.sirius;bundle-version="2.0.0",
- org.eclipse.sirius.editor;bundle-version="2.0.0",
- org.eclipse.sirius.ext.base;bundle-version="2.0.0",
- org.eclipse.sirius.ecore.extender;bundle-version="2.0.0"
+ org.eclipse.sirius,
+ org.eclipse.sirius.editor,
+ org.eclipse.sirius.ext.base,
+ org.eclipse.sirius.ecore.extender
 Bundle-ActivationPolicy: lazy

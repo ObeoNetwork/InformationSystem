@@ -6,7 +6,7 @@
       provider-name="%providerName">
 
    <description url="http://marketplace.obeonetwork.com/">
-      ObeoNetwork - Designer for IS cinematic, entity and SOA models
+      ObeoNetwork - Designer for IS models
    </description>
 
    <copyright url="http://www.obeo.fr/legal.php?lang=en">
@@ -217,12 +217,10 @@ litigation.
    </license>
 
    <requires>
-      <import feature="fr.obeo.mda.license" version="1.0.0" match="greaterOrEqual"/>
       <import feature="org.obeonetwork.dsl.cinematic.design.feature" version="3.0.0" match="greaterOrEqual"/>
       <import feature="org.obeonetwork.dsl.feature.entity" version="3.0.0" match="greaterOrEqual"/>
       <import feature="org.obeonetwork.dsl.feature.overview" version="3.0.0" match="greaterOrEqual"/>
       <import feature="org.obeonetwork.dsl.feature.soa" version="3.0.0" match="greaterOrEqual"/>
-      <import feature="fr.obeo.dsl.designer.ce.feature" version="7.0.0.201411120842"/>
       <import feature="org.eclipse.sirius.runtime" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.acceleo" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.ide.ui" version="2.0.0.201410241344"/>
