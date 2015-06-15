@@ -217,9 +217,7 @@ litigation.
    </license>
 
    <requires>
-      <import feature="fr.obeo.mda.license" version="1.0.0" match="greaterOrEqual"/>
       <import feature="org.obeonetwork.graal.feature" version="1.1.0" match="greaterOrEqual"/>
-      <import feature="fr.obeo.dsl.designer.ce.feature" version="7.0.0.201411120842"/>
       <import feature="org.eclipse.sirius.runtime" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.acceleo" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.ide.ui" version="2.0.0.201410241344"/>
