@@ -78,10 +78,9 @@ public class RequirementsServices {
 	public void copyCategory(Category category) {
 		Shell parent = getShell();
 		CategoriesContainerSelectionDialog categoriesContainerSelectionDialog = new CategoriesContainerSelectionDialog(
-				parent);
+				parent,true);
 		categoriesContainerSelectionDialog.setInput(category);
 		categoriesContainerSelectionDialog.setElement(category);
-		categoriesContainerSelectionDialog.setCopy(true);
 		categoriesContainerSelectionDialog.open();
 	}
 
@@ -92,10 +91,9 @@ public class RequirementsServices {
 	public void moveCategory(Category category) {
 		Shell parent = getShell();
 		CategoriesContainerSelectionDialog categoriesContainerSelectionDialog = new CategoriesContainerSelectionDialog(
-				parent);
+				parent,false);
 		categoriesContainerSelectionDialog.setInput(category);
 		categoriesContainerSelectionDialog.setElement(category);
-		categoriesContainerSelectionDialog.setMove(true);
 		categoriesContainerSelectionDialog.open();
 	}
 
