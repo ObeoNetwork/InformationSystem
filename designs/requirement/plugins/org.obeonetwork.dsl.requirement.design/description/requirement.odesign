@@ -21,7 +21,7 @@
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
             <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
               <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="subCategories">
-                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT' + eContainer(requirement::CategoriesContainer).ownedCategories->size()/]"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(requirement::Category).id + '_' + eContainer(requirement::CategoriesContainer).ownedCategories->size()/]"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
               </subModelOperations>
             </firstModelOperation>
@@ -70,13 +70,13 @@
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
             <subModelOperations xsi:type="tool:If" conditionExpression="[element.oclIsKindOf(requirement::Category)/]">
               <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="subCategories">
-                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT' + eContainer(requirement::CategoriesContainer).ownedCategories->size()/]"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(requirement::Category).id + '_' + eContainer(requirement::CategoriesContainer).ownedCategories->size()/]"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
               </subModelOperations>
             </subModelOperations>
             <subModelOperations xsi:type="tool:If" conditionExpression="[element.oclIsKindOf(requirement::Repository)/]">
               <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="mainCategories">
-                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT' + eContainer(requirement::CategoriesContainer).ownedCategories->size()/]"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT'+ eContainer(requirement::CategoriesContainer).ownedCategories->size()/]"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
               </subModelOperations>
             </subModelOperations>
