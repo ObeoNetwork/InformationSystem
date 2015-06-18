@@ -15,15 +15,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
-import org.obeonetwork.dsl.requirement.presentation.EnhancedRequirementEditor;
-
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
+import org.obeonetwork.dsl.requirement.presentation.RequirementEditor;
 
 public class RequirementsShouldBeTested extends PropertyTester {
 
@@ -32,7 +31,7 @@ public class RequirementsShouldBeTested extends PropertyTester {
 
 	public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
 		if (receiver instanceof IEditorPart) {
-			if (receiver instanceof EnhancedRequirementEditor) {
+			if (receiver instanceof RequirementEditor) {
 				return true;
 			}
 			IEditorInput editorInput = ((IEditorPart)receiver).getEditorInput();
