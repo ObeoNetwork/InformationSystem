@@ -36,11 +36,9 @@ public class CategoriesContainerSelectionContentProvider implements
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getElements(java.lang.Object)
 	 */
 	public Object[] getElements(Object inputElement) {
-		EObject rootContainer = EcoreUtil
+		CategoriesContainer rootContainer = (CategoriesContainer)EcoreUtil
 				.getRootContainer((EObject) inputElement);
-		List<Category> ownedCategories = ((CategoriesContainer) rootContainer)
-				.getOwnedCategories();
-		return ownedCategories.toArray();
+		return new Object[]{rootContainer};
 	}
 
 	/* (non-Javadoc)
