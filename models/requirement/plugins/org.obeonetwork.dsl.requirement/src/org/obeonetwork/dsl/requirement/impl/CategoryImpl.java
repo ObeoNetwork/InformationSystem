@@ -14,23 +14,13 @@ package org.obeonetwork.dsl.requirement.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
@@ -54,7 +44,7 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  *
  * @generated
  */
-public class CategoryImpl extends NamedElementImpl implements Category {
+public class CategoryImpl extends CategoriesContainerImpl implements Category {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,12 +84,24 @@ public class CategoryImpl extends NamedElementImpl implements Category {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Category> getOwnedCategories() {
+			return new BasicEList<Category>(((Category)this).getSubCategories());
+	}
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Requirement> getRequirements() {
 		return (EList<Requirement>)eDynamicGet(RequirementPackage.CATEGORY__REQUIREMENTS, RequirementPackage.Literals.CATEGORY__REQUIREMENTS, true, true);
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

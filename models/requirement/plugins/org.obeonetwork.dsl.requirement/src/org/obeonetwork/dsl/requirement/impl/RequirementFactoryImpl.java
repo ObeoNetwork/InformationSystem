@@ -49,7 +49,7 @@ public class RequirementFactoryImpl extends EFactoryImpl implements RequirementF
 	 */
 	public static RequirementFactory init() {
 		try {
-			RequirementFactory theRequirementFactory = (RequirementFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/requirement/1.0"); 
+			RequirementFactory theRequirementFactory = (RequirementFactory)EPackage.Registry.INSTANCE.getEFactory(RequirementPackage.eNS_URI);
 			if (theRequirementFactory != null) {
 				return theRequirementFactory;
 			}

@@ -106,6 +106,7 @@ public class RequirementSwitch<T> {
 			case RequirementPackage.REPOSITORY: {
 				Repository repository = (Repository)theEObject;
 				T result = caseRepository(repository);
+				if (result == null) result = caseCategoriesContainer(repository);
 				if (result == null) result = caseNamedElement(repository);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -113,6 +114,7 @@ public class RequirementSwitch<T> {
 			case RequirementPackage.CATEGORY: {
 				Category category = (Category)theEObject;
 				T result = caseCategory(category);
+				if (result == null) result = caseCategoriesContainer(category);
 				if (result == null) result = caseNamedElement(category);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -127,6 +129,13 @@ public class RequirementSwitch<T> {
 			case RequirementPackage.NAMED_ELEMENT: {
 				NamedElement namedElement = (NamedElement)theEObject;
 				T result = caseNamedElement(namedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RequirementPackage.CATEGORIES_CONTAINER: {
+				CategoriesContainer categoriesContainer = (CategoriesContainer)theEObject;
+				T result = caseCategoriesContainer(categoriesContainer);
+				if (result == null) result = caseNamedElement(categoriesContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -191,6 +200,21 @@ public class RequirementSwitch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Categories Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Categories Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoriesContainer(CategoriesContainer object) {
 		return null;
 	}
 

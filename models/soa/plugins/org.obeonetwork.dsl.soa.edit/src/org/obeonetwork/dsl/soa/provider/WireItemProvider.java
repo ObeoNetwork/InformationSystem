@@ -7,12 +7,15 @@
 package org.obeonetwork.dsl.soa.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -20,8 +23,12 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
+import org.obeonetwork.dsl.soa.Component;
+import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.SoaPackage;
+import org.obeonetwork.dsl.soa.System;
 import org.obeonetwork.dsl.soa.Wire;
 
 /**
@@ -76,11 +83,12 @@ public class WireItemProvider
 	 * This adds a property descriptor for the Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addSourcePropertyDescriptor(Object object) {
+		final org.obeonetwork.dsl.soa.System system = (org.obeonetwork.dsl.soa.System)EcoreUtil.getRootContainer((EObject) object);
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Wire_source_feature"),
@@ -91,8 +99,38 @@ public class WireItemProvider
 				 true,
 				 null,
 				 null,
-				 null));
+				 null)
+			{
+				public java.util.Collection<?>getChoiceOfValues(Object object){
+					Collection<Object> choiceOfValues=new ArrayList<Object>();
+					List<org.obeonetwork.dsl.soa.Service>services=getProvidedServices(system);
+					choiceOfValues.addAll(services);
+					return choiceOfValues;
+				}
+			}
+					
+					
+					
+					
+					);
 	}
+	
+	/**
+	 * Return the provided services in a System.
+	 * @param system
+	 * @return providedServices
+	 * @generated NOT
+	 * @added
+	 */
+	private List<Service> getProvidedServices(System system) {
+		List<Service> providedServices=new ArrayList<Service>();
+		List<Component> ownedComponents = system.getOwnedComponents();
+		for (Component component : ownedComponents) {
+			providedServices.addAll(component.getProvidedServices());
+		}
+		return providedServices;
+	}
+	
 
 	/**
 	 * This adds a property descriptor for the Dest feature.
@@ -101,8 +139,9 @@ public class WireItemProvider
 	 * @generated
 	 */
 	protected void addDestPropertyDescriptor(Object object) {
+		final org.obeonetwork.dsl.soa.System system = (org.obeonetwork.dsl.soa.System)EcoreUtil.getRootContainer((EObject) object);
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Wire_dest_feature"),
@@ -113,9 +152,34 @@ public class WireItemProvider
 				 true,
 				 null,
 				 null,
-				 null));
+				 null)
+			{
+				public java.util.Collection<?>getChoiceOfValues(Object object){
+					Collection<Object> choiceOfValues=new ArrayList<Object>();
+					List<org.obeonetwork.dsl.soa.Service>services=getRequiredServices(system);
+					choiceOfValues.addAll(services);
+					return choiceOfValues;
+				}
+			}
+					
+					
+					);
 	}
-
+	/**
+	 * Return the required services in a System.
+	 * @param system
+	 * @return requiredServices
+	 * @generated NOT
+	 * @added
+	 */
+	private List<Service> getRequiredServices(System system) {
+		List<Service> requiredServices=new ArrayList<Service>();
+		List<Component> ownedComponents = system.getOwnedComponents();
+		for (Component component : ownedComponents) {
+			requiredServices.addAll(component.getRequiredServices());
+		}
+		return requiredServices;
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

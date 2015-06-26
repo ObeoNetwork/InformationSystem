@@ -38,13 +38,7 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  * @generated
  */
 public class RepositoryItemProvider
-	extends NamedElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends CategoriesContainerItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

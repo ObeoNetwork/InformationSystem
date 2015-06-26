@@ -15,17 +15,12 @@ package org.obeonetwork.dsl.requirement.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
@@ -44,7 +39,7 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  *
  * @generated
  */
-public class RepositoryImpl extends NamedElementImpl implements Repository {
+public class RepositoryImpl extends CategoriesContainerImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,7 +54,15 @@ public class RepositoryImpl extends NamedElementImpl implements Repository {
 	protected RepositoryImpl() {
 		super();
 	}
-
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Category> getOwnedCategories() {
+			return new BasicEList<Category>(new BasicEList<Category>(((Repository)this).getMainCategories()));
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

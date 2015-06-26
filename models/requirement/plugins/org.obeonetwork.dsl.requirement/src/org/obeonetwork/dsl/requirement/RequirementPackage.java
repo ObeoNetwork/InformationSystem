@@ -102,6 +102,52 @@ public interface RequirementPackage extends EPackage {
 	int NAMED_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.requirement.impl.CategoriesContainerImpl <em>Categories Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.requirement.impl.CategoriesContainerImpl
+	 * @see org.obeonetwork.dsl.requirement.impl.RequirementPackageImpl#getCategoriesContainer()
+	 * @generated
+	 */
+	int CATEGORIES_CONTAINER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIES_CONTAINER__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Owned Categories</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIES_CONTAINER__OWNED_CATEGORIES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Owned Requirements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIES_CONTAINER__OWNED_REQUIREMENTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Categories Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIES_CONTAINER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.requirement.impl.RepositoryImpl <em>Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,7 +164,25 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__NAME = NAMED_ELEMENT__NAME;
+	int REPOSITORY__NAME = CATEGORIES_CONTAINER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Owned Categories</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__OWNED_CATEGORIES = CATEGORIES_CONTAINER__OWNED_CATEGORIES;
+
+	/**
+	 * The feature id for the '<em><b>Owned Requirements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__OWNED_REQUIREMENTS = CATEGORIES_CONTAINER__OWNED_REQUIREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Main Categories</b></em>' containment reference list.
@@ -127,7 +191,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__MAIN_CATEGORIES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int REPOSITORY__MAIN_CATEGORIES = CATEGORIES_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Referenced Object</b></em>' reference list.
@@ -136,7 +200,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__REFERENCED_OBJECT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int REPOSITORY__REFERENCED_OBJECT = CATEGORIES_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Repository</em>' class.
@@ -145,7 +209,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int REPOSITORY_FEATURE_COUNT = CATEGORIES_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.requirement.impl.CategoryImpl <em>Category</em>}' class.
@@ -164,7 +228,25 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__NAME = NAMED_ELEMENT__NAME;
+	int CATEGORY__NAME = CATEGORIES_CONTAINER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Owned Categories</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__OWNED_CATEGORIES = CATEGORIES_CONTAINER__OWNED_CATEGORIES;
+
+	/**
+	 * The feature id for the '<em><b>Owned Requirements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__OWNED_REQUIREMENTS = CATEGORIES_CONTAINER__OWNED_REQUIREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
@@ -173,7 +255,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__REQUIREMENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int CATEGORY__REQUIREMENTS = CATEGORIES_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
@@ -182,7 +264,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__SUB_CATEGORIES = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int CATEGORY__SUB_CATEGORIES = CATEGORIES_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -191,7 +273,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__ID = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int CATEGORY__ID = CATEGORIES_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Repository</b></em>' container reference.
@@ -200,7 +282,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__REPOSITORY = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int CATEGORY__REPOSITORY = CATEGORIES_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Parent Category</b></em>' container reference.
@@ -209,7 +291,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__PARENT_CATEGORY = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int CATEGORY__PARENT_CATEGORY = CATEGORIES_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Referenced Object</b></em>' reference list.
@@ -218,7 +300,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__REFERENCED_OBJECT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int CATEGORY__REFERENCED_OBJECT = CATEGORIES_CONTAINER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Category</em>' class.
@@ -227,7 +309,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int CATEGORY_FEATURE_COUNT = CATEGORIES_CONTAINER_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.requirement.impl.RequirementImpl <em>Requirement</em>}' class.
@@ -373,7 +455,7 @@ public interface RequirementPackage extends EPackage {
 	 * @see org.obeonetwork.dsl.requirement.impl.RequirementPackageImpl#getRequirementType()
 	 * @generated
 	 */
-	int REQUIREMENT_TYPE = 4;
+	int REQUIREMENT_TYPE = 5;
 
 
 	/**
@@ -648,6 +730,38 @@ public interface RequirementPackage extends EPackage {
 	EAttribute getNamedElement_Name();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.requirement.CategoriesContainer <em>Categories Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Categories Container</em>'.
+	 * @see org.obeonetwork.dsl.requirement.CategoriesContainer
+	 * @generated
+	 */
+	EClass getCategoriesContainer();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.requirement.CategoriesContainer#getOwnedCategories <em>Owned Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Owned Categories</em>'.
+	 * @see org.obeonetwork.dsl.requirement.CategoriesContainer#getOwnedCategories()
+	 * @see #getCategoriesContainer()
+	 * @generated
+	 */
+	EReference getCategoriesContainer_OwnedCategories();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.dsl.requirement.CategoriesContainer#getOwnedRequirements <em>Owned Requirements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Owned Requirements</em>'.
+	 * @see org.obeonetwork.dsl.requirement.CategoriesContainer#getOwnedRequirements()
+	 * @see #getCategoriesContainer()
+	 * @generated
+	 */
+	EReference getCategoriesContainer_OwnedRequirements();
+
+	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.dsl.requirement.RequirementType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -886,6 +1000,32 @@ public interface RequirementPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.requirement.impl.CategoriesContainerImpl <em>Categories Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.requirement.impl.CategoriesContainerImpl
+		 * @see org.obeonetwork.dsl.requirement.impl.RequirementPackageImpl#getCategoriesContainer()
+		 * @generated
+		 */
+		EClass CATEGORIES_CONTAINER = eINSTANCE.getCategoriesContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Owned Categories</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORIES_CONTAINER__OWNED_CATEGORIES = eINSTANCE.getCategoriesContainer_OwnedCategories();
+
+		/**
+		 * The meta object literal for the '<em><b>Owned Requirements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORIES_CONTAINER__OWNED_REQUIREMENTS = eINSTANCE.getCategoriesContainer_OwnedRequirements();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.requirement.RequirementType <em>Type</em>}' enum.

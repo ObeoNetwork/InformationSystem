@@ -1,34 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="requirements" version="6.7.0.201302071200">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="requirements" version="8.1.0">
   <ownedViewpoints name="Requirements">
-    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Requirements Table" titleExpression="[name + ' Requirements Table'/]" domainClass="requirement.Repository">
-      <ownedLineMappings name="REQ_Repository" domainClass="requirement.Repository" semanticCandidatesExpression="var:self" headerLabelExpression="feature:name">
-        <ownedSubLines name="REQ_Category" reusedSubLines="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_Repository']/@ownedSubLines[name='REQ_Category']" reusedInMappings="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_Repository']/@ownedSubLines[name='REQ_Category']" domainClass="requirement.Category" semanticCandidatesExpression="feature:eContents" headerLabelExpression="[id + ' - ' + name/]">
-          <ownedSubLines name="REQ_Requirement" domainClass="requirement.Requirement" semanticCandidatesExpression="feature:requirements" headerLabelExpression="[id + ' - ' + name/]">
-            <create name="REQ_Requirement" label="Create Requirement" forceRefresh="true">
-              <variables name="root" documentation="The semantic element of the table."/>
-              <variables name="element" documentation="The semantic currently edited element."/>
-              <variables name="container" documentation="The semantic element corresponding to the view container."/>
-              <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Requirement" referenceName="requirements">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(requirement::Category).id + '_' + eContainer(requirement::Category).requirements->size()/]"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New requirement"/>
-                </subModelOperations>
-              </firstModelOperation>
-            </create>
-            <create name="REQ_CreateCategory" label="Create Category" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_Repository']/@ownedSubLines[name='REQ_Category']">
-              <variables name="root" documentation="The semantic element of the table."/>
-              <variables name="element" documentation="The semantic currently edited element."/>
-              <variables name="container" documentation="The semantic element corresponding to the view container."/>
-              <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="subCategories">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT' + eContainer(requirement::Category).subCategories->size()/]"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
-                </subModelOperations>
-              </firstModelOperation>
-            </create>
-          </ownedSubLines>
-          <create name="REQ_Requirement" label="Create Requirement" forceRefresh="true">
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Requirements Table" titleExpression="[name + ' Requirements Table'/]" showOnStartup="true" domainClass="requirement.CategoriesContainer">
+      <ownedLineMappings name="REQ_CategoriesContainer" domainClass="requirement.CategoriesContainer" semanticCandidatesExpression="var:self" headerLabelExpression="feature:name">
+        <ownedSubLines name="REQ_Category" reusedSubLines="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category'] //@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Requirement']" reusedInMappings="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category'] //@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Requirement']" domainClass="requirement.Category" semanticCandidatesExpression="service:getCategories" headerLabelExpression="[id + ' - ' + name/]">
+          <create name="REQ_Requirement" label="Create Requirement" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Requirement']">
             <variables name="root" documentation="The semantic element of the table."/>
             <variables name="element" documentation="The semantic currently edited element."/>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
@@ -39,11 +15,47 @@
               </subModelOperations>
             </firstModelOperation>
           </create>
-          <create name="REQ_CreateCategory" label="Create Category" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_Repository']/@ownedSubLines[name='REQ_Category']">
+          <create name="REQ_CreateCategory" label="Create Category" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']">
             <variables name="root" documentation="The semantic element of the table."/>
             <variables name="element" documentation="The semantic currently edited element."/>
             <variables name="container" documentation="The semantic element corresponding to the view container."/>
             <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="subCategories">
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(requirement::Category).id + '_' + eContainer(requirement::CategoriesContainer).ownedCategories->size()/]"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
+              </subModelOperations>
+            </firstModelOperation>
+          </create>
+          <create name="REQ_CopyCategory" label="Copy Category" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']">
+            <variables name="root" documentation="The semantic element of the table."/>
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:copyCategory"/>
+          </create>
+          <create name="REQ_moveCategory" label="Move Category" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']">
+            <variables name="root" documentation="The semantic element of the table."/>
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:moveCategory"/>
+          </create>
+        </ownedSubLines>
+        <ownedSubLines name="REQ_Requirement" reusedSubLines="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']" reusedInMappings="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']" domainClass="requirement.Requirement" semanticCandidatesExpression="service:getRequirements" headerLabelExpression="[id + ' - ' + name/]">
+          <create name="REQ_Requirement" label="Create Requirement" forceRefresh="true">
+            <variables name="root" documentation="The semantic element of the table."/>
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Requirement" referenceName="requirements">
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(requirement::Category).id + '_' + eContainer(requirement::Category).requirements->size()/]"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New requirement"/>
+              </subModelOperations>
+            </firstModelOperation>
+          </create>
+          <create name="REQ_CreateCategory" label="Create Category" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']">
+            <variables name="root" documentation="The semantic element of the table."/>
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
               <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="subCategories">
                 <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT' + eContainer(requirement::Category).subCategories->size()/]"/>
                 <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
@@ -51,16 +63,47 @@
             </firstModelOperation>
           </create>
         </ownedSubLines>
-        <create name="REQ_CreateCategory" label="Create Category" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_Repository']/@ownedSubLines[name='REQ_Category']">
+        <create name="REQ_CreateCategory1" label="Create Category" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']">
           <variables name="root" documentation="The semantic element of the table."/>
           <variables name="element" documentation="The semantic currently edited element."/>
           <variables name="container" documentation="The semantic element corresponding to the view container."/>
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:element">
-            <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="mainCategories">
-              <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT' + eContainer(requirement::Repository).mainCategories->size()/]"/>
-              <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
+            <subModelOperations xsi:type="tool:If" conditionExpression="[element.oclIsKindOf(requirement::Category)/]">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="subCategories">
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(requirement::Category).id + '_' + eContainer(requirement::CategoriesContainer).ownedCategories->size()/]"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
+              </subModelOperations>
+            </subModelOperations>
+            <subModelOperations xsi:type="tool:If" conditionExpression="[element.oclIsKindOf(requirement::Repository)/]">
+              <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Category" referenceName="mainCategories">
+                <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="['CAT'+ eContainer(requirement::CategoriesContainer).ownedCategories->size()/]"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New category"/>
+              </subModelOperations>
             </subModelOperations>
           </firstModelOperation>
+        </create>
+        <create name="REQ_Requirement1" label="Create Requirement" precondition="[container.oclIsKindOf(requirement::Category)/]" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Requirement']">
+          <variables name="root" documentation="The semantic element of the table."/>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
+            <subModelOperations xsi:type="tool:CreateInstance" typeName="requirement.Requirement" referenceName="requirements">
+              <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="[eContainer(requirement::Category).id + '_' + eContainer(requirement::Category).requirements->size()/]"/>
+              <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="New requirement"/>
+            </subModelOperations>
+          </firstModelOperation>
+        </create>
+        <create name="REQ_CopyCategory1" label="Copy Category" precondition="[container.oclIsKindOf (requirement::Category)/]" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']">
+          <variables name="root" documentation="The semantic element of the table."/>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:copyCategory"/>
+        </create>
+        <create name="REQ_moveCategory1" label="Move Category" precondition="[container.oclIsKindOf (requirement::Category)/]" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']">
+          <variables name="root" documentation="The semantic element of the table."/>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="container" documentation="The semantic element corresponding to the view container."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:moveCategory"/>
         </create>
       </ownedLineMappings>
       <ownedColumnMappings name="REQ_ID" label="" headerLabelExpression="ID" featureName="id"/>
@@ -91,5 +134,6 @@
         </directEdit>
       </intersection>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.requirement.design.services.RequirementsServices"/>
   </ownedViewpoints>
 </description:Group>
