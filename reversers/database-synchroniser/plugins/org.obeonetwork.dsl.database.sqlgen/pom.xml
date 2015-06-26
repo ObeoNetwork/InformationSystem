@@ -20,7 +20,7 @@
        <plugin>
          <groupId>org.eclipse.acceleo</groupId>
          <artifactId>org.eclipse.acceleo.maven.compatibility</artifactId>
-         <version>4.0.0-SNAPSHOT</version>
+         <version>3.5.0-SNAPSHOT</version>
          <executions>
            <execution>
              <phase>compile</phase>
