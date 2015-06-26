@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Entity Relation Designer
 Bundle-SymbolicName: org.obeonetwork.dsl.entityrelation.design;singleton=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 4.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.entityrelation.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
