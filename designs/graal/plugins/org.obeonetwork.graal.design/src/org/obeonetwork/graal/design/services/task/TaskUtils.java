@@ -646,7 +646,7 @@ public class TaskUtils {
 	 */
 	public List<Actor> candidatesExpressionForExistingActors(EObject context,
 			DSemanticDiagram diagram) {
-		List<Actor> actors = getSystem(context).getActors();
+		List<Actor> actors = new ArrayList<Actor>(getSystem(context).getActors());
 		List<Actor> actorsInDiagam = new ArrayList<Actor>();
 		List<DDiagramElement> ownedDiagramElements = diagram
 				.getOwnedDiagramElements();
