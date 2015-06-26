@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>models.parent</artifactId>
-		<version>3.0.0-SNAPSHOT</version>
+		<version>4.0.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/models/pom.xml
 		</relativePath>
 	</parent>
@@ -14,7 +14,7 @@
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.dsl.entityrelation.edit</artifactId>
 
-	<version>1.0.0-SNAPSHOT</version>
+	<version>4.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>Entity Relation Edit</name>
 </project>
