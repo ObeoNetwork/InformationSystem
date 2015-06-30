@@ -28,6 +28,7 @@ public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
 	
 	public H2DataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
 		super(source, progressListener, queries);
+		this.setSchemaName(source.getSchemaName());
 	}
 	
 	@Override
@@ -108,5 +109,9 @@ public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
         }
 
 	}
-
+	public void setSchemaName(String schemaName) {
+		if (schemaName.isEmpty() || schemaName == null) {
+			this.schemaName = "PUBLIC";
+		}
+	}
 }
