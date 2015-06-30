@@ -66,10 +66,10 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 	@Override
 	public void buildTables() {
 		super.buildTables();
-		buildSequences(metaData, tableContainer);
+		buildSequences(tableContainer);
 	}
 
-	private void buildSequences(DatabaseMetaData metaData, TableContainer owner) {
+	private void buildSequences(TableContainer owner) {
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -78,7 +78,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 					.prepareStatement(
 							"SELECT SEQUENCE_NAME, INCREMENT, MINIMUM_VALUE, MAXIMUM_VALUE, START_VALUE "
 									+ "FROM INFORMATION_SCHEMA.SEQUENCES WHERE SEQUENCE_SCHEMA = '"
-									+ owner.getName() + "'");
+									+ schemaName + "'");
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				String name = rs.getString(1);
