@@ -15,7 +15,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -86,7 +85,7 @@ public class WireItemProvider
 	 * @generated NOT
 	 */
 	protected void addSourcePropertyDescriptor(Object object) {
-		final org.obeonetwork.dsl.soa.System system = (org.obeonetwork.dsl.soa.System)EcoreUtil.getRootContainer((EObject) object);
+		final System system = getContainingSystem((EObject) object);		
 		itemPropertyDescriptors.add
 			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -103,16 +102,24 @@ public class WireItemProvider
 			{
 				public java.util.Collection<?>getChoiceOfValues(Object object){
 					Collection<Object> choiceOfValues=new ArrayList<Object>();
-					List<org.obeonetwork.dsl.soa.Service>services=getProvidedServices(system);
+					List<org.obeonetwork.dsl.soa.Service>services = getRequiredServices(system);
 					choiceOfValues.addAll(services);
 					return choiceOfValues;
 				}
 			}
-					
-					
-					
-					
-					);
+		);
+	}
+	
+	private System getContainingSystem(EObject object) {
+		if (object instanceof System) {
+			return (System)object;
+		} else {
+			EObject eContainer = object.eContainer();
+			if (eContainer != null) {
+				return getContainingSystem(eContainer);
+			}
+		}
+		return null;
 	}
 	
 	/**
@@ -123,7 +130,7 @@ public class WireItemProvider
 	 * @added
 	 */
 	private List<Service> getProvidedServices(System system) {
-		List<Service> providedServices=new ArrayList<Service>();
+		List<Service> providedServices = new ArrayList<Service>();
 		List<Component> ownedComponents = system.getOwnedComponents();
 		for (Component component : ownedComponents) {
 			providedServices.addAll(component.getProvidedServices());
@@ -139,7 +146,7 @@ public class WireItemProvider
 	 * @generated
 	 */
 	protected void addDestPropertyDescriptor(Object object) {
-		final org.obeonetwork.dsl.soa.System system = (org.obeonetwork.dsl.soa.System)EcoreUtil.getRootContainer((EObject) object);
+		final System system = getContainingSystem((EObject) object);
 		itemPropertyDescriptors.add
 			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -156,7 +163,7 @@ public class WireItemProvider
 			{
 				public java.util.Collection<?>getChoiceOfValues(Object object){
 					Collection<Object> choiceOfValues=new ArrayList<Object>();
-					List<org.obeonetwork.dsl.soa.Service>services=getRequiredServices(system);
+					List<org.obeonetwork.dsl.soa.Service>services = getProvidedServices(system);
 					choiceOfValues.addAll(services);
 					return choiceOfValues;
 				}
