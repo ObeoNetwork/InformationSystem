@@ -8,27 +8,26 @@ import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.diagram.AbstractDNode;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.ForeignKeyElement;
-import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
-import org.eclipse.sirius.diagram.AbstractDNode;
-import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 public class DatabaseServices {
 	
 	/**
-	 * Return ForeignKeys form Schema Tables.
-	 * @param schema
+	 * Return ForeignKeys from tables.
+	 * @param tableContainer
 	 * @return foreignKeys
 	 */
-	public List<ForeignKey> getForeignKeys(Schema schema){
-		List<ForeignKey> foreignKeys=new ArrayList<ForeignKey>();
-		List<AbstractTable> tables = schema.getTables();
+	public List<ForeignKey> getForeignKeys(TableContainer tableContainer){
+		List<ForeignKey> foreignKeys = new ArrayList<ForeignKey>();
+		List<AbstractTable> tables = tableContainer.getTables();
 		for (AbstractTable abstractTable : tables) {
 			if(abstractTable instanceof Table){
 			 foreignKeys.addAll(((Table)abstractTable).getForeignKeys());
