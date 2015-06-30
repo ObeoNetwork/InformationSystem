@@ -30,9 +30,11 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 	
 	private final static String MODEL_ID_PREFIX = "modelId[";
 	private final static String MODEL_ID_SUFFIX = "]-";
+	protected String schemaName = null;
 
 	public DefaultDataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
 		super(source, progressListener, queries);
+		this.schemaName = tableContainer.getName();
 	}
 
 	@Override
@@ -40,14 +42,14 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		ResultSet rs = null;
 		try {
 			String[] types = { "TABLE", "VIEW" };
-			rs = metaData.getTables(null, tableContainer.getName(), "%", types);
+			rs = metaData.getTables(null, schemaName, "%", types);
 			
 			int nbRows=0;
 			if(ResultSet.TYPE_FORWARD_ONLY==rs.getType()){				
 				while (rs.next()) {
 					nbRows++;
 				}
-				rs = metaData.getTables(null, tableContainer.getName(), "%", types);
+				rs = metaData.getTables(null, schemaName, "%", types);
 			}else{
 				rs.last();
 				nbRows = rs.getRow();
@@ -93,11 +95,11 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		if (table instanceof Table) {
 			Table t = (Table) table;
 			buildPrimaryKeys(metaData, t);
-			buildIndexes(metaData, owner.getName(), t);
+			buildIndexes(metaData, t);
 		}
 	}
 	
-	protected void buildIndexes(DatabaseMetaData metaData, String schemaName,
+	protected void buildIndexes(DatabaseMetaData metaData,
 			Table table) {
 		Map indices = new HashMap();
 		ResultSet rs = null;
@@ -165,7 +167,7 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		PrimaryKey primaryKey = null;
 		ResultSet rs = null;
 		try {
-			rs = metaData.getPrimaryKeys(null, table.getOwner().getName(),
+			rs = metaData.getPrimaryKeys(null, schemaName,
 					table.getName());
 			while (rs.next()) {
 				if (primaryKey == null) {
@@ -196,7 +198,7 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 	protected void buildColumns(DatabaseMetaData metaData, TableContainer owner, NativeTypesLibrary nativeTypesLibrary, AbstractTable table) {
 		ResultSet rs = null;
 		try {
-			rs = metaData.getColumns(null, owner.getName(), table.getName(), "%");
+			rs = metaData.getColumns(null, schemaName, table.getName(), "%");
 			while (rs.next()) {
 				buildColumn(metaData, owner, nativeTypesLibrary, table, rs);
 			}
@@ -311,7 +313,7 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 		Map foreignKeys = new HashMap();
 		ResultSet rs = null;
 		try {
-			rs = metaData.getImportedKeys(null, tableContainer.getName(),
+			rs = metaData.getImportedKeys(null, schemaName,
 					table.getName());
 			while (rs.next()) {
 				String pkSchemaName = rs.getString(2);
@@ -380,5 +382,4 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 	protected String getTypesLibraryFileName() {
 		return null;
 	}
-
 }

@@ -21,15 +21,18 @@ import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 
 public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
-	
+
 	private static final String TYPES_LIBRARY_POSTGRES_PATHMAP = "pathmap://NativeDBTypes/Postgres-9";
-	
+
 	private static final String TYPES_LIBRARY_POSTGRES_FILENAME = "Postgres-9.typeslibrary";
-	
-	public PostGresDataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
+
+	public PostGresDataBaseBuilder(DataSource source,
+			ProgressListener progressListener, Queries queries)
+			throws SQLException {
 		super(source, progressListener, queries);
+		this.setSchemaName(source.getSchemaName());
 	}
-	
+
 	@Override
 	protected String getTypesLibraryUriPathmap() {
 		return TYPES_LIBRARY_POSTGRES_PATHMAP;
@@ -39,7 +42,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 	protected String getTypesLibraryFileName() {
 		return TYPES_LIBRARY_POSTGRES_FILENAME;
 	}
-	
+
 	@Override
 	protected TypeInstance createTypeInstance(
 			NativeTypesLibrary nativeTypesLibrary, String columnType,
@@ -56,57 +59,72 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 		if (nativeType == null) {
 			columnType = bkpColumnType;
 		}
-		return super.createTypeInstance(nativeTypesLibrary, columnType, columnSize, decimalDigits);
+		return super.createTypeInstance(nativeTypesLibrary, columnType,
+				columnSize, decimalDigits);
 	}
-	
+
 	@Override
 	public void buildTables() {
 		super.buildTables();
-		buildSequences(metaData, tableContainer);
+		buildSequences(tableContainer);
 	}
+
+	private void buildSequences(TableContainer owner) {
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		try {
+			PreparedStatement psmt = metaData
+					.getConnection()
+					.prepareStatement(
+							"SELECT SEQUENCE_NAME, INCREMENT, MINIMUM_VALUE, MAXIMUM_VALUE, START_VALUE "
+									+ "FROM INFORMATION_SCHEMA.SEQUENCES WHERE SEQUENCE_SCHEMA = '"
+									+ schemaName + "'");
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				String name = rs.getString(1);
+				int increment = rs.getInt(2);
+				int minValue = rs.getInt(3);
+				BigInteger maxValueAsBigInt = new BigInteger(rs.getString(4));
+				BigInteger maxIntValue = new BigInteger(
+						Integer.toString(Integer.MAX_VALUE));
+				Integer maxValue = null;
+				if (maxValueAsBigInt.compareTo(maxIntValue) < 0) {
+					maxValue = maxValueAsBigInt.intValue();
+				} else {
+					maxValue = -1;
+				}
+				int start = rs.getInt(5);
+				Sequence sequence = CreationUtils.createSequence(owner, name,
+						increment, minValue, maxValue, start);
+				// Look for a table that could correspond to the sequence
+				if (name.endsWith("_seq")) {
+					String tableName = name.substring(0,
+							name.length() - "_seq".length());
+					AbstractTable abstractTable = queries.getTable(tableName);
+					if (abstractTable != null && abstractTable instanceof Table) {
+						Table table = (Table) abstractTable;
+						if (table.getPrimaryKey() != null
+								&& table.getPrimaryKey().getColumns().size() == 1) {
+							Column column = table.getPrimaryKey().getColumns()
+									.get(0);
+							column.setSequence(sequence);
+						}
+					}
+				}
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			JdbcUtils.closeStatement(pstmt);
+			JdbcUtils.closeResultSet(rs);
+		}
+
+	}
+
 	
-	private void buildSequences(DatabaseMetaData metaData, TableContainer owner){
-		ResultSet rs=null;
-        PreparedStatement pstmt=null;
-        try {
-                PreparedStatement psmt = metaData.getConnection().prepareStatement(
-                                "SELECT SEQUENCE_NAME, INCREMENT, MINIMUM_VALUE, MAXIMUM_VALUE, START_VALUE " +
-                                "FROM INFORMATION_SCHEMA.SEQUENCES WHERE SEQUENCE_SCHEMA = '" + owner.getName() + "'");                
-                rs = psmt.executeQuery();
-                while( rs.next() ) {
-                	String name = rs.getString(1);
-                	int increment = rs.getInt(2);
-                	int minValue = rs.getInt(3);
-                	BigInteger maxValueAsBigInt = new BigInteger(rs.getString(4));
-                	BigInteger maxIntValue = new BigInteger(Integer.toString(Integer.MAX_VALUE));
-                	Integer maxValue = null;
-                	if (maxValueAsBigInt.compareTo(maxIntValue) < 0) {                		
-                		maxValue = maxValueAsBigInt.intValue();
-                	} else {
-                		maxValue = -1;
-                	}
-                	int start = rs.getInt(5);
-                	Sequence sequence = CreationUtils.createSequence(owner, name, increment, minValue, maxValue, start);
-                	// Look for a table that could correspond to the sequence
-                	if (name.endsWith("_seq")) {
-                		String tableName = name.substring(0, name.length() - "_seq".length());
-                		AbstractTable abstractTable = queries.getTable(tableName);
-                		if (abstractTable != null && abstractTable instanceof Table) {
-                			Table table = (Table)abstractTable;
-                			if (table.getPrimaryKey() != null && table.getPrimaryKey().getColumns().size() == 1) {
-                				Column column = table.getPrimaryKey().getColumns().get(0);
-                				column.setSequence(sequence);
-                			}
-                		}
-                	}
-                }
-        } catch(Exception ex) {
-                ex.printStackTrace();
-        } finally {
-                JdbcUtils.closeStatement(pstmt);
-                JdbcUtils.closeResultSet(rs);
-        }
-
+	public void setSchemaName(String schemaName) {
+		if (schemaName.isEmpty() || schemaName == null) {
+			this.schemaName = "public";
+		}
 	}
-
 }
