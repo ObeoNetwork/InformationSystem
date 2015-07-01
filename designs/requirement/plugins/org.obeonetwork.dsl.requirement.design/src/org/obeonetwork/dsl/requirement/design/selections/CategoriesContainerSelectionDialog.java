@@ -3,13 +3,7 @@ package org.obeonetwork.dsl.requirement.design.selections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
-import org.eclipse.ui.dialogs.FilteredTree;
-import org.eclipse.ui.dialogs.PatternFilter;
 import org.obeonetwork.dsl.requirement.CategoriesContainer;
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
@@ -19,27 +13,7 @@ import org.obeonetwork.dsl.requirement.Requirement;
  * @author atakarabt
  *
  */
-public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDialog {
-
-	/**
-	 * The Selected Category.
-	 */
-	private Category element;
-
-	/**
-	 * True if Copy operation.
-	 */
-	private boolean copy;
-
-	/**
-	 * True to keep Referenced Object.
-	 */
-	private boolean keepReferencedObject;
-
-	/**
-	 * " - Copie" String.
-	 */
-	private String copieString = " - Copie";
+public class CategoriesContainerSelectionDialog extends AbstractSelectionDialog {
 
 	/**
 	 * @param parent
@@ -47,7 +21,7 @@ public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDial
 	 *            true if Copy.
 	 */
 	public CategoriesContainerSelectionDialog(Shell parent, boolean mode) {
-		super(parent, new CategoriesContainerLableProvider(),
+		super(parent, new LabelProvider(),
 				new CategoriesContainerSelectionContentProvider());
 		this.copy = mode;
 		if (copy) {
@@ -58,38 +32,6 @@ public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDial
 		setMessage("Select the new container of the Category");
 		setAllowMultiple(false);
 		setHelpAvailable(false);
-	}
-
-	public void setElement(Category elementToCopy) {
-		this.element = elementToCopy;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.ui.dialogs.ElementTreeSelectionDialog#doCreateTreeViewer(
-	 * org.eclipse.swt.widgets.Composite, int)
-	 */
-	@Override
-	protected TreeViewer doCreateTreeViewer(Composite parent, int style) {
-		PatternFilter filter = new PatternFilter();
-		FilteredTree tree = new FilteredTree(parent, style, filter, true);
-		return tree.getViewer();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.ui.dialogs.ElementTreeSelectionDialog#createTreeViewer(org
-	 * .eclipse.swt.widgets.Composite)
-	 */
-	@Override
-	protected TreeViewer createTreeViewer(Composite parent) {
-		TreeViewer treeViewer = super.createTreeViewer(parent);
-		treeViewer.expandToLevel(2);
-		return treeViewer;
 	}
 
 	/*
@@ -106,21 +48,6 @@ public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDial
 			moveCategory();
 		}
 		super.computeResult();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.dialogs.SelectionStatusDialog#okPressed()
-	 */
-	@Override
-	protected void okPressed() {
-		if (copy) {
-			keepReferencedObject = MessageDialog.openQuestion(getShell(),
-					"Category Referenced Object",
-					"Do you want to keep the Category Referenced Object ?");
-		}
-		super.okPressed();
 	}
 
 	/**
@@ -144,7 +71,7 @@ public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDial
 	 */
 	private void copyCategory() {
 		Object[] result = getResult();
-		Category categoryCopy = EcoreUtil.copy(element);
+		Category categoryCopy = EcoreUtil.copy((Category) element);
 		if (!keepReferencedObject) {
 			categoryCopy.getReferencedObject().clear();
 		}
@@ -164,10 +91,11 @@ public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDial
 	 * 
 	 * @param categoryCopy
 	 */
-	private void processCopy(Category categoryCopy,CategoriesContainer categoriesContainer) {
-		String categoryCopyId = categoryCopy.getId().concat(copieString);
+	private void processCopy(Category categoryCopy,
+			CategoriesContainer categoriesContainer) {
+		String categoryCopyId = categoryCopy.getId().concat(COPIE_STRING);
 		categoryCopy.setId(categoryCopyId);
-		String index = computeCategoryCopyId(categoryCopy,categoriesContainer);
+		String index = computeCategoryCopyId(categoryCopy, categoriesContainer);
 		computeSubCategories(categoryCopy, index);
 		computeRequirementsId(categoryCopy, index);
 	}
@@ -182,9 +110,9 @@ public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDial
 		List<Requirement> requirements = category.getRequirements();
 		for (Requirement requirement : requirements) {
 			if (index == null) {
-				requirement.setId(requirement.getId().concat(copieString));
+				requirement.setId(requirement.getId().concat(COPIE_STRING));
 			} else {
-				requirement.setId(requirement.getId().concat(copieString)
+				requirement.setId(requirement.getId().concat(COPIE_STRING)
 						.concat(index));
 			}
 		}
@@ -197,7 +125,7 @@ public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDial
 	 * @param categoryCopy
 	 * @param index
 	 */
-	private void computeSubCategories(Category categoryCopy,String index) {
+	private void computeSubCategories(Category categoryCopy, String index) {
 		List<Category> subCategories = categoryCopy.getSubCategories();
 		for (Category category : subCategories) {
 			computeSubCategoriesId(index, category);
@@ -211,15 +139,15 @@ public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDial
 
 	/**
 	 * Add index to Sub Categories Id.
+	 * 
 	 * @param index
 	 * @param category
 	 */
 	private void computeSubCategoriesId(String index, Category category) {
 		if (index == null) {
-			category.setId(category.getId().concat(copieString));
+			category.setId(category.getId().concat(COPIE_STRING));
 		} else {
-			category.setId(category.getId().concat(copieString)
-					.concat(index));
+			category.setId(category.getId().concat(COPIE_STRING).concat(index));
 		}
 	}
 
@@ -229,7 +157,8 @@ public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDial
 	 * @param categoryCopyId
 	 * @return idIndex
 	 */
-	private String computeCategoryCopyId(Category categoryCopy,CategoriesContainer parentCategory) {
+	private String computeCategoryCopyId(Category categoryCopy,
+			CategoriesContainer parentCategory) {
 		String index = null;
 		List<Category> ownedCategories = parentCategory.getOwnedCategories();
 		int size = ownedCategories.size();
@@ -238,5 +167,17 @@ public class CategoriesContainerSelectionDialog extends ElementTreeSelectionDial
 			categoryCopy.setId(categoryCopy.getId().concat(index));
 		}
 		return index;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.obeonetwork.dsl.requirement.design.selections.AbstractSelectionDialog
+	 * #isEmptyReferencedObject()
+	 */
+	@Override
+	protected boolean isEmptyReferencedObject() {
+		return ((Category) element).getReferencedObject().isEmpty();
 	}
 }

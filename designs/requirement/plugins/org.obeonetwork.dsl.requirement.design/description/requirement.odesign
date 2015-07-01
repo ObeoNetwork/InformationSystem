@@ -62,6 +62,18 @@
               </subModelOperations>
             </firstModelOperation>
           </create>
+          <create name="REQ_CopyRequirement1" label="Copy Requirement" forceRefresh="true">
+            <variables name="root" documentation="The semantic element of the table."/>
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:copyRequirement"/>
+          </create>
+          <create name="REQ_moveRequirement1" label="Move Requirement" forceRefresh="true">
+            <variables name="root" documentation="The semantic element of the table."/>
+            <variables name="element" documentation="The semantic currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+            <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:moveRequirement"/>
+          </create>
         </ownedSubLines>
         <create name="REQ_CreateCategory1" label="Create Category" forceRefresh="true" mapping="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']">
           <variables name="root" documentation="The semantic element of the table."/>
