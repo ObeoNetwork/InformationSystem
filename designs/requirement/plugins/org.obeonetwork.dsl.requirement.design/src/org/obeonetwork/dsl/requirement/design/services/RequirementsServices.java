@@ -11,6 +11,7 @@ import org.obeonetwork.dsl.requirement.CategoriesContainer;
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.dsl.requirement.design.selections.CategoriesContainerSelectionDialog;
+import org.obeonetwork.dsl.requirement.design.selections.RequirementSelectionDialog;
 
 /**
  * @author atakarabt
@@ -20,6 +21,7 @@ public class RequirementsServices {
 
 	/**
 	 * Return List of Requirements sorted by id+ " - " +name.
+	 * 
 	 * @param categoriesContainer
 	 * @return requirements
 	 */
@@ -47,6 +49,7 @@ public class RequirementsServices {
 
 	/**
 	 * Return List of Categories sorted by id+ " - " +name.
+	 * 
 	 * @param categoriesContainer
 	 * @return ownedCategories
 	 */
@@ -73,12 +76,13 @@ public class RequirementsServices {
 
 	/**
 	 * CopyCategory.
+	 * 
 	 * @param category
 	 */
 	public void copyCategory(Category category) {
 		Shell parent = getShell();
 		CategoriesContainerSelectionDialog categoriesContainerSelectionDialog = new CategoriesContainerSelectionDialog(
-				parent,true);
+				parent, true);
 		categoriesContainerSelectionDialog.setInput(category);
 		categoriesContainerSelectionDialog.setElement(category);
 		categoriesContainerSelectionDialog.open();
@@ -86,12 +90,13 @@ public class RequirementsServices {
 
 	/**
 	 * Move Category.
+	 * 
 	 * @param category
 	 */
 	public void moveCategory(Category category) {
 		Shell parent = getShell();
 		CategoriesContainerSelectionDialog categoriesContainerSelectionDialog = new CategoriesContainerSelectionDialog(
-				parent,false);
+				parent, false);
 		categoriesContainerSelectionDialog.setInput(category);
 		categoriesContainerSelectionDialog.setElement(category);
 		categoriesContainerSelectionDialog.open();
@@ -104,4 +109,33 @@ public class RequirementsServices {
 		}
 		return parent;
 	}
+
+	/**
+	 * Copy Requirement.
+	 * 
+	 * @param requirement
+	 */
+	public void copyRequirement(Requirement requirement) {
+		Shell parent = getShell();
+		RequirementSelectionDialog requirementSelectionDialog = new RequirementSelectionDialog(
+				parent, true);
+		requirementSelectionDialog.setInput(requirement);
+		requirementSelectionDialog.setElement(requirement);
+		requirementSelectionDialog.open();
+	}
+
+	/**
+	 * move Requirement.
+	 * 
+	 * @param requirement
+	 */
+	public void moveRequirement(Requirement requirement) {
+		Shell parent = getShell();
+		RequirementSelectionDialog requirementSelectionDialog = new RequirementSelectionDialog(
+				parent, false);
+		requirementSelectionDialog.setInput(requirement);
+		requirementSelectionDialog.setElement(requirement);
+		requirementSelectionDialog.open();
+	}
+
 }
