@@ -1,223 +1,220 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<cinematic:CinematicRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:org.obeonetwork.dsl.soa="http://www.obeonetwork.org/dsl/soa/2.0.0" xmi:id="_N-7IwIjLEeGrHN3Vq969QA" name="E-BookStore">
-  <flows xmi:id="_aIPqAIjWEeGStfxeQK0zeA" name="Main">
-    <states xsi:type="cinematic-flow:InitialState" xmi:id="_lBedYIjWEeGStfxeQK0zeA" name="Initial"/>
-    <states xsi:type="cinematic-flow:ViewState" xmi:id="_xP47AIjWEeGStfxeQK0zeA" name="Display Homepage" viewContainers="_lSJPQIjZEeGlA5e_Ze9-Rg"/>
-    <states xsi:type="cinematic-flow:ActionState" xmi:id="_0UvMEIjWEeGStfxeQK0zeA" name="Load Data">
-      <actions xmi:id="_EZ6f4IjXEeGStfxeQK0zeA" name="getHomepageData">
-        <operations xsi:type="org.obeonetwork.dsl.soa:Operation" href="E-BookStore.soa#_D1bdUIjYEeGlA5e_Ze9-Rg"/>
-        <operations xsi:type="org.obeonetwork.dsl.soa:Operation" href="E-BookStore.soa#_hhig4IjYEeGlA5e_Ze9-Rg"/>
-        <operations xsi:type="org.obeonetwork.dsl.soa:Operation" href="E-BookStore.soa#_jWX7kIjYEeGlA5e_Ze9-Rg"/>
-      </actions>
-    </states>
-    <states xsi:type="cinematic-flow:ActionState" xmi:id="_w1YzgIjaEeGlA5e_Ze9-Rg" name="Search Books">
-      <actions xmi:id="_KRTJAIjiEeGllIuu_i41WA" name="searchBooks">
-        <operations xsi:type="org.obeonetwork.dsl.soa:Operation" href="E-BookStore.soa#_wYy58IjhEeGllIuu_i41WA"/>
-      </actions>
-    </states>
-    <states xsi:type="cinematic-flow:ActionState" xmi:id="_mPTE8IjiEeGllIuu_i41WA" name="Add to cart"/>
-    <states xsi:type="cinematic-flow:ActionState" xmi:id="_yB2tAIjiEeGllIuu_i41WA" name="Remove from cart"/>
-    <states xsi:type="cinematic-flow:ViewState" xmi:id="_FUzkYIjjEeGllIuu_i41WA" name="Create Account Page" viewContainers="_XBIcMIjjEeGllIuu_i41WA"/>
-    <states xsi:type="cinematic-flow:ActionState" xmi:id="_dmSV0IjkEeGOp5IdJE0AIw" name="Create Account"/>
-    <states xsi:type="cinematic-flow:SubflowState" xmi:id="_NsmD0IjlEeGOp5IdJE0AIw" subflow="_yYt1MIjfEeGIXsoZxTXHQA"/>
-    <transitions xmi:id="_7ZirkIjWEeGStfxeQK0zeA" from="_lBedYIjWEeGStfxeQK0zeA" to="_0UvMEIjWEeGStfxeQK0zeA"/>
-    <transitions xmi:id="_76bLEIjWEeGStfxeQK0zeA" from="_0UvMEIjWEeGStfxeQK0zeA" to="_xP47AIjWEeGStfxeQK0zeA"/>
-    <transitions xmi:id="_xuqk4IjaEeGlA5e_Ze9-Rg" from="_xP47AIjWEeGStfxeQK0zeA" to="_w1YzgIjaEeGlA5e_Ze9-Rg" on="_BW2asIjbEeGlA5e_Ze9-Rg"/>
-    <transitions xmi:id="_oCRecIjiEeGllIuu_i41WA" from="_xP47AIjWEeGStfxeQK0zeA" to="_mPTE8IjiEeGllIuu_i41WA" on="_NmXPEIjcEeGD_4FfK_oDsg"/>
-    <transitions xmi:id="_zw4aoIjiEeGllIuu_i41WA" from="_xP47AIjWEeGStfxeQK0zeA" to="_yB2tAIjiEeGllIuu_i41WA" on="_0v3LYIjiEeGllIuu_i41WA"/>
-    <transitions xmi:id="_HX75wIjjEeGllIuu_i41WA" from="_xP47AIjWEeGStfxeQK0zeA" to="_FUzkYIjjEeGllIuu_i41WA" on="_IMGhoIjjEeGllIuu_i41WA"/>
-    <transitions xmi:id="_gdArUIjkEeGOp5IdJE0AIw" from="_FUzkYIjjEeGllIuu_i41WA" to="_xP47AIjWEeGStfxeQK0zeA" on="_RN5c0IjkEeGOp5IdJE0AIw"/>
-    <transitions xmi:id="_jmMp0IjkEeGOp5IdJE0AIw" from="_FUzkYIjjEeGllIuu_i41WA" to="_dmSV0IjkEeGOp5IdJE0AIw" on="_PeD24IjkEeGOp5IdJE0AIw"/>
-    <transitions xmi:id="_pDVA4IjkEeGOp5IdJE0AIw" from="_dmSV0IjkEeGOp5IdJE0AIw" to="_xP47AIjWEeGStfxeQK0zeA"/>
-    <transitions xmi:id="_4c_5kIjkEeGOp5IdJE0AIw" from="_w1YzgIjaEeGlA5e_Ze9-Rg" to="_xP47AIjWEeGStfxeQK0zeA"/>
-    <transitions xmi:id="_42IyUIjkEeGOp5IdJE0AIw" from="_mPTE8IjiEeGllIuu_i41WA" to="_xP47AIjWEeGStfxeQK0zeA"/>
-    <transitions xmi:id="_5HF_cIjkEeGOp5IdJE0AIw" from="_yB2tAIjiEeGllIuu_i41WA" to="_xP47AIjWEeGStfxeQK0zeA"/>
-    <transitions xmi:id="_PJNLwIjlEeGOp5IdJE0AIw" from="_xP47AIjWEeGStfxeQK0zeA" to="_NsmD0IjlEeGOp5IdJE0AIw" on="_QVdjgIjlEeGOp5IdJE0AIw"/>
-    <transitions xmi:id="_cl4zUIjlEeGOp5IdJE0AIw" from="_NsmD0IjlEeGOp5IdJE0AIw" to="_xP47AIjWEeGStfxeQK0zeA"/>
-    <events xmi:id="_BW2asIjbEeGlA5e_Ze9-Rg" name="launchSearch" binds="_5P1QQIjaEeGlA5e_Ze9-Rg"/>
-    <events xmi:id="_NmXPEIjcEeGD_4FfK_oDsg" name="addToCart" binds="_J5U8oIjcEeGD_4FfK_oDsg"/>
-    <events xmi:id="_0v3LYIjiEeGllIuu_i41WA" name="removeFromCart" binds="_QUnLwIjhEeGllIuu_i41WA"/>
-    <events xmi:id="_IMGhoIjjEeGllIuu_i41WA" name="createAccount"/>
-    <events xmi:id="_QVdjgIjlEeGOp5IdJE0AIw" name="checkout" binds="_VTh80IjhEeGllIuu_i41WA"/>
-  </flows>
-  <viewContainers xmi:id="_lSJPQIjZEeGlA5e_Ze9-Rg" name="HomePage">
-    <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
-    <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_wSq9cIjZEeGlA5e_Ze9-Rg" name="SearchForm">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHvsIjeEeGIXsoZxTXHQA"/>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_EmqbEIjaEeGlA5e_Ze9-Rg" name="author" label="">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvoojeEeGIXsoZxTXHQA"/>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_fYqd8IjaEeGlA5e_Ze9-Rg" name="type">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvoojeEeGIXsoZxTXHQA"/>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_mhBAsIjaEeGlA5e_Ze9-Rg" name="keywords">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_pvknYIjaEeGlA5e_Ze9-Rg" name="search">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
-        <events xmi:id="_5P1QQIjaEeGlA5e_Ze9-Rg" name="search.onClick">
-          <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
-        </events>
-      </ownedElements>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_Se8ZgIjaEeGlA5e_Ze9-Rg" name="Books">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHvuojeEeGIXsoZxTXHQA"/>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_BiTnUIjcEeGD_4FfK_oDsg" name="bookImage">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvpojeEeGIXsoZxTXHQA"/>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Eu44EIjcEeGD_4FfK_oDsg" name="bookTitle">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_czj8kIjdEeGRPcmmS6YpZw" name="author">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_He2eQIjcEeGD_4FfK_oDsg" name="addToCart">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvrIjeEeGIXsoZxTXHQA"/>
-        <events xmi:id="_J5U8oIjcEeGD_4FfK_oDsg" name="addToCart.onClick">
-          <type href="pathmap://cinematic/toolkits/Web#_tGHvrYjeEeGIXsoZxTXHQA"/>
-        </events>
-      </ownedElements>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_c6KwUIjcEeGD_4FfK_oDsg" name="createAccount">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHvrIjeEeGIXsoZxTXHQA"/>
-      <events xmi:id="_fujjgIjcEeGD_4FfK_oDsg" name="createAccount.onClick"/>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_jir8cIjcEeGD_4FfK_oDsg" name="ShoppingCart">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHvsIjeEeGIXsoZxTXHQA"/>
-      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="__aksgIjgEeGllIuu_i41WA" name="CartLines">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvuojeEeGIXsoZxTXHQA"/>
-        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_D0ZzgIjhEeGllIuu_i41WA" name="title">
-          <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cinematic="http://www.obeonetwork.org/dsl/cinematic/3.0.0" xmlns:cinematic-flow="http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0" xmlns:cinematic-view="http://www.obeonetwork.org/dsl/cinematic/view/1.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0">
+  <cinematic:CinematicRoot xmi:id="_N-7IwIjLEeGrHN3Vq969QA" bindingRegistries="_olXdMB_GEeW_TuSj9xLcNQ" createdOn="2015-07-01T09:56:09.209+0200" modifiedOn="2015-07-01T09:56:09.209+0200" name="E-BookStore">
+    <flows xmi:id="_aIPqAIjWEeGStfxeQK0zeA" name="Main">
+      <states xsi:type="cinematic-flow:InitialState" xmi:id="_lBedYIjWEeGStfxeQK0zeA" name="Initial"/>
+      <states xsi:type="cinematic-flow:ViewState" xmi:id="_xP47AIjWEeGStfxeQK0zeA" name="Display Homepage" viewContainers="_lSJPQIjZEeGlA5e_Ze9-Rg"/>
+      <states xsi:type="cinematic-flow:ActionState" xmi:id="_0UvMEIjWEeGStfxeQK0zeA" name="Load Data">
+        <actions xmi:id="_EZ6f4IjXEeGStfxeQK0zeA" name="getHomepageData"/>
+      </states>
+      <states xsi:type="cinematic-flow:ActionState" xmi:id="_w1YzgIjaEeGlA5e_Ze9-Rg" name="Search Books">
+        <actions xmi:id="_KRTJAIjiEeGllIuu_i41WA" name="searchBooks"/>
+      </states>
+      <states xsi:type="cinematic-flow:ActionState" xmi:id="_mPTE8IjiEeGllIuu_i41WA" name="Add to cart"/>
+      <states xsi:type="cinematic-flow:ActionState" xmi:id="_yB2tAIjiEeGllIuu_i41WA" name="Remove from cart"/>
+      <states xsi:type="cinematic-flow:ViewState" xmi:id="_FUzkYIjjEeGllIuu_i41WA" name="Create Account Page" viewContainers="_XBIcMIjjEeGllIuu_i41WA"/>
+      <states xsi:type="cinematic-flow:ActionState" xmi:id="_dmSV0IjkEeGOp5IdJE0AIw" name="Create Account"/>
+      <states xsi:type="cinematic-flow:SubflowState" xmi:id="_NsmD0IjlEeGOp5IdJE0AIw" subflow="_yYt1MIjfEeGIXsoZxTXHQA"/>
+      <transitions xmi:id="_7ZirkIjWEeGStfxeQK0zeA" from="_lBedYIjWEeGStfxeQK0zeA" to="_0UvMEIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_76bLEIjWEeGStfxeQK0zeA" from="_0UvMEIjWEeGStfxeQK0zeA" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_xuqk4IjaEeGlA5e_Ze9-Rg" from="_xP47AIjWEeGStfxeQK0zeA" to="_w1YzgIjaEeGlA5e_Ze9-Rg" on="_BW2asIjbEeGlA5e_Ze9-Rg"/>
+      <transitions xmi:id="_oCRecIjiEeGllIuu_i41WA" from="_xP47AIjWEeGStfxeQK0zeA" to="_mPTE8IjiEeGllIuu_i41WA" on="_NmXPEIjcEeGD_4FfK_oDsg"/>
+      <transitions xmi:id="_zw4aoIjiEeGllIuu_i41WA" from="_xP47AIjWEeGStfxeQK0zeA" to="_yB2tAIjiEeGllIuu_i41WA" on="_0v3LYIjiEeGllIuu_i41WA"/>
+      <transitions xmi:id="_HX75wIjjEeGllIuu_i41WA" from="_xP47AIjWEeGStfxeQK0zeA" to="_FUzkYIjjEeGllIuu_i41WA" on="_IMGhoIjjEeGllIuu_i41WA"/>
+      <transitions xmi:id="_gdArUIjkEeGOp5IdJE0AIw" from="_FUzkYIjjEeGllIuu_i41WA" to="_xP47AIjWEeGStfxeQK0zeA" on="_RN5c0IjkEeGOp5IdJE0AIw"/>
+      <transitions xmi:id="_jmMp0IjkEeGOp5IdJE0AIw" from="_FUzkYIjjEeGllIuu_i41WA" to="_dmSV0IjkEeGOp5IdJE0AIw" on="_PeD24IjkEeGOp5IdJE0AIw"/>
+      <transitions xmi:id="_pDVA4IjkEeGOp5IdJE0AIw" from="_dmSV0IjkEeGOp5IdJE0AIw" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_4c_5kIjkEeGOp5IdJE0AIw" from="_w1YzgIjaEeGlA5e_Ze9-Rg" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_42IyUIjkEeGOp5IdJE0AIw" from="_mPTE8IjiEeGllIuu_i41WA" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_5HF_cIjkEeGOp5IdJE0AIw" from="_yB2tAIjiEeGllIuu_i41WA" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <transitions xmi:id="_PJNLwIjlEeGOp5IdJE0AIw" from="_xP47AIjWEeGStfxeQK0zeA" to="_NsmD0IjlEeGOp5IdJE0AIw" on="_QVdjgIjlEeGOp5IdJE0AIw"/>
+      <transitions xmi:id="_cl4zUIjlEeGOp5IdJE0AIw" from="_NsmD0IjlEeGOp5IdJE0AIw" to="_xP47AIjWEeGStfxeQK0zeA"/>
+      <events xmi:id="_BW2asIjbEeGlA5e_Ze9-Rg" name="launchSearch" binds="_5P1QQIjaEeGlA5e_Ze9-Rg"/>
+      <events xmi:id="_NmXPEIjcEeGD_4FfK_oDsg" name="addToCart" binds="_J5U8oIjcEeGD_4FfK_oDsg"/>
+      <events xmi:id="_0v3LYIjiEeGllIuu_i41WA" name="removeFromCart" binds="_QUnLwIjhEeGllIuu_i41WA"/>
+      <events xmi:id="_IMGhoIjjEeGllIuu_i41WA" name="createAccount"/>
+      <events xmi:id="_QVdjgIjlEeGOp5IdJE0AIw" name="checkout" binds="_VTh80IjhEeGllIuu_i41WA"/>
+    </flows>
+    <viewContainers xmi:id="_lSJPQIjZEeGlA5e_Ze9-Rg" name="HomePage">
+      <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
+      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_wSq9cIjZEeGlA5e_Ze9-Rg" name="SearchForm">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvsIjeEeGIXsoZxTXHQA"/>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_EmqbEIjaEeGlA5e_Ze9-Rg" name="author" label="">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvoojeEeGIXsoZxTXHQA"/>
         </ownedElements>
-        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_FtWSIIjhEeGllIuu_i41WA" name="author">
-          <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_fYqd8IjaEeGlA5e_Ze9-Rg" name="type">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvoojeEeGIXsoZxTXHQA"/>
         </ownedElements>
-        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_HkGYYIjhEeGllIuu_i41WA" name="price">
-          <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
-        </ownedElements>
-        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_KO1gUIjhEeGllIuu_i41WA" name="quantity">
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_mhBAsIjaEeGlA5e_Ze9-Rg" name="keywords">
           <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
         </ownedElements>
-        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OdPacIjhEeGllIuu_i41WA" name="removeFromCart">
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_pvknYIjaEeGlA5e_Ze9-Rg" name="search">
           <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
-          <events xmi:id="_QUnLwIjhEeGllIuu_i41WA" name="removeFromCart.onClick">
+          <events xmi:id="_5P1QQIjaEeGlA5e_Ze9-Rg" name="search.onClick">
             <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
           </events>
         </ownedElements>
       </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_THKy8IjhEeGllIuu_i41WA" name="checkout">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
-        <events xmi:id="_VTh80IjhEeGllIuu_i41WA" name="checkout.onClick">
-          <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
-        </events>
+      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_Se8ZgIjaEeGlA5e_Ze9-Rg" name="Books">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvuojeEeGIXsoZxTXHQA"/>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_BiTnUIjcEeGD_4FfK_oDsg" name="bookImage">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvpojeEeGIXsoZxTXHQA"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Eu44EIjcEeGD_4FfK_oDsg" name="bookTitle">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_czj8kIjdEeGRPcmmS6YpZw" name="author">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_He2eQIjcEeGD_4FfK_oDsg" name="addToCart">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvrIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_J5U8oIjcEeGD_4FfK_oDsg" name="addToCart.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHvrYjeEeGIXsoZxTXHQA"/>
+          </events>
+        </ownedElements>
       </ownedElements>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_hwJe4IrsEeGWvox4N_yxtg" name="viewContainer4">
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_c6KwUIjcEeGD_4FfK_oDsg" name="createAccount">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvrIjeEeGIXsoZxTXHQA"/>
+        <events xmi:id="_fujjgIjcEeGD_4FfK_oDsg" name="createAccount.onClick"/>
+      </ownedElements>
+      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_jir8cIjcEeGD_4FfK_oDsg" name="ShoppingCart">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvsIjeEeGIXsoZxTXHQA"/>
+        <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="__aksgIjgEeGllIuu_i41WA" name="CartLines">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvuojeEeGIXsoZxTXHQA"/>
+          <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_D0ZzgIjhEeGllIuu_i41WA" name="title">
+            <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+          </ownedElements>
+          <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_FtWSIIjhEeGllIuu_i41WA" name="author">
+            <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+          </ownedElements>
+          <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_HkGYYIjhEeGllIuu_i41WA" name="price">
+            <widget href="pathmap://cinematic/toolkits/Web#_tGHvqYjeEeGIXsoZxTXHQA"/>
+          </ownedElements>
+          <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_KO1gUIjhEeGllIuu_i41WA" name="quantity">
+            <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+          </ownedElements>
+          <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_OdPacIjhEeGllIuu_i41WA" name="removeFromCart">
+            <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+            <events xmi:id="_QUnLwIjhEeGllIuu_i41WA" name="removeFromCart.onClick">
+              <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+            </events>
+          </ownedElements>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_THKy8IjhEeGllIuu_i41WA" name="checkout">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_VTh80IjhEeGllIuu_i41WA" name="checkout.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+        </ownedElements>
+      </ownedElements>
+      <ownedElements xsi:type="cinematic-view:ViewContainer" xmi:id="_hwJe4IrsEeGWvox4N_yxtg" name="viewContainer4">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
+      </ownedElements>
+    </viewContainers>
+    <viewContainers xmi:id="_XBIcMIjjEeGllIuu_i41WA" name="CreateAccount">
       <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
-    </ownedElements>
-  </viewContainers>
-  <viewContainers xmi:id="_XBIcMIjjEeGllIuu_i41WA" name="CreateAccount">
-    <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
-    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Af6ckYjkEeGOp5IdJE0AIw" name="email" required="true">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_FAJGgIjkEeGOp5IdJE0AIw" name="password" required="true">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHvs4jeEeGIXsoZxTXHQA"/>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_HUXL4IjkEeGOp5IdJE0AIw" name="name" label="" required="true">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_MCDqEIjkEeGOp5IdJE0AIw" name="validate">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
-      <events xmi:id="_PeD24IjkEeGOp5IdJE0AIw" name="validate.onClick">
-        <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
-      </events>
-    </ownedElements>
-    <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Nuc6cIjkEeGOp5IdJE0AIw" name="cancel">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
-      <events xmi:id="_RN5c0IjkEeGOp5IdJE0AIw" name="cancel.onClick">
-        <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
-      </events>
-    </ownedElements>
-  </viewContainers>
-  <subPackages xmi:id="_4zM9oIjlEeGOp5IdJE0AIw" name="Checkout">
-    <flows xmi:id="_yYt1MIjfEeGIXsoZxTXHQA" name="Checkout">
-      <states xsi:type="cinematic-flow:InitialState" xmi:id="_15yIMIjfEeGIXsoZxTXHQA" name="Initial"/>
-      <states xsi:type="cinematic-flow:DecisionState" xmi:id="_m9uw4IjlEeGOp5IdJE0AIw" name="Decision"/>
-      <states xsi:type="cinematic-flow:ViewState" xmi:id="_qNvJEIjlEeGOp5IdJE0AIw" name="Login Page" viewContainers="_kKmsgIjmEeGOp5IdJE0AIw"/>
-      <states xsi:type="cinematic-flow:ViewState" xmi:id="_yW_vMIjlEeGOp5IdJE0AIw" name="Payment Page" viewContainers="_mcNiwIjmEeGOp5IdJE0AIw"/>
-      <states xsi:type="cinematic-flow:ActionState" xmi:id="_xBuI4IjmEeGOp5IdJE0AIw" name="do login"/>
-      <states xsi:type="cinematic-flow:SubflowState" xmi:id="_R5JR4YjnEeGOp5IdJE0AIw" subflow="_R5JR4IjnEeGOp5IdJE0AIw"/>
-      <states xsi:type="cinematic-flow:ActionState" xmi:id="_nDWwYIjoEeGJh95Ab8olLw" name="Send email"/>
-      <states xsi:type="cinematic-flow:FinalState" xmi:id="_tBnekIjoEeGJh95Ab8olLw" name="Final"/>
-      <states xsi:type="cinematic-flow:FinalState" xmi:id="_LKz00IjrEeG7p-MOgK2yMQ" name="Final"/>
-      <transitions xmi:id="_oz5BQIjlEeGOp5IdJE0AIw" from="_15yIMIjfEeGIXsoZxTXHQA" to="_m9uw4IjlEeGOp5IdJE0AIw"/>
-      <transitions xmi:id="_rui0gIjlEeGOp5IdJE0AIw" guard="userConnected = true" from="_m9uw4IjlEeGOp5IdJE0AIw" to="_yW_vMIjlEeGOp5IdJE0AIw"/>
-      <transitions xmi:id="_qRBRIIjmEeGOp5IdJE0AIw" guard="userConnected = false" from="_m9uw4IjlEeGOp5IdJE0AIw" to="_qNvJEIjlEeGOp5IdJE0AIw"/>
-      <transitions xmi:id="_y5aDQIjmEeGOp5IdJE0AIw" from="_xBuI4IjmEeGOp5IdJE0AIw" to="_m9uw4IjlEeGOp5IdJE0AIw"/>
-      <transitions xmi:id="_z9Pe0IjmEeGOp5IdJE0AIw" from="_qNvJEIjlEeGOp5IdJE0AIw" to="_xBuI4IjmEeGOp5IdJE0AIw" on="_6fayYIjmEeGOp5IdJE0AIw"/>
-      <transitions xmi:id="_fWYTEIjnEeGOp5IdJE0AIw" from="_yW_vMIjlEeGOp5IdJE0AIw" to="_R5JR4YjnEeGOp5IdJE0AIw" on="_gE6NAIjnEeGOp5IdJE0AIw"/>
-      <transitions xmi:id="_nq1AEIjoEeGJh95Ab8olLw" from="_qNvJEIjlEeGOp5IdJE0AIw" to="_nDWwYIjoEeGJh95Ab8olLw" on="_h4AF0IjoEeGJh95Ab8olLw"/>
-      <transitions xmi:id="_pMmU0IjoEeGJh95Ab8olLw" from="_nDWwYIjoEeGJh95Ab8olLw" to="_qNvJEIjlEeGOp5IdJE0AIw"/>
-      <transitions xmi:id="_uWUAoIjoEeGJh95Ab8olLw" from="_qNvJEIjlEeGOp5IdJE0AIw" to="_tBnekIjoEeGJh95Ab8olLw" on="_SRlKkIjoEeGJh95Ab8olLw"/>
-      <transitions xmi:id="_Lt4ssIjrEeG7p-MOgK2yMQ" from="_yW_vMIjlEeGOp5IdJE0AIw" to="_LKz00IjrEeG7p-MOgK2yMQ" on="_HKrnQIjrEeG7p-MOgK2yMQ"/>
-      <events xmi:id="_6fayYIjmEeGOp5IdJE0AIw" name="login" binds="_QAQoMIjoEeGJh95Ab8olLw"/>
-      <events xmi:id="_gE6NAIjnEeGOp5IdJE0AIw" name="validatePayment" binds="__WaZsIjqEeG7p-MOgK2yMQ"/>
-      <events xmi:id="_h4AF0IjoEeGJh95Ab8olLw" name="forgotPassword" binds="_bLzTkIjoEeGJh95Ab8olLw"/>
-      <events xmi:id="_HKrnQIjrEeG7p-MOgK2yMQ" name="cancelPayment" binds="___ek0IjqEeG7p-MOgK2yMQ"/>
-    </flows>
-    <flows xmi:id="_R5JR4IjnEeGOp5IdJE0AIw" name="Payment on partner site"/>
-    <viewContainers xmi:id="_kKmsgIjmEeGOp5IdJE0AIw" name="Login">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_5_h78IjnEeGrE9Ykd6PeHg" name="email" required="true">
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Af6ckYjkEeGOp5IdJE0AIw" name="email" required="true">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
       </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_8MAakIjnEeGrE9Ykd6PeHg" name="password" required="true">
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_FAJGgIjkEeGOp5IdJE0AIw" name="password" required="true">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHvs4jeEeGIXsoZxTXHQA"/>
       </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Lwh4YYjoEeGJh95Ab8olLw" name="validate">
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_HUXL4IjkEeGOp5IdJE0AIw" name="name" label="" required="true">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+      </ownedElements>
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_MCDqEIjkEeGOp5IdJE0AIw" name="validate">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
-        <events xmi:id="_QAQoMIjoEeGJh95Ab8olLw" name="validate.onClick">
+        <events xmi:id="_PeD24IjkEeGOp5IdJE0AIw" name="validate.onClick">
           <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
         </events>
       </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Oln2MIjoEeGJh95Ab8olLw" name="cancel">
+      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Nuc6cIjkEeGOp5IdJE0AIw" name="cancel">
         <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
-        <events xmi:id="_SRlKkIjoEeGJh95Ab8olLw" name="cancel.onClick">
-          <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
-        </events>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_ZJvVMIjoEeGJh95Ab8olLw" name="forgotPassword">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvrIjeEeGIXsoZxTXHQA"/>
-        <events xmi:id="_bLzTkIjoEeGJh95Ab8olLw" name="forgotPassword.onClick">
-          <type href="pathmap://cinematic/toolkits/Web#_tGHvrYjeEeGIXsoZxTXHQA"/>
-        </events>
-      </ownedElements>
-    </viewContainers>
-    <viewContainers xmi:id="_mcNiwIjmEeGOp5IdJE0AIw" name="PaymentForm">
-      <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_CuKDgIjpEeGJh95Ab8olLw" name="cardNumber" required="true">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_gS9vwIjqEeGWea74mgZL3g" name="endDate" required="true">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_jkCe8IjqEeGWea74mgZL3g" name="validationDate" required="true">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_mpXRIIjqEeGWea74mgZL3g" name="validate">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
-        <events xmi:id="__WaZsIjqEeG7p-MOgK2yMQ" name="validate.onClick">
-          <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
-        </events>
-      </ownedElements>
-      <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_97xAoYjqEeG7p-MOgK2yMQ" name="cancel">
-        <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
-        <events xmi:id="___ek0IjqEeG7p-MOgK2yMQ" name="cancel.onClick">
+        <events xmi:id="_RN5c0IjkEeGOp5IdJE0AIw" name="cancel.onClick">
           <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
         </events>
       </ownedElements>
     </viewContainers>
-  </subPackages>
-  <toolkits href="pathmap://cinematic/toolkits/Web#_prv6gIjeEeGIXsoZxTXHQA"/>
-</cinematic:CinematicRoot>
+    <subPackages xmi:id="_4zM9oIjlEeGOp5IdJE0AIw" name="Checkout">
+      <flows xmi:id="_yYt1MIjfEeGIXsoZxTXHQA" name="Checkout">
+        <states xsi:type="cinematic-flow:InitialState" xmi:id="_15yIMIjfEeGIXsoZxTXHQA" name="Initial"/>
+        <states xsi:type="cinematic-flow:DecisionState" xmi:id="_m9uw4IjlEeGOp5IdJE0AIw" name="Decision"/>
+        <states xsi:type="cinematic-flow:ViewState" xmi:id="_qNvJEIjlEeGOp5IdJE0AIw" name="Login Page" viewContainers="_kKmsgIjmEeGOp5IdJE0AIw"/>
+        <states xsi:type="cinematic-flow:ViewState" xmi:id="_yW_vMIjlEeGOp5IdJE0AIw" name="Payment Page" viewContainers="_mcNiwIjmEeGOp5IdJE0AIw"/>
+        <states xsi:type="cinematic-flow:ActionState" xmi:id="_xBuI4IjmEeGOp5IdJE0AIw" name="do login"/>
+        <states xsi:type="cinematic-flow:SubflowState" xmi:id="_R5JR4YjnEeGOp5IdJE0AIw" subflow="_R5JR4IjnEeGOp5IdJE0AIw"/>
+        <states xsi:type="cinematic-flow:ActionState" xmi:id="_nDWwYIjoEeGJh95Ab8olLw" name="Send email"/>
+        <states xsi:type="cinematic-flow:FinalState" xmi:id="_tBnekIjoEeGJh95Ab8olLw" name="Final"/>
+        <states xsi:type="cinematic-flow:FinalState" xmi:id="_LKz00IjrEeG7p-MOgK2yMQ" name="Final"/>
+        <transitions xmi:id="_oz5BQIjlEeGOp5IdJE0AIw" from="_15yIMIjfEeGIXsoZxTXHQA" to="_m9uw4IjlEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_rui0gIjlEeGOp5IdJE0AIw" guard="userConnected = true" from="_m9uw4IjlEeGOp5IdJE0AIw" to="_yW_vMIjlEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_qRBRIIjmEeGOp5IdJE0AIw" guard="userConnected = false" from="_m9uw4IjlEeGOp5IdJE0AIw" to="_qNvJEIjlEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_y5aDQIjmEeGOp5IdJE0AIw" from="_xBuI4IjmEeGOp5IdJE0AIw" to="_m9uw4IjlEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_z9Pe0IjmEeGOp5IdJE0AIw" from="_qNvJEIjlEeGOp5IdJE0AIw" to="_xBuI4IjmEeGOp5IdJE0AIw" on="_6fayYIjmEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_fWYTEIjnEeGOp5IdJE0AIw" from="_yW_vMIjlEeGOp5IdJE0AIw" to="_R5JR4YjnEeGOp5IdJE0AIw" on="_gE6NAIjnEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_nq1AEIjoEeGJh95Ab8olLw" from="_qNvJEIjlEeGOp5IdJE0AIw" to="_nDWwYIjoEeGJh95Ab8olLw" on="_h4AF0IjoEeGJh95Ab8olLw"/>
+        <transitions xmi:id="_pMmU0IjoEeGJh95Ab8olLw" from="_nDWwYIjoEeGJh95Ab8olLw" to="_qNvJEIjlEeGOp5IdJE0AIw"/>
+        <transitions xmi:id="_uWUAoIjoEeGJh95Ab8olLw" from="_qNvJEIjlEeGOp5IdJE0AIw" to="_tBnekIjoEeGJh95Ab8olLw" on="_SRlKkIjoEeGJh95Ab8olLw"/>
+        <transitions xmi:id="_Lt4ssIjrEeG7p-MOgK2yMQ" from="_yW_vMIjlEeGOp5IdJE0AIw" to="_LKz00IjrEeG7p-MOgK2yMQ" on="_HKrnQIjrEeG7p-MOgK2yMQ"/>
+        <events xmi:id="_6fayYIjmEeGOp5IdJE0AIw" name="login" binds="_QAQoMIjoEeGJh95Ab8olLw"/>
+        <events xmi:id="_gE6NAIjnEeGOp5IdJE0AIw" name="validatePayment" binds="__WaZsIjqEeG7p-MOgK2yMQ"/>
+        <events xmi:id="_h4AF0IjoEeGJh95Ab8olLw" name="forgotPassword" binds="_bLzTkIjoEeGJh95Ab8olLw"/>
+        <events xmi:id="_HKrnQIjrEeG7p-MOgK2yMQ" name="cancelPayment" binds="___ek0IjqEeG7p-MOgK2yMQ"/>
+      </flows>
+      <flows xmi:id="_R5JR4IjnEeGOp5IdJE0AIw" name="Payment on partner site"/>
+      <viewContainers xmi:id="_kKmsgIjmEeGOp5IdJE0AIw" name="Login">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_5_h78IjnEeGrE9Ykd6PeHg" name="email" required="true">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_8MAakIjnEeGrE9Ykd6PeHg" name="password" required="true">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvs4jeEeGIXsoZxTXHQA"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Lwh4YYjoEeGJh95Ab8olLw" name="validate">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_QAQoMIjoEeGJh95Ab8olLw" name="validate.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_Oln2MIjoEeGJh95Ab8olLw" name="cancel">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_SRlKkIjoEeGJh95Ab8olLw" name="cancel.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_ZJvVMIjoEeGJh95Ab8olLw" name="forgotPassword">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvrIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="_bLzTkIjoEeGJh95Ab8olLw" name="forgotPassword.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHvrYjeEeGIXsoZxTXHQA"/>
+          </events>
+        </ownedElements>
+      </viewContainers>
+      <viewContainers xmi:id="_mcNiwIjmEeGOp5IdJE0AIw" name="PaymentForm">
+        <widget href="pathmap://cinematic/toolkits/Web#_tGHvxYjeEeGIXsoZxTXHQA"/>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_CuKDgIjpEeGJh95Ab8olLw" name="cardNumber" required="true">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_gS9vwIjqEeGWea74mgZL3g" name="endDate" required="true">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_jkCe8IjqEeGWea74mgZL3g" name="validationDate" required="true">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHvvYjeEeGIXsoZxTXHQA"/>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_mpXRIIjqEeGWea74mgZL3g" name="validate">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="__WaZsIjqEeG7p-MOgK2yMQ" name="validate.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+        </ownedElements>
+        <ownedElements xsi:type="cinematic-view:ViewElement" xmi:id="_97xAoYjqEeG7p-MOgK2yMQ" name="cancel">
+          <widget href="pathmap://cinematic/toolkits/Web#_tGHIkIjeEeGIXsoZxTXHQA"/>
+          <events xmi:id="___ek0IjqEeG7p-MOgK2yMQ" name="cancel.onClick">
+            <type href="pathmap://cinematic/toolkits/Web#_tGHIkYjeEeGIXsoZxTXHQA"/>
+          </events>
+        </ownedElements>
+      </viewContainers>
+    </subPackages>
+    <toolkits href="pathmap://cinematic/toolkits/Web#_prv6gIjeEeGIXsoZxTXHQA"/>
+  </cinematic:CinematicRoot>
+  <oenv:BindingRegistry xmi:id="_olXdMB_GEeW_TuSj9xLcNQ"/>
+</xmi:XMI>
