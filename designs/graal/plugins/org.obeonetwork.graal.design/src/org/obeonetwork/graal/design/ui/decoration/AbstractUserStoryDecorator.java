@@ -271,10 +271,13 @@ public abstract class AbstractUserStoryDecorator extends AbstractDecorator {
 	private static DAnalysis getAnalysis(IDiagramElementEditPart diagramEditPart) {
 		EObject viewpointNode = diagramEditPart.resolveSemanticElement();
 //		EObject container = EcoreUtil.getRootContainer(viewpointNode);
-		Session session = (new EObjectQuery(viewpointNode)).getSession();
+		EObject target = ((DDiagramElement )viewpointNode).getTarget();
+		if(target!=null){
+		Session session = (new EObjectQuery(target)).getSession();
 		EObject analysisEObject = session.getSessionResource().getContents().get(0);
 		if (analysisEObject instanceof DAnalysis) {
 			return (DAnalysis)analysisEObject;
+		}
 		}
 //		if (container != null && container instanceof DAnalysis) {
 //			return (DAnalysis)container;
