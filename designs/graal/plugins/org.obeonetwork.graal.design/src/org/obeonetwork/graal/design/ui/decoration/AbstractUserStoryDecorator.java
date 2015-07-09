@@ -20,6 +20,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.AbstractDecorator;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.swt.graphics.Color;
@@ -37,6 +38,7 @@ import fr.obeo.dsl.viewpoint.DDiagramElement;
 import fr.obeo.dsl.viewpoint.DDiagramElementContainer;
 import fr.obeo.dsl.viewpoint.DEdge;
 import fr.obeo.dsl.viewpoint.DNode;
+import fr.obeo.dsl.viewpoint.DSemanticDecorator;
 import fr.obeo.dsl.viewpoint.EdgeTarget;
 import fr.obeo.dsl.viewpoint.business.api.query.EObjectQuery;
 import fr.obeo.dsl.viewpoint.business.api.session.Session;
@@ -270,18 +272,33 @@ public abstract class AbstractUserStoryDecorator extends AbstractDecorator {
 	 */
 	private static DAnalysis getAnalysis(IDiagramElementEditPart diagramEditPart) {
 		EObject viewpointNode = diagramEditPart.resolveSemanticElement();
-//		EObject container = EcoreUtil.getRootContainer(viewpointNode);
-		EObject target = ((DDiagramElement )viewpointNode).getTarget();
-		if(target!=null){
-		Session session = (new EObjectQuery(target)).getSession();
-		EObject analysisEObject = session.getSessionResource().getContents().get(0);
-		if (analysisEObject instanceof DAnalysis) {
-			return (DAnalysis)analysisEObject;
+		// if there is no GMF semantic element, we won't be able to retrieve a DAnalysis
+		if (viewpointNode != null) {
+			Session session = null;
+			// First, try to retrieve the session using the sirius semantic element
+			if (viewpointNode instanceof DSemanticDecorator) {
+				EObject semanticElement = ((DSemanticDecorator) viewpointNode).getTarget();
+				if (semanticElement != null) {
+					session = new EObjectQuery(semanticElement).getSession();
+				}
+			}
+			// If it didn't work, let's try using the sirius graphical element
+			if (session == null) {
+				session = new EObjectQuery(viewpointNode).getSession();
+			}
+			// If we were able to retrieve a session, let's get the root DAnalysis
+			if (session != null) {
+				EObject analysisEObject = session.getSessionResource().getContents().get(0);
+				if (analysisEObject instanceof DAnalysis) {
+					return (DAnalysis)analysisEObject;
+				}
+			}
+			// Nothing worked, let's check if the EMF root element is a DAnalysis
+			EObject container = EcoreUtil.getRootContainer(viewpointNode);
+			if (container != null && container instanceof DAnalysis) {
+				return (DAnalysis)container;
+			}
 		}
-		}
-//		if (container != null && container instanceof DAnalysis) {
-//			return (DAnalysis)container;
-//		}
 		return null;
 	}
 	
