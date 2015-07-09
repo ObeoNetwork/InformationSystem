@@ -20,8 +20,19 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.AbstractDecorator;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.DDiagramElementContainer;
+import org.eclipse.sirius.diagram.DEdge;
+import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.EdgeTarget;
+import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
+import org.eclipse.sirius.viewpoint.DAnalysis;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Display;
 import org.obeonetwork.graal.GraalObject;
@@ -31,16 +42,6 @@ import org.obeonetwork.graal.UserStory;
 import org.obeonetwork.graal.design.graalfeatureextensions.GraalfeatureextensionsPackage;
 import org.obeonetwork.graal.design.graalfeatureextensions.UIConfiguration;
 import org.obeonetwork.graal.design.services.configuration.UIConfigurationServices;
-
-import org.eclipse.sirius.viewpoint.DAnalysis;
-import org.eclipse.sirius.diagram.DDiagramElement;
-import org.eclipse.sirius.diagram.DDiagramElementContainer;
-import org.eclipse.sirius.diagram.DEdge;
-import org.eclipse.sirius.diagram.DNode;
-import org.eclipse.sirius.diagram.EdgeTarget;
-import org.eclipse.sirius.business.api.query.EObjectQuery;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 
 /**
  * User story decorators' superclass
@@ -270,15 +271,33 @@ public abstract class AbstractUserStoryDecorator extends AbstractDecorator {
 	 */
 	private static DAnalysis getAnalysis(IDiagramElementEditPart diagramEditPart) {
 		EObject viewpointNode = diagramEditPart.resolveSemanticElement();
-//		EObject container = EcoreUtil.getRootContainer(viewpointNode);
-		Session session = (new EObjectQuery(viewpointNode)).getSession();
-		EObject analysisEObject = session.getSessionResource().getContents().get(0);
-		if (analysisEObject instanceof DAnalysis) {
-			return (DAnalysis)analysisEObject;
+		// if there is no GMF semantic element, we won't be able to retrieve a DAnalysis
+		if (viewpointNode != null) {
+			Session session = null;
+			// First, try to retrieve the session using the sirius semantic element
+			if (viewpointNode instanceof DSemanticDecorator) {
+				EObject semanticElement = ((DSemanticDecorator) viewpointNode).getTarget();
+				if (semanticElement != null) {
+					session = new EObjectQuery(semanticElement).getSession();
+				}
+			}
+			// If it didn't work, let's try using the sirius graphical element
+			if (session == null) {
+				session = new EObjectQuery(viewpointNode).getSession();
+			}
+			// If we were able to retrieve a session, let's get the root DAnalysis
+			if (session != null) {
+				EObject analysisEObject = session.getSessionResource().getContents().get(0);
+				if (analysisEObject instanceof DAnalysis) {
+					return (DAnalysis)analysisEObject;
+				}
+			}
+			// Nothing worked, let's check if the EMF root element is a DAnalysis
+			EObject container = EcoreUtil.getRootContainer(viewpointNode);
+			if (container != null && container instanceof DAnalysis) {
+				return (DAnalysis)container;
+			}
 		}
-//		if (container != null && container instanceof DAnalysis) {
-//			return (DAnalysis)container;
-//		}
 		return null;
 	}
 	
