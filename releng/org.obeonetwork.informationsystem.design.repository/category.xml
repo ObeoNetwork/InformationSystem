@@ -57,9 +57,6 @@
    <feature url="features/org.eclipse.nebula.treemapper.feature_0.1.0.qualifier.jar" id="org.eclipse.nebula.treemapper.feature" version="0.1.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.entityrelation.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.entityrelation.feature" version="1.0.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.models"/>
-   </feature>
    <feature url="features/org.obeonetwork.dsl.typelibrary.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.typelibrary.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
