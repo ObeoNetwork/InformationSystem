@@ -54,16 +54,10 @@
    <feature url="features/org.eclipse.nebula.treemapper.feature_0.1.0.qualifier.jar" id="org.eclipse.nebula.treemapper.feature" version="0.1.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.entityrelation.feature_4.0.0.qualifier.jar" id="org.obeonetwork.dsl.entityrelation.feature" version="4.0.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.models"/>
-   </feature>
    <feature url="features/org.obeonetwork.dsl.typelibrary.feature_4.0.0.qualifier.jar" id="org.obeonetwork.dsl.typelibrary.feature" version="4.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
    <feature url="features/org.obeonetwork.dsl.database.design.feature_4.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.design.feature" version="4.0.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.designs"/>
-   </feature>
-   <feature url="features/org.obeonetwork.dsl.entityrelation.design.feature_4.0.0.qualifier.jar" id="org.obeonetwork.dsl.entityrelation.design.feature" version="4.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
    <feature url="features/org.obeonetwork.dsl.feature.is_4.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.is" version="4.0.0.qualifier">
