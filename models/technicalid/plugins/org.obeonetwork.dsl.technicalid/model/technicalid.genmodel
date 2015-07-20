@@ -10,7 +10,7 @@
   <genPackages prefix="TechnicalID" basePackage="org.obeonetwork.dsl" resource="XMI"
       disposableProviderFactory="true" fileExtensions="technicalid" ecorePackage="technicalid.ecore#/">
     <genClasses ecoreClass="technicalid.ecore#//Identifiable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute technicalid.ecore#//Identifiable/technicalid"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute technicalid.ecore#//Identifiable/technicalid"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
