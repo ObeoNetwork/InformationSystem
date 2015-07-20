@@ -6,6 +6,7 @@ import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.ForeignKeyElement;
 import org.obeonetwork.dsl.database.Table;
+import org.obeonetwork.dsl.technicalid.util.CopierUtils;
 
 public class DatabaseServices {
 	public ForeignKey createForeignKey(Table source, Table target) {
@@ -43,7 +44,7 @@ public class DatabaseServices {
 		Column newColumn = DatabaseFactory.eINSTANCE.createColumn();
 		table.getColumns().add(newColumn);
 		newColumn.setName(referenceColumn.getName());
-		newColumn.setType(EcoreUtil.copy(referenceColumn.getType()));
+		newColumn.setType(CopierUtils.copy(referenceColumn.getType()));
 		return newColumn;
 	}
 }

@@ -11,7 +11,7 @@
 <plugin>
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://www.obeonetwork.org/dsl/overview/2.0.0" 
+       uri = "http://www.obeonetwork.org/dsl/technicalid/2.0.0" 
        class = "org.obeonetwork.dsl.technicalid.TechnicalIDPackage"
        genModel = "model/technicalid.genmodel" /> 
   </extension>
