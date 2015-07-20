@@ -19,7 +19,13 @@
 		*********************************************************************************************
 		* Models
 		*********************************************************************************************
-		-->
+		-->	
+		<!-- models/technicalid/ -->
+		<module>../../../models/technicalid/plugins/org.obeonetwork.dsl.technicalid</module>
+		<module>../../../models/technicalid/plugins/org.obeonetwork.dsl.technicalid.edit</module>
+		
+		<module>../../../models/technicalid/features/org.obeonetwork.dsl.feature.technicalid</module>
+		
 		<!-- models/environment/ -->
 		<module>../../../models/environment/plugins/org.obeonetwork.dsl.environment</module>
 		<module>../../../models/environment/plugins/org.obeonetwork.dsl.environment.edit</module>
