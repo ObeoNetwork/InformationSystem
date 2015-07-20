@@ -29,6 +29,7 @@ import org.obeonetwork.dsl.environment.BindingRegistry;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 import org.obeonetwork.dsl.environment.util.EnvironmentUtil;
 
 /**
@@ -51,7 +52,7 @@ import org.obeonetwork.dsl.environment.util.EnvironmentUtil;
  *
  * @generated
  */
-public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
+public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements
 		ObeoDSMObject {
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,8 +127,10 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 						Date currentDate = new Date();
 						if (msg != null
 								&& msg.getFeature() != null
-								&& !msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON)
-								&& !msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON)) {
+								&& !msg.getFeature()
+										.equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON)
+								&& !msg.getFeature()
+										.equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON)) {
 							switch (msg.getEventType()) {
 							case Notification.MOVE:
 							case Notification.SET:
@@ -170,16 +173,6 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	@Override
 	protected EClass eStaticClass() {
 		return EnvironmentPackage.Literals.OBEO_DSM_OBJECT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

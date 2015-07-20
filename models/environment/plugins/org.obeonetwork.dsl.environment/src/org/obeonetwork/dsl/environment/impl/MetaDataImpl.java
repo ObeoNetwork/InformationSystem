@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaData;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +27,7 @@ import org.obeonetwork.dsl.environment.MetaData;
  *
  * @generated
  */
-public abstract class MetaDataImpl extends CDOObjectImpl implements MetaData {
+public abstract class MetaDataImpl extends IdentifiableImpl implements MetaData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -51,16 +52,6 @@ public abstract class MetaDataImpl extends CDOObjectImpl implements MetaData {
 	@Override
 	protected EClass eStaticClass() {
 		return EnvironmentPackage.Literals.META_DATA;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 } //MetaDataImpl

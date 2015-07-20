@@ -10,6 +10,7 @@
  */
 package org.obeonetwork.dsl.environment;
 
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.eclipse.emf.cdo.CDOObject;
 
 /**
@@ -20,10 +21,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBoundableElement()
  * @model interface="true" abstract="true"
- * @extends CDOObject
  * @generated
  */
-public interface BoundableElement extends CDOObject {
+public interface BoundableElement extends Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

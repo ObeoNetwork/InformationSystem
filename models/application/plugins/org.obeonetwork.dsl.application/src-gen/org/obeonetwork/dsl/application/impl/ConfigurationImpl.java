@@ -32,6 +32,7 @@ import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.ecorebinding.BModel;
 
 import org.obeonetwork.dsl.environment.BindingRegistry;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +50,8 @@ import org.obeonetwork.dsl.environment.BindingRegistry;
  *
  * @generated
  */
-public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
+public class ConfigurationImpl extends IdentifiableImpl implements
+		Configuration {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,16 +69,6 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	@Override
 	protected EClass eStaticClass() {
 		return ApplicationPackage.Literals.CONFIGURATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

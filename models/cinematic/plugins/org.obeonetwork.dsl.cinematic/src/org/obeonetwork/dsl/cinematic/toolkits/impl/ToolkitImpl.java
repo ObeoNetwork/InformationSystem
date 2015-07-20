@@ -21,6 +21,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +37,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.Widget;
  *
  * @generated
  */
-public class ToolkitImpl extends CDOObjectImpl implements Toolkit {
+public class ToolkitImpl extends IdentifiableImpl implements Toolkit {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -64,16 +65,6 @@ public class ToolkitImpl extends CDOObjectImpl implements Toolkit {
 	@Override
 	protected EClass eStaticClass() {
 		return ToolkitsPackage.Literals.TOOLKIT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,13 +120,22 @@ public interface TypesLibraryPackage extends EPackage {
 	int NATIVE_TYPES_LIBRARY__KIND = TYPES_LIBRARY__KIND;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_TYPES_LIBRARY__TECHNICALID = TYPES_LIBRARY_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NATIVE_TYPES_LIBRARY__NAME = TYPES_LIBRARY_FEATURE_COUNT + 0;
+	int NATIVE_TYPES_LIBRARY__NAME = TYPES_LIBRARY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Native Types</b></em>' containment reference list.
@@ -134,7 +144,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NATIVE_TYPES_LIBRARY__NATIVE_TYPES = TYPES_LIBRARY_FEATURE_COUNT + 1;
+	int NATIVE_TYPES_LIBRARY__NATIVE_TYPES = TYPES_LIBRARY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Native Types Library</em>' class.
@@ -143,7 +153,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NATIVE_TYPES_LIBRARY_FEATURE_COUNT = TYPES_LIBRARY_FEATURE_COUNT + 2;
+	int NATIVE_TYPES_LIBRARY_FEATURE_COUNT = TYPES_LIBRARY_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.typeslibrary.impl.TypeImpl <em>Type</em>}' class.
@@ -175,13 +185,22 @@ public interface TypesLibraryPackage extends EPackage {
 	int TYPE_INSTANCE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_INSTANCE__TECHNICALID = TYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Native Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_INSTANCE__NATIVE_TYPE = TYPE_FEATURE_COUNT + 0;
+	int TYPE_INSTANCE__NATIVE_TYPE = TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Length</b></em>' attribute.
@@ -190,7 +209,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_INSTANCE__LENGTH = TYPE_FEATURE_COUNT + 1;
+	int TYPE_INSTANCE__LENGTH = TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Precision</b></em>' attribute.
@@ -199,7 +218,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_INSTANCE__PRECISION = TYPE_FEATURE_COUNT + 2;
+	int TYPE_INSTANCE__PRECISION = TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Literals</b></em>' attribute list.
@@ -208,7 +227,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_INSTANCE__LITERALS = TYPE_FEATURE_COUNT + 3;
+	int TYPE_INSTANCE__LITERALS = TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Type Instance</em>' class.
@@ -217,7 +236,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_INSTANCE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 4;
+	int TYPE_INSTANCE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.typeslibrary.impl.NativeTypeImpl <em>Native Type</em>}' class.
@@ -230,13 +249,22 @@ public interface TypesLibraryPackage extends EPackage {
 	int NATIVE_TYPE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NATIVE_TYPE__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NATIVE_TYPE__NAME = 0;
+	int NATIVE_TYPE__NAME = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Spec</b></em>' attribute.
@@ -245,7 +273,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NATIVE_TYPE__SPEC = 1;
+	int NATIVE_TYPE__SPEC = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Maps To</b></em>' reference.
@@ -254,7 +282,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NATIVE_TYPE__MAPS_TO = 2;
+	int NATIVE_TYPE__MAPS_TO = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Native Type</em>' class.
@@ -263,7 +291,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NATIVE_TYPE_FEATURE_COUNT = 3;
+	int NATIVE_TYPE_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.typeslibrary.impl.UserDefinedTypeImpl <em>User Defined Type</em>}' class.
@@ -313,13 +341,22 @@ public interface TypesLibraryPackage extends EPackage {
 	int COMPLEX_NAMED_TYPE__NAME = USER_DEFINED_TYPE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NAMED_TYPE__TECHNICALID = USER_DEFINED_TYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NAMED_TYPE__TYPES = USER_DEFINED_TYPE_FEATURE_COUNT + 0;
+	int COMPLEX_NAMED_TYPE__TYPES = USER_DEFINED_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Complex Named Type</em>' class.
@@ -328,7 +365,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NAMED_TYPE_FEATURE_COUNT = USER_DEFINED_TYPE_FEATURE_COUNT + 1;
+	int COMPLEX_NAMED_TYPE_FEATURE_COUNT = USER_DEFINED_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.typeslibrary.impl.SimpleNamedTypeImpl <em>Simple Named Type</em>}' class.
@@ -350,13 +387,22 @@ public interface TypesLibraryPackage extends EPackage {
 	int SIMPLE_NAMED_TYPE__NAME = USER_DEFINED_TYPE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_NAMED_TYPE__TECHNICALID = USER_DEFINED_TYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_NAMED_TYPE__TYPE = USER_DEFINED_TYPE_FEATURE_COUNT + 0;
+	int SIMPLE_NAMED_TYPE__TYPE = USER_DEFINED_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Simple Named Type</em>' class.
@@ -365,7 +411,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_NAMED_TYPE_FEATURE_COUNT = USER_DEFINED_TYPE_FEATURE_COUNT + 1;
+	int SIMPLE_NAMED_TYPE_FEATURE_COUNT = USER_DEFINED_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.typeslibrary.impl.UserDefinedTypeRefImpl <em>User Defined Type Ref</em>}' class.
@@ -378,13 +424,22 @@ public interface TypesLibraryPackage extends EPackage {
 	int USER_DEFINED_TYPE_REF = 7;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_DEFINED_TYPE_REF__TECHNICALID = TYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_DEFINED_TYPE_REF__TYPE = TYPE_FEATURE_COUNT + 0;
+	int USER_DEFINED_TYPE_REF__TYPE = TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>User Defined Type Ref</em>' class.
@@ -393,7 +448,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER_DEFINED_TYPE_REF_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
+	int USER_DEFINED_TYPE_REF_FEATURE_COUNT = TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.typeslibrary.impl.UserDefinedTypesLibraryImpl <em>User Defined Types Library</em>}' class.
@@ -415,13 +470,22 @@ public interface TypesLibraryPackage extends EPackage {
 	int USER_DEFINED_TYPES_LIBRARY__KIND = TYPES_LIBRARY__KIND;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_DEFINED_TYPES_LIBRARY__TECHNICALID = TYPES_LIBRARY_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_DEFINED_TYPES_LIBRARY__NAME = TYPES_LIBRARY_FEATURE_COUNT + 0;
+	int USER_DEFINED_TYPES_LIBRARY__NAME = TYPES_LIBRARY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>User Defined Types</b></em>' containment reference list.
@@ -430,7 +494,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER_DEFINED_TYPES_LIBRARY__USER_DEFINED_TYPES = TYPES_LIBRARY_FEATURE_COUNT + 1;
+	int USER_DEFINED_TYPES_LIBRARY__USER_DEFINED_TYPES = TYPES_LIBRARY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>User Defined Types Library</em>' class.
@@ -439,7 +503,7 @@ public interface TypesLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER_DEFINED_TYPES_LIBRARY_FEATURE_COUNT = TYPES_LIBRARY_FEATURE_COUNT + 2;
+	int USER_DEFINED_TYPES_LIBRARY_FEATURE_COUNT = TYPES_LIBRARY_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.typeslibrary.impl.TypesLibraryUserImpl <em>User</em>}' class.

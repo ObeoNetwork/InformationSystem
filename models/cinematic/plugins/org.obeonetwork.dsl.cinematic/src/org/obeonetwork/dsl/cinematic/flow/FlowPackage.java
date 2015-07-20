@@ -75,6 +75,15 @@ public interface FlowPackage extends EPackage {
 	int FLOW = 0;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW__TECHNICALID = CinematicPackage.NAMED_ELEMENT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,6 +219,15 @@ public interface FlowPackage extends EPackage {
 	 * @generated
 	 */
 	int FLOW_STATE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_STATE__TECHNICALID = CinematicPackage.CINEMATIC_ELEMENT__TECHNICALID;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.flow.impl.ActionStateImpl <em>Action State</em>}' class.
@@ -382,6 +400,15 @@ public interface FlowPackage extends EPackage {
 	int FLOW_STATE_FEATURE_COUNT = CinematicPackage.CINEMATIC_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_FLOW_STATE__TECHNICALID = FLOW_STATE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -479,6 +506,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_FLOW_STATE_FEATURE_COUNT = FLOW_STATE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__TECHNICALID = CinematicPackage.NAMED_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -616,6 +652,15 @@ public interface FlowPackage extends EPackage {
 	int TRANSITION_FEATURE_COUNT = CinematicPackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_STATE__TECHNICALID = NAMED_FLOW_STATE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -713,6 +758,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_STATE_FEATURE_COUNT = NAMED_FLOW_STATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_STATE__TECHNICALID = NAMED_FLOW_STATE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -841,6 +895,15 @@ public interface FlowPackage extends EPackage {
 	int VIEW_STATE_FEATURE_COUNT = NAMED_FLOW_STATE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECISION_STATE__TECHNICALID = NAMED_FLOW_STATE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -938,6 +1001,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int DECISION_STATE_FEATURE_COUNT = NAMED_FLOW_STATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBFLOW_STATE__TECHNICALID = FLOW_STATE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1048,6 +1120,15 @@ public interface FlowPackage extends EPackage {
 	int SUBFLOW_STATE_FEATURE_COUNT = FLOW_STATE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASYNC_EVENT_STATE__TECHNICALID = NAMED_FLOW_STATE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1145,6 +1226,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int ASYNC_EVENT_STATE_FEATURE_COUNT = NAMED_FLOW_STATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIAL_STATE__TECHNICALID = NAMED_FLOW_STATE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1276,6 +1366,15 @@ public interface FlowPackage extends EPackage {
 	int ABORT_STATE = 9;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABORT_STATE__TECHNICALID = NAMED_FLOW_STATE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1375,6 +1474,15 @@ public interface FlowPackage extends EPackage {
 	int ABORT_STATE_FEATURE_COUNT = NAMED_FLOW_STATE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_STATE__TECHNICALID = NAMED_FLOW_STATE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1472,6 +1580,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int FINAL_STATE_FEATURE_COUNT = NAMED_FLOW_STATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_ACTION__TECHNICALID = CinematicPackage.NAMED_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1580,6 +1697,15 @@ public interface FlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int FLOW_ACTION_FEATURE_COUNT = CinematicPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_EVENT__TECHNICALID = CinematicPackage.EVENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.

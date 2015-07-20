@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.NamedElement;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,6 +104,10 @@ public class CinematicAdapterFactory extends AdapterFactoryImpl {
 				return createEventAdapter();
 			}
 			@Override
+			public Adapter caseIdentifiable(Identifiable object) {
+				return createIdentifiableAdapter();
+			}
+			@Override
 			public Adapter caseObeoDSMObject(ObeoDSMObject object) {
 				return createObeoDSMObjectAdapter();
 			}
@@ -179,6 +184,20 @@ public class CinematicAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.technicalid.Identifiable <em>Identifiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.technicalid.Identifiable
+	 * @generated
+	 */
+	public Adapter createIdentifiableAdapter() {
 		return null;
 	}
 

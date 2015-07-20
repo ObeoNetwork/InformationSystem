@@ -34,6 +34,7 @@ import org.obeonetwork.dsl.application.ApplicationPackage;
 import org.obeonetwork.dsl.application.Configuration;
 
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.application.Configuration} object.
@@ -41,8 +42,8 @@ import org.obeonetwork.dsl.environment.EnvironmentFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfigurationItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
+public class ConfigurationItemProvider extends IdentifiableItemProvider
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -191,7 +192,9 @@ public class ConfigurationItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Configuration_type");
+		String label = ((Configuration) object).getTechnicalid();
+		return label == null || label.length() == 0 ? getString("_UI_Configuration_type")
+				: getString("_UI_Configuration_type") + " " + label;
 	}
 
 	/**

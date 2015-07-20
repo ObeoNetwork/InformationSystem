@@ -10,6 +10,7 @@
  */
 package org.obeonetwork.dsl.cinematic.toolkits;
 
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.eclipse.emf.cdo.CDOObject;
 
 /**
@@ -26,10 +27,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidgetEventType()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface WidgetEventType extends CDOObject {
+public interface WidgetEventType extends Identifiable {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

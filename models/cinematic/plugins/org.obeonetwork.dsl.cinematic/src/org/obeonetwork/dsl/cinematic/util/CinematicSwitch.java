@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.NamedElement;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -100,6 +101,7 @@ public class CinematicSwitch<T> {
 				CinematicElement cinematicElement = (CinematicElement)theEObject;
 				T result = caseCinematicElement(cinematicElement);
 				if (result == null) result = caseObeoDSMObject(cinematicElement);
+				if (result == null) result = caseIdentifiable(cinematicElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -108,6 +110,7 @@ public class CinematicSwitch<T> {
 				T result = caseNamedElement(namedElement);
 				if (result == null) result = caseCinematicElement(namedElement);
 				if (result == null) result = caseObeoDSMObject(namedElement);
+				if (result == null) result = caseIdentifiable(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -117,6 +120,7 @@ public class CinematicSwitch<T> {
 				if (result == null) result = caseNamedElement(abstractPackage);
 				if (result == null) result = caseCinematicElement(abstractPackage);
 				if (result == null) result = caseObeoDSMObject(abstractPackage);
+				if (result == null) result = caseIdentifiable(abstractPackage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,6 +131,7 @@ public class CinematicSwitch<T> {
 				if (result == null) result = caseNamedElement(package_);
 				if (result == null) result = caseCinematicElement(package_);
 				if (result == null) result = caseObeoDSMObject(package_);
+				if (result == null) result = caseIdentifiable(package_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,6 +142,7 @@ public class CinematicSwitch<T> {
 				if (result == null) result = caseNamedElement(cinematicRoot);
 				if (result == null) result = caseCinematicElement(cinematicRoot);
 				if (result == null) result = caseObeoDSMObject(cinematicRoot);
+				if (result == null) result = caseIdentifiable(cinematicRoot);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -146,6 +152,7 @@ public class CinematicSwitch<T> {
 				if (result == null) result = caseNamedElement(event);
 				if (result == null) result = caseCinematicElement(event);
 				if (result == null) result = caseObeoDSMObject(event);
+				if (result == null) result = caseIdentifiable(event);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -210,6 +217,21 @@ public class CinematicSwitch<T> {
 	 * @generated
 	 */
 	public T caseEvent(Event object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

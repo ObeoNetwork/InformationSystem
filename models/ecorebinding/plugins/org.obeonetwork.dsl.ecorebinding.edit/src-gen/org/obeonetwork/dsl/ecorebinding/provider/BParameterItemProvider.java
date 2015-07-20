@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.obeonetwork.dsl.ecorebinding.BParameter;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
 
 /**
@@ -104,7 +105,10 @@ public class BParameterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BParameter_type");
+		String label = ((BParameter)object).getTechnicalid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BParameter_type") :
+			getString("_UI_BParameter_type") + " " + label;
 	}
 
 	/**

@@ -16,10 +16,12 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.entity.extensionUtilities.*;
 import org.obeonetwork.dsl.entity.extensionUtilities.EntityFilter;
 import org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage;
 import org.obeonetwork.dsl.environment.Filter;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance
@@ -102,6 +104,7 @@ public class ExtensionUtilitiesSwitch<T> {
 				T result = caseEntityFilter(entityFilter);
 				if (result == null) result = caseFilter(entityFilter);
 				if (result == null) result = caseObeoDSMObject(entityFilter);
+				if (result == null) result = caseIdentifiable(entityFilter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,6 +122,21 @@ public class ExtensionUtilitiesSwitch<T> {
 	 * @generated
 	 */
 	public T caseEntityFilter(EntityFilter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

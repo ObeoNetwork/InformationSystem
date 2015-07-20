@@ -31,6 +31,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.requirement.NamedElement;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.requirement.NamedElement} object.
@@ -39,7 +40,7 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  * @generated
  */
 public class NamedElementItemProvider
-	extends ItemProviderAdapter
+	extends IdentifiableItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

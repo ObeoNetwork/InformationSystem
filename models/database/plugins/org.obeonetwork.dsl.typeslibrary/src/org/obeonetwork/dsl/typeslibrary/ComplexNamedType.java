@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.typeslibrary;
 
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ComplexNamedType extends UserDefinedType {
+public interface ComplexNamedType extends UserDefinedType, Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

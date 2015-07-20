@@ -16,6 +16,7 @@ import java.util.Date;
 
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,10 +39,9 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject()
  * @model abstract="true"
- * @extends CDOObject
  * @generated
  */
-public interface ObeoDSMObject extends CDOObject {
+public interface ObeoDSMObject extends Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

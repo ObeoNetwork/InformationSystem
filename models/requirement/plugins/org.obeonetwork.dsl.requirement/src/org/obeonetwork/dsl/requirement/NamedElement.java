@@ -12,6 +12,7 @@
  */
 package org.obeonetwork.dsl.requirement;
 
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
 
@@ -29,10 +30,9 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.obeonetwork.dsl.requirement.RequirementPackage#getNamedElement()
  * @model abstract="true"
- * @extends CDOObject
  * @generated
  */
-public interface NamedElement extends CDOObject {
+public interface NamedElement extends Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

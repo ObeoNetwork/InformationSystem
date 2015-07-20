@@ -11,6 +11,7 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**
  * This is the central singleton for the StateMachine edit plugin.
@@ -45,6 +46,7 @@ public final class StateMachineEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     EnvironmentEditPlugin.INSTANCE,
+		     TechnicalIDEditPlugin.INSTANCE,
 		   });
 	}
 

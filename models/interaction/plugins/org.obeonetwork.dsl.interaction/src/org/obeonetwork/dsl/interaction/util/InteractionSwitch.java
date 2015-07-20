@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Behaviour;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.interaction.*;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.dsl.interaction.CallMessage;
 import org.obeonetwork.dsl.interaction.CombinedFragment;
 import org.obeonetwork.dsl.interaction.CompoundEnd;
@@ -112,6 +114,7 @@ public class InteractionSwitch<T> {
 				NamedElement namedElement = (NamedElement)theEObject;
 				T result = caseNamedElement(namedElement);
 				if (result == null) result = caseObeoDSMObject(namedElement);
+				if (result == null) result = caseIdentifiable(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -121,6 +124,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseNamedElement(interaction);
 				if (result == null) result = caseBehaviour(interaction);
 				if (result == null) result = caseObeoDSMObject(interaction);
+				if (result == null) result = caseIdentifiable(interaction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,6 +133,7 @@ public class InteractionSwitch<T> {
 				T result = caseParticipant(participant);
 				if (result == null) result = caseNamedElement(participant);
 				if (result == null) result = caseObeoDSMObject(participant);
+				if (result == null) result = caseIdentifiable(participant);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,6 +143,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseInteractionFragment(message);
 				if (result == null) result = caseNamedElement(message);
 				if (result == null) result = caseObeoDSMObject(message);
+				if (result == null) result = caseIdentifiable(message);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -147,6 +153,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseInteractionFragment(execution);
 				if (result == null) result = caseNamedElement(execution);
 				if (result == null) result = caseObeoDSMObject(execution);
+				if (result == null) result = caseIdentifiable(execution);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,6 +164,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseInteractionFragment(createParticipantMessage);
 				if (result == null) result = caseNamedElement(createParticipantMessage);
 				if (result == null) result = caseObeoDSMObject(createParticipantMessage);
+				if (result == null) result = caseIdentifiable(createParticipantMessage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -167,6 +175,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseInteractionFragment(destroyParticipantMessage);
 				if (result == null) result = caseNamedElement(destroyParticipantMessage);
 				if (result == null) result = caseObeoDSMObject(destroyParticipantMessage);
+				if (result == null) result = caseIdentifiable(destroyParticipantMessage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -177,6 +186,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseInteractionFragment(returnMessage);
 				if (result == null) result = caseNamedElement(returnMessage);
 				if (result == null) result = caseObeoDSMObject(returnMessage);
+				if (result == null) result = caseIdentifiable(returnMessage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -186,6 +196,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseInteractionFragment(stateInvariant);
 				if (result == null) result = caseNamedElement(stateInvariant);
 				if (result == null) result = caseObeoDSMObject(stateInvariant);
+				if (result == null) result = caseIdentifiable(stateInvariant);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -195,6 +206,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseInteractionFragment(interactionUse);
 				if (result == null) result = caseNamedElement(interactionUse);
 				if (result == null) result = caseObeoDSMObject(interactionUse);
+				if (result == null) result = caseIdentifiable(interactionUse);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -203,6 +215,7 @@ public class InteractionSwitch<T> {
 				T result = caseEnd(end);
 				if (result == null) result = caseNamedElement(end);
 				if (result == null) result = caseObeoDSMObject(end);
+				if (result == null) result = caseIdentifiable(end);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,6 +224,7 @@ public class InteractionSwitch<T> {
 				T result = caseInteractionFragment(interactionFragment);
 				if (result == null) result = caseNamedElement(interactionFragment);
 				if (result == null) result = caseObeoDSMObject(interactionFragment);
+				if (result == null) result = caseIdentifiable(interactionFragment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -220,6 +234,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseInteractionFragment(combinedFragment);
 				if (result == null) result = caseNamedElement(combinedFragment);
 				if (result == null) result = caseObeoDSMObject(combinedFragment);
+				if (result == null) result = caseIdentifiable(combinedFragment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -229,6 +244,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseInteractionFragment(operand);
 				if (result == null) result = caseNamedElement(operand);
 				if (result == null) result = caseObeoDSMObject(operand);
+				if (result == null) result = caseIdentifiable(operand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -239,6 +255,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseInteractionFragment(callMessage);
 				if (result == null) result = caseNamedElement(callMessage);
 				if (result == null) result = caseObeoDSMObject(callMessage);
+				if (result == null) result = caseIdentifiable(callMessage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -248,6 +265,7 @@ public class InteractionSwitch<T> {
 				if (result == null) result = caseEnd(compoundEnd);
 				if (result == null) result = caseNamedElement(compoundEnd);
 				if (result == null) result = caseObeoDSMObject(compoundEnd);
+				if (result == null) result = caseIdentifiable(compoundEnd);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -492,6 +510,21 @@ public class InteractionSwitch<T> {
 	 * @generated
 	 */
 	public T caseCompoundEnd(CompoundEnd object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

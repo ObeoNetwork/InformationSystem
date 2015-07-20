@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +42,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
  *
  * @generated
  */
-public class WidgetImpl extends CDOObjectImpl implements Widget {
+public class WidgetImpl extends IdentifiableImpl implements Widget {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,16 +97,6 @@ public class WidgetImpl extends CDOObjectImpl implements Widget {
 	@Override
 	protected EClass eStaticClass() {
 		return ToolkitsPackage.Literals.WIDGET;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

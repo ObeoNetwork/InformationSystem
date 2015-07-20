@@ -140,7 +140,7 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((FilterContainer) object).getDescription());
+		String label = ((FilterContainer) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_FilterContainer_type")
 				: getString("_UI_FilterContainer_type") + " " + label;
 	}

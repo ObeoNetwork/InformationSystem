@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.entity.*;
 import org.obeonetwork.dsl.entity.Attribute;
 import org.obeonetwork.dsl.entity.Block;
 import org.obeonetwork.dsl.entity.Criterion;
@@ -32,6 +33,7 @@ import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance
@@ -114,6 +116,7 @@ public class EntitySwitch<T> {
 				T result = caseRoot(root);
 				if (result == null) result = caseNamespace(root);
 				if (result == null) result = caseObeoDSMObject(root);
+				if (result == null) result = caseIdentifiable(root);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -121,6 +124,7 @@ public class EntitySwitch<T> {
 				Block block = (Block)theEObject;
 				T result = caseBlock(block);
 				if (result == null) result = caseObeoDSMObject(block);
+				if (result == null) result = caseIdentifiable(block);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -131,6 +135,7 @@ public class EntitySwitch<T> {
 				if (result == null) result = caseType(entity);
 				if (result == null) result = caseObeoDSMObject(entity);
 				if (result == null) result = caseBoundableElement(entity);
+				if (result == null) result = caseIdentifiable(entity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,6 +144,7 @@ public class EntitySwitch<T> {
 				T result = caseProperty(property);
 				if (result == null) result = caseObeoDSMObject(property);
 				if (result == null) result = caseBoundableElement(property);
+				if (result == null) result = caseIdentifiable(property);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,6 +154,7 @@ public class EntitySwitch<T> {
 				if (result == null) result = caseProperty(attribute);
 				if (result == null) result = caseObeoDSMObject(attribute);
 				if (result == null) result = caseBoundableElement(attribute);
+				if (result == null) result = caseIdentifiable(attribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,6 +164,7 @@ public class EntitySwitch<T> {
 				if (result == null) result = caseProperty(reference);
 				if (result == null) result = caseObeoDSMObject(reference);
 				if (result == null) result = caseBoundableElement(reference);
+				if (result == null) result = caseIdentifiable(reference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,6 +172,7 @@ public class EntitySwitch<T> {
 				Finder finder = (Finder)theEObject;
 				T result = caseFinder(finder);
 				if (result == null) result = caseObeoDSMObject(finder);
+				if (result == null) result = caseIdentifiable(finder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -172,6 +181,7 @@ public class EntitySwitch<T> {
 				T result = caseInternalCriterion(internalCriterion);
 				if (result == null) result = caseCriterion(internalCriterion);
 				if (result == null) result = caseObeoDSMObject(internalCriterion);
+				if (result == null) result = caseIdentifiable(internalCriterion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,6 +189,7 @@ public class EntitySwitch<T> {
 				Criterion criterion = (Criterion)theEObject;
 				T result = caseCriterion(criterion);
 				if (result == null) result = caseObeoDSMObject(criterion);
+				if (result == null) result = caseIdentifiable(criterion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -187,6 +198,7 @@ public class EntitySwitch<T> {
 				T result = caseExternalCriterion(externalCriterion);
 				if (result == null) result = caseCriterion(externalCriterion);
 				if (result == null) result = caseObeoDSMObject(externalCriterion);
+				if (result == null) result = caseIdentifiable(externalCriterion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -321,6 +333,21 @@ public class EntitySwitch<T> {
 	 * @generated
 	 */
 	public T caseExternalCriterion(ExternalCriterion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

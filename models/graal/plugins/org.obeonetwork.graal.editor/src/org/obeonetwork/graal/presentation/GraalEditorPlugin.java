@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.obeonetwork.dsl.entity.provider.EntityEditPlugin;
 import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
 import org.obeonetwork.dsl.soa.provider.SoaEditPlugin;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**
  * This is the central singleton for the Graal editor plugin.
@@ -52,6 +53,7 @@ public final class GraalEditorPlugin extends EMFPlugin {
 				EntityEditPlugin.INSTANCE,
 				EnvironmentEditPlugin.INSTANCE,
 				SoaEditPlugin.INSTANCE,
+				TechnicalIDEditPlugin.INSTANCE,
 			});
 	}
 

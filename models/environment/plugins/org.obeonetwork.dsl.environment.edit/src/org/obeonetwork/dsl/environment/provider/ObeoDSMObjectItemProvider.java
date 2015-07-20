@@ -32,6 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.environment.ObeoDSMObject} object.
@@ -39,8 +40,8 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
+public class ObeoDSMObjectItemProvider extends IdentifiableItemProvider
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -252,7 +253,7 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((ObeoDSMObject) object).getDescription());
+		String label = ((ObeoDSMObject) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_ObeoDSMObject_type")
 				: getString("_UI_ObeoDSMObject_type") + " " + label;
 	}

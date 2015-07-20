@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.obeonetwork.dsl.application.*;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,6 +79,8 @@ public class ApplicationSwitch<T> extends Switch<T> {
 			Configuration configuration = (Configuration) theEObject;
 			T result = caseConfiguration(configuration);
 			if (result == null)
+				result = caseIdentifiable(configuration);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -98,6 +101,21 @@ public class ApplicationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConfiguration(Configuration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

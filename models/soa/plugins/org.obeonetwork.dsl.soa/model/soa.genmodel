@@ -3,8 +3,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2008-2009 Obeo.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    Obeo - initial API and implementation"
     modelDirectory="/org.obeonetwork.dsl.soa/src" creationIcons="false" modelPluginID="org.obeonetwork.dsl.soa"
     modelName="Soa" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
-    importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" containmentProxies="true"
-    complianceLevel="5.0" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment">
+    importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" containmentProxies="true"
+    complianceLevel="5.0" runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
   <foreignModel>soa.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Soa" basePackage="org.obeonetwork.dsl" resource="XMI" disposableProviderFactory="true"
@@ -67,6 +67,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/output"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/kind"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/public"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/fault"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//ImplementationComponent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//ImplementationComponent/implement"/>

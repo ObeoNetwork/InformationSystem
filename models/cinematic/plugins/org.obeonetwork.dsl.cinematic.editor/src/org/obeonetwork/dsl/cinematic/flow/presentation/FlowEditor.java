@@ -122,6 +122,7 @@ import org.obeonetwork.dsl.cinematic.provider.CinematicItemProviderAdapterFactor
 import org.obeonetwork.dsl.cinematic.toolkits.provider.ToolkitsItemProviderAdapterFactory;
 import org.obeonetwork.dsl.cinematic.view.provider.ViewItemProviderAdapterFactory;
 import org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFactory;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFactory;
 
 
 /**
@@ -611,6 +612,7 @@ public class FlowEditor
 		adapterFactory.addAdapterFactory(new FlowItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ToolkitsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EnvironmentItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TechnicalIDItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

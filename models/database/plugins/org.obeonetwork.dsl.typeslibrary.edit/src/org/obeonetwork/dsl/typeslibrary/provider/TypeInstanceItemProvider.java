@@ -29,6 +29,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
@@ -78,6 +79,7 @@ public class TypeInstanceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTechnicalidPropertyDescriptor(object);
 			addNativeTypePropertyDescriptor(object);
 			addLengthPropertyDescriptor(object);
 			addPrecisionPropertyDescriptor(object);
@@ -86,6 +88,28 @@ public class TypeInstanceItemProvider
 		return itemPropertyDescriptors;
 	}
 	
+	/**
+	 * This adds a property descriptor for the Technicalid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTechnicalidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Identifiable_technicalid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_technicalid_feature", "_UI_Identifiable_type"),
+				 TechnicalIDPackage.Literals.IDENTIFIABLE__TECHNICALID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
 	protected Collection<NativeTypesLibrary> getUsedNativeTypesLibraries(Object object) {
 		final Collection<NativeTypesLibrary> nativeTypesLibraries = new ArrayList<NativeTypesLibrary>();
 		if (object instanceof EObject) {
@@ -360,6 +384,7 @@ public class TypeInstanceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TypeInstance.class)) {
+			case TypesLibraryPackage.TYPE_INSTANCE__TECHNICALID:
 			case TypesLibraryPackage.TYPE_INSTANCE__LENGTH:
 			case TypesLibraryPackage.TYPE_INSTANCE__PRECISION:
 			case TypesLibraryPackage.TYPE_INSTANCE__LITERALS:

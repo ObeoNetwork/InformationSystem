@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -39,7 +40,7 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
  *
  * @generated
  */
-public class NativeTypeImpl extends CDOObjectImpl implements NativeType {
+public class NativeTypeImpl extends IdentifiableImpl implements NativeType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,16 +84,6 @@ public class NativeTypeImpl extends CDOObjectImpl implements NativeType {
 	@Override
 	protected EClass eStaticClass() {
 		return TypesLibraryPackage.Literals.NATIVE_TYPE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

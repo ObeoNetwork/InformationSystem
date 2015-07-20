@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 import org.obeonetwork.dsl.cinematic.view.impl.ViewPackageImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -306,11 +307,17 @@ public class ToolkitsPackageImpl extends EPackageImpl implements ToolkitsPackage
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		TechnicalIDPackage theTechnicalIDPackage = (TechnicalIDPackage)EPackage.Registry.INSTANCE.getEPackage(TechnicalIDPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		toolkitEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
+		widgetEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
+		widgetEventTypeEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(toolkitEClass, Toolkit.class, "Toolkit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

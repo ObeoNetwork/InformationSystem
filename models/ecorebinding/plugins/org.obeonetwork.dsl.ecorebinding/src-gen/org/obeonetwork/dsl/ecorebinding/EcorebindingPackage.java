@@ -71,6 +71,15 @@ public interface EcorebindingPackage extends EPackage {
 	int BBASE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BBASE__TECHNICALID = EnvironmentPackage.BOUNDABLE_ELEMENT__TECHNICALID;
+
+	/**
 	 * The number of structural features of the '<em>BBase</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,6 +97,15 @@ public interface EcorebindingPackage extends EPackage {
 	 * @generated
 	 */
 	int BMODEL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BMODEL__TECHNICALID = BBASE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>BPackages</b></em>' containment reference list.
@@ -116,6 +134,15 @@ public interface EcorebindingPackage extends EPackage {
 	 * @generated
 	 */
 	int BPACKAGE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPACKAGE__TECHNICALID = BBASE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Ecore Package</b></em>' reference.
@@ -200,6 +227,15 @@ public interface EcorebindingPackage extends EPackage {
 	int BCLASSIFIER = 7;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCLASSIFIER__TECHNICALID = BBASE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>BType Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -235,6 +271,15 @@ public interface EcorebindingPackage extends EPackage {
 	 * @generated
 	 */
 	int BCLASS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCLASS__TECHNICALID = BCLASSIFIER__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>BType Parameters</b></em>' containment reference list.
@@ -301,6 +346,15 @@ public interface EcorebindingPackage extends EPackage {
 	int BTYPED_ELEMENT = 11;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BTYPED_ELEMENT__TECHNICALID = BBASE__TECHNICALID;
+
+	/**
 	 * The number of structural features of the '<em>BTyped Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -318,6 +372,15 @@ public interface EcorebindingPackage extends EPackage {
 	 * @generated
 	 */
 	int BFEATURE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFEATURE__TECHNICALID = BTYPED_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>BClass</b></em>' container reference.
@@ -355,6 +418,15 @@ public interface EcorebindingPackage extends EPackage {
 	 * @generated
 	 */
 	int BDATA_TYPE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDATA_TYPE__TECHNICALID = BCLASSIFIER__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>BType Parameters</b></em>' containment reference list.
@@ -401,6 +473,15 @@ public interface EcorebindingPackage extends EPackage {
 	 * @generated
 	 */
 	int BENUM = 5;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BENUM__TECHNICALID = BDATA_TYPE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>BType Parameters</b></em>' containment reference list.
@@ -467,6 +548,15 @@ public interface EcorebindingPackage extends EPackage {
 	int BENUM_LITERAL = 6;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BENUM_LITERAL__TECHNICALID = BBASE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>BEnum</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -502,6 +592,15 @@ public interface EcorebindingPackage extends EPackage {
 	 * @generated
 	 */
 	int BOPERATION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOPERATION__TECHNICALID = BTYPED_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>BClass</b></em>' container reference.
@@ -559,6 +658,15 @@ public interface EcorebindingPackage extends EPackage {
 	int BPARAMETER = 10;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPARAMETER__TECHNICALID = BTYPED_ELEMENT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>BOperation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,6 +702,15 @@ public interface EcorebindingPackage extends EPackage {
 	 * @generated
 	 */
 	int BTYPE_PARAMETER = 12;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BTYPE_PARAMETER__TECHNICALID = BBASE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Ecore Type Parameter</b></em>' reference.

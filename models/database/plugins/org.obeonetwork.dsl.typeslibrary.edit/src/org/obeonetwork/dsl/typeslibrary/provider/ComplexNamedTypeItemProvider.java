@@ -19,14 +19,17 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 import org.obeonetwork.dsl.typeslibrary.ComplexNamedType;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryFactory;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
@@ -73,8 +76,31 @@ public class ComplexNamedTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTechnicalidPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Technicalid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTechnicalidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Identifiable_technicalid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_technicalid_feature", "_UI_Identifiable_type"),
+				 TechnicalIDPackage.Literals.IDENTIFIABLE__TECHNICALID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -154,6 +180,9 @@ public class ComplexNamedTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ComplexNamedType.class)) {
+			case TypesLibraryPackage.COMPLEX_NAMED_TYPE__TECHNICALID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case TypesLibraryPackage.COMPLEX_NAMED_TYPE__TYPES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

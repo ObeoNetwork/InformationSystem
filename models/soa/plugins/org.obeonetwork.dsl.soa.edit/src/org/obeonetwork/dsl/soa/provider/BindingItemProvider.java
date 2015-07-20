@@ -124,7 +124,7 @@ public class BindingItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Binding)object).getDescription());
+		String label = ((Binding)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Binding_type") :
 			getString("_UI_Binding_type") + " " + label;

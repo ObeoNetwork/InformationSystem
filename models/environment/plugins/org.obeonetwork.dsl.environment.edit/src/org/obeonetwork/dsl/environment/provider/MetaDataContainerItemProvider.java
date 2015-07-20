@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.environment.MetaDataContainer} object.
@@ -37,7 +38,7 @@ import org.obeonetwork.dsl.environment.MetaDataContainer;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MetaDataContainerItemProvider extends ItemProviderAdapter
+public class MetaDataContainerItemProvider extends IdentifiableItemProvider
 		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
@@ -134,7 +135,9 @@ public class MetaDataContainerItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_MetaDataContainer_type");
+		String label = ((MetaDataContainer) object).getTechnicalid();
+		return label == null || label.length() == 0 ? getString("_UI_MetaDataContainer_type")
+				: getString("_UI_MetaDataContainer_type") + " " + label;
 	}
 
 	/**

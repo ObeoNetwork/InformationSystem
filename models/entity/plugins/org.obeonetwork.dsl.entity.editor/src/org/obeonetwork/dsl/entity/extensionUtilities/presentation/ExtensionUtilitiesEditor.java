@@ -131,6 +131,7 @@ import org.obeonetwork.dsl.entity.extensionUtilities.provider.ExtensionUtilities
 import org.obeonetwork.dsl.entity.presentation.EntityEditorPlugin;
 import org.obeonetwork.dsl.entity.provider.EntityItemProviderAdapterFactory;
 import org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFactory;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFactory;
 
 
 /**
@@ -675,6 +676,7 @@ public class ExtensionUtilitiesEditor
 		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ExtensionUtilitiesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EnvironmentItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TechnicalIDItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

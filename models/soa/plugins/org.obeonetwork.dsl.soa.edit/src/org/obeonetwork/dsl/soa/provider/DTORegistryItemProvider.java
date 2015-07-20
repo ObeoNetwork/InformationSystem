@@ -131,7 +131,7 @@ public class DTORegistryItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((DTORegistry)object).getDescription());
+		String label = ((DTORegistry)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DTORegistry_type") :
 			getString("_UI_DTORegistry_type") + " " + label;

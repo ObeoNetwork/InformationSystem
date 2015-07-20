@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.obeonetwork.dsl.technicalid.Identifiable;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryKind;
@@ -35,6 +37,7 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.NativeTypesLibraryImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.NativeTypesLibraryImpl#getTechnicalid <em>Technicalid</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.NativeTypesLibraryImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.NativeTypesLibraryImpl#getNativeTypes <em>Native Types</em>}</li>
  * </ul>
@@ -59,6 +62,16 @@ public class NativeTypesLibraryImpl extends CDOObjectImpl implements NativeTypes
 	 * @ordered
 	 */
 	protected static final TypesLibraryKind KIND_EDEFAULT = TypesLibraryKind.LOGICAL_TYPES;
+	/**
+	 * The default value of the '{@link #getTechnicalid() <em>Technicalid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTechnicalid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TECHNICALID_EDEFAULT = null;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -114,6 +127,24 @@ public class NativeTypesLibraryImpl extends CDOObjectImpl implements NativeTypes
 	 */
 	public void setKind(TypesLibraryKind newKind) {
 		eDynamicSet(TypesLibraryPackage.NATIVE_TYPES_LIBRARY__KIND, TypesLibraryPackage.Literals.TYPES_LIBRARY__KIND, newKind);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTechnicalid() {
+		return (String)eDynamicGet(TypesLibraryPackage.NATIVE_TYPES_LIBRARY__TECHNICALID, TechnicalIDPackage.Literals.IDENTIFIABLE__TECHNICALID, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTechnicalid(String newTechnicalid) {
+		eDynamicSet(TypesLibraryPackage.NATIVE_TYPES_LIBRARY__TECHNICALID, TechnicalIDPackage.Literals.IDENTIFIABLE__TECHNICALID, newTechnicalid);
 	}
 
 	/**
@@ -182,6 +213,8 @@ public class NativeTypesLibraryImpl extends CDOObjectImpl implements NativeTypes
 		switch (featureID) {
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__KIND:
 				return getKind();
+			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__TECHNICALID:
+				return getTechnicalid();
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__NAME:
 				return getName();
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__NATIVE_TYPES:
@@ -201,6 +234,9 @@ public class NativeTypesLibraryImpl extends CDOObjectImpl implements NativeTypes
 		switch (featureID) {
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__KIND:
 				setKind((TypesLibraryKind)newValue);
+				return;
+			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__TECHNICALID:
+				setTechnicalid((String)newValue);
 				return;
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__NAME:
 				setName((String)newValue);
@@ -224,6 +260,9 @@ public class NativeTypesLibraryImpl extends CDOObjectImpl implements NativeTypes
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__KIND:
 				setKind(KIND_EDEFAULT);
 				return;
+			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__TECHNICALID:
+				setTechnicalid(TECHNICALID_EDEFAULT);
+				return;
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -244,12 +283,46 @@ public class NativeTypesLibraryImpl extends CDOObjectImpl implements NativeTypes
 		switch (featureID) {
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__KIND:
 				return getKind() != KIND_EDEFAULT;
+			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__TECHNICALID:
+				return TECHNICALID_EDEFAULT == null ? getTechnicalid() != null : !TECHNICALID_EDEFAULT.equals(getTechnicalid());
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__NATIVE_TYPES:
 				return !getNativeTypes().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Identifiable.class) {
+			switch (derivedFeatureID) {
+				case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__TECHNICALID: return TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Identifiable.class) {
+			switch (baseFeatureID) {
+				case TechnicalIDPackage.IDENTIFIABLE__TECHNICALID: return TypesLibraryPackage.NATIVE_TYPES_LIBRARY__TECHNICALID;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //NativeTypesLibraryImpl

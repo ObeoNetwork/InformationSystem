@@ -15,6 +15,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.graal.AbortNode;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.Activity;
@@ -125,6 +126,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseNamedElement(task);
 				if (result == null) result = caseGraalObject(task);
 				if (result == null) result = caseObeoDSMObject(task);
+				if (result == null) result = caseIdentifiable(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -136,6 +138,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseTasksContainer(system);
 				if (result == null) result = caseGraalObject(system);
 				if (result == null) result = caseObeoDSMObject(system);
+				if (result == null) result = caseIdentifiable(system);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -144,6 +147,7 @@ public class GraalSwitch<T> {
 				T result = caseActivity(activity);
 				if (result == null) result = caseGraalObject(activity);
 				if (result == null) result = caseObeoDSMObject(activity);
+				if (result == null) result = caseIdentifiable(activity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -154,6 +158,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(operator);
 				if (result == null) result = caseUserStoryElement(operator);
 				if (result == null) result = caseObeoDSMObject(operator);
+				if (result == null) result = caseIdentifiable(operator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,6 +168,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(node);
 				if (result == null) result = caseUserStoryElement(node);
 				if (result == null) result = caseObeoDSMObject(node);
+				if (result == null) result = caseIdentifiable(node);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -172,6 +178,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(transition);
 				if (result == null) result = caseUserStoryElement(transition);
 				if (result == null) result = caseObeoDSMObject(transition);
+				if (result == null) result = caseIdentifiable(transition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -182,6 +189,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(taskReference);
 				if (result == null) result = caseUserStoryElement(taskReference);
 				if (result == null) result = caseObeoDSMObject(taskReference);
+				if (result == null) result = caseIdentifiable(taskReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -194,6 +202,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(userView);
 				if (result == null) result = caseUserStoryElement(userView);
 				if (result == null) result = caseObeoDSMObject(userView);
+				if (result == null) result = caseIdentifiable(userView);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -206,6 +215,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(userAction);
 				if (result == null) result = caseUserStoryElement(userAction);
 				if (result == null) result = caseObeoDSMObject(userAction);
+				if (result == null) result = caseIdentifiable(userAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -218,6 +228,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(appliEvent);
 				if (result == null) result = caseUserStoryElement(appliEvent);
 				if (result == null) result = caseObeoDSMObject(appliEvent);
+				if (result == null) result = caseIdentifiable(appliEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -230,6 +241,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(appliAction);
 				if (result == null) result = caseUserStoryElement(appliAction);
 				if (result == null) result = caseObeoDSMObject(appliAction);
+				if (result == null) result = caseIdentifiable(appliAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -240,6 +252,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(initialNode);
 				if (result == null) result = caseUserStoryElement(initialNode);
 				if (result == null) result = caseObeoDSMObject(initialNode);
+				if (result == null) result = caseIdentifiable(initialNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -250,6 +263,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(finalNode);
 				if (result == null) result = caseUserStoryElement(finalNode);
 				if (result == null) result = caseObeoDSMObject(finalNode);
+				if (result == null) result = caseIdentifiable(finalNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -260,6 +274,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(abortNode);
 				if (result == null) result = caseUserStoryElement(abortNode);
 				if (result == null) result = caseObeoDSMObject(abortNode);
+				if (result == null) result = caseIdentifiable(abortNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -269,6 +284,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseActivity(loop);
 				if (result == null) result = caseGraalObject(loop);
 				if (result == null) result = caseObeoDSMObject(loop);
+				if (result == null) result = caseIdentifiable(loop);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -278,6 +294,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseNamedElement(actor);
 				if (result == null) result = caseGraalObject(actor);
 				if (result == null) result = caseObeoDSMObject(actor);
+				if (result == null) result = caseIdentifiable(actor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -287,6 +304,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseNamedElement(abstractTask);
 				if (result == null) result = caseGraalObject(abstractTask);
 				if (result == null) result = caseObeoDSMObject(abstractTask);
+				if (result == null) result = caseIdentifiable(abstractTask);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -298,6 +316,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseNamedElement(tasksGroup);
 				if (result == null) result = caseGraalObject(tasksGroup);
 				if (result == null) result = caseObeoDSMObject(tasksGroup);
+				if (result == null) result = caseIdentifiable(tasksGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -308,6 +327,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseDomainModelRegistry(useCase);
 				if (result == null) result = caseGraalObject(useCase);
 				if (result == null) result = caseObeoDSMObject(useCase);
+				if (result == null) result = caseIdentifiable(useCase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -316,6 +336,7 @@ public class GraalSwitch<T> {
 				T result = caseNamedElement(namedElement);
 				if (result == null) result = caseGraalObject(namedElement);
 				if (result == null) result = caseObeoDSMObject(namedElement);
+				if (result == null) result = caseIdentifiable(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -327,6 +348,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseGraalObject(namedNode);
 				if (result == null) result = caseUserStoryElement(namedNode);
 				if (result == null) result = caseObeoDSMObject(namedNode);
+				if (result == null) result = caseIdentifiable(namedNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -348,6 +370,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseNamedElement(userStory);
 				if (result == null) result = caseGraalObject(userStory);
 				if (result == null) result = caseObeoDSMObject(userStory);
+				if (result == null) result = caseIdentifiable(userStory);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -361,6 +384,7 @@ public class GraalSwitch<T> {
 				GraalObject graalObject = (GraalObject)theEObject;
 				T result = caseGraalObject(graalObject);
 				if (result == null) result = caseObeoDSMObject(graalObject);
+				if (result == null) result = caseIdentifiable(graalObject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -755,6 +779,21 @@ public class GraalSwitch<T> {
 	 * @generated
 	 */
 	public T caseGraalObject(GraalObject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

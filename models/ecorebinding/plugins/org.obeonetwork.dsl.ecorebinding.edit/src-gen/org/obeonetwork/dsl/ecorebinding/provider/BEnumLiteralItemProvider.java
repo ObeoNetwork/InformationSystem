@@ -22,9 +22,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.obeonetwork.dsl.ecorebinding.BEnumLiteral;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.ecorebinding.BEnumLiteral} object.
@@ -33,7 +35,7 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * @generated
  */
 public class BEnumLiteralItemProvider
-	extends ItemProviderAdapter
+	extends IdentifiableItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -107,7 +109,10 @@ public class BEnumLiteralItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BEnumLiteral_type");
+		String label = ((BEnumLiteral)object).getTechnicalid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BEnumLiteral_type") :
+			getString("_UI_BEnumLiteral_type") + " " + label;
 	}
 
 	/**

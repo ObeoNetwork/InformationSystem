@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.ecorebinding.BModel;
 
 import org.obeonetwork.dsl.environment.BindingRegistry;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,10 +40,9 @@ import org.obeonetwork.dsl.environment.BindingRegistry;
  *
  * @see org.obeonetwork.dsl.application.ApplicationPackage#getConfiguration()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface Configuration extends CDOObject {
+public interface Configuration extends Identifiable {
 	/**
 	 * Returns the value of the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.environment.BindingRegistry}.

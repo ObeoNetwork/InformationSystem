@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="typeslibrary" nsURI="http://www.obeonetwork.org/dsl/typeslibrary/1.0"
     nsPrefix="typeslibrary">
-  <eClassifiers xsi:type="ecore:EClass" name="NativeTypesLibrary" eSuperTypes="#//TypesLibrary">
+  <eClassifiers xsi:type="ecore:EClass" name="NativeTypesLibrary" eSuperTypes="#//TypesLibrary ../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
     <eOperations name="findTypeByName" eType="#//NativeType">
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
@@ -16,7 +16,7 @@
     <eLiterals name="LengthAndPrecision" value="2"/>
     <eLiterals name="Enum" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeInstance" eSuperTypes="#//Type">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeInstance" eSuperTypes="#//Type ../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nativeType" lowerBound="1"
         eType="#//NativeType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
@@ -24,26 +24,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="literals" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NativeType">
+  <eClassifiers xsi:type="ecore:EClass" name="NativeType" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="spec" eType="#//NativeTypeKind"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mapsTo" eType="#//NativeType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComplexNamedType" eSuperTypes="#//UserDefinedType">
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexNamedType" eSuperTypes="#//UserDefinedType ../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//UserDefinedType" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleNamedType" eSuperTypes="#//UserDefinedType">
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleNamedType" eSuperTypes="#//UserDefinedType ../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TypeInstance"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="UserDefinedType" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UserDefinedTypeRef" eSuperTypes="#//Type">
+  <eClassifiers xsi:type="ecore:EClass" name="UserDefinedTypeRef" eSuperTypes="#//Type ../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//UserDefinedType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UserDefinedTypesLibrary" eSuperTypes="#//TypesLibrary">
+  <eClassifiers xsi:type="ecore:EClass" name="UserDefinedTypesLibrary" eSuperTypes="#//TypesLibrary ../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="userDefinedTypes" upperBound="-1"
         eType="#//UserDefinedType" containment="true"/>

@@ -32,6 +32,7 @@ import org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.cinematic.toolkits.Toolkit} object.
@@ -40,7 +41,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
  * @generated
  */
 public class ToolkitItemProvider
-	extends ItemProviderAdapter
+	extends IdentifiableItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

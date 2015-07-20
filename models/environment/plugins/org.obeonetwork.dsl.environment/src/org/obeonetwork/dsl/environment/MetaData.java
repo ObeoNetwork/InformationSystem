@@ -12,6 +12,7 @@
  */
 package org.obeonetwork.dsl.environment;
 
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.eclipse.emf.cdo.CDOObject;
 
 /**
@@ -22,10 +23,9 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getMetaData()
  * @model abstract="true"
- * @extends CDOObject
  * @generated
  */
-public interface MetaData extends CDOObject {
+public interface MetaData extends Identifiable {
 
 	/**
 	 * <!-- begin-user-doc -->

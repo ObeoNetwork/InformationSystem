@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.application.Configuration;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -213,6 +214,8 @@ public class ApplicationPackageImpl extends EPackageImpl implements
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		TechnicalIDPackage theTechnicalIDPackage = (TechnicalIDPackage) EPackage.Registry.INSTANCE
+				.getEPackage(TechnicalIDPackage.eNS_URI);
 		EnvironmentPackage theEnvironmentPackage = (EnvironmentPackage) EPackage.Registry.INSTANCE
 				.getEPackage(EnvironmentPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
@@ -227,6 +230,8 @@ public class ApplicationPackageImpl extends EPackageImpl implements
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		configurationEClass.getESuperTypes().add(
+				theTechnicalIDPackage.getIdentifiable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(configurationEClass, Configuration.class, "Configuration",

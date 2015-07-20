@@ -139,7 +139,10 @@ public class BEnumItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BEnum_type");
+		String label = ((BEnum)object).getTechnicalid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BEnum_type") :
+			getString("_UI_BEnum_type") + " " + label;
 	}
 
 	/**

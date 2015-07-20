@@ -134,7 +134,7 @@ public class AbstractStateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((AbstractState)object).getDescription());
+		String label = ((AbstractState)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AbstractState_type") :
 			getString("_UI_AbstractState_type") + " " + label;

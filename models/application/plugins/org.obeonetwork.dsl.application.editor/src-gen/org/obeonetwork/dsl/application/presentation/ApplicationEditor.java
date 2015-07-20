@@ -178,6 +178,7 @@ import org.obeonetwork.dsl.ecorebinding.provider.EcorebindingItemProviderAdapter
 
 import org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFactory;
 
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFactory;
 import org.obeonetwork.dsl.soa.provider.SoaItemProviderAdapterFactory;
 
 /**
@@ -729,6 +730,8 @@ public class ApplicationEditor extends MultiPageEditorPart implements
 				.addAdapterFactory(new EcorebindingItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new EnvironmentItemProviderAdapterFactory());
+		adapterFactory
+				.addAdapterFactory(new TechnicalIDItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

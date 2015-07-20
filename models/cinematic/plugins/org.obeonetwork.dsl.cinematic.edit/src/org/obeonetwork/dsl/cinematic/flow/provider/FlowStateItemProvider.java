@@ -118,7 +118,7 @@ public class FlowStateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((FlowState)object).getDescription());
+		String label = ((FlowState)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_FlowState_type") :
 			getString("_UI_FlowState_type") + " " + label;

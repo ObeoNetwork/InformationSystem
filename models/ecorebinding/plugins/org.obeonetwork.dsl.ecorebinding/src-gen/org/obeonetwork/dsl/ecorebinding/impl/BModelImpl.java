@@ -17,6 +17,7 @@ import org.obeonetwork.dsl.ecorebinding.BPackage;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
 
 import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +32,7 @@ import org.obeonetwork.dsl.environment.BoundableElement;
  *
  * @generated
  */
-public class BModelImpl extends CDOObjectImpl implements BModel {
+public class BModelImpl extends IdentifiableImpl implements BModel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,16 +50,6 @@ public class BModelImpl extends CDOObjectImpl implements BModel {
 	@Override
 	protected EClass eStaticClass() {
 		return EcorebindingPackage.Literals.BMODEL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

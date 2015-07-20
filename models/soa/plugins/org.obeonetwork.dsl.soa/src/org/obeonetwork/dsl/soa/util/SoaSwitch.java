@@ -30,6 +30,7 @@ import org.obeonetwork.dsl.soa.Service;
 import org.obeonetwork.dsl.soa.ServiceDTO;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.Wire;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -116,6 +117,7 @@ public class SoaSwitch<T> {
 				T result = caseSystem(system);
 				if (result == null) result = caseNamespace(system);
 				if (result == null) result = caseObeoDSMObject(system);
+				if (result == null) result = caseIdentifiable(system);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,6 +125,7 @@ public class SoaSwitch<T> {
 				Component component = (Component)theEObject;
 				T result = caseComponent(component);
 				if (result == null) result = caseObeoDSMObject(component);
+				if (result == null) result = caseIdentifiable(component);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,6 +133,7 @@ public class SoaSwitch<T> {
 				Service service = (Service)theEObject;
 				T result = caseService(service);
 				if (result == null) result = caseObeoDSMObject(service);
+				if (result == null) result = caseIdentifiable(service);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,6 +141,7 @@ public class SoaSwitch<T> {
 				Wire wire = (Wire)theEObject;
 				T result = caseWire(wire);
 				if (result == null) result = caseObeoDSMObject(wire);
+				if (result == null) result = caseIdentifiable(wire);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -144,6 +149,7 @@ public class SoaSwitch<T> {
 				Binding binding = (Binding)theEObject;
 				T result = caseBinding(binding);
 				if (result == null) result = caseObeoDSMObject(binding);
+				if (result == null) result = caseIdentifiable(binding);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -151,6 +157,7 @@ public class SoaSwitch<T> {
 				Interface interface_ = (Interface)theEObject;
 				T result = caseInterface(interface_);
 				if (result == null) result = caseObeoDSMObject(interface_);
+				if (result == null) result = caseIdentifiable(interface_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -159,6 +166,7 @@ public class SoaSwitch<T> {
 				T result = caseOperation(operation);
 				if (result == null) result = caseAction(operation);
 				if (result == null) result = caseObeoDSMObject(operation);
+				if (result == null) result = caseIdentifiable(operation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -166,6 +174,7 @@ public class SoaSwitch<T> {
 				ImplementationComponent implementationComponent = (ImplementationComponent)theEObject;
 				T result = caseImplementationComponent(implementationComponent);
 				if (result == null) result = caseObeoDSMObject(implementationComponent);
+				if (result == null) result = caseIdentifiable(implementationComponent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -173,6 +182,7 @@ public class SoaSwitch<T> {
 				Parameter parameter = (Parameter)theEObject;
 				T result = caseParameter(parameter);
 				if (result == null) result = caseObeoDSMObject(parameter);
+				if (result == null) result = caseIdentifiable(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -180,6 +190,7 @@ public class SoaSwitch<T> {
 				DTORegistry dtoRegistry = (DTORegistry)theEObject;
 				T result = caseDTORegistry(dtoRegistry);
 				if (result == null) result = caseObeoDSMObject(dtoRegistry);
+				if (result == null) result = caseIdentifiable(dtoRegistry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -188,6 +199,7 @@ public class SoaSwitch<T> {
 				T result = caseCategory(category);
 				if (result == null) result = caseTypesDefinition(category);
 				if (result == null) result = caseObeoDSMObject(category);
+				if (result == null) result = caseIdentifiable(category);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -199,6 +211,7 @@ public class SoaSwitch<T> {
 				if (result == null) result = caseType(serviceDTO);
 				if (result == null) result = caseObeoDSMObject(serviceDTO);
 				if (result == null) result = caseBoundableElement(serviceDTO);
+				if (result == null) result = caseIdentifiable(serviceDTO);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -383,6 +396,21 @@ public class SoaSwitch<T> {
 	 * @generated
 	 */
 	public T caseServiceDTO(ServiceDTO object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

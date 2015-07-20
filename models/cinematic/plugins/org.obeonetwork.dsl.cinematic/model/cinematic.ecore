@@ -110,13 +110,13 @@
   </eSubpackages>
   <eSubpackages name="toolkits" nsURI="http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0"
       nsPrefix="cinematic-toolkits">
-    <eClassifiers xsi:type="ecore:EClass" name="Toolkit">
+    <eClassifiers xsi:type="ecore:EClass" name="Toolkit" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="widgets" upperBound="-1"
           eType="#//toolkits/Widget" containment="true" eOpposite="#//toolkits/Widget/toolkit"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Widget">
+    <eClassifiers xsi:type="ecore:EClass" name="Widget" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -127,7 +127,7 @@
           eType="#//toolkits/WidgetEventType" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isContainer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="WidgetEventType">
+    <eClassifiers xsi:type="ecore:EClass" name="WidgetEventType" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>

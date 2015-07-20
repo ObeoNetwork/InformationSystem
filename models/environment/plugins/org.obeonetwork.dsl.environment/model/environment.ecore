@@ -34,7 +34,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObeoDSMObject" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="ObeoDSMObject" abstract="true" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="metadatas" eType="#//MetaDataContainer"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -49,7 +49,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdOn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiedOn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MetaDataContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="MetaDataContainer" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="metadatas" upperBound="-1"
         eType="#//MetaData" containment="true"/>
   </eClassifiers>
@@ -64,7 +64,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Priority" eSuperTypes="#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MetaData" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MetaData" abstract="true" eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypesDefinition" eSuperTypes="#//ObeoDSMObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" lowerBound="1" upperBound="-1"
         eType="#//Type" containment="true" eOpposite="#//Type/typeDefinition"/>
@@ -170,7 +170,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindingInfos" upperBound="-1"
         eType="#//BindingInfo" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BoundableElement" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="BoundableElement" abstract="true" interface="true"
+      eSuperTypes="../../org.obeonetwork.dsl.technicalid/model/technicalid.ecore#//Identifiable">
     <eOperations name="isPathValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="root" eType="#//BoundableElement"/>
       <eParameters name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

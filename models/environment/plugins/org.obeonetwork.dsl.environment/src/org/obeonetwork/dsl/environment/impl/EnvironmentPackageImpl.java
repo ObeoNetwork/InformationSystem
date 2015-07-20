@@ -49,6 +49,7 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.TypesDefinition;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -317,6 +318,9 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				.get(eNS_URI) : new EnvironmentPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theEnvironmentPackage.createPackageContents();
@@ -1346,6 +1350,10 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		TechnicalIDPackage theTechnicalIDPackage = (TechnicalIDPackage) EPackage.Registry.INSTANCE
+				.getEPackage(TechnicalIDPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -1359,9 +1367,15 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		fieldEClass.getESuperTypes().add(this.getObeoDSMObject());
 		actionEClass.getESuperTypes().add(this.getObeoDSMObject());
 		interDSMLinkEClass.getESuperTypes().add(this.getObeoDSMObject());
+		obeoDSMObjectEClass.getESuperTypes().add(
+				theTechnicalIDPackage.getIdentifiable());
+		metaDataContainerEClass.getESuperTypes().add(
+				theTechnicalIDPackage.getIdentifiable());
 		annotationEClass.getESuperTypes().add(this.getMetaData());
 		priorityDefinitionEClass.getESuperTypes().add(this.getObeoDSMObject());
 		priorityEClass.getESuperTypes().add(this.getObeoDSMObject());
+		metaDataEClass.getESuperTypes().add(
+				theTechnicalIDPackage.getIdentifiable());
 		typesDefinitionEClass.getESuperTypes().add(this.getObeoDSMObject());
 		behaviourEClass.getESuperTypes().add(this.getObeoDSMObject());
 		structuredTypeEClass.getESuperTypes().add(this.getType());
@@ -1377,6 +1391,8 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		bindingReferenceEClass.getESuperTypes().add(this.getObeoDSMObject());
 		bindingElementEClass.getESuperTypes().add(this.getObeoDSMObject());
 		bindingRegistryEClass.getESuperTypes().add(this.getObeoDSMObject());
+		boundableElementEClass.getESuperTypes().add(
+				theTechnicalIDPackage.getIdentifiable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(environmentEClass, Environment.class, "Environment",

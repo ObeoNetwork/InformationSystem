@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.dsl.ecorebinding/src-gen"
-    editDirectory="/org.obeonetwork.dsl.ecorebinding.edit/src-gen" editorDirectory="/org.obeonetwork.dsl.ecorebinding.editor/src-gen"
-    modelPluginID="org.obeonetwork.dsl.ecorebinding" modelName="Ecorebinding" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.obeonetwork.dsl.ecorebinding/src-gen" editDirectory="/org.obeonetwork.dsl.ecorebinding.edit/src-gen"
+    editorDirectory="/org.obeonetwork.dsl.ecorebinding.editor/src-gen" modelPluginID="org.obeonetwork.dsl.ecorebinding"
+    modelName="Ecorebinding" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
     rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" reflectiveDelegation="true"
     testsDirectory="/org.obeonetwork.dsl.ecorebinding.tests/src-gen" importerID="org.eclipse.emf.importer.cdo"
-    featureDelegation="Reflective" complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment">
+    featureDelegation="Reflective" complianceLevel="5.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
   <foreignModel>ecorebinding.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Ecorebinding" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"
@@ -19,14 +18,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BPackage/ecorePackage"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ecorebinding.ecore#//BPackage/bModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BPackage/bEnums"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BPackage/bDataType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BPackage/bClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BPackage/bDataTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BPackage/bClasses"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BPackage/nestedBPackages"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ecorebinding.ecore#//BPackage/bClassifier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BPackage/bClassifiers"/>
     </genClasses>
     <genClasses ecoreClass="ecorebinding.ecore#//BClass">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BClass/ecoreClass"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BClass/bFeature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BClass/bFeatures"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BClass/bOperations"/>
     </genClasses>
     <genClasses ecoreClass="ecorebinding.ecore#//BFeature">
@@ -42,8 +41,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BEnumLiteral/ecoreEnumLiteral"/>
     </genClasses>
     <genClasses ecoreClass="ecorebinding.ecore#//BClassifier">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ecorebinding.ecore#//BClassifier/bPackage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BClassifier/bTypeParameters"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ecorebinding.ecore#//BClassifier/bPackage"/>
     </genClasses>
     <genClasses ecoreClass="ecorebinding.ecore#//BDataType">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecorebinding.ecore#//BDataType/ecoreDataType"/>

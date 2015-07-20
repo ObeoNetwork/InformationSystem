@@ -16,6 +16,8 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.environment.*;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
@@ -129,6 +131,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseObeoDSMObject(environment);
 			if (result == null)
+				result = caseIdentifiable(environment);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -139,6 +143,8 @@ public class EnvironmentSwitch<T> {
 				result = caseObeoDSMObject(type);
 			if (result == null)
 				result = caseBoundableElement(type);
+			if (result == null)
+				result = caseIdentifiable(type);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -153,6 +159,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseBoundableElement(primitiveType);
 			if (result == null)
+				result = caseIdentifiable(primitiveType);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -166,6 +174,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseBoundableElement(enumeration);
 			if (result == null)
+				result = caseIdentifiable(enumeration);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -174,6 +184,8 @@ public class EnvironmentSwitch<T> {
 			T result = caseField(field);
 			if (result == null)
 				result = caseObeoDSMObject(field);
+			if (result == null)
+				result = caseIdentifiable(field);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -184,6 +196,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseObeoDSMObject(action);
 			if (result == null)
+				result = caseIdentifiable(action);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -193,6 +207,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseObeoDSMObject(interDSMLink);
 			if (result == null)
+				result = caseIdentifiable(interDSMLink);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -200,12 +216,16 @@ public class EnvironmentSwitch<T> {
 			ObeoDSMObject obeoDSMObject = (ObeoDSMObject) theEObject;
 			T result = caseObeoDSMObject(obeoDSMObject);
 			if (result == null)
+				result = caseIdentifiable(obeoDSMObject);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case EnvironmentPackage.META_DATA_CONTAINER: {
 			MetaDataContainer metaDataContainer = (MetaDataContainer) theEObject;
 			T result = caseMetaDataContainer(metaDataContainer);
+			if (result == null)
+				result = caseIdentifiable(metaDataContainer);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -216,6 +236,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseMetaData(annotation);
 			if (result == null)
+				result = caseIdentifiable(annotation);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -224,6 +246,8 @@ public class EnvironmentSwitch<T> {
 			T result = casePriorityDefinition(priorityDefinition);
 			if (result == null)
 				result = caseObeoDSMObject(priorityDefinition);
+			if (result == null)
+				result = caseIdentifiable(priorityDefinition);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -234,12 +258,16 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseObeoDSMObject(priority);
 			if (result == null)
+				result = caseIdentifiable(priority);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case EnvironmentPackage.META_DATA: {
 			MetaData metaData = (MetaData) theEObject;
 			T result = caseMetaData(metaData);
+			if (result == null)
+				result = caseIdentifiable(metaData);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -250,6 +278,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseObeoDSMObject(typesDefinition);
 			if (result == null)
+				result = caseIdentifiable(typesDefinition);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -258,6 +288,8 @@ public class EnvironmentSwitch<T> {
 			T result = caseBehaviour(behaviour);
 			if (result == null)
 				result = caseObeoDSMObject(behaviour);
+			if (result == null)
+				result = caseIdentifiable(behaviour);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -271,6 +303,8 @@ public class EnvironmentSwitch<T> {
 				result = caseObeoDSMObject(structuredType);
 			if (result == null)
 				result = caseBoundableElement(structuredType);
+			if (result == null)
+				result = caseIdentifiable(structuredType);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -287,6 +321,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseBoundableElement(dto);
 			if (result == null)
+				result = caseIdentifiable(dto);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -295,6 +331,8 @@ public class EnvironmentSwitch<T> {
 			T result = caseFilterContainer(filterContainer);
 			if (result == null)
 				result = caseObeoDSMObject(filterContainer);
+			if (result == null)
+				result = caseIdentifiable(filterContainer);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -305,6 +343,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseObeoDSMObject(filter);
 			if (result == null)
+				result = caseIdentifiable(filter);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -313,6 +353,8 @@ public class EnvironmentSwitch<T> {
 			T result = caseNamespace(namespace);
 			if (result == null)
 				result = caseObeoDSMObject(namespace);
+			if (result == null)
+				result = caseIdentifiable(namespace);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -327,6 +369,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseBoundableElement(attribute);
 			if (result == null)
+				result = caseIdentifiable(attribute);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -340,6 +384,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseBoundableElement(reference);
 			if (result == null)
+				result = caseIdentifiable(reference);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -351,6 +397,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseBoundableElement(property);
 			if (result == null)
+				result = caseIdentifiable(property);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -359,6 +407,8 @@ public class EnvironmentSwitch<T> {
 			T result = caseBindingInfo(bindingInfo);
 			if (result == null)
 				result = caseObeoDSMObject(bindingInfo);
+			if (result == null)
+				result = caseIdentifiable(bindingInfo);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -369,6 +419,8 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseObeoDSMObject(bindingReference);
 			if (result == null)
+				result = caseIdentifiable(bindingReference);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -377,6 +429,8 @@ public class EnvironmentSwitch<T> {
 			T result = caseBindingElement(bindingElement);
 			if (result == null)
 				result = caseObeoDSMObject(bindingElement);
+			if (result == null)
+				result = caseIdentifiable(bindingElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -387,12 +441,16 @@ public class EnvironmentSwitch<T> {
 			if (result == null)
 				result = caseObeoDSMObject(bindingRegistry);
 			if (result == null)
+				result = caseIdentifiable(bindingRegistry);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case EnvironmentPackage.BOUNDABLE_ELEMENT: {
 			BoundableElement boundableElement = (BoundableElement) theEObject;
 			T result = caseBoundableElement(boundableElement);
+			if (result == null)
+				result = caseIdentifiable(boundableElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -819,6 +877,21 @@ public class EnvironmentSwitch<T> {
 	 * @generated
 	 */
 	public T caseBoundableElement(BoundableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

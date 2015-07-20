@@ -16,6 +16,7 @@ import org.eclipse.emf.common.ui.EclipseUIPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 import org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryEditPlugin;
 
 /**
@@ -58,6 +59,7 @@ public final class DatabaseEditorPlugin extends EMFPlugin {
 		super
 			(new ResourceLocator [] {
 				TypesLibraryEditPlugin.INSTANCE,
+				TechnicalIDEditPlugin.INSTANCE,
 			});
 	}
 

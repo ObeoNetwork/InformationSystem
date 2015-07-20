@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.typeslibrary.presentation;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**
  * This is the central singleton for the TypesLibrary editor plugin.
@@ -53,6 +54,7 @@ public final class TypesLibraryEditorPlugin extends EMFPlugin {
 	public TypesLibraryEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				TechnicalIDEditPlugin.INSTANCE,
 			});
 	}
 

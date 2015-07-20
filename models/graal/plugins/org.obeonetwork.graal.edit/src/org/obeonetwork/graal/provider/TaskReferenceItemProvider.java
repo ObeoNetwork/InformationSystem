@@ -81,7 +81,7 @@ public class TaskReferenceItemProvider
 				 getString("_UI_TaskReference_task_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TaskReference_task_feature", "_UI_TaskReference_type"),
 				 GraalPackage.Literals.TASK_REFERENCE__TASK,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,

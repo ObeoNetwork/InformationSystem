@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.overview.*;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.dsl.overview.OverviewPackage;
 import org.obeonetwork.dsl.overview.Root;
 
@@ -99,6 +100,7 @@ public class OverviewSwitch<T> {
 				Root root = (Root)theEObject;
 				T result = caseRoot(root);
 				if (result == null) result = caseObeoDSMObject(root);
+				if (result == null) result = caseIdentifiable(root);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -118,6 +120,21 @@ public class OverviewSwitch<T> {
 	 * @generated
 	 */
 	public T caseRoot(Root object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

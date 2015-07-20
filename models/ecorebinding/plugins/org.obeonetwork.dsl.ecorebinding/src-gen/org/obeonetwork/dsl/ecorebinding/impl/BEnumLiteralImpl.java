@@ -16,6 +16,7 @@ import org.obeonetwork.dsl.ecorebinding.BEnumLiteral;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
 
 import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +32,7 @@ import org.obeonetwork.dsl.environment.BoundableElement;
  *
  * @generated
  */
-public class BEnumLiteralImpl extends CDOObjectImpl implements BEnumLiteral {
+public class BEnumLiteralImpl extends IdentifiableImpl implements BEnumLiteral {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,16 +50,6 @@ public class BEnumLiteralImpl extends CDOObjectImpl implements BEnumLiteral {
 	@Override
 	protected EClass eStaticClass() {
 		return EcorebindingPackage.Literals.BENUM_LITERAL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

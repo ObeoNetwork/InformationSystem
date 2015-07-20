@@ -14,6 +14,7 @@ package org.obeonetwork.dsl.requirement.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**
  * This is the central singleton for the Requirement edit plugin.
@@ -54,6 +55,7 @@ public final class RequirementEditPlugin extends EMFPlugin {
 	public RequirementEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     TechnicalIDEditPlugin.INSTANCE,
 		   });
 	}
 

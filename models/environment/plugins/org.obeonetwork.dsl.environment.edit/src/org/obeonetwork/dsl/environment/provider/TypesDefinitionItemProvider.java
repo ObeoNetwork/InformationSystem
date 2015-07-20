@@ -132,7 +132,7 @@ public class TypesDefinitionItemProvider extends ObeoDSMObjectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((TypesDefinition) object).getDescription());
+		String label = ((TypesDefinition) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_TypesDefinition_type")
 				: getString("_UI_TypesDefinition_type") + " " + label;
 	}

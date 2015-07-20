@@ -140,7 +140,10 @@ public class BOperationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BOperation_type");
+		String label = ((BOperation)object).getTechnicalid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BOperation_type") :
+			getString("_UI_BOperation_type") + " " + label;
 	}
 
 	/**

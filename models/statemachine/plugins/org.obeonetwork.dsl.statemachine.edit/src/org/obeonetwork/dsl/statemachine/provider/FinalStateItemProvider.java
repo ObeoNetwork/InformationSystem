@@ -90,7 +90,7 @@ public class FinalStateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((FinalState)object).getDescription());
+		String label = ((FinalState)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_FinalState_type") :
 			getString("_UI_FinalState_type") + " " + label;

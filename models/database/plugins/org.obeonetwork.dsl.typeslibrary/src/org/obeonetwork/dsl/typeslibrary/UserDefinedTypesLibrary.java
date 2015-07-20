@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.typeslibrary;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -31,7 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface UserDefinedTypesLibrary extends TypesLibrary {
+public interface UserDefinedTypesLibrary extends TypesLibrary, Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

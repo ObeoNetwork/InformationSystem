@@ -103,7 +103,7 @@ public class CriterionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Criterion)object).getDescription());
+		String label = ((Criterion)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Criterion_type") :
 			getString("_UI_Criterion_type") + " " + label;

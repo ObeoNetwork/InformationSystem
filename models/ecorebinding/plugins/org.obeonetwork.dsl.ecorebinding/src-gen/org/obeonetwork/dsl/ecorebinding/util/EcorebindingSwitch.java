@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.obeonetwork.dsl.ecorebinding.*;
 
 import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,6 +77,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				BBase bBase = (BBase)theEObject;
 				T result = caseBBase(bBase);
 				if (result == null) result = caseBoundableElement(bBase);
+				if (result == null) result = caseIdentifiable(bBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -84,6 +86,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				T result = caseBModel(bModel);
 				if (result == null) result = caseBBase(bModel);
 				if (result == null) result = caseBoundableElement(bModel);
+				if (result == null) result = caseIdentifiable(bModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -92,6 +95,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				T result = caseBPackage(bPackage);
 				if (result == null) result = caseBBase(bPackage);
 				if (result == null) result = caseBoundableElement(bPackage);
+				if (result == null) result = caseIdentifiable(bPackage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -101,6 +105,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBClassifier(bClass);
 				if (result == null) result = caseBBase(bClass);
 				if (result == null) result = caseBoundableElement(bClass);
+				if (result == null) result = caseIdentifiable(bClass);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -110,6 +115,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBTypedElement(bFeature);
 				if (result == null) result = caseBBase(bFeature);
 				if (result == null) result = caseBoundableElement(bFeature);
+				if (result == null) result = caseIdentifiable(bFeature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -120,6 +126,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBClassifier(bEnum);
 				if (result == null) result = caseBBase(bEnum);
 				if (result == null) result = caseBoundableElement(bEnum);
+				if (result == null) result = caseIdentifiable(bEnum);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -128,6 +135,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				T result = caseBEnumLiteral(bEnumLiteral);
 				if (result == null) result = caseBBase(bEnumLiteral);
 				if (result == null) result = caseBoundableElement(bEnumLiteral);
+				if (result == null) result = caseIdentifiable(bEnumLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -136,6 +144,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				T result = caseBClassifier(bClassifier);
 				if (result == null) result = caseBBase(bClassifier);
 				if (result == null) result = caseBoundableElement(bClassifier);
+				if (result == null) result = caseIdentifiable(bClassifier);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -145,6 +154,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBClassifier(bDataType);
 				if (result == null) result = caseBBase(bDataType);
 				if (result == null) result = caseBoundableElement(bDataType);
+				if (result == null) result = caseIdentifiable(bDataType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -154,6 +164,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBTypedElement(bOperation);
 				if (result == null) result = caseBBase(bOperation);
 				if (result == null) result = caseBoundableElement(bOperation);
+				if (result == null) result = caseIdentifiable(bOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,6 +174,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBTypedElement(bParameter);
 				if (result == null) result = caseBBase(bParameter);
 				if (result == null) result = caseBoundableElement(bParameter);
+				if (result == null) result = caseIdentifiable(bParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -171,6 +183,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				T result = caseBTypedElement(bTypedElement);
 				if (result == null) result = caseBBase(bTypedElement);
 				if (result == null) result = caseBoundableElement(bTypedElement);
+				if (result == null) result = caseIdentifiable(bTypedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,6 +192,7 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 				T result = caseBTypeParameter(bTypeParameter);
 				if (result == null) result = caseBBase(bTypeParameter);
 				if (result == null) result = caseBoundableElement(bTypeParameter);
+				if (result == null) result = caseIdentifiable(bTypeParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -378,6 +392,21 @@ public class EcorebindingSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBTypeParameter(BTypeParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

@@ -32,6 +32,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryFactory;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
@@ -79,6 +80,7 @@ public class NativeTypesLibraryItemProvider
 			super.getPropertyDescriptors(object);
 
 			addKindPropertyDescriptor(object);
+			addTechnicalidPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -98,6 +100,28 @@ public class NativeTypesLibraryItemProvider
 				 getString("_UI_TypesLibrary_kind_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TypesLibrary_kind_feature", "_UI_TypesLibrary_type"),
 				 TypesLibraryPackage.Literals.TYPES_LIBRARY__KIND,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Technicalid feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTechnicalidPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Identifiable_technicalid_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Identifiable_technicalid_feature", "_UI_Identifiable_type"),
+				 TechnicalIDPackage.Literals.IDENTIFIABLE__TECHNICALID,
 				 true,
 				 false,
 				 false,
@@ -206,6 +230,7 @@ public class NativeTypesLibraryItemProvider
 
 		switch (notification.getFeatureID(NativeTypesLibrary.class)) {
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__KIND:
+			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__TECHNICALID:
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

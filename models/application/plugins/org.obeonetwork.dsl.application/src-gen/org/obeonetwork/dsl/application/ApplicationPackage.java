@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.application;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,13 +75,22 @@ public interface ApplicationPackage extends EPackage {
 	int CONFIGURATION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__BINDING_REGISTRIES = 0;
+	int CONFIGURATION__BINDING_REGISTRIES = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ecore Model</b></em>' reference.
@@ -89,7 +99,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__ECORE_MODEL = 1;
+	int CONFIGURATION__ECORE_MODEL = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Cinematic Model</b></em>' reference.
@@ -98,7 +108,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__CINEMATIC_MODEL = 2;
+	int CONFIGURATION__CINEMATIC_MODEL = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Ecore Binding Model</b></em>' reference.
@@ -107,7 +117,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__ECORE_BINDING_MODEL = 3;
+	int CONFIGURATION__ECORE_BINDING_MODEL = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
@@ -116,7 +126,7 @@ public interface ApplicationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = 4;
+	int CONFIGURATION_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.application.Configuration <em>Configuration</em>}'.

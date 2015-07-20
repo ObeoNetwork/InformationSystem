@@ -10,6 +10,7 @@
  */
 package org.obeonetwork.dsl.typeslibrary;
 
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
 
@@ -29,10 +30,9 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getNativeType()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface NativeType extends CDOObject {
+public interface NativeType extends Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

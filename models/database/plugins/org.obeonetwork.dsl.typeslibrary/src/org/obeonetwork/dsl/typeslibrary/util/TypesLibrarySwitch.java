@@ -15,6 +15,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.dsl.typeslibrary.*;
 
 /**
@@ -102,6 +103,7 @@ public class TypesLibrarySwitch<T> {
 				NativeTypesLibrary nativeTypesLibrary = (NativeTypesLibrary)theEObject;
 				T result = caseNativeTypesLibrary(nativeTypesLibrary);
 				if (result == null) result = caseTypesLibrary(nativeTypesLibrary);
+				if (result == null) result = caseIdentifiable(nativeTypesLibrary);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -109,12 +111,14 @@ public class TypesLibrarySwitch<T> {
 				TypeInstance typeInstance = (TypeInstance)theEObject;
 				T result = caseTypeInstance(typeInstance);
 				if (result == null) result = caseType(typeInstance);
+				if (result == null) result = caseIdentifiable(typeInstance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case TypesLibraryPackage.NATIVE_TYPE: {
 				NativeType nativeType = (NativeType)theEObject;
 				T result = caseNativeType(nativeType);
+				if (result == null) result = caseIdentifiable(nativeType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -122,6 +126,7 @@ public class TypesLibrarySwitch<T> {
 				ComplexNamedType complexNamedType = (ComplexNamedType)theEObject;
 				T result = caseComplexNamedType(complexNamedType);
 				if (result == null) result = caseUserDefinedType(complexNamedType);
+				if (result == null) result = caseIdentifiable(complexNamedType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,6 +134,7 @@ public class TypesLibrarySwitch<T> {
 				SimpleNamedType simpleNamedType = (SimpleNamedType)theEObject;
 				T result = caseSimpleNamedType(simpleNamedType);
 				if (result == null) result = caseUserDefinedType(simpleNamedType);
+				if (result == null) result = caseIdentifiable(simpleNamedType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,6 +154,7 @@ public class TypesLibrarySwitch<T> {
 				UserDefinedTypeRef userDefinedTypeRef = (UserDefinedTypeRef)theEObject;
 				T result = caseUserDefinedTypeRef(userDefinedTypeRef);
 				if (result == null) result = caseType(userDefinedTypeRef);
+				if (result == null) result = caseIdentifiable(userDefinedTypeRef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -155,6 +162,7 @@ public class TypesLibrarySwitch<T> {
 				UserDefinedTypesLibrary userDefinedTypesLibrary = (UserDefinedTypesLibrary)theEObject;
 				T result = caseUserDefinedTypesLibrary(userDefinedTypesLibrary);
 				if (result == null) result = caseTypesLibrary(userDefinedTypesLibrary);
+				if (result == null) result = caseIdentifiable(userDefinedTypesLibrary);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -336,6 +344,21 @@ public class TypesLibrarySwitch<T> {
 	 * @generated
 	 */
 	public T caseTypesLibrary(TypesLibrary object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 
