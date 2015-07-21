@@ -21,9 +21,6 @@
    <feature url="features/org.obeonetwork.dsl.feature.overview_2.4.0.qualifier.jar" id="org.obeonetwork.dsl.feature.overview" version="2.4.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.requirement_1.1.0.qualifier.jar" id="org.obeonetwork.dsl.feature.requirement" version="1.1.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.models"/>
-   </feature>
    <feature url="features/org.obeonetwork.dsl.feature.statemachine_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.statemachine" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
@@ -37,9 +34,6 @@
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
    <feature url="features/org.obeonetwork.dsl.interaction.design.feature_2.4.0.qualifier.jar" id="org.obeonetwork.dsl.interaction.design.feature" version="2.4.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.designs"/>
-   </feature>
-   <feature url="features/org.obeonetwork.dsl.requirement.design.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.requirement.design.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
    <feature url="features/org.obeonetwork.dsl.statemachine.design.feature_1.1.0.qualifier.jar" id="org.obeonetwork.dsl.statemachine.design.feature" version="1.1.0.qualifier">
