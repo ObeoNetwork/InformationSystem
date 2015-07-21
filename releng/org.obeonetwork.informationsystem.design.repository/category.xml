@@ -45,9 +45,6 @@
    <feature url="features/org.obeonetwork.tools.doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.tools.doc.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
-   <feature url="features/org.obeonetwork.tools.linker.feature_1.0.0.qualifier.jar" id="org.obeonetwork.tools.linker.feature" version="1.0.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.commons"/>
-   </feature>
    <feature url="features/org.eclipse.nebula.treemapper.feature_0.1.0.qualifier.jar" id="org.eclipse.nebula.treemapper.feature" version="0.1.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
