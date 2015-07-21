@@ -54,9 +54,6 @@
    <feature url="features/org.obeonetwork.dsl.database.design.feature_1.1.0.qualifier.jar" id="org.obeonetwork.dsl.database.design.feature" version="1.1.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.entityrelation.design.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.entityrelation.design.feature" version="1.0.0.qualifier">
-      <category name="org.obeonetwork.informationsystem.designs"/>
-   </feature>
    <feature url="features/org.obeonetwork.dsl.feature.is_2.4.0.qualifier.jar" id="org.obeonetwork.dsl.feature.is" version="2.4.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
