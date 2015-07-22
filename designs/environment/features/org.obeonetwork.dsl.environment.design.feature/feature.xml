@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.obeonetwork.dsl.feature.is.design"
-      label="IS Designer"
+      id="org.obeonetwork.dsl.environment.design.feature"
+      label="Environment Designer"
       version="2.4.0.qualifier"
-      provider-name="%providerName">
+      provider-name="Obeo.fr">
 
    <description url="http://marketplace.obeonetwork.com/">
-      ObeoNetwork - Designer for IS cinematic, entity and SOA models
+      ObeoNetwork - Environment Designer
    </description>
 
    <copyright url="http://www.obeo.fr/legal.php?lang=en">
@@ -215,7 +215,6 @@ Agreement more than one year after the cause of action arose.
 Each party waives its rights to a jury trial in any resulting
 litigation.
    </license>
-
    <requires>
       <import feature="fr.obeo.dsl.feature.designer.architect" version="6.2.0" match="greaterOrEqual"/>
       <import feature="fr.obeo.dsl.viewpoint.runtime" version="6.8.0" match="greaterOrEqual"/>
@@ -227,23 +226,14 @@ litigation.
       <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui" version="6.8.0" match="greaterOrEqual"/>
       <import feature="fr.obeo.dsl.viewpoint.specifier.ide.ui.acceleo" version="6.8.0" match="greaterOrEqual"/>
       <import feature="fr.obeo.mda.license" version="1.0.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.cinematic.design.feature" version="3.0.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.entity" version="2.4.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.environment.binding.dialect.feature" version="2.4.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.feature.overview" version="2.4.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.nebula.treemapper.feature" version="0.1.0" match="greaterOrEqual"/>
       <import feature="org.obeonetwork.dsl.feature.soa" version="2.4.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.dsl.environment.design.feature" version="2.4.0.qualifier"/>
+      <import feature="org.obeonetwork.dsl.feature.entity" version="2.4.0" match="greaterOrEqual"/>
+      <import feature="org.obeonetwork.dsl.feature.environment" version="2.4.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
-         id="org.obeonetwork.dsl.is.design"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.obeonetwork.dsl.is"
+         id="org.obeonetwork.dsl.environment.design"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="fr.obeo.dsl.viewpoint.componentization">
+    <component class="org.obeonetwork.dsl.environment.design.Activator"
+               id="org.obeonetwork.dsl.environment.design"
+	       name="environment">
+    </component>
+  </extension>
+  
+  
+  
+  
+</plugin>

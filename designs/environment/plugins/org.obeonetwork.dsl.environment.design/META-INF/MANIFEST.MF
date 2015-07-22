@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-Name: org.obeonetwork.dsl.environment.design
+Bundle-SymbolicName: org.obeonetwork.dsl.environment.design;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.obeonetwork.dsl.environment.design.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ fr.obeo.dsl.viewpoint,
+ fr.obeo.dsl.common.acceleo.mtl,
+ org.obeonetwork.dsl.environment;bundle-version="2.4.0"
+Bundle-Vendor: www.obeo.fr
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ManifestVersion: 2

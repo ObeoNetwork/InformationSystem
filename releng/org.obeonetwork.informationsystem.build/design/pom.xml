@@ -154,8 +154,10 @@
 		<!-- designs/environment/ -->
 		<module>../../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.dialect</module>
 		<module>../../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.dialect.ui</module>
+		<module>../../../designs/environment/plugins/org.obeonetwork.dsl.environment.design</module>
 		
 		<module>../../../designs/environment/features/org.obeonetwork.dsl.environment.binding.dialect.feature</module>
+		<module>../../../designs/environment/features/org.obeonetwork.dsl.environment.design.feature</module>
 		
 		<!-- designs/cinematic/ -->
 		<module>../../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design</module>
