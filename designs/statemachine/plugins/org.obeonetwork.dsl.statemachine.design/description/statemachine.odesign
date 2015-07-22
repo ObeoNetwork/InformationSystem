@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="statemachine" version="6.7.0.201302071200">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="statemachine" version="10.0.0.201505222000">
   <ownedViewpoints name="State Machine">
-    <ownedRepresentations xsi:type="description:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='D%26D%20Tools']/@ownedTools[name='D%26D_States']" name="State Machine Diagram" titleExpression="[name + ' State Machine Diagram'/]" domainClass="statemachine.StateMachine" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@toolSections.1/@subSections[name='D%26D%20Tools']/@ownedTools[name='D%26D_States']" name="State Machine Diagram" titleExpression="[name + ' State Machine Diagram'/]" domainClass="statemachine.StateMachine" enablePopupBars="true">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.statemachine/model/statemachine.ecore#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/environment/2.0.0#/"/>
       <diagramInitialisation>
@@ -75,21 +75,21 @@
           </style>
         </containerMappings>
         <toolSections name="State Machine">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Initial State" nodeMappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_InitialStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_InitialState']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Initial State" nodeMappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_InitialStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_InitialState']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.InitialState" referenceName="states"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Final State" nodeMappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_FinalState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_FinalStateInRegion']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Final State" nodeMappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_FinalState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_FinalStateInRegion']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:CreateInstance" typeName="statemachine.FinalState" referenceName="states"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Transition" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@edgeMappings[name='SM_Transition']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Transition" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@edgeMappings[name='SM_Transition']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -103,7 +103,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Region" containerMappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="Region" containerMappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -112,7 +112,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="State" containerMappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion']">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="State" containerMappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -130,13 +130,13 @@
         </toolSections>
         <toolSections name="Reused Tools">
           <subSections name="Direct Edit Tools">
-            <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_States&amp;RegionsLabel">
+            <ownedTools xsi:type="tool_1:DirectEditLabel" name="EDT_States&amp;RegionsLabel">
               <mask mask="{0}"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:arg0"/>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:DirectEditLabel" name="EDT_TransitionsGuard">
+            <ownedTools xsi:type="tool_1:DirectEditLabel" name="EDT_TransitionsGuard">
               <mask mask="{0}"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:SetValue" featureName="guard" valueExpression="var:arg0"/>
@@ -144,7 +144,7 @@
             </ownedTools>
           </subSections>
           <subSections name="Delete Tools">
-            <ownedTools xsi:type="tool:DeleteElementDescription" name="Del_Region">
+            <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Del_Region">
               <element name="element"/>
               <elementView name="elementView"/>
               <containerView name="containerView"/>
@@ -163,7 +163,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:DeleteElementDescription" name="Del_State">
+            <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Del_State">
               <element name="element"/>
               <elementView name="elementView"/>
               <containerView name="containerView"/>
@@ -181,7 +181,7 @@
             </ownedTools>
           </subSections>
           <subSections name="D&amp;D Tools">
-            <ownedTools xsi:type="tool:ContainerDropDescription" name="D&amp;D_States" precondition="[oclIsKindOf(statemachine::AbstractState)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_FinalState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_InitialState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_FinalStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_InitialStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State']" dragSource="BOTH">
+            <ownedTools xsi:type="tool_1:ContainerDropDescription" name="D&amp;D_States" precondition="[oclIsKindOf(statemachine::AbstractState)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_FinalState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@nodeMappings[name='SM_InitialState'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_FinalStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subNodeMappings[name='SM_InitialStateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_Region']/@subContainerMappings[name='SM_StateInRegion'] //@ownedViewpoints[name='State%20Machine']/@ownedRepresentations[name='State%20Machine%20Diagram']/@defaultLayer/@containerMappings[name='SM_State']" dragSource="BOTH">
               <oldContainer name="oldSemanticContainer"/>
               <newContainer name="newSemanticContainer"/>
               <element name="element"/>
@@ -199,7 +199,7 @@
             </ownedTools>
           </subSections>
           <subSections name="Reconnection Tools">
-            <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="RT_from" reconnectionKind="RECONNECT_SOURCE">
+            <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="RT_from" reconnectionKind="RECONNECT_SOURCE">
               <source name="source"/>
               <target name="target"/>
               <sourceView name="sourceView"/>
@@ -212,7 +212,7 @@
               </initialOperation>
               <edgeView name="edgeView"/>
             </ownedTools>
-            <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="RT_to">
+            <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="RT_to">
               <source name="source"/>
               <target name="target"/>
               <sourceView name="sourceView"/>

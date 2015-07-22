@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="Cinematic" version="8.1.0">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="Cinematic" version="10.0.0.201505222000">
   <ownedViewpoints name="Cinematic Views">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" domainClass="cinematic.CinematicRoot" preconditionExpression="false">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#/"/>
@@ -39,19 +39,19 @@
       </diagramInitialisation>
       <defaultLayer name="Default">
         <nodeMappings name="FLD_InitialState" semanticCandidatesExpression="feature:states" domainClass="flow.InitialState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/initial_state.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_FinalState" semanticCandidatesExpression="feature:states" domainClass="flow.FinalState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/final_state.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_AbortState" semanticCandidatesExpression="feature:states" domainClass="flow.AbortState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/abort_state.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/abort_state.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -64,44 +64,44 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_ActionState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" domainClass="flow.ActionState">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_AsyncEventState" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" domainClass="flow.AsyncEventState">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_SubflowState" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='CRE_Subflow_Diagram']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Subflow%20Diagram']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:states" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='DBL_Nav_To_SubFlow_Diagram']" domainClass="flow.SubflowState">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FLD_DecisionState" semanticCandidatesExpression="feature:states" domainClass="flow.DecisionState">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/decision_state.svg">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/decision_state.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <edgeMappings name="FLD_Transition" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:transitions" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AbortState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ActionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_AsyncEventState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_DecisionState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_FinalState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_InitialState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_SubflowState'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetFinderExpression="feature:to" sourceFinderExpression="feature:from" targetExpression="var:self" domainClass="flow.Transition" useDomainElement="true" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='REC_Transition_Source']">
-          <style sizeComputationExpression="1">
+          <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="service:getCinematicLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
           <conditionnalStyles predicateExpression="service:getOnSize">
-            <style sizeComputationExpression="1">
+            <style>
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <centerLabelStyleDescription labelExpression="service:getCinematicLabel" iconPath="/org.obeonetwork.dsl.cinematic.design/icons/viewpoint/event.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -299,7 +299,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="Flow Events">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="Flow Events">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -330,7 +330,7 @@
       </additionalLayers>
       <additionalLayers name="View Containers" activeByDefault="true">
         <edgeMappings name="FLD_ViewState_To_ViewContainer" deletionDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='DEL_DissociateViewStateAndViewContainer']" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@defaultLayer/@nodeMappings[name='FLD_ViewState']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']" targetFinderExpression="feature:viewContainers" targetExpression="var:self" reconnections="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Target'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@toolSections.1/@ownedTools[name='REC_ViewState_To_ViewContainer_Source']">
-          <style lineStyle="dash">
+          <style lineStyle="dash" sizeComputationExpression="[eContents()->size()/]">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -359,7 +359,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="service:getCinematicLabel">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="service:getCinematicLabel">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
@@ -487,7 +487,7 @@
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//toolkits"/>
       <defaultLayer name="Default">
         <containerMappings name="PAD_Package" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_Package_Diagram'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_UI_Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:subPackages" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_Package_Diagram']" domainClass="cinematic.AbstractPackage" reusedContainerMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Package'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']">
-          <style xsi:type="style:FlatContainerStyleDescription" labelAlignment="LEFT">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelAlignment="LEFT">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
@@ -496,7 +496,7 @@
           </style>
         </containerMappings>
         <containerMappings name="PAD_ViewContainer" detailDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_UI_Structure']" navigationDescriptions="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='NAV_UI_Structure']" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:viewContainers" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_UI_Structure']" domainClass="view.ViewContainer" reusedNodeMappings="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewContainer'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewElement'] //@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Flow%20Diagram']/@additionalLayers[name='View%20Containers']/@containerMappings[name='FLD_ViewContainer']/@subNodeMappings[name='FLD_ViewContainerReference']" childrenPresentation="List">
-          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="service:getCinematicLabel">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="service:getCinematicLabel">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
@@ -504,7 +504,7 @@
           </style>
         </containerMappings>
         <containerMappings name="PAD_Flow" labelDirectEdit="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Reused%20Description']/@toolSection/@ownedTools[name='EDT_Common']" semanticCandidatesExpression="feature:flows" doubleClickDescription="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_Nav_To_Flow_Diagram']" domainClass="flow.Flow">
-          <style xsi:type="style:FlatContainerStyleDescription">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
@@ -605,7 +605,7 @@
       </defaultLayer>
       <additionalLayers name="Dependencies" activeByDefault="true">
         <edgeMappings name="PAD_Flow_To_ViewContainer" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']" targetFinderExpression="service:getViewContainerAssociateAndAncestors">
-          <style lineStyle="dash" sizeComputationExpression="1">
+          <style lineStyle="dash">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -613,7 +613,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="PAD_ViewContainer_To_ViewContainer" semanticCandidatesExpression="&lt;%" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_ViewContainer']" targetFinderExpression="service:getViewContainers" sourceFinderExpression="feature:eContainer" domainClass="view.ViewContainerReference">
-          <style sizeComputationExpression="1">
+          <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false" labelExpression="references">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -621,7 +621,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="PAD_Flow_To_Subflow" semanticCandidatesExpression="&lt;%" sourceMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']" targetMapping="//@ownedViewpoints[name='Cinematic%20Views']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PAD_Flow']" targetFinderExpression="service:getSubFlowInSubflowStates" sourceFinderExpression="feature:eContainer" domainClass="view.ViewContainerReference">
-          <style sizeComputationExpression="1">
+          <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
