@@ -21,6 +21,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -297,6 +298,12 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	
 	public String completeToolTipText(String toolTipText, EObject eObject) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String completeToolTipText(String toolTipText, EObject eObject, EStructuralFeature feature) {
 		// TODO Auto-generated method stub
 		return null;
 	}
