@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_Zj69UBEnEeGTa_JlZYBw1A" kind="physicalTypes" name="Postgres-9">
-  <nativeTypes xmi:id="_fXqYcG5GEeS0qO0NdvQESw" name="BIT(%n)" spec="Length"/>
-  <nativeTypes xmi:id="_jTNA8G5GEeS0qO0NdvQESw" name="BIT VARYING(%n)" spec="Length"/>
+  <nativeTypes xmi:id="_fXqYcG5GEeS0qO0NdvQESw" name="BIT" spec="Length"/>
+  <nativeTypes xmi:id="_jTNA8G5GEeS0qO0NdvQESw" name="BIT VARYING" spec="Length"/>
   <nativeTypes xmi:id="_S3MhgG5GEeS0qO0NdvQESw" name="BIGINT">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
@@ -13,22 +13,13 @@
   </nativeTypes>
   <nativeTypes xmi:id="_i9DyMGTMEeSmq67_vSAzgg" name="BOX"/>
   <nativeTypes xmi:id="_3Xq00G5GEeS0qO0NdvQESw" name="BYTEA"/>
-  <nativeTypes xmi:id="_j3zjMGTMEeSmq67_vSAzgg" name="CHAR">
+  <nativeTypes xmi:id="_kxaEsGTMEeSmq67_vSAzgg" name="CHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_kxaEsGTMEeSmq67_vSAzgg" name="CHAR(%n)" spec="Length">
+  <nativeTypes xmi:id="_JQzg8G5EEeS0qO0NdvQESw" name="CHARACTER VARYING" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Sea8gG5DEeS0qO0NdvQESw" name="CHARACTER VARYING">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_JQzg8G5EEeS0qO0NdvQESw" name="CHARACTER VARYING(%n)" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_RjcFgG5EEeS0qO0NdvQESw" name="CHARACTER">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_TP-f0G5EEeS0qO0NdvQESw" name="CHARACTER(%n)" spec="Length">
+  <nativeTypes xmi:id="_TP-f0G5EEeS0qO0NdvQESw" name="CHARACTER" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_rydFkGTMEeSmq67_vSAzgg" name="CIDR"/>
@@ -39,19 +30,7 @@
   <nativeTypes xmi:id="_xZkfEGTMEeSmq67_vSAzgg" name="DECIMAL">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_ygVS0GTMEeSmq67_vSAzgg" name="DECIMAL(%n)" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_yxBaMGTMEeSmq67_vSAzgg" name="DECIMAL(%n,%p)" spec="LengthAndPrecision">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_DAw-4G5HEeS0qO0NdvQESw" name="DOUBLE PRECISION" spec="LengthAndPrecision">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_DAw-4W5HEeS0qO0NdvQESw" name="DOUBLE PRECISION(%n)" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_DAw-4m5HEeS0qO0NdvQESw" name="DOUBLE PRECISION(%n,%p)" spec="LengthAndPrecision">
+  <nativeTypes xmi:id="_DAw-4m5HEeS0qO0NdvQESw" name="DOUBLE PRECISION" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_68m7kGTMEeSmq67_vSAzgg" name="FLOAT4">
@@ -79,13 +58,7 @@
   <nativeTypes xmi:id="_HOiAMGTNEeSmq67_vSAzgg" name="MONEY">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Ibx2cGTNEeSmq67_vSAzgg" name="NUMERIC">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_KTdw0GTNEeSmq67_vSAzgg" name="NUMERIC(%n)" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
-  </nativeTypes>
-  <nativeTypes xmi:id="_LqP9kGTNEeSmq67_vSAzgg" name="NUMERIC(%n,%p)" spec="LengthAndPrecision">
+  <nativeTypes xmi:id="_LqP9kGTNEeSmq67_vSAzgg" name="NUMERIC" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_PFWLcGTNEeSmq67_vSAzgg" name="PATH"/>
