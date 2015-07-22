@@ -19,6 +19,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 
+import org.eclipse.sirius.viewpoint.DLabelled;
 import org.eclipse.sirius.viewpoint.DMappingBased;
 import org.eclipse.sirius.viewpoint.DRefreshable;
 import org.eclipse.sirius.viewpoint.DRepresentation;
@@ -123,7 +124,8 @@ public class BindingdialectSwitch<T> {
 			case BindingdialectPackage.DBINDING_EDGE: {
 				DBindingEdge dBindingEdge = (DBindingEdge)theEObject;
 				T result = caseDBindingEdge(dBindingEdge);
-				if (result == null) result = caseDRepresentationElement(dBindingEdge);				
+				if (result == null) result = caseDRepresentationElement(dBindingEdge);
+				if (result == null) result = caseDLabelled(dBindingEdge);
 				if (result == null) result = caseDMappingBased(dBindingEdge);
 				if (result == null) result = caseDStylizable(dBindingEdge);
 				if (result == null) result = caseDRefreshable(dBindingEdge);
@@ -134,7 +136,8 @@ public class BindingdialectSwitch<T> {
 			case BindingdialectPackage.DBOUND_ELEMENT: {
 				DBoundElement dBoundElement = (DBoundElement)theEObject;
 				T result = caseDBoundElement(dBoundElement);
-				if (result == null) result = caseDRepresentationElement(dBoundElement);				
+				if (result == null) result = caseDRepresentationElement(dBoundElement);
+				if (result == null) result = caseDLabelled(dBoundElement);
 				if (result == null) result = caseDMappingBased(dBoundElement);
 				if (result == null) result = caseDStylizable(dBoundElement);
 				if (result == null) result = caseDRefreshable(dBoundElement);
@@ -264,7 +267,22 @@ public class BindingdialectSwitch<T> {
 	 */
 	public T caseDSemanticDecorator(DSemanticDecorator object) {
 		return null;
-	}	
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>DLabelled</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>DLabelled</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDLabelled(DLabelled object) {
+		return null;
+	}
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>DMapping Based</em>'.

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="binding" version="10.0.0.201505222000">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="binding" version="8.1.0">
   <ownedViewpoints name="IS Databinding" modelFileExtension="ois soa entity environment">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Databinding diagram" titleExpression="[name + ' Databinding'/]" domainClass="environment.Namespace">
+      <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
-      <metamodel href="../../org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="DBI_BindingInfo" semanticCandidatesExpression="service:getRelatedBindingInfos()" doubleClickDescription="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_OpenBindingEditor']" domainClass="environment.BindingInfo">
-          <style xsi:type="style:WorkspaceImageDescription" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.environment.binding.design/icons/BindingInfo.gif">
+        <nodeMappings name="DBI_BindingInfo" detailDescriptions="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='CRE_BindingEditor']" semanticCandidatesExpression="service:getRelatedBindingInfos()" doubleClickDescription="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_OpenBindingEditor']" domainClass="environment.BindingInfo">
+          <style xsi:type="style:WorkspaceImageDescription" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.obeonetwork.dsl.environment.binding.design/icons/BindingInfo.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <edgeMappings name="DBI_BoundElement" deletionDescription="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_PreventDeletion']" sourceMapping="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']" targetMapping="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@containerMappings[name='DBI_StructuredType']" targetFinderExpression="feature:targets" reconnections="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='REC_BoundElement']">
-          <style targetArrow="NoDecoration">
+          <style targetArrow="NoDecoration" sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -20,7 +20,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="DBI_StructuredType" deletionDescription="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="[getRelatedBindingInfos()->asSequence().oclAsType(environment::BindingInfo).targets/]" domainClass="environment.StructuredType">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="[name + ' (' + eClass().name + ')'/]">
+          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[name + ' (' + eClass().name + ')'/]">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -83,6 +83,7 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
+          <ownedTools xsi:type="description_2:DBindingEditorCreationDescription" name="CRE_BindingEditor" label="Binding Details" description="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Binding%20Details']"/>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="DBL_OpenBindingEditor" mappings="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']">
             <element name="element"/>
             <elementView name="elementView"/>
@@ -95,6 +96,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:DBindingEditorDescription" name="Binding Details" titleExpression="service:computeBindingEditorName()"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.binding.design.service.BindingService"/>
   </ownedViewpoints>
 </description:Group>

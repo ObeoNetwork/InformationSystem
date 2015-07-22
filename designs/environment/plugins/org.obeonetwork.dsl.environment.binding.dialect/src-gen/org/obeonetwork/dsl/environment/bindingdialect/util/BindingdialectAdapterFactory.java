@@ -19,6 +19,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
 
+import org.eclipse.sirius.viewpoint.DLabelled;
 import org.eclipse.sirius.viewpoint.DMappingBased;
 import org.eclipse.sirius.viewpoint.DRefreshable;
 import org.eclipse.sirius.viewpoint.DRepresentation;
@@ -122,7 +123,11 @@ public class BindingdialectAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDSemanticDecorator(DSemanticDecorator object) {
 				return createDSemanticDecoratorAdapter();
-			}			
+			}
+			@Override
+			public Adapter caseDLabelled(DLabelled object) {
+				return createDLabelledAdapter();
+			}
 			@Override
 			public Adapter caseDMappingBased(DMappingBased object) {
 				return createDMappingBasedAdapter();
