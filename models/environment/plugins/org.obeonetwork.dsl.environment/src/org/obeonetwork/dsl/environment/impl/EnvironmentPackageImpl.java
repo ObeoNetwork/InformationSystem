@@ -1593,7 +1593,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 				"TypesDefinition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypesDefinition_Types(), this.getType(),
-				this.getType_TypeDefinition(), "types", null, 1, -1,
+				this.getType_TypeDefinition(), "types", null, 0, -1,
 				TypesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

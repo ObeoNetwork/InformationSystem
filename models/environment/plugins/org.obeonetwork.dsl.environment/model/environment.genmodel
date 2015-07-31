@@ -6,7 +6,7 @@
     modelName="Environment" editPluginClass="org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin"
     editorPluginClass="org.obeonetwork.dsl.environment.presentation.EnvironmentEditorPlugin"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
-    codeFormatting="true" importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic"
     containmentProxies="true" complianceLevel="5.0" runtimeVersion="2.7" interfaceNamePattern=""
     classNamePattern="">
   <foreignModel>environment.ecore</foreignModel>
