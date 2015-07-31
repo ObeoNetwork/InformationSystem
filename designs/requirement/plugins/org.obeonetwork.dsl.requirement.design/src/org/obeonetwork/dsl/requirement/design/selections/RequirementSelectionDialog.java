@@ -1,5 +1,7 @@
 package org.obeonetwork.dsl.requirement.design.selections;
 
+import java.util.List;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.swt.widgets.Shell;
 import org.obeonetwork.dsl.requirement.Category;
@@ -79,10 +81,42 @@ public class RequirementSelectionDialog extends AbstractSelectionDialog {
 	 */
 	private void computeRequirementId(Requirement requirementCopy,
 			Category category) {
-		int size = category.getRequirements().size();
+		
+	int index=	computeRequirementCopyIndex(requirementCopy,category);
+		if(index==0 || index == 1){
+			requirementCopy.setId(requirementCopy.getId().concat(COPIE_STRING));
+		}else{
 		requirementCopy.setId(requirementCopy.getId().concat(COPIE_STRING)
-				.concat(String.valueOf(size)));
+				.concat(String.valueOf(index)));
+		}
 
+	}
+
+	/**
+	 * Return the index of the copied Requirement.
+	 * @param requirementCopy
+	 * @param category
+	 * @return
+	 */
+	private int computeRequirementCopyIndex(Requirement requirementCopy,
+			Category category) {
+		boolean allIdsContainsCopy=true;
+		int index=0;
+		List<Requirement> ownedRequirements = category.getOwnedRequirements();
+		for (Requirement requirement : ownedRequirements) {
+			if(requirement.getName()!=null){
+				if(requirement.getName().equals(requirementCopy.getName())){
+					index++;
+					if (!requirement.getId().contains(COPIE_STRING)) {
+						allIdsContainsCopy=false;
+					}
+				}
+			}
+		}
+		if(allIdsContainsCopy){
+			index++;
+		}
+		return index;
 	}
 
 	/*

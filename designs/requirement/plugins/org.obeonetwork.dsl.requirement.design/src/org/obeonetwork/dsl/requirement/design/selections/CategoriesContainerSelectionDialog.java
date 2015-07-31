@@ -93,8 +93,7 @@ public class CategoriesContainerSelectionDialog extends AbstractSelectionDialog 
 	 */
 	private void processCopy(Category categoryCopy,
 			CategoriesContainer categoriesContainer) {
-		String categoryCopyId = categoryCopy.getId().concat(COPIE_STRING);
-		categoryCopy.setId(categoryCopyId);
+
 		String index = computeCategoryCopyId(categoryCopy, categoriesContainer);
 		computeSubCategories(categoryCopy, index);
 		computeRequirementsId(categoryCopy, index);
@@ -109,9 +108,9 @@ public class CategoriesContainerSelectionDialog extends AbstractSelectionDialog 
 	private void computeRequirementsId(Category category, String index) {
 		List<Requirement> requirements = category.getRequirements();
 		for (Requirement requirement : requirements) {
-			if (index == null) {
+			if (index == null || Integer.valueOf(index)==0 || Integer.valueOf(index)==1) {
 				requirement.setId(requirement.getId().concat(COPIE_STRING));
-			} else {
+			}else {
 				requirement.setId(requirement.getId().concat(COPIE_STRING)
 						.concat(index));
 			}
@@ -144,7 +143,7 @@ public class CategoriesContainerSelectionDialog extends AbstractSelectionDialog 
 	 * @param category
 	 */
 	private void computeSubCategoriesId(String index, Category category) {
-		if (index == null) {
+		if (index == null|| Integer.valueOf(index)==0 || Integer.valueOf(index)==1) {
 			category.setId(category.getId().concat(COPIE_STRING));
 		} else {
 			category.setId(category.getId().concat(COPIE_STRING).concat(index));
@@ -159,14 +158,42 @@ public class CategoriesContainerSelectionDialog extends AbstractSelectionDialog 
 	 */
 	private String computeCategoryCopyId(Category categoryCopy,
 			CategoriesContainer parentCategory) {
-		String index = null;
-		List<Category> ownedCategories = parentCategory.getOwnedCategories();
-		int size = ownedCategories.size();
-		if (size != 0) {
-			index = Integer.toString(size);
-			categoryCopy.setId(categoryCopy.getId().concat(index));
+		int index = computeCategoryIndex(categoryCopy, parentCategory);
+		if (index == 0 || index == 1) {
+			categoryCopy.setId(categoryCopy.getId().concat(COPIE_STRING));
+		} else {
+			categoryCopy.setId(categoryCopy.getId().concat(COPIE_STRING)
+					.concat(String.valueOf(index)));
 		}
-		return index;
+		return String.valueOf(index);
+	}
+
+	/**
+	 * Return the index of the copied Category.
+	 * 
+	 * @param categoryCopy
+	 * @param parentCategory
+	 * @return
+	 */
+	private int computeCategoryIndex(Category categoryCopy,
+			CategoriesContainer parentCategory) {
+		List<Category> ownedCategories = parentCategory.getOwnedCategories();
+		int copyNumber = 0;
+		boolean allIdsContainsCopy=true;
+		for (Category category : ownedCategories) {
+			if (category.getName() != null) {
+				if (category.getName().equals(categoryCopy.getName())) {
+					copyNumber++;
+					if (!category.getId().contains(COPIE_STRING)) {
+						allIdsContainsCopy=false;
+					}
+				}
+			}
+		}
+		if(allIdsContainsCopy){
+			copyNumber++;
+		}
+		return copyNumber;
 	}
 
 	/*
