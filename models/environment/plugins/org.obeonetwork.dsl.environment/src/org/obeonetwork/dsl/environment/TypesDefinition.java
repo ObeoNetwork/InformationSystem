@@ -51,7 +51,7 @@ public interface TypesDefinition extends ObeoDSMObject {
 	 * @return the value of the '<em>Types</em>' containment reference list.
 	 * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getTypesDefinition_Types()
 	 * @see org.obeonetwork.dsl.environment.Type#getTypeDefinition
-	 * @model opposite="typeDefinition" containment="true" resolveProxies="true" required="true"
+	 * @model opposite="typeDefinition" containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Type> getTypes();

@@ -66,7 +66,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MetaData" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypesDefinition" eSuperTypes="#//ObeoDSMObject">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" lowerBound="1" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//Type" containment="true" eOpposite="#//Type/typeDefinition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Behaviour" abstract="true" eSuperTypes="#//ObeoDSMObject"/>
