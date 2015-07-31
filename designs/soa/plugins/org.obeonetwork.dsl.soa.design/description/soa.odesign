@@ -2,9 +2,9 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="Soa" version="8.1.0">
   <ownedViewpoints name="SOA Views" modelFileExtension="soa ois">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='DAD_Component']" name="SOA Diagram" titleExpression="[name + ' SOA Diagram'/]" domainClass="soa.System">
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
       <defaultLayer name="Default Layer">
         <edgeMappings name="SOAD_Wire" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='Name%20Direct%20Edit%20SOA']" semanticCandidatesExpression="" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Required']" targetMapping="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@containerMappings[name='SOAD_Component']/@borderedNodeMappings[name='SOAD_Service_Provided']" targetFinderExpression="feature:dest" sourceFinderExpression="feature:source" domainClass="soa.Wire" useDomainElement="true" reconnections="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Wire_Target'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='SOA%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Relation']/@subSections[name='Usability%20Tools']/@ownedTools[name='REC_Wire_Source']">
           <style sizeComputationExpression="1">
@@ -214,9 +214,9 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='Component%20Contract%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Service']" name="Component Contract Diagram" titleExpression="[name + ' Component Contract'/]" domainClass="soa.Component">
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.soa/model/soa.ecore#/"/>
       <validationSet>
         <ownedRules xsi:type="validation:SemanticValidationRule" level="ERROR" message="The parameter name cannot use reserved words." targetClass="soa.Parameter">
           <audits auditExpression="[name&lt;>'return' and name&lt;>'public' and name&lt;>'private' and name&lt;>'protected' and name&lt;>'class' and name&lt;>'interface' and name&lt;>'package' and name&lt;>'extends' and name&lt;>'implements' and name&lt;>'int' and name&lt;>'double' and name&lt;>'float'/]"/>
@@ -847,7 +847,7 @@
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:[deleteObeoDSMObject()/]Object"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[deleteObeoDSMObject()/]"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_Inheritance" forceRefresh="true">
