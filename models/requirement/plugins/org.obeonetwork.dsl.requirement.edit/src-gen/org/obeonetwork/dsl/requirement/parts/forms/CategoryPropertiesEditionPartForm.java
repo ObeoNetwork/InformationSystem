@@ -66,7 +66,6 @@ public class CategoryPropertiesEditionPartForm extends SectionPropertiesEditingP
 	protected ReferencesTable subCategories;
 	protected List<ViewerFilter> subCategoriesBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> subCategoriesFilters = new ArrayList<ViewerFilter>();
-	protected FlatReferencesTable referencedObject;
 
 
 
@@ -116,7 +115,6 @@ public class CategoryPropertiesEditionPartForm extends SectionPropertiesEditingP
 		category_Step.addStep(RequirementViewsRepository.Category.Category_.name);
 		category_Step.addStep(RequirementViewsRepository.Category.Category_.requirements);
 		category_Step.addStep(RequirementViewsRepository.Category.Category_.subCategories);
-		category_Step.addStep(RequirementViewsRepository.Category.Category_.referencedObject);
 		
 		
 		composer = new PartComposer(categoryStep) {
@@ -137,9 +135,6 @@ public class CategoryPropertiesEditionPartForm extends SectionPropertiesEditingP
 				}
 				if (key == RequirementViewsRepository.Category.Category_.subCategories) {
 					return createSubCategoriesTableComposition(widgetFactory, parent);
-				}
-				if (key == RequirementViewsRepository.Category.Category_.referencedObject) {
-					return createReferencedObjectFlatReferencesTable(widgetFactory, parent);
 				}
 				return parent;
 			}
@@ -401,33 +396,6 @@ public class CategoryPropertiesEditionPartForm extends SectionPropertiesEditingP
 		return parent;
 	}
 
-	/**
-	 * @param parent
-	 * 
-	 */
-	protected Composite createReferencedObjectFlatReferencesTable(FormToolkit widgetFactory, Composite parent) {
-		createDescription(parent, RequirementViewsRepository.Category.Category_.referencedObject, RequirementMessages.CategoryPropertiesEditionPart_ReferencedObjectLabel);
-		referencedObject = new FlatReferencesTable(parent);
-		referencedObject.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		referencedObject.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			public void selectionChanged(SelectionChangedEvent event) {
-				if (event.getSelection() instanceof StructuredSelection) 
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(CategoryPropertiesEditionPartForm.this, RequirementViewsRepository.Category.Category_.referencedObject, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, ((StructuredSelection)event.getSelection()).toList()));
-			}
-
-		});
-		GridData referencedObjectData = new GridData(GridData.FILL_HORIZONTAL);
-		referencedObject.setLayoutData(referencedObjectData);
-		referencedObject.setID(RequirementViewsRepository.Category.Category_.referencedObject);
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(RequirementViewsRepository.Category.Category_.referencedObject, RequirementViewsRepository.FORM_KIND), null); //$NON-NLS-1$
-		// Start of user code for createReferencedObjectFlatReferencesTable
-
-		// End of user code
-		return parent;
-	}
-
-
 
 	/**
 	 * {@inheritDoc}
@@ -635,67 +603,6 @@ public class CategoryPropertiesEditionPartForm extends SectionPropertiesEditingP
 	 */
 	public boolean isContainedInSubCategoriesTable(EObject element) {
 		return ((ReferencesTableSettings)subCategories.getInput()).contains(element);
-	}
-
-
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.requirement.parts.CategoryPropertiesEditionPart#initReferencedObject(ReferencesTableSettings)
-	 */
-	public void initReferencedObject(ReferencesTableSettings settings) {
-		if (current.eResource() != null && current.eResource().getResourceSet() != null)
-			this.resourceSet = current.eResource().getResourceSet();
-		referencedObject.setInput(settings);
-		boolean eefElementEditorReadOnlyState = isReadOnly(RequirementViewsRepository.Category.Category_.referencedObject);
-		if (eefElementEditorReadOnlyState && referencedObject.isEnabled()) {
-			referencedObject.setEnabled(false);
-			referencedObject.setToolTipText(RequirementMessages.Category_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !referencedObject.isEnabled()) {
-			referencedObject.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.requirement.parts.CategoryPropertiesEditionPart#updateReferencedObject()
-	 * 
-	 */
-	public void updateReferencedObject() {
-	referencedObject.refresh();
-}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.requirement.parts.CategoryPropertiesEditionPart#addFilterReferencedObject(ViewerFilter filter)
-	 * 
-	 */
-	public void addFilterToReferencedObject(ViewerFilter filter) {
-		referencedObject.addFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.requirement.parts.CategoryPropertiesEditionPart#addBusinessFilterReferencedObject(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToReferencedObject(ViewerFilter filter) {
-		referencedObject.addBusinessRuleFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.requirement.parts.CategoryPropertiesEditionPart#isContainedInReferencedObjectTable(EObject element)
-	 * 
-	 */
-	public boolean isContainedInReferencedObjectTable(EObject element) {
-		return ((ReferencesTableSettings)referencedObject.getInput()).contains(element);
 	}
 
 

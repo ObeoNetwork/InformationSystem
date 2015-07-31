@@ -67,9 +67,6 @@ public class RequirementMessages extends NLS {
 	public static String CategoryPropertiesEditionPart_SubCategoriesLabel;
 
 	
-	public static String CategoryPropertiesEditionPart_ReferencedObjectLabel;
-
-	
 	public static String RequirementPropertiesEditionPart_TypeLabel;
 
 	

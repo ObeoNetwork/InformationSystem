@@ -54,9 +54,6 @@ public class RequirementViewsRepository {
 			
 			public static String subCategories = "requirement::Category::Category_::subCategories";
 			
-			
-			public static String referencedObject = "requirement::Category::Category_::referencedObject";
-			
 	
 		}
 	

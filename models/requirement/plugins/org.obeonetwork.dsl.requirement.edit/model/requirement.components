@@ -27,9 +27,6 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_szypmMvEEd-iMcVUPxjMIw" name="subCategories" views="_szypq8vEEd-iMcVUPxjMIw">
           <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.requirement/model/requirement.ecore#//Category/subCategories"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_FAqW4JZgEeCxeJYZTx8nbA" name="referencedObject" views="_8O3xIJZfEeCxeJYZTx8nbA" helpID="">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.requirement/model/requirement.ecore#//Category/referencedObject"/>
-        </properties>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.requirement/model/requirement.ecore#//Category"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_szypmsvEEd-iMcVUPxjMIw" name="requirement" views="_szyprcvEEd-iMcVUPxjMIw _NSFngKboEeCg8tc1jAf-CA">
@@ -106,9 +103,6 @@
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_szypq8vEEd-iMcVUPxjMIw" name="subCategories">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_8O3xIJZfEeCxeJYZTx8nbA" name="referencedObject">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.10"/>
           </elements>
         </elements>
       </views>

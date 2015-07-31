@@ -135,48 +135,6 @@ public interface CategoryPropertiesEditionPart {
 
 
 
-	/**
-	 * Init the referencedObject
-	 * @param settings settings for the referencedObject ReferencesTable 
-	 */
-	public void initReferencedObject(ReferencesTableSettings settings);
-
-	/**
-	 * Update the referencedObject
-	 * @param newValue the referencedObject to update
-	 * 
-	 */
-	public void updateReferencedObject();
-
-	/**
-	 * Adds the given filter to the referencedObject edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addFilterToReferencedObject(ViewerFilter filter);
-
-	/**
-	 * Adds the given filter to the referencedObject edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addBusinessFilterToReferencedObject(ViewerFilter filter);
-
-	/**
-	 * @return true if the given element is contained inside the referencedObject table
-	 * 
-	 */
-	public boolean isContainedInReferencedObjectTable(EObject element);
-
-
-
-
 
 	/**
 	 * Returns the internationalized title text.

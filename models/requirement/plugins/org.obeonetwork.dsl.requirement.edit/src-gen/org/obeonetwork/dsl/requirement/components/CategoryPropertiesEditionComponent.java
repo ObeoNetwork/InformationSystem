@@ -4,8 +4,6 @@
 package org.obeonetwork.dsl.requirement.components;
 
 // Start of user code for imports
-import java.util.List;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -23,7 +21,6 @@ import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-import org.eclipse.emf.eef.runtime.impl.filters.EObjectStrictFilter;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
@@ -61,10 +58,6 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 	 */
 	protected ReferencesTableSettings subCategoriesSettings;
 	
-	/**
-	 * Settings for referencedObject ReferencesTable
-	 */
-	private ReferencesTableSettings referencedObjectSettings;
 	
 	/**
 	 * Default constructor
@@ -106,10 +99,6 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 				subCategoriesSettings = new ReferencesTableSettings(category, RequirementPackage.eINSTANCE.getCategory_SubCategories());
 				categoryPart.initSubCategories(subCategoriesSettings);
 			}
-			if (isAccessible(RequirementViewsRepository.Category.Category_.referencedObject)) {
-				referencedObjectSettings = new ReferencesTableSettings(category, RequirementPackage.eINSTANCE.getCategory_ReferencedObject());
-				categoryPart.initReferencedObject(referencedObjectSettings);
-			}
 			// init filters
 			
 			
@@ -143,25 +132,6 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 				// Start of user code for additional businessfilters for subCategories
 				// End of user code
 			}
-			if (isAccessible(RequirementViewsRepository.Category.Category_.referencedObject)) {
-				categoryPart.addFilterToReferencedObject(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						if (element instanceof EObject)
-							return (!categoryPart.isContainedInReferencedObjectTable((EObject)element));
-						return element instanceof String && element.equals("");
-					}
-				
-				});
-				categoryPart.addFilterToReferencedObject(new EObjectStrictFilter(EcorePackage.Literals.EOBJECT));
-				// Start of user code for additional businessfilters for referencedObject
-				// End of user code
-			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -169,7 +139,6 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		setInitializing(false);
 	}
-
 
 
 
@@ -193,9 +162,6 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 		}
 		if (editorKey == RequirementViewsRepository.Category.Category_.subCategories) {
 			return RequirementPackage.eINSTANCE.getCategory_SubCategories();
-		}
-		if (editorKey == RequirementViewsRepository.Category.Category_.referencedObject) {
-			return RequirementPackage.eINSTANCE.getCategory_ReferencedObject();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -263,10 +229,6 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 				subCategoriesSettings.move(event.getNewIndex(), (Category) event.getNewValue());
 			}
 		}
-		if (RequirementViewsRepository.Category.Category_.referencedObject == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.SET)
-				referencedObjectSettings.setToReference((List<EObject>) event.getNewValue());
-		}
 	}
 
 	/**
@@ -295,8 +257,6 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 				categoryPart.updateRequirements();
 			if (RequirementPackage.eINSTANCE.getCategory_SubCategories().equals(msg.getFeature()) && isAccessible(RequirementViewsRepository.Category.Category_.subCategories))
 				categoryPart.updateSubCategories();
-			if (RequirementPackage.eINSTANCE.getCategory_ReferencedObject().equals(msg.getFeature()) && isAccessible(RequirementViewsRepository.Category.Category_.referencedObject))
-				categoryPart.updateReferencedObject();
 			
 		}
 	}
@@ -312,8 +272,7 @@ public class CategoryPropertiesEditionComponent extends SinglePartPropertiesEdit
 			RequirementPackage.eINSTANCE.getCategory_Id(),
 			RequirementPackage.eINSTANCE.getNamedElement_Name(),
 			RequirementPackage.eINSTANCE.getCategory_Requirements(),
-			RequirementPackage.eINSTANCE.getCategory_SubCategories(),
-			RequirementPackage.eINSTANCE.getCategory_ReferencedObject()		);
+			RequirementPackage.eINSTANCE.getCategory_SubCategories()		);
 		return new NotificationFilter[] {filter,};
 	}
 
