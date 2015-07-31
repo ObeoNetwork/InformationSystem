@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="requirements" version="8.1.0">
   <ownedViewpoints name="Requirements">
-    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Requirements Table" titleExpression="[name + ' Requirements Table'/]" domainClass="requirement.CategoriesContainer">
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Requirements Table" titleExpression="[name + ' Requirements Table'/]" domainClass="requirement.CategoriesContainer" initialHeaderColumnWidth="80">
       <ownedLineMappings name="REQ_CategoriesContainer" domainClass="requirement.CategoriesContainer" semanticCandidatesExpression="var:self" headerLabelExpression="feature:name">
         <ownedSubLines name="REQ_Requirement" reusedSubLines="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']" reusedInMappings="//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Category']" domainClass="requirement.Requirement" semanticCandidatesExpression="service:getRequirements" headerLabelExpression="[id + ' - ' + name/]">
           <create name="REQ_Requirement" label="Create Requirement" forceRefresh="true">
@@ -118,13 +118,13 @@
           <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="service:moveCategory"/>
         </create>
       </ownedLineMappings>
-      <ownedColumnMappings name="REQ_ID" label="" headerLabelExpression="ID" featureName="id"/>
-      <ownedColumnMappings name="REQ_Name" label="" headerLabelExpression="Name" featureName="name" labelExpression="[if lineSemantic.oclIsKindOf(requirement::Category) or lineSemantic.oclIsKindOf(requirement::Requirement) then lineSemantic.oclAsType(requirement::NamedElement).name else '' endif/]"/>
-      <ownedColumnMappings name="REQ_Type" label="" headerLabelExpression="Type" featureName="type"/>
-      <ownedColumnMappings name="REQ_Subtype" label="" headerLabelExpression="Subtype" featureName="subtype"/>
-      <ownedColumnMappings name="REQ_Status" label="" headerLabelExpression="Status" featureName="status"/>
-      <ownedColumnMappings name="REQ_Statement" label="" headerLabelExpression="Statement" featureName="statement"/>
-      <ownedColumnMappings name="REQ_Version" label="" headerLabelExpression="Version" canEdit="false" featureName="version"/>
+      <ownedColumnMappings name="REQ_ID" label="" headerLabelExpression="ID" initialWidth="80" featureName="id"/>
+      <ownedColumnMappings name="REQ_Name" label="" headerLabelExpression="Name" initialWidth="80" featureName="name" labelExpression="[if lineSemantic.oclIsKindOf(requirement::Category) or lineSemantic.oclIsKindOf(requirement::Requirement) then lineSemantic.oclAsType(requirement::NamedElement).name else '' endif/]"/>
+      <ownedColumnMappings name="REQ_Type" label="" headerLabelExpression="Type" initialWidth="80" featureName="type"/>
+      <ownedColumnMappings name="REQ_Subtype" label="" headerLabelExpression="Subtype" initialWidth="80" featureName="subtype"/>
+      <ownedColumnMappings name="REQ_Status" label="" headerLabelExpression="Status" initialWidth="80" featureName="status"/>
+      <ownedColumnMappings name="REQ_Statement" label="" headerLabelExpression="Statement" initialWidth="120" featureName="statement"/>
+      <ownedColumnMappings name="REQ_Version" label="" headerLabelExpression="Version" initialWidth="80" canEdit="false" featureName="version"/>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Requirements Traceability Matrix" titleExpression="[name + ' Requirements Traceability Matrix'/]" domainClass="requirement.Repository">
       <ownedLineMappings name="Repository" domainClass="requirement.Repository" semanticCandidatesExpression="var:self" headerLabelExpression="feature:name">
