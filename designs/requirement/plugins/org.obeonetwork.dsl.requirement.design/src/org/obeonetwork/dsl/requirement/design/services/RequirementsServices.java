@@ -1,10 +1,15 @@
 package org.obeonetwork.dsl.requirement.design.services;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.obeonetwork.dsl.requirement.CategoriesContainer;
@@ -83,9 +88,28 @@ public class RequirementsServices {
 		Shell parent = getShell();
 		CategoriesContainerSelectionDialog categoriesContainerSelectionDialog = new CategoriesContainerSelectionDialog(
 				parent, true);
-		categoriesContainerSelectionDialog.setInput(category);
+		Resource resource=getRequirementResource(category);
+		categoriesContainerSelectionDialog.setInput(resource);
 		categoriesContainerSelectionDialog.setElement(category);
 		categoriesContainerSelectionDialog.open();
+	}
+
+	/**
+	 * Return the requirement Resource.
+	 * @param eObject
+	 * @return requirementResource
+	 */
+	private Resource getRequirementResource(EObject eObject) {
+		Session session = SessionManager.INSTANCE.getSession(eObject);
+		Collection<Resource> semanticResources = session.getSemanticResources();
+		Resource requirementResource=null;
+		for (Resource resource : semanticResources) {
+			EObject eObject1 = resource.getContents().get(0);
+			if(eObject1 instanceof CategoriesContainer ){
+				requirementResource=resource;
+			}
+		}
+		return requirementResource;
 	}
 
 	/**
@@ -97,7 +121,8 @@ public class RequirementsServices {
 		Shell parent = getShell();
 		CategoriesContainerSelectionDialog categoriesContainerSelectionDialog = new CategoriesContainerSelectionDialog(
 				parent, false);
-		categoriesContainerSelectionDialog.setInput(category);
+		Resource resource=getRequirementResource(category);
+		categoriesContainerSelectionDialog.setInput(resource);
 		categoriesContainerSelectionDialog.setElement(category);
 		categoriesContainerSelectionDialog.open();
 	}
