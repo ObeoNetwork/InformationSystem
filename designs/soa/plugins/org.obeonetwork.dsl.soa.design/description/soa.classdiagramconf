@@ -34,8 +34,8 @@
         <children id="creation.externalType">
           <stringValues id="id" value="External DTO"/>
           <stringValues id="label" value="External DTO"/>
-          <stringValues id="candidatesExpression" value="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'DTO')/]"/>
-          <stringValues id="rootExpression" value="[getAllSelectableExternalStructuredTypesWithAncestors(diagram, 'DTO')->select(eContainer().oclIsUndefined())/]"/>
+          <stringValues id="candidatesExpression" value="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDTOs(diagram)"/>
+          <stringValues id="rootExpression" value="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDTOsRoots(diagram)"/>
           <stringValues id="message" value="Select an external DTO"/>
           <stringValues id="filterExpression" value="[oclIsKindOf(environment::DTO)/]"/>
         </children>
@@ -57,7 +57,7 @@
         </children>
         <children id="fromOtherType">
           <stringValues id="label" value="DTO from Entity"/>
-          <stringValues id="listExpression" value="[self.getAllStructuredTypes('Entity')/]"/>
+          <stringValues id="listExpression" value="service:getAllStructuredTypesEntities()"/>
           <stringValues id="selectionMessage" value="Select an Entity"/>
           <stringValues id="defaultName" value="[associatedType.oclAsType(environment::Type).name/]"/>
         </children>

@@ -33,7 +33,38 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 
+import com.google.common.collect.Iterables;
+
 public class TypesServices {
+	
+	private static final String ENTITY = "Entity";
+	private static final String DTO = "DTO";
+	
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDTOsRoots(Namespace namespace, DSemanticDiagram diagram) {
+		return getRootElementsFromCollection(getAllSelectableExternalStructuredTypesWithAncestorsDTOs(namespace, diagram));
+	}
+	
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsEntitiesRoots(Namespace namespace, DSemanticDiagram diagram) {
+		return getRootElementsFromCollection(getAllSelectableExternalStructuredTypesWithAncestorsEntities(namespace, diagram));
+	}
+	
+	private Collection<EObject> getRootElementsFromCollection(Collection<EObject> elements) {
+		Collection<EObject> result = new ArrayList<EObject>();
+		for (EObject element : elements) {
+			if (element.eContainer() == null) {
+				result.add(element);
+			}
+		}
+		return result;
+	}
+
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDTOs(Namespace namespace, DSemanticDiagram diagram) {
+		return getAllSelectableExternalStructuredTypesWithAncestors(namespace, diagram, DTO);
+	}
+	
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsEntities(Namespace namespace, DSemanticDiagram diagram) {
+		return getAllSelectableExternalStructuredTypesWithAncestors(namespace, diagram, ENTITY);
+	}
 	
 	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestors(Namespace namespace, DSemanticDiagram diagram, String typeName) {
 		Collection<EObject> result = new HashSet<EObject>();
@@ -138,6 +169,14 @@ public class TypesServices {
 			}
 		}
 		return types;
+	}
+	
+	public Collection<StructuredType> getAllStructuredTypesDTOs(EObject context) {
+		return getAllStructuredTypes(context, DTO);
+	}
+	
+	public Collection<StructuredType> getAllStructuredTypesEntities(EObject context) {
+		return getAllStructuredTypes(context, ENTITY);
 	}
 	
 	private Collection<StructuredType> internalGetAllChildrenStructuredTypes(ObeoDSMObject parent, String typeName) {
