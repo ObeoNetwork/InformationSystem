@@ -1,23 +1,44 @@
 package org.obeonetwork.dsl.requirement.design.services;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.window.Window;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.dialogs.ISelectionStatusValidator;
 import org.obeonetwork.dsl.requirement.CategoriesContainer;
 import org.obeonetwork.dsl.requirement.Category;
+import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
-import org.obeonetwork.dsl.requirement.design.selections.CategoriesContainerSelectionDialog;
-import org.obeonetwork.dsl.requirement.design.selections.RequirementSelectionDialog;
+import org.obeonetwork.dsl.requirement.design.Activator;
+import org.obeonetwork.dsl.requirement.design.comparators.CategoryComparator;
+import org.obeonetwork.dsl.requirement.design.comparators.RequirementComparator;
+import org.obeonetwork.dsl.requirement.design.provider.RequirementLabelProvider;
+import org.obeonetwork.dsl.requirement.design.selection.CategorySelectionDialog;
 
 /**
- * @author atakarabt
+ * @author sthibaudeau
  *
  */
 public class RequirementsServices {
+	
+	private static final String COPY = "Copy";
+
+
+	public String getRequirementsLabel(EObject element) {
+		return new RequirementLabelProvider().getText(element);
+	}
 
 	/**
 	 * Return List of Requirements sorted by id+ " - " +name.
@@ -25,25 +46,9 @@ public class RequirementsServices {
 	 * @param categoriesContainer
 	 * @return requirements
 	 */
-	public List<Requirement> getRequirements(
-			CategoriesContainer categoriesContainer) {
-		List<Requirement> requirements = new ArrayList<Requirement>(
-				categoriesContainer.getOwnedRequirements());
-		Collections.sort(requirements, new Comparator<Requirement>() {
-			public int compare(Requirement req1, Requirement req2) {
-				String label1 = getRequirementLabel(req1);
-				String label2 = getRequirementLabel(req2);
-				return label1.compareToIgnoreCase(label2);
-			}
-
-			private String getRequirementLabel(Requirement requirement) {
-				String label = null;
-				if (requirement != null) {
-					label = requirement.getId() + " - " + requirement.getName();
-				}
-				return label;
-			}
-		});
+	public List<Requirement> getRequirements(CategoriesContainer categoriesContainer) {
+		List<Requirement> requirements = new ArrayList<Requirement>(categoriesContainer.getOwnedRequirements());
+		Collections.sort(requirements, RequirementComparator.INSTANCE);
 		return requirements;
 	}
 
@@ -54,23 +59,8 @@ public class RequirementsServices {
 	 * @return ownedCategories
 	 */
 	public List<Category> getCategories(CategoriesContainer categoriesContainer) {
-		List<Category> ownedCategories = categoriesContainer
-				.getOwnedCategories();
-		Collections.sort(ownedCategories, new Comparator<Category>() {
-			public int compare(Category arg0, Category arg1) {
-				String label1 = getCategoryLabel(arg0);
-				String label2 = getCategoryLabel(arg1);
-				return label1.compareToIgnoreCase(label2);
-			}
-
-			private String getCategoryLabel(Category category) {
-				String label = null;
-				if (category != null) {
-					label = category.getId() + " - " + category.getName();
-				}
-				return label;
-			}
-		});
+		List<Category> ownedCategories = categoriesContainer.getOwnedCategories();
+		Collections.sort(ownedCategories, CategoryComparator.INSTANCE);
 		return ownedCategories;
 	}
 
@@ -80,12 +70,105 @@ public class RequirementsServices {
 	 * @param category
 	 */
 	public void copyCategory(Category category) {
-		Shell parent = getShell();
-		CategoriesContainerSelectionDialog categoriesContainerSelectionDialog = new CategoriesContainerSelectionDialog(
-				parent, true);
-		categoriesContainerSelectionDialog.setInput(category);
-		categoriesContainerSelectionDialog.setElement(category);
-		categoriesContainerSelectionDialog.open();
+		Shell shell = getShell();
+		CategorySelectionDialog dlg = new CategorySelectionDialog(shell, "Copy a category", "Select a container for the new category");
+		dlg.setInput(SessionManager.INSTANCE.getSession(category));
+		dlg.setInitialSelection(category.eContainer());
+		if (dlg.open() == Window.OK) {
+			Object selectedObject = dlg.getFirstResult();
+			if (selectedObject instanceof CategoriesContainer) {
+				CategoriesContainer newContainer = (CategoriesContainer)selectedObject;
+				
+				// Check if there are referenced objects
+				boolean keepReferencedObject = false;
+				if (!category.getReferencedObject().isEmpty()) {
+					keepReferencedObject = MessageDialog.openQuestion(shell, "Referenced objects", "Do you want to keep the referenced objects ?");
+				}
+				
+				// Copy object
+				Category newCategory = EcoreUtil.copy(category);
+				newCategory.setId(getNewIdForCopiedCategory(newContainer, newCategory));
+				if (!keepReferencedObject) {
+					newCategory.getReferencedObject().clear();
+				}
+				
+				// Add to parent
+				addToCategoriesContainer(newContainer, newCategory);
+			}
+		};
+	}
+	
+	private String getNewIdForCopiedCategory(CategoriesContainer newContainer, Category category) {
+		String newId = "";
+		if (category.getId() != null) {
+			newId = category.getId();
+		}
+		newId += COPY;
+		
+		int max = 1 + getMaxCorrespondingIdForCategory(newContainer, newId);
+		if (max > 1) {
+			newId += max;
+		}
+		return newId;
+	}
+	
+	private String getNewIdForCopiedRequirement(Category newContainer, Requirement requirement) {
+		String newId = "";
+		if (requirement.getId() != null) {
+			newId = requirement.getId();
+		}
+		newId += COPY;
+		
+		int max = 1 + getMaxCorrespondingIdForRequirement(newContainer, newId);
+		if (max > 1) {
+			newId += max;
+		}
+		return newId;
+	}
+	
+	private int getMaxCorrespondingIdForCategory(CategoriesContainer container, String prefix) {
+		Collection<String> ids = new ArrayList<String>();
+		for (Category category : container.getOwnedCategories()) {
+			if (category.getId() != null) {
+				ids.add(category.getId());
+			}
+		}
+		return getMaxCorrespondingId(ids, prefix);
+	}
+	
+	private int getMaxCorrespondingIdForRequirement(Category container, String prefix) {
+		Collection<String> ids = new ArrayList<String>();
+		for (Requirement requirement : container.getOwnedRequirements()) {
+			if (requirement.getId() != null) {
+				ids.add(requirement.getId());
+			}
+		}
+		return getMaxCorrespondingId(ids, prefix);
+	}
+	
+	private int getMaxCorrespondingId(Collection<String> ids, String prefix) {
+		int max = 0;
+		Pattern ptn = Pattern.compile("^" + prefix + "([0-9]*)");
+		for (String id : ids) {
+			if (id != null) {
+				Matcher m = ptn.matcher(id);
+				if (m.find()) {
+					String group = m.group(1);
+					if (group != null) {
+						int value = -1;
+						if ("".equals(group)) {
+							value = 1;
+						} else {
+							value = new Integer(group);
+						}
+						if (value > max) {
+							max = value;
+						}
+					}
+				}
+			}
+		}
+		return max;
 	}
 
 	/**
@@ -94,21 +177,28 @@ public class RequirementsServices {
 	 * @param category
 	 */
 	public void moveCategory(Category category) {
-		Shell parent = getShell();
-		CategoriesContainerSelectionDialog categoriesContainerSelectionDialog = new CategoriesContainerSelectionDialog(
-				parent, false);
-		categoriesContainerSelectionDialog.setInput(category);
-		categoriesContainerSelectionDialog.setElement(category);
-		categoriesContainerSelectionDialog.open();
+		Shell shell = getShell();
+		CategorySelectionDialog dlg = new CategorySelectionDialog(shell, "Move a category", "Select a new container for the category", category);
+		dlg.setInput(SessionManager.INSTANCE.getSession(category));
+		dlg.setInitialSelection(category.eContainer());
+		if (dlg.open() == Window.OK) {
+			Object selectedObject = dlg.getFirstResult();
+			if (selectedObject instanceof CategoriesContainer) {
+				CategoriesContainer newContainer = (CategoriesContainer)selectedObject;
+				// Add to parent
+				addToCategoriesContainer(newContainer, category);
+			}
+		}
 	}
 
-	private Shell getShell() {
-		Shell parent = Display.getCurrent().getActiveShell();
-		if (parent == null) {
-			parent = Display.getDefault().getActiveShell();
+	private void addToCategoriesContainer(CategoriesContainer container, Category category) {
+		if (container instanceof Repository) {
+			((Repository) container).getMainCategories().add(category);
+		} else if (container instanceof Category) {
+			((Category) container).getSubCategories().add(category);
 		}
-		return parent;
 	}
+
 
 	/**
 	 * Copy Requirement.
@@ -116,12 +206,41 @@ public class RequirementsServices {
 	 * @param requirement
 	 */
 	public void copyRequirement(Requirement requirement) {
-		Shell parent = getShell();
-		RequirementSelectionDialog requirementSelectionDialog = new RequirementSelectionDialog(
-				parent, true);
-		requirementSelectionDialog.setInput(requirement);
-		requirementSelectionDialog.setElement(requirement);
-		requirementSelectionDialog.open();
+		Shell shell = getShell();
+		CategorySelectionDialog dlg = new CategorySelectionDialog(shell, "Copy a requirement", "Select a container for the new requirement");
+		dlg.setInput(SessionManager.INSTANCE.getSession(requirement));
+		dlg.setInitialSelection(requirement.eContainer());
+		dlg.setValidator(new ISelectionStatusValidator() {
+			public IStatus validate(Object[] selection) {
+				if (selection.length > 0 && selection[0] instanceof Category) {
+					return new Status(IStatus.OK, Activator.PLUGIN_ID, "");
+				}
+				return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Select a category");
+			}
+		});
+		
+		if (dlg.open() == Window.OK) {
+			Object selectedObject = dlg.getFirstResult();
+			if (selectedObject instanceof Category) {
+				Category newContainer = (Category)selectedObject;
+				
+				// Check if there are referenced objects
+				boolean keepReferencedObject = false;
+				if (!requirement.getReferencedObject().isEmpty()) {
+					keepReferencedObject = MessageDialog.openQuestion(shell, "Referenced objects", "Do you want to keep the referenced objects ?");
+				}
+				
+				// Copy object
+				Requirement newRequirement = EcoreUtil.copy(requirement);
+				newRequirement.setId(getNewIdForCopiedRequirement(newContainer, newRequirement));
+				if (!keepReferencedObject) {
+					newRequirement.getReferencedObject().clear();
+				}
+				
+				// Add to parent
+				newContainer.getRequirements().add(newRequirement);
+			}
+		};
 	}
 
 	/**
@@ -130,12 +249,34 @@ public class RequirementsServices {
 	 * @param requirement
 	 */
 	public void moveRequirement(Requirement requirement) {
-		Shell parent = getShell();
-		RequirementSelectionDialog requirementSelectionDialog = new RequirementSelectionDialog(
-				parent, false);
-		requirementSelectionDialog.setInput(requirement);
-		requirementSelectionDialog.setElement(requirement);
-		requirementSelectionDialog.open();
+		Shell shell = getShell();
+		CategorySelectionDialog dlg = new CategorySelectionDialog(shell, "Move a requirement", "Select a new container for the requirement");
+		dlg.setInput(SessionManager.INSTANCE.getSession(requirement));
+		dlg.setInitialSelection(requirement.eContainer());
+		dlg.setValidator(new ISelectionStatusValidator() {
+			public IStatus validate(Object[] selection) {
+				if (selection.length > 0 && selection[0] instanceof Category) {
+					return new Status(IStatus.OK, Activator.PLUGIN_ID, "");
+				}
+				return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Select a category");
+			}
+		});
+		
+		if (dlg.open() == Window.OK) {
+			Object selectedObject = dlg.getFirstResult();
+			if (selectedObject instanceof Category) {
+				Category newContainer = (Category)selectedObject;
+				// change parent
+				newContainer.getRequirements().add(requirement);
+			}
+		};
 	}
-
+	
+	private Shell getShell() {
+		Shell shell = Display.getCurrent().getActiveShell();
+		if (shell == null) {
+			shell = Display.getDefault().getActiveShell();
+		}
+		return shell;
+	}
 }
