@@ -109,6 +109,8 @@ public enum RequirementType implements Enumerator {
 	 * Returns the '<em><b>Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RequirementType get(String literal) {
@@ -125,6 +127,8 @@ public enum RequirementType implements Enumerator {
 	 * Returns the '<em><b>Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RequirementType getByName(String name) {
@@ -141,6 +145,8 @@ public enum RequirementType implements Enumerator {
 	 * Returns the '<em><b>Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static RequirementType get(int value) {

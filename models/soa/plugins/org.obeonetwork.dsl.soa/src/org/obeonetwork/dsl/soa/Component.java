@@ -17,6 +17,7 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getOwnedServices <em>Owned Services</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getRequiredServices <em>Required Services</em>}</li>
@@ -26,7 +27,6 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getOwnedBinding <em>Owned Binding</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Component#getBlock <em>Block</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getComponent()
  * @model

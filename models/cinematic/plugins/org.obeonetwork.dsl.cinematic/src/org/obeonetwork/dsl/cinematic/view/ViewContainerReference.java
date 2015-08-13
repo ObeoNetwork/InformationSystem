@@ -18,10 +18,10 @@ package org.obeonetwork.dsl.cinematic.view;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.ViewContainerReference#getViewContainer <em>View Container</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewContainerReference()
  * @model

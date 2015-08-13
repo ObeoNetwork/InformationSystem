@@ -37,13 +37,7 @@ import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
  * @generated
  */
 public class CinematicElementItemProvider
-	extends ObeoDSMObjectItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -87,7 +81,7 @@ public class CinematicElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((CinematicElement)object).getDescription());
+		String label = ((CinematicElement)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CinematicElement_type") :
 			getString("_UI_CinematicElement_type") + " " + label;

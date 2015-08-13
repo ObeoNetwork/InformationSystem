@@ -16,6 +16,11 @@
 		* Models
 		*********************************************************************************************
 		-->
+		<!-- models/technicalid/ -->
+		<module>../../../models/technicalid/plugins/org.obeonetwork.dsl.technicalid</module>
+		<module>../../../models/technicalid/plugins/org.obeonetwork.dsl.technicalid.edit</module>
+		<module>../../../models/technicalid/features/org.obeonetwork.dsl.feature.technicalid</module>
+
 		<!-- models/environment/ -->
 		<module>../../../models/environment/plugins/org.obeonetwork.dsl.environment</module>
 		<module>../../../models/environment/plugins/org.obeonetwork.dsl.environment.edit</module>
@@ -162,6 +167,10 @@
 		<module>../../../designs/environment/plugins/org.obeonetwork.dsl.environment.design.migration</module>
 		
 		<module>../../../designs/environment/features/org.obeonetwork.dsl.environment.design.migration.feature</module>
+		
+		<module>../../../designs/environment/plugins/org.obeonetwork.dsl.environment.design</module>
+		
+		<module>../../../designs/environment/features/org.obeonetwork.dsl.environment.design.feature</module>
 		
 		<!-- designs/cinematic/ -->
 		<module>../../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design</module>

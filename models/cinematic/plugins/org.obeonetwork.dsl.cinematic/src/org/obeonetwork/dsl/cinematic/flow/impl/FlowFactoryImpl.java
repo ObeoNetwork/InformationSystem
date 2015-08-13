@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.obeonetwork.dsl.cinematic.flow.*;
 import org.obeonetwork.dsl.cinematic.flow.AbortState;
 import org.obeonetwork.dsl.cinematic.flow.ActionState;
 import org.obeonetwork.dsl.cinematic.flow.AsyncEventState;
@@ -46,7 +47,7 @@ public class FlowFactoryImpl extends EFactoryImpl implements FlowFactory {
 	 */
 	public static FlowFactory init() {
 		try {
-			FlowFactory theFlowFactory = (FlowFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/cinematic/flow/1.0.0"); 
+			FlowFactory theFlowFactory = (FlowFactory)EPackage.Registry.INSTANCE.getEFactory(FlowPackage.eNS_URI);
 			if (theFlowFactory != null) {
 				return theFlowFactory;
 			}

@@ -15,12 +15,12 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.statemachine.Transition#getGuard <em>Guard</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.statemachine.Transition#getFrom <em>From</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.statemachine.Transition#getTo <em>To</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.statemachine.StateMachinePackage#getTransition()
  * @model

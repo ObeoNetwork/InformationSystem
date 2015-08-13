@@ -18,11 +18,11 @@ package org.obeonetwork.graal;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.Loop#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link org.obeonetwork.graal.Loop#getUpperBound <em>Upper Bound</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.GraalPackage#getLoop()
  * @model

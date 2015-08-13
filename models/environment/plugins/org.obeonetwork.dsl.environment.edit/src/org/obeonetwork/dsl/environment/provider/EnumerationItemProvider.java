@@ -72,12 +72,10 @@ public class EnumerationItemProvider extends DataTypeItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.ENUMERATION__LITERALS);
+			childrenFeatures.add(EnvironmentPackage.Literals.ENUMERATION__LITERALS);
 		}
 		return childrenFeatures;
 	}
@@ -103,8 +101,7 @@ public class EnumerationItemProvider extends DataTypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Enumeration"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Enumeration"));
 	}
 
 	/**
@@ -143,8 +140,7 @@ public class EnumerationItemProvider extends DataTypeItemProvider {
 
 		switch (notification.getFeatureID(Enumeration.class)) {
 		case EnvironmentPackage.ENUMERATION__LITERALS:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -158,12 +154,10 @@ public class EnumerationItemProvider extends DataTypeItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.ENUMERATION__LITERALS,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.ENUMERATION__LITERALS,
 				EnvironmentFactory.eINSTANCE.createLiteral()));
 	}
 

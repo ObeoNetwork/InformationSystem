@@ -43,7 +43,7 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	 */
 	public static DatabaseFactory init() {
 		try {
-			DatabaseFactory theDatabaseFactory = (DatabaseFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/database/1.0"); 
+			DatabaseFactory theDatabaseFactory = (DatabaseFactory)EPackage.Registry.INSTANCE.getEFactory(DatabasePackage.eNS_URI);
 			if (theDatabaseFactory != null) {
 				return theDatabaseFactory;
 			}

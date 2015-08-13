@@ -72,12 +72,10 @@ public class TypesDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES);
+			childrenFeatures.add(EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES);
 		}
 		return childrenFeatures;
 	}
@@ -103,8 +101,7 @@ public class TypesDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/TypesDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TypesDefinition"));
 	}
 
 	/**
@@ -125,7 +122,7 @@ public class TypesDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((TypesDefinition) object).getDescription());
+		String label = ((TypesDefinition) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_TypesDefinition_type")
 				: getString("_UI_TypesDefinition_type") + " " + label;
 	}
@@ -143,8 +140,7 @@ public class TypesDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 
 		switch (notification.getFeatureID(TypesDefinition.class)) {
 		case EnvironmentPackage.TYPES_DEFINITION__TYPES:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -158,20 +154,16 @@ public class TypesDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES,
 				EnvironmentFactory.eINSTANCE.createPrimitiveType()));
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES,
 				EnvironmentFactory.eINSTANCE.createEnumeration()));
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES,
 				EnvironmentFactory.eINSTANCE.createDTO()));
 	}
 

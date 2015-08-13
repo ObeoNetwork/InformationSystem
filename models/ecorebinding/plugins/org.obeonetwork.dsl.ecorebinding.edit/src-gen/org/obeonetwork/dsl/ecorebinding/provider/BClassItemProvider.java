@@ -32,13 +32,7 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * @generated
  */
 public class BClassItemProvider
-	extends BClassifierItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends BClassifierItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

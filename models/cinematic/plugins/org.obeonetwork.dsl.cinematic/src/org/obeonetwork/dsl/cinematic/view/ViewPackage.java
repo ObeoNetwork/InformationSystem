@@ -75,6 +75,15 @@ public interface ViewPackage extends EPackage {
 	int ABSTRACT_VIEW_ELEMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_VIEW_ELEMENT__TECHNICALID = CinematicPackage.NAMED_ELEMENT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,6 +218,15 @@ public interface ViewPackage extends EPackage {
 	 * @generated
 	 */
 	int VIEW_CONTAINER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CONTAINER__TECHNICALID = ABSTRACT_VIEW_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -383,6 +401,15 @@ public interface ViewPackage extends EPackage {
 	int VIEW_ELEMENT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ELEMENT__TECHNICALID = ABSTRACT_VIEW_ELEMENT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -537,6 +564,15 @@ public interface ViewPackage extends EPackage {
 	int VIEW_ACTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ACTION__TECHNICALID = CinematicPackage.NAMED_ELEMENT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,6 +671,15 @@ public interface ViewPackage extends EPackage {
 	 * @generated
 	 */
 	int VIEW_EVENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_EVENT__TECHNICALID = CinematicPackage.EVENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -744,6 +789,15 @@ public interface ViewPackage extends EPackage {
 	 * @generated
 	 */
 	int VIEW_CONTAINER_REFERENCE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CONTAINER_REFERENCE__TECHNICALID = ABSTRACT_VIEW_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.

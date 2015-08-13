@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import org.obeonetwork.dsl.requirement.*;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.NamedElement;
 import org.obeonetwork.dsl.requirement.Requirement;
@@ -108,6 +109,7 @@ public class RequirementSwitch<T> {
 				T result = caseRepository(repository);
 				if (result == null) result = caseCategoriesContainer(repository);
 				if (result == null) result = caseNamedElement(repository);
+				if (result == null) result = caseIdentifiable(repository);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -116,6 +118,7 @@ public class RequirementSwitch<T> {
 				T result = caseCategory(category);
 				if (result == null) result = caseCategoriesContainer(category);
 				if (result == null) result = caseNamedElement(category);
+				if (result == null) result = caseIdentifiable(category);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,12 +126,14 @@ public class RequirementSwitch<T> {
 				Requirement requirement = (Requirement)theEObject;
 				T result = caseRequirement(requirement);
 				if (result == null) result = caseNamedElement(requirement);
+				if (result == null) result = caseIdentifiable(requirement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RequirementPackage.NAMED_ELEMENT: {
 				NamedElement namedElement = (NamedElement)theEObject;
 				T result = caseNamedElement(namedElement);
+				if (result == null) result = caseIdentifiable(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -136,6 +141,7 @@ public class RequirementSwitch<T> {
 				CategoriesContainer categoriesContainer = (CategoriesContainer)theEObject;
 				T result = caseCategoriesContainer(categoriesContainer);
 				if (result == null) result = caseNamedElement(categoriesContainer);
+				if (result == null) result = caseIdentifiable(categoriesContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -215,6 +221,21 @@ public class RequirementSwitch<T> {
 	 * @generated
 	 */
 	public T caseCategoriesContainer(CategoriesContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

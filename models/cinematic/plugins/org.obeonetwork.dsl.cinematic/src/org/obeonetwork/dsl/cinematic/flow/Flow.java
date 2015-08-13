@@ -20,12 +20,12 @@ import org.obeonetwork.dsl.cinematic.NamedElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.Flow#getStates <em>States</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.Flow#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.Flow#getEvents <em>Events</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getFlow()
  * @model

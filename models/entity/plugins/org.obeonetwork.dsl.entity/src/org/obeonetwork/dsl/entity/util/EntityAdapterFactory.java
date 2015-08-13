@@ -30,6 +30,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.TypesDefinition;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It
@@ -114,6 +115,10 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseExternalCriterion(ExternalCriterion object) {
 				return createExternalCriterionAdapter();
+			}
+			@Override
+			public Adapter caseIdentifiable(Identifiable object) {
+				return createIdentifiableAdapter();
 			}
 			@Override
 			public Adapter caseObeoDSMObject(ObeoDSMObject object) {
@@ -234,6 +239,20 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExternalCriterionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.technicalid.Identifiable <em>Identifiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.technicalid.Identifiable
+	 * @generated
+	 */
+	public Adapter createIdentifiableAdapter() {
 		return null;
 	}
 

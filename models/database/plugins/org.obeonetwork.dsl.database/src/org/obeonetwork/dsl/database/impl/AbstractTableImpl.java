@@ -33,11 +33,11 @@ import org.obeonetwork.dsl.database.TableContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.AbstractTableImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.AbstractTableImpl#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

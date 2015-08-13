@@ -46,9 +46,8 @@ import org.obeonetwork.dsl.environment.util.EnvironmentAdapterFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnvironmentItemProviderAdapterFactory extends
-		EnvironmentAdapterFactory implements ComposeableAdapterFactory,
-		IChangeNotifier, IDisposable, IChildCreationExtender {
+public class EnvironmentItemProviderAdapterFactory extends EnvironmentAdapterFactory
+		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -235,8 +234,7 @@ public class EnvironmentItemProviderAdapterFactory extends
 	@Override
 	public Adapter createMetaDataContainerAdapter() {
 		if (metaDataContainerItemProvider == null) {
-			metaDataContainerItemProvider = new MetaDataContainerItemProvider(
-					this);
+			metaDataContainerItemProvider = new MetaDataContainerItemProvider(this);
 		}
 
 		return metaDataContainerItemProvider;
@@ -282,8 +280,7 @@ public class EnvironmentItemProviderAdapterFactory extends
 	@Override
 	public Adapter createPriorityDefinitionAdapter() {
 		if (priorityDefinitionItemProvider == null) {
-			priorityDefinitionItemProvider = new PriorityDefinitionItemProvider(
-					this);
+			priorityDefinitionItemProvider = new PriorityDefinitionItemProvider(this);
 		}
 
 		return priorityDefinitionItemProvider;
@@ -490,8 +487,7 @@ public class EnvironmentItemProviderAdapterFactory extends
 	@Override
 	public Adapter createBindingReferenceAdapter() {
 		if (bindingReferenceItemProvider == null) {
-			bindingReferenceItemProvider = new BindingReferenceItemProvider(
-					this);
+			bindingReferenceItemProvider = new BindingReferenceItemProvider(this);
 		}
 
 		return bindingReferenceItemProvider;
@@ -550,8 +546,7 @@ public class EnvironmentItemProviderAdapterFactory extends
 	 * @generated
 	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null ? this : parentAdapterFactory
-				.getRootAdapterFactory();
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
 	/**
@@ -560,8 +555,7 @@ public class EnvironmentItemProviderAdapterFactory extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParentAdapterFactory(
-			ComposedAdapterFactory parentAdapterFactory) {
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
 
@@ -595,8 +589,7 @@ public class EnvironmentItemProviderAdapterFactory extends
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>)
-					|| (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -618,10 +611,8 @@ public class EnvironmentItemProviderAdapterFactory extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Collection<?> getNewChildDescriptors(Object object,
-			EditingDomain editingDomain) {
-		return childCreationExtenderManager.getNewChildDescriptors(object,
-				editingDomain);
+	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
+		return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
 	}
 
 	/**

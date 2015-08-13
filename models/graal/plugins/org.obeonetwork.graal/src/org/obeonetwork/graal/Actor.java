@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.Actor#getSubActors <em>Sub Actors</em>}</li>
  *   <li>{@link org.obeonetwork.graal.Actor#getSuperActor <em>Super Actor</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.GraalPackage#getActor()
  * @model

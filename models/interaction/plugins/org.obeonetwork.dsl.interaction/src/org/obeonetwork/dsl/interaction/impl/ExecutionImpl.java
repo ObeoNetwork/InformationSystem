@@ -21,10 +21,10 @@ import org.obeonetwork.dsl.interaction.Participant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.ExecutionImpl#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

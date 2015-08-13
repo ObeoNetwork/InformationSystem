@@ -14,8 +14,6 @@ import org.obeonetwork.dsl.statemachine.StateMachinePackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Final State</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

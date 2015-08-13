@@ -36,13 +36,7 @@ import org.obeonetwork.dsl.cinematic.flow.NamedFlowState;
  * @generated
  */
 public class NamedFlowStateItemProvider
-	extends FlowStateItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends FlowStateItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

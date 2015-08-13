@@ -30,13 +30,7 @@ import org.obeonetwork.dsl.ecorebinding.BFeature;
  * @generated
  */
 public class BFeatureItemProvider
-	extends BTypedElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends BTypedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

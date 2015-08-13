@@ -19,10 +19,10 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.NamedElement#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.interaction.InteractionPackage#getNamedElement()
  * @model abstract="true"

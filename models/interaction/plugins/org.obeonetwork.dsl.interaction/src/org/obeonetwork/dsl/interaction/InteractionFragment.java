@@ -18,11 +18,11 @@ package org.obeonetwork.dsl.interaction;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.InteractionFragment#getStartingEnd <em>Starting End</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.InteractionFragment#getFinishingEnd <em>Finishing End</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.interaction.InteractionPackage#getInteractionFragment()
  * @model abstract="true"

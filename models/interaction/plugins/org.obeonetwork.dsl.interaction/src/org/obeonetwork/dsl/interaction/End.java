@@ -18,11 +18,11 @@ package org.obeonetwork.dsl.interaction;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.End#getContext <em>Context</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.End#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.interaction.InteractionPackage#getEnd()
  * @model

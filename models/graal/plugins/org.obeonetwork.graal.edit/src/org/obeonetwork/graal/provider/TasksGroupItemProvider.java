@@ -36,13 +36,7 @@ import org.obeonetwork.graal.TasksGroup;
  * @generated
  */
 public class TasksGroupItemProvider
-	extends AbstractTaskItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends AbstractTaskItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -35,13 +35,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * @generated
  */
 public class ComponentItemProvider
-	extends ObeoDSMObjectItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

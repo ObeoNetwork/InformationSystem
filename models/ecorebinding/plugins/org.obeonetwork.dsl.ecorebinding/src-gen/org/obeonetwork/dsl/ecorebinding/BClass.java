@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.EClass;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BClass#getEcoreClass <em>Ecore Class</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BClass#getBFeatures <em>BFeatures</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BClass#getBOperations <em>BOperations</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.ecorebinding.EcorebindingPackage#getBClass()
  * @model

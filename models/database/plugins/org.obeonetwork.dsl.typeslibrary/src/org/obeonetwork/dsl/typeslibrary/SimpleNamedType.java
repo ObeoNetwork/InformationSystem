@@ -10,6 +10,8 @@
  */
 package org.obeonetwork.dsl.typeslibrary;
 
+import org.obeonetwork.dsl.technicalid.Identifiable;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -18,16 +20,16 @@ package org.obeonetwork.dsl.typeslibrary;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.SimpleNamedType#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getSimpleNamedType()
  * @model
  * @generated
  */
-public interface SimpleNamedType extends UserDefinedType {
+public interface SimpleNamedType extends UserDefinedType, Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

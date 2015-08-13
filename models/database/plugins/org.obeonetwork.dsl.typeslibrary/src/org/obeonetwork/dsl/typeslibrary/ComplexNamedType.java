@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.typeslibrary;
 
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,16 +20,16 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.ComplexNamedType#getTypes <em>Types</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getComplexNamedType()
  * @model
  * @generated
  */
-public interface ComplexNamedType extends UserDefinedType {
+public interface ComplexNamedType extends UserDefinedType, Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

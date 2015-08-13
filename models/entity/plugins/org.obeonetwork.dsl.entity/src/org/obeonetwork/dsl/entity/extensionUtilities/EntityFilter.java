@@ -25,13 +25,13 @@ import org.obeonetwork.dsl.environment.Reference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.entity.extensionUtilities.EntityFilter#getAttributeReferences <em>Attribute References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.extensionUtilities.EntityFilter#getReferenceReferences <em>Reference References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.extensionUtilities.EntityFilter#getOwnedPropertyReferences <em>Owned Property References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.extensionUtilities.EntityFilter#getEntity <em>Entity</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.entity.extensionUtilities.ExtensionUtilitiesPackage#getEntityFilter()
  * @model

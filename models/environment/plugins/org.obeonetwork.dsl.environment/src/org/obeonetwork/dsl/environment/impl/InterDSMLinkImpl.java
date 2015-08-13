@@ -23,11 +23,11 @@ import org.obeonetwork.dsl.environment.InterDSMLink;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.InterDSMLinkImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.InterDSMLinkImpl#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -84,8 +84,7 @@ public class InterDSMLinkImpl extends ObeoDSMObjectImpl implements InterDSMLink 
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(EnvironmentPackage.INTER_DSM_LINK__NAME,
-				EnvironmentPackage.Literals.INTER_DSM_LINK__NAME, newName);
+		eDynamicSet(EnvironmentPackage.INTER_DSM_LINK__NAME, EnvironmentPackage.Literals.INTER_DSM_LINK__NAME, newName);
 	}
 
 	/**
@@ -114,8 +113,8 @@ public class InterDSMLinkImpl extends ObeoDSMObjectImpl implements InterDSMLink 
 	 * @generated
 	 */
 	public void setTarget(EObject newTarget) {
-		eDynamicSet(EnvironmentPackage.INTER_DSM_LINK__TARGET,
-				EnvironmentPackage.Literals.INTER_DSM_LINK__TARGET, newTarget);
+		eDynamicSet(EnvironmentPackage.INTER_DSM_LINK__TARGET, EnvironmentPackage.Literals.INTER_DSM_LINK__TARGET,
+				newTarget);
 	}
 
 	/**
@@ -181,8 +180,7 @@ public class InterDSMLinkImpl extends ObeoDSMObjectImpl implements InterDSMLink 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case EnvironmentPackage.INTER_DSM_LINK__NAME:
-			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT
-					.equals(getName());
+			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		case EnvironmentPackage.INTER_DSM_LINK__TARGET:
 			return basicGetTarget() != null;
 		}

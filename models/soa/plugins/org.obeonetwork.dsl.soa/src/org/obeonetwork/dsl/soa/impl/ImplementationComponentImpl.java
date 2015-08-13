@@ -19,11 +19,11 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ImplementationComponentImpl#getImplement <em>Implement</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ImplementationComponentImpl#getEntities <em>Entities</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

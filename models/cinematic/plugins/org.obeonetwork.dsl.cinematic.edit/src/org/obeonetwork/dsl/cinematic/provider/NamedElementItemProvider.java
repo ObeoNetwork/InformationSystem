@@ -37,13 +37,7 @@ import org.obeonetwork.dsl.cinematic.NamedElement;
  * @generated
  */
 public class NamedElementItemProvider
-	extends CinematicElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends CinematicElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

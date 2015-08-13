@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.cinematic.CinematicElement;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.NamedElement;
+import org.obeonetwork.dsl.cinematic.view.*;
 import org.obeonetwork.dsl.cinematic.view.AbstractViewElement;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
@@ -26,6 +27,7 @@ import org.obeonetwork.dsl.cinematic.view.ViewEvent;
 import org.obeonetwork.dsl.cinematic.view.ViewPackage;
 import org.obeonetwork.dsl.environment.BoundableElement;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -108,6 +110,7 @@ public class ViewSwitch<T> {
 				if (result == null) result = caseBoundableElement(abstractViewElement);
 				if (result == null) result = caseCinematicElement(abstractViewElement);
 				if (result == null) result = caseObeoDSMObject(abstractViewElement);
+				if (result == null) result = caseIdentifiable(abstractViewElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,6 +122,7 @@ public class ViewSwitch<T> {
 				if (result == null) result = caseBoundableElement(viewContainer);
 				if (result == null) result = caseCinematicElement(viewContainer);
 				if (result == null) result = caseObeoDSMObject(viewContainer);
+				if (result == null) result = caseIdentifiable(viewContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,6 +134,7 @@ public class ViewSwitch<T> {
 				if (result == null) result = caseBoundableElement(viewElement);
 				if (result == null) result = caseCinematicElement(viewElement);
 				if (result == null) result = caseObeoDSMObject(viewElement);
+				if (result == null) result = caseIdentifiable(viewElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,6 +144,7 @@ public class ViewSwitch<T> {
 				if (result == null) result = caseNamedElement(viewAction);
 				if (result == null) result = caseCinematicElement(viewAction);
 				if (result == null) result = caseObeoDSMObject(viewAction);
+				if (result == null) result = caseIdentifiable(viewAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -149,6 +155,7 @@ public class ViewSwitch<T> {
 				if (result == null) result = caseNamedElement(viewEvent);
 				if (result == null) result = caseCinematicElement(viewEvent);
 				if (result == null) result = caseObeoDSMObject(viewEvent);
+				if (result == null) result = caseIdentifiable(viewEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -160,6 +167,7 @@ public class ViewSwitch<T> {
 				if (result == null) result = caseBoundableElement(viewContainerReference);
 				if (result == null) result = caseCinematicElement(viewContainerReference);
 				if (result == null) result = caseObeoDSMObject(viewContainerReference);
+				if (result == null) result = caseIdentifiable(viewContainerReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -254,6 +262,21 @@ public class ViewSwitch<T> {
 	 * @generated
 	 */
 	public T caseViewContainerReference(ViewContainerReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

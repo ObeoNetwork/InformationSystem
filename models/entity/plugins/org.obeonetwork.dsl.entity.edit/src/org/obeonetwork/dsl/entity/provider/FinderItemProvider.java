@@ -41,13 +41,7 @@ import org.obeonetwork.dsl.environment.provider.ObeoDSMObjectItemProvider;
  * @generated
  */
 public class FinderItemProvider
-	extends ObeoDSMObjectItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -19,12 +19,12 @@ package org.obeonetwork.dsl.environment;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.Property#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Property#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Property#isIsIdentifier <em>Is Identifier</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getProperty()
  * @model abstract="true"

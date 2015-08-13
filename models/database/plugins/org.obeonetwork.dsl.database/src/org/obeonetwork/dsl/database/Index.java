@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.Index#getQualifier <em>Qualifier</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Index#getElements <em>Elements</em>}</li>
@@ -27,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.database.Index#getIndexType <em>Index Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Index#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getIndex()
  * @model

@@ -27,6 +27,7 @@ import org.obeonetwork.dsl.soa.SynchronizationKind;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getOwnedInterface <em>Owned Interface</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getSynchronization <em>Synchronization</em>}</li>
@@ -36,7 +37,6 @@ import org.obeonetwork.dsl.soa.SynchronizationKind;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.ServiceImpl#getUsedTypes <em>Used Types</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

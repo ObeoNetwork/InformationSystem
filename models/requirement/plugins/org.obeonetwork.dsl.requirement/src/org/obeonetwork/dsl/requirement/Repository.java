@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.requirement.Repository#getMainCategories <em>Main Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.Repository#getReferencedObject <em>Referenced Object</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRepository()
  * @model

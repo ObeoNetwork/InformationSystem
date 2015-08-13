@@ -18,10 +18,10 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.BindingImpl#getTechnology <em>Technology</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

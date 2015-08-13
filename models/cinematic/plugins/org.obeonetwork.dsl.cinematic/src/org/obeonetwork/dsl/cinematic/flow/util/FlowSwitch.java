@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.cinematic.CinematicElement;
 import org.obeonetwork.dsl.cinematic.Event;
 import org.obeonetwork.dsl.cinematic.NamedElement;
+import org.obeonetwork.dsl.cinematic.flow.*;
 import org.obeonetwork.dsl.cinematic.flow.AbortState;
 import org.obeonetwork.dsl.cinematic.flow.ActionState;
 import org.obeonetwork.dsl.cinematic.flow.AsyncEventState;
@@ -33,6 +34,7 @@ import org.obeonetwork.dsl.cinematic.flow.SubflowState;
 import org.obeonetwork.dsl.cinematic.flow.Transition;
 import org.obeonetwork.dsl.cinematic.flow.ViewState;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,6 +116,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(flow);
 				if (result == null) result = caseCinematicElement(flow);
 				if (result == null) result = caseObeoDSMObject(flow);
+				if (result == null) result = caseIdentifiable(flow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -124,6 +127,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(namedFlowState);
 				if (result == null) result = caseCinematicElement(namedFlowState);
 				if (result == null) result = caseObeoDSMObject(namedFlowState);
+				if (result == null) result = caseIdentifiable(namedFlowState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -133,6 +137,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(transition);
 				if (result == null) result = caseCinematicElement(transition);
 				if (result == null) result = caseObeoDSMObject(transition);
+				if (result == null) result = caseIdentifiable(transition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -144,6 +149,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(actionState);
 				if (result == null) result = caseCinematicElement(actionState);
 				if (result == null) result = caseObeoDSMObject(actionState);
+				if (result == null) result = caseIdentifiable(actionState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -155,6 +161,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(viewState);
 				if (result == null) result = caseCinematicElement(viewState);
 				if (result == null) result = caseObeoDSMObject(viewState);
+				if (result == null) result = caseIdentifiable(viewState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -166,6 +173,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(decisionState);
 				if (result == null) result = caseCinematicElement(decisionState);
 				if (result == null) result = caseObeoDSMObject(decisionState);
+				if (result == null) result = caseIdentifiable(decisionState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -175,6 +183,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseFlowState(subflowState);
 				if (result == null) result = caseCinematicElement(subflowState);
 				if (result == null) result = caseObeoDSMObject(subflowState);
+				if (result == null) result = caseIdentifiable(subflowState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -186,6 +195,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(asyncEventState);
 				if (result == null) result = caseCinematicElement(asyncEventState);
 				if (result == null) result = caseObeoDSMObject(asyncEventState);
+				if (result == null) result = caseIdentifiable(asyncEventState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -197,6 +207,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(initialState);
 				if (result == null) result = caseCinematicElement(initialState);
 				if (result == null) result = caseObeoDSMObject(initialState);
+				if (result == null) result = caseIdentifiable(initialState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -208,6 +219,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(abortState);
 				if (result == null) result = caseCinematicElement(abortState);
 				if (result == null) result = caseObeoDSMObject(abortState);
+				if (result == null) result = caseIdentifiable(abortState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -219,6 +231,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(finalState);
 				if (result == null) result = caseCinematicElement(finalState);
 				if (result == null) result = caseObeoDSMObject(finalState);
+				if (result == null) result = caseIdentifiable(finalState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -228,6 +241,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(flowAction);
 				if (result == null) result = caseCinematicElement(flowAction);
 				if (result == null) result = caseObeoDSMObject(flowAction);
+				if (result == null) result = caseIdentifiable(flowAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -238,6 +252,7 @@ public class FlowSwitch<T> {
 				if (result == null) result = caseNamedElement(flowEvent);
 				if (result == null) result = caseCinematicElement(flowEvent);
 				if (result == null) result = caseObeoDSMObject(flowEvent);
+				if (result == null) result = caseIdentifiable(flowEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -246,6 +261,7 @@ public class FlowSwitch<T> {
 				T result = caseFlowState(flowState);
 				if (result == null) result = caseCinematicElement(flowState);
 				if (result == null) result = caseObeoDSMObject(flowState);
+				if (result == null) result = caseIdentifiable(flowState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -295,6 +311,21 @@ public class FlowSwitch<T> {
 	 * @generated
 	 */
 	public T caseFlowState(FlowState object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

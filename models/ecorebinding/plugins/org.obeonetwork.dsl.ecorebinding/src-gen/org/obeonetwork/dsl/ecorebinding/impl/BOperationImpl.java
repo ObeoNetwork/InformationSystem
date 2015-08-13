@@ -23,13 +23,13 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BOperationImpl#getBClass <em>BClass</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BOperationImpl#getEcoreOperation <em>Ecore Operation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BOperationImpl#getBParameters <em>BParameters</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BOperationImpl#getBTypeParameters <em>BType Parameters</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

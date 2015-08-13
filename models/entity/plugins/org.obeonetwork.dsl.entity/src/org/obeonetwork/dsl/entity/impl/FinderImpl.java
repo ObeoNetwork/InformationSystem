@@ -34,6 +34,7 @@ import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.FinderImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.FinderImpl#getEntity <em>Entity</em>}</li>
@@ -41,7 +42,6 @@ import org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl;
  *   <li>{@link org.obeonetwork.dsl.entity.impl.FinderImpl#getCriterions <em>Criterions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.FinderImpl#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

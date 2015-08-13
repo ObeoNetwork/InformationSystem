@@ -21,10 +21,10 @@ import org.obeonetwork.dsl.cinematic.view.ViewPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerReferenceImpl#getViewContainer <em>View Container</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

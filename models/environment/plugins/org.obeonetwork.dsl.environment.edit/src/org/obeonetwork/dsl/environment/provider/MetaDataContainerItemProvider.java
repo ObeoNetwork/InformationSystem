@@ -31,6 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.environment.MetaDataContainer} object.
@@ -38,9 +39,7 @@ import org.obeonetwork.dsl.environment.MetaDataContainer;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MetaDataContainerItemProvider extends ItemProviderAdapter
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class MetaDataContainerItemProvider extends IdentifiableItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,12 +81,10 @@ public class MetaDataContainerItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.META_DATA_CONTAINER__METADATAS);
+			childrenFeatures.add(EnvironmentPackage.Literals.META_DATA_CONTAINER__METADATAS);
 		}
 		return childrenFeatures;
 	}
@@ -113,8 +110,7 @@ public class MetaDataContainerItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/MetaDataContainer"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MetaDataContainer"));
 	}
 
 	/**
@@ -135,7 +131,9 @@ public class MetaDataContainerItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_MetaDataContainer_type");
+		String label = ((MetaDataContainer) object).getTechnicalid();
+		return label == null || label.length() == 0 ? getString("_UI_MetaDataContainer_type")
+				: getString("_UI_MetaDataContainer_type") + " " + label;
 	}
 
 	/**
@@ -151,8 +149,7 @@ public class MetaDataContainerItemProvider extends ItemProviderAdapter
 
 		switch (notification.getFeatureID(MetaDataContainer.class)) {
 		case EnvironmentPackage.META_DATA_CONTAINER__METADATAS:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -166,12 +163,10 @@ public class MetaDataContainerItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.META_DATA_CONTAINER__METADATAS,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.META_DATA_CONTAINER__METADATAS,
 				EnvironmentFactory.eINSTANCE.createAnnotation()));
 	}
 

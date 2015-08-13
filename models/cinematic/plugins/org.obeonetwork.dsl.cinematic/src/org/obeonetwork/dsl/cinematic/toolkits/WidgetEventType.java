@@ -10,7 +10,7 @@
  */
 package org.obeonetwork.dsl.cinematic.toolkits;
 
-import org.eclipse.emf.cdo.CDOObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,17 +19,16 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidgetEventType()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface WidgetEventType extends CDOObject {
+public interface WidgetEventType extends Identifiable {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

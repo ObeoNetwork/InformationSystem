@@ -157,6 +157,8 @@ public enum NativeTypeKind implements Enumerator {
 	 * Returns the '<em><b>Native Type Kind</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static NativeTypeKind get(String literal) {
@@ -173,6 +175,8 @@ public enum NativeTypeKind implements Enumerator {
 	 * Returns the '<em><b>Native Type Kind</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static NativeTypeKind getByName(String name) {
@@ -189,6 +193,8 @@ public enum NativeTypeKind implements Enumerator {
 	 * Returns the '<em><b>Native Type Kind</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static NativeTypeKind get(int value) {

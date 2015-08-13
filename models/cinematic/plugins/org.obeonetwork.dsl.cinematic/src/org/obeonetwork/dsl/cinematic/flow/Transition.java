@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.cinematic.NamedElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.Transition#getGuard <em>Guard</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.Transition#isModal <em>Modal</em>}</li>
@@ -28,7 +29,6 @@ import org.obeonetwork.dsl.cinematic.NamedElement;
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.Transition#getTo <em>To</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.Transition#getOn <em>On</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getTransition()
  * @model

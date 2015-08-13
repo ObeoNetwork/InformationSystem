@@ -15,6 +15,7 @@ package org.obeonetwork.dsl.environment.presentation;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**
  * This is the central singleton for the Environment editor plugin.
@@ -53,7 +54,7 @@ public final class EnvironmentEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public EnvironmentEditorPlugin() {
-		super(new ResourceLocator[] {});
+		super(new ResourceLocator[] { TechnicalIDEditPlugin.INSTANCE, });
 	}
 
 	/**

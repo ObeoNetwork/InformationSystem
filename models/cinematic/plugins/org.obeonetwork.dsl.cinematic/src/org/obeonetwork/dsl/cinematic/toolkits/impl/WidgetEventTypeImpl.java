@@ -11,9 +11,9 @@
 package org.obeonetwork.dsl.cinematic.toolkits.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,14 +21,14 @@ import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetEventTypeImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class WidgetEventTypeImpl extends CDOObjectImpl implements WidgetEventType {
+public class WidgetEventTypeImpl extends IdentifiableImpl implements WidgetEventType {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,16 +56,6 @@ public class WidgetEventTypeImpl extends CDOObjectImpl implements WidgetEventTyp
 	@Override
 	protected EClass eStaticClass() {
 		return ToolkitsPackage.Literals.WIDGET_EVENT_TYPE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

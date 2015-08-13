@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.cinematic.provider.CinematicEditPlugin;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType} object.
@@ -38,13 +39,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
  * @generated
  */
 public class WidgetEventTypeItemProvider
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IdentifiableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

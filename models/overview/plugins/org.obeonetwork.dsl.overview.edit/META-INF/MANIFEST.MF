@@ -12,4 +12,8 @@ Export-Package: org.obeonetwork.dsl.overview.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.overview;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
- org.obeonetwork.dsl.environment.edit
+ org.obeonetwork.dsl.environment;visibility:=reexport,
+ org.obeonetwork.dsl.environment.edit;visibility:=reexport,
+ org.obeonetwork.dsl.technicalid;visibility:=reexport,
+ org.obeonetwork.dsl.technicalid.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

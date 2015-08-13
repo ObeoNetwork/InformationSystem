@@ -28,12 +28,12 @@ import org.obeonetwork.dsl.interaction.Participant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.CombinedFragmentImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.CombinedFragmentImpl#getCoveredParticipants <em>Covered Participants</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.CombinedFragmentImpl#getOwnedOperands <em>Owned Operands</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

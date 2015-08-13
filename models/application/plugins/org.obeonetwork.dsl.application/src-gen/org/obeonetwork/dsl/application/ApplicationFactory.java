@@ -27,8 +27,7 @@ public interface ApplicationFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ApplicationFactory eINSTANCE = org.obeonetwork.dsl.application.impl.ApplicationFactoryImpl
-			.init();
+	ApplicationFactory eINSTANCE = org.obeonetwork.dsl.application.impl.ApplicationFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Configuration</em>'.

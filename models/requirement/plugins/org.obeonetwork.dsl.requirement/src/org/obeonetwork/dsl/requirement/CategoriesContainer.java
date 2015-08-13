@@ -20,11 +20,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.requirement.CategoriesContainer#getOwnedCategories <em>Owned Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.CategoriesContainer#getOwnedRequirements <em>Owned Requirements</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.requirement.RequirementPackage#getCategoriesContainer()
  * @model abstract="true"

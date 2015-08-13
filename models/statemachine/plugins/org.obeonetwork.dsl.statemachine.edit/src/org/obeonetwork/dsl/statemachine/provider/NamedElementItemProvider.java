@@ -40,13 +40,7 @@ import org.obeonetwork.dsl.statemachine.StateMachinePackage;
  * @generated
  */
 public class NamedElementItemProvider
-	extends ObeoDSMObjectItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -70,12 +70,10 @@ public class BindingRegistryItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.BINDING_REGISTRY__BINDING_INFOS);
+			childrenFeatures.add(EnvironmentPackage.Literals.BINDING_REGISTRY__BINDING_INFOS);
 		}
 		return childrenFeatures;
 	}
@@ -101,8 +99,7 @@ public class BindingRegistryItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/BindingRegistry"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BindingRegistry"));
 	}
 
 	/**
@@ -123,7 +120,7 @@ public class BindingRegistryItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((BindingRegistry) object).getDescription());
+		String label = ((BindingRegistry) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_BindingRegistry_type")
 				: getString("_UI_BindingRegistry_type") + " " + label;
 	}
@@ -141,8 +138,7 @@ public class BindingRegistryItemProvider extends ObeoDSMObjectItemProvider {
 
 		switch (notification.getFeatureID(BindingRegistry.class)) {
 		case EnvironmentPackage.BINDING_REGISTRY__BINDING_INFOS:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -156,12 +152,10 @@ public class BindingRegistryItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.BINDING_REGISTRY__BINDING_INFOS,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.BINDING_REGISTRY__BINDING_INFOS,
 				EnvironmentFactory.eINSTANCE.createBindingInfo()));
 	}
 

@@ -28,11 +28,11 @@ import org.obeonetwork.dsl.interaction.StateInvariant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.EndImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.EndImpl#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

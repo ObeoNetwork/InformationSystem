@@ -131,6 +131,7 @@ import org.obeonetwork.dsl.entity.extensionUtilities.provider.ExtensionUtilities
 import org.obeonetwork.dsl.entity.presentation.EntityEditorPlugin;
 import org.obeonetwork.dsl.entity.provider.EntityItemProviderAdapterFactory;
 import org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFactory;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFactory;
 
 
 /**
@@ -685,6 +686,7 @@ public class ExtensionUtilitiesEditor
 		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ExtensionUtilitiesItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EnvironmentItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TechnicalIDItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -931,10 +933,11 @@ public class ExtensionUtilitiesEditor
 	 * @generated
 	 */
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
-		if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
+		boolean hasErrors = !resource.getErrors().isEmpty();
+		if (hasErrors || !resource.getWarnings().isEmpty()) {
 			BasicDiagnostic basicDiagnostic =
 				new BasicDiagnostic
-					(Diagnostic.ERROR,
+					(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
 					 "org.obeonetwork.dsl.entity.editor",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),

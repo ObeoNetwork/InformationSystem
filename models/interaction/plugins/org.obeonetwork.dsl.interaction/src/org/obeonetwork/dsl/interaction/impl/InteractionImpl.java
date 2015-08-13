@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.interaction.StateInvariant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.InteractionImpl#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.InteractionImpl#getMessages <em>Messages</em>}</li>
@@ -42,7 +43,6 @@ import org.obeonetwork.dsl.interaction.StateInvariant;
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.InteractionImpl#getEnds <em>Ends</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.InteractionImpl#getCombinedFragments <em>Combined Fragments</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

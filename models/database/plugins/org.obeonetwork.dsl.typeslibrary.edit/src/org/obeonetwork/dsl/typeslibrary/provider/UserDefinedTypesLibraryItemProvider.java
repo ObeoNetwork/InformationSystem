@@ -206,6 +206,7 @@ public class UserDefinedTypesLibraryItemProvider
 
 		switch (notification.getFeatureID(UserDefinedTypesLibrary.class)) {
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__KIND:
+			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__TECHNICALID:
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

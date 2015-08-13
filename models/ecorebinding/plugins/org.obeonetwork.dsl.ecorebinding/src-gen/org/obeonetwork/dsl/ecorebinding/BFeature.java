@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BFeature#getBClass <em>BClass</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BFeature#getEcoreFeature <em>Ecore Feature</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.ecorebinding.EcorebindingPackage#getBFeature()
  * @model

@@ -16,6 +16,7 @@ import java.util.Date;
 
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getMetadatas <em>Metadatas</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getDescription <em>Description</em>}</li>
@@ -34,14 +36,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getCreatedOn <em>Created On</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.ObeoDSMObject#getModifiedOn <em>Modified On</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getObeoDSMObject()
  * @model abstract="true"
- * @extends CDOObject
  * @generated
  */
-public interface ObeoDSMObject extends CDOObject {
+public interface ObeoDSMObject extends Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

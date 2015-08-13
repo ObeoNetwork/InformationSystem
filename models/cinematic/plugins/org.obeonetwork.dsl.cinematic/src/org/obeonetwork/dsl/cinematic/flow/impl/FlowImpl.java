@@ -30,12 +30,12 @@ import org.obeonetwork.dsl.cinematic.impl.NamedElementImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.FlowImpl#getStates <em>States</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.FlowImpl#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.FlowImpl#getEvents <em>Events</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

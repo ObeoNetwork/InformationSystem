@@ -72,12 +72,10 @@ public class DTOItemProvider extends StructuredTypeItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.DTO__OWNED_CONTAINER);
+			childrenFeatures.add(EnvironmentPackage.Literals.DTO__OWNED_CONTAINER);
 		}
 		return childrenFeatures;
 	}
@@ -103,8 +101,7 @@ public class DTOItemProvider extends StructuredTypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/DTO"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DTO"));
 	}
 
 	/**
@@ -143,8 +140,7 @@ public class DTOItemProvider extends StructuredTypeItemProvider {
 
 		switch (notification.getFeatureID(DTO.class)) {
 		case EnvironmentPackage.DTO__OWNED_CONTAINER:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -158,12 +154,10 @@ public class DTOItemProvider extends StructuredTypeItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.DTO__OWNED_CONTAINER,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.DTO__OWNED_CONTAINER,
 				EnvironmentFactory.eINSTANCE.createFilterContainer()));
 	}
 

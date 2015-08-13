@@ -20,13 +20,10 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Behaviour</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */
-public abstract class BehaviourImpl extends ObeoDSMObjectImpl implements
-		Behaviour {
+public abstract class BehaviourImpl extends ObeoDSMObjectImpl implements Behaviour {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

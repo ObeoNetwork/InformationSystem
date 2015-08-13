@@ -23,6 +23,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,15 +31,14 @@ import org.obeonetwork.dsl.environment.MetaDataContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.MetaDataContainerImpl#getMetadatas <em>Metadatas</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class MetaDataContainerImpl extends CDOObjectImpl implements
-		MetaDataContainer {
+public class MetaDataContainerImpl extends IdentifiableImpl implements MetaDataContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,22 +70,10 @@ public class MetaDataContainerImpl extends CDOObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	public EList<MetaData> getMetadatas() {
-		return (EList<MetaData>) eDynamicGet(
-				EnvironmentPackage.META_DATA_CONTAINER__METADATAS,
-				EnvironmentPackage.Literals.META_DATA_CONTAINER__METADATAS,
-				true, true);
+		return (EList<MetaData>) eDynamicGet(EnvironmentPackage.META_DATA_CONTAINER__METADATAS,
+				EnvironmentPackage.Literals.META_DATA_CONTAINER__METADATAS, true, true);
 	}
 
 	/**
@@ -94,12 +82,10 @@ public class MetaDataContainerImpl extends CDOObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.META_DATA_CONTAINER__METADATAS:
-			return ((InternalEList<?>) getMetadatas()).basicRemove(otherEnd,
-					msgs);
+			return ((InternalEList<?>) getMetadatas()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

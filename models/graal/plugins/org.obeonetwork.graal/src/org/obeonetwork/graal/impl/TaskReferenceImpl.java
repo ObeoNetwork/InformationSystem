@@ -22,10 +22,10 @@ import org.obeonetwork.graal.UserStory;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.TaskReferenceImpl#getTask <em>Task</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

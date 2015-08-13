@@ -18,11 +18,11 @@ package org.obeonetwork.dsl.database;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.IndexElement#getColumn <em>Column</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.IndexElement#isAsc <em>Asc</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getIndexElement()
  * @model

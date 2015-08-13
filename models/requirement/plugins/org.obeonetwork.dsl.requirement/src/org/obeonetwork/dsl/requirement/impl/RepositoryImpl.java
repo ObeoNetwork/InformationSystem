@@ -31,11 +31,11 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.RepositoryImpl#getMainCategories <em>Main Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.RepositoryImpl#getReferencedObject <em>Referenced Object</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

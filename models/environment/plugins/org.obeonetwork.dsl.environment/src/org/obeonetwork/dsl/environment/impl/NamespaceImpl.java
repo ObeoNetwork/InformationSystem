@@ -29,12 +29,12 @@ import org.obeonetwork.dsl.environment.NamespacesContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.NamespaceImpl#getOwnedNamespaces <em>Owned Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.NamespaceImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.NamespaceImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -82,10 +82,8 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Namespace> getOwnedNamespaces() {
-		return (EList<Namespace>) eDynamicGet(
-				EnvironmentPackage.NAMESPACE__OWNED_NAMESPACES,
-				EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
-				true, true);
+		return (EList<Namespace>) eDynamicGet(EnvironmentPackage.NAMESPACE__OWNED_NAMESPACES,
+				EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES, true, true);
 	}
 
 	/**
@@ -94,8 +92,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * @generated
 	 */
 	public NamespacesContainer getOwner() {
-		return (NamespacesContainer) eDynamicGet(
-				EnvironmentPackage.NAMESPACE__OWNER,
+		return (NamespacesContainer) eDynamicGet(EnvironmentPackage.NAMESPACE__OWNER,
 				EnvironmentPackage.Literals.NAMESPACE__OWNER, true, true);
 	}
 
@@ -105,8 +102,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * @generated
 	 */
 	public NamespacesContainer basicGetOwner() {
-		return (NamespacesContainer) eDynamicGet(
-				EnvironmentPackage.NAMESPACE__OWNER,
+		return (NamespacesContainer) eDynamicGet(EnvironmentPackage.NAMESPACE__OWNER,
 				EnvironmentPackage.Literals.NAMESPACE__OWNER, false, true);
 	}
 
@@ -115,10 +111,8 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOwner(NamespacesContainer newOwner,
-			NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newOwner,
-				EnvironmentPackage.NAMESPACE__OWNER, msgs);
+	public NotificationChain basicSetOwner(NamespacesContainer newOwner, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newOwner, EnvironmentPackage.NAMESPACE__OWNER, msgs);
 		return msgs;
 	}
 
@@ -128,8 +122,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * @generated
 	 */
 	public void setOwner(NamespacesContainer newOwner) {
-		eDynamicSet(EnvironmentPackage.NAMESPACE__OWNER,
-				EnvironmentPackage.Literals.NAMESPACE__OWNER, newOwner);
+		eDynamicSet(EnvironmentPackage.NAMESPACE__OWNER, EnvironmentPackage.Literals.NAMESPACE__OWNER, newOwner);
 	}
 
 	/**
@@ -138,8 +131,8 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * @generated
 	 */
 	public String getName() {
-		return (String) eDynamicGet(EnvironmentPackage.NAMESPACE__NAME,
-				EnvironmentPackage.Literals.NAMESPACE__NAME, true, true);
+		return (String) eDynamicGet(EnvironmentPackage.NAMESPACE__NAME, EnvironmentPackage.Literals.NAMESPACE__NAME,
+				true, true);
 	}
 
 	/**
@@ -148,8 +141,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(EnvironmentPackage.NAMESPACE__NAME,
-				EnvironmentPackage.Literals.NAMESPACE__NAME, newName);
+		eDynamicSet(EnvironmentPackage.NAMESPACE__NAME, EnvironmentPackage.Literals.NAMESPACE__NAME, newName);
 	}
 
 	/**
@@ -159,12 +151,10 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.NAMESPACE__OWNED_NAMESPACES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOwnedNamespaces())
-					.basicAdd(otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOwnedNamespaces()).basicAdd(otherEnd, msgs);
 		case EnvironmentPackage.NAMESPACE__OWNER:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -179,12 +169,10 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.NAMESPACE__OWNED_NAMESPACES:
-			return ((InternalEList<?>) getOwnedNamespaces()).basicRemove(
-					otherEnd, msgs);
+			return ((InternalEList<?>) getOwnedNamespaces()).basicRemove(otherEnd, msgs);
 		case EnvironmentPackage.NAMESPACE__OWNER:
 			return basicSetOwner(null, msgs);
 		}
@@ -197,12 +185,10 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(
-			NotificationChain msgs) {
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case EnvironmentPackage.NAMESPACE__OWNER:
-			return eInternalContainer().eInverseRemove(this,
-					EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+			return eInternalContainer().eInverseRemove(this, EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
 					NamespacesContainer.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -239,8 +225,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 		switch (featureID) {
 		case EnvironmentPackage.NAMESPACE__OWNED_NAMESPACES:
 			getOwnedNamespaces().clear();
-			getOwnedNamespaces().addAll(
-					(Collection<? extends Namespace>) newValue);
+			getOwnedNamespaces().addAll((Collection<? extends Namespace>) newValue);
 			return;
 		case EnvironmentPackage.NAMESPACE__OWNER:
 			setOwner((NamespacesContainer) newValue);
@@ -286,8 +271,7 @@ public class NamespaceImpl extends TypesDefinitionImpl implements Namespace {
 		case EnvironmentPackage.NAMESPACE__OWNER:
 			return basicGetOwner() != null;
 		case EnvironmentPackage.NAMESPACE__NAME:
-			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT
-					.equals(getName());
+			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}

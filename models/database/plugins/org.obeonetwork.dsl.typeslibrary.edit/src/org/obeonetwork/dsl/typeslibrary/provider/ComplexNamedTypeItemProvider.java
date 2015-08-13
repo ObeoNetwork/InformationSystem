@@ -38,13 +38,7 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
  * @generated
  */
 public class ComplexNamedTypeItemProvider
-	extends UserDefinedTypeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends UserDefinedTypeItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -154,6 +148,9 @@ public class ComplexNamedTypeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ComplexNamedType.class)) {
+			case TypesLibraryPackage.COMPLEX_NAMED_TYPE__TECHNICALID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case TypesLibraryPackage.COMPLEX_NAMED_TYPE__TYPES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

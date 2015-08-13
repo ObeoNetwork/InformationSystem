@@ -19,6 +19,7 @@ package org.obeonetwork.dsl.environment;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.Reference#isIsComposite <em>Is Composite</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Reference#isNavigable <em>Navigable</em>}</li>
@@ -26,7 +27,6 @@ package org.obeonetwork.dsl.environment;
  *   <li>{@link org.obeonetwork.dsl.environment.Reference#getContainingType <em>Containing Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Reference#getReferencedType <em>Referenced Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getReference()
  * @model

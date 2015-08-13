@@ -69,15 +69,12 @@ public class AttributeItemProvider extends PropertyItemProvider {
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Attribute_type_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Attribute_type_feature", "_UI_Attribute_type"),
-				EnvironmentPackage.Literals.ATTRIBUTE__TYPE, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Attribute_type_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature",
+								"_UI_Attribute_type"),
+						EnvironmentPackage.Literals.ATTRIBUTE__TYPE, true, false, true, null, null, null));
 	}
 
 	/**
@@ -88,8 +85,7 @@ public class AttributeItemProvider extends PropertyItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Attribute"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Attribute"));
 	}
 
 	/**
@@ -136,8 +132,7 @@ public class AttributeItemProvider extends PropertyItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

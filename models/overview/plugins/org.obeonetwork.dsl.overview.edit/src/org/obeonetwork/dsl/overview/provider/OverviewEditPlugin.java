@@ -15,6 +15,7 @@ package org.obeonetwork.dsl.overview.provider;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**
  * This is the central singleton for the Overview edit plugin.
@@ -49,6 +50,7 @@ public final class OverviewEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     EnvironmentEditPlugin.INSTANCE,
+		     TechnicalIDEditPlugin.INSTANCE,
 		   });
 	}
 

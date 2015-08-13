@@ -77,7 +77,7 @@ public class FilterItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Filter) object).getDescription());
+		String label = ((Filter) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_Filter_type")
 				: getString("_UI_Filter_type") + " " + label;
 	}
@@ -103,8 +103,7 @@ public class FilterItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

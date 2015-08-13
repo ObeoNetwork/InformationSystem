@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.EDataType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BDataType#getEcoreDataType <em>Ecore Data Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.ecorebinding.EcorebindingPackage#getBDataType()
  * @model

@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.EEnum;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BEnum#getEcoreEnum <em>Ecore Enum</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BEnum#getBEnumLiterals <em>BEnum Literals</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.ecorebinding.EcorebindingPackage#getBEnum()
  * @model

@@ -72,12 +72,10 @@ public class PriorityDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.PRIORITY_DEFINITION__PRIORITIES);
+			childrenFeatures.add(EnvironmentPackage.Literals.PRIORITY_DEFINITION__PRIORITIES);
 		}
 		return childrenFeatures;
 	}
@@ -103,8 +101,7 @@ public class PriorityDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/PriorityDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PriorityDefinition"));
 	}
 
 	/**
@@ -125,7 +122,7 @@ public class PriorityDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((PriorityDefinition) object).getDescription());
+		String label = ((PriorityDefinition) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_PriorityDefinition_type")
 				: getString("_UI_PriorityDefinition_type") + " " + label;
 	}
@@ -143,8 +140,7 @@ public class PriorityDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 
 		switch (notification.getFeatureID(PriorityDefinition.class)) {
 		case EnvironmentPackage.PRIORITY_DEFINITION__PRIORITIES:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -158,12 +154,10 @@ public class PriorityDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.PRIORITY_DEFINITION__PRIORITIES,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.PRIORITY_DEFINITION__PRIORITIES,
 				EnvironmentFactory.eINSTANCE.createPriority()));
 	}
 

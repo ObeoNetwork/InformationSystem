@@ -29,13 +29,7 @@ import org.obeonetwork.dsl.statemachine.InitialState;
  * @generated
  */
 public class InitialStateItemProvider
-	extends AbstractStateItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends AbstractStateItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -90,7 +84,7 @@ public class InitialStateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((InitialState)object).getDescription());
+		String label = ((InitialState)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_InitialState_type") :
 			getString("_UI_InitialState_type") + " " + label;

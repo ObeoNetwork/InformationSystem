@@ -13,5 +13,6 @@ Export-Package: org.obeonetwork.dsl.typeslibrary,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
- org.eclipse.emf.cdo;visibility:=reexport
+ org.eclipse.emf.cdo;visibility:=reexport,
+ org.obeonetwork.dsl.technicalid;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.obeonetwork.dsl.cinematic.toolkits.*;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsFactory;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
@@ -36,7 +37,7 @@ public class ToolkitsFactoryImpl extends EFactoryImpl implements ToolkitsFactory
 	 */
 	public static ToolkitsFactory init() {
 		try {
-			ToolkitsFactory theToolkitsFactory = (ToolkitsFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/cinematic/toolkits/1.0.0"); 
+			ToolkitsFactory theToolkitsFactory = (ToolkitsFactory)EPackage.Registry.INSTANCE.getEFactory(ToolkitsPackage.eNS_URI);
 			if (theToolkitsFactory != null) {
 				return theToolkitsFactory;
 			}

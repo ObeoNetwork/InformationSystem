@@ -39,13 +39,7 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
  * @generated
  */
 public class DataBaseItemProvider
-	extends TableContainerItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends TableContainerItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.ETypeParameter;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BTypeParameter#getEcoreTypeParameter <em>Ecore Type Parameter</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.ecorebinding.EcorebindingPackage#getBTypeParameter()
  * @model

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.obeonetwork.dsl.interaction.*;
 import org.obeonetwork.dsl.interaction.CallMessage;
 import org.obeonetwork.dsl.interaction.CombinedFragment;
 import org.obeonetwork.dsl.interaction.CompoundEnd;
@@ -46,7 +47,7 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 	 */
 	public static InteractionFactory init() {
 		try {
-			InteractionFactory theInteractionFactory = (InteractionFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/interaction/1.0.0"); 
+			InteractionFactory theInteractionFactory = (InteractionFactory)EPackage.Registry.INSTANCE.getEFactory(InteractionPackage.eNS_URI);
 			if (theInteractionFactory != null) {
 				return theInteractionFactory;
 			}

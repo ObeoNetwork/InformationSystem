@@ -80,6 +80,15 @@ public interface EntityPackage extends EPackage {
 	int ROOT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__TECHNICALID = EnvironmentPackage.TYPES_DEFINITION__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -194,6 +203,15 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 */
 	int ENTITY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__TECHNICALID = EnvironmentPackage.STRUCTURED_TYPE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -400,6 +418,15 @@ public interface EntityPackage extends EPackage {
 	int FINDER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINDER__TECHNICALID = EnvironmentPackage.OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -530,6 +557,15 @@ public interface EntityPackage extends EPackage {
 	int CRITERION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CRITERION__TECHNICALID = EnvironmentPackage.OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -616,6 +652,15 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 */
 	int INTERNAL_CRITERION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_CRITERION__TECHNICALID = CRITERION__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -722,6 +767,15 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 */
 	int EXTERNAL_CRITERION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_CRITERION__TECHNICALID = CRITERION__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.

@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.typeslibrary;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,17 +22,17 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary#getNativeTypes <em>Native Types</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getNativeTypesLibrary()
  * @model
  * @generated
  */
-public interface NativeTypesLibrary extends TypesLibrary {
+public interface NativeTypesLibrary extends TypesLibrary, Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

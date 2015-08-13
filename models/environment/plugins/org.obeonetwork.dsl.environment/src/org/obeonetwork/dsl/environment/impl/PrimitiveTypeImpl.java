@@ -20,8 +20,6 @@ import org.obeonetwork.dsl.environment.PrimitiveType;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Primitive Type</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

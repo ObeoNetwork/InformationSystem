@@ -103,10 +103,8 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<String> FILE_EXTENSIONS = Collections
-			.unmodifiableList(Arrays.asList(ApplicationEditorPlugin.INSTANCE
-					.getString("_UI_ApplicationEditorFilenameExtensions")
-					.split("\\s*,\\s*")));
+	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(
+			ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -115,8 +113,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS = ApplicationEditorPlugin.INSTANCE
-			.getString("_UI_ApplicationEditorFilenameExtensions").replaceAll(
-					"\\s*,\\s*", ", ");
+			.getString("_UI_ApplicationEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -132,8 +129,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ApplicationFactory applicationFactory = applicationPackage
-			.getApplicationFactory();
+	protected ApplicationFactory applicationFactory = applicationPackage.getApplicationFactory();
 
 	/**
 	 * This is the file creation page.
@@ -184,11 +180,9 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(ApplicationEditorPlugin.INSTANCE
-				.getString("_UI_Wizard_label"));
+		setWindowTitle(ApplicationEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
 		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE
-				.getImageDescriptor(ApplicationEditorPlugin.INSTANCE
-						.getImage("full/wizban/NewApplication")));
+				.getImageDescriptor(ApplicationEditorPlugin.INSTANCE.getImage("full/wizban/NewApplication")));
 	}
 
 	/**
@@ -208,8 +202,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 					}
 				}
 			}
-			Collections.sort(initialObjectNames,
-					CommonPlugin.INSTANCE.getComparator());
+			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
 		}
 		return initialObjectNames;
 	}
@@ -221,9 +214,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass) applicationPackage
-				.getEClassifier(initialObjectCreationPage
-						.getInitialObjectName());
+		EClass eClass = (EClass) applicationPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = applicationFactory.create(eClass);
 		return rootObject;
 	}
@@ -253,8 +244,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 
 						// Get the URI of the model file.
 						//
-						URI fileURI = URI.createPlatformResourceURI(modelFile
-								.getFullPath().toString(), true);
+						URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
 						// Create a resource for this file.
 						//
@@ -270,8 +260,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 						// Save the contents of the resource to the file system.
 						//
 						Map<Object, Object> options = new HashMap<Object, Object>();
-						options.put(XMLResource.OPTION_ENCODING,
-								initialObjectCreationPage.getEncoding());
+						options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
 						resource.save(options);
 					} catch (Exception exception) {
 						ApplicationEditorPlugin.INSTANCE.log(exception);
@@ -285,17 +274,14 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 
 			// Select the new file resource in the current view.
 			//
-			IWorkbenchWindow workbenchWindow = workbench
-					.getActiveWorkbenchWindow();
+			IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
 			IWorkbenchPage page = workbenchWindow.getActivePage();
 			final IWorkbenchPart activePart = page.getActivePart();
 			if (activePart instanceof ISetSelectionTarget) {
-				final ISelection targetSelection = new StructuredSelection(
-						modelFile);
+				final ISelection targetSelection = new StructuredSelection(modelFile);
 				getShell().getDisplay().asyncExec(new Runnable() {
 					public void run() {
-						((ISetSelectionTarget) activePart)
-								.selectReveal(targetSelection);
+						((ISetSelectionTarget) activePart).selectReveal(targetSelection);
 					}
 				});
 			}
@@ -303,17 +289,11 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 			// Open an editor on the new file.
 			//
 			try {
-				page.openEditor(
-						new FileEditorInput(modelFile),
-						workbench
-								.getEditorRegistry()
-								.getDefaultEditor(
-										modelFile.getFullPath().toString())
-								.getId());
+				page.openEditor(new FileEditorInput(modelFile),
+						workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
 			} catch (PartInitException exception) {
 				MessageDialog.openError(workbenchWindow.getShell(),
-						ApplicationEditorPlugin.INSTANCE
-								.getString("_UI_OpenEditorError_label"),
+						ApplicationEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
 						exception.getMessage());
 				return false;
 			}
@@ -331,16 +311,14 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class ApplicationModelWizardNewFileCreationPage extends
-			WizardNewFileCreationPage {
+	public class ApplicationModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public ApplicationModelWizardNewFileCreationPage(String pageId,
-				IStructuredSelection selection) {
+		public ApplicationModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -355,10 +333,9 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 			if (super.validatePage()) {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
-					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions"
-							: "_WARN_FilenameExtension";
-					setErrorMessage(ApplicationEditorPlugin.INSTANCE.getString(
-							key, new Object[] { FORMATTED_FILE_EXTENSIONS }));
+					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+					setErrorMessage(ApplicationEditorPlugin.INSTANCE.getString(key,
+							new Object[] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -372,8 +349,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public IFile getModelFile() {
-			return ResourcesPlugin.getWorkspace().getRoot()
-					.getFile(getContainerFullPath().append(getFileName()));
+			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
 		}
 	}
 
@@ -383,8 +359,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class ApplicationModelWizardInitialObjectCreationPage extends
-			WizardPage {
+	public class ApplicationModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -438,8 +413,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(ApplicationEditorPlugin.INSTANCE
-						.getString("_UI_ModelObject"));
+				containerLabel.setText(ApplicationEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -465,8 +439,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(ApplicationEditorPlugin.INSTANCE
-						.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(ApplicationEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -508,8 +481,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		protected boolean validatePage() {
-			return getInitialObjectName() != null
-					&& getEncodings().contains(encodingField.getText());
+			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
 		}
 
 		/**
@@ -564,8 +536,7 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return ApplicationEditPlugin.INSTANCE.getString("_UI_"
-						+ typeName + "_type");
+				return ApplicationEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			} catch (MissingResourceException mre) {
 				ApplicationEditorPlugin.INSTANCE.log(mre);
 			}
@@ -581,9 +552,8 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
 				for (StringTokenizer stringTokenizer = new StringTokenizer(
-						ApplicationEditorPlugin.INSTANCE
-								.getString("_UI_XMLEncodingChoices")); stringTokenizer
-						.hasMoreTokens();) {
+						ApplicationEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer
+								.hasMoreTokens();) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -601,16 +571,13 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new ApplicationModelWizardNewFileCreationPage(
-				"Whatever", selection);
-		newFileCreationPage.setTitle(ApplicationEditorPlugin.INSTANCE
-				.getString("_UI_ApplicationModelWizard_label"));
-		newFileCreationPage.setDescription(ApplicationEditorPlugin.INSTANCE
-				.getString("_UI_ApplicationModelWizard_description"));
-		newFileCreationPage.setFileName(ApplicationEditorPlugin.INSTANCE
-				.getString("_UI_ApplicationEditorFilenameDefaultBase")
-				+ "."
-				+ FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new ApplicationModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationModelWizard_label"));
+		newFileCreationPage
+				.setDescription(ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationModelWizard_description"));
+		newFileCreationPage
+				.setFileName(ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationEditorFilenameDefaultBase")
+						+ "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -629,37 +596,29 @@ public class ApplicationModelWizard extends Wizard implements INewWizard {
 
 				// This gives us a directory...
 				//
-				if (selectedResource instanceof IFolder
-						|| selectedResource instanceof IProject) {
+				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
 					// Set this for the container.
 					//
-					newFileCreationPage.setContainerFullPath(selectedResource
-							.getFullPath());
+					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
 
 					// Make up a unique new name here.
 					//
 					String defaultModelBaseFilename = ApplicationEditorPlugin.INSTANCE
 							.getString("_UI_ApplicationEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = FILE_EXTENSIONS
-							.get(0);
-					String modelFilename = defaultModelBaseFilename + "."
-							+ defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer) selectedResource)
-							.findMember(modelFilename) != null; ++i) {
-						modelFilename = defaultModelBaseFilename + i + "."
-								+ defaultModelFilenameExtension;
+					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
+					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
+					for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
+						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
 				}
 			}
 		}
-		initialObjectCreationPage = new ApplicationModelWizardInitialObjectCreationPage(
-				"Whatever2");
-		initialObjectCreationPage.setTitle(ApplicationEditorPlugin.INSTANCE
-				.getString("_UI_ApplicationModelWizard_label"));
+		initialObjectCreationPage = new ApplicationModelWizardInitialObjectCreationPage("Whatever2");
 		initialObjectCreationPage
-				.setDescription(ApplicationEditorPlugin.INSTANCE
-						.getString("_UI_Wizard_initial_object_description"));
+				.setTitle(ApplicationEditorPlugin.INSTANCE.getString("_UI_ApplicationModelWizard_label"));
+		initialObjectCreationPage
+				.setDescription(ApplicationEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

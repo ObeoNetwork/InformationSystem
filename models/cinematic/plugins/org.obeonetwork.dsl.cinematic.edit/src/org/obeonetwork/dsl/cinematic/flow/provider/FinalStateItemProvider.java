@@ -33,13 +33,7 @@ import org.obeonetwork.dsl.cinematic.flow.FinalState;
  * @generated
  */
 public class FinalStateItemProvider
-	extends NamedFlowStateItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NamedFlowStateItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

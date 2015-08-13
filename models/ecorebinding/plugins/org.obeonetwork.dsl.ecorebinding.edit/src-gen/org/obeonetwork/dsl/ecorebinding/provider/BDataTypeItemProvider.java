@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.obeonetwork.dsl.ecorebinding.BDataType;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
 
 /**
@@ -30,13 +31,7 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * @generated
  */
 public class BDataTypeItemProvider
-	extends BClassifierItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends BClassifierItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -104,7 +99,10 @@ public class BDataTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BDataType_type");
+		String label = ((BDataType)object).getTechnicalid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BDataType_type") :
+			getString("_UI_BDataType_type") + " " + label;
 	}
 
 	/**

@@ -15,6 +15,8 @@ Export-Package: org.obeonetwork.dsl.typeslibrary.filters,
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.typeslibrary;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
+ org.obeonetwork.dsl.technicalid;visibility:=reexport,
+ org.obeonetwork.dsl.technicalid.edit;visibility:=reexport,
  org.eclipse.emf.eef.runtime;visibility:=reexport,
  org.eclipse.emf.workspace
 Bundle-ActivationPolicy: lazy

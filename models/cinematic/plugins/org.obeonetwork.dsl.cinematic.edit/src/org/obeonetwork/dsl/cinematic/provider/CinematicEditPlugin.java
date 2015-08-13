@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.cinematic.provider;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**
  * This is the central singleton for the Cinematic edit plugin.
@@ -47,6 +48,7 @@ public final class CinematicEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     EnvironmentEditPlugin.INSTANCE,
+		     TechnicalIDEditPlugin.INSTANCE,
 		   });
 	}
 

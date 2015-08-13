@@ -44,6 +44,7 @@ import org.obeonetwork.graal.UserStory;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getNamespaces <em>Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getTypes <em>Types</em>}</li>
@@ -55,7 +56,6 @@ import org.obeonetwork.graal.UserStory;
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getUseCases <em>Use Cases</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getUserStories <em>User Stories</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

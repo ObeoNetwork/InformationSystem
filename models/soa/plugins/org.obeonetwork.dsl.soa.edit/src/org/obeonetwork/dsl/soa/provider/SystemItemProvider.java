@@ -40,13 +40,7 @@ import org.obeonetwork.dsl.soa.System;
  * @generated
  */
 public class SystemItemProvider
-	extends TypesDefinitionItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends TypesDefinitionItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,23 +213,6 @@ public class SystemItemProvider
 			(createChildParameter
 				(SoaPackage.Literals.SYSTEM__OWNED_WIRES,
 				 SoaFactory.eINSTANCE.createWire()));
-		//remove Primitive type and Enumeration from newChildDescriptors, see SAFRAN-219.
-		if(object instanceof System){
-		CommandParameter enumerationChild =null;
-		CommandParameter primitiveTypeChild =null;
-		for (Object child : newChildDescriptors) {
-			CommandParameter commandParameter=		((CommandParameter)child);
-			Object value = commandParameter.getValue();
-			if(value instanceof Enumeration){
-				 enumerationChild = commandParameter;
-			}else if(value instanceof PrimitiveType){
-				primitiveTypeChild=commandParameter;
-			}
-		}
-		newChildDescriptors.remove(enumerationChild);
-		newChildDescriptors.remove(primitiveTypeChild);
-		}
-		
 	}
 
 	/**

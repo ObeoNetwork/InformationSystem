@@ -23,10 +23,10 @@ import org.obeonetwork.dsl.statemachine.StateMachinePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.statemachine.impl.StateMachineImpl#getRegions <em>Regions</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

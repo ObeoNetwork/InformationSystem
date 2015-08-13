@@ -29,15 +29,14 @@ import org.obeonetwork.dsl.environment.FilterContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.FilterContainerImpl#getOwnedFilters <em>Owned Filters</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class FilterContainerImpl extends ObeoDSMObjectImpl implements
-		FilterContainer {
+public class FilterContainerImpl extends ObeoDSMObjectImpl implements FilterContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,10 +70,8 @@ public class FilterContainerImpl extends ObeoDSMObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Filter> getOwnedFilters() {
-		return (EList<Filter>) eDynamicGet(
-				EnvironmentPackage.FILTER_CONTAINER__OWNED_FILTERS,
-				EnvironmentPackage.Literals.FILTER_CONTAINER__OWNED_FILTERS,
-				true, true);
+		return (EList<Filter>) eDynamicGet(EnvironmentPackage.FILTER_CONTAINER__OWNED_FILTERS,
+				EnvironmentPackage.Literals.FILTER_CONTAINER__OWNED_FILTERS, true, true);
 	}
 
 	/**
@@ -83,12 +80,10 @@ public class FilterContainerImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.FILTER_CONTAINER__OWNED_FILTERS:
-			return ((InternalEList<?>) getOwnedFilters()).basicRemove(otherEnd,
-					msgs);
+			return ((InternalEList<?>) getOwnedFilters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

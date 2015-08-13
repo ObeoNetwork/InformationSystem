@@ -34,6 +34,7 @@ import org.obeonetwork.dsl.application.ApplicationPackage;
 import org.obeonetwork.dsl.application.Configuration;
 
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.application.Configuration} object.
@@ -41,9 +42,7 @@ import org.obeonetwork.dsl.environment.EnvironmentFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfigurationItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ConfigurationItemProvider extends IdentifiableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -79,16 +78,12 @@ public class ConfigurationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addEcoreModelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Configuration_ecoreModel_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Configuration_ecoreModel_feature",
-						"_UI_Configuration_type"),
-				ApplicationPackage.Literals.CONFIGURATION__ECORE_MODEL, true,
-				false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Configuration_ecoreModel_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Configuration_ecoreModel_feature",
+								"_UI_Configuration_type"),
+						ApplicationPackage.Literals.CONFIGURATION__ECORE_MODEL, true, false, true, null, null, null));
 	}
 
 	/**
@@ -98,16 +93,13 @@ public class ConfigurationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addCinematicModelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Configuration_cinematicModel_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Configuration_cinematicModel_feature",
-						"_UI_Configuration_type"),
-				ApplicationPackage.Literals.CONFIGURATION__CINEMATIC_MODEL,
-				true, false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Configuration_cinematicModel_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Configuration_cinematicModel_feature",
+								"_UI_Configuration_type"),
+						ApplicationPackage.Literals.CONFIGURATION__CINEMATIC_MODEL, true, false, true, null, null,
+						null));
 	}
 
 	/**
@@ -117,16 +109,12 @@ public class ConfigurationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addEcoreBindingModelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Configuration_ecoreBindingModel_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Configuration_ecoreBindingModel_feature",
-						"_UI_Configuration_type"),
-				ApplicationPackage.Literals.CONFIGURATION__ECORE_BINDING_MODEL,
-				true, false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Configuration_ecoreBindingModel_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Configuration_ecoreBindingModel_feature",
+								"_UI_Configuration_type"),
+				ApplicationPackage.Literals.CONFIGURATION__ECORE_BINDING_MODEL, true, false, true, null, null, null));
 	}
 
 	/**
@@ -138,12 +126,10 @@ public class ConfigurationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(ApplicationPackage.Literals.CONFIGURATION__BINDING_REGISTRIES);
+			childrenFeatures.add(ApplicationPackage.Literals.CONFIGURATION__BINDING_REGISTRIES);
 		}
 		return childrenFeatures;
 	}
@@ -169,8 +155,7 @@ public class ConfigurationItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Configuration"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Configuration"));
 	}
 
 	/**
@@ -191,7 +176,9 @@ public class ConfigurationItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Configuration_type");
+		String label = ((Configuration) object).getTechnicalid();
+		return label == null || label.length() == 0 ? getString("_UI_Configuration_type")
+				: getString("_UI_Configuration_type") + " " + label;
 	}
 
 	/**
@@ -207,8 +194,7 @@ public class ConfigurationItemProvider extends ItemProviderAdapter implements
 
 		switch (notification.getFeatureID(Configuration.class)) {
 		case ApplicationPackage.CONFIGURATION__BINDING_REGISTRIES:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -222,12 +208,10 @@ public class ConfigurationItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				ApplicationPackage.Literals.CONFIGURATION__BINDING_REGISTRIES,
+		newChildDescriptors.add(createChildParameter(ApplicationPackage.Literals.CONFIGURATION__BINDING_REGISTRIES,
 				EnvironmentFactory.eINSTANCE.createBindingRegistry()));
 	}
 

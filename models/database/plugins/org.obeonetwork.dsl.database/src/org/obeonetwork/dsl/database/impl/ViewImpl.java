@@ -22,10 +22,10 @@ import org.obeonetwork.dsl.database.View;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ViewImpl#getQuery <em>Query</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -35,13 +35,7 @@ import org.obeonetwork.dsl.interaction.InteractionPackage;
  * @generated
  */
 public class CompoundEndItemProvider
-	extends EndItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends EndItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

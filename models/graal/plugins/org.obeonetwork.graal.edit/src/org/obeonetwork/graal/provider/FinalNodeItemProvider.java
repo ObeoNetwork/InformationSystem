@@ -31,13 +31,7 @@ import org.obeonetwork.graal.FinalNode;
  * @generated
  */
 public class FinalNodeItemProvider
-	extends NodeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -92,7 +86,7 @@ public class FinalNodeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((FinalNode)object).getDescription());
+		String label = ((FinalNode)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_FinalNode_type") :
 			getString("_UI_FinalNode_type") + " " + label;

@@ -24,17 +24,16 @@ import org.obeonetwork.dsl.environment.Property;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.PropertyImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.PropertyImpl#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.PropertyImpl#isIsIdentifier <em>Is Identifier</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
-		Property {
+public abstract class PropertyImpl extends ObeoDSMObjectImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,8 +95,8 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public String getName() {
-		return (String) eDynamicGet(EnvironmentPackage.PROPERTY__NAME,
-				EnvironmentPackage.Literals.PROPERTY__NAME, true, true);
+		return (String) eDynamicGet(EnvironmentPackage.PROPERTY__NAME, EnvironmentPackage.Literals.PROPERTY__NAME, true,
+				true);
 	}
 
 	/**
@@ -106,8 +105,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(EnvironmentPackage.PROPERTY__NAME,
-				EnvironmentPackage.Literals.PROPERTY__NAME, newName);
+		eDynamicSet(EnvironmentPackage.PROPERTY__NAME, EnvironmentPackage.Literals.PROPERTY__NAME, newName);
 	}
 
 	/**
@@ -116,8 +114,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public MultiplicityKind getMultiplicity() {
-		return (MultiplicityKind) eDynamicGet(
-				EnvironmentPackage.PROPERTY__MULTIPLICITY,
+		return (MultiplicityKind) eDynamicGet(EnvironmentPackage.PROPERTY__MULTIPLICITY,
 				EnvironmentPackage.Literals.PROPERTY__MULTIPLICITY, true, true);
 	}
 
@@ -127,8 +124,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public void setMultiplicity(MultiplicityKind newMultiplicity) {
-		eDynamicSet(EnvironmentPackage.PROPERTY__MULTIPLICITY,
-				EnvironmentPackage.Literals.PROPERTY__MULTIPLICITY,
+		eDynamicSet(EnvironmentPackage.PROPERTY__MULTIPLICITY, EnvironmentPackage.Literals.PROPERTY__MULTIPLICITY,
 				newMultiplicity);
 	}
 
@@ -138,8 +134,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public boolean isIsIdentifier() {
-		return (Boolean) eDynamicGet(
-				EnvironmentPackage.PROPERTY__IS_IDENTIFIER,
+		return (Boolean) eDynamicGet(EnvironmentPackage.PROPERTY__IS_IDENTIFIER,
 				EnvironmentPackage.Literals.PROPERTY__IS_IDENTIFIER, true, true);
 	}
 
@@ -149,8 +144,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public void setIsIdentifier(boolean newIsIdentifier) {
-		eDynamicSet(EnvironmentPackage.PROPERTY__IS_IDENTIFIER,
-				EnvironmentPackage.Literals.PROPERTY__IS_IDENTIFIER,
+		eDynamicSet(EnvironmentPackage.PROPERTY__IS_IDENTIFIER, EnvironmentPackage.Literals.PROPERTY__IS_IDENTIFIER,
 				newIsIdentifier);
 	}
 
@@ -234,8 +228,7 @@ public abstract class PropertyImpl extends ObeoDSMObjectImpl implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case EnvironmentPackage.PROPERTY__NAME:
-			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT
-					.equals(getName());
+			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		case EnvironmentPackage.PROPERTY__MULTIPLICITY:
 			return getMultiplicity() != MULTIPLICITY_EDEFAULT;
 		case EnvironmentPackage.PROPERTY__IS_IDENTIFIER:

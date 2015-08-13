@@ -25,7 +25,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
+import org.obeonetwork.dsl.typeslibrary.UserDefinedTypeRef;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.typeslibrary.UserDefinedTypeRef} object.
@@ -34,13 +36,7 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
  * @generated
  */
 public class UserDefinedTypeRefItemProvider
-	extends TypeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends TypeItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,7 +121,10 @@ public class UserDefinedTypeRefItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_UserDefinedTypeRef_type");
+		String label = ((UserDefinedTypeRef)object).getTechnicalid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_UserDefinedTypeRef_type") :
+			getString("_UI_UserDefinedTypeRef_type") + " " + label;
 	}
 
 	/**
@@ -138,6 +137,12 @@ public class UserDefinedTypeRefItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(UserDefinedTypeRef.class)) {
+			case TypesLibraryPackage.USER_DEFINED_TYPE_REF__TECHNICALID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

@@ -28,10 +28,10 @@ import org.obeonetwork.dsl.cinematic.impl.CinematicElementImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.FlowStateImpl#getActions <em>Actions</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -32,13 +32,13 @@ import org.obeonetwork.dsl.environment.impl.FilterImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.entity.extensionUtilities.impl.EntityFilterImpl#getAttributeReferences <em>Attribute References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.extensionUtilities.impl.EntityFilterImpl#getReferenceReferences <em>Reference References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.extensionUtilities.impl.EntityFilterImpl#getOwnedPropertyReferences <em>Owned Property References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.extensionUtilities.impl.EntityFilterImpl#getEntity <em>Entity</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

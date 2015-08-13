@@ -35,13 +35,7 @@ import org.obeonetwork.graal.Operator;
  * @generated
  */
 public class OperatorItemProvider
-	extends NodeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -119,7 +113,7 @@ public class OperatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Operator)object).getDescription());
+		String label = ((Operator)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Operator_type") :
 			getString("_UI_Operator_type") + " " + label;

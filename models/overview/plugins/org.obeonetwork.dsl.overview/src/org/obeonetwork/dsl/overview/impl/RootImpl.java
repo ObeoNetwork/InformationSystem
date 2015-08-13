@@ -29,10 +29,10 @@ import org.obeonetwork.dsl.overview.Root;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.overview.impl.RootImpl#getOwnedElements <em>Owned Elements</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

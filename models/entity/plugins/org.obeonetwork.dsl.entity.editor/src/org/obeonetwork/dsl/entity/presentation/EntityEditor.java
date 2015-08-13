@@ -130,6 +130,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.obeonetwork.dsl.entity.extensionUtilities.provider.ExtensionUtilitiesItemProviderAdapterFactory;
 import org.obeonetwork.dsl.entity.provider.EntityItemProviderAdapterFactory;
 import org.obeonetwork.dsl.environment.provider.EnvironmentItemProviderAdapterFactory;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFactory;
 
 /**
  * This is an example of a Entity model editor.
@@ -926,10 +927,11 @@ public class EntityEditor extends MultiPageEditorPart implements
 	 */
 	public Diagnostic analyzeResourceProblems(Resource resource,
 			Exception exception) {
-		if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
+		boolean hasErrors = !resource.getErrors().isEmpty();
+		if (hasErrors || !resource.getWarnings().isEmpty()) {
 			BasicDiagnostic basicDiagnostic =
 				new BasicDiagnostic
-					(Diagnostic.ERROR,
+					(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
 					 "org.obeonetwork.dsl.entity.editor",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.obeonetwork.dsl.typeslibrary.NativeType;
@@ -30,16 +31,16 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.NativeTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.NativeTypeImpl#getSpec <em>Spec</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.NativeTypeImpl#getMapsTo <em>Maps To</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class NativeTypeImpl extends CDOObjectImpl implements NativeType {
+public class NativeTypeImpl extends IdentifiableImpl implements NativeType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,16 +84,6 @@ public class NativeTypeImpl extends CDOObjectImpl implements NativeType {
 	@Override
 	protected EClass eStaticClass() {
 		return TypesLibraryPackage.Literals.NATIVE_TYPE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

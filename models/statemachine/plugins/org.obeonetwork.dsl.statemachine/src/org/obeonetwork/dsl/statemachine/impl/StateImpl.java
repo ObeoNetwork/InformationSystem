@@ -17,10 +17,10 @@ import org.obeonetwork.dsl.statemachine.StateMachinePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.statemachine.impl.StateImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

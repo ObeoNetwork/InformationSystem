@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.Sequence#getStart <em>Start</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Sequence#getIncrement <em>Increment</em>}</li>
@@ -29,7 +30,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.database.Sequence#isCycle <em>Cycle</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Sequence#getColumns <em>Columns</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence()
  * @model

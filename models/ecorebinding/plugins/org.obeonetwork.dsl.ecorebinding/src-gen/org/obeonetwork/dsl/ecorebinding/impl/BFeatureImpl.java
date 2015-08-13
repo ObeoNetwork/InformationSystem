@@ -19,11 +19,11 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BFeatureImpl#getBClass <em>BClass</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BFeatureImpl#getEcoreFeature <em>Ecore Feature</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

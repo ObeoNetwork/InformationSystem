@@ -15,10 +15,10 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.Binding#getTechnology <em>Technology</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getBinding()
  * @model

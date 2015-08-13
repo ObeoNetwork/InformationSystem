@@ -37,13 +37,7 @@ import org.obeonetwork.dsl.entity.ExternalCriterion;
  * @generated
  */
 public class ExternalCriterionItemProvider
-	extends CriterionItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends CriterionItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

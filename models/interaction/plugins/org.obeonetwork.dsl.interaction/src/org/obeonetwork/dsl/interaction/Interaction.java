@@ -20,6 +20,7 @@ import org.obeonetwork.dsl.environment.Behaviour;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.Interaction#getParticipants <em>Participants</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.Interaction#getMessages <em>Messages</em>}</li>
@@ -29,7 +30,6 @@ import org.obeonetwork.dsl.environment.Behaviour;
  *   <li>{@link org.obeonetwork.dsl.interaction.Interaction#getEnds <em>Ends</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.Interaction#getCombinedFragments <em>Combined Fragments</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.interaction.InteractionPackage#getInteraction()
  * @model

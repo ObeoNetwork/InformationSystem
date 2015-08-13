@@ -25,6 +25,7 @@ import org.obeonetwork.dsl.environment.StructuredType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#isIsComposite <em>Is Composite</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#isNavigable <em>Navigable</em>}</li>
@@ -32,7 +33,6 @@ import org.obeonetwork.dsl.environment.StructuredType;
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getContainingType <em>Containing Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl#getReferencedType <em>Referenced Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -89,8 +89,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	public boolean isIsComposite() {
-		return (Boolean) eDynamicGet(
-				EnvironmentPackage.REFERENCE__IS_COMPOSITE,
+		return (Boolean) eDynamicGet(EnvironmentPackage.REFERENCE__IS_COMPOSITE,
 				EnvironmentPackage.Literals.REFERENCE__IS_COMPOSITE, true, true);
 	}
 
@@ -100,8 +99,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	public void setIsComposite(boolean newIsComposite) {
-		eDynamicSet(EnvironmentPackage.REFERENCE__IS_COMPOSITE,
-				EnvironmentPackage.Literals.REFERENCE__IS_COMPOSITE,
+		eDynamicSet(EnvironmentPackage.REFERENCE__IS_COMPOSITE, EnvironmentPackage.Literals.REFERENCE__IS_COMPOSITE,
 				newIsComposite);
 	}
 
@@ -121,8 +119,8 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	public void setNavigable(boolean newNavigable) {
-		eDynamicSet(EnvironmentPackage.REFERENCE__NAVIGABLE,
-				EnvironmentPackage.Literals.REFERENCE__NAVIGABLE, newNavigable);
+		eDynamicSet(EnvironmentPackage.REFERENCE__NAVIGABLE, EnvironmentPackage.Literals.REFERENCE__NAVIGABLE,
+				newNavigable);
 	}
 
 	/**
@@ -131,8 +129,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	public Reference getOppositeOf() {
-		return (Reference) eDynamicGet(
-				EnvironmentPackage.REFERENCE__OPPOSITE_OF,
+		return (Reference) eDynamicGet(EnvironmentPackage.REFERENCE__OPPOSITE_OF,
 				EnvironmentPackage.Literals.REFERENCE__OPPOSITE_OF, true, true);
 	}
 
@@ -142,8 +139,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	public Reference basicGetOppositeOf() {
-		return (Reference) eDynamicGet(
-				EnvironmentPackage.REFERENCE__OPPOSITE_OF,
+		return (Reference) eDynamicGet(EnvironmentPackage.REFERENCE__OPPOSITE_OF,
 				EnvironmentPackage.Literals.REFERENCE__OPPOSITE_OF, false, true);
 	}
 
@@ -153,8 +149,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	public void setOppositeOf(Reference newOppositeOf) {
-		eDynamicSet(EnvironmentPackage.REFERENCE__OPPOSITE_OF,
-				EnvironmentPackage.Literals.REFERENCE__OPPOSITE_OF,
+		eDynamicSet(EnvironmentPackage.REFERENCE__OPPOSITE_OF, EnvironmentPackage.Literals.REFERENCE__OPPOSITE_OF,
 				newOppositeOf);
 	}
 
@@ -164,10 +159,8 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	public StructuredType getContainingType() {
-		return (StructuredType) eDynamicGet(
-				EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
-				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE, true,
-				true);
+		return (StructuredType) eDynamicGet(EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
+				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE, true, true);
 	}
 
 	/**
@@ -176,10 +169,8 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	public StructuredType basicGetContainingType() {
-		return (StructuredType) eDynamicGet(
-				EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
-				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE, false,
-				true);
+		return (StructuredType) eDynamicGet(EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
+				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE, false, true);
 	}
 
 	/**
@@ -187,10 +178,9 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContainingType(
-			StructuredType newContainingType, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newContainingType,
-				EnvironmentPackage.REFERENCE__CONTAINING_TYPE, msgs);
+	public NotificationChain basicSetContainingType(StructuredType newContainingType, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newContainingType, EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
+				msgs);
 		return msgs;
 	}
 
@@ -201,8 +191,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 */
 	public void setContainingType(StructuredType newContainingType) {
 		eDynamicSet(EnvironmentPackage.REFERENCE__CONTAINING_TYPE,
-				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE,
-				newContainingType);
+				EnvironmentPackage.Literals.REFERENCE__CONTAINING_TYPE, newContainingType);
 	}
 
 	/**
@@ -211,10 +200,8 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	public StructuredType getReferencedType() {
-		return (StructuredType) eDynamicGet(
-				EnvironmentPackage.REFERENCE__REFERENCED_TYPE,
-				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, true,
-				true);
+		return (StructuredType) eDynamicGet(EnvironmentPackage.REFERENCE__REFERENCED_TYPE,
+				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, true, true);
 	}
 
 	/**
@@ -223,10 +210,8 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	public StructuredType basicGetReferencedType() {
-		return (StructuredType) eDynamicGet(
-				EnvironmentPackage.REFERENCE__REFERENCED_TYPE,
-				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, false,
-				true);
+		return (StructuredType) eDynamicGet(EnvironmentPackage.REFERENCE__REFERENCED_TYPE,
+				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, false, true);
 	}
 
 	/**
@@ -236,8 +221,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 */
 	public void setReferencedType(StructuredType newReferencedType) {
 		eDynamicSet(EnvironmentPackage.REFERENCE__REFERENCED_TYPE,
-				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE,
-				newReferencedType);
+				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, newReferencedType);
 	}
 
 	/**
@@ -257,8 +241,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.REFERENCE__CONTAINING_TYPE:
 			if (eInternalContainer() != null)
@@ -274,8 +257,7 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.REFERENCE__CONTAINING_TYPE:
 			return basicSetContainingType(null, msgs);
@@ -289,12 +271,10 @@ public class ReferenceImpl extends PropertyImpl implements Reference {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(
-			NotificationChain msgs) {
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case EnvironmentPackage.REFERENCE__CONTAINING_TYPE:
-			return eInternalContainer().eInverseRemove(this,
-					EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES,
+			return eInternalContainer().eInverseRemove(this, EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES,
 					StructuredType.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);

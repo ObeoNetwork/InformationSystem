@@ -21,10 +21,10 @@ import org.obeonetwork.dsl.cinematic.view.ViewEvent;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.FlowEvent#getBinds <em>Binds</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getFlowEvent()
  * @model

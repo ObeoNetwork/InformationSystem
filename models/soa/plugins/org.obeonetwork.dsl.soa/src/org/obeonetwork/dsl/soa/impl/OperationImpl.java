@@ -25,6 +25,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getOutput <em>Output</em>}</li>
@@ -32,7 +33,6 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#isPublic <em>Public</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.OperationImpl#getFault <em>Fault</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -29,6 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.NamespacesContainer;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.environment.NamespacesContainer} object.
@@ -36,9 +37,7 @@ import org.obeonetwork.dsl.environment.NamespacesContainer;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NamespacesContainerItemProvider extends ItemProviderAdapter
-		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class NamespacesContainerItemProvider extends IdentifiableItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,12 +79,10 @@ public class NamespacesContainerItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
+			childrenFeatures.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -121,7 +118,9 @@ public class NamespacesContainerItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NamespacesContainer_type");
+		String label = ((NamespacesContainer) object).getTechnicalid();
+		return label == null || label.length() == 0 ? getString("_UI_NamespacesContainer_type")
+				: getString("_UI_NamespacesContainer_type") + " " + label;
 	}
 
 	/**
@@ -137,8 +136,7 @@ public class NamespacesContainerItemProvider extends ItemProviderAdapter
 
 		switch (notification.getFeatureID(NamespacesContainer.class)) {
 		case EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -152,14 +150,11 @@ public class NamespacesContainerItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors
-				.add(createChildParameter(
-						EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
-						EnvironmentFactory.eINSTANCE.createNamespace()));
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+				EnvironmentFactory.eINSTANCE.createNamespace()));
 	}
 
 	/**

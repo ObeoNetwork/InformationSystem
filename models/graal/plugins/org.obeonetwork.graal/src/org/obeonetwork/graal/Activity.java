@@ -19,12 +19,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.Activity#getNodes <em>Nodes</em>}</li>
  *   <li>{@link org.obeonetwork.graal.Activity#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.obeonetwork.graal.Activity#getSubActivities <em>Sub Activities</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.GraalPackage#getActivity()
  * @model abstract="true"

@@ -11,6 +11,7 @@
 package org.obeonetwork.dsl.typeslibrary;
 
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,19 +20,19 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.TypeInstance#getNativeType <em>Native Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.TypeInstance#getLength <em>Length</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.TypeInstance#getPrecision <em>Precision</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.TypeInstance#getLiterals <em>Literals</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getTypeInstance()
  * @model
  * @generated
  */
-public interface TypeInstance extends Type {
+public interface TypeInstance extends Type, Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

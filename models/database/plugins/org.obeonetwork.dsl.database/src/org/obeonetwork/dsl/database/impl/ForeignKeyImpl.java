@@ -35,12 +35,12 @@ import org.obeonetwork.dsl.database.Table;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ForeignKeyImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ForeignKeyImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ForeignKeyImpl#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

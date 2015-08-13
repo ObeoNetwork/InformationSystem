@@ -72,15 +72,13 @@ public class AnnotationItemProvider extends MetaDataItemProvider {
 	 * @generated
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Annotation_title_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Annotation_title_feature", "_UI_Annotation_type"),
-				EnvironmentPackage.Literals.ANNOTATION__TITLE, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Annotation_title_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Annotation_title_feature",
+								"_UI_Annotation_type"),
+						EnvironmentPackage.Literals.ANNOTATION__TITLE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -90,15 +88,13 @@ public class AnnotationItemProvider extends MetaDataItemProvider {
 	 * @generated
 	 */
 	protected void addBodyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Annotation_body_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Annotation_body_feature", "_UI_Annotation_type"),
-				EnvironmentPackage.Literals.ANNOTATION__BODY, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Annotation_body_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Annotation_body_feature",
+								"_UI_Annotation_type"),
+						EnvironmentPackage.Literals.ANNOTATION__BODY, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -109,8 +105,7 @@ public class AnnotationItemProvider extends MetaDataItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Annotation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Annotation"));
 	}
 
 	/**
@@ -131,7 +126,7 @@ public class AnnotationItemProvider extends MetaDataItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Annotation) object).getTitle();
+		String label = ((Annotation) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_Annotation_type")
 				: getString("_UI_Annotation_type") + " " + label;
 	}
@@ -150,8 +145,7 @@ public class AnnotationItemProvider extends MetaDataItemProvider {
 		switch (notification.getFeatureID(Annotation.class)) {
 		case EnvironmentPackage.ANNOTATION__TITLE:
 		case EnvironmentPackage.ANNOTATION__BODY:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -165,8 +159,7 @@ public class AnnotationItemProvider extends MetaDataItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

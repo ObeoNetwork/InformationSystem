@@ -90,10 +90,8 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<String> FILE_EXTENSIONS = Collections
-			.unmodifiableList(Arrays.asList(EnvironmentEditorPlugin.INSTANCE
-					.getString("_UI_EnvironmentEditorFilenameExtensions")
-					.split("\\s*,\\s*")));
+	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(
+			EnvironmentEditorPlugin.INSTANCE.getString("_UI_EnvironmentEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -102,8 +100,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS = EnvironmentEditorPlugin.INSTANCE
-			.getString("_UI_EnvironmentEditorFilenameExtensions").replaceAll(
-					"\\s*,\\s*", ", ");
+			.getString("_UI_EnvironmentEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -119,8 +116,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EnvironmentFactory environmentFactory = environmentPackage
-			.getEnvironmentFactory();
+	protected EnvironmentFactory environmentFactory = environmentPackage.getEnvironmentFactory();
 
 	/**
 	 * This is the file creation page.
@@ -171,11 +167,9 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(EnvironmentEditorPlugin.INSTANCE
-				.getString("_UI_Wizard_label"));
+		setWindowTitle(EnvironmentEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
 		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE
-				.getImageDescriptor(EnvironmentEditorPlugin.INSTANCE
-						.getImage("full/wizban/NewEnvironment")));
+				.getImageDescriptor(EnvironmentEditorPlugin.INSTANCE.getImage("full/wizban/NewEnvironment")));
 	}
 
 	/**
@@ -195,8 +189,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 					}
 				}
 			}
-			Collections.sort(initialObjectNames,
-					CommonPlugin.INSTANCE.getComparator());
+			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
 		}
 		return initialObjectNames;
 	}
@@ -208,9 +201,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass) environmentPackage
-				.getEClassifier(initialObjectCreationPage
-						.getInitialObjectName());
+		EClass eClass = (EClass) environmentPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = environmentFactory.create(eClass);
 		if (rootObject instanceof ObeoDSMObject) {
 			((ObeoDSMObject) rootObject).setCreatedOn(new Date());
@@ -243,8 +234,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 
 						// Get the URI of the model file.
 						//
-						URI fileURI = URI.createPlatformResourceURI(modelFile
-								.getFullPath().toString(), true);
+						URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
 						// Create a resource for this file.
 						//
@@ -260,8 +250,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 						// Save the contents of the resource to the file system.
 						//
 						Map<Object, Object> options = new HashMap<Object, Object>();
-						options.put(XMLResource.OPTION_ENCODING,
-								initialObjectCreationPage.getEncoding());
+						options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
 						resource.save(options);
 					} catch (Exception exception) {
 						EnvironmentEditorPlugin.INSTANCE.log(exception);
@@ -275,17 +264,14 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 
 			// Select the new file resource in the current view.
 			//
-			IWorkbenchWindow workbenchWindow = workbench
-					.getActiveWorkbenchWindow();
+			IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
 			IWorkbenchPage page = workbenchWindow.getActivePage();
 			final IWorkbenchPart activePart = page.getActivePart();
 			if (activePart instanceof ISetSelectionTarget) {
-				final ISelection targetSelection = new StructuredSelection(
-						modelFile);
+				final ISelection targetSelection = new StructuredSelection(modelFile);
 				getShell().getDisplay().asyncExec(new Runnable() {
 					public void run() {
-						((ISetSelectionTarget) activePart)
-								.selectReveal(targetSelection);
+						((ISetSelectionTarget) activePart).selectReveal(targetSelection);
 					}
 				});
 			}
@@ -293,17 +279,11 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 			// Open an editor on the new file.
 			//
 			try {
-				page.openEditor(
-						new FileEditorInput(modelFile),
-						workbench
-								.getEditorRegistry()
-								.getDefaultEditor(
-										modelFile.getFullPath().toString())
-								.getId());
+				page.openEditor(new FileEditorInput(modelFile),
+						workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
 			} catch (PartInitException exception) {
 				MessageDialog.openError(workbenchWindow.getShell(),
-						EnvironmentEditorPlugin.INSTANCE
-								.getString("_UI_OpenEditorError_label"),
+						EnvironmentEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
 						exception.getMessage());
 				return false;
 			}
@@ -321,16 +301,14 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class EnvironmentModelWizardNewFileCreationPage extends
-			WizardNewFileCreationPage {
+	public class EnvironmentModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public EnvironmentModelWizardNewFileCreationPage(String pageId,
-				IStructuredSelection selection) {
+		public EnvironmentModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -345,10 +323,9 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 			if (super.validatePage()) {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
-					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions"
-							: "_WARN_FilenameExtension";
-					setErrorMessage(EnvironmentEditorPlugin.INSTANCE.getString(
-							key, new Object[] { FORMATTED_FILE_EXTENSIONS }));
+					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+					setErrorMessage(EnvironmentEditorPlugin.INSTANCE.getString(key,
+							new Object[] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -362,8 +339,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public IFile getModelFile() {
-			return ResourcesPlugin.getWorkspace().getRoot()
-					.getFile(getContainerFullPath().append(getFileName()));
+			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
 		}
 	}
 
@@ -373,8 +349,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class EnvironmentModelWizardInitialObjectCreationPage extends
-			WizardPage {
+	public class EnvironmentModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -428,8 +403,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(EnvironmentEditorPlugin.INSTANCE
-						.getString("_UI_ModelObject"));
+				containerLabel.setText(EnvironmentEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -455,8 +429,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(EnvironmentEditorPlugin.INSTANCE
-						.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(EnvironmentEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -498,8 +471,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		protected boolean validatePage() {
-			return getInitialObjectName() != null
-					&& getEncodings().contains(encodingField.getText());
+			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
 		}
 
 		/**
@@ -554,8 +526,7 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return EnvironmentEditPlugin.INSTANCE.getString("_UI_"
-						+ typeName + "_type");
+				return EnvironmentEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			} catch (MissingResourceException mre) {
 				EnvironmentEditorPlugin.INSTANCE.log(mre);
 			}
@@ -571,9 +542,8 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
 				for (StringTokenizer stringTokenizer = new StringTokenizer(
-						EnvironmentEditorPlugin.INSTANCE
-								.getString("_UI_XMLEncodingChoices")); stringTokenizer
-						.hasMoreTokens();) {
+						EnvironmentEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer
+								.hasMoreTokens();) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -591,16 +561,13 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new EnvironmentModelWizardNewFileCreationPage(
-				"Whatever", selection);
-		newFileCreationPage.setTitle(EnvironmentEditorPlugin.INSTANCE
-				.getString("_UI_EnvironmentModelWizard_label"));
-		newFileCreationPage.setDescription(EnvironmentEditorPlugin.INSTANCE
-				.getString("_UI_EnvironmentModelWizard_description"));
-		newFileCreationPage.setFileName(EnvironmentEditorPlugin.INSTANCE
-				.getString("_UI_EnvironmentEditorFilenameDefaultBase")
-				+ "."
-				+ FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new EnvironmentModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(EnvironmentEditorPlugin.INSTANCE.getString("_UI_EnvironmentModelWizard_label"));
+		newFileCreationPage
+				.setDescription(EnvironmentEditorPlugin.INSTANCE.getString("_UI_EnvironmentModelWizard_description"));
+		newFileCreationPage
+				.setFileName(EnvironmentEditorPlugin.INSTANCE.getString("_UI_EnvironmentEditorFilenameDefaultBase")
+						+ "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -619,37 +586,29 @@ public class EnvironmentModelWizard extends Wizard implements INewWizard {
 
 				// This gives us a directory...
 				//
-				if (selectedResource instanceof IFolder
-						|| selectedResource instanceof IProject) {
+				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
 					// Set this for the container.
 					//
-					newFileCreationPage.setContainerFullPath(selectedResource
-							.getFullPath());
+					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
 
 					// Make up a unique new name here.
 					//
 					String defaultModelBaseFilename = EnvironmentEditorPlugin.INSTANCE
 							.getString("_UI_EnvironmentEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = FILE_EXTENSIONS
-							.get(0);
-					String modelFilename = defaultModelBaseFilename + "."
-							+ defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer) selectedResource)
-							.findMember(modelFilename) != null; ++i) {
-						modelFilename = defaultModelBaseFilename + i + "."
-								+ defaultModelFilenameExtension;
+					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
+					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
+					for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
+						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
 				}
 			}
 		}
-		initialObjectCreationPage = new EnvironmentModelWizardInitialObjectCreationPage(
-				"Whatever2");
-		initialObjectCreationPage.setTitle(EnvironmentEditorPlugin.INSTANCE
-				.getString("_UI_EnvironmentModelWizard_label"));
+		initialObjectCreationPage = new EnvironmentModelWizardInitialObjectCreationPage("Whatever2");
 		initialObjectCreationPage
-				.setDescription(EnvironmentEditorPlugin.INSTANCE
-						.getString("_UI_Wizard_initial_object_description"));
+				.setTitle(EnvironmentEditorPlugin.INSTANCE.getString("_UI_EnvironmentModelWizard_label"));
+		initialObjectCreationPage
+				.setDescription(EnvironmentEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

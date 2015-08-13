@@ -25,12 +25,12 @@ import org.obeonetwork.dsl.interaction.Participant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.InteractionUseImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.InteractionUseImpl#getInteraction <em>Interaction</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.InteractionUseImpl#getCoveredParticipants <em>Covered Participants</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

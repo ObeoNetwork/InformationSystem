@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,13 +85,22 @@ public interface RequirementPackage extends EPackage {
 	int NAMED_ELEMENT = 3;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT__NAME = 0;
+	int NAMED_ELEMENT__NAME = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Named Element</em>' class.
@@ -99,7 +109,7 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+	int NAMED_ELEMENT_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.requirement.impl.CategoriesContainerImpl <em>Categories Container</em>}' class.
@@ -110,6 +120,15 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 */
 	int CATEGORIES_CONTAINER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIES_CONTAINER__TECHNICALID = NAMED_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -156,6 +175,15 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 */
 	int REPOSITORY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__TECHNICALID = CATEGORIES_CONTAINER__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -220,6 +248,15 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 */
 	int CATEGORY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__TECHNICALID = CATEGORIES_CONTAINER__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -320,6 +357,15 @@ public interface RequirementPackage extends EPackage {
 	 * @generated
 	 */
 	int REQUIREMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__TECHNICALID = NAMED_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

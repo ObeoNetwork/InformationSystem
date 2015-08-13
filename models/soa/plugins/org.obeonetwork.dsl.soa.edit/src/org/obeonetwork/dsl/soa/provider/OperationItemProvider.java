@@ -35,13 +35,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * @generated
  */
 public class OperationItemProvider
-	extends ActionItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends ActionItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

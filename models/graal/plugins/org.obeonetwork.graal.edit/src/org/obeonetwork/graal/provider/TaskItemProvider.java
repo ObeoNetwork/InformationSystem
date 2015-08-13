@@ -35,13 +35,7 @@ import org.obeonetwork.graal.Task;
  * @generated
  */
 public class TaskItemProvider
-	extends ActivityItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ActivityItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

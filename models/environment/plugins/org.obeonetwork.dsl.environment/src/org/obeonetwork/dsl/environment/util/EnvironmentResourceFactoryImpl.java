@@ -63,25 +63,19 @@ public class EnvironmentResourceFactoryImpl extends ResourceFactoryImpl {
 	 */
 	@Override
 	public Resource createResource(URI uri) {
-		XMIResourceWithMigrationSupportImpl result = new EnvironmentResourceImpl(
-				uri);
+		XMIResourceWithMigrationSupportImpl result = new EnvironmentResourceImpl(uri);
 
 		Map<Object, Object> saveOptions = result.getDefaultSaveOptions();
-		saveOptions.put(XMLResource.OPTION_URI_HANDLER,
-				new URIHandlerImpl.PlatformSchemeAware());
+		saveOptions.put(XMLResource.OPTION_URI_HANDLER, new URIHandlerImpl.PlatformSchemeAware());
 		saveOptions.put(XMLResource.OPTION_CONFIGURATION_CACHE, Boolean.TRUE);
-		saveOptions
-				.put(XMLResource.OPTION_USE_CACHED_LOOKUP_TABLE, lookupTable);
+		saveOptions.put(XMLResource.OPTION_USE_CACHED_LOOKUP_TABLE, lookupTable);
 
 		Map<Object, Object> loadOptions = result.getDefaultLoadOptions();
 		loadOptions.put(XMLResource.OPTION_DEFER_ATTACHMENT, Boolean.TRUE);
-		loadOptions
-				.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
-		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS,
-				Boolean.FALSE);
+		loadOptions.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
+		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
 		loadOptions.put(XMLResource.OPTION_USE_PARSER_POOL, parserPool);
-		loadOptions.put(XMLResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP,
-				nameToFeatureMap);
+		loadOptions.put(XMLResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP, nameToFeatureMap);
 
 		result.attachMigrationHelper(new EnvironmentMigrationHelper());
 

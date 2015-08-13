@@ -21,10 +21,10 @@ import org.obeonetwork.dsl.interaction.ReturnMessage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.ReturnMessageImpl#getInvocationMessage <em>Invocation Message</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

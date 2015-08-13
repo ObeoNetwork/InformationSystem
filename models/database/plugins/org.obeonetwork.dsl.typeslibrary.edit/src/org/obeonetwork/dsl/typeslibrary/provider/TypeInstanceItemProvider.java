@@ -43,13 +43,7 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryUser;
  * @generated
  */
 public class TypeInstanceItemProvider
-	extends TypeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends TypeItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -360,6 +354,7 @@ public class TypeInstanceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TypeInstance.class)) {
+			case TypesLibraryPackage.TYPE_INSTANCE__TECHNICALID:
 			case TypesLibraryPackage.TYPE_INSTANCE__LENGTH:
 			case TypesLibraryPackage.TYPE_INSTANCE__PRECISION:
 			case TypesLibraryPackage.TYPE_INSTANCE__LITERALS:

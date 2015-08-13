@@ -50,8 +50,7 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	public BindingElementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-		ComposedAdapterFactory af = new ComposedAdapterFactory(
-				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		ComposedAdapterFactory af = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 		af.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		labelProvider = new AdapterFactoryLabelProvider(af);
 	}
@@ -84,16 +83,13 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addBoundElementPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_BindingElement_boundElement_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_BindingElement_boundElement_feature",
-						"_UI_BindingElement_type"),
-				EnvironmentPackage.Literals.BINDING_ELEMENT__BOUND_ELEMENT,
-				true, false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_BindingElement_boundElement_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_BindingElement_boundElement_feature",
+								"_UI_BindingElement_type"),
+						EnvironmentPackage.Literals.BINDING_ELEMENT__BOUND_ELEMENT, true, false, true, null, null,
+						null));
 	}
 
 	/**
@@ -103,18 +99,13 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addBindingExpressionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_BindingElement_bindingExpression_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_BindingElement_bindingExpression_feature",
-								"_UI_BindingElement_type"),
-						EnvironmentPackage.Literals.BINDING_ELEMENT__BINDING_EXPRESSION,
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_BindingElement_bindingExpression_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_BindingElement_bindingExpression_feature",
+						"_UI_BindingElement_type"),
+				EnvironmentPackage.Literals.BINDING_ELEMENT__BINDING_EXPRESSION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -124,18 +115,13 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addReferencedByAsLeftPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_BindingElement_referencedByAsLeft_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_BindingElement_referencedByAsLeft_feature",
-								"_UI_BindingElement_type"),
-						EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT,
-						true, false, true, null, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_BindingElement_referencedByAsLeft_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_BindingElement_referencedByAsLeft_feature",
+						"_UI_BindingElement_type"),
+				EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT, true, false, true, null, null,
+				null));
 	}
 
 	/**
@@ -145,18 +131,13 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addReferencedByAsRightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_BindingElement_referencedByAsRight_feature"),
-						getString(
-								"_UI_PropertyDescriptor_description",
-								"_UI_BindingElement_referencedByAsRight_feature",
-								"_UI_BindingElement_type"),
-						EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT,
-						true, false, true, null, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_BindingElement_referencedByAsRight_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_BindingElement_referencedByAsRight_feature",
+						"_UI_BindingElement_type"),
+				EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT, true, false, true, null, null,
+				null));
 	}
 
 	/**
@@ -166,16 +147,13 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addReferencedByPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_BindingElement_referencedBy_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_BindingElement_referencedBy_feature",
-						"_UI_BindingElement_type"),
-				EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY,
-				false, false, false, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_BindingElement_referencedBy_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_BindingElement_referencedBy_feature",
+								"_UI_BindingElement_type"),
+						EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY, false, false, false, null, null,
+						null));
 	}
 
 	/**
@@ -185,16 +163,12 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addPathReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_BindingElement_pathReferences_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_BindingElement_pathReferences_feature",
-						"_UI_BindingElement_type"),
-				EnvironmentPackage.Literals.BINDING_ELEMENT__PATH_REFERENCES,
-				true, false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_BindingElement_pathReferences_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_BindingElement_pathReferences_feature",
+								"_UI_BindingElement_type"),
+				EnvironmentPackage.Literals.BINDING_ELEMENT__PATH_REFERENCES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -205,8 +179,7 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/BindingElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BindingElement"));
 	}
 
 	/**
@@ -250,8 +223,7 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 
 		switch (notification.getFeatureID(BindingElement.class)) {
 		case EnvironmentPackage.BINDING_ELEMENT__BINDING_EXPRESSION:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -265,8 +237,7 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

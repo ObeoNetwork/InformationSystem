@@ -15,11 +15,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BClassifier#getBTypeParameters <em>BType Parameters</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BClassifier#getBPackage <em>BPackage</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.ecorebinding.EcorebindingPackage#getBClassifier()
  * @model

@@ -32,12 +32,12 @@ import org.obeonetwork.graal.TasksGroup;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.TasksContainerImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.TasksContainerImpl#getOwnedTasks <em>Owned Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.TasksContainerImpl#getOwnedGroups <em>Owned Groups</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

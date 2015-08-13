@@ -21,11 +21,11 @@ import org.obeonetwork.dsl.interaction.InteractionPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.InteractionFragmentImpl#getStartingEnd <em>Starting End</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.impl.InteractionFragmentImpl#getFinishingEnd <em>Finishing End</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

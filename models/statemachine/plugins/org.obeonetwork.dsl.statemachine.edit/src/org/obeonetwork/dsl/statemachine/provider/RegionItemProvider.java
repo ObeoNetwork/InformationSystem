@@ -29,13 +29,7 @@ import org.obeonetwork.dsl.statemachine.Region;
  * @generated
  */
 public class RegionItemProvider
-	extends StateMachineDescriptionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends StateMachineDescriptionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

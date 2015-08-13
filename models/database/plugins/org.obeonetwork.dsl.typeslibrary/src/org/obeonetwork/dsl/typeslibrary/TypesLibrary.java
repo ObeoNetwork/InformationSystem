@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.TypesLibrary#getKind <em>Kind</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getTypesLibrary()
  * @model interface="true" abstract="true"

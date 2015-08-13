@@ -40,13 +40,7 @@ import org.obeonetwork.dsl.cinematic.view.ViewPackage;
  * @generated
  */
 public class ViewEventItemProvider
-	extends EventItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends EventItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

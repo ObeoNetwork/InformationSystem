@@ -76,16 +76,12 @@ public class StructuredTypeItemProvider extends TypeItemProvider {
 	 * @generated
 	 */
 	protected void addSupertypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_StructuredType_supertype_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_StructuredType_supertype_feature",
-						"_UI_StructuredType_type"),
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, true,
-				false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_StructuredType_supertype_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_StructuredType_supertype_feature",
+								"_UI_StructuredType_type"),
+						EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, true, false, true, null, null, null));
 	}
 
 	/**
@@ -95,16 +91,12 @@ public class StructuredTypeItemProvider extends TypeItemProvider {
 	 * @generated
 	 */
 	protected void addAssociatedTypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_StructuredType_associatedTypes_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_StructuredType_associatedTypes_feature",
-						"_UI_StructuredType_type"),
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__ASSOCIATED_TYPES,
-				true, false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_StructuredType_associatedTypes_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_StructuredType_associatedTypes_feature",
+								"_UI_StructuredType_type"),
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__ASSOCIATED_TYPES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -114,16 +106,13 @@ public class StructuredTypeItemProvider extends TypeItemProvider {
 	 * @generated
 	 */
 	protected void addAttributesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_StructuredType_attributes_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_StructuredType_attributes_feature",
-						"_UI_StructuredType_type"),
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__ATTRIBUTES, false,
-				false, false, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_StructuredType_attributes_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_StructuredType_attributes_feature",
+								"_UI_StructuredType_type"),
+						EnvironmentPackage.Literals.STRUCTURED_TYPE__ATTRIBUTES, false, false, false, null, null,
+						null));
 	}
 
 	/**
@@ -133,16 +122,13 @@ public class StructuredTypeItemProvider extends TypeItemProvider {
 	 * @generated
 	 */
 	protected void addReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_StructuredType_references_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_StructuredType_references_feature",
-						"_UI_StructuredType_type"),
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__REFERENCES, false,
-				false, false, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_StructuredType_references_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_StructuredType_references_feature",
+								"_UI_StructuredType_type"),
+						EnvironmentPackage.Literals.STRUCTURED_TYPE__REFERENCES, false, false, false, null, null,
+						null));
 	}
 
 	/**
@@ -152,16 +138,13 @@ public class StructuredTypeItemProvider extends TypeItemProvider {
 	 * @generated
 	 */
 	protected void addPropertiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_StructuredType_properties_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_StructuredType_properties_feature",
-						"_UI_StructuredType_type"),
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__PROPERTIES, false,
-				false, false, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_StructuredType_properties_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_StructuredType_properties_feature",
+								"_UI_StructuredType_type"),
+						EnvironmentPackage.Literals.STRUCTURED_TYPE__PROPERTIES, false, false, false, null, null,
+						null));
 	}
 
 	/**
@@ -173,14 +156,11 @@ public class StructuredTypeItemProvider extends TypeItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_ATTRIBUTES);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_REFERENCES);
+			childrenFeatures.add(EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_ATTRIBUTES);
+			childrenFeatures.add(EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_REFERENCES);
 		}
 		return childrenFeatures;
 	}
@@ -235,8 +215,7 @@ public class StructuredTypeItemProvider extends TypeItemProvider {
 		switch (notification.getFeatureID(StructuredType.class)) {
 		case EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES:
 		case EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -250,16 +229,13 @@ public class StructuredTypeItemProvider extends TypeItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_ATTRIBUTES,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_ATTRIBUTES,
 				EnvironmentFactory.eINSTANCE.createAttribute()));
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_REFERENCES,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_REFERENCES,
 				EnvironmentFactory.eINSTANCE.createReference()));
 	}
 

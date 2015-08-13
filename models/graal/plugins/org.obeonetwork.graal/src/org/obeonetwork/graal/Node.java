@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.Node#getOutgoingTransitions <em>Outgoing Transitions</em>}</li>
  *   <li>{@link org.obeonetwork.graal.Node#getIncomingTransitions <em>Incoming Transitions</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.GraalPackage#getNode()
  * @model abstract="true"

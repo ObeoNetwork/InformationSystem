@@ -36,33 +36,30 @@ public enum MultiplicityKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ZERO_ONE_LITERAL(0, "ZERO_ONE", "0..1"),
-	/**
-	 * The '<em><b>ONE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ONE
-	 * @generated
-	 * @ordered
-	 */
-	ONE_LITERAL(1, "ONE", "1"),
-	/**
-	 * The '<em><b>ZERO STAR</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ZERO_STAR
-	 * @generated
-	 * @ordered
-	 */
-	ZERO_STAR_LITERAL(2, "ZERO_STAR", "0..*"),
-	/**
-	 * The '<em><b>ONE STAR</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ONE_STAR
-	 * @generated
-	 * @ordered
-	 */
+	ZERO_ONE_LITERAL(0, "ZERO_ONE", "0..1"), /**
+												* The '<em><b>ONE</b></em>' literal object.
+												* <!-- begin-user-doc -->
+												 * <!-- end-user-doc -->
+												* @see #ONE
+												* @generated
+												* @ordered
+												*/
+	ONE_LITERAL(1, "ONE", "1"), /**
+								* The '<em><b>ZERO STAR</b></em>' literal object.
+								* <!-- begin-user-doc -->
+								 * <!-- end-user-doc -->
+								* @see #ZERO_STAR
+								* @generated
+								* @ordered
+								*/
+	ZERO_STAR_LITERAL(2, "ZERO_STAR", "0..*"), /**
+												* The '<em><b>ONE STAR</b></em>' literal object.
+												* <!-- begin-user-doc -->
+												 * <!-- end-user-doc -->
+												* @see #ONE_STAR
+												* @generated
+												* @ordered
+												*/
 	ONE_STAR_LITERAL(3, "ONE_STAR", "1..*");
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,8 +134,8 @@ public enum MultiplicityKind implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final MultiplicityKind[] VALUES_ARRAY = new MultiplicityKind[] {
-			ZERO_ONE_LITERAL, ONE_LITERAL, ZERO_STAR_LITERAL, ONE_STAR_LITERAL, };
+	private static final MultiplicityKind[] VALUES_ARRAY = new MultiplicityKind[] { ZERO_ONE_LITERAL, ONE_LITERAL,
+			ZERO_STAR_LITERAL, ONE_STAR_LITERAL, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Multiplicity Kind</b></em>' enumerators.
@@ -146,13 +143,14 @@ public enum MultiplicityKind implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<MultiplicityKind> VALUES = Collections
-			.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<MultiplicityKind> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Multiplicity Kind</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static MultiplicityKind get(String literal) {
@@ -169,6 +167,8 @@ public enum MultiplicityKind implements Enumerator {
 	 * Returns the '<em><b>Multiplicity Kind</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static MultiplicityKind getByName(String name) {
@@ -185,6 +185,8 @@ public enum MultiplicityKind implements Enumerator {
 	 * Returns the '<em><b>Multiplicity Kind</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static MultiplicityKind get(int value) {

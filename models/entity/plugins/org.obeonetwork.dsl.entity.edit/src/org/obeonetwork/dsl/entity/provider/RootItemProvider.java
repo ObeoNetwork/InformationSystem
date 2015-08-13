@@ -44,13 +44,7 @@ import org.obeonetwork.dsl.environment.provider.TypesDefinitionItemProvider;
  * @generated
  */
 public class RootItemProvider
-	extends TypesDefinitionItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends TypesDefinitionItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

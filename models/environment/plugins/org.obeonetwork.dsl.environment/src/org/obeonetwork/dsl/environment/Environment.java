@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.Environment#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Environment#getActions <em>Actions</em>}</li>
@@ -28,7 +29,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.environment.Environment#getPriorityDefinitions <em>Priority Definitions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Environment#getTypesDefinition <em>Types Definition</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getEnvironment()
  * @model

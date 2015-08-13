@@ -22,10 +22,10 @@ import org.obeonetwork.dsl.cinematic.view.ViewPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewEventImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

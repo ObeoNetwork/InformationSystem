@@ -35,13 +35,7 @@ import org.obeonetwork.dsl.interaction.InteractionPackage;
  * @generated
  */
 public class ExecutionItemProvider
-	extends InteractionFragmentItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends InteractionFragmentItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

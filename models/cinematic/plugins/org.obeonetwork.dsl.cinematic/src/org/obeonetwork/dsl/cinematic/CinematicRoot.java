@@ -20,10 +20,10 @@ import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.CinematicRoot#getToolkits <em>Toolkits</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.CinematicPackage#getCinematicRoot()
  * @model

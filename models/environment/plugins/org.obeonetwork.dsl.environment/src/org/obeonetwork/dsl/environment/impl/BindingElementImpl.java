@@ -31,6 +31,7 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingElementImpl#getBoundElement <em>Bound Element</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingElementImpl#getBindingExpression <em>Binding Expression</em>}</li>
@@ -39,12 +40,10 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingElementImpl#getReferencedBy <em>Referenced By</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingElementImpl#getPathReferences <em>Path References</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class BindingElementImpl extends ObeoDSMObjectImpl implements
-		BindingElement {
+public class BindingElementImpl extends ObeoDSMObjectImpl implements BindingElement {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,10 +87,8 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public BoundableElement getBoundElement() {
-		return (BoundableElement) eDynamicGet(
-				EnvironmentPackage.BINDING_ELEMENT__BOUND_ELEMENT,
-				EnvironmentPackage.Literals.BINDING_ELEMENT__BOUND_ELEMENT,
-				true, true);
+		return (BoundableElement) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__BOUND_ELEMENT,
+				EnvironmentPackage.Literals.BINDING_ELEMENT__BOUND_ELEMENT, true, true);
 	}
 
 	/**
@@ -100,10 +97,8 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public BoundableElement basicGetBoundElement() {
-		return (BoundableElement) eDynamicGet(
-				EnvironmentPackage.BINDING_ELEMENT__BOUND_ELEMENT,
-				EnvironmentPackage.Literals.BINDING_ELEMENT__BOUND_ELEMENT,
-				false, true);
+		return (BoundableElement) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__BOUND_ELEMENT,
+				EnvironmentPackage.Literals.BINDING_ELEMENT__BOUND_ELEMENT, false, true);
 	}
 
 	/**
@@ -113,8 +108,7 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 	 */
 	public void setBoundElement(BoundableElement newBoundElement) {
 		eDynamicSet(EnvironmentPackage.BINDING_ELEMENT__BOUND_ELEMENT,
-				EnvironmentPackage.Literals.BINDING_ELEMENT__BOUND_ELEMENT,
-				newBoundElement);
+				EnvironmentPackage.Literals.BINDING_ELEMENT__BOUND_ELEMENT, newBoundElement);
 	}
 
 	/**
@@ -123,10 +117,8 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public String getBindingExpression() {
-		return (String) eDynamicGet(
-				EnvironmentPackage.BINDING_ELEMENT__BINDING_EXPRESSION,
-				EnvironmentPackage.Literals.BINDING_ELEMENT__BINDING_EXPRESSION,
-				true, true);
+		return (String) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__BINDING_EXPRESSION,
+				EnvironmentPackage.Literals.BINDING_ELEMENT__BINDING_EXPRESSION, true, true);
 	}
 
 	/**
@@ -135,10 +127,8 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public void setBindingExpression(String newBindingExpression) {
-		eDynamicSet(
-				EnvironmentPackage.BINDING_ELEMENT__BINDING_EXPRESSION,
-				EnvironmentPackage.Literals.BINDING_ELEMENT__BINDING_EXPRESSION,
-				newBindingExpression);
+		eDynamicSet(EnvironmentPackage.BINDING_ELEMENT__BINDING_EXPRESSION,
+				EnvironmentPackage.Literals.BINDING_ELEMENT__BINDING_EXPRESSION, newBindingExpression);
 	}
 
 	/**
@@ -148,10 +138,8 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<BindingReference> getReferencedByAsLeft() {
-		return (EList<BindingReference>) eDynamicGet(
-				EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT,
-				EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT,
-				true, true);
+		return (EList<BindingReference>) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT,
+				EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT, true, true);
 	}
 
 	/**
@@ -161,10 +149,8 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<BindingReference> getReferencedByAsRight() {
-		return (EList<BindingReference>) eDynamicGet(
-				EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT,
-				EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT,
-				true, true);
+		return (EList<BindingReference>) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT,
+				EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT, true, true);
 	}
 
 	/**
@@ -176,8 +162,7 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 		List<BindingReference> all = new ArrayList<BindingReference>();
 		all.addAll(getReferencedByAsLeft());
 		all.addAll(getReferencedByAsRight());
-		return new UnmodifiableEList<BindingReference>(this,
-				EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY,
+		return new UnmodifiableEList<BindingReference>(this, EnvironmentPackage.Literals.BINDING_ELEMENT__REFERENCED_BY,
 				all.size(), all.toArray());
 	}
 
@@ -188,10 +173,8 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<BoundableElement> getPathReferences() {
-		return (EList<BoundableElement>) eDynamicGet(
-				EnvironmentPackage.BINDING_ELEMENT__PATH_REFERENCES,
-				EnvironmentPackage.Literals.BINDING_ELEMENT__PATH_REFERENCES,
-				true, true);
+		return (EList<BoundableElement>) eDynamicGet(EnvironmentPackage.BINDING_ELEMENT__PATH_REFERENCES,
+				EnvironmentPackage.Literals.BINDING_ELEMENT__PATH_REFERENCES, true, true);
 	}
 
 	/**
@@ -201,15 +184,14 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getReferencedByAsLeft())
-					.basicAdd(otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getReferencedByAsLeft()).basicAdd(otherEnd,
+					msgs);
 		case EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getReferencedByAsRight())
-					.basicAdd(otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getReferencedByAsRight()).basicAdd(otherEnd,
+					msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -220,15 +202,12 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT:
-			return ((InternalEList<?>) getReferencedByAsLeft()).basicRemove(
-					otherEnd, msgs);
+			return ((InternalEList<?>) getReferencedByAsLeft()).basicRemove(otherEnd, msgs);
 		case EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT:
-			return ((InternalEList<?>) getReferencedByAsRight()).basicRemove(
-					otherEnd, msgs);
+			return ((InternalEList<?>) getReferencedByAsRight()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -276,18 +255,15 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 			return;
 		case EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT:
 			getReferencedByAsLeft().clear();
-			getReferencedByAsLeft().addAll(
-					(Collection<? extends BindingReference>) newValue);
+			getReferencedByAsLeft().addAll((Collection<? extends BindingReference>) newValue);
 			return;
 		case EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT:
 			getReferencedByAsRight().clear();
-			getReferencedByAsRight().addAll(
-					(Collection<? extends BindingReference>) newValue);
+			getReferencedByAsRight().addAll((Collection<? extends BindingReference>) newValue);
 			return;
 		case EnvironmentPackage.BINDING_ELEMENT__PATH_REFERENCES:
 			getPathReferences().clear();
-			getPathReferences().addAll(
-					(Collection<? extends BoundableElement>) newValue);
+			getPathReferences().addAll((Collection<? extends BoundableElement>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -332,8 +308,7 @@ public class BindingElementImpl extends ObeoDSMObjectImpl implements
 			return basicGetBoundElement() != null;
 		case EnvironmentPackage.BINDING_ELEMENT__BINDING_EXPRESSION:
 			return BINDING_EXPRESSION_EDEFAULT == null ? getBindingExpression() != null
-					: !BINDING_EXPRESSION_EDEFAULT
-							.equals(getBindingExpression());
+					: !BINDING_EXPRESSION_EDEFAULT.equals(getBindingExpression());
 		case EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT:
 			return !getReferencedByAsLeft().isEmpty();
 		case EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT:

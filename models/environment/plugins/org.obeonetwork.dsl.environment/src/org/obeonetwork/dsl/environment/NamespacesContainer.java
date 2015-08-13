@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.environment;
 import org.eclipse.emf.cdo.CDOObject;
 
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,17 +22,16 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.NamespacesContainer#getOwnedNamespaces <em>Owned Namespaces</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getNamespacesContainer()
  * @model abstract="true"
- * @extends CDOObject
  * @generated
  */
-public interface NamespacesContainer extends CDOObject {
+public interface NamespacesContainer extends Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -31,11 +31,11 @@ import org.obeonetwork.dsl.environment.impl.TypesDefinitionImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.RootImpl#getOwnedNamespaces <em>Owned Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.RootImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

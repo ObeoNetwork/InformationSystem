@@ -16,11 +16,11 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.Interface#getOwnedOperations <em>Owned Operations</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Interface#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getInterface()
  * @model

@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.TableContainer#getTables <em>Tables</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.TableContainer#getSequences <em>Sequences</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getTableContainer()
  * @model abstract="true"

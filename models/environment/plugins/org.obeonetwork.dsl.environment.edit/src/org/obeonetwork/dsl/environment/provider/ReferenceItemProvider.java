@@ -76,17 +76,13 @@ public class ReferenceItemProvider extends PropertyItemProvider {
 	 * @generated
 	 */
 	protected void addIsCompositePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Reference_isComposite_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Reference_isComposite_feature",
-						"_UI_Reference_type"),
-				EnvironmentPackage.Literals.REFERENCE__IS_COMPOSITE, true,
-				false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Reference_isComposite_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Reference_isComposite_feature",
+								"_UI_Reference_type"),
+						EnvironmentPackage.Literals.REFERENCE__IS_COMPOSITE, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -97,16 +93,11 @@ public class ReferenceItemProvider extends PropertyItemProvider {
 	 */
 	protected void addNavigablePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_Reference_navigable_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_Reference_navigable_feature",
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Reference_navigable_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Reference_navigable_feature",
 								"_UI_Reference_type"),
-						EnvironmentPackage.Literals.REFERENCE__NAVIGABLE, true,
-						false, false,
+						EnvironmentPackage.Literals.REFERENCE__NAVIGABLE, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
@@ -117,37 +108,32 @@ public class ReferenceItemProvider extends PropertyItemProvider {
 	 * @generated NOT
 	 */
 	protected void addOppositeOfPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(new ItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Reference_oppositeOf_feature"), getString(
-						"_UI_PropertyDescriptor_description",
-						"_UI_Reference_oppositeOf_feature",
-						"_UI_Reference_type"),
-				EnvironmentPackage.Literals.REFERENCE__OPPOSITE_OF, true,
-				false, true, null, null, null) {
+		itemPropertyDescriptors
+				.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Reference_oppositeOf_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Reference_oppositeOf_feature",
+								"_UI_Reference_type"),
+						EnvironmentPackage.Literals.REFERENCE__OPPOSITE_OF, true, false, true, null, null, null) {
 
-			protected Collection<Reference> getComboBoxObjects(Object object) {
+					protected Collection<Reference> getComboBoxObjects(Object object) {
 
-				Collection<Reference> result = new ArrayList<Reference>();
-				// We always offer an empty choice
-				result.add(null);
-				if (object instanceof Reference) {
-					Collection<?> collection = super.getComboBoxObjects(object);
-					for (Object object2 : collection) {
-						EObject elem = (EObject) object2;
-						if (elem != null
-								&& elem instanceof Reference
-								&& ((Reference) elem)
-										.canBeOppositeOf((Reference) object)) {
-							result.add((Reference) elem);
+						Collection<Reference> result = new ArrayList<Reference>();
+						// We always offer an empty choice
+						result.add(null);
+						if (object instanceof Reference) {
+							Collection<?> collection = super.getComboBoxObjects(object);
+							for (Object object2 : collection) {
+								EObject elem = (EObject) object2;
+								if (elem != null && elem instanceof Reference
+										&& ((Reference) elem).canBeOppositeOf((Reference) object)) {
+									result.add((Reference) elem);
+								}
+							}
 						}
+						return result;
 					}
-				}
-				return result;
-			}
 
-		});
+				});
 	}
 
 	/**
@@ -157,16 +143,12 @@ public class ReferenceItemProvider extends PropertyItemProvider {
 	 * @generated
 	 */
 	protected void addReferencedTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Reference_referencedType_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Reference_referencedType_feature",
-						"_UI_Reference_type"),
-				EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, true,
-				false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Reference_referencedType_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Reference_referencedType_feature",
+								"_UI_Reference_type"),
+						EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE, true, false, true, null, null, null));
 	}
 
 	/**
@@ -177,8 +159,7 @@ public class ReferenceItemProvider extends PropertyItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Reference"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Reference"));
 	}
 
 	/**
@@ -218,8 +199,7 @@ public class ReferenceItemProvider extends PropertyItemProvider {
 		switch (notification.getFeatureID(Reference.class)) {
 		case EnvironmentPackage.REFERENCE__IS_COMPOSITE:
 		case EnvironmentPackage.REFERENCE__NAVIGABLE:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -233,8 +213,7 @@ public class ReferenceItemProvider extends PropertyItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

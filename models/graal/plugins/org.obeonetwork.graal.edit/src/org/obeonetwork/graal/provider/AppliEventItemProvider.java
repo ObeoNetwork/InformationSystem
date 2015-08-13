@@ -31,13 +31,7 @@ import org.obeonetwork.graal.AppliEvent;
  * @generated
  */
 public class AppliEventItemProvider
-	extends NamedNodeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NamedNodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

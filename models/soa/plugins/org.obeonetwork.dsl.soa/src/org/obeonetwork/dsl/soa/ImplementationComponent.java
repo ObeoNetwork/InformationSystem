@@ -16,11 +16,11 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.ImplementationComponent#getImplement <em>Implement</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.ImplementationComponent#getEntities <em>Entities</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getImplementationComponent()
  * @model

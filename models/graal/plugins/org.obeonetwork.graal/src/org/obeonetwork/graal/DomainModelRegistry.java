@@ -22,11 +22,11 @@ import org.obeonetwork.dsl.environment.StructuredType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.DomainModelRegistry#getNamespaces <em>Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.graal.DomainModelRegistry#getTypes <em>Types</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.GraalPackage#getDomainModelRegistry()
  * @model abstract="true"

@@ -18,13 +18,13 @@ package org.obeonetwork.graal;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.Transition#getGuard <em>Guard</em>}</li>
  *   <li>{@link org.obeonetwork.graal.Transition#getSource <em>Source</em>}</li>
  *   <li>{@link org.obeonetwork.graal.Transition#getTarget <em>Target</em>}</li>
  *   <li>{@link org.obeonetwork.graal.Transition#getKind <em>Kind</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.GraalPackage#getTransition()
  * @model

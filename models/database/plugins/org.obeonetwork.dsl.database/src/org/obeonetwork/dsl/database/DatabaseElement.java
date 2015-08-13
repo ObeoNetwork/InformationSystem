@@ -19,12 +19,12 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.DatabaseElement#getID <em>ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.DatabaseElement#getComments <em>Comments</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.DatabaseElement#getTechID <em>Tech ID</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getDatabaseElement()
  * @model abstract="true"

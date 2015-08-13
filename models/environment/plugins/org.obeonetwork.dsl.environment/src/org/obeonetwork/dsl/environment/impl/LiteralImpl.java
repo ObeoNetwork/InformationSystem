@@ -21,10 +21,10 @@ import org.obeonetwork.dsl.environment.Literal;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.LiteralImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -71,8 +71,8 @@ public class LiteralImpl extends ObeoDSMObjectImpl implements Literal {
 	 * @generated
 	 */
 	public String getName() {
-		return (String) eDynamicGet(EnvironmentPackage.LITERAL__NAME,
-				EnvironmentPackage.Literals.LITERAL__NAME, true, true);
+		return (String) eDynamicGet(EnvironmentPackage.LITERAL__NAME, EnvironmentPackage.Literals.LITERAL__NAME, true,
+				true);
 	}
 
 	/**
@@ -81,8 +81,7 @@ public class LiteralImpl extends ObeoDSMObjectImpl implements Literal {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(EnvironmentPackage.LITERAL__NAME,
-				EnvironmentPackage.Literals.LITERAL__NAME, newName);
+		eDynamicSet(EnvironmentPackage.LITERAL__NAME, EnvironmentPackage.Literals.LITERAL__NAME, newName);
 	}
 
 	/**
@@ -138,8 +137,7 @@ public class LiteralImpl extends ObeoDSMObjectImpl implements Literal {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case EnvironmentPackage.LITERAL__NAME:
-			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT
-					.equals(getName());
+			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}

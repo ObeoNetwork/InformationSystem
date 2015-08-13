@@ -20,12 +20,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.TasksContainer#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.TasksContainer#getOwnedTasks <em>Owned Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.TasksContainer#getOwnedGroups <em>Owned Groups</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.GraalPackage#getTasksContainer()
  * @model abstract="true"

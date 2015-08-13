@@ -37,7 +37,7 @@ public class OverviewFactoryImpl extends EFactoryImpl implements OverviewFactory
 	 */
 	public static OverviewFactory init() {
 		try {
-			OverviewFactory theOverviewFactory = (OverviewFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/overview/2.0.0"); 
+			OverviewFactory theOverviewFactory = (OverviewFactory)EPackage.Registry.INSTANCE.getEFactory(OverviewPackage.eNS_URI);
 			if (theOverviewFactory != null) {
 				return theOverviewFactory;
 			}

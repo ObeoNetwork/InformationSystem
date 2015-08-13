@@ -19,13 +19,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.UseCase#getActors <em>Actors</em>}</li>
  *   <li>{@link org.obeonetwork.graal.UseCase#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.UseCase#getIncludes <em>Includes</em>}</li>
  *   <li>{@link org.obeonetwork.graal.UseCase#getExtends <em>Extends</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.GraalPackage#getUseCase()
  * @model

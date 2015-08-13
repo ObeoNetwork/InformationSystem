@@ -10,6 +10,8 @@
  */
 package org.obeonetwork.dsl.typeslibrary;
 
+import org.obeonetwork.dsl.technicalid.Identifiable;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -18,16 +20,16 @@ package org.obeonetwork.dsl.typeslibrary;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.UserDefinedTypeRef#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getUserDefinedTypeRef()
  * @model
  * @generated
  */
-public interface UserDefinedTypeRef extends Type {
+public interface UserDefinedTypeRef extends Type, Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

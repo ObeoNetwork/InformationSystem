@@ -76,6 +76,15 @@ public interface GraalPackage extends EPackage {
 	int GRAAL_OBJECT = 25;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAAL_OBJECT__TECHNICALID = EnvironmentPackage.OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -165,6 +174,15 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 */
 	int ACTIVITY = 2;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVITY__TECHNICALID = GRAAL_OBJECT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -283,6 +301,15 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 */
 	int TASK = 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__TECHNICALID = ACTIVITY__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -597,6 +624,15 @@ public interface GraalPackage extends EPackage {
 	int NAMED_ELEMENT = 19;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__TECHNICALID = GRAAL_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -685,6 +721,15 @@ public interface GraalPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_ELEMENT_FEATURE_COUNT = GRAAL_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__TECHNICALID = NAMED_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -858,6 +903,15 @@ public interface GraalPackage extends EPackage {
 	int SYSTEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__TECHNICALID = GRAAL_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -955,6 +1009,15 @@ public interface GraalPackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE_FEATURE_COUNT = GRAAL_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__TECHNICALID = NODE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1063,6 +1126,15 @@ public interface GraalPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__TECHNICALID = GRAAL_OBJECT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1182,6 +1254,15 @@ public interface GraalPackage extends EPackage {
 	int TRANSITION_FEATURE_COUNT = GRAAL_OBJECT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_REFERENCE__TECHNICALID = NODE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1288,6 +1369,15 @@ public interface GraalPackage extends EPackage {
 	 * @ordered
 	 */
 	int TASK_REFERENCE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_NODE__TECHNICALID = NODE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1398,6 +1488,15 @@ public interface GraalPackage extends EPackage {
 	int NAMED_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_VIEW__TECHNICALID = NAMED_NODE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1504,6 +1603,15 @@ public interface GraalPackage extends EPackage {
 	 * @ordered
 	 */
 	int USER_VIEW_FEATURE_COUNT = NAMED_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_ACTION__TECHNICALID = NAMED_NODE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1614,6 +1722,15 @@ public interface GraalPackage extends EPackage {
 	int USER_ACTION_FEATURE_COUNT = NAMED_NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLI_EVENT__TECHNICALID = NAMED_NODE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1720,6 +1837,15 @@ public interface GraalPackage extends EPackage {
 	 * @ordered
 	 */
 	int APPLI_EVENT_FEATURE_COUNT = NAMED_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLI_ACTION__TECHNICALID = NAMED_NODE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1830,6 +1956,15 @@ public interface GraalPackage extends EPackage {
 	int APPLI_ACTION_FEATURE_COUNT = NAMED_NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIAL_NODE__TECHNICALID = NODE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1927,6 +2062,15 @@ public interface GraalPackage extends EPackage {
 	 * @ordered
 	 */
 	int INITIAL_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FINAL_NODE__TECHNICALID = NODE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -2028,6 +2172,15 @@ public interface GraalPackage extends EPackage {
 	int FINAL_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABORT_NODE__TECHNICALID = NODE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2125,6 +2278,15 @@ public interface GraalPackage extends EPackage {
 	 * @ordered
 	 */
 	int ABORT_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP__TECHNICALID = ACTIVITY__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -2263,6 +2425,15 @@ public interface GraalPackage extends EPackage {
 	int ACTOR = 15;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__TECHNICALID = NAMED_ELEMENT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2381,6 +2552,15 @@ public interface GraalPackage extends EPackage {
 	int ABSTRACT_TASK = 16;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_TASK__TECHNICALID = NAMED_ELEMENT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2488,6 +2668,15 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 */
 	int TASKS_GROUP = 17;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASKS_GROUP__TECHNICALID = ABSTRACT_TASK__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -2624,6 +2813,15 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 */
 	int USE_CASE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USE_CASE__TECHNICALID = NAMED_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -2861,6 +3059,15 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 */
 	int USER_STORY = 23;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_STORY__TECHNICALID = NAMED_ELEMENT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.

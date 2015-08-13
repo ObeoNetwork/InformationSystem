@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.BindingInfo#getReferences <em>References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.BindingInfo#getLeft <em>Left</em>}</li>
@@ -27,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.environment.BindingInfo#getTargets <em>Targets</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.BindingInfo#getElements <em>Elements</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getBindingInfo()
  * @model

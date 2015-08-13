@@ -32,6 +32,7 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.CategoryImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.CategoryImpl#getSubCategories <em>Sub Categories</em>}</li>
@@ -40,7 +41,6 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.CategoryImpl#getParentCategory <em>Parent Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.CategoryImpl#getReferencedObject <em>Referenced Object</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

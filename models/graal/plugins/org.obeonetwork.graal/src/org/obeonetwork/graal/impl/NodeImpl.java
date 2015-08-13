@@ -30,11 +30,11 @@ import org.obeonetwork.graal.UserStory;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.NodeImpl#getOutgoingTransitions <em>Outgoing Transitions</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.NodeImpl#getIncomingTransitions <em>Incoming Transitions</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -22,11 +22,11 @@ import org.obeonetwork.dsl.environment.Action;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.FlowAction#getCalls <em>Calls</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.FlowAction#getOperations <em>Operations</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getFlowAction()
  * @model

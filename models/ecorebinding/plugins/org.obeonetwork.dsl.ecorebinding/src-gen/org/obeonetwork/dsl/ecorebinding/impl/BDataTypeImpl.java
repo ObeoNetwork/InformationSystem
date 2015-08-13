@@ -18,10 +18,10 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BDataTypeImpl#getEcoreDataType <em>Ecore Data Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

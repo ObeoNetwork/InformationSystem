@@ -15,11 +15,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.statemachine.StateMachineDescription#getStates <em>States</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.statemachine.StateMachineDescription#getTransitions <em>Transitions</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.statemachine.StateMachinePackage#getStateMachineDescription()
  * @model abstract="true"

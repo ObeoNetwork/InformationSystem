@@ -26,11 +26,11 @@ import org.obeonetwork.dsl.database.ForeignKeyElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ForeignKeyElementImpl#getFkColumn <em>Fk Column</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ForeignKeyElementImpl#getPkColumn <em>Pk Column</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

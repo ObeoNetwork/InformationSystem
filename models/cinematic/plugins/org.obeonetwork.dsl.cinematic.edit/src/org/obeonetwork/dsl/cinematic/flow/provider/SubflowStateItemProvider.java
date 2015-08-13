@@ -37,13 +37,7 @@ import org.obeonetwork.dsl.cinematic.flow.SubflowState;
  * @generated
  */
 public class SubflowStateItemProvider
-	extends FlowStateItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends FlowStateItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

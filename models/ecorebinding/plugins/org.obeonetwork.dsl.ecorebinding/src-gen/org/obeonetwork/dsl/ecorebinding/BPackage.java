@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EPackage;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BPackage#getEcorePackage <em>Ecore Package</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BPackage#getBModel <em>BModel</em>}</li>
@@ -26,7 +27,6 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BPackage#getNestedBPackages <em>Nested BPackages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BPackage#getBClassifiers <em>BClassifiers</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.ecorebinding.EcorebindingPackage#getBPackage()
  * @model

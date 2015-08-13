@@ -14,6 +14,7 @@ Export-Package: org.obeonetwork.dsl.database,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.obeonetwork.dsl.typeslibrary;visibility:=reexport,
+ org.obeonetwork.dsl.technicalid;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.cdo;visibility:=reexport
 Bundle-ActivationPolicy: lazy

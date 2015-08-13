@@ -27,15 +27,14 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingRegistryImpl#getBindingInfos <em>Binding Infos</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class BindingRegistryImpl extends ObeoDSMObjectImpl implements
-		BindingRegistry {
+public class BindingRegistryImpl extends ObeoDSMObjectImpl implements BindingRegistry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,10 +68,8 @@ public class BindingRegistryImpl extends ObeoDSMObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<BindingInfo> getBindingInfos() {
-		return (EList<BindingInfo>) eDynamicGet(
-				EnvironmentPackage.BINDING_REGISTRY__BINDING_INFOS,
-				EnvironmentPackage.Literals.BINDING_REGISTRY__BINDING_INFOS,
-				true, true);
+		return (EList<BindingInfo>) eDynamicGet(EnvironmentPackage.BINDING_REGISTRY__BINDING_INFOS,
+				EnvironmentPackage.Literals.BINDING_REGISTRY__BINDING_INFOS, true, true);
 	}
 
 	/**
@@ -81,12 +78,10 @@ public class BindingRegistryImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.BINDING_REGISTRY__BINDING_INFOS:
-			return ((InternalEList<?>) getBindingInfos()).basicRemove(otherEnd,
-					msgs);
+			return ((InternalEList<?>) getBindingInfos()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -116,8 +111,7 @@ public class BindingRegistryImpl extends ObeoDSMObjectImpl implements
 		switch (featureID) {
 		case EnvironmentPackage.BINDING_REGISTRY__BINDING_INFOS:
 			getBindingInfos().clear();
-			getBindingInfos().addAll(
-					(Collection<? extends BindingInfo>) newValue);
+			getBindingInfos().addAll((Collection<? extends BindingInfo>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

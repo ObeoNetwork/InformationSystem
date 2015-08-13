@@ -21,11 +21,11 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BEnumImpl#getEcoreEnum <em>Ecore Enum</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BEnumImpl#getBEnumLiterals <em>BEnum Literals</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

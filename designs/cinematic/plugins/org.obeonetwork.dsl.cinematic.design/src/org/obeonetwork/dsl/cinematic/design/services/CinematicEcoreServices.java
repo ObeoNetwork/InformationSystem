@@ -16,7 +16,6 @@ import java.util.Collection;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
@@ -24,6 +23,7 @@ import org.obeonetwork.dsl.cinematic.AbstractPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.NamedElement;
 import org.obeonetwork.dsl.cinematic.view.ViewEvent;
+import org.obeonetwork.dsl.technicalid.util.CopierUtils;
 
 public class CinematicEcoreServices {
 	
@@ -56,7 +56,7 @@ public class CinematicEcoreServices {
 	
 	@SuppressWarnings("unchecked")
 	public static EObject duplicateCinematicElement(EObject context) {
-		EObject clone = EcoreUtil.copy(context);
+		EObject clone = CopierUtils.copy(context);
 		if (clone instanceof NamedElement) {
 			NamedElement namedElement = (NamedElement)clone;
 			namedElement.setName(namedElement.getName() + " copy");

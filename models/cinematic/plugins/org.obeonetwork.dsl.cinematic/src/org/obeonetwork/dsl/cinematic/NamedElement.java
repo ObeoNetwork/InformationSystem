@@ -18,10 +18,10 @@ package org.obeonetwork.dsl.cinematic;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.NamedElement#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.CinematicPackage#getNamedElement()
  * @model abstract="true"

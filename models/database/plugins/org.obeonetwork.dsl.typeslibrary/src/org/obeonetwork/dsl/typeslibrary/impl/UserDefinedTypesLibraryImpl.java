@@ -27,6 +27,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.obeonetwork.dsl.technicalid.Identifiable;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryKind;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 import org.obeonetwork.dsl.typeslibrary.UserDefinedType;
@@ -38,12 +40,13 @@ import org.obeonetwork.dsl.typeslibrary.UserDefinedTypesLibrary;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.UserDefinedTypesLibraryImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.UserDefinedTypesLibraryImpl#getTechnicalid <em>Technicalid</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.UserDefinedTypesLibraryImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.UserDefinedTypesLibraryImpl#getUserDefinedTypes <em>User Defined Types</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -64,6 +67,16 @@ public class UserDefinedTypesLibraryImpl extends CDOObjectImpl implements UserDe
 	 * @ordered
 	 */
 	protected static final TypesLibraryKind KIND_EDEFAULT = TypesLibraryKind.LOGICAL_TYPES;
+	/**
+	 * The default value of the '{@link #getTechnicalid() <em>Technicalid</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTechnicalid()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TECHNICALID_EDEFAULT = null;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -126,6 +139,24 @@ public class UserDefinedTypesLibraryImpl extends CDOObjectImpl implements UserDe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getTechnicalid() {
+		return (String)eDynamicGet(TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__TECHNICALID, TechnicalIDPackage.Literals.IDENTIFIABLE__TECHNICALID, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTechnicalid(String newTechnicalid) {
+		eDynamicSet(TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__TECHNICALID, TechnicalIDPackage.Literals.IDENTIFIABLE__TECHNICALID, newTechnicalid);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getName() {
 		return (String)eDynamicGet(TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__NAME, TypesLibraryPackage.Literals.USER_DEFINED_TYPES_LIBRARY__NAME, true, true);
 	}
@@ -173,6 +204,8 @@ public class UserDefinedTypesLibraryImpl extends CDOObjectImpl implements UserDe
 		switch (featureID) {
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__KIND:
 				return getKind();
+			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__TECHNICALID:
+				return getTechnicalid();
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__NAME:
 				return getName();
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__USER_DEFINED_TYPES:
@@ -192,6 +225,9 @@ public class UserDefinedTypesLibraryImpl extends CDOObjectImpl implements UserDe
 		switch (featureID) {
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__KIND:
 				setKind((TypesLibraryKind)newValue);
+				return;
+			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__TECHNICALID:
+				setTechnicalid((String)newValue);
 				return;
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__NAME:
 				setName((String)newValue);
@@ -215,6 +251,9 @@ public class UserDefinedTypesLibraryImpl extends CDOObjectImpl implements UserDe
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__KIND:
 				setKind(KIND_EDEFAULT);
 				return;
+			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__TECHNICALID:
+				setTechnicalid(TECHNICALID_EDEFAULT);
+				return;
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -235,12 +274,46 @@ public class UserDefinedTypesLibraryImpl extends CDOObjectImpl implements UserDe
 		switch (featureID) {
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__KIND:
 				return getKind() != KIND_EDEFAULT;
+			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__TECHNICALID:
+				return TECHNICALID_EDEFAULT == null ? getTechnicalid() != null : !TECHNICALID_EDEFAULT.equals(getTechnicalid());
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__USER_DEFINED_TYPES:
 				return !getUserDefinedTypes().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Identifiable.class) {
+			switch (derivedFeatureID) {
+				case TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__TECHNICALID: return TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Identifiable.class) {
+			switch (baseFeatureID) {
+				case TechnicalIDPackage.IDENTIFIABLE__TECHNICALID: return TypesLibraryPackage.USER_DEFINED_TYPES_LIBRARY__TECHNICALID;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //UserDefinedTypesLibraryImpl

@@ -31,7 +31,7 @@ public class EcorebindingFactoryImpl extends EFactoryImpl implements Ecorebindin
 	 */
 	public static EcorebindingFactory init() {
 		try {
-			EcorebindingFactory theEcorebindingFactory = (EcorebindingFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/ecorebinding/1.0.0"); 
+			EcorebindingFactory theEcorebindingFactory = (EcorebindingFactory)EPackage.Registry.INSTANCE.getEFactory(EcorebindingPackage.eNS_URI);
 			if (theEcorebindingFactory != null) {
 				return theEcorebindingFactory;
 			}

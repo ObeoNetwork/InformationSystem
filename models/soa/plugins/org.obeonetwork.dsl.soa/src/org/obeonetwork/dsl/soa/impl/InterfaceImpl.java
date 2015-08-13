@@ -24,11 +24,11 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.InterfaceImpl#getOwnedOperations <em>Owned Operations</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.InterfaceImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

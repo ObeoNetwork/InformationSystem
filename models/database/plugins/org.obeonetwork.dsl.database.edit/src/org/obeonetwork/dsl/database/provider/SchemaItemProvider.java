@@ -31,13 +31,7 @@ import org.obeonetwork.dsl.database.Schema;
  * @generated
  */
 public class SchemaItemProvider
-	extends TableContainerItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends TableContainerItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

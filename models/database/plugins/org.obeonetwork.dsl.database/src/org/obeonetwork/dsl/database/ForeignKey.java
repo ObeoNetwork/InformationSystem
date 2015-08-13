@@ -19,12 +19,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.ForeignKey#getElements <em>Elements</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.ForeignKey#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.ForeignKey#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getForeignKey()
  * @model

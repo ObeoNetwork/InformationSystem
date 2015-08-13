@@ -74,16 +74,11 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_Environment_name_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_Environment_name_feature",
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Environment_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Environment_name_feature",
 								"_UI_Environment_type"),
-						EnvironmentPackage.Literals.ENVIRONMENT__NAME, true,
-						false, false,
+						EnvironmentPackage.Literals.ENVIRONMENT__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -96,20 +91,14 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.ENVIRONMENT__ACTIONS);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.ENVIRONMENT__LINKS);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.ENVIRONMENT__PRIORITY_DEFINITIONS);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION);
+			childrenFeatures.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
+			childrenFeatures.add(EnvironmentPackage.Literals.ENVIRONMENT__ACTIONS);
+			childrenFeatures.add(EnvironmentPackage.Literals.ENVIRONMENT__LINKS);
+			childrenFeatures.add(EnvironmentPackage.Literals.ENVIRONMENT__PRIORITY_DEFINITIONS);
+			childrenFeatures.add(EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION);
 		}
 		return childrenFeatures;
 	}
@@ -135,8 +124,7 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Environment"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Environment"));
 	}
 
 	/**
@@ -175,16 +163,14 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider {
 
 		switch (notification.getFeatureID(Environment.class)) {
 		case EnvironmentPackage.ENVIRONMENT__NAME:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case EnvironmentPackage.ENVIRONMENT__OWNED_NAMESPACES:
 		case EnvironmentPackage.ENVIRONMENT__ACTIONS:
 		case EnvironmentPackage.ENVIRONMENT__LINKS:
 		case EnvironmentPackage.ENVIRONMENT__PRIORITY_DEFINITIONS:
 		case EnvironmentPackage.ENVIRONMENT__TYPES_DEFINITION:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -198,29 +184,22 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors
-				.add(createChildParameter(
-						EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
-						EnvironmentFactory.eINSTANCE.createNamespace()));
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+				EnvironmentFactory.eINSTANCE.createNamespace()));
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.ENVIRONMENT__LINKS,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.ENVIRONMENT__LINKS,
 				EnvironmentFactory.eINSTANCE.createInterDSMLink()));
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.ENVIRONMENT__PRIORITY_DEFINITIONS,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.ENVIRONMENT__PRIORITY_DEFINITIONS,
 				EnvironmentFactory.eINSTANCE.createPriorityDefinition()));
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION,
 				EnvironmentFactory.eINSTANCE.createTypesDefinition()));
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION,
 				EnvironmentFactory.eINSTANCE.createNamespace()));
 	}
 
@@ -231,8 +210,7 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	public String getCreateChildText(Object owner, Object feature,
-			Object child, Collection<?> selection) {
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
 		Object childFeature = feature;
 		Object childObject = child;
 
@@ -240,9 +218,8 @@ public class EnvironmentItemProvider extends ObeoDSMObjectItemProvider {
 				|| childFeature == EnvironmentPackage.Literals.ENVIRONMENT__TYPES_DEFINITION;
 
 		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] {
-					getTypeText(childObject), getFeatureText(childFeature),
-					getTypeText(owner) });
+			return getString("_UI_CreateChild_text2",
+					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}

@@ -30,11 +30,11 @@ import org.obeonetwork.dsl.database.TableContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.TableContainerImpl#getTables <em>Tables</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.TableContainerImpl#getSequences <em>Sequences</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

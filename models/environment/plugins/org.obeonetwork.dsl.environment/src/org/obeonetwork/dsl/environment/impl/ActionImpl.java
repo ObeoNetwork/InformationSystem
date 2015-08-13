@@ -22,10 +22,10 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ActionImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -72,8 +72,8 @@ public abstract class ActionImpl extends ObeoDSMObjectImpl implements Action {
 	 * @generated
 	 */
 	public String getName() {
-		return (String) eDynamicGet(EnvironmentPackage.ACTION__NAME,
-				EnvironmentPackage.Literals.ACTION__NAME, true, true);
+		return (String) eDynamicGet(EnvironmentPackage.ACTION__NAME, EnvironmentPackage.Literals.ACTION__NAME, true,
+				true);
 	}
 
 	/**
@@ -82,8 +82,7 @@ public abstract class ActionImpl extends ObeoDSMObjectImpl implements Action {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(EnvironmentPackage.ACTION__NAME,
-				EnvironmentPackage.Literals.ACTION__NAME, newName);
+		eDynamicSet(EnvironmentPackage.ACTION__NAME, EnvironmentPackage.Literals.ACTION__NAME, newName);
 	}
 
 	/**
@@ -139,8 +138,7 @@ public abstract class ActionImpl extends ObeoDSMObjectImpl implements Action {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case EnvironmentPackage.ACTION__NAME:
-			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT
-					.equals(getName());
+			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}

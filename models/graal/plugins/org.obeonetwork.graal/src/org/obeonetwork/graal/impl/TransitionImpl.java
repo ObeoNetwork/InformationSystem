@@ -27,13 +27,13 @@ import org.obeonetwork.graal.UserStory;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.TransitionImpl#getGuard <em>Guard</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.TransitionImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.TransitionImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.TransitionImpl#getKind <em>Kind</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

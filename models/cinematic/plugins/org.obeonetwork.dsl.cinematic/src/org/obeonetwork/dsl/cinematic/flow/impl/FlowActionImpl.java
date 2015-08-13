@@ -26,11 +26,11 @@ import org.obeonetwork.dsl.environment.Action;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.FlowActionImpl#getCalls <em>Calls</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.FlowActionImpl#getOperations <em>Operations</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -26,11 +26,11 @@ import org.obeonetwork.dsl.database.IndexElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.IndexElementImpl#getColumn <em>Column</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.IndexElementImpl#isAsc <em>Asc</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

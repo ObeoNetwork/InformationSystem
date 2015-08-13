@@ -24,10 +24,10 @@ import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.impl.CinematicRootImpl#getToolkits <em>Toolkits</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

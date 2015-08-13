@@ -206,6 +206,7 @@ public class NativeTypesLibraryItemProvider
 
 		switch (notification.getFeatureID(NativeTypesLibrary.class)) {
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__KIND:
+			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__TECHNICALID:
 			case TypesLibraryPackage.NATIVE_TYPES_LIBRARY__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

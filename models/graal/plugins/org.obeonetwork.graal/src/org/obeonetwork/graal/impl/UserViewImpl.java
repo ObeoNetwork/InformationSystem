@@ -18,8 +18,6 @@ import org.obeonetwork.graal.UserView;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>User View</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

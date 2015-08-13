@@ -21,8 +21,6 @@ import org.obeonetwork.dsl.interaction.Operand;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Operand</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

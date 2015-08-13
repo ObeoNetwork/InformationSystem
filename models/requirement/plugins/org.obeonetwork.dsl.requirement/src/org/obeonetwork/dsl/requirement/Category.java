@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.requirement.Category#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.Category#getSubCategories <em>Sub Categories</em>}</li>
@@ -30,7 +31,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.requirement.Category#getParentCategory <em>Parent Category</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.Category#getReferencedObject <em>Referenced Object</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.requirement.RequirementPackage#getCategory()
  * @model

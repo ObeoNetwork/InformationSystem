@@ -21,12 +21,12 @@ import org.obeonetwork.dsl.cinematic.view.ViewContainer;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.AbstractPackage#getFlows <em>Flows</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.AbstractPackage#getViewContainers <em>View Containers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.AbstractPackage#getSubPackages <em>Sub Packages</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.CinematicPackage#getAbstractPackage()
  * @model abstract="true"

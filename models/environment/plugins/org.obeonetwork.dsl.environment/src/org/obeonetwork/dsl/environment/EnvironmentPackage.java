@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,8 +70,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	EnvironmentPackage eINSTANCE = org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl
-			.init();
+	EnvironmentPackage eINSTANCE = org.obeonetwork.dsl.environment.impl.EnvironmentPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl <em>Obeo DSM Object</em>}' class.
@@ -83,13 +83,22 @@ public interface EnvironmentPackage extends EPackage {
 	int OBEO_DSM_OBJECT = 7;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBEO_DSM_OBJECT__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBEO_DSM_OBJECT__METADATAS = 0;
+	int OBEO_DSM_OBJECT__METADATAS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -98,7 +107,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBEO_DSM_OBJECT__DESCRIPTION = 1;
+	int OBEO_DSM_OBJECT__DESCRIPTION = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
@@ -107,7 +116,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBEO_DSM_OBJECT__KEYWORDS = 2;
+	int OBEO_DSM_OBJECT__KEYWORDS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -116,7 +125,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBEO_DSM_OBJECT__BEHAVIOURS = 3;
+	int OBEO_DSM_OBJECT__BEHAVIOURS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
@@ -125,7 +134,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBEO_DSM_OBJECT__BINDING_REGISTRIES = 4;
+	int OBEO_DSM_OBJECT__BINDING_REGISTRIES = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -134,7 +143,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBEO_DSM_OBJECT__VERSION = 5;
+	int OBEO_DSM_OBJECT__VERSION = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Created On</b></em>' attribute.
@@ -143,7 +152,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBEO_DSM_OBJECT__CREATED_ON = 6;
+	int OBEO_DSM_OBJECT__CREATED_ON = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
@@ -152,7 +161,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBEO_DSM_OBJECT__MODIFIED_ON = 7;
+	int OBEO_DSM_OBJECT__MODIFIED_ON = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Obeo DSM Object</em>' class.
@@ -161,7 +170,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBEO_DSM_OBJECT_FEATURE_COUNT = 8;
+	int OBEO_DSM_OBJECT_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.EnvironmentImpl <em>Environment</em>}' class.
@@ -172,6 +181,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int ENVIRONMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -319,6 +337,15 @@ public interface EnvironmentPackage extends EPackage {
 	int TYPE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -426,6 +453,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int DATA_TYPE = 28;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__TECHNICALID = TYPE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -537,6 +573,15 @@ public interface EnvironmentPackage extends EPackage {
 	int PRIMITIVE_TYPE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_TYPE__TECHNICALID = DATA_TYPE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -644,6 +689,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int ENUMERATION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATION__TECHNICALID = DATA_TYPE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -764,6 +818,15 @@ public interface EnvironmentPackage extends EPackage {
 	int LITERAL = 4;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -864,6 +927,15 @@ public interface EnvironmentPackage extends EPackage {
 	int ACTION = 5;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -962,6 +1034,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int INTER_DSM_LINK = 6;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTER_DSM_LINK__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1073,13 +1154,22 @@ public interface EnvironmentPackage extends EPackage {
 	int META_DATA_CONTAINER = 8;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_DATA_CONTAINER__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int META_DATA_CONTAINER__METADATAS = 0;
+	int META_DATA_CONTAINER__METADATAS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Meta Data Container</em>' class.
@@ -1088,7 +1178,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int META_DATA_CONTAINER_FEATURE_COUNT = 1;
+	int META_DATA_CONTAINER_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.MetaDataImpl <em>Meta Data</em>}' class.
@@ -1101,13 +1191,22 @@ public interface EnvironmentPackage extends EPackage {
 	int META_DATA = 12;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_DATA__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The number of structural features of the '<em>Meta Data</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int META_DATA_FEATURE_COUNT = 0;
+	int META_DATA_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.AnnotationImpl <em>Annotation</em>}' class.
@@ -1118,6 +1217,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int ANNOTATION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__TECHNICALID = META_DATA__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1155,6 +1263,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int PRIORITY_DEFINITION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIORITY_DEFINITION__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1257,6 +1374,15 @@ public interface EnvironmentPackage extends EPackage {
 	int PRIORITY = 11;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIORITY__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1355,6 +1481,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int TYPES_DEFINITION = 13;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPES_DEFINITION__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1457,6 +1592,15 @@ public interface EnvironmentPackage extends EPackage {
 	int BEHAVIOUR = 14;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOUR__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1546,6 +1690,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int STRUCTURED_TYPE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_TYPE__TECHNICALID = TYPE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1718,6 +1871,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int DTO = 16;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DTO__TECHNICALID = STRUCTURED_TYPE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -1901,6 +2063,15 @@ public interface EnvironmentPackage extends EPackage {
 	int FILTER_CONTAINER = 17;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_CONTAINER__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2001,6 +2172,15 @@ public interface EnvironmentPackage extends EPackage {
 	int FILTER = 18;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2090,6 +2270,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int NAMESPACE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE__TECHNICALID = TYPES_DEFINITION__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -2219,6 +2408,15 @@ public interface EnvironmentPackage extends EPackage {
 	int PROPERTY = 22;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2335,6 +2533,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int ATTRIBUTE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__TECHNICALID = PROPERTY__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -2471,6 +2678,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int REFERENCE = 21;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__TECHNICALID = PROPERTY__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -2636,6 +2852,15 @@ public interface EnvironmentPackage extends EPackage {
 	int BINDING_INFO = 23;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_INFO__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2781,6 +3006,15 @@ public interface EnvironmentPackage extends EPackage {
 	int BINDING_REFERENCE = 24;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_REFERENCE__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2888,6 +3122,15 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int BINDING_ELEMENT = 25;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_ELEMENT__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -3035,6 +3278,15 @@ public interface EnvironmentPackage extends EPackage {
 	int BINDING_REGISTRY = 26;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_REGISTRY__TECHNICALID = OBEO_DSM_OBJECT__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3135,13 +3387,22 @@ public interface EnvironmentPackage extends EPackage {
 	int BOUNDABLE_ELEMENT = 27;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOUNDABLE_ELEMENT__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The number of structural features of the '<em>Boundable Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOUNDABLE_ELEMENT_FEATURE_COUNT = 0;
+	int BOUNDABLE_ELEMENT_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.impl.NamespacesContainerImpl <em>Namespaces Container</em>}' class.
@@ -3154,13 +3415,22 @@ public interface EnvironmentPackage extends EPackage {
 	int NAMESPACES_CONTAINER = 29;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACES_CONTAINER__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACES_CONTAINER__OWNED_NAMESPACES = 0;
+	int NAMESPACES_CONTAINER__OWNED_NAMESPACES = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Namespaces Container</em>' class.
@@ -3169,7 +3439,7 @@ public interface EnvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACES_CONTAINER_FEATURE_COUNT = 1;
+	int NAMESPACES_CONTAINER_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}' enum.
@@ -4246,8 +4516,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENVIRONMENT__PRIORITY_DEFINITIONS = eINSTANCE
-				.getEnvironment_PriorityDefinitions();
+		EReference ENVIRONMENT__PRIORITY_DEFINITIONS = eINSTANCE.getEnvironment_PriorityDefinitions();
 
 		/**
 		 * The meta object literal for the '<em><b>Types Definition</b></em>' containment reference feature.
@@ -4255,8 +4524,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENVIRONMENT__TYPES_DEFINITION = eINSTANCE
-				.getEnvironment_TypesDefinition();
+		EReference ENVIRONMENT__TYPES_DEFINITION = eINSTANCE.getEnvironment_TypesDefinition();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.TypeImpl <em>Type</em>}' class.
@@ -4390,8 +4658,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OBEO_DSM_OBJECT__METADATAS = eINSTANCE
-				.getObeoDSMObject_Metadatas();
+		EReference OBEO_DSM_OBJECT__METADATAS = eINSTANCE.getObeoDSMObject_Metadatas();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -4399,8 +4666,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OBEO_DSM_OBJECT__DESCRIPTION = eINSTANCE
-				.getObeoDSMObject_Description();
+		EAttribute OBEO_DSM_OBJECT__DESCRIPTION = eINSTANCE.getObeoDSMObject_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Keywords</b></em>' attribute list feature.
@@ -4408,8 +4674,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OBEO_DSM_OBJECT__KEYWORDS = eINSTANCE
-				.getObeoDSMObject_Keywords();
+		EAttribute OBEO_DSM_OBJECT__KEYWORDS = eINSTANCE.getObeoDSMObject_Keywords();
 
 		/**
 		 * The meta object literal for the '<em><b>Behaviours</b></em>' containment reference list feature.
@@ -4417,8 +4682,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OBEO_DSM_OBJECT__BEHAVIOURS = eINSTANCE
-				.getObeoDSMObject_Behaviours();
+		EReference OBEO_DSM_OBJECT__BEHAVIOURS = eINSTANCE.getObeoDSMObject_Behaviours();
 
 		/**
 		 * The meta object literal for the '<em><b>Binding Registries</b></em>' reference list feature.
@@ -4426,8 +4690,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OBEO_DSM_OBJECT__BINDING_REGISTRIES = eINSTANCE
-				.getObeoDSMObject_BindingRegistries();
+		EReference OBEO_DSM_OBJECT__BINDING_REGISTRIES = eINSTANCE.getObeoDSMObject_BindingRegistries();
 
 		/**
 		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
@@ -4435,8 +4698,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OBEO_DSM_OBJECT__VERSION = eINSTANCE
-				.getObeoDSMObject_Version();
+		EAttribute OBEO_DSM_OBJECT__VERSION = eINSTANCE.getObeoDSMObject_Version();
 
 		/**
 		 * The meta object literal for the '<em><b>Created On</b></em>' attribute feature.
@@ -4444,8 +4706,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OBEO_DSM_OBJECT__CREATED_ON = eINSTANCE
-				.getObeoDSMObject_CreatedOn();
+		EAttribute OBEO_DSM_OBJECT__CREATED_ON = eINSTANCE.getObeoDSMObject_CreatedOn();
 
 		/**
 		 * The meta object literal for the '<em><b>Modified On</b></em>' attribute feature.
@@ -4453,8 +4714,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OBEO_DSM_OBJECT__MODIFIED_ON = eINSTANCE
-				.getObeoDSMObject_ModifiedOn();
+		EAttribute OBEO_DSM_OBJECT__MODIFIED_ON = eINSTANCE.getObeoDSMObject_ModifiedOn();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.MetaDataContainerImpl <em>Meta Data Container</em>}' class.
@@ -4472,8 +4732,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference META_DATA_CONTAINER__METADATAS = eINSTANCE
-				.getMetaDataContainer_Metadatas();
+		EReference META_DATA_CONTAINER__METADATAS = eINSTANCE.getMetaDataContainer_Metadatas();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.AnnotationImpl <em>Annotation</em>}' class.
@@ -4517,8 +4776,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PRIORITY_DEFINITION__PRIORITIES = eINSTANCE
-				.getPriorityDefinition_Priorities();
+		EReference PRIORITY_DEFINITION__PRIORITIES = eINSTANCE.getPriorityDefinition_Priorities();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.PriorityImpl <em>Priority</em>}' class.
@@ -4564,8 +4822,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TYPES_DEFINITION__TYPES = eINSTANCE
-				.getTypesDefinition_Types();
+		EReference TYPES_DEFINITION__TYPES = eINSTANCE.getTypesDefinition_Types();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.BehaviourImpl <em>Behaviour</em>}' class.
@@ -4593,8 +4850,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRUCTURED_TYPE__SUPERTYPE = eINSTANCE
-				.getStructuredType_Supertype();
+		EReference STRUCTURED_TYPE__SUPERTYPE = eINSTANCE.getStructuredType_Supertype();
 
 		/**
 		 * The meta object literal for the '<em><b>Associated Types</b></em>' reference list feature.
@@ -4602,8 +4858,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRUCTURED_TYPE__ASSOCIATED_TYPES = eINSTANCE
-				.getStructuredType_AssociatedTypes();
+		EReference STRUCTURED_TYPE__ASSOCIATED_TYPES = eINSTANCE.getStructuredType_AssociatedTypes();
 
 		/**
 		 * The meta object literal for the '<em><b>Owned Attributes</b></em>' containment reference list feature.
@@ -4611,8 +4866,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRUCTURED_TYPE__OWNED_ATTRIBUTES = eINSTANCE
-				.getStructuredType_OwnedAttributes();
+		EReference STRUCTURED_TYPE__OWNED_ATTRIBUTES = eINSTANCE.getStructuredType_OwnedAttributes();
 
 		/**
 		 * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.
@@ -4620,8 +4874,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRUCTURED_TYPE__ATTRIBUTES = eINSTANCE
-				.getStructuredType_Attributes();
+		EReference STRUCTURED_TYPE__ATTRIBUTES = eINSTANCE.getStructuredType_Attributes();
 
 		/**
 		 * The meta object literal for the '<em><b>Owned References</b></em>' containment reference list feature.
@@ -4629,8 +4882,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRUCTURED_TYPE__OWNED_REFERENCES = eINSTANCE
-				.getStructuredType_OwnedReferences();
+		EReference STRUCTURED_TYPE__OWNED_REFERENCES = eINSTANCE.getStructuredType_OwnedReferences();
 
 		/**
 		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
@@ -4638,8 +4890,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRUCTURED_TYPE__REFERENCES = eINSTANCE
-				.getStructuredType_References();
+		EReference STRUCTURED_TYPE__REFERENCES = eINSTANCE.getStructuredType_References();
 
 		/**
 		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
@@ -4647,8 +4898,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRUCTURED_TYPE__PROPERTIES = eINSTANCE
-				.getStructuredType_Properties();
+		EReference STRUCTURED_TYPE__PROPERTIES = eINSTANCE.getStructuredType_Properties();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.DTOImpl <em>DTO</em>}' class.
@@ -4684,8 +4934,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FILTER_CONTAINER__OWNED_FILTERS = eINSTANCE
-				.getFilterContainer_OwnedFilters();
+		EReference FILTER_CONTAINER__OWNED_FILTERS = eINSTANCE.getFilterContainer_OwnedFilters();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.FilterImpl <em>Filter</em>}' class.
@@ -4747,8 +4996,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ATTRIBUTE__CONTAINING_TYPE = eINSTANCE
-				.getAttribute_ContainingType();
+		EReference ATTRIBUTE__CONTAINING_TYPE = eINSTANCE.getAttribute_ContainingType();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -4766,8 +5014,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute REFERENCE__IS_COMPOSITE = eINSTANCE
-				.getReference_IsComposite();
+		EAttribute REFERENCE__IS_COMPOSITE = eINSTANCE.getReference_IsComposite();
 
 		/**
 		 * The meta object literal for the '<em><b>Navigable</b></em>' attribute feature.
@@ -4791,8 +5038,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE__CONTAINING_TYPE = eINSTANCE
-				.getReference_ContainingType();
+		EReference REFERENCE__CONTAINING_TYPE = eINSTANCE.getReference_ContainingType();
 
 		/**
 		 * The meta object literal for the '<em><b>Referenced Type</b></em>' reference feature.
@@ -4800,8 +5046,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE__REFERENCED_TYPE = eINSTANCE
-				.getReference_ReferencedType();
+		EReference REFERENCE__REFERENCED_TYPE = eINSTANCE.getReference_ReferencedType();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.PropertyImpl <em>Property</em>}' class.
@@ -4827,8 +5072,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROPERTY__MULTIPLICITY = eINSTANCE
-				.getProperty_Multiplicity();
+		EAttribute PROPERTY__MULTIPLICITY = eINSTANCE.getProperty_Multiplicity();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Identifier</b></em>' attribute feature.
@@ -4836,8 +5080,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROPERTY__IS_IDENTIFIER = eINSTANCE
-				.getProperty_IsIdentifier();
+		EAttribute PROPERTY__IS_IDENTIFIER = eINSTANCE.getProperty_IsIdentifier();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.BindingInfoImpl <em>Binding Info</em>}' class.
@@ -4855,8 +5098,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINDING_INFO__REFERENCES = eINSTANCE
-				.getBindingInfo_References();
+		EReference BINDING_INFO__REFERENCES = eINSTANCE.getBindingInfo_References();
 
 		/**
 		 * The meta object literal for the '<em><b>Left</b></em>' reference feature.
@@ -4880,8 +5122,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINDING_INFO__SUB_BINDING_INFOS = eINSTANCE
-				.getBindingInfo_SubBindingInfos();
+		EReference BINDING_INFO__SUB_BINDING_INFOS = eINSTANCE.getBindingInfo_SubBindingInfos();
 
 		/**
 		 * The meta object literal for the '<em><b>Targets</b></em>' reference list feature.
@@ -4915,8 +5156,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINDING_REFERENCE__LEFT = eINSTANCE
-				.getBindingReference_Left();
+		EReference BINDING_REFERENCE__LEFT = eINSTANCE.getBindingReference_Left();
 
 		/**
 		 * The meta object literal for the '<em><b>Right</b></em>' reference feature.
@@ -4924,8 +5164,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINDING_REFERENCE__RIGHT = eINSTANCE
-				.getBindingReference_Right();
+		EReference BINDING_REFERENCE__RIGHT = eINSTANCE.getBindingReference_Right();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.BindingElementImpl <em>Binding Element</em>}' class.
@@ -4943,8 +5182,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINDING_ELEMENT__BOUND_ELEMENT = eINSTANCE
-				.getBindingElement_BoundElement();
+		EReference BINDING_ELEMENT__BOUND_ELEMENT = eINSTANCE.getBindingElement_BoundElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Binding Expression</b></em>' attribute feature.
@@ -4952,8 +5190,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BINDING_ELEMENT__BINDING_EXPRESSION = eINSTANCE
-				.getBindingElement_BindingExpression();
+		EAttribute BINDING_ELEMENT__BINDING_EXPRESSION = eINSTANCE.getBindingElement_BindingExpression();
 
 		/**
 		 * The meta object literal for the '<em><b>Referenced By As Left</b></em>' reference list feature.
@@ -4961,8 +5198,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINDING_ELEMENT__REFERENCED_BY_AS_LEFT = eINSTANCE
-				.getBindingElement_ReferencedByAsLeft();
+		EReference BINDING_ELEMENT__REFERENCED_BY_AS_LEFT = eINSTANCE.getBindingElement_ReferencedByAsLeft();
 
 		/**
 		 * The meta object literal for the '<em><b>Referenced By As Right</b></em>' reference list feature.
@@ -4970,8 +5206,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT = eINSTANCE
-				.getBindingElement_ReferencedByAsRight();
+		EReference BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT = eINSTANCE.getBindingElement_ReferencedByAsRight();
 
 		/**
 		 * The meta object literal for the '<em><b>Referenced By</b></em>' reference list feature.
@@ -4979,8 +5214,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINDING_ELEMENT__REFERENCED_BY = eINSTANCE
-				.getBindingElement_ReferencedBy();
+		EReference BINDING_ELEMENT__REFERENCED_BY = eINSTANCE.getBindingElement_ReferencedBy();
 
 		/**
 		 * The meta object literal for the '<em><b>Path References</b></em>' reference list feature.
@@ -4988,8 +5222,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINDING_ELEMENT__PATH_REFERENCES = eINSTANCE
-				.getBindingElement_PathReferences();
+		EReference BINDING_ELEMENT__PATH_REFERENCES = eINSTANCE.getBindingElement_PathReferences();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.impl.BindingRegistryImpl <em>Binding Registry</em>}' class.
@@ -5007,8 +5240,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BINDING_REGISTRY__BINDING_INFOS = eINSTANCE
-				.getBindingRegistry_BindingInfos();
+		EReference BINDING_REGISTRY__BINDING_INFOS = eINSTANCE.getBindingRegistry_BindingInfos();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.BoundableElement <em>Boundable Element</em>}' class.
@@ -5046,8 +5278,7 @@ public interface EnvironmentPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NAMESPACES_CONTAINER__OWNED_NAMESPACES = eINSTANCE
-				.getNamespacesContainer_OwnedNamespaces();
+		EReference NAMESPACES_CONTAINER__OWNED_NAMESPACES = eINSTANCE.getNamespacesContainer_OwnedNamespaces();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.environment.MultiplicityKind <em>Multiplicity Kind</em>}' enum.

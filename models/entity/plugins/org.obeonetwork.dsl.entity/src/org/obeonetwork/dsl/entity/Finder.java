@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.entity.Finder#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.Finder#getEntity <em>Entity</em>}</li>
@@ -29,7 +30,6 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *   <li>{@link org.obeonetwork.dsl.entity.Finder#getCriterions <em>Criterions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.Finder#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.entity.EntityPackage#getFinder()
  * @model

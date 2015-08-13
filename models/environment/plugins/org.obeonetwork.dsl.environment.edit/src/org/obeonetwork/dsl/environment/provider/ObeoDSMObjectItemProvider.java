@@ -33,6 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.environment.ObeoDSMObject} object.
@@ -40,9 +41,7 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ObeoDSMObjectItemProvider extends IdentifiableItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,17 +87,13 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ObeoDSMObject_description_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ObeoDSMObject_description_feature",
-						"_UI_ObeoDSMObject_type"),
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__DESCRIPTION, true,
-				true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ObeoDSMObject_description_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ObeoDSMObject_description_feature",
+								"_UI_ObeoDSMObject_type"),
+						EnvironmentPackage.Literals.OBEO_DSM_OBJECT__DESCRIPTION, true, true, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -108,17 +103,13 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addKeywordsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ObeoDSMObject_keywords_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ObeoDSMObject_keywords_feature",
-						"_UI_ObeoDSMObject_type"),
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__KEYWORDS, true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ObeoDSMObject_keywords_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ObeoDSMObject_keywords_feature",
+								"_UI_ObeoDSMObject_type"),
+						EnvironmentPackage.Literals.OBEO_DSM_OBJECT__KEYWORDS, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -129,16 +120,11 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 	 */
 	protected void addBindingRegistriesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_ObeoDSMObject_bindingRegistries_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_ObeoDSMObject_bindingRegistries_feature",
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ObeoDSMObject_bindingRegistries_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ObeoDSMObject_bindingRegistries_feature",
 								"_UI_ObeoDSMObject_type"),
-						EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BINDING_REGISTRIES,
-						true, false, true, null, null, null));
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BINDING_REGISTRIES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -148,17 +134,13 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ObeoDSMObject_version_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ObeoDSMObject_version_feature",
-						"_UI_ObeoDSMObject_type"),
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__VERSION, false,
-				false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ObeoDSMObject_version_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ObeoDSMObject_version_feature",
+								"_UI_ObeoDSMObject_type"),
+						EnvironmentPackage.Literals.OBEO_DSM_OBJECT__VERSION, false, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -168,17 +150,13 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addCreatedOnPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ObeoDSMObject_createdOn_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ObeoDSMObject_createdOn_feature",
-						"_UI_ObeoDSMObject_type"),
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON, false,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ObeoDSMObject_createdOn_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ObeoDSMObject_createdOn_feature",
+								"_UI_ObeoDSMObject_type"),
+						EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON, false, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -188,17 +166,13 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	protected void addModifiedOnPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ObeoDSMObject_modifiedOn_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_ObeoDSMObject_modifiedOn_feature",
-						"_UI_ObeoDSMObject_type"),
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON,
-				false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_ObeoDSMObject_modifiedOn_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_ObeoDSMObject_modifiedOn_feature",
+								"_UI_ObeoDSMObject_type"),
+						EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON, false, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -210,14 +184,11 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BEHAVIOURS);
+			childrenFeatures.add(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS);
+			childrenFeatures.add(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BEHAVIOURS);
 		}
 		return childrenFeatures;
 	}
@@ -253,7 +224,7 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((ObeoDSMObject) object).getDescription());
+		String label = ((ObeoDSMObject) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_ObeoDSMObject_type")
 				: getString("_UI_ObeoDSMObject_type") + " " + label;
 	}
@@ -275,13 +246,11 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 		case EnvironmentPackage.OBEO_DSM_OBJECT__VERSION:
 		case EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON:
 		case EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS:
 		case EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -295,12 +264,10 @@ public class ObeoDSMObjectItemProvider extends ItemProviderAdapter implements
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS,
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS,
 				EnvironmentFactory.eINSTANCE.createMetaDataContainer()));
 	}
 

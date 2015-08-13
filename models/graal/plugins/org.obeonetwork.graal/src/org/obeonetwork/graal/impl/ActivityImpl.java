@@ -33,12 +33,12 @@ import org.obeonetwork.graal.UserStory;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.ActivityImpl#getNodes <em>Nodes</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.ActivityImpl#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.ActivityImpl#getSubActivities <em>Sub Activities</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

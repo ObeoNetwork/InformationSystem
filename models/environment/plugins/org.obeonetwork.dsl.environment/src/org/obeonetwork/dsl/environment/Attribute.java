@@ -19,11 +19,11 @@ package org.obeonetwork.dsl.environment;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.Attribute#getType <em>Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Attribute#getContainingType <em>Containing Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getAttribute()
  * @model

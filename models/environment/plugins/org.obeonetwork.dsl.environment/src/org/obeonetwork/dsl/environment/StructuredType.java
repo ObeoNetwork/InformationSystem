@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.StructuredType#getSupertype <em>Supertype</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.StructuredType#getAssociatedTypes <em>Associated Types</em>}</li>
@@ -30,7 +31,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.environment.StructuredType#getReferences <em>References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.StructuredType#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getStructuredType()
  * @model abstract="true"

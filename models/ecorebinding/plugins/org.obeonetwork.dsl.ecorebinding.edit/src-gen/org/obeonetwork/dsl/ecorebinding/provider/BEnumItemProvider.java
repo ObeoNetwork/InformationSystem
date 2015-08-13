@@ -35,13 +35,7 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * @generated
  */
 public class BEnumItemProvider
-	extends BDataTypeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends BDataTypeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -139,7 +133,10 @@ public class BEnumItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BEnum_type");
+		String label = ((BEnum)object).getTechnicalid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BEnum_type") :
+			getString("_UI_BEnum_type") + " " + label;
 	}
 
 	/**

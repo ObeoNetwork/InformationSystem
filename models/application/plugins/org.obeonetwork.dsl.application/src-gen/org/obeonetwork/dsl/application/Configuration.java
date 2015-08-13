@@ -10,17 +10,12 @@
  */
 package org.obeonetwork.dsl.application;
 
-import org.eclipse.emf.cdo.CDOObject;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
-
 import org.obeonetwork.dsl.ecorebinding.BModel;
-
 import org.obeonetwork.dsl.environment.BindingRegistry;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,20 +24,19 @@ import org.obeonetwork.dsl.environment.BindingRegistry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.application.Configuration#getBindingRegistries <em>Binding Registries</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.application.Configuration#getEcoreModel <em>Ecore Model</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.application.Configuration#getCinematicModel <em>Cinematic Model</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.application.Configuration#getEcoreBindingModel <em>Ecore Binding Model</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.application.ApplicationPackage#getConfiguration()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface Configuration extends CDOObject {
+public interface Configuration extends Identifiable {
 	/**
 	 * Returns the value of the '<em><b>Binding Registries</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.dsl.environment.BindingRegistry}.

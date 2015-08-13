@@ -24,10 +24,10 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.overview.Root#getOwnedElements <em>Owned Elements</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.overview.OverviewPackage#getRoot()
  * @model

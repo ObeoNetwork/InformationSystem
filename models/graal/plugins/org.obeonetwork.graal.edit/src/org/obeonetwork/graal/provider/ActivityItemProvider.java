@@ -35,13 +35,7 @@ import org.obeonetwork.graal.GraalPackage;
  * @generated
  */
 public class ActivityItemProvider
-	extends GraalObjectItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends GraalObjectItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -128,7 +122,7 @@ public class ActivityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Activity)object).getDescription());
+		String label = ((Activity)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Activity_type") :
 			getString("_UI_Activity_type") + " " + label;

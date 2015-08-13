@@ -21,11 +21,11 @@ import org.obeonetwork.dsl.cinematic.flow.SubflowState;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.SubflowStateImpl#getSubflow <em>Subflow</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.SubflowStateImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -23,8 +23,7 @@ import org.obeonetwork.tools.migration.XMIResourceWithMigrationSupportImpl;
  * @see org.obeonetwork.dsl.environment.util.EnvironmentResourceFactoryImpl
  * @generated NOT
  */
-public class EnvironmentResourceImpl extends
-		XMIResourceWithMigrationSupportImpl {
+public class EnvironmentResourceImpl extends XMIResourceWithMigrationSupportImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

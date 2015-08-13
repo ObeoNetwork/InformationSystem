@@ -17,8 +17,6 @@ import org.obeonetwork.dsl.cinematic.CinematicPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Package</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

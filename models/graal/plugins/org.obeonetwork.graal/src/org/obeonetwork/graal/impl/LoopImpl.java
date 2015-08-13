@@ -20,11 +20,11 @@ import org.obeonetwork.graal.Loop;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.LoopImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.LoopImpl#getUpperBound <em>Upper Bound</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

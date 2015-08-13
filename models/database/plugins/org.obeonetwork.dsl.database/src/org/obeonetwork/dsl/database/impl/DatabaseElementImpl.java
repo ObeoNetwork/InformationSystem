@@ -23,12 +23,12 @@ import org.obeonetwork.dsl.database.DatabasePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.DatabaseElementImpl#getID <em>ID</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.DatabaseElementImpl#getComments <em>Comments</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.DatabaseElementImpl#getTechID <em>Tech ID</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

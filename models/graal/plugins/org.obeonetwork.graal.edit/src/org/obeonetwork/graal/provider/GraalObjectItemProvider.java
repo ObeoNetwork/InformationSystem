@@ -33,13 +33,7 @@ import org.obeonetwork.graal.GraalObject;
  * @generated
  */
 public class GraalObjectItemProvider
-	extends ObeoDSMObjectItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -83,7 +77,7 @@ public class GraalObjectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((GraalObject)object).getDescription());
+		String label = ((GraalObject)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GraalObject_type") :
 			getString("_UI_GraalObject_type") + " " + label;

@@ -31,13 +31,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * @generated
  */
 public class ImplementationComponentItemProvider
-	extends ObeoDSMObjectItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,7 +139,7 @@ public class ImplementationComponentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((ImplementationComponent)object).getDescription());
+		String label = ((ImplementationComponent)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ImplementationComponent_type") :
 			getString("_UI_ImplementationComponent_type") + " " + label;

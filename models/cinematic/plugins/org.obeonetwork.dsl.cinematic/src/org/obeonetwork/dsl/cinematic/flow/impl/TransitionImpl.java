@@ -26,6 +26,7 @@ import org.obeonetwork.dsl.cinematic.impl.NamedElementImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.TransitionImpl#getGuard <em>Guard</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.TransitionImpl#isModal <em>Modal</em>}</li>
@@ -33,7 +34,6 @@ import org.obeonetwork.dsl.cinematic.impl.NamedElementImpl;
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.TransitionImpl#getTo <em>To</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.TransitionImpl#getOn <em>On</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -35,13 +35,7 @@ import org.obeonetwork.dsl.interaction.ReturnMessage;
  * @generated
  */
 public class ReturnMessageItemProvider
-	extends MessageItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends MessageItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

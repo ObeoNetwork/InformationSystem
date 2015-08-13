@@ -18,8 +18,6 @@ import org.obeonetwork.dsl.interaction.Message;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Message</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

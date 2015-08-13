@@ -71,15 +71,12 @@ public class TypeItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Type_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Type_name_feature", "_UI_Type_type"),
-				EnvironmentPackage.Literals.TYPE__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Type_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Type_name_feature", "_UI_Type_type"),
+						EnvironmentPackage.Literals.TYPE__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -118,8 +115,7 @@ public class TypeItemProvider extends ObeoDSMObjectItemProvider {
 
 		switch (notification.getFeatureID(Type.class)) {
 		case EnvironmentPackage.TYPE__NAME:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -133,8 +129,7 @@ public class TypeItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

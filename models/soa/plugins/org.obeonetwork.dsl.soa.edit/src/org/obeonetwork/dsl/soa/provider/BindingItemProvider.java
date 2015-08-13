@@ -33,13 +33,7 @@ import org.obeonetwork.dsl.soa.SoaPackage;
  * @generated
  */
 public class BindingItemProvider
-	extends ObeoDSMObjectItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,7 +118,7 @@ public class BindingItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Binding)object).getDescription());
+		String label = ((Binding)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Binding_type") :
 			getString("_UI_Binding_type") + " " + label;

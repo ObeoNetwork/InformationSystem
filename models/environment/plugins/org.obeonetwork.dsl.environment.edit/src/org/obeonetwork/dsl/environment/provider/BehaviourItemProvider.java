@@ -77,7 +77,7 @@ public class BehaviourItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Behaviour) object).getDescription());
+		String label = ((Behaviour) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_Behaviour_type")
 				: getString("_UI_Behaviour_type") + " " + label;
 	}
@@ -103,8 +103,7 @@ public class BehaviourItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

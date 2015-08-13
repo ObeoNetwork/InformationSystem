@@ -26,11 +26,11 @@ import org.obeonetwork.dsl.environment.StructuredType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.AttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.AttributeImpl#getContainingType <em>Containing Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -67,8 +67,8 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * @generated
 	 */
 	public DataType getType() {
-		return (DataType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__TYPE,
-				EnvironmentPackage.Literals.ATTRIBUTE__TYPE, true, true);
+		return (DataType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__TYPE, EnvironmentPackage.Literals.ATTRIBUTE__TYPE,
+				true, true);
 	}
 
 	/**
@@ -77,8 +77,8 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * @generated
 	 */
 	public DataType basicGetType() {
-		return (DataType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__TYPE,
-				EnvironmentPackage.Literals.ATTRIBUTE__TYPE, false, true);
+		return (DataType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__TYPE, EnvironmentPackage.Literals.ATTRIBUTE__TYPE,
+				false, true);
 	}
 
 	/**
@@ -87,8 +87,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * @generated
 	 */
 	public void setType(DataType newType) {
-		eDynamicSet(EnvironmentPackage.ATTRIBUTE__TYPE,
-				EnvironmentPackage.Literals.ATTRIBUTE__TYPE, newType);
+		eDynamicSet(EnvironmentPackage.ATTRIBUTE__TYPE, EnvironmentPackage.Literals.ATTRIBUTE__TYPE, newType);
 	}
 
 	/**
@@ -97,10 +96,8 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * @generated
 	 */
 	public StructuredType getContainingType() {
-		return (StructuredType) eDynamicGet(
-				EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
-				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE, true,
-				true);
+		return (StructuredType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
+				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE, true, true);
 	}
 
 	/**
@@ -109,10 +106,8 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * @generated
 	 */
 	public StructuredType basicGetContainingType() {
-		return (StructuredType) eDynamicGet(
-				EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
-				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE, false,
-				true);
+		return (StructuredType) eDynamicGet(EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
+				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE, false, true);
 	}
 
 	/**
@@ -120,10 +115,9 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContainingType(
-			StructuredType newContainingType, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newContainingType,
-				EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE, msgs);
+	public NotificationChain basicSetContainingType(StructuredType newContainingType, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newContainingType, EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
+				msgs);
 		return msgs;
 	}
 
@@ -134,8 +128,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 */
 	public void setContainingType(StructuredType newContainingType) {
 		eDynamicSet(EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE,
-				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE,
-				newContainingType);
+				EnvironmentPackage.Literals.ATTRIBUTE__CONTAINING_TYPE, newContainingType);
 	}
 
 	/**
@@ -144,8 +137,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
 			if (eInternalContainer() != null)
@@ -161,8 +153,7 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
 			return basicSetContainingType(null, msgs);
@@ -176,12 +167,10 @@ public class AttributeImpl extends PropertyImpl implements Attribute {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(
-			NotificationChain msgs) {
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case EnvironmentPackage.ATTRIBUTE__CONTAINING_TYPE:
-			return eInternalContainer().eInverseRemove(this,
-					EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES,
+			return eInternalContainer().eInverseRemove(this, EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES,
 					StructuredType.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);

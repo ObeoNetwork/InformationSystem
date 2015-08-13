@@ -18,11 +18,11 @@ import org.obeonetwork.dsl.soa.Wire;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.WireImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.WireImpl#getDest <em>Dest</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

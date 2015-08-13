@@ -48,8 +48,7 @@ public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	public BindingReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-		ComposedAdapterFactory af = new ComposedAdapterFactory(
-				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		ComposedAdapterFactory af = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 		af.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		labelProvider = new AdapterFactoryLabelProvider(af);
 	}
@@ -78,16 +77,12 @@ public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addLeftPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_BindingReference_left_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_BindingReference_left_feature",
-						"_UI_BindingReference_type"),
-				EnvironmentPackage.Literals.BINDING_REFERENCE__LEFT, true,
-				false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_BindingReference_left_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_BindingReference_left_feature",
+								"_UI_BindingReference_type"),
+						EnvironmentPackage.Literals.BINDING_REFERENCE__LEFT, true, false, true, null, null, null));
 	}
 
 	/**
@@ -97,16 +92,12 @@ public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addRightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_BindingReference_right_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_BindingReference_right_feature",
-						"_UI_BindingReference_type"),
-				EnvironmentPackage.Literals.BINDING_REFERENCE__RIGHT, true,
-				false, true, null, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_BindingReference_right_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_BindingReference_right_feature",
+								"_UI_BindingReference_type"),
+						EnvironmentPackage.Literals.BINDING_REFERENCE__RIGHT, true, false, true, null, null, null));
 	}
 
 	/**
@@ -117,8 +108,7 @@ public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/BindingReference"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BindingReference"));
 	}
 
 	/**
@@ -141,18 +131,14 @@ public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 	public String getText(Object object) {
 		String label = " ";
 		BindingReference bindingReference = (BindingReference) object;
-		if (bindingReference.getLeft() != null
-				&& bindingReference.getLeft().getBoundElement() != null) {
-			label += labelProvider.getText(bindingReference.getLeft()
-					.getBoundElement());
+		if (bindingReference.getLeft() != null && bindingReference.getLeft().getBoundElement() != null) {
+			label += labelProvider.getText(bindingReference.getLeft().getBoundElement());
 		} else {
 			label += "undefined";
 		}
 		label += " - ";
-		if (bindingReference.getRight() != null
-				&& bindingReference.getRight().getBoundElement() != null) {
-			label += labelProvider.getText(bindingReference.getRight()
-					.getBoundElement());
+		if (bindingReference.getRight() != null && bindingReference.getRight().getBoundElement() != null) {
+			label += labelProvider.getText(bindingReference.getRight().getBoundElement());
 		} else {
 			label += "undefined";
 		}
@@ -182,8 +168,7 @@ public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

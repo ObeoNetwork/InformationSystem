@@ -29,15 +29,14 @@ import org.obeonetwork.dsl.environment.PriorityDefinition;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.PriorityDefinitionImpl#getPriorities <em>Priorities</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class PriorityDefinitionImpl extends ObeoDSMObjectImpl implements
-		PriorityDefinition {
+public class PriorityDefinitionImpl extends ObeoDSMObjectImpl implements PriorityDefinition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,10 +70,8 @@ public class PriorityDefinitionImpl extends ObeoDSMObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Priority> getPriorities() {
-		return (EList<Priority>) eDynamicGet(
-				EnvironmentPackage.PRIORITY_DEFINITION__PRIORITIES,
-				EnvironmentPackage.Literals.PRIORITY_DEFINITION__PRIORITIES,
-				true, true);
+		return (EList<Priority>) eDynamicGet(EnvironmentPackage.PRIORITY_DEFINITION__PRIORITIES,
+				EnvironmentPackage.Literals.PRIORITY_DEFINITION__PRIORITIES, true, true);
 	}
 
 	/**
@@ -83,12 +80,10 @@ public class PriorityDefinitionImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.PRIORITY_DEFINITION__PRIORITIES:
-			return ((InternalEList<?>) getPriorities()).basicRemove(otherEnd,
-					msgs);
+			return ((InternalEList<?>) getPriorities()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

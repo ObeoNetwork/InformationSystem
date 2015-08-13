@@ -71,15 +71,13 @@ public class PriorityItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Priority_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Priority_name_feature", "_UI_Priority_type"),
-				EnvironmentPackage.Literals.PRIORITY__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Priority_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Priority_name_feature",
+								"_UI_Priority_type"),
+						EnvironmentPackage.Literals.PRIORITY__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -90,8 +88,7 @@ public class PriorityItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Priority"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Priority"));
 	}
 
 	/**
@@ -130,8 +127,7 @@ public class PriorityItemProvider extends ObeoDSMObjectItemProvider {
 
 		switch (notification.getFeatureID(Priority.class)) {
 		case EnvironmentPackage.PRIORITY__NAME:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -145,8 +141,7 @@ public class PriorityItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

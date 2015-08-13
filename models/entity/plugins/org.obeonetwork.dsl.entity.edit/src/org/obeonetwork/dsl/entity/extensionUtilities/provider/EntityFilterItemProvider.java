@@ -38,13 +38,7 @@ import org.obeonetwork.dsl.environment.provider.FilterItemProvider;
  * @generated
  */
 public class EntityFilterItemProvider
-	extends FilterItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends FilterItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,7 +192,7 @@ public class EntityFilterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((EntityFilter)object).getDescription());
+		String label = ((EntityFilter)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_EntityFilter_type") :
 			getString("_UI_EntityFilter_type") + " " + label;

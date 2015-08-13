@@ -24,12 +24,12 @@ import org.obeonetwork.dsl.cinematic.view.ViewContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.ViewStateImpl#isNewInstance <em>New Instance</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.ViewStateImpl#isRefresh <em>Refresh</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.ViewStateImpl#getViewContainers <em>View Containers</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -18,6 +18,7 @@ import org.obeonetwork.dsl.ecorebinding.BTypeParameter;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
 
 import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,15 +26,15 @@ import org.obeonetwork.dsl.environment.BoundableElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BClassifierImpl#getBTypeParameters <em>BType Parameters</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BClassifierImpl#getBPackage <em>BPackage</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class BClassifierImpl extends CDOObjectImpl implements BClassifier {
+public class BClassifierImpl extends IdentifiableImpl implements BClassifier {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -51,16 +52,6 @@ public class BClassifierImpl extends CDOObjectImpl implements BClassifier {
 	@Override
 	protected EClass eStaticClass() {
 		return EcorebindingPackage.Literals.BCLASSIFIER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

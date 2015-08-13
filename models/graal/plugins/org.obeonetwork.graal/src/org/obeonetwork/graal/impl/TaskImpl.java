@@ -46,6 +46,7 @@ import org.obeonetwork.graal.util.GraalUsageCrossReferencer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.TaskImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.TaskImpl#getId <em>Id</em>}</li>
@@ -54,7 +55,6 @@ import org.obeonetwork.graal.util.GraalUsageCrossReferencer;
  *   <li>{@link org.obeonetwork.graal.impl.TaskImpl#getPostconditions <em>Postconditions</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.TaskImpl#getActors <em>Actors</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

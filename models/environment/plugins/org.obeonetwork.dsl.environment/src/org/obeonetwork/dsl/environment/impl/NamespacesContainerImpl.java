@@ -26,6 +26,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.NamespacesContainer;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,15 +34,14 @@ import org.obeonetwork.dsl.environment.NamespacesContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.NamespacesContainerImpl#getOwnedNamespaces <em>Owned Namespaces</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public abstract class NamespacesContainerImpl extends CDOObjectImpl implements
-		NamespacesContainer {
+public abstract class NamespacesContainerImpl extends IdentifiableImpl implements NamespacesContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,22 +73,10 @@ public abstract class NamespacesContainerImpl extends CDOObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	public EList<Namespace> getOwnedNamespaces() {
-		return (EList<Namespace>) eDynamicGet(
-				EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
-				EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
-				true, true);
+		return (EList<Namespace>) eDynamicGet(EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+				EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES, true, true);
 	}
 
 	/**
@@ -98,12 +86,10 @@ public abstract class NamespacesContainerImpl extends CDOObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOwnedNamespaces())
-					.basicAdd(otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOwnedNamespaces()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -114,12 +100,10 @@ public abstract class NamespacesContainerImpl extends CDOObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES:
-			return ((InternalEList<?>) getOwnedNamespaces()).basicRemove(
-					otherEnd, msgs);
+			return ((InternalEList<?>) getOwnedNamespaces()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -149,8 +133,7 @@ public abstract class NamespacesContainerImpl extends CDOObjectImpl implements
 		switch (featureID) {
 		case EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES:
 			getOwnedNamespaces().clear();
-			getOwnedNamespaces().addAll(
-					(Collection<? extends Namespace>) newValue);
+			getOwnedNamespaces().addAll((Collection<? extends Namespace>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

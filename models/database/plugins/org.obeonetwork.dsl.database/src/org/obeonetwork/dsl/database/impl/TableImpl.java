@@ -33,13 +33,13 @@ import org.obeonetwork.dsl.database.Table;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.TableImpl#getPrimaryKey <em>Primary Key</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.TableImpl#getForeignKeys <em>Foreign Keys</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.TableImpl#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.TableImpl#getIndexes <em>Indexes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

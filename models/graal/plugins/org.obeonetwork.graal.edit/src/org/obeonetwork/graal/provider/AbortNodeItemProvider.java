@@ -31,13 +31,7 @@ import org.obeonetwork.graal.AbortNode;
  * @generated
  */
 public class AbortNodeItemProvider
-	extends NodeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -92,7 +86,7 @@ public class AbortNodeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((AbortNode)object).getDescription());
+		String label = ((AbortNode)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_AbortNode_type") :
 			getString("_UI_AbortNode_type") + " " + label;

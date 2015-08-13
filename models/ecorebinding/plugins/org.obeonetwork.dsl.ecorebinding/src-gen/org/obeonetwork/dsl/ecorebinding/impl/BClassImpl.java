@@ -21,12 +21,12 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BClassImpl#getEcoreClass <em>Ecore Class</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BClassImpl#getBFeatures <em>BFeatures</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BClassImpl#getBOperations <em>BOperations</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

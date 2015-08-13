@@ -35,13 +35,7 @@ import org.obeonetwork.dsl.database.Table;
  * @generated
  */
 public class TableItemProvider
-	extends AbstractTableItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends AbstractTableItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

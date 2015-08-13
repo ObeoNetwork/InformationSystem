@@ -31,10 +31,10 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryUser;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.impl.TypesLibraryUserImpl#getUsedLibraries <em>Used Libraries</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

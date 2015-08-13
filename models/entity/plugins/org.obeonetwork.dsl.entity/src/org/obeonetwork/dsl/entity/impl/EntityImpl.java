@@ -30,6 +30,7 @@ import org.obeonetwork.dsl.environment.impl.StructuredTypeImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.EntityImpl#getEstimatedVolumetry <em>Estimated Volumetry</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.EntityImpl#getEstimatedAccess <em>Estimated Access</em>}</li>
@@ -37,7 +38,6 @@ import org.obeonetwork.dsl.environment.impl.StructuredTypeImpl;
  *   <li>{@link org.obeonetwork.dsl.entity.impl.EntityImpl#getOwnedFinders <em>Owned Finders</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.EntityImpl#getInheritanceKind <em>Inheritance Kind</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

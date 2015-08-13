@@ -14,6 +14,7 @@ package org.obeonetwork.dsl.requirement;
 
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,17 +23,16 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.requirement.NamedElement#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.requirement.RequirementPackage#getNamedElement()
  * @model abstract="true"
- * @extends CDOObject
  * @generated
  */
-public interface NamedElement extends CDOObject {
+public interface NamedElement extends Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

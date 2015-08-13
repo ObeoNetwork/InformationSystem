@@ -30,10 +30,10 @@ import org.obeonetwork.graal.util.GraalUsageCrossReferencer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.AbstractTaskImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

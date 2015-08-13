@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.obeonetwork.dsl.requirement.NamedElement;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,14 +30,14 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.NamedElementImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public abstract class NamedElementImpl extends CDOObjectImpl implements NamedElement {
+public abstract class NamedElementImpl extends IdentifiableImpl implements NamedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,16 +72,6 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
 	@Override
 	protected EClass eStaticClass() {
 		return RequirementPackage.Literals.NAMED_ELEMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

@@ -22,6 +22,7 @@ import org.obeonetwork.dsl.ecorebinding.BPackage;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
 
 import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +30,7 @@ import org.obeonetwork.dsl.environment.BoundableElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BPackageImpl#getEcorePackage <em>Ecore Package</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BPackageImpl#getBModel <em>BModel</em>}</li>
@@ -38,11 +40,10 @@ import org.obeonetwork.dsl.environment.BoundableElement;
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BPackageImpl#getNestedBPackages <em>Nested BPackages</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BPackageImpl#getBClassifiers <em>BClassifiers</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class BPackageImpl extends CDOObjectImpl implements BPackage {
+public class BPackageImpl extends IdentifiableImpl implements BPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,16 +61,6 @@ public class BPackageImpl extends CDOObjectImpl implements BPackage {
 	@Override
 	protected EClass eStaticClass() {
 		return EcorebindingPackage.Literals.BPACKAGE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

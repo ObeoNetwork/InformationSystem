@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.obeonetwork.dsl.cinematic.view.*;
 import org.obeonetwork.dsl.cinematic.view.ViewAction;
 import org.obeonetwork.dsl.cinematic.view.ViewContainer;
 import org.obeonetwork.dsl.cinematic.view.ViewContainerReference;
@@ -39,7 +40,7 @@ public class ViewFactoryImpl extends EFactoryImpl implements ViewFactory {
 	 */
 	public static ViewFactory init() {
 		try {
-			ViewFactory theViewFactory = (ViewFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/cinematic/view/1.0.0"); 
+			ViewFactory theViewFactory = (ViewFactory)EPackage.Registry.INSTANCE.getEFactory(ViewPackage.eNS_URI);
 			if (theViewFactory != null) {
 				return theViewFactory;
 			}

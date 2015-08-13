@@ -18,8 +18,6 @@ import org.obeonetwork.dsl.interaction.InteractionPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Destroy Participant Message</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

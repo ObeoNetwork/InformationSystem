@@ -24,7 +24,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
+import org.obeonetwork.dsl.ecorebinding.BTypeParameter;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.ecorebinding.BTypeParameter} object.
@@ -33,13 +35,7 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * @generated
  */
 public class BTypeParameterItemProvider
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IdentifiableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -107,7 +103,10 @@ public class BTypeParameterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BTypeParameter_type");
+		String label = ((BTypeParameter)object).getTechnicalid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BTypeParameter_type") :
+			getString("_UI_BTypeParameter_type") + " " + label;
 	}
 
 	/**

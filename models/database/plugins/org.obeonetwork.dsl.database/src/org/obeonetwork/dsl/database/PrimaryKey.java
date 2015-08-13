@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.PrimaryKey#getColumns <em>Columns</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.PrimaryKey#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getPrimaryKey()
  * @model

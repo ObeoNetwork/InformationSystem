@@ -18,8 +18,6 @@ import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Abort State</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

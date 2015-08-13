@@ -73,15 +73,13 @@ public class PropertyItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Property_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Property_name_feature", "_UI_Property_type"),
-				EnvironmentPackage.Literals.PROPERTY__NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Property_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Property_name_feature",
+								"_UI_Property_type"),
+						EnvironmentPackage.Literals.PROPERTY__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -91,17 +89,13 @@ public class PropertyItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addMultiplicityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Property_multiplicity_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Property_multiplicity_feature",
-						"_UI_Property_type"),
-				EnvironmentPackage.Literals.PROPERTY__MULTIPLICITY, true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Property_multiplicity_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Property_multiplicity_feature",
+								"_UI_Property_type"),
+						EnvironmentPackage.Literals.PROPERTY__MULTIPLICITY, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -111,17 +105,13 @@ public class PropertyItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addIsIdentifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Property_isIdentifier_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Property_isIdentifier_feature",
-						"_UI_Property_type"),
-				EnvironmentPackage.Literals.PROPERTY__IS_IDENTIFIER, true,
-				false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null,
-				null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Property_isIdentifier_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Property_isIdentifier_feature",
+								"_UI_Property_type"),
+						EnvironmentPackage.Literals.PROPERTY__IS_IDENTIFIER, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -162,8 +152,7 @@ public class PropertyItemProvider extends ObeoDSMObjectItemProvider {
 		case EnvironmentPackage.PROPERTY__NAME:
 		case EnvironmentPackage.PROPERTY__MULTIPLICITY:
 		case EnvironmentPackage.PROPERTY__IS_IDENTIFIER:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -177,8 +166,7 @@ public class PropertyItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

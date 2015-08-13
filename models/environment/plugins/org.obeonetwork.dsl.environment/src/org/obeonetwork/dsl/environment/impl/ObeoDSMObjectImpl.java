@@ -30,6 +30,7 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.util.EnvironmentUtil;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +38,7 @@ import org.obeonetwork.dsl.environment.util.EnvironmentUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl#getMetadatas <em>Metadatas</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl#getDescription <em>Description</em>}</li>
@@ -47,12 +49,10 @@ import org.obeonetwork.dsl.environment.util.EnvironmentUtil;
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl#getCreatedOn <em>Created On</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.ObeoDSMObjectImpl#getModifiedOn <em>Modified On</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
-		ObeoDSMObject {
+public abstract class ObeoDSMObjectImpl extends IdentifiableImpl implements ObeoDSMObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,12 +124,9 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 
 					if (!EnvironmentUtil.isResourceLoading(notifier)) {
 						Date currentDate = new Date();
-						if (msg != null
-								&& msg.getFeature() != null
-								&& !msg.getFeature()
-										.equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON)
-								&& !msg.getFeature()
-										.equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON)) {
+						if (msg != null && msg.getFeature() != null
+								&& !msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON)
+								&& !msg.getFeature().equals(EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON)) {
 							switch (msg.getEventType()) {
 							case Notification.MOVE:
 							case Notification.SET:
@@ -144,7 +141,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 								}
 								break;
 							}
-						}/* Disabling this functionnality because it causes problems with CDO
+						} /* Disabling this functionnality because it causes problems with CDO
 							everytime an object is modifed all its containers are modified too
 							and then CDO objects are locked
 							
@@ -179,21 +176,9 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MetaDataContainer getMetadatas() {
-		return (MetaDataContainer) eDynamicGet(
-				EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS, true,
-				true);
+		return (MetaDataContainer) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS,
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS, true, true);
 	}
 
 	/**
@@ -202,10 +187,8 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 * @generated
 	 */
 	public MetaDataContainer basicGetMetadatas() {
-		return (MetaDataContainer) eDynamicGet(
-				EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS, false,
-				true);
+		return (MetaDataContainer) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS,
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS, false, true);
 	}
 
 	/**
@@ -213,10 +196,8 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMetadatas(MetaDataContainer newMetadatas,
-			NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject) newMetadatas,
-				EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS, msgs);
+	public NotificationChain basicSetMetadatas(MetaDataContainer newMetadatas, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject) newMetadatas, EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS, msgs);
 		return msgs;
 	}
 
@@ -227,8 +208,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 */
 	public void setMetadatas(MetaDataContainer newMetadatas) {
 		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS,
-				newMetadatas);
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__METADATAS, newMetadatas);
 	}
 
 	/**
@@ -237,10 +217,8 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 * @generated
 	 */
 	public String getDescription() {
-		return (String) eDynamicGet(
-				EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__DESCRIPTION, true,
-				true);
+		return (String) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION,
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__DESCRIPTION, true, true);
 	}
 
 	/**
@@ -250,8 +228,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 */
 	public void setDescription(String newDescription) {
 		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__DESCRIPTION,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__DESCRIPTION,
-				newDescription);
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__DESCRIPTION, newDescription);
 	}
 
 	/**
@@ -261,10 +238,8 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<String> getKeywords() {
-		return (EList<String>) eDynamicGet(
-				EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__KEYWORDS, true,
-				true);
+		return (EList<String>) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__KEYWORDS,
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__KEYWORDS, true, true);
 	}
 
 	/**
@@ -274,10 +249,8 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Behaviour> getBehaviours() {
-		return (EList<Behaviour>) eDynamicGet(
-				EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BEHAVIOURS, true,
-				true);
+		return (EList<Behaviour>) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS,
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BEHAVIOURS, true, true);
 	}
 
 	/**
@@ -287,10 +260,8 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<BindingRegistry> getBindingRegistries() {
-		return (EList<BindingRegistry>) eDynamicGet(
-				EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BINDING_REGISTRIES,
-				true, true);
+		return (EList<BindingRegistry>) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES,
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BINDING_REGISTRIES, true, true);
 	}
 
 	/**
@@ -299,10 +270,8 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 * @generated
 	 */
 	public int getVersion() {
-		return (Integer) eDynamicGet(
-				EnvironmentPackage.OBEO_DSM_OBJECT__VERSION,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__VERSION, true,
-				true);
+		return (Integer) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__VERSION,
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__VERSION, true, true);
 	}
 
 	/**
@@ -311,8 +280,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 * @generated
 	 */
 	public void setVersion(int newVersion) {
-		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__VERSION,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__VERSION,
+		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__VERSION, EnvironmentPackage.Literals.OBEO_DSM_OBJECT__VERSION,
 				newVersion);
 	}
 
@@ -322,10 +290,8 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 * @generated
 	 */
 	public Date getCreatedOn() {
-		return (Date) eDynamicGet(
-				EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON, true,
-				true);
+		return (Date) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON,
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON, true, true);
 	}
 
 	/**
@@ -335,8 +301,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 */
 	public void setCreatedOn(Date newCreatedOn) {
 		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON,
-				newCreatedOn);
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__CREATED_ON, newCreatedOn);
 	}
 
 	/**
@@ -345,10 +310,8 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 * @generated
 	 */
 	public Date getModifiedOn() {
-		return (Date) eDynamicGet(
-				EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON, true,
-				true);
+		return (Date) eDynamicGet(EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON,
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON, true, true);
 	}
 
 	/**
@@ -358,8 +321,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 */
 	public void setModifiedOn(Date newModifiedOn) {
 		eDynamicSet(EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON,
-				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON,
-				newModifiedOn);
+				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__MODIFIED_ON, newModifiedOn);
 	}
 
 	/**
@@ -368,14 +330,12 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.OBEO_DSM_OBJECT__METADATAS:
 			return basicSetMetadatas(null, msgs);
 		case EnvironmentPackage.OBEO_DSM_OBJECT__BEHAVIOURS:
-			return ((InternalEList<?>) getBehaviours()).basicRemove(otherEnd,
-					msgs);
+			return ((InternalEList<?>) getBehaviours()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -435,8 +395,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 			return;
 		case EnvironmentPackage.OBEO_DSM_OBJECT__BINDING_REGISTRIES:
 			getBindingRegistries().clear();
-			getBindingRegistries().addAll(
-					(Collection<? extends BindingRegistry>) newValue);
+			getBindingRegistries().addAll((Collection<? extends BindingRegistry>) newValue);
 			return;
 		case EnvironmentPackage.OBEO_DSM_OBJECT__VERSION:
 			setVersion((Integer) newValue);
@@ -509,8 +468,7 @@ public abstract class ObeoDSMObjectImpl extends CDOObjectImpl implements
 		case EnvironmentPackage.OBEO_DSM_OBJECT__VERSION:
 			return getVersion() != VERSION_EDEFAULT;
 		case EnvironmentPackage.OBEO_DSM_OBJECT__CREATED_ON:
-			return CREATED_ON_EDEFAULT == null ? getCreatedOn() != null
-					: !CREATED_ON_EDEFAULT.equals(getCreatedOn());
+			return CREATED_ON_EDEFAULT == null ? getCreatedOn() != null : !CREATED_ON_EDEFAULT.equals(getCreatedOn());
 		case EnvironmentPackage.OBEO_DSM_OBJECT__MODIFIED_ON:
 			return MODIFIED_ON_EDEFAULT == null ? getModifiedOn() != null
 					: !MODIFIED_ON_EDEFAULT.equals(getModifiedOn());

@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.InterDSMLink#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.InterDSMLink#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getInterDSMLink()
  * @model

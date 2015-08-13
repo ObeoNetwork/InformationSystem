@@ -18,10 +18,10 @@ package org.obeonetwork.graal;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.AbstractTask#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.GraalPackage#getAbstractTask()
  * @model abstract="true"

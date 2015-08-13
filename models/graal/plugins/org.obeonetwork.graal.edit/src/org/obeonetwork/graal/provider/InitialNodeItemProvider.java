@@ -31,13 +31,7 @@ import org.obeonetwork.graal.InitialNode;
  * @generated
  */
 public class InitialNodeItemProvider
-	extends NodeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -92,7 +86,7 @@ public class InitialNodeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((InitialNode)object).getDescription());
+		String label = ((InitialNode)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_InitialNode_type") :
 			getString("_UI_InitialNode_type") + " " + label;

@@ -15,6 +15,7 @@ import org.obeonetwork.dsl.ecorebinding.BTypeParameter;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
 
 import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,14 +23,14 @@ import org.obeonetwork.dsl.environment.BoundableElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BTypeParameterImpl#getEcoreTypeParameter <em>Ecore Type Parameter</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class BTypeParameterImpl extends CDOObjectImpl implements BTypeParameter {
+public class BTypeParameterImpl extends IdentifiableImpl implements BTypeParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,16 +48,6 @@ public class BTypeParameterImpl extends CDOObjectImpl implements BTypeParameter 
 	@Override
 	protected EClass eStaticClass() {
 		return EcorebindingPackage.Literals.BTYPE_PARAMETER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

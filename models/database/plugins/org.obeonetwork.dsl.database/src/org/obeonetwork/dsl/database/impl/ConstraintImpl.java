@@ -27,11 +27,11 @@ import org.obeonetwork.dsl.database.Table;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ConstraintImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ConstraintImpl#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

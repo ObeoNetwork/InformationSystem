@@ -18,10 +18,10 @@ package org.obeonetwork.graal;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.NamedElement#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.GraalPackage#getNamedElement()
  * @model abstract="true"

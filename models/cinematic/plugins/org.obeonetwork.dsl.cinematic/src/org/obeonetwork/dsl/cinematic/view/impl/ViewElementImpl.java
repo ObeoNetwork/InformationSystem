@@ -21,11 +21,11 @@ import org.obeonetwork.dsl.environment.Type;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewElementImpl#isRequired <em>Required</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewElementImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

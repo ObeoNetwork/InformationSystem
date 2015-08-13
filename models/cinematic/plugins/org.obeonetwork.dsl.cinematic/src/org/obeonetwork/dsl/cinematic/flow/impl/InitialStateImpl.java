@@ -18,8 +18,6 @@ import org.obeonetwork.dsl.cinematic.flow.InitialState;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Initial State</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

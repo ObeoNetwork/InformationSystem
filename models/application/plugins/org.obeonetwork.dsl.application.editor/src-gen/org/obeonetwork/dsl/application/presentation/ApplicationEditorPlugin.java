@@ -25,6 +25,7 @@ import org.obeonetwork.dsl.ecorebinding.provider.EcorebindingEditPlugin;
 import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
 
 import org.obeonetwork.dsl.soa.provider.SoaEditPlugin;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**
  * This is the central singleton for the Application editor plugin.
@@ -56,9 +57,8 @@ public final class ApplicationEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public ApplicationEditorPlugin() {
-		super(new ResourceLocator[] { CinematicEditPlugin.INSTANCE,
-				EcoreEditPlugin.INSTANCE, EcorebindingEditPlugin.INSTANCE,
-				EnvironmentEditPlugin.INSTANCE, });
+		super(new ResourceLocator[] { CinematicEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE,
+				EcorebindingEditPlugin.INSTANCE, EnvironmentEditPlugin.INSTANCE, TechnicalIDEditPlugin.INSTANCE, });
 	}
 
 	/**

@@ -40,9 +40,7 @@ import org.obeonetwork.dsl.overview.Root;
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class RootItemProvider extends ObeoDSMObjectItemProvider implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider,
-		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class RootItemProvider extends ObeoDSMObjectItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.obeonetwork.org/dsl/technicalid/2.0.0" 
+       class = "org.obeonetwork.dsl.technicalid.TechnicalIDPackage"
+       genModel = "model/technicalid.genmodel" /> 
+  </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated technicalid -->
+      <parser
+            type="technicalid"
+            class="org.obeonetwork.dsl.technicalid.util.TechnicalIDResourceFactoryImpl"/>
+   </extension>
+</plugin>

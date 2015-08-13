@@ -19,10 +19,10 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.Participant#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.interaction.InteractionPackage#getParticipant()
  * @model

@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.diagram.AbstractDNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.obeonetwork.dsl.database.AbstractTable;
@@ -17,6 +16,7 @@ import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.ForeignKeyElement;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
+import org.obeonetwork.dsl.technicalid.util.CopierUtils;
 
 public class DatabaseServices {
 	
@@ -72,7 +72,7 @@ public class DatabaseServices {
 		Column newColumn = DatabaseFactory.eINSTANCE.createColumn();
 		table.getColumns().add(newColumn);
 		newColumn.setName(referenceColumn.getName());
-		newColumn.setType(EcoreUtil.copy(referenceColumn.getType()));
+		newColumn.setType(CopierUtils.copy(referenceColumn.getType()));
 		return newColumn;
 	}
 	

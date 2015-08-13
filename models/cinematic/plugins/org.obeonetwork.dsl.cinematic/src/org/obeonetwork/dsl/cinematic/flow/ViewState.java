@@ -20,12 +20,12 @@ import org.obeonetwork.dsl.cinematic.view.ViewContainer;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.ViewState#isNewInstance <em>New Instance</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.ViewState#isRefresh <em>Refresh</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.ViewState#getViewContainers <em>View Containers</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getViewState()
  * @model

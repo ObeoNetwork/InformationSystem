@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.typeslibrary.SimpleNamedType;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 
@@ -35,13 +36,7 @@ import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
  * @generated
  */
 public class SimpleNamedTypeItemProvider
-	extends UserDefinedTypeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends UserDefinedTypeItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -142,6 +137,12 @@ public class SimpleNamedTypeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(SimpleNamedType.class)) {
+			case TypesLibraryPackage.SIMPLE_NAMED_TYPE__TECHNICALID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.application.Configuration;
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,8 +29,7 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationPackageImpl extends EPackageImpl implements
-		ApplicationPackage {
+public class ApplicationPackageImpl extends EPackageImpl implements ApplicationPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,13 +77,12 @@ public class ApplicationPackageImpl extends EPackageImpl implements
 	 */
 	public static ApplicationPackage init() {
 		if (isInited)
-			return (ApplicationPackage) EPackage.Registry.INSTANCE
-					.getEPackage(ApplicationPackage.eNS_URI);
+			return (ApplicationPackage) EPackage.Registry.INSTANCE.getEPackage(ApplicationPackage.eNS_URI);
 
 		// Obtain or create and register package
 		ApplicationPackageImpl theApplicationPackage = (ApplicationPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE
-				.get(eNS_URI) : new ApplicationPackageImpl());
+				.get(eNS_URI) instanceof ApplicationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
+						: new ApplicationPackageImpl());
 
 		isInited = true;
 
@@ -101,8 +100,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements
 		theApplicationPackage.freeze();
 
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(ApplicationPackage.eNS_URI,
-				theApplicationPackage);
+		EPackage.Registry.INSTANCE.put(ApplicationPackage.eNS_URI, theApplicationPackage);
 		return theApplicationPackage;
 	}
 
@@ -184,8 +182,7 @@ public class ApplicationPackageImpl extends EPackageImpl implements
 		createEReference(configurationEClass, CONFIGURATION__BINDING_REGISTRIES);
 		createEReference(configurationEClass, CONFIGURATION__ECORE_MODEL);
 		createEReference(configurationEClass, CONFIGURATION__CINEMATIC_MODEL);
-		createEReference(configurationEClass,
-				CONFIGURATION__ECORE_BINDING_MODEL);
+		createEReference(configurationEClass, CONFIGURATION__ECORE_BINDING_MODEL);
 	}
 
 	/**
@@ -213,10 +210,11 @@ public class ApplicationPackageImpl extends EPackageImpl implements
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		TechnicalIDPackage theTechnicalIDPackage = (TechnicalIDPackage) EPackage.Registry.INSTANCE
+				.getEPackage(TechnicalIDPackage.eNS_URI);
 		EnvironmentPackage theEnvironmentPackage = (EnvironmentPackage) EPackage.Registry.INSTANCE
 				.getEPackage(EnvironmentPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
-				.getEPackage(EcorePackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		CinematicPackage theCinematicPackage = (CinematicPackage) EPackage.Registry.INSTANCE
 				.getEPackage(CinematicPackage.eNS_URI);
 		EcorebindingPackage theEcorebindingPackage = (EcorebindingPackage) EPackage.Registry.INSTANCE
@@ -227,31 +225,23 @@ public class ApplicationPackageImpl extends EPackageImpl implements
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		configurationEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(configurationEClass, Configuration.class, "Configuration",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConfiguration_BindingRegistries(),
-				theEnvironmentPackage.getBindingRegistry(), null,
-				"bindingRegistries", null, 0, -1, Configuration.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getConfiguration_EcoreModel(),
-				theEcorePackage.getEPackage(), null, "ecoreModel", null, 0, 1,
-				Configuration.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConfiguration_BindingRegistries(), theEnvironmentPackage.getBindingRegistry(), null,
+				"bindingRegistries", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_EcoreModel(), theEcorePackage.getEPackage(), null, "ecoreModel", null, 0, 1,
+				Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfiguration_CinematicModel(),
-				theCinematicPackage.getCinematicRoot(), null, "cinematicModel",
-				null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConfiguration_EcoreBindingModel(),
-				theEcorebindingPackage.getBModel(), null, "ecoreBindingModel",
-				null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_CinematicModel(), theCinematicPackage.getCinematicRoot(), null,
+				"cinematicModel", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfiguration_EcoreBindingModel(), theEcorebindingPackage.getBModel(), null,
+				"ecoreBindingModel", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

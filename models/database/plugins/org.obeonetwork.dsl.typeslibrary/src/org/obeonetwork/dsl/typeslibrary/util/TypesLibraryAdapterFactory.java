@@ -17,6 +17,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.dsl.typeslibrary.*;
 
 /**
@@ -125,6 +126,10 @@ public class TypesLibraryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTypesLibrary(TypesLibrary object) {
 				return createTypesLibraryAdapter();
+			}
+			@Override
+			public Adapter caseIdentifiable(Identifiable object) {
+				return createIdentifiableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -297,6 +302,20 @@ public class TypesLibraryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypesLibraryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.technicalid.Identifiable <em>Identifiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.technicalid.Identifiable
+	 * @generated
+	 */
+	public Adapter createIdentifiableAdapter() {
 		return null;
 	}
 

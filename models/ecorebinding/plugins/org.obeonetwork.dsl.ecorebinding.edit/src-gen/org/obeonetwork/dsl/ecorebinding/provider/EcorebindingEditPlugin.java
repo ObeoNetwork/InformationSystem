@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 import org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 
 /**
  * This is the central singleton for the Ecorebinding edit plugin.
@@ -48,6 +49,7 @@ public final class EcorebindingEditPlugin extends EMFPlugin {
 		  (new ResourceLocator [] {
 		     EcoreEditPlugin.INSTANCE,
 		     EnvironmentEditPlugin.INSTANCE,
+		     TechnicalIDEditPlugin.INSTANCE,
 		   });
 	}
 

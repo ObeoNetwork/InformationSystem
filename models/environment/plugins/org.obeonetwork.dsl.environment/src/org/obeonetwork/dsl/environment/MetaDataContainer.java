@@ -14,6 +14,7 @@ package org.obeonetwork.dsl.environment;
 
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,17 +23,16 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.MetaDataContainer#getMetadatas <em>Metadatas</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getMetaDataContainer()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface MetaDataContainer extends CDOObject {
+public interface MetaDataContainer extends Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

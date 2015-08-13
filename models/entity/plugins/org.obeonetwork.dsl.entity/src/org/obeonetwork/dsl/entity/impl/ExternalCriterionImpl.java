@@ -22,11 +22,11 @@ import org.obeonetwork.dsl.environment.Type;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.ExternalCriterionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.impl.ExternalCriterionImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

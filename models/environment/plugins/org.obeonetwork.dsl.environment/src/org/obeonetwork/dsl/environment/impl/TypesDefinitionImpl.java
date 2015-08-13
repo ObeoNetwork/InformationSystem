@@ -29,15 +29,14 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.TypesDefinitionImpl#getTypes <em>Types</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class TypesDefinitionImpl extends ObeoDSMObjectImpl implements
-		TypesDefinition {
+public class TypesDefinitionImpl extends ObeoDSMObjectImpl implements TypesDefinition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,8 +70,7 @@ public class TypesDefinitionImpl extends ObeoDSMObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Type> getTypes() {
-		return (EList<Type>) eDynamicGet(
-				EnvironmentPackage.TYPES_DEFINITION__TYPES,
+		return (EList<Type>) eDynamicGet(EnvironmentPackage.TYPES_DEFINITION__TYPES,
 				EnvironmentPackage.Literals.TYPES_DEFINITION__TYPES, true, true);
 	}
 
@@ -83,12 +81,10 @@ public class TypesDefinitionImpl extends ObeoDSMObjectImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.TYPES_DEFINITION__TYPES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getTypes())
-					.basicAdd(otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getTypes()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -99,8 +95,7 @@ public class TypesDefinitionImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.TYPES_DEFINITION__TYPES:
 			return ((InternalEList<?>) getTypes()).basicRemove(otherEnd, msgs);

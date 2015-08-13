@@ -18,11 +18,11 @@ package org.obeonetwork.dsl.database;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.Constraint#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Constraint#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getConstraint()
  * @model

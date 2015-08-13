@@ -34,7 +34,7 @@ public class CinematicFactoryImpl extends EFactoryImpl implements CinematicFacto
 	 */
 	public static CinematicFactory init() {
 		try {
-			CinematicFactory theCinematicFactory = (CinematicFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/cinematic/3.0.0"); 
+			CinematicFactory theCinematicFactory = (CinematicFactory)EPackage.Registry.INSTANCE.getEFactory(CinematicPackage.eNS_URI);
 			if (theCinematicFactory != null) {
 				return theCinematicFactory;
 			}

@@ -18,11 +18,11 @@ package org.obeonetwork.dsl.cinematic.flow;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.SubflowState#getSubflow <em>Subflow</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.SubflowState#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getSubflowState()
  * @model

@@ -20,11 +20,11 @@ import org.obeonetwork.dsl.environment.Type;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.entity.ExternalCriterion#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.ExternalCriterion#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.entity.EntityPackage#getExternalCriterion()
  * @model

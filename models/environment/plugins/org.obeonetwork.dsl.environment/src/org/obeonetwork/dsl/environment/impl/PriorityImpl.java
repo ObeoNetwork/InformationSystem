@@ -22,10 +22,10 @@ import org.obeonetwork.dsl.environment.Priority;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.PriorityImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -72,8 +72,8 @@ public class PriorityImpl extends ObeoDSMObjectImpl implements Priority {
 	 * @generated
 	 */
 	public String getName() {
-		return (String) eDynamicGet(EnvironmentPackage.PRIORITY__NAME,
-				EnvironmentPackage.Literals.PRIORITY__NAME, true, true);
+		return (String) eDynamicGet(EnvironmentPackage.PRIORITY__NAME, EnvironmentPackage.Literals.PRIORITY__NAME, true,
+				true);
 	}
 
 	/**
@@ -82,8 +82,7 @@ public class PriorityImpl extends ObeoDSMObjectImpl implements Priority {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(EnvironmentPackage.PRIORITY__NAME,
-				EnvironmentPackage.Literals.PRIORITY__NAME, newName);
+		eDynamicSet(EnvironmentPackage.PRIORITY__NAME, EnvironmentPackage.Literals.PRIORITY__NAME, newName);
 	}
 
 	/**
@@ -139,8 +138,7 @@ public class PriorityImpl extends ObeoDSMObjectImpl implements Priority {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case EnvironmentPackage.PRIORITY__NAME:
-			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT
-					.equals(getName());
+			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
 	}

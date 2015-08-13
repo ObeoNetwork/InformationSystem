@@ -40,13 +40,7 @@ import org.obeonetwork.dsl.cinematic.provider.EventItemProvider;
  * @generated
  */
 public class FlowEventItemProvider
-	extends EventItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends EventItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

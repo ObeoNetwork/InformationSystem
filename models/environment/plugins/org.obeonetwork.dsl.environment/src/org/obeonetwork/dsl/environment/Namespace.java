@@ -21,11 +21,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.Namespace#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Namespace#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getNamespace()
  * @model

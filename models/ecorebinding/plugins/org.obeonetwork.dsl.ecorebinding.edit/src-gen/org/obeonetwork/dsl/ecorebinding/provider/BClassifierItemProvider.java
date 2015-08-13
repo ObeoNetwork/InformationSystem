@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.ecorebinding.BClassifier;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingFactory;
 import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
+import org.obeonetwork.dsl.technicalid.provider.IdentifiableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.obeonetwork.dsl.ecorebinding.BClassifier} object.
@@ -38,13 +39,7 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * @generated
  */
 public class BClassifierItemProvider
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IdentifiableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -142,7 +137,10 @@ public class BClassifierItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BClassifier_type");
+		String label = ((BClassifier)object).getTechnicalid();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BClassifier_type") :
+			getString("_UI_BClassifier_type") + " " + label;
 	}
 
 	/**

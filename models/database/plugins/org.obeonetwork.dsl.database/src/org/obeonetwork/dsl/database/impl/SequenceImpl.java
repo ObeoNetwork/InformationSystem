@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.database.Sequence;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.SequenceImpl#getStart <em>Start</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.SequenceImpl#getIncrement <em>Increment</em>}</li>
@@ -37,7 +38,6 @@ import org.obeonetwork.dsl.database.Sequence;
  *   <li>{@link org.obeonetwork.dsl.database.impl.SequenceImpl#isCycle <em>Cycle</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.SequenceImpl#getColumns <em>Columns</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

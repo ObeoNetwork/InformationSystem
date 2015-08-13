@@ -37,13 +37,7 @@ import org.obeonetwork.dsl.soa.Wire;
  * @generated
  */
 public class WireItemProvider
-	extends ObeoDSMObjectItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends ObeoDSMObjectItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,9 +140,8 @@ public class WireItemProvider
 	 * @generated
 	 */
 	protected void addDestPropertyDescriptor(Object object) {
-		final System system = getContainingSystem((EObject) object);
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Wire_dest_feature"),
@@ -159,18 +152,7 @@ public class WireItemProvider
 				 true,
 				 null,
 				 null,
-				 null)
-			{
-				public java.util.Collection<?>getChoiceOfValues(Object object){
-					Collection<Object> choiceOfValues=new ArrayList<Object>();
-					List<org.obeonetwork.dsl.soa.Service>services = getProvidedServices(system);
-					choiceOfValues.addAll(services);
-					return choiceOfValues;
-				}
-			}
-					
-					
-					);
+				 null));
 	}
 	/**
 	 * Return the required services in a System.
@@ -205,7 +187,7 @@ public class WireItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Wire)object).getDescription());
+		String label = ((Wire)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Wire_type") :
 			getString("_UI_Wire_type") + " " + label;

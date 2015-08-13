@@ -33,6 +33,7 @@ import org.obeonetwork.dsl.database.Table;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.IndexImpl#getQualifier <em>Qualifier</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.IndexImpl#getElements <em>Elements</em>}</li>
@@ -41,7 +42,6 @@ import org.obeonetwork.dsl.database.Table;
  *   <li>{@link org.obeonetwork.dsl.database.impl.IndexImpl#getIndexType <em>Index Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.IndexImpl#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.requirement.Requirement#getId <em>Id</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.Requirement#getVersion <em>Version</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.obeonetwork.dsl.requirement.Requirement#getCreatedOn <em>Created On</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.Requirement#getModifiedOn <em>Modified On</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.requirement.RequirementPackage#getRequirement()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isRequirementValid'"

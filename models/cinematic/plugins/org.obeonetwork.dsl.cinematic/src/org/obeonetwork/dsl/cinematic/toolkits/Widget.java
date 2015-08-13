@@ -10,8 +10,8 @@
  */
 package org.obeonetwork.dsl.cinematic.toolkits;
 
-import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getIcon <em>Icon</em>}</li>
@@ -28,14 +29,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#getPossibleEvents <em>Possible Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.Widget#isIsContainer <em>Is Container</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage#getWidget()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface Widget extends CDOObject {
+public interface Widget extends Identifiable {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

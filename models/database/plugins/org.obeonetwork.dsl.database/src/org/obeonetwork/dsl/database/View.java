@@ -18,10 +18,10 @@ package org.obeonetwork.dsl.database;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.View#getQuery <em>Query</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getView()
  * @model

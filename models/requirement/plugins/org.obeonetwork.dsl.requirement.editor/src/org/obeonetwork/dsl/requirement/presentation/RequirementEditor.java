@@ -152,6 +152,7 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.obeonetwork.dsl.requirement.provider.RequirementItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDItemProviderAdapterFactory;
 
 
 /**
@@ -654,6 +655,7 @@ public class RequirementEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new RequirementItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new TechnicalIDItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -914,10 +916,11 @@ public class RequirementEditor
 	 * @generated
 	 */
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
-		if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
+		boolean hasErrors = !resource.getErrors().isEmpty();
+		if (hasErrors || !resource.getWarnings().isEmpty()) {
 			BasicDiagnostic basicDiagnostic =
 				new BasicDiagnostic
-					(Diagnostic.ERROR,
+					(hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING,
 					 "org.obeonetwork.dsl.requirement.editor",
 					 0,
 					 getString("_UI_CreateModelError_message", resource.getURI()),

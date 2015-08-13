@@ -31,13 +31,13 @@ import org.obeonetwork.dsl.environment.BoundableElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getWidget <em>Widget</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getEvents <em>Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.AbstractViewElementImpl#getLabel <em>Label</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

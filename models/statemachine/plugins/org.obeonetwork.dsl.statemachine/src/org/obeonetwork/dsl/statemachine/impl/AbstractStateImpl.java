@@ -24,11 +24,11 @@ import org.obeonetwork.dsl.statemachine.Transition;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.statemachine.impl.AbstractStateImpl#getIncomingTransitions <em>Incoming Transitions</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.statemachine.impl.AbstractStateImpl#getOutcomingTransitions <em>Outcoming Transitions</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

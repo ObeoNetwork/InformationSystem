@@ -27,13 +27,13 @@ import org.obeonetwork.dsl.soa.Wire;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SystemImpl#getOwnedNamespaces <em>Owned Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SystemImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SystemImpl#getOwnedComponents <em>Owned Components</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.impl.SystemImpl#getOwnedWires <em>Owned Wires</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

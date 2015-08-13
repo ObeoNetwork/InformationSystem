@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.EOperation;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BOperation#getBClass <em>BClass</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BOperation#getEcoreOperation <em>Ecore Operation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BOperation#getBParameters <em>BParameters</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BOperation#getBTypeParameters <em>BType Parameters</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.ecorebinding.EcorebindingPackage#getBOperation()
  * @model

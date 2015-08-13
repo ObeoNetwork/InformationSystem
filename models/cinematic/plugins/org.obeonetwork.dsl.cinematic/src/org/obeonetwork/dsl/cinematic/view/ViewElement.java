@@ -19,11 +19,11 @@ import org.obeonetwork.dsl.environment.Type;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.ViewElement#isRequired <em>Required</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.ViewElement#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.view.ViewPackage#getViewElement()
  * @model

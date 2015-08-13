@@ -31,6 +31,7 @@ import org.obeonetwork.dsl.requirement.RequirementType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.RequirementImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.RequirementImpl#getVersion <em>Version</em>}</li>
@@ -45,7 +46,6 @@ import org.obeonetwork.dsl.requirement.RequirementType;
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.RequirementImpl#getCreatedOn <em>Created On</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.RequirementImpl#getModifiedOn <em>Modified On</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

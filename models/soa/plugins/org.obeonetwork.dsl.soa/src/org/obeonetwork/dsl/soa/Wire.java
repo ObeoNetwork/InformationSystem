@@ -15,11 +15,11 @@ import org.obeonetwork.dsl.environment.ObeoDSMObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.Wire#getSource <em>Source</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Wire#getDest <em>Dest</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getWire()
  * @model

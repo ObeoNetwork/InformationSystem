@@ -19,11 +19,11 @@ package org.obeonetwork.dsl.environment;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.Annotation#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.Annotation#getBody <em>Body</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.EnvironmentPackage#getAnnotation()
  * @model

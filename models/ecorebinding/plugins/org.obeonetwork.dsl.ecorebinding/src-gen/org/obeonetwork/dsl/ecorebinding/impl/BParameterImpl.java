@@ -19,11 +19,11 @@ import org.obeonetwork.dsl.ecorebinding.EcorebindingPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BParameterImpl#getBOperation <em>BOperation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.impl.BParameterImpl#getEcoreParameter <em>Ecore Parameter</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

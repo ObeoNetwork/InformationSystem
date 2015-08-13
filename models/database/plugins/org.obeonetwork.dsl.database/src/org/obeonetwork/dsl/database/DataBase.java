@@ -21,12 +21,12 @@ import org.obeonetwork.dsl.typeslibrary.UserDefinedTypesLibrary;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.DataBase#getUrl <em>Url</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.DataBase#getSchemas <em>Schemas</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.DataBase#getDefines <em>Defines</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getDataBase()
  * @model

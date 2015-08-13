@@ -19,12 +19,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.CombinedFragment#getOperator <em>Operator</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.CombinedFragment#getCoveredParticipants <em>Covered Participants</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.interaction.CombinedFragment#getOwnedOperands <em>Owned Operands</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.interaction.InteractionPackage#getCombinedFragment()
  * @model

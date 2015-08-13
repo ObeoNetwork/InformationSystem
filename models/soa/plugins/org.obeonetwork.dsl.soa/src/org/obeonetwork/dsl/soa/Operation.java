@@ -16,6 +16,7 @@ import org.obeonetwork.dsl.environment.Action;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getInput <em>Input</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getOutput <em>Output</em>}</li>
@@ -23,7 +24,6 @@ import org.obeonetwork.dsl.environment.Action;
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#isPublic <em>Public</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Operation#getFault <em>Fault</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getOperation()
  * @model

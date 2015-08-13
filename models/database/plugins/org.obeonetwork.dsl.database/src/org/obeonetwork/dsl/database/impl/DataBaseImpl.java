@@ -35,13 +35,13 @@ import org.obeonetwork.dsl.typeslibrary.UserDefinedTypesLibrary;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.DataBaseImpl#getUsedLibraries <em>Used Libraries</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.DataBaseImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.DataBaseImpl#getSchemas <em>Schemas</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.DataBaseImpl#getDefines <em>Defines</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

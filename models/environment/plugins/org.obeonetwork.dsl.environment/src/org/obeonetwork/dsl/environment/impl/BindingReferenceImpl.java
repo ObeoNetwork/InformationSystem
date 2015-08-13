@@ -23,16 +23,15 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingReferenceImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingReferenceImpl#getRight <em>Right</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
-		BindingReference {
+public class BindingReferenceImpl extends ObeoDSMObjectImpl implements BindingReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,8 +64,7 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public BindingElement getLeft() {
-		return (BindingElement) eDynamicGet(
-				EnvironmentPackage.BINDING_REFERENCE__LEFT,
+		return (BindingElement) eDynamicGet(EnvironmentPackage.BINDING_REFERENCE__LEFT,
 				EnvironmentPackage.Literals.BINDING_REFERENCE__LEFT, true, true);
 	}
 
@@ -76,10 +74,8 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public BindingElement basicGetLeft() {
-		return (BindingElement) eDynamicGet(
-				EnvironmentPackage.BINDING_REFERENCE__LEFT,
-				EnvironmentPackage.Literals.BINDING_REFERENCE__LEFT, false,
-				true);
+		return (BindingElement) eDynamicGet(EnvironmentPackage.BINDING_REFERENCE__LEFT,
+				EnvironmentPackage.Literals.BINDING_REFERENCE__LEFT, false, true);
 	}
 
 	/**
@@ -87,10 +83,8 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLeft(BindingElement newLeft,
-			NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject) newLeft,
-				EnvironmentPackage.BINDING_REFERENCE__LEFT, msgs);
+	public NotificationChain basicSetLeft(BindingElement newLeft, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject) newLeft, EnvironmentPackage.BINDING_REFERENCE__LEFT, msgs);
 		return msgs;
 	}
 
@@ -100,8 +94,8 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public void setLeft(BindingElement newLeft) {
-		eDynamicSet(EnvironmentPackage.BINDING_REFERENCE__LEFT,
-				EnvironmentPackage.Literals.BINDING_REFERENCE__LEFT, newLeft);
+		eDynamicSet(EnvironmentPackage.BINDING_REFERENCE__LEFT, EnvironmentPackage.Literals.BINDING_REFERENCE__LEFT,
+				newLeft);
 	}
 
 	/**
@@ -110,10 +104,8 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public BindingElement getRight() {
-		return (BindingElement) eDynamicGet(
-				EnvironmentPackage.BINDING_REFERENCE__RIGHT,
-				EnvironmentPackage.Literals.BINDING_REFERENCE__RIGHT, true,
-				true);
+		return (BindingElement) eDynamicGet(EnvironmentPackage.BINDING_REFERENCE__RIGHT,
+				EnvironmentPackage.Literals.BINDING_REFERENCE__RIGHT, true, true);
 	}
 
 	/**
@@ -122,10 +114,8 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public BindingElement basicGetRight() {
-		return (BindingElement) eDynamicGet(
-				EnvironmentPackage.BINDING_REFERENCE__RIGHT,
-				EnvironmentPackage.Literals.BINDING_REFERENCE__RIGHT, false,
-				true);
+		return (BindingElement) eDynamicGet(EnvironmentPackage.BINDING_REFERENCE__RIGHT,
+				EnvironmentPackage.Literals.BINDING_REFERENCE__RIGHT, false, true);
 	}
 
 	/**
@@ -133,10 +123,8 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRight(BindingElement newRight,
-			NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject) newRight,
-				EnvironmentPackage.BINDING_REFERENCE__RIGHT, msgs);
+	public NotificationChain basicSetRight(BindingElement newRight, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject) newRight, EnvironmentPackage.BINDING_REFERENCE__RIGHT, msgs);
 		return msgs;
 	}
 
@@ -146,8 +134,8 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	public void setRight(BindingElement newRight) {
-		eDynamicSet(EnvironmentPackage.BINDING_REFERENCE__RIGHT,
-				EnvironmentPackage.Literals.BINDING_REFERENCE__RIGHT, newRight);
+		eDynamicSet(EnvironmentPackage.BINDING_REFERENCE__RIGHT, EnvironmentPackage.Literals.BINDING_REFERENCE__RIGHT,
+				newRight);
 	}
 
 	/**
@@ -155,8 +143,7 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public BindingElement getOppositeBindingElement(
-			BindingElement bindingElement) {
+	public BindingElement getOppositeBindingElement(BindingElement bindingElement) {
 		if (getLeft().equals(bindingElement)) {
 			return getRight();
 		} else if (getRight().equals(bindingElement)) {
@@ -171,26 +158,19 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.BINDING_REFERENCE__LEFT:
 			BindingElement left = basicGetLeft();
 			if (left != null)
-				msgs = ((InternalEObject) left)
-						.eInverseRemove(
-								this,
-								EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT,
-								BindingElement.class, msgs);
+				msgs = ((InternalEObject) left).eInverseRemove(this,
+						EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_LEFT, BindingElement.class, msgs);
 			return basicSetLeft((BindingElement) otherEnd, msgs);
 		case EnvironmentPackage.BINDING_REFERENCE__RIGHT:
 			BindingElement right = basicGetRight();
 			if (right != null)
-				msgs = ((InternalEObject) right)
-						.eInverseRemove(
-								this,
-								EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT,
-								BindingElement.class, msgs);
+				msgs = ((InternalEObject) right).eInverseRemove(this,
+						EnvironmentPackage.BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT, BindingElement.class, msgs);
 			return basicSetRight((BindingElement) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -202,8 +182,7 @@ public class BindingReferenceImpl extends ObeoDSMObjectImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.BINDING_REFERENCE__LEFT:
 			return basicSetLeft(null, msgs);

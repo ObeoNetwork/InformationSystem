@@ -31,6 +31,7 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingInfoImpl#getReferences <em>References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingInfoImpl#getLeft <em>Left</em>}</li>
@@ -39,7 +40,6 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingInfoImpl#getTargets <em>Targets</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.BindingInfoImpl#getElements <em>Elements</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -77,10 +77,8 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<BindingReference> getReferences() {
-		return (EList<BindingReference>) eDynamicGet(
-				EnvironmentPackage.BINDING_INFO__REFERENCES,
-				EnvironmentPackage.Literals.BINDING_INFO__REFERENCES, true,
-				true);
+		return (EList<BindingReference>) eDynamicGet(EnvironmentPackage.BINDING_INFO__REFERENCES,
+				EnvironmentPackage.Literals.BINDING_INFO__REFERENCES, true, true);
 	}
 
 	/**
@@ -89,8 +87,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * @generated
 	 */
 	public BoundableElement getLeft() {
-		return (BoundableElement) eDynamicGet(
-				EnvironmentPackage.BINDING_INFO__LEFT,
+		return (BoundableElement) eDynamicGet(EnvironmentPackage.BINDING_INFO__LEFT,
 				EnvironmentPackage.Literals.BINDING_INFO__LEFT, true, true);
 	}
 
@@ -100,8 +97,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * @generated
 	 */
 	public BoundableElement basicGetLeft() {
-		return (BoundableElement) eDynamicGet(
-				EnvironmentPackage.BINDING_INFO__LEFT,
+		return (BoundableElement) eDynamicGet(EnvironmentPackage.BINDING_INFO__LEFT,
 				EnvironmentPackage.Literals.BINDING_INFO__LEFT, false, true);
 	}
 
@@ -111,8 +107,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * @generated
 	 */
 	public void setLeft(BoundableElement newLeft) {
-		eDynamicSet(EnvironmentPackage.BINDING_INFO__LEFT,
-				EnvironmentPackage.Literals.BINDING_INFO__LEFT, newLeft);
+		eDynamicSet(EnvironmentPackage.BINDING_INFO__LEFT, EnvironmentPackage.Literals.BINDING_INFO__LEFT, newLeft);
 	}
 
 	/**
@@ -121,8 +116,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * @generated
 	 */
 	public BoundableElement getRight() {
-		return (BoundableElement) eDynamicGet(
-				EnvironmentPackage.BINDING_INFO__RIGHT,
+		return (BoundableElement) eDynamicGet(EnvironmentPackage.BINDING_INFO__RIGHT,
 				EnvironmentPackage.Literals.BINDING_INFO__RIGHT, true, true);
 	}
 
@@ -132,8 +126,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * @generated
 	 */
 	public BoundableElement basicGetRight() {
-		return (BoundableElement) eDynamicGet(
-				EnvironmentPackage.BINDING_INFO__RIGHT,
+		return (BoundableElement) eDynamicGet(EnvironmentPackage.BINDING_INFO__RIGHT,
 				EnvironmentPackage.Literals.BINDING_INFO__RIGHT, false, true);
 	}
 
@@ -143,8 +136,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * @generated
 	 */
 	public void setRight(BoundableElement newRight) {
-		eDynamicSet(EnvironmentPackage.BINDING_INFO__RIGHT,
-				EnvironmentPackage.Literals.BINDING_INFO__RIGHT, newRight);
+		eDynamicSet(EnvironmentPackage.BINDING_INFO__RIGHT, EnvironmentPackage.Literals.BINDING_INFO__RIGHT, newRight);
 	}
 
 	/**
@@ -154,10 +146,8 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<BindingInfo> getSubBindingInfos() {
-		return (EList<BindingInfo>) eDynamicGet(
-				EnvironmentPackage.BINDING_INFO__SUB_BINDING_INFOS,
-				EnvironmentPackage.Literals.BINDING_INFO__SUB_BINDING_INFOS,
-				true, true);
+		return (EList<BindingInfo>) eDynamicGet(EnvironmentPackage.BINDING_INFO__SUB_BINDING_INFOS,
+				EnvironmentPackage.Literals.BINDING_INFO__SUB_BINDING_INFOS, true, true);
 	}
 
 	/**
@@ -178,8 +168,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<BindingElement> getElements() {
-		return (EList<BindingElement>) eDynamicGet(
-				EnvironmentPackage.BINDING_INFO__ELEMENTS,
+		return (EList<BindingElement>) eDynamicGet(EnvironmentPackage.BINDING_INFO__ELEMENTS,
 				EnvironmentPackage.Literals.BINDING_INFO__ELEMENTS, true, true);
 	}
 
@@ -189,15 +178,12 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.BINDING_INFO__REFERENCES:
-			return ((InternalEList<?>) getReferences()).basicRemove(otherEnd,
-					msgs);
+			return ((InternalEList<?>) getReferences()).basicRemove(otherEnd, msgs);
 		case EnvironmentPackage.BINDING_INFO__ELEMENTS:
-			return ((InternalEList<?>) getElements()).basicRemove(otherEnd,
-					msgs);
+			return ((InternalEList<?>) getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -241,8 +227,7 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 		switch (featureID) {
 		case EnvironmentPackage.BINDING_INFO__REFERENCES:
 			getReferences().clear();
-			getReferences().addAll(
-					(Collection<? extends BindingReference>) newValue);
+			getReferences().addAll((Collection<? extends BindingReference>) newValue);
 			return;
 		case EnvironmentPackage.BINDING_INFO__LEFT:
 			setLeft((BoundableElement) newValue);
@@ -252,13 +237,11 @@ public class BindingInfoImpl extends ObeoDSMObjectImpl implements BindingInfo {
 			return;
 		case EnvironmentPackage.BINDING_INFO__SUB_BINDING_INFOS:
 			getSubBindingInfos().clear();
-			getSubBindingInfos().addAll(
-					(Collection<? extends BindingInfo>) newValue);
+			getSubBindingInfos().addAll((Collection<? extends BindingInfo>) newValue);
 			return;
 		case EnvironmentPackage.BINDING_INFO__ELEMENTS:
 			getElements().clear();
-			getElements().addAll(
-					(Collection<? extends BindingElement>) newValue);
+			getElements().addAll((Collection<? extends BindingElement>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

@@ -20,12 +20,12 @@ import org.obeonetwork.dsl.statemachine.Transition;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.statemachine.impl.TransitionImpl#getGuard <em>Guard</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.statemachine.impl.TransitionImpl#getFrom <em>From</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.statemachine.impl.TransitionImpl#getTo <em>To</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

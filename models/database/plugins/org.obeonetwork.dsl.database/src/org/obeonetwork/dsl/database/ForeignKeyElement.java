@@ -18,11 +18,11 @@ package org.obeonetwork.dsl.database;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.ForeignKeyElement#getFkColumn <em>Fk Column</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.ForeignKeyElement#getPkColumn <em>Pk Column</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getForeignKeyElement()
  * @model

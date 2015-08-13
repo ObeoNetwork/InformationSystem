@@ -49,6 +49,7 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.TypesDefinition;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,8 +57,7 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnvironmentPackageImpl extends EPackageImpl implements
-		EnvironmentPackage {
+public class EnvironmentPackageImpl extends EPackageImpl implements EnvironmentPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,15 +322,17 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 */
 	public static EnvironmentPackage init() {
 		if (isInited)
-			return (EnvironmentPackage) EPackage.Registry.INSTANCE
-					.getEPackage(EnvironmentPackage.eNS_URI);
+			return (EnvironmentPackage) EPackage.Registry.INSTANCE.getEPackage(EnvironmentPackage.eNS_URI);
 
 		// Obtain or create and register package
 		EnvironmentPackageImpl theEnvironmentPackage = (EnvironmentPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof EnvironmentPackageImpl ? EPackage.Registry.INSTANCE
-				.get(eNS_URI) : new EnvironmentPackageImpl());
+				.get(eNS_URI) instanceof EnvironmentPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
+						: new EnvironmentPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theEnvironmentPackage.createPackageContents();
@@ -342,8 +344,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		theEnvironmentPackage.freeze();
 
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(EnvironmentPackage.eNS_URI,
-				theEnvironmentPackage);
+		EPackage.Registry.INSTANCE.put(EnvironmentPackage.eNS_URI, theEnvironmentPackage);
 		return theEnvironmentPackage;
 	}
 
@@ -614,8 +615,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getMetaDataContainer_Metadatas() {
-		return (EReference) metaDataContainerEClass.getEStructuralFeatures()
-				.get(0);
+		return (EReference) metaDataContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -660,8 +660,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getPriorityDefinition_Priorities() {
-		return (EReference) priorityDefinitionEClass.getEStructuralFeatures()
-				.get(0);
+		return (EReference) priorityDefinitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -706,8 +705,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getTypesDefinition_Types() {
-		return (EReference) typesDefinitionEClass.getEStructuralFeatures().get(
-				0);
+		return (EReference) typesDefinitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -734,8 +732,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getStructuredType_Supertype() {
-		return (EReference) structuredTypeEClass.getEStructuralFeatures()
-				.get(0);
+		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -744,8 +741,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getStructuredType_AssociatedTypes() {
-		return (EReference) structuredTypeEClass.getEStructuralFeatures()
-				.get(1);
+		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -754,8 +750,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getStructuredType_OwnedAttributes() {
-		return (EReference) structuredTypeEClass.getEStructuralFeatures()
-				.get(2);
+		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -764,8 +759,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getStructuredType_Attributes() {
-		return (EReference) structuredTypeEClass.getEStructuralFeatures()
-				.get(3);
+		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -774,8 +768,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getStructuredType_OwnedReferences() {
-		return (EReference) structuredTypeEClass.getEStructuralFeatures()
-				.get(4);
+		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -784,8 +777,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getStructuredType_References() {
-		return (EReference) structuredTypeEClass.getEStructuralFeatures()
-				.get(5);
+		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -794,8 +786,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getStructuredType_Properties() {
-		return (EReference) structuredTypeEClass.getEStructuralFeatures()
-				.get(6);
+		return (EReference) structuredTypeEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -831,8 +822,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getFilterContainer_OwnedFilters() {
-		return (EReference) filterContainerEClass.getEStructuralFeatures().get(
-				0);
+		return (EReference) filterContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1066,8 +1056,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getBindingReference_Left() {
-		return (EReference) bindingReferenceEClass.getEStructuralFeatures()
-				.get(0);
+		return (EReference) bindingReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1076,8 +1065,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getBindingReference_Right() {
-		return (EReference) bindingReferenceEClass.getEStructuralFeatures()
-				.get(1);
+		return (EReference) bindingReferenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1095,8 +1083,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getBindingElement_BoundElement() {
-		return (EReference) bindingElementEClass.getEStructuralFeatures()
-				.get(0);
+		return (EReference) bindingElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1105,8 +1092,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EAttribute getBindingElement_BindingExpression() {
-		return (EAttribute) bindingElementEClass.getEStructuralFeatures()
-				.get(1);
+		return (EAttribute) bindingElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1115,8 +1101,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getBindingElement_ReferencedByAsLeft() {
-		return (EReference) bindingElementEClass.getEStructuralFeatures()
-				.get(2);
+		return (EReference) bindingElementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1125,8 +1110,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getBindingElement_ReferencedByAsRight() {
-		return (EReference) bindingElementEClass.getEStructuralFeatures()
-				.get(3);
+		return (EReference) bindingElementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1135,8 +1119,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getBindingElement_ReferencedBy() {
-		return (EReference) bindingElementEClass.getEStructuralFeatures()
-				.get(4);
+		return (EReference) bindingElementEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1145,8 +1128,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getBindingElement_PathReferences() {
-		return (EReference) bindingElementEClass.getEStructuralFeatures()
-				.get(5);
+		return (EReference) bindingElementEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1164,8 +1146,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getBindingRegistry_BindingInfos() {
-		return (EReference) bindingRegistryEClass.getEStructuralFeatures().get(
-				0);
+		return (EReference) bindingRegistryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1201,8 +1182,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getNamespacesContainer_OwnedNamespaces() {
-		return (EReference) namespacesContainerEClass.getEStructuralFeatures()
-				.get(0);
+		return (EReference) namespacesContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1274,23 +1254,20 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		createEAttribute(obeoDSMObjectEClass, OBEO_DSM_OBJECT__DESCRIPTION);
 		createEAttribute(obeoDSMObjectEClass, OBEO_DSM_OBJECT__KEYWORDS);
 		createEReference(obeoDSMObjectEClass, OBEO_DSM_OBJECT__BEHAVIOURS);
-		createEReference(obeoDSMObjectEClass,
-				OBEO_DSM_OBJECT__BINDING_REGISTRIES);
+		createEReference(obeoDSMObjectEClass, OBEO_DSM_OBJECT__BINDING_REGISTRIES);
 		createEAttribute(obeoDSMObjectEClass, OBEO_DSM_OBJECT__VERSION);
 		createEAttribute(obeoDSMObjectEClass, OBEO_DSM_OBJECT__CREATED_ON);
 		createEAttribute(obeoDSMObjectEClass, OBEO_DSM_OBJECT__MODIFIED_ON);
 
 		metaDataContainerEClass = createEClass(META_DATA_CONTAINER);
-		createEReference(metaDataContainerEClass,
-				META_DATA_CONTAINER__METADATAS);
+		createEReference(metaDataContainerEClass, META_DATA_CONTAINER__METADATAS);
 
 		annotationEClass = createEClass(ANNOTATION);
 		createEAttribute(annotationEClass, ANNOTATION__TITLE);
 		createEAttribute(annotationEClass, ANNOTATION__BODY);
 
 		priorityDefinitionEClass = createEClass(PRIORITY_DEFINITION);
-		createEReference(priorityDefinitionEClass,
-				PRIORITY_DEFINITION__PRIORITIES);
+		createEReference(priorityDefinitionEClass, PRIORITY_DEFINITION__PRIORITIES);
 
 		priorityEClass = createEClass(PRIORITY);
 		createEAttribute(priorityEClass, PRIORITY__NAME);
@@ -1304,13 +1281,10 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 
 		structuredTypeEClass = createEClass(STRUCTURED_TYPE);
 		createEReference(structuredTypeEClass, STRUCTURED_TYPE__SUPERTYPE);
-		createEReference(structuredTypeEClass,
-				STRUCTURED_TYPE__ASSOCIATED_TYPES);
-		createEReference(structuredTypeEClass,
-				STRUCTURED_TYPE__OWNED_ATTRIBUTES);
+		createEReference(structuredTypeEClass, STRUCTURED_TYPE__ASSOCIATED_TYPES);
+		createEReference(structuredTypeEClass, STRUCTURED_TYPE__OWNED_ATTRIBUTES);
 		createEReference(structuredTypeEClass, STRUCTURED_TYPE__ATTRIBUTES);
-		createEReference(structuredTypeEClass,
-				STRUCTURED_TYPE__OWNED_REFERENCES);
+		createEReference(structuredTypeEClass, STRUCTURED_TYPE__OWNED_REFERENCES);
 		createEReference(structuredTypeEClass, STRUCTURED_TYPE__REFERENCES);
 		createEReference(structuredTypeEClass, STRUCTURED_TYPE__PROPERTIES);
 
@@ -1356,12 +1330,9 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 
 		bindingElementEClass = createEClass(BINDING_ELEMENT);
 		createEReference(bindingElementEClass, BINDING_ELEMENT__BOUND_ELEMENT);
-		createEAttribute(bindingElementEClass,
-				BINDING_ELEMENT__BINDING_EXPRESSION);
-		createEReference(bindingElementEClass,
-				BINDING_ELEMENT__REFERENCED_BY_AS_LEFT);
-		createEReference(bindingElementEClass,
-				BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT);
+		createEAttribute(bindingElementEClass, BINDING_ELEMENT__BINDING_EXPRESSION);
+		createEReference(bindingElementEClass, BINDING_ELEMENT__REFERENCED_BY_AS_LEFT);
+		createEReference(bindingElementEClass, BINDING_ELEMENT__REFERENCED_BY_AS_RIGHT);
 		createEReference(bindingElementEClass, BINDING_ELEMENT__REFERENCED_BY);
 		createEReference(bindingElementEClass, BINDING_ELEMENT__PATH_REFERENCES);
 
@@ -1373,8 +1344,7 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		dataTypeEClass = createEClass(DATA_TYPE);
 
 		namespacesContainerEClass = createEClass(NAMESPACES_CONTAINER);
-		createEReference(namespacesContainerEClass,
-				NAMESPACES_CONTAINER__OWNED_NAMESPACES);
+		createEReference(namespacesContainerEClass, NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 
 		// Create enums
 		multiplicityKindEEnum = createEEnum(MULTIPLICITY_KIND);
@@ -1404,6 +1374,10 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		TechnicalIDPackage theTechnicalIDPackage = (TechnicalIDPackage) EPackage.Registry.INSTANCE
+				.getEPackage(TechnicalIDPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -1418,9 +1392,12 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		literalEClass.getESuperTypes().add(this.getObeoDSMObject());
 		actionEClass.getESuperTypes().add(this.getObeoDSMObject());
 		interDSMLinkEClass.getESuperTypes().add(this.getObeoDSMObject());
+		obeoDSMObjectEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
+		metaDataContainerEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 		annotationEClass.getESuperTypes().add(this.getMetaData());
 		priorityDefinitionEClass.getESuperTypes().add(this.getObeoDSMObject());
 		priorityEClass.getESuperTypes().add(this.getObeoDSMObject());
+		metaDataEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 		typesDefinitionEClass.getESuperTypes().add(this.getObeoDSMObject());
 		behaviourEClass.getESuperTypes().add(this.getObeoDSMObject());
 		structuredTypeEClass.getESuperTypes().add(this.getType());
@@ -1437,434 +1414,300 @@ public class EnvironmentPackageImpl extends EPackageImpl implements
 		bindingReferenceEClass.getESuperTypes().add(this.getObeoDSMObject());
 		bindingElementEClass.getESuperTypes().add(this.getObeoDSMObject());
 		bindingRegistryEClass.getESuperTypes().add(this.getObeoDSMObject());
+		boundableElementEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 		dataTypeEClass.getESuperTypes().add(this.getType());
+		namespacesContainerEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(environmentEClass, Environment.class, "Environment",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEnvironment_Name(), ecorePackage.getEString(),
-				"name", null, 1, 1, Environment.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getEnvironment_Actions(), this.getAction(), null,
-				"actions", null, 0, -1, Environment.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnvironment_Links(), this.getInterDSMLink(), null,
-				"links", null, 0, -1, Environment.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnvironment_PriorityDefinitions(),
-				this.getPriorityDefinition(), null, "priorityDefinitions",
-				null, 0, 1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnvironment_TypesDefinition(),
-				this.getTypesDefinition(), null, "typesDefinition", null, 0, 1,
-				Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-
-		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(environmentEClass, Environment.class, "Environment", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null,
-				1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getType_TypeDefinition(), this.getTypesDefinition(),
-				this.getTypesDefinition_Types(), "typeDefinition", null, 0, 1,
-				Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+		initEAttribute(getEnvironment_Name(), ecorePackage.getEString(), "name", null, 1, 1, Environment.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnvironment_Actions(), this.getAction(), null, "actions", null, 0, -1, Environment.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-
-		initEClass(primitiveTypeEClass, PrimitiveType.class, "PrimitiveType",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(enumerationEClass, Enumeration.class, "Enumeration",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumeration_Literals(), this.getLiteral(), null,
-				"literals", null, 1, -1, Enumeration.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getEnvironment_Links(), this.getInterDSMLink(), null, "links", null, 0, -1, Environment.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getEnvironment_PriorityDefinitions(), this.getPriorityDefinition(), null, "priorityDefinitions",
+				null, 0, 1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnvironment_TypesDefinition(), this.getTypesDefinition(), null, "typesDefinition", null, 0, 1,
+				Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLiteral_Name(), ecorePackage.getEString(), "name",
-				null, 1, 1, Literal.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 1, 1, Type.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_TypeDefinition(), this.getTypesDefinition(), this.getTypesDefinition_Types(),
+				"typeDefinition", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAction_Name(), ecorePackage.getEString(), "name",
-				null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-
-		initEClass(interDSMLinkEClass, InterDSMLink.class, "InterDSMLink",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInterDSMLink_Name(), ecorePackage.getEString(),
-				"name", null, 1, 1, InterDSMLink.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getInterDSMLink_Target(), ecorePackage.getEObject(),
-				null, "target", null, 1, 1, InterDSMLink.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(obeoDSMObjectEClass, ObeoDSMObject.class, "ObeoDSMObject",
-				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getObeoDSMObject_Metadatas(),
-				this.getMetaDataContainer(), null, "metadatas", null, 0, 1,
-				ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getObeoDSMObject_Description(),
-				ecorePackage.getEString(), "description", null, 0, 1,
-				ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getObeoDSMObject_Keywords(), ecorePackage.getEString(),
-				"keywords", null, 0, -1, ObeoDSMObject.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getObeoDSMObject_Behaviours(), this.getBehaviour(),
-				null, "behaviours", null, 0, -1, ObeoDSMObject.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getObeoDSMObject_BindingRegistries(),
-				this.getBindingRegistry(), null, "bindingRegistries", null, 0,
-				-1, ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getObeoDSMObject_Version(), ecorePackage.getEInt(),
-				"version", "1", 0, 1, ObeoDSMObject.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getObeoDSMObject_CreatedOn(), ecorePackage.getEDate(),
-				"createdOn", null, 0, 1, ObeoDSMObject.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getObeoDSMObject_ModifiedOn(), ecorePackage.getEDate(),
-				"modifiedOn", null, 0, 1, ObeoDSMObject.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-
-		initEClass(metaDataContainerEClass, MetaDataContainer.class,
-				"MetaDataContainer", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(primitiveTypeEClass, PrimitiveType.class, "PrimitiveType", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMetaDataContainer_Metadatas(), this.getMetaData(),
-				null, "metadatas", null, 0, -1, MetaDataContainer.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 
-		initEClass(annotationEClass, Annotation.class, "Annotation",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAnnotation_Title(), ecorePackage.getEString(),
-				"title", null, 1, 1, Annotation.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnnotation_Body(), ecorePackage.getEString(), "body",
-				null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-
-		initEClass(priorityDefinitionEClass, PriorityDefinition.class,
-				"PriorityDefinition", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPriorityDefinition_Priorities(), this.getPriority(),
-				null, "priorities", null, 1, -1, PriorityDefinition.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getEnumeration_Literals(), this.getLiteral(), null, "literals", null, 1, -1, Enumeration.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(priorityEClass, Priority.class, "Priority", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPriority_Name(), ecorePackage.getEString(), "name",
-				null, 1, 1, Priority.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLiteral_Name(), ecorePackage.getEString(), "name", null, 1, 1, Literal.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(metaDataEClass, MetaData.class, "MetaData", IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAction_Name(), ecorePackage.getEString(), "name", null, 1, 1, Action.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(typesDefinitionEClass, TypesDefinition.class,
-				"TypesDefinition", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(interDSMLinkEClass, InterDSMLink.class, "InterDSMLink", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTypesDefinition_Types(), this.getType(),
-				this.getType_TypeDefinition(), "types", null, 0, -1,
-				TypesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEAttribute(getInterDSMLink_Name(), ecorePackage.getEString(), "name", null, 1, 1, InterDSMLink.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterDSMLink_Target(), ecorePackage.getEObject(), null, "target", null, 1, 1,
+				InterDSMLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(behaviourEClass, Behaviour.class, "Behaviour", IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(structuredTypeEClass, StructuredType.class,
-				"StructuredType", IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(obeoDSMObjectEClass, ObeoDSMObject.class, "ObeoDSMObject", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStructuredType_Supertype(), this.getStructuredType(),
-				null, "supertype", null, 0, 1, StructuredType.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getStructuredType_AssociatedTypes(),
-				this.getStructuredType(), null, "associatedTypes", null, 0, -1,
-				StructuredType.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getObeoDSMObject_Metadatas(), this.getMetaDataContainer(), null, "metadatas", null, 0, 1,
+				ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStructuredType_OwnedAttributes(),
-				this.getAttribute(), this.getAttribute_ContainingType(),
-				"ownedAttributes", null, 0, -1, StructuredType.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getStructuredType_Attributes(), this.getAttribute(),
-				null, "attributes", null, 0, -1, StructuredType.class,
-				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getStructuredType_OwnedReferences(),
-				this.getReference(), this.getReference_ContainingType(),
-				"ownedReferences", null, 0, -1, StructuredType.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getStructuredType_References(), this.getReference(),
-				null, "references", null, 0, -1, StructuredType.class,
-				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getStructuredType_Properties(), this.getProperty(),
-				null, "properties", null, 0, -1, StructuredType.class,
-				IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
-				IS_ORDERED);
-
-		EOperation op = addEOperation(structuredTypeEClass,
-				ecorePackage.getEBoolean(), "isSubtypeOf", 1, 1, IS_UNIQUE,
-				IS_ORDERED);
-		addEParameter(op, this.getStructuredType(), "type", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-
-		initEClass(dtoEClass, org.obeonetwork.dsl.environment.DTO.class, "DTO",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDTO_OwnedContainer(), this.getFilterContainer(),
-				null, "ownedContainer", null, 0, 1,
-				org.obeonetwork.dsl.environment.DTO.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEAttribute(getObeoDSMObject_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+				ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObeoDSMObject_Keywords(), ecorePackage.getEString(), "keywords", null, 0, -1,
+				ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getObeoDSMObject_Behaviours(), this.getBehaviour(), null, "behaviours", null, 0, -1,
+				ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObeoDSMObject_BindingRegistries(), this.getBindingRegistry(), null, "bindingRegistries", null,
+				0, -1, ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObeoDSMObject_Version(), ecorePackage.getEInt(), "version", "1", 0, 1, ObeoDSMObject.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObeoDSMObject_CreatedOn(), ecorePackage.getEDate(), "createdOn", null, 0, 1,
+				ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getObeoDSMObject_ModifiedOn(), ecorePackage.getEDate(), "modifiedOn", null, 0, 1,
+				ObeoDSMObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(filterContainerEClass, FilterContainer.class,
-				"FilterContainer", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(metaDataContainerEClass, MetaDataContainer.class, "MetaDataContainer", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFilterContainer_OwnedFilters(), this.getFilter(),
-				null, "ownedFilters", null, 0, -1, FilterContainer.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getMetaDataContainer_Metadatas(), this.getMetaData(), null, "metadatas", null, 0, -1,
+				MetaDataContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(filterEClass, Filter.class, "Filter", IS_ABSTRACT,
+		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnnotation_Title(), ecorePackage.getEString(), "title", null, 1, 1, Annotation.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnnotation_Body(), ecorePackage.getEString(), "body", null, 0, 1, Annotation.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(priorityDefinitionEClass, PriorityDefinition.class, "PriorityDefinition", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(namespaceEClass, Namespace.class, "Namespace", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNamespace_Owner(), this.getNamespacesContainer(),
-				this.getNamespacesContainer_OwnedNamespaces(), "owner", null,
-				0, 1, Namespace.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNamespace_Name(), ecorePackage.getEString(), "name",
-				null, 0, 1, Namespace.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-
-		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAttribute_Type(), this.getDataType(), null, "type",
-				null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttribute_ContainingType(), this.getStructuredType(),
-				this.getStructuredType_OwnedAttributes(), "containingType",
-				null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getPriorityDefinition_Priorities(), this.getPriority(), null, "priorities", null, 1, -1,
+				PriorityDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReference_IsComposite(), ecorePackage.getEBoolean(),
-				"isComposite", null, 1, 1, Reference.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReference_Navigable(), ecorePackage.getEBoolean(),
-				"navigable", "true", 1, 1, Reference.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_OppositeOf(), this.getReference(), null,
-				"oppositeOf", null, 0, 1, Reference.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_ContainingType(), this.getStructuredType(),
-				this.getStructuredType_OwnedReferences(), "containingType",
-				null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_ReferencedType(), this.getStructuredType(),
-				null, "referencedType", null, 1, 1, Reference.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEClass(priorityEClass, Priority.class, "Priority", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPriority_Name(), ecorePackage.getEString(), "name", null, 1, 1, Priority.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(referenceEClass, ecorePackage.getEBoolean(),
-				"canBeOppositeOf", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getReference(), "opposite", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		initEClass(metaDataEClass, MetaData.class, "MetaData", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(propertyEClass, Property.class, "Property", IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name",
-				null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getProperty_Multiplicity(), this.getMultiplicityKind(),
-				"multiplicity", null, 0, 1, Property.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProperty_IsIdentifier(), ecorePackage.getEBoolean(),
-				"isIdentifier", null, 0, 1, Property.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEClass(typesDefinitionEClass, TypesDefinition.class, "TypesDefinition", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTypesDefinition_Types(), this.getType(), this.getType_TypeDefinition(), "types", null, 0, -1,
+				TypesDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(bindingInfoEClass, BindingInfo.class, "BindingInfo",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBindingInfo_References(), this.getBindingReference(),
-				null, "references", null, 0, -1, BindingInfo.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getBindingInfo_Left(), this.getBoundableElement(), null,
-				"left", null, 0, 1, BindingInfo.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEClass(behaviourEClass, Behaviour.class, "Behaviour", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(structuredTypeEClass, StructuredType.class, "StructuredType", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStructuredType_Supertype(), this.getStructuredType(), null, "supertype", null, 0, 1,
+				StructuredType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBindingInfo_Right(), this.getBoundableElement(),
-				null, "right", null, 0, 1, BindingInfo.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getStructuredType_AssociatedTypes(), this.getStructuredType(), null, "associatedTypes", null, 0,
+				-1, StructuredType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBindingInfo_SubBindingInfos(), this.getBindingInfo(),
-				null, "subBindingInfos", null, 0, -1, BindingInfo.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getBindingInfo_Targets(), this.getBoundableElement(),
-				null, "targets", null, 0, -1, BindingInfo.class, IS_TRANSIENT,
-				IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getStructuredType_OwnedAttributes(), this.getAttribute(), this.getAttribute_ContainingType(),
+				"ownedAttributes", null, 0, -1, StructuredType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStructuredType_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1,
+				StructuredType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getBindingInfo_Elements(), this.getBindingElement(),
-				null, "elements", null, 0, -1, BindingInfo.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+		initEReference(getStructuredType_OwnedReferences(), this.getReference(), this.getReference_ContainingType(),
+				"ownedReferences", null, 0, -1, StructuredType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStructuredType_References(), this.getReference(), null, "references", null, 0, -1,
+				StructuredType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getStructuredType_Properties(), this.getProperty(), null, "properties", null, 0, -1,
+				StructuredType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		EOperation op = addEOperation(structuredTypeEClass, ecorePackage.getEBoolean(), "isSubtypeOf", 1, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, this.getStructuredType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(dtoEClass, org.obeonetwork.dsl.environment.DTO.class, "DTO", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDTO_OwnedContainer(), this.getFilterContainer(), null, "ownedContainer", null, 0, 1,
+				org.obeonetwork.dsl.environment.DTO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(filterContainerEClass, FilterContainer.class, "FilterContainer", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFilterContainer_OwnedFilters(), this.getFilter(), null, "ownedFilters", null, 0, -1,
+				FilterContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(filterEClass, Filter.class, "Filter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(namespaceEClass, Namespace.class, "Namespace", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNamespace_Owner(), this.getNamespacesContainer(),
+				this.getNamespacesContainer_OwnedNamespaces(), "owner", null, 0, 1, Namespace.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getNamespace_Name(), ecorePackage.getEString(), "name", null, 0, 1, Namespace.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttribute_Type(), this.getDataType(), null, "type", null, 1, 1, Attribute.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttribute_ContainingType(), this.getStructuredType(),
+				this.getStructuredType_OwnedAttributes(), "containingType", null, 1, 1, Attribute.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
-		initEClass(bindingReferenceEClass, BindingReference.class,
-				"BindingReference", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReference_IsComposite(), ecorePackage.getEBoolean(), "isComposite", null, 1, 1,
+				Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReference_Navigable(), ecorePackage.getEBoolean(), "navigable", "true", 1, 1, Reference.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_OppositeOf(), this.getReference(), null, "oppositeOf", null, 0, 1, Reference.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_ContainingType(), this.getStructuredType(),
+				this.getStructuredType_OwnedReferences(), "containingType", null, 1, 1, Reference.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getReference_ReferencedType(), this.getStructuredType(), null, "referencedType", null, 1, 1,
+				Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(referenceEClass, ecorePackage.getEBoolean(), "canBeOppositeOf", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getReference(), "opposite", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(propertyEClass, Property.class, "Property", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_Multiplicity(), this.getMultiplicityKind(), "multiplicity", null, 0, 1,
+				Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_IsIdentifier(), ecorePackage.getEBoolean(), "isIdentifier", null, 0, 1,
+				Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(bindingInfoEClass, BindingInfo.class, "BindingInfo", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBindingInfo_References(), this.getBindingReference(), null, "references", null, 0, -1,
+				BindingInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBindingInfo_Left(), this.getBoundableElement(), null, "left", null, 0, 1, BindingInfo.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBindingInfo_Right(), this.getBoundableElement(), null, "right", null, 0, 1, BindingInfo.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBindingInfo_SubBindingInfos(), this.getBindingInfo(), null, "subBindingInfos", null, 0, -1,
+				BindingInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBindingInfo_Targets(), this.getBoundableElement(), null, "targets", null, 0, -1,
+				BindingInfo.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getBindingInfo_Elements(), this.getBindingElement(), null, "elements", null, 0, -1,
+				BindingInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bindingReferenceEClass, BindingReference.class, "BindingReference", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBindingReference_Left(), this.getBindingElement(),
-				this.getBindingElement_ReferencedByAsLeft(), "left", null, 1,
-				1, BindingReference.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				this.getBindingElement_ReferencedByAsLeft(), "left", null, 1, 1, BindingReference.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 		initEReference(getBindingReference_Right(), this.getBindingElement(),
-				this.getBindingElement_ReferencedByAsRight(), "right", null, 1,
-				1, BindingReference.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				this.getBindingElement_ReferencedByAsRight(), "right", null, 1, 1, BindingReference.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(bindingReferenceEClass, this.getBindingElement(),
-				"getOppositeBindingElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBindingElement(), "bindingElement", 1, 1,
+		op = addEOperation(bindingReferenceEClass, this.getBindingElement(), "getOppositeBindingElement", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBindingElement(), "bindingElement", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(bindingElementEClass, BindingElement.class,
-				"BindingElement", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(bindingElementEClass, BindingElement.class, "BindingElement", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBindingElement_BoundElement(),
-				this.getBoundableElement(), null, "boundElement", null, 0, 1,
-				BindingElement.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getBindingElement_BoundElement(), this.getBoundableElement(), null, "boundElement", null, 0, 1,
+				BindingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBindingElement_BindingExpression(),
-				ecorePackage.getEString(), "bindingExpression", null, 0, 1,
-				BindingElement.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+		initEAttribute(getBindingElement_BindingExpression(), ecorePackage.getEString(), "bindingExpression", null, 0,
+				1, BindingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getBindingElement_ReferencedByAsLeft(), this.getBindingReference(),
+				this.getBindingReference_Left(), "referencedByAsLeft", null, 0, -1, BindingElement.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getBindingElement_ReferencedByAsLeft(),
-				this.getBindingReference(), this.getBindingReference_Left(),
-				"referencedByAsLeft", null, 0, -1, BindingElement.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getBindingElement_ReferencedByAsRight(),
-				this.getBindingReference(), this.getBindingReference_Right(),
-				"referencedByAsRight", null, 0, -1, BindingElement.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getBindingElement_ReferencedBy(),
-				this.getBindingReference(), null, "referencedBy", null, 0, -1,
-				BindingElement.class, IS_TRANSIENT, IS_VOLATILE,
-				!IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getBindingElement_ReferencedByAsRight(), this.getBindingReference(),
+				this.getBindingReference_Right(), "referencedByAsRight", null, 0, -1, BindingElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBindingElement_ReferencedBy(), this.getBindingReference(), null, "referencedBy", null, 0, -1,
+				BindingElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getBindingElement_PathReferences(),
-				this.getBoundableElement(), null, "pathReferences", null, 0,
-				-1, BindingElement.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getBindingElement_PathReferences(), this.getBoundableElement(), null, "pathReferences", null, 0,
+				-1, BindingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(bindingRegistryEClass, BindingRegistry.class,
-				"BindingRegistry", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(bindingRegistryEClass, BindingRegistry.class, "BindingRegistry", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBindingRegistry_BindingInfos(),
-				this.getBindingInfo(), null, "bindingInfos", null, 0, -1,
-				BindingRegistry.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getBindingRegistry_BindingInfos(), this.getBindingInfo(), null, "bindingInfos", null, 0, -1,
+				BindingRegistry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(boundableElementEClass, BoundableElement.class,
-				"BoundableElement", IS_ABSTRACT, IS_INTERFACE,
+		initEClass(boundableElementEClass, BoundableElement.class, "BoundableElement", IS_ABSTRACT, IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(boundableElementEClass, ecorePackage.getEBoolean(),
-				"isPathValid", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBoundableElement(), "root", 0, 1, IS_UNIQUE,
+		op = addEOperation(boundableElementEClass, ecorePackage.getEBoolean(), "isPathValid", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		addEParameter(op, this.getBoundableElement(), "root", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT,
+		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(namespacesContainerEClass, NamespacesContainer.class, "NamespacesContainer", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(namespacesContainerEClass, NamespacesContainer.class,
-				"NamespacesContainer", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNamespacesContainer_OwnedNamespaces(),
-				this.getNamespace(), this.getNamespace_Owner(),
-				"ownedNamespaces", null, 0, -1, NamespacesContainer.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getNamespacesContainer_OwnedNamespaces(), this.getNamespace(), this.getNamespace_Owner(),
+				"ownedNamespaces", null, 0, -1, NamespacesContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(multiplicityKindEEnum, MultiplicityKind.class,
-				"MultiplicityKind");
-		addEEnumLiteral(multiplicityKindEEnum,
-				MultiplicityKind.ZERO_ONE_LITERAL);
+		initEEnum(multiplicityKindEEnum, MultiplicityKind.class, "MultiplicityKind");
+		addEEnumLiteral(multiplicityKindEEnum, MultiplicityKind.ZERO_ONE_LITERAL);
 		addEEnumLiteral(multiplicityKindEEnum, MultiplicityKind.ONE_LITERAL);
-		addEEnumLiteral(multiplicityKindEEnum,
-				MultiplicityKind.ZERO_STAR_LITERAL);
-		addEEnumLiteral(multiplicityKindEEnum,
-				MultiplicityKind.ONE_STAR_LITERAL);
+		addEEnumLiteral(multiplicityKindEEnum, MultiplicityKind.ZERO_STAR_LITERAL);
+		addEEnumLiteral(multiplicityKindEEnum, MultiplicityKind.ONE_STAR_LITERAL);
 
 		// Create resource
 		createResource(eNS_URI);

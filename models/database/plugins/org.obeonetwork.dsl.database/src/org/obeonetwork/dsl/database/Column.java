@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.typeslibrary.Type;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.Column#isNullable <em>Nullable</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Column#getDefaultValue <em>Default Value</em>}</li>
@@ -37,7 +38,6 @@ import org.obeonetwork.dsl.typeslibrary.Type;
  *   <li>{@link org.obeonetwork.dsl.database.Column#isInForeignKey <em>In Foreign Key</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Column#isUnique <em>Unique</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn()
  * @model

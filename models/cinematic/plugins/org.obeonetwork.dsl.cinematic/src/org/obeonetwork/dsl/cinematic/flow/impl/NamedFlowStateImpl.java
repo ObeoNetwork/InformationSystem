@@ -22,10 +22,10 @@ import org.obeonetwork.dsl.cinematic.flow.NamedFlowState;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.NamedFlowStateImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

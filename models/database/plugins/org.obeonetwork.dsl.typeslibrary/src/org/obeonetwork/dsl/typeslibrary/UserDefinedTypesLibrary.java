@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.typeslibrary;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,17 +22,17 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.UserDefinedTypesLibrary#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.UserDefinedTypesLibrary#getUserDefinedTypes <em>User Defined Types</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getUserDefinedTypesLibrary()
  * @model
  * @generated
  */
-public interface UserDefinedTypesLibrary extends TypesLibrary {
+public interface UserDefinedTypesLibrary extends TypesLibrary, Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

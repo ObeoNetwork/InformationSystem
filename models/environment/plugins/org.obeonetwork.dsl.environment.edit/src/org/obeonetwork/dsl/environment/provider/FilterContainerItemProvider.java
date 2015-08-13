@@ -80,12 +80,10 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.FILTER_CONTAINER__OWNED_FILTERS);
+			childrenFeatures.add(EnvironmentPackage.Literals.FILTER_CONTAINER__OWNED_FILTERS);
 		}
 		return childrenFeatures;
 	}
@@ -111,8 +109,7 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/FilterContainer"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FilterContainer"));
 	}
 
 	/**
@@ -133,7 +130,7 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((FilterContainer) object).getDescription());
+		String label = ((FilterContainer) object).getTechnicalid();
 		return label == null || label.length() == 0 ? getString("_UI_FilterContainer_type")
 				: getString("_UI_FilterContainer_type") + " " + label;
 	}
@@ -151,8 +148,7 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 
 		switch (notification.getFeatureID(FilterContainer.class)) {
 		case EnvironmentPackage.FILTER_CONTAINER__OWNED_FILTERS:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -165,8 +161,7 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void collectNewChildDescriptorsGen(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptorsGen(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -185,8 +180,7 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
-	protected void collectNewChildDescriptors(Collection newChildDescriptors,
-			Object object) {
+	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		collectNewChildDescriptorsGen(newChildDescriptors, object);
 		addExternalChildDescriptors(newChildDescriptors, object);
 	}
@@ -199,26 +193,20 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated NOT
 	 */
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	protected void addExternalChildDescriptors(Collection newChildDescriptors,
-			Object object) {
+	protected void addExternalChildDescriptors(Collection newChildDescriptors, Object object) {
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
-		IExtensionPoint extensionPoint = registry
-				.getExtensionPoint(CHILD_DESCRIPTOR_EXTENSION_ID);
-		if (extensionPoint == null
-				|| extensionPoint.getExtensions().length == 0) {
-			EcorePlugin.INSTANCE.log("Extension point '"
-					+ CHILD_DESCRIPTOR_EXTENSION_ID + "' not found");
+		IExtensionPoint extensionPoint = registry.getExtensionPoint(CHILD_DESCRIPTOR_EXTENSION_ID);
+		if (extensionPoint == null || extensionPoint.getExtensions().length == 0) {
+			EcorePlugin.INSTANCE.log("Extension point '" + CHILD_DESCRIPTOR_EXTENSION_ID + "' not found");
 		} else {
 			Bundle theBundle = null;
 			IExtension[] extensions = extensionPoint.getExtensions();
 			for (int i = 0; i < extensions.length; i++) {
 				IExtension extension = extensions[i];
-				IConfigurationElement[] members = extension
-						.getConfigurationElements();
+				IConfigurationElement[] members = extension.getConfigurationElements();
 				for (int j = 0; j < members.length; j++) {
 					IConfigurationElement member = members[j];
-					String conditionClass = member
-							.getAttribute("implementation");
+					String conditionClass = member.getAttribute("implementation");
 					theBundle = Platform.getBundle(member.getNamespace());
 					if (conditionClass != null) {
 						try {
@@ -226,8 +214,7 @@ public class FilterContainerItemProvider extends ObeoDSMObjectItemProvider {
 							Object instance = c.newInstance();
 							if (instance instanceof IChildDescriptorProvider) {
 								IChildDescriptorProvider childDescriptorProvider = (IChildDescriptorProvider) instance;
-								CommandParameter parameter = childDescriptorProvider
-										.getEntityFilter(object);
+								CommandParameter parameter = childDescriptorProvider.getEntityFilter(object);
 								if (parameter != null) {
 									newChildDescriptors.add(parameter);
 								}

@@ -17,10 +17,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,15 +28,15 @@ import org.obeonetwork.dsl.cinematic.toolkits.Widget;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitImpl#getWidgets <em>Widgets</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.ToolkitImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ToolkitImpl extends CDOObjectImpl implements Toolkit {
+public class ToolkitImpl extends IdentifiableImpl implements Toolkit {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -64,16 +64,6 @@ public class ToolkitImpl extends CDOObjectImpl implements Toolkit {
 	@Override
 	protected EClass eStaticClass() {
 		return ToolkitsPackage.Literals.TOOLKIT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

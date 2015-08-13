@@ -17,11 +17,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.cinematic.toolkits.Toolkit;
 import org.obeonetwork.dsl.cinematic.toolkits.ToolkitsPackage;
 import org.obeonetwork.dsl.cinematic.toolkits.Widget;
 import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +29,7 @@ import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getIcon <em>Icon</em>}</li>
@@ -37,11 +38,10 @@ import org.obeonetwork.dsl.cinematic.toolkits.WidgetEventType;
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#getPossibleEvents <em>Possible Events</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl#isIsContainer <em>Is Container</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class WidgetImpl extends CDOObjectImpl implements Widget {
+public class WidgetImpl extends IdentifiableImpl implements Widget {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,16 +96,6 @@ public class WidgetImpl extends CDOObjectImpl implements Widget {
 	@Override
 	protected EClass eStaticClass() {
 		return ToolkitsPackage.Literals.WIDGET;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

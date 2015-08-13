@@ -48,8 +48,7 @@ import org.obeonetwork.dsl.environment.spec.ReferenceSpec;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnvironmentFactoryImpl extends EFactoryImpl implements
-		EnvironmentFactory {
+public class EnvironmentFactoryImpl extends EFactoryImpl implements EnvironmentFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,8 +132,7 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 		case EnvironmentPackage.BINDING_REGISTRY:
 			return (EObject) createBindingRegistry();
 		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName()
-					+ "' is not a valid classifier");
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -149,8 +147,7 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 		case EnvironmentPackage.MULTIPLICITY_KIND:
 			return createMultiplicityKindFromString(eDataType, initialValue);
 		default:
-			throw new IllegalArgumentException("The datatype '"
-					+ eDataType.getName() + "' is not a valid classifier");
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -165,8 +162,7 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 		case EnvironmentPackage.MULTIPLICITY_KIND:
 			return convertMultiplicityKindToString(eDataType, instanceValue);
 		default:
-			throw new IllegalArgumentException("The datatype '"
-					+ eDataType.getName() + "' is not a valid classifier");
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -365,13 +361,11 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MultiplicityKind createMultiplicityKindFromString(
-			EDataType eDataType, String initialValue) {
+	public MultiplicityKind createMultiplicityKindFromString(EDataType eDataType, String initialValue) {
 		MultiplicityKind result = MultiplicityKind.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName()
-					+ "'");
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
@@ -380,8 +374,7 @@ public class EnvironmentFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertMultiplicityKindToString(EDataType eDataType,
-			Object instanceValue) {
+	public String convertMultiplicityKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

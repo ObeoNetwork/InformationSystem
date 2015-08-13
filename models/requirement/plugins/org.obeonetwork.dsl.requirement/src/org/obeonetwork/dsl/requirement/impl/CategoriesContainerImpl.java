@@ -24,11 +24,11 @@ import org.obeonetwork.dsl.requirement.RequirementPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.CategoriesContainerImpl#getOwnedCategories <em>Owned Categories</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.requirement.impl.CategoriesContainerImpl#getOwnedRequirements <em>Owned Requirements</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

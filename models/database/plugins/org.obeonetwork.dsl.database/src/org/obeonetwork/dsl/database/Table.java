@@ -20,13 +20,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.Table#getPrimaryKey <em>Primary Key</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Table#getForeignKeys <em>Foreign Keys</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Table#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Table#getIndexes <em>Indexes</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getTable()
  * @model

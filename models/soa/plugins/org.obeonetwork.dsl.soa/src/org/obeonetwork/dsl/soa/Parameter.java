@@ -17,6 +17,7 @@ import org.obeonetwork.dsl.environment.Type;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getType <em>Type</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#getName <em>Name</em>}</li>
@@ -24,7 +25,6 @@ import org.obeonetwork.dsl.environment.Type;
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsUnique <em>Is Unique</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Parameter#isIsOrdered <em>Is Ordered</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getParameter()
  * @model

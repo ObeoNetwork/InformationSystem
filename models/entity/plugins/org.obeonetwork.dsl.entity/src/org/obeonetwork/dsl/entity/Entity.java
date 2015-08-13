@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.environment.StructuredType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.entity.Entity#getEstimatedVolumetry <em>Estimated Volumetry</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.Entity#getEstimatedAccess <em>Estimated Access</em>}</li>
@@ -28,7 +29,6 @@ import org.obeonetwork.dsl.environment.StructuredType;
  *   <li>{@link org.obeonetwork.dsl.entity.Entity#getOwnedFinders <em>Owned Finders</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.entity.Entity#getInheritanceKind <em>Inheritance Kind</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.entity.EntityPackage#getEntity()
  * @model

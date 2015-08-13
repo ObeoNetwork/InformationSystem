@@ -18,10 +18,10 @@ package org.obeonetwork.dsl.interaction;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.interaction.ReturnMessage#getInvocationMessage <em>Invocation Message</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.interaction.InteractionPackage#getReturnMessage()
  * @model

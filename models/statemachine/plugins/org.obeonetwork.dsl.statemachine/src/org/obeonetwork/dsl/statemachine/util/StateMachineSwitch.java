@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Behaviour;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.statemachine.*;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.dsl.statemachine.AbstractState;
 import org.obeonetwork.dsl.statemachine.FinalState;
 import org.obeonetwork.dsl.statemachine.InitialState;
@@ -96,6 +98,7 @@ public class StateMachineSwitch<T> {
 				NamedElement namedElement = (NamedElement)theEObject;
 				T result = caseNamedElement(namedElement);
 				if (result == null) result = caseObeoDSMObject(namedElement);
+				if (result == null) result = caseIdentifiable(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -106,6 +109,7 @@ public class StateMachineSwitch<T> {
 				if (result == null) result = caseBehaviour(stateMachine);
 				if (result == null) result = caseNamedElement(stateMachine);
 				if (result == null) result = caseObeoDSMObject(stateMachine);
+				if (result == null) result = caseIdentifiable(stateMachine);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,6 +119,7 @@ public class StateMachineSwitch<T> {
 				if (result == null) result = caseAbstractState(state);
 				if (result == null) result = caseNamedElement(state);
 				if (result == null) result = caseObeoDSMObject(state);
+				if (result == null) result = caseIdentifiable(state);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,6 +128,7 @@ public class StateMachineSwitch<T> {
 				T result = caseStateMachineDescription(stateMachineDescription);
 				if (result == null) result = caseNamedElement(stateMachineDescription);
 				if (result == null) result = caseObeoDSMObject(stateMachineDescription);
+				if (result == null) result = caseIdentifiable(stateMachineDescription);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,6 +138,7 @@ public class StateMachineSwitch<T> {
 				if (result == null) result = caseStateMachineDescription(region);
 				if (result == null) result = caseNamedElement(region);
 				if (result == null) result = caseObeoDSMObject(region);
+				if (result == null) result = caseIdentifiable(region);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,6 +146,7 @@ public class StateMachineSwitch<T> {
 				AbstractState abstractState = (AbstractState)theEObject;
 				T result = caseAbstractState(abstractState);
 				if (result == null) result = caseObeoDSMObject(abstractState);
+				if (result == null) result = caseIdentifiable(abstractState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -146,6 +154,7 @@ public class StateMachineSwitch<T> {
 				Transition transition = (Transition)theEObject;
 				T result = caseTransition(transition);
 				if (result == null) result = caseObeoDSMObject(transition);
+				if (result == null) result = caseIdentifiable(transition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -154,6 +163,7 @@ public class StateMachineSwitch<T> {
 				T result = caseInitialState(initialState);
 				if (result == null) result = caseAbstractState(initialState);
 				if (result == null) result = caseObeoDSMObject(initialState);
+				if (result == null) result = caseIdentifiable(initialState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -162,6 +172,7 @@ public class StateMachineSwitch<T> {
 				T result = caseFinalState(finalState);
 				if (result == null) result = caseAbstractState(finalState);
 				if (result == null) result = caseObeoDSMObject(finalState);
+				if (result == null) result = caseIdentifiable(finalState);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -301,6 +312,21 @@ public class StateMachineSwitch<T> {
 	 * @generated
 	 */
 	public T caseFinalState(FinalState object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identifiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentifiable(Identifiable object) {
 		return null;
 	}
 

@@ -34,8 +34,7 @@ public interface EnvironmentFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	EnvironmentFactory eINSTANCE = org.obeonetwork.dsl.environment.impl.EnvironmentFactoryImpl
-			.init();
+	EnvironmentFactory eINSTANCE = org.obeonetwork.dsl.environment.impl.EnvironmentFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Environment</em>'.

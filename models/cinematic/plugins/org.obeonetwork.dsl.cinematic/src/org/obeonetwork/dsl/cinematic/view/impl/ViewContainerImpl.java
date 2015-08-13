@@ -29,13 +29,13 @@ import org.obeonetwork.dsl.cinematic.view.ViewPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl#getOwnedElements <em>Owned Elements</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl#getViewContainers <em>View Containers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl#getViewElements <em>View Elements</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.view.impl.ViewContainerImpl#getViewContainerReferences <em>View Container References</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

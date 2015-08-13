@@ -34,11 +34,11 @@ import org.obeonetwork.dsl.database.Table;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.PrimaryKeyImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.PrimaryKeyImpl#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

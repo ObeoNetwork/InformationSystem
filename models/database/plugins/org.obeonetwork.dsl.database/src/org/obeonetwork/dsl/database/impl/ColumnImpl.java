@@ -44,6 +44,7 @@ import org.obeonetwork.dsl.typeslibrary.Type;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ColumnImpl#isNullable <em>Nullable</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ColumnImpl#getDefaultValue <em>Default Value</em>}</li>
@@ -60,7 +61,6 @@ import org.obeonetwork.dsl.typeslibrary.Type;
  *   <li>{@link org.obeonetwork.dsl.database.impl.ColumnImpl#isInForeignKey <em>In Foreign Key</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ColumnImpl#isUnique <em>Unique</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

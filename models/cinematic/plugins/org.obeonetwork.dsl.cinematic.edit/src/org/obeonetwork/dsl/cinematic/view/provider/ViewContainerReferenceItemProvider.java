@@ -36,13 +36,7 @@ import org.obeonetwork.dsl.cinematic.view.ViewPackage;
  * @generated
  */
 public class ViewContainerReferenceItemProvider
-	extends AbstractViewElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends AbstractViewElementItemProvider {
 	
 	private AdapterFactoryLabelProvider adapterFactoryLabelProvider;
 	

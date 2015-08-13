@@ -34,13 +34,7 @@ import org.obeonetwork.dsl.statemachine.StateMachinePackage;
  * @generated
  */
 public class StateMachineItemProvider
-	extends StateMachineDescriptionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends StateMachineDescriptionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

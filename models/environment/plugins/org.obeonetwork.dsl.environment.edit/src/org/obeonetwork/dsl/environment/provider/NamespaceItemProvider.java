@@ -73,15 +73,13 @@ public class NamespaceItemProvider extends TypesDefinitionItemProvider {
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Namespace_name_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Namespace_name_feature", "_UI_Namespace_type"),
-				EnvironmentPackage.Literals.NAMESPACE__NAME, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Namespace_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Namespace_name_feature",
+								"_UI_Namespace_type"),
+						EnvironmentPackage.Literals.NAMESPACE__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -93,12 +91,10 @@ public class NamespaceItemProvider extends TypesDefinitionItemProvider {
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(
-			Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures
-					.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
+			childrenFeatures.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -127,14 +123,10 @@ public class NamespaceItemProvider extends TypesDefinitionItemProvider {
 		if (object instanceof Namespace) {
 			Namespace ns = (Namespace) object;
 			if (ns.getOwnedNamespaces().isEmpty() && ns.getTypes().isEmpty()) {
-				return overlayImage(
-						object,
-						getResourceLocator().getImage(
-								"full/obj16/Empty_Namespace"));
+				return overlayImage(object, getResourceLocator().getImage("full/obj16/Empty_Namespace"));
 			}
 		}
-		return overlayImage(object,
-				getResourceLocator().getImage("full/obj16/Namespace"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Namespace"));
 	}
 
 	/**
@@ -173,12 +165,10 @@ public class NamespaceItemProvider extends TypesDefinitionItemProvider {
 
 		switch (notification.getFeatureID(Namespace.class)) {
 		case EnvironmentPackage.NAMESPACE__NAME:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case EnvironmentPackage.NAMESPACE__OWNED_NAMESPACES:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), true, false));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -192,14 +182,11 @@ public class NamespaceItemProvider extends TypesDefinitionItemProvider {
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(
-			Collection<Object> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors
-				.add(createChildParameter(
-						EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
-						EnvironmentFactory.eINSTANCE.createNamespace()));
+		newChildDescriptors.add(createChildParameter(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+				EnvironmentFactory.eINSTANCE.createNamespace()));
 	}
 
 }

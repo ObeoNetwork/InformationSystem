@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EParameter;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BParameter#getBOperation <em>BOperation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.ecorebinding.BParameter#getEcoreParameter <em>Ecore Parameter</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.ecorebinding.EcorebindingPackage#getBParameter()
  * @model

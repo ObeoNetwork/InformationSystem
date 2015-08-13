@@ -22,11 +22,11 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.AnnotationImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.AnnotationImpl#getBody <em>Body</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -82,8 +82,8 @@ public class AnnotationImpl extends MetaDataImpl implements Annotation {
 	 * @generated
 	 */
 	public String getTitle() {
-		return (String) eDynamicGet(EnvironmentPackage.ANNOTATION__TITLE,
-				EnvironmentPackage.Literals.ANNOTATION__TITLE, true, true);
+		return (String) eDynamicGet(EnvironmentPackage.ANNOTATION__TITLE, EnvironmentPackage.Literals.ANNOTATION__TITLE,
+				true, true);
 	}
 
 	/**
@@ -92,8 +92,7 @@ public class AnnotationImpl extends MetaDataImpl implements Annotation {
 	 * @generated
 	 */
 	public void setTitle(String newTitle) {
-		eDynamicSet(EnvironmentPackage.ANNOTATION__TITLE,
-				EnvironmentPackage.Literals.ANNOTATION__TITLE, newTitle);
+		eDynamicSet(EnvironmentPackage.ANNOTATION__TITLE, EnvironmentPackage.Literals.ANNOTATION__TITLE, newTitle);
 	}
 
 	/**
@@ -102,8 +101,8 @@ public class AnnotationImpl extends MetaDataImpl implements Annotation {
 	 * @generated
 	 */
 	public String getBody() {
-		return (String) eDynamicGet(EnvironmentPackage.ANNOTATION__BODY,
-				EnvironmentPackage.Literals.ANNOTATION__BODY, true, true);
+		return (String) eDynamicGet(EnvironmentPackage.ANNOTATION__BODY, EnvironmentPackage.Literals.ANNOTATION__BODY,
+				true, true);
 	}
 
 	/**
@@ -112,8 +111,7 @@ public class AnnotationImpl extends MetaDataImpl implements Annotation {
 	 * @generated
 	 */
 	public void setBody(String newBody) {
-		eDynamicSet(EnvironmentPackage.ANNOTATION__BODY,
-				EnvironmentPackage.Literals.ANNOTATION__BODY, newBody);
+		eDynamicSet(EnvironmentPackage.ANNOTATION__BODY, EnvironmentPackage.Literals.ANNOTATION__BODY, newBody);
 	}
 
 	/**
@@ -177,11 +175,9 @@ public class AnnotationImpl extends MetaDataImpl implements Annotation {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case EnvironmentPackage.ANNOTATION__TITLE:
-			return TITLE_EDEFAULT == null ? getTitle() != null
-					: !TITLE_EDEFAULT.equals(getTitle());
+			return TITLE_EDEFAULT == null ? getTitle() != null : !TITLE_EDEFAULT.equals(getTitle());
 		case EnvironmentPackage.ANNOTATION__BODY:
-			return BODY_EDEFAULT == null ? getBody() != null : !BODY_EDEFAULT
-					.equals(getBody());
+			return BODY_EDEFAULT == null ? getBody() != null : !BODY_EDEFAULT.equals(getBody());
 		}
 		return super.eIsSet(featureID);
 	}

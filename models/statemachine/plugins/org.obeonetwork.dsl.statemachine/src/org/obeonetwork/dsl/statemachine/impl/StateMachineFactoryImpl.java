@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.obeonetwork.dsl.statemachine.*;
 import org.obeonetwork.dsl.statemachine.FinalState;
 import org.obeonetwork.dsl.statemachine.InitialState;
 import org.obeonetwork.dsl.statemachine.Region;
@@ -35,7 +36,7 @@ public class StateMachineFactoryImpl extends EFactoryImpl implements StateMachin
 	 */
 	public static StateMachineFactory init() {
 		try {
-			StateMachineFactory theStateMachineFactory = (StateMachineFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/statemachine/1.0.0"); 
+			StateMachineFactory theStateMachineFactory = (StateMachineFactory)EPackage.Registry.INSTANCE.getEFactory(StateMachinePackage.eNS_URI);
 			if (theStateMachineFactory != null) {
 				return theStateMachineFactory;
 			}

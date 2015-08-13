@@ -25,10 +25,10 @@ import org.obeonetwork.dsl.cinematic.view.ViewEvent;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.impl.FlowEventImpl#getBinds <em>Binds</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

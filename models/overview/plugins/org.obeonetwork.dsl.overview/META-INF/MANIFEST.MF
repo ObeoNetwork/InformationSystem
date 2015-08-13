@@ -12,9 +12,11 @@ Export-Package: org.obeonetwork.dsl.overview,
  org.obeonetwork.dsl.overview.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.obeonetwork.dsl.environment,
+ org.eclipse.emf.cdo;visibility:=reexport,
+ org.obeonetwork.dsl.environment;visibility:=reexport,
+ org.obeonetwork.dsl.technicalid;visibility:=reexport,
  org.eclipse.core.resources,
- org.eclipse.emf.ecore.xmi,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.obeonetwork.tools.migration,
  org.obeonetwork.dsl.soa,
  org.obeonetwork.dsl.entity

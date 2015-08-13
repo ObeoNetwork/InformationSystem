@@ -29,10 +29,10 @@ import org.obeonetwork.dsl.environment.Literal;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.EnumerationImpl#getLiterals <em>Literals</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -70,8 +70,7 @@ public class EnumerationImpl extends DataTypeImpl implements Enumeration {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Literal> getLiterals() {
-		return (EList<Literal>) eDynamicGet(
-				EnvironmentPackage.ENUMERATION__LITERALS,
+		return (EList<Literal>) eDynamicGet(EnvironmentPackage.ENUMERATION__LITERALS,
 				EnvironmentPackage.Literals.ENUMERATION__LITERALS, true, true);
 	}
 
@@ -81,12 +80,10 @@ public class EnumerationImpl extends DataTypeImpl implements Enumeration {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.ENUMERATION__LITERALS:
-			return ((InternalEList<?>) getLiterals()).basicRemove(otherEnd,
-					msgs);
+			return ((InternalEList<?>) getLiterals()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

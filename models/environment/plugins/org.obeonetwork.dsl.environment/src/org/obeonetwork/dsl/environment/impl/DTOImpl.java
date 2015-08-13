@@ -25,10 +25,10 @@ import org.obeonetwork.dsl.environment.FilterContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.DTOImpl#getOwnedContainer <em>Owned Container</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -65,8 +65,7 @@ public class DTOImpl extends StructuredTypeImpl implements DTO {
 	 * @generated
 	 */
 	public FilterContainer getOwnedContainer() {
-		return (FilterContainer) eDynamicGet(
-				EnvironmentPackage.DTO__OWNED_CONTAINER,
+		return (FilterContainer) eDynamicGet(EnvironmentPackage.DTO__OWNED_CONTAINER,
 				EnvironmentPackage.Literals.DTO__OWNED_CONTAINER, true, true);
 	}
 
@@ -76,8 +75,7 @@ public class DTOImpl extends StructuredTypeImpl implements DTO {
 	 * @generated
 	 */
 	public FilterContainer basicGetOwnedContainer() {
-		return (FilterContainer) eDynamicGet(
-				EnvironmentPackage.DTO__OWNED_CONTAINER,
+		return (FilterContainer) eDynamicGet(EnvironmentPackage.DTO__OWNED_CONTAINER,
 				EnvironmentPackage.Literals.DTO__OWNED_CONTAINER, false, true);
 	}
 
@@ -86,10 +84,8 @@ public class DTOImpl extends StructuredTypeImpl implements DTO {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOwnedContainer(
-			FilterContainer newOwnedContainer, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject) newOwnedContainer,
-				EnvironmentPackage.DTO__OWNED_CONTAINER, msgs);
+	public NotificationChain basicSetOwnedContainer(FilterContainer newOwnedContainer, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject) newOwnedContainer, EnvironmentPackage.DTO__OWNED_CONTAINER, msgs);
 		return msgs;
 	}
 
@@ -99,8 +95,7 @@ public class DTOImpl extends StructuredTypeImpl implements DTO {
 	 * @generated
 	 */
 	public void setOwnedContainer(FilterContainer newOwnedContainer) {
-		eDynamicSet(EnvironmentPackage.DTO__OWNED_CONTAINER,
-				EnvironmentPackage.Literals.DTO__OWNED_CONTAINER,
+		eDynamicSet(EnvironmentPackage.DTO__OWNED_CONTAINER, EnvironmentPackage.Literals.DTO__OWNED_CONTAINER,
 				newOwnedContainer);
 	}
 
@@ -110,8 +105,7 @@ public class DTOImpl extends StructuredTypeImpl implements DTO {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.DTO__OWNED_CONTAINER:
 			return basicSetOwnedContainer(null, msgs);

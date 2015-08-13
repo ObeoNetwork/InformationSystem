@@ -26,11 +26,11 @@ import org.obeonetwork.graal.GraalPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.ActorImpl#getSubActors <em>Sub Actors</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.ActorImpl#getSuperActor <em>Super Actor</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

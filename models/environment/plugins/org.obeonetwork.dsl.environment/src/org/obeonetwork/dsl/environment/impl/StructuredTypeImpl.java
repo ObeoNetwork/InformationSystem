@@ -35,6 +35,7 @@ import org.obeonetwork.dsl.environment.StructuredType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getSupertype <em>Supertype</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getAssociatedTypes <em>Associated Types</em>}</li>
@@ -44,12 +45,10 @@ import org.obeonetwork.dsl.environment.StructuredType;
  *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getReferences <em>References</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public abstract class StructuredTypeImpl extends TypeImpl implements
-		StructuredType {
+public abstract class StructuredTypeImpl extends TypeImpl implements StructuredType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,10 +81,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 	 * @generated
 	 */
 	public StructuredType getSupertype() {
-		return (StructuredType) eDynamicGet(
-				EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, true,
-				true);
+		return (StructuredType) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, true, true);
 	}
 
 	/**
@@ -94,10 +91,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 	 * @generated
 	 */
 	public StructuredType basicGetSupertype() {
-		return (StructuredType) eDynamicGet(
-				EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, false,
-				true);
+		return (StructuredType) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, false, true);
 	}
 
 	/**
@@ -107,8 +102,7 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 	 */
 	public void setSupertype(StructuredType newSupertype) {
 		eDynamicSet(EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE,
-				newSupertype);
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, newSupertype);
 	}
 
 	/**
@@ -118,10 +112,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<StructuredType> getAssociatedTypes() {
-		return (EList<StructuredType>) eDynamicGet(
-				EnvironmentPackage.STRUCTURED_TYPE__ASSOCIATED_TYPES,
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__ASSOCIATED_TYPES,
-				true, true);
+		return (EList<StructuredType>) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__ASSOCIATED_TYPES,
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__ASSOCIATED_TYPES, true, true);
 	}
 
 	/**
@@ -131,10 +123,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Attribute> getOwnedAttributes() {
-		return (EList<Attribute>) eDynamicGet(
-				EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES,
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_ATTRIBUTES,
-				true, true);
+		return (EList<Attribute>) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES,
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_ATTRIBUTES, true, true);
 	}
 
 	/**
@@ -159,9 +149,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 			result.addAll(getSupertype().getAttributes());
 		}
 		result.shrink();
-		EList<Attribute> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Attribute>(
-				this, EnvironmentPackage.Literals.STRUCTURED_TYPE__ATTRIBUTES,
-				result.size(), result.data());
+		EList<Attribute> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Attribute>(this,
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__ATTRIBUTES, result.size(), result.data());
 		return unmodifiableResult;
 	}
 
@@ -172,10 +161,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Reference> getOwnedReferences() {
-		return (EList<Reference>) eDynamicGet(
-				EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES,
-				EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_REFERENCES,
-				true, true);
+		return (EList<Reference>) eDynamicGet(EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES,
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__OWNED_REFERENCES, true, true);
 	}
 
 	/**
@@ -200,9 +187,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 			result.addAll(getSupertype().getReferences());
 		}
 		result.shrink();
-		EList<Reference> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Reference>(
-				this, EnvironmentPackage.Literals.STRUCTURED_TYPE__REFERENCES,
-				result.size(), result.data());
+		EList<Reference> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Reference>(this,
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__REFERENCES, result.size(), result.data());
 		return unmodifiableResult;
 	}
 
@@ -226,9 +212,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 		result.addAll(getAttributes());
 		result.addAll(getReferences());
 		result.shrink();
-		EList<Property> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Property>(
-				this, EnvironmentPackage.Literals.STRUCTURED_TYPE__PROPERTIES,
-				result.size(), result.data());
+		EList<Property> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Property>(this,
+				EnvironmentPackage.Literals.STRUCTURED_TYPE__PROPERTIES, result.size(), result.data());
 		return unmodifiableResult;
 	}
 
@@ -242,9 +227,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 		// - A and B are both the same structured type
 		// - the supertype of A is B
 		// - the supertype of A is a subtype of B
-		return (EcoreUtil.equals(this, type) || (getSupertype() != null && (EcoreUtil
-				.equals(getSupertype(), type) || getSupertype().isSubtypeOf(
-				type))));
+		return (EcoreUtil.equals(this, type) || (getSupertype() != null
+				&& (EcoreUtil.equals(getSupertype(), type) || getSupertype().isSubtypeOf(type))));
 	}
 
 	/**
@@ -254,15 +238,12 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOwnedAttributes())
-					.basicAdd(otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOwnedAttributes()).basicAdd(otherEnd, msgs);
 		case EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOwnedReferences())
-					.basicAdd(otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getOwnedReferences()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -273,15 +254,12 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES:
-			return ((InternalEList<?>) getOwnedAttributes()).basicRemove(
-					otherEnd, msgs);
+			return ((InternalEList<?>) getOwnedAttributes()).basicRemove(otherEnd, msgs);
 		case EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES:
-			return ((InternalEList<?>) getOwnedReferences()).basicRemove(
-					otherEnd, msgs);
+			return ((InternalEList<?>) getOwnedReferences()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -328,18 +306,15 @@ public abstract class StructuredTypeImpl extends TypeImpl implements
 			return;
 		case EnvironmentPackage.STRUCTURED_TYPE__ASSOCIATED_TYPES:
 			getAssociatedTypes().clear();
-			getAssociatedTypes().addAll(
-					(Collection<? extends StructuredType>) newValue);
+			getAssociatedTypes().addAll((Collection<? extends StructuredType>) newValue);
 			return;
 		case EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES:
 			getOwnedAttributes().clear();
-			getOwnedAttributes().addAll(
-					(Collection<? extends Attribute>) newValue);
+			getOwnedAttributes().addAll((Collection<? extends Attribute>) newValue);
 			return;
 		case EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES:
 			getOwnedReferences().clear();
-			getOwnedReferences().addAll(
-					(Collection<? extends Reference>) newValue);
+			getOwnedReferences().addAll((Collection<? extends Reference>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

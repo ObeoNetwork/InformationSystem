@@ -26,11 +26,11 @@ import org.obeonetwork.graal.GraalPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.DomainModelRegistryImpl#getNamespaces <em>Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.DomainModelRegistryImpl#getTypes <em>Types</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

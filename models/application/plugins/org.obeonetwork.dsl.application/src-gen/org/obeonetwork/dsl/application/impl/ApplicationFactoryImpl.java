@@ -13,12 +13,12 @@ package org.obeonetwork.dsl.application.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.obeonetwork.dsl.application.*;
+import org.obeonetwork.dsl.application.ApplicationFactory;
+import org.obeonetwork.dsl.application.ApplicationPackage;
+import org.obeonetwork.dsl.application.Configuration;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +26,7 @@ import org.obeonetwork.dsl.application.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationFactoryImpl extends EFactoryImpl implements
-		ApplicationFactory {
+public class ApplicationFactoryImpl extends EFactoryImpl implements ApplicationFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
@@ -37,7 +36,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements
 	public static ApplicationFactory init() {
 		try {
 			ApplicationFactory theApplicationFactory = (ApplicationFactory) EPackage.Registry.INSTANCE
-					.getEFactory("http://www.obeonetwork.org/dsl/application/1.0.0");
+					.getEFactory(ApplicationPackage.eNS_URI);
 			if (theApplicationFactory != null) {
 				return theApplicationFactory;
 			}
@@ -68,8 +67,7 @@ public class ApplicationFactoryImpl extends EFactoryImpl implements
 		case ApplicationPackage.CONFIGURATION:
 			return (EObject) createConfiguration();
 		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName()
-					+ "' is not a valid classifier");
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 

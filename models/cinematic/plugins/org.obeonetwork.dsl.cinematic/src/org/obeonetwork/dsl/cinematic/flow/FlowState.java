@@ -20,10 +20,10 @@ import org.obeonetwork.dsl.cinematic.CinematicElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.flow.FlowState#getActions <em>Actions</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.cinematic.flow.FlowPackage#getFlowState()
  * @model abstract="true"

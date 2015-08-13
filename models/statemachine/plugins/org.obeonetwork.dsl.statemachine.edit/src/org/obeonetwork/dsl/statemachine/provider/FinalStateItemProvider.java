@@ -29,13 +29,7 @@ import org.obeonetwork.dsl.statemachine.FinalState;
  * @generated
  */
 public class FinalStateItemProvider
-	extends AbstractStateItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends AbstractStateItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -90,7 +84,7 @@ public class FinalStateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((FinalState)object).getDescription());
+		String label = ((FinalState)object).getTechnicalid();
 		return label == null || label.length() == 0 ?
 			getString("_UI_FinalState_type") :
 			getString("_UI_FinalState_type") + " " + label;

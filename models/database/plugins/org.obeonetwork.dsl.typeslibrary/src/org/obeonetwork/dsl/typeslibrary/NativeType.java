@@ -12,6 +12,7 @@ package org.obeonetwork.dsl.typeslibrary;
 
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,19 +21,18 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.NativeType#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.NativeType#getSpec <em>Spec</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.typeslibrary.NativeType#getMapsTo <em>Maps To</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage#getNativeType()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface NativeType extends CDOObject {
+public interface NativeType extends Identifiable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

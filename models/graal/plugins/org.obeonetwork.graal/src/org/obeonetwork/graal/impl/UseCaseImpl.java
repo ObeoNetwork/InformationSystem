@@ -28,6 +28,7 @@ import org.obeonetwork.graal.UseCase;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getNamespaces <em>Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getTypes <em>Types</em>}</li>
@@ -36,7 +37,6 @@ import org.obeonetwork.graal.UseCase;
  *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getIncludes <em>Includes</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getExtends <em>Extends</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

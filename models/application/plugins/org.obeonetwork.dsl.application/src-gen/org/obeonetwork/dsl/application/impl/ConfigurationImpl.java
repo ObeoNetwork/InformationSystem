@@ -13,25 +13,17 @@ package org.obeonetwork.dsl.application.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-
 import org.obeonetwork.dsl.application.ApplicationPackage;
 import org.obeonetwork.dsl.application.Configuration;
-
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
-
 import org.obeonetwork.dsl.ecorebinding.BModel;
-
 import org.obeonetwork.dsl.environment.BindingRegistry;
+import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,17 +31,17 @@ import org.obeonetwork.dsl.environment.BindingRegistry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.application.impl.ConfigurationImpl#getBindingRegistries <em>Binding Registries</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.application.impl.ConfigurationImpl#getEcoreModel <em>Ecore Model</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.application.impl.ConfigurationImpl#getCinematicModel <em>Cinematic Model</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.application.impl.ConfigurationImpl#getEcoreBindingModel <em>Ecore Binding Model</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
+public class ConfigurationImpl extends IdentifiableImpl implements Configuration {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,22 +66,10 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	public EList<BindingRegistry> getBindingRegistries() {
-		return (EList<BindingRegistry>) eDynamicGet(
-				ApplicationPackage.CONFIGURATION__BINDING_REGISTRIES,
-				ApplicationPackage.Literals.CONFIGURATION__BINDING_REGISTRIES,
-				true, true);
+		return (EList<BindingRegistry>) eDynamicGet(ApplicationPackage.CONFIGURATION__BINDING_REGISTRIES,
+				ApplicationPackage.Literals.CONFIGURATION__BINDING_REGISTRIES, true, true);
 	}
 
 	/**
@@ -98,10 +78,8 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public EPackage getEcoreModel() {
-		return (EPackage) eDynamicGet(
-				ApplicationPackage.CONFIGURATION__ECORE_MODEL,
-				ApplicationPackage.Literals.CONFIGURATION__ECORE_MODEL, true,
-				true);
+		return (EPackage) eDynamicGet(ApplicationPackage.CONFIGURATION__ECORE_MODEL,
+				ApplicationPackage.Literals.CONFIGURATION__ECORE_MODEL, true, true);
 	}
 
 	/**
@@ -110,10 +88,8 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public EPackage basicGetEcoreModel() {
-		return (EPackage) eDynamicGet(
-				ApplicationPackage.CONFIGURATION__ECORE_MODEL,
-				ApplicationPackage.Literals.CONFIGURATION__ECORE_MODEL, false,
-				true);
+		return (EPackage) eDynamicGet(ApplicationPackage.CONFIGURATION__ECORE_MODEL,
+				ApplicationPackage.Literals.CONFIGURATION__ECORE_MODEL, false, true);
 	}
 
 	/**
@@ -123,8 +99,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 */
 	public void setEcoreModel(EPackage newEcoreModel) {
 		eDynamicSet(ApplicationPackage.CONFIGURATION__ECORE_MODEL,
-				ApplicationPackage.Literals.CONFIGURATION__ECORE_MODEL,
-				newEcoreModel);
+				ApplicationPackage.Literals.CONFIGURATION__ECORE_MODEL, newEcoreModel);
 	}
 
 	/**
@@ -133,10 +108,8 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public CinematicRoot getCinematicModel() {
-		return (CinematicRoot) eDynamicGet(
-				ApplicationPackage.CONFIGURATION__CINEMATIC_MODEL,
-				ApplicationPackage.Literals.CONFIGURATION__CINEMATIC_MODEL,
-				true, true);
+		return (CinematicRoot) eDynamicGet(ApplicationPackage.CONFIGURATION__CINEMATIC_MODEL,
+				ApplicationPackage.Literals.CONFIGURATION__CINEMATIC_MODEL, true, true);
 	}
 
 	/**
@@ -145,10 +118,8 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public CinematicRoot basicGetCinematicModel() {
-		return (CinematicRoot) eDynamicGet(
-				ApplicationPackage.CONFIGURATION__CINEMATIC_MODEL,
-				ApplicationPackage.Literals.CONFIGURATION__CINEMATIC_MODEL,
-				false, true);
+		return (CinematicRoot) eDynamicGet(ApplicationPackage.CONFIGURATION__CINEMATIC_MODEL,
+				ApplicationPackage.Literals.CONFIGURATION__CINEMATIC_MODEL, false, true);
 	}
 
 	/**
@@ -158,8 +129,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 */
 	public void setCinematicModel(CinematicRoot newCinematicModel) {
 		eDynamicSet(ApplicationPackage.CONFIGURATION__CINEMATIC_MODEL,
-				ApplicationPackage.Literals.CONFIGURATION__CINEMATIC_MODEL,
-				newCinematicModel);
+				ApplicationPackage.Literals.CONFIGURATION__CINEMATIC_MODEL, newCinematicModel);
 	}
 
 	/**
@@ -168,10 +138,8 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public BModel getEcoreBindingModel() {
-		return (BModel) eDynamicGet(
-				ApplicationPackage.CONFIGURATION__ECORE_BINDING_MODEL,
-				ApplicationPackage.Literals.CONFIGURATION__ECORE_BINDING_MODEL,
-				true, true);
+		return (BModel) eDynamicGet(ApplicationPackage.CONFIGURATION__ECORE_BINDING_MODEL,
+				ApplicationPackage.Literals.CONFIGURATION__ECORE_BINDING_MODEL, true, true);
 	}
 
 	/**
@@ -180,10 +148,8 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	public BModel basicGetEcoreBindingModel() {
-		return (BModel) eDynamicGet(
-				ApplicationPackage.CONFIGURATION__ECORE_BINDING_MODEL,
-				ApplicationPackage.Literals.CONFIGURATION__ECORE_BINDING_MODEL,
-				false, true);
+		return (BModel) eDynamicGet(ApplicationPackage.CONFIGURATION__ECORE_BINDING_MODEL,
+				ApplicationPackage.Literals.CONFIGURATION__ECORE_BINDING_MODEL, false, true);
 	}
 
 	/**
@@ -193,8 +159,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 */
 	public void setEcoreBindingModel(BModel newEcoreBindingModel) {
 		eDynamicSet(ApplicationPackage.CONFIGURATION__ECORE_BINDING_MODEL,
-				ApplicationPackage.Literals.CONFIGURATION__ECORE_BINDING_MODEL,
-				newEcoreBindingModel);
+				ApplicationPackage.Literals.CONFIGURATION__ECORE_BINDING_MODEL, newEcoreBindingModel);
 	}
 
 	/**
@@ -203,12 +168,10 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case ApplicationPackage.CONFIGURATION__BINDING_REGISTRIES:
-			return ((InternalEList<?>) getBindingRegistries()).basicRemove(
-					otherEnd, msgs);
+			return ((InternalEList<?>) getBindingRegistries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -250,8 +213,7 @@ public class ConfigurationImpl extends CDOObjectImpl implements Configuration {
 		switch (featureID) {
 		case ApplicationPackage.CONFIGURATION__BINDING_REGISTRIES:
 			getBindingRegistries().clear();
-			getBindingRegistries().addAll(
-					(Collection<? extends BindingRegistry>) newValue);
+			getBindingRegistries().addAll((Collection<? extends BindingRegistry>) newValue);
 			return;
 		case ApplicationPackage.CONFIGURATION__ECORE_MODEL:
 			setEcoreModel((EPackage) newValue);

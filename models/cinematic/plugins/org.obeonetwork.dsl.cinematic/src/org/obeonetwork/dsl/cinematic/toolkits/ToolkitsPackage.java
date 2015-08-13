@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,13 +75,22 @@ public interface ToolkitsPackage extends EPackage {
 	int TOOLKIT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOLKIT__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Widgets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLKIT__WIDGETS = 0;
+	int TOOLKIT__WIDGETS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -89,7 +99,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLKIT__NAME = 1;
+	int TOOLKIT__NAME = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Toolkit</em>' class.
@@ -98,7 +108,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOOLKIT_FEATURE_COUNT = 2;
+	int TOOLKIT_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetImpl <em>Widget</em>}' class.
@@ -111,13 +121,22 @@ public interface ToolkitsPackage extends EPackage {
 	int WIDGET = 1;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__NAME = 0;
+	int WIDGET__NAME = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Icon</b></em>' attribute.
@@ -126,7 +145,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__ICON = 1;
+	int WIDGET__ICON = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Implementation</b></em>' attribute.
@@ -135,7 +154,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__IMPLEMENTATION = 2;
+	int WIDGET__IMPLEMENTATION = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Toolkit</b></em>' container reference.
@@ -144,7 +163,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__TOOLKIT = 3;
+	int WIDGET__TOOLKIT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Possible Events</b></em>' containment reference list.
@@ -153,7 +172,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__POSSIBLE_EVENTS = 4;
+	int WIDGET__POSSIBLE_EVENTS = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Is Container</b></em>' attribute.
@@ -162,7 +181,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET__IS_CONTAINER = 5;
+	int WIDGET__IS_CONTAINER = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Widget</em>' class.
@@ -171,7 +190,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_FEATURE_COUNT = 6;
+	int WIDGET_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.cinematic.toolkits.impl.WidgetEventTypeImpl <em>Widget Event Type</em>}' class.
@@ -184,13 +203,22 @@ public interface ToolkitsPackage extends EPackage {
 	int WIDGET_EVENT_TYPE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WIDGET_EVENT_TYPE__TECHNICALID = TechnicalIDPackage.IDENTIFIABLE__TECHNICALID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_EVENT_TYPE__NAME = 0;
+	int WIDGET_EVENT_TYPE__NAME = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Widget Event Type</em>' class.
@@ -199,7 +227,7 @@ public interface ToolkitsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIDGET_EVENT_TYPE_FEATURE_COUNT = 1;
+	int WIDGET_EVENT_TYPE_FEATURE_COUNT = TechnicalIDPackage.IDENTIFIABLE_FEATURE_COUNT + 1;
 
 
 	/**

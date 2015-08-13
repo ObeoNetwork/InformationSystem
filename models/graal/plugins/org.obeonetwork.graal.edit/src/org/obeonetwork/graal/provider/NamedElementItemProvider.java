@@ -35,13 +35,7 @@ import org.obeonetwork.graal.NamedElement;
  * @generated
  */
 public class NamedElementItemProvider
-	extends GraalObjectItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends GraalObjectItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

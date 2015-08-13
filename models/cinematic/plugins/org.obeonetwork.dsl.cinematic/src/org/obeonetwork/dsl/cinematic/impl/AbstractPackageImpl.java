@@ -28,12 +28,12 @@ import org.obeonetwork.dsl.cinematic.view.ViewContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.cinematic.impl.AbstractPackageImpl#getFlows <em>Flows</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.impl.AbstractPackageImpl#getViewContainers <em>View Containers</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.cinematic.impl.AbstractPackageImpl#getSubPackages <em>Sub Packages</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -30,6 +30,7 @@ import org.obeonetwork.dsl.requirement.RequirementFactory;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
 import org.obeonetwork.dsl.requirement.RequirementType;
 import org.obeonetwork.dsl.requirement.util.RequirementValidator;
+import org.obeonetwork.dsl.technicalid.TechnicalIDPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -132,6 +133,9 @@ public class RequirementPackageImpl extends EPackageImpl implements RequirementP
 		RequirementPackageImpl theRequirementPackage = (RequirementPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof RequirementPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new RequirementPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		TechnicalIDPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theRequirementPackage.createPackageContents();
@@ -506,6 +510,9 @@ public class RequirementPackageImpl extends EPackageImpl implements RequirementP
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		TechnicalIDPackage theTechnicalIDPackage = (TechnicalIDPackage)EPackage.Registry.INSTANCE.getEPackage(TechnicalIDPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -514,6 +521,7 @@ public class RequirementPackageImpl extends EPackageImpl implements RequirementP
 		repositoryEClass.getESuperTypes().add(this.getCategoriesContainer());
 		categoryEClass.getESuperTypes().add(this.getCategoriesContainer());
 		requirementEClass.getESuperTypes().add(this.getNamedElement());
+		namedElementEClass.getESuperTypes().add(theTechnicalIDPackage.getIdentifiable());
 		categoriesContainerEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes and features; add operations and parameters

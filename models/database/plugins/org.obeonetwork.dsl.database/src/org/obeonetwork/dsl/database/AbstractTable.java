@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.AbstractTable#getColumns <em>Columns</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.AbstractTable#getOwner <em>Owner</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getAbstractTable()
  * @model abstract="true"

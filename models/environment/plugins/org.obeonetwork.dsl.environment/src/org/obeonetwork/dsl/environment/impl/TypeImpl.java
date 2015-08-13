@@ -26,11 +26,11 @@ import org.obeonetwork.dsl.environment.TypesDefinition;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.TypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.impl.TypeImpl#getTypeDefinition <em>Type Definition</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -77,8 +77,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * @generated
 	 */
 	public String getName() {
-		return (String) eDynamicGet(EnvironmentPackage.TYPE__NAME,
-				EnvironmentPackage.Literals.TYPE__NAME, true, true);
+		return (String) eDynamicGet(EnvironmentPackage.TYPE__NAME, EnvironmentPackage.Literals.TYPE__NAME, true, true);
 	}
 
 	/**
@@ -87,8 +86,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eDynamicSet(EnvironmentPackage.TYPE__NAME,
-				EnvironmentPackage.Literals.TYPE__NAME, newName);
+		eDynamicSet(EnvironmentPackage.TYPE__NAME, EnvironmentPackage.Literals.TYPE__NAME, newName);
 	}
 
 	/**
@@ -97,8 +95,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * @generated
 	 */
 	public TypesDefinition getTypeDefinition() {
-		return (TypesDefinition) eDynamicGet(
-				EnvironmentPackage.TYPE__TYPE_DEFINITION,
+		return (TypesDefinition) eDynamicGet(EnvironmentPackage.TYPE__TYPE_DEFINITION,
 				EnvironmentPackage.Literals.TYPE__TYPE_DEFINITION, true, true);
 	}
 
@@ -108,8 +105,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * @generated
 	 */
 	public TypesDefinition basicGetTypeDefinition() {
-		return (TypesDefinition) eDynamicGet(
-				EnvironmentPackage.TYPE__TYPE_DEFINITION,
+		return (TypesDefinition) eDynamicGet(EnvironmentPackage.TYPE__TYPE_DEFINITION,
 				EnvironmentPackage.Literals.TYPE__TYPE_DEFINITION, false, true);
 	}
 
@@ -118,10 +114,8 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTypeDefinition(
-			TypesDefinition newTypeDefinition, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newTypeDefinition,
-				EnvironmentPackage.TYPE__TYPE_DEFINITION, msgs);
+	public NotificationChain basicSetTypeDefinition(TypesDefinition newTypeDefinition, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject) newTypeDefinition, EnvironmentPackage.TYPE__TYPE_DEFINITION, msgs);
 		return msgs;
 	}
 
@@ -131,8 +125,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * @generated
 	 */
 	public void setTypeDefinition(TypesDefinition newTypeDefinition) {
-		eDynamicSet(EnvironmentPackage.TYPE__TYPE_DEFINITION,
-				EnvironmentPackage.Literals.TYPE__TYPE_DEFINITION,
+		eDynamicSet(EnvironmentPackage.TYPE__TYPE_DEFINITION, EnvironmentPackage.Literals.TYPE__TYPE_DEFINITION,
 				newTypeDefinition);
 	}
 
@@ -153,8 +146,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.TYPE__TYPE_DEFINITION:
 			if (eInternalContainer() != null)
@@ -170,8 +162,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case EnvironmentPackage.TYPE__TYPE_DEFINITION:
 			return basicSetTypeDefinition(null, msgs);
@@ -185,12 +176,10 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(
-			NotificationChain msgs) {
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 		case EnvironmentPackage.TYPE__TYPE_DEFINITION:
-			return eInternalContainer().eInverseRemove(this,
-					EnvironmentPackage.TYPES_DEFINITION__TYPES,
+			return eInternalContainer().eInverseRemove(this, EnvironmentPackage.TYPES_DEFINITION__TYPES,
 					TypesDefinition.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -259,8 +248,7 @@ public abstract class TypeImpl extends ObeoDSMObjectImpl implements Type {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case EnvironmentPackage.TYPE__NAME:
-			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT
-					.equals(getName());
+			return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		case EnvironmentPackage.TYPE__TYPE_DEFINITION:
 			return basicGetTypeDefinition() != null;
 		}

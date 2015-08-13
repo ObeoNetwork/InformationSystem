@@ -43,7 +43,7 @@ public class TypesLibraryFactoryImpl extends EFactoryImpl implements TypesLibrar
 	 */
 	public static TypesLibraryFactory init() {
 		try {
-			TypesLibraryFactory theTypesLibraryFactory = (TypesLibraryFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/typeslibrary/1.0"); 
+			TypesLibraryFactory theTypesLibraryFactory = (TypesLibraryFactory)EPackage.Registry.INSTANCE.getEFactory(TypesLibraryPackage.eNS_URI);
 			if (theTypesLibraryFactory != null) {
 				return theTypesLibraryFactory;
 			}

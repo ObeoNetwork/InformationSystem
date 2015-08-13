@@ -17,6 +17,7 @@ import org.obeonetwork.dsl.environment.Type;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.soa.Service#getOwnedInterface <em>Owned Interface</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Service#getSynchronization <em>Synchronization</em>}</li>
@@ -26,7 +27,6 @@ import org.obeonetwork.dsl.environment.Type;
  *   <li>{@link org.obeonetwork.dsl.soa.Service#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.soa.Service#getUsedTypes <em>Used Types</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.soa.SoaPackage#getService()
  * @model

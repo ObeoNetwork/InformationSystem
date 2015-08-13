@@ -41,13 +41,7 @@ import org.obeonetwork.dsl.environment.provider.StructuredTypeItemProvider;
  * @generated
  */
 public class EntityItemProvider
-	extends StructuredTypeItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
-		IItemPropertySource {
+	extends StructuredTypeItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
