@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -287,7 +288,8 @@ public class AbstractViewElementItemProvider
 					Bundle bundle = Platform.getBundle(bundleId);
 					if (bundle != null) {
 						IPath iconRelativePath = iconPath.removeFirstSegments(1);
-						URL imageURL = FileLocator.find(bundle, iconRelativePath, Collections.emptyMap());
+						Map<String, String> emptyMap = Collections.emptyMap();
+						URL imageURL = FileLocator.find(bundle, iconRelativePath, emptyMap);
 						if (imageURL != null) {
 							ImageDescriptor imgDesc = ImageDescriptor.createFromURL(imageURL);
 							if (imgDesc !=null) {
