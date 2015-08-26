@@ -99,10 +99,10 @@
    <feature url="features/org.obeonetwork.dsl.environment.binding.dialect.feature_4.0.0.qualifier.jar" id="org.obeonetwork.dsl.environment.binding.dialect.feature" version="4.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.designs"/>
    </feature>
-   <feature url="features/org.obeonetwork.dsl.feature.technicalid_2.4.0.qualifier.jar" id="org.obeonetwork.dsl.feature.technicalid" version="2.4.0.qualifier">
+   <feature url="features/org.obeonetwork.dsl.feature.technicalid_4.0.0.qualifier.jar" id="org.obeonetwork.dsl.feature.technicalid" version="4.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
-    <feature url="features/org.obeonetwork.dsl.environment.design.feature_2.4.0.qualifier.jar" id="org.obeonetwork.dsl.environment.design.feature" version="2.4.0.qualifier"/>
+    <feature url="features/org.obeonetwork.dsl.environment.design.feature_4.0.0.qualifier.jar" id="org.obeonetwork.dsl.environment.design.feature" version="4.0.0.qualifier"/>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>
