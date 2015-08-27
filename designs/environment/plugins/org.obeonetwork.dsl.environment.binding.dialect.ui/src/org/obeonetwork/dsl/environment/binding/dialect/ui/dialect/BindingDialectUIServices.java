@@ -60,21 +60,23 @@ import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectIte
  *
  */
 public class BindingDialectUIServices implements DialectUIServices {
-	
+
 	/**
 	 * {@inheritDoc}
 	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#canHandle(org.eclipse.sirius.viewpoint.DRepresentation)
 	 */
+	@Override
 	public boolean canHandle(DRepresentation representation) {
 		return representation instanceof DBindingEditor;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#canHandleEditor(org.eclipse.ui.IEditorPart)
 	 */
+	@Override
 	public boolean canHandleEditor(IEditorPart editor) {
 		return editor instanceof BindingTreeEditor;
 	}
@@ -84,6 +86,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#getEditorName(org.eclipse.sirius.viewpoint.DRepresentation)
 	 */
+	@Override
 	public String getEditorName(DRepresentation representation) {
 		return representation.getName();
 	}
@@ -91,21 +94,23 @@ public class BindingDialectUIServices implements DialectUIServices {
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#closeEditor(org.eclipse.ui.IEditorPart, boolean)
+	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#closeEditor(org.eclipse.ui.IEditorPart,
+	 *      boolean)
 	 */
+	@Override
 	public boolean closeEditor(IEditorPart editorPart, boolean save) {
-        boolean result = false;
-        if (canHandleEditor(editorPart)) {
-            try {
-                ((BindingTreeEditor) editorPart).close(save);
-            } catch (NullPointerException e) {
-                // we might have an exception closing an editor which is
-                // already in trouble
-            }
-            // We suppose it is closed.
-            result = true;
-        }
-        return result;
+		boolean result = false;
+		if (canHandleEditor(editorPart)) {
+			try {
+				((BindingTreeEditor) editorPart).close(save);
+			} catch (NullPointerException e) {
+				// we might have an exception closing an editor which is
+				// already in trouble
+			}
+			// We suppose it is closed.
+			result = true;
+		}
+		return result;
 	}
 
 	/**
@@ -113,22 +118,25 @@ public class BindingDialectUIServices implements DialectUIServices {
 	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#createAdapterFactory()
 	 */
+	@Override
 	public AdapterFactory createAdapterFactory() {
-        final ComposedAdapterFactory factory = new ComposedAdapterFactory();
-        factory.addAdapterFactory(new BindingdialectItemProviderAdapterFactory());
-        factory.addAdapterFactory(new DescriptionItemProviderAdapterFactory());
-        factory.addAdapterFactory(new TreeItemProviderAdapterFactory());
-        return factory;
+		final ComposedAdapterFactory factory = new ComposedAdapterFactory();
+		factory.addAdapterFactory(new BindingdialectItemProviderAdapterFactory());
+		factory.addAdapterFactory(new DescriptionItemProviderAdapterFactory());
+		factory.addAdapterFactory(new TreeItemProviderAdapterFactory());
+		return factory;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#isRepresentationManagedByEditor(org.eclipse.sirius.viewpoint.DRepresentation, org.eclipse.ui.IEditorPart)
+	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#isRepresentationManagedByEditor(org.eclipse.sirius.viewpoint.DRepresentation,
+	 *      org.eclipse.ui.IEditorPart)
 	 */
+	@Override
 	public boolean isRepresentationManagedByEditor(DRepresentation representation, IEditorPart editor) {
 		if (canHandleEditor(editor)) {
-			return ((DialectEditor)editor).getRepresentation().equals(representation);
+			return ((DialectEditor) editor).getRepresentation().equals(representation);
 		} else {
 			return false;
 		}
@@ -137,80 +145,88 @@ public class BindingDialectUIServices implements DialectUIServices {
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#isRepresentationDescriptionManagedByEditor(org.eclipse.sirius.viewpoint.description.RepresentationDescription, org.eclipse.ui.IEditorPart)
+	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#isRepresentationDescriptionManagedByEditor(org.eclipse.sirius.viewpoint.description.RepresentationDescription,
+	 *      org.eclipse.ui.IEditorPart)
 	 */
-	public boolean isRepresentationDescriptionManagedByEditor(RepresentationDescription description, IEditorPart editor) {
-        if (canHandleEditor(editor)) {
-        	BindingTreeEditor bindingEditor = (BindingTreeEditor) editor;
-            return EcoreUtil.equals(bindingEditor.getBindingEditorRepresentation().getDescription(), description);
-        } else {
-            return false;
-        }
+	@Override
+	public boolean isRepresentationDescriptionManagedByEditor(RepresentationDescription description,
+			IEditorPart editor) {
+		if (canHandleEditor(editor)) {
+			BindingTreeEditor bindingEditor = (BindingTreeEditor) editor;
+			return EcoreUtil.equals(bindingEditor.getBindingEditorRepresentation().getDescription(), description);
+		} else {
+			return false;
+		}
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#openEditor(org.eclipse.sirius.business.api.session.Session, org.eclipse.sirius.viewpoint.DRepresentation)
+	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#openEditor(org.eclipse.sirius.business.api.session.Session,
+	 *      org.eclipse.sirius.viewpoint.DRepresentation)
 	 */
 	public IEditorPart openEditor(Session session, DRepresentation representation) {
-        return openEditor(session, representation, new NullProgressMonitor());
+		return openEditor(session, representation, new NullProgressMonitor());
 	}
-	
+
+	@Override
 	public IEditorPart openEditor(Session session, DRepresentation representation, IProgressMonitor monitor) {
 		if (representation instanceof DBindingEditor) {
 			monitor.beginTask("Opening binding editor", 1);
-            URI uri = EcoreUtil.getURI(representation);
-            final TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
-            final IEditorInput editorInput = new SessionEditorInput(uri, getEditorName(representation), session);
-            RunnableWithResult<IEditorPart> runnable = new RunnableWithResult.Impl<IEditorPart>() {
-                public void run() {
-                    final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-                    try {
-                        setResult(page.openEditor(editorInput, BindingTreeEditor.ID));
-                    } catch (final PartInitException e) {
-                        // silent catch
-                    }
-                }
-            };
-            PlatformUI.getWorkbench().getDisplay().syncExec(runnable);
-            Object result = runnable.getResult();
-            if (result instanceof IEditorPart && canHandleEditor((IEditorPart) result)) {
-                // Activation of the refresh of the DBindingEditor property page
-                if (result instanceof BindingTreeEditor) {
-                	// TODO v�rifier s'il faut enlever des choses
-                    doRefresh((DBindingEditor) representation, domain);
-                }
-                return (IEditorPart) result;
-            }
-            monitor.worked(1);
-            monitor.done();
-        }
-        return null;
+			URI uri = EcoreUtil.getURI(representation);
+			final TransactionalEditingDomain domain = session.getTransactionalEditingDomain();
+			final IEditorInput editorInput = new SessionEditorInput(uri, getEditorName(representation), session);
+			RunnableWithResult<IEditorPart> runnable = new RunnableWithResult.Impl<IEditorPart>() {
+				@Override
+				public void run() {
+					final IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+					try {
+						setResult(page.openEditor(editorInput, BindingTreeEditor.ID));
+					} catch (final PartInitException e) {
+						// silent catch
+					}
+				}
+			};
+			PlatformUI.getWorkbench().getDisplay().syncExec(runnable);
+			Object result = runnable.getResult();
+			if (result instanceof IEditorPart && canHandleEditor((IEditorPart) result)) {
+				// Activation of the refresh of the DBindingEditor property page
+				if (result instanceof BindingTreeEditor) {
+					// TODO v�rifier s'il faut enlever des choses
+					doRefresh((DBindingEditor) representation, domain);
+				}
+				return (IEditorPart) result;
+			}
+			monitor.worked(1);
+			monitor.done();
+		}
+		return null;
 	}
-	
-    private void doRefresh(final DBindingEditor editor, final TransactionalEditingDomain domain) {
-        if (DialectUIManager.INSTANCE.isRefreshActivatedOnRepresentationOpening()) {
-            Runnable runnable = new Runnable() {
-                public void run() {
-                    domain.getCommandStack().execute(new RefreshRepresentationsCommand(domain, new NullProgressMonitor(), editor));
-                };
-            };
-            PlatformUI.getWorkbench().getDisplay().syncExec(runnable);
-        }
-    }
 
-
+	private void doRefresh(final DBindingEditor editor, final TransactionalEditingDomain domain) {
+		if (DialectUIManager.INSTANCE.isRefreshActivatedOnRepresentationOpening()) {
+			Runnable runnable = new Runnable() {
+				@Override
+				public void run() {
+					domain.getCommandStack()
+							.execute(new RefreshRepresentationsCommand(domain, new NullProgressMonitor(), editor));
+				};
+			};
+			PlatformUI.getWorkbench().getDisplay().syncExec(runnable);
+		}
+	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#provideNewChildDescriptors()
 	 */
+	@Override
 	public Collection<CommandParameter> provideNewChildDescriptors() {
 		final Collection<CommandParameter> newChilds = new ArrayList<CommandParameter>();
 		final DBindingEditorDescription description = DescriptionFactory.eINSTANCE.createDBindingEditorDescription();
-		newChilds.add(new CommandParameter(null, DescriptionPackage.Literals.VIEWPOINT__OWNED_REPRESENTATIONS, description));
+		newChilds.add(
+				new CommandParameter(null, DescriptionPackage.Literals.VIEWPOINT__OWNED_REPRESENTATIONS, description));
 		return newChilds;
 	}
 
@@ -219,9 +235,11 @@ public class BindingDialectUIServices implements DialectUIServices {
 	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#provideRepresentationCreationToolDescriptors(java.lang.Object)
 	 */
+	@Override
 	public Collection<CommandParameter> provideRepresentationCreationToolDescriptors(Object feature) {
 		final Collection<CommandParameter> newChilds = new ArrayList<CommandParameter>();
-		final DBindingEditorCreationDescription creationTool = DescriptionFactory.eINSTANCE.createDBindingEditorCreationDescription();
+		final DBindingEditorCreationDescription creationTool = DescriptionFactory.eINSTANCE
+				.createDBindingEditorCreationDescription();
 		newChilds.add(new CommandParameter(null, feature, creationTool));
 		return newChilds;
 	}
@@ -231,9 +249,10 @@ public class BindingDialectUIServices implements DialectUIServices {
 	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#provideRepresentationNavigationToolDescriptors(java.lang.Object)
 	 */
+	@Override
 	public Collection<CommandParameter> provideRepresentationNavigationToolDescriptors(Object feature) {
 		// TODO Auto-generated method stub
-		 return Collections.emptyList();
+		return Collections.emptyList();
 	}
 
 	/**
@@ -241,24 +260,27 @@ public class BindingDialectUIServices implements DialectUIServices {
 	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#provideTools(org.eclipse.emf.ecore.EObject)
 	 */
+	@Override
 	public Collection<CommandParameter> provideTools(EObject object) {
 		return Collections.emptyList();
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#provideAdditionalMappings(org.eclipse.emf.ecore.EObject)
 	 */
+	@Override
 	public Collection<CommandParameter> provideAdditionalMappings(EObject object) {
 		return Collections.emptyList();
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 * 
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#canExport(org.eclipse.sirius.ui.business.api.dialect.ExportFormat)
 	 */
+	@Override
 	public boolean canExport(ExportFormat format) {
 		return false;
 	}
@@ -266,37 +288,46 @@ public class BindingDialectUIServices implements DialectUIServices {
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#export(org.eclipse.sirius.viewpoint.DRepresentation, org.eclipse.sirius.business.api.session.Session, org.eclipse.core.runtime.IPath, org.eclipse.sirius.ui.business.api.dialect.ExportFormat, org.eclipse.core.runtime.IProgressMonitor)
+	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#export(org.eclipse.sirius.viewpoint.DRepresentation,
+	 *      org.eclipse.sirius.business.api.session.Session,
+	 *      org.eclipse.core.runtime.IPath,
+	 *      org.eclipse.sirius.ui.business.api.dialect.ExportFormat,
+	 *      org.eclipse.core.runtime.IProgressMonitor)
 	 */
-	public void export(DRepresentation representation, Session session, IPath path, ExportFormat format, IProgressMonitor monitor) {
+	@Override
+	public void export(DRepresentation representation, Session session, IPath path, ExportFormat format,
+			IProgressMonitor monitor) {
 		// Nothing to do for binding trees
 	}
 
+	@Override
 	public ILabelProvider getHierarchyLabelProvider(ILabelProvider labelProvider) {
 		return labelProvider;
 	}
 
+	@Override
 	public Collection<DSemanticDecorator> getSelection(DialectEditor dialectEditor) {
 		return Collections.emptyList();
 	}
 
+	@Override
 	public void setSelection(DialectEditor dialectEditor, List<DRepresentationElement> representationElements) {
-		
+
 	}
 
-	
+	@Override
 	public boolean canHandle(RepresentationDescription description) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	
+	@Override
 	public boolean canHandle(RepresentationExtensionDescription description) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	
+	@Override
 	public String completeToolTipText(String toolTipText, EObject eObject) {
 		// TODO Auto-generated method stub
 		return null;
@@ -306,5 +337,9 @@ public class BindingDialectUIServices implements DialectUIServices {
 	public String completeToolTipText(String toolTipText, EObject eObject, EStructuralFeature feature) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	// added for compatibility between sirius 3.0 & 3.1
+	public void selectAndReveal(DialectEditor dialectEditor, List<DRepresentationElement> selection) {
 	}
 }
