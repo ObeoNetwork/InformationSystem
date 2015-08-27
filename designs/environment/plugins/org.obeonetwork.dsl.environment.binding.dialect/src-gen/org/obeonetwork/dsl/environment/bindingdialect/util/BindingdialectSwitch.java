@@ -27,7 +27,6 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.DStylizable;
 import org.eclipse.sirius.viewpoint.description.DModelElement;
 import org.eclipse.sirius.viewpoint.description.DocumentedElement;
-import org.obeonetwork.dsl.environment.bindingdialect.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -124,7 +123,7 @@ public class BindingdialectSwitch<T> {
 			case BindingdialectPackage.DBINDING_EDGE: {
 				DBindingEdge dBindingEdge = (DBindingEdge)theEObject;
 				T result = caseDBindingEdge(dBindingEdge);
-				if (result == null) result = caseDRepresentationElement(dBindingEdge);
+				if (result == null) result = caseDRepresentationElement(dBindingEdge);				
 				if (result == null) result = caseDMappingBased(dBindingEdge);
 				if (result == null) result = caseDStylizable(dBindingEdge);
 				if (result == null) result = caseDRefreshable(dBindingEdge);
@@ -135,7 +134,7 @@ public class BindingdialectSwitch<T> {
 			case BindingdialectPackage.DBOUND_ELEMENT: {
 				DBoundElement dBoundElement = (DBoundElement)theEObject;
 				T result = caseDBoundElement(dBoundElement);
-				if (result == null) result = caseDRepresentationElement(dBoundElement);
+				if (result == null) result = caseDRepresentationElement(dBoundElement);				
 				if (result == null) result = caseDMappingBased(dBoundElement);
 				if (result == null) result = caseDStylizable(dBoundElement);
 				if (result == null) result = caseDRefreshable(dBoundElement);

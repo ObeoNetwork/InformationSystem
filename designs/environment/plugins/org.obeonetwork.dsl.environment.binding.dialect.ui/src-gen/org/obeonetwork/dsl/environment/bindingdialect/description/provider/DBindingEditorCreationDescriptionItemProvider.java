@@ -41,7 +41,13 @@ import org.obeonetwork.dsl.environment.bindingdialect.provider.BindingdialectEdi
  * @generated
  */
 public class DBindingEditorCreationDescriptionItemProvider
-	extends RepresentationCreationDescriptionItemProvider {
+	extends RepresentationCreationDescriptionItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

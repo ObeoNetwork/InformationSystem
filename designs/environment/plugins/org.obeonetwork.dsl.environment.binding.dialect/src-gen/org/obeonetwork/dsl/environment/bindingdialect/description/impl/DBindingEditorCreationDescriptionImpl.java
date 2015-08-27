@@ -38,10 +38,10 @@ import org.eclipse.sirius.viewpoint.description.tool.impl.RepresentationCreation
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.description.impl.DBindingEditorCreationDescriptionImpl#getDescription <em>Description</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

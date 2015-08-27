@@ -23,12 +23,12 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor#getBoundElements <em>Bound Elements</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor#getBindingEdges <em>Binding Edges</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage#getDBindingEditor()
  * @model

@@ -35,7 +35,13 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
  * @generated
  */
 public class DBindingEdgeItemProvider
-	extends DRepresentationElementItemProvider {
+	extends DRepresentationElementItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
