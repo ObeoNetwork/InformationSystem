@@ -31,7 +31,7 @@ public class GraalfeatureextensionsFactoryImpl extends EFactoryImpl implements G
 	 */
 	public static GraalfeatureextensionsFactory init() {
 		try {
-			GraalfeatureextensionsFactory theGraalfeatureextensionsFactory = (GraalfeatureextensionsFactory)EPackage.Registry.INSTANCE.getEFactory("http://org.obeonetwork.graal/featureextensions/1.0"); 
+			GraalfeatureextensionsFactory theGraalfeatureextensionsFactory = (GraalfeatureextensionsFactory)EPackage.Registry.INSTANCE.getEFactory(GraalfeatureextensionsPackage.eNS_URI);
 			if (theGraalfeatureextensionsFactory != null) {
 				return theGraalfeatureextensionsFactory;
 			}

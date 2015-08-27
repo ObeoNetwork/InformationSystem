@@ -20,11 +20,11 @@ import org.obeonetwork.graal.UserStory;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.design.graalfeatureextensions.UIConfiguration#getViewpointAnalysis <em>Viewpoint Analysis</em>}</li>
  *   <li>{@link org.obeonetwork.graal.design.graalfeatureextensions.UIConfiguration#getActiveUserStories <em>Active User Stories</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.graal.design.graalfeatureextensions.GraalfeatureextensionsPackage#getUIConfiguration()
  * @model

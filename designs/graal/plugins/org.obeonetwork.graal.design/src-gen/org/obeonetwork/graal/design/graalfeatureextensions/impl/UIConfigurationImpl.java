@@ -34,11 +34,11 @@ import org.obeonetwork.graal.design.graalfeatureextensions.UIConfiguration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.graal.design.graalfeatureextensions.impl.UIConfigurationImpl#getViewpointAnalysis <em>Viewpoint Analysis</em>}</li>
  *   <li>{@link org.obeonetwork.graal.design.graalfeatureextensions.impl.UIConfigurationImpl#getActiveUserStories <em>Active User Stories</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
