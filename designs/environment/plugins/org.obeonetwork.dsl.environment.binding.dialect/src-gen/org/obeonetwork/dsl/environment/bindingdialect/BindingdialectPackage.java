@@ -136,6 +136,15 @@ public interface BindingdialectPackage extends EPackage {
 	int DBINDING_EDITOR__OWNED_ANNOTATION_ENTRIES = ViewpointPackage.DREPRESENTATION__OWNED_ANNOTATION_ENTRIES;
 
 	/**
+	 * The feature id for the '<em><b>Ui State</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DBINDING_EDITOR__UI_STATE = ViewpointPackage.DREPRESENTATION__UI_STATE;
+
+	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

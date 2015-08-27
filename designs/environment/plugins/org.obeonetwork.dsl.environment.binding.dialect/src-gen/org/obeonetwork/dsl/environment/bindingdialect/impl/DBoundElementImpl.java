@@ -36,6 +36,7 @@ import org.eclipse.sirius.viewpoint.impl.DRepresentationElementImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.impl.DBoundElementImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.impl.DBoundElementImpl#getChildren <em>Children</em>}</li>
@@ -43,7 +44,6 @@ import org.eclipse.sirius.viewpoint.impl.DRepresentationElementImpl;
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.impl.DBoundElementImpl#getEdgesAsRight <em>Edges As Right</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.impl.DBoundElementImpl#getEdges <em>Edges</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -31,6 +31,7 @@ import org.eclipse.sirius.viewpoint.description.impl.DocumentedElementImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.description.impl.DBindingEditorDescriptionImpl#getEndUserDocumentation <em>End User Documentation</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.description.impl.DBindingEditorDescriptionImpl#getName <em>Name</em>}</li>
@@ -40,7 +41,6 @@ import org.eclipse.sirius.viewpoint.description.impl.DocumentedElementImpl;
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.description.impl.DBindingEditorDescriptionImpl#getMetamodel <em>Metamodel</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.description.impl.DBindingEditorDescriptionImpl#isShowOnStartup <em>Show On Startup</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

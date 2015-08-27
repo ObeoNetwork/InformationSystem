@@ -27,11 +27,11 @@ import org.eclipse.sirius.viewpoint.impl.DRepresentationElementImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.impl.DBindingEdgeImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.impl.DBindingEdgeImpl#getRight <em>Right</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

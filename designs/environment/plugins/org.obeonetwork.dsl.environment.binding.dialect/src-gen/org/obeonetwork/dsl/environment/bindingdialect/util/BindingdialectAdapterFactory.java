@@ -27,6 +27,7 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.DStylizable;
 import org.eclipse.sirius.viewpoint.description.DModelElement;
 import org.eclipse.sirius.viewpoint.description.DocumentedElement;
+import org.obeonetwork.dsl.environment.bindingdialect.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -122,7 +123,7 @@ public class BindingdialectAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDSemanticDecorator(DSemanticDecorator object) {
 				return createDSemanticDecoratorAdapter();
-			}			
+			}
 			@Override
 			public Adapter caseDMappingBased(DMappingBased object) {
 				return createDMappingBasedAdapter();
@@ -264,20 +265,6 @@ public class BindingdialectAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDSemanticDecoratorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.sirius.viewpoint.DLabelled <em>DLabelled</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.sirius.viewpoint.DLabelled
-	 * @generated
-	 */
-	public Adapter createDLabelledAdapter() {
 		return null;
 	}
 

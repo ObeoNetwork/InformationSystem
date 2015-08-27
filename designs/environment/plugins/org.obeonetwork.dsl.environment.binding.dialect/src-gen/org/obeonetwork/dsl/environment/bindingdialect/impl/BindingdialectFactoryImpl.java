@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.obeonetwork.dsl.environment.bindingdialect.*;
 import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectFactory;
 import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectPackage;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
@@ -43,7 +44,7 @@ public class BindingdialectFactoryImpl extends EFactoryImpl implements Bindingdi
 	 */
 	public static BindingdialectFactory init() {
 		try {
-			BindingdialectFactory theBindingdialectFactory = (BindingdialectFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/environment/binding/dialect/1.0.0"); 
+			BindingdialectFactory theBindingdialectFactory = (BindingdialectFactory)EPackage.Registry.INSTANCE.getEFactory(BindingdialectPackage.eNS_URI);
 			if (theBindingdialectFactory != null) {
 				return theBindingdialectFactory;
 			}

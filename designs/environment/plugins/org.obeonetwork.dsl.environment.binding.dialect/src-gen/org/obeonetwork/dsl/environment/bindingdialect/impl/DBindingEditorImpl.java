@@ -41,13 +41,13 @@ import org.eclipse.sirius.viewpoint.impl.DRepresentationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.impl.DBindingEditorImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.impl.DBindingEditorImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.impl.DBindingEditorImpl#getBoundElements <em>Bound Elements</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.impl.DBindingEditorImpl#getBindingEdges <em>Binding Edges</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

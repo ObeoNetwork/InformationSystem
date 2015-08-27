@@ -19,10 +19,10 @@ import org.eclipse.sirius.viewpoint.description.tool.RepresentationCreationDescr
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorCreationDescription#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.environment.bindingdialect.description.DescriptionPackage#getDBindingEditorCreationDescription()
  * @model

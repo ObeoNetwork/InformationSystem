@@ -25,6 +25,7 @@ import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
 import org.eclipse.sirius.viewpoint.description.tool.AbstractToolDescription;
 import org.eclipse.sirius.viewpoint.description.tool.RepresentationCreationDescription;
 import org.eclipse.sirius.viewpoint.description.tool.ToolEntry;
+import org.obeonetwork.dsl.environment.bindingdialect.description.*;
 
 /**
  * <!-- begin-user-doc -->
