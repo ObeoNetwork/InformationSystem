@@ -13,6 +13,9 @@
 package org.obeonetwork.dsl.environment.impl;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -30,35 +33,48 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Structured Type</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Structured Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getSupertype <em>Supertype</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getAssociatedTypes <em>Associated Types</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getOwnedAttributes <em>Owned Attributes</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getOwnedReferences <em>Owned References</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getReferences <em>References</em>}</li>
- *   <li>{@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getProperties <em>Properties</em>}</li>
+ * <li>
+ * {@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getSupertype
+ * <em>Supertype</em>}</li>
+ * <li>
+ * {@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getAssociatedTypes
+ * <em>Associated Types</em>}</li>
+ * <li>
+ * {@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getOwnedAttributes
+ * <em>Owned Attributes</em>}</li>
+ * <li>
+ * {@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getAttributes
+ * <em>Attributes</em>}</li>
+ * <li>
+ * {@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getOwnedReferences
+ * <em>Owned References</em>}</li>
+ * <li>
+ * {@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getReferences
+ * <em>References</em>}</li>
+ * <li>
+ * {@link org.obeonetwork.dsl.environment.impl.StructuredTypeImpl#getProperties
+ * <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class StructuredTypeImpl extends TypeImpl implements StructuredType {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2008-2009 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected StructuredTypeImpl() {
@@ -66,8 +82,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,8 +92,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public StructuredType getSupertype() {
@@ -86,8 +102,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public StructuredType basicGetSupertype() {
@@ -97,17 +113,56 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the <code>newSuperType</code> induces a cyclic
+	 *             inheritance. <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	public void setSupertype(StructuredType newSupertype) {
+		if (isCyclicInheritance(newSupertype)) {
+			throw new IllegalArgumentException(
+					"Cyclic inheritance from " + getName() + " to " + newSupertype.getName() + ".");
+		}
 		eDynamicSet(EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
 				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, newSupertype);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Checks that there is no cyclic inheritance if the given type becomes the
+	 * super type of this type.
+	 * 
+	 * @param superTypeCandidate
+	 *            the super type candidate.
+	 * @return <code>true</true> if a cyclic inheritance appears if <code>superTypeCandidate</code>
+	 *         becomes the super type of this type.
+	 */
+	private boolean isCyclicInheritance(final StructuredType superTypeCandidate) {
+		// quick tests
+		if (superTypeCandidate == null) {
+			return false;
+		}
+		if (superTypeCandidate == this) {
+			return true;
+		}
+
+		// checks that this is not a super type of superTypeCandidate.
+		final Set<StructuredType> superTypesOfSuperTypeCandidate = new HashSet<StructuredType>();
+		StructuredType currentSuperType = superTypeCandidate.getSupertype();
+		while (currentSuperType != null && superTypesOfSuperTypeCandidate.add(currentSuperType)) {
+			if (currentSuperType == this) { // cycle
+				return true;
+			}
+		}
+
+		// it's ok, no cycle.
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -117,8 +172,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -128,8 +183,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public EList<Attribute> getAttributes() {
@@ -145,8 +200,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 			}
 		};
 		result.addAll(getOwnedAttributes());
-		if (getSupertype() != null) {
-			result.addAll(getSupertype().getAttributes());
+		for (final StructuredType structuredType : getAllSuperTypes()) {
+			result.addAll(structuredType.getOwnedAttributes());
 		}
 		result.shrink();
 		EList<Attribute> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Attribute>(this,
@@ -155,8 +210,24 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns all super types of this type.
+	 * 
+	 * @return all super types of this type.
+	 */
+	private Set<StructuredType> getAllSuperTypes() {
+		final Set<StructuredType> result = new LinkedHashSet<StructuredType>();
+		
+		StructuredType currentSuperType = this.getSupertype();
+		while (currentSuperType != null && result.add(currentSuperType)) {
+			currentSuperType = currentSuperType.getSupertype();
+		}
+		
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -166,8 +237,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public EList<Reference> getReferences() {
@@ -183,8 +254,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 			}
 		};
 		result.addAll(getOwnedReferences());
-		if (getSupertype() != null) {
-			result.addAll(getSupertype().getReferences());
+		for (final StructuredType structuredType : getAllSuperTypes()) {
+			result.addAll(structuredType.getOwnedReferences());
 		}
 		result.shrink();
 		EList<Reference> unmodifiableResult = new EcoreEList.UnmodifiableEList.FastCompare<Reference>(this,
@@ -193,8 +264,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public EList<Property> getProperties() {
@@ -218,8 +289,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public boolean isSubtypeOf(StructuredType type) {
@@ -232,8 +303,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -249,8 +320,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -265,8 +336,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -293,8 +364,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -321,8 +392,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -345,8 +416,8 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -370,4 +441,4 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 		return super.eIsSet(featureID);
 	}
 
-} //StructuredTypeImpl
+} // StructuredTypeImpl

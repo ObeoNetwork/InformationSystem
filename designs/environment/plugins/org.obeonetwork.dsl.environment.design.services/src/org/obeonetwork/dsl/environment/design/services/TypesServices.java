@@ -33,21 +33,44 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.TypesDefinition;
 
-import com.google.common.collect.Iterables;
-
 public class TypesServices {
-	
+
 	private static final String ENTITY = "Entity";
 	private static final String DTO = "DTO";
-	
-	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDTOsRoots(Namespace namespace, DSemanticDiagram diagram) {
-		return getRootElementsFromCollection(getAllSelectableExternalStructuredTypesWithAncestorsDTOs(namespace, diagram));
+
+	/**
+	 * Returns <code>true</code> if <code>childCandidate</code> is a sub type of
+	 * <code>parentCandidate</code>.
+	 * 
+	 * @param childCandidate
+	 *            a non <code>null</code> type.
+	 * @param parentCandidate
+	 *            a non <code>null</code> type.
+	 * @return
+	 */
+	public boolean isSubtypeOfService(final StructuredType childCandidate, final StructuredType parentCandidate) {
+		EObject currentChild = childCandidate;
+		while (currentChild != null) {
+			if (currentChild == parentCandidate) {
+				return true;
+			} 
+			currentChild = childCandidate.getSupertype();
+		}
+		return false;
 	}
-	
-	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsEntitiesRoots(Namespace namespace, DSemanticDiagram diagram) {
-		return getRootElementsFromCollection(getAllSelectableExternalStructuredTypesWithAncestorsEntities(namespace, diagram));
+
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDTOsRoots(Namespace namespace,
+			DSemanticDiagram diagram) {
+		return getRootElementsFromCollection(
+				getAllSelectableExternalStructuredTypesWithAncestorsDTOs(namespace, diagram));
 	}
-	
+
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsEntitiesRoots(Namespace namespace,
+			DSemanticDiagram diagram) {
+		return getRootElementsFromCollection(
+				getAllSelectableExternalStructuredTypesWithAncestorsEntities(namespace, diagram));
+	}
+
 	private Collection<EObject> getRootElementsFromCollection(Collection<EObject> elements) {
 		Collection<EObject> result = new ArrayList<EObject>();
 		for (EObject element : elements) {
@@ -58,32 +81,37 @@ public class TypesServices {
 		return result;
 	}
 
-	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDTOs(Namespace namespace, DSemanticDiagram diagram) {
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDTOs(Namespace namespace,
+			DSemanticDiagram diagram) {
 		return getAllSelectableExternalStructuredTypesWithAncestors(namespace, diagram, DTO);
 	}
-	
-	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsEntities(Namespace namespace, DSemanticDiagram diagram) {
+
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsEntities(Namespace namespace,
+			DSemanticDiagram diagram) {
 		return getAllSelectableExternalStructuredTypesWithAncestors(namespace, diagram, ENTITY);
 	}
-	
-	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestors(Namespace namespace, DSemanticDiagram diagram, String typeName) {
+
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestors(Namespace namespace,
+			DSemanticDiagram diagram, String typeName) {
 		Collection<EObject> result = new HashSet<EObject>();
-		Collection<StructuredType> selectableTypes = getAllSelectableExternalStructuredTypes(namespace, diagram, typeName);
+		Collection<StructuredType> selectableTypes = getAllSelectableExternalStructuredTypes(namespace, diagram,
+				typeName);
 		result.addAll(selectableTypes);
 		for (StructuredType selectableType : selectableTypes) {
 			result.addAll(ModelServices.getAncestors(selectableType));
 		}
-		
+
 		return result;
 	}
-	
-	public Collection<StructuredType> getAllSelectableExternalStructuredTypes(Namespace namespace, DSemanticDiagram diagram, String typeName) {
+
+	public Collection<StructuredType> getAllSelectableExternalStructuredTypes(Namespace namespace,
+			DSemanticDiagram diagram, String typeName) {
 		Collection<StructuredType> notReferencedTypes = getAllNotReferencedStructuredTypes(namespace, diagram);
-		
+
 		// Remove already displayed types
 		Set<StructuredType> types = DesignServices.getDisplayedStructuredTypes(diagram);
 		notReferencedTypes.removeAll(types);
-		
+
 		Collection<StructuredType> selectableTypes = new ArrayList<StructuredType>();
 		// Keep only types of the specified typeName
 		for (StructuredType structuredType : notReferencedTypes) {
@@ -91,28 +119,29 @@ public class TypesServices {
 				selectableTypes.add(structuredType);
 			}
 		}
-		
+
 		return selectableTypes;
 	}
-	
-	public Collection<StructuredType> getAllNotReferencedStructuredTypes(Namespace namespace, DSemanticDiagram diagram) {
+
+	public Collection<StructuredType> getAllNotReferencedStructuredTypes(Namespace namespace,
+			DSemanticDiagram diagram) {
 		Collection<StructuredType> notReferencedTypes = getAllStructuredTypes(namespace, null);
-		
+
 		// We have to remove from this list
 		// the types contained in the current namespace
 		notReferencedTypes.removeAll(namespace.getTypes());
 		// the referenced types
 		notReferencedTypes.removeAll(getAllReferencedStructuredTypes(namespace, diagram));
-		
+
 		return notReferencedTypes;
 	}
-	
+
 	public Collection<StructuredType> getAllReferencedStructuredTypes(Namespace namespace, DSemanticDiagram diagram) {
 		Set<StructuredType> types = DesignServices.getDisplayedStructuredTypes(diagram);
 		types.retainAll(namespace.getTypes());
-		
+
 		Collection<StructuredType> referencedTypes = new HashSet<StructuredType>();
-		
+
 		for (StructuredType existingType : types) {
 			referencedTypes.add(existingType.getSupertype());
 			for (Reference reference : existingType.getOwnedReferences()) {
@@ -120,97 +149,100 @@ public class TypesServices {
 			}
 			referencedTypes.addAll(getAllReferencingStructuredTypes(existingType));
 		}
-		
+
 		referencedTypes.removeAll(namespace.getTypes());
-		
+
 		return referencedTypes;
 	}
-	
+
 	private Collection<StructuredType> getAllReferencingStructuredTypes(StructuredType referencedType) {
 		Collection<StructuredType> referencingTypes = new HashSet<StructuredType>();
-		
+
 		Session session = new EObjectQuery(referencedType).getSession();
 		Collection<Setting> inverseReferences = null;
 		ECrossReferenceAdapter xReferencer = null;
 		if (session != null) {
 			xReferencer = session.getSemanticCrossReferencer();
 		}
-		
+
 		if (xReferencer != null) {
 			inverseReferences = xReferencer.getInverseReferences(referencedType);
 		} else {
 			if (referencedType.eResource() != null && referencedType.eResource().getResourceSet() != null) {
-				inverseReferences = UsageCrossReferencer.find(referencedType, referencedType.eResource().getResourceSet());
+				inverseReferences = UsageCrossReferencer.find(referencedType,
+						referencedType.eResource().getResourceSet());
 			}
 		}
-		
+
 		if (inverseReferences != null) {
 			for (Setting setting : inverseReferences) {
-				if (setting.getEObject() instanceof StructuredType && setting.getEStructuralFeature() == EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE) {
-					referencingTypes.add((StructuredType)setting.getEObject());
-				}else if (setting.getEObject() instanceof Reference && setting.getEStructuralFeature() == EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE) {
-					referencingTypes.add(((Reference)setting.getEObject()).getContainingType());
+				if (setting.getEObject() instanceof StructuredType
+						&& setting.getEStructuralFeature() == EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE) {
+					referencingTypes.add((StructuredType) setting.getEObject());
+				} else if (setting.getEObject() instanceof Reference
+						&& setting.getEStructuralFeature() == EnvironmentPackage.Literals.REFERENCE__REFERENCED_TYPE) {
+					referencingTypes.add(((Reference) setting.getEObject()).getContainingType());
 				}
 			}
 		}
-		
+
 		return referencingTypes;
 	}
-	
+
 	public Collection<StructuredType> getAllStructuredTypes(EObject context, String typeName) {
 		Collection<StructuredType> types = new ArrayList<StructuredType>();
-		
+
 		Collection<Resource> resources = ModelServices.getAllResources(context);
 		for (Resource resource : resources) {
 			for (EObject object : resource.getContents()) {
 				if (object instanceof ObeoDSMObject) {
-					types.addAll(internalGetAllChildrenStructuredTypes((ObeoDSMObject)object, typeName));
-				}
-			}
-		}
-		return types;
-	}
-	
-	public Collection<StructuredType> getAllStructuredTypesDTOs(EObject context) {
-		return getAllStructuredTypes(context, DTO);
-	}
-	
-	public Collection<StructuredType> getAllStructuredTypesEntities(EObject context) {
-		return getAllStructuredTypes(context, ENTITY);
-	}
-	
-	private Collection<StructuredType> internalGetAllChildrenStructuredTypes(ObeoDSMObject parent, String typeName) {
-		Collection<StructuredType> types = new ArrayList<StructuredType>();
-		
-		TreeIterator<EObject> eAllContents = parent.eAllContents();
-		while (eAllContents.hasNext()) {
-			EObject eObject = (EObject) eAllContents.next();
-			if (eObject instanceof StructuredType) {
-				// If the type is not specified we do not check on the type
-				if (typeName == null || typeName.isEmpty() || typeName.equals(eObject.eClass().getName())) {
-					types.add((StructuredType)eObject);
+					types.addAll(internalGetAllChildrenStructuredTypes((ObeoDSMObject) object, typeName));
 				}
 			}
 		}
 		return types;
 	}
 
-	public PrimitiveType getStringPrimitiveType(EObject object){
+	public Collection<StructuredType> getAllStructuredTypesDTOs(EObject context) {
+		return getAllStructuredTypes(context, DTO);
+	}
+
+	public Collection<StructuredType> getAllStructuredTypesEntities(EObject context) {
+		return getAllStructuredTypes(context, ENTITY);
+	}
+
+	private Collection<StructuredType> internalGetAllChildrenStructuredTypes(ObeoDSMObject parent, String typeName) {
+		Collection<StructuredType> types = new ArrayList<StructuredType>();
+
+		TreeIterator<EObject> eAllContents = parent.eAllContents();
+		while (eAllContents.hasNext()) {
+			EObject eObject = (EObject) eAllContents.next();
+			if (eObject instanceof StructuredType) {
+				// If the type is not specified we do not check on the type
+				if (typeName == null || typeName.isEmpty() || typeName.equals(eObject.eClass().getName())) {
+					types.add((StructuredType) eObject);
+				}
+			}
+		}
+		return types;
+	}
+
+	public PrimitiveType getStringPrimitiveType(EObject object) {
 		PrimitiveType primitiveType = getPrimitiveType(object, "String");
 		return primitiveType;
 	}
-	
-	private PrimitiveType getPrimitiveType(EObject context, String name){		
+
+	private PrimitiveType getPrimitiveType(EObject context, String name) {
 		Collection<Resource> resources = ModelServices.getAllResources(context);
 		for (Resource resource : resources) {
 			for (EObject object : resource.getContents()) {
 				if (object instanceof Environment || object instanceof TypesDefinition) {
-					// Types must exist below an environment or types definition					
+					// Types must exist below an environment or types definition
 					TreeIterator<?> iterator = object.eAllContents();
-					while(iterator.hasNext()){
+					while (iterator.hasNext()) {
 						Object o = iterator.next();
 						if (o instanceof PrimitiveType) {
-							PrimitiveType type = (PrimitiveType)o;
+							PrimitiveType type = (PrimitiveType) o;
 							if (name.equalsIgnoreCase(type.getName())) {
 								return type;
 							}
