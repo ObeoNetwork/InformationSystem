@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Reference;
 
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
+import org.obeonetwork.dsl.environment.components.ReferenceOppositePropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.components.ReferencePropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.components.ReferenceReferencePropertiesEditionComponent;
 
@@ -63,7 +64,7 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext, String part) {
-		return (editingContext.getEObject() instanceof Reference) && (ReferenceReferencePropertiesEditionComponent.REFERENCE_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
+		return (editingContext.getEObject() instanceof Reference) && (ReferenceReferencePropertiesEditionComponent.REFERENCE_PART.equals(part) || ReferenceOppositePropertiesEditionComponent.OPPOSITE_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
 	}
 
 	/**
@@ -73,7 +74,7 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof Reference) && (refinement == ReferenceReferencePropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
+		return (editingContext.getEObject() instanceof Reference) && (refinement == ReferenceReferencePropertiesEditionComponent.class || refinement == ReferenceOppositePropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
 	}
 
 	/**
@@ -83,7 +84,7 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, String part, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof Reference) && ((ReferenceReferencePropertiesEditionComponent.REFERENCE_PART.equals(part) && refinement == ReferenceReferencePropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
+		return (editingContext.getEObject() instanceof Reference) && ((ReferenceReferencePropertiesEditionComponent.REFERENCE_PART.equals(part) && refinement == ReferenceReferencePropertiesEditionComponent.class) || (ReferenceOppositePropertiesEditionComponent.OPPOSITE_PART.equals(part) && refinement == ReferenceOppositePropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
 	}
 
 	/**
@@ -107,6 +108,8 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 		if (editingContext.getEObject() instanceof Reference) {
 			if (ReferenceReferencePropertiesEditionComponent.REFERENCE_PART.equals(part))
 				return new ReferenceReferencePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			if (ReferenceOppositePropertiesEditionComponent.OPPOSITE_PART.equals(part))
+				return new ReferenceOppositePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part))
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
@@ -123,6 +126,9 @@ public class ReferencePropertiesEditionProvider extends CustomPropertiesEditingP
 			if (ReferenceReferencePropertiesEditionComponent.REFERENCE_PART.equals(part)
 				&& refinement == ReferenceReferencePropertiesEditionComponent.class)
 				return new ReferenceReferencePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			if (ReferenceOppositePropertiesEditionComponent.OPPOSITE_PART.equals(part)
+				&& refinement == ReferenceOppositePropertiesEditionComponent.class)
+				return new ReferenceOppositePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part)
 				&& refinement == MetadataCptPropertiesEditionComponent.class)
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);

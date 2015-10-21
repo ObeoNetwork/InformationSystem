@@ -18,20 +18,13 @@ import org.eclipse.emf.eef.runtime.api.notify.EStructuralFeatureNotificationFilt
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
-import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
-import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
-import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
-import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
-import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
-import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Reference;
@@ -219,20 +212,6 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 		if (EnvironmentViewsRepository.Reference.Properties.name == event.getAffectedEditor()) {
 			reference.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
-		if (EnvironmentViewsRepository.Reference.Properties.referencedType == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.SET) {
-				referencedTypeSettings.setToReference((StructuredType)event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
-				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, referencedTypeSettings, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(semanticObject, PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy instanceof CreateEditingPolicy) {
-						policy.execute();
-					}
-				}
-			}
-		}
 		if (EnvironmentViewsRepository.Reference.Properties.multiplicity == event.getAffectedEditor()) {
 			reference.setMultiplicity((MultiplicityKind)event.getNewValue());
 		}
@@ -241,22 +220,6 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 		}
 		if (EnvironmentViewsRepository.Reference.Properties.navigable == event.getAffectedEditor()) {
 			reference.setNavigable((Boolean)event.getNewValue());
-		}
-		if (EnvironmentViewsRepository.Reference.Properties.oppositeOf == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.SET) {
-				oppositeOfSettings.setToReference((Reference)event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
-				Reference eObject = EnvironmentFactory.eINSTANCE.createReference();
-				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, eObject, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(eObject, PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy != null) {
-						policy.execute();
-					}
-				}
-				oppositeOfSettings.setToReference(eObject);
-			}
 		}
 		if (EnvironmentViewsRepository.Reference.Properties.identifier == event.getAffectedEditor()) {
 			reference.setIsIdentifier((Boolean)event.getNewValue());
@@ -335,7 +298,7 @@ public class ReferenceReferencePropertiesEditionComponent extends SinglePartProp
 	 * 
 	 */
 	public boolean isRequired(Object key, int kind) {
-		return key == EnvironmentViewsRepository.Reference.Properties.referencedType || key == EnvironmentViewsRepository.Reference.Properties.isComposite || key == EnvironmentViewsRepository.Reference.Properties.navigable;
+		return key == EnvironmentViewsRepository.Reference.Properties.referencedType || key == EnvironmentViewsRepository.Reference.Properties.isComposite || key == EnvironmentViewsRepository.Reference.Properties.navigable || key == EnvironmentViewsRepository.Opposite.Properties.referencedType || key == EnvironmentViewsRepository.Opposite.Properties.isComposite || key == EnvironmentViewsRepository.Opposite.Properties.navigable;
 	}
 
 	/**
