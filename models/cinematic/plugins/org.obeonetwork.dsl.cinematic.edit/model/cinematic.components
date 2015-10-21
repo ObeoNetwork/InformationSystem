@@ -23,7 +23,7 @@
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.cinematic/model/cinematic.ecore#//Package"/>
       </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4vx24ofMEeGX84h4aFslOw" name="cinematicRoot" views="_4v06PYfMEeGX84h4aFslOw">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4vx24ofMEeGX84h4aFslOw" name="cinematicRoot" views="_4v06PYfMEeGX84h4aFslOw _ak1koHD6EeWRna8l4oUchA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4vx244fMEeGX84h4aFslOw" name="description" views="_4v06P4fMEeGX84h4aFslOw">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
@@ -727,9 +727,6 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v06Q4fMEeGX84h4aFslOw" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v06R4fMEeGX84h4aFslOw" name="toolkits">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
-          </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v06P4fMEeGX84h4aFslOw" name="description">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
@@ -741,6 +738,14 @@
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v06RYfMEeGX84h4aFslOw" name="viewContainers">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_ak1koHD6EeWRna8l4oUchA" name="Toolkits">
+        <elements xsi:type="eef-views:Container" xmi:id="_cuTLgHD6EeWRna8l4oUchA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4v06R4fMEeGX84h4aFslOw" name="toolkits">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
         </elements>
       </views>

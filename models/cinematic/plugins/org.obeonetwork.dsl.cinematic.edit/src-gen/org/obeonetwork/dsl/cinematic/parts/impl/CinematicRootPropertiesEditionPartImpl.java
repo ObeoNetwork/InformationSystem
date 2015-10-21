@@ -56,9 +56,6 @@ import org.obeonetwork.dsl.cinematic.providers.CinematicMessages;
 public class CinematicRootPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, CinematicRootPropertiesEditionPart {
 
 	protected Text name;
-	protected ReferencesTable toolkits;
-	protected List<ViewerFilter> toolkitsBusinessFilters = new ArrayList<ViewerFilter>();
-	protected List<ViewerFilter> toolkitsFilters = new ArrayList<ViewerFilter>();
 	protected Text description;
 	protected ReferencesTable subPackages;
 	protected List<ViewerFilter> subPackagesBusinessFilters = new ArrayList<ViewerFilter>();
@@ -108,7 +105,6 @@ public class CinematicRootPropertiesEditionPartImpl extends CompositePropertiesE
 		CompositionSequence cinematicRootStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = cinematicRootStep.addStep(CinematicViewsRepository.CinematicRoot.Properties.class);
 		propertiesStep.addStep(CinematicViewsRepository.CinematicRoot.Properties.name);
-		propertiesStep.addStep(CinematicViewsRepository.CinematicRoot.Properties.toolkits);
 		propertiesStep.addStep(CinematicViewsRepository.CinematicRoot.Properties.description);
 		propertiesStep.addStep(CinematicViewsRepository.CinematicRoot.Properties.subPackages);
 		propertiesStep.addStep(CinematicViewsRepository.CinematicRoot.Properties.flows);
@@ -124,9 +120,6 @@ public class CinematicRootPropertiesEditionPartImpl extends CompositePropertiesE
 				}
 				if (key == CinematicViewsRepository.CinematicRoot.Properties.name) {
 					return createNameText(parent);
-				}
-				if (key == CinematicViewsRepository.CinematicRoot.Properties.toolkits) {
-					return createToolkitsAdvancedReferencesTable(parent);
 				}
 				if (key == CinematicViewsRepository.CinematicRoot.Properties.description) {
 					return createDescriptionText(parent);
@@ -208,88 +201,6 @@ public class CinematicRootPropertiesEditionPartImpl extends CompositePropertiesE
 
 		// End of user code
 		return parent;
-	}
-
-	/**
-	 * 
-	 */
-	protected Composite createToolkitsAdvancedReferencesTable(Composite parent) {
-		String label = getDescription(CinematicViewsRepository.CinematicRoot.Properties.toolkits, CinematicMessages.CinematicRootPropertiesEditionPart_ToolkitsLabel);		 
-		this.toolkits = new ReferencesTable(label, new ReferencesTableListener() {
-			public void handleAdd() { addToolkits(); }
-			public void handleEdit(EObject element) { editToolkits(element); }
-			public void handleMove(EObject element, int oldIndex, int newIndex) { moveToolkits(element, oldIndex, newIndex); }
-			public void handleRemove(EObject element) { removeFromToolkits(element); }
-			public void navigateTo(EObject element) { }
-		});
-		this.toolkits.setHelpText(propertiesEditionComponent.getHelpContent(CinematicViewsRepository.CinematicRoot.Properties.toolkits, CinematicViewsRepository.SWT_KIND));
-		this.toolkits.createControls(parent);
-		this.toolkits.addSelectionListener(new SelectionAdapter() {
-			
-			public void widgetSelected(SelectionEvent e) {
-				if (e.item != null && e.item.getData() instanceof EObject) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(CinematicRootPropertiesEditionPartImpl.this, CinematicViewsRepository.CinematicRoot.Properties.toolkits, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
-				}
-			}
-			
-		});
-		GridData toolkitsData = new GridData(GridData.FILL_HORIZONTAL);
-		toolkitsData.horizontalSpan = 3;
-		this.toolkits.setLayoutData(toolkitsData);
-		this.toolkits.disableMove();
-		toolkits.setID(CinematicViewsRepository.CinematicRoot.Properties.toolkits);
-		toolkits.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
-		return parent;
-	}
-
-	/**
-	 * 
-	 */
-	protected void addToolkits() {
-		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(toolkits.getInput(), toolkitsFilters, toolkitsBusinessFilters,
-		"toolkits", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
-			@Override
-			public void process(IStructuredSelection selection) {
-				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
-					EObject elem = (EObject) iter.next();
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(CinematicRootPropertiesEditionPartImpl.this, CinematicViewsRepository.CinematicRoot.Properties.toolkits,
-						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
-				}
-				toolkits.refresh();
-			}
-		};
-		dialog.open();
-	}
-
-	/**
-	 * 
-	 */
-	protected void moveToolkits(EObject element, int oldIndex, int newIndex) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(CinematicRootPropertiesEditionPartImpl.this, CinematicViewsRepository.CinematicRoot.Properties.toolkits, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
-		toolkits.refresh();
-	}
-
-	/**
-	 * 
-	 */
-	protected void removeFromToolkits(EObject element) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(CinematicRootPropertiesEditionPartImpl.this, CinematicViewsRepository.CinematicRoot.Properties.toolkits, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
-		toolkits.refresh();
-	}
-
-	/**
-	 * 
-	 */
-	protected void editToolkits(EObject element) {
-		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
-		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
-		if (provider != null) {
-			PropertiesEditingPolicy policy = provider.getPolicy(context);
-			if (policy != null) {
-				policy.execute();
-				toolkits.refresh();
-			}
-		}
 	}
 
 	
@@ -537,69 +448,6 @@ public class CinematicRootPropertiesEditionPartImpl extends CompositePropertiesE
 			name.setEnabled(true);
 		}	
 		
-	}
-
-
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.cinematic.parts.CinematicRootPropertiesEditionPart#initToolkits(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
-	 */
-	public void initToolkits(ReferencesTableSettings settings) {
-		if (current.eResource() != null && current.eResource().getResourceSet() != null)
-			this.resourceSet = current.eResource().getResourceSet();
-		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
-		toolkits.setContentProvider(contentProvider);
-		toolkits.setInput(settings);
-		boolean eefElementEditorReadOnlyState = isReadOnly(CinematicViewsRepository.CinematicRoot.Properties.toolkits);
-		if (eefElementEditorReadOnlyState && toolkits.getTable().isEnabled()) {
-			toolkits.setEnabled(false);
-			toolkits.setToolTipText(CinematicMessages.CinematicRoot_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !toolkits.getTable().isEnabled()) {
-			toolkits.setEnabled(true);
-		}
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.cinematic.parts.CinematicRootPropertiesEditionPart#updateToolkits()
-	 * 
-	 */
-	public void updateToolkits() {
-	toolkits.refresh();
-}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.cinematic.parts.CinematicRootPropertiesEditionPart#addFilterToolkits(ViewerFilter filter)
-	 * 
-	 */
-	public void addFilterToToolkits(ViewerFilter filter) {
-		toolkitsFilters.add(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.cinematic.parts.CinematicRootPropertiesEditionPart#addBusinessFilterToolkits(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToToolkits(ViewerFilter filter) {
-		toolkitsBusinessFilters.add(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.cinematic.parts.CinematicRootPropertiesEditionPart#isContainedInToolkitsTable(EObject element)
-	 * 
-	 */
-	public boolean isContainedInToolkitsTable(EObject element) {
-		return ((ReferencesTableSettings)toolkits.getInput()).contains(element);
 	}
 
 	/**

@@ -69,6 +69,13 @@
                category="default">
          </propertyTab>
 
+         <propertyTab
+               id="Toolkits"
+               label="Toolkits"
+               category="extended"
+               afterTab="CinematicRoot">
+         </propertyTab>
+
       </propertyTabs>
    </extension>
    <extension
@@ -92,6 +99,12 @@
                filter="org.obeonetwork.dsl.cinematic.providers.CinematicRootPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.cinematic.section.CinematicRoot"
                tab="CinematicRoot">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.parts.forms.ToolkitsPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.providers.CinematicRootPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.section.CinematicRoot"
+               tab="Toolkits">
          </propertySection>
          <propertySection
                class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"

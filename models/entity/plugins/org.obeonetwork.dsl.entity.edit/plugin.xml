@@ -70,6 +70,12 @@
               label="Entity">
         </propertyTab>
         <propertyTab
+              id="Persistence"
+              label="Persistence"
+              category="semantic &amp; extension"
+              afterTab="Entity">
+        </propertyTab>
+        <propertyTab
               category="semantic &amp; extension"
               id="Finder"
               label="Finder">
@@ -107,6 +113,12 @@
               filter="org.obeonetwork.dsl.entity.filters.EntityTabPropertiesEditionSection"
               id="org.obeonetwork.dsl.entity.eef.section.Entity"
               tab="Entity">
+        </propertySection>
+        <propertySection
+              class="org.obeonetwork.dsl.entity.parts.forms.PersistencePropertiesEditionPartForm"
+              filter="org.obeonetwork.dsl.entity.providers.EntityPropertiesEditionProvider$EditionFilter"
+              id="org.obeonetwork.dsl.entity.section.Entity"
+              tab="Persistence">
         </propertySection>
         <propertySection
               class="org.obeonetwork.dsl.entity.parts.forms.InternalCriterionPropertiesEditionPartForm"

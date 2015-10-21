@@ -28,6 +28,7 @@ import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.entity.EntityPackage;
 
 import org.obeonetwork.dsl.entity.components.EntityEntityPropertiesEditionComponent;
+import org.obeonetwork.dsl.entity.components.EntityPersistencePropertiesEditionComponent;
 import org.obeonetwork.dsl.entity.components.EntityPropertiesEditionComponent;
 
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
@@ -71,7 +72,7 @@ public class EntityPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext, String part) {
-		return (editingContext.getEObject() instanceof Entity) && (EntityEntityPropertiesEditionComponent.ENTITY_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
+		return (editingContext.getEObject() instanceof Entity) && (EntityEntityPropertiesEditionComponent.ENTITY_PART.equals(part) || EntityPersistencePropertiesEditionComponent.PERSISTENCE_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
 	}
 
 	/**
@@ -81,7 +82,7 @@ public class EntityPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof Entity) && (refinement == EntityEntityPropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
+		return (editingContext.getEObject() instanceof Entity) && (refinement == EntityEntityPropertiesEditionComponent.class || refinement == EntityPersistencePropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
 	}
 
 	/**
@@ -91,7 +92,7 @@ public class EntityPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, String part, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof Entity) && ((EntityEntityPropertiesEditionComponent.ENTITY_PART.equals(part) && refinement == EntityEntityPropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
+		return (editingContext.getEObject() instanceof Entity) && ((EntityEntityPropertiesEditionComponent.ENTITY_PART.equals(part) && refinement == EntityEntityPropertiesEditionComponent.class) || (EntityPersistencePropertiesEditionComponent.PERSISTENCE_PART.equals(part) && refinement == EntityPersistencePropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
 	}
 
 	/**
@@ -115,6 +116,8 @@ public class EntityPropertiesEditionProvider extends CustomPropertiesEditingProv
 		if (editingContext.getEObject() instanceof Entity) {
 			if (EntityEntityPropertiesEditionComponent.ENTITY_PART.equals(part))
 				return new EntityEntityPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			if (EntityPersistencePropertiesEditionComponent.PERSISTENCE_PART.equals(part))
+				return new EntityPersistencePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part))
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
@@ -131,6 +134,9 @@ public class EntityPropertiesEditionProvider extends CustomPropertiesEditingProv
 			if (EntityEntityPropertiesEditionComponent.ENTITY_PART.equals(part)
 				&& refinement == EntityEntityPropertiesEditionComponent.class)
 				return new EntityEntityPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			if (EntityPersistencePropertiesEditionComponent.PERSISTENCE_PART.equals(part)
+				&& refinement == EntityPersistencePropertiesEditionComponent.class)
+				return new EntityPersistencePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part)
 				&& refinement == MetadataCptPropertiesEditionComponent.class)
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);

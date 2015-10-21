@@ -18,7 +18,6 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.jface.viewers.IFilter;
 
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
-import org.obeonetwork.dsl.cinematic.Package;
 
 import org.obeonetwork.dsl.cinematic.components.PackagePackage_PropertiesEditionComponent;
 import org.obeonetwork.dsl.cinematic.components.PackagePropertiesEditionComponent;
@@ -54,7 +53,7 @@ public class Package_PropertiesEditionProvider extends CustomPropertiesEditingPr
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext) {
-		return (editingContext.getEObject() instanceof Package) 
+		return (editingContext.getEObject() instanceof org.obeonetwork.dsl.cinematic.Package) 
 					&& (CinematicPackage.Literals.PACKAGE == editingContext.getEObject().eClass());
 	}
 
@@ -64,7 +63,7 @@ public class Package_PropertiesEditionProvider extends CustomPropertiesEditingPr
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext, String part) {
-		return (editingContext.getEObject() instanceof Package) && (PackagePackage_PropertiesEditionComponent.PACKAGE__PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
+		return (editingContext.getEObject() instanceof org.obeonetwork.dsl.cinematic.Package) && (PackagePackage_PropertiesEditionComponent.PACKAGE__PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
 	}
 
 	/**
@@ -74,7 +73,7 @@ public class Package_PropertiesEditionProvider extends CustomPropertiesEditingPr
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof Package) && (refinement == PackagePackage_PropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
+		return (editingContext.getEObject() instanceof org.obeonetwork.dsl.cinematic.Package) && (refinement == PackagePackage_PropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
 	}
 
 	/**
@@ -84,7 +83,7 @@ public class Package_PropertiesEditionProvider extends CustomPropertiesEditingPr
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, String part, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof Package) && ((PackagePackage_PropertiesEditionComponent.PACKAGE__PART.equals(part) && refinement == PackagePackage_PropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
+		return (editingContext.getEObject() instanceof org.obeonetwork.dsl.cinematic.Package) && ((PackagePackage_PropertiesEditionComponent.PACKAGE__PART.equals(part) && refinement == PackagePackage_PropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
 	}
 
 	/**
@@ -93,7 +92,7 @@ public class Package_PropertiesEditionProvider extends CustomPropertiesEditingPr
 	 * 
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode) {
-		if (editingContext.getEObject() instanceof Package) {
+		if (editingContext.getEObject() instanceof org.obeonetwork.dsl.cinematic.Package) {
 			return new PackagePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
 		return super.getPropertiesEditingComponent(editingContext, mode);
@@ -105,7 +104,7 @@ public class Package_PropertiesEditionProvider extends CustomPropertiesEditingPr
 	 * 
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part) {
-		if (editingContext.getEObject() instanceof Package) {
+		if (editingContext.getEObject() instanceof org.obeonetwork.dsl.cinematic.Package) {
 			if (PackagePackage_PropertiesEditionComponent.PACKAGE__PART.equals(part))
 				return new PackagePackage_PropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part))
@@ -120,7 +119,7 @@ public class Package_PropertiesEditionProvider extends CustomPropertiesEditingPr
 	 */
 	@SuppressWarnings("rawtypes")
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part, java.lang.Class refinement) {
-		if (editingContext.getEObject() instanceof Package) {
+		if (editingContext.getEObject() instanceof org.obeonetwork.dsl.cinematic.Package) {
 			if (PackagePackage_PropertiesEditionComponent.PACKAGE__PART.equals(part)
 				&& refinement == PackagePackage_PropertiesEditionComponent.class)
 				return new PackagePackage_PropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);

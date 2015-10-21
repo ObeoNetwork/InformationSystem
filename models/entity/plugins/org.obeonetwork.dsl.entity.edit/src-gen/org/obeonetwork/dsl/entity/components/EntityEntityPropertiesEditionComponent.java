@@ -98,27 +98,9 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 				// set the button mode
 				entityPart.setSuperTypeButtonMode(ButtonsModeEnum.BROWSE);
 			}
-			if (isAccessible(EntityViewsRepository.Entity_.Properties.estimatedVolumetry)) {
-				entityPart.setEstimatedVolumetry(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, entity.getEstimatedVolumetry()));
-			}
-			
-			if (isAccessible(EntityViewsRepository.Entity_.Properties.estimatedAccess)) {
-				entityPart.setEstimatedAccess(EEFConverterUtil.convertToString(EcorePackage.Literals.EINT, entity.getEstimatedAccess()));
-			}
-			
-			if (isAccessible(EntityViewsRepository.Entity_.Properties.historized)) {
-				entityPart.setHistorized(entity.isHistorized());
-			}
-			if (isAccessible(EntityViewsRepository.Entity_.Properties.inheritanceKind)) {
-				entityPart.initInheritanceKind(EEFUtils.choiceOfValues(entity, EntityPackage.eINSTANCE.getEntity_InheritanceKind()), entity.getInheritanceKind());
-			}
 			if (isAccessible(EntityViewsRepository.Entity_.Properties.description))
 				entityPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, entity.getDescription()));
 			// init filters
-			
-			
-			
-			
 			
 			
 			
@@ -135,10 +117,6 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 
 
 
-
-
-
-
 	/**
 	 * {@inheritDoc}
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
@@ -149,18 +127,6 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 		}
 		if (editorKey == EntityViewsRepository.Entity_.Properties.superType) {
 			return EnvironmentPackage.eINSTANCE.getStructuredType_Supertype();
-		}
-		if (editorKey == EntityViewsRepository.Entity_.Properties.estimatedVolumetry) {
-			return EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry();
-		}
-		if (editorKey == EntityViewsRepository.Entity_.Properties.estimatedAccess) {
-			return EntityPackage.eINSTANCE.getEntity_EstimatedAccess();
-		}
-		if (editorKey == EntityViewsRepository.Entity_.Properties.historized) {
-			return EntityPackage.eINSTANCE.getEntity_Historized();
-		}
-		if (editorKey == EntityViewsRepository.Entity_.Properties.inheritanceKind) {
-			return EntityPackage.eINSTANCE.getEntity_InheritanceKind();
 		}
 		if (editorKey == EntityViewsRepository.Entity_.Properties.description) {
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
@@ -192,18 +158,6 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 				}
 			}
 		}
-		if (EntityViewsRepository.Entity_.Properties.estimatedVolumetry == event.getAffectedEditor()) {
-			entity.setEstimatedVolumetry((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
-		}
-		if (EntityViewsRepository.Entity_.Properties.estimatedAccess == event.getAffectedEditor()) {
-			entity.setEstimatedAccess((EEFConverterUtil.createIntFromString(EcorePackage.Literals.EINT, (String)event.getNewValue())));
-		}
-		if (EntityViewsRepository.Entity_.Properties.historized == event.getAffectedEditor()) {
-			entity.setHistorized((Boolean)event.getNewValue());
-		}
-		if (EntityViewsRepository.Entity_.Properties.inheritanceKind == event.getAffectedEditor()) {
-			entity.setInheritanceKind((InheritanceKind)event.getNewValue());
-		}
 		if (EntityViewsRepository.Entity_.Properties.description == event.getAffectedEditor()) {
 			entity.setDescription((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
@@ -226,26 +180,6 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 			}
 			if (EnvironmentPackage.eINSTANCE.getStructuredType_Supertype().equals(msg.getFeature()) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.superType))
 				entityPart.setSuperType((EObject)msg.getNewValue());
-			if (EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.estimatedVolumetry)) {
-				if (msg.getNewValue() != null) {
-					entityPart.setEstimatedVolumetry(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
-				} else {
-					entityPart.setEstimatedVolumetry("");
-				}
-			}
-			if (EntityPackage.eINSTANCE.getEntity_EstimatedAccess().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.estimatedAccess)) {
-				if (msg.getNewValue() != null) {
-					entityPart.setEstimatedAccess(EcoreUtil.convertToString(EcorePackage.Literals.EINT, msg.getNewValue()));
-				} else {
-					entityPart.setEstimatedAccess("");
-				}
-			}
-			if (EntityPackage.eINSTANCE.getEntity_Historized().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.historized))
-				entityPart.setHistorized((Boolean)msg.getNewValue());
-			
-			if (EntityPackage.eINSTANCE.getEntity_InheritanceKind().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(EntityViewsRepository.Entity_.Properties.inheritanceKind))
-				entityPart.setInheritanceKind((InheritanceKind)msg.getNewValue());
-			
 			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && entityPart != null && isAccessible(EntityViewsRepository.Entity_.Properties.description)){
 				if (msg.getNewValue() != null) {
 					entityPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
@@ -267,10 +201,6 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EnvironmentPackage.eINSTANCE.getType_Name(),
 			EnvironmentPackage.eINSTANCE.getStructuredType_Supertype(),
-			EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry(),
-			EntityPackage.eINSTANCE.getEntity_EstimatedAccess(),
-			EntityPackage.eINSTANCE.getEntity_Historized(),
-			EntityPackage.eINSTANCE.getEntity_InheritanceKind(),
 			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
 		return new NotificationFilter[] {filter,};
 	}
@@ -283,7 +213,7 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 	 * 
 	 */
 	public boolean isRequired(Object key, int kind) {
-		return key == EntityViewsRepository.Entity_.Properties.name || key == EntityViewsRepository.Entity_.Properties.historized;
+		return key == EntityViewsRepository.Entity_.Properties.name || key == EntityViewsRepository.Persistence.Properties.historized;
 	}
 
 	/**
@@ -302,34 +232,6 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 						newValue = EEFConverterUtil.createFromString(EnvironmentPackage.eINSTANCE.getType_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(EnvironmentPackage.eINSTANCE.getType_Name().getEAttributeType(), newValue);
-				}
-				if (EntityViewsRepository.Entity_.Properties.estimatedVolumetry == event.getAffectedEditor()) {
-					Object newValue = event.getNewValue();
-					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry().getEAttributeType(), (String)newValue);
-					}
-					ret = Diagnostician.INSTANCE.validate(EntityPackage.eINSTANCE.getEntity_EstimatedVolumetry().getEAttributeType(), newValue);
-				}
-				if (EntityViewsRepository.Entity_.Properties.estimatedAccess == event.getAffectedEditor()) {
-					Object newValue = event.getNewValue();
-					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(EntityPackage.eINSTANCE.getEntity_EstimatedAccess().getEAttributeType(), (String)newValue);
-					}
-					ret = Diagnostician.INSTANCE.validate(EntityPackage.eINSTANCE.getEntity_EstimatedAccess().getEAttributeType(), newValue);
-				}
-				if (EntityViewsRepository.Entity_.Properties.historized == event.getAffectedEditor()) {
-					Object newValue = event.getNewValue();
-					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(EntityPackage.eINSTANCE.getEntity_Historized().getEAttributeType(), (String)newValue);
-					}
-					ret = Diagnostician.INSTANCE.validate(EntityPackage.eINSTANCE.getEntity_Historized().getEAttributeType(), newValue);
-				}
-				if (EntityViewsRepository.Entity_.Properties.inheritanceKind == event.getAffectedEditor()) {
-					Object newValue = event.getNewValue();
-					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(EntityPackage.eINSTANCE.getEntity_InheritanceKind().getEAttributeType(), (String)newValue);
-					}
-					ret = Diagnostician.INSTANCE.validate(EntityPackage.eINSTANCE.getEntity_InheritanceKind().getEAttributeType(), newValue);
 				}
 				if (EntityViewsRepository.Entity_.Properties.description == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();

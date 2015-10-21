@@ -22,12 +22,14 @@ import org.obeonetwork.dsl.entity.parts.forms.EntityPropertiesEditionPartForm;
 import org.obeonetwork.dsl.entity.parts.forms.ExternalCriterionPropertiesEditionPartForm;
 import org.obeonetwork.dsl.entity.parts.forms.FinderPropertiesEditionPartForm;
 import org.obeonetwork.dsl.entity.parts.forms.InternalCriterionPropertiesEditionPartForm;
+import org.obeonetwork.dsl.entity.parts.forms.PersistencePropertiesEditionPartForm;
 import org.obeonetwork.dsl.entity.parts.forms.RootPropertiesEditionPartForm;
 
 import org.obeonetwork.dsl.entity.parts.impl.EntityPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entity.parts.impl.ExternalCriterionPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entity.parts.impl.FinderPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entity.parts.impl.InternalCriterionPropertiesEditionPartImpl;
+import org.obeonetwork.dsl.entity.parts.impl.PersistencePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.entity.parts.impl.RootPropertiesEditionPartImpl;
 
 /**
@@ -62,6 +64,12 @@ public class EntityPropertiesEditionPartProvider implements IPropertiesEditionPa
 				return new EntityPropertiesEditionPartImpl(component);
 			if (kind == EntityViewsRepository.FORM_KIND)
 				return new EntityPropertiesEditionPartForm(component);
+		}
+		if (key == EntityViewsRepository.Persistence.class) {
+			if (kind == EntityViewsRepository.SWT_KIND)
+				return new PersistencePropertiesEditionPartImpl(component);
+			if (kind == EntityViewsRepository.FORM_KIND)
+				return new PersistencePropertiesEditionPartForm(component);
 		}
 		if (key == EntityViewsRepository.Finder.class) {
 			if (kind == EntityViewsRepository.SWT_KIND)

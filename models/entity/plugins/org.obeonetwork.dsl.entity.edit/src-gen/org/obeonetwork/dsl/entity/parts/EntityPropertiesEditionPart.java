@@ -88,69 +88,6 @@ public interface EntityPropertiesEditionPart {
 
 
 	/**
-	 * @return the estimatedVolumetry
-	 * 
-	 */
-	public String getEstimatedVolumetry();
-
-	/**
-	 * Defines a new estimatedVolumetry
-	 * @param newValue the new estimatedVolumetry to set
-	 * 
-	 */
-	public void setEstimatedVolumetry(String newValue);
-
-
-	/**
-	 * @return the estimatedAccess
-	 * 
-	 */
-	public String getEstimatedAccess();
-
-	/**
-	 * Defines a new estimatedAccess
-	 * @param newValue the new estimatedAccess to set
-	 * 
-	 */
-	public void setEstimatedAccess(String newValue);
-
-
-	/**
-	 * @return the historized
-	 * 
-	 */
-	public Boolean getHistorized();
-
-	/**
-	 * Defines a new historized
-	 * @param newValue the new historized to set
-	 * 
-	 */
-	public void setHistorized(Boolean newValue);
-
-
-	/**
-	 * @return the inheritanceKind
-	 * 
-	 */
-	public Enumerator getInheritanceKind();
-
-	/**
-	 * Init the inheritanceKind
-	 * @param input the viewer input
-	 * @param current the current value
-	 */
-	public void initInheritanceKind(Object input, Enumerator current);
-
-	/**
-	 * Defines a new inheritanceKind
-	 * @param newValue the new inheritanceKind to set
-	 * 
-	 */
-	public void setInheritanceKind(Enumerator newValue);
-
-
-	/**
 	 * @return the description
 	 * 
 	 */

@@ -14,7 +14,7 @@
         </referencedBinding>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.entity/model/entity.ecore#//Root"/>
       </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9GvkFVUREd6Yk7jCWR7r8A" name="entity" views="_9GwLI1UREd6Yk7jCWR7r8A">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9GvkFVUREd6Yk7jCWR7r8A" name="entity" views="_9GwLI1UREd6Yk7jCWR7r8A _w9xncHD4EeWRna8l4oUchA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9GvkFlUREd6Yk7jCWR7r8A" name="name" views="_9GwLJVUREd6Yk7jCWR7r8A">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Type/name"/>
         </properties>
@@ -110,6 +110,14 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_UeFvgFc3Ed6HocRae_Ft8A" name="superType">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.9"/>
           </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_i6tLUB8YEeC_porSarA8Jw" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_w9xncHD4EeWRna8l4oUchA" name="Persistence">
+        <elements xsi:type="eef-views:Container" xmi:id="_5WsaMHD4EeWRna8l4oUchA" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_9GwLJlUREd6Yk7jCWR7r8A" name="estimatedVolumetry">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
@@ -121,9 +129,6 @@
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_9GwLKVUREd6Yk7jCWR7r8A" name="inheritanceKind">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_i6tLUB8YEeC_porSarA8Jw" name="description">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>
       </views>

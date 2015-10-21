@@ -53,19 +53,31 @@ public class EntityViewsRepository {
 			public static String superType = "entity::Entity_::properties::superType";
 			
 			
-			public static String estimatedVolumetry = "entity::Entity_::properties::estimatedVolumetry";
-			
-			
-			public static String estimatedAccess = "entity::Entity_::properties::estimatedAccess";
-			
-			
-			public static String historized = "entity::Entity_::properties::historized";
-			
-			
-			public static String inheritanceKind = "entity::Entity_::properties::inheritanceKind";
-			
-			
 			public static String description = "entity::Entity_::properties::description";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * Persistence view descriptor
+	 * 
+	 */
+	public static class Persistence {
+		public static class Properties {
+	
+			
+			public static String estimatedVolumetry = "entity::Persistence::properties::estimatedVolumetry";
+			
+			
+			public static String estimatedAccess = "entity::Persistence::properties::estimatedAccess";
+			
+			
+			public static String historized = "entity::Persistence::properties::historized";
+			
+			
+			public static String inheritanceKind = "entity::Persistence::properties::inheritanceKind";
 			
 	
 		}

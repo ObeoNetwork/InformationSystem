@@ -13,9 +13,11 @@ import org.obeonetwork.dsl.cinematic.parts.CinematicViewsRepository;
 
 import org.obeonetwork.dsl.cinematic.parts.forms.CinematicRootPropertiesEditionPartForm;
 import org.obeonetwork.dsl.cinematic.parts.forms.Package_PropertiesEditionPartForm;
+import org.obeonetwork.dsl.cinematic.parts.forms.ToolkitsPropertiesEditionPartForm;
 
 import org.obeonetwork.dsl.cinematic.parts.impl.CinematicRootPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.cinematic.parts.impl.Package_PropertiesEditionPartImpl;
+import org.obeonetwork.dsl.cinematic.parts.impl.ToolkitsPropertiesEditionPartImpl;
 
 /**
  * 
@@ -49,6 +51,12 @@ public class CinematicPropertiesEditionPartProvider implements IPropertiesEditio
 				return new CinematicRootPropertiesEditionPartImpl(component);
 			if (kind == CinematicViewsRepository.FORM_KIND)
 				return new CinematicRootPropertiesEditionPartForm(component);
+		}
+		if (key == CinematicViewsRepository.Toolkits.class) {
+			if (kind == CinematicViewsRepository.SWT_KIND)
+				return new ToolkitsPropertiesEditionPartImpl(component);
+			if (kind == CinematicViewsRepository.FORM_KIND)
+				return new ToolkitsPropertiesEditionPartForm(component);
 		}
 		return null;
 	}

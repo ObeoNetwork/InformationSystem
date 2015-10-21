@@ -68,11 +68,6 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 	 */
 	protected ReferencesTableSettings subPackagesSettings;
 	
-	/**
-	 * Settings for toolkits ReferencesTable
-	 */
-	private ReferencesTableSettings toolkitsSettings;
-	
 	
 	/**
 	 * Default constructor
@@ -117,10 +112,6 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 			if (isAccessible(CinematicViewsRepository.CinematicRoot.Properties.subPackages)) {
 				subPackagesSettings = new ReferencesTableSettings(cinematicRoot, CinematicPackage.eINSTANCE.getAbstractPackage_SubPackages());
 				cinematicRootPart.initSubPackages(subPackagesSettings);
-			}
-			if (isAccessible(CinematicViewsRepository.CinematicRoot.Properties.toolkits)) {
-				toolkitsSettings = new ReferencesTableSettings(cinematicRoot, CinematicPackage.eINSTANCE.getCinematicRoot_Toolkits());
-				cinematicRootPart.initToolkits(toolkitsSettings);
 			}
 			// init filters
 			
@@ -170,11 +161,6 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 				// Start of user code for additional businessfilters for subPackages
 				// End of user code
 			}
-			if (isAccessible(CinematicViewsRepository.CinematicRoot.Properties.toolkits)) {
-				cinematicRootPart.addFilterToToolkits(new EObjectFilter(ToolkitsPackage.Literals.TOOLKIT));
-				// Start of user code for additional businessfilters for toolkits
-				// End of user code
-			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -182,7 +168,6 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 		}
 		setInitializing(false);
 	}
-
 
 
 
@@ -210,9 +195,6 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 		}
 		if (editorKey == CinematicViewsRepository.CinematicRoot.Properties.subPackages) {
 			return CinematicPackage.eINSTANCE.getAbstractPackage_SubPackages();
-		}
-		if (editorKey == CinematicViewsRepository.CinematicRoot.Properties.toolkits) {
-			return CinematicPackage.eINSTANCE.getCinematicRoot_Toolkits();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -305,17 +287,6 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 				subPackagesSettings.move(event.getNewIndex(), (Package) event.getNewValue());
 			}
 		}
-		if (CinematicViewsRepository.CinematicRoot.Properties.toolkits == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				if (event.getNewValue() instanceof Toolkit) {
-					toolkitsSettings.addToReference((EObject) event.getNewValue());
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				toolkitsSettings.removeFromReference((EObject) event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				toolkitsSettings.move(event.getNewIndex(), (Toolkit) event.getNewValue());
-			}
-		}
 	}
 
 	/**
@@ -346,8 +317,6 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 				cinematicRootPart.updateViewContainers();
 			if (CinematicPackage.eINSTANCE.getAbstractPackage_SubPackages().equals(msg.getFeature()) && isAccessible(CinematicViewsRepository.CinematicRoot.Properties.subPackages))
 				cinematicRootPart.updateSubPackages();
-			if (CinematicPackage.eINSTANCE.getCinematicRoot_Toolkits().equals(msg.getFeature())  && isAccessible(CinematicViewsRepository.CinematicRoot.Properties.toolkits))
-				cinematicRootPart.updateToolkits();
 			
 		}
 	}
@@ -364,8 +333,7 @@ public class CinematicRootCinematicRootPropertiesEditionComponent extends Single
 			CinematicPackage.eINSTANCE.getNamedElement_Name(),
 			CinematicPackage.eINSTANCE.getAbstractPackage_Flows(),
 			CinematicPackage.eINSTANCE.getAbstractPackage_ViewContainers(),
-			CinematicPackage.eINSTANCE.getAbstractPackage_SubPackages(),
-			CinematicPackage.eINSTANCE.getCinematicRoot_Toolkits()		);
+			CinematicPackage.eINSTANCE.getAbstractPackage_SubPackages()		);
 		return new NotificationFilter[] {filter,};
 	}
 

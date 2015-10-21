@@ -14,6 +14,7 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
 import org.obeonetwork.dsl.cinematic.parts.CinematicRootPropertiesEditionPart;
 import org.obeonetwork.dsl.cinematic.parts.CinematicViewsRepository;
+import org.obeonetwork.dsl.cinematic.parts.ToolkitsPropertiesEditionPart;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 
@@ -38,6 +39,18 @@ public class CinematicRootPropertiesEditionComponent extends ComposedPropertiesE
 	protected CinematicRootCinematicRootPropertiesEditionComponent cinematicRootCinematicRootPropertiesEditionComponent;
 
 	/**
+	 * The Toolkits part
+	 * 
+	 */
+	private ToolkitsPropertiesEditionPart toolkitsPart;
+
+	/**
+	 * The CinematicRootToolkitsPropertiesEditionComponent sub component
+	 * 
+	 */
+	protected CinematicRootToolkitsPropertiesEditionComponent cinematicRootToolkitsPropertiesEditionComponent;
+
+	/**
 	 * The MetadataCptPropertiesEditionComponent sub component
 	 * 
 	 */
@@ -57,6 +70,9 @@ public class CinematicRootPropertiesEditionComponent extends ComposedPropertiesE
 			cinematicRootCinematicRootPropertiesEditionComponent = (CinematicRootCinematicRootPropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, CinematicRootCinematicRootPropertiesEditionComponent.CINEMATICROOT_PART, CinematicRootCinematicRootPropertiesEditionComponent.class);
 			addSubComponent(cinematicRootCinematicRootPropertiesEditionComponent);
 			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(cinematicRoot, PropertiesEditingProvider.class);
+			cinematicRootToolkitsPropertiesEditionComponent = (CinematicRootToolkitsPropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, CinematicRootToolkitsPropertiesEditionComponent.TOOLKITS_PART, CinematicRootToolkitsPropertiesEditionComponent.class);
+			addSubComponent(cinematicRootToolkitsPropertiesEditionComponent);
+			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(cinematicRoot, PropertiesEditingProvider.class);
 			metadataCptPropertiesEditionComponent = (MetadataCptPropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, MetadataCptPropertiesEditionComponent.METADATAS_PART, MetadataCptPropertiesEditionComponent.class);
 			addSubComponent(metadataCptPropertiesEditionComponent);
 		}
@@ -74,6 +90,10 @@ public class CinematicRootPropertiesEditionComponent extends ComposedPropertiesE
 			cinematicRootPart = (CinematicRootPropertiesEditionPart)cinematicRootCinematicRootPropertiesEditionComponent.getPropertiesEditionPart(kind, key);
 			return (IPropertiesEditionPart)cinematicRootPart;
 		}
+		if (CinematicRootToolkitsPropertiesEditionComponent.TOOLKITS_PART.equals(key)) {
+			toolkitsPart = (ToolkitsPropertiesEditionPart)cinematicRootToolkitsPropertiesEditionComponent.getPropertiesEditionPart(kind, key);
+			return (IPropertiesEditionPart)toolkitsPart;
+		}
 		return super.getPropertiesEditionPart(kind, key);
 	}
 
@@ -90,6 +110,10 @@ public class CinematicRootPropertiesEditionComponent extends ComposedPropertiesE
 			super.setPropertiesEditionPart(key, kind, propertiesEditionPart);
 			cinematicRootPart = (CinematicRootPropertiesEditionPart)propertiesEditionPart;
 		}
+		if (CinematicViewsRepository.Toolkits.class == key) {
+			super.setPropertiesEditionPart(key, kind, propertiesEditionPart);
+			toolkitsPart = (ToolkitsPropertiesEditionPart)propertiesEditionPart;
+		}
 	}
 
 	/**
@@ -102,6 +126,9 @@ public class CinematicRootPropertiesEditionComponent extends ComposedPropertiesE
 	 */
 	public void initPart(java.lang.Object key, int kind, EObject element, ResourceSet allResource) {
 		if (key == CinematicViewsRepository.CinematicRoot.class) {
+			super.initPart(key, kind, element, allResource);
+		}
+		if (key == CinematicViewsRepository.Toolkits.class) {
 			super.initPart(key, kind, element, allResource);
 		}
 		if (key == EnvironmentViewsRepository.Metadatas.class) {
