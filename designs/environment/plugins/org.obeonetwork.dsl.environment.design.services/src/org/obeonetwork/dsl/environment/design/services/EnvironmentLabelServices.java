@@ -39,10 +39,18 @@ public class EnvironmentLabelServices extends EnvironmentSwitch<String> {
 	@Override
 	public String caseAttribute(Attribute attribute) {
 		// Name
-		StringBuilder label = new StringBuilder(attribute.getName()).append(" : ");
+		String name = attribute.getName();
+		if (name == null) {
+			name = "";
+		}
+		StringBuilder label = new StringBuilder(name).append(" : ");
 		// Type
 		if (attribute.getType() != null) {
-			label.append(attribute.getType().getName());
+			String typeName = attribute.getType().getName();
+			if (typeName == null) {
+				typeName = "";
+			}
+			label.append(typeName);
 		}
 		// Multiplicity
 		label.append("[").append(attribute.getMultiplicity()).append("]");

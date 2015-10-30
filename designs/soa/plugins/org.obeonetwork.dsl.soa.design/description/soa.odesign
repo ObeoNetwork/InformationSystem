@@ -777,9 +777,9 @@
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:arg0.getAttrNameFromString()"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="service:arg0.getMultKindFromString()"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:arg0.getAttrTypeFromString()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.getAttrNameFromString(arg0)"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="service:self.getMultKindFromString(arg0)"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="service:self.getAttrTypeFromString(arg0)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -787,8 +787,8 @@
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:arg0.getRefNameFromString()"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="service:arg0.getMultKindFromString()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.getRefNameFromString(arg0)"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="multiplicity" valueExpression="service:self.getMultKindFromString(arg0)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
