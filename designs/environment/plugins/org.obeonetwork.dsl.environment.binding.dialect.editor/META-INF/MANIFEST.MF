@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.obeonetwork.dsl.environment.binding.dialect.editor;singleton:=true
+Bundle-Version: 4.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.sirius.editor,
+ org.eclipse.emf.ecore,
+ org.obeonetwork.dsl.environment.binding.dialect,
+ org.eclipse.jface,
+ org.eclipse.emf.edit,
+ org.eclipse.ui.views.properties.tabbed

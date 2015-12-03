@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+    <propertySections contributorId="org.eclipse.sirius.editor.editorPlugin.SiriusEditorContributor">
+  	 <propertySection
+              class="org.obeonetwork.dsl.environment.binding.dialect.properties.DBindingEditorCreationDescriptionDescriptionPropertySection"
+              id="description.section.bindingEditorCreationDescription.Description"
+              filter="org.obeonetwork.dsl.environment.binding.dialect.properties.DBindingEditorCreationDescriptionDescriptionFilter"
+              tab="viewpoint.tab.general">
+       <input type="org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorCreationDescription"/>
+     </propertySection>
+    </propertySections>
+   </extension>
+
+</plugin>
