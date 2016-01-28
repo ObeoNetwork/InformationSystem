@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabaseElement;
+import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.NamedElement;
 import org.obeonetwork.dsl.database.util.DatabaseSwitch;
 import org.obeonetwork.dsl.typeslibrary.NativeType;
@@ -62,6 +63,21 @@ public class DatabaseEditLabelServices extends DatabaseSwitch<DatabaseElement>{
 			return super.caseNamedElement(column);
 		}
 		return column;
+	}
+	
+	
+	@Override
+	public DatabaseElement caseIndex(Index index) {
+		// the label can be in the form "attributeName : typeName (precision, length)"
+		int pos = editedLabelContent.indexOf('<');
+		if (pos != -1) {
+			String attributeName = editedLabelContent.substring(0, pos).trim();
+			index.setName(attributeName);
+		} else {
+			// there is only a name
+			return super.caseNamedElement(index);
+		}
+		return index;
 	}
 	
 	private void setType(Column column, String typeName, Collection<NativeTypesLibrary> typesLibraries) {
