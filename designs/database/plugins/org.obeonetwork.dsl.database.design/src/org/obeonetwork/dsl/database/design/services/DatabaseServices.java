@@ -9,7 +9,11 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.diagram.AbstractDNode;
+import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DatabaseFactory;
@@ -19,7 +23,7 @@ import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 
 public class DatabaseServices {
-	
+
 	/**
 	 * Return ForeignKeys from tables.
 	 * @param tableContainer
@@ -30,18 +34,18 @@ public class DatabaseServices {
 		List<AbstractTable> tables = tableContainer.getTables();
 		for (AbstractTable abstractTable : tables) {
 			if(abstractTable instanceof Table){
-			 foreignKeys.addAll(((Table)abstractTable).getForeignKeys());
+				foreignKeys.addAll(((Table)abstractTable).getForeignKeys());
 			}
 		}
 		return foreignKeys;
 	}
-	
-	
+
+
 	public ForeignKey createForeignKey(Table source, Table target) {
 		ForeignKey fk = DatabaseFactory.eINSTANCE.createForeignKey();
 		source.getForeignKeys().add(fk);
 		fk.setTarget(target);
-		
+
 		// Initialize with columns
 		if (target.getPrimaryKey() != null) {
 			for (Column pkColumn : target.getPrimaryKey().getColumns()) {
@@ -56,9 +60,9 @@ public class DatabaseServices {
 		}
 		return fk;
 	}
-	
+
 	private Column getOrCreateColumn(Table table, Column referenceColumn) {
-		
+
 		// Check if a column with the same name already exists
 		if (referenceColumn.getName() != null) {
 			for (Column column : table.getColumns()) {
@@ -67,15 +71,15 @@ public class DatabaseServices {
 				}
 			}
 		}
-		
-			// No column found, we have to create a new one
+
+		// No column found, we have to create a new one
 		Column newColumn = DatabaseFactory.eINSTANCE.createColumn();
 		table.getColumns().add(newColumn);
 		newColumn.setName(referenceColumn.getName());
 		newColumn.setType(EcoreUtil.copy(referenceColumn.getType()));
 		return newColumn;
 	}
-	
+
 	/**
 	 * Retrieve all non referenced external tables excluding those already displayed on the diagram
 	 * @param context the Table Container
@@ -84,19 +88,19 @@ public class DatabaseServices {
 	 */
 	public List<Table> allSelectableExternalTables (TableContainer context, DSemanticDiagram diagram){
 		// Retrieve all non Referenced External Tables
-				List<Table> allNonReferencedExternalTables = allNonReferencedExternalTables(context);
-				List<Table> tablesInDiagram = new ArrayList<Table>();
-				// Retrieve all AbstracteDNode contained in diagram.
-				List<EObject> allDNodes = EcoreServices.eAllContents(diagram, AbstractDNode.class);
-				for (EObject node : allDNodes){
-					// Retrieve all tables contained in AbstractDNode
-					if (((AbstractDNode)node).getTarget() instanceof Table){				
-						tablesInDiagram.add((Table)((AbstractDNode)node).getTarget());
-					}
-				}
-				// Remove all tables contained in AbstractDNode present in allNonReferencedExternalTables
-				allNonReferencedExternalTables.removeAll(tablesInDiagram);
-				return allNonReferencedExternalTables;
+		List<Table> allNonReferencedExternalTables = allNonReferencedExternalTables(context);
+		List<Table> tablesInDiagram = new ArrayList<Table>();
+		// Retrieve all AbstracteDNode contained in diagram.
+		List<EObject> allDNodes = EcoreServices.eAllContents(diagram, AbstractDNode.class);
+		for (EObject node : allDNodes){
+			// Retrieve all tables contained in AbstractDNode
+			if (((AbstractDNode)node).getTarget() instanceof Table){				
+				tablesInDiagram.add((Table)((AbstractDNode)node).getTarget());
+			}
+		}
+		// Remove all tables contained in AbstractDNode present in allNonReferencedExternalTables
+		allNonReferencedExternalTables.removeAll(tablesInDiagram);
+		return allNonReferencedExternalTables;
 	}
 
 	/**
@@ -111,7 +115,7 @@ public class DatabaseServices {
 		allExternalTables.removeAll(allReferencedTables(context));
 		return allExternalTables;
 	}
-	
+
 	/**
 	 * Retrieve all referenced External Tables.
 	 * @param context the Table Container 
@@ -163,7 +167,7 @@ public class DatabaseServices {
 				}
 			}
 		}
-		
+
 		Set<Table> allReferencedTables = new HashSet<Table>();		
 		// Remove duplicates
 		allReferencedTables.addAll(tablesFKtarget);
@@ -190,5 +194,49 @@ public class DatabaseServices {
 			tables.addAll(allContainedTables);
 		}
 		return tables;
+	}
+
+	/**
+	 * Retrieve a container if Sequences are available.
+	 * @param context the Table Container 
+	 * @return list of Table Container 
+	 */
+	public List<TableContainer> allSequencesList(TableContainer tableContainer){
+		List<TableContainer> list = new ArrayList<TableContainer>();
+		if (!tableContainer.getSequences().isEmpty()){
+			list.add(tableContainer);
+		}
+		return list;
+	}
+
+	/**
+	 * Is valid selected diagram element for sequence creation.
+	 * 
+	 * @param object semantic element
+	 * @param elementView element mapping
+	 * @return true if element is a TableContainer and correspond to the diagram semantic element
+	 */
+	public boolean sequenceCreationPreCondition(EObject element, DDiagramElement elementView){
+		DDiagram diagram = elementView.getParentDiagram();
+		// Check if element select for creation is the diagram semantic element
+		// to avoid to create  Sequence in schema in datatbase diagram
+		if (element instanceof TableContainer && ((DSemanticDecorator)diagram).getTarget().equals(element)){
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Is valid selected diagram for sequence creation.
+	 * 
+	 * @param object semantic element
+	 * @param elementView element mapping diagram
+	 * @return true if diagram semantic element is a TableContainer
+	 */
+	public boolean sequenceCreationPreCondition(EObject element, DDiagram elementView){
+		if (element instanceof TableContainer){
+			return true;
+		}
+		return false;
 	}
 }
