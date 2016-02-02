@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DataBase;
+import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 
 public abstract class Queries {
@@ -21,10 +22,13 @@ public abstract class Queries {
 	
 	public abstract Column getColumn(TableContainer owner, String tableName, String columnName);
 	
-	public static Column getColumn(AbstractTable table, String columnName) {
-		for (Column column : table.getColumns()) {
-			if (column.getName().equals(columnName)) {
-				return column;
+	public static Column getColumn(AbstractTable abstractTable, String columnName) {
+		if (abstractTable instanceof Table) {
+			Table table = (Table)abstractTable;
+			for (Column column : table.getColumns()) {
+				if (column.getName().equals(columnName)) {
+					return column;
+				}
 			}
 		}
 		return null;

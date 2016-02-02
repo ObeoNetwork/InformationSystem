@@ -21,6 +21,7 @@ import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.NamedElement;
+import org.obeonetwork.dsl.database.ViewElement;
 import org.obeonetwork.dsl.database.util.DatabaseSwitch;
 import org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryItemProviderAdapterFactory;
 
@@ -79,7 +80,7 @@ public class DatabaseLabelServices extends DatabaseSwitch<String>{
 		label += "    <i"+ i+">";
 		return label;
 	}
-	
+
 	private boolean isIndexLayerActive(DDiagramElement diagramElement) {
 		final DDiagram diagram = diagramElement.getParentDiagram();
 		for (final Layer activeLayer : diagram.getActivatedLayers()) {
@@ -90,4 +91,11 @@ public class DatabaseLabelServices extends DatabaseSwitch<String>{
 		return false;
 	}
 
+	public String getViewElementLabel(ViewElement viewElement){
+		String label = viewElement.getName();
+		if (viewElement.getAlias()!= null && !viewElement.getAlias().isEmpty()){
+			label+= " \u2190 "+viewElement.getAlias();
+		}
+		return label;
+	} 
 }

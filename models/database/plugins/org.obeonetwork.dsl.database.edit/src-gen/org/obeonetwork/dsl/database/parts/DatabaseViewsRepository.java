@@ -150,6 +150,12 @@ public class DatabaseViewsRepository {
 			
 			public static String comments = "database::View::properties::comments";
 			
+			
+			public static String columns = "database::View::properties::columns";
+			
+			
+			public static String tables = "database::View::properties::tables";
+			
 	
 		}
 	

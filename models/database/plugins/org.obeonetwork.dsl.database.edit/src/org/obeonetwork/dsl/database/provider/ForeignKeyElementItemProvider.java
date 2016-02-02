@@ -38,13 +38,7 @@ import org.obeonetwork.dsl.database.Table;
  * @generated
  */
 public class ForeignKeyElementItemProvider
-	extends DatabaseElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends DatabaseElementItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

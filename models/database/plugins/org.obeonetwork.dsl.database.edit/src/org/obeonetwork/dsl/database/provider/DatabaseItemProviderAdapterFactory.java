@@ -361,6 +361,29 @@ public class DatabaseItemProviderAdapterFactory extends DatabaseAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.database.ViewElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ViewElementItemProvider viewElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.database.ViewElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createViewElementAdapter() {
+		if (viewElementItemProvider == null) {
+			viewElementItemProvider = new ViewElementItemProvider(this);
+		}
+
+		return viewElementItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -471,6 +494,7 @@ public class DatabaseItemProviderAdapterFactory extends DatabaseAdapterFactory i
 		if (constraintItemProvider != null) constraintItemProvider.dispose();
 		if (schemaItemProvider != null) schemaItemProvider.dispose();
 		if (sequenceItemProvider != null) sequenceItemProvider.dispose();
+		if (viewElementItemProvider != null) viewElementItemProvider.dispose();
 	}
 
 }

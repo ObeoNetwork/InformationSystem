@@ -39,13 +39,7 @@ import org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryItemProviderAdapter
  * @generated
  */
 public class ColumnItemProvider
-	extends NamedElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NamedElementItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

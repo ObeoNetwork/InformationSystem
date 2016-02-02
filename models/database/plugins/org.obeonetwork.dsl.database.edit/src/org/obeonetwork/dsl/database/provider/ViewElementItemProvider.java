@@ -16,6 +16,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,18 +26,25 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.database.DatabasePackage;
-import org.obeonetwork.dsl.database.NamedElement;
+import org.obeonetwork.dsl.database.ViewElement;
 
 /**
- * This is the item provider adapter for a {@link org.obeonetwork.dsl.database.NamedElement} object.
+ * This is the item provider adapter for a {@link org.obeonetwork.dsl.database.ViewElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NamedElementItemProvider
-	extends DatabaseElementItemProvider {
+public class ViewElementItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,7 +58,7 @@ public class NamedElementItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamedElementItemProvider(AdapterFactory adapterFactory) {
+	public ViewElementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -65,6 +74,7 @@ public class NamedElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addAliasPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,15 +90,54 @@ public class NamedElementItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NamedElement_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
-				 DatabasePackage.Literals.NAMED_ELEMENT__NAME,
-				 true,
+				 getString("_UI_ViewElement_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ViewElement_name_feature", "_UI_ViewElement_type"),
+				 DatabasePackage.Literals.VIEW_ELEMENT__NAME,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Alias feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAliasPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ViewElement_alias_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ViewElement_alias_feature", "_UI_ViewElement_type"),
+				 DatabasePackage.Literals.VIEW_ELEMENT__ALIAS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns ViewElement.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		EObject element = (EObject)object;
+		if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__TABLES)){
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/Table"));
+		}else if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__COLUMNS)){
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/Column"));
+		}
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ViewElement"));
 	}
 
 	/**
@@ -105,15 +154,25 @@ public class NamedElementItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NamedElement)object).getName();
+		String type;
+		EObject element = (EObject)object;
+		if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__TABLES)){
+			type = "_UI_Table_type";
+		}else if (element.eContainingFeature().equals(DatabasePackage.Literals.VIEW__COLUMNS)){
+			type = "_UI_Column_type";
+		}else{
+			type ="_UI_ViewElement_type";
+		}
+		String label = ((ViewElement)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NamedElement_type") :
-			getString("_UI_NamedElement_type") + " " + label;
+			getString(type) :
+			getString(type) + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -126,8 +185,9 @@ public class NamedElementItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NamedElement.class)) {
-			case DatabasePackage.NAMED_ELEMENT__NAME:
+		switch (notification.getFeatureID(ViewElement.class)) {
+			case DatabasePackage.VIEW_ELEMENT__NAME:
+			case DatabasePackage.VIEW_ELEMENT__ALIAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -144,6 +204,17 @@ public class NamedElementItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return DatabaseEditPlugin.INSTANCE;
 	}
 
 }

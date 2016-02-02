@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.obeonetwork.dsl.database;singleton:=true
 Bundle-Version: 4.0.0.qualifier
-Bundle-ClassPath: .
+Bundle-ClassPath: lib/jsqlparser.jar,
+ .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

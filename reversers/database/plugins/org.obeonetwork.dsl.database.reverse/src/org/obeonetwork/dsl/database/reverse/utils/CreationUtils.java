@@ -70,12 +70,16 @@ public class CreationUtils {
 		return primaryKey;
 	}
 	
-	public static Column createColumn(AbstractTable table, String name) {
-		Column column = DatabaseFactory.eINSTANCE.createColumn();
-		column.setName(name);
-		column.setOwner(table);
-		table.getColumns().add(column);
-		return column;
+	public static Column createColumn(AbstractTable abstractTable, String name) {
+		if (abstractTable instanceof Table) {
+			Table table = (Table)abstractTable;
+			Column column = DatabaseFactory.eINSTANCE.createColumn();
+			column.setName(name);
+			column.setOwner(table);
+			table.getColumns().add(column);			
+			return column;
+		}
+		return null;
 	}
 	
 	public static ForeignKey createForeignKey(Table table) {

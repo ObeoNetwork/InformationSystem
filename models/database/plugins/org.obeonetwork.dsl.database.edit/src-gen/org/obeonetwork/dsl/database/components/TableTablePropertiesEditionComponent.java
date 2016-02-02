@@ -84,7 +84,7 @@ public class TableTablePropertiesEditionComponent extends SinglePartPropertiesEd
 				tablePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, table.getName()));
 			
 			if (isAccessible(DatabaseViewsRepository.Table.Properties.columns)) {
-				columnsSettings = new ReferencesTableSettings(table, DatabasePackage.eINSTANCE.getAbstractTable_Columns());
+				columnsSettings = new ReferencesTableSettings(table, DatabasePackage.eINSTANCE.getTable_Columns());
 				tablePart.initColumns(columnsSettings);
 			}
 			if (isAccessible(DatabaseViewsRepository.Table.Properties.comments))
@@ -129,7 +129,7 @@ public class TableTablePropertiesEditionComponent extends SinglePartPropertiesEd
 			return DatabasePackage.eINSTANCE.getNamedElement_Name();
 		}
 		if (editorKey == DatabaseViewsRepository.Table.Properties.columns) {
-			return DatabasePackage.eINSTANCE.getAbstractTable_Columns();
+			return DatabasePackage.eINSTANCE.getTable_Columns();
 		}
 		if (editorKey == DatabaseViewsRepository.Table.Properties.comments) {
 			return DatabasePackage.eINSTANCE.getDatabaseElement_Comments();
@@ -192,7 +192,7 @@ public class TableTablePropertiesEditionComponent extends SinglePartPropertiesEd
 					tablePart.setName("");
 				}
 			}
-			if (DatabasePackage.eINSTANCE.getAbstractTable_Columns().equals(msg.getFeature()) && isAccessible(DatabaseViewsRepository.Table.Properties.columns))
+			if (DatabasePackage.eINSTANCE.getTable_Columns().equals(msg.getFeature()) && isAccessible(DatabaseViewsRepository.Table.Properties.columns))
 				tablePart.updateColumns();
 			if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && tablePart != null && isAccessible(DatabaseViewsRepository.Table.Properties.comments)){
 				if (msg.getNewValue() != null) {
@@ -214,7 +214,7 @@ public class TableTablePropertiesEditionComponent extends SinglePartPropertiesEd
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			DatabasePackage.eINSTANCE.getNamedElement_Name(),
-			DatabasePackage.eINSTANCE.getAbstractTable_Columns(),
+			DatabasePackage.eINSTANCE.getTable_Columns(),
 			DatabasePackage.eINSTANCE.getDatabaseElement_Comments()		);
 		return new NotificationFilter[] {filter,};
 	}

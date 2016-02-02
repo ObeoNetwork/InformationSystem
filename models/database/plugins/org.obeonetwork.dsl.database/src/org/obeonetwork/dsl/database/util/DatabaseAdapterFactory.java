@@ -148,6 +148,10 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 				return createTableContainerAdapter();
 			}
 			@Override
+			public Adapter caseViewElement(ViewElement object) {
+				return createViewElementAdapter();
+			}
+			@Override
 			public Adapter caseTypesLibraryUser(TypesLibraryUser object) {
 				return createTypesLibraryUserAdapter();
 			}
@@ -392,6 +396,20 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTableContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.ViewElement <em>View Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.ViewElement
+	 * @generated
+	 */
+	public Adapter createViewElementAdapter() {
 		return null;
 	}
 

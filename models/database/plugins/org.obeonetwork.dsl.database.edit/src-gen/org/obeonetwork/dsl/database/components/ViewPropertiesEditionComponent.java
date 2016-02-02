@@ -20,8 +20,12 @@ import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.View;
+import org.obeonetwork.dsl.database.ViewElement;
 import org.obeonetwork.dsl.database.parts.DatabaseViewsRepository;
 import org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart;
 
@@ -37,6 +41,16 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 	
 	public static String VIEW_PART = "View"; //$NON-NLS-1$
 
+	
+	/**
+	 * Settings for columns ReferencesTable
+	 */
+	protected ReferencesTableSettings columnsSettings;
+	
+	/**
+	 * Settings for tables ReferencesTable
+	 */
+	protected ReferencesTableSettings tablesSettings;
 	
 	
 	/**
@@ -72,10 +86,48 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 				viewPart.setQuery(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, view.getQuery()));
 			if (isAccessible(DatabaseViewsRepository.View.Properties.comments))
 				viewPart.setComments(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, view.getComments()));
+			if (isAccessible(DatabaseViewsRepository.View.Properties.columns)) {
+				columnsSettings = new ReferencesTableSettings(view, DatabasePackage.eINSTANCE.getView_Columns());
+				viewPart.initColumns(columnsSettings);
+			}
+			if (isAccessible(DatabaseViewsRepository.View.Properties.tables)) {
+				tablesSettings = new ReferencesTableSettings(view, DatabasePackage.eINSTANCE.getView_Tables());
+				viewPart.initTables(tablesSettings);
+			}
 			// init filters
 			
 			
 			
+			if (isAccessible(DatabaseViewsRepository.View.Properties.columns)) {
+				viewPart.addFilterToColumns(new ViewerFilter() {
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof String && element.equals("")) || (element instanceof ViewElement); //$NON-NLS-1$ 
+					}
+			
+				});
+				// Start of user code for additional businessfilters for columns
+				// End of user code
+			}
+			if (isAccessible(DatabaseViewsRepository.View.Properties.tables)) {
+				viewPart.addFilterToTables(new ViewerFilter() {
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof String && element.equals("")) || (element instanceof ViewElement); //$NON-NLS-1$ 
+					}
+			
+				});
+				// Start of user code for additional businessfilters for tables
+				// End of user code
+			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -83,6 +135,8 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 		}
 		setInitializing(false);
 	}
+
+
 
 
 
@@ -102,6 +156,12 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 		}
 		if (editorKey == DatabaseViewsRepository.View.Properties.comments) {
 			return DatabasePackage.eINSTANCE.getDatabaseElement_Comments();
+		}
+		if (editorKey == DatabaseViewsRepository.View.Properties.columns) {
+			return DatabasePackage.eINSTANCE.getView_Columns();
+		}
+		if (editorKey == DatabaseViewsRepository.View.Properties.tables) {
+			return DatabasePackage.eINSTANCE.getView_Tables();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -153,6 +213,10 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 					viewPart.setComments("");
 				}
 			}
+			if (DatabasePackage.eINSTANCE.getView_Columns().equals(msg.getFeature()) && isAccessible(DatabaseViewsRepository.View.Properties.columns))
+				viewPart.updateColumns();
+			if (DatabasePackage.eINSTANCE.getView_Tables().equals(msg.getFeature()) && isAccessible(DatabaseViewsRepository.View.Properties.tables))
+				viewPart.updateTables();
 			
 		}
 	}
@@ -167,7 +231,9 @@ public class ViewPropertiesEditionComponent extends SinglePartPropertiesEditingC
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			DatabasePackage.eINSTANCE.getNamedElement_Name(),
 			DatabasePackage.eINSTANCE.getView_Query(),
-			DatabasePackage.eINSTANCE.getDatabaseElement_Comments()		);
+			DatabasePackage.eINSTANCE.getDatabaseElement_Comments(),
+			DatabasePackage.eINSTANCE.getView_Columns(),
+			DatabasePackage.eINSTANCE.getView_Tables()		);
 		return new NotificationFilter[] {filter,};
 	}
 

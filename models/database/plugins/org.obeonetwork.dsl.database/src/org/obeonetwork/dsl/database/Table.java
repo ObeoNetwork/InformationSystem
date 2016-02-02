@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.dsl.database.Table#getForeignKeys <em>Foreign Keys</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Table#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.Table#getIndexes <em>Indexes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.database.Table#getColumns <em>Columns</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,5 +122,23 @@ public interface Table extends AbstractTable {
 	 * @generated
 	 */
 	EList<Index> getIndexes();
+
+	/**
+	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.database.Column}.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.database.Column#getOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Columns</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.database.DatabasePackage#getTable_Columns()
+	 * @see org.obeonetwork.dsl.database.Column#getOwner
+	 * @model opposite="owner" containment="true"
+	 * @generated
+	 */
+	EList<Column> getColumns();
 
 } // Table

@@ -106,6 +106,12 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhnbiZDEeGbPrqZPmsr5Q" name="comments" views="_9diOpiZDEeGbPrqZPmsr5Q">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
         </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_JSccQMmNEeWf0dAkf1jP7g" name="columns" views="_5UJzkMmMEeWf0dAkf1jP7g" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//View/columns"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Jn_OcMmNEeWf0dAkf1jP7g" name="tables" views="_54eooMmMEeWf0dAkf1jP7g" helpID="">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//View/tables"/>
+        </properties>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//View"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_9dhnciZDEeGbPrqZPmsr5Q" name="table" views="_9di1cCZDEeGbPrqZPmsr5Q _9di1dSZDEeGbPrqZPmsr5Q _wfTLwDhqEeGFLeGbu4zdMQ _rRNEUDhsEeGFLeGbu4zdMQ __xyzgDhsEeGFLeGbu4zdMQ">
@@ -113,7 +119,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_644B4CgHEeGdYPWcihSfaQ" name="columns" views="_NIu78CZEEeGbPrqZPmsr5Q" helpID="">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//AbstractTable/columns"/>
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//Table/columns"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_9dhncyZDEeGbPrqZPmsr5Q" name="comments" views="_9di1ciZDEeGbPrqZPmsr5Q">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
@@ -379,6 +385,12 @@
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_9diOpiZDEeGbPrqZPmsr5Q" name="comments">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_5UJzkMmMEeWf0dAkf1jP7g" name="columns" readOnly="true">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_54eooMmMEeWf0dAkf1jP7g" name="tables" readOnly="true">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
           </elements>
         </elements>
       </views>
