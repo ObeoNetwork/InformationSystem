@@ -65,9 +65,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="View" eSuperTypes="#//AbstractTable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//ViewElement" volatile="true" transient="true" containment="true"/>
+        eType="#//ViewElement" transient="true" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
-        eType="#//ViewElement" volatile="true" transient="true" containment="true"/>
+        eType="#//ViewElement" transient="true" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//AbstractTable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="primaryKey" ordered="false"
