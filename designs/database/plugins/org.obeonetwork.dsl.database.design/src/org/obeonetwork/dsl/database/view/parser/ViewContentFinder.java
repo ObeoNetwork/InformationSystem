@@ -110,10 +110,6 @@ public class ViewContentFinder implements SelectVisitor, FromItemVisitor, Expres
 			alias ="";
 			sel.accept(this);
 		}
-		
-		// Compute Where
-		if (plainSelect.getWhere() != null)
-			plainSelect.getWhere().accept(this);
 	}
 
 	public void visit(Union union) {
