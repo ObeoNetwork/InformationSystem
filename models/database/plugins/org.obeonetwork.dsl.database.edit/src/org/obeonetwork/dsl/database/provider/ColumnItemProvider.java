@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.database.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -268,7 +269,7 @@ public class ColumnItemProvider
 							TableContainer tableContainer = table.getOwner();
 							if (tableContainer != null) {
 								ArrayList<Sequence> sequences = new ArrayList<Sequence>(tableContainer.getSequences());
-								sequences.sort(new Comparator<Sequence>() {
+								Collections.sort(sequences, new Comparator<Sequence>() {
 
 									public int compare(Sequence s1, Sequence s2) {
 										if (s2 == null || s2.getName() == null) {
