@@ -267,7 +267,7 @@ public class ColumnItemProvider
 						if (table != null) {
 							TableContainer tableContainer = table.getOwner();
 							if (tableContainer != null) {
-								ArrayList<Sequence> sequences = new ArrayList<>(tableContainer.getSequences());
+								ArrayList<Sequence> sequences = new ArrayList<Sequence>(tableContainer.getSequences());
 								sequences.sort(new Comparator<Sequence>() {
 
 									public int compare(Sequence s1, Sequence s2) {
