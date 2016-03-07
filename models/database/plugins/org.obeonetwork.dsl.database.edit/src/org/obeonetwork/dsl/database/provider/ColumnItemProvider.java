@@ -270,7 +270,6 @@ public class ColumnItemProvider
 								ArrayList<Sequence> sequences = new ArrayList<>(tableContainer.getSequences());
 								sequences.sort(new Comparator<Sequence>() {
 
-									@Override
 									public int compare(Sequence s1, Sequence s2) {
 										if (s2 == null || s2.getName() == null) {
 											return -1;
