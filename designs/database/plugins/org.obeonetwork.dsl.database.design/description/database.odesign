@@ -95,8 +95,8 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
           </style>
         </containerMappings>
-        <containerMappings name="DB_Sequence" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DB_SequencePreventDelete']" semanticCandidatesExpression="service:allSequencesList()" domainClass="database.TableContainer" childrenPresentation="List">
-          <subNodeMappings name="DB_SequenceNode" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="feature:sequences" domainClass="database.Sequence">
+        <containerMappings name="DB_Sequence" deletionDescription="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DB_SequencePreventDelete']" semanticCandidatesExpression="service:tableContainerWithSequences()" domainClass="database.TableContainer" childrenPresentation="List">
+          <subNodeMappings name="DB_SequenceNode" labelDirectEdit="//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='EDT_DatabaseElement']" semanticCandidatesExpression="service:allSequencesList()" domainClass="database.Sequence">
             <style xsi:type="style:SquareDescription" labelAlignment="LEFT" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
