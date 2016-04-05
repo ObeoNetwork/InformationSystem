@@ -127,4 +127,28 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 			this.schemaName = "public";
 		}
 	}
+	
+	@Override
+	protected String getViewQuery(DatabaseMetaData metaData, String viewName) {
+		String viewQuery = super.getViewQuery(metaData, viewName);
+		if (viewQuery == null) {
+			String query =	"select pg_get_viewdef('" + viewName + "', true)";
+			ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			try {
+				pstmt = metaData.getConnection().prepareStatement(query);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					viewQuery = rs.getString(1);
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			} finally {
+				JdbcUtils.closeStatement(pstmt);
+				JdbcUtils.closeResultSet(rs);
+			}
+		}
+		
+		return viewQuery;
+	}
 }

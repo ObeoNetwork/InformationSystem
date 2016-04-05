@@ -103,4 +103,36 @@ public class MySQLDataBaseBuilder extends DefaultDataBaseBuilder {
 		}
 	}
 
+	@Override
+	protected String getViewQuery(DatabaseMetaData metaData, String viewName) {
+		String showView = null;
+		String viewQuery = super.getViewQuery(metaData, viewName);
+		if (viewQuery == null) {
+			String query =	"SHOW CREATE VIEW " + viewName ;
+			ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			try {
+				pstmt = metaData.getConnection().prepareStatement(query);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {					
+					showView = rs.getString(2);
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			} finally {
+				JdbcUtils.closeStatement(pstmt);
+				JdbcUtils.closeResultSet(rs);
+			}
+		}
+		
+		if (showView != null) {
+			String marker = "`" + viewName + "` AS ";
+			int indexOf = showView.indexOf(marker);
+			if (indexOf > -1) {
+				viewQuery = showView.substring(indexOf + marker.length());
+			}
+		}
+		
+		return viewQuery;
+	}
 }

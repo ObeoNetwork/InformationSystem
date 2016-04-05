@@ -3,6 +3,7 @@
   <nativeTypes xmi:id="_Zj69UREnEeGTa_JlZYBw1A" name="bigint" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
+  <nativeTypes xmi:id="_OlvccPsSEeWC2u5kehASiQ" name="binary" spec="Length"/>
   <nativeTypes xmi:id="_Zj69UxEnEeGTa_JlZYBw1A" name="bit" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
@@ -66,6 +67,9 @@
   <nativeTypes xmi:id="_Zj8LfREnEeGTa_JlZYBw1A" name="numeric" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
+  <nativeTypes xmi:id="_uJZX0PsPEeWC2u5kehASiQ" name="set" spec="Enum">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
   <nativeTypes xmi:id="_Zj8yghEnEeGTa_JlZYBw1A" name="smallint" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
@@ -87,6 +91,7 @@
   <nativeTypes xmi:id="_Zj8yiBEnEeGTa_JlZYBw1A" name="tinytext">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
+  <nativeTypes xmi:id="_U6zhEPsSEeWC2u5kehASiQ" name="varbinary" spec="Length"/>
   <nativeTypes xmi:id="_Zj8yihEnEeGTa_JlZYBw1A" name="varchar" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>

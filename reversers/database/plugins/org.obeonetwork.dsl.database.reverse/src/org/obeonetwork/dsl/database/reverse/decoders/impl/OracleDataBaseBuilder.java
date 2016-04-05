@@ -140,7 +140,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 		String viewQuery = super.getViewQuery(metaData, viewName);
 		if (viewQuery == null) {
 			String query =	"SELECT text" + 
-					" FROM user_views" +   
+					" FROM all_views" +   
 					" WHERE view_name = ?";
 			ResultSet rs = null;
 			PreparedStatement pstmt = null;
