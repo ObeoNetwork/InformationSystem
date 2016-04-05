@@ -2,6 +2,8 @@ package org.obeonetwork.dsl.database.design.services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +20,7 @@ import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DatabaseFactory;
 import org.obeonetwork.dsl.database.ForeignKey;
 import org.obeonetwork.dsl.database.ForeignKeyElement;
+import org.obeonetwork.dsl.database.Sequence;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.View;
@@ -207,14 +210,37 @@ public class DatabaseServices {
 	 * @param context the Table Container 
 	 * @return list of Table Container 
 	 */
-	public List<TableContainer> allSequencesList(TableContainer tableContainer){
-		List<TableContainer> list = new ArrayList<TableContainer>();
-		if (!tableContainer.getSequences().isEmpty()){
-			list.add(tableContainer);
-		}
+	public List<Sequence> allSequencesList(TableContainer tableContainer){
+		List<Sequence> list = new ArrayList<Sequence>(tableContainer.getSequences());
+		Collections.sort(list, new Comparator<Sequence>() {
+			@Override
+			public int compare(Sequence s1, Sequence s2) {
+				if (s2 == null) {
+					return -1;
+				} else if (s1 == null) {
+					return 1;
+				} else {
+					return String.CASE_INSENSITIVE_ORDER.compare(s1.getName(), s2.getName());
+				}
+			}
+		});
 		return list;
 	}
 
+	/**
+	 * Return a table container if it contains sequences
+	 * @param tableContainer
+	 * @return
+	 */
+	public TableContainer tableContainerWithSequences(TableContainer tableContainer){
+		if (!tableContainer.getSequences().isEmpty()) {
+			return tableContainer;
+		} else {
+			return null;
+		}
+	}
+
+	
 	/**
 	 * Is valid selected diagram element for sequence creation.
 	 * 
