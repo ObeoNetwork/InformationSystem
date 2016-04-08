@@ -12,33 +12,112 @@ package org.obeonetwork.dsl.environment.design.services;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil.UsageCrossReferencer;
+import org.eclipse.jface.window.Window;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 import org.obeonetwork.dsl.environment.Environment;
+import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.TypesDefinition;
-
-import com.google.common.collect.Iterables;
+import org.obeonetwork.dsl.environment.design.ui.CreateStructuredTypesFromOthersWizard;
 
 public class TypesServices {
 	
 	private static final String ENTITY = "Entity";
 	private static final String DTO = "DTO";
+	private static final String ENTITY_PACKAGE_URI = "http://www.obeonetwork.org/dsl/entity/3.0.0";
+	private static final String DTO_PACKAGE_URI = "http://www.obeonetwork.org/dsl/environment/3.0.0";
+
+	private static final Map<String, String> PACKAGES_URI = new HashMap<String, String>();
+	static {
+		PACKAGES_URI.put(ENTITY, ENTITY_PACKAGE_URI);
+		PACKAGES_URI.put(DTO, DTO_PACKAGE_URI);
+	}
+	
+	
+	public Collection<StructuredType> createTypesFromOtherTypes(Namespace namespace, Collection<StructuredType> types, Collection<Reference> references, String sourceTypeName, String targetTypeName) {
+		String uri = PACKAGES_URI.get(targetTypeName);
+		EFactory factory = getEFactory(uri);
+		EPackage ePackage = factory.getEPackage();
+		EClass eClass = (EClass)ePackage.getEClassifier(targetTypeName);
+		
+		Map<StructuredType, StructuredType> mappingsTypes = new HashMap<StructuredType, StructuredType>();
+		Map<Reference, Reference> mappingsReferences = new HashMap<Reference, Reference>();
+		
+		Collection<StructuredType> result = new ArrayList<StructuredType>();
+		// Create types
+		for (StructuredType type : types) {
+			EObject eObject = factory.create(eClass);
+			if (eObject instanceof StructuredType) {
+				StructuredType type2 = (StructuredType)eObject;
+				type2.setName(type.getName());
+				type2.getAssociatedTypes().add(type);
+				namespace.getTypes().add(type2);
+				mappingsTypes.put(type, type2);
+				result.add(type2);
+			}
+		}
+		
+		// Create references
+		for (Reference reference : references) {
+			StructuredType sourceType = mappingsTypes.get(reference.getContainingType());
+			StructuredType targetType = mappingsTypes.get(reference.getReferencedType());
+			
+			Reference newReference = EnvironmentFactory.eINSTANCE.createReference();
+			sourceType.getOwnedReferences().add(newReference);
+			newReference.setReferencedType(targetType);
+			newReference.setDescription(reference.getDescription());
+			newReference.setIsComposite(reference.isIsComposite());
+			newReference.setIsIdentifier(reference.isIsIdentifier());
+			newReference.setMultiplicity(reference.getMultiplicity());
+			newReference.setName(reference.getName());
+			newReference.setNavigable(reference.isNavigable());
+			
+			mappingsReferences.put(reference, newReference);
+		}
+		
+		// Set opposite references
+		for (Reference reference : references) {
+			if (reference.getOppositeOf() != null) {
+				Reference newReference = mappingsReferences.get(reference);
+				if (newReference.getOppositeOf() != null) {
+					Reference newOppositeReference = mappingsReferences.get(reference.getOppositeOf());
+					newReference.setOppositeOf(newOppositeReference);
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	private EFactory getEFactory(String uri) {
+		return Registry.INSTANCE.getEFactory(uri);
+	}
 	
 	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDTOsRoots(Namespace namespace, DSemanticDiagram diagram) {
 		return getRootElementsFromCollection(getAllSelectableExternalStructuredTypesWithAncestorsDTOs(namespace, diagram));
@@ -157,6 +236,25 @@ public class TypesServices {
 		return referencingTypes;
 	}
 	
+	public Collection<StructuredType> openCreateEntitiesFromDTOsWizard(Namespace namespace) {
+		return openCreateTypesFromOthersWizard(namespace, ENTITY, DTO);
+	}
+	
+	public Collection<StructuredType> openCreateDTOsFromEntitiesWizard(Namespace namespace) {
+		return openCreateTypesFromOthersWizard(namespace, DTO, ENTITY);
+	}
+	
+	private Collection<StructuredType> openCreateTypesFromOthersWizard(Namespace namespace, String targetTypeName, String sourceTypeName) {
+		Shell shell = Display.getDefault().getActiveShell();
+		CreateStructuredTypesFromOthersWizard wizard = new CreateStructuredTypesFromOthersWizard(namespace, targetTypeName, sourceTypeName);
+		WizardDialog dlg = new WizardDialog(shell, wizard);
+		if (dlg.open() == Window.OK) {
+			return wizard.getCreatedTypes();
+		} else {
+			return new ArrayList<StructuredType>();
+		}
+	}
+	
 	public Collection<StructuredType> getAllStructuredTypes(EObject context, String typeName) {
 		Collection<StructuredType> types = new ArrayList<StructuredType>();
 		
@@ -193,6 +291,38 @@ public class TypesServices {
 			}
 		}
 		return types;
+	}
+	
+	public Collection<ObeoDSMObject> getRootNamespaceContainersOrTypesDefinition(Collection<StructuredType> types) {
+		Collection<ObeoDSMObject> result = new ArrayList<ObeoDSMObject>();
+		Collection<ObeoDSMObject> allContainers = new ArrayList<ObeoDSMObject>();
+		collectAllContainers(types, allContainers);
+		
+		// We have all containers of types NamespacesContainer or TypesDefinition
+		// we will keep only those whoose own parent is not in the list
+		for (ObeoDSMObject container : allContainers) {
+			if (container.eContainer() == null || !allContainers.contains(container.eContainer())) {
+				result.add(container);
+			}
+		}
+		
+		return result;
+	}
+	
+	private void collectAllContainers(Collection<? extends EObject> elements, Collection<ObeoDSMObject> containers) {
+		Collection<EObject> newContainers = new ArrayList<EObject>();
+		for (EObject element : elements) {
+			EObject container = element.eContainer();
+			if (container instanceof NamespacesContainer || container instanceof TypesDefinition) {
+				if (!containers.contains(container)) {
+					containers.add((ObeoDSMObject)container);					
+					newContainers.add((EObject)container);
+				}
+			}
+		}
+		if (!newContainers.isEmpty()) {
+			collectAllContainers(newContainers, containers);
+		}
 	}
 
 	public PrimitiveType getStringPrimitiveType(EObject object){

@@ -11,5 +11,7 @@ Require-Bundle: org.obeonetwork.dsl.environment,
  org.eclipse.sirius.ecore.extender,
  org.eclipse.sirius.ext.emf,
  com.google.guava,
- org.eclipse.sirius.diagram
+ org.eclipse.sirius.diagram,
+ org.eclipse.emf.edit,
+ org.eclipse.emf.edit.ui
 Export-Package: org.obeonetwork.dsl.environment.design.services

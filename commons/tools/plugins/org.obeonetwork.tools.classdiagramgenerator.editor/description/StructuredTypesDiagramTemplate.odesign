@@ -219,19 +219,10 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="{ClassDiagram.section.structuredType.fromOtherType.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']">
-            <variable name="container">
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="selectedTypes" candidatesExpression="{ClassDiagram.section.structuredType.fromOtherType.listExpression}" multiple="true" message="{ClassDiagram.section.structuredType.fromOtherType.selectionMessage}"/>
-            </variable>
+            <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:For" expression="var:selectedTypes" iteratorName="associatedType">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="{ClassDiagram.StructuredTypeMapping.domainClass}" referenceName="types">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="{ClassDiagram.section.structuredType.fromOtherType.defaultName}"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="associatedTypes" valueExpression="var:associatedType"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="{ClassDiagram.section.structuredType.fromOtherType.creationTreatment}"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Attribute" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']/@subNodeMappings[name='ED_Attribute']">

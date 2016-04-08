@@ -25,6 +25,19 @@ import com.google.common.collect.Sets;
 
 public class ReferencesService {
 	
+	public List<Reference> getReferencesBetweenTypes(Collection<StructuredType> structuredTypes) {
+		List<Reference> references = new ArrayList<Reference>();
+		
+		for (StructuredType structuredType : structuredTypes) {
+			for (Reference reference : structuredType.getOwnedReferences()) {
+				if (structuredTypes.contains(reference.getReferencedType())) {
+					references.add(reference);
+				}
+			}
+		}
+		return references;
+	}
+	
 	public List<Reference> getReferences(DSemanticDiagram diagram) {
 		Set<StructuredType> types = DesignServices.getDisplayedStructuredTypes(diagram);
 		List<Reference> references = new ArrayList<Reference>();
