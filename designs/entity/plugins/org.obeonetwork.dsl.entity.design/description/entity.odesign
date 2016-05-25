@@ -40,7 +40,7 @@
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true"/>
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -645,8 +645,8 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Entity Table" domainClass="entity.Root">
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <ownedLineMappings name="EntityLine" domainClass="entity.Entity" headerLabelExpression="feature:name"/>
       <ownedColumnMappings name="NB Attributes" headerLabelExpression="NB Attributes" canEdit="false" featureName="ownedAttributes" labelExpression="[ownedAttributes->size()/]"/>
       <ownedColumnMappings name="estimatedVolumetry" headerLabelExpression="Estimated Volumetry" canEdit="true" featureName="estimatedVolumetry" labelExpression="feature:estimatedVolumetry">
