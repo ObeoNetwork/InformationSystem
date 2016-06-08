@@ -70,37 +70,39 @@ public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
 		ResultSet rs=null;
         PreparedStatement pstmt=null;
         try {
-                PreparedStatement psmt = metaData.getConnection().prepareStatement(
-                                "SELECT SEQUENCE_NAME, INCREMENT, MIN_VALUE, MAX_VALUE, CURRENT_VALUE " +
-                                "FROM INFORMATION_SCHEMA.SEQUENCES");                
-                rs = psmt.executeQuery();
-                while( rs.next() ) {
-                	String name = rs.getString(1);
-                	int increment = rs.getInt(2);
-                	int minValue = rs.getInt(3);
-                	BigInteger maxValueAsBigInt = new BigInteger(rs.getString(4));
-                	BigInteger maxIntValue = new BigInteger(Integer.toString(Integer.MAX_VALUE));
-                	Integer maxValue = null;
-                	if (maxValueAsBigInt.compareTo(maxIntValue) < 0) {                		
-                		maxValue = maxValueAsBigInt.intValue();
-                	} else {
-                		maxValue = -1;
-                	}
-                	int start = rs.getInt(5);
-                	Sequence sequence = CreationUtils.createSequence(owner, name, increment, minValue, maxValue, start);
-                	// Look for a table that could correspond to the sequence
-                	if (name.endsWith("_SEQ")) {
-                		String tableName = name.substring(0, name.length() - "_SEQ".length());
-                		AbstractTable abstractTable = queries.getTable(tableName);
-                		if (abstractTable != null && abstractTable instanceof Table) {
-                			Table table = (Table)abstractTable;
-                			if (table.getPrimaryKey() != null && table.getPrimaryKey().getColumns().size() == 1) {
-                				Column column = table.getPrimaryKey().getColumns().get(0);
-                				column.setSequence(sequence);
-                			}
-                		}
-                	}
-                }
+        	// TODO récupérer cycle avec IS_CYCLE
+        	// TODO récupérer Cache
+            PreparedStatement psmt = metaData.getConnection().prepareStatement(
+                            "SELECT SEQUENCE_NAME, INCREMENT, MIN_VALUE, MAX_VALUE, CURRENT_VALUE " +
+                            "FROM INFORMATION_SCHEMA.SEQUENCES");                
+            rs = psmt.executeQuery();
+            while( rs.next() ) {
+            	String name = rs.getString(1);
+            	int increment = rs.getInt(2);
+            	int minValue = rs.getInt(3);
+            	BigInteger maxValueAsBigInt = new BigInteger(rs.getString(4));
+            	BigInteger maxIntValue = new BigInteger(Integer.toString(Integer.MAX_VALUE));
+            	Integer maxValue = null;
+            	if (maxValueAsBigInt.compareTo(maxIntValue) < 0) {                		
+            		maxValue = maxValueAsBigInt.intValue();
+            	} else {
+            		maxValue = -1;
+            	}
+            	int start = rs.getInt(5);
+            	Sequence sequence = CreationUtils.createSequence(owner, name, increment, minValue, maxValue, start, false, null);
+            	// Look for a table that could correspond to the sequence
+            	if (name.endsWith("_SEQ")) {
+            		String tableName = name.substring(0, name.length() - "_SEQ".length());
+            		AbstractTable abstractTable = queries.getTable(tableName);
+            		if (abstractTable != null && abstractTable instanceof Table) {
+            			Table table = (Table)abstractTable;
+            			if (table.getPrimaryKey() != null && table.getPrimaryKey().getColumns().size() == 1) {
+            				Column column = table.getPrimaryKey().getColumns().get(0);
+            				column.setSequence(sequence);
+            			}
+            		}
+            	}
+            }
         } catch(Exception ex) {
                 ex.printStackTrace();
         } finally {

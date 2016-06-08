@@ -228,6 +228,8 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 		ResultSet rs=null;
         PreparedStatement pstmt=null;
         try {
+        		// TODO : get Cycle flag with CYCLE_FLAG column
+        		// TODO get cache value
                 PreparedStatement psmt = metaData.getConnection().prepareStatement(
                                 "SELECT SEQUENCE_NAME, INCREMENT_BY, MIN_VALUE, MAX_VALUE, LAST_NUMBER " +
                                 "FROM user_sequences");                
@@ -243,7 +245,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
                 		maxValue = maxValueAsBigInt.intValue();
                 	}
                 	int start = rs.getInt(5);
-                	Sequence sequence = CreationUtils.createSequence(owner, name, increment, minValue, maxValue, start);
+                	Sequence sequence = CreationUtils.createSequence(owner, name, increment, minValue, maxValue, start, false, null);
                 	// Look for a table that could correspond to the sequence
                 	if (name.endsWith("_SEQ")) {
                 		String tableName = name.substring(0, name.length() - "_SEQ".length());

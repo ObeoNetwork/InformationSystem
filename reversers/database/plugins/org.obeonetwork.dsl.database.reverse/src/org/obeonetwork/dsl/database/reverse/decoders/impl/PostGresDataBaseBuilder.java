@@ -76,9 +76,10 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 			PreparedStatement psmt = metaData
 					.getConnection()
 					.prepareStatement(
-							"SELECT SEQUENCE_NAME, INCREMENT, MINIMUM_VALUE, MAXIMUM_VALUE, START_VALUE "
-									+ "FROM INFORMATION_SCHEMA.SEQUENCES WHERE SEQUENCE_SCHEMA = '"
+								"SELECT SEQUENCE_NAME, INCREMENT, MINIMUM_VALUE, MAXIMUM_VALUE, START_VALUE, CYCLE_OPTION "
+										+ "FROM INFORMATION_SCHEMA.SEQUENCES WHERE SEQUENCE_SCHEMA = '"
 									+ schemaName + "'");
+			
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				String name = rs.getString(1);
@@ -94,8 +95,19 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 					maxValue = -1;
 				}
 				int start = rs.getInt(5);
+				String cycleAsString = rs.getString(6);
+				boolean cycle = "YES".equals(cycleAsString);
+				
+				// Retrieve CACHE value
+				Integer cacheValue = null;
+				PreparedStatement psmtCache = metaData.getConnection().prepareStatement("SELECT CACHE_VALUE FROM " + schemaName + "." + name);
+				ResultSet rsCache = psmtCache.executeQuery();
+				if (rsCache.next()) {
+					cacheValue = rsCache.getInt(1);
+				}
+				
 				Sequence sequence = CreationUtils.createSequence(owner, name,
-						increment, minValue, maxValue, start);
+						increment, minValue, maxValue, start, cycle, cacheValue);
 				// Look for a table that could correspond to the sequence
 				if (name.endsWith("_seq")) {
 					String tableName = name.substring(0,
