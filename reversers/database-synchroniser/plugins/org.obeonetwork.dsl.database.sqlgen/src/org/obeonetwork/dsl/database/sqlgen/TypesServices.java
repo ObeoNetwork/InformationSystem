@@ -4,6 +4,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.obeonetwork.dsl.database.DatabaseElement;
+import org.obeonetwork.dsl.typeslibrary.NativeTypeKind;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryKind;
@@ -22,6 +23,23 @@ public class TypesServices {
 	}
 	
 	public String getType(TypeInstance typeInstance) {
+		// Handle enum types to add quotes
+		if (typeInstance != null
+				&& typeInstance.getNativeType() != null
+				&& typeInstance.getNativeType().getSpec() == NativeTypeKind.ENUM) {
+			String label = typeInstance.getNativeType().getName();
+			label += "(";
+			for (int i = 0; i < typeInstance.getLiterals().size(); i++) {
+				String literal = typeInstance.getLiterals().get(i);
+				if (i != 0) {
+					label += ", ";
+				}
+				label += "'" + literal + "'";
+			}
+			label += ")";
+			return label;
+		}
+		
 		return getLabelProvider().getText(typeInstance);
 	}
 
