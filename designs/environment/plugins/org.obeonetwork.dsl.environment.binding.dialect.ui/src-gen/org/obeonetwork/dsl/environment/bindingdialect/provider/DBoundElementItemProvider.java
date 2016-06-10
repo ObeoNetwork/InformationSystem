@@ -35,7 +35,13 @@ import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
  * @generated
  */
 public class DBoundElementItemProvider
-	extends DRepresentationElementItemProvider {
+	extends DRepresentationElementItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
