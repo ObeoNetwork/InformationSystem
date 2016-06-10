@@ -57,9 +57,7 @@
         </children>
         <children id="fromOtherType">
           <stringValues id="label" value="Entity from DTO"/>
-          <stringValues id="listExpression" value="service:getAllStructuredTypesDTOs()"/>
-          <stringValues id="selectionMessage" value="Select a DTO"/>
-          <stringValues id="defaultName" value="[associatedType.oclAsType(environment::Type).name/]"/>
+          <stringValues id="creationTreatment" value="service:container.openCreateEntitiesFromDTOsWizard()"/>
         </children>
         <stringValues id="label" value="Entity"/>
       </children>
