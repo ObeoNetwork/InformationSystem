@@ -199,14 +199,6 @@ public class DatabaseEditor
 	 * This is the property sheet page.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
-
-	/**
-	 * This is the property sheet page.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	protected TabbedPropertySheetPage propertySheetPage;
