@@ -44,7 +44,7 @@
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://www.obeonetwork.org/dsl/environment/2.0.0"
+            uri="http://www.obeonetwork.org/dsl/environment/3.0.0"
             class="org.obeonetwork.dsl.statemachine.provider.StateMachineItemProviderAdapterFactory$EnvironmentChildCreationExtender"/>
    </extension>
    <extension

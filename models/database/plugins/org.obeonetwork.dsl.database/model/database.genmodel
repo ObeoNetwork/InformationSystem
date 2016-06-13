@@ -4,7 +4,7 @@
     modelDirectory="/org.obeonetwork.dsl.database/src" creationIcons="false" modelPluginID="org.obeonetwork.dsl.database"
     modelName="Database" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic" complianceLevel="5.0"
-    runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.typeslibrary/model/typeslibrary.genmodel#//typeslibrary ../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid">
+    runtimeVersion="2.6" usedGenPackages="../../org.obeonetwork.dsl.typeslibrary/model/typeslibrary.genmodel#//typeslibrary">
   <foreignModel>database.ecore</foreignModel>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Database" basePackage="org.obeonetwork.dsl" disposableProviderFactory="true"
@@ -18,7 +18,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//DataBase/defines"/>
     </genClasses>
     <genClasses ecoreClass="database.ecore#//AbstractTable">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//AbstractTable/columns"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference database.ecore#//AbstractTable/owner"/>
     </genClasses>
     <genClasses ecoreClass="database.ecore#//Column">
@@ -51,12 +50,15 @@
     </genClasses>
     <genClasses ecoreClass="database.ecore#//View">
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute database.ecore#//View/query"/>
+      <genFeatures property="Readonly" children="true" createChild="false" ecoreFeature="ecore:EReference database.ecore#//View/columns"/>
+      <genFeatures property="Readonly" children="true" createChild="false" ecoreFeature="ecore:EReference database.ecore#//View/tables"/>
     </genClasses>
     <genClasses ecoreClass="database.ecore#//Table">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//Table/primaryKey"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//Table/foreignKeys"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//Table/constraints"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//Table/indexes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//Table/columns"/>
     </genClasses>
     <genClasses ecoreClass="database.ecore#//PrimaryKey">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference database.ecore#//PrimaryKey/columns"/>
@@ -99,6 +101,10 @@
     <genClasses image="false" ecoreClass="database.ecore#//TableContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//TableContainer/tables"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference database.ecore#//TableContainer/sequences"/>
+    </genClasses>
+    <genClasses ecoreClass="database.ecore#//ViewElement">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//ViewElement/name"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute database.ecore#//ViewElement/alias"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -400,22 +400,13 @@ public interface DatabasePackage extends EPackage {
 	int ABSTRACT_TABLE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_TABLE__COLUMNS = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_TABLE__OWNER = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ABSTRACT_TABLE__OWNER = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Abstract Table</em>' class.
@@ -424,7 +415,7 @@ public interface DatabasePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_TABLE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ABSTRACT_TABLE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.database.impl.ColumnImpl <em>Column</em>}' class.
@@ -763,15 +754,6 @@ public interface DatabasePackage extends EPackage {
 	int VIEW__NAME = ABSTRACT_TABLE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW__COLUMNS = ABSTRACT_TABLE__COLUMNS;
-
-	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -790,13 +772,31 @@ public interface DatabasePackage extends EPackage {
 	int VIEW__QUERY = ABSTRACT_TABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__COLUMNS = ABSTRACT_TABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Tables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__TABLES = ABSTRACT_TABLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_FEATURE_COUNT = ABSTRACT_TABLE_FEATURE_COUNT + 1;
+	int VIEW_FEATURE_COUNT = ABSTRACT_TABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.database.impl.TableImpl <em>Table</em>}' class.
@@ -845,15 +845,6 @@ public interface DatabasePackage extends EPackage {
 	int TABLE__NAME = ABSTRACT_TABLE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__COLUMNS = ABSTRACT_TABLE__COLUMNS;
-
-	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -899,13 +890,22 @@ public interface DatabasePackage extends EPackage {
 	int TABLE__INDEXES = ABSTRACT_TABLE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__COLUMNS = ABSTRACT_TABLE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = ABSTRACT_TABLE_FEATURE_COUNT + 4;
+	int TABLE_FEATURE_COUNT = ABSTRACT_TABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.database.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.
@@ -1456,6 +1456,44 @@ public interface DatabasePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.database.impl.ViewElementImpl <em>View Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.database.impl.ViewElementImpl
+	 * @see org.obeonetwork.dsl.database.impl.DatabasePackageImpl#getViewElement()
+	 * @generated
+	 */
+	int VIEW_ELEMENT = 16;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ELEMENT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ELEMENT__ALIAS = 1;
+
+	/**
+	 * The number of structural features of the '<em>View Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_ELEMENT_FEATURE_COUNT = 2;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1528,17 +1566,6 @@ public interface DatabasePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAbstractTable();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.database.AbstractTable#getColumns <em>Columns</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Columns</em>'.
-	 * @see org.obeonetwork.dsl.database.AbstractTable#getColumns()
-	 * @see #getAbstractTable()
-	 * @generated
-	 */
-	EReference getAbstractTable_Columns();
 
 	/**
 	 * Returns the meta object for the container reference '{@link org.obeonetwork.dsl.database.AbstractTable#getOwner <em>Owner</em>}'.
@@ -1813,6 +1840,28 @@ public interface DatabasePackage extends EPackage {
 	EAttribute getView_Query();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.database.View#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
+	 * @see org.obeonetwork.dsl.database.View#getColumns()
+	 * @see #getView()
+	 * @generated
+	 */
+	EReference getView_Columns();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.database.View#getTables <em>Tables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tables</em>'.
+	 * @see org.obeonetwork.dsl.database.View#getTables()
+	 * @see #getView()
+	 * @generated
+	 */
+	EReference getView_Tables();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1865,6 +1914,17 @@ public interface DatabasePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTable_Indexes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.database.Table#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
+	 * @see org.obeonetwork.dsl.database.Table#getColumns()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Columns();
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.PrimaryKey <em>Primary Key</em>}'.
@@ -2210,6 +2270,38 @@ public interface DatabasePackage extends EPackage {
 	EReference getTableContainer_Sequences();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.ViewElement <em>View Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>View Element</em>'.
+	 * @see org.obeonetwork.dsl.database.ViewElement
+	 * @generated
+	 */
+	EClass getViewElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.database.ViewElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.obeonetwork.dsl.database.ViewElement#getName()
+	 * @see #getViewElement()
+	 * @generated
+	 */
+	EAttribute getViewElement_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.database.ViewElement#getAlias <em>Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alias</em>'.
+	 * @see org.obeonetwork.dsl.database.ViewElement#getAlias()
+	 * @see #getViewElement()
+	 * @generated
+	 */
+	EAttribute getViewElement_Alias();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2292,14 +2384,6 @@ public interface DatabasePackage extends EPackage {
 		 * @generated
 		 */
 		EClass ABSTRACT_TABLE = eINSTANCE.getAbstractTable();
-
-		/**
-		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ABSTRACT_TABLE__COLUMNS = eINSTANCE.getAbstractTable_Columns();
 
 		/**
 		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
@@ -2508,6 +2592,22 @@ public interface DatabasePackage extends EPackage {
 		EAttribute VIEW__QUERY = eINSTANCE.getView_Query();
 
 		/**
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIEW__COLUMNS = eINSTANCE.getView_Columns();
+
+		/**
+		 * The meta object literal for the '<em><b>Tables</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIEW__TABLES = eINSTANCE.getView_Tables();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.impl.TableImpl <em>Table</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2548,6 +2648,14 @@ public interface DatabasePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE__INDEXES = eINSTANCE.getTable_Indexes();
+
+		/**
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__COLUMNS = eINSTANCE.getTable_Columns();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.
@@ -2822,6 +2930,32 @@ public interface DatabasePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE_CONTAINER__SEQUENCES = eINSTANCE.getTableContainer_Sequences();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.impl.ViewElementImpl <em>View Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.database.impl.ViewElementImpl
+		 * @see org.obeonetwork.dsl.database.impl.DatabasePackageImpl#getViewElement()
+		 * @generated
+		 */
+		EClass VIEW_ELEMENT = eINSTANCE.getViewElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW_ELEMENT__NAME = eINSTANCE.getViewElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIEW_ELEMENT__ALIAS = eINSTANCE.getViewElement_Alias();
 
 	}
 

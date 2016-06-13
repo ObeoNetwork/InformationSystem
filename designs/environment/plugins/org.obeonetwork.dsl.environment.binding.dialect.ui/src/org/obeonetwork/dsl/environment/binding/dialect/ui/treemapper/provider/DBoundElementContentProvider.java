@@ -61,6 +61,9 @@ public class DBoundElementContentProvider implements ITreeContentProvider {
 			StructuredType structuredType = (StructuredType)object;
 			List<Property> properties = new ArrayList<Property>();
 			properties.addAll(structuredType.getAttributes());
+			for (StructuredType associatedType : structuredType.getAssociatedTypes()) {
+				properties.addAll(associatedType.getAttributes());
+			}
 			properties.addAll(structuredType.getReferences());
 			return (EObject[]) properties.toArray(new EObject[]{});
 		} else if (object instanceof Reference) {

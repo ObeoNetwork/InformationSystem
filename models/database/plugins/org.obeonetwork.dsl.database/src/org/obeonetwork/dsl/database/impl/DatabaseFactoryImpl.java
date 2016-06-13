@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.obeonetwork.dsl.database.*;
 import org.obeonetwork.dsl.database.spec.ColumnSpec;
+import org.obeonetwork.dsl.database.spec.ViewSpec;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryFactory;
 
@@ -84,6 +85,7 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 			case DatabasePackage.CONSTRAINT: return (EObject)createConstraint();
 			case DatabasePackage.SCHEMA: return (EObject)createSchema();
 			case DatabasePackage.SEQUENCE: return (EObject)createSequence();
+			case DatabasePackage.VIEW_ELEMENT: return (EObject)createViewElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -130,7 +132,7 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 	 * @generated NOT
 	 */
 	public View createView() {
-		ViewImpl view = new ViewImpl();
+		ViewSpec view = new ViewSpec();
 		view.setTechID(EcoreUtil.generateUUID());
 		return view;
 	}
@@ -221,6 +223,16 @@ public class DatabaseFactoryImpl extends EFactoryImpl implements DatabaseFactory
 		SequenceImpl sequence = new SequenceImpl();
 		sequence.setTechID(EcoreUtil.generateUUID());
 		return sequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewElement createViewElement() {
+		ViewElementImpl viewElement = new ViewElementImpl();
+		return viewElement;
 	}
 
 	/**

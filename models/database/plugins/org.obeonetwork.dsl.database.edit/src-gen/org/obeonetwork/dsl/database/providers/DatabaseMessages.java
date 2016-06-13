@@ -229,6 +229,12 @@ public class DatabaseMessages extends NLS {
 	public static String ViewPropertiesEditionPart_CommentsLabel;
 
 	
+	public static String ViewPropertiesEditionPart_ColumnsLabel;
+
+	
+	public static String ViewPropertiesEditionPart_TablesLabel;
+
+	
 	public static String TablePropertiesEditionPart_NameLabel;
 
 	

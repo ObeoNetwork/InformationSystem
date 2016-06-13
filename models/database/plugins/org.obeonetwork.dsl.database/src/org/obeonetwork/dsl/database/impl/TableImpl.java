@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.ForeignKey;
@@ -39,6 +40,7 @@ import org.obeonetwork.dsl.database.Table;
  *   <li>{@link org.obeonetwork.dsl.database.impl.TableImpl#getForeignKeys <em>Foreign Keys</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.TableImpl#getConstraints <em>Constraints</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.TableImpl#getIndexes <em>Indexes</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.database.impl.TableImpl#getColumns <em>Columns</em>}</li>
  * </ul>
  *
  * @generated
@@ -134,6 +136,16 @@ public class TableImpl extends AbstractTableImpl implements Table {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	public EList<Column> getColumns() {
+		return (EList<Column>)eDynamicGet(DatabasePackage.TABLE__COLUMNS, DatabasePackage.Literals.TABLE__COLUMNS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -148,6 +160,8 @@ public class TableImpl extends AbstractTableImpl implements Table {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConstraints()).basicAdd(otherEnd, msgs);
 			case DatabasePackage.TABLE__INDEXES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIndexes()).basicAdd(otherEnd, msgs);
+			case DatabasePackage.TABLE__COLUMNS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getColumns()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -168,6 +182,8 @@ public class TableImpl extends AbstractTableImpl implements Table {
 				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
 			case DatabasePackage.TABLE__INDEXES:
 				return ((InternalEList<?>)getIndexes()).basicRemove(otherEnd, msgs);
+			case DatabasePackage.TABLE__COLUMNS:
+				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -188,6 +204,8 @@ public class TableImpl extends AbstractTableImpl implements Table {
 				return getConstraints();
 			case DatabasePackage.TABLE__INDEXES:
 				return getIndexes();
+			case DatabasePackage.TABLE__COLUMNS:
+				return getColumns();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,6 +234,10 @@ public class TableImpl extends AbstractTableImpl implements Table {
 				getIndexes().clear();
 				getIndexes().addAll((Collection<? extends Index>)newValue);
 				return;
+			case DatabasePackage.TABLE__COLUMNS:
+				getColumns().clear();
+				getColumns().addAll((Collection<? extends Column>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -240,6 +262,9 @@ public class TableImpl extends AbstractTableImpl implements Table {
 			case DatabasePackage.TABLE__INDEXES:
 				getIndexes().clear();
 				return;
+			case DatabasePackage.TABLE__COLUMNS:
+				getColumns().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -261,6 +286,8 @@ public class TableImpl extends AbstractTableImpl implements Table {
 				return !getConstraints().isEmpty();
 			case DatabasePackage.TABLE__INDEXES:
 				return !getIndexes().isEmpty();
+			case DatabasePackage.TABLE__COLUMNS:
+				return !getColumns().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

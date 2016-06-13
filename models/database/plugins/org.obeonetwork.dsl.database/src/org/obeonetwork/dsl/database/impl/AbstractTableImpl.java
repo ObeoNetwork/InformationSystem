@@ -35,7 +35,6 @@ import org.obeonetwork.dsl.database.TableContainer;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.database.impl.AbstractTableImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.AbstractTableImpl#getOwner <em>Owner</em>}</li>
  * </ul>
  *
@@ -73,16 +72,6 @@ public abstract class AbstractTableImpl extends NamedElementImpl implements Abst
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	public EList<Column> getColumns() {
-		return (EList<Column>)eDynamicGet(DatabasePackage.ABSTRACT_TABLE__COLUMNS, DatabasePackage.Literals.ABSTRACT_TABLE__COLUMNS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public TableContainer getOwner() {
 		return (TableContainer)eDynamicGet(DatabasePackage.ABSTRACT_TABLE__OWNER, DatabasePackage.Literals.ABSTRACT_TABLE__OWNER, true, true);
 	}
@@ -115,8 +104,6 @@ public abstract class AbstractTableImpl extends NamedElementImpl implements Abst
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatabasePackage.ABSTRACT_TABLE__COLUMNS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getColumns()).basicAdd(otherEnd, msgs);
 			case DatabasePackage.ABSTRACT_TABLE__OWNER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -133,8 +120,6 @@ public abstract class AbstractTableImpl extends NamedElementImpl implements Abst
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DatabasePackage.ABSTRACT_TABLE__COLUMNS:
-				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
 			case DatabasePackage.ABSTRACT_TABLE__OWNER:
 				return basicSetOwner(null, msgs);
 		}
@@ -163,8 +148,6 @@ public abstract class AbstractTableImpl extends NamedElementImpl implements Abst
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatabasePackage.ABSTRACT_TABLE__COLUMNS:
-				return getColumns();
 			case DatabasePackage.ABSTRACT_TABLE__OWNER:
 				return getOwner();
 		}
@@ -180,10 +163,6 @@ public abstract class AbstractTableImpl extends NamedElementImpl implements Abst
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatabasePackage.ABSTRACT_TABLE__COLUMNS:
-				getColumns().clear();
-				getColumns().addAll((Collection<? extends Column>)newValue);
-				return;
 			case DatabasePackage.ABSTRACT_TABLE__OWNER:
 				setOwner((TableContainer)newValue);
 				return;
@@ -199,9 +178,6 @@ public abstract class AbstractTableImpl extends NamedElementImpl implements Abst
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatabasePackage.ABSTRACT_TABLE__COLUMNS:
-				getColumns().clear();
-				return;
 			case DatabasePackage.ABSTRACT_TABLE__OWNER:
 				setOwner((TableContainer)null);
 				return;
@@ -218,8 +194,6 @@ public abstract class AbstractTableImpl extends NamedElementImpl implements Abst
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatabasePackage.ABSTRACT_TABLE__COLUMNS:
-				return !getColumns().isEmpty();
 			case DatabasePackage.ABSTRACT_TABLE__OWNER:
 				return getOwner() != null;
 		}

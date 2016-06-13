@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.obeonetwork.dsl.database.AbstractTable#getColumns <em>Columns</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.AbstractTable#getOwner <em>Owner</em>}</li>
  * </ul>
  *
@@ -36,24 +35,6 @@ public interface AbstractTable extends NamedElement {
 	 * @generated
 	 */
 	String copyright = "Copyright (c) 2011 Obeo.\r\nAll rights reserved. This program and the accompanying materials\r\nare made available under the terms of the Eclipse Public License v1.0\r\nwhich accompanies this distribution, and is available at\r\nhttp://www.eclipse.org/legal/epl-v10.html\r\n\r\nContributors:\r\n    Obeo - initial API and implementation";
-
-	/**
-	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
-	 * The list contents are of type {@link org.obeonetwork.dsl.database.Column}.
-	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.database.Column#getOwner <em>Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Columns</em>' containment reference list.
-	 * @see org.obeonetwork.dsl.database.DatabasePackage#getAbstractTable_Columns()
-	 * @see org.obeonetwork.dsl.database.Column#getOwner
-	 * @model opposite="owner" containment="true"
-	 * @generated
-	 */
-	EList<Column> getColumns();
 
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.

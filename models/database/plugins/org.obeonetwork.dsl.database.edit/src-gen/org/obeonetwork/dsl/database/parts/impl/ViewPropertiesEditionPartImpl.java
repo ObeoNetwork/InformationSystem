@@ -4,6 +4,11 @@
 package org.obeonetwork.dsl.database.parts.impl;
 
 // Start of user code for imports
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
@@ -14,12 +19,19 @@ import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
+import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
+import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -41,6 +53,12 @@ public class ViewPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 	protected Text name;
 	protected Text query;
 	protected Text comments;
+	protected ReferencesTable columns;
+	protected List<ViewerFilter> columnsBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> columnsFilters = new ArrayList<ViewerFilter>();
+	protected ReferencesTable tables;
+	protected List<ViewerFilter> tablesBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> tablesFilters = new ArrayList<ViewerFilter>();
 
 
 
@@ -82,6 +100,8 @@ public class ViewPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		propertiesStep.addStep(DatabaseViewsRepository.View.Properties.name);
 		propertiesStep.addStep(DatabaseViewsRepository.View.Properties.query);
 		propertiesStep.addStep(DatabaseViewsRepository.View.Properties.comments);
+		propertiesStep.addStep(DatabaseViewsRepository.View.Properties.columns);
+		propertiesStep.addStep(DatabaseViewsRepository.View.Properties.tables);
 		
 		
 		composer = new PartComposer(viewStep) {
@@ -99,6 +119,12 @@ public class ViewPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 				}
 				if (key == DatabaseViewsRepository.View.Properties.comments) {
 					return createCommentsTextarea(parent);
+				}
+				if (key == DatabaseViewsRepository.View.Properties.columns) {
+					return createColumnsAdvancedTableComposition(parent);
+				}
+				if (key == DatabaseViewsRepository.View.Properties.tables) {
+					return createTablesAdvancedTableComposition(parent);
 				}
 				return parent;
 			}
@@ -240,6 +266,108 @@ public class ViewPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 		return parent;
 	}
 
+	/**
+	 * @param container
+	 * 
+	 */
+	protected Composite createColumnsAdvancedTableComposition(Composite parent) {
+		this.columns = new ReferencesTable(getDescription(DatabaseViewsRepository.View.Properties.columns, DatabaseMessages.ViewPropertiesEditionPart_ColumnsLabel), new ReferencesTableListener() {
+			public void handleAdd() { 
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ViewPropertiesEditionPartImpl.this, DatabaseViewsRepository.View.Properties.columns, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null));
+				columns.refresh();
+			}
+			public void handleEdit(EObject element) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ViewPropertiesEditionPartImpl.this, DatabaseViewsRepository.View.Properties.columns, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element));
+				columns.refresh();
+			}
+			public void handleMove(EObject element, int oldIndex, int newIndex) { 
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ViewPropertiesEditionPartImpl.this, DatabaseViewsRepository.View.Properties.columns, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+				columns.refresh();
+			}
+			public void handleRemove(EObject element) { 
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ViewPropertiesEditionPartImpl.this, DatabaseViewsRepository.View.Properties.columns, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+				columns.refresh();
+			}
+			public void navigateTo(EObject element) { }
+		});
+		for (ViewerFilter filter : this.columnsFilters) {
+			this.columns.addFilter(filter);
+		}
+		this.columns.setHelpText(propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.View.Properties.columns, DatabaseViewsRepository.SWT_KIND));
+		this.columns.createControls(parent);
+		this.columns.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item != null && e.item.getData() instanceof EObject) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ViewPropertiesEditionPartImpl.this, DatabaseViewsRepository.View.Properties.columns, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+				}
+			}
+			
+		});
+		GridData columnsData = new GridData(GridData.FILL_HORIZONTAL);
+		columnsData.horizontalSpan = 3;
+		this.columns.setLayoutData(columnsData);
+		this.columns.setLowerBound(0);
+		this.columns.setUpperBound(-1);
+		columns.setID(DatabaseViewsRepository.View.Properties.columns);
+		columns.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createColumnsAdvancedTableComposition
+
+		// End of user code
+		return parent;
+	}
+
+	/**
+	 * @param container
+	 * 
+	 */
+	protected Composite createTablesAdvancedTableComposition(Composite parent) {
+		this.tables = new ReferencesTable(getDescription(DatabaseViewsRepository.View.Properties.tables, DatabaseMessages.ViewPropertiesEditionPart_TablesLabel), new ReferencesTableListener() {
+			public void handleAdd() { 
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ViewPropertiesEditionPartImpl.this, DatabaseViewsRepository.View.Properties.tables, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, null));
+				tables.refresh();
+			}
+			public void handleEdit(EObject element) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ViewPropertiesEditionPartImpl.this, DatabaseViewsRepository.View.Properties.tables, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, element));
+				tables.refresh();
+			}
+			public void handleMove(EObject element, int oldIndex, int newIndex) { 
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ViewPropertiesEditionPartImpl.this, DatabaseViewsRepository.View.Properties.tables, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+				tables.refresh();
+			}
+			public void handleRemove(EObject element) { 
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ViewPropertiesEditionPartImpl.this, DatabaseViewsRepository.View.Properties.tables, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+				tables.refresh();
+			}
+			public void navigateTo(EObject element) { }
+		});
+		for (ViewerFilter filter : this.tablesFilters) {
+			this.tables.addFilter(filter);
+		}
+		this.tables.setHelpText(propertiesEditionComponent.getHelpContent(DatabaseViewsRepository.View.Properties.tables, DatabaseViewsRepository.SWT_KIND));
+		this.tables.createControls(parent);
+		this.tables.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item != null && e.item.getData() instanceof EObject) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ViewPropertiesEditionPartImpl.this, DatabaseViewsRepository.View.Properties.tables, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+				}
+			}
+			
+		});
+		GridData tablesData = new GridData(GridData.FILL_HORIZONTAL);
+		tablesData.horizontalSpan = 3;
+		this.tables.setLayoutData(tablesData);
+		this.tables.setLowerBound(0);
+		this.tables.setUpperBound(-1);
+		tables.setID(DatabaseViewsRepository.View.Properties.tables);
+		tables.setEEFType("eef::AdvancedTableComposition"); //$NON-NLS-1$
+		// Start of user code for createTablesAdvancedTableComposition
+
+		// End of user code
+		return parent;
+	}
+
 
 	/**
 	 * {@inheritDoc}
@@ -349,6 +477,128 @@ public class ViewPropertiesEditionPartImpl extends CompositePropertiesEditionPar
 			comments.setEnabled(true);
 		}	
 		
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart#initColumns(EObject current, EReference containingFeature, EReference feature)
+	 */
+	public void initColumns(ReferencesTableSettings settings) {
+		if (current.eResource() != null && current.eResource().getResourceSet() != null)
+			this.resourceSet = current.eResource().getResourceSet();
+		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
+		columns.setContentProvider(contentProvider);
+		columns.setInput(settings);
+		columns.setEnabled(false);
+		columns.setToolTipText(DatabaseMessages.View_ReadOnly);
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart#updateColumns()
+	 * 
+	 */
+	public void updateColumns() {
+	columns.refresh();
+}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart#addFilterColumns(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToColumns(ViewerFilter filter) {
+		columnsFilters.add(filter);
+		if (this.columns != null) {
+			this.columns.addFilter(filter);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart#addBusinessFilterColumns(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToColumns(ViewerFilter filter) {
+		columnsBusinessFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart#isContainedInColumnsTable(EObject element)
+	 * 
+	 */
+	public boolean isContainedInColumnsTable(EObject element) {
+		return ((ReferencesTableSettings)columns.getInput()).contains(element);
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart#initTables(EObject current, EReference containingFeature, EReference feature)
+	 */
+	public void initTables(ReferencesTableSettings settings) {
+		if (current.eResource() != null && current.eResource().getResourceSet() != null)
+			this.resourceSet = current.eResource().getResourceSet();
+		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
+		tables.setContentProvider(contentProvider);
+		tables.setInput(settings);
+		tables.setEnabled(false);
+		tables.setToolTipText(DatabaseMessages.View_ReadOnly);
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart#updateTables()
+	 * 
+	 */
+	public void updateTables() {
+	tables.refresh();
+}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart#addFilterTables(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToTables(ViewerFilter filter) {
+		tablesFilters.add(filter);
+		if (this.tables != null) {
+			this.tables.addFilter(filter);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart#addBusinessFilterTables(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToTables(ViewerFilter filter) {
+		tablesBusinessFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.database.parts.ViewPropertiesEditionPart#isContainedInTablesTable(EObject element)
+	 * 
+	 */
+	public boolean isContainedInTablesTable(EObject element) {
+		return ((ReferencesTableSettings)tables.getInput()).contains(element);
 	}
 
 

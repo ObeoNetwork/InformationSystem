@@ -10,11 +10,17 @@
  */
 package org.obeonetwork.dsl.database.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.View;
+import org.obeonetwork.dsl.database.ViewElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +31,8 @@ import org.obeonetwork.dsl.database.View;
  * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ViewImpl#getQuery <em>Query</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.database.impl.ViewImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.database.impl.ViewImpl#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,11 +97,51 @@ public class ViewImpl extends AbstractTableImpl implements View {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<ViewElement> getColumns() {
+		return (EList<ViewElement>)eDynamicGet(DatabasePackage.VIEW__COLUMNS, DatabasePackage.Literals.VIEW__COLUMNS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<ViewElement> getTables() {
+		return (EList<ViewElement>)eDynamicGet(DatabasePackage.VIEW__TABLES, DatabasePackage.Literals.VIEW__TABLES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatabasePackage.VIEW__COLUMNS:
+				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
+			case DatabasePackage.VIEW__TABLES:
+				return ((InternalEList<?>)getTables()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DatabasePackage.VIEW__QUERY:
 				return getQuery();
+			case DatabasePackage.VIEW__COLUMNS:
+				return getColumns();
+			case DatabasePackage.VIEW__TABLES:
+				return getTables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -103,11 +151,20 @@ public class ViewImpl extends AbstractTableImpl implements View {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DatabasePackage.VIEW__QUERY:
 				setQuery((String)newValue);
+				return;
+			case DatabasePackage.VIEW__COLUMNS:
+				getColumns().clear();
+				getColumns().addAll((Collection<? extends ViewElement>)newValue);
+				return;
+			case DatabasePackage.VIEW__TABLES:
+				getTables().clear();
+				getTables().addAll((Collection<? extends ViewElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -124,6 +181,12 @@ public class ViewImpl extends AbstractTableImpl implements View {
 			case DatabasePackage.VIEW__QUERY:
 				setQuery(QUERY_EDEFAULT);
 				return;
+			case DatabasePackage.VIEW__COLUMNS:
+				getColumns().clear();
+				return;
+			case DatabasePackage.VIEW__TABLES:
+				getTables().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -138,6 +201,10 @@ public class ViewImpl extends AbstractTableImpl implements View {
 		switch (featureID) {
 			case DatabasePackage.VIEW__QUERY:
 				return QUERY_EDEFAULT == null ? getQuery() != null : !QUERY_EDEFAULT.equals(getQuery());
+			case DatabasePackage.VIEW__COLUMNS:
+				return !getColumns().isEmpty();
+			case DatabasePackage.VIEW__TABLES:
+				return !getTables().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

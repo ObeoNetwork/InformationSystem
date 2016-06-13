@@ -11,24 +11,25 @@
 package org.obeonetwork.dsl.database.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.DatabasePackage;
+import org.obeonetwork.dsl.database.Sequence;
+import org.obeonetwork.dsl.database.Table;
+import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryFactory;
 import org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryItemProviderAdapterFactory;
 
@@ -242,11 +243,11 @@ public class ColumnItemProvider
 	 * This adds a property descriptor for the Sequence feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addSequencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Column_sequence_feature"),
@@ -257,7 +258,37 @@ public class ColumnItemProvider
 				 true,
 				 null,
 				 null,
-				 null));
+				 null) {
+				@Override
+				public Collection<?> getChoiceOfValues(Object object) {
+					// The proposed sequences are those contained by the column's containing schema or database
+					if (object instanceof Column) {
+						Column column = (Column)object;
+						Table table = column.getOwner();
+						if (table != null) {
+							TableContainer tableContainer = table.getOwner();
+							if (tableContainer != null) {
+								ArrayList<Sequence> sequences = new ArrayList<Sequence>(tableContainer.getSequences());
+								Collections.sort(sequences, new Comparator<Sequence>() {
+
+									public int compare(Sequence s1, Sequence s2) {
+										if (s2 == null || s2.getName() == null) {
+											return -1;
+										} else if (s1 == null || s1.getName() == null) {
+											return 1;
+										} else {
+											return s1.getName().compareTo(s2.getName());
+										}
+									}
+									
+								});
+								return sequences;
+							}
+						}
+					}
+					return super.getChoiceOfValues(object);
+				}
+			});
 	}
 
 	/**

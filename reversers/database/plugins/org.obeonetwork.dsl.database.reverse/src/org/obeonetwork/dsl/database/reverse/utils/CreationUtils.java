@@ -70,12 +70,16 @@ public class CreationUtils {
 		return primaryKey;
 	}
 	
-	public static Column createColumn(AbstractTable table, String name) {
-		Column column = DatabaseFactory.eINSTANCE.createColumn();
-		column.setName(name);
-		column.setOwner(table);
-		table.getColumns().add(column);
-		return column;
+	public static Column createColumn(AbstractTable abstractTable, String name) {
+		if (abstractTable instanceof Table) {
+			Table table = (Table)abstractTable;
+			Column column = DatabaseFactory.eINSTANCE.createColumn();
+			column.setName(name);
+			column.setOwner(table);
+			table.getColumns().add(column);			
+			return column;
+		}
+		return null;
 	}
 	
 	public static ForeignKey createForeignKey(Table table) {
@@ -97,13 +101,15 @@ public class CreationUtils {
 		return constraint;
 	}
 	
-	public static Sequence createSequence(TableContainer owner, String name, int increment, int minValue, Integer maxValue, int start) {
+	public static Sequence createSequence(TableContainer owner, String name, int increment, int minValue, Integer maxValue, int start, boolean cycle, Integer cache) {
 		Sequence sequence = DatabaseFactory.eINSTANCE.createSequence();
 		sequence.setName(name);
 		sequence.setIncrement(increment);
 		sequence.setMinValue(minValue);
 		sequence.setMaxValue(maxValue);
 		sequence.setStart(start);
+		sequence.setCycle(cycle);
+		sequence.setCacheSize(cache);
 		owner.getSequences().add(sequence);
 		return sequence;
 	}

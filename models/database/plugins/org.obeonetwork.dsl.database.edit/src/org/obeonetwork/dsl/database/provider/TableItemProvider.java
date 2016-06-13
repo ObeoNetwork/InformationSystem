@@ -84,6 +84,7 @@ public class TableItemProvider
 			childrenFeatures.add(DatabasePackage.Literals.TABLE__FOREIGN_KEYS);
 			childrenFeatures.add(DatabasePackage.Literals.TABLE__CONSTRAINTS);
 			childrenFeatures.add(DatabasePackage.Literals.TABLE__INDEXES);
+			childrenFeatures.add(DatabasePackage.Literals.TABLE__COLUMNS);
 		}
 		return childrenFeatures;
 	}
@@ -152,6 +153,7 @@ public class TableItemProvider
 			case DatabasePackage.TABLE__FOREIGN_KEYS:
 			case DatabasePackage.TABLE__CONSTRAINTS:
 			case DatabasePackage.TABLE__INDEXES:
+			case DatabasePackage.TABLE__COLUMNS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -188,6 +190,11 @@ public class TableItemProvider
 			(createChildParameter
 				(DatabasePackage.Literals.TABLE__INDEXES,
 				 DatabaseFactory.eINSTANCE.createIndex()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatabasePackage.Literals.TABLE__COLUMNS,
+				 DatabaseFactory.eINSTANCE.createColumn()));
 	}
 
 }

@@ -12,6 +12,9 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_i9DyMGTMEeSmq67_vSAzgg" name="BOX"/>
+  <nativeTypes xmi:id="_szbAMP_tEeWy8oqaMgwyjw" name="BPCHAR" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
   <nativeTypes xmi:id="_3Xq00G5GEeS0qO0NdvQESw" name="BYTEA"/>
   <nativeTypes xmi:id="_kxaEsGTMEeSmq67_vSAzgg" name="CHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
@@ -30,7 +33,7 @@
   <nativeTypes xmi:id="_xZkfEGTMEeSmq67_vSAzgg" name="DECIMAL">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_DAw-4m5HEeS0qO0NdvQESw" name="DOUBLE PRECISION" spec="LengthAndPrecision">
+  <nativeTypes xmi:id="_DAw-4m5HEeS0qO0NdvQESw" name="DOUBLE PRECISION">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_68m7kGTMEeSmq67_vSAzgg" name="FLOAT4">
@@ -80,12 +83,19 @@
   <nativeTypes xmi:id="_ad-QkGTNEeSmq67_vSAzgg" name="TIME WITH TIME ZONE">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
+  <nativeTypes xmi:id="_1JiWkP_tEeWy8oqaMgwyjw" name="TIMETZ">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
   <nativeTypes xmi:id="_cVwRkGTNEeSmq67_vSAzgg" name="TIMESTAMP">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_dzaiYGTNEeSmq67_vSAzgg" name="TIMESTAMP WITH TIME ZONE">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
+  <nativeTypes xmi:id="_1m2ksP_tEeWy8oqaMgwyjw" name="TIMESTAMPTZ">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_YOCGAP_sEeWy8oqaMgwyjw" name="VARBIT" spec="Length"/>
   <nativeTypes xmi:id="_hn9LAGTNEeSmq67_vSAzgg" name="VARCHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>

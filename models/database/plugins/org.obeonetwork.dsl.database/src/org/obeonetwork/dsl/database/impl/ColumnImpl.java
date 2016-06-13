@@ -329,8 +329,8 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractTable getOwner() {
-		return (AbstractTable)eDynamicGet(DatabasePackage.COLUMN__OWNER, DatabasePackage.Literals.COLUMN__OWNER, true, true);
+	public Table getOwner() {
+		return (Table)eDynamicGet(DatabasePackage.COLUMN__OWNER, DatabasePackage.Literals.COLUMN__OWNER, true, true);
 	}
 
 	/**
@@ -338,7 +338,7 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOwner(AbstractTable newOwner, NotificationChain msgs) {
+	public NotificationChain basicSetOwner(Table newOwner, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newOwner, DatabasePackage.COLUMN__OWNER, msgs);
 		return msgs;
 	}
@@ -348,7 +348,7 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOwner(AbstractTable newOwner) {
+	public void setOwner(Table newOwner) {
 		eDynamicSet(DatabasePackage.COLUMN__OWNER, DatabasePackage.Literals.COLUMN__OWNER, newOwner);
 	}
 
@@ -467,7 +467,7 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 			case DatabasePackage.COLUMN__OWNER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetOwner((AbstractTable)otherEnd, msgs);
+				return basicSetOwner((Table)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -505,7 +505,7 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case DatabasePackage.COLUMN__OWNER:
-				return eInternalContainer().eInverseRemove(this, DatabasePackage.ABSTRACT_TABLE__COLUMNS, AbstractTable.class, msgs);
+				return eInternalContainer().eInverseRemove(this, DatabasePackage.TABLE__COLUMNS, Table.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -585,7 +585,7 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 				setSequence((Sequence)newValue);
 				return;
 			case DatabasePackage.COLUMN__OWNER:
-				setOwner((AbstractTable)newValue);
+				setOwner((Table)newValue);
 				return;
 			case DatabasePackage.COLUMN__AUTOINCREMENT:
 				setAutoincrement((Boolean)newValue);
@@ -624,7 +624,7 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 				setSequence((Sequence)null);
 				return;
 			case DatabasePackage.COLUMN__OWNER:
-				setOwner((AbstractTable)null);
+				setOwner((Table)null);
 				return;
 			case DatabasePackage.COLUMN__AUTOINCREMENT:
 				setAutoincrement(AUTOINCREMENT_EDEFAULT);

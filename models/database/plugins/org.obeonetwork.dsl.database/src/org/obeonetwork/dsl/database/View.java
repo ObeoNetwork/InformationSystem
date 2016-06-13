@@ -10,6 +10,8 @@
  */
 package org.obeonetwork.dsl.database;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +23,8 @@ package org.obeonetwork.dsl.database;
  * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.View#getQuery <em>Query</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.database.View#getColumns <em>Columns</em>}</li>
+ *   <li>{@link org.obeonetwork.dsl.database.View#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getView()
@@ -60,5 +64,37 @@ public interface View extends AbstractTable {
 	 * @generated
 	 */
 	void setQuery(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.database.ViewElement}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Columns</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.database.DatabasePackage#getView_Columns()
+	 * @model containment="true" transient="true"
+	 * @generated
+	 */
+	EList<ViewElement> getColumns();
+
+	/**
+	 * Returns the value of the '<em><b>Tables</b></em>' containment reference list.
+	 * The list contents are of type {@link org.obeonetwork.dsl.database.ViewElement}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tables</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tables</em>' containment reference list.
+	 * @see org.obeonetwork.dsl.database.DatabasePackage#getView_Tables()
+	 * @model containment="true" transient="true"
+	 * @generated
+	 */
+	EList<ViewElement> getTables();
 
 } // View

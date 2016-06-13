@@ -210,9 +210,13 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 	}
 	
 	protected void buildColumn(DatabaseMetaData metaData, TableContainer owner, NativeTypesLibrary nativeTypesLibrary, AbstractTable table, ResultSet rs) throws SQLException {
+		if (table instanceof View) {
+			return;
+		}
+		
 		String columnName = rs.getString(4);
 		Column column = CreationUtils.createColumn(table, columnName);
-
+		
 		// TODO optimize search
 		String columnType = rs.getString(6);
 		int columnSize = rs.getInt(7);

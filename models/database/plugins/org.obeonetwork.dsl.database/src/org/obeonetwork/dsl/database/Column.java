@@ -255,7 +255,7 @@ public interface Column extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.database.AbstractTable#getColumns <em>Columns</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.obeonetwork.dsl.database.Table#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Owner</em>' container reference isn't clear,
@@ -263,13 +263,13 @@ public interface Column extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owner</em>' container reference.
-	 * @see #setOwner(AbstractTable)
+	 * @see #setOwner(Table)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getColumn_Owner()
-	 * @see org.obeonetwork.dsl.database.AbstractTable#getColumns
+	 * @see org.obeonetwork.dsl.database.Table#getColumns
 	 * @model opposite="columns" required="true" transient="false"
 	 * @generated
 	 */
-	AbstractTable getOwner();
+	Table getOwner();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Column#getOwner <em>Owner</em>}' container reference.
@@ -279,7 +279,7 @@ public interface Column extends NamedElement {
 	 * @see #getOwner()
 	 * @generated
 	 */
-	void setOwner(AbstractTable value);
+	void setOwner(Table value);
 
 	/**
 	 * Returns the value of the '<em><b>Autoincrement</b></em>' attribute.
