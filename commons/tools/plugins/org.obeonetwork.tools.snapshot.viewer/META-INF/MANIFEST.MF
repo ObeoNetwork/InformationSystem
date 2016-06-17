@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Team Snapshot Viewer
+Bundle-SymbolicName: org.obeonetwork.tools.snapshot.viewer;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.obeonetwork.tools.snapshot.viewer.Activator
+Bundle-Vendor: Obeo
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.net4j,
+ org.eclipse.net4j.jvm,
+ org.eclipse.net4j.tcp,
+ org.eclipse.emf.cdo.server.net4j,
+ org.eclipse.emf.cdo.net4j,
+ org.junit,
+ org.eclipse.ui.ide,
+ org.eclipse.core.resources,
+ org.eclipse.ui,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.core.databinding.observable,
+ org.eclipse.core.databinding.property,
+ org.eclipse.jface.databinding,
+ com.ibm.icu
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

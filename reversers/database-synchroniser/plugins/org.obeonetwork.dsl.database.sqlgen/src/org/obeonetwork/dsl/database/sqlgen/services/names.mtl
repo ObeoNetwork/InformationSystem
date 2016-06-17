@@ -1,0 +1,14 @@
+[comment encoding = UTF-8 /]
+[module names(
+ 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
+ 'http://www.obeonetwork.org/dsl/database/1.0',
+ 'http://www.eclipse.org/emf/compare',
+ 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[template public name(table : Table) post(trim())]
+[table.name.toUpper()/]
+[/template]
+
+[template public name(column : Column) post(trim())]
+[column.name/]
+[/template]

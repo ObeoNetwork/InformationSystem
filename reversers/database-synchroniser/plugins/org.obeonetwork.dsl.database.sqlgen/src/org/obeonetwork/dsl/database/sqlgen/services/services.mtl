@@ -1,0 +1,24 @@
+[comment encoding = UTF-8 /]
+[module services(
+ 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
+ 'http://www.obeonetwork.org/dsl/database/1.0',
+ 'http://www.eclipse.org/emf/compare',
+ 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[query public getType(arg0 : TypeInstance) : String
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'getType(org.obeonetwork.dsl.typeslibrary.TypeInstance)', Sequence{arg0}) /]
+
+[query public isTargetOracle(arg0 : DatabaseElement) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetOracle(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+
+[query public isTargetMySql(arg0 : DatabaseElement) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetMySql(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+
+[query public isTargetSqlServer(arg0 : DatabaseElement) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetSqlServer(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+
+[query public getSubDiffs(diff : Diff) : Sequence(Diff)
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.UtilServices', 'getSubDiffs(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]
+
+[query public isIndexForFK(index : Index) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.DatabaseServices', 'isIndexForForeignKey(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]

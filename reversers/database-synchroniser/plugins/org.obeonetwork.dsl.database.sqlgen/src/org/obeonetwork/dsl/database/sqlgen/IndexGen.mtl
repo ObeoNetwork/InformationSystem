@@ -5,12 +5,13 @@
  'http://www.eclipse.org/emf/compare',
  'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
-[import org::obeonetwork::dsl::database::sqlgen::TableGen /]
+[import org::obeonetwork::dsl::database::sqlgen::services::services /]
+[import org::obeonetwork::dsl::database::sqlgen::services::names /]
 
 [template public genSQLForIndex(changeSet : Comparison) post(trim())]
-[if (changeSet.eAllContents(AddIndex)->size()>0)]
+[if (changeSet.eAllContents(AddIndex)->reject(index.isIndexForFK())->size()>0)] // Ajouter filtre pour enlever index correspondant � une FK pour mysql
 	[file ('create-index.sql', false, 'UTF-8')]
-		[for (addIndex : AddIndex | changeSet.eAllContents(AddIndex))]
+		[for (addIndex : AddIndex | changeSet.eAllContents(AddIndex)->reject(index.isIndexForFK()))]
 [addIndex.genCreateIndex()/]
 
 		[/for]
@@ -59,7 +60,7 @@
 [/template]
 
 [template private genStorageClause(index : Index)]
-[if (index.owner.owner.oclIsKindOf(Schema))]
+[if (index.owner.owner.oclIsKindOf(Schema) and not index.owner.oclAsType(database::Table).isTargetMySql())]
 
   pctfree 10
   pctused 40

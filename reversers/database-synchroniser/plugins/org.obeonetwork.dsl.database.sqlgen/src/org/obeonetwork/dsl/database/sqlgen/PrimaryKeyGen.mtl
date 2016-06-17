@@ -5,10 +5,11 @@
  'http://www.eclipse.org/emf/compare',
  'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
-[import org::obeonetwork::dsl::database::sqlgen::TableGen /]
+[import org::obeonetwork::dsl::database::sqlgen::services::services /]
+[import org::obeonetwork::dsl::database::sqlgen::services::names /]
 
 [template public genSQLForPrimaryKeys(changeSet : Comparison) post(trim())]
-[if (changeSet.eAllContents(AddPrimaryKey)->notEmpty())]
+[if (changeSet.eAllContents(AddPrimaryKey)->notEmpty() and not changeSet.isForMySQL())]
 	[file ('create-pk.sql', false, 'UTF-8')]
 		[for (addPk : AddPrimaryKey | changeSet.eAllContents(AddPrimaryKey))]
 [addPk.genCreatePK()/]
@@ -37,6 +38,9 @@
 	[/file]
 [/if]
 [/template]
+
+[query private isForMySQL(changeSet : Comparison) : Boolean =
+changeSet.eAllContents(AddForeignKey)->first().foreignKey.isTargetMySql() /]
 
 [template private genPKDoc(primaryKey : PrimaryKey) post(trim())]
 -- ==============================================================
