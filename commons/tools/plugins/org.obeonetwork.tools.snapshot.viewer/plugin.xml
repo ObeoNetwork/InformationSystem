@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="org.obeonetwork.tools.snapshot.viewer.wizards.sampleCategory"
+            name="Sirius">
+      </category>
+      <wizard
+            category="org.obeonetwork.tools.snapshot.viewer.wizards.sampleCategory"
+            class="org.obeonetwork.tools.snapshot.viewer.wizards.ImportModelFromXmlWizard"
+            icon="icons/sample.gif"
+            id="org.obeonetwork.tools.snapshot.viewer.wizards.ImportModelFromXmlWizard"
+            name="Import Model From XML">
+         <description>
+            Import a file from the local file system into the workspace.
+         </description>
+      </wizard>
+   </extension>
+
+</plugin>

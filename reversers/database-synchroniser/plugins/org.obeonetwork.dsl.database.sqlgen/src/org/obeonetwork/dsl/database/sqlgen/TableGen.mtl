@@ -5,6 +5,9 @@
  'http://www.eclipse.org/emf/compare',
  'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
+[import org::obeonetwork::dsl::database::sqlgen::services::services /]
+[import org::obeonetwork::dsl::database::sqlgen::services::names /]
+
 [template public genSQLForTables(changeSet : Comparison) post(trim())]
 [if (changeSet.eAllContents(AddTable)->size()>0)]
 	[file ('create-tables.sql', false, 'UTF-8')]
@@ -81,17 +84,12 @@ CREATE PUBLIC SYNONYM [table.name()/] FOR [table.getSchemaName()/].[table.name()
 [let table : Table = addTable.table.oclAsType(Table)]
 [table.genTableDoc()/]
 [table.genDropSynonym()/]
-
 DROP TABLE [table.name()/];
 CREATE TABLE [table.name()/](
 [table.columnsDef()/]
-)
-[table.genStorageClause()/];
-
+)[table.genStorageClause()/];
 [table.genCreateSynonym()/]
-
 [table.genCreateTableComment()/]
-
 [table.genCreateColumnsComment()/]
 [/let]
 [/template]
@@ -147,10 +145,6 @@ ALTER TABLE [oldTable.name()/] RENAME TO [newTable.name()/];
 [/for]
 [/template]
 
-[template public name(table : Table) post(trim())]
-[table.name.toUpper()/]
-[/template]
-
 [comment ----------- COLUMN ----------- /]
 
 [template private genAddColumn(column : Column) post(trim())]
@@ -180,15 +174,12 @@ COMMENT ON COLUMN [column.owner.oclAsType(Table).name()/].[column.name()/] IS '[
 
 [template private columnsDef(table : Table)]
 [for (column : Column | table.columns) separator(',\n')]
-    [column.columnDef()/][/for]
+    [column.columnDef()/][/for]	[if (table.isTargetMySql() and not table.primaryKey.oclIsUndefined())],
+	PRIMARY KEY ([table.primaryKey.name/])[/if]
 [/template]
 
 [template private columnDef(column : Column) post(trim())]
 [column.name()/] [column.dataType()/][column.default()/][column.nullable()/][column.autoIncrement()/]
-[/template]
-
-[template public name(column : Column) post(trim())]
-[column.name/]
 [/template]
 
 [template private dataType(column : Column) post(trim())]
@@ -216,20 +207,5 @@ COMMENT ON COLUMN [column.owner.oclAsType(Table).name()/].[column.name()/] IS '[
 [/template]
 
 [template private autoIncrement(column : Column)]
-[if (column.autoincrement and column.isTargetMySql())] AUTO_INCREMENT[/if]
+[if (column.isTargetMySql() and (column.autoincrement or column.inPrimaryKey))] AUTO_INCREMENT[/if]
 [/template]
-
-[query public getType(arg0 : TypeInstance) : String
-	= invoke('org.obeonetwork.dsl.database.sqlgen.TypesServices', 'getType(org.obeonetwork.dsl.typeslibrary.TypeInstance)', Sequence{arg0}) /]
-
-[query public isTargetOracle(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.TypesServices', 'isTargetOracle(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
-
-[query public isTargetMySql(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.TypesServices', 'isTargetMySql(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
-
-[query public isTargetSqlServer(arg0 : DatabaseElement) : Boolean
-	= invoke('org.obeonetwork.dsl.database.sqlgen.TypesServices', 'isTargetSqlServer(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
-
-[query private getSubDiffs(diff : Diff) : Sequence(Diff)
-	= invoke('org.obeonetwork.dsl.database.sqlgen.services.UtilServices', 'getSubDiffs(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]

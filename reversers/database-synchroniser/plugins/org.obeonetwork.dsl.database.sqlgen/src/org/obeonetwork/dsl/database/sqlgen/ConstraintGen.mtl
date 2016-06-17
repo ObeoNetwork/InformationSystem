@@ -5,7 +5,7 @@
  'http://www.eclipse.org/emf/compare',
  'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
-[import org::obeonetwork::dsl::database::sqlgen::TableGen /]
+[import org::obeonetwork::dsl::database::sqlgen::services::names /]
 
 [template public genSQLForConstraints(changeSet : Comparison) post(trim())]
 [if (changeSet.eAllContents(AddConstraint)->size()>0)]

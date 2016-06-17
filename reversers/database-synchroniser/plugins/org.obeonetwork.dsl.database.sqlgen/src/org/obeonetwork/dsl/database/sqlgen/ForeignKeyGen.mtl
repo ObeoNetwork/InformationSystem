@@ -5,13 +5,13 @@
  'http://www.eclipse.org/emf/compare',
  'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
-[import org::obeonetwork::dsl::database::sqlgen::TableGen /]
+[import org::obeonetwork::dsl::database::sqlgen::services::names /]
 
 [template public genSQLForForeignKeys(changeSet : Comparison) post(trim())]
 [if (changeSet.eAllContents(AddForeignKey)->size()>0)]
 	[file ('create-fk.sql', false, 'UTF-8')]
-		[for (addPk : AddForeignKey | changeSet.eAllContents(AddForeignKey))]
-[addPk.genCreateFK()/]
+		[for (addFk : AddForeignKey | changeSet.eAllContents(AddForeignKey))]
+[addFk.genCreateFK()/]
 
 		[/for]
 	[/file]

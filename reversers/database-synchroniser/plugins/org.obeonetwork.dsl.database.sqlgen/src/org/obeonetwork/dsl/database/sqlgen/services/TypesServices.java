@@ -1,4 +1,4 @@
-package org.obeonetwork.dsl.database.sqlgen;
+package org.obeonetwork.dsl.database.sqlgen.services;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
