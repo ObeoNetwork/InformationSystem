@@ -28,6 +28,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.Schema;
+import org.obeonetwork.dsl.database.sqlgen.services.TypesServices;
+import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
+import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
+import org.obeonetwork.dsl.typeslibrary.UserDefinedTypesLibrary;
 
 /**
  * Entry point of the 'DatabaseGen' generation module.
@@ -124,22 +128,31 @@ public class DatabaseGen extends SQLGenerator {
     }
         
     private File computeTargetFolder(File folder, Comparison comparison){
-    	String folderName="";    	
+    	String folderName="";
+    	String dbtypeFolderName="";
     	if(comparison!=null){
     		DataBase database = (DataBase)comparison.getMatches().get(0).getLeft();
-    		folderName=database.getName();
+    		
+    		TypesLibrary physicalTypesLibrary = new TypesServices().getPhysicalTypesLibrary(database);
+    		if (physicalTypesLibrary instanceof NativeTypesLibrary) {
+    			dbtypeFolderName += ((NativeTypesLibrary) physicalTypesLibrary).getName() + "/";
+    		} else if (physicalTypesLibrary instanceof UserDefinedTypesLibrary) {
+    			dbtypeFolderName += ((UserDefinedTypesLibrary) physicalTypesLibrary).getName() + "/";
+    		}
+    		
+    		folderName = database.getName();
     		if(database.getSchemas().size()>0){
     			Schema schema = database.getSchemas().get(0);
-    			folderName=schema.getName();
+    			folderName = schema.getName();
     		}
-    		folderName+="-";
+    		folderName += "-";
     	}    	
     	java.sql.Timestamp timeStampDate = new Timestamp(System.currentTimeMillis()); 
     	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd/HH-mm-ss"); 
     	String timestamp = formatter.format(timeStampDate);
-    	folderName+=timestamp;
+    	folderName += timestamp;
     	
-    	File targetFolder = new File(folder.getAbsolutePath()+"/"+folderName);
+    	File targetFolder = new File(folder.getAbsolutePath() + "/" + dbtypeFolderName + folderName);
     	return targetFolder;
     }
     

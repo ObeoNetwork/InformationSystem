@@ -43,24 +43,37 @@ public class TypesServices {
 		return getLabelProvider().getText(typeInstance);
 	}
 
-	public boolean isTargetOracle(DatabaseElement element) {
+	public TypesLibrary getPhysicalTypesLibrary(DatabaseElement element) {
 		TypesLibraryUser tlu = getTypesLibraryUser(element);
 		TypesLibrary physicalTypesLibrary = getTargetPhysicalTypesLibrary(tlu);
+		return physicalTypesLibrary;
+	}
+	
+	public boolean isTargetOracle(DatabaseElement element) {
+		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
 		return isTargetOracleTypesLibrary(physicalTypesLibrary);
 	}
 	
 	public boolean isTargetMySql(DatabaseElement element) {
-		TypesLibraryUser tlu = getTypesLibraryUser(element);
-		TypesLibrary physicalTypesLibrary = getTargetPhysicalTypesLibrary(tlu);
+		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
 		return isTargetMysqlTypesLibrary(physicalTypesLibrary);
 	}
 	
 	public boolean isTargetSqlServer(DatabaseElement element) {
-		TypesLibraryUser tlu = getTypesLibraryUser(element);
-		TypesLibrary physicalTypesLibrary = getTargetPhysicalTypesLibrary(tlu);
+		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
 		return isTargetSqlServerTypesLibrary(physicalTypesLibrary);
 	}
 	
+	public boolean isTargetPostgreSQL(DatabaseElement element) {
+		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
+		return isTargetPostgreSQLTypesLibrary(physicalTypesLibrary);
+	}
+
+	public boolean isTargetH2(DatabaseElement element) {
+		TypesLibrary physicalTypesLibrary = getPhysicalTypesLibrary(element);
+		return isTargetH2TypesLibrary(physicalTypesLibrary);
+	}
+
 	private TypesLibraryUser getTypesLibraryUser(DatabaseElement element) {
 		if (element instanceof TypesLibraryUser) {
 			return (TypesLibraryUser)element;
@@ -72,7 +85,6 @@ public class TypesServices {
 		}
 		return null;
 	}
-	
 	
 	private TypesLibrary getTargetPhysicalTypesLibrary(TypesLibraryUser tlu) {
 		if (tlu != null) {
@@ -99,5 +111,15 @@ public class TypesServices {
 	
 	private boolean isTargetSqlServerTypesLibrary(TypesLibrary targetTypesLibrary) {
 		return targetTypesLibrary != null && TypesLibraryUtil.SQLSERVER_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
+	}
+	
+	
+	private boolean isTargetH2TypesLibrary(TypesLibrary targetTypesLibrary) {
+		return targetTypesLibrary != null && TypesLibraryUtil.H2_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
+	}
+	
+	
+	private boolean isTargetPostgreSQLTypesLibrary(TypesLibrary targetTypesLibrary) {
+		return targetTypesLibrary != null && TypesLibraryUtil.POSTGRES_PATHMAP.equals(targetTypesLibrary.eResource().getURI().toString());
 	}
 }
