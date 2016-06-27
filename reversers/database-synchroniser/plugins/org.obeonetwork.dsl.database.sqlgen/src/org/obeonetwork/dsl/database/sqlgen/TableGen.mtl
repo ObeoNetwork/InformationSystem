@@ -84,14 +84,18 @@ CREATE PUBLIC SYNONYM [table.name()/] FOR [table.getSchemaName()/].[table.name()
 [let table : Table = addTable.table.oclAsType(Table)]
 [table.genTableDoc()/]
 [table.genDropSynonym()/]
-DROP TABLE [table.name()/];
-CREATE TABLE [table.name()/](
+DROP TABLE [table.genSchemaPrefix()/][table.name()/];
+CREATE TABLE [table.genSchemaPrefix()/][table.name()/](
 [table.columnsDef()/]
 )[table.genStorageClause()/];
 [table.genCreateSynonym()/]
 [table.genCreateTableComment()/]
 [table.genCreateColumnsComment()/]
 [/let]
+[/template]
+
+[template private genSchemaPrefix(table : Table)]
+[if (table.supportsSchema() and table.eContainer().oclIsKindOf(Schema))][table.eContainer().oclAsType(Schema).name()/].[/if]
 [/template]
 
 [template private genAlterTable(alterTable : AlterTable) post(trim())]

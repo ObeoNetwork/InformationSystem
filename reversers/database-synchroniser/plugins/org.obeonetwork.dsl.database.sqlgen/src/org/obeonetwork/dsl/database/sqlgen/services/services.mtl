@@ -17,8 +17,18 @@
 [query public isTargetSqlServer(arg0 : DatabaseElement) : Boolean
 	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetSqlServer(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
 
+[query public isTargetPostgreSQL(arg0 : DatabaseElement) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetPostgreSQL(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+
+[query public isTargetH2(arg0 : DatabaseElement) : Boolean
+	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'isTargetH2(org.obeonetwork.dsl.database.DatabaseElement)', Sequence{arg0}) /]
+
 [query public getSubDiffs(diff : Diff) : Sequence(Diff)
 	= invoke('org.obeonetwork.dsl.database.sqlgen.services.UtilServices', 'getSubDiffs(org.eclipse.emf.compare.Diff)', Sequence{diff}) /]
 
 [query public isIndexForFK(index : Index) : Boolean
 	= invoke('org.obeonetwork.dsl.database.sqlgen.services.DatabaseServices', 'isIndexForForeignKey(org.obeonetwork.dsl.database.Index)', Sequence{index}) /]
+
+[query public supportsSchema(arg : DatabaseElement) : Boolean =
+arg.isTargetH2() or arg.isTargetOracle() or arg.isTargetPostgreSQL()
+/]

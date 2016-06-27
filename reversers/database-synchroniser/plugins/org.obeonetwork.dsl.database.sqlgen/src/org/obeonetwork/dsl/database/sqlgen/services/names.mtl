@@ -12,3 +12,7 @@
 [template public name(column : Column) post(trim())]
 [column.name/]
 [/template]
+
+[template public name(schema : Schema) post(trim())]
+[schema.name.toUpper()/]
+[/template]
