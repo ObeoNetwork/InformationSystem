@@ -47,14 +47,17 @@ public class IndexQuery {
 			return null;
 		}
 		
-		Column column = columns.get(0);
-		
-		// Check if one the foreign keys contains all columns
-		for (ForeignKey fk : column.getForeignKeys()) {
-			List<Column> fkColumns = new ForeignKeyQuery(fk).getFKColumns();
-			if (fkColumns.containsAll(columns)
-					&& columns.containsAll(fkColumns)) {
-				return fk;
+		for (Column column : columns) {
+			// Let's consider the first non-null column
+			if (column != null) {
+				// Check if one the foreign keys contains all columns
+				for (ForeignKey fk : column.getForeignKeys()) {
+					List<Column> fkColumns = new ForeignKeyQuery(fk).getFKColumns();
+					if (fkColumns.containsAll(columns)
+							&& columns.containsAll(fkColumns)) {
+						return fk;
+					}
+				}				
 			}
 		}
 

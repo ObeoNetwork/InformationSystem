@@ -16,3 +16,7 @@
 [template public name(schema : Schema) post(trim())]
 [schema.name.toUpper()/]
 [/template]
+
+[template public name(sequence : Sequence) post(trim())]
+[sequence.name.toUpper()/]
+[/template]

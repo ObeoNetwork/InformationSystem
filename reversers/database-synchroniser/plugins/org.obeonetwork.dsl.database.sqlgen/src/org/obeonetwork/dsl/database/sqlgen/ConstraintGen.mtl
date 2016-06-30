@@ -6,6 +6,7 @@
  'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
 [import org::obeonetwork::dsl::database::sqlgen::services::names /]
+[import org::obeonetwork::dsl::database::sqlgen::services::services /]
 
 [template public genSQLForConstraints(changeSet : Comparison) post(trim())]
 [if (changeSet.eAllContents(AddConstraint)->size()>0)]
@@ -60,11 +61,11 @@
 
 [template private genCreateConstraint(constraint : Constraint) post(trim())]
 [let table : Table = constraint.owner]
-ALTER TABLE [table.name()/] ADD CONSTRAINT [constraint.name/] 
+ALTER TABLE [table.genSchemaPrefix()/][table.name()/] ADD CONSTRAINT [constraint.name/] 
 	CHECK([constraint.expression/]);[/let]
 [/template]
 
 [template private genDropConstraint(constraint : Constraint) post(trim())]
 [let table : Table = constraint.owner]
-ALTER TABLE [table.name()/] DROP CONSTRAINT [constraint.name/];[/let]
+ALTER TABLE [table.genSchemaPrefix()/][table.name()/] DROP CONSTRAINT [constraint.name/];[/let]
 [/template]

@@ -94,10 +94,6 @@ CREATE TABLE [table.genSchemaPrefix()/][table.name()/](
 [/let]
 [/template]
 
-[template private genSchemaPrefix(table : Table)]
-[if (table.supportsSchema() and table.eContainer().oclIsKindOf(Schema))][table.eContainer().oclAsType(Schema).name()/].[/if]
-[/template]
-
 [template private genAlterTable(alterTable : AlterTable) post(trim())]
 [alterTable.table.genTableDoc()/]
 [for (diff : Diff | alterTable.getSubDiffs())]
@@ -132,7 +128,7 @@ CREATE TABLE [table.genSchemaPrefix()/][table.name()/](
 [/template]
 
 [template private genCreateTableComment(table : Table) ? (table.comments<>null and table.comments.size()>0) post(trim())]
-COMMENT ON TABLE [table.name/] IS '[table.comments.replaceAll('\'','\'\'')/]';
+COMMENT ON TABLE [table.genSchemaPrefix()/][table.name/] IS '[table.comments.replaceAll('\'','\'\'')/]';
 [/template]
 
 [template private genUpdateTableComment(table : Table) post(trim())]
@@ -169,7 +165,7 @@ ALTER TABLE [newColumn.owner.oclAsType(Table).name()/] RENAME COLUMN [oldColumn.
 [/template]
 
 [template private genCreateColumnComment(column : Column) ? (column.comments<>null and column.comments.size()>0) post(trim())]
-COMMENT ON COLUMN [column.owner.oclAsType(Table).name()/].[column.name()/] IS '[column.comments.replaceAll('\'','\'\'')/]';
+COMMENT ON COLUMN [column.owner.oclAsType(Table).genSchemaPrefix()/][column.owner.oclAsType(Table).name()/].[column.name()/] IS '[column.comments.replaceAll('\'','\'\'')/]';
 [/template]
 
 [template private genUpdateColumnComment(column : Column) post(trim())]
@@ -211,5 +207,5 @@ COMMENT ON COLUMN [column.owner.oclAsType(Table).name()/].[column.name()/] IS '[
 [/template]
 
 [template private autoIncrement(column : Column)]
-[if (column.isTargetMySql() and (column.autoincrement or column.inPrimaryKey))] AUTO_INCREMENT[/if]
+[if ((column.isTargetMySql() or column.isTargetH2()) and (column.autoincrement or column.inPrimaryKey))] AUTO_INCREMENT[/if]
 [/template]

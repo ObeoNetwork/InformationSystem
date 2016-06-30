@@ -5,6 +5,8 @@
  'http://www.eclipse.org/emf/compare',
  'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
+[import org::obeonetwork::dsl::database::sqlgen::services::names /]
+
 [query public getType(arg0 : TypeInstance) : String
 	= invoke('org.obeonetwork.dsl.database.sqlgen.services.TypesServices', 'getType(org.obeonetwork.dsl.typeslibrary.TypeInstance)', Sequence{arg0}) /]
 
@@ -32,3 +34,11 @@
 [query public supportsSchema(arg : DatabaseElement) : Boolean =
 arg.isTargetH2() or arg.isTargetOracle() or arg.isTargetPostgreSQL()
 /]
+
+[template public genSchemaPrefix(table : Table)]
+[if (table.supportsSchema() and table.eContainer().oclIsKindOf(Schema))][table.eContainer().oclAsType(Schema).name()/].[/if]
+[/template]
+
+[template public genSchemaPrefix(sequence : Sequence)]
+[if (sequence.supportsSchema() and sequence.eContainer().oclIsKindOf(Schema))][sequence.eContainer().oclAsType(Schema).name()/].[/if]
+[/template]

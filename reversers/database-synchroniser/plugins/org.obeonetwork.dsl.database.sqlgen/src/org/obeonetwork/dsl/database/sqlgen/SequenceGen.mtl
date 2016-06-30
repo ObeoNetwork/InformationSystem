@@ -4,6 +4,9 @@
  'http://www.obeonetwork.org/dsl/database/1.0',
  'http://www.eclipse.org/emf/compare')/]
 
+[import org::obeonetwork::dsl::database::sqlgen::services::names /]
+[import org::obeonetwork::dsl::database::sqlgen::services::services /]
+
 [template public genSQLForSequences(changeSet : Comparison) post(trim())]
 [if (changeSet.eAllContents(AddSequence)->size()>0)]
 	[file ('create-sequences.sql', false, 'UTF-8')]
@@ -44,6 +47,7 @@
 [/template]
 
 [template private genUpdateSequence(sequence : Sequence) post(trim())]
+[sequence.genSequenceDoc()/]
 ALTER SEQUENCE [sequence.name()/][sequence.genIncrementBy()/][sequence.genStartWith()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genCycle()/];
 [/template]
 
@@ -52,6 +56,7 @@ ALTER SEQUENCE [sequence.name()/][sequence.genIncrementBy()/][sequence.genStartW
 [/template]
 
 [template private genDropSequence(sequence : Sequence) post(trim())]
+[sequence.genSequenceDoc()/]
 DROP SEQUENCE [sequence.name()/];
 [/template]
 
@@ -59,8 +64,16 @@ DROP SEQUENCE [sequence.name()/];
 [addSequence.sequence.genCreateSequence()/]
 [/template]
 
+[template private genSequenceDoc(sequence : Sequence) post(trim())]
+-- ==============================================================
+--  Sequence : [sequence.name()/]                                    
+-- ==============================================================
+[/template]
+
 [template private genCreateSequence(sequence : Sequence) post(trim())]
-CREATE SEQUENCE [sequence.name()/][sequence.genIncrementBy()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genStartWith()/][sequence.genCache()/][sequence.genCycle()/];
+[sequence.genSequenceDoc()/]
+CREATE SEQUENCE [sequence.genSchemaPrefix()/][sequence.name()/][sequence.genIncrementBy()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genStartWith()/][sequence.genCache()/][sequence.genCycle()/];
+[sequence.genSequenceComment()/]
 [/template]
 
 [query private isValidValue(value : Integer) : Boolean = not value.oclIsInvalid() and not value.oclIsUndefined() /]
@@ -73,11 +86,11 @@ CREATE SEQUENCE [sequence.name()/][sequence.genIncrementBy()/][sequence.genMinVa
  START WITH [sequence.start/]
 [/template]
 
-[template private genMinValue(sequence : Sequence) ? (sequence.minValue.isValidValue())]
+[template private genMinValue(sequence : Sequence) ? (sequence.minValue.isValidValue() and sequence.minValue <> 1)]
  MINVALUE [sequence.minValue/]
 [/template]
 
-[template private genMaxValue(sequence : Sequence) ? (sequence.maxValue.isValidValue())]
+[template private genMaxValue(sequence : Sequence) ? (sequence.maxValue.isValidValue() and sequence.maxValue <> -1)]
  MAXVALUE [sequence.maxValue/]
 [/template]
 
@@ -89,6 +102,6 @@ CREATE SEQUENCE [sequence.name()/][sequence.genIncrementBy()/][sequence.genMinVa
  CACHE [sequence.cacheSize/]
 [/template]
 
-[template private name(sequence : Sequence) post(trim())]
-[sequence.name.toUpper()/]
+[template private genSequenceComment(sequence : Sequence) ? (sequence.comments<>null and sequence.comments.size()>0) post(trim())]
+COMMENT ON TABLE [sequence.genSchemaPrefix()/][sequence.name()/] IS '[sequence.comments.replaceAll('\'','\'\'')/]';
 [/template]
