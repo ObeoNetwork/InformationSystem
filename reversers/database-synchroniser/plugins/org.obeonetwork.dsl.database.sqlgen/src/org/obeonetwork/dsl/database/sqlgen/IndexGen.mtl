@@ -60,7 +60,10 @@
 [/template]
 
 [template private genStorageClause(index : Index)]
-[if (index.owner.owner.oclIsKindOf(Schema) and not index.owner.oclAsType(database::Table).isTargetMySql())]
+[if (index.owner.owner.oclIsKindOf(Schema)
+and not (index.getTable().isTargetMySql()
+	or index.getTable().isTargetPostgreSQL()
+	or index.getTable().isTargetOracle()))]
 
   pctfree 10
   pctused 40
@@ -79,10 +82,12 @@
 
 [template private genCreateIndex(index : Index) ? (index.ID<>index.owner.primaryKey.ID) post(trim())]
 [if (index.elements->forAll(not column.oclIsUndefined()))]
-CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.owner.name()/]([index.elements.column.name->sep(', ')/])[index.genStorageClause()/]; 
+CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.getTable().genSchemaPrefix()/][index.owner.name()/]([index.elements.column.name->sep(', ')/])[index.genStorageClause()/]; 
 [/if]
 [/template]
 
 [template private genDropIndex(index : Index) ? (index.ID<>index.owner.primaryKey.ID) post(trim())]
 ALTER TABLE [index.owner.name()/] DROP INDEX [index.name/];
 [/template]
+
+[query private getTable(index : Index) : Table = index.owner.oclAsType(database::Table) /]

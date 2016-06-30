@@ -67,9 +67,13 @@ changeSet.eAllContents(AddForeignKey)->first().foreignKey.isTargetMySql() /]
 [template private genCreatePK(pk : PrimaryKey) post(trim())]
 [if (pk.columns->notEmpty())]
 [let table : Table = pk.columns->first().owner.oclAsType(Table)]
-CREATE UNIQUE INDEX [pk.genPkConstraintName()/] ON [table.name()/]([pk.columns.name->sep(', ')/]);
-ALTER TABLE [table.name()/] ADD (CONSTRAINT [pk.genPkConstraintName()/] PRIMARY KEY([pk.columns.name->sep(', ')/]));[/let]
+[pk.genUniquePKIndex(table)/]
+ALTER TABLE [table.genSchemaPrefix()/][table.name()/] ADD CONSTRAINT [pk.genPkConstraintName()/] PRIMARY KEY([pk.columns.name->sep(', ')/]);[/let]
 [/if]
+[/template]
+
+[template private genUniquePKIndex(pk : PrimaryKey, table : Table) ? (not pk.isTargetPostgreSQL() and not pk.isTargetH2())]
+CREATE UNIQUE INDEX [pk.genPkConstraintName()/] ON [table.name()/]([pk.columns.name->sep(', ')/]);
 [/template]
 
 [template private genDropPK(pk : PrimaryKey) post(trim())]

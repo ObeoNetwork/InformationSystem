@@ -6,6 +6,7 @@
  'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
 
 [import org::obeonetwork::dsl::database::sqlgen::services::names /]
+[import org::obeonetwork::dsl::database::sqlgen::services::services /]
 
 [template public genSQLForForeignKeys(changeSet : Comparison) post(trim())]
 [if (changeSet.eAllContents(AddForeignKey)->size()>0)]
@@ -62,9 +63,9 @@
 [if (fk.elements->forAll(not pkColumn.oclIsUndefined()))]
 [let sourceTable : Table = fk.owner]
 [let targetTable : Table = fk.elements.pkColumn->first().owner.oclAsType(Table)]
-ALTER TABLE [sourceTable.name()/] 
-	ADD (CONSTRAINT [fk.name/] FOREIGN KEY([fk.elements.fkColumn.name->sep(', ')/]) 
-	REFERENCES [targetTable.name()/]([fk.elements.pkColumn.name->sep(', ')/]));[/let][/let]
+ALTER TABLE [sourceTable.genSchemaPrefix()/][sourceTable.name()/] 
+	ADD CONSTRAINT [fk.name/] FOREIGN KEY([fk.elements.fkColumn.name->sep(', ')/]) 
+	REFERENCES [targetTable.genSchemaPrefix()/][targetTable.name()/]([fk.elements.pkColumn.name->sep(', ')/]);[/let][/let]
 [/if]
 [/template]
 
