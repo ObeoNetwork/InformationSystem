@@ -117,7 +117,7 @@ public class CreationUtils {
 	public static TypeInstance createTypeInstance(NativeTypesLibrary nativeTypesLibrary, String columnType, int columnSize, int decimalDigits) {
 		NativeType nativeType = nativeTypesLibrary.findTypeByName(columnType);
 		if (nativeType == null) {
-			System.err.println("handleMetaDatasColumn : native type [" + columnType + "] not found.");
+			System.err.println("createTypeInstance : native type [" + columnType + "] not found.");
 		}
 		TypeInstance typeInstance = TypesLibraryFactory.eINSTANCE.createTypeInstance();
 		typeInstance.setNativeType(nativeType);
