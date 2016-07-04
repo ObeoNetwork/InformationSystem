@@ -231,7 +231,7 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
         		// TODO : get Cycle flag with CYCLE_FLAG column
         		// TODO get cache value
                 PreparedStatement psmt = metaData.getConnection().prepareStatement(
-                                "SELECT SEQUENCE_NAME, INCREMENT_BY, MIN_VALUE, MAX_VALUE, LAST_NUMBER " +
+                                "SELECT SEQUENCE_NAME, INCREMENT_BY, MIN_VALUE, MAX_VALUE, LAST_NUMBER, CYCLE_FLAG, CACHE_SIZE " +
                                 "FROM user_sequences");                
                 rs = psmt.executeQuery();
                 while( rs.next() ) {
@@ -245,7 +245,10 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
                 		maxValue = maxValueAsBigInt.intValue();
                 	}
                 	int start = rs.getInt(5);
-                	Sequence sequence = CreationUtils.createSequence(owner, name, increment, minValue, maxValue, start, false, null);
+                	String cycleAsString = rs.getString(6);
+                	boolean cycle = "Y".equals(cycleAsString);
+                	Integer cacheSize  = rs.getInt(7);
+                	Sequence sequence = CreationUtils.createSequence(owner, name, increment, minValue, maxValue, start, cycle, cacheSize);
                 	// Look for a table that could correspond to the sequence
                 	if (name.endsWith("_SEQ")) {
                 		String tableName = name.substring(0, name.length() - "_SEQ".length());
