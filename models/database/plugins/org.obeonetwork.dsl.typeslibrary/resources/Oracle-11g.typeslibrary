@@ -11,14 +11,17 @@
   <nativeTypes xmi:id="_NuhckP_HEeS1PaMnMy5CmQ" name="BOOLEAN">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
+  <nativeTypes xmi:id="_cUwGNxEnEeGTa_JlZYBw1A" name="CHAR" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
   <nativeTypes xmi:id="_cUwGNBEnEeGTa_JlZYBw1A" name="CLOB"/>
   <nativeTypes xmi:id="_cUwGNREnEeGTa_JlZYBw1A" name="DATE">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_cUwGNxEnEeGTa_JlZYBw1A" name="CHAR (%n)" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  <nativeTypes xmi:id="_IyWEcD8AEeaWN4f5B3n2lA" name="FLOAT">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_cUwtRxEnEeGTa_JlZYBw1A" name="INTEGER">
+  <nativeTypes xmi:id="_EwGJQD77EeaWN4f5B3n2lA" name="INTEGER">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_cUwtSREnEeGTa_JlZYBw1A" name="INTERVAL DAY(%n) TO SECOND" spec="Length">
@@ -26,6 +29,9 @@
   </nativeTypes>
   <nativeTypes xmi:id="_cUwtSxEnEeGTa_JlZYBw1A" name="INTERVAL YEAR(%n) TO MONTH" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUwtRxEnEeGTa_JlZYBw1A" name="LONG">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_cUxUWREnEeGTa_JlZYBw1A" name="NCHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
@@ -45,7 +51,13 @@
   <nativeTypes xmi:id="_cUx7ahEnEeGTa_JlZYBw1A" name="TIMESTAMP WITH LOCAL TIME ZONE" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
+  <nativeTypes xmi:id="__DPXUD7-EeaWN4f5B3n2lA" name="TIMESTAMP(%n) WITH LOCAL TIME ZONE" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
   <nativeTypes xmi:id="_cUx7axEnEeGTa_JlZYBw1A" name="TIMESTAMP WITH TIME ZONE" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_DbS8sD7_EeaWN4f5B3n2lA" name="TIMESTAMP(%n) WITH TIME ZONE" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_cUx7bREnEeGTa_JlZYBw1A" name="UROWID"/>
