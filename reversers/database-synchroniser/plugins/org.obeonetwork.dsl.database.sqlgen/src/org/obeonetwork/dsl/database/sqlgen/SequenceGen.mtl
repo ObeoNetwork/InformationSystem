@@ -95,7 +95,7 @@ CREATE SEQUENCE [sequence.genSchemaPrefix()/][sequence.name()/][sequence.genIncr
 [/template]
 
 [template private genCycle(sequence : Sequence)]
-[if (sequence.cycle.oclIsInvalid() or sequence.cycle = false)] NOCYCLE[else] CYCLE[/if]
+[if (sequence.cycle.oclIsInvalid() or sequence.cycle = false)] NO CYCLE[else] CYCLE[/if]
 [/template]
 
 [template private genCache(sequence : Sequence) ? (sequence.cacheSize.isValidValue())]
