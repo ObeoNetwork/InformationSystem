@@ -205,7 +205,11 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 	protected String getViewQuery(DatabaseMetaData metaData, String viewName) {
 		String viewQuery = super.getViewQuery(metaData, viewName);
 		if (viewQuery == null) {
-			String query =	"select pg_get_viewdef('" + viewName + "', true)";
+			String viewFullName = viewName;
+			if (schemaName != null && !schemaName.trim().isEmpty()) {
+				viewFullName = schemaName + "." + viewName;
+			}
+			String query =	"select pg_get_viewdef('" + viewFullName + "', true)";
 			ResultSet rs = null;
 			PreparedStatement pstmt = null;
 			try {
