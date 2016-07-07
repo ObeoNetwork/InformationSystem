@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_Zj69UBEnEeGTa_JlZYBw1A" kind="physicalTypes" name="Postgres-9">
-  <nativeTypes xmi:id="_fXqYcG5GEeS0qO0NdvQESw" name="BIT" spec="Length"/>
-  <nativeTypes xmi:id="_jTNA8G5GEeS0qO0NdvQESw" name="BIT VARYING" spec="Length"/>
+  <nativeTypes xmi:id="_fXqYcG5GEeS0qO0NdvQESw" name="BIT" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_jTNA8G5GEeS0qO0NdvQESw" name="BIT VARYING" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
+  </nativeTypes>
   <nativeTypes xmi:id="_S3MhgG5GEeS0qO0NdvQESw" name="BIGINT">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
@@ -15,7 +19,9 @@
   <nativeTypes xmi:id="_szbAMP_tEeWy8oqaMgwyjw" name="BPCHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_3Xq00G5GEeS0qO0NdvQESw" name="BYTEA"/>
+  <nativeTypes xmi:id="_3Xq00G5GEeS0qO0NdvQESw" name="BYTEA">
+    <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
+  </nativeTypes>
   <nativeTypes xmi:id="_kxaEsGTMEeSmq67_vSAzgg" name="CHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
@@ -95,7 +101,9 @@
   <nativeTypes xmi:id="_1m2ksP_tEeWy8oqaMgwyjw" name="TIMESTAMPTZ">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_YOCGAP_sEeWy8oqaMgwyjw" name="VARBIT" spec="Length"/>
+  <nativeTypes xmi:id="_YOCGAP_sEeWy8oqaMgwyjw" name="VARBIT" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
+  </nativeTypes>
   <nativeTypes xmi:id="_hn9LAGTNEeSmq67_vSAzgg" name="VARCHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
