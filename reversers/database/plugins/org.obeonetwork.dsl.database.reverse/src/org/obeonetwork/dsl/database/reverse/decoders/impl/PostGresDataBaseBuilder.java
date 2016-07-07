@@ -82,9 +82,12 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 			PreparedStatement psmt = metaData
 					.getConnection()
 					.prepareStatement(
-								"SELECT SEQUENCE_NAME, INCREMENT, MINIMUM_VALUE, MAXIMUM_VALUE, START_VALUE, CYCLE_OPTION "
-										+ "FROM INFORMATION_SCHEMA.SEQUENCES WHERE SEQUENCE_SCHEMA = '"
-									+ schemaName + "'");
+						"SELECT s.SEQUENCE_NAME, s.INCREMENT, s.MINIMUM_VALUE, s.MAXIMUM_VALUE, s.START_VALUE, s.CYCLE_OPTION , pg_catalog.obj_description(c.oid) " +
+						"FROM INFORMATION_SCHEMA.SEQUENCES s " +
+						"LEFT JOIN PG_CATALOG.pg_class c " +
+						"ON c.relname = s.SEQUENCE_NAME " +
+						"AND c.relkind = 'S' " +
+						"WHERE s.SEQUENCE_SCHEMA = '"+ schemaName + "'");
 			
 			rs = psmt.executeQuery();
 			while (rs.next()) {
@@ -104,6 +107,8 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 				String cycleAsString = rs.getString(6);
 				boolean cycle = "YES".equals(cycleAsString);
 				
+				String comment = rs.getString(7);
+				
 				// Retrieve CACHE value
 				Integer cacheValue = null;
 				PreparedStatement psmtCache = metaData.getConnection().prepareStatement("SELECT CACHE_VALUE FROM " + schemaName + "." + name);
@@ -114,6 +119,7 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 				
 				Sequence sequence = CreationUtils.createSequence(owner, name,
 						increment, minValue, maxValue, start, cycle, cacheValue);
+				sequence.setComments(comment);
 				// Look for a table that could correspond to the sequence
 				if (name.endsWith("_seq")) {
 					String tableName = name.substring(0,
