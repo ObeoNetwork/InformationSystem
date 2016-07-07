@@ -51,23 +51,6 @@ DROP TABLE [table.name()/];
 [/let]
 [/template]
 
-[template private genStorageClause(table : Table) ? (table.isTargetOracle()) post(trim())]
-[if (table.owner.oclIsKindOf(Schema))]
-storage
-(
-    initial 10K
-    next 10K
-    minextents 1
-    maxextents unlimited
-    pctincrease 50
-    freelists 1
-    freelist groups 1
-    optimal NULL
-    buffer_pool default
-)
-tablespace TS_DATA_[table.getSchemaName()/][/if]
-[/template]
-
 [template private getSchemaName(table : Table) post(trim())]
 [table.owner.oclAsType(Schema).name.toUpper()/]
 [/template]
@@ -87,7 +70,7 @@ CREATE PUBLIC SYNONYM [table.name()/] FOR [table.getSchemaName()/].[table.name()
 DROP TABLE [table.genSchemaPrefix()/][table.name()/];
 CREATE TABLE [table.genSchemaPrefix()/][table.name()/](
 [table.columnsDef()/]
-)[table.genStorageClause()/];
+);
 [table.genCreateSynonym()/]
 [table.genCreateTableComment()/]
 [table.genCreateColumnsComment()/]
