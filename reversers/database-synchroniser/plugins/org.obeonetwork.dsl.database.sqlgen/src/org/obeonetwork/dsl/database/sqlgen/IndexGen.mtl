@@ -63,7 +63,8 @@
 [if (index.owner.owner.oclIsKindOf(Schema)
 and not (index.getTable().isTargetMySql()
 	or index.getTable().isTargetPostgreSQL()
-	or index.getTable().isTargetOracle()))]
+	or index.getTable().isTargetOracle()
+	or index.getTable().isTargetH2()))]
 
   pctfree 10
   pctused 40
