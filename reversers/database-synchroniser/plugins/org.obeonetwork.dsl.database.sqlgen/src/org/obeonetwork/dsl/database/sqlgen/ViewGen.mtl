@@ -1,0 +1,84 @@
+[comment encoding = UTF-8 /]
+[module ViewGen(
+ 'http://www.obeonetwork.org/dsl/database/evolution/1.0',
+ 'http://www.obeonetwork.org/dsl/database/1.0',
+ 'http://www.eclipse.org/emf/compare',
+ 'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+
+[import org::obeonetwork::dsl::database::sqlgen::services::services /]
+[import org::obeonetwork::dsl::database::sqlgen::services::names /]
+
+[template public genSQLForViews(changeSet : Comparison) post(trim())]
+[if (changeSet.eAllContents(AddView)->size()>0)]
+	[file ('create-views.sql', false, 'UTF-8')]
+		[for (addView : AddView | changeSet.eAllContents(AddView))]
+[addView.genCreateView()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(RemoveView)->size()>0)]
+	[file ('drop-views.sql', false, 'UTF-8')]
+		[for (removeView : RemoveView | changeSet.eAllContents(RemoveView))]
+[removeView.genDropView()/]
+
+		[/for]
+	[/file]
+[/if]
+
+[if (changeSet.eAllContents(AlterView)->size()>0)]
+	[file ('alter-views.sql', false, 'UTF-8')]
+		[for (alterView : AlterView | changeSet.eAllContents(AlterView))]
+[alterView.genAlterView()/]
+		[/for]
+	[/file]
+[/if]
+[/template]
+
+[comment ----------- TABLE ----------- /]
+[template private genViewDoc(view : View) post(trim())]
+-- ==============================================================
+--  View : [view.name()/]                                    
+-- ==============================================================
+[/template]
+
+[template private genDropView(removeView : RemoveView) post(trim())]
+[let view : View = removeView.view.oclAsType(View)]
+[view.genViewDoc()/]
+DROP VIEW [view.name()/];
+[/let]
+[/template]
+
+[template private getSchemaName(view : View) post(trim())]
+[view.owner.oclAsType(Schema).name.toUpper()/]
+[/template]
+
+[template private genCreateView(addView : AddView) post(trim())]
+[let view : View = addView.view.oclAsType(View)]
+[view.genViewDoc()/]
+CREATE OR REPLACE VIEW [view.genSchemaPrefix()/][view.name()/] AS [view.getViewQuery()/]
+[view.genCreateViewComment()/]
+[/let]
+[/template]
+
+[template private genAlterView(alterView : AlterView) post(trim())]
+[let view : View = alterView.view.oclAsType(View)]
+[view.genViewDoc()/]
+DROP VIEW [view.name()/];
+CREATE OR REPLACE VIEW [view.genSchemaPrefix()/][view.name()/] AS [view.getViewQuery()/]
+[view.genCreateViewComment()/]
+[/let]
+[/template]
+
+[template private genCreateViewComment(view : View) ? (view.comments<>null and view.comments.size()>0) post(trim())]
+COMMENT ON VIEW [view.genSchemaPrefix()/][view.name/] IS '[view.comments.replaceAll('\'','\'\'')/]';
+[/template]
+
+[template private genUpdateViewComment(view : View) post(trim())]
+[view.genCreateViewComment()/]
+[/template]
+
+[template private genRenameView(oldView : View, newView : View) post(trim())]
+ALTER VIEW [oldView.name()/] RENAME TO [newView.name()/];
+[/template]

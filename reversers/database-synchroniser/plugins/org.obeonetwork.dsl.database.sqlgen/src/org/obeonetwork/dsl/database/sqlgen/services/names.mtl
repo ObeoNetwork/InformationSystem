@@ -9,6 +9,10 @@
 [table.name.toUpper()/]
 [/template]
 
+[template public name(view : View) post(trim())]
+[view.name.toUpper()/]
+[/template]
+
 [template public name(column : Column) post(trim())]
 [column.name/]
 [/template]

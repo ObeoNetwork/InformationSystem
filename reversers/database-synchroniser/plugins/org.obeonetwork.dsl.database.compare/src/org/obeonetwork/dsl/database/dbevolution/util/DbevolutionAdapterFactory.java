@@ -271,6 +271,30 @@ public class DbevolutionAdapterFactory extends AdapterFactoryImpl {
 				return createDBDiffAdapter();
 			}
 			@Override
+			public Adapter caseViewChange(ViewChange object) {
+				return createViewChangeAdapter();
+			}
+			@Override
+			public Adapter caseAddView(AddView object) {
+				return createAddViewAdapter();
+			}
+			@Override
+			public Adapter caseRemoveView(RemoveView object) {
+				return createRemoveViewAdapter();
+			}
+			@Override
+			public Adapter caseAlterView(AlterView object) {
+				return createAlterViewAdapter();
+			}
+			@Override
+			public Adapter caseRenameViewChange(RenameViewChange object) {
+				return createRenameViewChangeAdapter();
+			}
+			@Override
+			public Adapter caseUpdateViewCommentChange(UpdateViewCommentChange object) {
+				return createUpdateViewCommentChangeAdapter();
+			}
+			@Override
 			public Adapter caseComparison(Comparison object) {
 				return createComparisonAdapter();
 			}
@@ -858,6 +882,90 @@ public class DbevolutionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDBDiffAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.dbevolution.ViewChange <em>View Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.dbevolution.ViewChange
+	 * @generated
+	 */
+	public Adapter createViewChangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.dbevolution.AddView <em>Add View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.dbevolution.AddView
+	 * @generated
+	 */
+	public Adapter createAddViewAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.dbevolution.RemoveView <em>Remove View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.dbevolution.RemoveView
+	 * @generated
+	 */
+	public Adapter createRemoveViewAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.dbevolution.AlterView <em>Alter View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.dbevolution.AlterView
+	 * @generated
+	 */
+	public Adapter createAlterViewAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.dbevolution.RenameViewChange <em>Rename View Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.dbevolution.RenameViewChange
+	 * @generated
+	 */
+	public Adapter createRenameViewChangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange <em>Update View Comment Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange
+	 * @generated
+	 */
+	public Adapter createUpdateViewCommentChangeAdapter() {
 		return null;
 	}
 

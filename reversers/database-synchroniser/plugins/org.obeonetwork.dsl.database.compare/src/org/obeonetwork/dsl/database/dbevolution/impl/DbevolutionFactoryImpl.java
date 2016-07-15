@@ -61,7 +61,7 @@ public class DbevolutionFactoryImpl extends EFactoryImpl implements DbevolutionF
 	 */
 	public static DbevolutionFactory init() {
 		try {
-			DbevolutionFactory theDbevolutionFactory = (DbevolutionFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.obeonetwork.org/dsl/database/evolution/1.0"); 
+			DbevolutionFactory theDbevolutionFactory = (DbevolutionFactory)EPackage.Registry.INSTANCE.getEFactory(DbevolutionPackage.eNS_URI);
 			if (theDbevolutionFactory != null) {
 				return theDbevolutionFactory;
 			}
@@ -121,6 +121,11 @@ public class DbevolutionFactoryImpl extends EFactoryImpl implements DbevolutionF
 			case DbevolutionPackage.ALTER_SCHEMA: return createAlterSchema();
 			case DbevolutionPackage.RENAME_SCHEMA_CHANGE: return createRenameSchemaChange();
 			case DbevolutionPackage.UPDATE_SCHEMA_COMMENT_CHANGE: return createUpdateSchemaCommentChange();
+			case DbevolutionPackage.ADD_VIEW: return createAddView();
+			case DbevolutionPackage.REMOVE_VIEW: return createRemoveView();
+			case DbevolutionPackage.ALTER_VIEW: return createAlterView();
+			case DbevolutionPackage.RENAME_VIEW_CHANGE: return createRenameViewChange();
+			case DbevolutionPackage.UPDATE_VIEW_COMMENT_CHANGE: return createUpdateViewCommentChange();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -428,6 +433,56 @@ public class DbevolutionFactoryImpl extends EFactoryImpl implements DbevolutionF
 	public UpdateSchemaCommentChange createUpdateSchemaCommentChange() {
 		UpdateSchemaCommentChangeImpl updateSchemaCommentChange = new UpdateSchemaCommentChangeImpl();
 		return updateSchemaCommentChange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AddView createAddView() {
+		AddViewImpl addView = new AddViewImpl();
+		return addView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RemoveView createRemoveView() {
+		RemoveViewImpl removeView = new RemoveViewImpl();
+		return removeView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AlterView createAlterView() {
+		AlterViewImpl alterView = new AlterViewImpl();
+		return alterView;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RenameViewChange createRenameViewChange() {
+		RenameViewChangeImpl renameViewChange = new RenameViewChangeImpl();
+		return renameViewChange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UpdateViewCommentChange createUpdateViewCommentChange() {
+		UpdateViewCommentChangeImpl updateViewCommentChange = new UpdateViewCommentChangeImpl();
+		return updateViewCommentChange;
 	}
 
 	/**

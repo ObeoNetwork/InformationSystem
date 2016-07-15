@@ -85,5 +85,17 @@
     <genClasses image="false" ecoreClass="dbevolution.ecore#//DBDiff">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//DBDiff/target"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="dbevolution.ecore#//ViewChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//ViewChange/view"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//AddView"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RemoveView"/>
+    <genClasses ecoreClass="dbevolution.ecore#//AlterView"/>
+    <genClasses ecoreClass="dbevolution.ecore#//RenameViewChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//RenameViewChange/newView"/>
+    </genClasses>
+    <genClasses ecoreClass="dbevolution.ecore#//UpdateViewCommentChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dbevolution.ecore#//UpdateViewCommentChange/newView"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
