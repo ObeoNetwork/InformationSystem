@@ -457,6 +457,59 @@ public class DbevolutionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DbevolutionPackage.VIEW_CHANGE: {
+				ViewChange viewChange = (ViewChange)theEObject;
+				T result = caseViewChange(viewChange);
+				if (result == null) result = caseDBDiff(viewChange);
+				if (result == null) result = caseDiff(viewChange);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DbevolutionPackage.ADD_VIEW: {
+				AddView addView = (AddView)theEObject;
+				T result = caseAddView(addView);
+				if (result == null) result = caseViewChange(addView);
+				if (result == null) result = caseDBDiff(addView);
+				if (result == null) result = caseDiff(addView);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DbevolutionPackage.REMOVE_VIEW: {
+				RemoveView removeView = (RemoveView)theEObject;
+				T result = caseRemoveView(removeView);
+				if (result == null) result = caseViewChange(removeView);
+				if (result == null) result = caseDBDiff(removeView);
+				if (result == null) result = caseDiff(removeView);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DbevolutionPackage.ALTER_VIEW: {
+				AlterView alterView = (AlterView)theEObject;
+				T result = caseAlterView(alterView);
+				if (result == null) result = caseViewChange(alterView);
+				if (result == null) result = caseDBDiff(alterView);
+				if (result == null) result = caseDiff(alterView);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DbevolutionPackage.RENAME_VIEW_CHANGE: {
+				RenameViewChange renameViewChange = (RenameViewChange)theEObject;
+				T result = caseRenameViewChange(renameViewChange);
+				if (result == null) result = caseViewChange(renameViewChange);
+				if (result == null) result = caseDBDiff(renameViewChange);
+				if (result == null) result = caseDiff(renameViewChange);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DbevolutionPackage.UPDATE_VIEW_COMMENT_CHANGE: {
+				UpdateViewCommentChange updateViewCommentChange = (UpdateViewCommentChange)theEObject;
+				T result = caseUpdateViewCommentChange(updateViewCommentChange);
+				if (result == null) result = caseViewChange(updateViewCommentChange);
+				if (result == null) result = caseDBDiff(updateViewCommentChange);
+				if (result == null) result = caseDiff(updateViewCommentChange);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1037,6 +1090,96 @@ public class DbevolutionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDBDiff(DBDiff object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>View Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>View Change</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseViewChange(ViewChange object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Add View</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Add View</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAddView(AddView object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Remove View</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Remove View</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRemoveView(RemoveView object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Alter View</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Alter View</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAlterView(AlterView object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rename View Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rename View Change</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRenameViewChange(RenameViewChange object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Update View Comment Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Update View Comment Change</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUpdateViewCommentChange(UpdateViewCommentChange object) {
 		return null;
 	}
 

@@ -96,4 +96,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="DBDiff" abstract="true" eSuperTypes="platform:/plugin/org.eclipse.emf.compare/model/compare.ecore#//Diff">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewChange" abstract="true" eSuperTypes="#//DBDiff">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="view" lowerBound="1" eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//View"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddView" eSuperTypes="#//ViewChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveView" eSuperTypes="#//ViewChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AlterView" eSuperTypes="#//ViewChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RenameViewChange" eSuperTypes="#//ViewChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newView" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//View"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateViewCommentChange" eSuperTypes="#//ViewChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newView" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//View"/>
+  </eClassifiers>
 </ecore:EPackage>

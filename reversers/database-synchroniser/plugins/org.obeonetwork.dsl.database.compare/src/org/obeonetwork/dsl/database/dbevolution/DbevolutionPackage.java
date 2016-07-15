@@ -132,6 +132,15 @@ public interface DbevolutionPackage extends EPackage {
 	int DATABASE_CHANGE_SET__THREE_WAY = ComparePackage.COMPARISON__THREE_WAY;
 
 	/**
+	 * The feature id for the '<em><b>Diagnostic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_CHANGE_SET__DIAGNOSTIC = ComparePackage.COMPARISON__DIAGNOSTIC;
+
+	/**
 	 * The number of structural features of the '<em>Database Change Set</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -177,6 +186,24 @@ public interface DbevolutionPackage extends EPackage {
 	int DB_DIFF__REQUIRED_BY = ComparePackage.DIFF__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_DIFF__IMPLIES = ComparePackage.DIFF__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_DIFF__IMPLIED_BY = ComparePackage.DIFF__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,6 +220,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int DB_DIFF__REFINED_BY = ComparePackage.DIFF__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_DIFF__PRIME_REFINING = ComparePackage.DIFF__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -297,6 +333,24 @@ public interface DbevolutionPackage extends EPackage {
 	int TABLE_CHANGE__REQUIRED_BY = DB_DIFF__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CHANGE__IMPLIES = DB_DIFF__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CHANGE__IMPLIED_BY = DB_DIFF__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,6 +367,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE_CHANGE__REFINED_BY = DB_DIFF__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_CHANGE__PRIME_REFINING = DB_DIFF__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -413,6 +476,24 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_TABLE__REQUIRED_BY = TABLE_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_TABLE__IMPLIES = TABLE_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_TABLE__IMPLIED_BY = TABLE_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -429,6 +510,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADD_TABLE__REFINED_BY = TABLE_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_TABLE__PRIME_REFINING = TABLE_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -530,6 +620,24 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_TABLE__REQUIRED_BY = TABLE_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_TABLE__IMPLIES = TABLE_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_TABLE__IMPLIED_BY = TABLE_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -546,6 +654,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int REMOVE_TABLE__REFINED_BY = TABLE_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_TABLE__PRIME_REFINING = TABLE_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -658,6 +775,24 @@ public interface DbevolutionPackage extends EPackage {
 	int ALTER_TABLE__REQUIRED_BY = TABLE_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_TABLE__IMPLIES = TABLE_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_TABLE__IMPLIED_BY = TABLE_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -674,6 +809,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ALTER_TABLE__REFINED_BY = TABLE_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_TABLE__PRIME_REFINING = TABLE_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -784,6 +928,24 @@ public interface DbevolutionPackage extends EPackage {
 	int RENAME_TABLE_CHANGE__REQUIRED_BY = TABLE_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_TABLE_CHANGE__IMPLIES = TABLE_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_TABLE_CHANGE__IMPLIED_BY = TABLE_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -800,6 +962,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int RENAME_TABLE_CHANGE__REFINED_BY = TABLE_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_TABLE_CHANGE__PRIME_REFINING = TABLE_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -980,6 +1151,24 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_TABLE_COMMENT_CHANGE__REQUIRED_BY = TABLE_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_TABLE_COMMENT_CHANGE__IMPLIES = TABLE_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_TABLE_COMMENT_CHANGE__IMPLIED_BY = TABLE_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -996,6 +1185,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_TABLE_COMMENT_CHANGE__REFINED_BY = TABLE_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_TABLE_COMMENT_CHANGE__PRIME_REFINING = TABLE_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1106,6 +1304,24 @@ public interface DbevolutionPackage extends EPackage {
 	int COLUMN_CHANGE__REQUIRED_BY = DB_DIFF__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_CHANGE__IMPLIES = DB_DIFF__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_CHANGE__IMPLIED_BY = DB_DIFF__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1122,6 +1338,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMN_CHANGE__REFINED_BY = DB_DIFF__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN_CHANGE__PRIME_REFINING = DB_DIFF__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1223,6 +1448,24 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_COLUMN_CHANGE__REQUIRED_BY = COLUMN_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_COLUMN_CHANGE__IMPLIES = COLUMN_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_COLUMN_CHANGE__IMPLIED_BY = COLUMN_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1239,6 +1482,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADD_COLUMN_CHANGE__REFINED_BY = COLUMN_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_COLUMN_CHANGE__PRIME_REFINING = COLUMN_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1340,6 +1592,24 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_COLUMN_CHANGE__REQUIRED_BY = COLUMN_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_COLUMN_CHANGE__IMPLIES = COLUMN_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_COLUMN_CHANGE__IMPLIED_BY = COLUMN_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1356,6 +1626,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int REMOVE_COLUMN_CHANGE__REFINED_BY = COLUMN_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_COLUMN_CHANGE__PRIME_REFINING = COLUMN_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1457,6 +1736,24 @@ public interface DbevolutionPackage extends EPackage {
 	int RENAME_COLUMN_CHANGE__REQUIRED_BY = COLUMN_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_COLUMN_CHANGE__IMPLIES = COLUMN_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_COLUMN_CHANGE__IMPLIED_BY = COLUMN_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1473,6 +1770,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int RENAME_COLUMN_CHANGE__REFINED_BY = COLUMN_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_COLUMN_CHANGE__PRIME_REFINING = COLUMN_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1583,6 +1889,24 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_COLUMN_CHANGE__REQUIRED_BY = COLUMN_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_COLUMN_CHANGE__IMPLIES = COLUMN_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_COLUMN_CHANGE__IMPLIED_BY = COLUMN_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1599,6 +1923,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_COLUMN_CHANGE__REFINED_BY = COLUMN_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_COLUMN_CHANGE__PRIME_REFINING = COLUMN_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1700,6 +2033,24 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_COLUMN_COMMENT_CHANGE__REQUIRED_BY = COLUMN_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_COLUMN_COMMENT_CHANGE__IMPLIES = COLUMN_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_COLUMN_COMMENT_CHANGE__IMPLIED_BY = COLUMN_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1716,6 +2067,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_COLUMN_COMMENT_CHANGE__REFINED_BY = COLUMN_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_COLUMN_COMMENT_CHANGE__PRIME_REFINING = COLUMN_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1827,6 +2187,24 @@ public interface DbevolutionPackage extends EPackage {
 	int PRIMARY_KEY_CHANGE__REQUIRED_BY = DB_DIFF__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMARY_KEY_CHANGE__IMPLIES = DB_DIFF__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMARY_KEY_CHANGE__IMPLIED_BY = DB_DIFF__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1843,6 +2221,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMARY_KEY_CHANGE__REFINED_BY = DB_DIFF__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMARY_KEY_CHANGE__PRIME_REFINING = DB_DIFF__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1953,6 +2340,24 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_PRIMARY_KEY__REQUIRED_BY = PRIMARY_KEY_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_PRIMARY_KEY__IMPLIES = PRIMARY_KEY_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_PRIMARY_KEY__IMPLIED_BY = PRIMARY_KEY_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1969,6 +2374,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADD_PRIMARY_KEY__REFINED_BY = PRIMARY_KEY_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_PRIMARY_KEY__PRIME_REFINING = PRIMARY_KEY_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -2079,6 +2493,24 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_PRIMARY_KEY__REQUIRED_BY = PRIMARY_KEY_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_PRIMARY_KEY__IMPLIES = PRIMARY_KEY_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_PRIMARY_KEY__IMPLIED_BY = PRIMARY_KEY_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2095,6 +2527,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int REMOVE_PRIMARY_KEY__REFINED_BY = PRIMARY_KEY_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_PRIMARY_KEY__PRIME_REFINING = PRIMARY_KEY_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -2205,6 +2646,24 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_PRIMARY_KEY__REQUIRED_BY = PRIMARY_KEY_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_PRIMARY_KEY__IMPLIES = PRIMARY_KEY_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_PRIMARY_KEY__IMPLIED_BY = PRIMARY_KEY_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2221,6 +2680,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_PRIMARY_KEY__REFINED_BY = PRIMARY_KEY_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_PRIMARY_KEY__PRIME_REFINING = PRIMARY_KEY_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -2342,6 +2810,24 @@ public interface DbevolutionPackage extends EPackage {
 	int INDEX_CHANGE__REQUIRED_BY = DB_DIFF__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_CHANGE__IMPLIES = DB_DIFF__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_CHANGE__IMPLIED_BY = DB_DIFF__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2358,6 +2844,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int INDEX_CHANGE__REFINED_BY = DB_DIFF__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_CHANGE__PRIME_REFINING = DB_DIFF__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -2467,6 +2962,24 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_INDEX__REQUIRED_BY = INDEX_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_INDEX__IMPLIES = INDEX_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_INDEX__IMPLIED_BY = INDEX_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2483,6 +2996,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADD_INDEX__REFINED_BY = INDEX_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_INDEX__PRIME_REFINING = INDEX_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -2596,6 +3118,24 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_INDEX__REQUIRED_BY = INDEX_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_INDEX__IMPLIES = INDEX_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_INDEX__IMPLIED_BY = INDEX_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2612,6 +3152,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int REMOVE_INDEX__REFINED_BY = INDEX_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_INDEX__PRIME_REFINING = INDEX_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -2724,6 +3273,24 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_INDEX__REQUIRED_BY = INDEX_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_INDEX__IMPLIES = INDEX_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_INDEX__IMPLIED_BY = INDEX_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2740,6 +3307,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_INDEX__REFINED_BY = INDEX_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_INDEX__PRIME_REFINING = INDEX_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -2859,6 +3435,24 @@ public interface DbevolutionPackage extends EPackage {
 	int FOREIGN_KEY_CHANGE__REQUIRED_BY = DB_DIFF__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY_CHANGE__IMPLIES = DB_DIFF__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY_CHANGE__IMPLIED_BY = DB_DIFF__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2875,6 +3469,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOREIGN_KEY_CHANGE__REFINED_BY = DB_DIFF__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY_CHANGE__PRIME_REFINING = DB_DIFF__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -2985,6 +3588,24 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_FOREIGN_KEY__REQUIRED_BY = FOREIGN_KEY_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_FOREIGN_KEY__IMPLIES = FOREIGN_KEY_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_FOREIGN_KEY__IMPLIED_BY = FOREIGN_KEY_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3001,6 +3622,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADD_FOREIGN_KEY__REFINED_BY = FOREIGN_KEY_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_FOREIGN_KEY__PRIME_REFINING = FOREIGN_KEY_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -3111,6 +3741,24 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_FOREIGN_KEY__REQUIRED_BY = FOREIGN_KEY_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_FOREIGN_KEY__IMPLIES = FOREIGN_KEY_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_FOREIGN_KEY__IMPLIED_BY = FOREIGN_KEY_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3127,6 +3775,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int REMOVE_FOREIGN_KEY__REFINED_BY = FOREIGN_KEY_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_FOREIGN_KEY__PRIME_REFINING = FOREIGN_KEY_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -3237,6 +3894,24 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_FOREIGN_KEY__REQUIRED_BY = FOREIGN_KEY_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_FOREIGN_KEY__IMPLIES = FOREIGN_KEY_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_FOREIGN_KEY__IMPLIED_BY = FOREIGN_KEY_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3253,6 +3928,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_FOREIGN_KEY__REFINED_BY = FOREIGN_KEY_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_FOREIGN_KEY__PRIME_REFINING = FOREIGN_KEY_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -3372,6 +4056,24 @@ public interface DbevolutionPackage extends EPackage {
 	int CONSTRAINT_CHANGE__REQUIRED_BY = DB_DIFF__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT_CHANGE__IMPLIES = DB_DIFF__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT_CHANGE__IMPLIED_BY = DB_DIFF__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3388,6 +4090,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRAINT_CHANGE__REFINED_BY = DB_DIFF__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT_CHANGE__PRIME_REFINING = DB_DIFF__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -3498,6 +4209,24 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_CONSTRAINT__REQUIRED_BY = CONSTRAINT_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_CONSTRAINT__IMPLIES = CONSTRAINT_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_CONSTRAINT__IMPLIED_BY = CONSTRAINT_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3514,6 +4243,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADD_CONSTRAINT__REFINED_BY = CONSTRAINT_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_CONSTRAINT__PRIME_REFINING = CONSTRAINT_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -3624,6 +4362,24 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_CONSTRAINT__REQUIRED_BY = CONSTRAINT_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_CONSTRAINT__IMPLIES = CONSTRAINT_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_CONSTRAINT__IMPLIED_BY = CONSTRAINT_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3640,6 +4396,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int REMOVE_CONSTRAINT__REFINED_BY = CONSTRAINT_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_CONSTRAINT__PRIME_REFINING = CONSTRAINT_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -3750,6 +4515,24 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_CONSTRAINT__REQUIRED_BY = CONSTRAINT_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_CONSTRAINT__IMPLIES = CONSTRAINT_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_CONSTRAINT__IMPLIED_BY = CONSTRAINT_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3766,6 +4549,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_CONSTRAINT__REFINED_BY = CONSTRAINT_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_CONSTRAINT__PRIME_REFINING = CONSTRAINT_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute. <!--
@@ -3885,6 +4677,24 @@ public interface DbevolutionPackage extends EPackage {
 	int SEQUENCE_CHANGE__REQUIRED_BY = DB_DIFF__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE_CHANGE__IMPLIES = DB_DIFF__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE_CHANGE__IMPLIED_BY = DB_DIFF__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3901,6 +4711,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEQUENCE_CHANGE__REFINED_BY = DB_DIFF__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE_CHANGE__PRIME_REFINING = DB_DIFF__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -4012,6 +4831,24 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_SEQUENCE__REQUIRED_BY = SEQUENCE_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_SEQUENCE__IMPLIES = SEQUENCE_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_SEQUENCE__IMPLIED_BY = SEQUENCE_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4028,6 +4865,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADD_SEQUENCE__REFINED_BY = SEQUENCE_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_SEQUENCE__PRIME_REFINING = SEQUENCE_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -4139,6 +4985,24 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_SEQUENCE__REQUIRED_BY = SEQUENCE_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_SEQUENCE__IMPLIES = SEQUENCE_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_SEQUENCE__IMPLIED_BY = SEQUENCE_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4155,6 +5019,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int REMOVE_SEQUENCE__REFINED_BY = SEQUENCE_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_SEQUENCE__PRIME_REFINING = SEQUENCE_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -4266,6 +5139,24 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_SEQUENCE__REQUIRED_BY = SEQUENCE_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_SEQUENCE__IMPLIES = SEQUENCE_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_SEQUENCE__IMPLIED_BY = SEQUENCE_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4282,6 +5173,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_SEQUENCE__REFINED_BY = SEQUENCE_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_SEQUENCE__PRIME_REFINING = SEQUENCE_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -4402,6 +5302,24 @@ public interface DbevolutionPackage extends EPackage {
 	int SCHEMA_CHANGE__REQUIRED_BY = DB_DIFF__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_CHANGE__IMPLIES = DB_DIFF__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_CHANGE__IMPLIED_BY = DB_DIFF__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4418,6 +5336,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEMA_CHANGE__REFINED_BY = DB_DIFF__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_CHANGE__PRIME_REFINING = DB_DIFF__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -4529,6 +5456,24 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_SCHEMA__REQUIRED_BY = SCHEMA_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_SCHEMA__IMPLIES = SCHEMA_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_SCHEMA__IMPLIED_BY = SCHEMA_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4545,6 +5490,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADD_SCHEMA__REFINED_BY = SCHEMA_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_SCHEMA__PRIME_REFINING = SCHEMA_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -4656,6 +5610,24 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_SCHEMA__REQUIRED_BY = SCHEMA_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_SCHEMA__IMPLIES = SCHEMA_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_SCHEMA__IMPLIED_BY = SCHEMA_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4672,6 +5644,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int REMOVE_SCHEMA__REFINED_BY = SCHEMA_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_SCHEMA__PRIME_REFINING = SCHEMA_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -4783,6 +5764,24 @@ public interface DbevolutionPackage extends EPackage {
 	int ALTER_SCHEMA__REQUIRED_BY = SCHEMA_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_SCHEMA__IMPLIES = SCHEMA_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_SCHEMA__IMPLIED_BY = SCHEMA_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4799,6 +5798,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ALTER_SCHEMA__REFINED_BY = SCHEMA_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_SCHEMA__PRIME_REFINING = SCHEMA_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -4910,6 +5918,24 @@ public interface DbevolutionPackage extends EPackage {
 	int RENAME_SCHEMA_CHANGE__REQUIRED_BY = SCHEMA_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_SCHEMA_CHANGE__IMPLIES = SCHEMA_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_SCHEMA_CHANGE__IMPLIED_BY = SCHEMA_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4926,6 +5952,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int RENAME_SCHEMA_CHANGE__REFINED_BY = SCHEMA_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_SCHEMA_CHANGE__PRIME_REFINING = SCHEMA_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -5046,6 +6081,24 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_SCHEMA_COMMENT_CHANGE__REQUIRED_BY = SCHEMA_CHANGE__REQUIRED_BY;
 
 	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_SCHEMA_COMMENT_CHANGE__IMPLIES = SCHEMA_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_SCHEMA_COMMENT_CHANGE__IMPLIED_BY = SCHEMA_CHANGE__IMPLIED_BY;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5062,6 +6115,15 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_SCHEMA_COMMENT_CHANGE__REFINED_BY = SCHEMA_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_SCHEMA_COMMENT_CHANGE__PRIME_REFINING = SCHEMA_CHANGE__PRIME_REFINING;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -5143,6 +6205,948 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_SCHEMA_COMMENT_CHANGE_FEATURE_COUNT = SCHEMA_CHANGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.ViewChangeImpl <em>View Change</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.ViewChangeImpl
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getViewChange()
+	 * @generated
+	 */
+	int VIEW_CHANGE = 40;
+
+	/**
+	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__MATCH = DB_DIFF__MATCH;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__REQUIRES = DB_DIFF__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Required By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__REQUIRED_BY = DB_DIFF__REQUIRED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__IMPLIES = DB_DIFF__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__IMPLIED_BY = DB_DIFF__IMPLIED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__REFINES = DB_DIFF__REFINES;
+
+	/**
+	 * The feature id for the '<em><b>Refined By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__REFINED_BY = DB_DIFF__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__PRIME_REFINING = DB_DIFF__PRIME_REFINING;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__KIND = DB_DIFF__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__SOURCE = DB_DIFF__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__STATE = DB_DIFF__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Equivalence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__EQUIVALENCE = DB_DIFF__EQUIVALENCE;
+
+	/**
+	 * The feature id for the '<em><b>Conflict</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__CONFLICT = DB_DIFF__CONFLICT;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__TARGET = DB_DIFF__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE__VIEW = DB_DIFF_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>View Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_CHANGE_FEATURE_COUNT = DB_DIFF_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.AddViewImpl <em>Add View</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.AddViewImpl
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getAddView()
+	 * @generated
+	 */
+	int ADD_VIEW = 41;
+
+	/**
+	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__MATCH = VIEW_CHANGE__MATCH;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__REQUIRES = VIEW_CHANGE__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Required By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__REQUIRED_BY = VIEW_CHANGE__REQUIRED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__IMPLIES = VIEW_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__IMPLIED_BY = VIEW_CHANGE__IMPLIED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__REFINES = VIEW_CHANGE__REFINES;
+
+	/**
+	 * The feature id for the '<em><b>Refined By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__REFINED_BY = VIEW_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__PRIME_REFINING = VIEW_CHANGE__PRIME_REFINING;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__KIND = VIEW_CHANGE__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__SOURCE = VIEW_CHANGE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__STATE = VIEW_CHANGE__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Equivalence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__EQUIVALENCE = VIEW_CHANGE__EQUIVALENCE;
+
+	/**
+	 * The feature id for the '<em><b>Conflict</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__CONFLICT = VIEW_CHANGE__CONFLICT;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__TARGET = VIEW_CHANGE__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW__VIEW = VIEW_CHANGE__VIEW;
+
+	/**
+	 * The number of structural features of the '<em>Add View</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_VIEW_FEATURE_COUNT = VIEW_CHANGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.RemoveViewImpl <em>Remove View</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.RemoveViewImpl
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getRemoveView()
+	 * @generated
+	 */
+	int REMOVE_VIEW = 42;
+
+	/**
+	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__MATCH = VIEW_CHANGE__MATCH;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__REQUIRES = VIEW_CHANGE__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Required By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__REQUIRED_BY = VIEW_CHANGE__REQUIRED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__IMPLIES = VIEW_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__IMPLIED_BY = VIEW_CHANGE__IMPLIED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__REFINES = VIEW_CHANGE__REFINES;
+
+	/**
+	 * The feature id for the '<em><b>Refined By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__REFINED_BY = VIEW_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__PRIME_REFINING = VIEW_CHANGE__PRIME_REFINING;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__KIND = VIEW_CHANGE__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__SOURCE = VIEW_CHANGE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__STATE = VIEW_CHANGE__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Equivalence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__EQUIVALENCE = VIEW_CHANGE__EQUIVALENCE;
+
+	/**
+	 * The feature id for the '<em><b>Conflict</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__CONFLICT = VIEW_CHANGE__CONFLICT;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__TARGET = VIEW_CHANGE__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW__VIEW = VIEW_CHANGE__VIEW;
+
+	/**
+	 * The number of structural features of the '<em>Remove View</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_VIEW_FEATURE_COUNT = VIEW_CHANGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.AlterViewImpl <em>Alter View</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.AlterViewImpl
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getAlterView()
+	 * @generated
+	 */
+	int ALTER_VIEW = 43;
+
+	/**
+	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__MATCH = VIEW_CHANGE__MATCH;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__REQUIRES = VIEW_CHANGE__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Required By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__REQUIRED_BY = VIEW_CHANGE__REQUIRED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__IMPLIES = VIEW_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__IMPLIED_BY = VIEW_CHANGE__IMPLIED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__REFINES = VIEW_CHANGE__REFINES;
+
+	/**
+	 * The feature id for the '<em><b>Refined By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__REFINED_BY = VIEW_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__PRIME_REFINING = VIEW_CHANGE__PRIME_REFINING;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__KIND = VIEW_CHANGE__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__SOURCE = VIEW_CHANGE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__STATE = VIEW_CHANGE__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Equivalence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__EQUIVALENCE = VIEW_CHANGE__EQUIVALENCE;
+
+	/**
+	 * The feature id for the '<em><b>Conflict</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__CONFLICT = VIEW_CHANGE__CONFLICT;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__TARGET = VIEW_CHANGE__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW__VIEW = VIEW_CHANGE__VIEW;
+
+	/**
+	 * The number of structural features of the '<em>Alter View</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTER_VIEW_FEATURE_COUNT = VIEW_CHANGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.RenameViewChangeImpl <em>Rename View Change</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.RenameViewChangeImpl
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getRenameViewChange()
+	 * @generated
+	 */
+	int RENAME_VIEW_CHANGE = 44;
+
+	/**
+	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__MATCH = VIEW_CHANGE__MATCH;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__REQUIRES = VIEW_CHANGE__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Required By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__REQUIRED_BY = VIEW_CHANGE__REQUIRED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__IMPLIES = VIEW_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__IMPLIED_BY = VIEW_CHANGE__IMPLIED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__REFINES = VIEW_CHANGE__REFINES;
+
+	/**
+	 * The feature id for the '<em><b>Refined By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__REFINED_BY = VIEW_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__PRIME_REFINING = VIEW_CHANGE__PRIME_REFINING;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__KIND = VIEW_CHANGE__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__SOURCE = VIEW_CHANGE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__STATE = VIEW_CHANGE__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Equivalence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__EQUIVALENCE = VIEW_CHANGE__EQUIVALENCE;
+
+	/**
+	 * The feature id for the '<em><b>Conflict</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__CONFLICT = VIEW_CHANGE__CONFLICT;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__TARGET = VIEW_CHANGE__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__VIEW = VIEW_CHANGE__VIEW;
+
+	/**
+	 * The feature id for the '<em><b>New View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE__NEW_VIEW = VIEW_CHANGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Rename View Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_VIEW_CHANGE_FEATURE_COUNT = VIEW_CHANGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.UpdateViewCommentChangeImpl <em>Update View Comment Change</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.UpdateViewCommentChangeImpl
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getUpdateViewCommentChange()
+	 * @generated
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE = 45;
+
+	/**
+	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__MATCH = VIEW_CHANGE__MATCH;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__REQUIRES = VIEW_CHANGE__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Required By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__REQUIRED_BY = VIEW_CHANGE__REQUIRED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__IMPLIES = VIEW_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__IMPLIED_BY = VIEW_CHANGE__IMPLIED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__REFINES = VIEW_CHANGE__REFINES;
+
+	/**
+	 * The feature id for the '<em><b>Refined By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__REFINED_BY = VIEW_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__PRIME_REFINING = VIEW_CHANGE__PRIME_REFINING;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__KIND = VIEW_CHANGE__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__SOURCE = VIEW_CHANGE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__STATE = VIEW_CHANGE__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Equivalence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__EQUIVALENCE = VIEW_CHANGE__EQUIVALENCE;
+
+	/**
+	 * The feature id for the '<em><b>Conflict</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__CONFLICT = VIEW_CHANGE__CONFLICT;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__TARGET = VIEW_CHANGE__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__VIEW = VIEW_CHANGE__VIEW;
+
+	/**
+	 * The feature id for the '<em><b>New View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE__NEW_VIEW = VIEW_CHANGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Update View Comment Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_COMMENT_CHANGE_FEATURE_COUNT = VIEW_CHANGE_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.dbevolution.AddTable <em>Add Table</em>}'.
@@ -5758,6 +7762,99 @@ public interface DbevolutionPackage extends EPackage {
 	EReference getDBDiff_Target();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.dbevolution.ViewChange <em>View Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>View Change</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.ViewChange
+	 * @generated
+	 */
+	EClass getViewChange();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.database.dbevolution.ViewChange#getView <em>View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>View</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.ViewChange#getView()
+	 * @see #getViewChange()
+	 * @generated
+	 */
+	EReference getViewChange_View();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.dbevolution.AddView <em>Add View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Add View</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.AddView
+	 * @generated
+	 */
+	EClass getAddView();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.dbevolution.RemoveView <em>Remove View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Remove View</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.RemoveView
+	 * @generated
+	 */
+	EClass getRemoveView();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.dbevolution.AlterView <em>Alter View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Alter View</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.AlterView
+	 * @generated
+	 */
+	EClass getAlterView();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.dbevolution.RenameViewChange <em>Rename View Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rename View Change</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.RenameViewChange
+	 * @generated
+	 */
+	EClass getRenameViewChange();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.database.dbevolution.RenameViewChange#getNewView <em>New View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>New View</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.RenameViewChange#getNewView()
+	 * @see #getRenameViewChange()
+	 * @generated
+	 */
+	EReference getRenameViewChange_NewView();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange <em>Update View Comment Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Update View Comment Change</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange
+	 * @generated
+	 */
+	EClass getUpdateViewCommentChange();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange#getNewView <em>New View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>New View</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange#getNewView()
+	 * @see #getUpdateViewCommentChange()
+	 * @generated
+	 */
+	EReference getUpdateViewCommentChange_NewView();
+
+	/**
 	 * Returns the factory that creates the instances of the model. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -6329,6 +8426,90 @@ public interface DbevolutionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DB_DIFF__TARGET = eINSTANCE.getDBDiff_Target();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.ViewChangeImpl <em>View Change</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.ViewChangeImpl
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getViewChange()
+		 * @generated
+		 */
+		EClass VIEW_CHANGE = eINSTANCE.getViewChange();
+
+		/**
+		 * The meta object literal for the '<em><b>View</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIEW_CHANGE__VIEW = eINSTANCE.getViewChange_View();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.AddViewImpl <em>Add View</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.AddViewImpl
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getAddView()
+		 * @generated
+		 */
+		EClass ADD_VIEW = eINSTANCE.getAddView();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.RemoveViewImpl <em>Remove View</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.RemoveViewImpl
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getRemoveView()
+		 * @generated
+		 */
+		EClass REMOVE_VIEW = eINSTANCE.getRemoveView();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.AlterViewImpl <em>Alter View</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.AlterViewImpl
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getAlterView()
+		 * @generated
+		 */
+		EClass ALTER_VIEW = eINSTANCE.getAlterView();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.RenameViewChangeImpl <em>Rename View Change</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.RenameViewChangeImpl
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getRenameViewChange()
+		 * @generated
+		 */
+		EClass RENAME_VIEW_CHANGE = eINSTANCE.getRenameViewChange();
+
+		/**
+		 * The meta object literal for the '<em><b>New View</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RENAME_VIEW_CHANGE__NEW_VIEW = eINSTANCE.getRenameViewChange_NewView();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.UpdateViewCommentChangeImpl <em>Update View Comment Change</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.UpdateViewCommentChangeImpl
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getUpdateViewCommentChange()
+		 * @generated
+		 */
+		EClass UPDATE_VIEW_COMMENT_CHANGE = eINSTANCE.getUpdateViewCommentChange();
+
+		/**
+		 * The meta object literal for the '<em><b>New View</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UPDATE_VIEW_COMMENT_CHANGE__NEW_VIEW = eINSTANCE.getUpdateViewCommentChange_NewView();
 
 	}
 

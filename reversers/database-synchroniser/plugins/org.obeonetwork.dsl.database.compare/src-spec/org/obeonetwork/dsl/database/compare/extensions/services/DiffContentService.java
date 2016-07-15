@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
 import org.obeonetwork.dsl.database.dbevolution.AlterTable;
+import org.obeonetwork.dsl.database.dbevolution.AlterView;
 import org.obeonetwork.dsl.database.dbevolution.ColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
@@ -32,9 +33,11 @@ import org.obeonetwork.dsl.database.dbevolution.ForeignKeyChange;
 import org.obeonetwork.dsl.database.dbevolution.IndexChange;
 import org.obeonetwork.dsl.database.dbevolution.PrimaryKeyChange;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
+import org.obeonetwork.dsl.database.dbevolution.RemoveView;
 import org.obeonetwork.dsl.database.dbevolution.SchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
+import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage;
 
 import com.google.common.base.Predicate;
@@ -80,13 +83,17 @@ public class DiffContentService {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	private static final Predicate<? super Diff> ADD_SCHEMA_SUBDIFFS = or(
 			instanceOf(TableChange.class), 
-			instanceOf(SequenceChange.class));
+			instanceOf(SequenceChange.class),
+			instanceOf(ViewChange.class));
 	
+	@SuppressWarnings("unchecked")
 	private static final Predicate<? super Diff> REMOVE_SCHEMA_SUBDIFFS = or(
 			instanceOf(TableChange.class), 
-			instanceOf(SequenceChange.class));
+			instanceOf(SequenceChange.class),
+			instanceOf(ViewChange.class));
 	
 	@SuppressWarnings("unchecked")
 	private static final Predicate<? super Diff> ADD_TABLE_SUBDIFFS = or(
@@ -105,6 +112,14 @@ public class DiffContentService {
 					||	input instanceof ConstraintChange
 					||	input instanceof TableChange
 					||	DatabasePackage.Literals.COLUMN__NULLABLE.equals(feature);
+		};
+		
+	};
+	
+	private static final Predicate<? super Diff> ALTER_VIEW_SUBDIFFS = new AlterPredicate(DatabasePackage.Literals.VIEW) {
+		
+		protected boolean specificCondition(Diff input, EStructuralFeature feature) {
+			return 		input instanceof ViewChange;
 		};
 		
 	};
@@ -133,7 +148,9 @@ public class DiffContentService {
 					||	input instanceof RemoveTable
 					||	input instanceof AlterTable
 					||	input instanceof SequenceChange
-					||	input instanceof SchemaChange;
+					||	input instanceof SchemaChange
+					||	input instanceof RemoveView
+					||	input instanceof AlterView;
 		};
 	
 	};
@@ -206,6 +223,7 @@ public class DiffContentService {
 		possibleDiffsUnderDBDiff.put(DbevolutionPackage.Literals.UPDATE_SEQUENCE, UPDATE_SEQUENCE_SUBDIFFS);
 		possibleDiffsUnderDBDiff.put(DbevolutionPackage.Literals.ADD_TABLE, ADD_TABLE_SUBDIFFS);
 		possibleDiffsUnderDBDiff.put(DbevolutionPackage.Literals.ALTER_TABLE, ALTER_TABLE_SUBDIFFS);
+		possibleDiffsUnderDBDiff.put(DbevolutionPackage.Literals.ALTER_VIEW, ALTER_VIEW_SUBDIFFS);
 		possibleDiffsUnderDBDiff.put(DbevolutionPackage.Literals.UPDATE_CONSTRAINT, UPDATE_CONSTRAINT_SUBDIFFS);
 		possibleDiffsUnderDBDiff.put(DbevolutionPackage.Literals.UPDATE_PRIMARY_KEY, UPDATE_PK_SUBDIFFS);
 		possibleDiffsUnderDBDiff.put(DbevolutionPackage.Literals.UPDATE_COLUMN_CHANGE, UPDATE_COLUMN_SUBDIFFS);

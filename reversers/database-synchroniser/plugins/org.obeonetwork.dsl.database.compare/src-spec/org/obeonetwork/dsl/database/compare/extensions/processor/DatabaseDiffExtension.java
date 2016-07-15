@@ -19,6 +19,7 @@ import org.obeonetwork.dsl.database.compare.extensions.builders.SchemaChangeBuil
 import org.obeonetwork.dsl.database.compare.extensions.builders.SequenceChangeBuilder;
 import org.obeonetwork.dsl.database.compare.extensions.builders.TableChangeBuilder;
 import org.obeonetwork.dsl.database.compare.extensions.builders.TypeInstanceChangeBuilder;
+import org.obeonetwork.dsl.database.compare.extensions.builders.ViewChangeBuilder;
 
 public class DatabaseDiffExtension {
 
@@ -86,6 +87,7 @@ public class DatabaseDiffExtension {
 		changeBuilders.add(new TypeInstanceChangeBuilder());
 		changeBuilders.add(new ForeignKeyElementChangeBuilder());
 		changeBuilders.add(new IndexElementChangeBuilder());
+		changeBuilders.add(new ViewChangeBuilder());
 		
 		visitor = new Visitor(changeBuilders);
 	}

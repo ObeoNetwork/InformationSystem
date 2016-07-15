@@ -11,6 +11,7 @@
 [import org::obeonetwork::dsl::database::sqlgen::ForeignKeyGen /]
 [import org::obeonetwork::dsl::database::sqlgen::IndexGen /]
 [import org::obeonetwork::dsl::database::sqlgen::SequenceGen /]
+[import org::obeonetwork::dsl::database::sqlgen::ViewGen /]
 
 [template public genSQLForDatabase(changeSet : Comparison) post(trim())]
 [comment @main /]
@@ -21,5 +22,6 @@
 [changeSet.genSQLForForeignKeys()/]
 [changeSet.genSQLForIndex()/]
 [changeSet.genSQLForSequences()/]
+[changeSet.genSQLForViews()/]
 
 [/template]

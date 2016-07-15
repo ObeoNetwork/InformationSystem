@@ -21,8 +21,10 @@ import org.obeonetwork.dsl.database.dbevolution.AddPrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.AddSchema;
 import org.obeonetwork.dsl.database.dbevolution.AddSequence;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
+import org.obeonetwork.dsl.database.dbevolution.AddView;
 import org.obeonetwork.dsl.database.dbevolution.AlterSchema;
 import org.obeonetwork.dsl.database.dbevolution.AlterTable;
+import org.obeonetwork.dsl.database.dbevolution.AlterView;
 import org.obeonetwork.dsl.database.dbevolution.ColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
@@ -40,9 +42,11 @@ import org.obeonetwork.dsl.database.dbevolution.RemovePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.RemoveSchema;
 import org.obeonetwork.dsl.database.dbevolution.RemoveSequence;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
+import org.obeonetwork.dsl.database.dbevolution.RemoveView;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameSchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
+import org.obeonetwork.dsl.database.dbevolution.RenameViewChange;
 import org.obeonetwork.dsl.database.dbevolution.SchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
@@ -55,6 +59,8 @@ import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateSchemaCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateSequence;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange;
+import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
@@ -320,6 +326,48 @@ public class DbevolutionPackageImpl extends EPackageImpl implements DbevolutionP
 	 * @generated
 	 */
 	private EClass dbDiffEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass viewChangeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass addViewEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass removeViewEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass alterViewEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass renameViewChangeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass updateViewCommentChangeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -894,6 +942,87 @@ public class DbevolutionPackageImpl extends EPackageImpl implements DbevolutionP
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getViewChange() {
+		return viewChangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getViewChange_View() {
+		return (EReference)viewChangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAddView() {
+		return addViewEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRemoveView() {
+		return removeViewEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAlterView() {
+		return alterViewEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRenameViewChange() {
+		return renameViewChangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRenameViewChange_NewView() {
+		return (EReference)renameViewChangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUpdateViewCommentChange() {
+		return updateViewCommentChangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUpdateViewCommentChange_NewView() {
+		return (EReference)updateViewCommentChangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1017,6 +1146,21 @@ public class DbevolutionPackageImpl extends EPackageImpl implements DbevolutionP
 
 		dbDiffEClass = createEClass(DB_DIFF);
 		createEReference(dbDiffEClass, DB_DIFF__TARGET);
+
+		viewChangeEClass = createEClass(VIEW_CHANGE);
+		createEReference(viewChangeEClass, VIEW_CHANGE__VIEW);
+
+		addViewEClass = createEClass(ADD_VIEW);
+
+		removeViewEClass = createEClass(REMOVE_VIEW);
+
+		alterViewEClass = createEClass(ALTER_VIEW);
+
+		renameViewChangeEClass = createEClass(RENAME_VIEW_CHANGE);
+		createEReference(renameViewChangeEClass, RENAME_VIEW_CHANGE__NEW_VIEW);
+
+		updateViewCommentChangeEClass = createEClass(UPDATE_VIEW_COMMENT_CHANGE);
+		createEReference(updateViewCommentChangeEClass, UPDATE_VIEW_COMMENT_CHANGE__NEW_VIEW);
 	}
 
 	/**
@@ -1091,6 +1235,12 @@ public class DbevolutionPackageImpl extends EPackageImpl implements DbevolutionP
 		renameSchemaChangeEClass.getESuperTypes().add(this.getSchemaChange());
 		updateSchemaCommentChangeEClass.getESuperTypes().add(this.getSchemaChange());
 		dbDiffEClass.getESuperTypes().add(theComparePackage.getDiff());
+		viewChangeEClass.getESuperTypes().add(this.getDBDiff());
+		addViewEClass.getESuperTypes().add(this.getViewChange());
+		removeViewEClass.getESuperTypes().add(this.getViewChange());
+		alterViewEClass.getESuperTypes().add(this.getViewChange());
+		renameViewChangeEClass.getESuperTypes().add(this.getViewChange());
+		updateViewCommentChangeEClass.getESuperTypes().add(this.getViewChange());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(databaseChangeSetEClass, DatabaseChangeSet.class, "DatabaseChangeSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1191,6 +1341,21 @@ public class DbevolutionPackageImpl extends EPackageImpl implements DbevolutionP
 
 		initEClass(dbDiffEClass, DBDiff.class, "DBDiff", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDBDiff_Target(), theEcorePackage.getEObject(), null, "target", null, 0, 1, DBDiff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(viewChangeEClass, ViewChange.class, "ViewChange", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getViewChange_View(), theDatabasePackage.getView(), null, "view", null, 1, 1, ViewChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(addViewEClass, AddView.class, "AddView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(removeViewEClass, RemoveView.class, "RemoveView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(alterViewEClass, AlterView.class, "AlterView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(renameViewChangeEClass, RenameViewChange.class, "RenameViewChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRenameViewChange_NewView(), theDatabasePackage.getView(), null, "newView", null, 1, 1, RenameViewChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(updateViewCommentChangeEClass, UpdateViewCommentChange.class, "UpdateViewCommentChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUpdateViewCommentChange_NewView(), theDatabasePackage.getView(), null, "newView", null, 1, 1, UpdateViewCommentChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

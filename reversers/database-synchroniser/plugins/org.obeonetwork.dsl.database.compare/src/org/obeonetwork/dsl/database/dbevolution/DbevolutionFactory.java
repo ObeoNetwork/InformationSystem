@@ -312,6 +312,51 @@ public interface DbevolutionFactory extends EFactory {
 	UpdateSchemaCommentChange createUpdateSchemaCommentChange();
 
 	/**
+	 * Returns a new object of class '<em>Add View</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Add View</em>'.
+	 * @generated
+	 */
+	AddView createAddView();
+
+	/**
+	 * Returns a new object of class '<em>Remove View</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Remove View</em>'.
+	 * @generated
+	 */
+	RemoveView createRemoveView();
+
+	/**
+	 * Returns a new object of class '<em>Alter View</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alter View</em>'.
+	 * @generated
+	 */
+	AlterView createAlterView();
+
+	/**
+	 * Returns a new object of class '<em>Rename View Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rename View Change</em>'.
+	 * @generated
+	 */
+	RenameViewChange createRenameViewChange();
+
+	/**
+	 * Returns a new object of class '<em>Update View Comment Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Update View Comment Change</em>'.
+	 * @generated
+	 */
+	UpdateViewCommentChange createUpdateViewCommentChange();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
