@@ -57,7 +57,7 @@ DROP VIEW [view.name()/];
 [template private genCreateView(addView : AddView) post(trim())]
 [let view : View = addView.view.oclAsType(View)]
 [view.genViewDoc()/]
-CREATE OR REPLACE VIEW [view.genSchemaPrefix()/][view.name()/] AS [view.getViewQuery()/]
+[view.createViewStatement()/] AS [view.getViewQuery()/]
 [view.genCreateViewComment()/]
 [/let]
 [/template]
@@ -66,9 +66,17 @@ CREATE OR REPLACE VIEW [view.genSchemaPrefix()/][view.name()/] AS [view.getViewQ
 [let view : View = alterView.view.oclAsType(View)]
 [view.genViewDoc()/]
 DROP VIEW [view.name()/];
-CREATE OR REPLACE VIEW [view.genSchemaPrefix()/][view.name()/] AS [view.getViewQuery()/]
+[view.createViewStatement()/] AS [view.getViewQuery()/]
 [view.genCreateViewComment()/]
 [/let]
+[/template]
+
+[template private createViewStatement(view : View)? (not view.isTargetSqlServer())]
+CREATE OR REPLACE VIEW [view.genSchemaPrefix()/][view.name()/]
+[/template]
+
+[template private createViewStatement(view : View)? (view.isTargetSqlServer())]
+CREATE VIEW [view.genSchemaPrefix()/][view.name()/]
 [/template]
 
 [template private genCreateViewComment(view : View) ? (view.comments<>null and view.comments.size()>0) post(trim())]
