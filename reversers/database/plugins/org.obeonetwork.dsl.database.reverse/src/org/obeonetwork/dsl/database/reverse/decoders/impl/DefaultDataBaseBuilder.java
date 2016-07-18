@@ -91,8 +91,8 @@ public class DefaultDataBaseBuilder extends AbstractDataBaseBuilder {
 			table.setComments(tableComments);
 		}
 
-		buildColumns(metaData, owner, nativeTypesLibrary, table);
 		if (table instanceof Table) {
+			buildColumns(metaData, owner, nativeTypesLibrary, table);
 			Table t = (Table) table;
 			buildPrimaryKeys(metaData, t);
 			buildIndexes(metaData, t);
