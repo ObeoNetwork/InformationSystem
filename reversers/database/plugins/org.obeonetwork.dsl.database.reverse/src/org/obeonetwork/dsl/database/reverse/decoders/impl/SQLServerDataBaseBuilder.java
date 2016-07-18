@@ -4,6 +4,8 @@ import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
@@ -18,6 +20,8 @@ import org.obeonetwork.dsl.typeslibrary.NativeTypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 
 public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
+	
+	private static final Pattern VIEW_QUERY_PATTERN = Pattern.compile("create view .* as (.*)");
 	
 	private static final String TYPES_LIBRARY_SQLSERVER_PATHMAP = "pathmap://NativeDBTypes/SQLServer-2008";
 	
@@ -102,7 +106,7 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 				pstmt = metaData.getConnection().prepareStatement(query);
 				pstmt.setString(1, viewName);
 				rs = pstmt.executeQuery();
-				while (rs.next()) {					
+				while (rs.next()) {	
 					viewQuery =  rs.getString(1);
 				}
 			} catch (Exception ex) {
@@ -112,6 +116,15 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 				JdbcUtils.closeResultSet(rs);
 			}
 		}
+		
+		if (viewQuery != null) {
+			Matcher matcher = VIEW_QUERY_PATTERN.matcher(viewQuery);
+			if (matcher.matches()) {
+				// Remove the'create view xxx as ' prefix
+				viewQuery = matcher.group(1);
+			}
+		}
+		
 		return viewQuery;
 	}
 
