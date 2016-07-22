@@ -77,6 +77,7 @@ public class TypesServices {
 				StructuredType type2 = (StructuredType)eObject;
 				type2.setName(type.getName());
 				type2.getAssociatedTypes().add(type);
+				type2.setDescription(type.getDescription());
 				namespace.getTypes().add(type2);
 				mappingsTypes.put(type, type2);
 				result.add(type2);
