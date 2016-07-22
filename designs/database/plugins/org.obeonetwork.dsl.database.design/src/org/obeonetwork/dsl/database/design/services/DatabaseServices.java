@@ -38,7 +38,7 @@ public class DatabaseServices {
 	 * @param tableContainer
 	 * @return foreignKeys
 	 */
-	public List<ForeignKey> getForeignKeys(TableContainer tableContainer){
+	public List<ForeignKey> getForeignKeys(TableContainer tableContainer, DSemanticDiagram diagram){
 		List<ForeignKey> foreignKeys = new ArrayList<ForeignKey>();
 		List<AbstractTable> tables = tableContainer.getTables();
 		for (AbstractTable abstractTable : tables) {
@@ -46,6 +46,15 @@ public class DatabaseServices {
 				foreignKeys.addAll(((Table)abstractTable).getForeignKeys());
 			}
 		}
+		
+		// Foreign keys from external tables on diagram
+		for (DDiagramElement diagramElement : diagram.getDiagramElements()) {
+			EObject semanticElt = diagramElement.getTarget();
+			if (semanticElt instanceof Table) {
+				foreignKeys.addAll(((Table)semanticElt).getForeignKeys());
+			}
+		}
+		
 		return foreignKeys;
 	}
 
