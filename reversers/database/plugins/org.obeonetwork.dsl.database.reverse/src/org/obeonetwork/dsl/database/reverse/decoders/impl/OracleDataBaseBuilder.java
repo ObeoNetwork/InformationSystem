@@ -228,8 +228,6 @@ public class OracleDataBaseBuilder extends DefaultDataBaseBuilder {
 		ResultSet rs=null;
         PreparedStatement pstmt=null;
         try {
-        		// TODO : get Cycle flag with CYCLE_FLAG column
-        		// TODO get cache value
                 PreparedStatement psmt = metaData.getConnection().prepareStatement(
                                 "SELECT SEQUENCE_NAME, INCREMENT_BY, MIN_VALUE, MAX_VALUE, LAST_NUMBER, CYCLE_FLAG, CACHE_SIZE " +
                                 "FROM user_sequences");                
