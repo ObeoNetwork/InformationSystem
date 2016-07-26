@@ -101,7 +101,7 @@ public class CreationUtils {
 		return constraint;
 	}
 	
-	public static Sequence createSequence(TableContainer owner, String name, int increment, int minValue, Integer maxValue, int start, boolean cycle, Integer cache) {
+	public static Sequence createSequence(TableContainer owner, String name, Integer increment, Integer minValue, Integer maxValue, Integer start, boolean cycle, Integer cache) {
 		Sequence sequence = DatabaseFactory.eINSTANCE.createSequence();
 		sequence.setName(name);
 		sequence.setIncrement(increment);

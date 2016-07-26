@@ -1,5 +1,6 @@
 package org.obeonetwork.dsl.database.reverse.decoders.impl;
 
+import java.math.BigInteger;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +10,8 @@ import java.util.regex.Pattern;
 
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
+import org.obeonetwork.dsl.database.Sequence;
+import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.reverse.source.DataSource;
 import org.obeonetwork.dsl.database.reverse.utils.CreationUtils;
@@ -29,6 +32,12 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 	
 	public SQLServerDataBaseBuilder(DataSource source, ProgressListener progressListener, Queries queries) throws SQLException {
 		super(source, progressListener, queries);
+	}
+	
+	@Override
+	public void buildTables() {
+		super.buildTables();
+		buildSequences(metaData, tableContainer);
 	}
 	
 	@Override
@@ -127,11 +136,74 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
 		
 		return viewQuery;
 	}
+	
+	private void buildSequences(DatabaseMetaData metaData, TableContainer owner){
+		ResultSet rs=null;
+        PreparedStatement pstmt=null;
+        try {
+			String query =	"SELECT			CAST(seq.name AS NVARCHAR(128)), " +
+							"				CAST(seq.increment AS NVARCHAR(128)), " +
+							"				CAST(seq.minimum_value AS NVARCHAR(128)), " +
+							"				CAST(seq.maximum_value AS NVARCHAR(128)), " +
+							"				CAST(seq.start_value AS NVARCHAR(128)), " +
+							"				CAST(seq.is_cycling AS NVARCHAR(128)), " +
+							"				CAST(seq.cache_size AS NVARCHAR(128)) " +
+							"FROM			sys.sequences AS seq " +
+							"INNER JOIN		sys.schemas AS sch " +
+							"ON				seq.schema_id = sch.schema_id " +
+							"WHERE			sch.name = ?";
+            pstmt = metaData.getConnection().prepareStatement(query);             
+            pstmt.setString(1, schemaName);
+            rs = pstmt.executeQuery();
+            while( rs.next() ) {
+            	String name = rs.getString(1);
+            	int increment = rs.getInt(2);
+            	
+            	Integer minValue = getIntegerValueFromString(rs.getString(3));
+            	Integer maxValue = getIntegerValueFromString(rs.getString(4));
+            	
+            	Integer start = getIntegerValueFromString(rs.getString(5));
+            	
+            	boolean cycle = rs.getBoolean(6);
+            	Integer cacheSize  = rs.getInt(7);
+            	Sequence sequence = CreationUtils.createSequence(owner, name, increment, minValue, maxValue, start, cycle, cacheSize);
+            	// Look for a table that could correspond to the sequence
+            	if (name.endsWith("_SEQ")) {
+            		String tableName = name.substring(0, name.length() - "_SEQ".length());
+            		AbstractTable abstractTable = queries.getTable(tableName);
+            		if (abstractTable != null && abstractTable instanceof Table) {
+            			Table table = (Table)abstractTable;
+            			if (table.getPrimaryKey() != null && table.getPrimaryKey().getColumns().size() == 1) {
+            				Column column = table.getPrimaryKey().getColumns().get(0);
+            				column.setSequence(sequence);
+            			}
+            		}
+            	}
+            }
+        } catch(Exception ex) {
+                ex.printStackTrace();
+        } finally {
+                JdbcUtils.closeStatement(pstmt);
+                JdbcUtils.closeResultSet(rs);
+        }
 
-//	private void buildSequence(TableContainer owner, AbstractTable table, Column column, Identity identity) {		
-//		Sequence sequence = CreationUtils.createSequence(owner, table.getName() + "_seq", identity.increment, 0, Integer.MAX_VALUE, identity.start);		
-//    	column.setSequence(sequence);
-//	}
+	}
+	
+	
+	private Integer getIntegerValueFromString(String valueAsString) {
+		Integer value = null;
+		
+		BigInteger valueAsBigInt = new BigInteger(valueAsString);
+		
+		BigInteger minIntValue = new BigInteger(Integer.toString(Integer.MIN_VALUE));
+		BigInteger maxLongValue = new BigInteger(Integer.toString(Integer.MAX_VALUE));
+
+		if (valueAsBigInt.compareTo(minIntValue) > 0 && valueAsBigInt.compareTo(maxLongValue) < 0) {                		
+    		value = valueAsBigInt.intValue();
+    	}
+    	
+		return value;
+	}
 	
 	private static Identity getIdentity(String columnType) {
 		Identity identity = new Identity();
