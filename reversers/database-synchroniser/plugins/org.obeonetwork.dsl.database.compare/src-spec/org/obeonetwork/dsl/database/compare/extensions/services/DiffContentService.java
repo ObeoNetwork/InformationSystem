@@ -303,6 +303,7 @@ public class DiffContentService {
 	}
 	
 	private static boolean isInAddOrDelete(Comparison comparison, EObject element) {
-		return Iterables.any(comparison.getDifferences(element), and(CONTAINMENT_REFERENCE_CHANGE, or(ofKind(DifferenceKind.ADD), ofKind(DifferenceKind.DELETE))));
+		Predicate<? super Diff> ofAddOrDeleteKind = or(ofKind(DifferenceKind.ADD), ofKind(DifferenceKind.DELETE));
+		return Iterables.any(comparison.getDifferences(element), and(CONTAINMENT_REFERENCE_CHANGE, ofAddOrDeleteKind));
 	}
 }
