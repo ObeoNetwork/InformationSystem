@@ -21,6 +21,7 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.obeonetwork.dsl.entity.Entity;
 import org.obeonetwork.dsl.entity.parts.EntityPropertiesEditionPart;
 import org.obeonetwork.dsl.entity.parts.EntityViewsRepository;
+import org.obeonetwork.dsl.entity.parts.PersistencePropertiesEditionPart;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.parts.EnvironmentViewsRepository;
 
@@ -45,6 +46,18 @@ public class EntityPropertiesEditionComponent extends ComposedPropertiesEditionC
 	protected EntityEntityPropertiesEditionComponent entityEntityPropertiesEditionComponent;
 
 	/**
+	 * The Persistence part
+	 * 
+	 */
+	private PersistencePropertiesEditionPart persistencePart;
+
+	/**
+	 * The EntityPersistencePropertiesEditionComponent sub component
+	 * 
+	 */
+	protected EntityPersistencePropertiesEditionComponent entityPersistencePropertiesEditionComponent;
+
+	/**
 	 * The MetadataCptPropertiesEditionComponent sub component
 	 * 
 	 */
@@ -64,6 +77,9 @@ public class EntityPropertiesEditionComponent extends ComposedPropertiesEditionC
 			entityEntityPropertiesEditionComponent = (EntityEntityPropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, EntityEntityPropertiesEditionComponent.ENTITY_PART, EntityEntityPropertiesEditionComponent.class);
 			addSubComponent(entityEntityPropertiesEditionComponent);
 			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(entity, PropertiesEditingProvider.class);
+			entityPersistencePropertiesEditionComponent = (EntityPersistencePropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, EntityPersistencePropertiesEditionComponent.PERSISTENCE_PART, EntityPersistencePropertiesEditionComponent.class);
+			addSubComponent(entityPersistencePropertiesEditionComponent);
+			provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(entity, PropertiesEditingProvider.class);
 			metadataCptPropertiesEditionComponent = (MetadataCptPropertiesEditionComponent)provider.getPropertiesEditingComponent(editingContext, editing_mode, MetadataCptPropertiesEditionComponent.METADATAS_PART, MetadataCptPropertiesEditionComponent.class);
 			addSubComponent(metadataCptPropertiesEditionComponent);
 		}
@@ -81,6 +97,10 @@ public class EntityPropertiesEditionComponent extends ComposedPropertiesEditionC
 			entityPart = (EntityPropertiesEditionPart)entityEntityPropertiesEditionComponent.getPropertiesEditionPart(kind, key);
 			return (IPropertiesEditionPart)entityPart;
 		}
+		if (EntityPersistencePropertiesEditionComponent.PERSISTENCE_PART.equals(key)) {
+			persistencePart = (PersistencePropertiesEditionPart)entityPersistencePropertiesEditionComponent.getPropertiesEditionPart(kind, key);
+			return (IPropertiesEditionPart)persistencePart;
+		}
 		return super.getPropertiesEditionPart(kind, key);
 	}
 
@@ -97,6 +117,10 @@ public class EntityPropertiesEditionComponent extends ComposedPropertiesEditionC
 			super.setPropertiesEditionPart(key, kind, propertiesEditionPart);
 			entityPart = (EntityPropertiesEditionPart)propertiesEditionPart;
 		}
+		if (EntityViewsRepository.Persistence.class == key) {
+			super.setPropertiesEditionPart(key, kind, propertiesEditionPart);
+			persistencePart = (PersistencePropertiesEditionPart)propertiesEditionPart;
+		}
 	}
 
 	/**
@@ -109,6 +133,9 @@ public class EntityPropertiesEditionComponent extends ComposedPropertiesEditionC
 	 */
 	public void initPart(java.lang.Object key, int kind, EObject element, ResourceSet allResource) {
 		if (key == EntityViewsRepository.Entity_.class) {
+			super.initPart(key, kind, element, allResource);
+		}
+		if (key == EntityViewsRepository.Persistence.class) {
 			super.initPart(key, kind, element, allResource);
 		}
 		if (key == EnvironmentViewsRepository.Metadatas.class) {

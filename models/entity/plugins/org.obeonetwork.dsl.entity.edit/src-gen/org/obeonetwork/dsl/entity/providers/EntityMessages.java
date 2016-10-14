@@ -27,6 +27,9 @@ public class EntityMessages extends NLS {
 	public static String EntityPropertiesEditionPart_PropertiesGroupLabel;
 
 	
+	public static String PersistencePropertiesEditionPart_PropertiesGroupLabel;
+
+	
 	public static String FinderPropertiesEditionPart_PropertiesGroupLabel;
 
 	
@@ -47,6 +50,12 @@ public class EntityMessages extends NLS {
 
 	
 	public static String Entity_Part_Title;
+
+	
+	public static String Persistence_ReadOnly;
+
+	
+	public static String Persistence_Part_Title;
 
 	
 	public static String Finder_ReadOnly;
@@ -80,19 +89,19 @@ public class EntityMessages extends NLS {
 	public static String EntityPropertiesEditionPart_SuperTypeLabel;
 
 	
-	public static String EntityPropertiesEditionPart_EstimatedVolumetryLabel;
-
-	
-	public static String EntityPropertiesEditionPart_EstimatedAccessLabel;
-
-	
-	public static String EntityPropertiesEditionPart_HistorizedLabel;
-
-	
-	public static String EntityPropertiesEditionPart_InheritanceKindLabel;
-
-	
 	public static String EntityPropertiesEditionPart_DescriptionLabel;
+
+	
+	public static String PersistencePropertiesEditionPart_EstimatedVolumetryLabel;
+
+	
+	public static String PersistencePropertiesEditionPart_EstimatedAccessLabel;
+
+	
+	public static String PersistencePropertiesEditionPart_HistorizedLabel;
+
+	
+	public static String PersistencePropertiesEditionPart_InheritanceKindLabel;
 
 	
 	public static String FinderPropertiesEditionPart_CustomizedNameLabel;

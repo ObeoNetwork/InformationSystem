@@ -83,8 +83,7 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 			final InitialStatePropertiesEditionPart initialStatePart = (InitialStatePropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(FlowViewsRepository.InitialState.Properties.description))
-				initialStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, initialState.getDescription()));
-			
+				initialStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, initialState.getDescription()));
 			if (isAccessible(FlowViewsRepository.InitialState.Properties.actions)) {
 				actionsSettings = new ReferencesTableSettings(initialState, FlowPackage.eINSTANCE.getFlowState_Actions());
 				initialStatePart.initActions(actionsSettings);
@@ -188,7 +187,7 @@ public class InitialStateInitialStatePropertiesEditionComponent extends SinglePa
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			InitialStatePropertiesEditionPart initialStatePart = (InitialStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && initialStatePart != null && isAccessible(FlowViewsRepository.InitialState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && initialStatePart != null && isAccessible(FlowViewsRepository.InitialState.Properties.description)){
 				if (msg.getNewValue() != null) {
 					initialStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

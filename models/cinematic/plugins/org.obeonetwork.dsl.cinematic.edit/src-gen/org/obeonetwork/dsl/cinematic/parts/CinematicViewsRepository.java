@@ -52,9 +52,6 @@ public class CinematicViewsRepository {
 			public static String name = "cinematic::CinematicRoot::properties::name";
 			
 			
-			public static String toolkits = "cinematic::CinematicRoot::properties::toolkits";
-			
-			
 			public static String description = "cinematic::CinematicRoot::properties::description";
 			
 			
@@ -65,6 +62,21 @@ public class CinematicViewsRepository {
 			
 			
 			public static String viewContainers = "cinematic::CinematicRoot::properties::viewContainers";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * Toolkits view descriptor
+	 * 
+	 */
+	public static class Toolkits {
+		public static class Properties {
+	
+			
+			public static String toolkits_ = "cinematic::Toolkits::properties::toolkits_";
 			
 	
 		}

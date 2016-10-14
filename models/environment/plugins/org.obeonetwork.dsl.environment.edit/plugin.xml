@@ -27,7 +27,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.obeonetwork.org/dsl/environment/3.0.0"
-            class="org.obeonetwork.dsl.environment.providers.EnvironmentEEFAdapterFactory"
+            class="org.obeonetwork.dsl.environment.providers.EnvironmentEEFAdapterFactorySpec"
             supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
    </extension>
    <extension
@@ -109,6 +109,12 @@
                category="semantic &amp; extension"
                id="Reference"
                label="Reference">
+         </propertyTab>
+         <propertyTab
+               afterTab="Reference"
+               category="semantic &amp; extension"
+               id="Opposite"
+               label="Opposite">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
@@ -213,6 +219,12 @@
                filter="org.obeonetwork.dsl.environment.filters.ReferenceTabPropertiesEditionSection"
                id="org.obeonetwork.dsl.environment.eef.section.Reference"
                tab="Reference">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.OppositePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.environment.filters.OppositeTabPropertiesEditionSection"
+               id="org.obeonetwork.dsl.environment.eef.section.Opposite"
+               tab="Opposite">
          </propertySection>
          <propertySection
                class="org.obeonetwork.dsl.environment.parts.forms.DtoPropertiesEditionPartForm"

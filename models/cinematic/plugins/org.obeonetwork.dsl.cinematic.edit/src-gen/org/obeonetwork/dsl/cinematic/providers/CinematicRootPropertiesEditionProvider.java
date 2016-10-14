@@ -6,25 +6,18 @@ package org.obeonetwork.dsl.cinematic.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.jface.viewers.IFilter;
-
 import org.obeonetwork.dsl.cinematic.CinematicPackage;
 import org.obeonetwork.dsl.cinematic.CinematicRoot;
-
 import org.obeonetwork.dsl.cinematic.components.CinematicRootCinematicRootPropertiesEditionComponent;
 import org.obeonetwork.dsl.cinematic.components.CinematicRootPropertiesEditionComponent;
+import org.obeonetwork.dsl.cinematic.components.CinematicRootToolkitsPropertiesEditionComponent;
 
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
-
 import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
 
 /**
@@ -64,7 +57,7 @@ public class CinematicRootPropertiesEditionProvider extends CustomPropertiesEdit
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext, String part) {
-		return (editingContext.getEObject() instanceof CinematicRoot) && (CinematicRootCinematicRootPropertiesEditionComponent.CINEMATICROOT_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
+		return (editingContext.getEObject() instanceof CinematicRoot) && (CinematicRootCinematicRootPropertiesEditionComponent.CINEMATICROOT_PART.equals(part) || CinematicRootToolkitsPropertiesEditionComponent.TOOLKITS_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
 	}
 
 	/**
@@ -74,7 +67,7 @@ public class CinematicRootPropertiesEditionProvider extends CustomPropertiesEdit
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof CinematicRoot) && (refinement == CinematicRootCinematicRootPropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
+		return (editingContext.getEObject() instanceof CinematicRoot) && (refinement == CinematicRootCinematicRootPropertiesEditionComponent.class || refinement == CinematicRootToolkitsPropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
 	}
 
 	/**
@@ -84,7 +77,7 @@ public class CinematicRootPropertiesEditionProvider extends CustomPropertiesEdit
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, String part, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof CinematicRoot) && ((CinematicRootCinematicRootPropertiesEditionComponent.CINEMATICROOT_PART.equals(part) && refinement == CinematicRootCinematicRootPropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
+		return (editingContext.getEObject() instanceof CinematicRoot) && ((CinematicRootCinematicRootPropertiesEditionComponent.CINEMATICROOT_PART.equals(part) && refinement == CinematicRootCinematicRootPropertiesEditionComponent.class) || (CinematicRootToolkitsPropertiesEditionComponent.TOOLKITS_PART.equals(part) && refinement == CinematicRootToolkitsPropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
 	}
 
 	/**
@@ -108,6 +101,8 @@ public class CinematicRootPropertiesEditionProvider extends CustomPropertiesEdit
 		if (editingContext.getEObject() instanceof CinematicRoot) {
 			if (CinematicRootCinematicRootPropertiesEditionComponent.CINEMATICROOT_PART.equals(part))
 				return new CinematicRootCinematicRootPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			if (CinematicRootToolkitsPropertiesEditionComponent.TOOLKITS_PART.equals(part))
+				return new CinematicRootToolkitsPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part))
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
@@ -124,6 +119,9 @@ public class CinematicRootPropertiesEditionProvider extends CustomPropertiesEdit
 			if (CinematicRootCinematicRootPropertiesEditionComponent.CINEMATICROOT_PART.equals(part)
 				&& refinement == CinematicRootCinematicRootPropertiesEditionComponent.class)
 				return new CinematicRootCinematicRootPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			if (CinematicRootToolkitsPropertiesEditionComponent.TOOLKITS_PART.equals(part)
+				&& refinement == CinematicRootToolkitsPropertiesEditionComponent.class)
+				return new CinematicRootToolkitsPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part)
 				&& refinement == MetadataCptPropertiesEditionComponent.class)
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);

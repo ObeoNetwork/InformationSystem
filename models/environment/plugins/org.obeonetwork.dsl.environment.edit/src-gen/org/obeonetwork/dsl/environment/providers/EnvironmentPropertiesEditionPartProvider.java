@@ -24,6 +24,7 @@ import org.obeonetwork.dsl.environment.parts.forms.InterDSMLinkPropertiesEdition
 import org.obeonetwork.dsl.environment.parts.forms.LiteralPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.NamespacePropertiesEditionPartForm;
+import org.obeonetwork.dsl.environment.parts.forms.OppositePropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.PrimitiveTypePropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.PriorityDefinitionPropertiesEditionPartForm;
 import org.obeonetwork.dsl.environment.parts.forms.PriorityPropertiesEditionPartForm;
@@ -43,6 +44,7 @@ import org.obeonetwork.dsl.environment.parts.impl.InterDSMLinkPropertiesEditionP
 import org.obeonetwork.dsl.environment.parts.impl.LiteralPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.MetadatasPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.NamespacePropertiesEditionPartImpl;
+import org.obeonetwork.dsl.environment.parts.impl.OppositePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.PrimitiveTypePropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.PriorityDefinitionPropertiesEditionPartImpl;
 import org.obeonetwork.dsl.environment.parts.impl.PriorityPropertiesEditionPartImpl;
@@ -147,6 +149,12 @@ public class EnvironmentPropertiesEditionPartProvider implements IPropertiesEdit
 				return new ReferencePropertiesEditionPartImpl(component);
 			if (kind == EnvironmentViewsRepository.FORM_KIND)
 				return new ReferencePropertiesEditionPartForm(component);
+		}
+		if (key == EnvironmentViewsRepository.Opposite.class) {
+			if (kind == EnvironmentViewsRepository.SWT_KIND)
+				return new OppositePropertiesEditionPartImpl(component);
+			if (kind == EnvironmentViewsRepository.FORM_KIND)
+				return new OppositePropertiesEditionPartForm(component);
 		}
 		if (key == EnvironmentViewsRepository.Metadatas.class) {
 			if (kind == EnvironmentViewsRepository.SWT_KIND)

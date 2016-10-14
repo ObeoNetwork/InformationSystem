@@ -19,6 +19,9 @@ public class CinematicMessages extends NLS {
 	
 	public static String CinematicRootPropertiesEditionPart_PropertiesGroupLabel;
 
+	
+	public static String ToolkitsPropertiesEditionPart_PropertiesGroupLabel;
+
 
 	
 	public static String Package__ReadOnly;
@@ -31,6 +34,12 @@ public class CinematicMessages extends NLS {
 
 	
 	public static String CinematicRoot_Part_Title;
+
+	
+	public static String Toolkits_ReadOnly;
+
+	
+	public static String Toolkits_Part_Title;
 
 
 	
@@ -52,9 +61,6 @@ public class CinematicMessages extends NLS {
 	public static String CinematicRootPropertiesEditionPart_NameLabel;
 
 	
-	public static String CinematicRootPropertiesEditionPart_ToolkitsLabel;
-
-	
 	public static String CinematicRootPropertiesEditionPart_DescriptionLabel;
 
 	
@@ -65,6 +71,9 @@ public class CinematicMessages extends NLS {
 
 	
 	public static String CinematicRootPropertiesEditionPart_ViewContainersLabel;
+
+	
+	public static String ToolkitsPropertiesEditionPart_ToolkitsLabel;
 
 
 	

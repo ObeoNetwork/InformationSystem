@@ -7,11 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.obeonetwork.dsl.cinematic.flow.util.FlowAdapterFactory;
-
 import org.obeonetwork.dsl.environment.providers.MetadataCptPropertiesEditionProvider;
 
 /**

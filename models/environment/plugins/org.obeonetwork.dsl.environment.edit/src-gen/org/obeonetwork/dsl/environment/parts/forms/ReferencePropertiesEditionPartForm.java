@@ -63,8 +63,8 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 	protected EMFComboViewer multiplicity;
 	protected Button isComposite;
 	protected Button navigable;
-	protected EObjectFlatComboViewer oppositeOf;
 	protected Button identifier;
+	protected EObjectFlatComboViewer oppositeOf;
 	protected Text description;
 
 
@@ -116,8 +116,8 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.multiplicity);
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.isComposite);
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.navigable);
-		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.oppositeOf);
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.identifier);
+		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.oppositeOf);
 		propertiesStep.addStep(EnvironmentViewsRepository.Reference.Properties.description);
 		
 		
@@ -143,11 +143,11 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 				if (key == EnvironmentViewsRepository.Reference.Properties.navigable) {
 					return createNavigableCheckbox(widgetFactory, parent);
 				}
-				if (key == EnvironmentViewsRepository.Reference.Properties.oppositeOf) {
-					return createOppositeOfFlatComboViewer(parent, widgetFactory);
-				}
 				if (key == EnvironmentViewsRepository.Reference.Properties.identifier) {
 					return createIdentifierCheckbox(widgetFactory, parent);
+				}
+				if (key == EnvironmentViewsRepository.Reference.Properties.oppositeOf) {
+					return createOppositeOfFlatComboViewer(parent, widgetFactory);
 				}
 				if (key == EnvironmentViewsRepository.Reference.Properties.description) {
 					return createDescriptionTextarea(widgetFactory, parent);
@@ -363,6 +363,35 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 		return parent;
 	}
 
+	
+	protected Composite createIdentifierCheckbox(FormToolkit widgetFactory, Composite parent) {
+		identifier = widgetFactory.createButton(parent, getDescription(EnvironmentViewsRepository.Reference.Properties.identifier, EnvironmentMessages.ReferencePropertiesEditionPart_IdentifierLabel), SWT.CHECK);
+		identifier.addSelectionListener(new SelectionAdapter() {
+
+			/**
+			 * {@inheritDoc}
+			 *
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 * 	
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				if (propertiesEditionComponent != null)
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ReferencePropertiesEditionPartForm.this, EnvironmentViewsRepository.Reference.Properties.identifier, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, new Boolean(identifier.getSelection())));
+			}
+
+		});
+		GridData identifierData = new GridData(GridData.FILL_HORIZONTAL);
+		identifierData.horizontalSpan = 2;
+		identifier.setLayoutData(identifierData);
+		EditingUtils.setID(identifier, EnvironmentViewsRepository.Reference.Properties.identifier);
+		EditingUtils.setEEFtype(identifier, "eef::Checkbox"); //$NON-NLS-1$
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Reference.Properties.identifier, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createIdentifierCheckbox
+
+		// End of user code
+		return parent;
+	}
+
 	/**
 	 * @param parent the parent composite
 	 * @param widgetFactory factory to use to instanciante widget of the form
@@ -391,35 +420,6 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 		oppositeOf.setID(EnvironmentViewsRepository.Reference.Properties.oppositeOf);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Reference.Properties.oppositeOf, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
 		// Start of user code for createOppositeOfFlatComboViewer
-
-		// End of user code
-		return parent;
-	}
-
-	
-	protected Composite createIdentifierCheckbox(FormToolkit widgetFactory, Composite parent) {
-		identifier = widgetFactory.createButton(parent, getDescription(EnvironmentViewsRepository.Reference.Properties.identifier, EnvironmentMessages.ReferencePropertiesEditionPart_IdentifierLabel), SWT.CHECK);
-		identifier.addSelectionListener(new SelectionAdapter() {
-
-			/**
-			 * {@inheritDoc}
-			 *
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 * 	
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ReferencePropertiesEditionPartForm.this, EnvironmentViewsRepository.Reference.Properties.identifier, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, new Boolean(identifier.getSelection())));
-			}
-
-		});
-		GridData identifierData = new GridData(GridData.FILL_HORIZONTAL);
-		identifierData.horizontalSpan = 2;
-		identifier.setLayoutData(identifierData);
-		EditingUtils.setID(identifier, EnvironmentViewsRepository.Reference.Properties.identifier);
-		EditingUtils.setEEFtype(identifier, "eef::Checkbox"); //$NON-NLS-1$
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Reference.Properties.identifier, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
-		// Start of user code for createIdentifierCheckbox
 
 		// End of user code
 		return parent;
@@ -554,13 +554,8 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 		if (current != null) {
 			referencedType.setSelection(new StructuredSelection(settings.getValue()));
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.referencedType);
-		if (eefElementEditorReadOnlyState && referencedType.isEnabled()) {
-			referencedType.setEnabled(false);
-			referencedType.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !referencedType.isEnabled()) {
-			referencedType.setEnabled(true);
-		}	
+		referencedType.setEnabled(false);
+		referencedType.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
 		
 	}
 
@@ -576,13 +571,8 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			referencedType.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.referencedType);
-		if (eefElementEditorReadOnlyState && referencedType.isEnabled()) {
-			referencedType.setEnabled(false);
-			referencedType.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !referencedType.isEnabled()) {
-			referencedType.setEnabled(true);
-		}	
+		referencedType.setEnabled(false);
+		referencedType.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
 		
 	}
 
@@ -729,6 +719,38 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 	/**
 	 * {@inheritDoc}
 	 * 
+	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#getIdentifier()
+	 * 
+	 */
+	public Boolean getIdentifier() {
+		return Boolean.valueOf(identifier.getSelection());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#setIdentifier(Boolean newValue)
+	 * 
+	 */
+	public void setIdentifier(Boolean newValue) {
+		if (newValue != null) {
+			identifier.setSelection(newValue.booleanValue());
+		} else {
+			identifier.setSelection(false);
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.identifier);
+		if (eefElementEditorReadOnlyState && identifier.isEnabled()) {
+			identifier.setEnabled(false);
+			identifier.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !identifier.isEnabled()) {
+			identifier.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#getOppositeOf()
 	 * 
 	 */
@@ -751,13 +773,8 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 		if (current != null) {
 			oppositeOf.setSelection(new StructuredSelection(settings.getValue()));
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.oppositeOf);
-		if (eefElementEditorReadOnlyState && oppositeOf.isEnabled()) {
-			oppositeOf.setEnabled(false);
-			oppositeOf.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !oppositeOf.isEnabled()) {
-			oppositeOf.setEnabled(true);
-		}	
+		oppositeOf.setEnabled(false);
+		oppositeOf.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
 		
 	}
 
@@ -773,13 +790,8 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 		} else {
 			oppositeOf.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.oppositeOf);
-		if (eefElementEditorReadOnlyState && oppositeOf.isEnabled()) {
-			oppositeOf.setEnabled(false);
-			oppositeOf.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !oppositeOf.isEnabled()) {
-			oppositeOf.setEnabled(true);
-		}	
+		oppositeOf.setEnabled(false);
+		oppositeOf.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
 		
 	}
 
@@ -810,38 +822,6 @@ public class ReferencePropertiesEditionPartForm extends SectionPropertiesEditing
 	 */
 	public void addBusinessFilterToOppositeOf(ViewerFilter filter) {
 		oppositeOf.addBusinessRuleFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#getIdentifier()
-	 * 
-	 */
-	public Boolean getIdentifier() {
-		return Boolean.valueOf(identifier.getSelection());
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.ReferencePropertiesEditionPart#setIdentifier(Boolean newValue)
-	 * 
-	 */
-	public void setIdentifier(Boolean newValue) {
-		if (newValue != null) {
-			identifier.setSelection(newValue.booleanValue());
-		} else {
-			identifier.setSelection(false);
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.identifier);
-		if (eefElementEditorReadOnlyState && identifier.isEnabled()) {
-			identifier.setEnabled(false);
-			identifier.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !identifier.isEnabled()) {
-			identifier.setEnabled(true);
-		}	
-		
 	}
 
 	/**

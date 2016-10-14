@@ -105,8 +105,7 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 			final ViewContainerReferencePropertiesEditionPart viewContainerReferencePart = (ViewContainerReferencePropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.description))
-				viewContainerReferencePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewContainerReference.getDescription()));
-			
+				viewContainerReferencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, viewContainerReference.getDescription()));
 			if (isAccessible(ViewViewsRepository.ViewContainerReference.Properties.name))
 				viewContainerReferencePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewContainerReference.getName()));
 			
@@ -355,7 +354,7 @@ public class ViewContainerReferenceViewContainerReferencePropertiesEditionCompon
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ViewContainerReferencePropertiesEditionPart viewContainerReferencePart = (ViewContainerReferencePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewContainerReferencePart != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewContainerReferencePart != null && isAccessible(ViewViewsRepository.ViewContainerReference.Properties.description)){
 				if (msg.getNewValue() != null) {
 					viewContainerReferencePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

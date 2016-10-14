@@ -83,8 +83,7 @@ public class AbortStateAbortStatePropertiesEditionComponent extends SinglePartPr
 			final AbortStatePropertiesEditionPart abortStatePart = (AbortStatePropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(FlowViewsRepository.AbortState.Properties.description))
-				abortStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, abortState.getDescription()));
-			
+				abortStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, abortState.getDescription()));
 			if (isAccessible(FlowViewsRepository.AbortState.Properties.actions)) {
 				actionsSettings = new ReferencesTableSettings(abortState, FlowPackage.eINSTANCE.getFlowState_Actions());
 				abortStatePart.initActions(actionsSettings);
@@ -188,7 +187,7 @@ public class AbortStateAbortStatePropertiesEditionComponent extends SinglePartPr
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			AbortStatePropertiesEditionPart abortStatePart = (AbortStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && abortStatePart != null && isAccessible(FlowViewsRepository.AbortState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && abortStatePart != null && isAccessible(FlowViewsRepository.AbortState.Properties.description)){
 				if (msg.getNewValue() != null) {
 					abortStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

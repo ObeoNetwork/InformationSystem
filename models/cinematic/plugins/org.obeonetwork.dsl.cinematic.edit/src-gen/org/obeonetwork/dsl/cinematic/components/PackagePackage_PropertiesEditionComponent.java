@@ -92,7 +92,7 @@ public class PackagePackage_PropertiesEditionComponent extends SinglePartPropert
 			final Package_PropertiesEditionPart package_Part = (Package_PropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(CinematicViewsRepository.Package_.Properties.description))
-				package_Part.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, package_.getDescription()));
+				package_Part.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, package_.getDescription()));
 			
 			if (isAccessible(CinematicViewsRepository.Package_.Properties.name))
 				package_Part.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, package_.getName()));

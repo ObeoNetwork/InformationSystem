@@ -91,8 +91,7 @@ public class SubflowStateSubflowStatePropertiesEditionComponent extends SinglePa
 			final SubflowStatePropertiesEditionPart subflowStatePart = (SubflowStatePropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(FlowViewsRepository.SubflowState.Properties.description))
-				subflowStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, subflowState.getDescription()));
-			
+				subflowStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, subflowState.getDescription()));
 			if (isAccessible(FlowViewsRepository.SubflowState.Properties.actions)) {
 				actionsSettings = new ReferencesTableSettings(subflowState, FlowPackage.eINSTANCE.getFlowState_Actions());
 				subflowStatePart.initActions(actionsSettings);
@@ -228,7 +227,7 @@ public class SubflowStateSubflowStatePropertiesEditionComponent extends SinglePa
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			SubflowStatePropertiesEditionPart subflowStatePart = (SubflowStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && subflowStatePart != null && isAccessible(FlowViewsRepository.SubflowState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && subflowStatePart != null && isAccessible(FlowViewsRepository.SubflowState.Properties.description)){
 				if (msg.getNewValue() != null) {
 					subflowStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

@@ -6,25 +6,16 @@ package org.obeonetwork.dsl.cinematic.flow.providers;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
-
 import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.eclipse.jface.viewers.IFilter;
-
 import org.obeonetwork.dsl.cinematic.flow.AsyncEventState;
 import org.obeonetwork.dsl.cinematic.flow.FlowPackage;
-
 import org.obeonetwork.dsl.cinematic.flow.components.AsyncEventStateAsyncEventStatePropertiesEditionComponent;
 import org.obeonetwork.dsl.cinematic.flow.components.AsyncEventStatePropertiesEditionComponent;
-
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
-
 import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
 
 /**

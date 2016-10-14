@@ -96,8 +96,7 @@ public class TransitionTransitionPropertiesEditionComponent extends SinglePartPr
 			final TransitionPropertiesEditionPart transitionPart = (TransitionPropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(FlowViewsRepository.Transition.Properties.description))
-				transitionPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, transition.getDescription()));
-			
+				transitionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, transition.getDescription()));
 			if (isAccessible(FlowViewsRepository.Transition.Properties.name))
 				transitionPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, transition.getName()));
 			
@@ -281,7 +280,7 @@ public class TransitionTransitionPropertiesEditionComponent extends SinglePartPr
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			TransitionPropertiesEditionPart transitionPart = (TransitionPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && transitionPart != null && isAccessible(FlowViewsRepository.Transition.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && transitionPart != null && isAccessible(FlowViewsRepository.Transition.Properties.description)){
 				if (msg.getNewValue() != null) {
 					transitionPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

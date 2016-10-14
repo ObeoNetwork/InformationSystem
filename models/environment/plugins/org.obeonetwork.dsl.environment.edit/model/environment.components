@@ -141,7 +141,7 @@
         <referencedBinding xmi:id="_PZ034HC1EeCNPbrYssPTmA" binding="_65K3QHC0EeCNPbrYssPTmA"/>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Attribute"/>
       </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_Z4_3p3CzEeCNPbrYssPTmA" name="reference" views="_Z4_4BnCzEeCNPbrYssPTmA">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_Z4_3p3CzEeCNPbrYssPTmA" name="reference" views="_Z4_4BnCzEeCNPbrYssPTmA _Zotl0GhCEeWzJNeOb-C5fg">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3q3CzEeCNPbrYssPTmA" name="name" views="_Z4_4C3CzEeCNPbrYssPTmA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Property/name"/>
         </properties>
@@ -157,7 +157,7 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3rnCzEeCNPbrYssPTmA" name="navigable" views="_Z4_4DnCzEeCNPbrYssPTmA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/navigable"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3r3CzEeCNPbrYssPTmA" name="oppositeOf" views="_Z4_4D3CzEeCNPbrYssPTmA">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3r3CzEeCNPbrYssPTmA" name="oppositeOf" views="_ZouM5mhCEeWzJNeOb-C5fg">
           <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_qBAjcFrDEeSp8I2rNbfleQ" name="identifier" views="_agQLUFrDEeSp8I2rNbfleQ">
@@ -165,6 +165,54 @@
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_Z4_3qHCzEeCNPbrYssPTmA" name="description" views="_Z4_4CHCzEeCNPbrYssPTmA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_fHHvQGhCEeWzJNeOb-C5fg" name="oppositeName" views="_ZouM4WhCEeWzJNeOb-C5fg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Property/name"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_icJKUGhCEeWzJNeOb-C5fg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_v05UIGhCEeWzJNeOb-C5fg" name="oppositeReferencedType" views="_ZouM4mhCEeWzJNeOb-C5fg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/referencedType"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_yS_uQGhCEeWzJNeOb-C5fg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_z91fcGhCEeWzJNeOb-C5fg" name="oppositeMultiplicity" views="_ZouM42hCEeWzJNeOb-C5fg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Property/multiplicity"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_3KC8wGhCEeWzJNeOb-C5fg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_5Z8i0GhCEeWzJNeOb-C5fg" name="oppositeIsComposite" views="_ZouM5GhCEeWzJNeOb-C5fg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/isComposite"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_8HyCEGhCEeWzJNeOb-C5fg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_bimqMGhDEeWzJNeOb-C5fg" name="oppositeNavigable" views="_ZouM5WhCEeWzJNeOb-C5fg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/navigable"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_eNFTcGhDEeWzJNeOb-C5fg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_gQFF8GhDEeWzJNeOb-C5fg" name="oppositeIdentifier" views="_ZouM52hCEeWzJNeOb-C5fg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Property/isIdentifier"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_is9_IGhDEeWzJNeOb-C5fg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_ohe7cGhDEeWzJNeOb-C5fg" name="oppositeDescription" views="_ZouM6GhCEeWzJNeOb-C5fg">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_rGCi4GhDEeWzJNeOb-C5fg">
+            <feature href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
+          </navigation>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_HjhhEGhNEeW4asV9UXiN2g" name="oppositeOppositeOf" views="_D46QgGhNEeW4asV9UXiN2g">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
+          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_J9paIGhNEeW4asV9UXiN2g">
+            <feature href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
+          </navigation>
         </properties>
         <referencedBinding xmi:id="_Q2PLgHC1EeCNPbrYssPTmA" binding="_65K3QHC0EeCNPbrYssPTmA"/>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference"/>
@@ -375,7 +423,7 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_4C3CzEeCNPbrYssPTmA" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_4EHCzEeCNPbrYssPTmA" name="referencedType">
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_4EHCzEeCNPbrYssPTmA" name="referencedType" readOnly="true">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_4DHCzEeCNPbrYssPTmA" name="multiplicity">
@@ -387,13 +435,42 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_4DnCzEeCNPbrYssPTmA" name="navigable">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_4D3CzEeCNPbrYssPTmA" name="oppositeOf">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
-          </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_agQLUFrDEeSp8I2rNbfleQ" name="identifier">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
           </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM5mhCEeWzJNeOb-C5fg" name="oppositeOf" readOnly="true">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_4CHCzEeCNPbrYssPTmA" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_Zotl0GhCEeWzJNeOb-C5fg" name="Opposite">
+        <elements xsi:type="eef-views:Container" xmi:id="_ZouM4GhCEeWzJNeOb-C5fg" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM4WhCEeWzJNeOb-C5fg" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM4mhCEeWzJNeOb-C5fg" name="referencedType" readOnly="true">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM42hCEeWzJNeOb-C5fg" name="multiplicity">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM5GhCEeWzJNeOb-C5fg" name="isComposite">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM5WhCEeWzJNeOb-C5fg" name="navigable">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM52hCEeWzJNeOb-C5fg" name="identifier">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_D46QgGhNEeW4asV9UXiN2g" name="oppositeOf" readOnly="true">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM6GhCEeWzJNeOb-C5fg" name="description">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
           </elements>
         </elements>

@@ -104,8 +104,7 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 			final ViewElementPropertiesEditionPart viewElementPart = (ViewElementPropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(ViewViewsRepository.ViewElement.Properties.description))
-				viewElementPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewElement.getDescription()));
-			
+				viewElementPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, viewElement.getDescription()));
 			if (isAccessible(ViewViewsRepository.ViewElement.Properties.name))
 				viewElementPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewElement.getName()));
 			
@@ -363,7 +362,7 @@ public class ViewElementViewElementPropertiesEditionComponent extends SinglePart
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ViewElementPropertiesEditionPart viewElementPart = (ViewElementPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewElementPart != null && isAccessible(ViewViewsRepository.ViewElement.Properties.description)){
 				if (msg.getNewValue() != null) {
 					viewElementPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

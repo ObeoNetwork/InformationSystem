@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 Obeo.
+ * Copyright (c) 2014, 2016 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -31,7 +31,10 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.diagram.DEdge;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.EdgeTarget;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.obeonetwork.dsl.environment.Environment;
@@ -118,6 +121,89 @@ public class TypesServices {
 	
 	private EFactory getEFactory(String uri) {
 		return Registry.INSTANCE.getEFactory(uri);
+	}
+	
+	private StructuredType getStructuredTypeFromEdgeTarget(EdgeTarget edgeTarget) {
+		if (edgeTarget instanceof DSemanticDecorator) {
+			EObject semanticElement = ((DSemanticDecorator) edgeTarget).getTarget();
+			if (semanticElement instanceof StructuredType) {
+				return (StructuredType)semanticElement;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Create an inheritance relationship using the reconnect edge to retrieve the supertype. 
+	 * Do nothing and displays an information dialog if the new inheritance would cause a cycle.
+	 * @param newSubTypeCandidate
+	 * @param edgeView Edge used to retrieve the super type (i.e.the edge's target node)
+	 * @return
+	 */
+	public StructuredType reconnectSourceOnInheritanceEdge(final StructuredType newSubTypeCandidate, final StructuredType previousSubType, final DEdge edgeView) {
+		StructuredType superTypeCandidate = getStructuredTypeFromEdgeTarget(edgeView.getTargetNode());
+		
+		if (previousSubType != null && superTypeCandidate != null) {
+			if (isSubtype(superTypeCandidate, newSubTypeCandidate)) {
+				// The new superType is already a sub-type of the subtype candidate
+				// setting the new inheritance relationship would lead to a cycle
+				// We warn the user that this is not possible
+				new UIServices().displayInfo(newSubTypeCandidate,
+												"Creation of inheritance relationship not allowed !",
+												"Creation has been cancelled.\n\n" +
+												newSubTypeCandidate.getName() + " is already a super-type of " + superTypeCandidate.getName() + ".\n"
+												+ "The new inheritance relationship would cause a cycle which is not allowed.");
+			} else {
+				// Remove old inheritance
+				previousSubType.setSupertype(null);
+				newSubTypeCandidate.setSupertype(superTypeCandidate);
+			}
+		}
+		return newSubTypeCandidate;
+	}
+	
+	/**
+	 * Create an inheritance relationship between 2 types.
+	 * Do nothing and displays an information dialog if the new inheritance would cause a cycle.
+	 * @param subTypeCandidate
+	 * @param superTypeCandidate
+	 * @return
+	 */
+	public StructuredType createInheritance(final StructuredType subTypeCandidate, final StructuredType superTypeCandidate) {
+		if (isSubtype(superTypeCandidate, subTypeCandidate)) {
+			// The new superType is already a sub-type of the subtype candidate
+			// setting the new inheritance relationship would lead to a cycle
+			// We warn the user that this is not possible
+			new UIServices().displayInfo(subTypeCandidate,
+											"Creation of inheritance relationship not allowed !",
+											"Creation has been cancelled.\n\n" +
+											subTypeCandidate.getName() + " is already a super-type of " + superTypeCandidate.getName() + ".\n"
+											+ "The new inheritance relationship would cause a cycle which is not allowed.");
+		} else {
+			subTypeCandidate.setSupertype(superTypeCandidate);
+		}
+		return subTypeCandidate;
+	}
+	
+	/**
+	 * Returns <code>true</code> if <code>childCandidate</code> is a sub type of
+	 * <code>parentCandidate</code>.
+	 * 
+	 * @param childCandidate
+	 *            a non <code>null</code> type.
+	 * @param parentCandidate
+	 *            a non <code>null</code> type.
+	 * @return
+	 */
+	private boolean isSubtype(final StructuredType childCandidate, final StructuredType parentCandidate) {
+		StructuredType currentChild = childCandidate;
+		while (currentChild != null) {
+			if (currentChild == parentCandidate) {
+				return true;
+			} 
+			currentChild = currentChild.getSupertype(); // Iterate on super types
+		}
+		return false;
 	}
 	
 	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDTOsRoots(Namespace namespace, DSemanticDiagram diagram) {

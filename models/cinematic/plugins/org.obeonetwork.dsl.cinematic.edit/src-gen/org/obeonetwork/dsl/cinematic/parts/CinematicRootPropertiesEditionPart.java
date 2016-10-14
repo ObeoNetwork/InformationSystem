@@ -31,48 +31,6 @@ public interface CinematicRootPropertiesEditionPart {
 	public void setName(String newValue);
 
 
-
-
-	/**
-	 * Init the toolkits
-	 * @param settings settings for the toolkits ReferencesTable 
-	 */
-	public void initToolkits(ReferencesTableSettings settings);
-
-	/**
-	 * Update the toolkits
-	 * @param newValue the toolkits to update
-	 * 
-	 */
-	public void updateToolkits();
-
-	/**
-	 * Adds the given filter to the toolkits edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addFilterToToolkits(ViewerFilter filter);
-
-	/**
-	 * Adds the given filter to the toolkits edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addBusinessFilterToToolkits(ViewerFilter filter);
-
-	/**
-	 * @return true if the given element is contained inside the toolkits table
-	 * 
-	 */
-	public boolean isContainedInToolkitsTable(EObject element);
-
-
 	/**
 	 * @return the description
 	 * 

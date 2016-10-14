@@ -123,6 +123,13 @@
          </propertyTab>
 
          <propertyTab
+               id="Opposite"
+               label="Opposite"
+               category="extended"
+               afterTab="Reference">
+         </propertyTab>
+
+         <propertyTab
                id="BindingInfo"
                label="BindingInfo"
                category="default">
@@ -295,6 +302,12 @@
                filter="org.obeonetwork.dsl.environment.providers.ReferencePropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.environment.section.Reference"
                tab="Reference">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.OppositePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.environment.providers.ReferencePropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.environment.section.Reference"
+               tab="Opposite">
          </propertySection>
          <propertySection
                class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"

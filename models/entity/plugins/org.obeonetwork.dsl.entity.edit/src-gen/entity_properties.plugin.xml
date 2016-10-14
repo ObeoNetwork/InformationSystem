@@ -58,6 +58,13 @@
          </propertyTab>
 
          <propertyTab
+               id="Persistence"
+               label="Persistence"
+               category="extended"
+               afterTab="Entity">
+         </propertyTab>
+
+         <propertyTab
                id="Finder"
                label="Finder"
                category="default">
@@ -98,6 +105,12 @@
                filter="org.obeonetwork.dsl.entity.providers.EntityPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.dsl.entity.section.Entity"
                tab="Entity">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.entity.parts.forms.PersistencePropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.entity.providers.EntityPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.entity.section.Entity"
+               tab="Persistence">
          </propertySection>
          <propertySection
                class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"

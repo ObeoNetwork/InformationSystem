@@ -154,6 +154,13 @@
                label="CinematicRoot"
                category="semantic &amp; extension">
          </propertyTab>
+         
+         <propertyTab
+               id="Toolkits"
+               label="Toolkits"
+               category="semantic &amp; extension"
+               afterTab="CinematicRoot">
+         </propertyTab>
 
       </propertyTabs>
    </extension>
@@ -172,6 +179,12 @@
                filter="org.obeonetwork.dsl.cinematic.filters.CinematicRootTabPropertiesEditionSection"
                id="org.obeonetwork.dsl.cinematic.section.CinematicRoot"
                tab="CinematicRoot">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.cinematic.parts.forms.ToolkitsPropertiesEditionPartForm"
+               filter="org.obeonetwork.dsl.cinematic.providers.CinematicRootPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.dsl.cinematic.section.CinematicRoot"
+               tab="Toolkits">
          </propertySection>
       </propertySections>
    </extension>

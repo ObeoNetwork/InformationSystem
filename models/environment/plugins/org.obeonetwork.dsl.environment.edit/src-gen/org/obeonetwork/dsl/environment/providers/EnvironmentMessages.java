@@ -53,6 +53,9 @@ public class EnvironmentMessages extends NLS {
 	public static String ReferencePropertiesEditionPart_PropertiesGroupLabel;
 
 	
+	public static String OppositePropertiesEditionPart_PropertiesGroupLabel;
+
+	
 	public static String MetadatasPropertiesEditionPart_PropertiesGroupLabel;
 
 	
@@ -145,6 +148,12 @@ public class EnvironmentMessages extends NLS {
 
 	
 	public static String Reference_Part_Title;
+
+	
+	public static String Opposite_ReadOnly;
+
+	
+	public static String Opposite_Part_Title;
 
 	
 	public static String Metadatas_ReadOnly;
@@ -271,13 +280,37 @@ public class EnvironmentMessages extends NLS {
 	public static String ReferencePropertiesEditionPart_NavigableLabel;
 
 	
-	public static String ReferencePropertiesEditionPart_OppositeOfLabel;
-
-	
 	public static String ReferencePropertiesEditionPart_IdentifierLabel;
 
 	
+	public static String ReferencePropertiesEditionPart_OppositeOfLabel;
+
+	
 	public static String ReferencePropertiesEditionPart_DescriptionLabel;
+
+	
+	public static String OppositePropertiesEditionPart_NameLabel;
+
+	
+	public static String OppositePropertiesEditionPart_ReferencedTypeLabel;
+
+	
+	public static String OppositePropertiesEditionPart_MultiplicityLabel;
+
+	
+	public static String OppositePropertiesEditionPart_IsCompositeLabel;
+
+	
+	public static String OppositePropertiesEditionPart_NavigableLabel;
+
+	
+	public static String OppositePropertiesEditionPart_IdentifierLabel;
+
+	
+	public static String OppositePropertiesEditionPart_OppositeOfLabel;
+
+	
+	public static String OppositePropertiesEditionPart_DescriptionLabel;
 
 	
 	public static String MetadatasPropertiesEditionPart_MetadataLabel;

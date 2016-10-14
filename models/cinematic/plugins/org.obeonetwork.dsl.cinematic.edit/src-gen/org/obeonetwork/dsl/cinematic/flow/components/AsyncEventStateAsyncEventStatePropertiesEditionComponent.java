@@ -83,8 +83,7 @@ public class AsyncEventStateAsyncEventStatePropertiesEditionComponent extends Si
 			final AsyncEventStatePropertiesEditionPart asyncEventStatePart = (AsyncEventStatePropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(FlowViewsRepository.AsyncEventState.Properties.description))
-				asyncEventStatePart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, asyncEventState.getDescription()));
-			
+				asyncEventStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, asyncEventState.getDescription()));
 			if (isAccessible(FlowViewsRepository.AsyncEventState.Properties.actions)) {
 				actionsSettings = new ReferencesTableSettings(asyncEventState, FlowPackage.eINSTANCE.getFlowState_Actions());
 				asyncEventStatePart.initActions(actionsSettings);
@@ -188,7 +187,7 @@ public class AsyncEventStateAsyncEventStatePropertiesEditionComponent extends Si
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			AsyncEventStatePropertiesEditionPart asyncEventStatePart = (AsyncEventStatePropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && asyncEventStatePart != null && isAccessible(FlowViewsRepository.AsyncEventState.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && asyncEventStatePart != null && isAccessible(FlowViewsRepository.AsyncEventState.Properties.description)){
 				if (msg.getNewValue() != null) {
 					asyncEventStatePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

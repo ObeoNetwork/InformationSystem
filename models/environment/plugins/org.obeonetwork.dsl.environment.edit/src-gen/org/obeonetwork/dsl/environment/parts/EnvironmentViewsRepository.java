@@ -259,13 +259,49 @@ public class EnvironmentViewsRepository {
 			public static String navigable = "environment::Reference::properties::navigable";
 			
 			
-			public static String oppositeOf = "environment::Reference::properties::oppositeOf";
-			
-			
 			public static String identifier = "environment::Reference::properties::identifier";
 			
 			
+			public static String oppositeOf = "environment::Reference::properties::oppositeOf";
+			
+			
 			public static String description = "environment::Reference::properties::description";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * Opposite view descriptor
+	 * 
+	 */
+	public static class Opposite {
+		public static class Properties {
+	
+			
+			public static String name = "environment::Opposite::properties::name";
+			
+			
+			public static String referencedType = "environment::Opposite::properties::referencedType";
+			
+			
+			public static String multiplicity = "environment::Opposite::properties::multiplicity";
+			
+			
+			public static String isComposite = "environment::Opposite::properties::isComposite";
+			
+			
+			public static String navigable = "environment::Opposite::properties::navigable";
+			
+			
+			public static String identifier = "environment::Opposite::properties::identifier";
+			
+			
+			public static String oppositeOf = "environment::Opposite::properties::oppositeOf";
+			
+			
+			public static String description = "environment::Opposite::properties::description";
 			
 	
 		}

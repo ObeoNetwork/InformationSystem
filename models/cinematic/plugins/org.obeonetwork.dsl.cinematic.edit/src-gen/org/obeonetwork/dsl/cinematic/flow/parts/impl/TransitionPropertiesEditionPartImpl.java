@@ -49,6 +49,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.obeonetwork.dsl.cinematic.flow.parts.FlowViewsRepository;
 import org.obeonetwork.dsl.cinematic.flow.parts.TransitionPropertiesEditionPart;
@@ -138,7 +139,7 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 					return createOnAdvancedReferencesTable(parent);
 				}
 				if (key == FlowViewsRepository.Transition.Properties.description) {
-					return createDescriptionText(parent);
+					return createDescriptionTextarea(parent);
 				}
 				if (key == FlowViewsRepository.Transition.Properties.from) {
 					return createFromFlatComboViewer(parent);
@@ -378,10 +379,16 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 	}
 
 	
-	protected Composite createDescriptionText(Composite parent) {
-		createDescription(parent, FlowViewsRepository.Transition.Properties.description, FlowMessages.TransitionPropertiesEditionPart_DescriptionLabel);
-		description = SWTUtils.createScrollableText(parent, SWT.BORDER);
+	protected Composite createDescriptionTextarea(Composite parent) {
+		Label descriptionLabel = createDescription(parent, FlowViewsRepository.Transition.Properties.description, FlowMessages.TransitionPropertiesEditionPart_DescriptionLabel);
+		GridData descriptionLabelData = new GridData(GridData.FILL_HORIZONTAL);
+		descriptionLabelData.horizontalSpan = 3;
+		descriptionLabel.setLayoutData(descriptionLabelData);
+		description = SWTUtils.createScrollableText(parent, SWT.BORDER | SWT.WRAP | SWT.MULTI | SWT.V_SCROLL);
 		GridData descriptionData = new GridData(GridData.FILL_HORIZONTAL);
+		descriptionData.horizontalSpan = 2;
+		descriptionData.heightHint = 80;
+		descriptionData.widthHint = 200;
 		description.setLayoutData(descriptionData);
 		description.addFocusListener(new FocusAdapter() {
 
@@ -391,36 +398,16 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
 			 * 
 			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
 			public void focusLost(FocusEvent e) {
 				if (propertiesEditionComponent != null)
 					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(TransitionPropertiesEditionPartImpl.this, FlowViewsRepository.Transition.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
 			}
 
 		});
-		description.addKeyListener(new KeyAdapter() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void keyPressed(KeyEvent e) {
-				if (e.character == SWT.CR) {
-					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(TransitionPropertiesEditionPartImpl.this, FlowViewsRepository.Transition.Properties.description, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, description.getText()));
-				}
-			}
-
-		});
 		EditingUtils.setID(description, FlowViewsRepository.Transition.Properties.description);
-		EditingUtils.setEEFtype(description, "eef::Text"); //$NON-NLS-1$
+		EditingUtils.setEEFtype(description, "eef::Textarea"); //$NON-NLS-1$
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(FlowViewsRepository.Transition.Properties.description, FlowViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDescriptionText
+		// Start of user code for createDescriptionTextArea
 
 		// End of user code
 		return parent;
@@ -600,6 +587,8 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		on.setContentProvider(contentProvider);
 		on.setInput(settings);
+		onBusinessFilters.clear();
+		onFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(FlowViewsRepository.Transition.Properties.on);
 		if (eefElementEditorReadOnlyState && on.getTable().isEnabled()) {
 			on.setEnabled(false);
@@ -675,6 +664,7 @@ public class TransitionPropertiesEditionPartImpl extends CompositePropertiesEdit
 		boolean eefElementEditorReadOnlyState = isReadOnly(FlowViewsRepository.Transition.Properties.description);
 		if (eefElementEditorReadOnlyState && description.isEnabled()) {
 			description.setEnabled(false);
+			description.setBackground(description.getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
 			description.setToolTipText(FlowMessages.Transition_ReadOnly);
 		} else if (!eefElementEditorReadOnlyState && !description.isEnabled()) {
 			description.setEnabled(true);

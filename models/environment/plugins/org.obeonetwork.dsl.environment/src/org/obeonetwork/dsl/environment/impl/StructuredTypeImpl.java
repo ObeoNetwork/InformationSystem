@@ -13,6 +13,8 @@
 package org.obeonetwork.dsl.environment.impl;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -97,12 +99,52 @@ public abstract class StructuredTypeImpl extends TypeImpl implements StructuredT
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * @throws IllegalArgumentException
+	 *             if the <code>newSuperType</code> induces a cyclic
+	 *             inheritance.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
+	 * @generated NOT
 	 */
 	public void setSupertype(StructuredType newSupertype) {
+		if (isCyclicInheritance(newSupertype)) {
+			throw new IllegalArgumentException(
+					"Cyclic inheritance from " + getName() + " to " + newSupertype.getName() + ".");
+		}
 		eDynamicSet(EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE,
 				EnvironmentPackage.Literals.STRUCTURED_TYPE__SUPERTYPE, newSupertype);
+	}
+
+	/**
+	 * Checks that there is no cyclic inheritance if the given type becomes the
+	 * super type of this type.
+	 * 
+	 * @param superTypeCandidate
+	 *            the super type candidate.
+	 * @return <code>true</true> if a cyclic inheritance appears if <code>superTypeCandidate</code>
+	 *         becomes the super type of this type.
+	 */
+	private boolean isCyclicInheritance(final StructuredType superTypeCandidate) {
+		// quick tests
+		if (superTypeCandidate == null) {
+			return false;
+		}
+		if (superTypeCandidate == this) {
+			return true;
+		}
+
+		// checks that this is not a super type of superTypeCandidate.
+		final Set<StructuredType> superTypesOfSuperTypeCandidate = new HashSet<StructuredType>();
+		StructuredType currentSuperType = superTypeCandidate.getSupertype();
+		while (currentSuperType != null && superTypesOfSuperTypeCandidate.add(currentSuperType)) {
+			if (currentSuperType == this) { // cycle
+				return true;
+			}
+			currentSuperType.getSupertype(); // Iterate on supertypes
+		}
+
+		// it's ok, no cycle.
+		return false;
 	}
 
 	/**

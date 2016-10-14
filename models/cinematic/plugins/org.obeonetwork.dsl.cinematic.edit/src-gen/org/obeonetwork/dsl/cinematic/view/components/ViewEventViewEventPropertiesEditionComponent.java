@@ -83,8 +83,7 @@ public class ViewEventViewEventPropertiesEditionComponent extends SinglePartProp
 			final ViewEventPropertiesEditionPart viewEventPart = (ViewEventPropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(ViewViewsRepository.ViewEvent.Properties.description))
-				viewEventPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewEvent.getDescription()));
-			
+				viewEventPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, viewEvent.getDescription()));
 			if (isAccessible(ViewViewsRepository.ViewEvent.Properties.name))
 				viewEventPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, viewEvent.getName()));
 			
@@ -183,7 +182,7 @@ public class ViewEventViewEventPropertiesEditionComponent extends SinglePartProp
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ViewEventPropertiesEditionPart viewEventPart = (ViewEventPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewEventPart != null && isAccessible(ViewViewsRepository.ViewEvent.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && viewEventPart != null && isAccessible(ViewViewsRepository.ViewEvent.Properties.description)){
 				if (msg.getNewValue() != null) {
 					viewEventPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {

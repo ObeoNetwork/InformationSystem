@@ -78,8 +78,7 @@ public class FlowEventFlowEventPropertiesEditionComponent extends SinglePartProp
 			final FlowEventPropertiesEditionPart flowEventPart = (FlowEventPropertiesEditionPart)editingPart;
 			// init values
 			if (isAccessible(FlowViewsRepository.FlowEvent.Properties.description))
-				flowEventPart.setDescription(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, flowEvent.getDescription()));
-			
+				flowEventPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, flowEvent.getDescription()));
 			if (isAccessible(FlowViewsRepository.FlowEvent.Properties.name))
 				flowEventPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, flowEvent.getName()));
 			
@@ -159,7 +158,7 @@ public class FlowEventFlowEventPropertiesEditionComponent extends SinglePartProp
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			FlowEventPropertiesEditionPart flowEventPart = (FlowEventPropertiesEditionPart)editingPart;
-			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && flowEventPart != null && isAccessible(FlowViewsRepository.FlowEvent.Properties.description)) {
+			if (EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && flowEventPart != null && isAccessible(FlowViewsRepository.FlowEvent.Properties.description)){
 				if (msg.getNewValue() != null) {
 					flowEventPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, msg.getNewValue()));
 				} else {
