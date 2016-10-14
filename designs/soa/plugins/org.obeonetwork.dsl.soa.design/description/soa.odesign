@@ -397,7 +397,7 @@
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/soa/3.0.0#/"/>
       <defaultLayer name="Default">
-        <containerMappings name="ND_Namespace" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Diagram']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Namespace%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" reusedContainerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
+        <containerMappings name="ND_Namespace" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Namespace%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace" dropDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" reusedContainerMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
           <style xsi:type="style:FlatContainerStyleDescription" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_border']" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_foreground']"/>
         </containerMappings>
         <toolSections name="Namespace" label="Namespace">
@@ -420,7 +420,7 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New Class Diagram" label="New DTO Diagram" forceRefresh="true">
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="New Class Diagram" label="New DTO Diagram" forceRefresh="true" diagramDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
@@ -526,7 +526,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="ED_AssociatedAttribute" semanticCandidatesExpression="[associatedTypes.attributes/]" domainClass="environment.Attribute">
+          <subNodeMappings name="ED_AssociatedAttribute" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="[associatedTypes.attributes/]" domainClass="environment.Attribute">
             <style xsi:type="style:SquareDescription" labelFormat="italic" labelExpression="service:self.getEnvironmentLabel()" labelAlignment="LEFT">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
