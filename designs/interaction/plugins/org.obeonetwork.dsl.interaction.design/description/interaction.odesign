@@ -145,12 +145,12 @@
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['m' + eContainer(interaction::Interaction).messages->size()/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[source.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:source.currentParticipant()"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['send_' + oclAsType(End).owner.name/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="receivingEnd">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[target.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:target.currentParticipant()"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['receive_' + oclAsType(End).owner.name/]"/>
                   </subModelOperations>
