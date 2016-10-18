@@ -6,13 +6,13 @@
   	  <parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>reversers.parent</artifactId>
-		<version>4.0.0-SNAPSHOT</version>
+		<version>5.0.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/reversers/pom.xml</relativePath>
 	  </parent>
 	
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.dsl.database.synchronizer</artifactId>  
-	<version>4.0.0-SNAPSHOT</version>
+	<version>5.0.0-SNAPSHOT</version>
 	<packaging>eclipse-feature</packaging>
 	<name>Database Synchronizer Feature</name>
   

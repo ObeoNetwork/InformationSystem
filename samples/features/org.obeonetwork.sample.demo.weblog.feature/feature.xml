@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.sample.demo.weblog.feature"
       label="Obeo Demonstration JEE Weblog"
-      version="4.0.0.qualifier"
+      version="5.0.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://marketplace.obeonetwork.com/">
@@ -215,6 +215,7 @@ Agreement more than one year after the cause of action arose.
 Each party waives its rights to a jury trial in any resulting
 litigation.
    </license>
+
    <requires>
       <import feature="org.obeonetwork.dsl.feature.cinematic" version="2.0.0" match="greaterOrEqual"/>
       <import feature="org.obeonetwork.dsl.feature.entity" version="2.0.0" match="greaterOrEqual"/>

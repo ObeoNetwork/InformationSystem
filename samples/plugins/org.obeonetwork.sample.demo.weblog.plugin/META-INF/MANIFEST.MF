@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeo Demonstration JEE Weblog Struts Hibernate
 Bundle-SymbolicName: org.obeonetwork.demo.weblog.plugin;singleton:=true
-Bundle-Version: 4.0.0.qualifier
+Bundle-Version: 5.0.0.qualifier
 Bundle-Activator: org.obeonetwork.demo.weblog.plugin.WeblogDemoPlugin
 Bundle-Vendor: Obeo.fr
 Bundle-Localization: plugin

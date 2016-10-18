@@ -4,13 +4,13 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>commons.parent</artifactId>
-		<version>4.0.0-SNAPSHOT</version>
+		<version>5.0.0-SNAPSHOT</version>
 		<relativePath>../../../releng/org.obeonetwork.informationsystem.parent/commons/pom.xml
 		</relativePath>
 	</parent>
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.demo.weblog.plugin</artifactId>
-	<version>4.0.0-SNAPSHOT</version>
+	<version>5.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>Binary distribution of the weblog IS samples</name>
 </project>

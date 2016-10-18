@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.dsl.environment.binding.design.feature"
       label="Obeonetwork Databinding Modeler Feature"
-      version="4.0.0.qualifier"
+      version="5.0.0.qualifier"
       provider-name="Obeo.fr">
 
    <description url="http://www.example.com/description">
@@ -217,7 +217,7 @@ litigation.
    </license>
 
    <requires>
-      <import feature="org.obeonetwork.dsl.environment.binding.dialect.feature" version="4.0.0.qualifier"/>
+      <import feature="org.obeonetwork.dsl.environment.binding.dialect.feature" version="5.0.0.qualifier"/>
    </requires>
 
    <plugin

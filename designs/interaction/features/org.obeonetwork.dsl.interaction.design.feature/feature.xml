@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.dsl.interaction.design.feature"
       label="Interaction Designer"
-      version="4.0.0.qualifier"
+      version="5.0.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://marketplace.obeonetwork.com/">
@@ -225,7 +225,7 @@ litigation.
       <import feature="org.eclipse.sirius.runtime.ocl" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.specifier.ide.ui" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="2.0.0.201410241344"/>
-      <import feature="org.obeonetwork.dsl.environment.design.migration.feature" version="4.0.0.qualifier"/>
+      <import feature="org.obeonetwork.dsl.environment.design.migration.feature" version="5.0.0.qualifier"/>
    </requires>
 
    <plugin
