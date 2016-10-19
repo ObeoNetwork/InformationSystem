@@ -63,9 +63,9 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 	protected ReferencesTable namespaces;
 	protected List<ViewerFilter> namespacesBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> namespacesFilters = new ArrayList<ViewerFilter>();
-	protected ReferencesTable types;
-	protected List<ViewerFilter> typesBusinessFilters = new ArrayList<ViewerFilter>();
-	protected List<ViewerFilter> typesFilters = new ArrayList<ViewerFilter>();
+	protected ReferencesTable domainClasses;
+	protected List<ViewerFilter> domainClassesBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> domainClassesFilters = new ArrayList<ViewerFilter>();
 
 
 
@@ -108,7 +108,7 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		propertiesStep.addStep(GraalViewsRepository.UseCase.Properties.description);
 		propertiesStep.addStep(GraalViewsRepository.UseCase.Properties.tasks);
 		propertiesStep.addStep(GraalViewsRepository.UseCase.Properties.namespaces);
-		propertiesStep.addStep(GraalViewsRepository.UseCase.Properties.types);
+		propertiesStep.addStep(GraalViewsRepository.UseCase.Properties.domainClasses);
 		
 		
 		composer = new PartComposer(useCaseStep) {
@@ -130,8 +130,8 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 				if (key == GraalViewsRepository.UseCase.Properties.namespaces) {
 					return createNamespacesAdvancedReferencesTable(parent);
 				}
-				if (key == GraalViewsRepository.UseCase.Properties.types) {
-					return createTypesAdvancedReferencesTable(parent);
+				if (key == GraalViewsRepository.UseCase.Properties.domainClasses) {
+					return createDomainClassesAdvancedReferencesTable(parent);
 				}
 				return parent;
 			}
@@ -405,49 +405,49 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 	/**
 	 * 
 	 */
-	protected Composite createTypesAdvancedReferencesTable(Composite parent) {
-		String label = getDescription(GraalViewsRepository.UseCase.Properties.types, GraalMessages.UseCasePropertiesEditionPart_TypesLabel);		 
-		this.types = new ReferencesTable(label, new ReferencesTableListener() {
-			public void handleAdd() { addTypes(); }
-			public void handleEdit(EObject element) { editTypes(element); }
-			public void handleMove(EObject element, int oldIndex, int newIndex) { moveTypes(element, oldIndex, newIndex); }
-			public void handleRemove(EObject element) { removeFromTypes(element); }
+	protected Composite createDomainClassesAdvancedReferencesTable(Composite parent) {
+		String label = getDescription(GraalViewsRepository.UseCase.Properties.domainClasses, GraalMessages.UseCasePropertiesEditionPart_DomainClassesLabel);		 
+		this.domainClasses = new ReferencesTable(label, new ReferencesTableListener() {
+			public void handleAdd() { addDomainClasses(); }
+			public void handleEdit(EObject element) { editDomainClasses(element); }
+			public void handleMove(EObject element, int oldIndex, int newIndex) { moveDomainClasses(element, oldIndex, newIndex); }
+			public void handleRemove(EObject element) { removeFromDomainClasses(element); }
 			public void navigateTo(EObject element) { }
 		});
-		this.types.setHelpText(propertiesEditionComponent.getHelpContent(GraalViewsRepository.UseCase.Properties.types, GraalViewsRepository.SWT_KIND));
-		this.types.createControls(parent);
-		this.types.addSelectionListener(new SelectionAdapter() {
+		this.domainClasses.setHelpText(propertiesEditionComponent.getHelpContent(GraalViewsRepository.UseCase.Properties.domainClasses, GraalViewsRepository.SWT_KIND));
+		this.domainClasses.createControls(parent);
+		this.domainClasses.addSelectionListener(new SelectionAdapter() {
 			
 			public void widgetSelected(SelectionEvent e) {
 				if (e.item != null && e.item.getData() instanceof EObject) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(UseCasePropertiesEditionPartImpl.this, GraalViewsRepository.UseCase.Properties.types, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(UseCasePropertiesEditionPartImpl.this, GraalViewsRepository.UseCase.Properties.domainClasses, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
 				}
 			}
 			
 		});
-		GridData typesData = new GridData(GridData.FILL_HORIZONTAL);
-		typesData.horizontalSpan = 3;
-		this.types.setLayoutData(typesData);
-		this.types.disableMove();
-		types.setID(GraalViewsRepository.UseCase.Properties.types);
-		types.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		GridData domainClassesData = new GridData(GridData.FILL_HORIZONTAL);
+		domainClassesData.horizontalSpan = 3;
+		this.domainClasses.setLayoutData(domainClassesData);
+		this.domainClasses.disableMove();
+		domainClasses.setID(GraalViewsRepository.UseCase.Properties.domainClasses);
+		domainClasses.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
 		return parent;
 	}
 
 	/**
 	 * 
 	 */
-	protected void addTypes() {
-		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(types.getInput(), typesFilters, typesBusinessFilters,
-		"types", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
+	protected void addDomainClasses() {
+		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(domainClasses.getInput(), domainClassesFilters, domainClassesBusinessFilters,
+		"domainClasses", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
 			@Override
 			public void process(IStructuredSelection selection) {
 				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
 					EObject elem = (EObject) iter.next();
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(UseCasePropertiesEditionPartImpl.this, GraalViewsRepository.UseCase.Properties.types,
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(UseCasePropertiesEditionPartImpl.this, GraalViewsRepository.UseCase.Properties.domainClasses,
 						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
 				}
-				types.refresh();
+				domainClasses.refresh();
 			}
 		};
 		dialog.open();
@@ -456,30 +456,30 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 	/**
 	 * 
 	 */
-	protected void moveTypes(EObject element, int oldIndex, int newIndex) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(UseCasePropertiesEditionPartImpl.this, GraalViewsRepository.UseCase.Properties.types, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
-		types.refresh();
+	protected void moveDomainClasses(EObject element, int oldIndex, int newIndex) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(UseCasePropertiesEditionPartImpl.this, GraalViewsRepository.UseCase.Properties.domainClasses, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		domainClasses.refresh();
 	}
 
 	/**
 	 * 
 	 */
-	protected void removeFromTypes(EObject element) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(UseCasePropertiesEditionPartImpl.this, GraalViewsRepository.UseCase.Properties.types, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
-		types.refresh();
+	protected void removeFromDomainClasses(EObject element) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(UseCasePropertiesEditionPartImpl.this, GraalViewsRepository.UseCase.Properties.domainClasses, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		domainClasses.refresh();
 	}
 
 	/**
 	 * 
 	 */
-	protected void editTypes(EObject element) {
+	protected void editDomainClasses(EObject element) {
 		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
 		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
 		if (provider != null) {
 			PropertiesEditingPolicy policy = provider.getPolicy(context);
 			if (policy != null) {
 				policy.execute();
-				types.refresh();
+				domainClasses.refresh();
 			}
 		}
 	}
@@ -575,6 +575,8 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		tasks.setContentProvider(contentProvider);
 		tasks.setInput(settings);
+		tasksBusinessFilters.clear();
+		tasksFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.UseCase.Properties.tasks);
 		if (eefElementEditorReadOnlyState && tasks.getTable().isEnabled()) {
 			tasks.setEnabled(false);
@@ -638,6 +640,8 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		namespaces.setContentProvider(contentProvider);
 		namespaces.setInput(settings);
+		namespacesBusinessFilters.clear();
+		namespacesFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.UseCase.Properties.namespaces);
 		if (eefElementEditorReadOnlyState && namespaces.getTable().isEnabled()) {
 			namespaces.setEnabled(false);
@@ -693,20 +697,22 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.graal.parts.UseCasePropertiesEditionPart#initTypes(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
+	 * @see org.obeonetwork.graal.parts.UseCasePropertiesEditionPart#initDomainClasses(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
 	 */
-	public void initTypes(ReferencesTableSettings settings) {
+	public void initDomainClasses(ReferencesTableSettings settings) {
 		if (current.eResource() != null && current.eResource().getResourceSet() != null)
 			this.resourceSet = current.eResource().getResourceSet();
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
-		types.setContentProvider(contentProvider);
-		types.setInput(settings);
-		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.UseCase.Properties.types);
-		if (eefElementEditorReadOnlyState && types.getTable().isEnabled()) {
-			types.setEnabled(false);
-			types.setToolTipText(GraalMessages.UseCase_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !types.getTable().isEnabled()) {
-			types.setEnabled(true);
+		domainClasses.setContentProvider(contentProvider);
+		domainClasses.setInput(settings);
+		domainClassesBusinessFilters.clear();
+		domainClassesFilters.clear();
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.UseCase.Properties.domainClasses);
+		if (eefElementEditorReadOnlyState && domainClasses.getTable().isEnabled()) {
+			domainClasses.setEnabled(false);
+			domainClasses.setToolTipText(GraalMessages.UseCase_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !domainClasses.getTable().isEnabled()) {
+			domainClasses.setEnabled(true);
 		}
 		
 	}
@@ -714,41 +720,41 @@ public class UseCasePropertiesEditionPartImpl extends CompositePropertiesEdition
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.graal.parts.UseCasePropertiesEditionPart#updateTypes()
+	 * @see org.obeonetwork.graal.parts.UseCasePropertiesEditionPart#updateDomainClasses()
 	 * 
 	 */
-	public void updateTypes() {
-	types.refresh();
+	public void updateDomainClasses() {
+	domainClasses.refresh();
 }
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.graal.parts.UseCasePropertiesEditionPart#addFilterTypes(ViewerFilter filter)
+	 * @see org.obeonetwork.graal.parts.UseCasePropertiesEditionPart#addFilterDomainClasses(ViewerFilter filter)
 	 * 
 	 */
-	public void addFilterToTypes(ViewerFilter filter) {
-		typesFilters.add(filter);
+	public void addFilterToDomainClasses(ViewerFilter filter) {
+		domainClassesFilters.add(filter);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.graal.parts.UseCasePropertiesEditionPart#addBusinessFilterTypes(ViewerFilter filter)
+	 * @see org.obeonetwork.graal.parts.UseCasePropertiesEditionPart#addBusinessFilterDomainClasses(ViewerFilter filter)
 	 * 
 	 */
-	public void addBusinessFilterToTypes(ViewerFilter filter) {
-		typesBusinessFilters.add(filter);
+	public void addBusinessFilterToDomainClasses(ViewerFilter filter) {
+		domainClassesBusinessFilters.add(filter);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see org.obeonetwork.graal.parts.UseCasePropertiesEditionPart#isContainedInTypesTable(EObject element)
+	 * @see org.obeonetwork.graal.parts.UseCasePropertiesEditionPart#isContainedInDomainClassesTable(EObject element)
 	 * 
 	 */
-	public boolean isContainedInTypesTable(EObject element) {
-		return ((ReferencesTableSettings)types.getInput()).contains(element);
+	public boolean isContainedInDomainClassesTable(EObject element) {
+		return ((ReferencesTableSettings)domainClasses.getInput()).contains(element);
 	}
 
 

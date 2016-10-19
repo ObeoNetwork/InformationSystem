@@ -91,6 +91,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//UseCase/tasks"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//UseCase/includes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//UseCase/extends"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//UseCase/domainClasses"/>
     </genClasses>
     <genClasses image="false" ecoreClass="graal.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graal.ecore#//NamedElement/name"/>
@@ -122,6 +123,10 @@
       <genOperations ecoreOperation="graal.ecore#//GraalObject/canBeAttachedToUserStory">
         <genParameters ecoreParameter="graal.ecore#//GraalObject/canBeAttachedToUserStory/userStory"/>
       </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="graal.ecore#//DomainClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graal.ecore#//DomainClass/estimatedVolumetry"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graal.ecore#//DomainClass/historized"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

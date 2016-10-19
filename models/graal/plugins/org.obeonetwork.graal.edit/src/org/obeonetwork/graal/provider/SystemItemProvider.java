@@ -20,13 +20,11 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.obeonetwork.dsl.environment.EnvironmentFactory;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 
 import org.obeonetwork.graal.GraalFactory;
 import org.obeonetwork.graal.GraalPackage;
@@ -37,8 +35,7 @@ import org.obeonetwork.graal.GraalPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SystemItemProvider
-	extends NamedElementItemProvider {
+public class SystemItemProvider extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -161,6 +158,7 @@ public class SystemItemProvider
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
+	 * Specify the order of the System sub nodes.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -173,6 +171,7 @@ public class SystemItemProvider
 			childrenFeatures.add(GraalPackage.Literals.SYSTEM__USE_CASES);
 			childrenFeatures.add(GraalPackage.Literals.SYSTEM__USER_STORIES);
 			childrenFeatures.add(GraalPackage.Literals.SYSTEM__ACTORS);
+			childrenFeatures.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -224,6 +223,7 @@ public class SystemItemProvider
 			getString("_UI_System_type") :
 			getString("_UI_System_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -238,6 +238,7 @@ public class SystemItemProvider
 
 		switch (notification.getFeatureID(org.obeonetwork.graal.System.class)) {
 			case GraalPackage.SYSTEM__TASKS:
+			case GraalPackage.SYSTEM__OWNED_NAMESPACES:
 			case GraalPackage.SYSTEM__SUB_SYSTEMS:
 			case GraalPackage.SYSTEM__ACTORS:
 			case GraalPackage.SYSTEM__USE_CASES:
@@ -268,6 +269,11 @@ public class SystemItemProvider
 			(createChildParameter
 				(GraalPackage.Literals.TASKS_CONTAINER__TASKS,
 				 GraalFactory.eINSTANCE.createTasksGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
+				 EnvironmentFactory.eINSTANCE.createNamespace()));
 
 		newChildDescriptors.add
 			(createChildParameter

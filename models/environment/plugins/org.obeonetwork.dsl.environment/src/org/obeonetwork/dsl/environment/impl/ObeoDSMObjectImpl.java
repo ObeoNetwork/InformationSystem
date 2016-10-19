@@ -23,7 +23,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.environment.Behaviour;
 import org.obeonetwork.dsl.environment.BindingRegistry;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;

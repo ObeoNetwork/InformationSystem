@@ -24,6 +24,7 @@ import org.obeonetwork.graal.Activity;
 import org.obeonetwork.graal.Actor;
 import org.obeonetwork.graal.AppliAction;
 import org.obeonetwork.graal.AppliEvent;
+import org.obeonetwork.graal.DomainClass;
 import org.obeonetwork.graal.DomainModelRegistry;
 import org.obeonetwork.graal.FinalNode;
 import org.obeonetwork.graal.GraalFactory;
@@ -236,6 +237,13 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 	 * @generated
 	 */
 	private EClass graalObjectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domainClassEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -743,6 +751,15 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUseCase_DomainClasses() {
+		return (EReference)useCaseEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -869,6 +886,33 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDomainClass() {
+		return domainClassEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDomainClass_EstimatedVolumetry() {
+		return (EAttribute)domainClassEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDomainClass_Historized() {
+		return (EAttribute)domainClassEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getTransitionKind() {
 		return transitionKindEEnum;
 	}
@@ -975,6 +1019,7 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		createEReference(useCaseEClass, USE_CASE__TASKS);
 		createEReference(useCaseEClass, USE_CASE__INCLUDES);
 		createEReference(useCaseEClass, USE_CASE__EXTENDS);
+		createEReference(useCaseEClass, USE_CASE__DOMAIN_CLASSES);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -996,6 +1041,10 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		userStoryElementEClass = createEClass(USER_STORY_ELEMENT);
 
 		graalObjectEClass = createEClass(GRAAL_OBJECT);
+
+		domainClassEClass = createEClass(DOMAIN_CLASS);
+		createEAttribute(domainClassEClass, DOMAIN_CLASS__ESTIMATED_VOLUMETRY);
+		createEAttribute(domainClassEClass, DOMAIN_CLASS__HISTORIZED);
 
 		// Create enums
 		transitionKindEEnum = createEEnum(TRANSITION_KIND);
@@ -1039,6 +1088,7 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		systemEClass.getESuperTypes().add(this.getNamedElement());
 		systemEClass.getESuperTypes().add(this.getDomainModelRegistry());
 		systemEClass.getESuperTypes().add(this.getTasksContainer());
+		systemEClass.getESuperTypes().add(theEnvironmentPackage.getNamespacesContainer());
 		activityEClass.getESuperTypes().add(this.getGraalObject());
 		operatorEClass.getESuperTypes().add(this.getNode());
 		nodeEClass.getESuperTypes().add(this.getGraalObject());
@@ -1065,6 +1115,7 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		namedNodeEClass.getESuperTypes().add(this.getNamedElement());
 		userStoryEClass.getESuperTypes().add(this.getNamedElement());
 		graalObjectEClass.getESuperTypes().add(theEnvironmentPackage.getObeoDSMObject());
+		domainClassEClass.getESuperTypes().add(theEnvironmentPackage.getStructuredType());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1155,6 +1206,7 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 		initEReference(getUseCase_Tasks(), this.getAbstractTask(), null, "tasks", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUseCase_Includes(), this.getUseCase(), null, "includes", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUseCase_Extends(), this.getUseCase(), null, "extends", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUseCase_DomainClasses(), this.getDomainClass(), null, "domainClasses", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1188,6 +1240,10 @@ public class GraalPackageImpl extends EPackageImpl implements GraalPackage {
 
 		op = addEOperation(graalObjectEClass, ecorePackage.getEBoolean(), "canBeAttachedToUserStory", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getUserStory(), "userStory", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(domainClassEClass, DomainClass.class, "DomainClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDomainClass_EstimatedVolumetry(), ecorePackage.getEInt(), "estimatedVolumetry", null, 0, 1, DomainClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDomainClass_Historized(), ecorePackage.getEBoolean(), "historized", null, 1, 1, DomainClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(transitionKindEEnum, TransitionKind.class, "TransitionKind");

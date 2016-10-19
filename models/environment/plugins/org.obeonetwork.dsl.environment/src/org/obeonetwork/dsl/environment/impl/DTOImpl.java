@@ -11,10 +11,8 @@
 package org.obeonetwork.dsl.environment.impl;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.obeonetwork.dsl.environment.DTO;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.FilterContainer;

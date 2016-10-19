@@ -12,7 +12,6 @@
  */
 package org.obeonetwork.dsl.environment;
 
-import org.eclipse.emf.cdo.CDOObject;
 import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**

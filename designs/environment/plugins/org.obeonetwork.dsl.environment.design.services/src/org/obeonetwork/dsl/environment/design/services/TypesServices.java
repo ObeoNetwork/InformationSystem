@@ -53,13 +53,16 @@ public class TypesServices {
 	
 	private static final String ENTITY = "Entity";
 	private static final String DTO = "DTO";
+	private static final String DOMAIN_CLASS = "DomainClass";
 	private static final String ENTITY_PACKAGE_URI = "http://www.obeonetwork.org/dsl/entity/3.0.0";
 	private static final String DTO_PACKAGE_URI = "http://www.obeonetwork.org/dsl/environment/3.0.0";
+	private static final String DOMAIN_CLASS_PACKAGE_URI = "http://www.obeonetwork.org/dsl/graal/2.0.0";
 
 	private static final Map<String, String> PACKAGES_URI = new HashMap<String, String>();
 	static {
 		PACKAGES_URI.put(ENTITY, ENTITY_PACKAGE_URI);
 		PACKAGES_URI.put(DTO, DTO_PACKAGE_URI);
+		PACKAGES_URI.put(DOMAIN_CLASS, DOMAIN_CLASS_PACKAGE_URI);
 	}
 	
 	
@@ -232,6 +235,10 @@ public class TypesServices {
 		return getAllSelectableExternalStructuredTypesWithAncestors(namespace, diagram, ENTITY);
 	}
 	
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDomainClasses(Namespace namespace, DSemanticDiagram diagram) {
+		return getAllSelectableExternalStructuredTypesWithAncestors(namespace, diagram, DOMAIN_CLASS);
+	}
+	
 	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestors(Namespace namespace, DSemanticDiagram diagram, String typeName) {
 		Collection<EObject> result = new HashSet<EObject>();
 		Collection<StructuredType> selectableTypes = getAllSelectableExternalStructuredTypes(namespace, diagram, typeName);
@@ -362,6 +369,10 @@ public class TypesServices {
 	
 	public Collection<StructuredType> getAllStructuredTypesEntities(EObject context) {
 		return getAllStructuredTypes(context, ENTITY);
+	}
+	
+	public Collection<StructuredType> getAllStructuredTypesDomainClasses(EObject context) {
+		return getAllStructuredTypes(context, DOMAIN_CLASS);
 	}
 	
 	private Collection<StructuredType> internalGetAllChildrenStructuredTypes(ObeoDSMObject parent, String typeName) {

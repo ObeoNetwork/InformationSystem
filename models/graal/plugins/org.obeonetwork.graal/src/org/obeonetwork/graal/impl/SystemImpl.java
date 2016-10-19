@@ -26,7 +26,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.Actor;
@@ -51,6 +53,7 @@ import org.obeonetwork.graal.UserStory;
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getOwnedTasks <em>Owned Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getOwnedGroups <em>Owned Groups</em>}</li>
+ *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getOwnedNamespaces <em>Owned Namespaces</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getSubSystems <em>Sub Systems</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getActors <em>Actors</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.SystemImpl#getUseCases <em>Use Cases</em>}</li>
@@ -154,6 +157,16 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	public EList<Namespace> getOwnedNamespaces() {
+		return (EList<Namespace>)eDynamicGet(GraalPackage.SYSTEM__OWNED_NAMESPACES, EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	public EList<Actor> getActors() {
 		return (EList<Actor>)eDynamicGet(GraalPackage.SYSTEM__ACTORS, GraalPackage.Literals.SYSTEM__ACTORS, true, true);
 	}
@@ -222,11 +235,28 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GraalPackage.SYSTEM__OWNED_NAMESPACES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedNamespaces()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GraalPackage.SYSTEM__TASKS:
 				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
+			case GraalPackage.SYSTEM__OWNED_NAMESPACES:
+				return ((InternalEList<?>)getOwnedNamespaces()).basicRemove(otherEnd, msgs);
 			case GraalPackage.SYSTEM__SUB_SYSTEMS:
 				return ((InternalEList<?>)getSubSystems()).basicRemove(otherEnd, msgs);
 			case GraalPackage.SYSTEM__ACTORS:
@@ -257,6 +287,8 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 				return getOwnedTasks();
 			case GraalPackage.SYSTEM__OWNED_GROUPS:
 				return getOwnedGroups();
+			case GraalPackage.SYSTEM__OWNED_NAMESPACES:
+				return getOwnedNamespaces();
 			case GraalPackage.SYSTEM__SUB_SYSTEMS:
 				return getSubSystems();
 			case GraalPackage.SYSTEM__ACTORS:
@@ -289,6 +321,10 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 			case GraalPackage.SYSTEM__TASKS:
 				getTasks().clear();
 				getTasks().addAll((Collection<? extends AbstractTask>)newValue);
+				return;
+			case GraalPackage.SYSTEM__OWNED_NAMESPACES:
+				getOwnedNamespaces().clear();
+				getOwnedNamespaces().addAll((Collection<? extends Namespace>)newValue);
 				return;
 			case GraalPackage.SYSTEM__SUB_SYSTEMS:
 				getSubSystems().clear();
@@ -327,6 +363,9 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 			case GraalPackage.SYSTEM__TASKS:
 				getTasks().clear();
 				return;
+			case GraalPackage.SYSTEM__OWNED_NAMESPACES:
+				getOwnedNamespaces().clear();
+				return;
 			case GraalPackage.SYSTEM__SUB_SYSTEMS:
 				getSubSystems().clear();
 				return;
@@ -361,6 +400,8 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 				return !getOwnedTasks().isEmpty();
 			case GraalPackage.SYSTEM__OWNED_GROUPS:
 				return !getOwnedGroups().isEmpty();
+			case GraalPackage.SYSTEM__OWNED_NAMESPACES:
+				return !getOwnedNamespaces().isEmpty();
 			case GraalPackage.SYSTEM__SUB_SYSTEMS:
 				return !getSubSystems().isEmpty();
 			case GraalPackage.SYSTEM__ACTORS:
@@ -405,6 +446,12 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 				default: return -1;
 			}
 		}
+		if (baseClass == NamespacesContainer.class) {
+			switch (derivedFeatureID) {
+				case GraalPackage.SYSTEM__OWNED_NAMESPACES: return EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -427,6 +474,12 @@ public class SystemImpl extends NamedElementImpl implements org.obeonetwork.graa
 				case GraalPackage.TASKS_CONTAINER__TASKS: return GraalPackage.SYSTEM__TASKS;
 				case GraalPackage.TASKS_CONTAINER__OWNED_TASKS: return GraalPackage.SYSTEM__OWNED_TASKS;
 				case GraalPackage.TASKS_CONTAINER__OWNED_GROUPS: return GraalPackage.SYSTEM__OWNED_GROUPS;
+				default: return -1;
+			}
+		}
+		if (baseClass == NamespacesContainer.class) {
+			switch (baseFeatureID) {
+				case EnvironmentPackage.NAMESPACES_CONTAINER__OWNED_NAMESPACES: return GraalPackage.SYSTEM__OWNED_NAMESPACES;
 				default: return -1;
 			}
 		}

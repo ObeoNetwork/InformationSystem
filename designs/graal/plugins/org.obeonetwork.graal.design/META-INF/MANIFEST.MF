@@ -22,7 +22,8 @@ Require-Bundle: org.eclipse.ui,
  com.google.guava;bundle-version="15.0.0",
  org.eclipse.sirius.ext.emf;bundle-version="2.0.0",
  org.eclipse.sirius.diagram.ui;bundle-version="2.0.0",
- org.eclipse.sirius.ext.draw2d;bundle-version="2.0.0"
+ org.eclipse.sirius.ext.draw2d;bundle-version="2.0.0",
+ org.obeonetwork.dsl.environment.design.services;bundle-version="5.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: www.obeo.fr

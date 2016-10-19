@@ -25,8 +25,8 @@ import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
-import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.graal.AbstractTask;
+import org.obeonetwork.graal.DomainClass;
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.UseCase;
 import org.obeonetwork.graal.parts.GraalViewsRepository;
@@ -56,9 +56,9 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 	private ReferencesTableSettings namespacesSettings;
 	
 	/**
-	 * Settings for types ReferencesTable
+	 * Settings for domainClasses ReferencesTable
 	 */
-	private ReferencesTableSettings typesSettings;
+	private ReferencesTableSettings domainClassesSettings;
 	
 	
 	/**
@@ -100,9 +100,9 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 				namespacesSettings = new ReferencesTableSettings(useCase, GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces());
 				useCasePart.initNamespaces(namespacesSettings);
 			}
-			if (isAccessible(GraalViewsRepository.UseCase.Properties.types)) {
-				typesSettings = new ReferencesTableSettings(useCase, GraalPackage.eINSTANCE.getDomainModelRegistry_Types());
-				useCasePart.initTypes(typesSettings);
+			if (isAccessible(GraalViewsRepository.UseCase.Properties.domainClasses)) {
+				domainClassesSettings = new ReferencesTableSettings(useCase, GraalPackage.eINSTANCE.getUseCase_DomainClasses());
+				useCasePart.initDomainClasses(domainClassesSettings);
 			}
 			// init filters
 			
@@ -117,9 +117,9 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 				// Start of user code for additional businessfilters for namespaces
 				// End of user code
 			}
-			if (isAccessible(GraalViewsRepository.UseCase.Properties.types)) {
-				useCasePart.addFilterToTypes(new EObjectFilter(EnvironmentPackage.Literals.STRUCTURED_TYPE));
-				// Start of user code for additional businessfilters for types
+			if (isAccessible(GraalViewsRepository.UseCase.Properties.domainClasses)) {
+				useCasePart.addFilterToDomainClasses(new EObjectFilter(GraalPackage.Literals.DOMAIN_CLASS));
+				// Start of user code for additional businessfilters for domainClasses
 				// End of user code
 			}
 			// init values for referenced views
@@ -154,8 +154,8 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 		if (editorKey == GraalViewsRepository.UseCase.Properties.namespaces) {
 			return GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces();
 		}
-		if (editorKey == GraalViewsRepository.UseCase.Properties.types) {
-			return GraalPackage.eINSTANCE.getDomainModelRegistry_Types();
+		if (editorKey == GraalViewsRepository.UseCase.Properties.domainClasses) {
+			return GraalPackage.eINSTANCE.getUseCase_DomainClasses();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -195,15 +195,15 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 				namespacesSettings.move(event.getNewIndex(), (Namespace) event.getNewValue());
 			}
 		}
-		if (GraalViewsRepository.UseCase.Properties.types == event.getAffectedEditor()) {
+		if (GraalViewsRepository.UseCase.Properties.domainClasses == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				if (event.getNewValue() instanceof StructuredType) {
-					typesSettings.addToReference((EObject) event.getNewValue());
+				if (event.getNewValue() instanceof DomainClass) {
+					domainClassesSettings.addToReference((EObject) event.getNewValue());
 				}
 			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				typesSettings.removeFromReference((EObject) event.getNewValue());
+				domainClassesSettings.removeFromReference((EObject) event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				typesSettings.move(event.getNewIndex(), (StructuredType) event.getNewValue());
+				domainClassesSettings.move(event.getNewIndex(), (DomainClass) event.getNewValue());
 			}
 		}
 	}
@@ -234,8 +234,8 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 			}
 			if (GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.UseCase.Properties.namespaces))
 				useCasePart.updateNamespaces();
-			if (GraalPackage.eINSTANCE.getDomainModelRegistry_Types().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.UseCase.Properties.types))
-				useCasePart.updateTypes();
+			if (GraalPackage.eINSTANCE.getUseCase_DomainClasses().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.UseCase.Properties.domainClasses))
+				useCasePart.updateDomainClasses();
 			
 		}
 	}
@@ -252,7 +252,7 @@ public class UseCaseUseCasePropertiesEditionComponent extends SinglePartProperti
 			GraalPackage.eINSTANCE.getUseCase_Tasks(),
 			GraalPackage.eINSTANCE.getNamedElement_Name(),
 			GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces(),
-			GraalPackage.eINSTANCE.getDomainModelRegistry_Types()		);
+			GraalPackage.eINSTANCE.getUseCase_DomainClasses()		);
 		return new NotificationFilter[] {filter,};
 	}
 

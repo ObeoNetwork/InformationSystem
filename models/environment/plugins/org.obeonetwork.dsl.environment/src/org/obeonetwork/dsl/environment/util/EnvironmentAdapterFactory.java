@@ -16,8 +16,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.obeonetwork.dsl.environment.*;
-import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.dsl.environment.Action;
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
@@ -39,6 +37,7 @@ import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.PrimitiveType;
 import org.obeonetwork.dsl.environment.Priority;
@@ -48,6 +47,7 @@ import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.environment.TypesDefinition;
+import org.obeonetwork.dsl.technicalid.Identifiable;
 
 /**
  * <!-- begin-user-doc -->

@@ -469,6 +469,29 @@ public class GraalItemProviderAdapterFactory extends GraalAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.graal.DomainClass} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DomainClassItemProvider domainClassItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.graal.DomainClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDomainClassAdapter() {
+		if (domainClassItemProvider == null) {
+			domainClassItemProvider = new DomainClassItemProvider(this);
+		}
+
+		return domainClassItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -584,6 +607,7 @@ public class GraalItemProviderAdapterFactory extends GraalAdapterFactory impleme
 		if (tasksGroupItemProvider != null) tasksGroupItemProvider.dispose();
 		if (useCaseItemProvider != null) useCaseItemProvider.dispose();
 		if (userStoryItemProvider != null) userStoryItemProvider.dispose();
+		if (domainClassItemProvider != null) domainClassItemProvider.dispose();
 	}
 
 }

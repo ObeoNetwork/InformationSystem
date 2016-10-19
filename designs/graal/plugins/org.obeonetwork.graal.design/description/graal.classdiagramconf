@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classdiagramconf:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:classdiagramconf="http://www.obeonetwork.org/dsl/classdiagramconf/1.0.0" name="Domain Class diagrams configuration" description="">
+  <viewpoint href="graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']"/>
+  <diagrams id="Hierarchy" descriptionId="Domain Classes Namespaces Hierarchy">
+    <children id="namespaceContainer">
+      <stringValues id="semanticCandidates" value="feature:ownedNamespaces"/>
+    </children>
+    <children id="section">
+      <children id="namespace">
+        <stringValues id="label" value="Namespace"/>
+        <stringValues id="creation.label" value="Namespace"/>
+        <stringValues id="creation.containmentFeature" value="ownedNamespaces"/>
+      </children>
+      <children id="usability">
+        <children id="diagramCreation">
+          <stringValues id="label" value="New Domain Classes Diagram"/>
+        </children>
+      </children>
+    </children>
+    <stringValues id="label" value="Domain Classes Namespaces Hierarchy"/>
+    <stringValues id="titleExpression" value="Domain Classes Namespaces Hierarchy"/>
+    <stringValues id="domainClass" value="graal.System"/>
+    <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
+    <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
+  </diagrams>
+  <diagrams id="ClassDiagram" descriptionId="Entities Diagram">
+    <children id="StructuredTypeMapping">
+      <stringValues id="id" value="ED_DomainClass"/>
+      <stringValues id="label" value="ED_DomainClass"/>
+      <stringValues id="domainClass" value="graal.DomainClass"/>
+    </children>
+    <children id="ExternalTypesLayer">
+      <children id="section">
+        <children id="creation.externalType">
+          <stringValues id="id" value="External Domain Class"/>
+          <stringValues id="label" value="External Domain Class"/>
+          <stringValues id="candidatesExpression" value="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDomainClasses(diagram)"/>
+          <stringValues id="rootExpression" value="service:self.getAllSelectableExternalStructuredTypesWithAncestorsDomainClassesRoots(diagram)"/>
+          <stringValues id="message" value="Select an external Domain Class"/>
+          <stringValues id="filterExpression" value="[oclIsKindOf(graal::DomainClass)/]"/>
+        </children>
+        <stringValues id="id" value="External Domain Classes"/>
+      </children>
+      <stringValues id="id" value="External Domain Classes"/>
+      <stringValues id="label" value="External Domain Classes"/>
+    </children>
+    <children id="section">
+      <children id="namespace">
+        <stringValues id="label" value="Namespace"/>
+        <stringValues id="creation.label" value="Namespace"/>
+        <stringValues id="creation.containmentFeature" value="ownedNamespaces"/>
+      </children>
+      <children id="structuredType">
+        <children id="creation">
+          <stringValues id="label" value="Domain Class"/>
+          <stringValues id="defaultName" value="['DomainClass' + eContainer().oclAsType(environment::Namespace).types->size()/]"/>
+        </children>
+        <children id="fromOtherType">
+          <booleanValues id="enable"/>
+        </children>
+        <stringValues id="label" value="Domain Class"/>
+      </children>
+      <children id="enumeration">
+        <stringValues id="label" value="Enumeration"/>
+      </children>
+      <children id="relation">
+        <stringValues id="label" value="Relation"/>
+        <booleanValues id="enableRelation" value="true"/>
+        <booleanValues id="enableComposition" value="true"/>
+        <booleanValues id="enableInheritance" value="true"/>
+      </children>
+      <children id="bidiRelation">
+        <stringValues id="label" value="Bidirectional Relation"/>
+        <booleanValues id="enableRelation" value="true"/>
+        <booleanValues id="enableComposition" value="true"/>
+      </children>
+      <children id="usability">
+        <children id="diagramCreation">
+          <stringValues id="label" value="New Domain Classes Diagram"/>
+        </children>
+        <children id="dragdrop.structuredtype">
+          <stringValues id="id" value="DAD_ED_DomainClass"/>
+          <stringValues id="precondition" value="[oclIsKindOf(graal::DomainClass)/]"/>
+        </children>
+      </children>
+    </children>
+    <stringValues id="label" value="Domain Classes Diagram"/>
+    <stringValues id="titleExpression" value="[name + ' - Domain Classes diagram'/]"/>
+    <stringValues id="precondition" value="[ancestors()->filter(graal::System)->notEmpty()/]"/>
+    <metamodels>http://www.obeonetwork.org/dsl/entity/3.0.0</metamodels>
+    <metamodels>http://www.obeonetwork.org/dsl/environment/3.0.0</metamodels>
+  </diagrams>
+  <colors name="Namespace_background" red="209" green="209" blue="209"/>
+  <colors name="Namespace_foreground" red="255" green="255" blue="255"/>
+  <colors name="Namespace_color"/>
+  <colors name="Namespace_border" red="136" green="136" blue="136"/>
+  <colors name="StructuredType_background" red="166" green="209" blue="242"/>
+  <colors name="StructuredType_foreground" red="255" green="255" blue="255"/>
+  <colors name="StructuredType_color"/>
+  <colors name="StructuredType_border" red="52" green="119" blue="226"/>
+  <colors name="Enumeration_background" red="255" green="245" blue="181"/>
+  <colors name="Enumeration_foreground" red="255" green="255" blue="255"/>
+  <colors name="Enumeration_color"/>
+  <colors name="Enumeration_border" red="214" green="197" blue="66"/>
+  <colors name="ExternalType_background" red="253" green="206" blue="137"/>
+  <colors name="ExternalType_foreground" red="255" green="255" blue="255"/>
+  <colors name="ExternalType_color"/>
+  <colors name="ExternalType_border" red="252" green="175" blue="62"/>
+  <javaExtensions>org.obeonetwork.dsl.environment.design.services.EnvironmentLabelServices</javaExtensions>
+</classdiagramconf:Configuration>

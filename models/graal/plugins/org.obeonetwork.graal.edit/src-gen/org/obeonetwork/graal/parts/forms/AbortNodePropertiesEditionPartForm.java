@@ -438,6 +438,8 @@ public class AbortNodePropertiesEditionPartForm extends SectionPropertiesEditing
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		outgoingTransitions.setContentProvider(contentProvider);
 		outgoingTransitions.setInput(settings);
+		outgoingTransitionsBusinessFilters.clear();
+		outgoingTransitionsFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.AbortNode.Properties.outgoingTransitions);
 		if (eefElementEditorReadOnlyState && outgoingTransitions.getTable().isEnabled()) {
 			outgoingTransitions.setEnabled(false);
@@ -501,6 +503,8 @@ public class AbortNodePropertiesEditionPartForm extends SectionPropertiesEditing
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		incomingTransitions.setContentProvider(contentProvider);
 		incomingTransitions.setInput(settings);
+		incomingTransitionsBusinessFilters.clear();
+		incomingTransitionsFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.AbortNode.Properties.incomingTransitions);
 		if (eefElementEditorReadOnlyState && incomingTransitions.getTable().isEnabled()) {
 			incomingTransitions.setEnabled(false);

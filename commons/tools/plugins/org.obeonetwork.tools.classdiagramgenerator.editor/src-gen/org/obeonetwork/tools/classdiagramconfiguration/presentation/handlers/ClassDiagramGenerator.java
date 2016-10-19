@@ -199,12 +199,12 @@ public class ClassDiagramGenerator {
 				}
 				
 				// Check if we have informations on this node
-				boolean toBeDeleted = true;
+				boolean toBeDeleted = false;
 				for (GenerationInfo generationInfo : generationInfos) {
 						
 					Boolean optionalNodeActivated = generationInfo.getBooleanInfos().get(optionalNodeId);
-					if (optionalNodeActivated == null || optionalNodeActivated == Boolean.FALSE) {
-						toBeDeleted = false;
+					if (optionalNodeActivated == Boolean.FALSE) {
+						toBeDeleted = true;
 						break;
 					}
 				}

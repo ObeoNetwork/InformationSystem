@@ -11,7 +11,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
         eType="#//Actor"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//NamedElement #//DomainModelRegistry #//TasksContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//NamedElement #//DomainModelRegistry #//TasksContainer ../../org.obeonetwork.dsl.environment/model/environment.ecore#//NamespacesContainer">
     <eOperations name="getRelatedActors" upperBound="-1" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subSystems" upperBound="-1"
         eType="#//System" containment="true"/>
@@ -100,6 +100,8 @@
         eType="#//UseCase"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" upperBound="-1"
         eType="#//UseCase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainClasses" upperBound="-1"
+        eType="#//DomainClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//GraalObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -138,5 +140,10 @@
     <eOperations name="canBeAttachedToUserStory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="userStory" eType="#//UserStory"/>
     </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainClass" eSuperTypes="../../org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estimatedVolumetry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="historized" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -397,7 +397,7 @@ public class GraalViewsRepository {
 			public static String namespaces = "graal::UseCase::properties::namespaces";
 			
 			
-			public static String types = "graal::UseCase::properties::types";
+			public static String domainClasses = "graal::UseCase::properties::domainClasses";
 			
 	
 		}

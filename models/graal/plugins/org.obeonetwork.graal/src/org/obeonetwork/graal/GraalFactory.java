@@ -178,6 +178,15 @@ public interface GraalFactory extends EFactory {
 	UserStory createUserStory();
 
 	/**
+	 * Returns a new object of class '<em>Domain Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Domain Class</em>'.
+	 * @generated
+	 */
+	DomainClass createDomainClass();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

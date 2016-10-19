@@ -11,6 +11,7 @@
 package org.obeonetwork.graal;
 
 import org.eclipse.emf.common.util.EList;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface System extends NamedElement, DomainModelRegistry, TasksContainer {
+public interface System extends NamedElement, DomainModelRegistry, TasksContainer, NamespacesContainer {
 	/**
 	 * Returns the value of the '<em><b>Actors</b></em>' containment reference list.
 	 * The list contents are of type {@link org.obeonetwork.graal.Actor}.

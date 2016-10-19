@@ -219,7 +219,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="{ClassDiagram.section.structuredType.fromOtherType.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="{ClassDiagram.section.structuredType.fromOtherType.label}" forceRefresh="true" containerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@containerMappings[name='{ClassDiagram.StructuredTypeMapping.id}']" generatorOptionalNode="{ClassDiagram.section.structuredType.fromOtherType.enable}">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>

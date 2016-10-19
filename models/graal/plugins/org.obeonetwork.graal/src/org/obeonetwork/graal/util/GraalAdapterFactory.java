@@ -14,7 +14,11 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.environment.StructuredType;
+import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.graal.AbortNode;
 import org.obeonetwork.graal.AbstractTask;
@@ -22,6 +26,7 @@ import org.obeonetwork.graal.Activity;
 import org.obeonetwork.graal.Actor;
 import org.obeonetwork.graal.AppliAction;
 import org.obeonetwork.graal.AppliEvent;
+import org.obeonetwork.graal.DomainClass;
 import org.obeonetwork.graal.DomainModelRegistry;
 import org.obeonetwork.graal.FinalNode;
 import org.obeonetwork.graal.GraalObject;
@@ -204,12 +209,32 @@ public class GraalAdapterFactory extends AdapterFactoryImpl {
 				return createGraalObjectAdapter();
 			}
 			@Override
+			public Adapter caseDomainClass(DomainClass object) {
+				return createDomainClassAdapter();
+			}
+			@Override
 			public Adapter caseIdentifiable(Identifiable object) {
 				return createIdentifiableAdapter();
 			}
 			@Override
 			public Adapter caseObeoDSMObject(ObeoDSMObject object) {
 				return createObeoDSMObjectAdapter();
+			}
+			@Override
+			public Adapter caseNamespacesContainer(NamespacesContainer object) {
+				return createNamespacesContainerAdapter();
+			}
+			@Override
+			public Adapter caseBoundableElement(BoundableElement object) {
+				return createBoundableElementAdapter();
+			}
+			@Override
+			public Adapter caseType(Type object) {
+				return createTypeAdapter();
+			}
+			@Override
+			public Adapter caseStructuredType(StructuredType object) {
+				return createStructuredTypeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -596,6 +621,20 @@ public class GraalAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.graal.DomainClass <em>Domain Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.graal.DomainClass
+	 * @generated
+	 */
+	public Adapter createDomainClassAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.technicalid.Identifiable <em>Identifiable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -620,6 +659,62 @@ public class GraalAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createObeoDSMObjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.NamespacesContainer <em>Namespaces Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.environment.NamespacesContainer
+	 * @generated
+	 */
+	public Adapter createNamespacesContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.BoundableElement <em>Boundable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.environment.BoundableElement
+	 * @generated
+	 */
+	public Adapter createBoundableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.Type <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.environment.Type
+	 * @generated
+	 */
+	public Adapter createTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.environment.StructuredType <em>Structured Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.environment.StructuredType
+	 * @generated
+	 */
+	public Adapter createStructuredTypeAdapter() {
 		return null;
 	}
 

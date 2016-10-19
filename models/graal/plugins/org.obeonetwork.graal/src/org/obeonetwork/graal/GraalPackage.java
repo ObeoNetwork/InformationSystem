@@ -858,13 +858,22 @@ public interface GraalPackage extends EPackage {
 	int SYSTEM__OWNED_GROUPS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__OWNED_NAMESPACES = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Sub Systems</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__SUB_SYSTEMS = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int SYSTEM__SUB_SYSTEMS = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Actors</b></em>' containment reference list.
@@ -873,7 +882,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int SYSTEM__ACTORS = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Use Cases</b></em>' containment reference list.
@@ -882,7 +891,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__USE_CASES = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int SYSTEM__USE_CASES = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>User Stories</b></em>' containment reference list.
@@ -891,7 +900,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__USER_STORIES = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int SYSTEM__USER_STORIES = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>System</em>' class.
@@ -900,7 +909,7 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int SYSTEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
@@ -2959,13 +2968,22 @@ public interface GraalPackage extends EPackage {
 	int USE_CASE__EXTENDS = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Domain Classes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USE_CASE__DOMAIN_CLASSES = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Use Case</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int USE_CASE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.graal.impl.DomainModelRegistryImpl <em>Domain Model Registry</em>}' class.
@@ -3188,6 +3206,205 @@ public interface GraalPackage extends EPackage {
 	int USER_STORY_ELEMENT_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.obeonetwork.graal.impl.DomainClassImpl <em>Domain Class</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.graal.impl.DomainClassImpl
+	 * @see org.obeonetwork.graal.impl.GraalPackageImpl#getDomainClass()
+	 * @generated
+	 */
+	int DOMAIN_CLASS = 26;
+
+	/**
+	 * The feature id for the '<em><b>Technicalid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__TECHNICALID = EnvironmentPackage.STRUCTURED_TYPE__TECHNICALID;
+
+	/**
+	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__METADATAS = EnvironmentPackage.STRUCTURED_TYPE__METADATAS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__DESCRIPTION = EnvironmentPackage.STRUCTURED_TYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__KEYWORDS = EnvironmentPackage.STRUCTURED_TYPE__KEYWORDS;
+
+	/**
+	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__BEHAVIOURS = EnvironmentPackage.STRUCTURED_TYPE__BEHAVIOURS;
+
+	/**
+	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__BINDING_REGISTRIES = EnvironmentPackage.STRUCTURED_TYPE__BINDING_REGISTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__VERSION = EnvironmentPackage.STRUCTURED_TYPE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__CREATED_ON = EnvironmentPackage.STRUCTURED_TYPE__CREATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__MODIFIED_ON = EnvironmentPackage.STRUCTURED_TYPE__MODIFIED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__NAME = EnvironmentPackage.STRUCTURED_TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type Definition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__TYPE_DEFINITION = EnvironmentPackage.STRUCTURED_TYPE__TYPE_DEFINITION;
+
+	/**
+	 * The feature id for the '<em><b>Supertype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__SUPERTYPE = EnvironmentPackage.STRUCTURED_TYPE__SUPERTYPE;
+
+	/**
+	 * The feature id for the '<em><b>Associated Types</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__ASSOCIATED_TYPES = EnvironmentPackage.STRUCTURED_TYPE__ASSOCIATED_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Owned Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__OWNED_ATTRIBUTES = EnvironmentPackage.STRUCTURED_TYPE__OWNED_ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__ATTRIBUTES = EnvironmentPackage.STRUCTURED_TYPE__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Owned References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__OWNED_REFERENCES = EnvironmentPackage.STRUCTURED_TYPE__OWNED_REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__REFERENCES = EnvironmentPackage.STRUCTURED_TYPE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__PROPERTIES = EnvironmentPackage.STRUCTURED_TYPE__PROPERTIES;
+
+	/**
+	 * The feature id for the '<em><b>Estimated Volumetry</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__ESTIMATED_VOLUMETRY = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Historized</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS__HISTORIZED = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Domain Class</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_CLASS_FEATURE_COUNT = EnvironmentPackage.STRUCTURED_TYPE_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.obeonetwork.graal.TransitionKind <em>Transition Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3195,7 +3412,7 @@ public interface GraalPackage extends EPackage {
 	 * @see org.obeonetwork.graal.impl.GraalPackageImpl#getTransitionKind()
 	 * @generated
 	 */
-	int TRANSITION_KIND = 26;
+	int TRANSITION_KIND = 27;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.graal.OperatorKind <em>Operator Kind</em>}' enum.
@@ -3205,7 +3422,7 @@ public interface GraalPackage extends EPackage {
 	 * @see org.obeonetwork.graal.impl.GraalPackageImpl#getOperatorKind()
 	 * @generated
 	 */
-	int OPERATOR_KIND = 27;
+	int OPERATOR_KIND = 28;
 
 
 	/**
@@ -3707,6 +3924,17 @@ public interface GraalPackage extends EPackage {
 	EReference getUseCase_Extends();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.obeonetwork.graal.UseCase#getDomainClasses <em>Domain Classes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Domain Classes</em>'.
+	 * @see org.obeonetwork.graal.UseCase#getDomainClasses()
+	 * @see #getUseCase()
+	 * @generated
+	 */
+	EReference getUseCase_DomainClasses();
+
+	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.graal.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3852,6 +4080,38 @@ public interface GraalPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGraalObject();
+
+	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.graal.DomainClass <em>Domain Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Domain Class</em>'.
+	 * @see org.obeonetwork.graal.DomainClass
+	 * @generated
+	 */
+	EClass getDomainClass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.graal.DomainClass#getEstimatedVolumetry <em>Estimated Volumetry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Estimated Volumetry</em>'.
+	 * @see org.obeonetwork.graal.DomainClass#getEstimatedVolumetry()
+	 * @see #getDomainClass()
+	 * @generated
+	 */
+	EAttribute getDomainClass_EstimatedVolumetry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.obeonetwork.graal.DomainClass#isHistorized <em>Historized</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Historized</em>'.
+	 * @see org.obeonetwork.graal.DomainClass#isHistorized()
+	 * @see #getDomainClass()
+	 * @generated
+	 */
+	EAttribute getDomainClass_Historized();
 
 	/**
 	 * Returns the meta object for enum '{@link org.obeonetwork.graal.TransitionKind <em>Transition Kind</em>}'.
@@ -4310,6 +4570,14 @@ public interface GraalPackage extends EPackage {
 		EReference USE_CASE__EXTENDS = eINSTANCE.getUseCase_Extends();
 
 		/**
+		 * The meta object literal for the '<em><b>Domain Classes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USE_CASE__DOMAIN_CLASSES = eINSTANCE.getUseCase_DomainClasses();
+
+		/**
 		 * The meta object literal for the '{@link org.obeonetwork.graal.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4434,6 +4702,32 @@ public interface GraalPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GRAAL_OBJECT = eINSTANCE.getGraalObject();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.graal.impl.DomainClassImpl <em>Domain Class</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.graal.impl.DomainClassImpl
+		 * @see org.obeonetwork.graal.impl.GraalPackageImpl#getDomainClass()
+		 * @generated
+		 */
+		EClass DOMAIN_CLASS = eINSTANCE.getDomainClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Estimated Volumetry</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_CLASS__ESTIMATED_VOLUMETRY = eINSTANCE.getDomainClass_EstimatedVolumetry();
+
+		/**
+		 * The meta object literal for the '<em><b>Historized</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOMAIN_CLASS__HISTORIZED = eINSTANCE.getDomainClass_Historized();
 
 		/**
 		 * The meta object literal for the '{@link org.obeonetwork.graal.TransitionKind <em>Transition Kind</em>}' enum.

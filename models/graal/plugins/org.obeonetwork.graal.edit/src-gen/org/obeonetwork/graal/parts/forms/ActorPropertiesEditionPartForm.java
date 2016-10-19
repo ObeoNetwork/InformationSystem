@@ -585,6 +585,8 @@ public class ActorPropertiesEditionPartForm extends SectionPropertiesEditingPart
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		subActors.setContentProvider(contentProvider);
 		subActors.setInput(settings);
+		subActorsBusinessFilters.clear();
+		subActorsFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Actor.Properties.subActors);
 		if (eefElementEditorReadOnlyState && subActors.getTable().isEnabled()) {
 			subActors.setEnabled(false);

@@ -61,6 +61,7 @@ public class UseCaseItemProvider
 			addTasksPropertyDescriptor(object);
 			addIncludesPropertyDescriptor(object);
 			addExtendsPropertyDescriptor(object);
+			addDomainClassesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -189,6 +190,28 @@ public class UseCaseItemProvider
 				 getString("_UI_UseCase_extends_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_UseCase_extends_feature", "_UI_UseCase_type"),
 				 GraalPackage.Literals.USE_CASE__EXTENDS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Domain Classes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDomainClassesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_UseCase_domainClasses_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_UseCase_domainClasses_feature", "_UI_UseCase_type"),
+				 GraalPackage.Literals.USE_CASE__DOMAIN_CLASSES,
 				 true,
 				 false,
 				 true,

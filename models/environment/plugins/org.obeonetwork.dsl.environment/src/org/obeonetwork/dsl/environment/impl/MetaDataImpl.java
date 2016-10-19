@@ -13,7 +13,6 @@
 package org.obeonetwork.dsl.environment.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.MetaData;
 import org.obeonetwork.dsl.technicalid.impl.IdentifiableImpl;

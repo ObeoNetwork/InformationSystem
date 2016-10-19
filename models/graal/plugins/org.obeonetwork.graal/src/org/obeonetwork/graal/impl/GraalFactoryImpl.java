@@ -20,6 +20,7 @@ import org.obeonetwork.graal.AbortNode;
 import org.obeonetwork.graal.Actor;
 import org.obeonetwork.graal.AppliAction;
 import org.obeonetwork.graal.AppliEvent;
+import org.obeonetwork.graal.DomainClass;
 import org.obeonetwork.graal.FinalNode;
 import org.obeonetwork.graal.GraalFactory;
 import org.obeonetwork.graal.GraalPackage;
@@ -98,6 +99,7 @@ public class GraalFactoryImpl extends EFactoryImpl implements GraalFactory {
 			case GraalPackage.TASKS_GROUP: return (EObject)createTasksGroup();
 			case GraalPackage.USE_CASE: return (EObject)createUseCase();
 			case GraalPackage.USER_STORY: return (EObject)createUserStory();
+			case GraalPackage.DOMAIN_CLASS: return (EObject)createDomainClass();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -305,6 +307,16 @@ public class GraalFactoryImpl extends EFactoryImpl implements GraalFactory {
 	public UserStory createUserStory() {
 		UserStoryImpl userStory = new UserStoryImpl();
 		return userStory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DomainClass createDomainClass() {
+		DomainClassImpl domainClass = new DomainClassImpl();
+		return domainClass;
 	}
 
 	/**

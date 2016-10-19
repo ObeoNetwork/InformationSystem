@@ -969,6 +969,8 @@ public class TaskPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		actors.setContentProvider(contentProvider);
 		actors.setInput(settings);
+		actorsBusinessFilters.clear();
+		actorsFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Task.Properties.actors);
 		if (eefElementEditorReadOnlyState && actors.getTable().isEnabled()) {
 			actors.setEnabled(false);
@@ -1032,6 +1034,8 @@ public class TaskPropertiesEditionPartForm extends SectionPropertiesEditingPart 
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		uses.setContentProvider(contentProvider);
 		uses.setInput(settings);
+		usesBusinessFilters.clear();
+		usesFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.Task.Properties.uses);
 		if (eefElementEditorReadOnlyState && uses.getTable().isEnabled()) {
 			uses.setEnabled(false);

@@ -14,7 +14,11 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.environment.BoundableElement;
+import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
+import org.obeonetwork.dsl.environment.StructuredType;
+import org.obeonetwork.dsl.environment.Type;
 import org.obeonetwork.dsl.technicalid.Identifiable;
 import org.obeonetwork.graal.AbortNode;
 import org.obeonetwork.graal.AbstractTask;
@@ -22,6 +26,7 @@ import org.obeonetwork.graal.Activity;
 import org.obeonetwork.graal.Actor;
 import org.obeonetwork.graal.AppliAction;
 import org.obeonetwork.graal.AppliEvent;
+import org.obeonetwork.graal.DomainClass;
 import org.obeonetwork.graal.DomainModelRegistry;
 import org.obeonetwork.graal.FinalNode;
 import org.obeonetwork.graal.GraalObject;
@@ -136,6 +141,7 @@ public class GraalSwitch<T> {
 				if (result == null) result = caseNamedElement(system);
 				if (result == null) result = caseDomainModelRegistry(system);
 				if (result == null) result = caseTasksContainer(system);
+				if (result == null) result = caseNamespacesContainer(system);
 				if (result == null) result = caseGraalObject(system);
 				if (result == null) result = caseObeoDSMObject(system);
 				if (result == null) result = caseIdentifiable(system);
@@ -385,6 +391,17 @@ public class GraalSwitch<T> {
 				T result = caseGraalObject(graalObject);
 				if (result == null) result = caseObeoDSMObject(graalObject);
 				if (result == null) result = caseIdentifiable(graalObject);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GraalPackage.DOMAIN_CLASS: {
+				DomainClass domainClass = (DomainClass)theEObject;
+				T result = caseDomainClass(domainClass);
+				if (result == null) result = caseStructuredType(domainClass);
+				if (result == null) result = caseType(domainClass);
+				if (result == null) result = caseObeoDSMObject(domainClass);
+				if (result == null) result = caseBoundableElement(domainClass);
+				if (result == null) result = caseIdentifiable(domainClass);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -783,6 +800,21 @@ public class GraalSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Domain Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Domain Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDomainClass(DomainClass object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Identifiable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -809,6 +841,66 @@ public class GraalSwitch<T> {
 	 * @generated
 	 */
 	public T caseObeoDSMObject(ObeoDSMObject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Namespaces Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Namespaces Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamespacesContainer(NamespacesContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Boundable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Boundable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBoundableElement(BoundableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseType(Type object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Structured Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Structured Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStructuredType(StructuredType object) {
 		return null;
 	}
 

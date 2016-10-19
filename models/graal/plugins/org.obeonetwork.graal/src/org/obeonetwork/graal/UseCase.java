@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.obeonetwork.graal.UseCase#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.UseCase#getIncludes <em>Includes</em>}</li>
  *   <li>{@link org.obeonetwork.graal.UseCase#getExtends <em>Extends</em>}</li>
+ *   <li>{@link org.obeonetwork.graal.UseCase#getDomainClasses <em>Domain Classes</em>}</li>
  * </ul>
  *
  * @see org.obeonetwork.graal.GraalPackage#getUseCase()
@@ -95,5 +96,21 @@ public interface UseCase extends NamedElement, DomainModelRegistry {
 	 * @generated
 	 */
 	EList<UseCase> getExtends();
+
+	/**
+	 * Returns the value of the '<em><b>Domain Classes</b></em>' reference list.
+	 * The list contents are of type {@link org.obeonetwork.graal.DomainClass}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Domain Classes</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Domain Classes</em>' reference list.
+	 * @see org.obeonetwork.graal.GraalPackage#getUseCase_DomainClasses()
+	 * @model
+	 * @generated
+	 */
+	EList<DomainClass> getDomainClasses();
 
 } // UseCase

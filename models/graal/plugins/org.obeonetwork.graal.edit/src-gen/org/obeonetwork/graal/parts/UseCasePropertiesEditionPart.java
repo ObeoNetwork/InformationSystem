@@ -132,43 +132,43 @@ public interface UseCasePropertiesEditionPart {
 
 
 	/**
-	 * Init the types
-	 * @param settings settings for the types ReferencesTable 
+	 * Init the domainClasses
+	 * @param settings settings for the domainClasses ReferencesTable 
 	 */
-	public void initTypes(ReferencesTableSettings settings);
+	public void initDomainClasses(ReferencesTableSettings settings);
 
 	/**
-	 * Update the types
-	 * @param newValue the types to update
+	 * Update the domainClasses
+	 * @param newValue the domainClasses to update
 	 * 
 	 */
-	public void updateTypes();
+	public void updateDomainClasses();
 
 	/**
-	 * Adds the given filter to the types edition editor.
+	 * Adds the given filter to the domainClasses edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addFilterToTypes(ViewerFilter filter);
+	public void addFilterToDomainClasses(ViewerFilter filter);
 
 	/**
-	 * Adds the given filter to the types edition editor.
+	 * Adds the given filter to the domainClasses edition editor.
 	 * 
 	 * @param filter
 	 *            a viewer filter
 	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
 	 * 
 	 */
-	public void addBusinessFilterToTypes(ViewerFilter filter);
+	public void addBusinessFilterToDomainClasses(ViewerFilter filter);
 
 	/**
-	 * @return true if the given element is contained inside the types table
+	 * @return true if the given element is contained inside the domainClasses table
 	 * 
 	 */
-	public boolean isContainedInTypesTable(EObject element);
+	public boolean isContainedInDomainClassesTable(EObject element);
 
 
 

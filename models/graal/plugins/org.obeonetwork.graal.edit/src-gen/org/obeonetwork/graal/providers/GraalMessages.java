@@ -364,7 +364,7 @@ public class GraalMessages extends NLS {
 	public static String UseCasePropertiesEditionPart_NamespacesLabel;
 
 	
-	public static String UseCasePropertiesEditionPart_TypesLabel;
+	public static String UseCasePropertiesEditionPart_DomainClassesLabel;
 
 	
 	public static String UserStoryPropertiesEditionPart_NameLabel;

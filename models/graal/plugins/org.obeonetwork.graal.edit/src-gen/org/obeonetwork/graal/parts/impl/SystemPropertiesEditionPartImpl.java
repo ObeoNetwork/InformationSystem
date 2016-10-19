@@ -486,6 +486,8 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		namespaces.setContentProvider(contentProvider);
 		namespaces.setInput(settings);
+		namespacesBusinessFilters.clear();
+		namespacesFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.namespaces);
 		if (eefElementEditorReadOnlyState && namespaces.getTable().isEnabled()) {
 			namespaces.setEnabled(false);
@@ -549,6 +551,8 @@ public class SystemPropertiesEditionPartImpl extends CompositePropertiesEditionP
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		types.setContentProvider(contentProvider);
 		types.setInput(settings);
+		typesBusinessFilters.clear();
+		typesFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.types);
 		if (eefElementEditorReadOnlyState && types.getTable().isEnabled()) {
 			types.setEnabled(false);

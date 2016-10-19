@@ -11,7 +11,6 @@
 package org.obeonetwork.dsl.environment.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 

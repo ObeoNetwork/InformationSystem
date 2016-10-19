@@ -18,6 +18,7 @@ import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.graal.AbstractTask;
 import org.obeonetwork.graal.Actor;
+import org.obeonetwork.graal.DomainClass;
 import org.obeonetwork.graal.DomainModelRegistry;
 import org.obeonetwork.graal.GraalPackage;
 import org.obeonetwork.graal.UseCase;
@@ -36,6 +37,7 @@ import org.obeonetwork.graal.UseCase;
  *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getIncludes <em>Includes</em>}</li>
  *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getExtends <em>Extends</em>}</li>
+ *   <li>{@link org.obeonetwork.graal.impl.UseCaseImpl#getDomainClasses <em>Domain Classes</em>}</li>
  * </ul>
  *
  * @generated
@@ -125,6 +127,16 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<DomainClass> getDomainClasses() {
+		return (EList<DomainClass>)eDynamicGet(GraalPackage.USE_CASE__DOMAIN_CLASSES, GraalPackage.Literals.USE_CASE__DOMAIN_CLASSES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +152,8 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 				return getIncludes();
 			case GraalPackage.USE_CASE__EXTENDS:
 				return getExtends();
+			case GraalPackage.USE_CASE__DOMAIN_CLASSES:
+				return getDomainClasses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -177,6 +191,10 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 				getExtends().clear();
 				getExtends().addAll((Collection<? extends UseCase>)newValue);
 				return;
+			case GraalPackage.USE_CASE__DOMAIN_CLASSES:
+				getDomainClasses().clear();
+				getDomainClasses().addAll((Collection<? extends DomainClass>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -207,6 +225,9 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 			case GraalPackage.USE_CASE__EXTENDS:
 				getExtends().clear();
 				return;
+			case GraalPackage.USE_CASE__DOMAIN_CLASSES:
+				getDomainClasses().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -231,6 +252,8 @@ public class UseCaseImpl extends NamedElementImpl implements UseCase {
 				return !getIncludes().isEmpty();
 			case GraalPackage.USE_CASE__EXTENDS:
 				return !getExtends().isEmpty();
+			case GraalPackage.USE_CASE__DOMAIN_CLASSES:
+				return !getDomainClasses().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
