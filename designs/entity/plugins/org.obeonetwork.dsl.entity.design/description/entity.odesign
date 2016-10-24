@@ -428,7 +428,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="[oclIsKindOf(environment::Literal)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Entity']/@subNodeMappings[name='ED_Attribute']" dragSource="BOTH">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="DAD_ED_Literal" precondition="[oclIsKindOf(environment::Literal)/]" forceRefresh="true" mappings="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_Enumeration']/@subNodeMappings[name='ED_Literal']" dragSource="BOTH">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
