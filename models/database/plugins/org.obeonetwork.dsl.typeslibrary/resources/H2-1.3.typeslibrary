@@ -1,183 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_Zj69UBEnEeGTa_JlZYBw1A" kind="physicalTypes" name="H2-1.3">
-  <nativeTypes xmi:id="_fhOCMGBSEeS9uKH-UlSsiQ" name="ARRAY">
+  <nativeTypes xmi:id="_fhOCMGBSEeS9uKH-UlSsiQ" technicalid="_E0BQoJn4EeaqGJZ6nXNZAQ" name="ARRAY">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_U_x2AGBNEeS9uKH-UlSsiQ" name="BIGINT">
+  <nativeTypes xmi:id="_U_x2AGBNEeS9uKH-UlSsiQ" technicalid="_E0BQopn4EeaqGJZ6nXNZAQ" name="BIGINT">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_zQNSIGBOEeS9uKH-UlSsiQ" name="BINARY" spec="Length">
+  <nativeTypes xmi:id="_zQNSIGBOEeS9uKH-UlSsiQ" technicalid="_E0B3sJn4EeaqGJZ6nXNZAQ" name="BINARY" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_KpQHEGBNEeS9uKH-UlSsiQ" name="BIT">
+  <nativeTypes xmi:id="_KpQHEGBNEeS9uKH-UlSsiQ" technicalid="_E0B3spn4EeaqGJZ6nXNZAQ" name="BIT">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_VTjw0WBREeS9uKH-UlSsiQ" name="BLOB" spec="Length">
+  <nativeTypes xmi:id="_VTjw0WBREeS9uKH-UlSsiQ" technicalid="_E0B3tJn4EeaqGJZ6nXNZAQ" name="BLOB" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_MOuQEGBNEeS9uKH-UlSsiQ" name="BOOL">
+  <nativeTypes xmi:id="_MOuQEGBNEeS9uKH-UlSsiQ" technicalid="_E0B3tpn4EeaqGJZ6nXNZAQ" name="BOOL">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Ja9H8GBNEeS9uKH-UlSsiQ" name="BOOLEAN">
+  <nativeTypes xmi:id="_Ja9H8GBNEeS9uKH-UlSsiQ" technicalid="_E0B3uJn4EeaqGJZ6nXNZAQ" name="BOOLEAN">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Lquq0WBQEeS9uKH-UlSsiQ" name="BYTEA" spec="Length">
+  <nativeTypes xmi:id="_Lquq0WBQEeS9uKH-UlSsiQ" technicalid="_E0B3upn4EeaqGJZ6nXNZAQ" name="BYTEA" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_By-GEWBREeS9uKH-UlSsiQ" name="CHAR" spec="Length">
+  <nativeTypes xmi:id="_By-GEWBREeS9uKH-UlSsiQ" technicalid="_E0B3vJn4EeaqGJZ6nXNZAQ" name="CHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_GSsZsWBREeS9uKH-UlSsiQ" name="CHARACTER" spec="Length">
+  <nativeTypes xmi:id="_GSsZsWBREeS9uKH-UlSsiQ" technicalid="_E0B3vpn4EeaqGJZ6nXNZAQ" name="CHARACTER" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_55BR0WBREeS9uKH-UlSsiQ" name="CLOB" spec="Length">
+  <nativeTypes xmi:id="_55BR0WBREeS9uKH-UlSsiQ" technicalid="_E0B3wJn4EeaqGJZ6nXNZAQ" name="CLOB" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_m2T9QGBOEeS9uKH-UlSsiQ" name="DATE">
+  <nativeTypes xmi:id="_m2T9QGBOEeS9uKH-UlSsiQ" technicalid="_E0B3wpn4EeaqGJZ6nXNZAQ" name="DATE">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_q_R9wGBOEeS9uKH-UlSsiQ" name="DATETIME">
+  <nativeTypes xmi:id="_q_R9wGBOEeS9uKH-UlSsiQ" technicalid="_E0B3xJn4EeaqGJZ6nXNZAQ" name="DATETIME">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_-ERuIWBNEeS9uKH-UlSsiQ" name="DEC" spec="LengthAndPrecision">
+  <nativeTypes xmi:id="_-ERuIWBNEeS9uKH-UlSsiQ" technicalid="_E0B3xpn4EeaqGJZ6nXNZAQ" name="DEC" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_wTzA0GBNEeS9uKH-UlSsiQ" name="DECIMAL" spec="LengthAndPrecision">
+  <nativeTypes xmi:id="_wTzA0GBNEeS9uKH-UlSsiQ" technicalid="_E0B3yJn4EeaqGJZ6nXNZAQ" name="DECIMAL" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_HsWboGBOEeS9uKH-UlSsiQ" name="DOUBLE" spec="Length">
+  <nativeTypes xmi:id="_HsWboGBOEeS9uKH-UlSsiQ" technicalid="_E0B3ypn4EeaqGJZ6nXNZAQ" name="DOUBLE" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_KAdMQGBOEeS9uKH-UlSsiQ" name="DOUBLE PRECISION">
+  <nativeTypes xmi:id="_KAdMQGBOEeS9uKH-UlSsiQ" technicalid="_E0B3zJn4EeaqGJZ6nXNZAQ" name="DOUBLE PRECISION">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_OoYZoGBOEeS9uKH-UlSsiQ" name="FLOAT">
+  <nativeTypes xmi:id="_OoYZoGBOEeS9uKH-UlSsiQ" technicalid="_E0B3zpn4EeaqGJZ6nXNZAQ" name="FLOAT">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_VZikYGBOEeS9uKH-UlSsiQ" name="FLOAT4">
+  <nativeTypes xmi:id="_VZikYGBOEeS9uKH-UlSsiQ" technicalid="_E0B30Jn4EeaqGJZ6nXNZAQ" name="FLOAT4">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_P6x1oGBOEeS9uKH-UlSsiQ" name="FLOAT8">
+  <nativeTypes xmi:id="_P6x1oGBOEeS9uKH-UlSsiQ" technicalid="_E0B30pn4EeaqGJZ6nXNZAQ" name="FLOAT8">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_gDXF8GBSEeS9uKH-UlSsiQ" name="GEOMETRY">
+  <nativeTypes xmi:id="_gDXF8GBSEeS9uKH-UlSsiQ" technicalid="_E0B31Jn4EeaqGJZ6nXNZAQ" name="GEOMETRY">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Y-nqIGBNEeS9uKH-UlSsiQ" name="IDENTITY">
+  <nativeTypes xmi:id="_Y-nqIGBNEeS9uKH-UlSsiQ" technicalid="_E0B31pn4EeaqGJZ6nXNZAQ" name="IDENTITY">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_t1-WsWBREeS9uKH-UlSsiQ" name="IMAGE" spec="Length">
+  <nativeTypes xmi:id="_t1-WsWBREeS9uKH-UlSsiQ" technicalid="_E0B32Jn4EeaqGJZ6nXNZAQ" name="IMAGE" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_AtV3kGBNEeS9uKH-UlSsiQ" name="INT" spec="Length">
+  <nativeTypes xmi:id="_AtV3kGBNEeS9uKH-UlSsiQ" technicalid="_E0B32pn4EeaqGJZ6nXNZAQ" name="INT" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Rmnh0GBNEeS9uKH-UlSsiQ" name="INT2">
+  <nativeTypes xmi:id="_Rmnh0GBNEeS9uKH-UlSsiQ" technicalid="_E0B33Jn4EeaqGJZ6nXNZAQ" name="INT2">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_FfR8kGBNEeS9uKH-UlSsiQ" name="INT4">
+  <nativeTypes xmi:id="_FfR8kGBNEeS9uKH-UlSsiQ" technicalid="_E0B33pn4EeaqGJZ6nXNZAQ" name="INT4">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Wgk6YGBNEeS9uKH-UlSsiQ" name="INT8">
+  <nativeTypes xmi:id="_Wgk6YGBNEeS9uKH-UlSsiQ" technicalid="_E0B34Jn4EeaqGJZ6nXNZAQ" name="INT8">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_B5QREGBNEeS9uKH-UlSsiQ" name="INTEGER">
+  <nativeTypes xmi:id="_B5QREGBNEeS9uKH-UlSsiQ" technicalid="_E0B34pn4EeaqGJZ6nXNZAQ" name="INTEGER">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_qX9XsWBREeS9uKH-UlSsiQ" name="LONGBLOB" spec="Length">
+  <nativeTypes xmi:id="_qX9XsWBREeS9uKH-UlSsiQ" technicalid="_E0B35Jn4EeaqGJZ6nXNZAQ" name="LONGBLOB" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_OFYdcWBSEeS9uKH-UlSsiQ" name="LONGTEXT" spec="Length">
+  <nativeTypes xmi:id="_OFYdcWBSEeS9uKH-UlSsiQ" technicalid="_E0B35pn4EeaqGJZ6nXNZAQ" name="LONGTEXT" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_InjqMWBPEeS9uKH-UlSsiQ" name="LONGVARBINARY" spec="Length">
+  <nativeTypes xmi:id="_InjqMWBPEeS9uKH-UlSsiQ" technicalid="_E0B36Jn4EeaqGJZ6nXNZAQ" name="LONGVARBINARY" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_f6CcwWBQEeS9uKH-UlSsiQ" name="LONGVARCHAR" spec="Length">
+  <nativeTypes xmi:id="_f6CcwWBQEeS9uKH-UlSsiQ" technicalid="_E0B36pn4EeaqGJZ6nXNZAQ" name="LONGVARCHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_g7ut0WBREeS9uKH-UlSsiQ" name="MEDIUMBLOB" spec="Length">
+  <nativeTypes xmi:id="_g7ut0WBREeS9uKH-UlSsiQ" technicalid="_E0B37Jn4EeaqGJZ6nXNZAQ" name="MEDIUMBLOB" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_DMIOMGBNEeS9uKH-UlSsiQ" name="MEDIUMINT">
+  <nativeTypes xmi:id="_DMIOMGBNEeS9uKH-UlSsiQ" technicalid="_E0B37pn4EeaqGJZ6nXNZAQ" name="MEDIUMINT">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_I7M3kWBSEeS9uKH-UlSsiQ" name="MEDIUMTEXT" spec="Length">
+  <nativeTypes xmi:id="_I7M3kWBSEeS9uKH-UlSsiQ" technicalid="_E0B38Jn4EeaqGJZ6nXNZAQ" name="MEDIUMTEXT" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_LNhU8WBREeS9uKH-UlSsiQ" name="NCHAR" spec="Length">
+  <nativeTypes xmi:id="_LNhU8WBREeS9uKH-UlSsiQ" technicalid="_E0B38pn4EeaqGJZ6nXNZAQ" name="NCHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_ZWYQkWBSEeS9uKH-UlSsiQ" name="NCLOB" spec="Length">
+  <nativeTypes xmi:id="_ZWYQkWBSEeS9uKH-UlSsiQ" technicalid="_E0B39Jn4EeaqGJZ6nXNZAQ" name="NCLOB" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_U2j2UWBSEeS9uKH-UlSsiQ" name="NTEXT" spec="Length">
+  <nativeTypes xmi:id="_U2j2UWBSEeS9uKH-UlSsiQ" technicalid="_E0B39pn4EeaqGJZ6nXNZAQ" name="NTEXT" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_3tt0sGBNEeS9uKH-UlSsiQ" name="NUMBER" spec="LengthAndPrecision">
+  <nativeTypes xmi:id="_3tt0sGBNEeS9uKH-UlSsiQ" technicalid="_E0B3-Jn4EeaqGJZ6nXNZAQ" name="NUMBER" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_EBvyIWBOEeS9uKH-UlSsiQ" name="NUMERIC" spec="LengthAndPrecision">
+  <nativeTypes xmi:id="_EBvyIWBOEeS9uKH-UlSsiQ" technicalid="_E0B3-pn4EeaqGJZ6nXNZAQ" name="NUMERIC" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_pj22sWBQEeS9uKH-UlSsiQ" name="NVARCHAR" spec="Length">
+  <nativeTypes xmi:id="_pj22sWBQEeS9uKH-UlSsiQ" technicalid="_E0B3_Jn4EeaqGJZ6nXNZAQ" name="NVARCHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_vFxAEWBQEeS9uKH-UlSsiQ" name="NVARCHAR2" spec="Length">
+  <nativeTypes xmi:id="_vFxAEWBQEeS9uKH-UlSsiQ" technicalid="_E0B3_pn4EeaqGJZ6nXNZAQ" name="NVARCHAR2" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_yU71UWBREeS9uKH-UlSsiQ" name="OID" spec="Length"/>
-  <nativeTypes xmi:id="_TsSGcGBQEeS9uKH-UlSsiQ" name="OTHER"/>
-  <nativeTypes xmi:id="_BHDQsWBQEeS9uKH-UlSsiQ" name="RAW" spec="Length">
+  <nativeTypes xmi:id="_yU71UWBREeS9uKH-UlSsiQ" technicalid="_E0CewJn4EeaqGJZ6nXNZAQ" name="OID" spec="Length"/>
+  <nativeTypes xmi:id="_TsSGcGBQEeS9uKH-UlSsiQ" technicalid="_E0CewZn4EeaqGJZ6nXNZAQ" name="OTHER"/>
+  <nativeTypes xmi:id="_BHDQsWBQEeS9uKH-UlSsiQ" technicalid="_E0Cewpn4EeaqGJZ6nXNZAQ" name="RAW" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_SKl8IGBOEeS9uKH-UlSsiQ" name="REAL">
+  <nativeTypes xmi:id="_SKl8IGBOEeS9uKH-UlSsiQ" technicalid="_E0CexJn4EeaqGJZ6nXNZAQ" name="REAL">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_H8cikGBNEeS9uKH-UlSsiQ" name="SIGNED">
+  <nativeTypes xmi:id="_H8cikGBNEeS9uKH-UlSsiQ" technicalid="_E0Cexpn4EeaqGJZ6nXNZAQ" name="SIGNED">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_uh_PgGBOEeS9uKH-UlSsiQ" name="SMALLDATETIME">
+  <nativeTypes xmi:id="_uh_PgGBOEeS9uKH-UlSsiQ" technicalid="_E0CeyJn4EeaqGJZ6nXNZAQ" name="SMALLDATETIME">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_PFisMGBNEeS9uKH-UlSsiQ" name="SMALLINT">
+  <nativeTypes xmi:id="_PFisMGBNEeS9uKH-UlSsiQ" technicalid="_E0Ceypn4EeaqGJZ6nXNZAQ" name="SMALLINT">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_C9uzkWBSEeS9uKH-UlSsiQ" name="TEXT" spec="Length">
+  <nativeTypes xmi:id="_C9uzkWBSEeS9uKH-UlSsiQ" technicalid="_E0CezJn4EeaqGJZ6nXNZAQ" name="TEXT" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_keM2YGBOEeS9uKH-UlSsiQ" name="TIME">
+  <nativeTypes xmi:id="_keM2YGBOEeS9uKH-UlSsiQ" technicalid="_E0Cezpn4EeaqGJZ6nXNZAQ" name="TIME">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_pVGT4GBOEeS9uKH-UlSsiQ" name="TIMESTAMP">
+  <nativeTypes xmi:id="_pVGT4GBOEeS9uKH-UlSsiQ" technicalid="_E0Ce0Jn4EeaqGJZ6nXNZAQ" name="TIMESTAMP">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Zj8n8WBREeS9uKH-UlSsiQ" name="TINYBLOB" spec="Length">
+  <nativeTypes xmi:id="_Zj8n8WBREeS9uKH-UlSsiQ" technicalid="_E0Ce0pn4EeaqGJZ6nXNZAQ" name="TINYBLOB" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_NS6Q8GBNEeS9uKH-UlSsiQ" name="TINYINT">
+  <nativeTypes xmi:id="_NS6Q8GBNEeS9uKH-UlSsiQ" technicalid="_E0Ce1Jn4EeaqGJZ6nXNZAQ" name="TINYINT">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="__xdE0WBREeS9uKH-UlSsiQ" name="TINYTEXT" spec="Length">
+  <nativeTypes xmi:id="__xdE0WBREeS9uKH-UlSsiQ" technicalid="_E0Ce1pn4EeaqGJZ6nXNZAQ" name="TINYTEXT" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_e7vWkGBSEeS9uKH-UlSsiQ" name="UUID"/>
-  <nativeTypes xmi:id="_AVxaMGBPEeS9uKH-UlSsiQ" name="VARBINARY" spec="Length">
+  <nativeTypes xmi:id="_e7vWkGBSEeS9uKH-UlSsiQ" technicalid="_E0Ce2Jn4EeaqGJZ6nXNZAQ" name="UUID"/>
+  <nativeTypes xmi:id="_AVxaMGBPEeS9uKH-UlSsiQ" technicalid="_E0Ce2Zn4EeaqGJZ6nXNZAQ" name="VARBINARY" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_bW4aoWBQEeS9uKH-UlSsiQ" name="VARCHAR" spec="Length">
+  <nativeTypes xmi:id="_bW4aoWBQEeS9uKH-UlSsiQ" technicalid="_E0Ce25n4EeaqGJZ6nXNZAQ" name="VARCHAR" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_20YRkWBQEeS9uKH-UlSsiQ" name="VARCHAR_CASESENSITIVE" spec="Length">
+  <nativeTypes xmi:id="_20YRkWBQEeS9uKH-UlSsiQ" technicalid="_E0Ce3Zn4EeaqGJZ6nXNZAQ" name="VARCHAR_CASESENSITIVE" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_8pdOkWBQEeS9uKH-UlSsiQ" name="VARCHAR_IGNORECASE" spec="Length">
+  <nativeTypes xmi:id="_8pdOkWBQEeS9uKH-UlSsiQ" technicalid="_E0Ce35n4EeaqGJZ6nXNZAQ" name="VARCHAR_IGNORECASE" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_kaJx8WBQEeS9uKH-UlSsiQ" name="VARCHAR2" spec="Length">
+  <nativeTypes xmi:id="_kaJx8WBQEeS9uKH-UlSsiQ" technicalid="_E0Ce4Zn4EeaqGJZ6nXNZAQ" name="VARCHAR2" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
-  <nativeTypes xmi:id="_Tjp2QGBNEeS9uKH-UlSsiQ" name="YEAR">
+  <nativeTypes xmi:id="_Tjp2QGBNEeS9uKH-UlSsiQ" technicalid="_E0Ce45n4EeaqGJZ6nXNZAQ" name="YEAR">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
 </typeslibrary:NativeTypesLibrary>
