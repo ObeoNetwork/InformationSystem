@@ -3,18 +3,14 @@
 <plugin>
    <extension
          point="org.eclipse.ui.importWizards">
-      <category
-            id="org.obeonetwork.tools.snapshot.viewer.wizards.sampleCategory"
-            name="Sirius">
-      </category>
       <wizard
-            category="org.obeonetwork.tools.snapshot.viewer.wizards.sampleCategory"
+            category="org.eclipse.sirius.category"
             class="org.obeonetwork.tools.snapshot.viewer.wizards.ImportModelFromXmlWizard"
-            icon="icons/sample.gif"
+            icon="icons/XMLFile.gif"
             id="org.obeonetwork.tools.snapshot.viewer.wizards.ImportModelFromXmlWizard"
             name="Import Model From XML">
          <description>
-            Import a file from the local file system into the workspace.
+            Import a XML file exported from CDO from the local file system into the workspace.
          </description>
       </wizard>
    </extension>
