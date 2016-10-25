@@ -8,7 +8,7 @@
             class="org.obeonetwork.tools.snapshot.viewer.wizards.ImportModelFromXmlWizard"
             icon="icons/XMLFile.gif"
             id="org.obeonetwork.tools.snapshot.viewer.wizards.ImportModelFromXmlWizard"
-            name="Import Model From XML">
+            name="Import project From CDO XML snapshot">
          <description>
             Import a XML file exported from CDO from the local file system into the workspace.
          </description>

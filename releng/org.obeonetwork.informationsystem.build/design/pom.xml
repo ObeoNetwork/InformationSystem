@@ -145,6 +145,7 @@
 		<module>../../../commons/tools/features/org.obeonetwork.tools.migration.feature</module>
 		
 		<module>../../../commons/tools/plugins/org.obeonetwork.tools.snapshot.viewer</module>
+		<module>../../../commons/tools/plugins/org.obeonetwork.tools.snapshot.viewer.doc</module>
 		<module>../../../commons/tools/features/org.obeonetwork.tools.snapshot.viewer.feature</module>
 
 		<!-- 
