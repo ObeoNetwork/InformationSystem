@@ -45,6 +45,20 @@ public class ActionsPlanUtils {
 	}
 	
 	/**
+	 * Checks if the node contained in a loop should be attached to user stories
+	 * @param loop
+	 * @param userStories
+	 */
+	public void initNodeAfterCreation(Loop loop, List<UserStory> userStories) {
+		for (Node node : loop.getNodes()) {
+			if (node instanceof TaskReference) {
+				break;
+			}
+			attachToTaskStories(node.getContainingTask(), node, userStories);
+		}
+	}
+	
+	/**
 	 * Checks if the transition should be attached to user stories
 	 * @param transition
 	 * @param userStories
