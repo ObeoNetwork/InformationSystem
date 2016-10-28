@@ -23,11 +23,11 @@ import org.obeonetwork.dsl.database.ViewElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ViewElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.impl.ViewElementImpl#getAlias <em>Alias</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -19,11 +19,11 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.ViewElement#getName <em>Name</em>}</li>
  *   <li>{@link org.obeonetwork.dsl.database.ViewElement#getAlias <em>Alias</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.DatabasePackage#getViewElement()
  * @model

@@ -92,7 +92,7 @@ public class DatabaseElementItemProvider
 				 getString("_UI_DatabaseElement_ID_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DatabaseElement_ID_feature", "_UI_DatabaseElement_type"),
 				 DatabasePackage.Literals.DATABASE_ELEMENT__ID,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
