@@ -6,25 +6,18 @@
  */
 package org.obeonetwork.dsl.database.dbevolution.impl;
 
-import org.eclipse.emf.compare.impl.ComparisonImpl;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.compare.Comparison;
-import org.eclipse.emf.compare.impl.MatchImpl;
+import org.eclipse.emf.compare.internal.spec.ComparisonSpec;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.obeonetwork.dsl.database.dbevolution.DatabaseChangeSet;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Database Change Set</b></em>'. <!-- end-user-doc -->
- * <p>
- * </p>
+ * We have to inherit ComparisonSpec to get all the implementations
  *
- * @generated
+ * @generated NOT
  */
-public class DatabaseChangeSetImpl extends ComparisonImpl implements DatabaseChangeSet {
+@SuppressWarnings("restriction")
+public class DatabaseChangeSetImpl extends ComparisonSpec implements DatabaseChangeSet {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

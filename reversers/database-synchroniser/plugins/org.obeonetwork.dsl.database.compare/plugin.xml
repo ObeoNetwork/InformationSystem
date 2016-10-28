@@ -39,6 +39,13 @@
             class="org.obeonetwork.dsl.database.compare.extensions.policy.DependenciesLoadOnDemandPolicy">
       </policy>
    </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.merger">
+      <merger
+            class="org.obeonetwork.dsl.database.compare.DbMerger"
+            ranking="10">
+      </merger>
+   </extension>
    
 
 </plugin>

@@ -3,7 +3,10 @@
 package org.obeonetwork.dsl.database.dbevolution.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.compare.ComparePackage;
 import org.eclipse.emf.compare.Diff;
+import org.eclipse.emf.compare.Match;
 import org.eclipse.emf.compare.impl.DiffImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -28,6 +31,39 @@ import com.google.common.collect.Iterables;
  * @generated
  */
 public abstract class DBDiffImpl extends DiffImpl implements DBDiff {
+	
+	/**
+	 * Copied from DiffSpec 
+	 */
+	@Override
+	public Match basicGetMatch() {
+		if (eContainer() instanceof Match) {
+			return (Match)eContainer();
+		}
+		return null;
+	}
+
+	/**
+	 * 
+Copied from DiffSpec
+	 */
+	@Override
+	public void setMatch(Match newMatch) {
+		Match oldMatch = basicGetMatch();
+		if (newMatch != null) {
+			EList<Diff> differences = newMatch.getDifferences();
+			differences.add(this);
+			eNotify(new ENotificationImpl(this, Notification.SET, ComparePackage.DIFF__MATCH, oldMatch,
+					newMatch));
+		} else if (eContainer() instanceof Match) {
+			EList<Diff> differences = ((Match)eContainer()).getDifferences();
+			differences.remove(this);
+			eNotify(new ENotificationImpl(this, Notification.UNSET, ComparePackage.DIFF__MATCH, oldMatch,
+					newMatch));
+
+		}
+	}
+	
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->

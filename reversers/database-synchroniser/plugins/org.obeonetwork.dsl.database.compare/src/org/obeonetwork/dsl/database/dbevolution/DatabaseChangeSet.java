@@ -7,7 +7,6 @@
 package org.obeonetwork.dsl.database.dbevolution;
 
 import org.eclipse.emf.compare.Comparison;
-import org.eclipse.emf.compare.Match;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '

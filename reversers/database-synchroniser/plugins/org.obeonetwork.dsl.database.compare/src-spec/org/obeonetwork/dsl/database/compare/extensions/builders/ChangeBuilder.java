@@ -8,6 +8,7 @@ import org.eclipse.emf.compare.Match;
 import org.eclipse.emf.compare.ReferenceChange;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.compare.Activator;
 import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 
@@ -96,7 +97,11 @@ public abstract class ChangeBuilder {
 				newElement = handleRemoveChange((ReferenceChange) diff);
 			} else if (diff.getKind() == DifferenceKind.CHANGE) {
 				if (diff instanceof AttributeChange) {
-					newElement = handleAlterChange((AttributeChange)diff);
+					// Do not take care of tech Id
+					AttributeChange attributeChange = (AttributeChange)diff;
+					if (DatabasePackage.eINSTANCE.getDatabaseElement_TechID() != attributeChange.getAttribute()) {
+						newElement = handleAlterChange(attributeChange);						
+					}
 				}
 				if (diff instanceof ReferenceChange) {
 					newElement = handleAlterChange((ReferenceChange)diff);
