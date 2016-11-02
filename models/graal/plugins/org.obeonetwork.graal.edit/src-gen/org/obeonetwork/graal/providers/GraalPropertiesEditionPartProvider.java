@@ -4,21 +4,19 @@
 package org.obeonetwork.graal.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
-
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
-
 import org.obeonetwork.graal.parts.GraalViewsRepository;
-
 import org.obeonetwork.graal.parts.forms.AbortNodePropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.ActorPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.AppliActionPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.AppliEventPropertiesEditionPartForm;
+import org.obeonetwork.graal.parts.forms.DomainClassPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.FinalNodePropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.InitialNodePropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.LoopPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.OperatorPropertiesEditionPartForm;
+import org.obeonetwork.graal.parts.forms.PersistencePropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.SystemPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.TaskPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.TaskReferencePropertiesEditionPartForm;
@@ -28,15 +26,16 @@ import org.obeonetwork.graal.parts.forms.UseCasePropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.UserActionPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.UserStoryPropertiesEditionPartForm;
 import org.obeonetwork.graal.parts.forms.UserViewPropertiesEditionPartForm;
-
 import org.obeonetwork.graal.parts.impl.AbortNodePropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.ActorPropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.AppliActionPropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.AppliEventPropertiesEditionPartImpl;
+import org.obeonetwork.graal.parts.impl.DomainClassPropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.FinalNodePropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.InitialNodePropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.LoopPropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.OperatorPropertiesEditionPartImpl;
+import org.obeonetwork.graal.parts.impl.PersistencePropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.SystemPropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.TaskPropertiesEditionPartImpl;
 import org.obeonetwork.graal.parts.impl.TaskReferencePropertiesEditionPartImpl;
@@ -169,6 +168,18 @@ public class GraalPropertiesEditionPartProvider implements IPropertiesEditionPar
 				return new UserStoryPropertiesEditionPartImpl(component);
 			if (kind == GraalViewsRepository.FORM_KIND)
 				return new UserStoryPropertiesEditionPartForm(component);
+		}
+		if (key == GraalViewsRepository.DomainClass.class) {
+			if (kind == GraalViewsRepository.SWT_KIND)
+				return new DomainClassPropertiesEditionPartImpl(component);
+			if (kind == GraalViewsRepository.FORM_KIND)
+				return new DomainClassPropertiesEditionPartForm(component);
+		}
+		if (key == GraalViewsRepository.Persistence.class) {
+			if (kind == GraalViewsRepository.SWT_KIND)
+				return new PersistencePropertiesEditionPartImpl(component);
+			if (kind == GraalViewsRepository.FORM_KIND)
+				return new PersistencePropertiesEditionPartForm(component);
 		}
 		return null;
 	}

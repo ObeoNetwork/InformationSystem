@@ -422,4 +422,43 @@ public class GraalViewsRepository {
 	
 	}
 
+	/**
+	 * DomainClass view descriptor
+	 * 
+	 */
+	public static class DomainClass {
+		public static class Properties {
+	
+			
+			public static String name = "graal::DomainClass::properties::name";
+			
+			
+			public static String superType = "graal::DomainClass::properties::superType";
+			
+			
+			public static String description = "graal::DomainClass::properties::description";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * Persistence view descriptor
+	 * 
+	 */
+	public static class Persistence {
+		public static class Properties {
+	
+			
+			public static String estimatedVolumetry = "graal::Persistence::properties::estimatedVolumetry";
+			
+			
+			public static String historized = "graal::Persistence::properties::historized";
+			
+	
+		}
+	
+	}
+
 }

@@ -66,49 +66,49 @@
          <propertyTab
                category="semantic &amp; extension"
                id="TaskReference"
-               label="TaskReference"
+               label="Task Reference"
                afterTab="top">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
                id="UserView"
-               label="UserView"
+               label="User View"
                afterTab="top">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
                id="UserAction"
-               label="UserAction"
+               label="User Action"
                afterTab="top">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
                id="AppliEvent"
-               label="AppliEvent"
+               label="Appli Event"
                afterTab="top">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
                id="AppliAction"
-               label="AppliAction"
+               label="Appli Action"
                afterTab="top">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
                id="InitialNode"
-               label="InitialNode"
+               label="Initial Node"
                afterTab="top">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
                id="FinalNode"
-               label="FinalNode"
+               label="Final Node"
                afterTab="top">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
                id="AbortNode"
-               label="AbortNode"
+               label="Abort Node"
                afterTab="top">
          </propertyTab>
          <propertyTab
@@ -126,21 +126,33 @@
          <propertyTab
                category="semantic &amp; extension"
                id="TasksGroup"
-               label="TasksGroup"
+               label="Tasks Group"
                afterTab="top">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
                id="UseCase"
-               label="UseCase"
+               label="Use Case"
                afterTab="top">
          </propertyTab>
          <propertyTab
                category="semantic &amp; extension"
                id="UserStory"
-               label="UserStory"
+               label="User Story"
                afterTab="top">
          </propertyTab>
+         <propertyTab
+               category="semantic &amp; extension"
+               id="DomainClass"
+               label="Domain Class"
+               afterTab="top">
+         </propertyTab>
+        <propertyTab
+              id="Persistence"
+              label="Persistence"
+              category="semantic &amp; extension"
+              afterTab="DomainClass">
+        </propertyTab>
       </propertyTabs>
    </extension>
    <extension
@@ -248,6 +260,18 @@
                filter="org.obeonetwork.graal.filters.UserStoryTabPropertiesEditionSection"
                id="org.obeonetwork.graal.eef.section.UserStory"
                tab="UserStory">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.graal.parts.forms.DomainClassPropertiesEditionPartForm"
+               filter="org.obeonetwork.graal.filters.DomainClassTabPropertiesEditionSection"
+               id="org.obeonetwork.graal.eef.section.DomainClass"
+               tab="DomainClass">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.graal.parts.forms.PersistencePropertiesEditionPartForm"
+               filter="org.obeonetwork.graal.filters.DomainClassTabPropertiesEditionSection"
+               id="org.obeonetwork.graal.eef.section.DomainClass"
+               tab="Persistence">
          </propertySection>
       </propertySections>
    </extension>

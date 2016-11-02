@@ -147,6 +147,19 @@
                category="default">
          </propertyTab>
 
+         <propertyTab
+               id="DomainClass"
+               label="DomainClass"
+               category="default">
+         </propertyTab>
+
+         <propertyTab
+               id="Persistence"
+               label="Persistence"
+               category="extended"
+               afterTab="DomainClass">
+         </propertyTab>
+
       </propertyTabs>
    </extension>
    <extension
@@ -355,6 +368,24 @@
                class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
                filter="org.obeonetwork.graal.providers.UserStoryPropertiesEditionProvider$EditionFilter"
                id="org.obeonetwork.graal.section.UserStory"
+               tab="Metadatas">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.graal.parts.forms.DomainClassPropertiesEditionPartForm"
+               filter="org.obeonetwork.graal.providers.DomainClassPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.graal.section.DomainClass"
+               tab="DomainClass">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.graal.parts.forms.PersistencePropertiesEditionPartForm"
+               filter="org.obeonetwork.graal.providers.DomainClassPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.graal.section.DomainClass"
+               tab="Persistence">
+         </propertySection>
+         <propertySection
+               class="org.obeonetwork.dsl.environment.parts.forms.MetadatasPropertiesEditionPartForm"
+               filter="org.obeonetwork.graal.providers.DomainClassPropertiesEditionProvider$EditionFilter"
+               id="org.obeonetwork.graal.section.DomainClass"
                tab="Metadatas">
          </propertySection>
       </propertySections>

@@ -64,6 +64,12 @@ public class GraalMessages extends NLS {
 	
 	public static String UserStoryPropertiesEditionPart_PropertiesGroupLabel;
 
+	
+	public static String DomainClassPropertiesEditionPart_PropertiesGroupLabel;
+
+	
+	public static String PersistencePropertiesEditionPart_PropertiesGroupLabel;
+
 
 	
 	public static String Task_ReadOnly;
@@ -166,6 +172,18 @@ public class GraalMessages extends NLS {
 
 	
 	public static String UserStory_Part_Title;
+
+	
+	public static String DomainClass_ReadOnly;
+
+	
+	public static String DomainClass_Part_Title;
+
+	
+	public static String Persistence_ReadOnly;
+
+	
+	public static String Persistence_Part_Title;
 
 
 	
@@ -371,6 +389,21 @@ public class GraalMessages extends NLS {
 
 	
 	public static String UserStoryPropertiesEditionPart_DescriptionLabel;
+
+	
+	public static String DomainClassPropertiesEditionPart_NameLabel;
+
+	
+	public static String DomainClassPropertiesEditionPart_SuperTypeLabel;
+
+	
+	public static String DomainClassPropertiesEditionPart_DescriptionLabel;
+
+	
+	public static String PersistencePropertiesEditionPart_EstimatedVolumetryLabel;
+
+	
+	public static String PersistencePropertiesEditionPart_HistorizedLabel;
 
 
 	

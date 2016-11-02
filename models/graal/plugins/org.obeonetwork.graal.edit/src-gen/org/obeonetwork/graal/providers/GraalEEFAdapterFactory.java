@@ -7,11 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
-
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
-
 import org.obeonetwork.dsl.environment.providers.MetadataCptPropertiesEditionProvider;
-
 import org.obeonetwork.graal.util.GraalAdapterFactory;
 
 /**
@@ -197,6 +194,16 @@ public class GraalEEFAdapterFactory extends GraalAdapterFactory {
 		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
 		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
 		return new UserStoryPropertiesEditionProvider(providers);
+	}
+	/**
+	 * {@inheritDoc}
+	 * @see org.obeonetwork.graal.util.GraalAdapterFactory#createDomainClassAdapter()
+	 * 
+	 */
+	public Adapter createDomainClassAdapter() {
+		List<PropertiesEditingProvider> providers = new ArrayList<PropertiesEditingProvider>(1);
+		providers.add((PropertiesEditingProvider)createObeoDSMObjectAdapter());
+		return new DomainClassPropertiesEditionProvider(providers);
 	}
 
 }

@@ -13,21 +13,22 @@ import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.jface.viewers.IFilter;
 import org.obeonetwork.dsl.environment.components.MetadataCptPropertiesEditionComponent;
 import org.obeonetwork.dsl.environment.edit.specific.policies.CustomPropertiesEditingProvider;
+import org.obeonetwork.graal.DomainClass;
 import org.obeonetwork.graal.GraalPackage;
-import org.obeonetwork.graal.System;
-import org.obeonetwork.graal.components.SystemPropertiesEditionComponent;
-import org.obeonetwork.graal.components.SystemSystemPropertiesEditionComponent;
+import org.obeonetwork.graal.components.DomainClassDomainClassPropertiesEditionComponent;
+import org.obeonetwork.graal.components.DomainClassPersistencePropertiesEditionComponent;
+import org.obeonetwork.graal.components.DomainClassPropertiesEditionComponent;
 
 /**
  * 
  * 
  */
-public class SystemPropertiesEditionProvider extends CustomPropertiesEditingProvider {
+public class DomainClassPropertiesEditionProvider extends CustomPropertiesEditingProvider {
 
 	/**
 	 * Constructor without provider for super types.
 	 */
-	public SystemPropertiesEditionProvider() {
+	public DomainClassPropertiesEditionProvider() {
 		super();
 	}
 
@@ -35,7 +36,7 @@ public class SystemPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 * Constructor with providers for super types.
 	 * @param superProviders providers to use for super types.
 	 */
-	public SystemPropertiesEditionProvider(List<PropertiesEditingProvider> superProviders) {
+	public DomainClassPropertiesEditionProvider(List<PropertiesEditingProvider> superProviders) {
 		super(superProviders);
 	}
 
@@ -45,8 +46,8 @@ public class SystemPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext) {
-		return (editingContext.getEObject() instanceof System) 
-					&& (GraalPackage.Literals.SYSTEM == editingContext.getEObject().eClass());
+		return (editingContext.getEObject() instanceof DomainClass) 
+					&& (GraalPackage.Literals.DOMAIN_CLASS == editingContext.getEObject().eClass());
 	}
 
 	/**
@@ -55,7 +56,7 @@ public class SystemPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 * 
 	 */
 	public boolean provides(PropertiesEditingContext editingContext, String part) {
-		return (editingContext.getEObject() instanceof System) && (SystemSystemPropertiesEditionComponent.SYSTEM_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
+		return (editingContext.getEObject() instanceof DomainClass) && (DomainClassDomainClassPropertiesEditionComponent.DOMAINCLASS_PART.equals(part) || DomainClassPersistencePropertiesEditionComponent.PERSISTENCE_PART.equals(part) || MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part));
 	}
 
 	/**
@@ -65,7 +66,7 @@ public class SystemPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof System) && (refinement == SystemSystemPropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
+		return (editingContext.getEObject() instanceof DomainClass) && (refinement == DomainClassDomainClassPropertiesEditionComponent.class || refinement == DomainClassPersistencePropertiesEditionComponent.class || refinement == MetadataCptPropertiesEditionComponent.class);
 	}
 
 	/**
@@ -75,7 +76,7 @@ public class SystemPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 */
 	@SuppressWarnings("rawtypes")
 	public boolean provides(PropertiesEditingContext editingContext, String part, java.lang.Class refinement) {
-		return (editingContext.getEObject() instanceof System) && ((SystemSystemPropertiesEditionComponent.SYSTEM_PART.equals(part) && refinement == SystemSystemPropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
+		return (editingContext.getEObject() instanceof DomainClass) && ((DomainClassDomainClassPropertiesEditionComponent.DOMAINCLASS_PART.equals(part) && refinement == DomainClassDomainClassPropertiesEditionComponent.class) || (DomainClassPersistencePropertiesEditionComponent.PERSISTENCE_PART.equals(part) && refinement == DomainClassPersistencePropertiesEditionComponent.class) || (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part) && refinement == MetadataCptPropertiesEditionComponent.class));
 	}
 
 	/**
@@ -84,8 +85,8 @@ public class SystemPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 * 
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode) {
-		if (editingContext.getEObject() instanceof System) {
-			return new SystemPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+		if (editingContext.getEObject() instanceof DomainClass) {
+			return new DomainClassPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
 		return super.getPropertiesEditingComponent(editingContext, mode);
 	}
@@ -96,9 +97,11 @@ public class SystemPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 * 
 	 */
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part) {
-		if (editingContext.getEObject() instanceof System) {
-			if (SystemSystemPropertiesEditionComponent.SYSTEM_PART.equals(part))
-				return new SystemSystemPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+		if (editingContext.getEObject() instanceof DomainClass) {
+			if (DomainClassDomainClassPropertiesEditionComponent.DOMAINCLASS_PART.equals(part))
+				return new DomainClassDomainClassPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			if (DomainClassPersistencePropertiesEditionComponent.PERSISTENCE_PART.equals(part))
+				return new DomainClassPersistencePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part))
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 		}
@@ -111,10 +114,13 @@ public class SystemPropertiesEditionProvider extends CustomPropertiesEditingProv
 	 */
 	@SuppressWarnings("rawtypes")
 	public IPropertiesEditionComponent getPropertiesEditingComponent(PropertiesEditingContext editingContext, String mode, String part, java.lang.Class refinement) {
-		if (editingContext.getEObject() instanceof System) {
-			if (SystemSystemPropertiesEditionComponent.SYSTEM_PART.equals(part)
-				&& refinement == SystemSystemPropertiesEditionComponent.class)
-				return new SystemSystemPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+		if (editingContext.getEObject() instanceof DomainClass) {
+			if (DomainClassDomainClassPropertiesEditionComponent.DOMAINCLASS_PART.equals(part)
+				&& refinement == DomainClassDomainClassPropertiesEditionComponent.class)
+				return new DomainClassDomainClassPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
+			if (DomainClassPersistencePropertiesEditionComponent.PERSISTENCE_PART.equals(part)
+				&& refinement == DomainClassPersistencePropertiesEditionComponent.class)
+				return new DomainClassPersistencePropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
 			if (MetadataCptPropertiesEditionComponent.METADATAS_PART.equals(part)
 				&& refinement == MetadataCptPropertiesEditionComponent.class)
 				return new MetadataCptPropertiesEditionComponent(editingContext, editingContext.getEObject(), mode);
@@ -134,7 +140,7 @@ public class SystemPropertiesEditionProvider extends CustomPropertiesEditingProv
 		 */
 		public boolean select(Object toTest) {
 			EObject eObj = EEFUtils.resolveSemanticObject(toTest);
-			return eObj != null && GraalPackage.Literals.SYSTEM == eObj.eClass();
+			return eObj != null && GraalPackage.Literals.DOMAIN_CLASS == eObj.eClass();
 		}
 		
 	}
