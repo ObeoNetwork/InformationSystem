@@ -44,16 +44,6 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 	public static String SYSTEM_PART = "System"; //$NON-NLS-1$
 
 	
-	/**
-	 * Settings for namespaces ReferencesTable
-	 */
-	private ReferencesTableSettings namespacesSettings;
-	
-	/**
-	 * Settings for types ReferencesTable
-	 */
-	private ReferencesTableSettings typesSettings;
-	
 	
 	/**
 	 * Default constructor
@@ -86,27 +76,9 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 			if (isAccessible(GraalViewsRepository.System.Properties.name))
 				systemPart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, system.getName()));
 			
-			if (isAccessible(GraalViewsRepository.System.Properties.namespaces)) {
-				namespacesSettings = new ReferencesTableSettings(system, GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces());
-				systemPart.initNamespaces(namespacesSettings);
-			}
-			if (isAccessible(GraalViewsRepository.System.Properties.types)) {
-				typesSettings = new ReferencesTableSettings(system, GraalPackage.eINSTANCE.getDomainModelRegistry_Types());
-				systemPart.initTypes(typesSettings);
-			}
 			// init filters
 			
 			
-			if (isAccessible(GraalViewsRepository.System.Properties.namespaces)) {
-				systemPart.addFilterToNamespaces(new EObjectFilter(EnvironmentPackage.Literals.NAMESPACE));
-				// Start of user code for additional businessfilters for namespaces
-				// End of user code
-			}
-			if (isAccessible(GraalViewsRepository.System.Properties.types)) {
-				systemPart.addFilterToTypes(new EObjectFilter(EnvironmentPackage.Literals.STRUCTURED_TYPE));
-				// Start of user code for additional businessfilters for types
-				// End of user code
-			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -114,8 +86,6 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 		}
 		setInitializing(false);
 	}
-
-
 
 
 
@@ -132,12 +102,6 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 		if (editorKey == GraalViewsRepository.System.Properties.name) {
 			return GraalPackage.eINSTANCE.getNamedElement_Name();
 		}
-		if (editorKey == GraalViewsRepository.System.Properties.namespaces) {
-			return GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces();
-		}
-		if (editorKey == GraalViewsRepository.System.Properties.types) {
-			return GraalPackage.eINSTANCE.getDomainModelRegistry_Types();
-		}
 		return super.associatedFeature(editorKey);
 	}
 
@@ -153,28 +117,6 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 		}
 		if (GraalViewsRepository.System.Properties.name == event.getAffectedEditor()) {
 			system.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
-		}
-		if (GraalViewsRepository.System.Properties.namespaces == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				if (event.getNewValue() instanceof Namespace) {
-					namespacesSettings.addToReference((EObject) event.getNewValue());
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				namespacesSettings.removeFromReference((EObject) event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				namespacesSettings.move(event.getNewIndex(), (Namespace) event.getNewValue());
-			}
-		}
-		if (GraalViewsRepository.System.Properties.types == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				if (event.getNewValue() instanceof StructuredType) {
-					typesSettings.addToReference((EObject) event.getNewValue());
-				}
-			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
-				typesSettings.removeFromReference((EObject) event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
-				typesSettings.move(event.getNewIndex(), (StructuredType) event.getNewValue());
-			}
 		}
 	}
 
@@ -200,10 +142,6 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 					systemPart.setName("");
 				}
 			}
-			if (GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.System.Properties.namespaces))
-				systemPart.updateNamespaces();
-			if (GraalPackage.eINSTANCE.getDomainModelRegistry_Types().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.System.Properties.types))
-				systemPart.updateTypes();
 			
 		}
 	}
@@ -217,9 +155,7 @@ public class SystemSystemPropertiesEditionComponent extends SinglePartProperties
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
-			GraalPackage.eINSTANCE.getNamedElement_Name(),
-			GraalPackage.eINSTANCE.getDomainModelRegistry_Namespaces(),
-			GraalPackage.eINSTANCE.getDomainModelRegistry_Types()		);
+			GraalPackage.eINSTANCE.getNamedElement_Name()		);
 		return new NotificationFilter[] {filter,};
 	}
 

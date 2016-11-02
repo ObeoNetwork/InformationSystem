@@ -39,12 +39,6 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="__tuRfx8dEeCC-oZI6xw5iw" name="name" views="__tvfpB8dEeCC-oZI6xw5iw">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//NamedElement/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_spD3EJalEeCxeJYZTx8nbA" name="namespaces" views="_xvkGYJZvEeCxeJYZTx8nbA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/namespaces"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_1CxUAJalEeCxeJYZTx8nbA" name="types" views="_xvkGYZZvEeCxeJYZTx8nbA">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.graal/model/graal.ecore#//DomainModelRegistry/types"/>
-        </properties>
         <referencedBinding xmi:id="__JRugGEyEeCM-J-6LVIX2g">
           <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
@@ -373,12 +367,6 @@
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="__tvfoR8dEeCC-oZI6xw5iw" name="description">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xvkGYJZvEeCxeJYZTx8nbA" name="namespaces">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_xvkGYZZvEeCxeJYZTx8nbA" name="types">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
         </elements>
       </views>

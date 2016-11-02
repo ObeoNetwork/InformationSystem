@@ -217,12 +217,6 @@ public class GraalMessages extends NLS {
 	public static String SystemPropertiesEditionPart_DescriptionLabel;
 
 	
-	public static String SystemPropertiesEditionPart_NamespacesLabel;
-
-	
-	public static String SystemPropertiesEditionPart_TypesLabel;
-
-	
 	public static String OperatorPropertiesEditionPart_KindLabel;
 
 	

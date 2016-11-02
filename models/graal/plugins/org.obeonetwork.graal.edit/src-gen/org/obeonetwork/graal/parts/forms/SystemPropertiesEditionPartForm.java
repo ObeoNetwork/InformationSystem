@@ -61,12 +61,6 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 
 	protected Text name;
 	protected Text description;
-	protected ReferencesTable namespaces;
-	protected List<ViewerFilter> namespacesBusinessFilters = new ArrayList<ViewerFilter>();
-	protected List<ViewerFilter> namespacesFilters = new ArrayList<ViewerFilter>();
-	protected ReferencesTable types;
-	protected List<ViewerFilter> typesBusinessFilters = new ArrayList<ViewerFilter>();
-	protected List<ViewerFilter> typesFilters = new ArrayList<ViewerFilter>();
 
 
 
@@ -114,8 +108,6 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		CompositionStep propertiesStep = systemStep.addStep(GraalViewsRepository.System.Properties.class);
 		propertiesStep.addStep(GraalViewsRepository.System.Properties.name);
 		propertiesStep.addStep(GraalViewsRepository.System.Properties.description);
-		propertiesStep.addStep(GraalViewsRepository.System.Properties.namespaces);
-		propertiesStep.addStep(GraalViewsRepository.System.Properties.types);
 		
 		
 		composer = new PartComposer(systemStep) {
@@ -130,12 +122,6 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 				}
 				if (key == GraalViewsRepository.System.Properties.description) {
 					return createDescriptionTextarea(widgetFactory, parent);
-				}
-				if (key == GraalViewsRepository.System.Properties.namespaces) {
-					return createNamespacesReferencesTable(widgetFactory, parent);
-				}
-				if (key == GraalViewsRepository.System.Properties.types) {
-					return createTypesReferencesTable(widgetFactory, parent);
 				}
 				return parent;
 			}
@@ -286,174 +272,6 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		return parent;
 	}
 
-	/**
-	 * 
-	 */
-	protected Composite createNamespacesReferencesTable(FormToolkit widgetFactory, Composite parent) {
-		this.namespaces = new ReferencesTable(getDescription(GraalViewsRepository.System.Properties.namespaces, GraalMessages.SystemPropertiesEditionPart_NamespacesLabel), new ReferencesTableListener	() {
-			public void handleAdd() { addNamespaces(); }
-			public void handleEdit(EObject element) { editNamespaces(element); }
-			public void handleMove(EObject element, int oldIndex, int newIndex) { moveNamespaces(element, oldIndex, newIndex); }
-			public void handleRemove(EObject element) { removeFromNamespaces(element); }
-			public void navigateTo(EObject element) { }
-		});
-		this.namespaces.setHelpText(propertiesEditionComponent.getHelpContent(GraalViewsRepository.System.Properties.namespaces, GraalViewsRepository.FORM_KIND));
-		this.namespaces.createControls(parent, widgetFactory);
-		this.namespaces.addSelectionListener(new SelectionAdapter() {
-			
-			public void widgetSelected(SelectionEvent e) {
-				if (e.item != null && e.item.getData() instanceof EObject) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SystemPropertiesEditionPartForm.this, GraalViewsRepository.System.Properties.namespaces, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
-				}
-			}
-			
-		});
-		GridData namespacesData = new GridData(GridData.FILL_HORIZONTAL);
-		namespacesData.horizontalSpan = 3;
-		this.namespaces.setLayoutData(namespacesData);
-		this.namespaces.disableMove();
-		namespaces.setID(GraalViewsRepository.System.Properties.namespaces);
-		namespaces.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
-		// Start of user code for createNamespacesReferencesTable
-
-		// End of user code
-		return parent;
-	}
-
-	/**
-	 * 
-	 */
-	protected void addNamespaces() {
-		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(namespaces.getInput(), namespacesFilters, namespacesBusinessFilters,
-		"namespaces", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
-			@Override
-			public void process(IStructuredSelection selection) {
-				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
-					EObject elem = (EObject) iter.next();
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SystemPropertiesEditionPartForm.this, GraalViewsRepository.System.Properties.namespaces,
-						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
-				}
-				namespaces.refresh();
-			}
-		};
-		dialog.open();
-	}
-
-	/**
-	 * 
-	 */
-	protected void moveNamespaces(EObject element, int oldIndex, int newIndex) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SystemPropertiesEditionPartForm.this, GraalViewsRepository.System.Properties.namespaces, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
-		namespaces.refresh();
-	}
-
-	/**
-	 * 
-	 */
-	protected void removeFromNamespaces(EObject element) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SystemPropertiesEditionPartForm.this, GraalViewsRepository.System.Properties.namespaces, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
-		namespaces.refresh();
-	}
-
-	/**
-	 * 
-	 */
-	protected void editNamespaces(EObject element) {
-		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
-		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
-		if (provider != null) {
-			PropertiesEditingPolicy policy = provider.getPolicy(context);
-			if (policy != null) {
-				policy.execute();
-				namespaces.refresh();
-			}
-		}
-	}
-
-	/**
-	 * 
-	 */
-	protected Composite createTypesReferencesTable(FormToolkit widgetFactory, Composite parent) {
-		this.types = new ReferencesTable(getDescription(GraalViewsRepository.System.Properties.types, GraalMessages.SystemPropertiesEditionPart_TypesLabel), new ReferencesTableListener	() {
-			public void handleAdd() { addTypes(); }
-			public void handleEdit(EObject element) { editTypes(element); }
-			public void handleMove(EObject element, int oldIndex, int newIndex) { moveTypes(element, oldIndex, newIndex); }
-			public void handleRemove(EObject element) { removeFromTypes(element); }
-			public void navigateTo(EObject element) { }
-		});
-		this.types.setHelpText(propertiesEditionComponent.getHelpContent(GraalViewsRepository.System.Properties.types, GraalViewsRepository.FORM_KIND));
-		this.types.createControls(parent, widgetFactory);
-		this.types.addSelectionListener(new SelectionAdapter() {
-			
-			public void widgetSelected(SelectionEvent e) {
-				if (e.item != null && e.item.getData() instanceof EObject) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SystemPropertiesEditionPartForm.this, GraalViewsRepository.System.Properties.types, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
-				}
-			}
-			
-		});
-		GridData typesData = new GridData(GridData.FILL_HORIZONTAL);
-		typesData.horizontalSpan = 3;
-		this.types.setLayoutData(typesData);
-		this.types.disableMove();
-		types.setID(GraalViewsRepository.System.Properties.types);
-		types.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
-		// Start of user code for createTypesReferencesTable
-
-		// End of user code
-		return parent;
-	}
-
-	/**
-	 * 
-	 */
-	protected void addTypes() {
-		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(types.getInput(), typesFilters, typesBusinessFilters,
-		"types", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
-			@Override
-			public void process(IStructuredSelection selection) {
-				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
-					EObject elem = (EObject) iter.next();
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SystemPropertiesEditionPartForm.this, GraalViewsRepository.System.Properties.types,
-						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
-				}
-				types.refresh();
-			}
-		};
-		dialog.open();
-	}
-
-	/**
-	 * 
-	 */
-	protected void moveTypes(EObject element, int oldIndex, int newIndex) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SystemPropertiesEditionPartForm.this, GraalViewsRepository.System.Properties.types, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
-		types.refresh();
-	}
-
-	/**
-	 * 
-	 */
-	protected void removeFromTypes(EObject element) {
-		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SystemPropertiesEditionPartForm.this, GraalViewsRepository.System.Properties.types, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
-		types.refresh();
-	}
-
-	/**
-	 * 
-	 */
-	protected void editTypes(EObject element) {
-		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
-		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
-		if (provider != null) {
-			PropertiesEditingPolicy policy = provider.getPolicy(context);
-			if (policy != null) {
-				policy.execute();
-				types.refresh();
-			}
-		}
-	}
-
 
 	/**
 	 * {@inheritDoc}
@@ -530,136 +348,6 @@ public class SystemPropertiesEditionPartForm extends SectionPropertiesEditingPar
 			description.setEnabled(true);
 		}	
 		
-	}
-
-
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.graal.parts.SystemPropertiesEditionPart#initNamespaces(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
-	 */
-	public void initNamespaces(ReferencesTableSettings settings) {
-		if (current.eResource() != null && current.eResource().getResourceSet() != null)
-			this.resourceSet = current.eResource().getResourceSet();
-		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
-		namespaces.setContentProvider(contentProvider);
-		namespaces.setInput(settings);
-		namespacesBusinessFilters.clear();
-		namespacesFilters.clear();
-		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.namespaces);
-		if (eefElementEditorReadOnlyState && namespaces.getTable().isEnabled()) {
-			namespaces.setEnabled(false);
-			namespaces.setToolTipText(GraalMessages.System_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !namespaces.getTable().isEnabled()) {
-			namespaces.setEnabled(true);
-		}
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.graal.parts.SystemPropertiesEditionPart#updateNamespaces()
-	 * 
-	 */
-	public void updateNamespaces() {
-	namespaces.refresh();
-}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.graal.parts.SystemPropertiesEditionPart#addFilterNamespaces(ViewerFilter filter)
-	 * 
-	 */
-	public void addFilterToNamespaces(ViewerFilter filter) {
-		namespacesFilters.add(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.graal.parts.SystemPropertiesEditionPart#addBusinessFilterNamespaces(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToNamespaces(ViewerFilter filter) {
-		namespacesBusinessFilters.add(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.graal.parts.SystemPropertiesEditionPart#isContainedInNamespacesTable(EObject element)
-	 * 
-	 */
-	public boolean isContainedInNamespacesTable(EObject element) {
-		return ((ReferencesTableSettings)namespaces.getInput()).contains(element);
-	}
-
-
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.graal.parts.SystemPropertiesEditionPart#initTypes(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
-	 */
-	public void initTypes(ReferencesTableSettings settings) {
-		if (current.eResource() != null && current.eResource().getResourceSet() != null)
-			this.resourceSet = current.eResource().getResourceSet();
-		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
-		types.setContentProvider(contentProvider);
-		types.setInput(settings);
-		typesBusinessFilters.clear();
-		typesFilters.clear();
-		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.System.Properties.types);
-		if (eefElementEditorReadOnlyState && types.getTable().isEnabled()) {
-			types.setEnabled(false);
-			types.setToolTipText(GraalMessages.System_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !types.getTable().isEnabled()) {
-			types.setEnabled(true);
-		}
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.graal.parts.SystemPropertiesEditionPart#updateTypes()
-	 * 
-	 */
-	public void updateTypes() {
-	types.refresh();
-}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.graal.parts.SystemPropertiesEditionPart#addFilterTypes(ViewerFilter filter)
-	 * 
-	 */
-	public void addFilterToTypes(ViewerFilter filter) {
-		typesFilters.add(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.graal.parts.SystemPropertiesEditionPart#addBusinessFilterTypes(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToTypes(ViewerFilter filter) {
-		typesBusinessFilters.add(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.graal.parts.SystemPropertiesEditionPart#isContainedInTypesTable(EObject element)
-	 * 
-	 */
-	public boolean isContainedInTypesTable(EObject element) {
-		return ((ReferencesTableSettings)types.getInput()).contains(element);
 	}
 
 

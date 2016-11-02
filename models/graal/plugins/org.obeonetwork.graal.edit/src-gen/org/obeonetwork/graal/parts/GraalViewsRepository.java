@@ -63,12 +63,6 @@ public class GraalViewsRepository {
 			
 			public static String description = "graal::System::properties::description";
 			
-			
-			public static String namespaces = "graal::System::properties::namespaces";
-			
-			
-			public static String types = "graal::System::properties::types";
-			
 	
 		}
 	
