@@ -77,7 +77,7 @@ public class FilterItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Filter) object).getTechnicalid();
+		String label = crop(((Filter) object).getDescription());
 		return label == null || label.length() == 0 ? getString("_UI_Filter_type")
 				: getString("_UI_Filter_type") + " " + label;
 	}

@@ -77,7 +77,7 @@ public class BehaviourItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Behaviour) object).getTechnicalid();
+		String label = crop(((Behaviour) object).getDescription());
 		return label == null || label.length() == 0 ? getString("_UI_Behaviour_type")
 				: getString("_UI_Behaviour_type") + " " + label;
 	}

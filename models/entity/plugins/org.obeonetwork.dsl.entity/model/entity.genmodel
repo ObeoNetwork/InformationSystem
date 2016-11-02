@@ -34,14 +34,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference entity.ecore#//InternalCriterion/target"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute entity.ecore#//InternalCriterion/name"/>
     </genClasses>
-    <genClasses ecoreClass="entity.ecore#//Criterion"/>
+    <genClasses ecoreClass="entity.ecore#//Criterion" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description"/>
     <genClasses ecoreClass="entity.ecore#//ExternalCriterion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entity.ecore#//ExternalCriterion/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference entity.ecore#//ExternalCriterion/type"/>
     </genClasses>
     <nestedGenPackages prefix="ExtensionUtilities" basePackage="org.obeonetwork.dsl.entity"
         disposableProviderFactory="true" ecorePackage="entity.ecore#//extensionUtilities">
-      <genClasses ecoreClass="entity.ecore#//extensionUtilities/EntityFilter">
+      <genClasses ecoreClass="entity.ecore#//extensionUtilities/EntityFilter" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
         <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference entity.ecore#//extensionUtilities/EntityFilter/attributeReferences"/>
         <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference entity.ecore#//extensionUtilities/EntityFilter/referenceReferences"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

@@ -126,7 +126,7 @@ public class AnnotationItemProvider extends MetaDataItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Annotation) object).getTechnicalid();
+		String label = ((Annotation) object).getTitle();
 		return label == null || label.length() == 0 ? getString("_UI_Annotation_type")
 				: getString("_UI_Annotation_type") + " " + label;
 	}

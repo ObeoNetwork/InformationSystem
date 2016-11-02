@@ -84,7 +84,7 @@ public class InitialStateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InitialState)object).getTechnicalid();
+		String label = crop(((InitialState)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_InitialState_type") :
 			getString("_UI_InitialState_type") + " " + label;

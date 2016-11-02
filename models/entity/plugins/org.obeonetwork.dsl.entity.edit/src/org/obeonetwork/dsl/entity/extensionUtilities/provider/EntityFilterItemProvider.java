@@ -192,7 +192,7 @@ public class EntityFilterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EntityFilter)object).getTechnicalid();
+		String label = crop(((EntityFilter)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_EntityFilter_type") :
 			getString("_UI_EntityFilter_type") + " " + label;

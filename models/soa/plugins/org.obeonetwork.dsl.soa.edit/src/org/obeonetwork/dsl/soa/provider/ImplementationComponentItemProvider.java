@@ -139,7 +139,7 @@ public class ImplementationComponentItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ImplementationComponent)object).getTechnicalid();
+		String label = crop(((ImplementationComponent)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_ImplementationComponent_type") :
 			getString("_UI_ImplementationComponent_type") + " " + label;

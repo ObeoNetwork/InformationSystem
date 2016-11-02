@@ -164,7 +164,7 @@ public class TransitionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Transition)object).getTechnicalid();
+		String label = crop(((Transition)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_Transition_type") :
 			getString("_UI_Transition_type") + " " + label;

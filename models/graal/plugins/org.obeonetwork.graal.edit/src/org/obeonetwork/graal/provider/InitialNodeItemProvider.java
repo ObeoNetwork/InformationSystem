@@ -86,7 +86,7 @@ public class InitialNodeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InitialNode)object).getTechnicalid();
+		String label = crop(((InitialNode)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_InitialNode_type") :
 			getString("_UI_InitialNode_type") + " " + label;

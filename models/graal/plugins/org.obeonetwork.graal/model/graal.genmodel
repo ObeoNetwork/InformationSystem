@@ -35,7 +35,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//System/userStories"/>
       <genOperations ecoreOperation="graal.ecore#//System/getRelatedActors"/>
     </genClasses>
-    <genClasses ecoreClass="graal.ecore#//Activity">
+    <genClasses ecoreClass="graal.ecore#//Activity" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//Activity/nodes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//Activity/transitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference graal.ecore#//Activity/subActivities"/>
@@ -44,10 +44,10 @@
       </genOperations>
       <genOperations ecoreOperation="graal.ecore#//Activity/getContainingTask"/>
     </genClasses>
-    <genClasses ecoreClass="graal.ecore#//Operator">
+    <genClasses ecoreClass="graal.ecore#//Operator" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graal.ecore#//Operator/kind"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="graal.ecore#//Node">
+    <genClasses image="false" ecoreClass="graal.ecore#//Node" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//Node/outgoingTransitions"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//Node/incomingTransitions"/>
       <genOperations ecoreOperation="graal.ecore#//Node/getContainingTask"/>
@@ -67,9 +67,9 @@
     <genClasses ecoreClass="graal.ecore#//UserAction"/>
     <genClasses ecoreClass="graal.ecore#//AppliEvent"/>
     <genClasses ecoreClass="graal.ecore#//AppliAction"/>
-    <genClasses ecoreClass="graal.ecore#//InitialNode"/>
-    <genClasses ecoreClass="graal.ecore#//FinalNode"/>
-    <genClasses ecoreClass="graal.ecore#//AbortNode"/>
+    <genClasses ecoreClass="graal.ecore#//InitialNode" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description"/>
+    <genClasses ecoreClass="graal.ecore#//FinalNode" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description"/>
+    <genClasses ecoreClass="graal.ecore#//AbortNode" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description"/>
     <genClasses ecoreClass="graal.ecore#//Loop">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graal.ecore#//Loop/lowerBound"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute graal.ecore#//Loop/upperBound"/>
@@ -110,7 +110,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference graal.ecore#//UserStory/elements"/>
     </genClasses>
     <genClasses image="false" ecoreClass="graal.ecore#//UserStoryElement"/>
-    <genClasses image="false" ecoreClass="graal.ecore#//GraalObject">
+    <genClasses image="false" ecoreClass="graal.ecore#//GraalObject" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genOperations ecoreOperation="graal.ecore#//GraalObject/attachToUserStory">
         <genParameters ecoreParameter="graal.ecore#//GraalObject/attachToUserStory/userStory"/>
       </genOperations>

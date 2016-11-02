@@ -187,7 +187,7 @@ public class WireItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Wire)object).getTechnicalid();
+		String label = crop(((Wire)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_Wire_type") :
 			getString("_UI_Wire_type") + " " + label;

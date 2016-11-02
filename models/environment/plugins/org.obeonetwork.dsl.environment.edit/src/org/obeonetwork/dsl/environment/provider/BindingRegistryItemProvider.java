@@ -120,7 +120,7 @@ public class BindingRegistryItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BindingRegistry) object).getTechnicalid();
+		String label = crop(((BindingRegistry) object).getDescription());
 		return label == null || label.length() == 0 ? getString("_UI_BindingRegistry_type")
 				: getString("_UI_BindingRegistry_type") + " " + label;
 	}

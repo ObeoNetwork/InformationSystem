@@ -123,7 +123,7 @@ public class NodeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Node)object).getTechnicalid();
+		String label = crop(((Node)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_Node_type") :
 			getString("_UI_Node_type") + " " + label;

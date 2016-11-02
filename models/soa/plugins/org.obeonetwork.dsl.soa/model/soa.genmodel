@@ -51,11 +51,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Service/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Service/usedTypes"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="soa.ecore#//Wire">
+    <genClasses image="false" ecoreClass="soa.ecore#//Wire" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Wire/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//Wire/dest"/>
     </genClasses>
-    <genClasses ecoreClass="soa.ecore#//Binding">
+    <genClasses ecoreClass="soa.ecore#//Binding" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Binding/technology"/>
     </genClasses>
     <genClasses ecoreClass="soa.ecore#//Interface">
@@ -69,7 +69,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//Operation/public"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//Operation/fault"/>
     </genClasses>
-    <genClasses ecoreClass="soa.ecore#//ImplementationComponent">
+    <genClasses ecoreClass="soa.ecore#//ImplementationComponent" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//ImplementationComponent/implement"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference soa.ecore#//ImplementationComponent/entities"/>
     </genClasses>

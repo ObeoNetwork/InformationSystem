@@ -163,11 +163,11 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 * @generated
 	 */
 	protected void addPathReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_BindingElement_pathReferences_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_BindingElement_pathReferences_feature",
-								"_UI_BindingElement_type"),
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_BindingElement_pathReferences_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_BindingElement_pathReferences_feature",
+						"_UI_BindingElement_type"),
 				EnvironmentPackage.Literals.BINDING_ELEMENT__PATH_REFERENCES, true, false, true, null, null, null));
 	}
 

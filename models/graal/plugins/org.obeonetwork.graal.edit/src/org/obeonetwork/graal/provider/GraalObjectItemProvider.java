@@ -77,7 +77,7 @@ public class GraalObjectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GraalObject)object).getTechnicalid();
+		String label = crop(((GraalObject)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_GraalObject_type") :
 			getString("_UI_GraalObject_type") + " " + label;

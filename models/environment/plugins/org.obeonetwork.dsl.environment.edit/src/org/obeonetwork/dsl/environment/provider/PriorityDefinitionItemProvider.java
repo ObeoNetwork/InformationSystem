@@ -122,7 +122,7 @@ public class PriorityDefinitionItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PriorityDefinition) object).getTechnicalid();
+		String label = crop(((PriorityDefinition) object).getDescription());
 		return label == null || label.length() == 0 ? getString("_UI_PriorityDefinition_type")
 				: getString("_UI_PriorityDefinition_type") + " " + label;
 	}

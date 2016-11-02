@@ -113,7 +113,7 @@ public class OperatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Operator)object).getTechnicalid();
+		String label = crop(((Operator)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_Operator_type") :
 			getString("_UI_Operator_type") + " " + label;

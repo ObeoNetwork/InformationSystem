@@ -86,7 +86,7 @@ public class FinalNodeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((FinalNode)object).getTechnicalid();
+		String label = crop(((FinalNode)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_FinalNode_type") :
 			getString("_UI_FinalNode_type") + " " + label;

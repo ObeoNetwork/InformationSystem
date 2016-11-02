@@ -86,7 +86,7 @@ public class AbortNodeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AbortNode)object).getTechnicalid();
+		String label = crop(((AbortNode)object).getDescription());
 		return label == null || label.length() == 0 ?
 			getString("_UI_AbortNode_type") :
 			getString("_UI_AbortNode_type") + " " + label;

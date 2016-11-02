@@ -21,14 +21,8 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
@@ -119,11 +113,11 @@ public class ObeoDSMObjectItemProvider extends IdentifiableItemProvider {
 	 * @generated
 	 */
 	protected void addBindingRegistriesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ObeoDSMObject_bindingRegistries_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ObeoDSMObject_bindingRegistries_feature",
-								"_UI_ObeoDSMObject_type"),
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ObeoDSMObject_bindingRegistries_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_ObeoDSMObject_bindingRegistries_feature",
+						"_UI_ObeoDSMObject_type"),
 				EnvironmentPackage.Literals.OBEO_DSM_OBJECT__BINDING_REGISTRIES, true, false, true, null, null, null));
 	}
 
@@ -224,7 +218,7 @@ public class ObeoDSMObjectItemProvider extends IdentifiableItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ObeoDSMObject) object).getTechnicalid();
+		String label = crop(((ObeoDSMObject) object).getDescription());
 		return label == null || label.length() == 0 ? getString("_UI_ObeoDSMObject_type")
 				: getString("_UI_ObeoDSMObject_type") + " " + label;
 	}

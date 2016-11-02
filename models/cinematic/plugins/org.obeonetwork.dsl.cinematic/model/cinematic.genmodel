@@ -10,7 +10,7 @@
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Cinematic" basePackage="org.obeonetwork.dsl" resource="XMI"
       disposableProviderFactory="true" multipleEditorPages="false" ecorePackage="cinematic.ecore#/">
-    <genClasses image="false" ecoreClass="cinematic.ecore#//CinematicElement"/>
+    <genClasses image="false" ecoreClass="cinematic.ecore#//CinematicElement" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description"/>
     <genClasses image="false" ecoreClass="cinematic.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cinematic.ecore#//NamedElement/name"/>
     </genClasses>
@@ -101,7 +101,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cinematic.ecore#//flow/FlowEvent/binds"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="cinematic.ecore#//flow/FlowState">
+      <genClasses image="false" ecoreClass="cinematic.ecore#//flow/FlowState" labelFeature="../../org.obeonetwork.dsl.environment/model/environment.genmodel#//environment/ObeoDSMObject/description">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cinematic.ecore#//flow/FlowState/actions"/>
       </genClasses>
     </nestedGenPackages>

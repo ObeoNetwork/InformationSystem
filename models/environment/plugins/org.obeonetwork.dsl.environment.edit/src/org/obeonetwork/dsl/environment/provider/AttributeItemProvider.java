@@ -76,77 +76,76 @@ public class AttributeItemProvider extends PropertyItemProvider {
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
 		// Filter enumerations to keep only those defined in same kind of resource
-		itemPropertyDescriptors.add(
-			new ItemPropertyDescriptor(
-					((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-					getResourceLocator(),
-					getString("_UI_Attribute_type_feature"),
-					getString("_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature", "_UI_Attribute_type"),
-					EnvironmentPackage.Literals.ATTRIBUTE__TYPE,
-					true, false, true, null, null, null) {
-				public Collection<?> getChoiceOfValues(Object object) {
-					Collection<?> choiceOfValues = super.getChoiceOfValues(object);
-					
-					Collection<Object> result = new ArrayList<Object>();
-					if (!choiceOfValues.isEmpty()) {
-						NamespacesContainer rootContainer = null;
-						if (object instanceof Attribute) {
-							rootContainer = getRootNamespacesContainer((Attribute) object);
-						}
-						
-						// Loop on all choices
-						for (Object choice : choiceOfValues) {
-							if (choice instanceof Enumeration) {
-								// We have to ensure objects are in the same kind of resource
-								if (rootContainer != null) {
-									NamespacesContainer choiceRootContainer = getRootNamespacesContainer((Enumeration)choice);
-									if (choiceRootContainer != null && rootContainer.eClass().equals(choiceRootContainer.eClass())) {
-									result.add(choice);
+		itemPropertyDescriptors
+				.add(new ItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Attribute_type_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature",
+								"_UI_Attribute_type"),
+						EnvironmentPackage.Literals.ATTRIBUTE__TYPE, true, false, true, null, null, null) {
+					public Collection<?> getChoiceOfValues(Object object) {
+						Collection<?> choiceOfValues = super.getChoiceOfValues(object);
+
+						Collection<Object> result = new ArrayList<Object>();
+						if (!choiceOfValues.isEmpty()) {
+							NamespacesContainer rootContainer = null;
+							if (object instanceof Attribute) {
+								rootContainer = getRootNamespacesContainer((Attribute) object);
+							}
+
+							// Loop on all choices
+							for (Object choice : choiceOfValues) {
+								if (choice instanceof Enumeration) {
+									// We have to ensure objects are in the same kind of resource
+									if (rootContainer != null) {
+										NamespacesContainer choiceRootContainer = getRootNamespacesContainer(
+												(Enumeration) choice);
+										if (choiceRootContainer != null
+												&& rootContainer.eClass().equals(choiceRootContainer.eClass())) {
+											result.add(choice);
+										}
 									}
+
+								} else {
+									result.add(choice);
 								}
-								
-							} else {
-								result.add(choice);
 							}
 						}
-					}
-					return result;
-				};
-			}
-		);
+						return result;
+					};
+				});
 	}
-	
+
 	private NamespacesContainer getRootNamespacesContainer(Enumeration enumeration) {
 		EObject eContainer = enumeration.eContainer();
 		if (eContainer instanceof NamespacesContainer) {
-			return getRootNamespacesContainer((NamespacesContainer)eContainer);
+			return getRootNamespacesContainer((NamespacesContainer) eContainer);
 		} else {
 			return null;
 		}
 	}
-	
+
 	private NamespacesContainer getRootNamespacesContainer(Attribute attribute) {
 		EObject eContainer = attribute.eContainer();
 		if (eContainer instanceof StructuredType) {
-			return getRootNamespacesContainer((StructuredType)eContainer);
+			return getRootNamespacesContainer((StructuredType) eContainer);
 		} else {
 			return null;
 		}
 	}
-	
+
 	private NamespacesContainer getRootNamespacesContainer(StructuredType structuredType) {
 		EObject eContainer = structuredType.eContainer();
 		if (eContainer instanceof NamespacesContainer) {
-			return getRootNamespacesContainer((NamespacesContainer)eContainer);
+			return getRootNamespacesContainer((NamespacesContainer) eContainer);
 		} else {
 			return null;
 		}
 	}
-	
+
 	private NamespacesContainer getRootNamespacesContainer(NamespacesContainer container) {
 		EObject eContainer = container.eContainer();
 		if (eContainer instanceof NamespacesContainer) {
-			return getRootNamespacesContainer((NamespacesContainer)eContainer);
+			return getRootNamespacesContainer((NamespacesContainer) eContainer);
 		} else {
 			return container;
 		}
