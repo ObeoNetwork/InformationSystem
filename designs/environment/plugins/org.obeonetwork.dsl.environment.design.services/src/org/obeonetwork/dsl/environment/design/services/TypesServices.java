@@ -112,7 +112,7 @@ public class TypesServices {
 		for (Reference reference : references) {
 			if (reference.getOppositeOf() != null) {
 				Reference newReference = mappingsReferences.get(reference);
-				if (newReference.getOppositeOf() != null) {
+				if (newReference.getOppositeOf() == null) {
 					Reference newOppositeReference = mappingsReferences.get(reference.getOppositeOf());
 					newReference.setOppositeOf(newOppositeReference);
 				}
