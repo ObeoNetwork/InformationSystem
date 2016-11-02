@@ -208,6 +208,10 @@ public class TypesServices {
 		}
 		return false;
 	}
+
+	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDomainClassesRoots(Namespace namespace, DSemanticDiagram diagram) {
+		return getRootElementsFromCollection(getAllSelectableExternalStructuredTypesWithAncestorsDomainClasses(namespace, diagram));
+	}
 	
 	public Collection<EObject> getAllSelectableExternalStructuredTypesWithAncestorsDTOsRoots(Namespace namespace, DSemanticDiagram diagram) {
 		return getRootElementsFromCollection(getAllSelectableExternalStructuredTypesWithAncestorsDTOs(namespace, diagram));
