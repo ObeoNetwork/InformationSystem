@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _s8ftkGNdEeSg_dTG4Ei-uQ
-Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/3/14 2:32 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 10/28/16 10:39 AM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -41,27 +41,19 @@ with [get-window New] {
     get-combo -after [get-label "Model Object"] | select "State Machine"
     get-button Finish | click
 }
+
 with [get-view "Model Explorer" | get-tree] {
-    select "E-BookStore/My.statemachine" | double-click
-    select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
+    select "E-BookStore" | get-menu "Configure/Convert to Modeling Project" | click
+    select "E-BookStore" | get-menu "Viewpoints Selection" | click
 }
-with [get-window "Select resources to add"] {
-    get-button "Browse Workspace..." | click
-    with [get-window "File Selection"] {
-        get-tree | select "E-BookStore/My.statemachine"
-        get-button OK | click
-    }
+with [get-window "Viewpoints Selection"] {
+    get-table | get-item "State Machine" | check
     get-button OK | click
 }
-with [get-window "Viewpoints Selection" | get-table] {
-    select [get-item "" -index 6]
-    get-cell 6 0 | check
-}
-get-window "Viewpoints Selection" | get-button OK | click
 get-view "Model Explorer" | get-tree | select "E-BookStore/My.statemachine/State Machine" 
     | get-menu "New Representation/State Machine Diagram" | click
 get-window "New Representation" | get-button OK | click
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram"] {
     mouse-move 358 266 -height 309 -width 645
     mouse-move 358 266 -height 309 -width 645
     mouse-move 328 261 -height 309 -width 645
@@ -117,7 +109,7 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-move 635 137 -height 309 -width 645
     mouse-move 635 137 -height 309 -width 645
 }
-with [get-editor " State Machine Diagram" | get-palette] {
+with [get-editor "State Machine Diagram" | get-palette] {
     with [get-palette-entry Transition] {
         mouse-move 14 11 -height 23 -width 125
         mouse-move 14 11 -height 23 -width 125
@@ -163,7 +155,7 @@ with [get-editor " State Machine Diagram" | get-palette] {
         mouse-move 14 13 -height 23 -width 125
     }
 }
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram"] {
     mouse-move 374 65 -height 309 -width 645
     mouse-move 374 65 -height 309 -width 645
     mouse-move 359 65 -height 309 -width 645
@@ -238,7 +230,7 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-press 201 73 button1 -height 309 -width 645
     mouse-release 201 73 button1 524288 -height 309 -width 645
 }
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram"] {
     mouse-move 396 93 -height 309 -width 645
     mouse-move 396 93 -height 309 -width 645
     mouse-move 427 94 -height 309 -width 645
@@ -261,7 +253,7 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-move 635 92 -height 309 -width 645
 }
 // Check Tool Final State
-with [get-editor " State Machine Diagram" | get-palette | get-palette-entry "Final State"] {
+with [get-editor "State Machine Diagram" | get-palette | get-palette-entry "Final State"] {
     mouse-move 13 20 -height 23 -width 125
     mouse-move 13 20 -height 23 -width 125
     mouse-move 18 20 -height 23 -width 125
@@ -319,7 +311,7 @@ with [get-editor " State Machine Diagram" | get-palette | get-palette-entry "Fin
     mouse-move 20 12 -height 23 -width 125
     mouse-move 20 12 -height 23 -width 125
 }
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram"] {
     mouse-move 636 90 -height 309 -width 645
     mouse-move 636 90 -height 309 -width 645
     mouse-move 621 90 -height 309 -width 645
@@ -439,7 +431,7 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-press 224 162 button1 -height 309 -width 645
     mouse-release 224 162 button1 524288 -height 309 -width 645
 }
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram"] {
     with [get-edit-part -name "" -index 2 | get-handle ResizeHandle -index 6] {
         mouse-hover 4 4 -height 7 -width 7
         mouse-hover 4 4 -height 7 -width 7
@@ -503,7 +495,7 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-move 641 132 -height 309 -width 645
     mouse-move 641 132 -height 309 -width 645
 }
-with [get-editor " State Machine Diagram" | get-palette] {
+with [get-editor "State Machine Diagram" | get-palette] {
     with [get-palette-entry Transition] {
         mouse-move 13 17 -height 23 -width 125
         mouse-move 13 17 -height 23 -width 125
@@ -560,7 +552,7 @@ with [get-editor " State Machine Diagram" | get-palette] {
         mouse-move 13 14 -height 23 -width 125
     }
 }
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram"] {
     mouse-move 633 126 -height 309 -width 645
     mouse-move 633 126 -height 309 -width 645
     mouse-move 610 125 -height 309 -width 645
@@ -606,7 +598,7 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-press 443 106 button1 -height 309 -width 645
     mouse-release 443 106 button1 524288 -height 309 -width 645
 }
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram" 
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram" 
     | get-edit-part -name "new Region 1" | get-edit-part 
     -className DNodeContainerViewNodeContainerCompartmentEditPart] {
     mouse-move 14 2 -height 68 -width 148
@@ -619,7 +611,7 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-move 59 16 -height 68 -width 148
 }
 // Check Tool State
-with [get-editor " State Machine Diagram" | get-palette | get-palette-entry State] {
+with [get-editor "State Machine Diagram" | get-palette | get-palette-entry State] {
     mouse-move 9 4 -height 23 -width 125
     mouse-move 9 4 -height 23 -width 125
     mouse-move 11 4 -height 23 -width 125
@@ -661,7 +653,7 @@ with [get-editor " State Machine Diagram" | get-palette | get-palette-entry Stat
     mouse-move 15 10 -height 23 -width 125
     mouse-move 15 10 -height 23 -width 125
 }
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram"] {
     mouse-move 636 157 -height 309 -width 645
     mouse-move 636 157 -height 309 -width 645
     mouse-move 621 156 -height 309 -width 645
@@ -705,8 +697,8 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-press 314 225 button1 -height 309 -width 645
     mouse-release 314 225 button1 524288 -height 309 -width 645
 }
-with [get-editor " State Machine Diagram" | get-diagram -index 1] {
-    with [get-edit-part -name " State Machine Diagram"] {
+with [get-editor "State Machine Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "State Machine Diagram"] {
         with [get-edit-part -name "State_1" | get-handle ResizeHandle -index 6] {
             mouse-hover 4 4 -height 7 -width 7
             mouse-hover 4 4 -height 7 -width 7
@@ -806,7 +798,7 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1] {
     }
     // Check Tool EDT_States&RegionsLabel 
     key-type F2
-    with [get-edit-part -name " State Machine Diagram" | get-edit-part -name "new Region 1"] {
+    with [get-edit-part -name "State Machine Diagram" | get-edit-part -name "new Region 1"] {
         get-edit-part -className DNodeContainerNameEditPart | activate-direct-edit
         with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
             mouse-move 94 25 -height 68 -width 148
@@ -816,9 +808,9 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1] {
         }
     }
 }
-get-editor " State Machine Diagram" | get-editbox | click-text "1:1" "1:13"
-get-editor " State Machine Diagram" | get-editbox | click-text "1:13"
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram" 
+get-editor "State Machine Diagram" | get-editbox | click-text "1:1" "1:13"
+get-editor "State Machine Diagram" | get-editbox | click-text "1:13"
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram" 
     | get-edit-part -name "new Region 1" | get-edit-part 
     -className DNodeContainerViewNodeContainerCompartmentEditPart] {
     mouse-move 125 22 -height 68 -width 148
@@ -836,18 +828,18 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-hover 129 45 -height 68 -width 148
     mouse-hover 129 45 -height 68 -width 148
 }
-get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_"
-get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_R"
-get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_Re"
-get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_Ren"
-get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_Rena"
-get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_Renam"
-get-editor " State Machine Diagram" | get-editbox | set-text "new Region 1_Rename"
-get-editor " State Machine Diagram" | get-editbox | key-type Enter
-with [get-editor " State Machine Diagram" | get-diagram -index 1] {
+get-editor "State Machine Diagram" | get-editbox | set-text "new Region 1_"
+get-editor "State Machine Diagram" | get-editbox | set-text "new Region 1_R"
+get-editor "State Machine Diagram" | get-editbox | set-text "new Region 1_Re"
+get-editor "State Machine Diagram" | get-editbox | set-text "new Region 1_Ren"
+get-editor "State Machine Diagram" | get-editbox | set-text "new Region 1_Rena"
+get-editor "State Machine Diagram" | get-editbox | set-text "new Region 1_Renam"
+get-editor "State Machine Diagram" | get-editbox | set-text "new Region 1_Rename"
+get-editor "State Machine Diagram" | get-editbox | key-type Enter
+with [get-editor "State Machine Diagram" | get-diagram -index 1] {
     commit-direct-edit
     key-type Enter
-    with [get-edit-part -name " State Machine Diagram"] {
+    with [get-edit-part -name "State Machine Diagram"] {
         mouse-move 610 165 -height 309 -width 645
         mouse-move 610 165 -height 309 -width 645
         mouse-move 636 177 -height 309 -width 645
@@ -875,10 +867,12 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1] {
         mouse-move 61 16 -height 309 -width 645
     }
 }																						          
-get-view "Model Explorer" | get-tree | get-item "E-BookStore/My.statemachine/State Machine/Region new Region 1_Rename" 
-    | get-property "getText()" | equals "Region new Region 1_Rename" | verify-true
-with [get-editor " State Machine Diagram" | get-diagram -index 1] {
-    with [get-edit-part -name " State Machine Diagram"] {
+get-view "Model Explorer" | get-tree | select "*E-BookStore/My.statemachine/State Machine/Region new Region 1_Rename"
+get-view "Model Explorer" | get-tree | get-item "\\*E-BookStore" 
+    | get-property "getItems().TreeItem[5].getItems().TreeItem[0].getItems().TreeItem[5].getText()" 
+    | equals "Region new Region 1_Rename" | verify-true
+with [get-editor "State Machine Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "State Machine Diagram"] {
         mouse-move 5 119 -height 309 -width 645
         mouse-move 5 119 -height 309 -width 645
         mouse-move 31 145 -height 309 -width 645
@@ -947,7 +941,7 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1] {
         }
     }
     key-type F2
-    with [get-edit-part -name " State Machine Diagram" | get-edit-part -name "State_1"] {
+    with [get-edit-part -name "State Machine Diagram" | get-edit-part -name "State_1"] {
         get-edit-part -className DNodeContainerNameEditPart | activate-direct-edit
         with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
             mouse-move 62 40 -height 68 -width 148
@@ -965,9 +959,9 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1] {
         }
     }
 }
-get-editor " State Machine Diagram" | get-editbox | click-text "1:1" "1:8"
-get-editor " State Machine Diagram" | get-editbox | click-text "1:8"
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram" 
+get-editor "State Machine Diagram" | get-editbox | click-text "1:1" "1:8"
+get-editor "State Machine Diagram" | get-editbox | click-text "1:8"
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram" 
     | get-edit-part -name "State_1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
     mouse-move 108 23 -height 68 -width 148
     mouse-move 108 23 -height 68 -width 148
@@ -980,18 +974,18 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-hover 106 24 -height 68 -width 148
     mouse-hover 106 24 -height 68 -width 148
 }
-get-editor " State Machine Diagram" | get-editbox | set-text "State_1_"
-get-editor " State Machine Diagram" | get-editbox | set-text "State_1_R"
-get-editor " State Machine Diagram" | get-editbox | set-text "State_1_Re"
-get-editor " State Machine Diagram" | get-editbox | set-text "State_1_Ren"
-get-editor " State Machine Diagram" | get-editbox | set-text "State_1_Rena"
-get-editor " State Machine Diagram" | get-editbox | set-text "State_1_Renam"
-get-editor " State Machine Diagram" | get-editbox | set-text "State_1_Rename"
-get-editor " State Machine Diagram" | get-editbox | key-type Enter
-with [get-editor " State Machine Diagram" | get-diagram -index 1] {
+get-editor "State Machine Diagram" | get-editbox | set-text "State_1_"
+get-editor "State Machine Diagram" | get-editbox | set-text "State_1_R"
+get-editor "State Machine Diagram" | get-editbox | set-text "State_1_Re"
+get-editor "State Machine Diagram" | get-editbox | set-text "State_1_Ren"
+get-editor "State Machine Diagram" | get-editbox | set-text "State_1_Rena"
+get-editor "State Machine Diagram" | get-editbox | set-text "State_1_Renam"
+get-editor "State Machine Diagram" | get-editbox | set-text "State_1_Rename"
+get-editor "State Machine Diagram" | get-editbox | key-type Enter
+with [get-editor "State Machine Diagram" | get-diagram -index 1] {
     commit-direct-edit
     key-type Enter
-    with [get-edit-part -name " State Machine Diagram"] {
+    with [get-edit-part -name "State Machine Diagram"] {
         with [get-edit-part -name "State_1_Rename" | get-edit-part 
             -className DNodeContainerViewNodeContainerCompartmentEditPart] {
             mouse-move 104 24 -height 68 -width 148
@@ -1059,10 +1053,12 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1] {
         mouse-move 3 108 -height 309 -width 645
     }
 }
-get-view "Model Explorer" | get-tree | get-item "E-BookStore/My.statemachine/State Machine/Region new Region 1_Rename" 
-    | get-property "getText()" | equals "Region new Region 1_Rename" | verify-true
-with [get-editor " State Machine Diagram" | get-diagram -index 1] {
-    with [get-edit-part -name " State Machine Diagram"] {
+get-view "Model Explorer" | get-tree | select "*E-BookStore/My.statemachine/State Machine/State State_1_Rename"
+get-view "Model Explorer" | get-tree | get-item "\\*E-BookStore" 
+    | get-property "getItems().TreeItem[5].getItems().TreeItem[0].getItems().TreeItem[4].getText()" 
+    | equals "State State_1_Rename" | verify-true
+with [get-editor "State Machine Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "State Machine Diagram"] {
         mouse-move 456 307 -height 309 -width 645
         mouse-move 456 307 -height 309 -width 645
         mouse-move 454 300 -height 309 -width 645
@@ -1102,13 +1098,13 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1] {
     }
     // Check Tool D&D_States
     mouse-drag 451 272 -mask 524288 -height 309 -width 645
-    with [get-edit-part -name " State Machine Diagram" | get-edit-part -name "new Region 1_Rename" | get-edit-part 
+    with [get-edit-part -name "State Machine Diagram" | get-edit-part -name "new Region 1_Rename" | get-edit-part 
         -className DNodeContainerViewNodeContainerCompartmentEditPart] {
         mouse-drag 99 58 button1 524288 -height 68 -width 152
         mouse-release 99 58 button1 524288 -height 68 -width 152
     }
 }
-with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part -name " State Machine Diagram"] {
+with [get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram"] {
     with [get-edit-part -name "new Region 1_Rename" | get-edit-part 
         -className DNodeContainerViewNodeContainerCompartmentEditPart] {
         mouse-hover 99 58 -height 117 -width 341
@@ -1123,10 +1119,10 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1 | get-edit-part
     mouse-move 424 163 -height 309 -width 786
     mouse-move 424 163 -height 309 -width 786
 }
-get-view "Model Explorer" | get-tree | get-item "E-BookStore/My.statemachine/State Machine/Region new Region 1_Rename" 
+get-view "Model Explorer" | get-tree | get-item "*E-BookStore/My.statemachine/State Machine/Region new Region 1_Rename" 
     | get-property "getItems().TreeItem[0].getText()" | equals "State State_1_Rename" | verify-true
-with [get-editor " State Machine Diagram" | get-diagram -index 1] {
-    with [get-edit-part -name " State Machine Diagram"] {
+with [get-editor "State Machine Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "State Machine Diagram"] {
         mouse-move 107 106 -height 309 -width 786
         mouse-move 107 106 -height 309 -width 786
         mouse-move 141 118 -height 309 -width 786
@@ -1319,7 +1315,7 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1] {
     }
     // Check Tool Del_Region
     key-type Del
-    with [get-edit-part -name " State Machine Diagram"] {
+    with [get-edit-part -name "State Machine Diagram"] {
         mouse-move 553 187 -height 309 -width 645
         mouse-move 553 187 -height 309 -width 645
         mouse-move 551 187 -height 309 -width 645
@@ -1352,11 +1348,28 @@ with [get-editor " State Machine Diagram" | get-diagram -index 1] {
     }
     // Check Tool Del_State
     key-type Del
-    with [get-edit-part -name " State Machine Diagram"] {
+    with [get-edit-part -name "State Machine Diagram"] {
         mouse-hover 482 149 -height 309 -width 645
         mouse-hover 482 149 -height 309 -width 645
     }
     key-type "M1+z"
 }
-get-editor " State Machine Diagram" | get-diagram -index 1 | key-type "M1+z"
+get-eclipse-window | key-type "" "\\u0000"
+get-editor "State Machine Diagram" | get-diagram -index 1 | get-edit-part -name "State Machine Diagram" 
+    | get-property "getChildren().DNodeContainerEditPart[3].getChildren().size()" | equals 2 | verify-true
+with [get-editor "State Machine Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "State Machine Diagram"] {       
+        mouse-move 520 280 button1 -height 520 -width 1130
+        mouse-move 520 280 button1 -height 520 -width 1130
+        mouse-press 520 280 button1 -height 520 -width 1130
+        mouse-press 520 280 button1 -height 520 -width 1130
+    }
+    get-figure "1/0" | mouse-release 0 30 button1 524288 -height 40 -width 130
+    with [get-edit-part -name "State Machine Diagram"] {
+        mouse-hover 520 280 -height 520 -width 1130
+        mouse-hover 520 280 -height 520 -width 1130
+    }
+    key-type "M1+z"
+}
+
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

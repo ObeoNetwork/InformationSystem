@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6QUUEGNdEeSg_dTG4Ei-uQ
-Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/21/14 10:21 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 10/27/16 3:38 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -18,7 +18,7 @@ Testing all tools defines in graal.odesign/Use Case Diagram
 - Tool Existing task
 - Tool Graal -- Can not be tested
 - Tool UCD_Delete_TasksGroup
-- Tool DAD_Task - Can not be tested
+- Tool DAD_Task
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
@@ -705,4 +705,349 @@ with [get-editor "UC - Search and add\r\n"
     key-type Del
     key-type "M1+z"
 }
+// Check Tool DAD_Task
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram"] {
+    mouse-move 376 239 -height 520 -width 1135
+    mouse-move 376 239 -height 520 -width 1135
+    mouse-move 362 239 -height 520 -width 1135
+    mouse-move 362 239 -height 520 -width 1135
+    mouse-move 358 239 -height 520 -width 1135
+    mouse-move 358 239 -height 520 -width 1135
+    mouse-move 356 241 -height 520 -width 1135
+    mouse-move 356 241 -height 520 -width 1135
+    mouse-move 353 243 -height 520 -width 1135
+    mouse-move 353 243 -height 520 -width 1135
+    mouse-move 349 245 -height 520 -width 1135
+    mouse-move 349 245 -height 520 -width 1135
+    mouse-move 343 250 -height 520 -width 1135
+    mouse-move 343 250 -height 520 -width 1135
+    mouse-move 338 255 -height 520 -width 1135
+    mouse-move 338 255 -height 520 -width 1135
+    mouse-move 338 256 -height 520 -width 1135
+    mouse-move 338 256 -height 520 -width 1135
+    mouse-move 337 258 -height 520 -width 1135
+    mouse-move 337 258 -height 520 -width 1135
+    mouse-move 331 261 -height 520 -width 1135
+    mouse-move 331 261 -height 520 -width 1135
+    with [get-edit-part -name "Enter payment\r\n"
+        + "informations"] {
+        mouse-move 115 "-5" -height 73 -width 150
+        mouse-move 115 "-5" -height 73 -width 150
+        mouse-move 112 "-2" -height 73 -width 150
+        mouse-move 112 "-2" -height 73 -width 150
+        mouse-move 108 2 -height 73 -width 150
+        mouse-move 108 2 -height 73 -width 150
+        mouse-move 102 4 -height 73 -width 150
+        mouse-move 102 4 -height 73 -width 150
+        mouse-move 102 6 -height 73 -width 150
+        mouse-move 102 6 -height 73 -width 150
+        mouse-move 98 9 -height 73 -width 150
+        mouse-move 98 9 -height 73 -width 150
+        mouse-move 95 11 -height 73 -width 150
+        mouse-move 95 11 -height 73 -width 150
+        mouse-move 89 14 -height 73 -width 150
+        mouse-move 89 14 -height 73 -width 150
+        mouse-move 87 15 -height 73 -width 150
+        mouse-move 87 15 -height 73 -width 150
+        mouse-move 85 16 -height 73 -width 150
+        mouse-move 85 16 -height 73 -width 150
+        mouse-move 85 17 -height 73 -width 150
+        mouse-move 85 17 -height 73 -width 150
+        mouse-move 84 18 -height 73 -width 150
+        mouse-move 84 18 -height 73 -width 150
+        mouse-move 84 19 -height 73 -width 150
+        mouse-move 84 19 -height 73 -width 150
+        mouse-move 84 20 -height 73 -width 150
+        mouse-move 84 20 -height 73 -width 150
+        mouse-move 84 22 -height 73 -width 150
+        mouse-move 84 22 -height 73 -width 150
+        mouse-move 86 24 -height 73 -width 150
+        mouse-move 86 24 -height 73 -width 150
+        mouse-move 88 26 -height 73 -width 150
+        mouse-move 88 26 -height 73 -width 150
+        mouse-move 92 28 -height 73 -width 150
+        mouse-move 92 28 -height 73 -width 150
+        mouse-move 96 31 -height 73 -width 150
+        mouse-move 96 31 -height 73 -width 150
+        mouse-move 103 33 -height 73 -width 150
+        mouse-move 103 33 -height 73 -width 150
+        mouse-move 107 36 -height 73 -width 150
+        mouse-move 107 36 -height 73 -width 150
+        mouse-move 113 39 -height 73 -width 150
+        mouse-move 113 39 -height 73 -width 150
+        mouse-move 120 41 -height 73 -width 150
+        mouse-move 120 41 -height 73 -width 150
+        mouse-move 126 42 -height 73 -width 150
+        mouse-move 126 42 -height 73 -width 150
+        mouse-move 133 42 -height 73 -width 150
+        mouse-move 133 42 -height 73 -width 150
+        mouse-move 136 41 -height 73 -width 150
+        mouse-move 136 41 -height 73 -width 150
+        mouse-move 139 43 -height 73 -width 150
+        mouse-move 139 43 -height 73 -width 150
+        mouse-move 140 43 -height 73 -width 150
+        mouse-move 140 43 -height 73 -width 150
+        mouse-move 143 45 -height 73 -width 150
+        mouse-move 143 45 -height 73 -width 150
+        mouse-move 144 46 -height 73 -width 150
+        mouse-move 144 46 -height 73 -width 150
+        mouse-move 144 47 -height 73 -width 150
+        mouse-move 144 47 -height 73 -width 150
+        mouse-move 144 48 -height 73 -width 150
+        mouse-move 144 48 -height 73 -width 150
+        mouse-move 144 46 -height 73 -width 150
+        mouse-move 144 46 -height 73 -width 150
+        mouse-move 143 46 -height 73 -width 150
+        mouse-move 143 46 -height 73 -width 150
+        mouse-move 143 45 -height 73 -width 150
+        mouse-move 143 45 -height 73 -width 150
+        mouse-move 143 43 -height 73 -width 150
+        mouse-move 143 43 -height 73 -width 150
+        mouse-move 143 42 -height 73 -width 150
+        mouse-move 143 42 -height 73 -width 150
+        mouse-move 142 42 -height 73 -width 150
+        mouse-move 142 42 -height 73 -width 150
+        mouse-move 142 41 -height 73 -width 150
+        mouse-move 142 41 -height 73 -width 150
+        mouse-move 142 40 -height 73 -width 150
+        mouse-move 142 40 -height 73 -width 150
+        mouse-move 142 39 -height 73 -width 150
+        mouse-move 142 39 -height 73 -width 150
+        mouse-move 142 38 -height 73 -width 150
+        mouse-move 142 38 -height 73 -width 150
+        mouse-move 140 38 -height 73 -width 150
+        mouse-move 140 38 -height 73 -width 150
+        mouse-move 139 38 -height 73 -width 150
+        mouse-move 139 38 -height 73 -width 150
+        mouse-move 137 38 -height 73 -width 150
+        mouse-move 137 38 -height 73 -width 150
+        mouse-move 136 38 -height 73 -width 150
+        mouse-move 136 38 -height 73 -width 150
+        mouse-move 135 38 -height 73 -width 150
+        mouse-move 135 38 -height 73 -width 150
+        mouse-move 134 38 -height 73 -width 150
+        mouse-move 134 38 -height 73 -width 150
+        mouse-move 133 38 -height 73 -width 150
+        mouse-move 133 38 -height 73 -width 150
+        mouse-move 132 38 -height 73 -width 150
+        mouse-move 132 38 -height 73 -width 150
+        mouse-move 130 38 -height 73 -width 150
+        mouse-move 130 38 -height 73 -width 150
+        mouse-move 127 38 -height 73 -width 150
+        mouse-move 127 38 -height 73 -width 150
+        mouse-move 125 38 -height 73 -width 150
+        mouse-move 125 38 -height 73 -width 150
+        mouse-move 124 38 -height 73 -width 150
+        mouse-move 124 38 -height 73 -width 150
+        mouse-move 121 38 -height 73 -width 150
+        mouse-move 121 38 -height 73 -width 150
+        mouse-move 120 38 -height 73 -width 150
+        mouse-move 120 38 -height 73 -width 150
+        mouse-move 117 38 -height 73 -width 150
+        mouse-move 117 38 -height 73 -width 150
+        mouse-move 116 38 -height 73 -width 150
+        mouse-move 116 38 -height 73 -width 150
+        mouse-move 101 38 -height 73 -width 150
+        mouse-move 101 38 -height 73 -width 150
+        mouse-move 100 38 -height 73 -width 150
+        mouse-move 100 38 -height 73 -width 150
+        mouse-move 98 38 -height 73 -width 150
+        mouse-move 98 38 -height 73 -width 150
+        mouse-move 97 38 -height 73 -width 150
+        mouse-move 97 38 -height 73 -width 150
+        mouse-move 95 38 -height 73 -width 150
+        mouse-move 95 38 -height 73 -width 150
+        mouse-move 94 38 -height 73 -width 150
+        mouse-move 94 38 -height 73 -width 150
+        mouse-move 92 38 -height 73 -width 150
+        mouse-move 92 38 -height 73 -width 150
+        mouse-move 90 38 -height 73 -width 150
+        mouse-move 90 38 -height 73 -width 150
+        mouse-move 89 38 -height 73 -width 150
+        mouse-move 89 38 -height 73 -width 150
+        mouse-move 87 38 -height 73 -width 150
+        mouse-move 87 38 -height 73 -width 150
+        mouse-move 82 38 -height 73 -width 150
+        mouse-move 82 38 -height 73 -width 150
+        mouse-move 79 38 -height 73 -width 150
+        mouse-move 79 38 -height 73 -width 150
+        mouse-move 76 38 -height 73 -width 150
+        mouse-move 76 38 -height 73 -width 150
+        mouse-move 71 38 -height 73 -width 150
+        mouse-move 71 38 -height 73 -width 150
+        mouse-move 65 38 -height 73 -width 150
+        mouse-move 65 38 -height 73 -width 150
+        mouse-move 57 38 -height 73 -width 150
+        mouse-move 57 38 -height 73 -width 150
+        mouse-move 54 38 -height 73 -width 150
+        mouse-move 54 38 -height 73 -width 150
+        mouse-move 44 38 -height 73 -width 150
+        mouse-move 44 38 -height 73 -width 150
+        mouse-move 31 38 -height 73 -width 150
+        mouse-move 31 38 -height 73 -width 150
+        mouse-move 19 35 -height 73 -width 150
+        mouse-move 19 35 -height 73 -width 150
+        mouse-move 7 35 -height 73 -width 150
+        mouse-move 7 35 -height 73 -width 150
+    }
+    mouse-move 192 301 -height 520 -width 1135
+    mouse-move 192 301 -height 520 -width 1135
+    mouse-move 171 298 -height 520 -width 1135
+    mouse-move 171 298 -height 520 -width 1135
+    mouse-move 141 288 -height 520 -width 1135
+    mouse-move 141 288 -height 520 -width 1135
+    mouse-move 108 278 -height 520 -width 1135
+    mouse-move 108 278 -height 520 -width 1135
+    mouse-move 102 272 -height 520 -width 1135
+    mouse-move 102 272 -height 520 -width 1135
+    mouse-move 70 260 -height 520 -width 1135
+    mouse-move 70 260 -height 520 -width 1135
+    mouse-move 43 241 -height 520 -width 1135
+    mouse-move 43 241 -height 520 -width 1135
+    mouse-move 10 229 -height 520 -width 1135
+    mouse-move 10 229 -height 520 -width 1135
+}
+with [get-view "Model Explorer" | get-tree] {
+    select "*E-BookStore/E-BookStore.graal/System E-BookStore/Task Proceed to checkout" 
+        | get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Proceed to checkout" | drag-start 69 10
+    get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Enter payment\r\n"
+        + "informations" | drag-enter 167 1 -detail move
+    get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Enter payment\r\n"
+        + "informations" | drag-over 210 16
+    get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Constitute shopping\r\n"
+        + "cart" | drag-over 243 16
+    get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Search books" | drag-over 272 11
+    get-item "\\*E-BookStore/E-BookStore.graal/System E-BookStore/Task Enter payment\r\n"
+        + "informations" | drag-exit
+}
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram"] {
+    with [get-edit-part -name "Add book to shopping cart"] {
+        with [get-figure "0/0/0/0"] {
+            drag-enter 2 38 -detail move
+            drag-over 71 64 -detail copy
+        }
+        drag-over 96 74 -detail copy
+    }
+    drag-over 122 217 -detail copy
+    drag-over 190 238 -detail copy
+    get-edit-part -name Customer | get-edit-part -name Customer | drag-over 9 6 -detail copy
+    drag-over 245 254 -detail copy
+    drag-over 261 258 -detail copy
+    drag-over 282 262 -detail copy
+    with [get-edit-part -name "Enter payment\r\n"
+        + "informations"] {
+        drag-over 90 "-4" -detail copy
+        drag-over 99 "-3" -detail copy
+        drag-over 109 "-2" -detail copy
+        get-figure "0/0/0/0" | drag-over 144 5 -detail copy
+        drag-over 152 8 -detail copy
+    }
+    drag-over 371 279 -detail copy
+    drag-over 381 281 -detail copy
+    drag-over 391 283 -detail copy
+    drag-over 402 285 -detail copy
+    drag-over 406 287 -detail copy
+    drag-over 415 289 -detail copy
+    drag-over 425 291 -detail copy
+    drag-over 435 292 -detail copy
+    drag-over 445 293 -detail copy
+    drag-over 454 293 -detail copy
+    drag-over 464 295 -detail copy
+    drag-over 472 295 -detail copy
+    drag-over 480 295 -detail copy
+    drag-over 488 295 -detail copy
+    drag-over 496 295 -detail copy
+    drag-over 503 296 -detail copy
+    drag-over 508 296 -detail copy
+    drag-over 515 297 -detail copy
+    drag-over 520 297 -detail copy
+    drag-over 523 297 -detail copy
+    drag-over 526 297 -detail copy
+    drag-over 529 297 -detail copy
+    drag-over 532 297 -detail copy
+    drag-over 536 297 -detail copy
+    drag-over 540 297 -detail copy
+    drag-over 545 297 -detail copy
+    drag-over 549 297 -detail copy
+    drag-over 554 297 -detail copy
+    drag-over 558 297 -detail copy
+    drag-over 563 297 -detail copy
+    drag-over 566 297 -detail copy
+    drag-over 569 297 -detail copy
+    drag-over 574 298 -detail copy
+    drag-over 582 298 -detail copy
+    drag-over 586 298 -detail copy
+    drag-over 592 298 -detail copy
+    drag-over 595 298 -detail copy
+    drag-over 600 298 -detail copy
+    drag-over 604 298 -detail copy
+    drag-over 607 298 -detail copy
+    drag-over 610 299 -detail copy
+    drag-over 611 299 -detail copy
+    drag-over 612 300 -detail copy
+    drag-over 613 300 -detail copy
+    drag-over 613 301 -detail copy
+    drag-over 614 301 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    drag-over 614 302 -detail copy
+    get-edit-part -name "Add book to shopping cart" | get-figure "0/0/0/0" | drag-exit
+    drag-accept 614 302 -detail copy
+}
+get-view "Model Explorer" | get-tree | drag-set-data
+get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | drop 614 302 -detail copy
+get-view "Model Explorer" | get-tree | drag-end -detail copy
+with [get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram"] {
+    mouse-move 614 302 -height 520 -width 1135
+    mouse-move 614 302 -height 520 -width 1135
+    mouse-move 613 303 -height 520 -width 1135
+    mouse-move 613 303 -height 520 -width 1135
+    mouse-move 605 303 -height 520 -width 1135
+    mouse-move 605 303 -height 520 -width 1135
+    mouse-move 588 303 -height 520 -width 1135
+    mouse-move 588 303 -height 520 -width 1135
+    mouse-move 561 302 -height 520 -width 1135
+    mouse-move 561 302 -height 520 -width 1135
+    mouse-move 536 300 -height 520 -width 1135
+    mouse-move 536 300 -height 520 -width 1135
+    mouse-move 508 299 -height 520 -width 1135
+    mouse-move 508 299 -height 520 -width 1135
+    mouse-move 477 296 -height 520 -width 1135
+    mouse-move 477 296 -height 520 -width 1135
+    mouse-move 435 292 -height 520 -width 1135
+    mouse-move 435 292 -height 520 -width 1135
+    mouse-move 399 289 -height 520 -width 1135
+    mouse-move 399 289 -height 520 -width 1135
+    with [get-edit-part -name "Enter payment\r\n"
+        + "informations"] {
+        mouse-move 152 13 -height 73 -width 150
+        mouse-move 152 13 -height 73 -width 150
+        mouse-move 111 10 -height 73 -width 150
+        mouse-move 111 10 -height 73 -width 150
+    }
+}
+get-editor "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-diagram -index 1 | get-edit-part -name "UC - Search and add\r\n"
+    + "books to basket Use Case Diagram" | get-property "getChildren().DNodeEditPart[8].getNodeLabel().getText()" 
+    | equals "Proceed to checkout" | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

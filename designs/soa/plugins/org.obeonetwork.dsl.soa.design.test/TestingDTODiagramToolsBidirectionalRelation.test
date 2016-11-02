@@ -1,0 +1,158 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingDTODiagramToolsBidirectionalRelation
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _td4RUJtPEeaMB4JvYD9iTg
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 10/26/16 9:51 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in soa.odesign/DTO Diagram/Section Bidirectional Relation
+- Tool creation Bidirectional Relation
+- Tool creation Bidirectional Composition
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore" | get-menu "Close Project" | click
+    select "E-BookStore" | get-menu "Open Project" | click
+    select "E-BookStore" | get-menu "Viewpoints Selection" | click
+}
+with [get-window "Viewpoints Selection"] {
+    with [get-table] {
+        select "SOA Views"
+        get-item "SOA Views" | check
+    }
+    get-button OK | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.soa/Components/Namespace main" 
+    | get-menu "New Representation/main - DTO diagram" | click
+get-window "New Representation" | get-button OK | click
+   
+with [get-editor "main - DTO diagram"] {
+    with [get-palette] {
+        with [get-palette-entry DTO -index 1] {
+            mouse-move 46 14 button1 CTRL -height 23 -width 125
+            mouse-press 46 14 button1 CTRL -height 23 -width 125
+            mouse-release 46 14 button1 786432 -height 23 -width 125
+            mouse-move 22 18 -mask CTRL -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        mouse-move 654 145 button1 CTRL -height 669 -width 1130
+        mouse-press 654 145 button1 CTRL -height 669 -width 1130
+        mouse-release 654 145 button1 786432 -height 669 -width 1130
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        mouse-move 637 348 button1 CTRL -height 669 -width 1130
+        mouse-press 637 348 button1 CTRL -height 669 -width 1130
+        mouse-release 637 348 button1 786432 -height 669 -width 1130
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        mouse-move 873 269 button1 CTRL -height 669 -width 1130
+        mouse-press 873 269 button1 CTRL -height 669 -width 1130
+        mouse-release 873 269 button1 786432 -height 669 -width 1130
+    }
+    with [get-diagram -index 1] {
+        get-edit-part -name "main - DTO diagram" | get-edit-part -name DTO9 | get-handle ResizeHandle -index 6 
+            | mouse-hover 1 0 -height 7 -width 7
+        key-type ESC
+        with [get-edit-part -name "main - DTO diagram"] {
+            mouse-move 786 270 -height 669 -width 1130
+            mouse-hover 786 270 -height 669 -width 1130
+        }
+    }
+    with [get-palette | get-palette-entry "Bidirectional Relation" -index 1] {
+        mouse-move 42 13 button1 -height 37 -width 125
+        mouse-press 42 13 button1 -height 37 -width 125
+        mouse-release 42 13 button1 524288 -height 37 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        mouse-move 740 334 -height 520 -width 1047
+        with [get-edit-part -name DTO7] {
+            mouse-move 21 22 -height 42 -width 61
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 40 11 button1 -height 17 -width 57
+                mouse-press 40 11 button1 -height 17 -width 57
+                mouse-release 40 11 button1 524288 -height 17 -width 57
+            }
+        }
+        with [get-edit-part -name DTO8] {
+            mouse-move 25 23 button1 -height 42 -width 61
+            mouse-press 25 23 button1 -height 42 -width 61
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        with [get-edit-part -name DTO8] {
+            mouse-release 25 23 button1 524288 -height 42 -width 61
+            mouse-move 26 25 -height 42 -width 61
+        }
+        mouse-move 663 369 button1 -height 520 -width 1047
+        mouse-press 663 369 button1 -height 520 -width 1047
+        mouse-release 663 369 button1 524288 -height 520 -width 1047
+        mouse-hover 663 369 -height 520 -width 1047
+        mouse-move 104 155 -height 520 -width 1047
+    }
+}
+with [get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram" | get-edit-part -name DTO8 | get-target-connection 0] {
+    get-property "getTarget().getNodeLabel().getText()" | equals DTO8 | verify-true
+    get-property "getSource().getNodeLabel().getText()" | equals DTO7 | verify-true
+    get-property "getChildren().[1].getLabelText()" | equals "DTO7s [0..*]" | verify-true
+    get-property "getChildren().[2].getLabelText()" | equals "DTO8s [0..*]" | verify-true
+}
+with [get-editor "main - DTO diagram"] {
+    get-diagram -index 1 | get-edit-part -name "main - DTO diagram" | mouse-move 1045 385 -height 520 
+        -width 1047
+    with [get-palette] {
+        get-palette-entry "Bidirectional Relation" -index 1 | mouse-move 21 36 -height 37 -width 125
+        with [get-palette-entry "Bidirectional Composition"] {
+            mouse-move 56 9 button1 -height 37 -width 125
+            mouse-press 56 9 button1 -height 37 -width 125
+            mouse-release 56 9 button1 524288 -height 37 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        mouse-move 448 383 -height 520 -width 1047
+        with [get-edit-part -name DTO9] {
+            mouse-move 20 22 -height 42 -width 61
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 23 9 button1 -height 17 -width 57
+                mouse-press 23 9 button1 -height 17 -width 57
+                mouse-release 23 9 button1 524288 -height 17 -width 57
+            }
+        }
+        with [get-edit-part -name DTO8] {
+            mouse-move 0 34 -height 42 -width 61
+            with [get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+                mouse-move 14 0 -height 12 -width 57
+                mouse-hover 14 0 -height 12 -width 57
+                mouse-move 14 0 button1 -height 12 -width 57
+                mouse-press 14 0 button1 -height 12 -width 57
+            }
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        with [get-edit-part -name DTO8 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-release 14 0 button1 524288 -height 12 -width 57
+            mouse-hover 14 0 -height 12 -width 57
+        }
+        mouse-move 115 163 -height 520 -width 1047
+    }
+}
+with [get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram" | get-edit-part -name DTO9 | get-target-connection 0] {
+    get-property "getTarget().getNodeLabel().getText()" | equals DTO9 | verify-true
+    get-property "getSource().getNodeLabel().getText()" | equals DTO8 | verify-true
+    get-property "getChildren().[1].getLabelText()" | equals "DTO8s [0..*]" | verify-true
+    get-property "getChildren().[2].getLabelText()" | equals "DTO9s [0..*]" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

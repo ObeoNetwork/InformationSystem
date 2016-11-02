@@ -1,0 +1,298 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingComponentContractDiagramTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _MGTiAFRnEeSWd5v-LaxGtw
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 10/25/16 4:06 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in is.odesign/Component Contract Diagram
+- Tool CRE_ProvidedService
+- Tool CRE_RequiredService
+- Tool DAD_Service
+- Tool Operation
+- Tool Input
+- Tool Output
+- Tool Fault
+- Tool DAD_Operation
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore" | get-menu "Close Project" | click
+    select "E-BookStore" | get-menu "Open Project" | click
+    select "E-BookStore" | get-menu "Viewpoints Selection" | click
+}
+with [get-window "Viewpoints Selection"] {
+    with [get-table] {
+        select "SOA Views"
+        get-item "SOA Views" | check
+    }
+    get-button OK | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.soa/Components/Component BookStore" 
+    | get-menu "New Representation/BookStore Component Contract" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "BookStore Component Contract"] {
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
+        mouse-move 434 146 -height 309 -width 722
+        get-edit-part -name BookService | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+            | mouse-move 552 91 -height 137 -width 720
+    }
+    with [get-palette] {
+        get-palette-entry "Zoom In" | mouse-move 13 14 -height 19 -width 19
+        get-palette-entry "Zoom Out" | mouse-move 6 1 -height 19 -width 19
+        get-palette-entry Note | mouse-move 3 12 -height 19 -width 19
+        // Check Tool CRE_ProvidedService
+        with [get-palette-entry Provided] {
+            mouse-move 50 22 -height 23 -width 125
+            mouse-move 48 14 button1 -height 23 -width 125
+            mouse-press 48 14 button1 -height 23 -width 125
+            mouse-release 48 14 button1 524288 -height 23 -width 125
+            mouse-move 19 14 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
+        mouse-move 151 200 button1 -height 309 -width 722
+        mouse-press 151 200 button1 -height 309 -width 722
+        mouse-release 151 200 button1 524288 -height 309 -width 722
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
+        get-edit-part -name ProvidedService2 | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+        mouse-move 595 140 -height 309 -width 722
+    }
+    // Check Tool CRE_RequiredService
+    with [get-palette | get-palette-entry Required] {
+        mouse-move 46 13 button1 -height 23 -width 125
+        mouse-press 46 13 button1 -height 23 -width 125
+        mouse-release 46 13 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
+        mouse-move 441 212 button1 -height 309 -width 722
+        mouse-press 441 212 button1 -height 309 -width 722
+        mouse-release 441 212 button1 524288 -height 309 -width 722
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
+        get-edit-part -name RequiredService1 | get-handle ResizeHandle -index 6 | mouse-hover 4 4 -height 7 -width 7
+        mouse-move 327 213 -height 309 -width 722
+        mouse-move 15 209 -height 309 -width 722
+    }
+}
+get-editor "BookStore Component Contract" | get-diagram -index 1 | get-edit-part -name "BookStore Component Contract" 
+    | mouse-move 16 243 -height 309 -width 722
+with [get-editor "BookStore Component Contract" | get-diagram -index 1 | get-edit-part 
+    -name "BookStore Component Contract"] {
+    get-edit-part -name ProvidedService2 | get-figure 0 
+        | get-property "getChildren().GradientRoundedRectangle[0].getLabelFigure().getSubStringText()" 
+        | equals ProvidedService2 | verify-true
+    get-edit-part -name RequiredService1 | get-figure 0 
+        | get-property "getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" | equals RequiredService1 
+        | verify-true
+}
+with [get-editor "BookStore Component Contract"] {
+    get-diagram -index 1 | get-edit-part -name "BookStore Component Contract" | mouse-move 591 171 -height 309 
+        -width 722
+    with [get-palette] {
+        get-palette-entry Output | mouse-move 56 1 -height 23 -width 125
+        get-palette-entry Input | mouse-move 76 1 -height 23 -width 125
+        // Check Tool Operation
+        with [get-palette-entry Operation] {
+            mouse-move 69 13 button1 -height 23 -width 125
+            mouse-press 69 13 button1 -height 23 -width 125
+            mouse-release 69 13 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
+        mouse-move 282 199 -height 309 -width 722
+        with [get-edit-part -name ProvidedService2 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 74 48 button1 -height 68 -width 148
+            mouse-press 74 48 button1 -height 68 -width 148
+            mouse-release 74 48 button1 524288 -height 68 -width 148
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
+        get-edit-part -name ProvidedService2 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Operation1 
+            | get-handle ResizeHandle -index 6 | mouse-hover 4 3 -height 7 -width 7
+        mouse-move 436 225 -height 309 -width 722
+        mouse-move 594 178 -height 309 -width 722
+    }
+    with [get-palette] {
+        get-palette-entry Output | mouse-move 9 0 -height 23 -width 125
+        // Check Tool Input
+        with [get-palette-entry Input] {
+            mouse-move 39 7 button1 -height 23 -width 125
+            mouse-press 39 7 button1 -height 23 -width 125
+            mouse-release 39 7 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract" | get-edit-part 
+        -name ProvidedService2 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 165 63 -height 97 -width 169
+        with [get-edit-part -name Operation1 | get-edit-part -className DNodeListName2EditPart] {
+            mouse-hover 50 14 -height 17 -width 85
+            mouse-move 50 14 button1 -height 17 -width 85
+            mouse-press 50 14 button1 -height 17 -width 85
+            mouse-release 50 14 button1 524288 -height 17 -width 85
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
+        get-edit-part -name ProvidedService2 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Operation1 
+            | get-edit-part -className DNodeListName2EditPart | mouse-hover 40 14 -height 17 -width 85
+        mouse-move 439 248 -height 309 -width 722
+        mouse-move 590 194 -height 309 -width 722
+    }
+    // Check Tool Output
+    with [get-palette | get-palette-entry Output] {
+        mouse-move 52 11 button1 -height 23 -width 125
+        mouse-press 52 11 button1 -height 23 -width 125
+        mouse-release 52 11 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract" | get-edit-part 
+        -name ProvidedService2 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name Operation1 | get-edit-part -className DNodeListName2EditPart] {
+        mouse-move 42 8 button1 -height 17 -width 85
+        mouse-press 42 8 button1 -height 17 -width 85
+        mouse-release 42 8 button1 524288 -height 17 -width 85
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
+        mouse-move 418 255 -height 321 -width 722
+        mouse-move 595 240 -height 321 -width 722
+    }
+    // Check Tool Fault
+    with [get-palette | get-palette-entry Fault] {
+        mouse-move 47 8 button1 -height 23 -width 125
+        mouse-press 47 8 button1 -height 23 -width 125
+        mouse-release 47 8 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract" | get-edit-part 
+        -name ProvidedService2 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name Operation1] {
+        mouse-move 61 3 -height 64 -width 117
+        with [get-edit-part -className DNodeListName2EditPart] {
+            mouse-move 42 8 button1 -height 17 -width 85
+            mouse-press 42 8 button1 -height 17 -width 85
+            mouse-release 42 8 button1 524288 -height 17 -width 85
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
+        get-edit-part -name ProvidedService2 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Operation1 
+            | get-edit-part -className DNodeListName2EditPart | mouse-hover 42 8 -height 17 -width 85
+        mouse-move 148 290 -height 337 -width 722
+    }
+}
+with [get-editor "BookStore Component Contract" | get-diagram -index 1 | get-edit-part 
+    -name "BookStore Component Contract" | get-edit-part -name ProvidedService2 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Operation1] {
+    get-property "getChildren().DNodeListName2EditPart[0].getEditText()" | equals Operation1 | verify-true
+    with [get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
+        get-edit-part -name "input1 : String[1]" | get-property "getEditText()" | equals "input1 : String[1]" 
+            | verify-true
+        get-edit-part -name "output1 : String[1]" | get-property "getEditText()" | equals "output1 : String[1]" 
+            | verify-true
+    }
+}
+with [get-editor "BookStore Component Contract" | get-diagram -index 1 | get-edit-part 
+    -name "BookStore Component Contract"] {
+    mouse-move 146 296 -height 337 -width 722
+    mouse-move 487 328 -height 337 -width 722
+}
+get-editor "BookStore Component Contract" | get-diagram -index 1 | get-edit-part -name "BookStore Component Contract" 
+    | get-edit-part -name ProvidedService2 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Operation1 | get-edit-part 
+    -className DNodeListViewNodeListCompartmentEditPart | get-edit-part -name "fault1 : String[1]" 
+    | get-property "getEditText()" | equals "fault1 : String[1]" | verify-true
+with [get-editor "BookStore Component Contract"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "BookStore Component Contract"] {
+            mouse-move 150 267 -height 337 -width 722
+            with [get-edit-part -name ProvidedService2 | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name Operation1] {
+                mouse-move 12 20 button1 -height 80 -width 117
+                mouse-press 12 20 button1 -height 80 -width 117
+                mouse-move 14 20 -mask 524288 -height 80 -width 117
+            }
+        }
+        mouse-drag 245 247 -mask 524288 -height 337 -width 722
+        // Check Tool DAD_Service
+        with [get-edit-part -name "BookStore Component Contract" | get-edit-part -name RequiredService1 | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-drag 37 31 button1 524288 -height 68 -width 148
+            mouse-release 37 31 button1 524288 -height 68 -width 148
+        }
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "BookStore Component Contract" | get-edit-part -name RequiredService1] {
+            with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-hover 37 8 -height 100 -width 148
+                mouse-move 36 13 -height 100 -width 148
+                mouse-move 19 60 -height 100 -width 148
+                mouse-hover 19 60 -height 100 -width 148
+                mouse-move 19 60 button1 -height 100 -width 148
+                mouse-press 19 60 button1 -height 100 -width 148
+                mouse-release 19 60 button1 524288 -height 100 -width 148
+                mouse-move 1 95 -height 100 -width 148
+            }
+            with [get-handle MoveHandle] {
+                mouse-move 0 100 button1 -height 102 -width 150
+                mouse-press 0 100 button1 -height 102 -width 150
+            }
+        }
+        get-figure "0/1/0/0" | mouse-move 439 306 -mask 524288 -height 315 -width 722
+        with [get-edit-part -name "BookStore Component Contract"] {
+            mouse-drag 388 341 button1 524288 -height 341 -width 722
+            mouse-release 388 341 button1 524288 -height 341 -width 722            
+            with [get-edit-part -name RequiredService1 | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                // Check Tool DAD_Operation
+                with [get-edit-part -name Operation1] {
+                    mouse-move 2 77 -height 80 -width 117
+                    mouse-move 80 25 button1 -height 80 -width 117
+                    mouse-press 80 25 button1 -height 80 -width 117
+                    mouse-move 82 25 -mask 524288 -height 80 -width 117
+                }
+                mouse-drag 137 67 button1 524288 -height 129 -width 199
+                mouse-release 137 67 button1 524288 -height 129 -width 199
+                mouse-move 169 35 button1 -height 129 -width 199
+                mouse-press 169 35 button1 -height 129 -width 199
+                mouse-release 169 35 button1 524288 -height 129 -width 199
+                mouse-move 175 28 button1 -height 129 -width 199
+                mouse-press 175 28 button1 -height 129 -width 199
+                mouse-move 174 28 -mask 524288 -height 129 -width 199
+            }
+            mouse-drag 511 239 button1 524288 -height 344 -width 722
+            mouse-release 511 239 button1 524288 -height 344 -width 722
+            with [get-edit-part -name RequiredService1 | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-hover 176 27 -height 129 -width 199
+                mouse-press 176 27 button1 -height 129 -width 199
+                mouse-move 180 29 -mask 524288 -height 129 -width 199
+            }
+            mouse-drag 568 239 button1 524288 -height 342 -width 722
+            mouse-release 568 239 button1 524288 -height 342 -width 722
+            get-edit-part -name RequiredService1 | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart | mouse-hover 178 29 -height 129 
+                -width 199
+            mouse-move 334 243 -height 342 -width 722
+            mouse-move 145 314 -height 342 -width 722
+        }
+    }
+}
+get-editor "BookStore Component Contract" | get-diagram -index 1 | get-edit-part -name "BookStore Component Contract" 
+    | get-edit-part -name RequiredService1 | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-property "getChildren().DNodeList2EditPart[0].getChildren().DNodeListName2EditPart[0].getEditText()" 
+    | equals Operation1 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,230 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingDTONamespacesHierarchyTools
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _FdfZcJq-EeaMB4JvYD9iTg
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 10/26/16 5:41 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in soa.odesign/DTO Namespaces Hierarchy
+- Tool creation Namespace
+- Tool Edit Name
+- Tool Diagram Creation
+- Tool Double click
+- Tool Drag n Drop namespace
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore" | get-menu "Close Project" | click
+    select "E-BookStore" | get-menu "Open Project" | click
+    select "E-BookStore" | get-menu "Viewpoints Selection" | click
+}
+with [get-window "Viewpoints Selection"] {
+    with [get-table] {
+        select "SOA Views"
+        get-item "SOA Views" | check
+    }
+    get-button OK | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.soa/Components" 
+    | get-menu "New Representation/DTO Namespaces Hierarchy" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "DTO Namespaces Hierarchy"] {
+    get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy" | mouse-move 595 100 -height 349 -width 596    
+}
+with [get-editor "DTO Namespaces Hierarchy"] {
+    get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy" | mouse-move 1042 159 -height 520 
+        -width 1047
+    //Check Tool creation Namespace
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 47 12 button1 -height 23 -width 125
+        mouse-press 47 12 button1 -height 23 -width 125
+        mouse-release 47 12 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy"] {
+        mouse-move 295 152 button1 -height 520 -width 1047
+        mouse-press 295 152 button1 -height 520 -width 1047
+        mouse-release 295 152 button1 524288 -height 520 -width 1047
+    }
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy"] {
+        get-edit-part -name "namespace_2" | get-handle ResizeHandle -index 6 | mouse-hover 4 6 -height 7 -width 7
+        mouse-move 1043 76 -height 520 -width 1047
+    }
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 50 15 button1 -height 23 -width 125
+        mouse-press 50 15 button1 -height 23 -width 125
+        mouse-release 50 15 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy" | get-edit-part 
+        -name "namespace_2" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 64 41 -height 68 -width 148
+        mouse-hover 64 41 -height 68 -width 148
+        mouse-move 64 41 button1 -height 68 -width 148
+        mouse-press 64 41 button1 -height 68 -width 148
+        mouse-release 64 41 button1 524288 -height 68 -width 148
+    }
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy"] {
+        get-edit-part -name "namespace_2" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+            | get-edit-part -name "namespace_1" | get-handle ResizeHandle -index 6 | mouse-hover 3 5 -height 7 -width 7
+        mouse-move 116 142 -height 520 -width 1047
+    }
+}
+with [get-editor "DTO Namespaces Hierarchy" | get-diagram -index 1 | get-edit-part 
+    -name "DTO Namespaces Hierarchy" | get-edit-part -name "namespace_2" | get-edit-part 
+    -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    get-property "getPrimaryEditParts().DNodeContainer2EditPart[0].getNodeLabel().getText()" | equals "namespace_1" 
+        | verify-true
+    get-property "getChildren().DNodeContainer2EditPart[0].getNodeLabel().getText()" | equals "namespace_1" 
+        | verify-true
+}
+// Check Tool Edit Name
+with [get-editor "DTO Namespaces Hierarchy"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "DTO Namespaces Hierarchy"] {
+            mouse-move 294 198 -height 520 -width 1047
+            with [get-edit-part -name "namespace_2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-move 19 55 button1 -height 68 -width 148
+                mouse-press 19 55 button1 -height 68 -width 148
+                mouse-release 19 55 button1 524288 -height 68 -width 148
+                mouse-hover 19 55 -height 68 -width 148
+            }
+        }
+        key-type F2
+        get-edit-part -name "DTO Namespaces Hierarchy" | get-edit-part -name "namespace_2" | get-edit-part 
+            -className DNodeContainerNameEditPart | activate-direct-edit
+    }
+    with [get-editbox] {
+        key-type Right
+        set-text "namespace_2Rename"
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+        with [get-edit-part -name "DTO Namespaces Hierarchy"] {
+            with [get-edit-part -name "namespace_2Rename" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-move 63 57 -height 116 -width 221
+                with [get-edit-part -name "namespace_1" | get-edit-part 
+                    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                    mouse-move 59 16 -height 68 -width 148
+                    mouse-hover 59 16 -height 68 -width 148
+                }
+            }
+            mouse-move 125 11 -height 520 -width 1047
+        }
+    }
+}
+get-editor "DTO Namespaces Hierarchy" | get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy" 
+    | get-edit-part -name "namespace_2Rename" | get-figure 0 
+    | get-property "getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" | equals "namespace_2Rename" 
+    | verify-true
+    
+// Check  Tool Diagram Creation
+with [get-editor "DTO Namespaces Hierarchy" | get-diagram -index 1] {
+    with [get-edit-part -name "DTO Namespaces Hierarchy"] {
+        mouse-move 292 194 -height 520 -width 1047
+        with [get-edit-part -name "namespace_2Rename" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 31 53 button1 -height 116 -width 221
+            mouse-press 31 53 button1 -height 116 -width 221
+            mouse-release 31 53 button1 524288 -height 116 -width 221
+            mouse-hover 31 53 -height 116 -width 221
+            mouse-press 31 53 button3 -height 116 -width 221
+            mouse-release 31 53 button3 2097152 -height 116 -width 221
+        }
+    }
+    get-menu "New/New DTO Diagram" | click
+}
+get-window "New Representation" | get-button OK | click
+get-editor "namespace_2Rename - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_2Rename - DTO diagram" | mouse-move 232 0 -height 520 -width 1047
+// Check Tool Double click    
+with [get-editor "DTO Namespaces Hierarchy"] {
+    click
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy"] {
+        mouse-move 312 147 -height 520 -width 1047
+        with [get-edit-part -name "namespace_2Rename" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 62 59 -height 116 -width 221
+            with [get-edit-part -name "namespace_1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 37 32 button1 -height 68 -width 148
+                mouse-press 37 32 button1 -height 68 -width 148
+                mouse-release 37 32 button1 524288 -height 68 -width 148
+                mouse-hover 37 32 -height 68 -width 148
+                mouse-press 37 32 button1 -height 68 -width 148
+                mouse-release 37 32 button1 524288 -height 68 -width 148
+                mouse-press 37 32 button1 -height 68 -width 148
+                mouse-double-click 37 32 button1 -height 68 -width 148
+            }
+        }
+    }
+}
+get-window "New Representation" | get-button OK | click
+with [get-editor "namespace_1 - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "namespace_1 - DTO diagram"] {
+    mouse-move 431 419 button1 -height 520 -width 1047
+    mouse-press 431 419 button1 -height 520 -width 1047
+    mouse-release 431 419 button1 524288 -height 520 -width 1047
+    mouse-hover 431 419 -height 520 -width 1047
+}
+//Check Tool Drag n Drop namespace
+with [get-editor "DTO Namespaces Hierarchy"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy" | mouse-move 1045 70 -height 520 
+        -width 1047
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 51 11 button1 -height 23 -width 125
+        mouse-press 51 11 button1 -height 23 -width 125
+        mouse-release 51 11 button1 524288 -height 23 -width 125
+        mouse-hover 51 11 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy"] {
+        mouse-move 737 191 button1 -height 520 -width 1047
+        mouse-press 737 191 button1 -height 520 -width 1047
+        mouse-release 737 191 button1 524288 -height 520 -width 1047
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "DTO Namespaces Hierarchy" | get-edit-part -name "namespace_3"] {
+            get-handle ResizeHandle -index 6 | mouse-hover 6 5 -height 7 -width 7
+            with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-move 57 38 -height 68 -width 148
+                mouse-hover 57 38 -height 68 -width 148
+                mouse-move 57 38 button1 -height 68 -width 148
+                mouse-press 57 38 button1 -height 68 -width 148
+                mouse-move 54 38 -mask 524288 -height 68 -width 148
+            }
+        }
+        mouse-drag 795 234 -mask 524288 -height 520 -width 1047
+        with [get-edit-part -name "DTO Namespaces Hierarchy" | get-edit-part -name "namespace_2Rename" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part 
+            -name "namespace_1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-drag 102 64 button1 524288 -height 68 -width 148
+            mouse-release 102 64 button1 524288 -height 68 -width 148
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy"] {
+        get-edit-part -name "namespace_2Rename" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "namespace_1" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+            -name "namespace_3" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-hover 57 39 -height 68 -width 148
+        mouse-move 103 231 -height 520 -width 1047
+    }
+}
+get-editor "DTO Namespaces Hierarchy" | get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy" 
+    | get-property "getChildren().DNodeContainerEditPart[1].getChildren().DNodeContainerViewNodeContainerCompartmentEditPart[1].getChildren().DNodeContainer2EditPart[0].getChildren().DNodeContainerViewNodeContainerCompartment2EditPart[1].getChildren().DNodeContainer2EditPart[0].getChildren().DNodeContainerName2EditPart[0].getEditText()" 
+    | equals "namespace_3" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,210 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingDTODiagramToolsNamespace
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _k2YyIJrCEeaMB4JvYD9iTg
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 10/25/16 5:24 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in DTO Diagram/Section Namespace
+- Tool creation Namespace
+- Tool 	diagram creation New DTO Diagram
+- Tool double click Go to Class Diagram
+- Tool Drag'n drop ED_Namespace 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore" | get-menu "Close Project" | click
+    select "E-BookStore" | get-menu "Open Project" | click
+    select "E-BookStore" | get-menu "Viewpoints Selection" | click
+}
+with [get-window "Viewpoints Selection"] {
+    with [get-table] {
+        select "SOA Views"
+        get-item "SOA Views" | check
+    }
+    get-button OK | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.soa/Components/Namespace main" 
+    | get-menu "New Representation/main - DTO diagram" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "main - DTO diagram"] {
+	//Check Tool creation Namespace
+    get-diagram -index 1 | get-edit-part -name "main - DTO diagram" | mouse-move 1046 55 -height 520 
+        -width 1047
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 47 6 button1 -height 23 -width 125
+        mouse-press 47 6 button1 -height 23 -width 125
+        mouse-release 47 6 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        mouse-move 343 172 button1 -height 520 -width 1047
+        mouse-press 343 172 button1 -height 520 -width 1047
+        mouse-release 343 172 button1 524288 -height 520 -width 1047
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        get-edit-part -name "namespace_1" | get-handle ResizeHandle -index 6 | mouse-hover 2 6 -height 7 -width 7
+        mouse-move 143 142 -height 520 -width 1047
+    }
+}
+get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram" | get-edit-part -name "namespace_1" | get-figure 0 
+    | get-property "getChildren().GradientRoundedRectangle[0].getLabelFigure().getText()" | equals "namespace_1" 
+    | verify-true
+with [get-editor "main - DTO diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "main - DTO diagram"] {
+        mouse-move 340 204 -height 520 -width 1047
+        with [get-edit-part -name "namespace_1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 34 32 button1 -height 68 -width 148
+            mouse-press 34 32 button1 -height 68 -width 148
+            mouse-release 34 32 button1 524288 -height 68 -width 148
+            mouse-press 34 32 button3 -height 68 -width 148
+            mouse-release 34 32 button3 2097152 -height 68 -width 148
+        }
+    }
+    // Check Tool diagram creation New DTO Diagram
+    get-menu "New/New DTO Diagram" | click
+}
+with [get-window "New Representation"] {
+    get-editbox -after [get-label "Representation name:"] | set-text "main - DTO diagram2"
+    get-button OK | click
+}
+with [get-editor "main - DTO diagram2" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram2"] {
+    mouse-move 418 338 button1 -height 520 -width 1047
+    mouse-press 418 338 button1 -height 520 -width 1047
+    mouse-release 418 338 button1 524288 -height 520 -width 1047
+    mouse-hover 418 338 -height 520 -width 1047
+    mouse-move 418 7 -height 520 -width 1047
+}
+// Check Tool double click Go to Class Diagram
+with [get-editor "main - DTO diagram"] {
+    click
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        mouse-move 423 166 -height 520 -width 1047
+        with [get-edit-part -name "namespace_1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 84 46 button1 -height 68 -width 148
+            mouse-press 84 46 button1 -height 68 -width 148
+            mouse-release 84 46 button1 524288 -height 68 -width 148
+            mouse-press 84 46 button1 -height 68 -width 148
+            mouse-double-click 84 46 button1 -height 68 -width 148
+        }
+    }
+}
+with [get-editor "main - DTO diagram2" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram2"] {
+    mouse-release 429 216 button1 524288 -height 520 -width 1047
+    mouse-hover 429 216 -height 520 -width 1047
+    mouse-move 419 4 -height 520 -width 1047
+}
+with [get-editor "main - DTO diagram"] {
+    click
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "main - DTO diagram" | get-edit-part -name "namespace_1"] {
+            with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                mouse-move 76 53 button1 -height 68 -width 148
+                mouse-press 76 53 button1 -height 68 -width 148
+                mouse-release 76 53 button1 524288 -height 68 -width 148
+                mouse-hover 76 53 -height 68 -width 148
+            }
+            get-edit-part -className DNodeContainerNameEditPart | activate-direct-edit
+        }
+        commit-direct-edit
+    }
+}
+with [get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram"] {
+    get-edit-part -name "namespace_1" | activate-direct-edit
+    mouse-move 216 5 -height 520 -width 1047
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.soa/Components" 
+    | get-menu "New Representation/DTO Namespaces Hierarchy" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "DTO Namespaces Hierarchy"] {
+    get-control Any -index 10 | key-type "M1+s"
+    get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy" | mouse-move 336 382 -height 520 -width 1130
+}
+with [get-editor "DTO Namespaces Hierarchy"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy" | mouse-move 1046 134 -height 520 
+        -width 1047
+    with [get-palette | get-palette-entry Namespace -index 1] {
+        mouse-move 30 9 button1 -height 23 -width 125
+        mouse-press 30 9 button1 -height 23 -width 125
+        mouse-release 30 9 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "DTO Namespaces Hierarchy"] {
+        mouse-move 489 62 button1 -height 520 -width 1047
+        mouse-press 489 62 button1 -height 520 -width 1047
+        mouse-release 489 62 button1 524288 -height 520 -width 1047
+    }
+    with [get-diagram -index 1] {
+        get-edit-part -name "DTO Namespaces Hierarchy" | get-edit-part -name "namespace_2" 
+            | get-handle ResizeHandle -index 6 | mouse-hover 3 6 -height 7 -width 7
+        key-type "M1+s"
+        get-edit-part -name "DTO Namespaces Hierarchy" | mouse-move 430 0 -height 520 -width 1047
+    }
+}
+with [get-editor "main - DTO diagram"] {
+    click
+    get-diagram -index 1 | get-edit-part -name "main - DTO diagram" | mouse-move 41 191 -height 520 
+        -width 1047
+}
+// Check Tool Drag'n drop ED_Namespace 
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore/E-BookStore.soa/Components/Namespace namespace_2"
+    get-item "E-BookStore/E-BookStore.soa/Components/Namespace namespace_2" | drag-start 19 10
+    get-item "E-BookStore/E-BookStore.soa/Components/Namespace namespace_2" | drag-enter 112 10 -detail move
+    get-item "E-BookStore/E-BookStore.soa/Components/Namespace namespace_2" | drag-over 301 17   
+    get-item "E-BookStore/E-BookStore.soa/Components/Namespace namespace_2" | drag-exit
+}
+with [get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram"] {
+    drag-enter 3 254 -detail move
+    drag-over 269 299 -detail copy
+    drag-exit
+    drag-accept 269 299 -detail copy
+}
+get-view "Model Explorer" | get-tree | drag-set-data
+get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram" | drop 269 299 -detail copy
+get-view "Model Explorer" | get-tree | drag-end -detail copy
+get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram" | mouse-move 2 233 -height 520 -width 1047
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore/E-BookStore.soa/Components/Namespace main/Namespace namespace_1/main - DTO diagram2" 
+        | double-click
+    select "E-BookStore/E-BookStore.soa/Components/Namespace main"
+    get-item "E-BookStore/E-BookStore.soa/Components/Namespace main" | drag-start 68 10
+    get-item "E-BookStore/E-BookStore.soa/Components/Namespace main" | drag-enter 112 15 -detail move
+    get-item "E-BookStore/E-BookStore.soa/Components/Namespace main" | drag-over 153 16
+    get-item "E-BookStore/E-BookStore.soa/Components/Namespace main/main - DTO diagram" | drag-over 350 1
+    get-item "E-BookStore/E-BookStore.soa/Components/Namespace main" | drag-exit
+}
+with [get-editor "main - DTO diagram2" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram2"] {
+    drag-enter 2 187 -detail move
+    drag-over 265 199 -detail copy
+    drag-exit
+    drag-accept 265 199 -detail copy
+}
+get-view "Model Explorer" | get-tree | drag-set-data
+get-editor "main - DTO diagram2" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram2" | drop 265 199 -detail copy
+get-window "Drop namespace" | get-button OK | click
+get-view "Model Explorer" | get-tree | drag-end -detail copy
+get-editor "main - DTO diagram2" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram2" | mouse-move 146 315 -height 520 -width 1047
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

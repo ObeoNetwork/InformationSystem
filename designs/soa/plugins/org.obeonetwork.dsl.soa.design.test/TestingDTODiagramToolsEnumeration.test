@@ -1,0 +1,88 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingDTODiagramToolsEnumeration
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _SqqN0JtMEeaMB4JvYD9iTg
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 10/26/16 9:22 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in soa.odesign/DTO Diagram/Enumeration
+- Tool creation Enumeration
+- Tool creation Literal
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore" | get-menu "Close Project" | click
+    select "E-BookStore" | get-menu "Open Project" | click
+    select "E-BookStore" | get-menu "Viewpoints Selection" | click
+}
+with [get-window "Viewpoints Selection"] {
+    with [get-table] {
+        select "SOA Views"
+        get-item "SOA Views" | check
+    }
+    get-button OK | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.soa/Components/Namespace main" 
+    | get-menu "New Representation/main - DTO diagram" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "main - DTO diagram"] {
+    // Check Tool creation Enumeration
+    with [get-palette] {       
+        with [get-palette-entry Enumeration] {
+            mouse-move 50 7 button1 -height 23 -width 125
+            mouse-press 50 7 button1 -height 23 -width 125
+            mouse-release 50 7 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        mouse-move 328 189 button1 -height 520 -width 1047
+        mouse-press 328 189 button1 -height 520 -width 1047
+        mouse-release 328 189 button1 524288 -height 520 -width 1047
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        get-edit-part -name Enum7 | get-handle ResizeHandle -index 6 | mouse-hover 2 3 -height 7 -width 7
+        mouse-move 127 111 -height 520 -width 1047
+    }
+}
+get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram" | get-property "getChildren().DNodeListEditPart[6].getNodeLabel().getText()" 
+    | equals Enum7 | verify-true
+with [get-editor "main - DTO diagram"] {
+	// Check Tool creation Literal
+    get-diagram -index 1 | get-edit-part -name "main - DTO diagram" | mouse-move 1046 234 -height 520 
+        -width 1047
+    with [get-palette | get-palette-entry Literal] {
+        mouse-move 28 13 button1 -height 23 -width 125
+        mouse-press 28 13 button1 -height 23 -width 125
+        mouse-release 28 13 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        mouse-move 394 212 -height 520 -width 1047
+        with [get-edit-part -name Enum7 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart] {
+            mouse-move 28 4 button1 -height 12 -width 58
+            mouse-press 28 4 button1 -height 12 -width 58
+            mouse-release 28 4 button1 524288 -height 12 -width 58
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "main - DTO diagram"] {
+        get-edit-part -name Enum7 | get-edit-part -className DNodeListViewNodeListCompartment2EditPart | get-edit-part 
+            -name literal1 | mouse-hover 24 2 -height 16 -width 54
+        mouse-move 128 148 -height 520 -width 1047
+    }
+}
+get-editor "main - DTO diagram" | get-diagram -index 1 | get-edit-part 
+    -name "main - DTO diagram" 
+    | get-property "getChildren().DNodeListEditPart[6].getChildren().DNodeListViewNodeListCompartment2EditPart[1].getChildren().DNodeListElementEditPart[0].getLabelText()" 
+    | equals literal1 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

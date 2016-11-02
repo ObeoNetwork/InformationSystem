@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6ONbQGNdEeSg_dTG4Ei-uQ
-Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/21/14 10:42 AM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 10/27/16 5:11 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -20,18 +20,26 @@ Testing all tools defines in requirements.odesign/Requirements - Task tracabilit
 Content-Type: text/ecl
 Entry-Name: .content
 
-get-view "Model Explorer" | get-tree | select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
-with [get-window "Select resources to add"] {
-    get-button "Browse Workspace..." | click
-    with [get-window "File Selection"] {
-        get-tree | select "E-BookStore/E-BookStore.graal"
-        get-button OK | click
-    }
-    get-button OK | click
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore" | get-menu "Close Project" | click
+    select "E-BookStore" | get-menu "Open Project" | click
+    select "E-BookStore" | get-menu "Viewpoints Selection" | click
 }
 with [get-window "Viewpoints Selection"] {
-    get-table | get-item VP_Graal_Req | check
+    get-table | get-item "Requirements \\(Graal consolidated view\\)" | check
     get-button OK | click
 }
-get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.graal/System E-BookStore"
+get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.requirement/Repository E-BookStore" 
+    | get-menu "New Representation/new Requirements - Task tracability matrix" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "new Requirements - Task tracability matrix" | get-tree] {
+    get-item "E-BookStore" | get-property "getText()" | equals "E-BookStore" | verify-true
+    get-item "E-BookStore" | get-property "getItems().TreeItem[0].getText()" | equals "- NewCategory" | verify-true
+    get-item "E-BookStore" | get-property "getItems().TreeItem[0].getItems().TreeItem[0].getText()" 
+        | equals "R1 - Req1" | verify-true
+    get-item "E-BookStore" | get-property "getItems().TreeItem[0].getItems().TreeItem[1].getText()" | equals "-" 
+        | verify-true
+    get-item "E-BookStore" | get-property "getItems().TreeItem[0].getItems().TreeItem[2].getText()" | equals "R1 -" 
+        | verify-true
+}
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

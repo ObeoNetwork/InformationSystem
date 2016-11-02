@@ -1,0 +1,1503 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: TestingEntitiesDiagramToolsNamespace
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _WlHQ0FODEeSMo_G57BtJfQ
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 10/21/16 11:29 AM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Testing all tools defines in is.odesign/Entity Diagram
+- Tool Block
+- Tool Entity
+- Tool Edit Name
+- Tool Del_block
+- Tool Del_entity
+- Tool DAD_Entity
+- Tool DAD_Block
+- Tool Attribute
+- Tool DAD_Attribute
+- Tool Relation
+- Tool Composition
+- Tool Inheritance
+- Tool Entity Diagram
+- Tool Del_Inheritance
+- Tool Reference Name Direct Edit
+- Tool Attribute Name Direct Edit
+- Tool Goto entity diagram
+- Tool Bidirectional Relation
+- Tool Bidirectional Composition
+- Tool Del_BidiRelation
+- Tool EDT_BidiReference
+- Tool Ext. Entity
+- Tool Delete view on non referenced external entities
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-eclipse-window | key-type "" "\\u0000" -times 7
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Obeo Designer For IS/Entity Model"
+    get-editbox -after [get-label "Wizards:"] | set-text ent
+    get-tree | select "Obeo Designer For IS/Entity Model"
+    get-button "Next >" | click
+    get-button Finish | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
+with [get-window "Select resources to add"] {
+    get-button "Browse Workspace..." | click
+    with [get-window "File Selection"] {
+        get-tree | select "E-BookStore/My.entity"
+        get-button OK | click
+    }
+    get-button OK | click
+}
+with [get-window "Viewpoints Selection"] {
+    get-table | get-item "Entity Views" | check
+    get-button OK | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Blocks" 
+    | get-menu "New Representation/new Block Hierarchy Diagram" | click
+get-window "New Representation" | get-button OK | click
+with [get-editor "new Block Hierarchy Diagram"] {
+    get-diagram -index 1 | get-edit-part -name "new Block Hierarchy Diagram" | mouse-move 595 130 -height 349 -width 596
+    with [get-palette] {
+        get-palette-entry "Contained In" | mouse-move 12 7 -height 23 -width 125
+        get-palette-entry "Zoom Out" | mouse-move 18 16 -height 19 -width 19
+        get-palette-entry Note | mouse-move 5 18 -height 19 -width 19
+        with [get-palette-entry Block] {
+            mouse-move 57 5 button1 -height 23 -width 125
+            mouse-press 57 5 button1 -height 23 -width 125
+            mouse-release 57 5 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "new Block Hierarchy Diagram"] {
+        mouse-move 112 128 button1 -height 349 -width 596
+        mouse-press 112 128 button1 -height 349 -width 596
+        mouse-release 112 128 button1 524288 -height 349 -width 596
+    }
+    with [get-diagram -index 1 | get-edit-part -name "new Block Hierarchy Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className BundledImageEditPart] {
+        mouse-hover 28 24 -height 50 -width 50
+        mouse-move 28 24 button1 -height 50 -width 50
+        mouse-press 28 24 button1 -height 50 -width 50
+        mouse-release 28 24 button1 524288 -height 50 -width 50
+        mouse-press 28 24 button1 -height 50 -width 50
+        mouse-double-click 28 24 button1 -height 50 -width 50
+    }
+}
+get-window "New Representation" | get-button OK | click
+with [get-editor "Block 1 Entity Diagram"] {
+    get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | mouse-move 595 106 -height 349 -width 596
+    with [get-palette] {    	
+        get-palette-entry Entity -index 1 | mouse-move 52 0 -height 23 -width 125
+        // Check Tool Block
+        with [get-palette-entry Block] {
+            mouse-move 53 13 button1 -height 23 -width 125
+            mouse-press 53 13 button1 -height 23 -width 125
+            mouse-release 53 13 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        mouse-move 158 27 -height 349 -width 596
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 21 37 button1 -height 68 -width 148
+            mouse-press 21 37 button1 -height 68 -width 148
+            mouse-release 21 37 button1 524288 -height 68 -width 148
+        }
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram"] {
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                get-edit-part -name "Block 1" | get-handle ResizeHandle -index 6 | mouse-hover 4 3 -height 7 -width 7
+                mouse-move 141 22 button1 -height 114 -width 177
+                mouse-press 141 22 button1 -height 114 -width 177
+                mouse-release 141 22 button1 524288 -height 114 -width 177
+                mouse-move 153 35 -height 114 -width 177
+            }
+            mouse-move 179 121 -height 353 -width 600
+        }
+        with [get-figure "0/1/0/0"] {
+            mouse-move 184 121 button1 -height 353 -width 600
+            mouse-press 184 121 button1 -height 353 -width 600
+            mouse-move 185 121 -mask 524288 -height 353 -width 600
+        }
+        with [get-edit-part -name "Block 1 Entity Diagram"] {
+            mouse-drag 532 310 button1 524288 -height 353 -width 600
+            mouse-release 532 310 button1 524288 -height 353 -width 600
+            mouse-move 577 90 -height 353 -width 600
+        }
+    }
+    // Check Tool Entity
+    with [get-palette | get-palette-entry Entity -index 1] {
+        mouse-move 47 12 button1 -height 23 -width 125
+        mouse-press 47 12 button1 -height 23 -width 125
+        mouse-release 47 12 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 66 33 button1 -height 68 -width 148
+        mouse-press 66 33 button1 -height 68 -width 148
+        mouse-release 66 33 button1 524288 -height 68 -width 148
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                with [get-edit-part -name "Entity 1"] {
+                    mouse-hover 4 3 -height 42 -width 65
+                    mouse-move 10 26 -height 42 -width 65
+                }
+                mouse-move 143 64 button1 -height 82 -width 148
+                mouse-press 143 64 button1 -height 82 -width 148
+                mouse-release 143 64 button1 524288 -height 82 -width 148
+            }
+            mouse-move 172 119 -height 306 -width 531
+            with [get-edit-part -name "Block 1" | get-handle ResizeHandle -index 4] {
+                mouse-move 5 3 button1 -height 7 -width 7
+                mouse-press 5 3 button1 -height 7 -width 7
+                mouse-move 6 3 -mask 524288 -height 7 -width 7
+            }
+        }
+        mouse-drag 220 158 button1 524288 -height 349 -width 596
+        mouse-release 220 158 button1 524288 -height 349 -width 596
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+            -name "Entity 1"] {
+            with [get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
+                mouse-move 51 5 button1 -height 12 -width 61
+                mouse-press 51 5 button1 -height 12 -width 61
+                mouse-release 51 5 button1 524288 -height 12 -width 61
+                mouse-move 56 11 -height 12 -width 61
+            }
+            with [get-handle ResizeHandle -index 4] {
+                mouse-move 4 4 button1 -height 7 -width 7
+                mouse-press 4 4 button1 -height 7 -width 7
+                mouse-move 5 4 -mask 524288 -height 7 -width 7
+            }
+        }
+        mouse-drag 171 136 button1 524288 -height 349 -width 596
+        mouse-release 171 136 button1 524288 -height 349 -width 596
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            get-edit-part -name "Entity 1" | get-handle ResizeHandle -index 4 | mouse-hover 4 4 -height 7 -width 7
+            mouse-move 3 86 -height 123 -width 200
+        }
+    }
+}
+get-editor "Block 1 Entity Diagram" | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-edit-part -name "Entity 1" | get-edit-part -className DNodeListName2EditPart | get-property "getEditText()" 
+    | equals "Entity 1" | verify-true
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+            -name "Entity 1" | get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
+            mouse-move 46 24 button1 -height 36 -width 82
+            mouse-press 46 24 button1 -height 36 -width 82
+            mouse-release 46 24 button1 524288 -height 36 -width 82
+            mouse-hover 46 24 -height 36 -width 82
+            mouse-move 47 23 -height 36 -width 82
+            mouse-hover 47 23 -height 36 -width 82
+        }
+        // Check Tool Del_entity
+        key-type Del
+    }
+    get-diagram -index 1 | key-type "M1+z"
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 162 99 button1 -height 123 -width 200
+            mouse-press 162 99 button1 -height 123 -width 200
+            mouse-release 162 99 button1 524288 -height 123 -width 200
+            mouse-move 190 110 -height 123 -width 200
+            mouse-hover 190 110 -height 123 -width 200
+        }
+        // Check Tool Del_block
+        key-type Del
+        get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | mouse-move 194 143 -mask CTRL -height 306 
+            -width 531
+        key-type "M1+z"
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 193 143 -mask CTRL -height 306 -width 531
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 156 112 -height 123 -width 200
+                mouse-hover 156 112 -mask ALT -height 123 -width 200
+            }
+        }
+        key-type "" "\\u0000"
+        get-edit-part -name "Block 1 Entity Diagram" | mouse-move 593 74 -height 349 -width 596
+    }
+    with [get-palette] {
+        get-palette-entry Entity -index 1 | mouse-move 63 1 -height 23 -width 125
+        with [get-palette-entry Block] {
+            mouse-move 58 11 button1 -height 23 -width 125
+            mouse-press 58 11 button1 -height 23 -width 125
+            mouse-release 58 11 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 318 64 button1 -height 306 -width 531
+        mouse-press 318 64 button1 -height 306 -width 531
+        mouse-release 318 64 button1 524288 -height 306 -width 531
+    }
+    get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | mouse-move 595 107 -height 349 -width 596   
+    with [get-palette] {
+        get-palette-entry Attribute | mouse-move 9 1 -height 23 -width 125
+        with [get-palette-entry Entity -index 1] {
+            mouse-move 45 14 button1 -height 23 -width 125
+            mouse-press 45 14 button1 -height 23 -width 125
+            mouse-release 45 14 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 2" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 52 34 button1 -height 68 -width 148
+        mouse-press 52 34 button1 -height 68 -width 148
+        mouse-release 52 34 button1 524288 -height 68 -width 148
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1"] {
+                get-handle ResizeHandle -index 6 | mouse-hover 4 3 -height 7 -width 7
+                mouse-move 17 25 -height 42 -width 65
+            }
+            mouse-move 466 212 button1 -height 306 -width 531
+            mouse-press 466 212 button1 -height 306 -width 531
+            mouse-release 466 212 button1 524288 -height 306 -width 531
+            with [get-edit-part -name "Block 2" | get-edit-part 
+            	// Check Tool DAD_Entity
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1"] {
+                mouse-move 34 23 -height 42 -width 65
+                with [get-edit-part -className DNodeListName2EditPart] {
+                    mouse-move 32 13 button1 -height 17 -width 61
+                    mouse-press 32 13 button1 -height 17 -width 61
+                    with [get-handle MoveHandle] {
+                        mouse-hover 37 18 -mask 524288 -height 19 -width 63
+                        mouse-release 37 18 button1 524288 -height 19 -width 63
+                    }
+                }
+                with [get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
+                    mouse-move 38 3 button1 -height 12 -width 61
+                    mouse-press 38 3 button1 -height 12 -width 61
+                    mouse-move 37 3 -mask 524288 -height 12 -width 61
+                }
+            }
+        }
+        mouse-drag 414 136 -mask 524288 -height 349 -width 596
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+        	// Check Tool DAD_Block
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-drag 56 102 button1 524288 -height 123 -width 200
+            mouse-release 56 102 button1 524288 -height 123 -width 200
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1"] {
+            with [get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 56 101 -height 123 -width 200
+                mouse-move 175 101 button1 -height 123 -width 200
+                mouse-press 175 101 button1 -height 123 -width 200
+                mouse-release 175 101 button1 524288 -height 123 -width 200
+                mouse-move 198 110 -height 123 -width 200
+            }
+            with [get-handle ResizeHandle -index 4] {
+                mouse-move 4 3 button1 -height 7 -width 7
+                mouse-press 4 3 button1 -height 7 -width 7
+                mouse-move 6 4 -mask 524288 -height 7 -width 7
+            }
+        }
+        mouse-drag 320 245 button1 524288 -height 349 -width 596
+        mouse-release 320 245 button1 524288 -height 349 -width 596
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 116 101 -height 208 -width 300
+                with [get-edit-part -name "Entity 1" | get-edit-part 
+                    -className DNodeListViewNodeListCompartmentEditPart] {
+                    mouse-move 55 28 button1 -height 36 -width 82
+                    mouse-press 55 28 button1 -height 36 -width 82
+                    mouse-move 56 28 -mask 524288 -height 36 -width 82
+                }
+                mouse-drag 195 90 button1 524288 -height 208 -width 300
+                mouse-release 195 90 button1 524288 -height 208 -width 300
+            }
+            mouse-move 353 135 -height 306 -width 531
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 47 60 button1 -height 68 -width 148
+                mouse-press 47 60 button1 -height 68 -width 148
+                mouse-move 49 60 -mask 524288 -height 68 -width 148
+            }
+            mouse-drag 398 109 button1 524288 -height 306 -width 531
+            mouse-release 398 109 button1 524288 -height 306 -width 531
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1" 
+                | get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
+                mouse-move 42 21 button1 -height 36 -width 82
+                mouse-press 42 21 button1 -height 36 -width 82
+                mouse-move 43 21 -mask 524288 -height 36 -width 82
+            }
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-drag 78 65 button1 524288 -height 68 -width 148
+                mouse-release 78 65 button1 524288 -height 68 -width 148
+            }
+        }
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram"] {
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 2"] {
+                with [get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                    get-edit-part -name "Entity 1" | get-edit-part -className DNodeListViewNodeListCompartmentEditPart 
+                        | mouse-hover 42 22 -height 36 -width 82
+                    mouse-move 23 72 button1 -height 88 -width 148
+                    mouse-press 23 72 button1 -height 88 -width 148
+                    mouse-release 23 72 button1 524288 -height 88 -width 148
+                    mouse-move 57 86 -height 88 -width 148
+                }
+                with [get-handle ResizeHandle -index 2] {
+                    mouse-move 6 5 button1 -height 7 -width 7
+                    mouse-press 6 5 button1 -height 7 -width 7
+                    mouse-move 6 6 -mask 524288 -height 7 -width 7
+                }
+            }
+            mouse-drag 427 199 button1 524288 -height 349 -width 596
+            mouse-release 427 199 button1 524288 -height 349 -width 596
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+                with [get-edit-part -name "Block 2" | get-edit-part 
+                    -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                    with [get-edit-part -name "Entity 1" | get-edit-part 
+                        -className DNodeListViewNodeListCompartmentEditPart] {
+                        mouse-move 52 25 button1 -height 36 -width 82
+                        mouse-press 52 25 button1 -height 36 -width 82
+                        mouse-move 52 27 -mask 524288 -height 36 -width 82
+                    }
+                    mouse-drag 83 110 button1 524288 -height 146 -width 148
+                    mouse-release 83 110 button1 524288 -height 146 -width 148
+                }
+                mouse-move 369 214 -height 306 -width 531
+                mouse-hover 369 214 -mask ALT -height 306 -width 531
+                get-edit-part -name "Block 1" | get-edit-part 
+                    -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-move 131 143 -height 208 
+                    -width 300
+            }
+        }
+        key-type "" "\\u0000"
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 68 41 button1 -height 146 -width 148
+                mouse-press 68 41 button1 -height 146 -width 148
+                mouse-move 64 41 -mask 524288 -height 146 -width 148
+            }
+            mouse-drag 413 90 button1 524288 -height 306 -width 531
+            mouse-release 413 90 button1 524288 -height 306 -width 531
+            mouse-move 323 85 -height 306 -width 531
+        }
+        key-type "" "\\u0000"
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 22 47 button1 -height 146 -width 148
+                mouse-press 22 47 button1 -height 146 -width 148
+                mouse-hover 22 47 -mask 524288 -height 146 -width 148
+                mouse-move 19 47 -mask 524288 -height 146 -width 148
+            }
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-drag 123 86 button1 524288 -height 208 -width 300
+                mouse-release 123 86 button1 524288 -height 208 -width 300
+            }
+            mouse-move 409 169 button1 -height 306 -width 531
+            mouse-press 409 169 button1 -height 306 -width 531
+            mouse-release 409 169 button1 524288 -height 306 -width 531
+            get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-move 9 76 -height 146 -width 148
+            mouse-move 8 148 -height 306 -width 531
+        }
+    }
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Blocks/Block Block 1/Block Block 2"
+with [get-editor "Block 1 Entity Diagram" | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+    get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+        | get-edit-part -name "Entity 1" | mouse-move 63 35 -height 42 -width 65
+    with [get-edit-part -name "Block 2" | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 98 39 -height 146 -width 148
+        mouse-hover 98 39 -height 146 -width 148
+        mouse-move 98 38 button1 -height 146 -width 148
+        mouse-press 98 38 button1 -height 146 -width 148
+        mouse-move 112 38 -mask 524288 -height 146 -width 148
+    }
+    mouse-drag 449 108 button1 524288 -height 306 -width 531
+    mouse-release 449 108 button1 524288 -height 306 -width 531
+    with [get-edit-part -name "Block 2" | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-hover 103 42 -height 146 -width 148
+        mouse-move 105 40 button1 -height 146 -width 148
+        mouse-press 105 40 button1 -height 146 -width 148
+        mouse-move 104 40 -mask 524288 -height 146 -width 148
+    }
+    with [get-edit-part -name "Block 1" | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-drag 212 73 button1 524288 -height 208 -width 300
+        mouse-release 212 73 button1 524288 -height 208 -width 300
+    }
+    mouse-move 2 173 -height 306 -width 531
+}
+with [get-view "Model Explorer" | get-tree] {
+    select "E-BookStore/My.entity/Blocks/Block Block 1/Block Block 2"
+    get-item "E-BookStore/My.entity/Blocks/Block Block 1/Block Block 2" | drag-start 44 6
+    get-item "E-BookStore/My.entity/Blocks/Block Block 1/Block Block 1" | drag-enter 46 16 -detail move
+    get-item "E-BookStore/My.entity/Blocks/Block Block 1/Block Block 1" | drag-over 48 0
+    get-item "E-BookStore/My.entity/Blocks/Block Block 1/Block Block 1" | drag-over 48 4
+    get-item "E-BookStore/My.entity/Blocks/Block Block 1/Block Block 1" | drag-exit
+    drag-end
+}
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 14 190 -height 306 -width 531
+        mouse-hover 14 190 -height 306 -width 531
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 112 49 button1 -height 146 -width 148
+            mouse-press 112 49 button1 -height 146 -width 148
+        }
+        get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 278 84 -mask 524288 -height 208 -width 300
+        mouse-drag 463 118 button1 524288 -height 306 -width 531
+        mouse-release 463 118 button1 524288 -height 306 -width 531
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1" 
+            | get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
+            mouse-move 42 4 button1 -height 12 -width 61
+            mouse-press 42 4 button1 -height 12 -width 61
+            mouse-move 43 4 -mask 524288 -height 12 -width 61
+        }
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-drag 73 53 button1 524288 -height 146 -width 148
+            mouse-release 73 53 button1 524288 -height 146 -width 148
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1" -index 1 
+            | get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
+            mouse-move 23 1 button1 -height 12 -width 61
+            mouse-press 23 1 button1 -height 12 -width 61
+            mouse-release 23 1 button1 524288 -height 12 -width 61
+            mouse-move 23 5 button1 -height 12 -width 61
+            mouse-press 23 5 button1 -height 12 -width 61
+            mouse-move 22 5 -mask 524288 -height 12 -width 61
+        }
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-drag 118 105 button1 524288 -height 208 -width 300
+            mouse-release 118 105 button1 524288 -height 208 -width 300
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 386 256 button1 -height 306 -width 531
+            mouse-press 386 256 button1 -height 306 -width 531
+            mouse-release 386 256 button1 524288 -height 306 -width 531
+        }
+        mouse-move 590 241 -height 353 -width 600
+    }
+    with [get-palette] {
+        get-palette-entry Composition | mouse-move 16 6 -height 23 -width 125
+        get-palette-entry Relation | mouse-move 25 4 -height 23 -width 125
+        get-palette-entry Attribute | mouse-move 34 1 -height 23 -width 125
+        get-palette-entry Entity -index 1 | mouse-move 41 0 -height 23 -width 125
+        with [get-palette-entry Block] {
+            mouse-move 41 11 button1 -height 23 -width 125
+            mouse-press 41 11 button1 -height 23 -width 125
+            mouse-release 41 11 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 399 263 -height 306 -width 531
+        mouse-hover 399 263 -height 306 -width 531
+        mouse-move 349 244 button1 -height 306 -width 531
+        mouse-press 349 244 button1 -height 306 -width 531
+        mouse-release 349 244 button1 524288 -height 306 -width 531
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 286 285 button1 -height 306 -width 531
+            mouse-press 286 285 button1 -height 306 -width 531
+            mouse-release 286 285 button1 524288 -height 306 -width 531
+            mouse-move 268 302 -height 306 -width 531
+        }
+        with [get-figure "0/1/0/0"] {
+            mouse-move 271 314 button1 -height 353 -width 600
+            mouse-press 271 314 button1 -height 353 -width 600
+            mouse-move 271 315 -mask 524288 -height 353 -width 600
+        }
+        with [get-edit-part -name "Block 1 Entity Diagram"] {
+            mouse-drag 275 368 button1 524288 -height 370 -width 600
+            mouse-release 275 368 button1 524288 -height 370 -width 600
+        }
+        with [get-figure "0/1/0/0"] {
+            mouse-move 539 188 button1 -height 373 -width 600
+            mouse-press 539 188 button1 -height 373 -width 600
+            mouse-move 540 189 -mask 524288 -height 373 -width 600
+        }
+        with [get-edit-part -name "Block 1 Entity Diagram"] {
+            mouse-drag 609 186 button1 524288 -height 373 -width 610
+            mouse-release 609 186 button1 524288 -height 373 -width 610
+            get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+                | mouse-move 591 167 -height 366 -width 606
+        }
+    }
+    with [get-palette] {
+        get-palette-entry Composition | mouse-move 10 0 -height 23 -width 125
+        get-palette-entry Relation | mouse-move 25 0 -height 23 -width 125
+        get-palette-entry Attribute | mouse-move 28 1 -height 23 -width 125
+        get-palette-entry Entity -index 1 | mouse-move 33 0 -height 23 -width 125
+        with [get-palette-entry Block] {
+            mouse-move 37 15 button1 -height 23 -width 125
+            mouse-press 37 15 button1 -height 23 -width 125
+            mouse-release 37 15 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 502 207 -height 366 -width 606
+        get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 75 129 -height 146 -width 148
+        mouse-move 418 226 -height 366 -width 606
+        mouse-hover 418 226 -height 366 -width 606
+        mouse-move 414 226 -height 366 -width 606
+    }
+    get-palette | key-type ESC
+    get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartmentEditPart | mouse-hover 414 226 -height 366 -width 606
+    with [get-palette] {
+        key-type "" "\\u0000"
+        // Check Tool Attribute
+        with [get-palette-entry Attribute] {
+            mouse-move 63 6 button1 -height 23 -width 125
+            mouse-press 63 6 button1 -height 23 -width 125
+            mouse-release 63 6 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 2" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1" 
+        | get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
+        mouse-move 35 17 -height 36 -width 82
+        mouse-hover 35 17 -height 36 -width 82
+        mouse-move 35 17 button1 -height 36 -width 82
+        mouse-press 35 17 button1 -height 36 -width 82
+        mouse-release 35 17 button1 524288 -height 36 -width 82
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | get-edit-part -name "Entity 1" | get-edit-part -className DNodeListViewNodeListCompartmentEditPart 
+            | get-edit-part -name "attribute1 : String[0..1]" | mouse-hover 35 19 -height 28 -width 73
+        mouse-move 334 178 -height 366 -width 606
+        mouse-move 8 173 -height 366 -width 606
+    }
+}
+get-editor "Block 1 Entity Diagram" | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-edit-part -name "Entity 1" | get-edit-part -className DNodeListViewNodeListCompartmentEditPart 
+    | get-edit-part -name "attribute1 : String[0..1]" | get-property "getEditText()" 
+    | equals "attribute1 : String[0..1]" | verify-true
+with [get-editor "Block 1 Entity Diagram"] {
+    get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+        -className DNodeContainerViewNodeContainerCompartmentEditPart | mouse-move 594 106 -height 366 -width 606
+    with [get-palette | get-palette-entry Attribute] {
+        mouse-move 42 16 button1 -height 23 -width 125
+        mouse-press 42 16 button1 -height 23 -width 125
+        mouse-release 42 16 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 32 38 -height 146 -width 148
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1"] {
+            mouse-move 33 23 button1 -height 42 -width 65
+            mouse-press 33 23 button1 -height 42 -width 65
+            mouse-release 33 23 button1 524288 -height 42 -width 65
+        }
+    }
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+            -name "Entity 1"] {
+            mouse-move 79 45 -height 48 -width 137
+            with [get-edit-part -className DNodeListViewNodeListCompartmentEditPart | get-edit-part 
+                -name "attribute1 : String[0..1]"] {
+                mouse-move 58 7 button1 -height 16 -width 125
+                mouse-press 58 7 button1 -height 16 -width 125
+                mouse-move 59 7 -mask 524288 -height 16 -width 125
+            }
+        }
+        mouse-drag 185 153 -mask 524288 -height 368 -width 608
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 2" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+            -name "Entity 1" | get-edit-part -className DNodeListViewNodeListCompartmentEditPart | get-edit-part 
+            // Check Tool DAD_Attribute
+            -name "attribute1 : String[0..1]"] {
+            mouse-drag 34 19 button1 524288 -height 28 -width 73
+            mouse-release 34 19 button1 524288 -height 28 -width 73
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            with [get-edit-part -name "Entity 1"] {
+                get-edit-part -className DNodeListViewNodeListCompartmentEditPart | get-edit-part 
+                    -name "attribute1 : String[0..1]" | mouse-hover 34 19 -height 28 -width 73
+                mouse-move 67 22 -height 66 -width 86
+                get-edit-part -className DNodeListName2EditPart | mouse-hover 49 6 -height 17 -width 61
+            }
+            mouse-move 1 66 -height 146 -width 148
+        }
+        get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 8 58 -height 208 -width 300
+    }
+}
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        mouse-move 537 346 -height 349 -width 596
+        mouse-move 594 144 -height 349 -width 596
+    }
+    // Check Tool Relation
+    with [get-palette | get-palette-entry Relation] {
+        mouse-move 66 14 button1 -height 23 -width 125
+        mouse-press 66 14 button1 -height 23 -width 125
+        mouse-release 66 14 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 568 99 -height 306 -width 587
+        get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 10 40 -height 190 -width 148
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1"] {
+            mouse-move 46 9 -height 42 -width 65
+            with [get-edit-part -className DNodeListName2EditPart] {
+                mouse-move 36 4 button1 -height 17 -width 61
+                mouse-press 36 4 button1 -height 17 -width 61
+                mouse-release 36 4 button1 524288 -height 17 -width 61
+            }
+        }
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 29 77 -height 190 -width 148
+            with [get-edit-part -name "Entity 1"] {
+                mouse-move 9 18 -height 66 -width 86
+                with [get-edit-part -className DNodeListName2EditPart] {
+                    mouse-hover 25 11 -height 17 -width 61
+                    mouse-move 25 11 button1 -height 17 -width 61
+                    mouse-press 25 11 button1 -height 17 -width 61
+                }
+            }
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1" 
+            | get-edit-part -className DNodeListName2EditPart] {
+            mouse-release 25 11 button1 524288 -height 17 -width 61
+            mouse-hover 25 11 -height 17 -width 61
+        }
+        mouse-move 329 182 -height 306 -width 587
+        get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 32 198 -height 208 -width 300
+    }
+}
+get-editor "Block 1 Entity Diagram" | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-edit-part -name "Entity 1" | get-target-connection 0 | get-edit-part -className DEdgeNameEditPart 
+    | get-property "getEditText()" | equals "entity 1s [0..*]" | verify-true
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 342 72 -height 306 -width 587
+        mouse-move 582 122 -height 306 -width 587
+    }
+    // Check Tool Composition
+    with [get-palette | get-palette-entry Composition] {
+        mouse-move 60 12 button1 -height 23 -width 125
+        mouse-press 60 12 button1 -height 23 -width 125
+        mouse-release 60 12 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 117 82 -height 190 -width 148
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1"] {
+            mouse-move 53 22 -height 42 -width 65
+            with [get-edit-part -className DNodeListName2EditPart] {
+                mouse-move 50 14 button1 -height 17 -width 61
+                mouse-press 50 14 button1 -height 17 -width 61
+                mouse-release 50 14 button1 524288 -height 17 -width 61
+            }
+        }
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1"] {
+            mouse-move 10 7 -height 66 -width 86
+            with [get-edit-part -className DNodeListName2EditPart] {
+                mouse-hover 15 12 -height 17 -width 61
+                mouse-move 15 12 button1 -height 17 -width 61
+                mouse-press 15 12 button1 -height 17 -width 61
+            }
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            with [get-edit-part -name "Entity 1" | get-edit-part -className DNodeListName2EditPart] {
+                mouse-release 15 12 button1 524288 -height 17 -width 61
+                mouse-hover 15 12 -height 17 -width 61
+            }
+            mouse-move 19 95 -height 190 -width 148
+        }
+        mouse-move 81 254 -height 306 -width 587
+    }
+}
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+            | mouse-move 329 198 -height 306 -width 587
+        mouse-move 592 161 -height 349 -width 596
+    }
+    // Check Tool Inheritance
+    with [get-palette | get-palette-entry Inheritance] {
+        mouse-move 45 20 -height 23 -width 125
+        mouse-move 50 12 button1 -height 23 -width 125
+        mouse-press 50 12 button1 -height 23 -width 125
+        mouse-release 50 12 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 189 101 -height 208 -width 300
+            with [get-edit-part -name "Entity 1"] {
+                mouse-move 10 22 -height 42 -width 65
+                with [get-edit-part -className DNodeListName2EditPart] {
+                    mouse-move 19 7 button1 -height 17 -width 61
+                    mouse-press 19 7 button1 -height 17 -width 61
+                    mouse-release 19 7 button1 524288 -height 17 -width 61
+                }
+            }
+        }
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 46 173 -height 190 -width 148
+            with [get-edit-part -name "Entity 1"] {
+                mouse-move 22 22 -height 66 -width 86
+                with [get-edit-part -className DNodeListName2EditPart] {
+                    mouse-move 25 10 button1 -height 17 -width 61
+                    mouse-press 25 10 button1 -height 17 -width 61
+                }
+            }
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1"] {
+        with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1"] {
+                with [get-edit-part -className DNodeListName2EditPart] {
+                    mouse-release 25 10 button1 524288 -height 17 -width 61
+                    mouse-hover 25 10 -height 17 -width 61
+                }
+                mouse-move 32 24 -height 66 -width 86
+            }
+            mouse-move 337 223 -height 306 -width 587
+            mouse-hover 337 223 -height 306 -width 587
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 59 145 -height 190 -width 148
+                mouse-hover 59 145 -height 190 -width 148
+            }
+        }
+        mouse-move 588 216 -height 308 -width 589
+    }
+    // Check Tool Bidirectional Composition
+    with [get-palette | get-palette-entry "Bidirectional Composition"] {
+        mouse-move 79 11 -height 37 -width 125
+        mouse-hover 79 11 -height 37 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 54 133 -height 190 -width 148
+        get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 31 172 -height 208 -width 300
+    }
+}
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1"] {
+        with [get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 326 182 -height 306 -width 587
+            get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-move 4 114 -height 190 -width 148
+        }
+        mouse-move 588 118 -height 308 -width 589
+    }
+    with [get-palette] {
+        get-palette-entry Composition | mouse-move 34 2 -height 23 -width 125
+        get-palette-entry Relation | mouse-move 81 0 -height 23 -width 125
+        get-palette-entry Attribute | mouse-move 73 1 -height 23 -width 125
+        with [get-palette-entry Entity -index 1] {
+            mouse-move 66 16 button1 -height 23 -width 125
+            mouse-press 66 16 button1 -height 23 -width 125
+            mouse-release 66 16 button1 524288 -height 23 -width 125
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 59 150 button1 -height 208 -width 300
+        mouse-press 59 150 button1 -height 208 -width 300
+        mouse-release 59 150 button1 524288 -height 208 -width 300
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            get-edit-part -name "Entity 2" | get-handle ResizeHandle -index 6 | mouse-hover 4 3 -height 7 -width 7
+            mouse-move 186 156 button1 -height 208 -width 300
+            mouse-press 186 156 button1 -height 208 -width 300
+            mouse-release 186 156 button1 524288 -height 208 -width 300
+            mouse-move 179 83 -height 208 -width 300
+        }
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1" 
+            | get-target-connection 0] {
+            mouse-move 35 22 button1 -height 54 -width 229
+            mouse-press 35 22 button1 -height 54 -width 229
+            mouse-release 37 23 button1 524288 -height 56 -width 233
+        }
+        get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 164 89 -height 208 -width 300
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1" 
+            | get-target-connection 0 | get-handle ViewpointConnectionEndPointHandle] {
+            mouse-move 3 5 button1 -height 7 -width 7
+            mouse-press 3 5 button1 -height 7 -width 7
+        }
+        with [get-edit-part -name "Block 1"] {
+            get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-move 142 125 
+                -mask 524288 -height 208 -width 300
+            mouse-drag 109 169 button1 524288 -height 210 -width 302
+            mouse-release 109 169 button1 524288 -height 210 -width 302
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 344 169 -height 306 -width 587
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1" 
+                | get-target-connection 2] {
+                mouse-move 230 16 button1 -height 65 -width 264
+                mouse-press 230 16 button1 -height 65 -width 264
+                mouse-release 232 17 button1 524288 -height 68 -width 268
+                with [get-handle ViewpointConnectionEndPointHandle -index 1] {
+                    mouse-move 4 5 button1 -height 7 -width 7
+                    mouse-press 4 5 button1 -height 7 -width 7
+                    mouse-move 4 4 -mask 524288 -height 7 -width 7
+                }
+            }
+        }
+        mouse-drag 147 153 button1 524288 -height 349 -width 596
+        mouse-release 147 153 button1 524288 -height 349 -width 596
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            get-edit-part -name "Entity 1" | get-edit-part -className DNodeListName2EditPart | mouse-hover 30 1 
+                -height 17 -width 61
+            mouse-move 235 89 -height 208 -width 300
+        }
+        get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | get-edit-part -name "Entity 1" | get-target-connection 1 | mouse-hover 77 31 -height 53 -width 229
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            get-edit-part -name "Entity 1" | mouse-move 64 34 -height 42 -width 65
+            mouse-move 25 149 -height 208 -width 300
+        }
+    }
+}
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 13 190 -height 306 -width 587
+            get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-move 297 88 -height 208 
+                -width 300
+        }
+        mouse-move 592 190 -height 349 -width 596
+    }
+}   
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        mouse-move 1 345 -height 364 -width 645
+        mouse-move 644 168 -height 364 -width 645
+    }
+    with [get-palette] {
+        get-palette-entry Relation | mouse-move 26 20 -height 23 -width 174
+        get-palette-entry Composition | mouse-move 41 22 -height 23 -width 174
+        get-palette-entry Inheritance | mouse-move 58 22 -height 23 -width 174
+        // Check Tool Bidirectional Relation
+        with [get-palette-entry "Bidirectional Relation"] {
+            mouse-move 62 8 button1 -height 23 -width 174
+            mouse-press 62 8 button1 -height 23 -width 174
+            mouse-release 62 8 button1 524288 -height 23 -width 174
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 505 67 -height 177 -width 601
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 2"] {
+                mouse-move 45 4 -height 42 -width 65
+                with [get-edit-part -className DNodeListName2EditPart] {
+                    mouse-move 39 4 button1 -height 17 -width 61
+                    mouse-press 39 4 button1 -height 17 -width 61
+                }
+            }
+        }
+        mouse-release 153 373 button1 524288 -height 417 -width 673
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 2" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 14 63 -height 190 -width 148
+            with [get-edit-part -name "Entity 1"] {
+                mouse-move 45 22 -height 66 -width 86
+                mouse-hover 45 22 -height 66 -width 86
+                mouse-move 45 22 button1 -height 66 -width 86
+                mouse-press 45 22 button1 -height 66 -width 86
+            }
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        with [get-edit-part -name "Block 2" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            with [get-edit-part -name "Entity 1"] {
+                mouse-release 45 22 button1 524288 -height 66 -width 86
+                mouse-hover 45 22 -height 66 -width 86
+            }
+            mouse-move 26 80 -height 190 -width 148
+        }
+        get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+            | mouse-move 47 77 -height 208 -width 300
+    }
+}
+with [get-editor "Block 1 Entity Diagram" | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-edit-part -name "Entity 2" | get-target-connection 0] {
+    get-property "getTarget().getChildren().DNodeListName2EditPart[0].getEditText()" | equals "Entity 2" | verify-true
+    get-property "getSource().getChildren().DNodeListName2EditPart[0].getEditText()" | equals "Entity 1" | verify-true
+}
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        mouse-move 4 244 -height 375 -width 645
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 12 65 -height 177 -width 601
+            get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-move 176 82 -height 208 
+                -width 300
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1" 
+                | get-target-connection 0] {
+                mouse-move 32 21 button1 -height 54 -width 229
+                mouse-press 32 21 button1 -height 54 -width 229
+                mouse-release 34 22 button1 524288 -height 57 -width 233
+                mouse-hover 34 22 -height 57 -width 233
+            }
+        }
+        mouse-move 242 55 -height 373 -width 645
+    }
+    get-button "Delete from Model" | click
+    // Check Tool Del_Inheritance
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                with [get-edit-part -name "Entity 1"] {
+                    mouse-move 47 14 -height 42 -width 65
+                    with [get-edit-part -className DNodeListName2EditPart] {
+                        mouse-move 19 14 button1 -height 17 -width 61
+                        mouse-press 19 14 button1 -height 17 -width 61
+                        mouse-release 19 14 button1 524288 -height 17 -width 61
+                    }
+                    mouse-move 19 26 -height 42 -width 65
+                    with [get-edit-part -className DNodeListViewNodeListCompartmentEditPart] {
+                        mouse-move 18 3 button1 -height 12 -width 61
+                        mouse-press 18 3 button1 -height 12 -width 61
+                        mouse-release 18 3 button1 524288 -height 12 -width 61
+                        mouse-hover 18 3 -height 12 -width 61
+                        mouse-press 18 3 button3 -height 12 -width 61
+                        mouse-release 18 3 button3 2097152 -height 12 -width 61
+                    }
+                }
+                mouse-press 46 50 button1 -height 208 -width 300
+                mouse-move 46 50 -mask 524288 -height 208 -width 300
+            }
+            mouse-drag 67 56 button1 524288 -height 177 -width 601
+            mouse-release 67 56 button1 524288 -height 177 -width 601
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-hover 42 88 -height 208 -width 300
+                mouse-press 42 88 button3 -height 208 -width 300
+                mouse-release 42 88 button3 2097152 -height 208 -width 300
+            }
+        }
+        // Check Tool Entity Diagram
+        get-menu "Navigate/New detail : Entity Diagram" | click
+    }
+}
+get-window "New Representation" | get-button OK | click
+get-editor "Block 1 Entity Diagram" -index 1 | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" 
+    | mouse-move 334 0 -height 309 -width 645
+with [get-editor "Block 1 Entity Diagram"] {
+    click
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        mouse-move 242 183 -height 402 -width 645
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+            mouse-move 38 65 -height 208 -width 300
+            mouse-hover 38 65 -height 208 -width 300
+            mouse-move 38 65 button1 -height 208 -width 300
+            mouse-press 38 65 button1 -height 208 -width 300
+            mouse-release 38 65 button1 524288 -height 208 -width 300
+            mouse-press 38 65 button1 -height 208 -width 300
+            // Check Tool Goto entity diagram
+            mouse-double-click 38 65 button1 -height 208 -width 300
+        }
+    }
+}
+with [get-editor "Block 1 Entity Diagram" -index 1 | get-diagram -index 1 | get-edit-part 
+    -name "Block 1 Entity Diagram"] {
+    mouse-release 68 163 button1 524288 -height 309 -width 645
+    mouse-hover 68 163 -height 309 -width 645
+}
+get-editor "new Block Hierarchy Diagram" | click
+with [get-editor "Block 1 Entity Diagram"] {
+    click
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-move 189 105 -height 208 
+                -width 300
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1"] {
+                with [get-target-connection 1] {
+                    mouse-move 44 32 button1 -height 49 -width 225
+                    mouse-press 44 32 button1 -height 49 -width 225
+                }
+                with [get-target-connection 0] {
+                    mouse-release 44 19 button1 524288 -height 55 -width 225
+                    mouse-hover 44 19 -height 55 -width 225
+                }
+            }
+        }
+        key-type F2
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-move 211 94 -height 208 
+                -width 300
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part -name "Entity 1"] {
+                with [get-target-connection 1] {
+                    mouse-hover 107 32 -height 51 -width 229
+                    mouse-move 107 32 button1 -height 51 -width 229
+                    mouse-press 107 32 button1 -height 51 -width 229
+                    mouse-release 107 32 button1 524288 -height 51 -width 229
+                    mouse-hover 107 32 -height 51 -width 229
+                    activate-direct-edit
+                    mouse-hover 47 28 -height 51 -width 229
+                }
+                get-target-connection 0 | mouse-hover 44 20 -height 55 -width 225
+            }
+        }
+        key-type ESC
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 2" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+            -name "Entity 1" | get-target-connection 0] {
+            mouse-move 44 19 button1 -height 55 -width 225
+            mouse-press 44 19 button1 -height 55 -width 225
+            mouse-release 46 20 button1 524288 -height 57 -width 229
+            mouse-hover 46 20 -height 57 -width 229
+        }
+        // Check Tool Reference Name Direct Edit
+        key-type F2
+        get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 2" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+            -name "Entity 1" | get-target-connection 0 | get-edit-part -className DEdgeNameEditPart 
+            | activate-direct-edit
+    }
+    get-editbox | click-text "1:5"
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 198 52 -height 208 -width 300
+        mouse-hover 198 52 -height 208 -width 300
+        mouse-move 244 85 -height 208 -width 300
+    }
+    with [get-editbox] {
+        key-type Right -times 4
+        set-text "entity 1Renames [0..*]"
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+        get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | mouse-move 14 48 -height 177 -width 601
+    }
+}
+get-editor "Block 1 Entity Diagram" | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-edit-part -name "Entity 1" | get-target-connection 0 | get-edit-part -className DEdgeNameEditPart 
+    | get-property "getEditText()" | equals "entity 1Renames [0..*]" | verify-true
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1] {
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 2" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+            -name "Entity 1" | get-edit-part -className DNodeListViewNodeListCompartmentEditPart | get-edit-part 
+            -name "attribute1 : String[0..1]"] {
+            mouse-move 38 7 button1 -height 28 -width 73
+            mouse-press 38 7 button1 -height 28 -width 73
+            mouse-release 38 7 button1 524288 -height 28 -width 73
+            mouse-hover 38 7 -height 28 -width 73
+        }
+        // Check Tool Attribute Name Direct Edit
+        key-type F2
+        get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 2" 
+            | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart | get-edit-part 
+            -name "Entity 1" | get-edit-part -className DNodeListViewNodeListCompartmentEditPart | get-edit-part 
+            -name "attribute1 : String[0..1]" | activate-direct-edit
+    }
+    get-editbox | click-text "1:11"
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart | get-edit-part -name "Block 2" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+        mouse-move 122 129 -height 190 -width 148
+        mouse-hover 122 129 -height 190 -width 148
+    }
+    with [get-editbox] {
+        set-text "attribute1Rename : String[0..1]"
+        key-type Enter
+    }
+    with [get-diagram -index 1] {
+        commit-direct-edit
+        key-type Enter
+        with [get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-move 108 125 -height 190 
+                -width 148
+            get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart | mouse-move 94 45 -height 208 -width 300
+        }
+    }
+}
+get-editor "Block 1 Entity Diagram" | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name "Block 2" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+    | get-edit-part -name "Entity 1" | get-edit-part -className DNodeListViewNodeListCompartmentEditPart 
+    | get-edit-part -name "attribute1Rename : String[0..1]" | get-property "getEditText()" 
+    | equals "attribute1Rename : String[0..1]" | verify-true
+with [get-editor "Block 1 Entity Diagram" | get-diagram -index 1] {
+    with [get-edit-part -name "Block 1 Entity Diagram"] {
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 589 75 button1 -height 177 -width 601
+            mouse-press 589 75 button1 -height 177 -width 601
+            mouse-move 589 83 -mask 524288 -height 177 -width 601
+            mouse-hover 589 83 -mask 524288 -height 177 -width 601
+            mouse-move 589 78 -mask 524288 -height 177 -width 601
+            mouse-release 589 78 button1 524288 -height 177 -width 601
+            mouse-hover 589 78 -height 177 -width 601
+            mouse-move 507 40 -height 177 -width 601
+            mouse-move 327 9 -height 177 -width 601
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 266 17 button1 -height 208 -width 300
+                mouse-press 266 17 button1 -height 208 -width 300
+                mouse-move 265 17 -mask 524288 -height 208 -width 300
+            }
+        }
+        mouse-drag 282 152 button1 524288 -height 396 -width 645
+        mouse-release 282 152 button1 524288 -height 396 -width 645
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 534 34 button1 -height 177 -width 601
+            mouse-press 534 34 button1 -height 177 -width 601
+            mouse-move 534 33 -mask 524288 -height 177 -width 601
+        }
+        mouse-drag 542 151 button1 524288 -height 365 -width 645
+        mouse-release 542 151 button1 524288 -height 365 -width 645
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name "Block 2" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 133 40 button1 -height 190 -width 148
+                mouse-press 133 40 button1 -height 190 -width 148
+                mouse-move 137 40 -mask 524288 -height 190 -width 148
+            }
+            mouse-drag 527 45 button1 524288 -height 177 -width 601
+            mouse-release 527 45 button1 524288 -height 177 -width 601
+            mouse-move 359 17 button1 -height 177 -width 601
+            mouse-press 359 17 button1 -height 177 -width 601
+            mouse-release 359 13 button1 524288 -height 177 -width 601
+        }
+        mouse-move 313 113 -height 309 -width 645
+        with [get-edit-part -name "Block 1" | get-handle ResizeHandle] {
+            mouse-move 5 2 button1 -height 7 -width 7
+            mouse-press 5 2 button1 -height 7 -width 7
+        }
+        mouse-move 311 110 -mask 524288 -height 309 -width 645
+        mouse-drag 310 26 button1 524288 -height 309 -width 645
+        mouse-release 310 26 button1 524288 -height 309 -width 645
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 214 195 button1 -height 208 -width 300
+                mouse-press 214 195 button1 -height 208 -width 300
+                mouse-move 214 196 -mask 524288 -height 208 -width 300
+            }
+            mouse-drag 219 182 button1 524288 -height 262 -width 601
+            mouse-release 219 182 button1 524288 -height 262 -width 601
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 219 153 -height 208 -width 300
+                with [get-edit-part -name "Entity 2" | get-target-connection 0] {
+                    mouse-move 111 52 button1 -height 85 -width 325
+                    mouse-press 111 52 button1 -height 85 -width 325
+                    mouse-release 113 53 button1 524288 -height 87 -width 329
+                }
+                mouse-move 231 152 -height 208 -width 300
+                mouse-hover 231 152 -height 208 -width 300
+            }
+        }
+    }    
+}
+
+with [get-editor "Block 1 Entity Diagram" | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+    get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name "Block 1" | activate-direct-edit
+    mouse-move 89 81 -height 480 -width 645
+    get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+        | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart 
+        | mouse-move 34 11 -height 208 -width 300
+    mouse-move 387 81 -height 480 -width 645
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Obeo Designer For IS/Entity Model"
+    get-button "Next >" | click
+    get-button Finish | click
+}
+get-view "Model Explorer" | get-tree | select "E-BookStore/Project Dependencies" | get-menu "Add Model" | click
+with [get-window "Select resources to add"] {
+    get-button "Browse Workspace..." | click
+    with [get-window "File Selection"] {
+        get-tree | select "E-BookStore/My1.entity"
+        get-button OK | click
+    }
+    get-button OK | click
+}
+get-window "Viewpoints Selection" | get-button OK | click
+with [get-editor "My1.entity" | get-tree] {
+    get-item "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks" | click
+    select "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks" | get-menu "New Child/Block" | click
+    get-item "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks/Block" | click
+    select "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks/Block" | get-menu "New Child/Entity" | click
+}
+get-editor "My1.entity" | get-tree | select "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks/Block/Entity"
+with [get-view Properties] {
+    click
+    get-section Properties | get-editbox -after [get-label "Name:"] | set-text ExtEntities
+}
+with [get-editor "My1.entity" | get-tree] {
+    get-item "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks/Block" | click
+    get-item "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks/Block/Entity ExtEntities" | click
+    get-item "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks/Block/Entity ExtEntities" | click
+    select "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks/Block/Entity ExtEntities" 
+        | get-menu "New Child/Attribute" | click
+}
+get-view Properties | get-section Properties | get-editbox -after [get-label "Name:"] | click-text
+get-editor "My1.entity" | get-tree 
+    | get-item "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks/Block/Entity ExtEntities/Attribute" | click
+get-view Properties | get-section Properties | get-editbox -after [get-label "Name:"] | set-text extAttr
+with [get-editor "My1.entity" | get-tree] {
+    get-item "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks/Block/Entity ExtEntities" | click
+    get-item "platform:\\/resource\\/E-BookStore\\/My1.entity/Blocks/Block/Entity ExtEntities/Attribute extAttr" | click
+    key-type "M1+s"
+}
+get-editor "Block 1 Entity Diagram" -index 1 | click
+with [get-editor "Block 1 Entity Diagram"] {
+    click
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        mouse-move 502 25 -height 409 -width 645
+        mouse-move 644 117 -height 409 -width 645
+    }
+    get-palette | get-palette-entry Attribute | mouse-move 10 21 -height 23 -width 174
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        mouse-move 116 11 button1 -height 409 -width 645
+        mouse-press 116 11 button1 -height 409 -width 645
+        mouse-release 116 11 button1 524288 -height 409 -width 645
+        mouse-hover 116 11 -height 409 -width 645
+        mouse-move 118 18 button1 -height 409 -width 645
+        mouse-press 118 18 button1 -height 409 -width 645
+        mouse-release 118 18 button1 524288 -height 409 -width 645
+        mouse-hover 118 18 -height 409 -width 645
+        mouse-move 574 14 button1 -height 409 -width 645
+        mouse-press 574 14 button1 -height 409 -width 645
+        mouse-release 574 14 button1 524288 -height 409 -width 645
+        mouse-hover 574 14 -height 409 -width 645
+        with [get-edit-part -name "Block 1" | get-edit-part 
+            -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+            mouse-move 307 167 -height 261 -width 601
+            with [get-edit-part -name "Block 1" | get-edit-part 
+                -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+                mouse-move 255 177 button1 -height 208 -width 300
+                mouse-press 255 177 button1 -height 208 -width 300
+                mouse-release 255 177 button1 524288 -height 208 -width 300
+            }
+        }
+        mouse-move 252 15 button1 -height 409 -width 645
+        mouse-press 252 15 button1 -height 409 -width 645
+        mouse-release 252 15 button1 524288 -height 409 -width 645
+        mouse-hover 252 15 -height 409 -width 645
+        mouse-move 210 0 -height 409 -width 645
+    }
+    get-button Layers | click -arrow
+}
+get-menu "External Entities" | click
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        mouse-move 132 13 -height 409 -width 645
+        mouse-hover 132 13 -height 409 -width 645
+        mouse-move 146 24 -height 409 -width 645
+        mouse-move 637 218 -height 409 -width 645
+    }
+    // Check Tool Ext. Entity
+    with [get-palette | get-palette-entry "Ext. Entity"] {
+        mouse-move 44 2 button1 -height 23 -width 125
+        mouse-press 44 2 button1 -height 23 -width 125
+        mouse-release 44 2 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | get-edit-part -name "Block 1" 
+        | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
+        mouse-move 456 132 -height 261 -width 601
+        mouse-hover 456 132 -height 261 -width 601
+        mouse-move 456 132 button1 -height 261 -width 601
+        mouse-press 456 132 button1 -height 261 -width 601
+        mouse-release 456 132 button1 524288 -height 261 -width 601
+    }
+}
+with [get-window "Import external entity"] {
+    get-tree | select "Blocks/Block/Entity ExtEntities"
+    get-button Finish | click
+}
+with [get-editor "Block 1 Entity Diagram" | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart 
+    | get-edit-part -name "Block 1" | get-edit-part -className DNodeContainerViewNodeContainerCompartment2EditPart] {
+    mouse-hover 48 80 -height 208 -width 300
+    mouse-move 141 72 -height 208 -width 300
+    mouse-move 132 144 -height 208 -width 300
+}
+get-editor "Block 1 Entity Diagram" | get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" 
+    | get-edit-part -name "::ExtEntities" | get-edit-part -className DNodeListNameEditPart 
+    | get-property "getEditText()" | equals "::ExtEntities" | verify-true
+with [get-editor "Block 1 Entity Diagram"] {
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        mouse-move 344 8 -height 409 -width 740
+        mouse-move 727 149 -height 409 -width 740
+    }
+    with [get-palette] {
+        get-palette-entry Inheritance | mouse-move 19 19 -height 23 -width 174
+        get-palette-entry "Bidirectional Relation" | mouse-move 9 9 -height 23 -width 174
+    }
+    with [get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram"] {
+        with [get-edit-part -name "::ExtEntities"] {
+            mouse-move 9 12 button1 -height 44 -width 97
+            mouse-press 9 12 button1 -height 44 -width 97
+            mouse-release 9 12 button1 524288 -height 44 -width 97
+        }
+        mouse-move 400 0 -height 409 -width 741
+    }
+    // Check Tool Delete view on non referenced external entities
+    get-button "Delete from Model" | click
+    get-diagram -index 1 | get-edit-part -name "Block 1 Entity Diagram" | mouse-move 402 20 -height 409 -width 645
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

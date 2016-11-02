@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _B81lwGNcEeSg_dTG4Ei-uQ
-Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/3/14 2:21 PM
+Runtime-Version: 2.0.0.201505200325
+Save-Time: 8/28/15 2:50 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -182,17 +182,6 @@ with [get-editor "Checkout Flow Diagram" | get-diagram -index 1 | get-edit-part 
     mouse-move 42 390 -height 463 -width 859
     get-edit-part -name "PaymentForm : Page" | get-edit-part -className DNodeListViewNodeListCompartment2EditPart 
         | mouse-move 111 86 -height 89 -width 234
-}
-// Check that there is no errors in ErrorLog view
-get-view "Error Log" | click
-get-view Properties | click
-with [get-editor "Checkout Flow Diagram"] {
-    with [get-diagram -index 1 | get-edit-part -name "Checkout Flow Diagram"] {
-        mouse-move 594 312 -height 463 -width 859
-        mouse-move 556 57 -height 463 -width 859
-        mouse-move 591 22 -height 463 -width 859
-    }
-    get-palette | get-palette-entry Select | mouse-move 14 4 -height 19 -width 19
 }
 
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
