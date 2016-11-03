@@ -3,9 +3,17 @@ package org.obeonetwork.dsl.database.compare;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.osgi.framework.BundleContext;
 
 public class Activator extends Plugin {
+	private static final String KEY_CASCADING_DIFFERENCES_FILTER = "org.eclipse.emf.compare.rcp.ui.internal.structuremergeviewer.filters.impl.CascadingDifferencesFilter";
+
+	private static final String KEY_DISABLED_FILTERS = "org.eclipse.emf.compare.rcp.ui.filters.disabled";
+
+	private static final String EMF_COMPARE_RCP_UI_PREFS_ID = "org.eclipse.emf.compare.rcp.ui";
+
 	// The plug-in ID
 	public static final String PLUGIN_ID = "org.obeonetwork.dsl.database.compare";
 
@@ -25,6 +33,26 @@ public class Activator extends Plugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		
+		// Disable "Cascading differences" filter by default
+		IEclipsePreferences node = InstanceScope.INSTANCE.getNode(EMF_COMPARE_RCP_UI_PREFS_ID);
+		
+		// Get current value
+		String disabledFilters = node.get(KEY_DISABLED_FILTERS, null);
+		
+		if (disabledFilters == null || disabledFilters.trim().isEmpty()) {
+			// Filters are empty
+			disabledFilters = KEY_CASCADING_DIFFERENCES_FILTER; 
+			node.put(KEY_DISABLED_FILTERS, disabledFilters);
+		} else {
+			// Test if cascading differences filter is already disabled
+			if (!disabledFilters.contains(KEY_CASCADING_DIFFERENCES_FILTER)) {
+				// Add filter
+				disabledFilters = disabledFilters + ";" + KEY_CASCADING_DIFFERENCES_FILTER;
+				node.put(KEY_DISABLED_FILTERS, disabledFilters);
+				
+			}
+		}
 	}
 
 	/*
