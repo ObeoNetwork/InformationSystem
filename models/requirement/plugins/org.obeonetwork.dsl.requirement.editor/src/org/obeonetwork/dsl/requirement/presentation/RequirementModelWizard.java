@@ -18,9 +18,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
+
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -46,8 +46,8 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
@@ -196,12 +196,20 @@ public class RequirementModelWizard extends Wizard implements INewWizard {
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)requirementPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = requirementFactory.create(eClass);
-		return rootObject;
+		String repositoryName = "";
+		if (newFileCreationPage != null) {
+			String fileName = newFileCreationPage.getFileName();
+			// Extract resource name
+			int idx = fileName.lastIndexOf(".");
+			if (idx > 0) {
+				repositoryName = fileName.substring(0, idx);
+			}
+		}
+		
+		return createInitialModel(repositoryName);
 	}
 
 	/**
@@ -258,7 +266,7 @@ public class RequirementModelWizard extends Wizard implements INewWizard {
 							// Save the contents of the resource to the file system.
 							//
 							Map<Object, Object> options = new HashMap<Object, Object>();
-							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+							options.put(XMLResource.OPTION_ENCODING, "UTF-8");
 							resource.save(options);
 						}
 						catch (Exception exception) {
@@ -611,10 +619,6 @@ public class RequirementModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-		initialObjectCreationPage = new RequirementModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(RequirementEditorPlugin.INSTANCE.getString("_UI_RequirementModelWizard_label"));
-		initialObjectCreationPage.setDescription(RequirementEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-		addPage(initialObjectCreationPage);
 	}
 
 	/**
