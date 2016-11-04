@@ -27,7 +27,6 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.ViewerProperties;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
@@ -210,7 +209,12 @@ public class ImportXMLSnapshotWizardPage extends WizardPage {
 							embeddedServer.start(new File(xmlFile), monitor.newChild(90));
 							remoteProjectsURIs = embeddedServer.getRemoteProjectsURIs(monitor.newChild(10));
 						} catch (Exception e) {
-							MessageDialog.openError(getShell(), "Import XML snapshot", "The selected file could not be loaded. See error log for more informations.");
+							getShell().getDisplay().asyncExec(new Runnable() {
+								@Override
+								public void run() {
+									setErrorMessage("The selected file could not be loaded. See error log for more informations.");									
+								}
+							});
 							Activator.logError("The selected file could not be loaded.", e);
 							monitor.done();
 						}
@@ -219,6 +223,7 @@ public class ImportXMLSnapshotWizardPage extends WizardPage {
 				}
 			});
 		} catch (Exception e) {
+			setErrorMessage("Error while loading XML file. See error log for more informations.");
 			Activator.logError("Error while loading XML file.", e);
 		}
 	}

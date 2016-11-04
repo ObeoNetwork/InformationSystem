@@ -57,6 +57,10 @@ public class ImportModelFromXmlWizard extends Wizard implements IImportWizard {
 		String remoteProjectName = mainPage.getProjectNameFromURI(remoteProjectURI); 
 		final String localProjectName = mainPage.getInputData().getLocalProjectName();
 		
+		if (localProjectName == null || remoteProjectURI == null) {
+			return false;
+		}
+		
 		final Map<String, String> remoteToLocalProjectNameMapping = new HashMap<String, String>();
 		remoteToLocalProjectNameMapping.put(remoteProjectName, localProjectName);
 		
