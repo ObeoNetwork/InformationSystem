@@ -1,21 +1,38 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
-Element-Name: TestingEntitiesDiagramToolsBidirectionalRelation
+Element-Name: TestingEntitiesDiagramToolsUsability
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
-Id: _IjspYJdxEeaIPby-Y4VoBg
+Id: _GSSi8KKfEeatIdXAOWS3IQ
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 11/4/16 3:55 PM
+Save-Time: 11/4/16 4:04 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
 Content-Type: text/plain
 Entry-Name: .description
 
-Testing all tools defines in entity.odesign/Entities Diagram/Section Bidirectional Relation
-- Tool Edge Creation Bidirectional Relation
-- Tool Edge Creation Bidirectional Composition
+Testing all tools defines in entity.odesign/Entities Diagram/Section Usability tools
+- Tool Direct Edit Label EDT_Generic
+- Tool Direct Edit Label EDT_ED_Attribute
+- Tool Direct Edit Label EDT_ED_Reference
+- Tool Direct Edit Label EDT_ED_BidiReference
+- Tool Container DROP DAD_ED_Entity
+- Tool Container DROP DAD_ED_Enumeration
+- Tool Container DROP DAD_ED_Attribute
+- Tool Container DROP DAD_ED_Literal
+- Tool Delete Element DEL_Generic
+- Tool Delete Element DEL_ED_Inheritance
+- Tool Delete Element DEL_ED_BidiReference
+- Tool Delete Element DEL_PreventDeletion
+- Tool Reconnect Edge REC_ED_Reference_Target
+- Tool Reconnect Edge REC_ED_Reference_Source
+- Tool Reconnect Edge REC_ED_Inheritance_Target
+- Tool Reconnect Edge REC_ED_Inheritance_Source
+- Tool Reconnect Edge REC_ED_BidiReference_Target
+- Tool Reconnect Edge REC_ED_BidiReference_Source
+
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
 Content-Type: text/ecl
@@ -122,83 +139,105 @@ with [get-editor "namespace_1 - Entities diagram"] {
         mouse-move 427 384 button1 -height 520 -width 1111
         mouse-press 427 384 button1 -height 520 -width 1111
         mouse-release 427 384 button1 524288 -height 520 -width 1111
-    }    
-}
-with [get-editor "namespace_1 - Entities diagram"] {
-    get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1106 388 -height 520 
-        -width 1111
-    // Check Tool Edge Creation Bidirectional Relation
-    with [get-palette | get-palette-entry "Bidirectional Relation" -index 1] {
-        mouse-move 40 23 button1 -height 37 -width 125
-        mouse-press 40 23 button1 -height 37 -width 125
-        mouse-release 40 23 button1 524288 -height 37 -width 125
     }
     with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
-        mouse-move 720 279 -height 520 -width 1111
-        mouse-move 263 198 -height 520 -width 1111
+        mouse-move 787 389 button1 -height 520 -width 1111
+        mouse-press 787 389 button1 -height 520 -width 1111
+        mouse-release 787 389 button1 524288 -height 520 -width 1111
+        mouse-move 1109 288 -height 520 -width 1111
+    }    
+    with [get-palette | get-palette-entry Relation] {
+        mouse-move 37 11 button1 -height 23 -width 125
+        mouse-press 37 11 button1 -height 23 -width 125
+        mouse-release 37 11 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
+        mouse-move 328 192 -height 520 -width 1111
         with [get-edit-part -name Entity1] {
+            mouse-move 46 4 -height 42 -width 61
             with [get-edit-part -className DNodeListNameEditPart] {
-                mouse-move 46 11 button1 -height 17 -width 57
-                mouse-press 46 11 button1 -height 17 -width 57
-                mouse-release 46 11 button1 524288 -height 17 -width 57
+                mouse-move 41 7 button1 -height 17 -width 57
+                mouse-press 41 7 button1 -height 17 -width 57
+                mouse-release 41 7 button1 524288 -height 17 -width 57
             }
-            mouse-move 50 26 -height 42 -width 61
+            mouse-move 50 24 -height 42 -width 61
         }
         with [get-edit-part -name Entity3] {
-            mouse-move 35 4 -height 42 -width 61
+            mouse-move 11 2 -height 42 -width 61
             with [get-edit-part -className DNodeListNameEditPart] {
-                mouse-move 38 9 button1 -height 17 -width 57
-                mouse-press 38 9 button1 -height 17 -width 57
+                mouse-hover 20 1 -height 17 -width 57
+                mouse-move 20 1 button1 -height 17 -width 57
+                mouse-press 20 1 button1 -height 17 -width 57
             }
         }
     }
     with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         with [get-edit-part -name Entity3 | get-edit-part -className DNodeListNameEditPart] {
-            mouse-release 38 9 button1 524288 -height 17 -width 57
-            mouse-hover 38 9 -height 17 -width 57
+            mouse-release 20 1 button1 524288 -height 17 -width 57
+            mouse-hover 20 1 -height 17 -width 57
         }
-        mouse-move 1106 368 -height 520 -width 1111
+        mouse-move 1107 297 -height 520 -width 1111
     }
-    with [get-palette] {
-    	// Check Tool Edge Creation Bidirectional Composition        
-        with [get-palette-entry "Bidirectional Composition"] {
-            mouse-move 50 20 button1 -height 37 -width 125
-            mouse-press 50 20 button1 -height 37 -width 125
-            mouse-release 50 20 button1 524288 -height 37 -width 125
-        }
+    with [get-palette | get-palette-entry Composition] {
+        mouse-move 54 10 -height 23 -width 125
+        mouse-hover 54 10 -height 23 -width 125
+        mouse-move 54 10 button1 -height 23 -width 125
+        mouse-press 54 10 button1 -height 23 -width 125
+        mouse-release 54 10 button1 524288 -height 23 -width 125
     }
     with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         with [get-edit-part -name Entity3 | get-edit-part -className DNodeListNameEditPart] {
-            mouse-move 42 16 button1 -height 17 -width 57
-            mouse-press 42 16 button1 -height 17 -width 57
-            mouse-release 42 16 button1 524288 -height 17 -width 57
+            mouse-move 45 7 button1 -height 17 -width 57
+            mouse-press 45 7 button1 -height 17 -width 57
+            mouse-release 45 7 button1 524288 -height 17 -width 57
         }
-        mouse-move 633 265 -height 520 -width 1111
+        mouse-move 634 276 -height 520 -width 1111
         with [get-edit-part -name Entity2] {
-            mouse-move 3 22 -height 42 -width 61
+            mouse-move 22 22 -height 42 -width 61
             with [get-edit-part -className DNodeListNameEditPart] {
-                mouse-move 12 10 button1 -height 17 -width 57
-                mouse-press 12 10 button1 -height 17 -width 57
+                mouse-move 27 10 button1 -height 17 -width 57
+                mouse-press 27 10 button1 -height 17 -width 57
             }
+        }
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
+        with [get-edit-part -name Entity2] {
+            get-edit-part -className DNodeListNameEditPart | mouse-release 27 10 button1 524288 -height 17 -width 57
+            mouse-move 32 26 -height 42 -width 61
+        }
+        mouse-move 756 352 button1 -height 520 -width 1111
+        mouse-press 756 352 button1 -height 520 -width 1111
+        mouse-release 756 352 button1 524288 -height 520 -width 1111
+        mouse-move 1109 331 -height 520 -width 1111
+    }
+    with [get-palette | get-palette-entry Inheritance] {
+        mouse-move 42 15 button1 -height 23 -width 125
+        mouse-press 42 15 button1 -height 23 -width 125
+        mouse-release 42 15 button1 524288 -height 23 -width 125
+    }
+    with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
+        mouse-move 322 227 -height 520 -width 1111
+        with [get-edit-part -name Entity1] {
+            mouse-move 45 22 -height 42 -width 61
+            with [get-edit-part -className DNodeListNameEditPart] {
+                mouse-move 47 11 button1 -height 17 -width 57
+                mouse-press 47 11 button1 -height 17 -width 57
+                mouse-release 47 11 button1 524288 -height 17 -width 57
+            }
+        }
+        mouse-move 632 248 -height 520 -width 1111
+        with [get-edit-part -name Entity2 | get-edit-part -className DNodeListNameEditPart] {
+            mouse-hover 26 4 -height 17 -width 57
+            mouse-move 26 4 button1 -height 17 -width 57
+            mouse-press 26 4 button1 -height 17 -width 57
         }
     }
     with [get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram"] {
         with [get-edit-part -name Entity2 | get-edit-part -className DNodeListNameEditPart] {
-            mouse-release 12 10 button1 524288 -height 17 -width 57
-            mouse-hover 12 10 -height 17 -width 57
+            mouse-release 26 4 button1 524288 -height 17 -width 57
+            mouse-hover 26 4 -height 17 -width 57
         }
-        mouse-move 174 81 -height 520 -width 1111
+        mouse-move 189 114 -height 520 -width 1111
     }
-}
-with [get-editor "namespace_1 - Entities diagram" | get-diagram -index 1 | get-edit-part 
-    -name "namespace_1 - Entities diagram"] {
-    get-property "getConnections().DEdgeEditPart[0].getChildren().[1].getLabelText()" | equals "Entity1s [0..*]" 
-        | verify-true
-    get-property "getConnections().DEdgeEditPart[0].getChildren().[2].getLabelText()" | equals "Entity3s [0..*]" 
-        | verify-true
-    get-property "getConnections().DEdgeEditPart[1].getChildren().[1].getLabelText()" | equals "Entity2s [0..*]" 
-        | verify-true
-    get-property "getConnections().DEdgeEditPart[1].getChildren().[2].getLabelText()" | equals "Entity3s [0..*]" 
-        | verify-true
 }
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
