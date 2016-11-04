@@ -7,14 +7,12 @@
 package org.obeonetwork.dsl.database.dbevolution.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.compare.impl.AttributeChangeImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
-import org.obeonetwork.dsl.database.dbevolution.TableChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 
 /**
@@ -23,10 +21,10 @@ import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.impl.UpdateTableCommentChangeImpl#getNewTable <em>New Table</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

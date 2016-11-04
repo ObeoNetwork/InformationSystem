@@ -6,8 +6,6 @@
  */
 package org.obeonetwork.dsl.database.dbevolution;
 
-import org.eclipse.emf.compare.Match;
-
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Alter Table</b></em>'. <!-- end-user-doc -->

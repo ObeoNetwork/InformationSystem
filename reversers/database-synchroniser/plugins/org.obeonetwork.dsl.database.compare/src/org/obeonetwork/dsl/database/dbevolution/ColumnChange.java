@@ -6,7 +6,6 @@
  */
 package org.obeonetwork.dsl.database.dbevolution;
 
-import org.eclipse.emf.compare.Diff;
 import org.obeonetwork.dsl.database.Column;
 
 /**
@@ -16,10 +15,10 @@ import org.obeonetwork.dsl.database.Column;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.ColumnChange#getColumn <em>Column</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage#getColumnChange()
  * @model abstract="true"

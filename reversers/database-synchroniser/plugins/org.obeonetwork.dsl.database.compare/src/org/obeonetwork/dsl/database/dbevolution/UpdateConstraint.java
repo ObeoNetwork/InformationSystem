@@ -14,10 +14,10 @@ import org.obeonetwork.dsl.database.Constraint;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.UpdateConstraint#getNewConstraint <em>New Constraint</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage#getUpdateConstraint()
  * @model

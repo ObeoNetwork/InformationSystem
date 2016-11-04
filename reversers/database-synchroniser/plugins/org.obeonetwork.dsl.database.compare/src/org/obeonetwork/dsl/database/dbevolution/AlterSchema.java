@@ -6,9 +6,6 @@
  */
 package org.obeonetwork.dsl.database.dbevolution;
 
-import org.eclipse.emf.compare.Diff;
-
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Alter Schema</b></em>'.

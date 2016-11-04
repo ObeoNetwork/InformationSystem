@@ -810,6 +810,144 @@ public class DbevolutionItemProviderAdapterFactory extends DbevolutionAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.database.dbevolution.AddView} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AddViewItemProvider addViewItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.database.dbevolution.AddView}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAddViewAdapter() {
+		if (addViewItemProvider == null) {
+			addViewItemProvider = new AddViewItemProvider(this);
+		}
+
+		return addViewItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.database.dbevolution.RemoveView} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RemoveViewItemProvider removeViewItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.database.dbevolution.RemoveView}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRemoveViewAdapter() {
+		if (removeViewItemProvider == null) {
+			removeViewItemProvider = new RemoveViewItemProvider(this);
+		}
+
+		return removeViewItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.database.dbevolution.AlterView} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AlterViewItemProvider alterViewItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.database.dbevolution.AlterView}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAlterViewAdapter() {
+		if (alterViewItemProvider == null) {
+			alterViewItemProvider = new AlterViewItemProvider(this);
+		}
+
+		return alterViewItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.database.dbevolution.RenameViewChange} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RenameViewChangeItemProvider renameViewChangeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.database.dbevolution.RenameViewChange}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRenameViewChangeAdapter() {
+		if (renameViewChangeItemProvider == null) {
+			renameViewChangeItemProvider = new RenameViewChangeItemProvider(this);
+		}
+
+		return renameViewChangeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UpdateViewCommentChangeItemProvider updateViewCommentChangeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUpdateViewCommentChangeAdapter() {
+		if (updateViewCommentChangeItemProvider == null) {
+			updateViewCommentChangeItemProvider = new UpdateViewCommentChangeItemProvider(this);
+		}
+
+		return updateViewCommentChangeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UpdateViewQueryChangeItemProvider updateViewQueryChangeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUpdateViewQueryChangeAdapter() {
+		if (updateViewQueryChangeItemProvider == null) {
+			updateViewQueryChangeItemProvider = new UpdateViewQueryChangeItemProvider(this);
+		}
+
+		return updateViewQueryChangeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -940,6 +1078,12 @@ public class DbevolutionItemProviderAdapterFactory extends DbevolutionAdapterFac
 		if (alterSchemaItemProvider != null) alterSchemaItemProvider.dispose();
 		if (renameSchemaChangeItemProvider != null) renameSchemaChangeItemProvider.dispose();
 		if (updateSchemaCommentChangeItemProvider != null) updateSchemaCommentChangeItemProvider.dispose();
+		if (addViewItemProvider != null) addViewItemProvider.dispose();
+		if (removeViewItemProvider != null) removeViewItemProvider.dispose();
+		if (alterViewItemProvider != null) alterViewItemProvider.dispose();
+		if (renameViewChangeItemProvider != null) renameViewChangeItemProvider.dispose();
+		if (updateViewCommentChangeItemProvider != null) updateViewCommentChangeItemProvider.dispose();
+		if (updateViewQueryChangeItemProvider != null) updateViewQueryChangeItemProvider.dispose();
 	}
 
 }

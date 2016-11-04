@@ -110,4 +110,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="newView" lowerBound="1"
         eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//View"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateViewQueryChange" eSuperTypes="#//ViewChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="newView" lowerBound="1"
+        eType="ecore:EClass ../../org.obeonetwork.dsl.database/model/database.ecore#//View"/>
+  </eClassifiers>
 </ecore:EPackage>

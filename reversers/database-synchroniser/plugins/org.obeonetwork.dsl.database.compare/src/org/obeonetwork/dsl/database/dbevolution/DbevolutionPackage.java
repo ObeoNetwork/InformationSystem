@@ -159,7 +159,7 @@ public interface DbevolutionPackage extends EPackage {
 	int DB_DIFF = 39;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -306,7 +306,7 @@ public interface DbevolutionPackage extends EPackage {
 	int TABLE_CHANGE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -449,7 +449,7 @@ public interface DbevolutionPackage extends EPackage {
 	int TABLE_CHANGE_FEATURE_COUNT = DB_DIFF_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -593,7 +593,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_TABLE_FEATURE_COUNT = TABLE_CHANGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -748,7 +748,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ALTER_TABLE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -901,7 +901,7 @@ public interface DbevolutionPackage extends EPackage {
 	int RENAME_TABLE_CHANGE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1124,7 +1124,7 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_TABLE_COMMENT_CHANGE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1277,7 +1277,7 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_TABLE_COMMENT_CHANGE_FEATURE_COUNT = TABLE_CHANGE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1421,7 +1421,7 @@ public interface DbevolutionPackage extends EPackage {
 	int COLUMN_CHANGE_FEATURE_COUNT = DB_DIFF_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1565,7 +1565,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_COLUMN_CHANGE_FEATURE_COUNT = COLUMN_CHANGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1709,7 +1709,7 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_COLUMN_CHANGE_FEATURE_COUNT = COLUMN_CHANGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1862,7 +1862,7 @@ public interface DbevolutionPackage extends EPackage {
 	int RENAME_COLUMN_CHANGE_FEATURE_COUNT = COLUMN_CHANGE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2006,7 +2006,7 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_COLUMN_CHANGE_FEATURE_COUNT = COLUMN_CHANGE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2160,7 +2160,7 @@ public interface DbevolutionPackage extends EPackage {
 	int PRIMARY_KEY_CHANGE = 13;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2313,7 +2313,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_PRIMARY_KEY = 14;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2466,7 +2466,7 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_PRIMARY_KEY = 15;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2619,7 +2619,7 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_PRIMARY_KEY = 16;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2783,7 +2783,7 @@ public interface DbevolutionPackage extends EPackage {
 	int INDEX_CHANGE = 17;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2935,7 +2935,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_INDEX = 18;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3091,7 +3091,7 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_INDEX = 19;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3246,7 +3246,7 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_INDEX = 20;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3408,7 +3408,7 @@ public interface DbevolutionPackage extends EPackage {
 	int FOREIGN_KEY_CHANGE = 21;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3561,7 +3561,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_FOREIGN_KEY = 22;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3714,7 +3714,7 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_FOREIGN_KEY = 23;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3867,7 +3867,7 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_FOREIGN_KEY = 24;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4029,7 +4029,7 @@ public interface DbevolutionPackage extends EPackage {
 	int CONSTRAINT_CHANGE = 25;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4182,7 +4182,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_CONSTRAINT = 26;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4335,7 +4335,7 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_CONSTRAINT = 27;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4488,7 +4488,7 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_CONSTRAINT = 28;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4650,7 +4650,7 @@ public interface DbevolutionPackage extends EPackage {
 	int SEQUENCE_CHANGE = 29;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4804,7 +4804,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_SEQUENCE = 30;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4958,7 +4958,7 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_SEQUENCE = 31;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5112,7 +5112,7 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_SEQUENCE = 32;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5275,7 +5275,7 @@ public interface DbevolutionPackage extends EPackage {
 	int SCHEMA_CHANGE = 33;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5429,7 +5429,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_SCHEMA = 34;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5583,7 +5583,7 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_SCHEMA = 35;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5737,7 +5737,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ALTER_SCHEMA = 36;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5891,7 +5891,7 @@ public interface DbevolutionPackage extends EPackage {
 	int RENAME_SCHEMA_CHANGE = 37;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6054,7 +6054,7 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_SCHEMA_COMMENT_CHANGE = 38;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6217,7 +6217,7 @@ public interface DbevolutionPackage extends EPackage {
 	int VIEW_CHANGE = 40;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6371,7 +6371,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ADD_VIEW = 41;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6525,7 +6525,7 @@ public interface DbevolutionPackage extends EPackage {
 	int REMOVE_VIEW = 42;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6679,7 +6679,7 @@ public interface DbevolutionPackage extends EPackage {
 	int ALTER_VIEW = 43;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6833,7 +6833,7 @@ public interface DbevolutionPackage extends EPackage {
 	int RENAME_VIEW_CHANGE = 44;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6996,7 +6996,7 @@ public interface DbevolutionPackage extends EPackage {
 	int UPDATE_VIEW_COMMENT_CHANGE = 45;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' container reference.
+	 * The feature id for the '<em><b>Match</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7147,6 +7147,169 @@ public interface DbevolutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_VIEW_COMMENT_CHANGE_FEATURE_COUNT = VIEW_CHANGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.UpdateViewQueryChangeImpl <em>Update View Query Change</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.UpdateViewQueryChangeImpl
+	 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getUpdateViewQueryChange()
+	 * @generated
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE = 46;
+
+	/**
+	 * The feature id for the '<em><b>Match</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__MATCH = VIEW_CHANGE__MATCH;
+
+	/**
+	 * The feature id for the '<em><b>Requires</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__REQUIRES = VIEW_CHANGE__REQUIRES;
+
+	/**
+	 * The feature id for the '<em><b>Required By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__REQUIRED_BY = VIEW_CHANGE__REQUIRED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Implies</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__IMPLIES = VIEW_CHANGE__IMPLIES;
+
+	/**
+	 * The feature id for the '<em><b>Implied By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__IMPLIED_BY = VIEW_CHANGE__IMPLIED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Refines</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__REFINES = VIEW_CHANGE__REFINES;
+
+	/**
+	 * The feature id for the '<em><b>Refined By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__REFINED_BY = VIEW_CHANGE__REFINED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Prime Refining</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__PRIME_REFINING = VIEW_CHANGE__PRIME_REFINING;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__KIND = VIEW_CHANGE__KIND;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__SOURCE = VIEW_CHANGE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__STATE = VIEW_CHANGE__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Equivalence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__EQUIVALENCE = VIEW_CHANGE__EQUIVALENCE;
+
+	/**
+	 * The feature id for the '<em><b>Conflict</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__CONFLICT = VIEW_CHANGE__CONFLICT;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__TARGET = VIEW_CHANGE__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__VIEW = VIEW_CHANGE__VIEW;
+
+	/**
+	 * The feature id for the '<em><b>New View</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE__NEW_VIEW = VIEW_CHANGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Update View Query Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_VIEW_QUERY_CHANGE_FEATURE_COUNT = VIEW_CHANGE_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.dbevolution.AddTable <em>Add Table</em>}'.
@@ -7855,6 +8018,27 @@ public interface DbevolutionPackage extends EPackage {
 	EReference getUpdateViewCommentChange_NewView();
 
 	/**
+	 * Returns the meta object for class '{@link org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange <em>Update View Query Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Update View Query Change</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange
+	 * @generated
+	 */
+	EClass getUpdateViewQueryChange();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange#getNewView <em>New View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>New View</em>'.
+	 * @see org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange#getNewView()
+	 * @see #getUpdateViewQueryChange()
+	 * @generated
+	 */
+	EReference getUpdateViewQueryChange_NewView();
+
+	/**
 	 * Returns the factory that creates the instances of the model. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -8510,6 +8694,24 @@ public interface DbevolutionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference UPDATE_VIEW_COMMENT_CHANGE__NEW_VIEW = eINSTANCE.getUpdateViewCommentChange_NewView();
+
+		/**
+		 * The meta object literal for the '{@link org.obeonetwork.dsl.database.dbevolution.impl.UpdateViewQueryChangeImpl <em>Update View Query Change</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.UpdateViewQueryChangeImpl
+		 * @see org.obeonetwork.dsl.database.dbevolution.impl.DbevolutionPackageImpl#getUpdateViewQueryChange()
+		 * @generated
+		 */
+		EClass UPDATE_VIEW_QUERY_CHANGE = eINSTANCE.getUpdateViewQueryChange();
+
+		/**
+		 * The meta object literal for the '<em><b>New View</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UPDATE_VIEW_QUERY_CHANGE__NEW_VIEW = eINSTANCE.getUpdateViewQueryChange_NewView();
 
 	}
 

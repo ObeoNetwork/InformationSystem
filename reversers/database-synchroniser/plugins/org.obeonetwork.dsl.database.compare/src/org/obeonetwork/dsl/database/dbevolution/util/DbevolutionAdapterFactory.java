@@ -10,12 +10,8 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.compare.Comparison;
-import org.eclipse.emf.compare.AttributeChange;
 import org.eclipse.emf.compare.Diff;
-import org.eclipse.emf.compare.Match;
-import org.eclipse.emf.compare.ReferenceChange;
 import org.eclipse.emf.ecore.EObject;
-import org.obeonetwork.dsl.database.dbevolution.*;
 import org.obeonetwork.dsl.database.dbevolution.AddColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
 import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
@@ -24,10 +20,13 @@ import org.obeonetwork.dsl.database.dbevolution.AddPrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.AddSchema;
 import org.obeonetwork.dsl.database.dbevolution.AddSequence;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
+import org.obeonetwork.dsl.database.dbevolution.AddView;
 import org.obeonetwork.dsl.database.dbevolution.AlterSchema;
 import org.obeonetwork.dsl.database.dbevolution.AlterTable;
+import org.obeonetwork.dsl.database.dbevolution.AlterView;
 import org.obeonetwork.dsl.database.dbevolution.ColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
+import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.DatabaseChangeSet;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
 import org.obeonetwork.dsl.database.dbevolution.ForeignKeyChange;
@@ -41,9 +40,11 @@ import org.obeonetwork.dsl.database.dbevolution.RemovePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.RemoveSchema;
 import org.obeonetwork.dsl.database.dbevolution.RemoveSequence;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
+import org.obeonetwork.dsl.database.dbevolution.RemoveView;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameSchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
+import org.obeonetwork.dsl.database.dbevolution.RenameViewChange;
 import org.obeonetwork.dsl.database.dbevolution.SchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
@@ -56,6 +57,9 @@ import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateSchemaCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateSequence;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange;
+import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides
@@ -293,6 +297,10 @@ public class DbevolutionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUpdateViewCommentChange(UpdateViewCommentChange object) {
 				return createUpdateViewCommentChangeAdapter();
+			}
+			@Override
+			public Adapter caseUpdateViewQueryChange(UpdateViewQueryChange object) {
+				return createUpdateViewQueryChangeAdapter();
 			}
 			@Override
 			public Adapter caseComparison(Comparison object) {
@@ -966,6 +974,20 @@ public class DbevolutionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUpdateViewCommentChangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange <em>Update View Query Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange
+	 * @generated
+	 */
+	public Adapter createUpdateViewQueryChangeAdapter() {
 		return null;
 	}
 

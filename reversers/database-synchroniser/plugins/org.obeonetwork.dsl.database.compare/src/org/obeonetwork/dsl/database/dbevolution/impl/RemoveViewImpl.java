@@ -3,7 +3,6 @@
 package org.obeonetwork.dsl.database.dbevolution.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
 import org.obeonetwork.dsl.database.dbevolution.RemoveView;
 
@@ -11,8 +10,6 @@ import org.obeonetwork.dsl.database.dbevolution.RemoveView;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Remove View</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

@@ -15,10 +15,10 @@ import org.obeonetwork.dsl.database.Sequence;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.UpdateSequence#getNewSequence <em>New Sequence</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage#getUpdateSequence()
  * @model

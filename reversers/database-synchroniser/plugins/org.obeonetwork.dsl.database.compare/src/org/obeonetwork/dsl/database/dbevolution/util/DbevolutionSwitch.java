@@ -7,14 +7,10 @@
 package org.obeonetwork.dsl.database.dbevolution.util;
 
 import org.eclipse.emf.compare.Comparison;
-import org.eclipse.emf.compare.AttributeChange;
 import org.eclipse.emf.compare.Diff;
-import org.eclipse.emf.compare.Match;
-import org.eclipse.emf.compare.ReferenceChange;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.obeonetwork.dsl.database.dbevolution.*;
 import org.obeonetwork.dsl.database.dbevolution.AddColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
 import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
@@ -23,10 +19,13 @@ import org.obeonetwork.dsl.database.dbevolution.AddPrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.AddSchema;
 import org.obeonetwork.dsl.database.dbevolution.AddSequence;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
+import org.obeonetwork.dsl.database.dbevolution.AddView;
 import org.obeonetwork.dsl.database.dbevolution.AlterSchema;
 import org.obeonetwork.dsl.database.dbevolution.AlterTable;
+import org.obeonetwork.dsl.database.dbevolution.AlterView;
 import org.obeonetwork.dsl.database.dbevolution.ColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.ConstraintChange;
+import org.obeonetwork.dsl.database.dbevolution.DBDiff;
 import org.obeonetwork.dsl.database.dbevolution.DatabaseChangeSet;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
 import org.obeonetwork.dsl.database.dbevolution.ForeignKeyChange;
@@ -40,9 +39,11 @@ import org.obeonetwork.dsl.database.dbevolution.RemovePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.RemoveSchema;
 import org.obeonetwork.dsl.database.dbevolution.RemoveSequence;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
+import org.obeonetwork.dsl.database.dbevolution.RemoveView;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameSchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
+import org.obeonetwork.dsl.database.dbevolution.RenameViewChange;
 import org.obeonetwork.dsl.database.dbevolution.SchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.SequenceChange;
 import org.obeonetwork.dsl.database.dbevolution.TableChange;
@@ -55,6 +56,9 @@ import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateSchemaCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateSequence;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange;
+import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance
@@ -90,7 +94,7 @@ public class DbevolutionSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -507,6 +511,15 @@ public class DbevolutionSwitch<T> extends Switch<T> {
 				if (result == null) result = caseViewChange(updateViewCommentChange);
 				if (result == null) result = caseDBDiff(updateViewCommentChange);
 				if (result == null) result = caseDiff(updateViewCommentChange);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DbevolutionPackage.UPDATE_VIEW_QUERY_CHANGE: {
+				UpdateViewQueryChange updateViewQueryChange = (UpdateViewQueryChange)theEObject;
+				T result = caseUpdateViewQueryChange(updateViewQueryChange);
+				if (result == null) result = caseViewChange(updateViewQueryChange);
+				if (result == null) result = caseDBDiff(updateViewQueryChange);
+				if (result == null) result = caseDiff(updateViewQueryChange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1180,6 +1193,21 @@ public class DbevolutionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUpdateViewCommentChange(UpdateViewCommentChange object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Update View Query Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Update View Query Change</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUpdateViewQueryChange(UpdateViewQueryChange object) {
 		return null;
 	}
 

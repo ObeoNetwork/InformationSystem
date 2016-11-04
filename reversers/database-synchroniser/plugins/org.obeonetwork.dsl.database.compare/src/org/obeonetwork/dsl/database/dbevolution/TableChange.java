@@ -6,7 +6,6 @@
  */
 package org.obeonetwork.dsl.database.dbevolution;
 
-import org.eclipse.emf.compare.Diff;
 import org.obeonetwork.dsl.database.Table;
 
 /**
@@ -15,10 +14,10 @@ import org.obeonetwork.dsl.database.Table;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.TableChange#getTable <em>Table</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage#getTableChange()
  * @model abstract="true"

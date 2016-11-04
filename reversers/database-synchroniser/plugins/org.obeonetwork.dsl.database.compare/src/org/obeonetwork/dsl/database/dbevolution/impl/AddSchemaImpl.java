@@ -14,8 +14,6 @@ import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Add Schema</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

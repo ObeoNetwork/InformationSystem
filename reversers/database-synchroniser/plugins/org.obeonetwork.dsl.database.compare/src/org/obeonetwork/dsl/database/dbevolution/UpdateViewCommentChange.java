@@ -11,10 +11,10 @@ import org.obeonetwork.dsl.database.View;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange#getNewView <em>New View</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage#getUpdateViewCommentChange()
  * @model

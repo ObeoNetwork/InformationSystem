@@ -7,7 +7,6 @@
 package org.obeonetwork.dsl.database.dbevolution.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.compare.impl.DiffImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -21,10 +20,10 @@ import org.obeonetwork.dsl.database.dbevolution.PrimaryKeyChange;
  * <em><b>Primary Key Change</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.impl.PrimaryKeyChangeImpl#getPrimaryKey <em>Primary Key</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -6,14 +6,7 @@
  */
 package org.obeonetwork.dsl.database.dbevolution.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.compare.impl.AttributeChangeImpl;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.obeonetwork.dsl.database.Column;
-import org.obeonetwork.dsl.database.dbevolution.ColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnCommentChange;
 
@@ -21,8 +14,6 @@ import org.obeonetwork.dsl.database.dbevolution.UpdateColumnCommentChange;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Update Column Comment Change</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

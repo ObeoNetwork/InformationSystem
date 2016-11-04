@@ -6,7 +6,6 @@
  */
 package org.obeonetwork.dsl.database.dbevolution;
 
-import org.eclipse.emf.compare.Match;
 import org.obeonetwork.dsl.database.PrimaryKey;
 
 /**
@@ -15,10 +14,10 @@ import org.obeonetwork.dsl.database.PrimaryKey;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey#getNewPrimaryKey <em>New Primary Key</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage#getUpdatePrimaryKey()
  * @model

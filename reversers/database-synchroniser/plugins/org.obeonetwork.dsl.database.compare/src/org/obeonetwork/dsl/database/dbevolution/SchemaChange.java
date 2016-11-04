@@ -6,8 +6,6 @@
  */
 package org.obeonetwork.dsl.database.dbevolution;
 
-import org.eclipse.emf.compare.Diff;
-import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.database.Schema;
 
 /**
@@ -17,10 +15,10 @@ import org.obeonetwork.dsl.database.Schema;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.SchemaChange#getSchema <em>Schema</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage#getSchemaChange()
  * @model

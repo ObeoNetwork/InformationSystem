@@ -3,15 +3,11 @@
 package org.obeonetwork.dsl.database.dbevolution.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.obeonetwork.dsl.database.View;
-
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
 import org.obeonetwork.dsl.database.dbevolution.RenameViewChange;
 
@@ -21,10 +17,10 @@ import org.obeonetwork.dsl.database.dbevolution.RenameViewChange;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.impl.RenameViewChangeImpl#getNewView <em>New View</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

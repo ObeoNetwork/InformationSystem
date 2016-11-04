@@ -19,6 +19,7 @@ import org.obeonetwork.dsl.database.dbevolution.DbevolutionFactory;
 import org.obeonetwork.dsl.database.dbevolution.RemoveView;
 import org.obeonetwork.dsl.database.dbevolution.RenameViewChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange;
 
 public class ViewChangeBuilder extends ChangeBuilder {
 	
@@ -54,7 +55,7 @@ public class ViewChangeBuilder extends ChangeBuilder {
 			return createRenameViewChange(change);
 		}
 		if (DatabasePackage.eINSTANCE.getView_Query().equals(change.getAttribute())) {
-			return createRenameViewChange(change);
+			return createUpdateViewQueryChange(change);
 		}
 		if (DatabasePackage.eINSTANCE.getDatabaseElement_Comments().equals(change.getAttribute())) {
 			return createUpdateViewCommentChange(change);
@@ -93,6 +94,13 @@ public class ViewChangeBuilder extends ChangeBuilder {
 		updateViewCommentChange.setNewView((View) change.getMatch().getLeft());			
 		updateViewCommentChange.setView((View)change.getMatch().getRight());
 		return updateViewCommentChange;
+	}
+	
+	protected UpdateViewQueryChange createUpdateViewQueryChange(AttributeChange change) {
+		UpdateViewQueryChange updateViewQueryChange = DbevolutionFactory.eINSTANCE.createUpdateViewQueryChange();	
+		updateViewQueryChange.setNewView((View) change.getMatch().getLeft());			
+		updateViewQueryChange.setView((View)change.getMatch().getRight());
+		return updateViewQueryChange;
 	}
 	
 }

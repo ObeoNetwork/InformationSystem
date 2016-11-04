@@ -6,30 +6,13 @@
  */
 package org.obeonetwork.dsl.database.dbevolution.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.compare.ComparePackage;
-import org.eclipse.emf.compare.Conflict;
-import org.eclipse.emf.compare.Diff;
-import org.eclipse.emf.compare.DifferenceKind;
-import org.eclipse.emf.compare.DifferenceSource;
-import org.eclipse.emf.compare.DifferenceState;
-import org.eclipse.emf.compare.Equivalence;
-import org.eclipse.emf.compare.Match;
-import org.eclipse.emf.compare.impl.MatchImpl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 import org.obeonetwork.dsl.database.PrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
-import org.obeonetwork.dsl.database.dbevolution.PrimaryKeyChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
 
 /**
@@ -37,10 +20,10 @@ import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
  * <em><b>Update Primary Key</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.impl.UpdatePrimaryKeyImpl#getNewPrimaryKey <em>New Primary Key</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -128,7 +111,6 @@ public class UpdatePrimaryKeyImpl extends PrimaryKeyChangeImpl implements Update
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

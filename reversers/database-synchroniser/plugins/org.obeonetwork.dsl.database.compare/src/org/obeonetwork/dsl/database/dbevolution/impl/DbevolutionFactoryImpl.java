@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.obeonetwork.dsl.database.dbevolution.*;
 import org.obeonetwork.dsl.database.dbevolution.AddColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.AddConstraint;
 import org.obeonetwork.dsl.database.dbevolution.AddForeignKey;
@@ -20,8 +19,10 @@ import org.obeonetwork.dsl.database.dbevolution.AddPrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.AddSchema;
 import org.obeonetwork.dsl.database.dbevolution.AddSequence;
 import org.obeonetwork.dsl.database.dbevolution.AddTable;
+import org.obeonetwork.dsl.database.dbevolution.AddView;
 import org.obeonetwork.dsl.database.dbevolution.AlterSchema;
 import org.obeonetwork.dsl.database.dbevolution.AlterTable;
+import org.obeonetwork.dsl.database.dbevolution.AlterView;
 import org.obeonetwork.dsl.database.dbevolution.DatabaseChangeSet;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionFactory;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
@@ -33,9 +34,11 @@ import org.obeonetwork.dsl.database.dbevolution.RemovePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.RemoveSchema;
 import org.obeonetwork.dsl.database.dbevolution.RemoveSequence;
 import org.obeonetwork.dsl.database.dbevolution.RemoveTable;
+import org.obeonetwork.dsl.database.dbevolution.RemoveView;
 import org.obeonetwork.dsl.database.dbevolution.RenameColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameSchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.RenameTableChange;
+import org.obeonetwork.dsl.database.dbevolution.RenameViewChange;
 import org.obeonetwork.dsl.database.dbevolution.SchemaChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnCommentChange;
@@ -46,6 +49,8 @@ import org.obeonetwork.dsl.database.dbevolution.UpdatePrimaryKey;
 import org.obeonetwork.dsl.database.dbevolution.UpdateSchemaCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateSequence;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
@@ -126,6 +131,7 @@ public class DbevolutionFactoryImpl extends EFactoryImpl implements DbevolutionF
 			case DbevolutionPackage.ALTER_VIEW: return createAlterView();
 			case DbevolutionPackage.RENAME_VIEW_CHANGE: return createRenameViewChange();
 			case DbevolutionPackage.UPDATE_VIEW_COMMENT_CHANGE: return createUpdateViewCommentChange();
+			case DbevolutionPackage.UPDATE_VIEW_QUERY_CHANGE: return createUpdateViewQueryChange();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -483,6 +489,16 @@ public class DbevolutionFactoryImpl extends EFactoryImpl implements DbevolutionF
 	public UpdateViewCommentChange createUpdateViewCommentChange() {
 		UpdateViewCommentChangeImpl updateViewCommentChange = new UpdateViewCommentChangeImpl();
 		return updateViewCommentChange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UpdateViewQueryChange createUpdateViewQueryChange() {
+		UpdateViewQueryChangeImpl updateViewQueryChange = new UpdateViewQueryChangeImpl();
+		return updateViewQueryChange;
 	}
 
 	/**

@@ -6,7 +6,6 @@
  */
 package org.obeonetwork.dsl.database.dbevolution;
 
-import org.eclipse.emf.compare.Diff;
 import org.obeonetwork.dsl.database.ForeignKey;
 
 /**
@@ -15,10 +14,10 @@ import org.obeonetwork.dsl.database.ForeignKey;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.ForeignKeyChange#getForeignKey <em>Foreign Key</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage#getForeignKeyChange()
  * @model abstract="true"

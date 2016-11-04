@@ -21,10 +21,10 @@ import org.obeonetwork.dsl.database.dbevolution.UpdateSequence;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.impl.UpdateSequenceImpl#getNewSequence <em>New Sequence</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

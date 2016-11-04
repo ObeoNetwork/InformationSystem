@@ -6,7 +6,6 @@
  */
 package org.obeonetwork.dsl.database.dbevolution;
 
-import org.eclipse.emf.compare.AttributeChange;
 import org.obeonetwork.dsl.database.Table;
 
 /**
@@ -16,10 +15,10 @@ import org.obeonetwork.dsl.database.Table;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange#getNewTable <em>New Table</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage#getUpdateTableCommentChange()
  * @model

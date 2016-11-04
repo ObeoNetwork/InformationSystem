@@ -357,6 +357,15 @@ public interface DbevolutionFactory extends EFactory {
 	UpdateViewCommentChange createUpdateViewCommentChange();
 
 	/**
+	 * Returns a new object of class '<em>Update View Query Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Update View Query Change</em>'.
+	 * @generated
+	 */
+	UpdateViewQueryChange createUpdateViewQueryChange();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

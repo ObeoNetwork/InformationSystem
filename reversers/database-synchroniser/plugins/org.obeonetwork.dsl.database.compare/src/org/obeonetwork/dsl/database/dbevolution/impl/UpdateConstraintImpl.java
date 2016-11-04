@@ -20,10 +20,10 @@ import org.obeonetwork.dsl.database.dbevolution.UpdateConstraint;
  * <em><b>Update Constraint</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.impl.UpdateConstraintImpl#getNewConstraint <em>New Constraint</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

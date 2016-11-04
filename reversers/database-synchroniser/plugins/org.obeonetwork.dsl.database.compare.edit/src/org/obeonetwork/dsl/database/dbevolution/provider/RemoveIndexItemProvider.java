@@ -11,13 +11,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.compare.provider.AdapterFactoryUtil;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.obeonetwork.dsl.database.Index;
 import org.obeonetwork.dsl.database.compare.extensions.services.DiffContentService;
 import org.obeonetwork.dsl.database.dbevolution.RemoveIndex;
@@ -29,8 +24,7 @@ import org.obeonetwork.dsl.database.dbevolution.RemoveIndex;
  * 
  * @generated
  */
-public class RemoveIndexItemProvider extends IndexChangeItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
-		IItemLabelProvider, IItemPropertySource {
+public class RemoveIndexItemProvider extends IndexChangeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -77,7 +71,8 @@ public class RemoveIndexItemProvider extends IndexChangeItemProvider implements 
 	public String getText(Object object) {
 		RemoveIndex removeIndex = (RemoveIndex) object;
 		Index index = (Index) removeIndex.getIndex();
-		final String parentLabel = AdapterFactoryUtil.getText(getRootAdapterFactory(), index);
+		AdapterFactoryItemDelegator delegator = new AdapterFactoryItemDelegator(getRootAdapterFactory());
+		final String parentLabel = delegator.getText(index);
 		return getString("_UI_RemoveIndex_type", new Object[] {parentLabel, new DiffContentService().getSubDiffs(removeIndex, removeIndex.getMatch().getComparison()).size()});		
 	}
 

@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.compare.provider.EMFCompareEditPlugin;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.obeonetwork.dsl.database.provider.DatabaseEditPlugin;
+import org.obeonetwork.dsl.technicalid.provider.TechnicalIDEditPlugin;
 import org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryEditPlugin;
 
 /**
@@ -49,6 +50,7 @@ public final class DbevolutionEditPlugin extends EMFPlugin {
 		     EMFCompareEditPlugin.INSTANCE,
 		     EcoreEditPlugin.INSTANCE,
 		     TypesLibraryEditPlugin.INSTANCE,
+		     TechnicalIDEditPlugin.INSTANCE,
 		   });
 	}
 

@@ -60,6 +60,7 @@ import org.obeonetwork.dsl.database.dbevolution.UpdateSchemaCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateSequence;
 import org.obeonetwork.dsl.database.dbevolution.UpdateTableCommentChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateViewCommentChange;
+import org.obeonetwork.dsl.database.dbevolution.UpdateViewQueryChange;
 import org.obeonetwork.dsl.database.dbevolution.ViewChange;
 
 /**
@@ -368,6 +369,13 @@ public class DbevolutionPackageImpl extends EPackageImpl implements DbevolutionP
 	 * @generated
 	 */
 	private EClass updateViewCommentChangeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass updateViewQueryChangeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1023,6 +1031,24 @@ public class DbevolutionPackageImpl extends EPackageImpl implements DbevolutionP
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUpdateViewQueryChange() {
+		return updateViewQueryChangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUpdateViewQueryChange_NewView() {
+		return (EReference)updateViewQueryChangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1161,6 +1187,9 @@ public class DbevolutionPackageImpl extends EPackageImpl implements DbevolutionP
 
 		updateViewCommentChangeEClass = createEClass(UPDATE_VIEW_COMMENT_CHANGE);
 		createEReference(updateViewCommentChangeEClass, UPDATE_VIEW_COMMENT_CHANGE__NEW_VIEW);
+
+		updateViewQueryChangeEClass = createEClass(UPDATE_VIEW_QUERY_CHANGE);
+		createEReference(updateViewQueryChangeEClass, UPDATE_VIEW_QUERY_CHANGE__NEW_VIEW);
 	}
 
 	/**
@@ -1241,6 +1270,7 @@ public class DbevolutionPackageImpl extends EPackageImpl implements DbevolutionP
 		alterViewEClass.getESuperTypes().add(this.getViewChange());
 		renameViewChangeEClass.getESuperTypes().add(this.getViewChange());
 		updateViewCommentChangeEClass.getESuperTypes().add(this.getViewChange());
+		updateViewQueryChangeEClass.getESuperTypes().add(this.getViewChange());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(databaseChangeSetEClass, DatabaseChangeSet.class, "DatabaseChangeSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1356,6 +1386,9 @@ public class DbevolutionPackageImpl extends EPackageImpl implements DbevolutionP
 
 		initEClass(updateViewCommentChangeEClass, UpdateViewCommentChange.class, "UpdateViewCommentChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUpdateViewCommentChange_NewView(), theDatabasePackage.getView(), null, "newView", null, 1, 1, UpdateViewCommentChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(updateViewQueryChangeEClass, UpdateViewQueryChange.class, "UpdateViewQueryChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUpdateViewQueryChange_NewView(), theDatabasePackage.getView(), null, "newView", null, 1, 1, UpdateViewQueryChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

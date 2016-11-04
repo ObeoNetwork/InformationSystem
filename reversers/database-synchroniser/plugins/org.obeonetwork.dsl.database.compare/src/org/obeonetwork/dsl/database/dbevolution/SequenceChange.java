@@ -6,7 +6,6 @@
  */
 package org.obeonetwork.dsl.database.dbevolution;
 
-import org.eclipse.emf.compare.Diff;
 import org.obeonetwork.dsl.database.Sequence;
 
 /**
@@ -16,10 +15,10 @@ import org.obeonetwork.dsl.database.Sequence;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.obeonetwork.dsl.database.dbevolution.SequenceChange#getSequence <em>Sequence</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage#getSequenceChange()
  * @model abstract="true"

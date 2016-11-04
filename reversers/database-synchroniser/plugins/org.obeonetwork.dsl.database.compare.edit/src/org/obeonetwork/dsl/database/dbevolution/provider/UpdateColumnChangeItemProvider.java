@@ -11,13 +11,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.compare.provider.AdapterFactoryUtil;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.compare.extensions.services.DiffContentService;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
@@ -27,8 +22,7 @@ import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class UpdateColumnChangeItemProvider extends ColumnChangeItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource {
+public class UpdateColumnChangeItemProvider extends ColumnChangeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -75,7 +69,8 @@ public class UpdateColumnChangeItemProvider extends ColumnChangeItemProvider imp
 	public String getText(Object object) {
 		UpdateColumnChange updateColumnChange = (UpdateColumnChange) object;
 		Column column = updateColumnChange.getColumn();
-		final String parentLabel = AdapterFactoryUtil.getText(getRootAdapterFactory(), column);
+		AdapterFactoryItemDelegator delegator = new AdapterFactoryItemDelegator(getRootAdapterFactory());
+		final String parentLabel = delegator.getText(column);
 		return getString("_UI_UpdateColumnChange_type", new Object[] { parentLabel, new DiffContentService().getSubDiffs(updateColumnChange, updateColumnChange.getMatch().getComparison()).size() });
 	}
 
