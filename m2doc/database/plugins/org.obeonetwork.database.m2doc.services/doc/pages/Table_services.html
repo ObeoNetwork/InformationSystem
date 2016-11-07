@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+/********************************************************************************
+** Copyright (c) 2016 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for Table</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+		<h1 id="Table">Services and attributes for the Table concept</h1>
+		
+  	<div class="page-header">
+		<h2 id="Attributs">Attributes </h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>ID</strong>
+				</td>
+				<td>String</td>
+				<td>{m:tbl.ID}</td>
+				<td>returns the identifier of the Table</td>
+				<td>The table's identifier is {m:table.ID}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>comments</strong>
+				</td>
+				<td>String</td>
+				<td>{m:tbl.comments}</td>
+				<td>returns the comments stored on the table</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>techID</strong>
+				</td>
+				<td>String</td>
+				<td>{m:tbl.techID}</td>
+				<td>returns the technical id of the table</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>name</strong>
+				</td>
+				<td>String</td>
+				<td>{m:tbl.name}</td>
+				<td>returns the name of the table</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>owner</strong>
+				</td>
+				<td>Database or Schema</td>
+				<td>{m:tbl.owner}</td>
+				<td>returns the database or the schema owning the table</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>primaryKey</strong>
+				</td>
+				<td>Primary Key</td>
+				<td>{m:tbl.primaryKey}</td>
+				<td>returns the primary key of the table</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>foreignKeys</strong>
+				</td>
+				<td>List of foreign keys</td>
+				<td>{m:tbl.foreignKeys}</td>
+				<td>returns the foreign keys of the table</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>constraints</strong>
+				</td>
+				<td>List of constraints</td>
+				<td>{m:tbl.constraints}</td>
+				<td>returns the list of constraints of the table</td>
+				<td>The list of constraints of the table is <br/>{m:for col &#124; table.constraints}<br/>- {m:cstr.name}<br/>{m:endfor}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>indexes</strong>
+				</td>
+				<td>List of indexes</td>
+				<td>{m:tbl.indexs}</td>
+				<td>returns the list of indexes of the table</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>columns</strong>
+				</td>
+				<td>List of columns</td>
+				<td>{m:tbl.columns}</td>
+				<td>returns the list of columns of the table</td>
+				<td>The list of columns of the table is <br/>{m:for col &#124; table.columns}<br/>- {m:col.name}<br/>{m:endfor}</td>
+			</tr>
+	</tbody>
+		</table>
+  	<div class="page-header">
+		<h2 id="Services">Services</h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+	    </thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>Primary Key Name</strong>
+				</td>
+				<td>String</td>
+				<td>{m:table.primaryKeyName()}</td>
+				<td>Returns the name of the table's primary key . </td>
+				<td>The table has a primary key named {m:table.primaryKeyName()}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Foreign Key Name</strong>
+				</td>
+				<td>List of String</td>
+				<td>{m:table.foreignKeyNames()}</td>
+				<td>Returns the name of the table's foreign keys. </td>
+				<td>The table has the following foreign keys : {m:table.foreignKeyNames()}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>pure columns</strong>
+				</td>
+				<td>List of columns</td>
+				<td>{m:table.pureColumns()}</td>
+				<td>Returns the list of columns that are nor primary key neither in a foreign key.</td>
+				<td>The list of pure columns are {m:for col| table.pureColumns()}{m:col.name}{m:endfor}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>Pure Columns Names</strong>
+				</td>
+				<td>List of String</td>
+				<td>{m:table.pureColumnNames()}</td>
+				<td>Returns the list of names of all the pure columns (nor primary neither foreign key)</td>
+				<td></td>
+			</tr>
+	   </tbody>
+		</table>
+	</body>
+</html>

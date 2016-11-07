@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_ZMx-AQYSEeavcqcXisa0XA" techID="_ZMx-AAYSEeavcqcXisa0XA" name="referentiel-oracle">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_cJIaYQYSEeavcqcXisa0XA" comments="Référentiel" techID="_cJIaYAYSEeavcqcXisa0XA" name="RF">
+    <tables xsi:type="database:Table" xmi:id="_cJJBcQYSEeavcqcXisa0XA" comments="Table des pays" techID="_cJJBcAYSEeavcqcXisa0XA" name="RF_PAYS">
+      <primaryKey xmi:id="_cJK2ogYSEeavcqcXisa0XA" comments="Contrainte PK pour la colonne RF_PAYS_ID" techID="_cJK2oQYSEeavcqcXisa0XA" name="RF_PAYS_PK" columns="_cJJBcwYSEeavcqcXisa0XA"/>
+      <constraints xmi:id="_cJLduQYSEeavcqcXisa0XA" comments="Liste des valeurs possibles pour RF_XTOPSUP" techID="_cJLduAYSEeavcqcXisa0XA" name="RF_PAYS_CK1_1" expression="RF_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_cJK2pAYSEeavcqcXisa0XA" comments="Index d'unicité pour RF_PAYS_LIB" techID="_cJK2owYSEeavcqcXisa0XA" name="RF_PAYS_UN1_1" unique="true">
+        <elements xmi:id="_cJK2pgYSEeavcqcXisa0XA" techID="_cJK2pQYSEeavcqcXisa0XA" column="_cJJoggYSEeavcqcXisa0XA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_cJLdsQYSEeavcqcXisa0XA" comments="Index d'unicité pour RF_PAYS_LIBA" techID="_cJLdsAYSEeavcqcXisa0XA" name="RF_PAYS_UN1_2" unique="true">
+        <elements xmi:id="_cJLdswYSEeavcqcXisa0XA" techID="_cJLdsgYSEeavcqcXisa0XA" column="_cJJohgYSEeavcqcXisa0XA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_cJLdtQYSEeavcqcXisa0XA" comments="Index d'unicité pour RF_PAYS_PHOTO" techID="_cJLdtAYSEeavcqcXisa0XA" name="RF_PAYS_UN1_3" unique="true">
+        <elements xmi:id="_cJLdtwYSEeavcqcXisa0XA" techID="_cJLdtgYSEeavcqcXisa0XA" column="_cJKPkgYSEeavcqcXisa0XA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_cJJBcwYSEeavcqcXisa0XA" comments="PK de la table RF_PAYS" techID="_cJJBcgYSEeavcqcXisa0XA" name="RF_PAYS_ID" primaryKey="_cJK2ogYSEeavcqcXisa0XA" sequence="_cJNS5QYSEeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_cJJogAYSEeavcqcXisa0XA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwtRxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_cJJoggYSEeavcqcXisa0XA" comments="Libellé du pays" techID="_cJJogQYSEeavcqcXisa0XA" name="RF_PAYS_LIB" indexElements="_cJK2pgYSEeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_cJJohAYSEeavcqcXisa0XA" length="30">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_cJJohgYSEeavcqcXisa0XA" comments="Libelllé court du pays&#xD;&#xA;" techID="_cJJohQYSEeavcqcXisa0XA" name="RF_PAYS_LIBA" indexElements="_cJLdswYSEeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_cJKPkAYSEeavcqcXisa0XA" length="3">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_cJKPkgYSEeavcqcXisa0XA" comments="nom du fichier contenant le drapeau du pays" techID="_cJKPkQYSEeavcqcXisa0XA" name="RF_PAYS_PHOTO" nullable="true" indexElements="_cJLdtwYSEeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_cJKPlAYSEeavcqcXisa0XA" length="50">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_cJKPlgYSEeavcqcXisa0XA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_cJKPlQYSEeavcqcXisa0XA" name="RF_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_cJKPmAYSEeavcqcXisa0XA" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_cJKPmgYSEeavcqcXisa0XA" comments="Date de mise à jour de la ligne" techID="_cJKPmQYSEeavcqcXisa0XA" name="RF_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_cJK2oAYSEeavcqcXisa0XA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_cJMEwQYSEeavcqcXisa0XA" techID="_cJMEwAYSEeavcqcXisa0XA" name="RF_GENRE">
+      <primaryKey xmi:id="_cJMr1gYSEeavcqcXisa0XA" comments="Contrainte PK pour la colonne RF_GENRE_ID" techID="_cJMr1QYSEeavcqcXisa0XA" name="RF_GENRE_PK" columns="_cJMEwwYSEeavcqcXisa0XA"/>
+      <constraints xmi:id="_cJNS4wYSEeavcqcXisa0XA" comments="Liste des valeurs possibles pour RF_XTOPSUP" techID="_cJNS4gYSEeavcqcXisa0XA" name="RF_GENRE_CK1_1" expression="RF_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_cJMr2AYSEeavcqcXisa0XA" comments="Index d'unicité pour RF_GENRE_LIB" techID="_cJMr1wYSEeavcqcXisa0XA" name="RF_GENRE_UN1_1" unique="true">
+        <elements xmi:id="_cJNS4QYSEeavcqcXisa0XA" techID="_cJNS4AYSEeavcqcXisa0XA" column="_cJMExwYSEeavcqcXisa0XA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_cJMEwwYSEeavcqcXisa0XA" comments="PK de la table RF_GENRE" techID="_cJMEwgYSEeavcqcXisa0XA" name="RF_GENRE_ID" primaryKey="_cJMr1gYSEeavcqcXisa0XA" sequence="_cJNS5wYSEeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_cJMExQYSEeavcqcXisa0XA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwtRxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_cJMExwYSEeavcqcXisa0XA" comments="Libelle long du genre" techID="_cJMExgYSEeavcqcXisa0XA" name="RF_GENRE_LIB" indexElements="_cJNS4QYSEeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_cJMEyQYSEeavcqcXisa0XA" length="30">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_cJMEywYSEeavcqcXisa0XA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_cJMEygYSEeavcqcXisa0XA" name="RF_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_cJMr0AYSEeavcqcXisa0XA" length="1">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUx7bxEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_cJMr0gYSEeavcqcXisa0XA" comments="Date de mise à jour de la ligne" techID="_cJMr0QYSEeavcqcXisa0XA" name="RF_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_cJMr1AYSEeavcqcXisa0XA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <sequences xmi:id="_cJNS5QYSEeavcqcXisa0XA" techID="_cJNS5AYSEeavcqcXisa0XA" name="RF_PAYS_SEQ" start="1" increment="1" columns="_cJJBcwYSEeavcqcXisa0XA"/>
+    <sequences xmi:id="_cJNS5wYSEeavcqcXisa0XA" techID="_cJNS5gYSEeavcqcXisa0XA" name="RF_GENRE_SEQ" start="1" increment="1" columns="_cJMEwwYSEeavcqcXisa0XA"/>
+  </schemas>
+</database:DataBase>

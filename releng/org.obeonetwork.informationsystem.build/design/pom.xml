@@ -244,6 +244,14 @@
 		*********************************************************************************************
 		-->
 		<module>../../org.obeonetwork.informationsystem.design.repository</module>
+				<!-- 
+		*********************************************************************************************
+		* M2Doc Services
+		*********************************************************************************************
+		-->
+		<module>../../../m2doc/database/plugins/org.obeonetwork.database.m2doc.services</module>
+		<module>../../../m2doc/database/plugins/org.obeonetwork.database.m2doc.services.test</module>		
+		<module>../../../m2doc/database/features/org.obeonetwork.database.m2doc.feature</module>		
 		
 	</modules>
 </project>

@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+/********************************************************************************
+** Copyright (c) 2016 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for View</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+		<h1 id="View">Services and attributes for the View concept</h1>
+		
+  	<div class="page-header">
+		<h2 id="Attributs">Attributes </h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>ID</strong>
+				</td>
+				<td>String</td>
+				<td>{m:view.ID}</td>
+				<td>returns the identifier of the View</td>
+				<td>The view's identifier is {m:idx.ID}.</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>comments</strong>
+				</td>
+				<td>String</td>
+				<td>{m:view.comments}</td>
+				<td>returns the comments stored on the view</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>techID</strong>
+				</td>
+				<td>String</td>
+				<td>{m:view.techID}</td>
+				<td>returns the technical id of the view</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>name</strong>
+				</td>
+				<td>String</td>
+				<td>{m:view.name}</td>
+				<td>returns the name of the view </td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>owner</strong>
+				</td>
+				<td>database or schema</td>
+				<td>{m:view.owner}</td>
+				<td>returns the database or the schema owning the view </td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>query</strong>
+				</td>
+				<td>String</td>
+				<td>{m:view.query}</td>
+				<td>returns the query that defines the view</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>columns</strong>
+				</td>
+				<td>List of view elements</td>
+				<td>{m:view.columns}</td>
+				<td>returns the list of columns in the view</td>
+				<td>The list of columns of the view is <br/>{m:for col &#124; view.columns}<br/>- {m:col.name}<br/>{m:endfor}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>tables</strong>
+				</td>
+				<td>List of view elements</td>
+				<td>{m:view.tables}</td>
+				<td>returns the list of tables in the view</td>
+				<td>The list of tables of the view is <br/>{m:for table &#124; view.tabless}<br/>- {m:table.name}<br/>{m:endfor}</td>
+			</tr>
+	</tbody>
+		</table>
+	</body>
+</html>

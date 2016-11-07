@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeslibrary:NativeTypesLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_cUvfIBEnEeGTa_JlZYBw1A" kind="physicalTypes" name="Oracle-11g">
+  <nativeTypes xmi:id="_cUwGMBEnEeGTa_JlZYBw1A" name="BFILE"/>
+  <nativeTypes xmi:id="_cUwGMREnEeGTa_JlZYBw1A" name="BINARY_DOUBLE">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUwGMhEnEeGTa_JlZYBw1A" name="BINARY_FLOAT">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUwGMxEnEeGTa_JlZYBw1A" name="BLOB"/>
+  <nativeTypes xmi:id="_NuhckP_HEeS1PaMnMy5CmQ" name="BOOLEAN">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUwGNBEnEeGTa_JlZYBw1A" name="CLOB"/>
+  <nativeTypes xmi:id="_cUwGNREnEeGTa_JlZYBw1A" name="DATE">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUwGNxEnEeGTa_JlZYBw1A" name="CHAR (%n)" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUwtRxEnEeGTa_JlZYBw1A" name="INTEGER">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUwtSREnEeGTa_JlZYBw1A" name="INTERVAL DAY(%n) TO SECOND" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUwtSxEnEeGTa_JlZYBw1A" name="INTERVAL YEAR(%n) TO MONTH" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUxUWREnEeGTa_JlZYBw1A" name="NCHAR" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUxUWxEnEeGTa_JlZYBw1A" name="NCLOB"/>
+  <nativeTypes xmi:id="_cUxUXBEnEeGTa_JlZYBw1A" name="NUMBER" spec="LengthAndPrecision">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUxUXhEnEeGTa_JlZYBw1A" name="NVARCHAR2" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUx7YhEnEeGTa_JlZYBw1A" name="RAW" spec="Length"/>
+  <nativeTypes xmi:id="_cUx7ZBEnEeGTa_JlZYBw1A" name="ROWID"/>
+  <nativeTypes xmi:id="_cUx7aREnEeGTa_JlZYBw1A" name="TIMESTAMP" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUx7ahEnEeGTa_JlZYBw1A" name="TIMESTAMP WITH LOCAL TIME ZONE" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUx7axEnEeGTa_JlZYBw1A" name="TIMESTAMP WITH TIME ZONE" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUx7bREnEeGTa_JlZYBw1A" name="UROWID"/>
+  <nativeTypes xmi:id="_cUx7bhEnEeGTa_JlZYBw1A" name="VARCHAR" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUx7bxEnEeGTa_JlZYBw1A" name="VARCHAR2" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUx7cBEnEeGTa_JlZYBw1A" name="VARCHAR2(%n BYTE)" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUx7cREnEeGTa_JlZYBw1A" name="VARCHAR2(%n CHAR)" spec="Length">
+    <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+  </nativeTypes>
+  <nativeTypes xmi:id="_cUyicREnEeGTa_JlZYBw1A" name="XML"/>
+</typeslibrary:NativeTypesLibrary>

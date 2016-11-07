@@ -1,0 +1,371 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+/********************************************************************************
+** Copyright (c) 2016 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for Column</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+		<h1 id="Column">Services and attributes for the Column concept</h1>
+		
+  	<div class="page-header">
+		<h2 id="Attributs">Attributes </h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>ID</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.ID}</td>
+				<td>returns the identifier of the column</td>
+				<td>column's identifier: {m:col.ID}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>comments</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.comments}</td>
+				<td>returns the comments stored on the columns</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>techID</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.techID}</td>
+				<td>returns the technical id of the column</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>name</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.name}</td>
+				<td>returns the name of the column</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>nullable</strong>
+				</td>
+				<td>True/False</td>
+				<td>{m:col.nullable}</td>
+				<td>returns true if the column may contain null value and false otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>defaultValue</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.defaultValue}</td>
+				<td>returns the column's default value</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>indexes</strong>
+				</td>
+				<td>List of Indexes</td>
+				<td>{m:col.indexes}</td>
+				<td>returns the list of indexes used by the column</td>
+				<td>the list of indexes of the column : {m:for idx  &#124; col.indexes}<br/>- {m:idx.name}<br/>{m:endfor}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>indexElements</strong>
+				</td>
+				<td>List of index elements</td>
+				<td>{m:col.indexElements}</td>
+				<td>returns the list of index elements associated to the column</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>primaryKey</strong>
+				</td>
+				<td>Primary Key</td>
+				<td>{m:col.primaryKey}</td>
+				<td>returns the primary key associated to the column if it's in a primary key</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>foreignKeys</strong>
+				</td>
+				<td>Foreign Key</td>
+				<td>{m:col.foreignKeys}</td>
+				<td>returns the foreign keys this column is in</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>foreignKeyElements</strong>
+				</td>
+				<td>List of foreign key elements</td>
+				<td>{m:col.foreighKeyElements}</td>
+				<td>returns the foreign key elements for that column</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>type</strong>
+				</td>
+				<td>Type</td>
+				<td>{m:col.type}</td>
+				<td>returns the type of the column (for instance, "VARCHAR(255)")</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>sequence</strong>
+				</td>
+				<td>Sequence</td>
+				<td>{m:col.sequence}</td>
+				<td>return the sequence used by this column</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>owner</strong>
+				</td>
+				<td>Table</td>
+				<td>{m:col.owner}</td>
+				<td>return the table owning this column</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>autoincrement</strong>
+				</td>
+				<td>True/False</td>
+				<td>{m:col.autoincrement}</td>
+				<td>returns true when the column is automatically incremented and false otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>inPrimaryKey</strong>
+				</td>
+				<td>True/False</td>
+				<td>{m:col.inPrimaryKey}</td>
+				<td>returns true when the column is in a primary key, false otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>inForeignKey</strong>
+				</td>
+				<td>True/False</td>
+				<td>{m:col.inForeignKey}</td>
+				<td>returns true when the column is in a foreign key and false otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>unique</strong>
+				</td>
+				<td>True/False</td>
+				<td>{m:col.unique}</td>
+				<td>returns true when the column may not have duplicate values and false otherwise</td>
+				<td></td>
+			</tr>
+	</tbody>
+		</table>
+  	<div class="page-header">
+		<h2 id="Services">Services</h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+	    </thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>isNullable</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.isNullable()}</td>
+				<td>returns the string 'Oui' when the column may contain null values and the string 'Non' otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>checkNullable</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.checkNullable()}</td>
+				<td>returns the string 'X' when the column may contain null values and the empty string otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>isAutoincrement</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.isAutoincrement()}</td>
+				<td>returns the string 'Oui' when the column is automatically incremented and the string 'Non' otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>checkAutoincrement</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.checkAutoincrement()}</td>
+				<td>returns the string 'X' when the column is automatically incremented and the empty string otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>isInPrimaryKey</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.isInPrimaryKey()}</td>
+				<td>returns the string 'Oui' when the column is in a primary key and the string 'Non' otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>checkInPrimaryKey</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.checkPrimaryKey()}</td>
+				<td>returns the string 'X' when the column is in a primary key and the empty string otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>isInForeignKey</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.isInForeignKey()}</td>
+				<td>returns the string 'Oui' when the column is in a foreign key and the string 'Non' otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>checkInForeignKey</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.checkForeignKey()}</td>
+				<td>returns the string 'X' when the column is in a foreign key and the empty string otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>isUnique</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.isUnique()}</td>
+				<td>returns the string 'Oui' when when the column may not have duplicate values and the string 'Non' otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>checkUnique</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.checkUnique()}</td>
+				<td>returns the string 'X' when when the column may not have duplicate values and the empty string otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>type name</strong>
+				</td>
+				<td></td>
+				<td>{m:col.typeName()}</td>
+				<td>Returns the name of the column's type.</td>
+				<td>The column has type {m:col.typeName()}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>type length</strong>
+				</td>
+				<td></td>
+				<td>{m:col.typeLength()}</td>
+				<td>Returns the length of the column's type:
+<ul>
+<li>if the type has a length, the result is it's length</li>
+<li>if the type has a length and a precision, the result is the length and the precision separated by a comma (e.g. "255,8").</li>
+<li>returns the empty string in any other case</li>
+</ul></td>
+				<td>The column has type {m:col.typeName()}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>isMandatory</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.isMandatory()}</td>
+				<td>returns the string 'Oui' when when the column is mandatory (i.e. is not nullable).</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>checkMandatory</strong>
+				</td>
+				<td>String</td>
+				<td>{m:col.checkMandatory()}</td>
+				<td>returns the string 'X' when when the column is mandatory (not nullable)</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>default value service</strong>
+				</td>
+				<td>String</td>
+				<td>{m:defaultValue()}</td>
+				<td>Returns the default value associated to a column. If there's no default value, returns the empty string.</td>
+				<td>This column's default value is {m:col.defaultValue()}</td>
+			</tr>
+	   </tbody>
+		</table>
+	</body>
+</html>

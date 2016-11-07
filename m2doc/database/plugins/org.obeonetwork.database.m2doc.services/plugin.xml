@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+     Copyright (c) 2016 Obeo. 
+     All rights reserved. This program and the accompanying materials
+     are made available under the terms of the Eclipse Public License v1.0
+     which accompanies this distribution, and is available at
+     http://www.eclipse.org/legal/epl-v10.html
+      
+      Contributors:
+          Obeo - initial API and implementation
+     
+ -->
+
+<plugin>
+   <extension
+         point="org.obeonetwork.m2doc.services.register">
+      <service
+            serviceClass="org.obeonetwork.database.m2doc.services.ColumnServiceHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.database.m2doc.services.DataBaseServiceHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.database.m2doc.services.ForeignKeyElementServiceHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.database.m2doc.services.IndexElementServiceHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.database.m2doc.services.IndexServiceHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.database.m2doc.services.SequenceServiceHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.database.m2doc.services.TableContainerServiceHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.database.m2doc.services.TableServiceHolder"
+            serviceToken="default">
+      </service>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="doc/toc.xml"
+            primary="true">
+      </toc>
+   </extension>
+</plugin>

@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+/********************************************************************************
+** Copyright (c) 2016 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for DataBase</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+		<h1 id="DataBase">Services and attributes for the DataBase concept</h1>
+		<p>A database in the studio is a concept grouping</p>
+<ul>
+	<li>tables</li>
+	<li>shemas </li>
+	<li>sequences</li>
+	<li>user libraries definition.</li>
+</ul>
+<p>A database has attributes and services described below.
+	<br/>In the following examples, the <db>db</db> variable points to a database.
+</p>
+
+  	<div class="page-header">
+		<h2 id="Attributs">Attributes </h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>ID</strong>
+				</td>
+				<td>String</td>
+				<td>{m:db.ID}</td>
+				<td>returns the identifier of the database</td>
+				<td>the database identifier: {m:db.id}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>comments</strong>
+				</td>
+				<td>String</td>
+				<td>{m:db.comments}</td>
+				<td>returns the comments stored on the database</td>
+				<td>comments on the database are :{m:db.comments}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>techID</strong>
+				</td>
+				<td>String</td>
+				<td>{m:db.techID}</td>
+				<td>returns the technical id of the database</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>name</strong>
+				</td>
+				<td>String</td>
+				<td>{m:db.name}</td>
+				<td>returns the name of the database</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>tables</strong>
+				</td>
+				<td>String</td>
+				<td>{m:db.tables}</td>
+				<td>returns the list of tables directly stored in the database (not in it's schemas)</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>sequences</strong>
+				</td>
+				<td>List of Sequences</td>
+				<td>{m:db.sequences}</td>
+				<td>returns the list of sequences directlry stored in the database (not in it's schemas)</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>usedLibraries</strong>
+				</td>
+				<td>List of user defined libraries</td>
+				<td>{m:db.usedLibraries}</td>
+				<td>returns the list of native type libraries used by the database</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>url</strong>
+				</td>
+				<td>String</td>
+				<td>{m:db.url}</td>
+				<td>returns the URL of the database</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>schemas</strong>
+				</td>
+				<td>List of Schemas</td>
+				<td>{m:db.schemas}</td>
+				<td>returns the list of schemas of the database</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>defines</strong>
+				</td>
+				<td>List of user defined types libraries</td>
+				<td>{m:db.defines}</td>
+				<td>returns the list of user defined type libraries</td>
+				<td></td>
+			</tr>
+	</tbody>
+		</table>
+  	<div class="page-header">
+		<h2 id="Services">Services</h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+	    </thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>tables</strong>
+				</td>
+				<td>List of tables</td>
+				<td>{m:db.tables()}</td>
+				<td>returns the set of tables directly stored in the database (and not in the schemas)</td>
+				<td>the list of database tables : {m:for table &#124; db.tables()}table {m:table.name},{m:endfor}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>views</strong>
+				</td>
+				<td>List of views</td>
+				<td>{m:db.views()}</td>
+				<td>returns the set of views directly stored in the database (and not in the schemas)</td>
+				<td>the list of database views : {m:for table &#124; db.views()}view {m:view.name},{m:endfor}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>all the tables</strong>
+				</td>
+				<td>List of tables</td>
+				<td>{m:db.allTables()}</td>
+				<td>returns the set of all tables including the tables in schemas and referenced through foreignkeys</td>
+				<td>the list of database tables : {m:for table &#124; db.allTables()}table {m:table.name},{m:endfor}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>all the sequences</strong>
+				</td>
+				<td>List of sequences</td>
+				<td>{m:db.allSequences()}</td>
+				<td>returns the set of all sequences related to a table in the result of the allTable() service.</td>
+				<td>the list of database sequences : {m:for sequence &#124; db.allSequences()}sequence {m:sequence.name},{m:endfor}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>all the views</strong>
+				</td>
+				<td>List of views</td>
+				<td>{m:db.allViews()}</td>
+				<td>returns the set of all views contained in a database, it's schemas and the related databases (through foreign keys)
+</td>
+				<td>the list of database views: {m:for view &#124; db.allView()}sequence {m:view.name},{m:endfor}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>local tables</strong>
+				</td>
+				<td>List of tables</td>
+				<td>{m:db.localTables()}</td>
+				<td>returns the list of tables directly stored in the database and its schemas</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>local views</strong>
+				</td>
+				<td>List of views</td>
+				<td>{m:db.localViews()}</td>
+				<td>returns the list of views directly stored in the database and its schemas</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>local sequences</strong>
+				</td>
+				<td>List of Sequences</td>
+				<td>{m:db.localSequences()}</td>
+				<td>returns the list of sequence directly stored in the database and it's schemas</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>typeLibraryName</strong>
+				</td>
+				<td>String</td>
+				<td>{m:db.typeLibraryName()}</td>
+				<td>Returns the name of the types library used. This name contains the name of the database's engine vendor for physical models.</td>
+				<td></td>
+			</tr>
+	   </tbody>
+		</table>
+	</body>
+</html>

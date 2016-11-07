@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+/********************************************************************************
+** Copyright (c) 2016 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for Index</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+		<h1 id="Index">Services and attributes for the Index concept</h1>
+		
+  	<div class="page-header">
+		<h2 id="Attributs">Attributes </h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>ID</strong>
+				</td>
+				<td>String</td>
+				<td>{m:idx.ID}</td>
+				<td>returns the identifier of the Index</td>
+				<td>The index's identifier is {m:idx.ID}.</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>comments</strong>
+				</td>
+				<td>String</td>
+				<td>{m:idx.comments}</td>
+				<td>returns the comments stored on the index</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>techID</strong>
+				</td>
+				<td>String</td>
+				<td>{m:idx.techID}</td>
+				<td>returns the technical id of the index</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>name</strong>
+				</td>
+				<td>String</td>
+				<td>{m:idx.name}</td>
+				<td>returns the name of the index</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>qualifier</strong>
+				</td>
+				<td>String</td>
+				<td>{m:idx.qualifier}</td>
+				<td>returns the qualifier of the index</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>elements</strong>
+				</td>
+				<td>List of index elements</td>
+				<td>{m:idx.elements}</td>
+				<td>returns the index elements associated to this index</td>
+				<td>The index elements associated to this index are <br/>/{m:for elt &#124; idx.elements}<br/>-{m:elt.name}<br/>{m:endfor}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>unique</strong>
+				</td>
+				<td>True/False</td>
+				<td>{m:idx.unique}</td>
+				<td>returns true when the index may not contain duplicate values and false otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>cardinality</strong>
+				</td>
+				<td>Integer</td>
+				<td>{m:idx.cardinality}</td>
+				<td>returns the cardinality of the index</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>indexType</strong>
+				</td>
+				<td>String</td>
+				<td>{m:idx.indexType}</td>
+				<td>returns the type of the index</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>owner</strong>
+				</td>
+				<td>Table</td>
+				<td>{m:idx.owner}</td>
+				<td>returns the table owning  the index</td>
+				<td></td>
+			</tr>
+	</tbody>
+		</table>
+  	<div class="page-header">
+		<h2 id="Services">Services</h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+	    </thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>isUnique</strong>
+				</td>
+				<td>String</td>
+				<td>{m:idx.isUnique()}</td>
+				<td>returns the string 'Oui' when the index may not contain duplicate values and the string 'Non' otherwise</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>checkUnique</strong>
+				</td>
+				<td>String</td>
+				<td>{m:idx.checkUnique()}</td>
+				<td>returns the string 'X' when the index may not contain duplicate values and the empty string otherwise</td>
+				<td></td>
+			</tr>
+	   </tbody>
+		</table>
+	</body>
+</html>

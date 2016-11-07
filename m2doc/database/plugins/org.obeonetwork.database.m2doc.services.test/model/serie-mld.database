@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_AMPqMQhVEeWnKaeLzAewEg" techID="_AMPqMAhVEeWnKaeLzAewEg" name="serie-mld">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_C-9CYQhVEeWnKaeLzAewEg" comments="Gestion des séries" techID="_C-9CYAhVEeWnKaeLzAewEg" name="GS">
+    <tables xsi:type="database:Table" xmi:id="_C-9CYghVEeWnKaeLzAewEg" comments="Table des séries" techID="_C-7NMAhVEeWnKaeLzAewEg" name="GS_SERIE">
+      <primaryKey xmi:id="_C_EXIQhVEeWnKaeLzAewEg" comments="Contrainte PK pour la colonne GS_SERIE_ID" techID="_C_EXIAhVEeWnKaeLzAewEg" name="GS_SERIE_PK" columns="_C_DJCghVEeWnKaeLzAewEg"/>
+      <foreignKeys xmi:id="_C_OIIQhVEeWnKaeLzAewEg" comments="Contrainte FK avec la table GS_GENRE" techID="_C_OIIAhVEeWnKaeLzAewEg" name="GS_SERIE_FK1_1">
+        <elements xmi:id="_jF4tIQhWEeWnKaeLzAewEg" techID="_jF4tIAhWEeWnKaeLzAewEg" fkColumn="_C_OvMQhVEeWnKaeLzAewEg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_C_P9UwhVEeWnKaeLzAewEg" comments="Contrainte FK avec la table GS_PAYS" techID="_C_P9UghVEeWnKaeLzAewEg" name="GS_SERIE_FK1_2">
+        <elements xmi:id="_jGfxIQhWEeWnKaeLzAewEg" techID="_jGfxIAhWEeWnKaeLzAewEg" fkColumn="_C_QkYQhVEeWnKaeLzAewEg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_7sIjkQYREeavcqcXisa0XA" comments="FK vers la table RF_GENRE" techID="_7sIjkAYREeavcqcXisa0XA" name="GS_SERIE_FK1_1">
+        <elements xmi:id="_7sJKoQYREeavcqcXisa0XA" techID="_7sJKoAYREeavcqcXisa0XA" fkColumn="_C_OvMQhVEeWnKaeLzAewEg">
+          <pkColumn href="referentiel-mld.database#_kjemCwYREeavcqcXisa0XA"/>
+        </elements>
+        <target href="referentiel-mld.database#_kjemBgYREeavcqcXisa0XA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_B-c2MQYSEeavcqcXisa0XA" comments="FK vers la table RF_PAYS" techID="_B-c2MAYSEeavcqcXisa0XA" name="GS_SERIE_FK1_2">
+        <elements xmi:id="_B-c2MwYSEeavcqcXisa0XA" techID="_B-c2MgYSEeavcqcXisa0XA" fkColumn="_C_QkYQhVEeWnKaeLzAewEg">
+          <pkColumn href="referentiel-mld.database#_kjel-gYREeavcqcXisa0XA"/>
+        </elements>
+        <target href="referentiel-mld.database#_kjel8QYREeavcqcXisa0XA"/>
+      </foreignKeys>
+      <constraints xmi:id="_jILMIghWEeWnKaeLzAewEg" comments="Liste des valeurs possibles pour GS_XTOPSUP" techID="_jILMIQhWEeWnKaeLzAewEg" name="GS_SERIE_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_C_UOwQhVEeWnKaeLzAewEg" comments="Index d'unicité pour GS_SERIE_NOM" techID="_C_UOwAhVEeWnKaeLzAewEg" name="GS_SERIE_UN1_1" unique="true">
+        <elements xmi:id="_C_Vc4QhVEeWnKaeLzAewEg" techID="_C_Vc4AhVEeWnKaeLzAewEg" column="_C_BT0AhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_C_WD8QhVEeWnKaeLzAewEg" comments="Index d'unicité pour GS_SERIE_LOGO" techID="_C_WD8AhVEeWnKaeLzAewEg" name="GS_SERIE_UN1_2" unique="true">
+        <elements xmi:id="_C_WD8whVEeWnKaeLzAewEg" techID="_C_WD8ghVEeWnKaeLzAewEg" column="_C_DJBghVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_jIFFgQhWEeWnKaeLzAewEg" comments="Index sur la FK (GS_GENRE_ID) de la table GS_SERIE" techID="_jIFFgAhWEeWnKaeLzAewEg" name="GS_SERIE_FK1_1">
+        <elements xmi:id="_jIFskQhWEeWnKaeLzAewEg" techID="_jIFskAhWEeWnKaeLzAewEg" column="_C_OvMQhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_jIFskwhWEeWnKaeLzAewEg" comments="Index sur la FK (GS_PAYS_ID) de la table GS_SERIE" techID="_jIFskghWEeWnKaeLzAewEg" name="GS_SERIE_FK1_2">
+        <elements xmi:id="_jIFslQhWEeWnKaeLzAewEg" techID="_jIFslAhWEeWnKaeLzAewEg" column="_C_QkYQhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_C_DJCghVEeWnKaeLzAewEg" comments="PK de la table GS_SERIE" techID="_C_DJCQhVEeWnKaeLzAewEg" name="GS_SERIE_ID" primaryKey="_C_EXIQhVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_C_E-MAhVEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_OvMQhVEeWnKaeLzAewEg" techID="_C_OvMAhVEeWnKaeLzAewEg" name="RF_GENRE_ID" indexElements="_jIFskQhWEeWnKaeLzAewEg" foreignKeyElements="_jF4tIQhWEeWnKaeLzAewEg _7sJKoQYREeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jFpckAhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_QkYQhVEeWnKaeLzAewEg" techID="_C_QkYAhVEeWnKaeLzAewEg" name="RF_PAYS_ID" indexElements="_jIFslQhWEeWnKaeLzAewEg" foreignKeyElements="_jGfxIQhWEeWnKaeLzAewEg _B-c2MwYSEeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jF4tIghWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_BT0AhVEeWnKaeLzAewEg" comments="Nom de la série" techID="_C_AFsAhVEeWnKaeLzAewEg" name="GS_SERIE_NOM" indexElements="_C_Vc4QhVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jA4RUAhWEeWnKaeLzAewEg" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_Ch8QhVEeWnKaeLzAewEg" comments="Année de création de la série" techID="_C_Ch8AhVEeWnKaeLzAewEg" name="GS_SERIE_ANNEECRE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jA4RUQhWEeWnKaeLzAewEg" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_Ch9QhVEeWnKaeLzAewEg" comments="Année de fin de la série" techID="_C_Ch9AhVEeWnKaeLzAewEg" name="GS_SERIE_ANNEEFIN" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jA44YAhWEeWnKaeLzAewEg" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_DJAghVEeWnKaeLzAewEg" comments="Description de la série" techID="_C_DJAQhVEeWnKaeLzAewEg" name="GS_SERIE_DESCRIPTION">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jA44YQhWEeWnKaeLzAewEg" length="500">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_DJBghVEeWnKaeLzAewEg" comments="Nom du chier contenant le logo de la série" techID="_C_DJBQhVEeWnKaeLzAewEg" name="GS_SERIE_LOGO" indexElements="_C_WD8whVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jA44YghWEeWnKaeLzAewEg" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_gcAAhVEeWnKaeLzAewEg" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_C_f08AhVEeWnKaeLzAewEg" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jILMIAhWEeWnKaeLzAewEg" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_hqIQhVEeWnKaeLzAewEg" comments="Date de mise à jour de la ligne" techID="_C_hqIAhVEeWnKaeLzAewEg" name="GS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jILMIwhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_C_E-MghVEeWnKaeLzAewEg" comments="Table des saisons" techID="_C_E-MQhVEeWnKaeLzAewEg" name="GS_SAISON">
+      <primaryKey xmi:id="_C_FlSQhVEeWnKaeLzAewEg" comments="Contrainte PK pour la colonne GS_SAISON_ID" techID="_C_FlSAhVEeWnKaeLzAewEg" name="GS_SAISON_PK" columns="_C_FlRghVEeWnKaeLzAewEg"/>
+      <foreignKeys xmi:id="_C_QkZwhVEeWnKaeLzAewEg" comments="Contrainte FK avec la table GS_SERIE" techID="_C_QkZghVEeWnKaeLzAewEg" name="GS_SAISON_FK1_1" target="_C-9CYghVEeWnKaeLzAewEg">
+        <elements xmi:id="_jGslcQhWEeWnKaeLzAewEg" techID="_jGslcAhWEeWnKaeLzAewEg" fkColumn="_C_QkaQhVEeWnKaeLzAewEg" pkColumn="_C_DJCghVEeWnKaeLzAewEg"/>
+      </foreignKeys>
+      <constraints xmi:id="_jILzMghWEeWnKaeLzAewEg" comments="Liste des valeurs possibles pour GS_XTOPSUP" techID="_jILzMQhWEeWnKaeLzAewEg" name="GS_SAISON_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_C_X5IwhVEeWnKaeLzAewEg" comments="Index d'unicité pour GS_SAISON_JAQUETTE" techID="_C_X5IghVEeWnKaeLzAewEg" name="GS_SAISON_UN1_1" unique="true">
+        <elements xmi:id="_C_X5JQhVEeWnKaeLzAewEg" techID="_C_X5JAhVEeWnKaeLzAewEg" column="_C_FlQghVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_jIFslwhWEeWnKaeLzAewEg" comments="Index d'unicité pour GS_SERIE_ID, GS_SAISON_NUM" techID="_jIFslghWEeWnKaeLzAewEg" name="GS_SAISON_UN2_2" unique="true">
+        <elements xmi:id="_jIFsmQhWEeWnKaeLzAewEg" techID="_jIFsmAhWEeWnKaeLzAewEg" column="_C_QkaQhVEeWnKaeLzAewEg" asc="true"/>
+        <elements xmi:id="_jIFsmwhWEeWnKaeLzAewEg" techID="_jIFsmghWEeWnKaeLzAewEg" column="_C_E-NAhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_jIGToQhWEeWnKaeLzAewEg" comments="Index sur la FK (GS_SERIE_ID) de la table GS_SAISON" techID="_jIGToAhWEeWnKaeLzAewEg" name="GS_SAISON_FK1_1">
+        <elements xmi:id="_jIGTowhWEeWnKaeLzAewEg" techID="_jIGToghWEeWnKaeLzAewEg" column="_C_QkaQhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_C_FlRghVEeWnKaeLzAewEg" comments="PK de la table GS_SAISON" techID="_C_FlRQhVEeWnKaeLzAewEg" name="GS_SAISON_ID" primaryKey="_C_FlSQhVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_C_FlSghVEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_QkaQhVEeWnKaeLzAewEg" techID="_C_QkaAhVEeWnKaeLzAewEg" name="GS_SERIE_ID" indexElements="_jIFsmQhWEeWnKaeLzAewEg _jIGTowhWEeWnKaeLzAewEg" foreignKeyElements="_jGslcQhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jGfxIghWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_E-NAhVEeWnKaeLzAewEg" comments="Numéro de la saison" techID="_C_E-MwhVEeWnKaeLzAewEg" name="GS_SAISON_NUM" indexElements="_jIFsmwhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jBbD4AhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_FlQghVEeWnKaeLzAewEg" comments="Nom du fichier contenant la jaquette de la saison" techID="_C_FlQQhVEeWnKaeLzAewEg" name="GS_SAISON_JAQUETTE" nullable="true" indexElements="_C_X5JQhVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jBbD4QhWEeWnKaeLzAewEg" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_hqJQhVEeWnKaeLzAewEg" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_C_hqJAhVEeWnKaeLzAewEg" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jILzMAhWEeWnKaeLzAewEg" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_hqKwhVEeWnKaeLzAewEg" comments="Date de mise à jour de la ligne" techID="_C_hqKghVEeWnKaeLzAewEg" name="GS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jILzMwhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_C_GMUQhVEeWnKaeLzAewEg" comments="Table des épisode" techID="_C_GMUAhVEeWnKaeLzAewEg" name="GS_EPISODE">
+      <primaryKey xmi:id="_C_HadQhVEeWnKaeLzAewEg" comments="Contrainte PK pour la colonne GS_EPISODE_ID" techID="_C_HadAhVEeWnKaeLzAewEg" name="GS_EPISODE_PK" columns="_C_HacghVEeWnKaeLzAewEg"/>
+      <foreignKeys xmi:id="_C_RLcQhVEeWnKaeLzAewEg" comments="Contrainte FK avec la table GS_SAISON" techID="_C_RLcAhVEeWnKaeLzAewEg" name="GS_EPISODE_FK1_1" target="_C_E-MghVEeWnKaeLzAewEg">
+        <elements xmi:id="_jG4ysQhWEeWnKaeLzAewEg" techID="_jG4ysAhWEeWnKaeLzAewEg" fkColumn="_C_RLcwhVEeWnKaeLzAewEg" pkColumn="_C_FlRghVEeWnKaeLzAewEg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_C_RLeQhVEeWnKaeLzAewEg" comments="Contrainte FK avec la table GS_REALISATEUR" techID="_C_RLeAhVEeWnKaeLzAewEg" name="GS_EPISODE_FK1_2" target="_C_HaeAhVEeWnKaeLzAewEg">
+        <elements xmi:id="_jHFnAQhWEeWnKaeLzAewEg" techID="_jHFnAAhWEeWnKaeLzAewEg" fkColumn="_C_RLewhVEeWnKaeLzAewEg" pkColumn="_C_IBgghVEeWnKaeLzAewEg"/>
+      </foreignKeys>
+      <constraints xmi:id="_jILzNghWEeWnKaeLzAewEg" comments="Liste des valeurs possibles pour GS_XTOPSUP" techID="_jILzNQhWEeWnKaeLzAewEg" name="GS_EPISODE_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_jIGTpQhWEeWnKaeLzAewEg" comments="Index d'unicité pour GS_SAISON_ID, GS_EPISODE_NUM" techID="_jIGTpAhWEeWnKaeLzAewEg" name="GS_EPISODE_UN2_1" unique="true">
+        <elements xmi:id="_jIG6sQhWEeWnKaeLzAewEg" techID="_jIG6sAhWEeWnKaeLzAewEg" column="_C_RLcwhVEeWnKaeLzAewEg" asc="true"/>
+        <elements xmi:id="_jIG6swhWEeWnKaeLzAewEg" techID="_jIG6sghWEeWnKaeLzAewEg" column="_C_GMUwhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_jIG6tQhWEeWnKaeLzAewEg" comments="Index sur la FK (GS_SAISON_ID) de la table GS_EPISODE" techID="_jIG6tAhWEeWnKaeLzAewEg" name="GS_EPISODE_FK1_1">
+        <elements xmi:id="_jIHhwQhWEeWnKaeLzAewEg" techID="_jIHhwAhWEeWnKaeLzAewEg" column="_C_RLcwhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_jIHhwwhWEeWnKaeLzAewEg" comments="Index sur la FK (GS_REALISATEUR_ID) de la table GS_EPISODE" techID="_jIHhwghWEeWnKaeLzAewEg" name="GS_EPISODE_FK1_2">
+        <elements xmi:id="_jIHhxQhWEeWnKaeLzAewEg" techID="_jIHhxAhWEeWnKaeLzAewEg" column="_C_RLewhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_C_HacghVEeWnKaeLzAewEg" comments="PK de la table GS_EPISODE" techID="_C_HacQhVEeWnKaeLzAewEg" name="GS_EPISODE_ID" primaryKey="_C_HadQhVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_C_HadghVEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_RLcwhVEeWnKaeLzAewEg" techID="_C_RLcghVEeWnKaeLzAewEg" name="GS_SAISON_ID" indexElements="_jIG6sQhWEeWnKaeLzAewEg _jIHhwQhWEeWnKaeLzAewEg" foreignKeyElements="_jG4ysQhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jGslcghWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_RLewhVEeWnKaeLzAewEg" techID="_C_RLeghVEeWnKaeLzAewEg" name="GS_REALISATEUR_ID" indexElements="_jIHhxQhWEeWnKaeLzAewEg" foreignKeyElements="_jHFnAQhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jG5ZwAhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_GMUwhVEeWnKaeLzAewEg" comments="Numéro de l'épisode" techID="_C_GMUghVEeWnKaeLzAewEg" name="GS_EPISODE_NUM" indexElements="_jIG6swhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jBvM8AhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_GMVwhVEeWnKaeLzAewEg" comments="Titre de l'épisode" techID="_C_GMVghVEeWnKaeLzAewEg" name="GS_EPISODE_TITRE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jBvM8QhWEeWnKaeLzAewEg" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_GzYghVEeWnKaeLzAewEg" comments="Synopsis de l'épisode" techID="_C_GzYQhVEeWnKaeLzAewEg" name="GS_EPISODE_SYNOPSIS" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jBv0AAhWEeWnKaeLzAewEg" length="500">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_GzZghVEeWnKaeLzAewEg" comments="Durée de l'épisode" techID="_C_GzZQhVEeWnKaeLzAewEg" name="GS_EPISODE_DUREE" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jBv0AQhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_GzaghVEeWnKaeLzAewEg" comments="Date de la première diffusion de l'épisode" techID="_C_GzaQhVEeWnKaeLzAewEg" name="GS_EPISODE_DTDIFF" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jBv0AghWEeWnKaeLzAewEg" length="15">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_hqLwhVEeWnKaeLzAewEg" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_C_hqLghVEeWnKaeLzAewEg" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jILzNAhWEeWnKaeLzAewEg" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_iRNAhVEeWnKaeLzAewEg" comments="Date de mise à jour de la ligne" techID="_C_iRMwhVEeWnKaeLzAewEg" name="GS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jILzNwhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_C_HaeAhVEeWnKaeLzAewEg" comments="Table des réalisateurs&#xD;&#xA;" techID="_C_HadwhVEeWnKaeLzAewEg" name="GS_REALISATEUR">
+      <primaryKey xmi:id="_C_IBhQhVEeWnKaeLzAewEg" comments="Contrainte PK pour la colonne GS_REALISATEUR_ID" techID="_C_IBhAhVEeWnKaeLzAewEg" name="GS_REALISATEUR_PK" columns="_C_IBgghVEeWnKaeLzAewEg"/>
+      <constraints xmi:id="_jILzOghWEeWnKaeLzAewEg" comments="Liste des valeurs possibles pour GS_XTOPSUP" techID="_jILzOQhWEeWnKaeLzAewEg" name="GS_REALISATEUR_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_C_ZuWQhVEeWnKaeLzAewEg" comments="Index d'unicité pour GS_REALISATEUR_NOM" techID="_C_ZuWAhVEeWnKaeLzAewEg" name="GS_REALISATEUR_UN1_1" unique="true">
+        <elements xmi:id="_C_ZuWwhVEeWnKaeLzAewEg" techID="_C_ZuWghVEeWnKaeLzAewEg" column="_C_HaeghVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_C_IBgghVEeWnKaeLzAewEg" comments="PK de la table GS_REALISATEUR" techID="_C_IBgQhVEeWnKaeLzAewEg" name="GS_REALISATEUR_ID" primaryKey="_C_IBhQhVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_C_IBhghVEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_HaeghVEeWnKaeLzAewEg" comments="Nom du réalisateur" techID="_C_HaeQhVEeWnKaeLzAewEg" name="GS_REALISATEUR_NOM" indexElements="_C_ZuWwhVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jCHAYAhWEeWnKaeLzAewEg" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_iROAhVEeWnKaeLzAewEg" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_C_iRNwhVEeWnKaeLzAewEg" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jILzOAhWEeWnKaeLzAewEg" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_iRPghVEeWnKaeLzAewEg" comments="Date de mise à jour de la ligne" techID="_C_iRPQhVEeWnKaeLzAewEg" name="GS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jILzOwhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_C_IBiAhVEeWnKaeLzAewEg" comments="Table des acteurs" techID="_C_IBhwhVEeWnKaeLzAewEg" name="GS_ACTEUR">
+      <primaryKey xmi:id="_C_JPoQhVEeWnKaeLzAewEg" comments="Contrainte PK pour la colonne GS_ACTEUR_ID" techID="_C_JPoAhVEeWnKaeLzAewEg" name="GS_ACTEUR_PK" columns="_C_IomghVEeWnKaeLzAewEg"/>
+      <constraints xmi:id="_jIMaQAhWEeWnKaeLzAewEg" comments="Liste des valeurs possibles pour GS_XTOPSUP" techID="_jILzPQhWEeWnKaeLzAewEg" name="GS_ACTEUR_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_jIII0QhWEeWnKaeLzAewEg" comments="Index d'unicité pour GS_ACTEUR_NOM, GS_ACTEUR_PRENOM" techID="_jIII0AhWEeWnKaeLzAewEg" name="GS_ACTEUR_UN2_1" unique="true">
+        <elements xmi:id="_jIII0whWEeWnKaeLzAewEg" techID="_jIII0ghWEeWnKaeLzAewEg" column="_C_IBighVEeWnKaeLzAewEg" asc="true"/>
+        <elements xmi:id="_jIII1QhWEeWnKaeLzAewEg" techID="_jIII1AhWEeWnKaeLzAewEg" column="_C_IokghVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_C_IomghVEeWnKaeLzAewEg" comments="PK de la table GS_ACTEUR" techID="_C_IomQhVEeWnKaeLzAewEg" name="GS_ACTEUR_ID" primaryKey="_C_JPoQhVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_C_JPoghVEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_IBighVEeWnKaeLzAewEg" comments="Nom de l'acteur&#xD;&#xA;" techID="_C_IBiQhVEeWnKaeLzAewEg" name="GS_ACTEUR_NOM" indexElements="_jIII0whWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jCYtMAhWEeWnKaeLzAewEg" length="30">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_IokghVEeWnKaeLzAewEg" comments="Prénom de l'acteur" techID="_C_IokQhVEeWnKaeLzAewEg" name="GS_ACTEUR_PRENOM" indexElements="_jIII1QhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jCYtMQhWEeWnKaeLzAewEg" length="30">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_IolghVEeWnKaeLzAewEg" comments="Nom du fichier contenant la photo de l'acteur" techID="_C_IolQhVEeWnKaeLzAewEg" name="GS_ACTEUR_PHOTO" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jCYtMghWEeWnKaeLzAewEg" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_i4QQhVEeWnKaeLzAewEg" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_C_i4QAhVEeWnKaeLzAewEg" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jILzPAhWEeWnKaeLzAewEg" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_i4RwhVEeWnKaeLzAewEg" comments="Date de mise à jour de la ligne" techID="_C_i4RghVEeWnKaeLzAewEg" name="GS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jIMaQQhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_C_JPpAhVEeWnKaeLzAewEg" comments="Table des personnages" techID="_C_JPowhVEeWnKaeLzAewEg" name="GS_PERSONNAGE">
+      <primaryKey xmi:id="_C_J2ughVEeWnKaeLzAewEg" comments="Contrainte PK pour la colonne GS_PERSONNAGE_ID" techID="_C_J2uQhVEeWnKaeLzAewEg" name="GS_PERSONNAGE_PK" columns="_C_J2twhVEeWnKaeLzAewEg"/>
+      <foreignKeys xmi:id="_C_RygQhVEeWnKaeLzAewEg" comments="Contrainte FK avec la table GS_ACTEUR" techID="_C_RygAhVEeWnKaeLzAewEg" name="GS_PERSONNAGE_FK1_1" target="_C_IBiAhVEeWnKaeLzAewEg">
+        <elements xmi:id="_jHSbUQhWEeWnKaeLzAewEg" techID="_jHSbUAhWEeWnKaeLzAewEg" fkColumn="_C_RygwhVEeWnKaeLzAewEg" pkColumn="_C_IomghVEeWnKaeLzAewEg"/>
+      </foreignKeys>
+      <constraints xmi:id="_jIMaRAhWEeWnKaeLzAewEg" comments="Liste des valeurs possibles pour GS_XTOPSUP" techID="_jIMaQwhWEeWnKaeLzAewEg" name="GS_PERSONNAGE_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_C_a8cQhVEeWnKaeLzAewEg" comments="Index d'unicité pour GS_PERSONNAGE_NOM" techID="_C_a8cAhVEeWnKaeLzAewEg" name="GS_PERSONNAGE_UN1_1" unique="true">
+        <elements xmi:id="_C_bjgQhVEeWnKaeLzAewEg" techID="_C_bjgAhVEeWnKaeLzAewEg" column="_C_JPpghVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_jIIv4QhWEeWnKaeLzAewEg" comments="Index sur la FK (GS_ACTEUR_ID) de la table GS_PERSONNAGE" techID="_jIIv4AhWEeWnKaeLzAewEg" name="GS_PERSONNAGE_FK1_1">
+        <elements xmi:id="_jIIv4whWEeWnKaeLzAewEg" techID="_jIIv4ghWEeWnKaeLzAewEg" column="_C_RygwhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_C_J2twhVEeWnKaeLzAewEg" comments="PK de la table GS_PERSONNAGE" techID="_C_J2tghVEeWnKaeLzAewEg" name="GS_PERSONNAGE_ID" primaryKey="_C_J2ughVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_C_J2uwhVEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_RygwhVEeWnKaeLzAewEg" techID="_C_RygghVEeWnKaeLzAewEg" name="GS_ACTEUR_ID" indexElements="_jIIv4whWEeWnKaeLzAewEg" foreignKeyElements="_jHSbUQhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jHFnAghWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_JPpghVEeWnKaeLzAewEg" comments="Nom du personnage" techID="_C_JPpQhVEeWnKaeLzAewEg" name="GS_PERSONNAGE_NOM" indexElements="_C_bjgQhVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jDrtsAhWEeWnKaeLzAewEg" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_JPqghVEeWnKaeLzAewEg" comments="Rôle du personnage" techID="_C_JPqQhVEeWnKaeLzAewEg" name="GS_PERSONNAGE_ROLE" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jDsUwAhWEeWnKaeLzAewEg" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_J2swhVEeWnKaeLzAewEg" comments="Nom du fichier contenant la photo du personnage" techID="_C_J2sghVEeWnKaeLzAewEg" name="GS_PERSONNAGE_PHOTO" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jDsUwQhWEeWnKaeLzAewEg" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_i4SwhVEeWnKaeLzAewEg" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_C_i4SghVEeWnKaeLzAewEg" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jIMaQghWEeWnKaeLzAewEg" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_jfUwhVEeWnKaeLzAewEg" comments="Date de mise à jour de la ligne" techID="_C_jfUghVEeWnKaeLzAewEg" name="GS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jIMaRQhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_C_KdwQhVEeWnKaeLzAewEg" comments="Table contenant le casting principal d'une série" techID="_C_KdwAhVEeWnKaeLzAewEg" name="GS_CASTING_PRINC">
+      <primaryKey xmi:id="_C_KdxghVEeWnKaeLzAewEg" comments="Contrainte PK pour la colonne GS_CASTING_PRINC_ID" techID="_C_KdxQhVEeWnKaeLzAewEg" name="GS_CASTING_PRINC_PK" columns="_C_KdwwhVEeWnKaeLzAewEg"/>
+      <foreignKeys xmi:id="_C_RyiQhVEeWnKaeLzAewEg" comments="Contrainte FK avec la table GS_SERIE" techID="_C_RyiAhVEeWnKaeLzAewEg" name="GS_CASTING_PRINC_FK1_1" target="_C-9CYghVEeWnKaeLzAewEg">
+        <elements xmi:id="_jHeokQhWEeWnKaeLzAewEg" techID="_jHeokAhWEeWnKaeLzAewEg" fkColumn="_C_RyiwhVEeWnKaeLzAewEg" pkColumn="_C_DJCghVEeWnKaeLzAewEg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_C_SZkghVEeWnKaeLzAewEg" comments="Contrainte FK avec la table GS_PERSONNAGE" techID="_C_SZkQhVEeWnKaeLzAewEg" name="GS_CASTING_PRINC_FK1_2" target="_C_JPpAhVEeWnKaeLzAewEg">
+        <elements xmi:id="_jHrc4QhWEeWnKaeLzAewEg" techID="_jHrc4AhWEeWnKaeLzAewEg" fkColumn="_C_SZlAhVEeWnKaeLzAewEg" pkColumn="_C_J2twhVEeWnKaeLzAewEg"/>
+      </foreignKeys>
+      <constraints xmi:id="_jIMaSAhWEeWnKaeLzAewEg" comments="Liste des valeurs possibles pour GS_XTOPSUP" techID="_jIMaRwhWEeWnKaeLzAewEg" name="GS_CASTING_PRINC_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_jIJW8QhWEeWnKaeLzAewEg" comments="Index sur la FK (GS_SERIE_ID) de la table GS_CASTING_PRINC" techID="_jIJW8AhWEeWnKaeLzAewEg" name="GS_CASTING_PRINC_FK1_1">
+        <elements xmi:id="_jIJW8whWEeWnKaeLzAewEg" techID="_jIJW8ghWEeWnKaeLzAewEg" column="_C_RyiwhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_jIJW9QhWEeWnKaeLzAewEg" comments="Index sur la FK (GS_PERSONNAGE_ID) de la table GS_CASTING_PRINC" techID="_jIJW9AhWEeWnKaeLzAewEg" name="GS_CASTING_PRINC_FK1_2">
+        <elements xmi:id="_jIJ-AQhWEeWnKaeLzAewEg" techID="_jIJ-AAhWEeWnKaeLzAewEg" column="_C_SZlAhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_C_KdwwhVEeWnKaeLzAewEg" comments="PK de la table GS_CASTING_PRINC" techID="_C_KdwghVEeWnKaeLzAewEg" name="GS_CASTING_PRINC_ID" primaryKey="_C_KdxghVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_C_KdxwhVEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_RyiwhVEeWnKaeLzAewEg" techID="_C_RyighVEeWnKaeLzAewEg" name="GS_SERIE_ID" indexElements="_jIJW8whWEeWnKaeLzAewEg" foreignKeyElements="_jHeokQhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jHSbUghWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_SZlAhVEeWnKaeLzAewEg" techID="_C_SZkwhVEeWnKaeLzAewEg" name="GS_PERSONNAGE_ID" indexElements="_jIJ-AQhWEeWnKaeLzAewEg" foreignKeyElements="_jHrc4QhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jHfPoAhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_jfVwhVEeWnKaeLzAewEg" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_C_jfVghVEeWnKaeLzAewEg" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jIMaRghWEeWnKaeLzAewEg" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_jfXQhVEeWnKaeLzAewEg" comments="Date de mise à jour de la ligne" techID="_C_jfXAhVEeWnKaeLzAewEg" name="GS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jIMaSQhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_C_LE0QhVEeWnKaeLzAewEg" comments="Table contenant les gueststar d'un épisode" techID="_C_LE0AhVEeWnKaeLzAewEg" name="GS_CASTING">
+      <primaryKey xmi:id="_C_LE1ghVEeWnKaeLzAewEg" comments="Contrainte PK pour la colonne GS_CASTING_ID" techID="_C_LE1QhVEeWnKaeLzAewEg" name="GS_CASTING_PK" columns="_C_LE0whVEeWnKaeLzAewEg"/>
+      <foreignKeys xmi:id="_C_SZmghVEeWnKaeLzAewEg" comments="Contrainte FK avec la table GS_PERSONNAGE" techID="_C_SZmQhVEeWnKaeLzAewEg" name="GS_CASTING_FK1_1" target="_C_JPpAhVEeWnKaeLzAewEg">
+        <elements xmi:id="_jH3qIQhWEeWnKaeLzAewEg" techID="_jH3qIAhWEeWnKaeLzAewEg" fkColumn="_C_SZnAhVEeWnKaeLzAewEg" pkColumn="_C_J2twhVEeWnKaeLzAewEg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_C_TAowhVEeWnKaeLzAewEg" comments="Contrainte FK avec la table GS_EPISODE" techID="_C_TAoghVEeWnKaeLzAewEg" name="GS_CASTING_FK1_2" target="_C_GMUQhVEeWnKaeLzAewEg">
+        <elements xmi:id="_jIEecQhWEeWnKaeLzAewEg" techID="_jIEecAhWEeWnKaeLzAewEg" fkColumn="_C_TApQhVEeWnKaeLzAewEg" pkColumn="_C_HacghVEeWnKaeLzAewEg"/>
+      </foreignKeys>
+      <constraints xmi:id="_jIMaTAhWEeWnKaeLzAewEg" comments="Liste des valeurs possibles pour GS_XTOPSUP" techID="_jIMaSwhWEeWnKaeLzAewEg" name="GS_CASTING_CK1_1" expression="GS_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_jIJ-AwhWEeWnKaeLzAewEg" comments="Index sur la FK (GS_PERSONNAGE_ID) de la table GS_CASTING" techID="_jIJ-AghWEeWnKaeLzAewEg" name="GS_CASTING_FK1_1">
+        <elements xmi:id="_jIJ-BQhWEeWnKaeLzAewEg" techID="_jIJ-BAhWEeWnKaeLzAewEg" column="_C_SZnAhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_jIJ-BwhWEeWnKaeLzAewEg" comments="Index sur la FK (GS_EPISODE_ID) de la table GS_CASTING" techID="_jIJ-BghWEeWnKaeLzAewEg" name="GS_CASTING_FK1_2">
+        <elements xmi:id="_jIKlEQhWEeWnKaeLzAewEg" techID="_jIKlEAhWEeWnKaeLzAewEg" column="_C_TApQhVEeWnKaeLzAewEg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_C_LE0whVEeWnKaeLzAewEg" comments="PK de la table GS_CASTING" techID="_C_LE0ghVEeWnKaeLzAewEg" name="GS_CASTING_ID" primaryKey="_C_LE1ghVEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_C_LE1whVEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_SZnAhVEeWnKaeLzAewEg" techID="_C_SZmwhVEeWnKaeLzAewEg" name="GS_PERSONNAGE_ID" indexElements="_jIJ-BQhWEeWnKaeLzAewEg" foreignKeyElements="_jH3qIQhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jHrc4ghWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_TApQhVEeWnKaeLzAewEg" techID="_C_TApAhVEeWnKaeLzAewEg" name="GS_EPISODE_ID" indexElements="_jIKlEQhWEeWnKaeLzAewEg" foreignKeyElements="_jIEecQhWEeWnKaeLzAewEg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jH4RMAhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_jfYQhVEeWnKaeLzAewEg" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_C_jfYAhVEeWnKaeLzAewEg" name="GS_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jIMaSghWEeWnKaeLzAewEg" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_C_kGZAhVEeWnKaeLzAewEg" comments="Date de mise à jour de la ligne" techID="_C_kGYwhVEeWnKaeLzAewEg" name="GS_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jIMaTQhWEeWnKaeLzAewEg">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

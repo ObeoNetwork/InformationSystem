@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="ASCII"?>
+<modeldoc:Element xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:modeldoc="http://www.obeo.fr/modeldoc/1.0" description="&lt;p>This documentation describes services and attributes available on databases in M2Doc generation templates.&lt;/p>&#xD;&#xA;&lt;p>Each concept (Database, Table, Column, etc.) is described in a page of it's own. Services and attributes are described using&lt;/p>&#xD;&#xA;&lt;ul>&#xD;&#xA;&lt;li>a name,&lt;/li>&#xD;&#xA;&lt;li>the syntax to be used in M2Doc generation templates,&lt;/li>&#xD;&#xA;&lt;li>a description of the attribute or service&lt;/li>&#xD;&#xA;&lt;/ul>&#xD;&#xA;&#xD;&#xA;&lt;p>For some attributes and services, a usage example is provided.&lt;/p>" example="" name="Database package" kind="DOC">
+  <content description="&lt;p>Une base de donn&#xe9;e dans le studio est un concept groupant &lt;/p>&#xD;&#xA;&lt;ul>&#xD;&#xA;&#x9;&lt;li>des tables&lt;/li>&#xD;&#xA;&#x9;&lt;li>des sh&#xe9;mas &lt;/li>&#xD;&#xA;&#x9;&lt;li>des s&#xe9;quences&lt;/li>&#xD;&#xA;&#x9;&lt;li>des d&#xe9;finitions de librairie de type utilisateurs.&lt;/li>&#xD;&#xA;&lt;/ul>&#xD;&#xA;&lt;p>Une base de donn&#xe9;e poss&#xe8;de des attributs et des services qui sont d&#xe9;crits ci dessous. &#xD;&#xA;&#x9;&lt;br/>Dans les exemples employ&#xe9;s dans la table ci dessous, la variable &#xD;&#xA;&#x9;&lt;code>db&lt;/code> pointe vers une base de donn&#xe9;e.&#xD;&#xA;&lt;/p>&#xD;&#xA;" example="" name="DataBase">
+    <content description="returns the identifier of the database" example="the database identifier: {m:db.id}" type="String" syntax="{m:db.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the database" example="comments on the database are :{m:db.comments}" type="String" syntax="{m:db.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the database" type="String" syntax="{m:db.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the name of the database" type="String" syntax="{m:db.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+    </content>
+    <content description="returns the list of tables directly stored in the database (not in it's schemas)" type="String" syntax="{m:db.tables}" name="tables" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//TableContainer/tables"/>
+    </content>
+    <content description="returns the list of sequences directlry stored in the database (not in it's schemas)" type="List of Sequences" syntax="{m:db.sequences}" name="sequences" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//TableContainer/sequences"/>
+    </content>
+    <content description="returns the list of native type libraries used by the database" type="List of user defined libraries" syntax="{m:db.usedLibraries}" name="usedLibraries" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypesLibraryUser/usedLibraries"/>
+    </content>
+    <content description="returns the URL of the database" type="String" syntax="{m:db.url}" name="url" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DataBase/url"/>
+    </content>
+    <content description="returns the list of schemas of the database" type="List of Schemas" syntax="{m:db.schemas}" name="schemas" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//DataBase/schemas"/>
+    </content>
+    <content description="returns the list of user defined type libraries" type="List of user defined types libraries" syntax="{m:db.defines}" name="defines" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//DataBase/defines"/>
+    </content>
+    <content description="returns the set of all tables including the tables in schemas and referenced through foreignkeys" example="the list of database tables : {m:for table &amp;#124; db.allTables()}table {m:table.name},{m:endfor}" type="List of tables" syntax="{m:db.allTables()}" name="all the tables" kind="SERVICE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//TableContainer/tables"/>
+    </content>
+    <content description="returns the set of all sequences related to a table in the result of the allTable() service." example="the list of database sequences : {m:for sequence &amp;#124; db.allSequences()}sequence {m:sequence.name},{m:endfor}" type="List of sequences" syntax="{m:db.allSequences()}" name="all the sequences" kind="SERVICE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//TableContainer/sequences"/>
+    </content>
+    <content description="returns the list of tables directly stored in the database and its schemas" type="String" syntax="{m:db.tables()}" name="local tables" kind="SERVICE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//TableContainer/tables"/>
+    </content>
+    <content description="returns the list of sequence directly stored in the database and it's schemas" type="List of Sequences" syntax="{m:db.sequences()}" name="local sequences" kind="SERVICE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//TableContainer/sequences"/>
+    </content>
+    <content description="Returns the name of the types library used. This name contains the name of the database's engine vendor for physical models." type="String" syntax="{m:db.typeLibraryName()}" name="typeLibraryName" kind="SERVICE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.typeslibrary/model/typeslibrary.ecore#//TypesLibraryUser/usedLibraries"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//DataBase"/>
+  </content>
+  <content name="Column">
+    <content description="returns the identifier of the column" example="column's identifier: {m:col.ID}" type="String" syntax="{m:col.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the columns" type="String" syntax="{m:col.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the column" type="String" syntax="{m:col.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the name of the column" type="String" syntax="{m:col.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+    </content>
+    <content description="returns true if the column may contain null value and false otherwise" type="True/False" syntax="{m:col.nullable}" name="nullable" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/nullable"/>
+    </content>
+    <content description="returns the string 'Oui' when the column may contain null values and the string 'Non' otherwise" type="String" syntax="{m:col.isNullable()}" name="isNullable" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/nullable"/>
+    </content>
+    <content description="returns the string 'X' when the column may contain null values and the empty string otherwise" type="String" syntax="{m:col.checkNullable()}" name="checkNullable" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/nullable"/>
+    </content>
+    <content description="returns the column's default value" type="String" syntax="{m:col.defaultValue}" name="defaultValue" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/defaultValue"/>
+    </content>
+    <content description="returns the list of indexes used by the column" example="the list of indexes of the column : {m:for idx  &amp;#124; col.indexes}&lt;br/>- {m:idx.name}&lt;br/>{m:endfor}" type="List of Indexes" syntax="{m:col.indexes}" name="indexes" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/indexes"/>
+    </content>
+    <content description="returns the list of index elements associated to the column" type="List of index elements" syntax="{m:col.indexElements}" name="indexElements" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/indexElements"/>
+    </content>
+    <content description="returns the primary key associated to the column if it's in a primary key" type="Primary Key" syntax="{m:col.primaryKey}" name="primaryKey" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/primaryKey"/>
+    </content>
+    <content description="returns the foreign keys this column is in" type="Foreign Key" syntax="{m:col.foreignKeys}" name="foreignKeys" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/foreignKeys"/>
+    </content>
+    <content description="returns the foreign key elements for that column" type="List of foreign key elements" syntax="{m:col.foreighKeyElements}" name="foreignKeyElements" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/foreignKeyElements"/>
+    </content>
+    <content description="returns the type of the column (for instance, &quot;VARCHAR(255)&quot;)" type="Type" syntax="{m:col.type}" name="type" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/type"/>
+    </content>
+    <content description="return the sequence used by this column" type="Sequence" syntax="{m:col.sequence}" name="sequence" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/sequence"/>
+    </content>
+    <content description="return the table owning this column" type="Table" syntax="{m:col.owner}" name="owner" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/owner"/>
+    </content>
+    <content description="returns true when the column is automatically incremented and false otherwise" type="True/False" syntax="{m:col.autoincrement}" name="autoincrement" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/autoincrement"/>
+    </content>
+    <content description="returns the string 'Oui' when the column is automatically incremented and the string 'Non' otherwise" type="String" syntax="{m:col.isAutoincrement()}" name="isAutoincrement" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/autoincrement"/>
+    </content>
+    <content description="returns the string 'X' when the column is automatically incremented and the empty string otherwise" type="String" syntax="{m:col.checkAutoincrement()}" name="checkAutoincrement" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/autoincrement"/>
+    </content>
+    <content description="returns true when the column is in a primary key, false otherwise" type="True/False" syntax="{m:col.inPrimaryKey}" name="inPrimaryKey" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/inPrimaryKey"/>
+    </content>
+    <content description="returns the string 'Oui' when the column is in a primary key and the string 'Non' otherwise" type="String" syntax="{m:col.isInPrimaryKey()}" name="isInPrimaryKey" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/inPrimaryKey"/>
+    </content>
+    <content description="returns the string 'X' when the column is in a primary key and the empty string otherwise" type="String" syntax="{m:col.checkPrimaryKey()}" name="checkInPrimaryKey" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/inPrimaryKey"/>
+    </content>
+    <content description="returns true when the column is in a foreign key and false otherwise" type="True/False" syntax="{m:col.inForeignKey}" name="inForeignKey" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/inForeignKey"/>
+    </content>
+    <content description="returns the string 'Oui' when the column is in a foreign key and the string 'Non' otherwise" type="String" syntax="{m:col.isInForeignKey()}" name="isInForeignKey" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/inForeignKey"/>
+    </content>
+    <content description="returns the string 'X' when the column is in a foreign key and the empty string otherwise" type="String" syntax="{m:col.checkForeignKey()}" name="checkInForeignKey" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/inForeignKey"/>
+    </content>
+    <content description="returns true when the column may not have duplicate values and false otherwise" type="True/False" syntax="{m:col.unique}" name="unique" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/unique"/>
+    </content>
+    <content description="returns the string 'Oui' when when the column may not have duplicate values and the string 'Non' otherwise" type="String" syntax="{m:col.isUnique()}" name="isUnique" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/unique"/>
+    </content>
+    <content description="returns the string 'X' when when the column may not have duplicate values and the empty string otherwise" type="String" syntax="{m:col.checkUnique()}" name="checkUnique" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column/unique"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//Column"/>
+  </content>
+  <content syntax="" name="Index">
+    <content description="returns the identifier of the Index" example="The index's identifier is {m:idx.ID}." type="String" syntax="{m:idx.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the index" type="String" syntax="{m:idx.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the index" type="String" syntax="{m:idx.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the name of the index" type="String" syntax="{m:idx.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+    </content>
+    <content description="returns the qualifier of the index" type="String" syntax="{m:idx.qualifier}" name="qualifier" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Index/qualifier"/>
+    </content>
+    <content description="returns the index elements associated to this index" example="The index elements associated to this index are &lt;br/>/{m:for elt &amp;#124; idx.elements}&lt;br/>-{m:elt.name}&lt;br/>{m:endfor}" type="List of index elements" syntax="{m:idx.elements}" name="elements" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Index/elements"/>
+    </content>
+    <content description="returns true when the index may not contain duplicate values and false otherwise" type="True/False" syntax="{m:idx.unique}" name="unique" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Index/unique"/>
+    </content>
+    <content description="returns the string 'Oui' when the index may not contain duplicate values and the string 'Non' otherwise" type="String" syntax="{m:idx.isUnique()}" name="isUnique" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Index/unique"/>
+    </content>
+    <content description="returns the string 'X' when the index may not contain duplicate values and the empty string otherwise" type="String" syntax="{m:idx.checkUnique()}" name="checkUnique" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Index/unique"/>
+    </content>
+    <content description="returns the cardinality of the index" type="Integer" syntax="{m:idx.cardinality}" name="cardinality" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Index/cardinality"/>
+    </content>
+    <content description="returns the type of the index" type="String" syntax="{m:idx.indexType}" name="indexType" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Index/indexType"/>
+    </content>
+    <content description="returns the table owning  the index" type="Table" syntax="{m:idx.owner}" name="owner" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Index/owner"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//Index"/>
+  </content>
+  <content name="View">
+    <content description="returns the identifier of the View" example="The view's identifier is {m:idx.ID}." type="String" syntax="{m:view.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the view" type="String" syntax="{m:view.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the view" type="String" syntax="{m:view.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the name of the view " type="String" syntax="{m:view.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+    </content>
+    <content description="returns the database or the schema owning the view " type="database or schema" syntax="{m:view.owner}" name="owner" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//AbstractTable/owner"/>
+    </content>
+    <content description="returns the query that defines the view" type="String" syntax="{m:view.query}" name="query" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//View/query"/>
+    </content>
+    <content description="returns the list of columns in the view" example="The list of columns of the view is &lt;br/>{m:for col &amp;#124; view.columns}&lt;br/>- {m:col.name}&lt;br/>{m:endfor}" type="List of view elements" syntax="{m:view.columns}" name="columns" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//View/columns"/>
+    </content>
+    <content description="returns the list of tables in the view" example="The list of tables of the view is &lt;br/>{m:for table &amp;#124; view.tabless}&lt;br/>- {m:table.name}&lt;br/>{m:endfor}" type="List of view elements" syntax="{m:view.tables}" name="tables" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//View/tables"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//View"/>
+  </content>
+  <content name="Table">
+    <content description="returns the identifier of the Table" example="The table's identifier is {m:table.ID}" type="String" syntax="{m:tbl.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the table" type="String" syntax="{m:tbl.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the table" type="String" syntax="{m:tbl.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the name of the table" type="String" syntax="{m:tbl.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+    </content>
+    <content description="returns the database or the schema owning the table" type="Database or Schema" syntax="{m:tbl.owner}" name="owner" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//AbstractTable/owner"/>
+    </content>
+    <content description="returns the primary key of the table" type="Primary Key" syntax="{m:tbl.primaryKey}" name="primaryKey" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Table/primaryKey"/>
+    </content>
+    <content description="returns the foreign keys of the table" type="List of foreign keys" syntax="{m:tbl.foreignKeys}" name="foreignKeys" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Table/foreignKeys"/>
+    </content>
+    <content description="returns the list of constraints of the table" example="The list of constraints of the table is &lt;br/>{m:for col &amp;#124; table.constraints}&lt;br/>- {m:cstr.name}&lt;br/>{m:endfor}" type="List of constraints" syntax="{m:tbl.constraints}" name="constraints" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Table/constraints"/>
+    </content>
+    <content description="returns the list of indexes of the table" type="List of indexes" syntax="{m:tbl.indexs}" name="indexes" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Table/indexes"/>
+    </content>
+    <content description="returns the list of columns of the table" example="The list of columns of the table is &lt;br/>{m:for col &amp;#124; table.columns}&lt;br/>- {m:col.name}&lt;br/>{m:endfor}" type="List of columns" syntax="{m:tbl.columns}" name="columns" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Table/columns"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//Table"/>
+  </content>
+  <content name="PrimaryKey">
+    <content description="returns the identifier of the Primary key" example="The primary key identifier is {m:pk.ID}" type="String" syntax="{m:pk.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the primary key" type="String" syntax="{m:pk.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the primary key" type="String" syntax="{m:pk.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the name of the primary key" type="String" syntax="{m:pk.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+    </content>
+    <content description="returns the list of columns in the primary key" example="The list of columns of the primary key is &lt;br/>{m:for col &amp;#124; pk.columns}&lt;br/>- {m:col.name}&lt;br/>{m:endfor}" type="List of columns" syntax="{m:pk.columns}" name="columns" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//PrimaryKey/columns"/>
+    </content>
+    <content description="return the table owning this primary key" type="Table" syntax="{m:pk.owner}" name="owner" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//PrimaryKey/owner"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//PrimaryKey"/>
+  </content>
+  <content name="ForeignKey">
+    <content description="returns the identifier of the foreign key" example="The primary key identifier is {m:pk.ID}" type="String" syntax="{m:fk.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the foreign key" type="String" syntax="{m:fk.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the foreign key" type="String" syntax="{m:fk.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the name of the foreign key" type="String" syntax="{m:fk.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+    </content>
+    <content description="returns the list of foreign key elements associated to this FK" example="The list of foreign key elements  of the foreign key is &lt;br/>{m:for elt &amp;#124; fk.columns}&lt;br/>- {m:elt.name}&lt;br/>{m:endfor}" type="List of foreign key elements" syntax="{m:fk.elements}" name="elements" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//ForeignKey/elements"/>
+    </content>
+    <content description="returns the table owning this FK" type="Table" syntax="{m:fk.owner}" name="owner" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//ForeignKey/owner"/>
+    </content>
+    <content description="returns the target of the FK" type="Table" syntax="{m:fk.target}" name="target" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//ForeignKey/target"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//ForeignKey"/>
+  </content>
+  <content name="ForeignKeyElement">
+    <content description="returns the identifier of the foreign key element" example="The foreign key element identifier is {m:fke.ID}" type="String" syntax="{m:fke.id}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the foreign key element" type="String" syntax="{m:fke.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the foreign key element" type="String" syntax="{m:fke.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the column associated to the foreign key element" type="Column" syntax="{m:fke.fkColumn}" name="fkColumn" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//ForeignKeyElement/fkColumn"/>
+    </content>
+    <content description="" type="Column" syntax="{m:fke.pkColumn}" name="pkColumn" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//ForeignKeyElement/pkColumn"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//ForeignKeyElement"/>
+  </content>
+  <content example="" name="IndexElement">
+    <content description="returns the identifier of the index element" example="The index element identifier is {m:idxElt.ID}" type="String" syntax=" {m:idxe.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the index element" type="String" syntax="{m:idxe.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the index element" type="String" syntax="{m:idxe.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the column associated index" type="Column" syntax="{m:idxe.column}" name="column" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//IndexElement/column"/>
+    </content>
+    <content description="returns True when the index is ascending, False otherwise" type="True/False" syntax="{m:idxe.asc}" name="asc" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//IndexElement/asc"/>
+    </content>
+    <content description="returns the string 'Oui' when the index is ascending and the string 'Non' otherwise" type="String" syntax="{m:idxe.isAsc()}" name="isAsc" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//IndexElement/asc"/>
+    </content>
+    <content description="returns the string 'X' when the index is ascending and the empty string otherwise" type="String" syntax="{m:idxe.checkAsc()}" name="checkAsc" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//IndexElement/asc"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//IndexElement"/>
+  </content>
+  <content name="Constraint">
+    <content description="returns the identifier of the constraint" type="String" syntax="{m:cstr.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the constraint" type="String" syntax="{m:cstr.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the constraint" type="String" syntax="{m:cstr.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the name of the constraint" type="String" syntax="{m:cstr.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+    </content>
+    <content description="returns the expression of the constraint" type="String" syntax="{m:cstr.expression}" name="expression" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Constraint/expression"/>
+    </content>
+    <content description="returns the table owing the constraint" type="Table" syntax="{m:cstr.table}" name="owner" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Constraint/owner"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//Constraint"/>
+  </content>
+  <content name="Schema">
+    <content description="returns the identifier of the schema" example="The schema element identifier is {m:sch.ID}" type="String" syntax="{m:schm.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the schema" type="String" syntax="{m.schm.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the schema" type="String" syntax="{m.schm.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the name of the schema" type="String" syntax="{m.schm.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+    </content>
+    <content description="returns the list of tables of the schema" example="The list of tables of the schema is&lt;br/>{m:for table &amp;#124; sch.tables}&lt;br/>-{m:table.name}&lt;br/>{m:endfor}" type="List of tables" syntax="{m.schm.tables}" name="tables" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//TableContainer/tables"/>
+    </content>
+    <content description="returns the list of sequences of the schema" type="List of sequences" syntax="{m.schm.sequences}" name="sequences" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//TableContainer/sequences"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//Schema"/>
+  </content>
+  <content name="Sequence">
+    <content description="returns the identifier of the sequence" example="The sequence identifier is {m:seq.ID}" type="String" syntax="{m.seq.ID}" name="ID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/ID"/>
+    </content>
+    <content description="returns the comments stored on the  sequence" type="String" syntax="{m.seq.comments}" name="comments" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/comments"/>
+    </content>
+    <content description="returns the technical id of the sequence" type="String" syntax="{m.seq.techID}" name="techID" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//DatabaseElement/techID"/>
+    </content>
+    <content description="returns the name of the sequence" type="String" syntax="{m.seq.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//NamedElement/name"/>
+    </content>
+    <content description="returns the start value of the sequence." type="Integer" syntax="{m.seq.start}" name="start" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Sequence/start"/>
+    </content>
+    <content description="returns the value of the increment for the sequence" type="Integer" syntax="{m.seq.increment}" name="increment" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Sequence/increment"/>
+    </content>
+    <content description="returns the minimum value of the sequence" type="Integer" syntax="{m.seq.minValue}" name="minValue" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Sequence/minValue"/>
+    </content>
+    <content description="returns the maximum value of the sequence" type="Integer" syntax="{m.seq.maxValue}" name="maxValue" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Sequence/maxValue"/>
+    </content>
+    <content description="returns the cache size of the sequence" type="Integer" syntax="{m.seq.cacheSize}" name="cacheSize" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Sequence/cacheSize"/>
+    </content>
+    <content description="returns true when the sequence cycles when reaching the max or min value " type="True/False" syntax="{m.seq.cycle}" name="cycle" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Sequence/cycle"/>
+    </content>
+    <content description="returns the string 'Oui' if the sequence cycles when reaching the max or min value and the string 'Non' otherwise" type="String" syntax="{m.seq.isCycle()}" name="isCycle" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Sequence/cycle"/>
+    </content>
+    <content description="returns the string 'X' when the sequence cycles when reaching the max or min value and the empty string otherwise" type="String" syntax="{m.seq.checkCycle()}" name="checkCycle" kind="SERVICE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//Sequence/cycle"/>
+    </content>
+    <content description="returns the list of columns using the sequence" example="The list of columns using the sequence is &lt;br/>{m:for col &amp;#124; seq.columns}&lt;br/>- {m:col.name}&lt;br/>{m:endfor}" type="List of columns" syntax="{m.seq.columns}" name="columns" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EReference" href="../org.obeonetwork.dsl.database/model/database.ecore#//Sequence/columns"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//Sequence"/>
+  </content>
+  <content description="View elements are the columns involved in the view. They provide the name of the column and an alias." example="" name="ViewElement">
+    <content description="returns the name of the view element" example="the name of the view element is {m:ve.name}" type="String" syntax="{m:ve.name}" name="name" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//ViewElement/name"/>
+    </content>
+    <content description="returns the alias of the view element" type="String" syntax="{m.ve.alias}" name="alias" kind="ATTRIBUTE">
+      <target xsi:type="ecore:EAttribute" href="../org.obeonetwork.dsl.database/model/database.ecore#//ViewElement/alias"/>
+    </content>
+    <target xsi:type="ecore:EClass" href="../org.obeonetwork.dsl.database/model/database.ecore#//ViewElement"/>
+  </content>
+  <target xsi:type="ecore:EPackage" href="../org.obeonetwork.dsl.database/model/database.ecore#/"/>
+</modeldoc:Element>

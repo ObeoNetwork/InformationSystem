@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<toc label="Database&apos;s services for M2Doc" topic="doc/pages/Database_package.html">
+<topic href="doc/pages/Column_services.html" label="Services available for Columns."></topic>
+<topic href="doc/pages/Constraint_services.html" label="Services available for Constraints."></topic>
+<topic href="doc/pages/DataBase_services.html" label="Services available for DataBases."></topic>
+<topic href="doc/pages/ForeignKey_services.html" label="Services available for ForeignKeys"></topic>
+<topic href="doc/pages/ForeignKeyElement_services.html" label="Services available for ForeignKeyElements"></topic>
+<topic href="doc/pages/Index_services.html" label="Services available for Indexes"></topic>
+<topic href="doc/pages/IndexElement_services.html" label="Services available for IndexElements"></topic>
+<topic href="doc/pages/PrimaryKey_services.html" label="Services available for PrimaryKeys"></topic>
+<topic href="doc/pages/Schema_services.html" label="Services available for Schemas"></topic>
+<topic href="doc/pages/Sequence_services.html" label="Services available for Sequences"></topic>
+<topic href="doc/pages/Table_services.html" label="Services available for Tables"></topic>
+<topic href="doc/pages/View_services.html" label="Services available for Views"></topic>
+<topic href="doc/pages/ViewElement_services.html" label="Services available for View Elements"></topic>
+</toc>

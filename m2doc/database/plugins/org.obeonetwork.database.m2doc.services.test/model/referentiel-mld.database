@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_X2iZQQYREeavcqcXisa0XA" techID="_X2iZQAYREeavcqcXisa0XA" name="referentiel-mld">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_kjel8AYREeavcqcXisa0XA" comments="Référentiel" techID="_Oo-20AYMEeavcqcXisa0XA" name="RF">
+    <tables xsi:type="database:Table" xmi:id="_kjel8QYREeavcqcXisa0XA" comments="Table des pays" techID="_C_LE2AhVEeWnKaeLzAewEg" name="RF_PAYS">
+      <primaryKey xmi:id="_kjel8gYREeavcqcXisa0XA" comments="Contrainte PK pour la colonne RF_PAYS_ID" techID="_C_MS8whVEeWnKaeLzAewEg" name="RF_PAYS_PK" columns="_kjel-gYREeavcqcXisa0XA"/>
+      <constraints xmi:id="_kjel8wYREeavcqcXisa0XA" comments="Liste des valeurs possibles pour RF_XTOPSUP" techID="_jINBUQhWEeWnKaeLzAewEg" name="RF_PAYS_CK1_1" expression="RF_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_kjel9AYREeavcqcXisa0XA" comments="Index d'unicité pour RF_PAYS_LIB" techID="_C_dYuAhVEeWnKaeLzAewEg" name="RF_PAYS_UN1_1" unique="true">
+        <elements xmi:id="_kjel9QYREeavcqcXisa0XA" techID="_C_d_wQhVEeWnKaeLzAewEg" column="_kjel_AYREeavcqcXisa0XA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kjel9gYREeavcqcXisa0XA" comments="Index d'unicité pour RF_PAYS_LIBA" techID="_C_d_wwhVEeWnKaeLzAewEg" name="RF_PAYS_UN1_2" unique="true">
+        <elements xmi:id="_kjel9wYREeavcqcXisa0XA" techID="_C_d_xQhVEeWnKaeLzAewEg" column="_kjel_gYREeavcqcXisa0XA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kjel-AYREeavcqcXisa0XA" comments="Index d'unicité pour RF_PAYS_PHOTO" techID="_C_d_xwhVEeWnKaeLzAewEg" name="RF_PAYS_UN1_3" unique="true">
+        <elements xmi:id="_kjel-QYREeavcqcXisa0XA" techID="_C_em0AhVEeWnKaeLzAewEg" column="_kjemAAYREeavcqcXisa0XA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kjel-gYREeavcqcXisa0XA" comments="PK de la table RF_PAYS" techID="_C_MS8AhVEeWnKaeLzAewEg" name="RF_PAYS_ID" primaryKey="_kjel8gYREeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kjel-wYREeavcqcXisa0XA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kjel_AYREeavcqcXisa0XA" comments="Libellé du pays" techID="_C_LE2ghVEeWnKaeLzAewEg" name="RF_PAYS_LIB" indexElements="_kjel9QYREeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kjel_QYREeavcqcXisa0XA" length="30">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kjel_gYREeavcqcXisa0XA" comments="Libelllé court du pays&#xD;&#xA;" techID="_C_Lr4QhVEeWnKaeLzAewEg" name="RF_PAYS_LIBA" indexElements="_kjel9wYREeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kjel_wYREeavcqcXisa0XA" length="3">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kjemAAYREeavcqcXisa0XA" comments="nom du fichier contenant le drapeau du pays" techID="_C_Lr5QhVEeWnKaeLzAewEg" name="RF_PAYS_PHOTO" nullable="true" indexElements="_kjel-QYREeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kjemAQYREeavcqcXisa0XA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kjemAgYREeavcqcXisa0XA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_C_kGZwhVEeWnKaeLzAewEg" name="RF_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kjemAwYREeavcqcXisa0XA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kjemBAYREeavcqcXisa0XA" comments="Date de mise à jour de la ligne" techID="_C_kGbQhVEeWnKaeLzAewEg" name="RF_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kjemBQYREeavcqcXisa0XA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kjemBgYREeavcqcXisa0XA" techID="_C_MS9ghVEeWnKaeLzAewEg" name="RF_GENRE">
+      <primaryKey xmi:id="_kjemBwYREeavcqcXisa0XA" comments="Contrainte PK pour la colonne RF_GENRE_ID" techID="_C_M6AAhVEeWnKaeLzAewEg" name="RF_GENRE_PK" columns="_kjemCwYREeavcqcXisa0XA"/>
+      <constraints xmi:id="_kjemCAYREeavcqcXisa0XA" comments="Liste des valeurs possibles pour RF_XTOPSUP" techID="_jINBVQhWEeWnKaeLzAewEg" name="RF_GENRE_CK1_1" expression="RF_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_kjemCQYREeavcqcXisa0XA" comments="Index d'unicité pour RF_GENRE_LIB" techID="_C_fN4AhVEeWnKaeLzAewEg" name="RF_GENRE_UN1_1" unique="true">
+        <elements xmi:id="_kjemCgYREeavcqcXisa0XA" techID="_C_fN4ghVEeWnKaeLzAewEg" column="_kjemDQYREeavcqcXisa0XA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kjemCwYREeavcqcXisa0XA" comments="PK de la table RF_GENRE" techID="_C_MS_AhVEeWnKaeLzAewEg" name="RF_GENRE_ID" primaryKey="_kjemBwYREeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kjemDAYREeavcqcXisa0XA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kjemDQYREeavcqcXisa0XA" comments="Libelle long du genre" techID="_C_MS-AhVEeWnKaeLzAewEg" name="RF_GENRE_LIB" indexElements="_kjemCgYREeavcqcXisa0XA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kjemDgYREeavcqcXisa0XA" length="30">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kjemDwYREeavcqcXisa0XA" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_C_ktcAhVEeWnKaeLzAewEg" name="RF_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kjemEAYREeavcqcXisa0XA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kjemEQYREeavcqcXisa0XA" comments="Date de mise à jour de la ligne" techID="_C_ktdghVEeWnKaeLzAewEg" name="RF_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kjemEgYREeavcqcXisa0XA">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>
