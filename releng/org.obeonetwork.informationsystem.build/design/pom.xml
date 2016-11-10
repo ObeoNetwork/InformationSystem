@@ -207,6 +207,7 @@
 		
 		<!-- designs/statemachine/ -->
 		<module>../../../designs/statemachine/plugins/org.obeonetwork.dsl.statemachine.design</module>
+		<module>../../../designs/statemachine/plugins/org.obeonetwork.dsl.statemachine.doc</module>
 		
 		<module>../../../designs/statemachine/features/org.obeonetwork.dsl.statemachine.design.feature</module>
 		
