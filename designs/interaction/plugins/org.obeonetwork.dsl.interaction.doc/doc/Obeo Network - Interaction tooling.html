@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>&#169; Obeo 2016 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Stéphane Thibaudeau
+			<br/>
+			<code>Contact</code> stephane.thibaudeau@obeo.fr
+		</p>
+		<h1 id="ObeoNetworkDiagrammesdInteraction">Obeo Network &#8211; Diagrammes d&#8217;Interaction</h1>
+		<p>Les diagrammes d&#8217;interaction permettent de définir des diagrammes de séquences sur quasiment la totalité des éléments définis dans Information System, à l&#8217;exception notable du métamodèle Database.</p>
+		<p>Les diagrammes d&#8217;interaction manipulent des concepts très proches des diagrammes de séquence UML.</p>
+		<p>
+			<img border="0" src="pics/Diagram.png"/>
+		</p>
+		<h2 id="Crationdundiagrammedinteraction">Création d&#8217;un diagramme d&#8217;interaction</h2>
+		<p>Pour pouvoir créer un diagramme d&#8217;interaction il faut activer le point de vue 
+			<em>Interaction</em> sur le projet via le menu contextuel 
+			<em>Viewpoints Selection</em> sur le projet ou sur le fichier 
+			<em>aird</em>.
+		</p>
+		<p>Une fois le point de vue activé, une entrée 
+			<em>New interaction</em> est ajoutée au menu contextuel des éléments pour lesquels un diagramme d&#8217;interaction peut être créé.
+		</p>
+		<p>
+			<img border="0" src="pics/Creation menu.png"/>
+		</p>
+		<p>Un object 
+			<em>Interaction</em> et un diagramme de séquence sont alors créés et visibles sous l&#8217;objet sélectionné.
+			<br/>Il est possible de créer autant de diagrammes de séquence que voulu pour un même objet.
+		</p>
+		<p>
+			<img border="0" src="pics/Diagram in explorer.png"/>
+		</p>
+		<h2 id="Elmentsaffichsetpalettedoutils">Eléments affichés et palette d&#8217;outils</h2>
+		<p>Les éléments suivants sont affichés sur le diagramme :</p>
+		<ul>
+			<li>
+				<em>Participant</em> : définit une ligne de vie.
+			</li>
+			<li>
+				<em>Call</em> : message échangé entre deux participants. Les messages peuvent être des appels simples, des messages de retour, des messages de création ou des messages de destruction.
+			</li>
+			<li>
+				<em>Execution</em> : une exécution représente un moment où un participant est actif et effectue des traitements.
+			</li>
+			<li>
+				<em>State Invariant</em> : utilisé pour indiquer un état obtenu à ce moment du diagramme.
+			</li>
+			<li>
+				<em>Interaction Use</em> : lien vers un autre diagramme d&#8217;interaction.
+			</li>
+			<li>
+				<em>Combined Fragment</em> et 
+				<em>Operand</em> : ces concepts sont utilisés pour représenter des boucles ou des traitements conditionnels.
+			</li>
+		</ul>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/participant.png"/>
+				</td>
+				<td>Création d&#8217;un participant et de sa ligne de vie.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/Call.png"/>
+				</td>
+				<td>Création d&#8217;un message d&#8217;appel simple.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/SyncCall.png"/>
+				</td>
+				<td>Création d&#8217;un message d&#8217;appel synchrone. Un message d&#8217;appel simple est créé, une zone d&#8217;exécution est créée sur le participant appelé, enfin un message de retour vers le participant initial est créée.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/AsyncCall.png"/>
+				</td>
+				<td>Création d&#8217;un message d&#8217;appel asynchrone. Un message d&#8217;appel et une zone d&#8217;exécution sur le participant appelé sont créés. L&#8217;appel étant asynchrone, aucun message de retour n&#8217;est créé.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/Return.png"/>
+				</td>
+				<td>Création d&#8217;un message de retour.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/Create.png"/>
+				</td>
+				<td>Création d&#8217;un message de création. L&#8217;initialisation du participant est rattachée à l&#8217;extrémité du message.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/Destroy.png"/>
+				</td>
+				<td>Création d&#8217;un message de destruction. La ligne de vie du participant appelé est interrompue par une croix au niveau de l&#8217;extrémité du message.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/Execution.png"/>
+				</td>
+				<td>Création d&#8217;une zone d&#8217;exécution.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/StateInvariant.png"/>
+				</td>
+				<td>Création d&#8217;un invariant d'état.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/InteractionUse.png"/>
+				</td>
+				<td>Création d&#8217;un lien vers un autre diagramme d&#8217;interaction.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/CombinedFragment.png"/>
+				</td>
+				<td>Création d&#8217;un fragment combiné.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/tools/Operand.png"/>
+				</td>
+				<td>Création d&#8217;une opérande.</td>
+			</tr>
+		</table>
+	</body>
+</html>

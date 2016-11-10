@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.help.toc">
+      <toc
+            file="doc/Obeo Network - Interaction tooling-toc.xml"
+            primary="true">
+      </toc>
+   </extension>
+
+</plugin>

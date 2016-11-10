@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Interaction Designer Documentation
+Bundle-SymbolicName: org.obeonetwork.dsl.interaction.doc;singleton:=true
+Bundle-Version: 5.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Obeo.fr
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime

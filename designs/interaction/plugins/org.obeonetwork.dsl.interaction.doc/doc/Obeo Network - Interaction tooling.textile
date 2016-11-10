@@ -1,0 +1,50 @@
+__(c) Obeo 2016 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+@Authors@ Stéphane Thibaudeau
+@Contact@ stephane.thibaudeau@obeo.fr
+
+h1. Obeo Network - Diagrammes d'Interaction
+
+Les diagrammes d'interaction permettent de définir des diagrammes de séquences sur quasiment la totalité des éléments définis dans Information System, à l'exception notable du métamodèle Database.
+
+Les diagrammes d'interaction manipulent des concepts très proches des diagrammes de séquence UML.
+
+!pics/Diagram.png!
+
+h2. Création d'un diagramme d'interaction
+ 
+Pour pouvoir créer un diagramme d'interaction il faut activer le point de vue _Interaction_ sur le projet via le menu contextuel _Viewpoints Selection_ sur le projet ou sur le fichier _aird_.
+
+Une fois le point de vue activé, une entrée _New interaction_ est ajoutée au menu contextuel des éléments pour lesquels un diagramme d'interaction peut être créé.
+
+!pics/Creation menu.png!
+
+Un object _Interaction_ et un diagramme de séquence sont alors créés et visibles sous l'objet sélectionné.
+Il est possible de créer autant de diagrammes de séquence que voulu pour un même objet.
+
+!pics/Diagram in explorer.png!
+
+h2. Eléments affichés et palette d'outils
+
+Les éléments suivants sont affichés sur le diagramme :
+* _Participant_ : définit une ligne de vie.
+* _Call_ : message échangé entre deux participants. Les messages peuvent être des appels simples, des messages de retour, des messages de création ou des messages de destruction.
+* _Execution_ : une exécution représente un moment où un participant est actif et effectue des traitements.
+* _State Invariant_ : utilisé pour indiquer un état obtenu à ce moment du diagramme.
+* _Interaction Use_ : lien vers un autre diagramme d'interaction.
+* _Combined Fragment_ et _Operand_ : ces concepts sont utilisés pour représenter des boucles ou des traitements conditionnels.
+
+Les outils fournis par la palette sont :
+
+| !pics/tools/participant.png! | Création d'un participant et de sa ligne de vie. |
+| !pics/tools/Call.png! | Création d'un message d'appel simple. |
+| !pics/tools/SyncCall.png! | Création d'un message d'appel synchrone. Un message d'appel simple est créé, une zone d'exécution est créée sur le participant appelé, enfin un message de retour vers le participant initial est créée. |
+| !pics/tools/AsyncCall.png! | Création d'un message d'appel asynchrone. Un message d'appel et une zone d'exécution sur le participant appelé sont créés. L'appel étant asynchrone, aucun message de retour n'est créé. |
+| !pics/tools/Return.png! | Création d'un message de retour. |
+| !pics/tools/Create.png! | Création d'un message de création. L'initialisation du participant est rattachée à l'extrémité du message. |
+| !pics/tools/Destroy.png! | Création d'un message de destruction. La ligne de vie du participant appelé est interrompue par une croix au niveau de l'extrémité du message. |
+| !pics/tools/Execution.png! | Création d'une zone d'exécution. |
+| !pics/tools/StateInvariant.png! | Création d'un invariant d'état. |
+| !pics/tools/InteractionUse.png! | Création d'un lien vers un autre diagramme d'interaction. |
+| !pics/tools/CombinedFragment.png! | Création d'un fragment combiné. |
+| !pics/tools/Operand.png! | Création d'une opérande. |
