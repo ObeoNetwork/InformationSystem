@@ -1,1 +1,186 @@
-<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body><p><i>&#169; Obeo 2011 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i></p><p><code>Authors</code> Goulwen Le Fur<br/><code>Contact</code> goulwen.lefur@obeo.fr</p><h1 id="ObeoNetworkOutillagedegestiondesexigences">Obeo Network &#8211; Outillage de gestion des exigences</h1><p>L'<strong>outillage de gestion des exigences</strong> du <strong>Network Obeo</strong> apporte un ensemble d&#8217;outils permettant d&#8217;intégrer la gestion d&#8217;exigences d&#8217;un projet dans le processus de modélisation. Il est composé d&#8217;un éditeur permettant de saisir ses exigences et d&#8217;une vue gérant le lien entre les modèles et les exigences du projet.</p><h2 id="Crationdunmodledexigences">Création d&#8217;un modèle d&#8217;exigences</h2><h3 id="Initialisationdunmodledexigences">Initialisation d&#8217;un modèle d&#8217;exigences</h3><p>Un assistant permet de créer un modèle d&#8217;exigences. Il est accessible via le menu :</p><blockquote><p>File &gt; New &gt; Other ... &gt; Requirement Model (Catégorie Obeo Designer For IS)</p></blockquote><p>Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. </p><p>Une fois l&#8217;assistant validé, le modèle est créé et un éditeur s&#8217;ouvre afin de commencer l'édition.</p><p><img border="0" src="pics/Requirements Editor.png"/></p><p>L'éditeur est constitué de deux parties : à gauche un arbre présente le modèle d&#8217;exigences avec les objets qui le composent, à droite les propriétés de l'élément qui est sélectionné dans l&#8217;arbre d&#8217;exigences.</p><p>La création de nouveaux éléments se fait dans l&#8217;arbre des exigences par le menu contextuel <em>New Child</em>  du conteneur où l&#8217;on souhaite créer l'élément. Ainsi pour créer une nouvelle exigence dans une catégorie, il faut invoquer le menu :</p><blockquote><p>New Child &gt; Requirement</p></blockquote><p>L'élément apparaît dans l&#8217;arbre et, en le sélectionnant, ses propriétés peuvent être éditées dans la partie de droite. </p><h3 id="Conceptsdesmodlesdexigences">Concepts des modèles d&#8217;exigences</h3><p>Trois concepts peuvent être manipulés dans un modèle d&#8217;exigences : le <em>Repository</em>, les <em>Categories</em> et les <em>Requirements</em>. </p><p>Le <em>Repository</em> est l'élément racine du modèle. Il porte un nom, contient les catégories principales et peut référencer un élément de modèles.</p><p>Une <em>Category</em> est un conteneur d&#8217;exigences. Elle sert à ordonner les exigences selon différents critères. Un catégorie porte un identifiant et un nom et peut contenir des sous-catégories et des exigences. Elle peut référencer un objet de modèle.</p><p>Finalement un <em>Requirement</em> modélise une exigence. Elle est typée selon les critères <em>Functional</em> ou <em>Technical</em> et peut porter un sous-type. Une exigence à un identifiant, un nom, un status et une description (<em>Statement</em> ).<br/>Il est possible de définir sa provenance (<em>Rationale</em>), ses critères d&#8217;acceptation (<em>AcceptanceCriteria</em>) et de référencer un objet de modèle.  </p><h2 id="ditionauseindObeoDesigner">Édition au sein d&#8217;Obeo Designer</h2><p>La vue <em>Linked Requirements</em> permet de lier les exigences aux éléments des modèles édités dans Obeo Designer. L&#8217;ouverture de la vue se fait via le menu :</p><blockquote><p>Window &gt; Show View &gt; Other ... &gt; Linked Requirement (Catégorie Obeo Designer For IS)</p></blockquote><p><img border="0" src="pics/Linked Requirements View.png"/> </p><p>Cette vue est synchronisée avec l'éditeur actif dans Obeo Designer. Quand un élément de modèle est sélectionné, la vue se met à jour et présente tous les exigences qui ont été liées à cet élément.</p><p>Cette vue porte quatre actions permettant de manipuler rapidement les exigences sans avoir à passer par l'éditeur décrit dans la partie précédente.</p><p><img border="0" src="pics/Linked Requirements View - Actions.png"/></p><h3 id="Crationdexigence">Création d&#8217;exigence</h3><p>La première action permet de créer et directement lier une nouvelle exigence à la sélection courante.</p><p><img border="0" src="pics/Linked Requirements View - Create Action.png"/></p><p>Au lancement de l&#8217;action, un assistant s&#8217;ouvre permettant de créer une nouvelle exigence. Toutes les propriétés de l&#8217;exigence peuvent être renseignée sur la première page. La seconde page permet de choisir la catégorie dans laquelle l&#8217;exigence va être positionnée. Dans le cas où celle-ci n&#8217;existe pas, il est possible d&#8217;utiliser le bouton <em>New Category...</em>  pour en créer une nouvelle.</p><p><img border="0" src="pics/Create Requirement Wizard - Page1.png"/> - <img border="0" src="pics/Create Requirement Wizard - Page2.png"/> </p><p>Une fois l&#8217;assistant validé, l&#8217;exigence est créée à l&#8217;endroit spécifié et est liée à l&#8217;objet actuellement sélectionnée. La vue <em>Linked Requirements</em> est mise à jour.</p><h3 id="ditiondexigence">Édition d&#8217;exigence</h3><p>La seconde action de la vue permet d'éditer une exigence présente dans la vue.</p><p><img border="0" src="pics/Linked Requirements View - Edit Action.png"/></p><p>Elle s&#8217;active en sélectionnant une exigence dans la liste des exigences liées et son lancement ouvre l&#8217;assistant d'édition de façon à pouvoir modifier les propriétés de cet objet.</p><h3 id="Associationdexigence">Association d&#8217;exigence</h3><p>La troisième action permet de gérer l&#8217;association entre les éléments de modèle et les exigences.</p><p><img border="0" src="pics/Linked Requirements View - Link Action.png"/></p><p>Le lancement de l&#8217;action ouvre une boîte de dialogue pour le choix des exigences à associer à l'élément actuellement sélectionné. </p><p><img border="0" src="pics/Link Requirements Dialog.png"/> </p><h3 id="Dissociationdexigence">Dissociation d&#8217;exigence</h3><p>Finalement la dernière action permet de supprimer l&#8217;association entre une ou plusieurs exigences et l'élément actuellement sélectionné.</p><p><img border="0" src="pics/Linked Requirements View - Unlink Action.png"/> </p><p>Cette action s&#8217;active lorsqu&#8217;une ou plusieurs exigences sont sélectionnées parmi les exigences liées de la vue. En la lançant, tous les liens entre ces exigences et l'élément sélectionné.</p><p>Une boîte de confirmation s&#8217;ouvre au lancement de l&#8217;action de façon à garantir tout erreur de manipulation.</p><p><cite>L&#8217;utilisation de cette action ne supprime pas l&#8217;exigence du modèle. Seul le lien entre l&#8217;exigence et l'élément est supprimé, il est tout à fait possible de créer un lien entre l&#8217;exigence et un autre élément</cite> </p><h2 id="PointdevueRequirement">Point de vue Requirement</h2><p>L&#8217;outillage de gestion d&#8217;exigences embarque un point vue afin de visualiser les exigences sous forme de matrices. La création nécessite dans un premier temps l&#8217;activation du point de vue <em>Requirements</em>. Pour cela, sur une session <em>Viewpoint</em> ouverte, lancer le menu</p><blockquote><p>Viewpoint Selection</p></blockquote><p>Choisir le point de vue <em>Requirement</em>.</p><p><img border="0" src="pics/Requirement Viewpoint Selection.png"/></p><p>Ce point de vue permet de créer une matrice de traçabilité d&#8217;exigence sur un <em>Repository</em> d&#8217;exigences. La création de cette matrice se fait via le menu :</p><blockquote><p>New &gt; new Requirements Traceability Matrix</p></blockquote><p><img border="0" src="pics/Requirements matrix creation.png"/> </p><p>Une matrice de traçabilité présente les éléments d&#8217;exigences du modèle en ligne et les éléments référencés en colonnes. Une croix est présente si l&#8217;exigence de la ligne référence l&#8217;objet de la colonne.</p><p><img border="0" src="pics/Requirement Viewpoint.png"/></p><p>Il est possible d'éditer les cellules. Si une cellule est vidée, la référence entre l&#8217;exigence et l&#8217;objet est supprimée.</p></body></html>
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>&#169; Obeo 2011 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Goulwen Le Fur
+			<br/>
+			<code>Contact</code> goulwen.lefur@obeo.fr
+		</p>
+		<h1 id="ObeoNetworkOutillagedegestiondesexigences">Obeo Network &#8211; Outillage de gestion des exigences</h1>
+		<p>L'
+			<strong>outillage de gestion des exigences</strong> du 
+			<strong>Network Obeo</strong> apporte un ensemble d&#8217;outils permettant d&#8217;intégrer la gestion d&#8217;exigences d&#8217;un projet dans le processus de modélisation. Il est composé d&#8217;un éditeur permettant de saisir ses exigences et d&#8217;une vue gérant le lien entre les modèles et les exigences du projet.
+		</p>
+		<h2 id="Crationdunmodledexigences">Création d&#8217;un modèle d&#8217;exigences</h2>
+		<h3 id="Initialisationdunmodledexigences">Initialisation d&#8217;un modèle d&#8217;exigences</h3>
+		<p>Un assistant permet de créer un modèle d&#8217;exigences. Il est accessible via le menu :</p>
+		<blockquote>
+			<p>File &gt; New &gt; Other ... &gt; Requirement Model (Catégorie Obeo Designer For IS)</p>
+		</blockquote>
+		<p>Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. </p>
+		<p>Une fois l&#8217;assistant validé, le modèle est créé et un éditeur s&#8217;ouvre.
+			<br/>L'édition ne doit pas se faire dans cet éditeur mais par le biais de la 
+			<em>Requirements table</em> du point de vue 
+			<em>Requirements</em>.
+		</p>
+		<h3 id="Conceptsdesmodlesdexigences">Concepts des modèles d&#8217;exigences</h3>
+		<p>Trois concepts peuvent être manipulés dans un modèle d&#8217;exigences : le 
+			<em>Repository</em>, les 
+			<em>Categories</em> et les 
+			<em>Requirements</em>. 
+		</p>
+		<p>Le 
+			<em>Repository</em> est l'élément racine du modèle. Il porte un nom, contient les catégories principales et peut référencer un élément de modèles.
+		</p>
+		<p>Une 
+			<em>Category</em> est un conteneur d&#8217;exigences. Elle sert à ordonner les exigences selon différents critères. Un catégorie porte un identifiant et un nom et peut contenir des sous-catégories et des exigences. Elle peut référencer un objet de modèle.
+		</p>
+		<p>Finalement un 
+			<em>Requirement</em> modélise une exigence. Elle est typée selon les critères 
+			<em>Functional</em> ou 
+			<em>Technical</em> et peut porter un sous-type. Une exigence à un identifiant, un nom, un status et une description (
+			<em>Statement</em> ).
+			<br/>Il est possible de définir sa provenance (
+			<em>Rationale</em>), ses critères d&#8217;acceptation (
+			<em>AcceptanceCriteria</em>) et de référencer un objet de modèle.  
+		</p>
+		<h2 id="PointdevueRequirement">Point de vue Requirement</h2>
+		<p>L&#8217;outillage de gestion d&#8217;exigences embarque un point vue permettant :</p>
+		<ul>
+			<li>La gestion des exigences (création, modification, suppression)</li>
+			<li>La visualisation des exigences sous forme de matrices de traçabilité.</li>
+		</ul>
+		<p>La création nécessite dans un premier temps l&#8217;activation du point de vue 
+			<em>Requirements</em>. Pour cela, sur une session 
+			<em>Viewpoint</em> ouverte, lancer le menu
+		</p>
+		<blockquote>
+			<p>Viewpoint Selection</p>
+		</blockquote>
+		<p>Choisir le point de vue 
+			<em>Requirement</em>.
+		</p>
+		<p>
+			<img border="0" src="pics/Requirement Viewpoint Selection.png"/>
+		</p>
+		<h3 id="Requirementstable">Requirements table</h3>
+		<p>Une fois le point de vue activé, il est possible de créer un tableau 
+			<em>Requirements table</em> sur un 
+			<em>Repository</em> d&#8217;exigences.
+		</p>
+		<p>La création de ce tableau se fait via le menu :</p>
+		<blockquote>
+			<p>New &gt; new Requirements Table</p>
+		</blockquote>
+		<p>Ce tableau permet de créer, modifier et supprimer des catégories et des exigences.
+			<br/>Les informations sont affichées en colonnes dont le contenu peut être édité directement.
+			<br/>L&#8217;objet sélectionné peut aussi être modifié via la vue 
+			<em>Properties</em>.
+		</p>
+		<p>
+			<img border="0" src="pics/RequirementsTable.png"/>
+		</p>
+		<p>Le menu contextuel propose les actions suivantes :</p>
+		<ul>
+			<li>
+				<em>Create Category</em> : permet de créer une catégorie dans un repository ou une sous-catégorie en fonction du contexte.
+			</li>
+			<li>
+				<em>Create Requirement</em> : permet de créer une nouvelle exigence dans le contexte sélectionné
+			</li>
+			<li>
+				<em>Copy Category</em> : permet de copier la catégorie sélectionnée et tout son contenu dans un emplacement à choisir
+			</li>
+			<li>
+				<em>Move Category</em> : permet de déplacer une catégorie et tout son contenu dans un emplacement à choisir
+			</li>
+			<li>
+				<em>Copy Requirement</em> : permet de copier une exigence à un emplacement à choisir
+			</li>
+			<li>
+				<em>Move Requirement</em> : permet de déplacer une exigence vers un emplacement à choisir
+			</li>
+			<li>
+				<em>Validate requirements</em> : permet de valider les exigences. En particulier les doublons sur les identifiants sont remontés en erreurs.
+			</li>
+		</ul>
+		<h3 id="RequirementsTraceabilityMatrix">Requirements Traceability Matrix</h3>
+		<p>Le point de vue permet de créer une matrice de traçabilité d&#8217;exigence sur un 
+			<em>Repository</em> d&#8217;exigences. La création de cette matrice se fait via le menu :
+		</p>
+		<blockquote>
+			<p>New &gt; new Requirements Traceability Matrix</p>
+		</blockquote>
+		<p>
+			<img border="0" src="pics/Requirements matrix creation.png"/> 
+		</p>
+		<p>Une matrice de traçabilité présente les éléments d&#8217;exigences du modèle en ligne et les éléments référencés en colonnes. Une croix est présente si l&#8217;exigence de la ligne référence l&#8217;objet de la colonne.</p>
+		<p>
+			<img border="0" src="pics/Requirement Viewpoint.png"/>
+		</p>
+		<p>Il est possible d'éditer les cellules. Si une cellule est vidée, la référence entre l&#8217;exigence et l&#8217;objet est supprimée.</p>
+		<h2 id="ditionvialavueLinkedRequirements">Édition via la vue 
+			<em>Linked Requirements</em>
+		</h2>
+		<p>La vue 
+			<em>Linked Requirements</em> permet de lier les exigences aux éléments des modèles édités dans Obeo Designer. L&#8217;ouverture de la vue se fait via le menu :
+		</p>
+		<blockquote>
+			<p>Window &gt; Show View &gt; Other ... &gt; Linked Requirement (Catégorie Obeo Designer For IS)</p>
+		</blockquote>
+		<p>
+			<img border="0" src="pics/Linked Requirements View.png"/> 
+		</p>
+		<p>Cette vue est synchronisée avec l'éditeur actif dans Obeo Designer. Quand un élément de modèle est sélectionné, la vue se met à jour et présente tous les exigences qui ont été liées à cet élément.</p>
+		<p>Cette vue porte quatre actions permettant de manipuler rapidement les exigences sans avoir à passer par l'éditeur décrit dans la partie précédente.</p>
+		<p>
+			<img border="0" src="pics/Linked Requirements View - Actions.png"/>
+		</p>
+		<h3 id="Crationdexigence">Création d&#8217;exigence</h3>
+		<p>La première action permet de créer et directement lier une nouvelle exigence à la sélection courante.</p>
+		<p>
+			<img border="0" src="pics/Linked Requirements View - Create Action.png"/>
+		</p>
+		<p>Au lancement de l&#8217;action, un assistant s&#8217;ouvre permettant de créer une nouvelle exigence. Toutes les propriétés de l&#8217;exigence peuvent être renseignée sur la première page. La seconde page permet de choisir la catégorie dans laquelle l&#8217;exigence va être positionnée. Dans le cas où celle-ci n&#8217;existe pas, il est possible d&#8217;utiliser le bouton 
+			<em>New Category...</em>  pour en créer une nouvelle.
+		</p>
+		<p>
+			<img border="0" src="pics/Create Requirement Wizard - Page1.png"/> - 
+			<img border="0" src="pics/Create Requirement Wizard - Page2.png"/> 
+		</p>
+		<p>Une fois l&#8217;assistant validé, l&#8217;exigence est créée à l&#8217;endroit spécifié et est liée à l&#8217;objet actuellement sélectionnée. La vue 
+			<em>Linked Requirements</em> est mise à jour.
+		</p>
+		<h3 id="ditiondexigence">Édition d&#8217;exigence</h3>
+		<p>La seconde action de la vue permet d'éditer une exigence présente dans la vue.</p>
+		<p>
+			<img border="0" src="pics/Linked Requirements View - Edit Action.png"/>
+		</p>
+		<p>Elle s&#8217;active en sélectionnant une exigence dans la liste des exigences liées et son lancement ouvre l&#8217;assistant d'édition de façon à pouvoir modifier les propriétés de cet objet.</p>
+		<h3 id="Associationdexigence">Association d&#8217;exigence</h3>
+		<p>La troisième action permet de gérer l&#8217;association entre les éléments de modèle et les exigences.</p>
+		<p>
+			<img border="0" src="pics/Linked Requirements View - Link Action.png"/>
+		</p>
+		<p>Le lancement de l&#8217;action ouvre une boîte de dialogue pour le choix des exigences à associer à l'élément actuellement sélectionné. </p>
+		<p>
+			<img border="0" src="pics/Link Requirements Dialog.png"/> 
+		</p>
+		<h3 id="Dissociationdexigence">Dissociation d&#8217;exigence</h3>
+		<p>Finalement la dernière action permet de supprimer l&#8217;association entre une ou plusieurs exigences et l'élément actuellement sélectionné.</p>
+		<p>
+			<img border="0" src="pics/Linked Requirements View - Unlink Action.png"/> 
+		</p>
+		<p>Cette action s&#8217;active lorsqu&#8217;une ou plusieurs exigences sont sélectionnées parmi les exigences liées de la vue. En la lançant, tous les liens entre ces exigences et l'élément sélectionné.</p>
+		<p>Une boîte de confirmation s&#8217;ouvre au lancement de l&#8217;action de façon à garantir tout erreur de manipulation.</p>
+		<p>
+			<cite>L&#8217;utilisation de cette action ne supprime pas l&#8217;exigence du modèle. Seul le lien entre l&#8217;exigence et l'élément est supprimé, il est tout à fait possible de créer un lien entre l&#8217;exigence et un autre élément</cite> 
+		</p>
+	</body>
+</html>
