@@ -106,8 +106,12 @@
    <feature url="features/org.obeonetwork.tools.snapshot.viewer.feature_5.0.0.qualifier.jar" id="org.obeonetwork.tools.snapshot.viewer.feature" version="5.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
+   <feature url="features/org.obeonetwork.database.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.database.m2doc.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.m2doc"/>
+   </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>
    <category-def name="org.obeonetwork.informationsystem.reversers" label="Information System - Reversers"/>
+   <category-def name="org.obeonetwork.informationsystem.m2doc" label="Information System - M2Doc"/>
 </site>
