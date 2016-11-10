@@ -213,6 +213,8 @@
 		
 		<!-- designs/entity/ -->
 		<module>../../../designs/entity/plugins/org.obeonetwork.dsl.entity.design</module>
+		<module>../../../designs/entity/plugins/org.obeonetwork.dsl.entity.doc</module>
+		
 		<module>../../../designs/entity/features/org.obeonetwork.dsl.entity.design.feature</module>
 		
 		<!-- designs/soa/ -->
