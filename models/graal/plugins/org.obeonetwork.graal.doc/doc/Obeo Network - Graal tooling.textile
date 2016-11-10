@@ -26,7 +26,7 @@ Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre afin 
 
 L'éditeur permet de visualiser le contenu d'un modèle Graal sous forme arborescente. Pour modifier les propriétés d'un élément il faut utiliser la vue _Properties_ (partie basse sur la capture d'écran précédente). Si cette vue n'est pas visible, il est possible de l'ouvrir par un clic droit sur un élément de l'arbre et sélection de _Show Properties View_.
 
-La création de nouveaux éléments se fait dans l'arbre exigences par le menu contextuel _New Child_  du conteneur où l'on souhaite créer l'élément. Ainsi pour créer une nouvelle tâche dans un système, il faut invoquer, depuis le système voulu, le menu :
+La création de nouveaux éléments se fait dans l'arbre par le menu contextuel _New Child_  du conteneur où l'on souhaite créer l'élément. Ainsi pour créer une nouvelle tâche dans un système, il faut invoquer, depuis le système voulu, le menu :
 
 bq. New Child > Task
 
@@ -36,12 +36,13 @@ h2. Point de vue Graal
 
 L'outillage Graal fournit un point de vue dédié à la méthodologie Graal. Ce point de vue permet de visualiser et modifier un modèle Graal via plusieurs types de diagrammes.
 
-h3. Ouverture d'une session _Viewpoint_ et activation du point de vue Graal
+h3. Ouverture d'une session  et activation du point de vue Graal
 
-L'ouverture d'une session _ViewPoint_ sur un modèle Graal se fait de manière classique :
+L'ouverture d'une session de travail sur un modèle Graal se fait de manière classique :
+* En ouvrant le _Modeling Project_ contenant le modèle
 * En double-cliquant sur un fichier _*.aird_ existant
-* En faisant un glisser/déposer d'un fichier _*.graal_ sur la vue _Model Content_
-* En créant une nouvelle session via le menu @File > New > Local Session@
+* En faisant un glisser/déposer d'un fichier _*.graal_ sur la vue _Model Explorer_
+* En convertissant le projet contenant le modèle en un _Modeling Project_
 
 Le point de vue _Graal Methodology_ doit être sélectionné sur la session ouverte. Pour vérifier si c'est bien le cas lancer le menu suivant la session :
 
@@ -57,7 +58,7 @@ h3. Création/ouverture de diagrammes
 
 Chaque type de diagramme est rattaché à un concept Graal précis. Par exemple, un _plan d'action_ est rattaché à une _Task_, un graphe de tâches est rattaché à un _System_ ou à un _TasksGroup_. 
 
-Pour créer un diagramme d'un certain type, il suffit de sélectionner l'élément du modèle auquel on veut rattacher le diagramme dans la vue _Model Content_ puis, avec un clic droit, de sélectionner le menu :
+Pour créer un diagramme d'un certain type, il suffit de sélectionner l'élément du modèle auquel on veut rattacher le diagramme dans la vue _Model Explorer_ puis, avec un clic droit, de sélectionner le menu :
 
 bq. New... > #Nom du diagramme#
 
@@ -67,7 +68,7 @@ Par exemple sur un _System_, trois types de diagrammes peuvent être créés com
  
 !pics/Graal Graphs on System.png!
 
-Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue _Model Content_. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Content_. 
+Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue _Model Explorer_. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Explorer_. 
 
 h3. Graphe de tâches (pour un _System_)
 
@@ -289,7 +290,7 @@ h4. Eléments affichés et palette d'outils
 
 Les éléments suivants sont affichés sur le diagramme :
 
-* _Namespace_ : chaque package contenu dans le System est affiché. Si unpackage est contenu par un autre package il apparaît à l'intérieur de son package parent. L'icône d'un packae apparaît blanche ou grisée selon si le package est respectivement vide ou non.
+* _Namespace_ : chaque package contenu dans le System est affiché. Si un package est contenu par un autre package il apparaît à l'intérieur de son package parent. L'icône d'un package apparaît blanche ou grisée selon si le package est respectivement vide ou non.
 
 Les outils fournis par la palette sont :
 
@@ -350,7 +351,7 @@ La vue peut être positionnée à l'emplacement souhaité à côté de l'éditeu
 
 h5. Affichage de la liste des User Stories
 
-Dès qu'un élément Graal est sélectionné sur un diagramme ou dans la vue _Model Content_, les _User Stories_ du système sont affichées dans la vue.
+Dès qu'un élément Graal est sélectionné sur un diagramme ou dans la vue _Model Explorer_, les _User Stories_ du système sont affichées dans la vue.
 
 h5. Création/modification/suppression d'une User Story
 

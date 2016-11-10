@@ -1,0 +1,161 @@
+__(c) Obeo 2016 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+@Authors@ Stéphane Thibaudeau
+@Contact@ stephane.thibaudeau@obeo.fr
+
+h1. Obeo Network - Entity Designer
+
+*Entity Designer* permet de modéliser des entités métier.
+
+*Entity Designer* fournit le point de vue _Entity Views_ permettant de :
+* Modéliser les entités métier, leur structure et les relations entre elles,
+* Organiser ces entités en packages
+
+h2. Création d'un modèle Entity
+ 
+Un assistant permet la création de modèles Entity. Cet assistant est accessible via le menu :
+
+bq. File > New > Other ... > Entity Model (Catégorie Obeo Designer For IS)
+
+Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
+
+Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre afin de commencer l'édition.
+
+!pics/Entity editor.png!
+
+L'éditeur permet de visualiser le contenu d'un modèle Entity sous forme arborescente. Pour modifier les propriétés d'un élément il faut utiliser la vue _Properties_ (partie basse sur la capture d'écran précédente). Si cette vue n'est pas visible, il est possible de l'ouvrir par un clic droit sur un élément de l'arbre et sélection de _Show Properties View_.
+
+La création de nouveaux éléments se fait dans l'arbre par le menu contextuel _New Child_  du conteneur où l'on souhaite créer l'élément. Ainsi pour créer une nouvelle entité, il faut invoquer, depuis le package voulu, le menu :
+
+bq. New Child > Entity
+
+Un modèle Entity peut être édité avec cet éditeur arborescent mais ce n'est pas la méthode privilégiée : les éditeurs graphiques (diagrammes) permettent de remplir cette tâche plus efficacement.
+
+h2. Point de vue Entity Views
+
+L'outillage Entity Designer fournit un point de vue dédié à la gestion des entités métier. Ce point de vue permet de visualiser et modifier un modèle Entity via plusieurs types de diagrammes.
+
+h3. Ouverture d'une session et activation du point de vue Entity Views
+
+L'ouverture d'une session de travail sur un modèle Entity se fait de manière classique :
+* En ouvrant le _Modeling Project_ contenant le modèle
+* En double-cliquant sur un fichier _*.aird_ existant
+* En faisant un glisser/déposer d'un fichier _*.entity_ sur la vue _Model Explorer_
+* En convertissant le projet contenant le modèle en un _Modeling Project_
+
+Le point de vue _Entity Views_ doit être sélectionné sur la session ouverte. Pour vérifier si c'est bien le cas lancer le menu suivant la session :
+
+bq. Viewpoint Selection
+
+Choisir le point de vue _Entity Views_ :
+
+!pics/Entity Views Viewpoint Selection.png!
+
+Une fois le point de vue activé, il devient possible de créer ou visualiser les diagrammes Entity Views.
+
+h3. Création/ouverture de diagrammes
+
+Chaque type de diagramme est rattaché à un concept Entity précis. Par exemple, un _Entities Diagram_ est rattaché à un _Namespace_. 
+
+Pour créer un diagramme d'un certain type, il suffit de sélectionner l'élément du modèle auquel on veut rattacher le diagramme dans la vue _Model Explorer_ puis, avec un clic droit, de sélectionner le menu :
+
+bq. New... > #Nom du diagramme#
+
+puis renseigner le nom du diagramme et, enfin, valider.
+
+Par exemple sur un objet racine _Entities_, deux types de représentation peuvent être créés comme présenté sur la capture d'écran suivante :
+ 
+!pics/Entity representations on Entities.png!
+
+Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue _Model Explorer_. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Explorer_. 
+
+h3. Entities Namespaces Hierarchy (pour l'objet racine _Entities_)
+
+Les entités (_Entity_) sont organisées en packages (_Namespaces_).
+La gestion de la hiérarchie de packages se fait en utilisant le diagramme _Entities Namespaces Hierarchy_.
+Ce diagramme peut être créé sur l'objet racine _Entities_.
+
+Ce diagramme permet de créer, modifier ou supprimer des packages ainsi que d'accéder facilement au diagramme de gestion des entitiés d'un package.
+
+!pics/hierarchy/namespaces_hierarchy.png!
+
+h4. Eléments affichés et palette d'outils
+
+Les éléments suivants sont affichés sur le diagramme :
+
+* _Namespace_ : chaque package contenu dans l'élément racine est affiché. Si un package est contenu par un autre package il apparaît à l'intérieur de son package parent. L'icône d'un package apparaît blanche ou grisée selon si le package est respectivement vide ou non.
+
+Les outils fournis par la palette sont :
+
+| !pics/hierarchy/Create namespace.png! | Création d'un package. Un package peut être créé sur le fond du diagramme ou à l'intérieur d'un autre package. |
+
+h4. Navigation vers d'autres diagrammes
+
+Il est possible de naviguer depuis ce diagramme vers un autre diagramme :
+
+* Depuis un package, un double-clic, le menu _New_ ou le menu _Open_ permettent de naviguer (et potentiellement de le créer) vers le diagramme des entités de ce package.
+
+h3. Diagramme des entités
+
+Un diagramme des entités (_Entities Diagram_) est associé à un package (_Namespace_). Il permet de gérer les entités du package.
+
+!pics/entities/Entities diagram.png!
+
+Les éléments suivants sont affichés sur le diagramme :
+
+* Entités
+* Attributs
+* Relations entre entités
+* Liens d'héritage
+* Enumération
+* Packages contenus
+
+Les outils fournis par la palette sont :
+
+| !pics/entities/Create namespace.png! | Création d'un sous-package. |
+| !pics/entities/Create entity.png! | Création d'une entité. |
+| !pics/entities/Create entity from dto.png! | Création d'entités à partir de DTO. |
+| !pics/entities/Create attribute.png! | Création d'un attribut d'entité. |
+| !pics/entities/Create enumeration.png! | Création d'une énumération. |
+| !pics/entities/Create literal.png! | Création d'une valeur d'énumération. |
+| !pics/entities/Create relation.png! | Création d'une relation simple. |
+| !pics/entities/Create composition.png! | Création d'une relation de composition. |
+| !pics/entities/Create inheritance.png! | Création d'un lien d'héritage. |
+| !pics/entities/Create bidi relation.png! | Création d'une relation simple bidirectionnelle. |
+| !pics/entities/Create bidi composition.png! | Création d'une relation de contenance bidirectionnelle. |
+| !pics/entities/Create external.png! | Ajout d'une entité externe. Cet outil permet de faire apparaitre une entité définie dans un autre package pour créer des relations avec les entités du package courant. Cet outil est activable via le calque _External Entities_ |
+
+L'outil de création d'entités à partir de DTOs permet de sélectionner des DTOs (cf. documentation sur *SOA Designer*) et des références entre ses DTOs. Des entités et des relations sont créées pour chaque DTO et chaque référence sélectionné.
+
+!pics/entities/Dlg entity from dto.png!
+
+h3. Table des entités
+
+La table des entités (_Entity table_) peut être créée sur l'objet racine _Entities_.
+
+La table des entités permet de lister les entités existantes et d'afficher les informations suivantes :
+* Nombre d'attributs définis
+* Volumétrie estimée. Cette valeur est modifiable en éditant directement la cellule.
+* Historisation (oui/non). Cette valeur est modifiable en éditant directement la cellule.
+
+!pics/table/Entity table.png!
+
+h2. Gestion des exigences
+
+La gestion des exigences pour un modèle Entity utilise le mécanisme transverse de gestion des exigences fourni par l'outillage.
+Se référer à la documentation *Obeo Network - Requirements Tooling* dans l'aide d'Eclipse.
+
+h2. Gestion de la documentation liée
+
+Il est possible d'attacher de la documentation aux éléments d'un modèle Entity. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l'outillage.
+Se référer à la documentation *Obeo Network - Documentation Tooling* dans l'aide d'Eclipse.
+
+h2. Création de diagramme d'interaction
+
+Il est possible de créer des diagrammes d'interaction pour les éléments d'un modèle Entity.
+Se reférer à la documentation *Obeo Network - Interaction Tooling* dans l'aide d'Eclipse.
+
+h2. Création de diagramme de machines à états
+
+Il est possible de créer des diagrammes de machines à états pour les éléments d'un modèle Entity.
+Se reférer à la documentation *Obeo Network - State Machine Tooling* dans l'aide d'Eclipse.
