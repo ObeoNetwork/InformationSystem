@@ -1,4 +1,4 @@
-__(c) Obeo 2011 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+__(c) Obeo 2011, 2016 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
 
 @Authors@ Stéphane Thibaudeau
 @Contact@ stephane.thibaudeau@obeo.fr
@@ -72,7 +72,6 @@ Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vu
 h3. Graphe de tâches (pour un _System_)
 
 Un graphe de tâches (ou _Tasks Graph_) peut être associé à un _System_.
-Le graphe de tâches d'un _System_ est normalement créé automatiquement à la création d'une session.
 Pour chaque _System_ un seul graphe de tâches peut être créé au maximum.
 
 !pics/diagrams/tasksgraph/Tasks Graph.png!
@@ -108,9 +107,9 @@ Le menu contextuel (visible suite à un clic droit sur un élément du diagramme
 h4. Navigation vers d'autres diagrammes
 
 Il est possible de naviguer depuis ce diagramme vers d'autres diagrammes :
-* Depuis une tâche, un double-clic ou le menu _Navigate_ permettent de naviguer vers le plan d'action (_Actions Plan_) de la tâche. Si ce plan d'action n'existe pas, il est créé.
-* Depuis un groupe de tâches, un double-clic ou le menu _Navigate_ permettent de naviguer vers le graphe de tâches (_Tasks Graph_) du groupe. Si ce graphe de tâches n'existe pas, il est créé.
-* Depuis un système, un double-clic ou le menu _Navigate_ permettent de naviguer vers le graphe de tâches (_Tasks Graph_) du système. Si ce graphe de tâches n'existe pas, il est créé.
+* Depuis une tâche, un double-clic ou le menu _Open_ permettent de naviguer vers le plan d'action (_Actions Plan_) de la tâche. Si ce plan d'action n'existe pas, il est créé.
+* Depuis un groupe de tâches, un double-clic ou le menu _Open_ permettent de naviguer vers le graphe de tâches (_Tasks Graph_) du groupe. Si ce graphe de tâches n'existe pas, il est créé.
+* Depuis un système, un double-clic ou le menu _Open_ permettent de naviguer vers le graphe de tâches (_Tasks Graph_) du système. Si ce graphe de tâches n'existe pas, il est créé.
 
 h3. Graphe de tâches (pour un _TasksGroup_)
 
@@ -147,8 +146,8 @@ Le menu contextuel (visible suite à un clic droit sur un élément du diagramme
 h4. Navigation vers d'autres diagramme
 
 Il est possible de naviguer depuis ce diagramme vers d'autres diagrammes :
-* Depuis une tâche, un double-clic ou le menu _Navigate_ permettent de naviguer vers le plan d'action (_Actions Plan_) de la tâche. Si ce plan d'action n'existe pas, il est créé.
-* Depuis un groupe de tâches, un double-clic ou le menu _Navigate_ permettent de naviguer vers le graphe de tâches (_Tasks Graph_) du groupe. Si ce graphe de tâches n'existe pas, il est créé.
+* Depuis une tâche, un double-clic ou le menu _Open_ permettent de naviguer vers le plan d'action (_Actions Plan_) de la tâche. Si ce plan d'action n'existe pas, il est créé.
+* Depuis un groupe de tâches, un double-clic ou le menu _Open_ permettent de naviguer vers le graphe de tâches (_Tasks Graph_) du groupe. Si ce graphe de tâches n'existe pas, il est créé.
 
 h3. Plan d'action
 
@@ -194,12 +193,11 @@ Les outils fournis par la palette sont :
 h4. Navigation vers d'autres diagramme
 
 Il est possible de naviguer depuis ce diagramme vers d'autres diagrammes :
-* Depuis un noeud pointant vers une tâche, un double-clic ou le menu _Navigate_ permettent de naviguer vers le plan d'action (_Actions Plan_) de la tâche. Si ce plan d'action n'existe pas, il est créé.
+* Depuis un noeud pointant vers une tâche, un double-clic ou le menu _Open_ permettent de naviguer vers le plan d'action (_Actions Plan_) de la tâche. Si ce plan d'action n'existe pas, il est créé.
 
 h3. Graphe des acteurs (pour un _System_)
 
 Un graphe des acteurs (ou _Actors Graph_) peut être associé à un _System_. Ce graphe permet de créer/modifier les acteurs du système.
-Le graphe des acteurs d'un _System_ est normalement créé automatiquement à la création d'une session.
 Pour chaque _System_ un seul graphe des acteurs peut être créé au maximum.
 
 !pics/diagrams/actorsgraph/Actors Graph.png!
@@ -218,7 +216,6 @@ Les outils fournis par la palette sont :
 h3. Graphe global des Use Cases (pour un _System_)
 
 Un graphe global des Use Cases (ou _Use Cases Main View_) peut être associé à un _System_. Ce graphe permet de visualiser, créer, modifier les _Use Cases_ du système.
-Le graphe global des Use Cases d'un _System_ est normalement créé automatiquement à la création d'une session.
 Pour chaque _System_ un seul graphe global des Use Cases peut être créé au maximum.
 
 !pics/diagrams/usecasesmainview/Use Cases Main View.png!
@@ -240,7 +237,7 @@ Les outils fournis par la palette sont :
 h4. Navigation vers d'autres diagramme
 
 Il est possible de naviguer depuis ce diagramme vers d'autres diagrammes :
-* Depuis un use case, un double-clic ou le menu _Navigate_ permettent de naviguer vers le diagramme de use case (_Use Case Diagram_) du use case concerné.
+* Depuis un use case, un double-clic ou le menu _Open_ permettent de naviguer vers le diagramme de use case (_Use Case Diagram_) du use case concerné.
 
 h3. Diagramme de Use Case (pour un _Use Case_)
 
@@ -276,7 +273,63 @@ Le menu contextuel (visible suite à un clic droit sur un élément du diagramme
 h4. Navigation vers d'autres diagramme
 
 Il est possible de naviguer depuis ce diagramme vers d'autres diagrammes :
-* Depuis une tâche, un double-clic ou le menu _Navigate_ permettent de naviguer vers le plan d'action (_Actions Plan_) de cette tâche.
+* Depuis une tâche, un double-clic ou le menu _Open_ permettent de naviguer vers le plan d'action (_Actions Plan_) de cette tâche.
+
+h3. Gestion des packages de classes participantes
+
+Les classes participantes (_Domain Classes_) sont organisées en packages (_Namespaces_).
+La gestion de la hiérarchie de packages se fait en utilisant le diagramme _Domain Classes Namespaces Hierarchy_.
+Ce diagramme peut être créé sur l'objet principal _System_.
+
+Ce diagramme permet de créer, modifier ou supprimer des packages ainsi que d'accéder facilement au diagramme de gestion des classes participantes d'un package.
+
+!pics/diagrams/domainclasses/namespaces_hierarchy.png!
+
+h4. Eléments affichés et palette d'outils
+
+Les éléments suivants sont affichés sur le diagramme :
+
+* _Namespace_ : chaque package contenu dans le System est affiché. Si unpackage est contenu par un autre package il apparaît à l'intérieur de son package parent. L'icône d'un packae apparaît blanche ou grisée selon si le package est respectivement vide ou non.
+
+Les outils fournis par la palette sont :
+
+| !pics/diagrams/domainclasses/Create namespace.png! | Création d'un package. Un package peut être créé sur le fond du diagramme ou à l'intérieur d'un autre package. |
+
+h4. Navigation vers d'autres diagrammes
+
+Il est possible de naviguer depuis ce diagramme vers un autre diagramme :
+
+* Depuis un package, un double-clic, le menu _New_ ou le menu _Open_ permettent de naviguer (et potentiellement de le créer) vers le diagramme des classes participantes de ce package.
+
+h3. Diagramme de classes participantes
+
+Un diagramme de classes participantes est associé à un package (_Namespace_). Il permet de gérer les classes participantes du package.
+
+!pics/diagrams/domainclasses/Domain classes diagram.png!
+
+Les éléments suivants sont affichés sur le diagramme :
+
+* _Domain class_ : classe participante
+* Attributs
+* Relations entre classes participantes
+* Liens d'héritage
+* Enumération
+* Packages contenus
+
+Les outils fournis par la palette sont :
+
+| !pics/diagrams/domainclasses/Create namespace.png! | Création d'un sous-package. |
+| !pics/diagrams/domainclasses/Create domain class.png! | Création d'une classe participante. |
+| !pics/diagrams/domainclasses/Create attribute.png! | Création d'un attribut de classe participante. |
+| !pics/diagrams/domainclasses/Create enumeration.png! | Création d'une énumération. |
+| !pics/diagrams/domainclasses/Create literal.png! | Création d'une valeur d'énumération. |
+| !pics/diagrams/domainclasses/Create relation.png! | Création d'une relation simple. |
+| !pics/diagrams/domainclasses/Create composition.png! | Création d'une relation de composition. |
+| !pics/diagrams/domainclasses/Create inheritance.png! | Création d'un lien d'héritage. |
+| !pics/diagrams/domainclasses/Create bidi relation.png! | Création d'une relation simple bidirectionnelle. |
+| !pics/diagrams/domainclasses/Create bidi composition.png! | Création d'une relation de contenance bidirectionnelle. |
+| !pics/diagrams/domainclasses/Create external.png! | Ajout d'une classe participante externe. Cet outil permet de faire apparaitre une classe participante définie dans un autre package pour créer des relations avec les classes du package courant. Cet outil est activable via le calque _External Domain Classes_ |
+
 
 h3. Gestion des User Stories
 
@@ -339,5 +392,15 @@ Se référer à la documentation *Obeo Network - Requirements Tooling* dans l'ai
 
 h2. Gestion de la documentation liée
 
-Il estpossible d'attacher de la documentation aux éléments d'un modèle Graal. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l'outillage.
+Il est possible d'attacher de la documentation aux éléments d'un modèle Graal. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l'outillage.
 Se référer à la documentation *Obeo Network - Documentation Tooling* dans l'aide d'Eclipse.
+
+h2. Création de diagramme d'interaction
+
+Il est possible de créer des diagrammes d'interaction pour les éléments d'un modèle Graal.
+Se reférer à la documentation *Obeo Network - Interaction Tooling* dans l'aide d'Eclipse.
+
+h2. Création de diagramme de machines à états
+
+Il est possible de créer des diagrammes de machines à états pour les éléments d'un modèle Graal.
+Se reférer à la documentation *Obeo Network - State Machine Tooling* dans l'aide d'Eclipse.
