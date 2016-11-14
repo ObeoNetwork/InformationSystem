@@ -27,7 +27,8 @@
 		<p>Une fois l&#8217;assistant validé, le modèle est créé et un éditeur s&#8217;ouvre.
 			<br/>L'édition ne doit pas se faire dans cet éditeur mais par le biais de la 
 			<em>Requirements table</em> du point de vue 
-			<em>Requirements</em>.
+			<em>Requirements</em>. L&#8217;utilisation de la 
+			<em>Requirements table</em> est encore plus nécessaire quand le projet est partagé en mode collaboratif (sur CDO) car dans ce cas l'éditeur simple ne fonctionnera pas.
 		</p>
 		<h3 id="Conceptsdesmodlesdexigences">Concepts des modèles d&#8217;exigences</h3>
 		<p>Trois concepts peuvent être manipulés dans un modèle d&#8217;exigences : le 
@@ -44,11 +45,14 @@
 		<p>Finalement un 
 			<em>Requirement</em> modélise une exigence. Elle est typée selon les critères 
 			<em>Functional</em> ou 
-			<em>Technical</em> et peut porter un sous-type. Une exigence à un identifiant, un nom, un status et une description (
+			<em>Technical</em> et peut porter un sous-type. Une exigence a un identifiant, un nom, un status et une description (
 			<em>Statement</em> ).
 			<br/>Il est possible de définir sa provenance (
 			<em>Rationale</em>), ses critères d&#8217;acceptation (
-			<em>AcceptanceCriteria</em>) et de référencer un objet de modèle.  
+			<em>AcceptanceCriteria</em>) et de référencer un objet de modèle.
+			<br/>A noter qu&#8217;un 
+			<em>Requirement</em> a aussi un numéro de version. Ce numéro de version est initialisé à 1 et peut simplement être incrémenté de 1 en 1 en utilisant le bouton &#171;+1&#187; affiché sur la vue 
+			<em>Properties</em> pour l&#8217;exigence.
 		</p>
 		<h2 id="PointdevueRequirement">Point de vue Requirement</h2>
 		<p>L&#8217;outillage de gestion d&#8217;exigences embarque un point vue permettant :</p>
@@ -72,7 +76,8 @@
 		<h3 id="Requirementstable">Requirements table</h3>
 		<p>Une fois le point de vue activé, il est possible de créer un tableau 
 			<em>Requirements table</em> sur un 
-			<em>Repository</em> d&#8217;exigences.
+			<em>Repository</em> d&#8217;exigences ou sur n&#8217;importe quelle 
+			<em>Category</em>. Il est ainsi possible de visualiser plus ou moins d&#8217;exigences selon le contexte choisi.
 		</p>
 		<p>La création de ce tableau se fait via le menu :</p>
 		<blockquote>

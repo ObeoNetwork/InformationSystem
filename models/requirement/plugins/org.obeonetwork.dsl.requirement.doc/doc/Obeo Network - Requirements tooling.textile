@@ -18,7 +18,7 @@ bq. File > New > Other ... > Requirement Model (Catégorie Obeo Designer For IS)
 Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. 
 
 Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre.
-L'édition ne doit pas se faire dans cet éditeur mais par le biais de la _Requirements table_ du point de vue _Requirements_.
+L'édition ne doit pas se faire dans cet éditeur mais par le biais de la _Requirements table_ du point de vue _Requirements_. L'utilisation de la _Requirements table_ est encore plus nécessaire quand le projet est partagé en mode collaboratif (sur CDO) car dans ce cas l'éditeur simple ne fonctionnera pas.
 
 h3. Concepts des modèles d'exigences
 
@@ -28,8 +28,9 @@ Le _Repository_ est l'élément racine du modèle. Il porte un nom, contient les
 
 Une _Category_ est un conteneur d'exigences. Elle sert à ordonner les exigences selon différents critères. Un catégorie porte un identifiant et un nom et peut contenir des sous-catégories et des exigences. Elle peut référencer un objet de modèle.
 
-Finalement un _Requirement_ modélise une exigence. Elle est typée selon les critères _Functional_ ou _Technical_ et peut porter un sous-type. Une exigence à un identifiant, un nom, un status et une description (_Statement_ ).
-Il est possible de définir sa provenance (_Rationale_), ses critères d'acceptation (_AcceptanceCriteria_) et de référencer un objet de modèle.  
+Finalement un _Requirement_ modélise une exigence. Elle est typée selon les critères _Functional_ ou _Technical_ et peut porter un sous-type. Une exigence a un identifiant, un nom, un status et une description (_Statement_ ).
+Il est possible de définir sa provenance (_Rationale_), ses critères d'acceptation (_AcceptanceCriteria_) et de référencer un objet de modèle.
+A noter qu'un _Requirement_ a aussi un numéro de version. Ce numéro de version est initialisé à 1 et peut simplement être incrémenté de 1 en 1 en utilisant le bouton "+1" affiché sur la vue _Properties_ pour l'exigence.
 
 h2. Point de vue Requirement
 
@@ -47,7 +48,7 @@ Choisir le point de vue _Requirement_.
 
 h3. Requirements table
 
-Une fois le point de vue activé, il est possible de créer un tableau _Requirements table_ sur un _Repository_ d'exigences.
+Une fois le point de vue activé, il est possible de créer un tableau _Requirements table_ sur un _Repository_ d'exigences ou sur n'importe quelle _Category_. Il est ainsi possible de visualiser plus ou moins d'exigences selon le contexte choisi.
 
 La création de ce tableau se fait via le menu :
 
