@@ -189,7 +189,7 @@
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['m' + eContainer(interaction::Interaction).messages->size()/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.Execution" referenceName="executions" variableName="newExecution">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="[target.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="service:target.currentParticipant()"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['e' + eContainer(interaction::Interaction).executions->size()/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.ReturnMessage" referenceName="messages" variableName="returnMsg">
@@ -197,18 +197,18 @@
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['m_return' + eContainer(interaction::Interaction).messages->size()/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[source.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:source.currentParticipant()"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['send_' + oclAsType(End).owner.name/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.CompoundEnd" referenceName="ends" variableName="startExec">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[target.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:target.currentParticipant()"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:newExecution"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="otherOwner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['start_' + oclAsType(End).owner.name/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.CompoundEnd" referenceName="ends" variableName="endExec">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[target.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:target.currentParticipant()"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:newExecution"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="otherOwner" valueExpression="var:returnMsg"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['finish_' + oclAsType(End).owner.name/]"/>
@@ -279,22 +279,22 @@
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['m' + eContainer(interaction::Interaction).messages->size()/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.Execution" referenceName="executions" variableName="newExecution">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="[target.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="service:target.currentParticipant()"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['e' + eContainer(interaction::Interaction).executions->size()/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[source.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:source.currentParticipant()"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['send_' + oclAsType(End).owner.name/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.CompoundEnd" referenceName="ends" variableName="startExec">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[target.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:target.currentParticipant()"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:newExecution"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="otherOwner" valueExpression="var:callMsg"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['start_' + oclAsType(End).owner.name/]"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="endExec">
-                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[target.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                    <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:target.currentParticipant()"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:newExecution"/>
                     <subModelOperations xsi:type="tool_2:SetValue" featureName="name" valueExpression="['finish_' + oclAsType(End).owner.name/]"/>
                   </subModelOperations>
@@ -346,11 +346,11 @@
                 <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.ReturnMessage" referenceName="messages" variableName="newMessage"/>
                 <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:newMessage"/>
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[source.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:source.currentParticipant()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="receivingEnd">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:newMessage"/>
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[target.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:target.currentParticipant()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:newMessage">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="startingEnd" valueExpression="var:sendingEnd"/>
@@ -393,11 +393,11 @@
                 <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.CreateParticipantMessage" referenceName="messages" variableName="newMessage"/>
                 <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:newMessage"/>
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[source.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:source.currentParticipant()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="receivingEnd">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:newMessage"/>
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[target.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:target.currentParticipant()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:newMessage">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="startingEnd" valueExpression="var:sendingEnd"/>
@@ -441,11 +441,11 @@
                 <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.DestroyParticipantMessage" referenceName="messages" variableName="newMessage"/>
                 <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="sendingEnd">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:newMessage"/>
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[source.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:source.currentParticipant()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:CreateInstance" typeName="interaction.End" referenceName="ends" variableName="receivingEnd">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="owner" valueExpression="var:newMessage"/>
-                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="[target.oclAsType(interaction::Participant).currentParticipant()/]"/>
+                  <subModelOperations xsi:type="tool_2:SetValue" featureName="context" valueExpression="service:target.currentParticipant()"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_2:ChangeContext" browseExpression="var:newMessage">
                   <subModelOperations xsi:type="tool_2:SetValue" featureName="startingEnd" valueExpression="var:sendingEnd"/>
