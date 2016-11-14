@@ -391,6 +391,31 @@ h2. Gestion des exigences
 La gestion des exigences pour un modèle Graal utilise le mécanisme transverse de gestion des exigences fourni par l'outillage.
 Se référer à la documentation *Obeo Network - Requirements Tooling* dans l'aide d'Eclipse.
 
+L'outillage Graal ajoute néanmoins 2 matrices de traçabilité des exigences spécifiques à Graal.
+
+Une fois le point de vue _Requirements (Graal consolidated view)_ activé, 2 nouvelles matrices de traçabilité peuvent être créées sur un objet _Repository_
+
+!pics/requirements/New task traceability.png!
+
+h3. Task traceability matrix
+
+Cette matrice de traçabilité offre une vue consolidée des tâches Graal concernées par des exigences.
+Dans la colonne de gauche, les catégories et exigences sont affichées sous forme arborescente.
+Ensuite, pour chaque tâche Graal concernée par une exigence, une colonne est affichée et des "X" apparaissent pour indiquer les exigences rattachées.
+La vue est consolidée au niveau tâche, si par exemple une exigence est rattachée au niveau d'une _AppliAction_ d'une tâche l'exigence apparaîtra rattachée à cette tâche sur la matrice. C'est pour cela que les liens de rattachement ne sont pas éditables à partir de cette matrice.
+
+!pics/requirements/Task traceability matrix.png!
+
+
+h3. Use Case traceability matrix
+
+Cette matrice de traçabilité offre une vue consolidée des use cases Graal concernés par des exigences.
+Dans la colonne de gauche, les catégories et exigences sont affichées sous forme arborescente.
+Ensuite, pour chaque use case Graal concerné par une exigence, une colonne est affichée et des "X" apparaissent pour indiquer les exigences rattachées.
+La vue est consolidée au niveau use case, si par exemple une exigence est rattachée au niveau d'une _AppliAction_ d'une tâche ou au niveau d'une tâche,  l'exigence apparaîtra rattachée aux use cases concernés par la tâche. C'est pour cela que les liens de rattachement ne sont pas éditables à partir de cette matrice.
+
+!pics/requirements/Use case traceability matrix.png!
+
 h2. Gestion de la documentation liée
 
 Il est possible d'attacher de la documentation aux éléments d'un modèle Graal. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l'outillage.

@@ -36,7 +36,7 @@
 			<em>Properties</em> (partie basse sur la capture d'écran précédente). Si cette vue n&#8217;est pas visible, il est possible de l&#8217;ouvrir par un clic droit sur un élément de l&#8217;arbre et sélection de 
 			<em>Show Properties View</em>.
 		</p>
-		<p>La création de nouveaux éléments se fait dans l&#8217;arbre exigences par le menu contextuel 
+		<p>La création de nouveaux éléments se fait dans l&#8217;arbre par le menu contextuel 
 			<em>New Child</em>  du conteneur où l&#8217;on souhaite créer l'élément. Ainsi pour créer une nouvelle tâche dans un système, il faut invoquer, depuis le système voulu, le menu :
 		</p>
 		<blockquote>
@@ -45,22 +45,21 @@
 		<p>Un modèle Graal peut être édité avec cet éditeur arborescent mais ce n&#8217;est pas la méthode privilégiée : les éditeurs graphiques (diagrammes) permettent de remplir cette tâche plus efficacement.</p>
 		<h2 id="PointdevueGraal">Point de vue Graal</h2>
 		<p>L&#8217;outillage Graal fournit un point de vue dédié à la méthodologie Graal. Ce point de vue permet de visualiser et modifier un modèle Graal via plusieurs types de diagrammes.</p>
-		<h3 id="OuverturedunesessionViewpointetactivationdupointdevueGraal">Ouverture d&#8217;une session 
-			<em>Viewpoint</em> et activation du point de vue Graal
-		</h3>
-		<p>L&#8217;ouverture d&#8217;une session 
-			<em>ViewPoint</em> sur un modèle Graal se fait de manière classique :
-		</p>
+		<h3 id="OuverturedunesessionetactivationdupointdevueGraal">Ouverture d&#8217;une session  et activation du point de vue Graal</h3>
+		<p>L&#8217;ouverture d&#8217;une session de travail sur un modèle Graal se fait de manière classique :</p>
 		<ul>
+			<li>En ouvrant le 
+				<em>Modeling Project</em> contenant le modèle
+			</li>
 			<li>En double-cliquant sur un fichier 
 				<em>*.aird</em> existant
 			</li>
 			<li>En faisant un glisser/déposer d&#8217;un fichier 
 				<em>*.graal</em> sur la vue 
-				<em>Model Content</em>
+				<em>Model Explorer</em>
 			</li>
-			<li>En créant une nouvelle session via le menu 
-				<code>File &gt; New &gt; Local Session</code>
+			<li>En convertissant le projet contenant le modèle en un 
+				<em>Modeling Project</em>
 			</li>
 		</ul>
 		<p>Le point de vue 
@@ -84,7 +83,7 @@
 			<em>TasksGroup</em>. 
 		</p>
 		<p>Pour créer un diagramme d&#8217;un certain type, il suffit de sélectionner l'élément du modèle auquel on veut rattacher le diagramme dans la vue 
-			<em>Model Content</em> puis, avec un clic droit, de sélectionner le menu :
+			<em>Model Explorer</em> puis, avec un clic droit, de sélectionner le menu :
 		</p>
 		<blockquote>
 			<p>New... &gt; #Nom du diagramme#</p>
@@ -97,8 +96,8 @@
 			<img border="0" src="pics/Graal Graphs on System.png"/>
 		</p>
 		<p>Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue 
-			<em>Model Content</em>. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue 
-			<em>Model Content</em>. 
+			<em>Model Explorer</em>. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue 
+			<em>Model Explorer</em>. 
 		</p>
 		<h3 id="GraphedetchespourunSystem">Graphe de tâches (pour un 
 			<em>System</em>)
@@ -668,7 +667,7 @@
 		<p>Les éléments suivants sont affichés sur le diagramme :</p>
 		<ul>
 			<li>
-				<em>Namespace</em> : chaque package contenu dans le System est affiché. Si unpackage est contenu par un autre package il apparaît à l&#8217;intérieur de son package parent. L&#8217;icône d&#8217;un packae apparaît blanche ou grisée selon si le package est respectivement vide ou non.
+				<em>Namespace</em> : chaque package contenu dans le System est affiché. Si un package est contenu par un autre package il apparaît à l&#8217;intérieur de son package parent. L&#8217;icône d&#8217;un package apparaît blanche ou grisée selon si le package est respectivement vide ou non.
 			</li>
 		</ul>
 		<p>Les outils fournis par la palette sont :</p>
@@ -796,7 +795,7 @@
 		<p>La vue peut être positionnée à l&#8217;emplacement souhaité à côté de l'éditeur de diagrammes (à droited dans l&#8217;exemple suivant) :</p>
 		<h5 id="AffichagedelalistedesUserStories">Affichage de la liste des User Stories</h5>
 		<p>Dès qu&#8217;un élément Graal est sélectionné sur un diagramme ou dans la vue 
-			<em>Model Content</em>, les 
+			<em>Model Explorer</em>, les 
 			<em>User Stories</em> du système sont affichées dans la vue.
 		</p>
 		<h5 id="CrationmodificationsuppressionduneUserStory">Création/modification/suppression d&#8217;une User Story</h5>
@@ -879,6 +878,34 @@
 		<p>La gestion des exigences pour un modèle Graal utilise le mécanisme transverse de gestion des exigences fourni par l&#8217;outillage.
 			<br/>Se référer à la documentation 
 			<strong>Obeo Network &#8211; Requirements Tooling</strong> dans l&#8217;aide d&#8217;Eclipse.
+		</p>
+		<p>L&#8217;outillage Graal ajoute néanmoins 2 matrices de traçabilité des exigences spécifiques à Graal.</p>
+		<p>Une fois le point de vue 
+			<em>Requirements (Graal consolidated view)</em> activé, 2 nouvelles matrices de traçabilité peuvent être créées sur un objet 
+			<em>Repository</em>
+		</p>
+		<p>
+			<img border="0" src="pics/requirements/New task traceability.png"/>
+		</p>
+		<h3 id="Tasktraceabilitymatrix">Task traceability matrix</h3>
+		<p>Cette matrice de traçabilité offre une vue consolidée des tâches Graal concernées par des exigences.
+			<br/>Dans la colonne de gauche, les catégories et exigences sont affichées sous forme arborescente.
+			<br/>Ensuite, pour chaque tâche Graal concernée par une exigence, une colonne est affichée et des &#171;X&#187; apparaissent pour indiquer les exigences rattachées.
+			<br/>La vue est consolidée au niveau tâche, si par exemple une exigence est rattachée au niveau d&#8217;une 
+			<em>AppliAction</em> d&#8217;une tâche l&#8217;exigence apparaîtra rattachée à cette tâche sur la matrice. C&#8217;est pour cela que les liens de rattachement ne sont pas éditables à partir de cette matrice.
+		</p>
+		<p>
+			<img border="0" src="pics/requirements/Task traceability matrix.png"/>
+		</p>
+		<h3 id="UseCasetraceabilitymatrix">Use Case traceability matrix</h3>
+		<p>Cette matrice de traçabilité offre une vue consolidée des use cases Graal concernés par des exigences.
+			<br/>Dans la colonne de gauche, les catégories et exigences sont affichées sous forme arborescente.
+			<br/>Ensuite, pour chaque use case Graal concerné par une exigence, une colonne est affichée et des &#171;X&#187; apparaissent pour indiquer les exigences rattachées.
+			<br/>La vue est consolidée au niveau use case, si par exemple une exigence est rattachée au niveau d&#8217;une 
+			<em>AppliAction</em> d&#8217;une tâche ou au niveau d&#8217;une tâche,  l&#8217;exigence apparaîtra rattachée aux use cases concernés par la tâche. C&#8217;est pour cela que les liens de rattachement ne sont pas éditables à partir de cette matrice.
+		</p>
+		<p>
+			<img border="0" src="pics/requirements/Use case traceability matrix.png"/>
 		</p>
 		<h2 id="Gestiondeladocumentationlie">Gestion de la documentation liée</h2>
 		<p>Il est possible d&#8217;attacher de la documentation aux éléments d&#8217;un modèle Graal. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l&#8217;outillage.
