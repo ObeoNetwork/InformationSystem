@@ -26,7 +26,7 @@ public class SOAService {
 		return allNonReferencedExternalComponents;
 	}
 	
-	public List<Component> allExternalComponents(org.obeonetwork.dsl.soa.System context) {
+	public List<Component> allExternalComponents(System context) {
 		List<Component> allExternalComponents = allComponents(context);
 		// Remove The component contained in the System.
 		allExternalComponents.removeAll(context.getOwnedComponents());
@@ -73,7 +73,48 @@ public class SOAService {
 		return components;
 	}
 	
-	public List<Component> allSelectableExternalComponents(org.obeonetwork.dsl.soa.System context,
+	/**
+	 * Return all selectable externable components and their ancestors
+	 * @param semanticDiagram
+	 * @return
+	 */
+	public List<EObject> allSelectableExternalComponentsAndAncestors(DSemanticDiagram semanticDiagram) {
+		Set<EObject> result = new HashSet<EObject>();
+		
+		EObject rootObject = semanticDiagram.getTarget();
+		if (rootObject instanceof System) {
+			System system = (System)rootObject;
+			
+			// retrieve all selectable external components
+			List<Component> components = allSelectableExternalComponents(system, semanticDiagram);
+			for (Component component : components) {
+				// retrieve ancestors of each component
+				result.addAll(getAncestorsAndSelf(component));
+			}
+		}
+		
+		return new ArrayList<EObject>(result);
+	}
+	
+	/**
+	 * Returns the object and all its ancestors in a list
+	 * @param object
+	 * @return
+	 */
+	private List<EObject> getAncestorsAndSelf(EObject object) {
+		List<EObject> result = new ArrayList<EObject>();
+		// Add current object
+		result.add(object);
+		
+		EObject container = object.eContainer();
+		if (container != null) {
+			result.addAll(getAncestorsAndSelf(container));
+		}
+		
+		return result;
+	}
+	
+	public List<Component> allSelectableExternalComponents(System context,
 			DSemanticDiagram semanticDiagram) {
 		List<Component> allNonReferencedExternalComponents = allNonReferencedExternalComponents(context);
 		List<Component> allComponentToRemove = new ArrayList<Component>();
@@ -82,8 +123,7 @@ public class SOAService {
 		for (EObject obj : EcoreService.eContents(semanticDiagram, DNodeContainer.class)) {
 			// Retrieve and add the target of DNodeContainer type of Component
 			if (((DNodeContainer) obj).getTarget() instanceof Component) {
-				allComponentToRemove.add((Component) ((DNodeContainer) obj)
-						.getTarget());
+				allComponentToRemove.add((Component) ((DNodeContainer) obj).getTarget());
 			}
 		}
 		allNonReferencedExternalComponents.removeAll(allComponentToRemove);
