@@ -32,6 +32,22 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.window.Window;
+import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
+import org.eclipse.sirius.business.api.preferences.SiriusPreferencesKeys;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionListener;
+import org.eclipse.sirius.business.api.session.SessionStatus;
+import org.eclipse.sirius.common.ui.SiriusTransPlugin;
+import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
+import org.eclipse.sirius.ui.business.api.dialect.DefaultDialectEditorDialogFactory;
+import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
+import org.eclipse.sirius.ui.business.api.dialect.DialectEditorDialogFactory;
+import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
+import org.eclipse.sirius.ui.business.api.session.IEditingSession;
+import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
+import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
+import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.custom.ScrolledComposite;
@@ -75,23 +91,6 @@ import org.obeonetwork.dsl.environment.binding.dialect.ui.treemapper.provider.Tr
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEdge;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.DBoundElement;
-import org.eclipse.sirius.common.ui.SiriusTransPlugin;
-import org.eclipse.sirius.viewpoint.DRepresentation;
-import org.eclipse.sirius.viewpoint.SiriusPlugin;
-import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
-import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
-import org.eclipse.sirius.business.api.preferences.SiriusPreferencesKeys;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionListener;
-import org.eclipse.sirius.business.api.session.SessionStatus;
-import org.eclipse.sirius.ui.business.api.dialect.DefaultDialectEditorDialogFactory;
-import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
-import org.eclipse.sirius.ui.business.api.dialect.DialectEditorDialogFactory;
-import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
-import org.eclipse.sirius.ui.business.api.session.IEditingSession;
-import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
-import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
-import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
 
 /**
  * @author sthibaudeau
@@ -141,6 +140,7 @@ public class BindingTreeEditor extends EditorPart implements DialectEditor, Sess
 		editorManager = new BindingTreeEditorManager(getEditingDomain(), accessor);
 		BindingTreeSemanticSupport treeSemanticSupport = new BindingTreeSemanticSupport(getBindingInfo(), editorManager);
 		treeMapper = new BindingTreeMapper(sashForm, treeSemanticSupport);
+		getSite().setSelectionProvider(treeMapper);
 		treeMapper.getLeftTreeViewer().addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
 				if (event.getSelection() instanceof StructuredSelection) {
