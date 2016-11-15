@@ -1,0 +1,402 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>&#169; Obeo 2016 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Stéphane Thibaudeau
+			<br/>
+			<code>Contact</code> stephane.thibaudeau@obeo.fr
+		</p>
+		<h1 id="ObeoNetworkSOADesigner">Obeo Network &#8211; SOA Designer</h1>
+		<p>
+			<strong>SOA Designer</strong> permet de modéliser des composants métiers, leurs services et les structure de données (DTO = Data transfer object) manipulées.
+		</p>
+		<p>
+			<strong>SOA Designer</strong> fournit le point de vue 
+			<em>SOA Views</em> permettant de :
+		</p>
+		<ul>
+			<li>Modéliser les composants et leurs liens entre eux</li>
+			<li>Modéliser les contrats des composants (interfaces et services)</li>
+			<li>Modéliser les DTOs, leur structure et les relations entre eux,</li>
+			<li>Organiser ces DTOs en packages</li>
+		</ul>
+		<h2 id="CrationdunmodleSoa">Création d&#8217;un modèle Soa</h2>
+		<p>Un assistant permet la création de modèles SOA. Cet assistant est accessible via le menu :</p>
+		<blockquote>
+			<p>File &gt; New &gt; Other ... &gt; SOA Model (Catégorie Obeo Designer For IS)</p>
+		</blockquote>
+		<p>Cet assistant vous permet de définir le nom du modèle que vous souhaitez créer ainsi que de définir son répertoire destination. </p>
+		<p>Une fois l&#8217;assistant validé, le modèle est créé et un éditeur s&#8217;ouvre afin de commencer l'édition.</p>
+		<p>
+			<img border="0" src="pics/SOA editor.png"/>
+		</p>
+		<p>L'éditeur permet de visualiser le contenu d&#8217;un modèle SOA sous forme arborescente. Pour modifier les propriétés d&#8217;un élément il faut utiliser la vue 
+			<em>Properties</em> (partie basse sur la capture d'écran précédente). Si cette vue n&#8217;est pas visible, il est possible de l&#8217;ouvrir par un clic droit sur un élément de l&#8217;arbre et sélection de 
+			<em>Show Properties View</em>.
+		</p>
+		<p>La création de nouveaux éléments se fait dans l&#8217;arbre par le menu contextuel 
+			<em>New Child</em>  du conteneur où l&#8217;on souhaite créer l'élément. Ainsi pour créer un nouveau DTO, il faut invoquer, depuis le package voulu, le menu :
+		</p>
+		<blockquote>
+			<p>New Child &gt; DTO</p>
+		</blockquote>
+		<p>Un modèle SOA peut être édité avec cet éditeur arborescent mais ce n&#8217;est pas la méthode privilégiée : les éditeurs graphiques (diagrammes) permettent de remplir cette tâche plus efficacement.</p>
+		<h2 id="PointdevueSOAViews">Point de vue SOA Views</h2>
+		<p>L&#8217;outillage SOA Designer fournit un point de vue dédié à la gestion des composants métier. Ce point de vue permet de visualiser et modifier un modèle SOA via plusieurs types de diagrammes.</p>
+		<h3 id="OuverturedunesessionetactivationdupointdevueSOAViews">Ouverture d&#8217;une session et activation du point de vue SOA Views</h3>
+		<p>L&#8217;ouverture d&#8217;une session de travail sur un modèle SOA se fait de manière classique :</p>
+		<ul>
+			<li>En ouvrant le 
+				<em>Modeling Project</em> contenant le modèle
+			</li>
+			<li>En double-cliquant sur un fichier 
+				<em>*.aird</em> existant
+			</li>
+			<li>En faisant un glisser/déposer d&#8217;un fichier 
+				<em>*.soa</em> sur la vue 
+				<em>Model Explorer</em>
+			</li>
+			<li>En convertissant le projet contenant le modèle en un 
+				<em>Modeling Project</em>
+			</li>
+		</ul>
+		<p>Le point de vue 
+			<em>SOA Views</em> doit être sélectionné sur la session ouverte. Pour vérifier si c&#8217;est bien le cas lancer le menu suivant la session :
+		</p>
+		<blockquote>
+			<p>Viewpoint Selection</p>
+		</blockquote>
+		<p>Choisir le point de vue 
+			<em>SOA Views</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/SOA Views Viewpoint Selection.png"/>
+		</p>
+		<p>Une fois le point de vue activé, il devient possible de créer ou visualiser les diagrammes SOA Views.</p>
+		<h3 id="Crationouverturedediagrammes">Création/ouverture de diagrammes</h3>
+		<p>Chaque type de diagramme est rattaché à un concept SOA précis. Par exemple, un 
+			<em>DTO Diagram</em> est rattaché à un 
+			<em>Namespace</em>. 
+		</p>
+		<p>Pour créer un diagramme d&#8217;un certain type, il suffit de sélectionner l'élément du modèle auquel on veut rattacher le diagramme dans la vue 
+			<em>Model Explorer</em> puis, avec un clic droit, de sélectionner le menu :
+		</p>
+		<blockquote>
+			<p>New... &gt; #Nom du diagramme#</p>
+		</blockquote>
+		<p>puis renseigner le nom du diagramme et, enfin, valider.</p>
+		<p>Par exemple sur un objet racine 
+			<em>Components</em>, deux types de représentation peuvent être créés comme présenté sur la capture d'écran suivante :
+		</p>
+		<p>
+			<img border="0" src="pics/SOA representations on Components.png"/>
+		</p>
+		<p>Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue 
+			<em>Model Explorer</em>. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue 
+			<em>Model Explorer</em>. 
+		</p>
+		<h3 id="SOADiagram">SOA Diagram</h3>
+		<p>Le 
+			<em>SOA Diagram</em> permet de modéliser les composants métiers, les services qu&#8217;ils fournissent et les services dont ils ont eux-même besoin (services requis).
+			<br/>Ce diagramme permet aussi de relier les composants entre eux pour indiquer qu&#8217;un service fourni par un composant permet de répondre à un besoin de service requis exprimé par un autre composant.
+			<br/>Ce diagramme peut être créé sur un objet racine 
+			<em>Components</em>.
+		</p>
+		<p>
+			<img border="0" src="pics/soa/Soa diagram.png"/>
+		</p>
+		<h4 id="Elmentsaffichsetpalettedoutils">Eléments affichés et palette d&#8217;outils</h4>
+		<p>Les éléments suivants sont affichés sur le diagramme :</p>
+		<ul>
+			<li>
+				<em>Component</em> : composant métier
+			</li>
+			<li>
+				<em>Provided service</em> : service métier fourni par un composant
+			</li>
+			<li>
+				<em>Required service</em> : service métier dont un composant a besoin pour fonctionner
+			</li>
+			<li>Les liens entre services fournis et services requis</li>
+		</ul>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/soa/Create component.png"/>
+				</td>
+				<td>Création d&#8217;un composant métier.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/soa/Create provided.png"/>
+				</td>
+				<td>Création d&#8217;un service métier fourni par un composant.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/soa/Create required.png"/>
+				</td>
+				<td>Création d&#8217;un service métier requis par un composant.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/soa/Create wire.png"/>
+				</td>
+				<td>Création d&#8217;un lien depuis un service requis vers un service fourni. Permet d&#8217;indiquer quel composant fournit les services nécessaires au fonctionnement d&#8217;un autre composant.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/soa/Create external.png"/>
+				</td>
+				<td>Ajout d&#8217;un composant externe sur le diagramme. Cet outil permet de faire apparaitre un composant défini dans un autre modèle SOA pour créer des relations avec les composants affichés. Cet outil est activable via le calque _External Components</td>
+			</tr>
+		</table>
+		<h4 id="Navigationversdautresdiagrammes">Navigation vers d&#8217;autres diagrammes</h4>
+		<p>Il est possible de naviguer depuis ce diagramme vers un autre diagramme :</p>
+		<ul>
+			<li>Depuis un 
+				<em>Component</em>, un double-clic, le menu 
+				<em>New</em> ou le menu 
+				<em>Open</em> permettent de naviguer (et potentiellement de le créer) vers le diagramme de contrat de ce composant.
+			</li>
+		</ul>
+		<h3 id="ComponentContractDiagram">Component Contract Diagram</h3>
+		<p>Le 
+			<em>Component Contract Diagram</em> permet de modéliser les services métiers fournis et/ou requis par un composant.
+			<br/>Pour chaque service, il permet de modéliser des opérations.
+			<br/>Pour chaque opération, les paramètres d&#8217;entrée, les paramètres de sortie et les cas d&#8217;erreur possibles sont modélisables.
+		</p>
+		<p>Ce diagramme peut être créé sur les objets de type 
+			<em>Component</em>.
+		</p>
+		<p>
+			<img border="0" src="pics/contract/Component contract diagram.png"/>
+		</p>
+		<h4 id="Elmentsaffichsetpalettedoutils2">Eléments affichés et palette d&#8217;outils</h4>
+		<p>Les éléments suivants sont affichés sur le diagramme :</p>
+		<ul>
+			<li>
+				<em>Provided service</em> : service métier fourni par le composant
+			</li>
+			<li>
+				<em>Required service</em> : service métier dont un composant a besoin pour fonctionner
+			</li>
+			<li>
+				<em>Operation</em> : les opérations d&#8217;un service sont affichées à l&#8217;intérieur du conteneur représentant le service
+			</li>
+			<li>
+				<em>Input parameter</em> : paramètre d&#8217;entrée d&#8217;une opération
+			</li>
+			<li>
+				<em>Output parameter</em> : paramètre de sortie d&#8217;une opération
+			</li>
+			<li>
+				<em>Fault parameter</em> : cas d&#8217;erreur pour une opération
+			</li>
+		</ul>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Create provided.png"/>
+				</td>
+				<td>Création d&#8217;un service métier fourni par un composant.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Create required.png"/>
+				</td>
+				<td>Création d&#8217;un service métier requis par un composant.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Create operation.png"/>
+				</td>
+				<td>Création d&#8217;une opération dans un service.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Create input.png"/>
+				</td>
+				<td>Création d&#8217;un paramètre d&#8217;entrée.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Create output.png"/>
+				</td>
+				<td>Création d&#8217;un paramètre de sortie.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/contract/Create fault.png"/>
+				</td>
+				<td>Création d&#8217;un cas d&#8217;erreur.</td>
+			</tr>
+		</table>
+		<h3 id="DTONamespacesHierarchypourlobjetracineComponents">DTO Namespaces Hierarchy (pour l&#8217;objet racine 
+			<em>Components</em>)
+		</h3>
+		<p>Les 
+			<em>DTO</em> sont organisés en packages (
+			<em>Namespaces</em>).
+			<br/>La gestion de la hiérarchie de packages se fait en utilisant le diagramme 
+			<em>DTO Namespaces Hierarchy</em>.
+			<br/>Ce diagramme peut être créé sur l&#8217;objet racine 
+			<em>Components</em>.
+		</p>
+		<p>Ce diagramme permet de créer, modifier ou supprimer des packages ainsi que d&#8217;accéder facilement au diagramme de gestion des DTOs d&#8217;un package.</p>
+		<p>
+			<img border="0" src="pics/hierarchy/namespaces_hierarchy.png"/>
+		</p>
+		<h4 id="Elmentsaffichsetpalettedoutils3">Eléments affichés et palette d&#8217;outils</h4>
+		<p>Les éléments suivants sont affichés sur le diagramme :</p>
+		<ul>
+			<li>
+				<em>Namespace</em> : chaque package contenu dans l'élément racine est affiché. Si un package est contenu par un autre package il apparaît à l&#8217;intérieur de son package parent. L&#8217;icône d&#8217;un package apparaît blanche ou grisée selon si le package est respectivement vide ou non.
+			</li>
+		</ul>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/hierarchy/Create namespace.png"/>
+				</td>
+				<td>Création d&#8217;un package. Un package peut être créé sur le fond du diagramme ou à l&#8217;intérieur d&#8217;un autre package.</td>
+			</tr>
+		</table>
+		<h4 id="Navigationversdautresdiagrammes2">Navigation vers d&#8217;autres diagrammes</h4>
+		<p>Il est possible de naviguer depuis ce diagramme vers un autre diagramme :</p>
+		<ul>
+			<li>Depuis un package, un double-clic, le menu 
+				<em>New</em> ou le menu 
+				<em>Open</em> permettent de naviguer (et potentiellement de le créer) vers le diagramme des DTOs de ce package.
+			</li>
+		</ul>
+		<h3 id="DiagrammedesDTOs">Diagramme des DTOs</h3>
+		<p>Un diagramme des DTOs (
+			<em>DTO Diagram</em>) est associé à un package (
+			<em>Namespace</em>). Il permet de gérer les DTOs du package.
+		</p>
+		<p>
+			<img border="0" src="pics/dto/DTO diagram.png"/>
+		</p>
+		<h4 id="Elmentsaffichsetpalettedoutils4">Eléments affichés et palette d&#8217;outils</h4>
+		<p>Les éléments suivants sont affichés sur le diagramme :</p>
+		<ul>
+			<li>DTOs</li>
+			<li>Attributs</li>
+			<li>Relations entre DTOs</li>
+			<li>Liens d&#8217;héritage</li>
+			<li>Enumération</li>
+			<li>Packages contenus</li>
+		</ul>
+		<p>Les outils fournis par la palette sont :</p>
+		<table>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create namespace.png"/>
+				</td>
+				<td>Création d&#8217;un sous-package.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create dto.png"/>
+				</td>
+				<td>Création d&#8217;une entité.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create dto from entity.png"/>
+				</td>
+				<td>Création de DTOs à partir d&#8217;entités.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create attribute.png"/>
+				</td>
+				<td>Création d&#8217;un attribut de DTO.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create enumeration.png"/>
+				</td>
+				<td>Création d&#8217;une énumération.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create literal.png"/>
+				</td>
+				<td>Création d&#8217;une valeur d'énumération.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create relation.png"/>
+				</td>
+				<td>Création d&#8217;une relation simple.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create composition.png"/>
+				</td>
+				<td>Création d&#8217;une relation de composition.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create inheritance.png"/>
+				</td>
+				<td>Création d&#8217;un lien d&#8217;héritage.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create bidi relation.png"/>
+				</td>
+				<td>Création d&#8217;une relation simple bidirectionnelle.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create bidi composition.png"/>
+				</td>
+				<td>Création d&#8217;une relation de contenance bidirectionnelle.</td>
+			</tr>
+			<tr>
+				<td>
+					<img border="0" src="pics/dto/Create external.png"/>
+				</td>
+				<td>Ajout d&#8217;un DTO externe. Cet outil permet de faire apparaitre un DTO défini dans un autre package pour créer des relations avec les DTOs du package courant. Cet outil est activable via le calque _External DTOs</td>
+			</tr>
+		</table>
+		<p>L&#8217;outil de création de DTOs à partir d&#8217;entités permet de sélectionner des entités (cf. documentation sur 
+			<strong>Entity Designer</strong>) et des références entre ces entités. Des DTOs et des relations sont créés pour chaque entité et chaque référence sélectionnée.
+		</p>
+		<p>
+			<img border="0" src="pics/dto/Dlg dto from entity.png"/>
+		</p>
+		<h2 id="Gestiondesexigences">Gestion des exigences</h2>
+		<p>La gestion des exigences pour un modèle Entity utilise le mécanisme transverse de gestion des exigences fourni par l&#8217;outillage.
+			<br/>Se référer à la documentation 
+			<strong>Obeo Network &#8211; Requirements Tooling</strong> dans l&#8217;aide d&#8217;Eclipse.
+		</p>
+		<h2 id="Gestiondeladocumentationlie">Gestion de la documentation liée</h2>
+		<p>Il est possible d&#8217;attacher de la documentation aux éléments d&#8217;un modèle Entity. Le mécanisme utilisé est le mécanisme transverse de gestion de la documentation fourni par l&#8217;outillage.
+			<br/>Se référer à la documentation 
+			<strong>Obeo Network &#8211; Documentation Tooling</strong> dans l&#8217;aide d&#8217;Eclipse.
+		</p>
+		<h2 id="Crationdediagrammedinteraction">Création de diagramme d&#8217;interaction</h2>
+		<p>Il est possible de créer des diagrammes d&#8217;interaction pour les éléments d&#8217;un modèle Entity.
+			<br/>Se reférer à la documentation 
+			<strong>Obeo Network &#8211; Interaction Tooling</strong> dans l&#8217;aide d&#8217;Eclipse.
+		</p>
+		<h2 id="Crationdediagrammedemachinestats">Création de diagramme de machines à états</h2>
+		<p>Il est possible de créer des diagrammes de machines à états pour les éléments d&#8217;un modèle Entity.
+			<br/>Se reférer à la documentation 
+			<strong>Obeo Network &#8211; State Machine Tooling</strong> dans l&#8217;aide d&#8217;Eclipse.
+		</p>
+	</body>
+</html>

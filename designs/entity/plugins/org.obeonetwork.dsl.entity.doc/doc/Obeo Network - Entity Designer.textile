@@ -75,7 +75,7 @@ Les entités (_Entity_) sont organisées en packages (_Namespaces_).
 La gestion de la hiérarchie de packages se fait en utilisant le diagramme _Entities Namespaces Hierarchy_.
 Ce diagramme peut être créé sur l'objet racine _Entities_.
 
-Ce diagramme permet de créer, modifier ou supprimer des packages ainsi que d'accéder facilement au diagramme de gestion des entitiés d'un package.
+Ce diagramme permet de créer, modifier ou supprimer des packages ainsi que d'accéder facilement au diagramme de gestion des entités d'un package.
 
 !pics/hierarchy/namespaces_hierarchy.png!
 
@@ -125,7 +125,7 @@ Les outils fournis par la palette sont :
 | !pics/entities/Create bidi composition.png! | Création d'une relation de contenance bidirectionnelle. |
 | !pics/entities/Create external.png! | Ajout d'une entité externe. Cet outil permet de faire apparaitre une entité définie dans un autre package pour créer des relations avec les entités du package courant. Cet outil est activable via le calque _External Entities_ |
 
-L'outil de création d'entités à partir de DTOs permet de sélectionner des DTOs (cf. documentation sur *SOA Designer*) et des références entre ses DTOs. Des entités et des relations sont créées pour chaque DTO et chaque référence sélectionné.
+L'outil de création d'entités à partir de DTOs permet de sélectionner des DTOs (cf. documentation sur *SOA Designer*) et des références entre ces DTOs. Des entités et des relations sont créées pour chaque DTO et chaque référence sélectionné.
 
 !pics/entities/Dlg entity from dto.png!
 

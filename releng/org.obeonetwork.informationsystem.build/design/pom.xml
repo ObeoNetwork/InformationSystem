@@ -219,6 +219,7 @@
 		
 		<!-- designs/soa/ -->
 		<module>../../../designs/soa/plugins/org.obeonetwork.dsl.soa.design</module>
+		<module>../../../designs/soa/plugins/org.obeonetwork.dsl.soa.doc</module>
 		<module>../../../designs/soa/features/org.obeonetwork.dsl.soa.design.feature</module>
 		
 		<!-- designs/is/ -->
