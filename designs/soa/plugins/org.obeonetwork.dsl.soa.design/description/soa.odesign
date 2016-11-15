@@ -982,7 +982,7 @@
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']"/>
         </containerMappings>
-        <containerMappings name="ED_ExternalStructuredType_NotReferenced" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='DEL_ED_ExternalEntity_NotReferenced']" semanticCandidatesExpression="service:self.getAllNotReferencedStructuredTypes(diagram)" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.DTO" reusedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_Attribute'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_AssociatedAttribute']" childrenPresentation="List">
+        <containerMappings name="ED_ExternalStructuredType_NotReferenced" detailDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='DEL_ED_ExternalStructuredType_NotReferenced']" semanticCandidatesExpression="service:self.getAllNotReferencedStructuredTypes(diagram)" createElements="false" doubleClickDescription="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='External%20DTOs']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="environment.DTO" reusedNodeMappings="//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_Attribute'] //@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@defaultLayer/@containerMappings[name='DD_DTO']/@subNodeMappings[name='ED_AssociatedAttribute']" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']"/>
         </containerMappings>
         <toolSections name="External DTOs">
@@ -1000,7 +1000,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Usability tools">
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalEntity_NotReferenced" forceRefresh="true">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_NotReferenced" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -1061,10 +1061,10 @@
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="Namespace_foreground"/>
     <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="Namespace_color"/>
     <entries xsi:type="description:UserFixedColor" red="136" green="136" blue="136" name="Namespace_border"/>
-    <entries xsi:type="description:UserFixedColor" red="255" green="245" blue="181" name="StructuredType_background"/>
+    <entries xsi:type="description:UserFixedColor" red="209" green="156" blue="84" name="StructuredType_background"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="StructuredType_foreground"/>
     <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="StructuredType_color"/>
-    <entries xsi:type="description:UserFixedColor" red="214" green="197" blue="66" name="StructuredType_border"/>
+    <entries xsi:type="description:UserFixedColor" red="128" green="64" blue="0" name="StructuredType_border"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="245" blue="181" name="Enumeration_background"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="255" name="Enumeration_foreground"/>
     <entries xsi:type="description:UserFixedColor" red="0" green="0" blue="0" name="Enumeration_color"/>
