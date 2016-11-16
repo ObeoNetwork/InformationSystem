@@ -20,7 +20,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="DBI_StructuredType" deletionDescription="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DEL_PreventDeletion']" semanticCandidatesExpression="[getRelatedBindingInfos()->asSequence().oclAsType(environment::BindingInfo).targets/]" domainClass="environment.StructuredType">
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="[name + ' (' + eClass().name + ')'/]">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="[name + ' (' + eClass().name + ')'/]">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -32,7 +32,7 @@
             <variable name="container">
               <subVariables xsi:type="tool_1:SelectModelElementVariable" name="left" candidatesExpression="feature:types" message="Choose the first element"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="bindableElements" computationExpression="service:containerView.getAllBindableElements(left)"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="right" candidatesExpression="[bindableElements.ancestors()->asSet()->addAll(bindableElements->asSet())/]" tree="true" rootExpression="service:allRoots()" childrenExpression="feature:eContents" message="Choose the second element"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="right" candidatesExpression="[bindableElements.ancestors()->asSet()->addAll(bindableElements->asSet())/]" tree="true" rootExpression="service:allRootsForBinding()" childrenExpression="feature:eContents" message="Choose the second element"/>
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -48,17 +48,15 @@
             <variable name="container">
               <subVariables xsi:type="tool_1:AcceleoVariable" name="left" computationExpression="var:self"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="bindableElements" computationExpression="[containerView.eContainer(diagram::DSemanticDiagram).getAllBindableElements(left)/]"/>
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="right" candidatesExpression="[bindableElements.ancestors()->asSet()->addAll(bindableElements->asSet())/]" tree="true" rootExpression="service:allRoots()" childrenExpression="feature:eContents" message="Choose the second element"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="right" candidatesExpression="[bindableElements.ancestors()->asSet()->addAll(bindableElements->asSet())/]" tree="true" rootExpression="service:allRootsForBinding()" childrenExpression="feature:eContents" message="Choose the second element"/>
             </variable>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:debugContext()">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[diagram.target/]">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:getBindingRegistry()">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.BindingInfo" referenceName="bindingInfos">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="left" valueExpression="var:left"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="right" valueExpression="var:right"/>
-                    </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[diagram.target/]">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:getBindingRegistry()">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="environment.BindingInfo" referenceName="bindingInfos">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="left" valueExpression="var:left"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="right" valueExpression="var:right"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
