@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
 import org.obeonetwork.dsl.database.sqlgen.SQLGenerator;
 
-public class TableSQLGenTest extends AbtractGeneratorTest {
+public class TableSQLGenTestDisabled extends AbtractGeneratorTest {
 
 	@Override
 	protected SQLGenerator createGenerator(Comparison databaseChangeSet, File folder) throws Exception {	

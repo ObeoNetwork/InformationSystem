@@ -242,6 +242,7 @@
 		<module>../../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.compare</module>
 		<module>../../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.compare.edit</module>
 		<module>../../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.sqlgen</module>
+		<module>../../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.sqlgen.tests</module>
 		<module>../../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.sqlgen.ui</module>
 		
 		<!-- 

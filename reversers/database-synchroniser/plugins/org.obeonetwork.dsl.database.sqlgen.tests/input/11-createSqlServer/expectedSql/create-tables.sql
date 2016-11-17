@@ -2,44 +2,37 @@
 --  Table : CATEGORIES                                    
 -- ==============================================================
 
-
 DROP TABLE CATEGORIES;
 CREATE TABLE CATEGORIES(
-    CategoryID int IDENTITY (1, 1) NOT NULL,
+    CategoryID int(10) IDENTITY (1, 1) NOT NULL,
     CategoryName nvarchar(15) NOT NULL,
     Description ntext NULL,
     Picture image NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : CUSTOMERCUSTOMERDEMO                                    
 -- ==============================================================
 
-
 DROP TABLE CUSTOMERCUSTOMERDEMO;
 CREATE TABLE CUSTOMERCUSTOMERDEMO(
     CustomerID nchar(5) NOT NULL,
     CustomerTypeID nchar(10) NOT NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : CUSTOMERDEMOGRAPHICS                                    
 -- ==============================================================
 
-
 DROP TABLE CUSTOMERDEMOGRAPHICS;
 CREATE TABLE CUSTOMERDEMOGRAPHICS(
     CustomerTypeID nchar(10) NOT NULL,
     CustomerDesc ntext NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : CUSTOMERS                                    
 -- ==============================================================
-
 
 DROP TABLE CUSTOMERS;
 CREATE TABLE CUSTOMERS(
@@ -54,17 +47,15 @@ CREATE TABLE CUSTOMERS(
     Country nvarchar(15) NULL,
     Phone nvarchar(24) NULL,
     Fax nvarchar(24) NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : EMPLOYEES                                    
 -- ==============================================================
 
-
 DROP TABLE EMPLOYEES;
 CREATE TABLE EMPLOYEES(
-    EmployeeID int IDENTITY (1, 1) NOT NULL,
+    EmployeeID int(10) IDENTITY (1, 1) NOT NULL,
     LastName nvarchar(20) NOT NULL,
     FirstName nvarchar(10) NOT NULL,
     Title nvarchar(30) NULL,
@@ -80,52 +71,46 @@ CREATE TABLE EMPLOYEES(
     Extension nvarchar(4) NULL,
     Photo image NULL,
     Notes ntext NULL,
-    ReportsTo int NULL,
+    ReportsTo int(10) NULL,
     PhotoPath nvarchar(255) NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : EMPLOYEETERRITORIES                                    
 -- ==============================================================
 
-
 DROP TABLE EMPLOYEETERRITORIES;
 CREATE TABLE EMPLOYEETERRITORIES(
-    EmployeeID int NOT NULL,
+    EmployeeID int(10) NOT NULL,
     TerritoryID nvarchar(20) NOT NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : ORDER DETAILS                                    
 -- ==============================================================
 
-
 DROP TABLE ORDER DETAILS;
 CREATE TABLE ORDER DETAILS(
-    OrderID int NOT NULL,
-    ProductID int NOT NULL,
+    OrderID int(10) NOT NULL,
+    ProductID int(10) NOT NULL,
     UnitPrice money default (0) NOT NULL,
     Quantity smallint default (1) NOT NULL,
     Discount real default (0) NOT NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : ORDERS                                    
 -- ==============================================================
 
-
 DROP TABLE ORDERS;
 CREATE TABLE ORDERS(
-    OrderID int IDENTITY (1, 1) NOT NULL,
+    OrderID int(10) IDENTITY (1, 1) NOT NULL,
     CustomerID nchar(5) NULL,
-    EmployeeID int NULL,
+    EmployeeID int(10) NULL,
     OrderDate datetime NULL,
     RequiredDate datetime NULL,
     ShippedDate datetime NULL,
-    ShipVia int NULL,
+    ShipVia int(10) NULL,
     Freight money default (0) NULL,
     ShipName nvarchar(40) NULL,
     ShipAddress nvarchar(60) NULL,
@@ -133,62 +118,54 @@ CREATE TABLE ORDERS(
     ShipRegion nvarchar(15) NULL,
     ShipPostalCode nvarchar(10) NULL,
     ShipCountry nvarchar(15) NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : PRODUCTS                                    
 -- ==============================================================
 
-
 DROP TABLE PRODUCTS;
 CREATE TABLE PRODUCTS(
-    ProductID int IDENTITY (1, 1) NOT NULL,
+    ProductID int(10) IDENTITY (1, 1) NOT NULL,
     ProductName nvarchar(40) NOT NULL,
-    SupplierID int NULL,
-    CategoryID int NULL,
+    SupplierID int(10) NULL,
+    CategoryID int(10) NULL,
     QuantityPerUnit nvarchar(20) NULL,
     UnitPrice money default (0) NULL,
     UnitsInStock smallint default (0) NULL,
     UnitsOnOrder smallint default (0) NULL,
     ReorderLevel smallint default (0) NULL,
     Discontinued bit default (0) NOT NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : REGION                                    
 -- ==============================================================
 
-
 DROP TABLE REGION;
 CREATE TABLE REGION(
-    RegionID int NOT NULL,
+    RegionID int(10) NOT NULL,
     RegionDescription nchar(50) NOT NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : SHIPPERS                                    
 -- ==============================================================
 
-
 DROP TABLE SHIPPERS;
 CREATE TABLE SHIPPERS(
-    ShipperID int IDENTITY (1, 1) NOT NULL,
+    ShipperID int(10) IDENTITY (1, 1) NOT NULL,
     CompanyName nvarchar(40) NOT NULL,
     Phone nvarchar(24) NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : SUPPLIERS                                    
 -- ==============================================================
 
-
 DROP TABLE SUPPLIERS;
 CREATE TABLE SUPPLIERS(
-    SupplierID int IDENTITY (1, 1) NOT NULL,
+    SupplierID int(10) IDENTITY (1, 1) NOT NULL,
     CompanyName nvarchar(40) NOT NULL,
     ContactName nvarchar(30) NULL,
     ContactTitle nvarchar(30) NULL,
@@ -200,19 +177,16 @@ CREATE TABLE SUPPLIERS(
     Phone nvarchar(24) NULL,
     Fax nvarchar(24) NULL,
     HomePage ntext NULL
-)
-;
+);
 
 -- ==============================================================
 --  Table : TERRITORIES                                    
 -- ==============================================================
 
-
 DROP TABLE TERRITORIES;
 CREATE TABLE TERRITORIES(
     TerritoryID nvarchar(20) NOT NULL,
     TerritoryDescription nchar(50) NOT NULL,
-    RegionID int NOT NULL
-)
-;
+    RegionID int(10) NOT NULL
+);
 

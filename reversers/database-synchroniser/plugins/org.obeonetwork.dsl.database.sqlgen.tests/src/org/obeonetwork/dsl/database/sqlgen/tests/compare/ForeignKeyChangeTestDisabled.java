@@ -2,7 +2,7 @@ package org.obeonetwork.dsl.database.sqlgen.tests.compare;
 
 import org.obeonetwork.dsl.database.sqlgen.tests.AbtractTest;
 
-public class ForeignKeyChangeTest extends AbtractTest {
+public class ForeignKeyChangeTestDisabled extends AbtractTest {
 
 //	@Test
 //	public void createForeignKey() throws Exception {

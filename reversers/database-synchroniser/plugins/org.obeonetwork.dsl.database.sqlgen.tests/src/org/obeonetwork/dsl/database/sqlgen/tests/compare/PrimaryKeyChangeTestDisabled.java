@@ -2,7 +2,7 @@ package org.obeonetwork.dsl.database.sqlgen.tests.compare;
 
 import org.obeonetwork.dsl.database.sqlgen.tests.AbtractTest;
 
-public class PrimaryKeyChangeTest extends AbtractTest {
+public class PrimaryKeyChangeTestDisabled extends AbtractTest {
 
 //	@Test
 //	public void createPrimaryKey() throws Exception {

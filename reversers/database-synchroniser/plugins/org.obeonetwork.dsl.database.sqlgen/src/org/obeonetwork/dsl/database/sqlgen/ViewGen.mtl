@@ -63,12 +63,14 @@ DROP VIEW [view.name()/];
 [/template]
 
 [template private genAlterView(alterView : AlterView) post(trim())]
-[let view : View = alterView.view.oclAsType(View)]
+[alterView.view.alterViewStatement()/]
+[/template]
+
+[template private alterViewStatement(view : View)]
 [view.genViewDoc()/]
 DROP VIEW [view.name()/];
 [view.createViewStatement()/] AS [view.getViewQuery()/]
 [view.genCreateViewComment()/]
-[/let]
 [/template]
 
 [template private createViewStatement(view : View)? (not view.isTargetSqlServer())]
@@ -81,12 +83,4 @@ CREATE VIEW [view.genSchemaPrefix()/][view.name()/]
 
 [template private genCreateViewComment(view : View) ? (view.comments<>null and view.comments.size()>0) post(trim())]
 COMMENT ON VIEW [view.genSchemaPrefix()/][view.name/] IS '[view.comments.replaceAll('\'','\'\'')/]';
-[/template]
-
-[template private genUpdateViewComment(view : View) post(trim())]
-[view.genCreateViewComment()/]
-[/template]
-
-[template private genRenameView(oldView : View, newView : View) post(trim())]
-ALTER VIEW [oldView.name()/] RENAME TO [newView.name()/];
 [/template]

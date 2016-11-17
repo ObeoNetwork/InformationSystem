@@ -44,8 +44,8 @@ public class ViewChangeBuilder extends ChangeBuilder {
 	@Override
 	protected Diff handleAlterChange(Match change) {
 		AlterView alterView = DbevolutionFactory.eINSTANCE.createAlterView();
-		alterView.setView((View)change.getRight());
-		alterView.setTarget(change.getRight());
+		alterView.setView((View)change.getLeft());
+		alterView.setTarget(change.getLeft());
 		return alterView;
 	}
 	

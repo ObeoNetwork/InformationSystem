@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
 import org.obeonetwork.dsl.database.sqlgen.SQLGenerator;
 
-public class DatabaseSQLGenTest extends AbtractGeneratorTest {
+public class DatabaseSQLGenTestDisabled extends AbtractGeneratorTest {
 
 	
 	@Override

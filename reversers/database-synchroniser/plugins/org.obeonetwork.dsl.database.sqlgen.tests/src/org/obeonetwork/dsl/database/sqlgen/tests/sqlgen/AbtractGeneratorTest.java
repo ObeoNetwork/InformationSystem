@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import org.eclipse.acceleo.engine.generation.strategy.PreviewStrategy;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.compare.Comparison;
-import org.obeonetwork.dsl.database.dbevolution.DatabaseChangeSet;
 import org.obeonetwork.dsl.database.sqlgen.SQLGenerator;
 import org.obeonetwork.dsl.database.sqlgen.tests.AbtractTest;
 

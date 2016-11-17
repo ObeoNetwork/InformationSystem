@@ -3,6 +3,13 @@
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/SQLServer-2008#_Zj69UBEnEeGTa_JlZYBw1A"/>
   <schemas xmi:id="_-jM1UW5wEeS2fLS2tY2BlQ" techID="_-cODkW5wEeS2fLS2tY2BlQ" name="dbo">
     <tables xsi:type="database:Table" xmi:id="_-jM1Um5wEeS2fLS2tY2BlQ" techID="_-e3H4G5wEeS2fLS2tY2BlQ" name="Categories">
+      <primaryKey xmi:id="_-jNcZm5wEeS2fLS2tY2BlQ" techID="_-gJhUG5wEeS2fLS2tY2BlQ" name="PK_Categories" columns="_-jM1U25wEeS2fLS2tY2BlQ"/>
+      <indexes xmi:id="_-jNcZ25wEeS2fLS2tY2BlQ" techID="_-gaAAG5wEeS2fLS2tY2BlQ" name="PK_Categories" qualifier="Categories" unique="true">
+        <elements xmi:id="_-jNcaG5wEeS2fLS2tY2BlQ" techID="_-gaAAW5wEeS2fLS2tY2BlQ" column="_-jM1U25wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jNcaW5wEeS2fLS2tY2BlQ" techID="_-gaAAm5wEeS2fLS2tY2BlQ" name="CategoryName" qualifier="Categories">
+        <elements xmi:id="_-jNcam5wEeS2fLS2tY2BlQ" techID="_-gaAA25wEeS2fLS2tY2BlQ" column="_-jNcYG5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jM1U25wEeS2fLS2tY2BlQ" techID="_-fzjEG5wEeS2fLS2tY2BlQ" name="CategoryID" defaultValue="" indexElements="_-jNcaG5wEeS2fLS2tY2BlQ" primaryKey="_-jNcZm5wEeS2fLS2tY2BlQ" autoincrement="true">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jM1VG5wEeS2fLS2tY2BlQ" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
@@ -23,25 +30,8 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_LwgH8GW8EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jNcZm5wEeS2fLS2tY2BlQ" techID="_-gJhUG5wEeS2fLS2tY2BlQ" name="PK_Categories" columns="_-jM1U25wEeS2fLS2tY2BlQ"/>
-      <indexes xmi:id="_-jNcZ25wEeS2fLS2tY2BlQ" techID="_-gaAAG5wEeS2fLS2tY2BlQ" name="PK_Categories" qualifier="Categories" unique="true">
-        <elements xmi:id="_-jNcaG5wEeS2fLS2tY2BlQ" techID="_-gaAAW5wEeS2fLS2tY2BlQ" column="_-jM1U25wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jNcaW5wEeS2fLS2tY2BlQ" techID="_-gaAAm5wEeS2fLS2tY2BlQ" name="CategoryName" qualifier="Categories">
-        <elements xmi:id="_-jNcam5wEeS2fLS2tY2BlQ" techID="_-gaAA25wEeS2fLS2tY2BlQ" column="_-jNcYG5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jNca25wEeS2fLS2tY2BlQ" techID="_-ganEG5wEeS2fLS2tY2BlQ" name="CustomerCustomerDemo">
-      <columns xmi:id="_-jNcbG5wEeS2fLS2tY2BlQ" techID="_-gb1MG5wEeS2fLS2tY2BlQ" name="CustomerID" defaultValue="" indexElements="_-jNcdm5wEeS2fLS2tY2BlQ" primaryKey="_-jNccG5wEeS2fLS2tY2BlQ" foreignKeyElements="_-jNcdG5wEeS2fLS2tY2BlQ">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jNcbW5wEeS2fLS2tY2BlQ" length="5" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5QCLgGW9EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jNcbm5wEeS2fLS2tY2BlQ" techID="_-gccQG5wEeS2fLS2tY2BlQ" name="CustomerTypeID" defaultValue="" indexElements="_-jNcd25wEeS2fLS2tY2BlQ" primaryKey="_-jNccG5wEeS2fLS2tY2BlQ" foreignKeyElements="_-jNccm5wEeS2fLS2tY2BlQ">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jNcb25wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5QCLgGW9EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
       <primaryKey xmi:id="_-jNccG5wEeS2fLS2tY2BlQ" techID="_-gdqYG5wEeS2fLS2tY2BlQ" name="PK_CustomerCustomerDemo" columns="_-jNcbG5wEeS2fLS2tY2BlQ _-jNcbm5wEeS2fLS2tY2BlQ"/>
       <foreignKeys xmi:id="_-jNccW5wEeS2fLS2tY2BlQ" techID="_-jGHoG5wEeS2fLS2tY2BlQ" name="FK_CustomerCustomerDemo" target="_-jNceG5wEeS2fLS2tY2BlQ">
         <elements xmi:id="_-jNccm5wEeS2fLS2tY2BlQ" techID="_-jGHoW5wEeS2fLS2tY2BlQ" fkColumn="_-jNcbm5wEeS2fLS2tY2BlQ" pkColumn="_-jNceW5wEeS2fLS2tY2BlQ"/>
@@ -53,8 +43,22 @@
         <elements xmi:id="_-jNcdm5wEeS2fLS2tY2BlQ" techID="_-ge4gW5wEeS2fLS2tY2BlQ" column="_-jNcbG5wEeS2fLS2tY2BlQ" asc="true"/>
         <elements xmi:id="_-jNcd25wEeS2fLS2tY2BlQ" techID="_-gffkG5wEeS2fLS2tY2BlQ" column="_-jNcbm5wEeS2fLS2tY2BlQ" asc="true"/>
       </indexes>
+      <columns xmi:id="_-jNcbG5wEeS2fLS2tY2BlQ" techID="_-gb1MG5wEeS2fLS2tY2BlQ" name="CustomerID" defaultValue="" indexElements="_-jNcdm5wEeS2fLS2tY2BlQ" primaryKey="_-jNccG5wEeS2fLS2tY2BlQ" foreignKeyElements="_-jNcdG5wEeS2fLS2tY2BlQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jNcbW5wEeS2fLS2tY2BlQ" length="5" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5QCLgGW9EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-jNcbm5wEeS2fLS2tY2BlQ" techID="_-gccQG5wEeS2fLS2tY2BlQ" name="CustomerTypeID" defaultValue="" indexElements="_-jNcd25wEeS2fLS2tY2BlQ" primaryKey="_-jNccG5wEeS2fLS2tY2BlQ" foreignKeyElements="_-jNccm5wEeS2fLS2tY2BlQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jNcb25wEeS2fLS2tY2BlQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5QCLgGW9EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jNceG5wEeS2fLS2tY2BlQ" techID="_-gffkW5wEeS2fLS2tY2BlQ" name="CustomerDemographics">
+      <primaryKey xmi:id="_-jNcfW5wEeS2fLS2tY2BlQ" techID="_-gjJ8G5wEeS2fLS2tY2BlQ" name="PK_CustomerDemographics" columns="_-jNceW5wEeS2fLS2tY2BlQ"/>
+      <indexes xmi:id="_-jNcfm5wEeS2fLS2tY2BlQ" techID="_-gjxAG5wEeS2fLS2tY2BlQ" name="PK_CustomerDemographics" qualifier="CustomerDemographics" unique="true">
+        <elements xmi:id="_-jNcf25wEeS2fLS2tY2BlQ" techID="_-gjxAW5wEeS2fLS2tY2BlQ" column="_-jNceW5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jNceW5wEeS2fLS2tY2BlQ" techID="_-ghUwG5wEeS2fLS2tY2BlQ" name="CustomerTypeID" defaultValue="" indexElements="_-jNcf25wEeS2fLS2tY2BlQ" primaryKey="_-jNcfW5wEeS2fLS2tY2BlQ">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jNcem5wEeS2fLS2tY2BlQ" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5QCLgGW9EeSGPOrcarGX5w"/>
@@ -65,12 +69,24 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_DszsYGW-EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jNcfW5wEeS2fLS2tY2BlQ" techID="_-gjJ8G5wEeS2fLS2tY2BlQ" name="PK_CustomerDemographics" columns="_-jNceW5wEeS2fLS2tY2BlQ"/>
-      <indexes xmi:id="_-jNcfm5wEeS2fLS2tY2BlQ" techID="_-gjxAG5wEeS2fLS2tY2BlQ" name="PK_CustomerDemographics" qualifier="CustomerDemographics" unique="true">
-        <elements xmi:id="_-jNcf25wEeS2fLS2tY2BlQ" techID="_-gjxAW5wEeS2fLS2tY2BlQ" column="_-jNceW5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jNcgG5wEeS2fLS2tY2BlQ" techID="_-gkYEG5wEeS2fLS2tY2BlQ" name="Customers">
+      <primaryKey xmi:id="_-jNcl25wEeS2fLS2tY2BlQ" techID="_-gp3oG5wEeS2fLS2tY2BlQ" name="PK_Customers" columns="_-jNcgW5wEeS2fLS2tY2BlQ"/>
+      <indexes xmi:id="_-jNcmG5wEeS2fLS2tY2BlQ" techID="_-grFwG5wEeS2fLS2tY2BlQ" name="PK_Customers" qualifier="Customers" unique="true">
+        <elements xmi:id="_-jNcmW5wEeS2fLS2tY2BlQ" techID="_-grFwW5wEeS2fLS2tY2BlQ" column="_-jNcgW5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jNcmm5wEeS2fLS2tY2BlQ" techID="_-grFwm5wEeS2fLS2tY2BlQ" name="City" qualifier="Customers">
+        <elements xmi:id="_-jNcm25wEeS2fLS2tY2BlQ" techID="_-grs0G5wEeS2fLS2tY2BlQ" column="_-jNci25wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jNcnG5wEeS2fLS2tY2BlQ" techID="_-grs0W5wEeS2fLS2tY2BlQ" name="CompanyName" qualifier="Customers">
+        <elements xmi:id="_-jNcnW5wEeS2fLS2tY2BlQ" techID="_-grs0m5wEeS2fLS2tY2BlQ" column="_-jNcg25wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jNcnm5wEeS2fLS2tY2BlQ" techID="_-grs025wEeS2fLS2tY2BlQ" name="PostalCode" qualifier="Customers">
+        <elements xmi:id="_-jNcn25wEeS2fLS2tY2BlQ" techID="_-grs1G5wEeS2fLS2tY2BlQ" column="_-jNcj25wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jNcoG5wEeS2fLS2tY2BlQ" techID="_-grs1W5wEeS2fLS2tY2BlQ" name="Region" qualifier="Customers">
+        <elements xmi:id="_-jNcoW5wEeS2fLS2tY2BlQ" techID="_-grs1m5wEeS2fLS2tY2BlQ" column="_-jNcjW5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jNcgW5wEeS2fLS2tY2BlQ" techID="_-gmNQG5wEeS2fLS2tY2BlQ" name="CustomerID" defaultValue="" indexElements="_-jNcmW5wEeS2fLS2tY2BlQ" primaryKey="_-jNcl25wEeS2fLS2tY2BlQ">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jNcgm5wEeS2fLS2tY2BlQ" length="5" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5QCLgGW9EeSGPOrcarGX5w"/>
@@ -126,24 +142,21 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jNcl25wEeS2fLS2tY2BlQ" techID="_-gp3oG5wEeS2fLS2tY2BlQ" name="PK_Customers" columns="_-jNcgW5wEeS2fLS2tY2BlQ"/>
-      <indexes xmi:id="_-jNcmG5wEeS2fLS2tY2BlQ" techID="_-grFwG5wEeS2fLS2tY2BlQ" name="PK_Customers" qualifier="Customers" unique="true">
-        <elements xmi:id="_-jNcmW5wEeS2fLS2tY2BlQ" techID="_-grFwW5wEeS2fLS2tY2BlQ" column="_-jNcgW5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jNcmm5wEeS2fLS2tY2BlQ" techID="_-grFwm5wEeS2fLS2tY2BlQ" name="City" qualifier="Customers">
-        <elements xmi:id="_-jNcm25wEeS2fLS2tY2BlQ" techID="_-grs0G5wEeS2fLS2tY2BlQ" column="_-jNci25wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jNcnG5wEeS2fLS2tY2BlQ" techID="_-grs0W5wEeS2fLS2tY2BlQ" name="CompanyName" qualifier="Customers">
-        <elements xmi:id="_-jNcnW5wEeS2fLS2tY2BlQ" techID="_-grs0m5wEeS2fLS2tY2BlQ" column="_-jNcg25wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jNcnm5wEeS2fLS2tY2BlQ" techID="_-grs025wEeS2fLS2tY2BlQ" name="PostalCode" qualifier="Customers">
-        <elements xmi:id="_-jNcn25wEeS2fLS2tY2BlQ" techID="_-grs1G5wEeS2fLS2tY2BlQ" column="_-jNcj25wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jNcoG5wEeS2fLS2tY2BlQ" techID="_-grs1W5wEeS2fLS2tY2BlQ" name="Region" qualifier="Customers">
-        <elements xmi:id="_-jNcoW5wEeS2fLS2tY2BlQ" techID="_-grs1m5wEeS2fLS2tY2BlQ" column="_-jNcjW5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jODcG5wEeS2fLS2tY2BlQ" techID="_-grs125wEeS2fLS2tY2BlQ" name="Employees">
+      <primaryKey xmi:id="_-jOqpG5wEeS2fLS2tY2BlQ" techID="_-gzBkG5wEeS2fLS2tY2BlQ" name="PK_Employees" columns="_-jOqgG5wEeS2fLS2tY2BlQ"/>
+      <foreignKeys xmi:id="_-jOqpW5wEeS2fLS2tY2BlQ" techID="_-jHVwG5wEeS2fLS2tY2BlQ" name="FK_Employees_Employees" target="_-jODcG5wEeS2fLS2tY2BlQ">
+        <elements xmi:id="_-jOqpm5wEeS2fLS2tY2BlQ" techID="_-jHVwW5wEeS2fLS2tY2BlQ" fkColumn="_-jOqoG5wEeS2fLS2tY2BlQ" pkColumn="_-jOqgG5wEeS2fLS2tY2BlQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_-jOqp25wEeS2fLS2tY2BlQ" techID="_-g02wG5wEeS2fLS2tY2BlQ" name="PK_Employees" qualifier="Employees" unique="true">
+        <elements xmi:id="_-jOqqG5wEeS2fLS2tY2BlQ" techID="_-g02wW5wEeS2fLS2tY2BlQ" column="_-jOqgG5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOqqW5wEeS2fLS2tY2BlQ" techID="_-g02wm5wEeS2fLS2tY2BlQ" name="LastName" qualifier="Employees">
+        <elements xmi:id="_-jOqqm5wEeS2fLS2tY2BlQ" techID="_-g02w25wEeS2fLS2tY2BlQ" column="_-jOqgm5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOqq25wEeS2fLS2tY2BlQ" techID="_-g02xG5wEeS2fLS2tY2BlQ" name="PostalCode" qualifier="Employees">
+        <elements xmi:id="_-jOqrG5wEeS2fLS2tY2BlQ" techID="_-g02xW5wEeS2fLS2tY2BlQ" column="_-jOqlG5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jOqgG5wEeS2fLS2tY2BlQ" techID="_-guwIG5wEeS2fLS2tY2BlQ" name="EmployeeID" defaultValue="" indexElements="_-jOqqG5wEeS2fLS2tY2BlQ" primaryKey="_-jOqpG5wEeS2fLS2tY2BlQ" autoincrement="true">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOqgW5wEeS2fLS2tY2BlQ" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
@@ -234,31 +247,8 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jOqpG5wEeS2fLS2tY2BlQ" techID="_-gzBkG5wEeS2fLS2tY2BlQ" name="PK_Employees" columns="_-jOqgG5wEeS2fLS2tY2BlQ"/>
-      <foreignKeys xmi:id="_-jOqpW5wEeS2fLS2tY2BlQ" techID="_-jHVwG5wEeS2fLS2tY2BlQ" name="FK_Employees_Employees" target="_-jODcG5wEeS2fLS2tY2BlQ">
-        <elements xmi:id="_-jOqpm5wEeS2fLS2tY2BlQ" techID="_-jHVwW5wEeS2fLS2tY2BlQ" fkColumn="_-jOqoG5wEeS2fLS2tY2BlQ" pkColumn="_-jOqgG5wEeS2fLS2tY2BlQ"/>
-      </foreignKeys>
-      <indexes xmi:id="_-jOqp25wEeS2fLS2tY2BlQ" techID="_-g02wG5wEeS2fLS2tY2BlQ" name="PK_Employees" qualifier="Employees" unique="true">
-        <elements xmi:id="_-jOqqG5wEeS2fLS2tY2BlQ" techID="_-g02wW5wEeS2fLS2tY2BlQ" column="_-jOqgG5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOqqW5wEeS2fLS2tY2BlQ" techID="_-g02wm5wEeS2fLS2tY2BlQ" name="LastName" qualifier="Employees">
-        <elements xmi:id="_-jOqqm5wEeS2fLS2tY2BlQ" techID="_-g02w25wEeS2fLS2tY2BlQ" column="_-jOqgm5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOqq25wEeS2fLS2tY2BlQ" techID="_-g02xG5wEeS2fLS2tY2BlQ" name="PostalCode" qualifier="Employees">
-        <elements xmi:id="_-jOqrG5wEeS2fLS2tY2BlQ" techID="_-g02xW5wEeS2fLS2tY2BlQ" column="_-jOqlG5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jOqrW5wEeS2fLS2tY2BlQ" techID="_-g1d0G5wEeS2fLS2tY2BlQ" name="EmployeeTerritories">
-      <columns xmi:id="_-jOqrm5wEeS2fLS2tY2BlQ" techID="_-g2r8G5wEeS2fLS2tY2BlQ" name="EmployeeID" defaultValue="" indexElements="_-jOquG5wEeS2fLS2tY2BlQ" primaryKey="_-jOqsm5wEeS2fLS2tY2BlQ" foreignKeyElements="_-jOqtG5wEeS2fLS2tY2BlQ">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOqr25wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOqsG5wEeS2fLS2tY2BlQ" techID="_-g3TAG5wEeS2fLS2tY2BlQ" name="TerritoryID" defaultValue="" indexElements="_-jOquW5wEeS2fLS2tY2BlQ" primaryKey="_-jOqsm5wEeS2fLS2tY2BlQ" foreignKeyElements="_-jOqtm5wEeS2fLS2tY2BlQ">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOqsW5wEeS2fLS2tY2BlQ" length="20" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
       <primaryKey xmi:id="_-jOqsm5wEeS2fLS2tY2BlQ" techID="_-g5IMG5wEeS2fLS2tY2BlQ" name="PK_EmployeeTerritories" columns="_-jOqrm5wEeS2fLS2tY2BlQ _-jOqsG5wEeS2fLS2tY2BlQ"/>
       <foreignKeys xmi:id="_-jOqs25wEeS2fLS2tY2BlQ" techID="_-jH80G5wEeS2fLS2tY2BlQ" name="FK_EmployeeTerritories_Employees" target="_-jODcG5wEeS2fLS2tY2BlQ">
         <elements xmi:id="_-jOqtG5wEeS2fLS2tY2BlQ" techID="_-jIj4G5wEeS2fLS2tY2BlQ" fkColumn="_-jOqrm5wEeS2fLS2tY2BlQ" pkColumn="_-jOqgG5wEeS2fLS2tY2BlQ"/>
@@ -270,8 +260,41 @@
         <elements xmi:id="_-jOquG5wEeS2fLS2tY2BlQ" techID="_-g6WUG5wEeS2fLS2tY2BlQ" column="_-jOqrm5wEeS2fLS2tY2BlQ" asc="true"/>
         <elements xmi:id="_-jOquW5wEeS2fLS2tY2BlQ" techID="_-g6WUW5wEeS2fLS2tY2BlQ" column="_-jOqsG5wEeS2fLS2tY2BlQ" asc="true"/>
       </indexes>
+      <columns xmi:id="_-jOqrm5wEeS2fLS2tY2BlQ" techID="_-g2r8G5wEeS2fLS2tY2BlQ" name="EmployeeID" defaultValue="" indexElements="_-jOquG5wEeS2fLS2tY2BlQ" primaryKey="_-jOqsm5wEeS2fLS2tY2BlQ" foreignKeyElements="_-jOqtG5wEeS2fLS2tY2BlQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOqr25wEeS2fLS2tY2BlQ" length="10" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-jOqsG5wEeS2fLS2tY2BlQ" techID="_-g3TAG5wEeS2fLS2tY2BlQ" name="TerritoryID" defaultValue="" indexElements="_-jOquW5wEeS2fLS2tY2BlQ" primaryKey="_-jOqsm5wEeS2fLS2tY2BlQ" foreignKeyElements="_-jOqtm5wEeS2fLS2tY2BlQ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOqsW5wEeS2fLS2tY2BlQ" length="20" precision="0">
+          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
+        </type>
+      </columns>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jOqum5wEeS2fLS2tY2BlQ" techID="_-g6WUm5wEeS2fLS2tY2BlQ" name="Order Details">
+      <primaryKey xmi:id="_-jOqxW5wEeS2fLS2tY2BlQ" techID="_-g_O0G5wEeS2fLS2tY2BlQ" name="PK_Order_Details" columns="_-jOqu25wEeS2fLS2tY2BlQ _-jOqvW5wEeS2fLS2tY2BlQ"/>
+      <foreignKeys xmi:id="_-jOqxm5wEeS2fLS2tY2BlQ" techID="_-jJK8G5wEeS2fLS2tY2BlQ" name="FK_Order_Details_Orders" target="_-jOq1W5wEeS2fLS2tY2BlQ">
+        <elements xmi:id="_-jOqx25wEeS2fLS2tY2BlQ" techID="_-jJK8W5wEeS2fLS2tY2BlQ" fkColumn="_-jOqu25wEeS2fLS2tY2BlQ" pkColumn="_-jOq1m5wEeS2fLS2tY2BlQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_-jOqyG5wEeS2fLS2tY2BlQ" techID="_-jJK8m5wEeS2fLS2tY2BlQ" name="FK_Order_Details_Products" target="_-jOrC25wEeS2fLS2tY2BlQ">
+        <elements xmi:id="_-jOqyW5wEeS2fLS2tY2BlQ" techID="_-jJK825wEeS2fLS2tY2BlQ" fkColumn="_-jOqvW5wEeS2fLS2tY2BlQ" pkColumn="_-jOrDG5wEeS2fLS2tY2BlQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_-jOqym5wEeS2fLS2tY2BlQ" techID="_-hAc8G5wEeS2fLS2tY2BlQ" name="PK_Order_Details" qualifier="Order Details" unique="true">
+        <elements xmi:id="_-jOqy25wEeS2fLS2tY2BlQ" techID="_-hAc8W5wEeS2fLS2tY2BlQ" column="_-jOqu25wEeS2fLS2tY2BlQ" asc="true"/>
+        <elements xmi:id="_-jOqzG5wEeS2fLS2tY2BlQ" techID="_-hAc8m5wEeS2fLS2tY2BlQ" column="_-jOqvW5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOqzW5wEeS2fLS2tY2BlQ" techID="_-hAc825wEeS2fLS2tY2BlQ" name="OrderID" qualifier="Order Details">
+        <elements xmi:id="_-jOqzm5wEeS2fLS2tY2BlQ" techID="_-hAc9G5wEeS2fLS2tY2BlQ" column="_-jOqu25wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOqz25wEeS2fLS2tY2BlQ" techID="_-hAc9W5wEeS2fLS2tY2BlQ" name="OrdersOrder_Details" qualifier="Order Details">
+        <elements xmi:id="_-jOq0G5wEeS2fLS2tY2BlQ" techID="_-hAc9m5wEeS2fLS2tY2BlQ" column="_-jOqu25wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOq0W5wEeS2fLS2tY2BlQ" techID="_-hBEAG5wEeS2fLS2tY2BlQ" name="ProductID" qualifier="Order Details">
+        <elements xmi:id="_-jOq0m5wEeS2fLS2tY2BlQ" techID="_-hBEAW5wEeS2fLS2tY2BlQ" column="_-jOqvW5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOq025wEeS2fLS2tY2BlQ" techID="_-hBEAm5wEeS2fLS2tY2BlQ" name="ProductsOrder_Details" qualifier="Order Details">
+        <elements xmi:id="_-jOq1G5wEeS2fLS2tY2BlQ" techID="_-hBEA25wEeS2fLS2tY2BlQ" column="_-jOqvW5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jOqu25wEeS2fLS2tY2BlQ" techID="_-g8ykG5wEeS2fLS2tY2BlQ" name="OrderID" defaultValue="" indexElements="_-jOqy25wEeS2fLS2tY2BlQ _-jOqzm5wEeS2fLS2tY2BlQ _-jOq0G5wEeS2fLS2tY2BlQ" primaryKey="_-jOqxW5wEeS2fLS2tY2BlQ" foreignKeyElements="_-jOqx25wEeS2fLS2tY2BlQ">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOqvG5wEeS2fLS2tY2BlQ" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
@@ -297,31 +320,45 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_WqzAYGW-EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jOqxW5wEeS2fLS2tY2BlQ" techID="_-g_O0G5wEeS2fLS2tY2BlQ" name="PK_Order_Details" columns="_-jOqu25wEeS2fLS2tY2BlQ _-jOqvW5wEeS2fLS2tY2BlQ"/>
-      <foreignKeys xmi:id="_-jOqxm5wEeS2fLS2tY2BlQ" techID="_-jJK8G5wEeS2fLS2tY2BlQ" name="FK_Order_Details_Orders" target="_-jOq1W5wEeS2fLS2tY2BlQ">
-        <elements xmi:id="_-jOqx25wEeS2fLS2tY2BlQ" techID="_-jJK8W5wEeS2fLS2tY2BlQ" fkColumn="_-jOqu25wEeS2fLS2tY2BlQ" pkColumn="_-jOq1m5wEeS2fLS2tY2BlQ"/>
-      </foreignKeys>
-      <foreignKeys xmi:id="_-jOqyG5wEeS2fLS2tY2BlQ" techID="_-jJK8m5wEeS2fLS2tY2BlQ" name="FK_Order_Details_Products" target="_-jOrC25wEeS2fLS2tY2BlQ">
-        <elements xmi:id="_-jOqyW5wEeS2fLS2tY2BlQ" techID="_-jJK825wEeS2fLS2tY2BlQ" fkColumn="_-jOqvW5wEeS2fLS2tY2BlQ" pkColumn="_-jOrDG5wEeS2fLS2tY2BlQ"/>
-      </foreignKeys>
-      <indexes xmi:id="_-jOqym5wEeS2fLS2tY2BlQ" techID="_-hAc8G5wEeS2fLS2tY2BlQ" name="PK_Order_Details" qualifier="Order Details" unique="true">
-        <elements xmi:id="_-jOqy25wEeS2fLS2tY2BlQ" techID="_-hAc8W5wEeS2fLS2tY2BlQ" column="_-jOqu25wEeS2fLS2tY2BlQ" asc="true"/>
-        <elements xmi:id="_-jOqzG5wEeS2fLS2tY2BlQ" techID="_-hAc8m5wEeS2fLS2tY2BlQ" column="_-jOqvW5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOqzW5wEeS2fLS2tY2BlQ" techID="_-hAc825wEeS2fLS2tY2BlQ" name="OrderID" qualifier="Order Details">
-        <elements xmi:id="_-jOqzm5wEeS2fLS2tY2BlQ" techID="_-hAc9G5wEeS2fLS2tY2BlQ" column="_-jOqu25wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOqz25wEeS2fLS2tY2BlQ" techID="_-hAc9W5wEeS2fLS2tY2BlQ" name="OrdersOrder_Details" qualifier="Order Details">
-        <elements xmi:id="_-jOq0G5wEeS2fLS2tY2BlQ" techID="_-hAc9m5wEeS2fLS2tY2BlQ" column="_-jOqu25wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOq0W5wEeS2fLS2tY2BlQ" techID="_-hBEAG5wEeS2fLS2tY2BlQ" name="ProductID" qualifier="Order Details">
-        <elements xmi:id="_-jOq0m5wEeS2fLS2tY2BlQ" techID="_-hBEAW5wEeS2fLS2tY2BlQ" column="_-jOqvW5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOq025wEeS2fLS2tY2BlQ" techID="_-hBEAm5wEeS2fLS2tY2BlQ" name="ProductsOrder_Details" qualifier="Order Details">
-        <elements xmi:id="_-jOq1G5wEeS2fLS2tY2BlQ" techID="_-hBEA25wEeS2fLS2tY2BlQ" column="_-jOqvW5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jOq1W5wEeS2fLS2tY2BlQ" techID="_-hBEBG5wEeS2fLS2tY2BlQ" name="Orders">
+      <primaryKey xmi:id="_-jOq8m5wEeS2fLS2tY2BlQ" techID="_-hIYwG5wEeS2fLS2tY2BlQ" name="PK_Orders" columns="_-jOq1m5wEeS2fLS2tY2BlQ"/>
+      <foreignKeys xmi:id="_-jOq825wEeS2fLS2tY2BlQ" techID="_-jJyAG5wEeS2fLS2tY2BlQ" name="FK_Orders_Customers" target="_-jNcgG5wEeS2fLS2tY2BlQ">
+        <elements xmi:id="_-jOq9G5wEeS2fLS2tY2BlQ" techID="_-jJyAW5wEeS2fLS2tY2BlQ" fkColumn="_-jOq2G5wEeS2fLS2tY2BlQ" pkColumn="_-jNcgW5wEeS2fLS2tY2BlQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_-jOq9W5wEeS2fLS2tY2BlQ" techID="_-jJyAm5wEeS2fLS2tY2BlQ" name="FK_Orders_Employees" target="_-jODcG5wEeS2fLS2tY2BlQ">
+        <elements xmi:id="_-jOq9m5wEeS2fLS2tY2BlQ" techID="_-jJyA25wEeS2fLS2tY2BlQ" fkColumn="_-jOq2m5wEeS2fLS2tY2BlQ" pkColumn="_-jOqgG5wEeS2fLS2tY2BlQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_-jOq925wEeS2fLS2tY2BlQ" techID="_-jJyBG5wEeS2fLS2tY2BlQ" name="FK_Orders_Shippers" target="_-jOrOW5wEeS2fLS2tY2BlQ">
+        <elements xmi:id="_-jOq-G5wEeS2fLS2tY2BlQ" techID="_-jJyBW5wEeS2fLS2tY2BlQ" fkColumn="_-jOq4m5wEeS2fLS2tY2BlQ" pkColumn="_-jOrOm5wEeS2fLS2tY2BlQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_-jOq-W5wEeS2fLS2tY2BlQ" techID="_-hJm4G5wEeS2fLS2tY2BlQ" name="PK_Orders" qualifier="Orders" unique="true">
+        <elements xmi:id="_-jOq-m5wEeS2fLS2tY2BlQ" techID="_-hKN8G5wEeS2fLS2tY2BlQ" column="_-jOq1m5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOq-25wEeS2fLS2tY2BlQ" techID="_-hKN8W5wEeS2fLS2tY2BlQ" name="CustomerID" qualifier="Orders">
+        <elements xmi:id="_-jOq_G5wEeS2fLS2tY2BlQ" techID="_-hKN8m5wEeS2fLS2tY2BlQ" column="_-jOq2G5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOq_W5wEeS2fLS2tY2BlQ" techID="_-hKN825wEeS2fLS2tY2BlQ" name="CustomersOrders" qualifier="Orders">
+        <elements xmi:id="_-jOq_m5wEeS2fLS2tY2BlQ" techID="_-hKN9G5wEeS2fLS2tY2BlQ" column="_-jOq2G5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOq_25wEeS2fLS2tY2BlQ" techID="_-hKN9W5wEeS2fLS2tY2BlQ" name="EmployeeID" qualifier="Orders">
+        <elements xmi:id="_-jOrAG5wEeS2fLS2tY2BlQ" techID="_-hKN9m5wEeS2fLS2tY2BlQ" column="_-jOq2m5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrAW5wEeS2fLS2tY2BlQ" techID="_-hKN925wEeS2fLS2tY2BlQ" name="EmployeesOrders" qualifier="Orders">
+        <elements xmi:id="_-jOrAm5wEeS2fLS2tY2BlQ" techID="_-hK1AG5wEeS2fLS2tY2BlQ" column="_-jOq2m5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrA25wEeS2fLS2tY2BlQ" techID="_-hK1AW5wEeS2fLS2tY2BlQ" name="OrderDate" qualifier="Orders">
+        <elements xmi:id="_-jOrBG5wEeS2fLS2tY2BlQ" techID="_-hK1Am5wEeS2fLS2tY2BlQ" column="_-jOq3G5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrBW5wEeS2fLS2tY2BlQ" techID="_-hK1A25wEeS2fLS2tY2BlQ" name="ShippedDate" qualifier="Orders">
+        <elements xmi:id="_-jOrBm5wEeS2fLS2tY2BlQ" techID="_-hK1BG5wEeS2fLS2tY2BlQ" column="_-jOq4G5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrB25wEeS2fLS2tY2BlQ" techID="_-hK1BW5wEeS2fLS2tY2BlQ" name="ShippersOrders" qualifier="Orders">
+        <elements xmi:id="_-jOrCG5wEeS2fLS2tY2BlQ" techID="_-hK1Bm5wEeS2fLS2tY2BlQ" column="_-jOq4m5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrCW5wEeS2fLS2tY2BlQ" techID="_-hK1B25wEeS2fLS2tY2BlQ" name="ShipPostalCode" qualifier="Orders">
+        <elements xmi:id="_-jOrCm5wEeS2fLS2tY2BlQ" techID="_-hK1CG5wEeS2fLS2tY2BlQ" column="_-jOq7m5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jOq1m5wEeS2fLS2tY2BlQ" techID="_-hEHUG5wEeS2fLS2tY2BlQ" name="OrderID" defaultValue="" indexElements="_-jOq-m5wEeS2fLS2tY2BlQ" primaryKey="_-jOq8m5wEeS2fLS2tY2BlQ" autoincrement="true">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOq125wEeS2fLS2tY2BlQ" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
@@ -392,45 +429,33 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jOq8m5wEeS2fLS2tY2BlQ" techID="_-hIYwG5wEeS2fLS2tY2BlQ" name="PK_Orders" columns="_-jOq1m5wEeS2fLS2tY2BlQ"/>
-      <foreignKeys xmi:id="_-jOq825wEeS2fLS2tY2BlQ" techID="_-jJyAG5wEeS2fLS2tY2BlQ" name="FK_Orders_Customers" target="_-jNcgG5wEeS2fLS2tY2BlQ">
-        <elements xmi:id="_-jOq9G5wEeS2fLS2tY2BlQ" techID="_-jJyAW5wEeS2fLS2tY2BlQ" fkColumn="_-jOq2G5wEeS2fLS2tY2BlQ" pkColumn="_-jNcgW5wEeS2fLS2tY2BlQ"/>
-      </foreignKeys>
-      <foreignKeys xmi:id="_-jOq9W5wEeS2fLS2tY2BlQ" techID="_-jJyAm5wEeS2fLS2tY2BlQ" name="FK_Orders_Employees" target="_-jODcG5wEeS2fLS2tY2BlQ">
-        <elements xmi:id="_-jOq9m5wEeS2fLS2tY2BlQ" techID="_-jJyA25wEeS2fLS2tY2BlQ" fkColumn="_-jOq2m5wEeS2fLS2tY2BlQ" pkColumn="_-jOqgG5wEeS2fLS2tY2BlQ"/>
-      </foreignKeys>
-      <foreignKeys xmi:id="_-jOq925wEeS2fLS2tY2BlQ" techID="_-jJyBG5wEeS2fLS2tY2BlQ" name="FK_Orders_Shippers" target="_-jOrOW5wEeS2fLS2tY2BlQ">
-        <elements xmi:id="_-jOq-G5wEeS2fLS2tY2BlQ" techID="_-jJyBW5wEeS2fLS2tY2BlQ" fkColumn="_-jOq4m5wEeS2fLS2tY2BlQ" pkColumn="_-jOrOm5wEeS2fLS2tY2BlQ"/>
-      </foreignKeys>
-      <indexes xmi:id="_-jOq-W5wEeS2fLS2tY2BlQ" techID="_-hJm4G5wEeS2fLS2tY2BlQ" name="PK_Orders" qualifier="Orders" unique="true">
-        <elements xmi:id="_-jOq-m5wEeS2fLS2tY2BlQ" techID="_-hKN8G5wEeS2fLS2tY2BlQ" column="_-jOq1m5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOq-25wEeS2fLS2tY2BlQ" techID="_-hKN8W5wEeS2fLS2tY2BlQ" name="CustomerID" qualifier="Orders">
-        <elements xmi:id="_-jOq_G5wEeS2fLS2tY2BlQ" techID="_-hKN8m5wEeS2fLS2tY2BlQ" column="_-jOq2G5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOq_W5wEeS2fLS2tY2BlQ" techID="_-hKN825wEeS2fLS2tY2BlQ" name="CustomersOrders" qualifier="Orders">
-        <elements xmi:id="_-jOq_m5wEeS2fLS2tY2BlQ" techID="_-hKN9G5wEeS2fLS2tY2BlQ" column="_-jOq2G5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOq_25wEeS2fLS2tY2BlQ" techID="_-hKN9W5wEeS2fLS2tY2BlQ" name="EmployeeID" qualifier="Orders">
-        <elements xmi:id="_-jOrAG5wEeS2fLS2tY2BlQ" techID="_-hKN9m5wEeS2fLS2tY2BlQ" column="_-jOq2m5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrAW5wEeS2fLS2tY2BlQ" techID="_-hKN925wEeS2fLS2tY2BlQ" name="EmployeesOrders" qualifier="Orders">
-        <elements xmi:id="_-jOrAm5wEeS2fLS2tY2BlQ" techID="_-hK1AG5wEeS2fLS2tY2BlQ" column="_-jOq2m5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrA25wEeS2fLS2tY2BlQ" techID="_-hK1AW5wEeS2fLS2tY2BlQ" name="OrderDate" qualifier="Orders">
-        <elements xmi:id="_-jOrBG5wEeS2fLS2tY2BlQ" techID="_-hK1Am5wEeS2fLS2tY2BlQ" column="_-jOq3G5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrBW5wEeS2fLS2tY2BlQ" techID="_-hK1A25wEeS2fLS2tY2BlQ" name="ShippedDate" qualifier="Orders">
-        <elements xmi:id="_-jOrBm5wEeS2fLS2tY2BlQ" techID="_-hK1BG5wEeS2fLS2tY2BlQ" column="_-jOq4G5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrB25wEeS2fLS2tY2BlQ" techID="_-hK1BW5wEeS2fLS2tY2BlQ" name="ShippersOrders" qualifier="Orders">
-        <elements xmi:id="_-jOrCG5wEeS2fLS2tY2BlQ" techID="_-hK1Bm5wEeS2fLS2tY2BlQ" column="_-jOq4m5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrCW5wEeS2fLS2tY2BlQ" techID="_-hK1B25wEeS2fLS2tY2BlQ" name="ShipPostalCode" qualifier="Orders">
-        <elements xmi:id="_-jOrCm5wEeS2fLS2tY2BlQ" techID="_-hK1CG5wEeS2fLS2tY2BlQ" column="_-jOq7m5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jOrC25wEeS2fLS2tY2BlQ" techID="_-hK1CW5wEeS2fLS2tY2BlQ" name="Products">
+      <primaryKey xmi:id="_-jOrIG5wEeS2fLS2tY2BlQ" techID="_-hQ7oG5wEeS2fLS2tY2BlQ" name="PK_Products" columns="_-jOrDG5wEeS2fLS2tY2BlQ"/>
+      <foreignKeys xmi:id="_-jOrIW5wEeS2fLS2tY2BlQ" techID="_-jLAIG5wEeS2fLS2tY2BlQ" name="FK_Products_Categories" target="_-jM1Um5wEeS2fLS2tY2BlQ">
+        <elements xmi:id="_-jOrIm5wEeS2fLS2tY2BlQ" techID="_-jLAIW5wEeS2fLS2tY2BlQ" fkColumn="_-jOrEm5wEeS2fLS2tY2BlQ" pkColumn="_-jM1U25wEeS2fLS2tY2BlQ"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_-jOrI25wEeS2fLS2tY2BlQ" techID="_-jLAIm5wEeS2fLS2tY2BlQ" name="FK_Products_Suppliers" target="_-jOrQ25wEeS2fLS2tY2BlQ">
+        <elements xmi:id="_-jOrJG5wEeS2fLS2tY2BlQ" techID="_-jLAI25wEeS2fLS2tY2BlQ" fkColumn="_-jOrEG5wEeS2fLS2tY2BlQ" pkColumn="_-jOrRG5wEeS2fLS2tY2BlQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_-jOrJW5wEeS2fLS2tY2BlQ" techID="_-hSJwG5wEeS2fLS2tY2BlQ" name="PK_Products" qualifier="Products" unique="true">
+        <elements xmi:id="_-jOrJm5wEeS2fLS2tY2BlQ" techID="_-hSJwW5wEeS2fLS2tY2BlQ" column="_-jOrDG5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrJ25wEeS2fLS2tY2BlQ" techID="_-hSJwm5wEeS2fLS2tY2BlQ" name="CategoriesProducts" qualifier="Products">
+        <elements xmi:id="_-jOrKG5wEeS2fLS2tY2BlQ" techID="_-hSJw25wEeS2fLS2tY2BlQ" column="_-jOrEm5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrKW5wEeS2fLS2tY2BlQ" techID="_-hSJxG5wEeS2fLS2tY2BlQ" name="CategoryID" qualifier="Products">
+        <elements xmi:id="_-jOrKm5wEeS2fLS2tY2BlQ" techID="_-hSJxW5wEeS2fLS2tY2BlQ" column="_-jOrEm5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrK25wEeS2fLS2tY2BlQ" techID="_-hSw0G5wEeS2fLS2tY2BlQ" name="ProductName" qualifier="Products">
+        <elements xmi:id="_-jOrLG5wEeS2fLS2tY2BlQ" techID="_-hSw0W5wEeS2fLS2tY2BlQ" column="_-jOrDm5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrLW5wEeS2fLS2tY2BlQ" techID="_-hSw0m5wEeS2fLS2tY2BlQ" name="SupplierID" qualifier="Products">
+        <elements xmi:id="_-jOrLm5wEeS2fLS2tY2BlQ" techID="_-hSw025wEeS2fLS2tY2BlQ" column="_-jOrEG5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrL25wEeS2fLS2tY2BlQ" techID="_-hSw1G5wEeS2fLS2tY2BlQ" name="SuppliersProducts" qualifier="Products">
+        <elements xmi:id="_-jOrMG5wEeS2fLS2tY2BlQ" techID="_-hSw1W5wEeS2fLS2tY2BlQ" column="_-jOrEG5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jOrDG5wEeS2fLS2tY2BlQ" techID="_-hNRQG5wEeS2fLS2tY2BlQ" name="ProductID" defaultValue="" indexElements="_-jOrJm5wEeS2fLS2tY2BlQ" primaryKey="_-jOrIG5wEeS2fLS2tY2BlQ" autoincrement="true">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrDW5wEeS2fLS2tY2BlQ" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
@@ -481,33 +506,12 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_H3kkAGW7EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jOrIG5wEeS2fLS2tY2BlQ" techID="_-hQ7oG5wEeS2fLS2tY2BlQ" name="PK_Products" columns="_-jOrDG5wEeS2fLS2tY2BlQ"/>
-      <foreignKeys xmi:id="_-jOrIW5wEeS2fLS2tY2BlQ" techID="_-jLAIG5wEeS2fLS2tY2BlQ" name="FK_Products_Categories" target="_-jM1Um5wEeS2fLS2tY2BlQ">
-        <elements xmi:id="_-jOrIm5wEeS2fLS2tY2BlQ" techID="_-jLAIW5wEeS2fLS2tY2BlQ" fkColumn="_-jOrEm5wEeS2fLS2tY2BlQ" pkColumn="_-jM1U25wEeS2fLS2tY2BlQ"/>
-      </foreignKeys>
-      <foreignKeys xmi:id="_-jOrI25wEeS2fLS2tY2BlQ" techID="_-jLAIm5wEeS2fLS2tY2BlQ" name="FK_Products_Suppliers" target="_-jOrQ25wEeS2fLS2tY2BlQ">
-        <elements xmi:id="_-jOrJG5wEeS2fLS2tY2BlQ" techID="_-jLAI25wEeS2fLS2tY2BlQ" fkColumn="_-jOrEG5wEeS2fLS2tY2BlQ" pkColumn="_-jOrRG5wEeS2fLS2tY2BlQ"/>
-      </foreignKeys>
-      <indexes xmi:id="_-jOrJW5wEeS2fLS2tY2BlQ" techID="_-hSJwG5wEeS2fLS2tY2BlQ" name="PK_Products" qualifier="Products" unique="true">
-        <elements xmi:id="_-jOrJm5wEeS2fLS2tY2BlQ" techID="_-hSJwW5wEeS2fLS2tY2BlQ" column="_-jOrDG5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrJ25wEeS2fLS2tY2BlQ" techID="_-hSJwm5wEeS2fLS2tY2BlQ" name="CategoriesProducts" qualifier="Products">
-        <elements xmi:id="_-jOrKG5wEeS2fLS2tY2BlQ" techID="_-hSJw25wEeS2fLS2tY2BlQ" column="_-jOrEm5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrKW5wEeS2fLS2tY2BlQ" techID="_-hSJxG5wEeS2fLS2tY2BlQ" name="CategoryID" qualifier="Products">
-        <elements xmi:id="_-jOrKm5wEeS2fLS2tY2BlQ" techID="_-hSJxW5wEeS2fLS2tY2BlQ" column="_-jOrEm5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrK25wEeS2fLS2tY2BlQ" techID="_-hSw0G5wEeS2fLS2tY2BlQ" name="ProductName" qualifier="Products">
-        <elements xmi:id="_-jOrLG5wEeS2fLS2tY2BlQ" techID="_-hSw0W5wEeS2fLS2tY2BlQ" column="_-jOrDm5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrLW5wEeS2fLS2tY2BlQ" techID="_-hSw0m5wEeS2fLS2tY2BlQ" name="SupplierID" qualifier="Products">
-        <elements xmi:id="_-jOrLm5wEeS2fLS2tY2BlQ" techID="_-hSw025wEeS2fLS2tY2BlQ" column="_-jOrEG5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrL25wEeS2fLS2tY2BlQ" techID="_-hSw1G5wEeS2fLS2tY2BlQ" name="SuppliersProducts" qualifier="Products">
-        <elements xmi:id="_-jOrMG5wEeS2fLS2tY2BlQ" techID="_-hSw1W5wEeS2fLS2tY2BlQ" column="_-jOrEG5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jOrMW5wEeS2fLS2tY2BlQ" techID="_-hSw1m5wEeS2fLS2tY2BlQ" name="Region">
+      <primaryKey xmi:id="_-jOrNm5wEeS2fLS2tY2BlQ" techID="_-hWbMG5wEeS2fLS2tY2BlQ" name="PK_Region" columns="_-jOrMm5wEeS2fLS2tY2BlQ"/>
+      <indexes xmi:id="_-jOrN25wEeS2fLS2tY2BlQ" techID="_-hXCQG5wEeS2fLS2tY2BlQ" name="PK_Region" qualifier="Region" unique="true">
+        <elements xmi:id="_-jOrOG5wEeS2fLS2tY2BlQ" techID="_-hXCQW5wEeS2fLS2tY2BlQ" column="_-jOrMm5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jOrMm5wEeS2fLS2tY2BlQ" techID="_-hUmAG5wEeS2fLS2tY2BlQ" name="RegionID" defaultValue="" indexElements="_-jOrOG5wEeS2fLS2tY2BlQ" primaryKey="_-jOrNm5wEeS2fLS2tY2BlQ">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrM25wEeS2fLS2tY2BlQ" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
@@ -518,12 +522,12 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5QCLgGW9EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jOrNm5wEeS2fLS2tY2BlQ" techID="_-hWbMG5wEeS2fLS2tY2BlQ" name="PK_Region" columns="_-jOrMm5wEeS2fLS2tY2BlQ"/>
-      <indexes xmi:id="_-jOrN25wEeS2fLS2tY2BlQ" techID="_-hXCQG5wEeS2fLS2tY2BlQ" name="PK_Region" qualifier="Region" unique="true">
-        <elements xmi:id="_-jOrOG5wEeS2fLS2tY2BlQ" techID="_-hXCQW5wEeS2fLS2tY2BlQ" column="_-jOrMm5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jOrOW5wEeS2fLS2tY2BlQ" techID="_-hXpUG5wEeS2fLS2tY2BlQ" name="Shippers">
+      <primaryKey xmi:id="_-jOrQG5wEeS2fLS2tY2BlQ" techID="_-hasoG5wEeS2fLS2tY2BlQ" name="PK_Shippers" columns="_-jOrOm5wEeS2fLS2tY2BlQ"/>
+      <indexes xmi:id="_-jOrQW5wEeS2fLS2tY2BlQ" techID="_-hbTsG5wEeS2fLS2tY2BlQ" name="PK_Shippers" qualifier="Shippers" unique="true">
+        <elements xmi:id="_-jOrQm5wEeS2fLS2tY2BlQ" techID="_-hb6wG5wEeS2fLS2tY2BlQ" column="_-jOrOm5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jOrOm5wEeS2fLS2tY2BlQ" techID="_-hY3cG5wEeS2fLS2tY2BlQ" name="ShipperID" defaultValue="" indexElements="_-jOrQm5wEeS2fLS2tY2BlQ" primaryKey="_-jOrQG5wEeS2fLS2tY2BlQ" autoincrement="true">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrO25wEeS2fLS2tY2BlQ" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
@@ -539,12 +543,18 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jOrQG5wEeS2fLS2tY2BlQ" techID="_-hasoG5wEeS2fLS2tY2BlQ" name="PK_Shippers" columns="_-jOrOm5wEeS2fLS2tY2BlQ"/>
-      <indexes xmi:id="_-jOrQW5wEeS2fLS2tY2BlQ" techID="_-hbTsG5wEeS2fLS2tY2BlQ" name="PK_Shippers" qualifier="Shippers" unique="true">
-        <elements xmi:id="_-jOrQm5wEeS2fLS2tY2BlQ" techID="_-hb6wG5wEeS2fLS2tY2BlQ" column="_-jOrOm5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jOrQ25wEeS2fLS2tY2BlQ" techID="_-hb6wW5wEeS2fLS2tY2BlQ" name="Suppliers">
+      <primaryKey xmi:id="_-jOrXG5wEeS2fLS2tY2BlQ" techID="_-hgzQG5wEeS2fLS2tY2BlQ" name="PK_Suppliers" columns="_-jOrRG5wEeS2fLS2tY2BlQ"/>
+      <indexes xmi:id="_-jOrXW5wEeS2fLS2tY2BlQ" techID="_-hiBYG5wEeS2fLS2tY2BlQ" name="PK_Suppliers" qualifier="Suppliers" unique="true">
+        <elements xmi:id="_-jOrXm5wEeS2fLS2tY2BlQ" techID="_-hiBYW5wEeS2fLS2tY2BlQ" column="_-jOrRG5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrX25wEeS2fLS2tY2BlQ" techID="_-hiBYm5wEeS2fLS2tY2BlQ" name="CompanyName" qualifier="Suppliers">
+        <elements xmi:id="_-jOrYG5wEeS2fLS2tY2BlQ" techID="_-hiBY25wEeS2fLS2tY2BlQ" column="_-jOrRm5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_-jOrYW5wEeS2fLS2tY2BlQ" techID="_-hiBZG5wEeS2fLS2tY2BlQ" name="PostalCode" qualifier="Suppliers">
+        <elements xmi:id="_-jOrYm5wEeS2fLS2tY2BlQ" techID="_-hiBZW5wEeS2fLS2tY2BlQ" column="_-jOrUm5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jOrRG5wEeS2fLS2tY2BlQ" techID="_-hdv8G5wEeS2fLS2tY2BlQ" name="SupplierID" defaultValue="" indexElements="_-jOrXm5wEeS2fLS2tY2BlQ" primaryKey="_-jOrXG5wEeS2fLS2tY2BlQ" autoincrement="true">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrRW5wEeS2fLS2tY2BlQ" length="10" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
@@ -605,18 +615,15 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_DszsYGW-EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jOrXG5wEeS2fLS2tY2BlQ" techID="_-hgzQG5wEeS2fLS2tY2BlQ" name="PK_Suppliers" columns="_-jOrRG5wEeS2fLS2tY2BlQ"/>
-      <indexes xmi:id="_-jOrXW5wEeS2fLS2tY2BlQ" techID="_-hiBYG5wEeS2fLS2tY2BlQ" name="PK_Suppliers" qualifier="Suppliers" unique="true">
-        <elements xmi:id="_-jOrXm5wEeS2fLS2tY2BlQ" techID="_-hiBYW5wEeS2fLS2tY2BlQ" column="_-jOrRG5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrX25wEeS2fLS2tY2BlQ" techID="_-hiBYm5wEeS2fLS2tY2BlQ" name="CompanyName" qualifier="Suppliers">
-        <elements xmi:id="_-jOrYG5wEeS2fLS2tY2BlQ" techID="_-hiBY25wEeS2fLS2tY2BlQ" column="_-jOrRm5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
-      <indexes xmi:id="_-jOrYW5wEeS2fLS2tY2BlQ" techID="_-hiBZG5wEeS2fLS2tY2BlQ" name="PostalCode" qualifier="Suppliers">
-        <elements xmi:id="_-jOrYm5wEeS2fLS2tY2BlQ" techID="_-hiBZW5wEeS2fLS2tY2BlQ" column="_-jOrUm5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
     <tables xsi:type="database:Table" xmi:id="_-jOrY25wEeS2fLS2tY2BlQ" techID="_-hiocG5wEeS2fLS2tY2BlQ" name="Territories">
+      <primaryKey xmi:id="_-jOram5wEeS2fLS2tY2BlQ" techID="_-hlrwG5wEeS2fLS2tY2BlQ" name="PK_Territories" columns="_-jOrZG5wEeS2fLS2tY2BlQ"/>
+      <foreignKeys xmi:id="_-jOra25wEeS2fLS2tY2BlQ" techID="_-jMOQG5wEeS2fLS2tY2BlQ" name="FK_Territories_Region" target="_-jOrMW5wEeS2fLS2tY2BlQ">
+        <elements xmi:id="_-jOrbG5wEeS2fLS2tY2BlQ" techID="_-jMOQW5wEeS2fLS2tY2BlQ" fkColumn="_-jOraG5wEeS2fLS2tY2BlQ" pkColumn="_-jOrMm5wEeS2fLS2tY2BlQ"/>
+      </foreignKeys>
+      <indexes xmi:id="_-jOrbW5wEeS2fLS2tY2BlQ" techID="_-hm54G5wEeS2fLS2tY2BlQ" name="PK_Territories" qualifier="Territories" unique="true">
+        <elements xmi:id="_-jOrbm5wEeS2fLS2tY2BlQ" techID="_-hm54W5wEeS2fLS2tY2BlQ" column="_-jOrZG5wEeS2fLS2tY2BlQ" asc="true"/>
+      </indexes>
       <columns xmi:id="_-jOrZG5wEeS2fLS2tY2BlQ" techID="_-hkdoG5wEeS2fLS2tY2BlQ" name="TerritoryID" defaultValue="" indexElements="_-jOrbm5wEeS2fLS2tY2BlQ" primaryKey="_-jOram5wEeS2fLS2tY2BlQ">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrZW5wEeS2fLS2tY2BlQ" length="20" precision="0">
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
@@ -632,555 +639,22 @@
           <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
         </type>
       </columns>
-      <primaryKey xmi:id="_-jOram5wEeS2fLS2tY2BlQ" techID="_-hlrwG5wEeS2fLS2tY2BlQ" name="PK_Territories" columns="_-jOrZG5wEeS2fLS2tY2BlQ"/>
-      <foreignKeys xmi:id="_-jOra25wEeS2fLS2tY2BlQ" techID="_-jMOQG5wEeS2fLS2tY2BlQ" name="FK_Territories_Region" target="_-jOrMW5wEeS2fLS2tY2BlQ">
-        <elements xmi:id="_-jOrbG5wEeS2fLS2tY2BlQ" techID="_-jMOQW5wEeS2fLS2tY2BlQ" fkColumn="_-jOraG5wEeS2fLS2tY2BlQ" pkColumn="_-jOrMm5wEeS2fLS2tY2BlQ"/>
-      </foreignKeys>
-      <indexes xmi:id="_-jOrbW5wEeS2fLS2tY2BlQ" techID="_-hm54G5wEeS2fLS2tY2BlQ" name="PK_Territories" qualifier="Territories" unique="true">
-        <elements xmi:id="_-jOrbm5wEeS2fLS2tY2BlQ" techID="_-hm54W5wEeS2fLS2tY2BlQ" column="_-jOrZG5wEeS2fLS2tY2BlQ" asc="true"/>
-      </indexes>
     </tables>
-    <tables xsi:type="database:View" xmi:id="_-jOrb25wEeS2fLS2tY2BlQ" techID="_-hm54m5wEeS2fLS2tY2BlQ" name="Alphabetical list of products" query="&#xA;create view &quot;Alphabetical list of products&quot; AS&#xD;&#xA;SELECT Products.*, Categories.CategoryName&#xD;&#xA;FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID&#xD;&#xA;WHERE (((Products.Discontinued)=0))&#xD;&#xA;">
-      <columns xmi:id="_-jOrcG5wEeS2fLS2tY2BlQ" techID="_-htAgG5wEeS2fLS2tY2BlQ" name="ProductID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrcW5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOrcm5wEeS2fLS2tY2BlQ" techID="_-htnkG5wEeS2fLS2tY2BlQ" name="ProductName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrc25wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOrdG5wEeS2fLS2tY2BlQ" techID="_-htnkW5wEeS2fLS2tY2BlQ" name="SupplierID" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrdW5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOrdm5wEeS2fLS2tY2BlQ" techID="_-htnkm5wEeS2fLS2tY2BlQ" name="CategoryID" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrd25wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOreG5wEeS2fLS2tY2BlQ" techID="_-htnk25wEeS2fLS2tY2BlQ" name="QuantityPerUnit" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOreW5wEeS2fLS2tY2BlQ" length="20" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOrem5wEeS2fLS2tY2BlQ" techID="_-htnlG5wEeS2fLS2tY2BlQ" name="UnitPrice" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOre25wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOrfG5wEeS2fLS2tY2BlQ" techID="_-huOoG5wEeS2fLS2tY2BlQ" name="UnitsInStock" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrfW5wEeS2fLS2tY2BlQ" length="5" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_dv-6YGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOrfm5wEeS2fLS2tY2BlQ" techID="_-huOoW5wEeS2fLS2tY2BlQ" name="UnitsOnOrder" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrf25wEeS2fLS2tY2BlQ" length="5" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_dv-6YGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOrgG5wEeS2fLS2tY2BlQ" techID="_-huOom5wEeS2fLS2tY2BlQ" name="ReorderLevel" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrgW5wEeS2fLS2tY2BlQ" length="5" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_dv-6YGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOrgm5wEeS2fLS2tY2BlQ" techID="_-huOo25wEeS2fLS2tY2BlQ" name="Discontinued" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrg25wEeS2fLS2tY2BlQ" length="1" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_H3kkAGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOrhG5wEeS2fLS2tY2BlQ" techID="_-huOpG5wEeS2fLS2tY2BlQ" name="CategoryName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrhW5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jOrhm5wEeS2fLS2tY2BlQ" techID="_-huOpW5wEeS2fLS2tY2BlQ" name="Category Sales for 1997" query="&#xA;create view &quot;Category Sales for 1997&quot; AS&#xD;&#xA;SELECT &quot;Product Sales for 1997&quot;.CategoryName, Sum(&quot;Product Sales for 1997&quot;.ProductSales) AS CategorySales&#xD;&#xA;FROM &quot;Product Sales for 1997&quot;&#xD;&#xA;GROUP BY &quot;Product Sales for 1997&quot;.CategoryName&#xD;&#xA;">
-      <columns xmi:id="_-jOrh25wEeS2fLS2tY2BlQ" techID="_-hwq4G5wEeS2fLS2tY2BlQ" name="CategoryName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOriG5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jOriW5wEeS2fLS2tY2BlQ" techID="_-hwq4W5wEeS2fLS2tY2BlQ" name="CategorySales" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jOrim5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jOri25wEeS2fLS2tY2BlQ" techID="_-hwq4m5wEeS2fLS2tY2BlQ" name="Current Product List" query="&#xA;create view &quot;Current Product List&quot; AS&#xD;&#xA;SELECT Product_List.ProductID, Product_List.ProductName&#xD;&#xA;FROM Products AS Product_List&#xD;&#xA;WHERE (((Product_List.Discontinued)=0))&#xD;&#xA;--ORDER BY Product_List.ProductName&#xD;&#xA;">
-      <columns xmi:id="_-jPRkG5wEeS2fLS2tY2BlQ" techID="_-hygEG5wEeS2fLS2tY2BlQ" name="ProductID" defaultValue="" autoincrement="true">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRkW5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRkm5wEeS2fLS2tY2BlQ" techID="_-hzHIG5wEeS2fLS2tY2BlQ" name="ProductName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRk25wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jPRlG5wEeS2fLS2tY2BlQ" techID="_-hzHIW5wEeS2fLS2tY2BlQ" name="Customer and Suppliers by City" query="&#xA;create view &quot;Customer and Suppliers by City&quot; AS&#xD;&#xA;SELECT City, CompanyName, ContactName, 'Customers' AS Relationship &#xD;&#xA;FROM Customers&#xD;&#xA;UNION SELECT City, CompanyName, ContactName, 'Suppliers'&#xD;&#xA;FROM Suppliers&#xD;&#xA;--ORDER BY City, CompanyName&#xD;&#xA;">
-      <columns xmi:id="_-jPRlW5wEeS2fLS2tY2BlQ" techID="_-h08UG5wEeS2fLS2tY2BlQ" name="City" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRlm5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRl25wEeS2fLS2tY2BlQ" techID="_-h08UW5wEeS2fLS2tY2BlQ" name="CompanyName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRmG5wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRmW5wEeS2fLS2tY2BlQ" techID="_-h08Um5wEeS2fLS2tY2BlQ" name="ContactName" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRmm5wEeS2fLS2tY2BlQ" length="30" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRm25wEeS2fLS2tY2BlQ" techID="_-h1jYG5wEeS2fLS2tY2BlQ" name="Relationship" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRnG5wEeS2fLS2tY2BlQ" length="9" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_KTDyMGW_EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jPRnW5wEeS2fLS2tY2BlQ" techID="_-h1jYW5wEeS2fLS2tY2BlQ" name="Invoices" query="&#xA;create view Invoices AS&#xD;&#xA;SELECT Orders.ShipName, Orders.ShipAddress, Orders.ShipCity, Orders.ShipRegion, Orders.ShipPostalCode, &#xD;&#xA;&#x9;Orders.ShipCountry, Orders.CustomerID, Customers.CompanyName AS CustomerName, Customers.Address, Customers.City, &#xD;&#xA;&#x9;Customers.Region, Customers.PostalCode, Customers.Country, &#xD;&#xA;&#x9;(FirstName + ' ' + LastName) AS Salesperson, &#xD;&#xA;&#x9;Orders.OrderID, Orders.OrderDate, Orders.RequiredDate, Orders.ShippedDate, Shippers.CompanyName As ShipperName, &#xD;&#xA;&#x9;&quot;Order Details&quot;.ProductID, Products.ProductName, &quot;Order Details&quot;.UnitPrice, &quot;Order Details&quot;.Quantity, &#xD;&#xA;&#x9;&quot;Order Details&quot;.Discount, &#xD;&#xA;&#x9;(CONVERT(money,(&quot;Order Details&quot;.UnitPrice*Quantity*(1-Discount)/100))*100) AS ExtendedPrice, Orders.Freight&#xD;&#xA;FROM &#x9;Shippers INNER JOIN &#xD;&#xA;&#x9;&#x9;(Products INNER JOIN &#xD;&#xA;&#x9;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(Employees INNER JOIN &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;(Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID) &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ON Employees.EmployeeID = Orders.EmployeeID) &#xD;&#xA;&#x9;&#x9;&#x9;INNER JOIN &quot;Order Details&quot; ON Orders.OrderID = &quot;Order Details&quot;.OrderID) &#xD;&#xA;&#x9;&#x9;ON Products.ProductID = &quot;Order Details&quot;.ProductID) &#xD;&#xA;&#x9;ON Shippers.ShipperID = Orders.ShipVia&#xD;&#xA;">
-      <columns xmi:id="_-jPRnm5wEeS2fLS2tY2BlQ" techID="_-h4msG5wEeS2fLS2tY2BlQ" name="ShipName" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRn25wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRoG5wEeS2fLS2tY2BlQ" techID="_-h4msW5wEeS2fLS2tY2BlQ" name="ShipAddress" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRoW5wEeS2fLS2tY2BlQ" length="60" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRom5wEeS2fLS2tY2BlQ" techID="_-h4msm5wEeS2fLS2tY2BlQ" name="ShipCity" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRo25wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRpG5wEeS2fLS2tY2BlQ" techID="_-h4ms25wEeS2fLS2tY2BlQ" name="ShipRegion" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRpW5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRpm5wEeS2fLS2tY2BlQ" techID="_-h4mtG5wEeS2fLS2tY2BlQ" name="ShipPostalCode" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRp25wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRqG5wEeS2fLS2tY2BlQ" techID="_-h4mtW5wEeS2fLS2tY2BlQ" name="ShipCountry" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRqW5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRqm5wEeS2fLS2tY2BlQ" techID="_-h4mtm5wEeS2fLS2tY2BlQ" name="CustomerID" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRq25wEeS2fLS2tY2BlQ" length="5" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5QCLgGW9EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRrG5wEeS2fLS2tY2BlQ" techID="_-h5NwG5wEeS2fLS2tY2BlQ" name="CustomerName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRrW5wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRrm5wEeS2fLS2tY2BlQ" techID="_-h5NwW5wEeS2fLS2tY2BlQ" name="Address" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRr25wEeS2fLS2tY2BlQ" length="60" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRsG5wEeS2fLS2tY2BlQ" techID="_-h5Nwm5wEeS2fLS2tY2BlQ" name="City" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRsW5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRsm5wEeS2fLS2tY2BlQ" techID="_-h5Nw25wEeS2fLS2tY2BlQ" name="Region" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRs25wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRtG5wEeS2fLS2tY2BlQ" techID="_-h5NxG5wEeS2fLS2tY2BlQ" name="PostalCode" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRtW5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRtm5wEeS2fLS2tY2BlQ" techID="_-h5NxW5wEeS2fLS2tY2BlQ" name="Country" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRt25wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRuG5wEeS2fLS2tY2BlQ" techID="_-h5Nxm5wEeS2fLS2tY2BlQ" name="Salesperson" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRuW5wEeS2fLS2tY2BlQ" length="31" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRum5wEeS2fLS2tY2BlQ" techID="_-h500G5wEeS2fLS2tY2BlQ" name="OrderID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRu25wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRvG5wEeS2fLS2tY2BlQ" techID="_-h500W5wEeS2fLS2tY2BlQ" name="OrderDate" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRvW5wEeS2fLS2tY2BlQ" length="23" precision="3">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRvm5wEeS2fLS2tY2BlQ" techID="_-h500m5wEeS2fLS2tY2BlQ" name="RequiredDate" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRv25wEeS2fLS2tY2BlQ" length="23" precision="3">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRwG5wEeS2fLS2tY2BlQ" techID="_-h50025wEeS2fLS2tY2BlQ" name="ShippedDate" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRwW5wEeS2fLS2tY2BlQ" length="23" precision="3">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRwm5wEeS2fLS2tY2BlQ" techID="_-h501G5wEeS2fLS2tY2BlQ" name="ShipperName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRw25wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRxG5wEeS2fLS2tY2BlQ" techID="_-h501W5wEeS2fLS2tY2BlQ" name="ProductID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRxW5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRxm5wEeS2fLS2tY2BlQ" techID="_-h501m5wEeS2fLS2tY2BlQ" name="ProductName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRx25wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRyG5wEeS2fLS2tY2BlQ" techID="_-h6b4G5wEeS2fLS2tY2BlQ" name="UnitPrice" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRyW5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRym5wEeS2fLS2tY2BlQ" techID="_-h6b4W5wEeS2fLS2tY2BlQ" name="Quantity" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRy25wEeS2fLS2tY2BlQ" length="5" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_dv-6YGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRzG5wEeS2fLS2tY2BlQ" techID="_-h6b4m5wEeS2fLS2tY2BlQ" name="Discount" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRzW5wEeS2fLS2tY2BlQ" length="24" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_WqzAYGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPRzm5wEeS2fLS2tY2BlQ" techID="_-h6b425wEeS2fLS2tY2BlQ" name="ExtendedPrice" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPRz25wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR0G5wEeS2fLS2tY2BlQ" techID="_-h6b5G5wEeS2fLS2tY2BlQ" name="Freight" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR0W5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jPR0m5wEeS2fLS2tY2BlQ" techID="_-h6b5W5wEeS2fLS2tY2BlQ" name="Order Details Extended" query="&#xA;create view &quot;Order Details Extended&quot; AS&#xD;&#xA;SELECT &quot;Order Details&quot;.OrderID, &quot;Order Details&quot;.ProductID, Products.ProductName, &#xD;&#xA;&#x9;&quot;Order Details&quot;.UnitPrice, &quot;Order Details&quot;.Quantity, &quot;Order Details&quot;.Discount, &#xD;&#xA;&#x9;(CONVERT(money,(&quot;Order Details&quot;.UnitPrice*Quantity*(1-Discount)/100))*100) AS ExtendedPrice&#xD;&#xA;FROM Products INNER JOIN &quot;Order Details&quot; ON Products.ProductID = &quot;Order Details&quot;.ProductID&#xD;&#xA;--ORDER BY &quot;Order Details&quot;.OrderID&#xD;&#xA;">
-      <columns xmi:id="_-jPR025wEeS2fLS2tY2BlQ" techID="_-h84IG5wEeS2fLS2tY2BlQ" name="OrderID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR1G5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR1W5wEeS2fLS2tY2BlQ" techID="_-h84IW5wEeS2fLS2tY2BlQ" name="ProductID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR1m5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR125wEeS2fLS2tY2BlQ" techID="_-h84Im5wEeS2fLS2tY2BlQ" name="ProductName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR2G5wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR2W5wEeS2fLS2tY2BlQ" techID="_-h9fMG5wEeS2fLS2tY2BlQ" name="UnitPrice" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR2m5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR225wEeS2fLS2tY2BlQ" techID="_-h9fMW5wEeS2fLS2tY2BlQ" name="Quantity" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR3G5wEeS2fLS2tY2BlQ" length="5" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_dv-6YGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR3W5wEeS2fLS2tY2BlQ" techID="_-h9fMm5wEeS2fLS2tY2BlQ" name="Discount" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR3m5wEeS2fLS2tY2BlQ" length="24" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_WqzAYGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR325wEeS2fLS2tY2BlQ" techID="_-h9fM25wEeS2fLS2tY2BlQ" name="ExtendedPrice" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR4G5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jPR4W5wEeS2fLS2tY2BlQ" techID="_-h9fNG5wEeS2fLS2tY2BlQ" name="Order Subtotals" query="&#xA;create view &quot;Order Subtotals&quot; AS&#xD;&#xA;SELECT &quot;Order Details&quot;.OrderID, Sum(CONVERT(money,(&quot;Order Details&quot;.UnitPrice*Quantity*(1-Discount)/100))*100) AS Subtotal&#xD;&#xA;FROM &quot;Order Details&quot;&#xD;&#xA;GROUP BY &quot;Order Details&quot;.OrderID&#xD;&#xA;">
-      <columns xmi:id="_-jPR4m5wEeS2fLS2tY2BlQ" techID="_-h_UYG5wEeS2fLS2tY2BlQ" name="OrderID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR425wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR5G5wEeS2fLS2tY2BlQ" techID="_-h_7cG5wEeS2fLS2tY2BlQ" name="Subtotal" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR5W5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jPR5m5wEeS2fLS2tY2BlQ" techID="_-h_7cW5wEeS2fLS2tY2BlQ" name="Orders Qry" query="&#xA;create view &quot;Orders Qry&quot; AS&#xD;&#xA;SELECT Orders.OrderID, Orders.CustomerID, Orders.EmployeeID, Orders.OrderDate, Orders.RequiredDate, &#xD;&#xA;&#x9;Orders.ShippedDate, Orders.ShipVia, Orders.Freight, Orders.ShipName, Orders.ShipAddress, Orders.ShipCity, &#xD;&#xA;&#x9;Orders.ShipRegion, Orders.ShipPostalCode, Orders.ShipCountry, &#xD;&#xA;&#x9;Customers.CompanyName, Customers.Address, Customers.City, Customers.Region, Customers.PostalCode, Customers.Country&#xD;&#xA;FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID&#xD;&#xA;">
-      <columns xmi:id="_-jPR525wEeS2fLS2tY2BlQ" techID="_-iCXsG5wEeS2fLS2tY2BlQ" name="OrderID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR6G5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR6W5wEeS2fLS2tY2BlQ" techID="_-iC-wG5wEeS2fLS2tY2BlQ" name="CustomerID" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR6m5wEeS2fLS2tY2BlQ" length="5" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5QCLgGW9EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR625wEeS2fLS2tY2BlQ" techID="_-iC-wW5wEeS2fLS2tY2BlQ" name="EmployeeID" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR7G5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR7W5wEeS2fLS2tY2BlQ" techID="_-iC-wm5wEeS2fLS2tY2BlQ" name="OrderDate" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR7m5wEeS2fLS2tY2BlQ" length="23" precision="3">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR725wEeS2fLS2tY2BlQ" techID="_-iC-w25wEeS2fLS2tY2BlQ" name="RequiredDate" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR8G5wEeS2fLS2tY2BlQ" length="23" precision="3">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR8W5wEeS2fLS2tY2BlQ" techID="_-iC-xG5wEeS2fLS2tY2BlQ" name="ShippedDate" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR8m5wEeS2fLS2tY2BlQ" length="23" precision="3">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR825wEeS2fLS2tY2BlQ" techID="_-iC-xW5wEeS2fLS2tY2BlQ" name="ShipVia" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR9G5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR9W5wEeS2fLS2tY2BlQ" techID="_-iC-xm5wEeS2fLS2tY2BlQ" name="Freight" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR9m5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR925wEeS2fLS2tY2BlQ" techID="_-iC-x25wEeS2fLS2tY2BlQ" name="ShipName" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR-G5wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR-W5wEeS2fLS2tY2BlQ" techID="_-iDl0G5wEeS2fLS2tY2BlQ" name="ShipAddress" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR-m5wEeS2fLS2tY2BlQ" length="60" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR-25wEeS2fLS2tY2BlQ" techID="_-iDl0W5wEeS2fLS2tY2BlQ" name="ShipCity" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR_G5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jPR_W5wEeS2fLS2tY2BlQ" techID="_-iDl0m5wEeS2fLS2tY2BlQ" name="ShipRegion" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jPR_m5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jQfsG5wEeS2fLS2tY2BlQ" techID="_-iDl025wEeS2fLS2tY2BlQ" name="ShipPostalCode" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jQfsW5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jQfsm5wEeS2fLS2tY2BlQ" techID="_-iDl1G5wEeS2fLS2tY2BlQ" name="ShipCountry" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jQfs25wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jQftG5wEeS2fLS2tY2BlQ" techID="_-iDl1W5wEeS2fLS2tY2BlQ" name="CompanyName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jQftW5wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jRGwG5wEeS2fLS2tY2BlQ" techID="_-iDl1m5wEeS2fLS2tY2BlQ" name="Address" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRGwW5wEeS2fLS2tY2BlQ" length="60" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jRGwm5wEeS2fLS2tY2BlQ" techID="_-iDl125wEeS2fLS2tY2BlQ" name="City" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRGw25wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jRGxG5wEeS2fLS2tY2BlQ" techID="_-iDl2G5wEeS2fLS2tY2BlQ" name="Region" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRGxW5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jRGxm5wEeS2fLS2tY2BlQ" techID="_-iEM4G5wEeS2fLS2tY2BlQ" name="PostalCode" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRGx25wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jRGyG5wEeS2fLS2tY2BlQ" techID="_-iEM4W5wEeS2fLS2tY2BlQ" name="Country" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRGyW5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jRGym5wEeS2fLS2tY2BlQ" techID="_-iEM4m5wEeS2fLS2tY2BlQ" name="Product Sales for 1997" query="&#xA;create view &quot;Product Sales for 1997&quot; AS&#xD;&#xA;SELECT Categories.CategoryName, Products.ProductName, &#xD;&#xA;Sum(CONVERT(money,(&quot;Order Details&quot;.UnitPrice*Quantity*(1-Discount)/100))*100) AS ProductSales&#xD;&#xA;FROM (Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID) &#xD;&#xA;&#x9;INNER JOIN (Orders &#xD;&#xA;&#x9;&#x9;INNER JOIN &quot;Order Details&quot; ON Orders.OrderID = &quot;Order Details&quot;.OrderID) &#xD;&#xA;&#x9;ON Products.ProductID = &quot;Order Details&quot;.ProductID&#xD;&#xA;WHERE (((Orders.ShippedDate) Between '19970101' And '19971231'))&#xD;&#xA;GROUP BY Categories.CategoryName, Products.ProductName&#xD;&#xA;">
-      <columns xmi:id="_-jRt0G5wEeS2fLS2tY2BlQ" techID="_-iGCEG5wEeS2fLS2tY2BlQ" name="CategoryName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRt0W5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jRt0m5wEeS2fLS2tY2BlQ" techID="_-iGCEW5wEeS2fLS2tY2BlQ" name="ProductName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRt025wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jRt1G5wEeS2fLS2tY2BlQ" techID="_-iGCEm5wEeS2fLS2tY2BlQ" name="ProductSales" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRt1W5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jRt1m5wEeS2fLS2tY2BlQ" techID="_-iGCE25wEeS2fLS2tY2BlQ" name="Products Above Average Price" query="&#xA;create view &quot;Products Above Average Price&quot; AS&#xD;&#xA;SELECT Products.ProductName, Products.UnitPrice&#xD;&#xA;FROM Products&#xD;&#xA;WHERE Products.UnitPrice>(SELECT AVG(UnitPrice) From Products)&#xD;&#xA;--ORDER BY Products.UnitPrice DESC&#xD;&#xA;">
-      <columns xmi:id="_-jRt125wEeS2fLS2tY2BlQ" techID="_-iH3QG5wEeS2fLS2tY2BlQ" name="ProductName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRt2G5wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jRt2W5wEeS2fLS2tY2BlQ" techID="_-iIeUG5wEeS2fLS2tY2BlQ" name="UnitPrice" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRt2m5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jRt225wEeS2fLS2tY2BlQ" techID="_-iIeUW5wEeS2fLS2tY2BlQ" name="Products by Category" query="&#xA;create view &quot;Products by Category&quot; AS&#xD;&#xA;SELECT Categories.CategoryName, Products.ProductName, Products.QuantityPerUnit, Products.UnitsInStock, Products.Discontinued&#xD;&#xA;FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID&#xD;&#xA;WHERE Products.Discontinued &lt;> 1&#xD;&#xA;--ORDER BY Categories.CategoryName, Products.ProductName&#xD;&#xA;">
-      <columns xmi:id="_-jRt3G5wEeS2fLS2tY2BlQ" techID="_-iKTgG5wEeS2fLS2tY2BlQ" name="CategoryName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRt3W5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jRt3m5wEeS2fLS2tY2BlQ" techID="_-iKTgW5wEeS2fLS2tY2BlQ" name="ProductName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jRt325wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jRt4G5wEeS2fLS2tY2BlQ" techID="_-iKTgm5wEeS2fLS2tY2BlQ" name="QuantityPerUnit" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jSU4G5wEeS2fLS2tY2BlQ" length="20" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jSU4W5wEeS2fLS2tY2BlQ" techID="_-iKTg25wEeS2fLS2tY2BlQ" name="UnitsInStock" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jSU4m5wEeS2fLS2tY2BlQ" length="5" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_dv-6YGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjAG5wEeS2fLS2tY2BlQ" techID="_-iKThG5wEeS2fLS2tY2BlQ" name="Discontinued" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjAW5wEeS2fLS2tY2BlQ" length="1" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_H3kkAGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jTjAm5wEeS2fLS2tY2BlQ" techID="_-iK6kG5wEeS2fLS2tY2BlQ" name="Quarterly Orders" query="&#xA;create view &quot;Quarterly Orders&quot; AS&#xD;&#xA;SELECT DISTINCT Customers.CustomerID, Customers.CompanyName, Customers.City, Customers.Country&#xD;&#xA;FROM Customers RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID&#xD;&#xA;WHERE Orders.OrderDate BETWEEN '19970101' And '19971231'&#xD;&#xA;">
-      <columns xmi:id="_-jTjA25wEeS2fLS2tY2BlQ" techID="_-iMvwG5wEeS2fLS2tY2BlQ" name="CustomerID" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjBG5wEeS2fLS2tY2BlQ" length="5" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_5QCLgGW9EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjBW5wEeS2fLS2tY2BlQ" techID="_-iMvwW5wEeS2fLS2tY2BlQ" name="CompanyName" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjBm5wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjB25wEeS2fLS2tY2BlQ" techID="_-iMvwm5wEeS2fLS2tY2BlQ" name="City" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjCG5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjCW5wEeS2fLS2tY2BlQ" techID="_-iMvw25wEeS2fLS2tY2BlQ" name="Country" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjCm5wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jTjC25wEeS2fLS2tY2BlQ" techID="_-iMvxG5wEeS2fLS2tY2BlQ" name="Sales by Category" query="&#xA;create view &quot;Sales by Category&quot; AS&#xD;&#xA;SELECT Categories.CategoryID, Categories.CategoryName, Products.ProductName, &#xD;&#xA;&#x9;Sum(&quot;Order Details Extended&quot;.ExtendedPrice) AS ProductSales&#xD;&#xA;FROM &#x9;Categories INNER JOIN &#xD;&#xA;&#x9;&#x9;(Products INNER JOIN &#xD;&#xA;&#x9;&#x9;&#x9;(Orders INNER JOIN &quot;Order Details Extended&quot; ON Orders.OrderID = &quot;Order Details Extended&quot;.OrderID) &#xD;&#xA;&#x9;&#x9;ON Products.ProductID = &quot;Order Details Extended&quot;.ProductID) &#xD;&#xA;&#x9;ON Categories.CategoryID = Products.CategoryID&#xD;&#xA;WHERE Orders.OrderDate BETWEEN '19970101' And '19971231'&#xD;&#xA;GROUP BY Categories.CategoryID, Categories.CategoryName, Products.ProductName&#xD;&#xA;--ORDER BY Products.ProductName&#xD;&#xA;">
-      <columns xmi:id="_-jTjDG5wEeS2fLS2tY2BlQ" techID="_-iPMAG5wEeS2fLS2tY2BlQ" name="CategoryID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjDW5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjDm5wEeS2fLS2tY2BlQ" techID="_-iPMAW5wEeS2fLS2tY2BlQ" name="CategoryName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjD25wEeS2fLS2tY2BlQ" length="15" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjEG5wEeS2fLS2tY2BlQ" techID="_-iPMAm5wEeS2fLS2tY2BlQ" name="ProductName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjEW5wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjEm5wEeS2fLS2tY2BlQ" techID="_-iPMA25wEeS2fLS2tY2BlQ" name="ProductSales" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjE25wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jTjFG5wEeS2fLS2tY2BlQ" techID="_-iPMBG5wEeS2fLS2tY2BlQ" name="Sales Totals by Amount" query="&#xA;create view &quot;Sales Totals by Amount&quot; AS&#xD;&#xA;SELECT &quot;Order Subtotals&quot;.Subtotal AS SaleAmount, Orders.OrderID, Customers.CompanyName, Orders.ShippedDate&#xD;&#xA;FROM &#x9;Customers INNER JOIN &#xD;&#xA;&#x9;&#x9;(Orders INNER JOIN &quot;Order Subtotals&quot; ON Orders.OrderID = &quot;Order Subtotals&quot;.OrderID) &#xD;&#xA;&#x9;ON Customers.CustomerID = Orders.CustomerID&#xD;&#xA;WHERE (&quot;Order Subtotals&quot;.Subtotal >2500) AND (Orders.ShippedDate BETWEEN '19970101' And '19971231')&#xD;&#xA;">
-      <columns xmi:id="_-jTjFW5wEeS2fLS2tY2BlQ" techID="_-iRBMG5wEeS2fLS2tY2BlQ" name="SaleAmount" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjFm5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjF25wEeS2fLS2tY2BlQ" techID="_-iRoQG5wEeS2fLS2tY2BlQ" name="OrderID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjGG5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjGW5wEeS2fLS2tY2BlQ" techID="_-iRoQW5wEeS2fLS2tY2BlQ" name="CompanyName" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjGm5wEeS2fLS2tY2BlQ" length="40" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_PvgpQGW-EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjG25wEeS2fLS2tY2BlQ" techID="_-iRoQm5wEeS2fLS2tY2BlQ" name="ShippedDate" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjHG5wEeS2fLS2tY2BlQ" length="23" precision="3">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jTjHW5wEeS2fLS2tY2BlQ" techID="_-iRoQ25wEeS2fLS2tY2BlQ" name="Summary of Sales by Quarter" query="&#xA;create view &quot;Summary of Sales by Quarter&quot; AS&#xD;&#xA;SELECT Orders.ShippedDate, Orders.OrderID, &quot;Order Subtotals&quot;.Subtotal&#xD;&#xA;FROM Orders INNER JOIN &quot;Order Subtotals&quot; ON Orders.OrderID = &quot;Order Subtotals&quot;.OrderID&#xD;&#xA;WHERE Orders.ShippedDate IS NOT NULL&#xD;&#xA;--ORDER BY Orders.ShippedDate&#xD;&#xA;">
-      <columns xmi:id="_-jTjHm5wEeS2fLS2tY2BlQ" techID="_-iTdcG5wEeS2fLS2tY2BlQ" name="ShippedDate" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjH25wEeS2fLS2tY2BlQ" length="23" precision="3">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjIG5wEeS2fLS2tY2BlQ" techID="_-iTdcW5wEeS2fLS2tY2BlQ" name="OrderID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjIW5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjIm5wEeS2fLS2tY2BlQ" techID="_-iUEgG5wEeS2fLS2tY2BlQ" name="Subtotal" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjI25wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
-    <tables xsi:type="database:View" xmi:id="_-jTjJG5wEeS2fLS2tY2BlQ" techID="_-iUEgW5wEeS2fLS2tY2BlQ" name="Summary of Sales by Year" query="&#xA;create view &quot;Summary of Sales by Year&quot; AS&#xD;&#xA;SELECT Orders.ShippedDate, Orders.OrderID, &quot;Order Subtotals&quot;.Subtotal&#xD;&#xA;FROM Orders INNER JOIN &quot;Order Subtotals&quot; ON Orders.OrderID = &quot;Order Subtotals&quot;.OrderID&#xD;&#xA;WHERE Orders.ShippedDate IS NOT NULL&#xD;&#xA;--ORDER BY Orders.ShippedDate&#xD;&#xA;">
-      <columns xmi:id="_-jTjJW5wEeS2fLS2tY2BlQ" techID="_-iVSoG5wEeS2fLS2tY2BlQ" name="ShippedDate" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjJm5wEeS2fLS2tY2BlQ" length="23" precision="3">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_Xlo_YGW7EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjJ25wEeS2fLS2tY2BlQ" techID="_-iV5sG5wEeS2fLS2tY2BlQ" name="OrderID" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjKG5wEeS2fLS2tY2BlQ" length="10" precision="0">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_NBLssGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-      <columns xmi:id="_-jTjKW5wEeS2fLS2tY2BlQ" techID="_-iV5sW5wEeS2fLS2tY2BlQ" name="Subtotal" nullable="true" defaultValue="">
-        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-jTjKm5wEeS2fLS2tY2BlQ" length="19" precision="4">
-          <nativeType href="pathmap://NativeDBTypes/SQLServer-2008#_QA0GkGW8EeSGPOrcarGX5w"/>
-        </type>
-      </columns>
-    </tables>
+    <tables xsi:type="database:View" xmi:id="_-jOrb25wEeS2fLS2tY2BlQ" techID="_-hm54m5wEeS2fLS2tY2BlQ" name="Alphabetical list of products" query="&#xA;create view &quot;Alphabetical list of products&quot; AS&#xD;&#xA;SELECT Products.*, Categories.CategoryName&#xD;&#xA;FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID&#xD;&#xA;WHERE (((Products.Discontinued)=0))&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jOrhm5wEeS2fLS2tY2BlQ" techID="_-huOpW5wEeS2fLS2tY2BlQ" name="Category Sales for 1997" query="&#xA;create view &quot;Category Sales for 1997&quot; AS&#xD;&#xA;SELECT &quot;Product Sales for 1997&quot;.CategoryName, Sum(&quot;Product Sales for 1997&quot;.ProductSales) AS CategorySales&#xD;&#xA;FROM &quot;Product Sales for 1997&quot;&#xD;&#xA;GROUP BY &quot;Product Sales for 1997&quot;.CategoryName&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jOri25wEeS2fLS2tY2BlQ" techID="_-hwq4m5wEeS2fLS2tY2BlQ" name="Current Product List" query="&#xA;create view &quot;Current Product List&quot; AS&#xD;&#xA;SELECT Product_List.ProductID, Product_List.ProductName&#xD;&#xA;FROM Products AS Product_List&#xD;&#xA;WHERE (((Product_List.Discontinued)=0))&#xD;&#xA;--ORDER BY Product_List.ProductName&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jPRlG5wEeS2fLS2tY2BlQ" techID="_-hzHIW5wEeS2fLS2tY2BlQ" name="Customer and Suppliers by City" query="&#xA;create view &quot;Customer and Suppliers by City&quot; AS&#xD;&#xA;SELECT City, CompanyName, ContactName, 'Customers' AS Relationship &#xD;&#xA;FROM Customers&#xD;&#xA;UNION SELECT City, CompanyName, ContactName, 'Suppliers'&#xD;&#xA;FROM Suppliers&#xD;&#xA;--ORDER BY City, CompanyName&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jPRnW5wEeS2fLS2tY2BlQ" techID="_-h1jYW5wEeS2fLS2tY2BlQ" name="Invoices" query="&#xA;create view Invoices AS&#xD;&#xA;SELECT Orders.ShipName, Orders.ShipAddress, Orders.ShipCity, Orders.ShipRegion, Orders.ShipPostalCode, &#xD;&#xA;&#x9;Orders.ShipCountry, Orders.CustomerID, Customers.CompanyName AS CustomerName, Customers.Address, Customers.City, &#xD;&#xA;&#x9;Customers.Region, Customers.PostalCode, Customers.Country, &#xD;&#xA;&#x9;(FirstName + ' ' + LastName) AS Salesperson, &#xD;&#xA;&#x9;Orders.OrderID, Orders.OrderDate, Orders.RequiredDate, Orders.ShippedDate, Shippers.CompanyName As ShipperName, &#xD;&#xA;&#x9;&quot;Order Details&quot;.ProductID, Products.ProductName, &quot;Order Details&quot;.UnitPrice, &quot;Order Details&quot;.Quantity, &#xD;&#xA;&#x9;&quot;Order Details&quot;.Discount, &#xD;&#xA;&#x9;(CONVERT(money,(&quot;Order Details&quot;.UnitPrice*Quantity*(1-Discount)/100))*100) AS ExtendedPrice, Orders.Freight&#xD;&#xA;FROM &#x9;Shippers INNER JOIN &#xD;&#xA;&#x9;&#x9;(Products INNER JOIN &#xD;&#xA;&#x9;&#x9;&#x9;(&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;(Employees INNER JOIN &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;(Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID) &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;ON Employees.EmployeeID = Orders.EmployeeID) &#xD;&#xA;&#x9;&#x9;&#x9;INNER JOIN &quot;Order Details&quot; ON Orders.OrderID = &quot;Order Details&quot;.OrderID) &#xD;&#xA;&#x9;&#x9;ON Products.ProductID = &quot;Order Details&quot;.ProductID) &#xD;&#xA;&#x9;ON Shippers.ShipperID = Orders.ShipVia&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jPR0m5wEeS2fLS2tY2BlQ" techID="_-h6b5W5wEeS2fLS2tY2BlQ" name="Order Details Extended" query="&#xA;create view &quot;Order Details Extended&quot; AS&#xD;&#xA;SELECT &quot;Order Details&quot;.OrderID, &quot;Order Details&quot;.ProductID, Products.ProductName, &#xD;&#xA;&#x9;&quot;Order Details&quot;.UnitPrice, &quot;Order Details&quot;.Quantity, &quot;Order Details&quot;.Discount, &#xD;&#xA;&#x9;(CONVERT(money,(&quot;Order Details&quot;.UnitPrice*Quantity*(1-Discount)/100))*100) AS ExtendedPrice&#xD;&#xA;FROM Products INNER JOIN &quot;Order Details&quot; ON Products.ProductID = &quot;Order Details&quot;.ProductID&#xD;&#xA;--ORDER BY &quot;Order Details&quot;.OrderID&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jPR4W5wEeS2fLS2tY2BlQ" techID="_-h9fNG5wEeS2fLS2tY2BlQ" name="Order Subtotals" query="&#xA;create view &quot;Order Subtotals&quot; AS&#xD;&#xA;SELECT &quot;Order Details&quot;.OrderID, Sum(CONVERT(money,(&quot;Order Details&quot;.UnitPrice*Quantity*(1-Discount)/100))*100) AS Subtotal&#xD;&#xA;FROM &quot;Order Details&quot;&#xD;&#xA;GROUP BY &quot;Order Details&quot;.OrderID&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jPR5m5wEeS2fLS2tY2BlQ" techID="_-h_7cW5wEeS2fLS2tY2BlQ" name="Orders Qry" query="&#xA;create view &quot;Orders Qry&quot; AS&#xD;&#xA;SELECT Orders.OrderID, Orders.CustomerID, Orders.EmployeeID, Orders.OrderDate, Orders.RequiredDate, &#xD;&#xA;&#x9;Orders.ShippedDate, Orders.ShipVia, Orders.Freight, Orders.ShipName, Orders.ShipAddress, Orders.ShipCity, &#xD;&#xA;&#x9;Orders.ShipRegion, Orders.ShipPostalCode, Orders.ShipCountry, &#xD;&#xA;&#x9;Customers.CompanyName, Customers.Address, Customers.City, Customers.Region, Customers.PostalCode, Customers.Country&#xD;&#xA;FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jRGym5wEeS2fLS2tY2BlQ" techID="_-iEM4m5wEeS2fLS2tY2BlQ" name="Product Sales for 1997" query="&#xA;create view &quot;Product Sales for 1997&quot; AS&#xD;&#xA;SELECT Categories.CategoryName, Products.ProductName, &#xD;&#xA;Sum(CONVERT(money,(&quot;Order Details&quot;.UnitPrice*Quantity*(1-Discount)/100))*100) AS ProductSales&#xD;&#xA;FROM (Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID) &#xD;&#xA;&#x9;INNER JOIN (Orders &#xD;&#xA;&#x9;&#x9;INNER JOIN &quot;Order Details&quot; ON Orders.OrderID = &quot;Order Details&quot;.OrderID) &#xD;&#xA;&#x9;ON Products.ProductID = &quot;Order Details&quot;.ProductID&#xD;&#xA;WHERE (((Orders.ShippedDate) Between '19970101' And '19971231'))&#xD;&#xA;GROUP BY Categories.CategoryName, Products.ProductName&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jRt1m5wEeS2fLS2tY2BlQ" techID="_-iGCE25wEeS2fLS2tY2BlQ" name="Products Above Average Price" query="&#xA;create view &quot;Products Above Average Price&quot; AS&#xD;&#xA;SELECT Products.ProductName, Products.UnitPrice&#xD;&#xA;FROM Products&#xD;&#xA;WHERE Products.UnitPrice>(SELECT AVG(UnitPrice) From Products)&#xD;&#xA;--ORDER BY Products.UnitPrice DESC&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jRt225wEeS2fLS2tY2BlQ" techID="_-iIeUW5wEeS2fLS2tY2BlQ" name="Products by Category" query="&#xA;create view &quot;Products by Category&quot; AS&#xD;&#xA;SELECT Categories.CategoryName, Products.ProductName, Products.QuantityPerUnit, Products.UnitsInStock, Products.Discontinued&#xD;&#xA;FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID&#xD;&#xA;WHERE Products.Discontinued &lt;> 1&#xD;&#xA;--ORDER BY Categories.CategoryName, Products.ProductName&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jTjAm5wEeS2fLS2tY2BlQ" techID="_-iK6kG5wEeS2fLS2tY2BlQ" name="Quarterly Orders" query="&#xA;create view &quot;Quarterly Orders&quot; AS&#xD;&#xA;SELECT DISTINCT Customers.CustomerID, Customers.CompanyName, Customers.City, Customers.Country&#xD;&#xA;FROM Customers RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID&#xD;&#xA;WHERE Orders.OrderDate BETWEEN '19970101' And '19971231'&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jTjC25wEeS2fLS2tY2BlQ" techID="_-iMvxG5wEeS2fLS2tY2BlQ" name="Sales by Category" query="&#xA;create view &quot;Sales by Category&quot; AS&#xD;&#xA;SELECT Categories.CategoryID, Categories.CategoryName, Products.ProductName, &#xD;&#xA;&#x9;Sum(&quot;Order Details Extended&quot;.ExtendedPrice) AS ProductSales&#xD;&#xA;FROM &#x9;Categories INNER JOIN &#xD;&#xA;&#x9;&#x9;(Products INNER JOIN &#xD;&#xA;&#x9;&#x9;&#x9;(Orders INNER JOIN &quot;Order Details Extended&quot; ON Orders.OrderID = &quot;Order Details Extended&quot;.OrderID) &#xD;&#xA;&#x9;&#x9;ON Products.ProductID = &quot;Order Details Extended&quot;.ProductID) &#xD;&#xA;&#x9;ON Categories.CategoryID = Products.CategoryID&#xD;&#xA;WHERE Orders.OrderDate BETWEEN '19970101' And '19971231'&#xD;&#xA;GROUP BY Categories.CategoryID, Categories.CategoryName, Products.ProductName&#xD;&#xA;--ORDER BY Products.ProductName&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jTjFG5wEeS2fLS2tY2BlQ" techID="_-iPMBG5wEeS2fLS2tY2BlQ" name="Sales Totals by Amount" query="&#xA;create view &quot;Sales Totals by Amount&quot; AS&#xD;&#xA;SELECT &quot;Order Subtotals&quot;.Subtotal AS SaleAmount, Orders.OrderID, Customers.CompanyName, Orders.ShippedDate&#xD;&#xA;FROM &#x9;Customers INNER JOIN &#xD;&#xA;&#x9;&#x9;(Orders INNER JOIN &quot;Order Subtotals&quot; ON Orders.OrderID = &quot;Order Subtotals&quot;.OrderID) &#xD;&#xA;&#x9;ON Customers.CustomerID = Orders.CustomerID&#xD;&#xA;WHERE (&quot;Order Subtotals&quot;.Subtotal >2500) AND (Orders.ShippedDate BETWEEN '19970101' And '19971231')&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jTjHW5wEeS2fLS2tY2BlQ" techID="_-iRoQ25wEeS2fLS2tY2BlQ" name="Summary of Sales by Quarter" query="&#xA;create view &quot;Summary of Sales by Quarter&quot; AS&#xD;&#xA;SELECT Orders.ShippedDate, Orders.OrderID, &quot;Order Subtotals&quot;.Subtotal&#xD;&#xA;FROM Orders INNER JOIN &quot;Order Subtotals&quot; ON Orders.OrderID = &quot;Order Subtotals&quot;.OrderID&#xD;&#xA;WHERE Orders.ShippedDate IS NOT NULL&#xD;&#xA;--ORDER BY Orders.ShippedDate&#xD;&#xA;"/>
+    <tables xsi:type="database:View" xmi:id="_-jTjJG5wEeS2fLS2tY2BlQ" techID="_-iUEgW5wEeS2fLS2tY2BlQ" name="Summary of Sales by Year" query="&#xA;create view &quot;Summary of Sales by Year&quot; AS&#xD;&#xA;SELECT Orders.ShippedDate, Orders.OrderID, &quot;Order Subtotals&quot;.Subtotal&#xD;&#xA;FROM Orders INNER JOIN &quot;Order Subtotals&quot; ON Orders.OrderID = &quot;Order Subtotals&quot;.OrderID&#xD;&#xA;WHERE Orders.ShippedDate IS NOT NULL&#xD;&#xA;--ORDER BY Orders.ShippedDate&#xD;&#xA;"/>
   </schemas>
 </database:DataBase>

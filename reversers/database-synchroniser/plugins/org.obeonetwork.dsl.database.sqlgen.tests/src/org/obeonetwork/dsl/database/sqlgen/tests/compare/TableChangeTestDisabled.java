@@ -2,7 +2,7 @@ package org.obeonetwork.dsl.database.sqlgen.tests.compare;
 
 import org.obeonetwork.dsl.database.sqlgen.tests.AbtractTest;
 
-public class TableChangeTest extends AbtractTest {
+public class TableChangeTestDisabled extends AbtractTest {
 
 //	@Test
 //	public void createTable() throws Exception {

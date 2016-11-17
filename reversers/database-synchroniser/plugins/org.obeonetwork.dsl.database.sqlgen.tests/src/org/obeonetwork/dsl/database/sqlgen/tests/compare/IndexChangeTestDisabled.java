@@ -2,7 +2,7 @@ package org.obeonetwork.dsl.database.sqlgen.tests.compare;
 
 import org.obeonetwork.dsl.database.sqlgen.tests.AbtractTest;
 
-public class IndexChangeTest extends AbtractTest {
+public class IndexChangeTestDisabled extends AbtractTest {
 //
 //	@Test
 //	public void createIndex() throws Exception {

@@ -17,7 +17,6 @@ import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.database.compare.extensions.services.DatabaseCompareService;
 import org.obeonetwork.dsl.database.compare.extensions.services.DiffContentService;
-import org.obeonetwork.dsl.database.dbevolution.DatabaseChangeSet;
 import org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage;
 import org.obeonetwork.dsl.database.util.DatabaseResourceFactoryImpl;
 

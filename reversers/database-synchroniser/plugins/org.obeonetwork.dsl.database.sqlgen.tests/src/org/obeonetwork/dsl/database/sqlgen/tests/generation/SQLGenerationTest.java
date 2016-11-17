@@ -2,7 +2,7 @@ package org.obeonetwork.dsl.database.sqlgen.tests.generation;
 
 import org.junit.Test;
 
-public class SQLGenerationTests extends AbstractSQLGenerationTest {
+public class SQLGenerationTest extends AbstractSQLGenerationTest {
 
 	@Test
 	public void test1() {
@@ -57,5 +57,15 @@ public class SQLGenerationTests extends AbstractSQLGenerationTest {
 	@Test
 	public void test11() {
 		assertGenerationEquals("11-createSqlServer");
+	}
+	
+	@Test
+	public void test12() {
+		assertGenerationEquals("12-update-view-query");
+	}
+	
+	@Test
+	public void test13() {
+		assertGenerationEquals("13-update-view-query2");
 	}
 }

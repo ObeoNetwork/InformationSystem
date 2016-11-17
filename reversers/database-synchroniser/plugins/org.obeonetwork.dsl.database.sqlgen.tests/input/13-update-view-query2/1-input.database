@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_0hLQwGuPEeK15tgGdM8cCw" techID="_0hKpsGuPEeK15tgGdM8cCw" name="My">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_2dksAGuPEeK15tgGdM8cCw" comments="abracadabra modifié !!!&#xD;&#xA;" techID="_2JKiQ2uPEeK15tgGdM8cCw" name="My">
+    <tables xsi:type="database:View" xmi:id="_wXFCgKynEeambfMROgAUNQ" techID="_wXEbcKynEeambfMROgAUNQ" name="Test2" query="select a, b, c from temp2"/>
+  </schemas>
+</database:DataBase>

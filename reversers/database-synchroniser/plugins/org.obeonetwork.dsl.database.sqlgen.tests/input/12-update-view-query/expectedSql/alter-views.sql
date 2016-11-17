@@ -1,5 +1,5 @@
 -- ==============================================================
---  Index : IDX1                                    
+--  View : TEST                                    
 -- ==============================================================
-ALTER TABLE T7_1 DROP INDEX IDX1;
-
+DROP VIEW TEST;
+CREATE OR REPLACE VIEW TEST AS select a, b, c from temp2;

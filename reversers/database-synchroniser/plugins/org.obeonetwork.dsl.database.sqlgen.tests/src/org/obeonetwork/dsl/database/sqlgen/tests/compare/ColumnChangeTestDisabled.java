@@ -2,7 +2,7 @@ package org.obeonetwork.dsl.database.sqlgen.tests.compare;
 
 import org.obeonetwork.dsl.database.sqlgen.tests.AbtractTest;
 
-public class ColumnChangeTest extends AbtractTest {
+public class ColumnChangeTestDisabled extends AbtractTest {
 
 //	@Test
 //	public void bug13_change_type_not_detected_on_column() throws Exception {
