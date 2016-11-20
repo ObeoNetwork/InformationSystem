@@ -97,9 +97,9 @@
 				<td>
 					<strong>tables</strong>
 				</td>
-				<td>String</td>
+				<td>List of Tables and Views</td>
 				<td>{m:db.tables}</td>
-				<td>returns the list of tables directly stored in the database (not in it's schemas)</td>
+				<td>returns the list of tables and views directly stored in the database (not in it's schemas)</td>
 				<td></td>
 			</tr>
 			<tr>
@@ -167,7 +167,7 @@
 				<td>
 					<strong>tables</strong>
 				</td>
-				<td>List of tables</td>
+				<td>List of Tables</td>
 				<td>{m:db.tables()}</td>
 				<td>returns the set of tables directly stored in the database (and not in the schemas)</td>
 				<td>the list of database tables : {m:for table &#124; db.tables()}table {m:table.name},{m:endfor}</td>
@@ -176,7 +176,7 @@
 				<td>
 					<strong>views</strong>
 				</td>
-				<td>List of views</td>
+				<td>List of Views</td>
 				<td>{m:db.views()}</td>
 				<td>returns the set of views directly stored in the database (and not in the schemas)</td>
 				<td>the list of database views : {m:for table &#124; db.views()}view {m:view.name},{m:endfor}</td>
@@ -185,7 +185,7 @@
 				<td>
 					<strong>all the tables</strong>
 				</td>
-				<td>List of tables</td>
+				<td>List of Tables</td>
 				<td>{m:db.allTables()}</td>
 				<td>returns the set of all tables including the tables in schemas and referenced through foreignkeys</td>
 				<td>the list of database tables : {m:for table &#124; db.allTables()}table {m:table.name},{m:endfor}</td>
@@ -194,7 +194,7 @@
 				<td>
 					<strong>all the sequences</strong>
 				</td>
-				<td>List of sequences</td>
+				<td>List of Sequences</td>
 				<td>{m:db.allSequences()}</td>
 				<td>returns the set of all sequences related to a table in the result of the allTable() service.</td>
 				<td>the list of database sequences : {m:for sequence &#124; db.allSequences()}sequence {m:sequence.name},{m:endfor}</td>
@@ -203,7 +203,7 @@
 				<td>
 					<strong>all the views</strong>
 				</td>
-				<td>List of views</td>
+				<td>List of Views</td>
 				<td>{m:db.allViews()}</td>
 				<td>returns the set of all views contained in a database, it's schemas and the related databases (through foreign keys)
 </td>
@@ -213,7 +213,7 @@
 				<td>
 					<strong>local tables</strong>
 				</td>
-				<td>List of tables</td>
+				<td>List of Tables</td>
 				<td>{m:db.localTables()}</td>
 				<td>returns the list of tables directly stored in the database and its schemas</td>
 				<td></td>
@@ -222,7 +222,7 @@
 				<td>
 					<strong>local views</strong>
 				</td>
-				<td>List of views</td>
+				<td>List of Views</td>
 				<td>{m:db.localViews()}</td>
 				<td>returns the list of views directly stored in the database and its schemas</td>
 				<td></td>
