@@ -257,9 +257,7 @@
 		*********************************************************************************************
 		-->
 		<module>../../../m2doc/database/plugins/org.obeonetwork.database.m2doc.services</module>
-<!-- Disable since it fails when building on hudson (but succeeds on local computer)
 		<module>../../../m2doc/database/plugins/org.obeonetwork.database.m2doc.services.test</module>
- -->		
 		<module>../../../m2doc/database/features/org.obeonetwork.database.m2doc.feature</module>		
 		
 	</modules>
