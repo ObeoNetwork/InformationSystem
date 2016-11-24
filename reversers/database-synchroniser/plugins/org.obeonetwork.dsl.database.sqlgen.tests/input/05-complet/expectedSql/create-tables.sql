@@ -8,5 +8,5 @@ CREATE TABLE NOUVELLE(
     FK_column Décimal(10, 0) NOT NULL
 );
 
-COMMENT ON TABLE Nouvelle IS 'nouvelle table';
+COMMENT ON TABLE NOUVELLE IS 'nouvelle table';
 

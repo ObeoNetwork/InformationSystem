@@ -7,33 +7,39 @@
 [import org::obeonetwork::dsl::database::sqlgen::services::names /]
 [import org::obeonetwork::dsl::database::sqlgen::services::services /]
 
-[template public genSQLForSequences(changeSet : Comparison) post(trim())]
-[if (changeSet.eAllContents(AddSequence)->size()>0)]
+[template public genSQLForSequences(diffs : Sequence(DBDiff)) post(trim())]
+[let addSequenceDiffs : Sequence(AddSequence) = diffs->filter(AddSequence)]
+[if (addSequenceDiffs->notEmpty())]
 	[file ('create-sequences.sql', false, 'UTF-8')]
-		[for (addSequence : AddSequence | changeSet.eAllContents(AddSequence))]
+		[for (addSequence : AddSequence | addSequenceDiffs)]
 [addSequence.genCreateSequence()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 
-[if (changeSet.eAllContents(RemoveSequence)->size()>0)]
+[let removeSequenceDiffs : Sequence(RemoveSequence) = diffs->filter(RemoveSequence)]
+[if (removeSequenceDiffs->notEmpty())]
 	[file ('drop-sequences.sql', false, 'UTF-8')]
-		[for (removeSequence : RemoveSequence | changeSet.eAllContents(RemoveSequence))]
+		[for (removeSequence : RemoveSequence | removeSequenceDiffs)]
 [removeSequence.genDropSequence()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 
-[if (changeSet.eAllContents(UpdateSequence)->size()>0)]
+[let updateSequenceDiffs : Sequence(UpdateSequence) = diffs->filter(UpdateSequence)]
+[if (updateSequenceDiffs->notEmpty())]
 	[file ('alter-sequences.sql', false, 'UTF-8')]
-		[for (updateSequence : UpdateSequence | changeSet.eAllContents(UpdateSequence))]
+		[for (updateSequence : UpdateSequence | updateSequenceDiffs)]
 [updateSequence.genUpdateSequence()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 [/template]
 
 [comment ----------- SEQUENCE ----------- /]
@@ -72,7 +78,7 @@ DROP SEQUENCE [sequence.name()/];
 
 [template private genCreateSequence(sequence : Sequence) post(trim())]
 [sequence.genSequenceDoc()/]
-CREATE SEQUENCE [sequence.genSchemaPrefix()/][sequence.name()/][sequence.genIncrementBy()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genStartWith()/][sequence.genCache()/][sequence.genCycle()/];
+CREATE SEQUENCE [sequence.fullname()/][sequence.genIncrementBy()/][sequence.genMinValue()/][sequence.genMaxValue()/][sequence.genStartWith()/][sequence.genCache()/][sequence.genCycle()/];
 [sequence.genSequenceComment()/]
 [/template]
 
@@ -103,5 +109,5 @@ CREATE SEQUENCE [sequence.genSchemaPrefix()/][sequence.name()/][sequence.genIncr
 [/template]
 
 [template private genSequenceComment(sequence : Sequence) ? (sequence.comments<>null and sequence.comments.size()>0) post(trim())]
-COMMENT ON TABLE [sequence.genSchemaPrefix()/][sequence.name()/] IS '[sequence.comments.replaceAll('\'','\'\'')/]';
+COMMENT ON TABLE [sequence.fullname()/] IS '[sequence.comments.replaceAll('\'','\'\'')/]';
 [/template]

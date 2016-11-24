@@ -20,7 +20,7 @@
        <plugin>
          <groupId>org.eclipse.acceleo</groupId>
          <artifactId>org.eclipse.acceleo.maven.compatibility</artifactId>
-         <version>3.5.0-SNAPSHOT</version>
+         <version>3.6.4-SNAPSHOT</version>
          <executions>
            <execution>
              <phase>compile</phase>
@@ -45,7 +45,8 @@
              <packageToRegister>org.eclipse.emf.ecore.EcorePackage</packageToRegister>
              <packageToRegister>org.obeonetwork.dsl.database.DatabasePackage</packageToRegister>
              <packageToRegister>org.obeonetwork.dsl.database.dbevolution.DbevolutionPackage</packageToRegister>
-			 <packageToRegister>org.eclipse.emf.compare.diff.metamodel.DiffPackage</packageToRegister>
+<!--  		 <packageToRegister>org.eclipse.emf.compare.diff.metamodel.DiffPackage</packageToRegister>-->
+			 <packageToRegister>org.eclipse.emf.compare.ComparePackage</packageToRegister>
 			 <packageToRegister>org.obeonetwork.dsl.typeslibrary.TypesLibraryPackage</packageToRegister>
            </packagesToRegister>
            <uriHandler>org.eclipse.acceleo.maven.AcceleoURIHandler</uriHandler>

@@ -49,7 +49,7 @@ public class ColumnChangeBuilder extends ChangeBuilder {
 	@Override
 	protected Diff handleAlterChange(Match change) {
 		UpdateColumnChange updateColumn = DbevolutionFactory.eINSTANCE.createUpdateColumnChange();
-		updateColumn.setColumn((Column) change.getRight());
+		updateColumn.setColumn((Column) change.getLeft());
 		updateColumn.setTarget(change.getRight());
 		return updateColumn;
 	}
@@ -110,7 +110,7 @@ public class ColumnChangeBuilder extends ChangeBuilder {
 		UpdateColumnCommentChange updateColumnCommentChange = DbevolutionFactory.eINSTANCE.createUpdateColumnCommentChange();				
 		Column column = (Column) change.getMatch().getLeft();
 		updateColumnCommentChange.setColumn(column);
-		
+		updateColumnCommentChange.setTarget(change.getMatch().getRight());
 		return updateColumnCommentChange;
 	}
 	
@@ -118,6 +118,7 @@ public class ColumnChangeBuilder extends ChangeBuilder {
 		RenameColumnChange renameColumnChange = DbevolutionFactory.eINSTANCE.createRenameColumnChange();
 		renameColumnChange.setColumn((Column)change.getMatch().getRight());
 		renameColumnChange.setNewColumn((Column)change.getMatch().getLeft());
+		renameColumnChange.setTarget(renameColumnChange.getColumn());
 		return renameColumnChange;
 	}
 	

@@ -8,33 +8,39 @@
 [import org::obeonetwork::dsl::database::sqlgen::services::services /]
 [import org::obeonetwork::dsl::database::sqlgen::services::names /]
 
-[template public genSQLForIndex(changeSet : Comparison) post(trim())]
-[if (changeSet.eAllContents(AddIndex)->reject(index.isIndexForFK())->size()>0)] // Ajouter filtre pour enlever index correspondant � une FK pour mysql
+[template public genSQLForIndex(diffs : Sequence(DBDiff)) post(trim())]
+[let addIndexDiffs : Sequence(AddIndex) = diffs->filter(AddIndex)]
+[if (addIndexDiffs->reject(index.isIndexForFK())->notEmpty())] // Ajouter filtre pour enlever index correspondant à une FK pour mysql
 	[file ('create-index.sql', false, 'UTF-8')]
-		[for (addIndex : AddIndex | changeSet.eAllContents(AddIndex)->reject(index.isIndexForFK()))]
+		[for (addIndex : AddIndex | addIndexDiffs->reject(index.isIndexForFK()))]
 [addIndex.genCreateIndex()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 
-[if (changeSet.eAllContents(RemoveIndex)->size()>0)]
+[let removeIndexDiffs : Sequence(RemoveIndex) = diffs->filter(RemoveIndex)]
+[if (removeIndexDiffs->notEmpty())]
 	[file ('drop-index.sql', false, 'UTF-8')]
-		[for (removeIndex : RemoveIndex | changeSet.eAllContents(RemoveIndex))]
+		[for (removeIndex : RemoveIndex | removeIndexDiffs)]
 [removeIndex.genDropIndex()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 
-[if (changeSet.eAllContents(UpdateIndex)->size()>0)]
+[let alterIndexDiffs : Sequence(UpdateIndex) = diffs->filter(UpdateIndex)]
+[if (alterIndexDiffs->notEmpty())]
 	[file ('alter-index.sql', false, 'UTF-8')]
-		[for (updateIndex : UpdateIndex | changeSet.eAllContents(UpdateIndex))]
+		[for (updateIndex : UpdateIndex | alterIndexDiffs)]
 [updateIndex.genAlterIndex()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 [/template]
 
 [template private genIndexDoc(index : Index) post(trim())]
@@ -43,7 +49,7 @@
 -- ==============================================================
 [/template]
 
-[template private genCreateIndex(addIndex : AddIndex) ? (addIndex.index.ID<>addIndex.index.owner.primaryKey.ID) post(trim())]
+[template private genCreateIndex(addIndex : AddIndex) ? (addIndex.index.owner.primaryKey.oclIsUndefined() or  addIndex.index.ID<>addIndex.index.owner.primaryKey.ID) post(trim())]
 [addIndex.index.genIndexDoc()/]
 [addIndex.index.oclAsType(Index).genCreateIndex()/]
 [/template]
@@ -81,13 +87,13 @@ and not (index.getTable().isTargetMySql()
   )[/if]
 [/template]
 
-[template private genCreateIndex(index : Index) ? (index.ID<>index.owner.primaryKey.ID) post(trim())]
+[template private genCreateIndex(index : Index) ? (index.owner.primaryKey.oclIsUndefined() or index.ID<>index.owner.primaryKey.ID) post(trim())]
 [if (index.elements->forAll(not column.oclIsUndefined()))]
-CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.getTable().genSchemaPrefix()/][index.owner.name()/]([index.elements.column.name->sep(', ')/])[index.genStorageClause()/]; 
+CREATE [if (index.unique)]UNIQUE [/if]INDEX [index.name/] ON [index.getTable().fullname()/]([index.elements.column.name->sep(', ')/])[index.genStorageClause()/]; 
 [/if]
 [/template]
 
-[template private genDropIndex(index : Index) ? (index.ID<>index.owner.primaryKey.ID) post(trim())]
+[template private genDropIndex(index : Index) ? (index.owner.primaryKey.oclIsUndefined() or index.ID<>index.owner.primaryKey.ID) post(trim())]
 ALTER TABLE [index.owner.name()/] DROP INDEX [index.name/];
 [/template]
 

@@ -1,7 +1,6 @@
 package org.obeonetwork.dsl.database.sqlgen.services;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.obeonetwork.dsl.database.DatabaseElement;
 import org.obeonetwork.dsl.typeslibrary.NativeTypeKind;
@@ -9,6 +8,7 @@ import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 import org.obeonetwork.dsl.typeslibrary.TypesLibrary;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryKind;
 import org.obeonetwork.dsl.typeslibrary.TypesLibraryUser;
+import org.obeonetwork.dsl.typeslibrary.provider.TypesLibraryItemProviderAdapterFactory;
 import org.obeonetwork.dsl.typeslibrary.util.TypesLibraryUtil;
 
 public class TypesServices {
@@ -17,7 +17,7 @@ public class TypesServices {
 	
 	private AdapterFactoryLabelProvider getLabelProvider() {
 		if (labelProvider == null) {
-			labelProvider = new AdapterFactoryLabelProvider(new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
+			labelProvider = new AdapterFactoryLabelProvider(new TypesLibraryItemProviderAdapterFactory());
 		}
 		return labelProvider;
 	}

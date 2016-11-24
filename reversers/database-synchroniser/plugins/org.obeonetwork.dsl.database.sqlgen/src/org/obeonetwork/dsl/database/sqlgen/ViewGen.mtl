@@ -8,32 +8,39 @@
 [import org::obeonetwork::dsl::database::sqlgen::services::services /]
 [import org::obeonetwork::dsl::database::sqlgen::services::names /]
 
-[template public genSQLForViews(changeSet : Comparison) post(trim())]
-[if (changeSet.eAllContents(AddView)->size()>0)]
+[template public genSQLForViews(diffs : Sequence(DBDiff)) post(trim())]
+[let addViewDiffs : Sequence(AddView) = diffs->filter(AddView)]
+[if (addViewDiffs->notEmpty())]
 	[file ('create-views.sql', false, 'UTF-8')]
-		[for (addView : AddView | changeSet.eAllContents(AddView))]
+		[for (addView : AddView | addViewDiffs)]
 [addView.genCreateView()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 
-[if (changeSet.eAllContents(RemoveView)->size()>0)]
+[let removeViewDiffs : Sequence(RemoveView) = diffs->filter(RemoveView)]
+[if (removeViewDiffs->notEmpty())]
 	[file ('drop-views.sql', false, 'UTF-8')]
-		[for (removeView : RemoveView | changeSet.eAllContents(RemoveView))]
+		[for (removeView : RemoveView | removeViewDiffs)]
 [removeView.genDropView()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 
-[if (changeSet.eAllContents(AlterView)->size()>0)]
+[let alterViewDiffs : Sequence(AlterView) = diffs->filter(AlterView)]
+[if (alterViewDiffs->notEmpty())]
 	[file ('alter-views.sql', false, 'UTF-8')]
-		[for (alterView : AlterView | changeSet.eAllContents(AlterView))]
+		[for (alterView : AlterView | alterViewDiffs)]
 [alterView.genAlterView()/]
+
 		[/for]
 	[/file]
 [/if]
+[/let]
 [/template]
 
 [comment ----------- TABLE ----------- /]
@@ -46,7 +53,7 @@
 [template private genDropView(removeView : RemoveView) post(trim())]
 [let view : View = removeView.view.oclAsType(View)]
 [view.genViewDoc()/]
-DROP VIEW [view.name()/];
+DROP VIEW [view.fullname()/];
 [/let]
 [/template]
 
@@ -63,24 +70,24 @@ DROP VIEW [view.name()/];
 [/template]
 
 [template private genAlterView(alterView : AlterView) post(trim())]
-[alterView.view.alterViewStatement()/]
+[alterView.view.alterViewStatement(alterView.target.oclAsType(View))/]
 [/template]
 
-[template private alterViewStatement(view : View)]
-[view.genViewDoc()/]
-DROP VIEW [view.name()/];
-[view.createViewStatement()/] AS [view.getViewQuery()/]
-[view.genCreateViewComment()/]
+[template private alterViewStatement(newView : View, oldView : View)]
+[newView.genViewDoc()/]
+DROP VIEW [oldView.fullname()/];
+[newView.createViewStatement()/] AS [newView.getViewQuery()/]
+[newView.genCreateViewComment()/]
 [/template]
 
 [template private createViewStatement(view : View)? (not view.isTargetSqlServer())]
-CREATE OR REPLACE VIEW [view.genSchemaPrefix()/][view.name()/]
+CREATE OR REPLACE VIEW [view.fullname()/]
 [/template]
 
 [template private createViewStatement(view : View)? (view.isTargetSqlServer())]
-CREATE VIEW [view.genSchemaPrefix()/][view.name()/]
+CREATE VIEW [view.fullname()/]
 [/template]
 
 [template private genCreateViewComment(view : View) ? (view.comments<>null and view.comments.size()>0) post(trim())]
-COMMENT ON VIEW [view.genSchemaPrefix()/][view.name/] IS '[view.comments.replaceAll('\'','\'\'')/]';
+COMMENT ON VIEW [view.fullname()/] IS '[view.comments.replaceAll('\'','\'\'')/]';
 [/template]

@@ -12,16 +12,32 @@
 [import org::obeonetwork::dsl::database::sqlgen::IndexGen /]
 [import org::obeonetwork::dsl::database::sqlgen::SequenceGen /]
 [import org::obeonetwork::dsl::database::sqlgen::ViewGen /]
+[import org::obeonetwork::dsl::database::sqlgen::services::services /]
 
 [template public genSQLForDatabase(changeSet : Comparison) post(trim())]
 [comment @main /]
 
-[changeSet.genSQLForTables()/]
-[changeSet.genSQLForPrimaryKeys()/]
-[changeSet.genSQLForConstraints()/]
-[changeSet.genSQLForForeignKeys()/]
-[changeSet.genSQLForIndex()/]
-[changeSet.genSQLForSequences()/]
-[changeSet.genSQLForViews()/]
+[let diffs : Sequence(DBDiff) = changeSet.getOrderedChanges()]
+[diffs->genSQLForTables()/]
+[diffs->genSQLForPrimaryKeys()/]
+[diffs->genSQLForConstraints()/]
+[diffs->genSQLForForeignKeys()/]
+[diffs->genSQLForIndex()/]
+[diffs->genSQLForSequences()/]
+[diffs->genSQLForViews()/]
+[/let]
 
+[/template]
+
+[template private genGeneralScript(changeSet : Comparison)]
+[file ('run.sql', false, 'UTF-8')]
+drop-tables
+drop-index
+
+alter-pk
+alter-tables
+
+create-tables
+create(index
+[/file]
 [/template]

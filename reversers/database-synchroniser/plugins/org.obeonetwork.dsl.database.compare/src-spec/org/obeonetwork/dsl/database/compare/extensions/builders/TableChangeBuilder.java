@@ -82,6 +82,7 @@ public class TableChangeBuilder extends ChangeBuilder {
 		RenameTableChange renameTableChange = DbevolutionFactory.eINSTANCE.createRenameTableChange();
 		renameTableChange.setNewTable((Table)change.getMatch().getLeft());	
 		renameTableChange.setTable((Table)change.getMatch().getRight());
+		renameTableChange.setTarget(renameTableChange.getTable());
 		return renameTableChange;
 	}
 	
@@ -89,6 +90,7 @@ public class TableChangeBuilder extends ChangeBuilder {
 		UpdateTableCommentChange updateTableCommentChange = DbevolutionFactory.eINSTANCE.createUpdateTableCommentChange();	
 		updateTableCommentChange.setNewTable((Table) change.getMatch().getLeft());			
 		updateTableCommentChange.setTable((Table)change.getMatch().getRight());
+		updateTableCommentChange.setTarget(updateTableCommentChange.getTable());
 		return updateTableCommentChange;
 	}
 	

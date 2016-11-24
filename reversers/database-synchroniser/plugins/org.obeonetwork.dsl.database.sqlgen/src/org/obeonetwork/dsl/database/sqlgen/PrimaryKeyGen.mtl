@@ -8,20 +8,23 @@
 [import org::obeonetwork::dsl::database::sqlgen::services::services /]
 [import org::obeonetwork::dsl::database::sqlgen::services::names /]
 
-[template public genSQLForPrimaryKeys(changeSet : Comparison) post(trim())]
-[if (changeSet.eAllContents(AddPrimaryKey)->notEmpty() and not changeSet.isForMySQL())]
+[template public genSQLForPrimaryKeys(diffs : Sequence(DBDiff)) post(trim())]
+[let addPrimaryKeyDiffs : Sequence(AddPrimaryKey) = diffs->filter(AddPrimaryKey)]
+[if (addPrimaryKeyDiffs->notEmpty() and not addPrimaryKeyDiffs->isForMySQL())]
+
 	[file ('create-pk.sql', false, 'UTF-8')]
-		[for (addPk : AddPrimaryKey | changeSet.eAllContents(AddPrimaryKey))]
+		[for (addPk : AddPrimaryKey | addPrimaryKeyDiffs)]
 [addPk.genCreatePK()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 
-[let removePrimaryKeyDiffs : Sequence(RemovePrimaryKey) = changeSet.getRemovePrimaryKeyDiffs()]
-[if (removePrimaryKeyDiffs->notEmpty())]
+[let removePKDiffs : Sequence(RemovePrimaryKey) = diffs->filter(RemovePrimaryKey)->filterRelatedToRemoveTable()]
+[if (removePKDiffs->notEmpty())]
 	[file ('drop-pk.sql', false, 'UTF-8')]
-		[for (removePK : RemovePrimaryKey | removePrimaryKeyDiffs)]
+		[for (removePK : RemovePrimaryKey | removePKDiffs)]
 [removePK.genDropPK()/]
 
 		[/for]
@@ -29,18 +32,20 @@
 [/if]
 [/let]
 
-[if (changeSet.eAllContents(UpdatePrimaryKey)->notEmpty())]
+[let updatePrimaryKeyDiffs : Sequence(UpdatePrimaryKey) = diffs->filter(UpdatePrimaryKey)]
+[if (updatePrimaryKeyDiffs->notEmpty())]
 	[file ('alter-pk.sql', false, 'UTF-8')]
-		[for (updatePK : UpdatePrimaryKey | changeSet.eAllContents(UpdatePrimaryKey))]
+		[for (updatePK : UpdatePrimaryKey | updatePrimaryKeyDiffs)]
 [updatePK.genAlterPK()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 [/template]
 
-[query private isForMySQL(changeSet : Comparison) : Boolean =
-changeSet.eAllContents(AddPrimaryKey)->first().primaryKey.isTargetMySql() /]
+[query private isForMySQL(diffs : Sequence(AddPrimaryKey)) : Boolean =
+diffs->notEmpty() and diffs->first().primaryKey.isTargetMySql() /]
 
 [template private genPKDoc(primaryKey : PrimaryKey) post(trim())]
 -- ==============================================================
@@ -68,27 +73,25 @@ changeSet.eAllContents(AddPrimaryKey)->first().primaryKey.isTargetMySql() /]
 [if (pk.columns->notEmpty())]
 [let table : Table = pk.columns->first().owner.oclAsType(Table)]
 [pk.genUniquePKIndex(table)/]
-ALTER TABLE [table.genSchemaPrefix()/][table.name()/] ADD CONSTRAINT [pk.genPkConstraintName()/] PRIMARY KEY([pk.columns.name->sep(', ')/]);[/let]
+ALTER TABLE [table.fullname()/] ADD CONSTRAINT [pk.genPkConstraintName()/] PRIMARY KEY([pk.columns.name->sep(', ')/]);[/let]
 [/if]
 [/template]
 
 [template private genUniquePKIndex(pk : PrimaryKey, table : Table) ? (not pk.isTargetPostgreSQL() and not pk.isTargetH2())]
-CREATE UNIQUE INDEX [pk.genPkConstraintName()/] ON [table.name()/]([pk.columns.name->sep(', ')/]);
+CREATE UNIQUE INDEX [pk.genPkConstraintName()/] ON [table.fullname()/]([pk.columns.name->sep(', ')/]);
 [/template]
 
 [template private genDropPK(pk : PrimaryKey) post(trim())]
 [let table : Table = pk.columns->first().owner.oclAsType(Table)]
-ALTER TABLE [table.name()/] DROP CONSTRAINT [pk.genPkConstraintName()/];[/let]
+ALTER TABLE [table.fullname()/] DROP CONSTRAINT [pk.genPkConstraintName()/];[/let]
 [/template]
 
 [template public genPkConstraintName(pk : PrimaryKey) post (trim())]
 [pk.owner.name/]_PK1_1
 [/template]
 
-[query private getRemovePrimaryKeyDiffs(comparison : Comparison) : Sequence(RemovePrimaryKey) =
-comparison.getDifferences()
-	->filter(RemovePrimaryKey)
-	->reject(getRelatedDiff().isRelatedToRemoveTable())
+[query private filterRelatedToRemoveTable(diffs : Sequence(RemovePrimaryKey)) : Sequence(RemovePrimaryKey) =
+diffs->reject(getRelatedDiff().isRelatedToRemoveTable())
 	->asSequence()
 /]
 

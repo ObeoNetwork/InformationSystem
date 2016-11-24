@@ -50,6 +50,16 @@ CREATE TABLE CUSTOMERS(
 );
 
 -- ==============================================================
+--  Table : EMPLOYEETERRITORIES                                    
+-- ==============================================================
+
+DROP TABLE EMPLOYEETERRITORIES;
+CREATE TABLE EMPLOYEETERRITORIES(
+    EmployeeID int(10) NOT NULL,
+    TerritoryID nvarchar(20) NOT NULL
+);
+
+-- ==============================================================
 --  Table : EMPLOYEES                                    
 -- ==============================================================
 
@@ -73,16 +83,6 @@ CREATE TABLE EMPLOYEES(
     Notes ntext NULL,
     ReportsTo int(10) NULL,
     PhotoPath nvarchar(255) NULL
-);
-
--- ==============================================================
---  Table : EMPLOYEETERRITORIES                                    
--- ==============================================================
-
-DROP TABLE EMPLOYEETERRITORIES;
-CREATE TABLE EMPLOYEETERRITORIES(
-    EmployeeID int(10) NOT NULL,
-    TerritoryID nvarchar(20) NOT NULL
 );
 
 -- ==============================================================

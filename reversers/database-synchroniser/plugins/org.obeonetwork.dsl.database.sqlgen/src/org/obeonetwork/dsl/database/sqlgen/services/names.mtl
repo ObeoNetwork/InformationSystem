@@ -4,6 +4,19 @@
  'http://www.obeonetwork.org/dsl/database/1.0',
  'http://www.eclipse.org/emf/compare',
  'http://www.obeonetwork.org/dsl/typeslibrary/1.0')/]
+[import org::obeonetwork::dsl::database::sqlgen::services::services /]
+
+[template public fullname(table : Table) post(trim())]
+[table.genSchemaPrefix()/][table.name.toUpper()/]
+[/template]
+
+[template public fullname(view : View) post(trim())]
+[view.genSchemaPrefix()/][view.name.toUpper()/]
+[/template]
+
+[template public fullname(sequence : Sequence) post(trim())]
+[sequence.genSchemaPrefix()/][sequence.name.toUpper()/]
+[/template]
 
 [template public name(table : Table) post(trim())]
 [table.name.toUpper()/]
@@ -23,4 +36,16 @@
 
 [template public name(sequence : Sequence) post(trim())]
 [sequence.name.toUpper()/]
+[/template]
+
+[template public genSchemaPrefix(table : Table)]
+[if (table.supportsSchema() and table.eContainer().oclIsKindOf(Schema))][table.eContainer().oclAsType(Schema).name()/].[/if]
+[/template]
+
+[template public genSchemaPrefix(view : View)]
+[if (view.supportsSchema() and view.eContainer().oclIsKindOf(Schema))][view.eContainer().oclAsType(Schema).name()/].[/if]
+[/template]
+
+[template public genSchemaPrefix(sequence : Sequence)]
+[if (sequence.supportsSchema() and sequence.eContainer().oclIsKindOf(Schema))][sequence.eContainer().oclAsType(Schema).name()/].[/if]
 [/template]

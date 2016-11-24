@@ -13,7 +13,7 @@ CREATE TABLE PUBLIC.AW_ADRESSE(
     xtopsup BOOL NOT NULL
 );
 
-COMMENT ON TABLE PUBLIC.aw_adresse IS 'une adresse de personne';
+COMMENT ON TABLE PUBLIC.AW_ADRESSE IS 'une adresse de personne';
 COMMENT ON COLUMN PUBLIC.AW_ADRESSE.rue IS 'la rue de l''adresse';
 
 COMMENT ON COLUMN PUBLIC.AW_ADRESSE.ville IS 'la ville de l''adresse';
@@ -30,7 +30,7 @@ CREATE TABLE PUBLIC.AW_COMPETENCE(
     xtopsup BOOL NOT NULL
 );
 
-COMMENT ON TABLE PUBLIC.aw_competence IS 'une comp‚tence';
+COMMENT ON TABLE PUBLIC.AW_COMPETENCE IS 'une comp‚tence';
 COMMENT ON COLUMN PUBLIC.AW_COMPETENCE.libelle IS 'le libell‚ de la comp‚tence';
 
 -- ==============================================================
@@ -102,7 +102,7 @@ CREATE TABLE PUBLIC.AW_PERSONNE(
     xtopsup BOOL NOT NULL
 );
 
-COMMENT ON TABLE PUBLIC.aw_personne IS 'Une personne';
+COMMENT ON TABLE PUBLIC.AW_PERSONNE IS 'Une personne';
 COMMENT ON COLUMN PUBLIC.AW_PERSONNE.nom IS 'le nom de la personne';
 COMMENT ON COLUMN PUBLIC.AW_PERSONNE.prenom IS 'le pr‚nom de la personne';
 COMMENT ON COLUMN PUBLIC.AW_PERSONNE.civil IS 'indicateur si la personne est civile ou non';
@@ -170,7 +170,7 @@ CREATE TABLE PUBLIC.AW_TELEPHONE(
     xtopsup BOOL NOT NULL
 );
 
-COMMENT ON TABLE PUBLIC.aw_telephone IS 'Contact t‚l‚phonique';
+COMMENT ON TABLE PUBLIC.AW_TELEPHONE IS 'Contact t‚l‚phonique';
 
 -- ==============================================================
 --  Table : AW_UTILISATEUR                                    

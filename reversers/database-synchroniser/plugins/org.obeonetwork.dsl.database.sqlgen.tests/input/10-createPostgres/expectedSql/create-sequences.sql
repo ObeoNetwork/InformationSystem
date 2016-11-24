@@ -1,7 +1,7 @@
 -- ==============================================================
---  Sequence : AW_PERSONNE_SEQ                                    
+--  Sequence : AW_PERSONNE_N_COMPETENCE_P_SEQ                                    
 -- ==============================================================
-CREATE SEQUENCE PUBLIC.AW_PERSONNE_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
+CREATE SEQUENCE PUBLIC.AW_PERSONNE_N_COMPETENCE_P_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
 
 -- ==============================================================
 --  Sequence : AW_ADRESSE_SEQ                                    
@@ -19,24 +19,19 @@ CREATE SEQUENCE PUBLIC.AW_COMPETENCE_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE
 CREATE SEQUENCE PUBLIC.AW_COMPETENCE_PERSO_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
 
 -- ==============================================================
---  Sequence : AW_PERSONNE_N_COMPETENCE_P_SEQ                                    
--- ==============================================================
-CREATE SEQUENCE PUBLIC.AW_PERSONNE_N_COMPETENCE_P_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
-
--- ==============================================================
---  Sequence : AW_TELEPHONE_SEQ                                    
--- ==============================================================
-CREATE SEQUENCE PUBLIC.AW_TELEPHONE_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
-
--- ==============================================================
 --  Sequence : AW_MAIL_SEQ                                    
 -- ==============================================================
 CREATE SEQUENCE PUBLIC.AW_MAIL_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
 
 -- ==============================================================
---  Sequence : AW_UTILISATEUR_SEQ                                    
+--  Sequence : AW_PERMISSION_SEQ                                    
 -- ==============================================================
-CREATE SEQUENCE PUBLIC.AW_UTILISATEUR_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
+CREATE SEQUENCE PUBLIC.AW_PERMISSION_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
+
+-- ==============================================================
+--  Sequence : AW_PERSONNE_SEQ                                    
+-- ==============================================================
+CREATE SEQUENCE PUBLIC.AW_PERSONNE_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
 
 -- ==============================================================
 --  Sequence : AW_ROLE_SEQ                                    
@@ -44,7 +39,12 @@ CREATE SEQUENCE PUBLIC.AW_UTILISATEUR_SEQ INCREMENT BY 1 START WITH 1000 NO CYCL
 CREATE SEQUENCE PUBLIC.AW_ROLE_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
 
 -- ==============================================================
---  Sequence : AW_PERMISSION_SEQ                                    
+--  Sequence : AW_TELEPHONE_SEQ                                    
 -- ==============================================================
-CREATE SEQUENCE PUBLIC.AW_PERMISSION_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
+CREATE SEQUENCE PUBLIC.AW_TELEPHONE_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
+
+-- ==============================================================
+--  Sequence : AW_UTILISATEUR_SEQ                                    
+-- ==============================================================
+CREATE SEQUENCE PUBLIC.AW_UTILISATEUR_SEQ INCREMENT BY 1 START WITH 1000 NO CYCLE;
 

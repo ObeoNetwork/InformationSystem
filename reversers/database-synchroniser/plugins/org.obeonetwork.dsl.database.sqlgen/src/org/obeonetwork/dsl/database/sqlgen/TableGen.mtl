@@ -8,32 +8,39 @@
 [import org::obeonetwork::dsl::database::sqlgen::services::services /]
 [import org::obeonetwork::dsl::database::sqlgen::services::names /]
 
-[template public genSQLForTables(changeSet : Comparison) post(trim())]
-[if (changeSet.eAllContents(AddTable)->size()>0)]
+[template public genSQLForTables(diffs : Sequence(DBDiff)) post(trim())]
+[let addTableDiffs : Sequence(AddTable) = diffs->filter(AddTable)]
+[if (addTableDiffs->notEmpty())]
 	[file ('create-tables.sql', false, 'UTF-8')]
-		[for (addTable : AddTable | changeSet.eAllContents(AddTable))]
+		[for (addTable : AddTable | addTableDiffs)]
 [addTable.genCreateTable()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 
-[if (changeSet.eAllContents(RemoveTable)->size()>0)]
+[let removeTableDiffs : Sequence(RemoveTable) = diffs->filter(RemoveTable)]
+[if (removeTableDiffs->notEmpty())]
 	[file ('drop-tables.sql', false, 'UTF-8')]
-		[for (removeTable : RemoveTable | changeSet.eAllContents(RemoveTable))]
+		[for (removeTable : RemoveTable | removeTableDiffs)]
 [removeTable.genDropTable()/]
 
 		[/for]
 	[/file]
 [/if]
+[/let]
 
-[if (changeSet.eAllContents(AlterTable)->size()>0)]
+[let alterTableDiffs : Sequence(AlterTable) = diffs->filter(AlterTable)]
+[if (alterTableDiffs->notEmpty())]
 	[file ('alter-tables.sql', false, 'UTF-8')]
-		[for (alterTable : AlterTable | changeSet.eAllContents(AlterTable))]
+		[for (alterTable : AlterTable | alterTableDiffs)]
 [alterTable.genAlterTable()/]
+
 		[/for]
 	[/file]
 [/if]
+[/let]
 [/template]
 
 [comment ----------- TABLE ----------- /]
@@ -47,7 +54,7 @@
 [let table : Table = removeTable.table.oclAsType(Table)]
 [table.genTableDoc()/]
 [table.genDropSynonym()/]
-DROP TABLE [table.name()/];
+DROP TABLE [table.fullname()/];
 [/let]
 [/template]
 
@@ -60,15 +67,15 @@ DROP PUBLIC SYNONYM [table.name()/];
 [/template]
 
 [template private genCreateSynonym(table : Table) ? (table.owner.oclIsKindOf(Schema) and table.isTargetOracle()) post(trim()) ]
-CREATE PUBLIC SYNONYM [table.name()/] FOR [table.getSchemaName()/].[table.name()/];
+CREATE PUBLIC SYNONYM [table.name()/] FOR [table.fullname()/];
 [/template]
 
 [template private genCreateTable(addTable : AddTable) post(trim())]
 [let table : Table = addTable.table.oclAsType(Table)]
 [table.genTableDoc()/]
 [table.genDropSynonym()/]
-DROP TABLE [table.genSchemaPrefix()/][table.name()/];
-CREATE TABLE [table.genSchemaPrefix()/][table.name()/](
+DROP TABLE [table.fullname()/];
+CREATE TABLE [table.fullname()/](
 [table.columnsDef()/]
 );
 [table.genCreateSynonym()/]
@@ -86,7 +93,7 @@ CREATE TABLE [table.genSchemaPrefix()/][table.name()/](
 
 		[/let]
 	[elseif (diff.oclIsTypeOf(UpdateTableCommentChange))]
-[diff.oclAsType(UpdateTableCommentChange).table.genUpdateTableComment()/]
+[diff.oclAsType(UpdateTableCommentChange).newTable.genUpdateTableComment()/]
 	
 	[elseif (diff.oclIsTypeOf(AddColumnChange))]
 [diff.oclAsType(AddColumnChange).column.genAddColumn()/]
@@ -111,7 +118,7 @@ CREATE TABLE [table.genSchemaPrefix()/][table.name()/](
 [/template]
 
 [template private genCreateTableComment(table : Table) ? (table.comments<>null and table.comments.size()>0) post(trim())]
-COMMENT ON TABLE [table.genSchemaPrefix()/][table.name/] IS '[table.comments.replaceAll('\'','\'\'')/]';
+COMMENT ON TABLE [table.fullname()/] IS '[table.comments.replaceAll('\'','\'\'')/]';
 [/template]
 
 [template private genUpdateTableComment(table : Table) post(trim())]
@@ -119,7 +126,7 @@ COMMENT ON TABLE [table.genSchemaPrefix()/][table.name/] IS '[table.comments.rep
 [/template]
 
 [template private genRenameTable(oldTable : Table, newTable : Table) post(trim())]
-ALTER TABLE [oldTable.name()/] RENAME TO [newTable.name()/];
+ALTER TABLE [oldTable.fullname()/] RENAME TO [newTable.fullname()/];
 [/template]
 
 [template private genCreateColumnsComment(table : Table) post(trim())]
@@ -131,24 +138,24 @@ ALTER TABLE [oldTable.name()/] RENAME TO [newTable.name()/];
 [comment ----------- COLUMN ----------- /]
 
 [template private genAddColumn(column : Column) post(trim())]
-ALTER TABLE [column.owner.oclAsType(Table).name()/] ADD [column.columnDef()/];
+ALTER TABLE [column.owner.oclAsType(Table).fullname()/] ADD [column.columnDef()/];
 [column.genCreateColumnComment()/]
 [/template]
 
 [template private genDropColumn(column : Column) post(trim())]
-ALTER TABLE [column.owner.oclAsType(Table).name()/] DROP COLUMN [column.name()/];
+ALTER TABLE [column.owner.oclAsType(Table).fullname()/] DROP COLUMN [column.name()/];
 [/template]
 
 [template private genUpdateColumn(column : Column) post(trim())]
-ALTER TABLE [column.owner.oclAsType(Table).name()/] MODIFY [column.columnDef()/];
+ALTER TABLE [column.owner.oclAsType(Table).fullname()/] MODIFY [column.columnDef()/];
 [/template]
 
 [template private genRenameColumn(oldColumn : Column, newColumn : Column) post(trim())]
-ALTER TABLE [newColumn.owner.oclAsType(Table).name()/] RENAME COLUMN [oldColumn.name()/] TO [newColumn.name()/];
+ALTER TABLE [newColumn.owner.oclAsType(Table).fullname()/] RENAME COLUMN [oldColumn.name()/] TO [newColumn.name()/];
 [/template]
 
 [template private genCreateColumnComment(column : Column) ? (column.comments<>null and column.comments.size()>0) post(trim())]
-COMMENT ON COLUMN [column.owner.oclAsType(Table).genSchemaPrefix()/][column.owner.oclAsType(Table).name()/].[column.name()/] IS '[column.comments.replaceAll('\'','\'\'')/]';
+COMMENT ON COLUMN [column.owner.oclAsType(Table).fullname()/].[column.name()/] IS '[column.comments.replaceAll('\'','\'\'')/]';
 [/template]
 
 [template private genUpdateColumnComment(column : Column) post(trim())]

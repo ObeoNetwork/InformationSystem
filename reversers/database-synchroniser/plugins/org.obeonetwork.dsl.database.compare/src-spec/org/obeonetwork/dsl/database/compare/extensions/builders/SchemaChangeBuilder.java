@@ -68,6 +68,7 @@ public class SchemaChangeBuilder extends ChangeBuilder {
 		RenameSchemaChange renameSchemaChange = DbevolutionFactory.eINSTANCE.createRenameSchemaChange();
 		renameSchemaChange.setSchema((Schema)change.getMatch().getRight());
 		renameSchemaChange.setNewSchema((Schema)change.getMatch().getLeft());
+		renameSchemaChange.setTarget(renameSchemaChange.getSchema());
 		return renameSchemaChange;
 	}
 	
@@ -75,6 +76,7 @@ public class SchemaChangeBuilder extends ChangeBuilder {
 		UpdateSchemaCommentChange updateSchemaCommentChange = DbevolutionFactory.eINSTANCE.createUpdateSchemaCommentChange();		
 		updateSchemaCommentChange.setSchema((Schema) change.getMatch().getRight());
 		updateSchemaCommentChange.setNewSchema((Schema) change.getMatch().getLeft());
+		updateSchemaCommentChange.setTarget(updateSchemaCommentChange.getSchema());
 		return updateSchemaCommentChange;
 	}
 	

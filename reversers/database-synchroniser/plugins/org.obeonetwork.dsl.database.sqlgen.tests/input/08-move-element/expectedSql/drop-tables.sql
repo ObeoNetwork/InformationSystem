@@ -2,5 +2,5 @@
 --  Table : T1                                    
 -- ==============================================================
 DROP PUBLIC SYNONYM T1;
-DROP TABLE T1;
+DROP TABLE S2.T1;
 

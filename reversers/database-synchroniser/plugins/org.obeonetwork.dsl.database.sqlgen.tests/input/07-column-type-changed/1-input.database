@@ -3,14 +3,18 @@
   <tables xsi:type="database:Table" xmi:id="_ix624HQ5EeKEQaBTmSS_iA" techID="_ide38XQ5EeKEQaBTmSS_iA" name="Table1">
     <columns xmi:id="_kDRKAHQ5EeKEQaBTmSS_iA" techID="_j1Wp0HQ5EeKEQaBTmSS_iA" name="Col1">
       <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kDRKAXQ5EeKEQaBTmSS_iA">
-        <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNhEnEeGTa_JlZYBw1A"/>
+        <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
       </type>
     </columns>
     <columns xmi:id="_F3gLoHRdEeKEQaBTmSS_iA" techID="_CWrwQHRdEeKEQaBTmSS_iA" name="Col2">
-      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duN2MHRqEeKEQaBTmSS_iA"/>
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_duN2MHRqEeKEQaBTmSS_iA">
+        <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwGNREnEeGTa_JlZYBw1A"/>
+      </type>
     </columns>
     <columns xmi:id="_Tp1EUnRjEeKEQaBTmSS_iA" techID="_R4TcUHRjEeKEQaBTmSS_iA" name="COL3">
-      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Tp1EU3RjEeKEQaBTmSS_iA"/>
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Tp1EU3RjEeKEQaBTmSS_iA">
+        <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_cUwtRxEnEeGTa_JlZYBw1A"/>
+      </type>
     </columns>
   </tables>
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>

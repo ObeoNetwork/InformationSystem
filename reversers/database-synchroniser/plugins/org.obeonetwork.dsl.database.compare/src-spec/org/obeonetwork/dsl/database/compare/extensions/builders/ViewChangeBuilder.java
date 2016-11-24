@@ -45,7 +45,7 @@ public class ViewChangeBuilder extends ChangeBuilder {
 	protected Diff handleAlterChange(Match change) {
 		AlterView alterView = DbevolutionFactory.eINSTANCE.createAlterView();
 		alterView.setView((View)change.getLeft());
-		alterView.setTarget(change.getLeft());
+		alterView.setTarget(change.getRight());
 		return alterView;
 	}
 	
@@ -86,6 +86,7 @@ public class ViewChangeBuilder extends ChangeBuilder {
 		RenameViewChange renameViewChange = DbevolutionFactory.eINSTANCE.createRenameViewChange();
 		renameViewChange.setNewView((View)change.getMatch().getLeft());	
 		renameViewChange.setView((View)change.getMatch().getRight());
+		renameViewChange.setTarget(renameViewChange.getView());
 		return renameViewChange;
 	}
 	
@@ -93,6 +94,7 @@ public class ViewChangeBuilder extends ChangeBuilder {
 		UpdateViewCommentChange updateViewCommentChange = DbevolutionFactory.eINSTANCE.createUpdateViewCommentChange();	
 		updateViewCommentChange.setNewView((View) change.getMatch().getLeft());			
 		updateViewCommentChange.setView((View)change.getMatch().getRight());
+		updateViewCommentChange.setTarget(updateViewCommentChange.getView());
 		return updateViewCommentChange;
 	}
 	
@@ -100,6 +102,7 @@ public class ViewChangeBuilder extends ChangeBuilder {
 		UpdateViewQueryChange updateViewQueryChange = DbevolutionFactory.eINSTANCE.createUpdateViewQueryChange();	
 		updateViewQueryChange.setNewView((View) change.getMatch().getLeft());			
 		updateViewQueryChange.setView((View)change.getMatch().getRight());
+		updateViewQueryChange.setTarget(updateViewQueryChange.getView());
 		return updateViewQueryChange;
 	}
 	

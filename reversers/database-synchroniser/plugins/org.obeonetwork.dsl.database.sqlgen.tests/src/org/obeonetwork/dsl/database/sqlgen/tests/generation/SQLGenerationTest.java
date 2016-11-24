@@ -5,6 +5,21 @@ import org.junit.Test;
 public class SQLGenerationTest extends AbstractSQLGenerationTest {
 
 	@Test
+	public void test0_MySQL() {
+		assertGenerationEquals("00-full-mysql");
+	}
+	
+	@Test
+	public void test0_Oracle() {
+		assertGenerationEquals("00-full-oracle");
+	}
+	
+	@Test
+	public void test0_PostgreSQL() {
+		assertGenerationEquals("00-full-postgresql");
+	}
+	
+	@Test
 	public void test1() {
 		assertGenerationEquals("01-simple");
 	}
