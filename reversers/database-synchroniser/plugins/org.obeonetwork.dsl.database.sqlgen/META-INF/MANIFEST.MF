@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.acceleo.parser,
  org.obeonetwork.dsl.database,
  org.eclipse.emf.edit.ui,
- org.obeonetwork.dsl.database.edit
+ org.obeonetwork.dsl.database.edit,
+ org.apache.commons.io
 Bundle-ActivationPolicy: lazy
 Export-Package: org.obeonetwork.dsl.database.sqlgen,
  org.obeonetwork.dsl.database.sqlgen.services

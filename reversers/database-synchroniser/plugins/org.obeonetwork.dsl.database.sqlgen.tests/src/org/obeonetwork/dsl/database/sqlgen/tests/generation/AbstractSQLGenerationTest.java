@@ -152,7 +152,7 @@ abstract public class AbstractSQLGenerationTest {
 		for (File file : folder.listFiles()) {
 			if (file.isDirectory()) {
 				sqlFiles.addAll(findSQLFilesInfolder(file));
-			} else if (file.getName().endsWith(".sql")) {
+			} else if (file.getName().endsWith(".sql") && !file.getName().equals("all.sql")) {
 				sqlFiles.add(file);
 			}
 		}

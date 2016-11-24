@@ -10,14 +10,21 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.sqlgen;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.io.IOUtils;
 import org.eclipse.acceleo.engine.event.IAcceleoTextGenerationListener;
 import org.eclipse.acceleo.engine.generation.strategy.IAcceleoGenerationStrategy;
 import org.eclipse.emf.common.util.BasicMonitor;
@@ -210,7 +217,7 @@ public class DatabaseGen extends SQLGenerator {
      *            This will be used to display progress information to the user.
      * @throws IOException
      *             This will be thrown if any of the output files cannot be saved to disk.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void doGenerate(Monitor monitor) throws IOException {
@@ -234,6 +241,78 @@ public class DatabaseGen extends SQLGenerator {
         //}
 
         super.doGenerate(monitor);
+        
+        mergeSQLFiles(getTargetFolder());
+    }
+    
+    private static final String[] SQL_FILES = new String[] {
+    		"drop-tables.sql",
+    		"drop-index.sql",
+    		"drop-constraint.sql",
+    		"drop-fk.sql",
+    		"drop-pk.sql",
+    		"drop-sequences.sql",
+    		"drop-views.sql",
+    		"alter-constraint.sql",
+    		"alter-fk.sql",
+    		"alter-index.sql",
+    		"alter-pk.sql",
+    		"alter-sequences.sql",
+    		"alter-views.sql",
+    		"alter-tables.sql",
+    		"create-tables.sql",
+    		"create-constraint.sql",
+    		"create-fk.sql",
+    		"create-index.sql",
+    		"create-pk.sql",
+    		"create-sequences.sql",
+    		"create-views.sql",
+    };
+    
+    /**
+     * Merge SQL files in the required order
+     * @param folder
+     */
+    private void mergeSQLFiles(File folder) {
+    	File destination = new File(folder, "all.sql");
+    	
+    	List<File> sources = new ArrayList<File>();
+    	for (String sqlFilename : SQL_FILES) {
+			File sqlFile = new File(folder, sqlFilename);
+			if (sqlFile.exists()) {
+				sources.add(sqlFile);
+			}
+		}
+    	
+    	if (!sources.isEmpty()) {
+    		try {
+				mergeFiles(destination, sources);
+			} catch (IOException e) {
+				// Do nothing, file could not be generated
+			}
+    	}
+    }
+    
+    private void mergeFiles(File destination, List<File> sources) throws IOException {
+        OutputStream output = null;
+        try {
+            output = new BufferedOutputStream(new FileOutputStream(destination, true));
+            for (File source : sources) {
+                appendFile(output, source);
+            }
+        } finally {
+            IOUtils.closeQuietly(output);
+        }
+    }
+
+    private void appendFile(OutputStream output, File source) throws IOException {
+        InputStream input = null;
+        try {
+            input = new BufferedInputStream(new FileInputStream(source));
+            IOUtils.copy(input, output);
+        } finally {
+            IOUtils.closeQuietly(input);
+        }
     }
     
     /**
