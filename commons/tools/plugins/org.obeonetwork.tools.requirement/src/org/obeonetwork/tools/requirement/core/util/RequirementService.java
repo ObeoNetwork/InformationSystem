@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2010 Obeo.
+ * Copyright (c) 2010, 2016 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
 
 import org.eclipse.sirius.business.api.session.Session;
@@ -28,8 +29,6 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 
 public class RequirementService {
 	
-	private static final String REQUIREMENT_MODELFILE_EXTENSION = ".requirement"; //$NON-NLS-1$
-
 	public static Requirement[] getLinkedRequirements(EObject eObject){
 		final Session session = SessionManager.INSTANCE.getSession(eObject);
 		if (session != null) {
@@ -56,9 +55,13 @@ public class RequirementService {
 		
 		Session session = SessionManager.INSTANCE.getSession(context);
 		if (session != null) {
+			// Test resources containing requirements repositories
 			for (Resource semanticResource : session.getSemanticResources()) {
-				if (semanticResource.getURI().toString().endsWith(REQUIREMENT_MODELFILE_EXTENSION)) { 
-					repositories.add(semanticResource);
+				for (EObject object : semanticResource.getContents()) {
+					if (object instanceof Repository) {
+						repositories.add(semanticResource);
+						break;
+					}
 				}
 			}
 		}
