@@ -36,7 +36,7 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/tools/participant.png! | Création d'un participant et de sa ligne de vie. |
+| !pics/tools/Participant.png! | Création d'un participant et de sa ligne de vie. |
 | !pics/tools/Call.png! | Création d'un message d'appel simple. |
 | !pics/tools/SyncCall.png! | Création d'un message d'appel synchrone. Un message d'appel simple est créé, une zone d'exécution est créée sur le participant appelé, enfin un message de retour vers le participant initial est créée. |
 | !pics/tools/AsyncCall.png! | Création d'un message d'appel asynchrone. Un message d'appel et une zone d'exécution sur le participant appelé sont créés. L'appel étant asynchrone, aucun message de retour n'est créé. |
