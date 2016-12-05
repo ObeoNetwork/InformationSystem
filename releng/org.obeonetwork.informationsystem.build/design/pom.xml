@@ -259,8 +259,8 @@
 		-->
 		<module>../../../m2doc/database/plugins/org.obeonetwork.database.m2doc.services</module>
 		<module>../../../m2doc/database/plugins/org.obeonetwork.database.m2doc.services.test</module>
-		<module>../../../m2doc/database/features/org.obeonetwork.database.m2doc.feature</module>		
-		<module>../../../m2doc/requirement/plugins/org.obeonetwork.dsl.requirement.m2doc.services</module>		
+		<module>../../../m2doc/database/features/org.obeonetwork.database.m2doc.feature</module>
+		<module>../../../m2doc/requirement/plugins/org.obeonetwork.dsl.requirement.m2doc.services</module>
 		<module>../../../m2doc/requirement/plugins/org.obeonetwork.dsl.requirement.m2doc.services.test</module>
 		<module>../../../m2doc/requirement/features/org.obeonetwork.dsl.requirement.m2doc.feature</module>
 		<module>../../../m2doc/graal/plugins/org.obeonetwork.dsl.graal.m2doc.services</module>
