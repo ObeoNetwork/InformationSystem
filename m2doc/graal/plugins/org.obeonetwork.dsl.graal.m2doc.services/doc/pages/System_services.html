@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+/********************************************************************************
+** Copyright (c) 2016 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for System</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+		<h1 id="System">Services and attributes for the System concept</h1>
+		
+  	<div class="page-header">
+		<h2 id="Attributs">Attributes </h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>metadatas</strong>
+				</td>
+				<td>List of MetaData</td>
+				<td>{m:sys.metadatas}</td>
+				<td>access to a container of Meta datas which are key value maps.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>description</strong>
+				</td>
+				<td>String</td>
+				<td>{m:sys.description}</td>
+				<td>description of the system.</td>
+				<td>description : {m:sys.description}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>keywords</strong>
+				</td>
+				<td>List of String</td>
+				<td>{m:sys.keywords}</td>
+				<td>keywords used to index the system</td>
+				<td>keywords : {m:sys.keywords->sep(',')}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>behaviours</strong>
+				</td>
+				<td>List of Behavior</td>
+				<td>{m:sys.behaviors}</td>
+				<td>list of behaviors in the system.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>bindingRegistries</strong>
+				</td>
+				<td>List of BindingRegistries</td>
+				<td>{m:sys.bindingRegistries}</td>
+				<td>binding registries associated to the system.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>version</strong>
+				</td>
+				<td>Integer</td>
+				<td>{m:sys.version}</td>
+				<td>version of the system.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>createdOn</strong>
+				</td>
+				<td>Date</td>
+				<td>{m:sys.createdOn}</td>
+				<td>creation date of the system object.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>modifiedOn</strong>
+				</td>
+				<td>Date</td>
+				<td>{m:sys.modifiedOn}</td>
+				<td>modification date of the system object.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>name</strong>
+				</td>
+				<td>String</td>
+				<td>{m:sys.name}</td>
+				<td>name of the system</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>namespaces</strong>
+				</td>
+				<td>List of Namespaces</td>
+				<td>{m:sys.namespaces}</td>
+				<td>namespaces of the participant classes</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>types</strong>
+				</td>
+				<td>List of Types</td>
+				<td>{m:sys.types}</td>
+				<td>available types in the system.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>tasks</strong>
+				</td>
+				<td>List of Tasks</td>
+				<td>{m:sys.tasks}</td>
+				<td>tasks that make up the system.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>ownedTasks</strong>
+				</td>
+				<td>List of Tasks</td>
+				<td>{m:sys.ownedTasks}</td>
+				<td>tasks that make up the system.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>ownedGroups</strong>
+				</td>
+				<td>List of TasksGroup</td>
+				<td>{m:sys.ownedGroups}</td>
+				<td>task groups contained in the system.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>ownedNamespaces</strong>
+				</td>
+				<td>List of Namespaces</td>
+				<td>{m:sys.ownedNamespaces}</td>
+				<td>namespaces contained in the system.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>subSystems</strong>
+				</td>
+				<td>List of Systems</td>
+				<td>{m:sys.subSystems}</td>
+				<td>sub systems</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>actors</strong>
+				</td>
+				<td>List of Actors</td>
+				<td>{m:sys.actors}</td>
+				<td>actors involved in the system.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>useCases</strong>
+				</td>
+				<td>List of UseCases</td>
+				<td>{m:sys.useCases}</td>
+				<td>use cases of the system.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>userStories</strong>
+				</td>
+				<td>List of UserStories</td>
+				<td>{m:sys.userStories}</td>
+				<td>user stories related to the system.</td>
+				<td></td>
+			</tr>
+	</tbody>
+		</table>
+	</body>
+</html>

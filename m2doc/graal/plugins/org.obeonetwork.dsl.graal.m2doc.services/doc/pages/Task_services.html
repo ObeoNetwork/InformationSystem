@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+/********************************************************************************
+** Copyright (c) 2016 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for Task</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+		<h1 id="Task">Services and attributes for the Task concept</h1>
+		
+  	<div class="page-header">
+		<h2 id="Attributs">Attributes </h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>metadatas</strong>
+				</td>
+				<td>List of MetaDatas</td>
+				<td>{m:t.metadatas}</td>
+				<td>access to a container of Meta datas which are key value maps.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>description</strong>
+				</td>
+				<td>String</td>
+				<td>{m:t.description}</td>
+				<td>description of the task.</td>
+				<td>description : {m:t.description}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>keywords</strong>
+				</td>
+				<td>List of String</td>
+				<td>{m:t.keywords}</td>
+				<td>List of keywords that can be used to index the task.</td>
+				<td>key words : {m:t.keywords->sep(',')}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>behaviours</strong>
+				</td>
+				<td>List of Behaviors</td>
+				<td>{m:t.behavior}</td>
+				<td>behaviors where the task is involved</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>bindingRegistries</strong>
+				</td>
+				<td>List of BindingRegistries</td>
+				<td>{m:t.bindingRegistries}</td>
+				<td>binding registries associated to the task</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>version</strong>
+				</td>
+				<td>Integer</td>
+				<td>{m:t.version}</td>
+				<td>Version number of the elmeent.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>createdOn</strong>
+				</td>
+				<td>Date</td>
+				<td>{m:t.createdOn}</td>
+				<td>Date where the task has been created.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>modifiedOn</strong>
+				</td>
+				<td>Date</td>
+				<td>{m:t.modifiedOn}</td>
+				<td>Date where the task has been last modified.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>name</strong>
+				</td>
+				<td>String</td>
+				<td>{m:t.name}</td>
+				<td>name of the task.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>nodes</strong>
+				</td>
+				<td>List of Nodes</td>
+				<td>{m:t.nodes}</td>
+				<td>nodes of the activity</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>transitions</strong>
+				</td>
+				<td>List of Transitions</td>
+				<td>{m:t.transitions}</td>
+				<td>transitions between the activity's nodes</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>subActivities</strong>
+				</td>
+				<td>List of Loops</td>
+				<td>{m:t.subActivities}</td>
+				<td>sub activities</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>id</strong>
+				</td>
+				<td>String</td>
+				<td>{m:t.id}</td>
+				<td>task technical identifier</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>uses</strong>
+				</td>
+				<td>List of Tasks</td>
+				<td>{m:t.uses}</td>
+				<td>list of tasks that are used by this one.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>preconditions</strong>
+				</td>
+				<td>String</td>
+				<td>{m:t.preconditions}</td>
+				<td>list of preconditions of the task</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>postconditions</strong>
+				</td>
+				<td>String</td>
+				<td>{m:t.postconditions}</td>
+				<td>list of post conditions of the task</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>actors</strong>
+				</td>
+				<td>List of Actors</td>
+				<td>{m:t.actors}</td>
+				<td>list of actors that may carry the task.</td>
+				<td></td>
+			</tr>
+	</tbody>
+		</table>
+	</body>
+</html>

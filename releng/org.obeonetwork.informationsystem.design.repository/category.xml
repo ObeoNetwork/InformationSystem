@@ -106,6 +106,12 @@
    <feature url="features/org.obeonetwork.tools.snapshot.viewer.feature_5.0.0.qualifier.jar" id="org.obeonetwork.tools.snapshot.viewer.feature" version="5.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
+   <feature url="features/org.obeonetwork.dsl.graal.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.graal.m2doc.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.m2doc"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.requirement.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.requirement.m2doc.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.m2doc"/>
+   </feature>
    <feature url="features/org.obeonetwork.database.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.database.m2doc.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.m2doc"/>
    </feature>

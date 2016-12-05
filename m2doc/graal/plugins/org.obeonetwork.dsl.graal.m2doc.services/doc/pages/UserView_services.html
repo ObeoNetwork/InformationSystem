@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+/********************************************************************************
+** Copyright (c) 2016 Obeo.
+** All rights reserved. This program and the accompanying materials
+** are made available under the terms of the Eclipse Public License v1.0
+** which accompanies this distribution, and is available at
+** http://www.eclipse.org/legal/epl-v10.html
+**
+** Contributors:
+**    Obeo - initial API and implementation
+*********************************************************************************/
+-->
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Obeo"/>
+    <!-- IE6-8 support of HTML elements -->
+    <!--if lt IE 9>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/css/docs.css" rel="stylesheet"/>
+    <title>M2Doc Services and attributes for UserView</title>
+  </head>
+
+  <body>
+   <header class="jumbotron subhead" id="overview">
+  </header>
+
+		<h1 id="UserView">Services and attributes for the UserView concept</h1>
+		
+  	<div class="page-header">
+		<h2 id="Attributs">Attributes </h2>
+	</div>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Returned type</th>
+				<th>M2Doc Syntaxe</th>
+				<th>Description</th>
+				<th>Example</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<strong>metadatas</strong>
+				</td>
+				<td>List of MetaData</td>
+				<td>{m:v.metadatas}</td>
+				<td>access to a container of Meta datas which are key value maps.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>description</strong>
+				</td>
+				<td>String</td>
+				<td>{m:v.description}</td>
+				<td>description of the operator.</td>
+				<td>description : {m:v.description}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>keywords</strong>
+				</td>
+				<td>List of String</td>
+				<td>{m:v.keywords}</td>
+				<td>keywords used to index the element.</td>
+				<td>keywords : {m:v.keywords->sep(',')}</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>behaviours</strong>
+				</td>
+				<td>List of Behaviour</td>
+				<td>{m:v.behaviors}</td>
+				<td>behaviors related to the element.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>bindingRegistries</strong>
+				</td>
+				<td>List of BindingRegistries</td>
+				<td>{m:v.bindingRegistries}</td>
+				<td>binding registries related to the element.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>version</strong>
+				</td>
+				<td>EInt</td>
+				<td>{m:v.version}</td>
+				<td>version number.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>createdOn</strong>
+				</td>
+				<td>Date</td>
+				<td>{m:v.createdOn}</td>
+				<td>creation date.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>modifiedOn</strong>
+				</td>
+				<td>Date</td>
+				<td>{m:v.modifiedOn}</td>
+				<td>modification date.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>outgoingTransitions</strong>
+				</td>
+				<td>List of Transitions</td>
+				<td>{m:v.outgoingTransitions}</td>
+				<td>list of out going transitions.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>incomingTransitions</strong>
+				</td>
+				<td>List of Transitions</td>
+				<td>{m:v.incomingTransitions}</td>
+				<td>list of incoming transitions.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<strong>name</strong>
+				</td>
+				<td>String</td>
+				<td>{m:v.name}</td>
+				<td>name of the element.</td>
+				<td></td>
+			</tr>
+	</tbody>
+		</table>
+	</body>
+</html>
