@@ -139,6 +139,19 @@ public class ActorUtils {
 	}
 	
 	/**
+	 * Returns the visible actors for a task
+	 * @param task
+	 * @return
+	 */
+	public Set<Actor> getVisibleActors(Task task) {
+		HashMap<Task, Set<Actor>> cache = new HashMap<Task, Set<Actor>>();
+		Set<Actor> actors = new LinkedHashSet<Actor>();
+		List<Actor> actorsLeft = getAllActorsInContext(task);
+		actors.addAll(internalGetVisibleActors(task, cache, actorsLeft));
+		return actors;
+	}
+	
+	/**
 	 * Returns the visible actors for a use case
 	 * @param useCase
 	 * @return

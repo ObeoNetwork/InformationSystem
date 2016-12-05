@@ -46,7 +46,7 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_System']" name="Tasks Graph" titleExpression="Tasks Graph" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Tasks Graph')->size() &lt; 1/]">
-      <metamodel href="../../../plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description_1:CompositeLayout" padding="20"/>
       <defaultLayer name="Default">
         <nodeMappings name="TG_Task" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Actions%20Plan']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='TG_Delete_Task']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:tasks" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='Go%20To%20Actions%20Plan%20Representation']" domainClass="graal.Task">
@@ -346,7 +346,7 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_ExistingTask'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Node'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@toolSections.4/@ownedTools[name='DAD_Loop']" name="Actions Plan" titleExpression="[name + ' Actions Plan'/]" domainClass="graal.Task" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Actions Plan')->size() &lt; 1/]" rootExpression="">
-      <metamodel href="../../../plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description_1:CompositeLayout" padding="15" direction="LeftToRight"/>
       <diagramInitialisation>
         <firstModelOperations xsi:type="tool_1:If" conditionExpression="[nodes->filter(graal::InitialNode)->size() = 0/]">
@@ -837,7 +837,7 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Actors Graph" titleExpression="Actors Graph" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Actors Graph')->size() &lt; 1/]">
-      <metamodel href="../../../plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description_1:CompositeLayout" direction="bottomToTop"/>
       <defaultLayer name="Default">
         <nodeMappings name="AG_Actor" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:actors" domainClass="graal.Actor">
@@ -889,7 +889,7 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='DAD_AbstractTask']" name="TasksGroup Graph" titleExpression="[name + ' Tasks Graph'/]" domainClass="graal.TasksGroup" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'TasksGroup Graph')->size() &lt; 1/]">
-      <metamodel href="../../../plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description_1:CompositeLayout"/>
       <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@edgeMappings[name='TG_Use']">
         <toolSections name="Tasks" reusedTools="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@ownedTools[name='Existing%20task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_TasksGroup'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@ownedTools[name='CRE_Use'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='Go%20To%20Tasksgroup%20Tasks%20Graph'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='Go%20To%20Actions%20Plan%20Representation'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@toolSections.0/@ownedTools[name='Graal']">
@@ -901,10 +901,10 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Use Cases Main View" titleExpression="Use Cases Main View" domainClass="graal.System" preconditionExpression="[eInverse()->filter(diagram::DDiagram)->select(d: diagram::DDiagram | not (d.eContainer().oclIsUndefined())).description->select(name = 'Use Cases Main View')->size() &lt; 1/]">
-      <metamodel href="../../../plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description_1:CompositeLayout"/>
       <defaultLayer name="Default">
-        <nodeMappings name="UCM_UseCase" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Use%20Case%20Diagram']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:useCases" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Navigate%20to%20Use%20Case%20diagram']" domainClass="graal.UseCase">
+        <nodeMappings name="UCM_UseCase" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Use%20Case%20Diagram'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Actors%20list']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:useCases" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Cases%20Main%20View']/@defaultLayer/@toolSections.0/@ownedTools[name='Navigate%20to%20Use%20Case%20diagram']" domainClass="graal.UseCase">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="service:computeGraalLabel" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.graal.design/images/use_case.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -974,6 +974,13 @@
             <containerViewVariable name="containerView"/>
             <representationNameVariable name="diagramName"/>
           </ownedTools>
+          <ownedTools xsi:type="description_2:TableCreationDescription" name="Create Actors list" tableDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            </initialOperation>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="tableName"/>
+          </ownedTools>
           <subSections name="Usability tools">
             <ownedTools xsi:type="tool:DeleteElementDescription" name="UCM_Delete_Extend">
               <element name="element"/>
@@ -1019,7 +1026,7 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='DAD_Task']" name="Use Case Diagram" titleExpression="[name + ' Use Case Diagram'/]" domainClass="graal.UseCase">
-      <metamodel href="../../../plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.graal/model/graal.ecore#/"/>
       <layout xsi:type="description_1:CompositeLayout"/>
       <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@edgeMappings[name='TG_Use'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task']">
         <containerMappings name="UCD_TasksGroup" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@defaultLayer/@toolSections.0/@subSections[name='Usability%20tools']/@ownedTools[name='UCD_Delete_TasksGroup']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Generic%20Edit%20Label']" semanticCandidatesExpression="feature:tasks" domainClass="graal.TasksGroup" reusedNodeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Tasks%20Graph']/@defaultLayer/@nodeMappings[name='TG_Task']" reusedContainerMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@defaultLayer/@containerMappings[name='UCD_TasksGroup']">
@@ -1753,6 +1760,13 @@
           </ownedTools>
         </toolSections>
       </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="Actors list" titleExpression="[name + ' - Actors list'/]" domainClass="graal.UseCase">
+      <metamodel href="http://www.obeonetwork.org/dsl/graal/2.0.0#/"/>
+      <ownedLineMappings name="ACL_TasksGroup" reusedSubLines="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task']" domainClass="graal.TasksGroup" semanticCandidatesExpression="[tasks->sortedBy(t : graal::AbstractTask | t.name.toUpper())/]" headerLabelExpression="feature:name"/>
+      <ownedLineMappings name="ACL_Task" reusedInMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_TasksGroup']" domainClass="graal.Task" semanticCandidatesExpression="[tasks->sortedBy(t : graal::AbstractTask | t.name.toUpper())/]" headerLabelExpression="feature:name"/>
+      <ownedColumnMappings name="ACL_Actor" headerLabelExpression="feature:name" domainClass="graal.Actor" semanticCandidatesExpression="[getVisibleActors()->asSequence()->filter(Actor)->sortedBy(a : graal::Actor | a.name.toUpper())/]"/>
+      <intersection name="ACL_ActorOnTask" lineMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_Task'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedLineMappings[name='ACL_TasksGroup']" columnMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="service:getVisibleActors()"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.actor.ActorUtils"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.graal.design.services.group.GroupAction"/>
