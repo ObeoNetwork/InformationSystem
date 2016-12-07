@@ -86,6 +86,7 @@ public class DataBaseServices {
      */
     public Set<Sequence> allSequences(DataBase database) {
         Set<Sequence> result = new HashSet<Sequence>();
+        result.addAll(database.getSequences());
         Set<Table> tables = allTables(database);
         for (Table table : tables) {
             if (table.eContainer() instanceof TableContainer) {
