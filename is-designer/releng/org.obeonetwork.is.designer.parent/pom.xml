@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<groupId>org.obeonetwork.is.designer</groupId>
+	<artifactId>org.obeonetwork.is.designer.parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>org.obeonetwork.is.designer.parent</name>
+
+	<modules>
+		<module>../../branding/features/org.obeonetwork.is.designer.ui.feature</module>
+		<module>../../branding/plugins/org.obeonetwork.is.designer.branding</module>
+		<module>../../branding/plugins/org.obeonetwork.is.designer.ui</module>
+<!-- A mettre sur ObeoNetwork -->
+<!--
+		<module>../../database/features/fr.gouv.mindef.safran.database.scaffold.feature</module>
+		<module>../../database/plugins/fr.gouv.mindef.safran.database.scaffold</module>
+		<module>../../database/plugins/fr.gouv.mindef.safran.database.scaffold.edit</module>
+		<module>../../database/plugins/fr.gouv.mindef.safran.database.scaffold.editor</module>
+		<module>../../database/features/fr.gouv.mindef.safran.database.ui.feature</module>
+		<module>../../database/plugins/fr.gouv.mindef.safran.database</module>
+		<module>../../database/plugins/fr.gouv.mindef.safran.database.doc</module>
+		<module>../../database/plugins/fr.gouv.mindef.safran.database.ui</module>
+		<module>../../database/plugins/fr.gouv.mindef.safran.database.tests</module>
+-->
+		<module>../org.obeonetwork.is.designer.product.feature</module>
+		<module>../org.obeonetwork.is.designer.product</module>
+		
+	</modules>
+
+
+	<properties>
+		<tycho-version>0.22.0</tycho-version>
+		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>Indigo Release</id>
+			<url>http://www.obeo.fr/download/acceleo/maven/releases/indigo</url>
+		</repository>
+		<repository>
+			<id>Snapshots</id>
+			<url>http://www.obeo.fr/download/acceleo/maven/snapshots</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>Indigo Release</id>
+			<url>http://www.obeo.fr/download/acceleo/maven/releases/indigo</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>Indigo Snapshots</id>
+			<url>http://www.obeo.fr/download/acceleo/maven/snapshots</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.acceleo</groupId>
+			<artifactId>maven</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<resolver>p2</resolver>
+					<resolveWithExecutionEnvironmentConstraints>false</resolveWithExecutionEnvironmentConstraints>
+					<dependency-resolution>
+						<optionalDependencies>ignore</optionalDependencies>
+					</dependency-resolution>
+					<target>
+						<artifact>
+							<groupId>org.obeonetwork.is.designer</groupId>
+							<artifactId>org.obeonetwork.is.designer.parent</artifactId>
+							<version>1.0.0-SNAPSHOT</version>
+							<classifier>target_platform/isdesigner</classifier>
+						</artifact>
+					</target>
+					<pomDependencies>consider</pomDependencies>
+					<environments>
+						<!-- <environment> <os>linux</os> <ws>gtk</ws> <arch>x86</arch> </environment> -->
+						<!-- <environment> <os>win32</os> <ws>win32</ws> <arch>x86</arch> </environment> -->
+						<environment> <os>win32</os> <ws>win32</ws> <arch>x86_64</arch> </environment>
+						<!-- <environment> <os>linux</os> <ws>gtk</ws> <arch>x86_64</arch> </environment> -->
+						<!-- <environment> <os>macosx</os> <ws>cocoa</ws> <arch>x86_64</arch> </environment> -->
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-source-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<executions>
+						<execution>
+							<id>plugin-source</id>
+							<goals>
+								<goal>plugin-source</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.4.1</version>
+					<configuration>
+						<encoding>ISO-8859-1</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.3</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-pmd-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<sourceEncoding>utf-8</sourceEncoding>
+						<minimumTokens>100</minimumTokens>
+						<targetJdk>1.6</targetJdk>
+						<format>xml</format>
+						<failOnViolation>false</failOnViolation>
+					</configuration>
+					<executions>
+						<execution>
+							<!-- <goals> <goal>cpd-check</goal> </goals> -->
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>

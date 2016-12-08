@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+ <extension point= "org.eclipse.ui.activities" >
+<activity id= "visible.activity"
+description= "Obeo Designer Activities"
+name= "Obeo Designer"
+/> 
+<activity id= "hidden.activity"
+description= "Hidden Activities"
+name= "Hidden"
+/>
+<!-- other activity requires activity -->
+<activityRequirementBinding activityId= "hidden.activity"
+requiredActivityId= "visible.activity"
+/>
+<category id= "org.obeonetwork.dsl.designer.Category"
+description= "Obeo Designer Activities"
+name= "Obeo Designer"
+/>
+<!-- put the activity in the category -->
+<categoryActivityBinding activityId= "visible.activity"
+categoryId= "org.obeonetwork.dsl.designer.Category"
+/>
+<!-- visible contributions-->
+<activityPatternBinding activityId="visible.activity" pattern= "fr\.obeo\.dsl\..*/.*"/>
+<activityPatternBinding activityId="visible.activity" pattern= "fr\.obeo\.mda\..*/.*"/>
+<activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.jdt\..*/.*"/>
+<activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.pde\..*/.*"/>
+<activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.gmf\..*/.*"/>
+<activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.emf\..*/.*"/>
+<activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.jet\..*/.*"/>
+<activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\.ant\..*/.*"/>
+<activityPatternBinding activityId="visible.activity" pattern= "org\.eclipse\..*/.*ant\..*/.*"/>
+<activityPatternBinding activityId="visible.activity"  pattern="org\.eclipse\.team\.ui/org.*"/>
+<activityPatternBinding activityId="visible.activity"  pattern="fr\.obeo\.acceleo\..*/.*"/>
+<activityPatternBinding activityId="visible.activity" pattern="org\.eclipse\.jdt\.debug/debugModel"/>
+  <!-- hidden contributions-->
+<activityPatternBinding activityId="hidden.activity"  pattern="fr\.obeo\.dsl\.designer\.architect\..*/.*"/>
+<activityPatternBinding activityId="hidden.activity" pattern="fr\.obeo\.dsl\.designer\.editor\.wizards\.ViewpointModelWizardID"/>
+<activityPatternBinding activityId="hidden.activity" pattern="fr\.obeo\.dsl\.viewpoint\.diagram\.part\.ViewpointCreationWizardID"/>
+<!-- our activity should be enabled by default -->
+ 
+<defaultEnablement id="visible.activity"/>
+
+</extension>
+
+<extension point="org.eclipse.core.runtime.products" id="product">
+	<product name="%productName" application="org.eclipse.ui.ide.workbench">
+		<property name="windowImages" value="icons/logo_16.gif,icons/logo_32.gif,icons/logo_64.gif"/>
+        <property name="appName" value="%productName"/>
+		<property name="aboutImage" value="icons/about.gif"/>
+		<property name="aboutText" value="%aboutText"/>
+		<property name="startupForegroundColor" value="000000"/>
+		<property name="startupMessageRect" value="7,303,441,15"/>
+		<property name="startupProgressRect" value="3,320,446,15"/>
+		<property name="preferenceCustomization" value="plugin_customization.ini"></property>
+		<property name="cssTheme" value="net.jeeeyul.eclipse.themes.custom"></property>
+	</product>
+</extension>
+
+<extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.sirius.ui.tools.perspective.design">
+         <actionSet
+               id="org.eclipse.debug.ui.launchActionSet">
+         </actionSet>
+         <newWizardShortcut
+               id="org.eclipse.acceleo.ide.ui.wizards.newfile.AcceleoModuleWizard">
+         </newWizardShortcut>
+         <newWizardShortcut
+               id="org.eclipse.acceleo.ide.ui.wizards.newfile.main.AcceleoNewMainTemplateWizard">
+         </newWizardShortcut>
+         <perspectiveShortcut
+               id="org.eclipse.acceleo.ide.ui.AcceleoPerspective">
+         </perspectiveShortcut>
+         <newWizardShortcut
+               id="org.eclipse.acceleo.ide.ui.wizards.newproject.AcceleoNewProjectUIWizard">
+         </newWizardShortcut>
+      </perspectiveExtension>
+</extension>
+
+</plugin>

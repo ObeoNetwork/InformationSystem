@@ -1,0 +1,142 @@
+target "Safr@n Target Definition"
+
+location "http://update.obeo.fr/integration/informationsystem/5.0/design/repository/" {
+	org.obeonetwork.dsl.feature.environment.feature.group lazy
+	org.obeonetwork.dsl.feature.entity.feature.group lazy
+	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
+	org.obeonetwork.dsl.feature.soa.feature.group lazy
+	org.obeonetwork.graal.feature.feature.group lazy
+	org.obeonetwork.dsl.feature.requirement.feature.group lazy
+	org.obeonetwork.dsl.feature.is.feature.group lazy
+	org.obeonetwork.dsl.feature.overview.feature.group lazy
+	org.obeonetwork.dsl.feature.interaction.feature.group lazy
+	org.obeonetwork.dsl.feature.statemachine.feature.group lazy
+	org.obeonetwork.dsl.database.feature.feature.group lazy
+	org.obeonetwork.dsl.typelibrary.feature.feature.group lazy
+	org.obeonetwork.dsl.database.synchronizer.feature.group lazy
+	org.obeonetwork.dsl.database.reverse.feature.feature.group lazy
+	org.obeonetwork.tools.migration.feature.feature.group lazy
+	org.eclipse.nebula.treemapper.feature.feature.group lazy
+	org.obeonetwork.dsl.cinematic.design.feature.feature.group lazy
+	org.obeonetwork.dsl.database.design.feature.feature.group lazy
+	org.obeonetwork.dsl.entity.design.feature.feature.group lazy
+	org.obeonetwork.dsl.interaction.design.feature.feature.group lazy
+	org.obeonetwork.dsl.statemachine.design.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.design.services.feature.feature.group lazy
+	org.obeonetwork.dsl.feature.is.design.feature.group lazy
+	org.obeonetwork.dsl.requirement.design.feature.feature.group lazy
+	org.obeonetwork.dsl.soa.design.feature.feature.group lazy
+	org.obeonetwork.graal.design.feature.feature.group lazy
+	org.obeonetwork.tools.doc.feature.feature.group lazy
+	org.obeonetwork.tools.linker.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.design.migration.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.binding.design.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.binding.dialect.feature.feature.group lazy
+	org.obeonetwork.dsl.feature.technicalid.feature.group lazy
+	org.obeonetwork.dsl.environment.design.feature.feature.group lazy
+	org.obeonetwork.tools.snapshot.viewer.feature.feature.group lazy
+	org.obeonetwork.database.m2doc.feature.feature.group lazy
+}
+
+location "http://update.obeo.fr/release/designer/8.1/team/latest/repository/" {
+	org.eclipse.e4.rcp.feature.group
+	org.eclipse.platform.feature.group
+	org.eclipse.jdt.feature.group
+	org.eclipse.emf.feature.group
+	org.eclipse.emf.ecore.feature.group
+	org.eclipse.emf.common.feature.group
+	org.eclipse.emf.common.ui.feature.group
+	org.eclipse.emf.edit.feature.group
+	org.eclipse.emf.ecore.edit.feature.group
+	org.eclipse.emf.edit.ui.feature.group
+	org.eclipse.emf.ecore.editor.feature.group
+	org.eclipse.emf.transaction.feature.group
+	org.eclipse.emf.validation.feature.group
+	org.eclipse.emf.workspace.feature.group
+	org.eclipse.emf.compare.feature.group
+	org.eclipse.emf.compare.ide.ui.feature.group
+	org.eclipse.emf.compare.rcp
+	org.eclipse.emf.compare.rcp.ui
+	org.eclipse.emf.cdo.common
+	org.eclipse.acceleo.feature.group
+	org.eclipse.acceleo.query.feature.group
+	org.eclipse.sirius.runtime.feature.group
+	org.eclipse.sirius.runtime.ide.ui.feature.group
+	fr.obeo.dsl.designer.gen.html.feature.feature.group
+	fr.obeo.dsl.viewpoint.runtime.collab.feature.group
+	org.eclipse.net4j.util.feature.group
+	org.eclipse.emf.cdo.net4j
+	org.eclipse.net4j.feature.group
+	org.eclipse.net4j.feature.patch.feature.group
+	org.eclipse.emf.eef.runtime-feature.feature.group
+	org.eclipse.gmf.feature.group
+	fr.obeo.oo15oo.oo339oo.feature.group
+	org.eclipse.draw2d.feature.group
+	org.eclipse.gef.feature.group
+	org.eclipse.gmf.runtime.notation.feature.group
+	org.eclipse.gmf.runtime.notation.feature.patch.feature.group
+	org.eclipse.sirius.runtime.acceleo.feature.group
+	org.eclipse.sirius.runtime.ide.eef.feature.group
+	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group
+	fr.obeo.dsl.viewpoint.collab.doc.feature.feature.group
+	fr.obeo.dsl.viewpoint.runtime.cdonative.feature.group
+	fr.obeo.dsl.viewpoint.runtime.collab.ide.eef.feature.group
+	fr.obeo.dsl.viewpoint.runtime.collab.ide.ui.feature.group
+	fr.obeo.dsl.viewpoint.runtime.ide.ui.cdonative.feature.group
+	org.eclipse.ecf.core.feature.feature.group
+	org.eclipse.emf.eef.edt-feature.feature.group
+	org.eclipse.emf.eef.extended-feature.feature.group
+	org.eclipse.sdk.feature.group
+	org.eclipse.egit.feature.group
+	org.eclipse.jgit.feature.group
+	org.apache.commons.lang
+	org.eclipse.emf.cdo.feature.patch.feature.group
+	org.eclipse.emf.cdo.feature.group
+	org.eclipse.equinox.concurrent
+	org.eclipse.emf.cdo.server.feature.patch.feature.group
+	org.eclipse.emf.cdo.server.feature.group
+	org.eclipse.net4j.db.feature.group
+	org.eclipse.emf.cdo.server.db.feature.group
+	org.eclipse.net4j.ui.feature.group
+	org.eclipse.emf.eef.codegen.ecore-feature.feature.group
+	org.eclipse.emf.common.source.feature.group
+	org.eclipse.emf.ecore.source.feature.group
+	org.eclipse.ecf.core.source.feature.feature.group
+	org.eclipse.ecf.core.ssl.source.feature.feature.group
+	org.eclipse.ecf.filetransfer.source.feature.feature.group
+	org.eclipse.ecf.filetransfer.httpclient4.source.feature.feature.group
+	org.eclipse.ecf.filetransfer.httpclient4.ssl.source.feature.feature.group
+	org.eclipse.ecf.filetransfer.ssl.source.feature.feature.group
+	org.eclipse.ecf.core.ssl.feature.feature.group
+	org.eclipse.ecf.filetransfer.feature.feature.group
+	org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group
+	org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group
+	org.eclipse.ecf.filetransfer.ssl.feature.feature.group
+	org.eclipse.emf.eef.collab.runtime-feature.feature.group
+	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group
+	org.eclipse.sirius.runtime.ocl.feature.group
+	org.eclipse.ocl.feature.group
+	org.eclipse.sirius.specifier.ide.ui.feature.group
+	org.eclipse.epp.mpc.feature.group
+	org.eclipse.equinox.p2.discovery.feature.feature.group
+	org.eclipse.sirius.doc.feature.feature.group
+	fr.obeo.dsl.designer.ce.feature.feature.group
+	fr.obeo.dsl.designer.te.feature.feature.group
+	fr.obeo.dsl.viewpoint.collab.doc.javadoc.feature.feature.group
+}
+
+location "http://download.eclipse.org/releases/mars/" {
+	org.eclipse.equinox.executable.feature.group
+	org.apache.commons.io
+}
+
+location "http://update.obeo.fr/licensesComptes/Mindef/Paris/users/mindef-all/enterprise-license-od/update/" {
+	fr.obeo.mda.license.feature.group
+}
+
+location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.6/repository" {
+	org.apache.poi.feature.feature.group lazy
+	org.obeonetwork.m2doc.feature.feature.group lazy
+	org.obeonetwork.m2doc.sirius.feature.feature.group lazy
+	org.obeonetwork.m2doc.sirius.addon.feature.feature.group lazy
+}

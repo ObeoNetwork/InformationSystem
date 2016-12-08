@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.obeonetwork.is.designer.product.feature"
+      label="IS Designer Product Feature"
+      version="1.6.1.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <includes
+         id="org.eclipse.sirius.runtime"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sirius.runtime.acceleo"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sirius.runtime.ide.eef"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sirius.runtime.ide.ui"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sirius.runtime.ide.ui.acceleo"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.obeo.dsl.viewpoint.collab.doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.obeo.dsl.viewpoint.runtime.cdonative"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.obeo.dsl.viewpoint.runtime.collab"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.obeo.dsl.viewpoint.runtime.collab.ide.eef"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.obeo.dsl.viewpoint.runtime.collab.ide.ui"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.obeo.dsl.viewpoint.runtime.ide.ui.cdonative"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.nebula.treemapper.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.cinematic.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.database.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.database.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.database.reverse.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.database.synchronizer"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.cinematic"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.core.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.entity.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.entity"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.interaction"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.interaction.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.statemachine"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.statemachine.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.environment.design.services.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.environment"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.is"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.is.design"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.overview"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.requirement"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.requirement.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.feature.soa"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.soa.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.typelibrary.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.graal.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.graal.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.tools.doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.tools.linker.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.tools.migration.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.is.designer.ui.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.eef.edt-feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.eef.extended-feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.eef.runtime-feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sirius.runtime.ide.eef"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.environment.design.migration.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.environment.binding.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.environment.binding.dialect.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.egit"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.obeo.dsl.designer.gen.html.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.cdo.feature.patch"
+         version="0.0.0"
+         search-location="both"/>
+
+   <includes
+         id="org.eclipse.emf.cdo.server.feature.patch"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gmf.runtime.notation.feature.patch"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.cdo.server"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gmf.runtime.notation"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.dsl.environment.design.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.tools.snapshot.viewer.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.acceleo.query"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.obeo.mda.license"
+         version="0.0.0"/>
+
+   <includes
+         id="org.apache.poi.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.m2doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.m2doc.sirius.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.m2doc.sirius.addon.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.database.m2doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.obeo.dsl.viewpoint.collab.doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sirius.doc.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.obeo.dsl.designer.te.feature"
+         version="0.0.0"/>
+
+</feature>
