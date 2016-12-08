@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IS Designer UI Contributions
+Bundle-SymbolicName: org.obeonetwork.is.designer.ui;singleton:=true
+Bundle-Version: 1.2.0.qualifier
+Bundle-Activator: org.obeonetwork.is.designer.Activator
+Bundle-Vendor: Obeo.fr
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

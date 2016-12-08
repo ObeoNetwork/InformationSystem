@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.obeonetwork.is.designer.ui.feature"
+      label="IS Designer UI Contributions Feature"
+      version="1.0.0.qualifier">
+
+   <description url="http://www.obeo.fr">
+      Information Designer UI
+   </description>
+
+   <copyright url="http://www.obeo.fr">
+      Copyright (c) 2010 Obeo
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.obeonetwork.is.designer.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.obeonetwork.is.designer.branding"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>
