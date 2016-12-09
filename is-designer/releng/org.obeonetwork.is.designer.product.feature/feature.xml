@@ -288,5 +288,13 @@
    <includes
          id="fr.obeo.dsl.designer.te.feature"
          version="0.0.0"/>
+         
+   <includes
+         id="fr.gouv.mindef.safran.database.scaffold.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="fr.gouv.mindef.safran.database.ui.feature"
+         version="0.0.0"/>
 
 </feature>
