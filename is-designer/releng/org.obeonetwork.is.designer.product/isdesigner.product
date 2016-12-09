@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Information System Designer" uid="org.obeonetwork.is.designer.product" id="org.obeonetwork.is.designer.product" application="org.eclipse.ui.ide.workbench" version="1.6.1.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Information System Designer" uid="org.obeonetwork.is.designer.branding.product" id="org.obeonetwork.is.designer.branding.product" application="org.eclipse.ui.ide.workbench" version="1.6.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="icons/about.gif"/>
@@ -42,7 +42,7 @@ Visit http://www.obeo.fr
       startupForegroundColor="000000" />
    <launcher name="is-designer">
       <linux icon="/icons/logo_64.xpm"/>
-      <macosx icon="/icons/Obeo_Designer.icns"/>
+      <macosx icon="/icons/icon_isdesigner.icns"/>
       <solaris/>
       <win useIco="false">
          <bmp/>

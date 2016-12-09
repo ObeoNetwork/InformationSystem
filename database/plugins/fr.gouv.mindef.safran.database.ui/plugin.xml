@@ -33,7 +33,7 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="popup:fr.gouv.mindef.safran.menu?after=additions">
+            locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
          <command
                commandId="fr.gouv.mindef.safran.database.ui.command.GenerateSQL"
                icon="icons/SqlFile.gif"

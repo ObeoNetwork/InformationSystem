@@ -1,4 +1,4 @@
-target "Safr@n Target Definition"
+target "IS Designer Target Definition"
 
 location "http://update.obeo.fr/integration/informationsystem/5.0/design/repository/" {
 	org.obeonetwork.dsl.feature.environment.feature.group lazy

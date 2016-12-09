@@ -3,12 +3,12 @@ __(c) Obeo 2012, 2016 -  All rights reserved. This program and the accompanying 
 @Authors@ Stéphane Thibaudeau
 @Contact@ stephane.thibaudeau@obeo.fr
 
-h1. Safr@n - Base de données et Scaffolding
+h1. Obeonetwork - Base de données et Scaffolding
 
 h2. Vue d'ensemble
 
 Le _Scaffolding_ est une technique popularisée par le socle de développement _Ruby on Rails_ qui vise à produire des livrables (code, modèle, documentation) à partir des informations structurelles d'une base de données.
-En l’occurrence, l'outillage de scaffolding Safr@n propose les fonctionnalités suivantes : 
+En l’occurrence, l'outillage de scaffolding IS Designer propose les fonctionnalités suivantes : 
 * un module capable d'extraire les informations structurelles d'une base de données relationnelles existantes (MySQL, Oracle, PostgreSQL, SQL Server ou H2) et de produire un modèle EMF conforme au méta-modèle _Database_ hébergé par Obeo Network : https://github.com/ObeoNetwork/InformationSystem
 * un modeleur de base de données, basé sur Obeo Designer, permettant de réaliser des Modèles Physique et Logique de Données.
 * un module de comparaison de deux modèles _Database_ et un générateur de scripts SQL capable de déduire les instructions SQL permettant la mise à jour de la base de données.
@@ -85,7 +85,7 @@ Un répertoire _sql_, contenant l'ensemble des scripts, sera créé à la racine
 
 *Génération complète*
 
-Il est possible de générer les scripts SQL pour générer complètement une base de données. Pour cela il suffit d'utiliser le menu clic droit sur le modèle et sélectionner _Safr@n > Generate SQL Scripts_ 
+Il est possible de générer les scripts SQL pour générer complètement une base de données. Pour cela il suffit d'utiliser le menu clic droit sur le modèle et sélectionner _IS Designer > Generate SQL Scripts_ 
 
 !pics/BDD_GenSQL_02.png!
 
