@@ -1,0 +1,1953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmi:id="_kjXsoDPeEeKyr4EGGyIgaw" createdOn="2012-12-03T14:41:00.675+0100" modifiedOn="2012-12-04T18:28:14.515+0100">
+  <blocks xmi:id="_pPYMgT4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.740+0100" modifiedOn="2013-09-05T17:22:54.793+0200" name="dac1-pe-mld">
+    <entities xmi:id="_pPv_8D4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.775+0100" modifiedOn="2013-09-05T17:22:54.472+0200" name="PfeRfCommcpDoitEtreConserve" estimatedVolumetry="100" estimatedAccess="1000">
+      <metadatas xmi:id="_pPv_8T4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pPv_8j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_COMMCP"/>
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_0197gD4dEeK6-dc-bah3pw" title="A_CONSERVER" body="Autre annotation pas concernée pas la transformation&#xD;&#xA;"/>
+      </metadatas>
+      <ownedReferences xmi:id="_pQeYwj4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_ORGANISME" createdOn="2012-12-04T14:22:25.851+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="organismeCodepostalcomFk" multiplicity="0..*" type="_pQDh8D4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQeYwz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQeYxD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="ORGANISME_CODEPOSTALCOM_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pPv_-z4VEeKH3oFDKEyrCw" description="Test sur commentaire" createdOn="2012-12-04T14:22:25.775+0100" modifiedOn="2013-09-05T17:22:54.568+0200" name="PfeRfCp">
+      <metadatas xmi:id="_pPv__D4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_CSr90BY_EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="PFE_RF_CP"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPv__j4VEeKH3oFDKEyrCw" description="Code postal" createdOn="2012-12-04T14:22:25.775+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfCpCodDoitEtreConserve" multiplicity="1">
+        <metadatas xmi:id="_pPv__z4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPwAAD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CP_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPwnAD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="5"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQdxrD4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_COMMCP" createdOn="2012-12-04T14:22:25.850+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="codepostalcomCodepostalFk" multiplicity="0..*" type="_pPv_8D4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQdxrT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdxrj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="CODEPOSTALCOM_CODEPOSTAL_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pPxOED4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.777+0100" modifiedOn="2013-09-05T17:22:54.603+0200" name="PfeRfCptclautil">
+      <metadatas xmi:id="_CSsk4BY_EeOSDrYWINMwpA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_CSsk4RY_EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="PFE_RF_CPTCLAUTIL"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPxOEz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.777+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfCptclautilCod" multiplicity="1">
+        <metadatas xmi:id="_pPxOFD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPxOFT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CPTCLAUTIL_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPxOFj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPxOFz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.777+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfCptclautilLib" multiplicity="1">
+        <metadatas xmi:id="_pPxOGD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPxOGT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CPTCLAUTIL_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPxOGj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPxOGz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.777+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfCptclautilLiba" multiplicity="1">
+        <metadatas xmi:id="_pPx1ID4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPx1IT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CPTCLAUTIL_LIBA"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPx1Ij4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQe_0T4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_TOUV" createdOn="2012-12-04T14:22:25.852+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="typeouvrageClasseutilisaFk" multiplicity="0..*" type="_pQTZmD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQe_0j4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQe_0z4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="TYPEOUVRAGE_CLASSEUTILISA_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pPx1Kz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.778+0100" modifiedOn="2013-09-05T17:22:54.630+0200" name="PfeRfDept">
+      <metadatas xmi:id="_pPx1LD4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pPycMD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_DEPT"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPycMT4VEeKH3oFDKEyrCw" description="Code du département" createdOn="2012-12-04T14:22:25.779+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfDeptCod" multiplicity="1">
+        <metadatas xmi:id="_pPycMj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPycMz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_DEPT_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPycND4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="3"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPycNT4VEeKH3oFDKEyrCw" description="Libellé du département" createdOn="2012-12-04T14:22:25.779+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfDeptLib" multiplicity="1">
+        <metadatas xmi:id="_pPycNj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPycNz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_DEPT_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPycOD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPycOT4VEeKH3oFDKEyrCw" description="Zone du département" createdOn="2012-12-04T14:22:25.779+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfDeptZone">
+        <metadatas xmi:id="_pPycOj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPycOz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_DEPT_ZONE"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPycPD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="15"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQdxpj4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_COMM" createdOn="2012-12-04T14:22:25.850+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="communeDepartementdeFk" multiplicity="0..*" type="_pPux1z4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQdxpz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdxqD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="COMMUNE_DEPARTEMENTDE_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pPzDSD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.780+0100" modifiedOn="2013-09-05T17:22:54.663+0200" name="PfeRfDom">
+      <metadatas xmi:id="_pPzDST4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pPzDSj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_DOM"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPzDSz4VEeKH3oFDKEyrCw" description="Code du domaine d'investissement" createdOn="2012-12-04T14:22:25.780+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfDomCod" multiplicity="1">
+        <metadatas xmi:id="_pPzqUD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPzqUT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_DOM_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPzqUj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPzqUz4VEeKH3oFDKEyrCw" description="Libellé du domaine d'investissement" createdOn="2012-12-04T14:22:25.781+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfDomLib" multiplicity="1">
+        <metadatas xmi:id="_pPzqVD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPzqVT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_DOM_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPzqVj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="60"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPzqVz4VEeKH3oFDKEyrCw" description="Exemples de domaine d'investissement" createdOn="2012-12-04T14:22:25.781+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfDomExples">
+        <metadatas xmi:id="_pPzqWD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPzqWT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_DOM_EXPLES"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPzqWj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="200"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pP0RZT4VEeKH3oFDKEyrCw" description="Montants des EJ par code eOTP pour les affaires" createdOn="2012-12-04T14:22:25.782+0100" modifiedOn="2013-09-05T17:22:54.693+0200" name="PfeRfEjeotpaff">
+      <metadatas xmi:id="_pP0RZj4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP0RZz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_EJEOTPAFF"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP0RaD4VEeKH3oFDKEyrCw" description="Montant cumulé depuis origine des EJ réels pour toutes les tranches fonctionnelles" createdOn="2012-12-04T14:22:25.782+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfEjeotpaffEjrorigtf">
+        <metadatas xmi:id="_pP0RaT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP0Raj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPAFF_EJRORIGTF"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSsk4hY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP04cD4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des EJ réels pour l'UO N/A" createdOn="2012-12-04T14:22:25.783+0100" modifiedOn="2013-09-05T17:22:54.382+0200" name="RfEjeotpaffEjrorigna">
+        <metadatas xmi:id="_pP04cT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP04cj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPAFF_EJRORIGNA"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSsk4xY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP04cz4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des DP réelles" createdOn="2012-12-04T14:22:25.783+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpaffDprorig">
+        <metadatas xmi:id="_pP04dD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP04dT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPAFF_DPRORIG"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL8BY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP04dj4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des DP en attente" createdOn="2012-12-04T14:22:25.783+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpaffDpattorig">
+        <metadatas xmi:id="_pP04dz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP04eD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPAFF_DPATTORIG"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL8RY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP04eT4VEeKH3oFDKEyrCw" description="Montant cumulé pour la gestion en cours des EJ réels pour toutes les TF (non fourni par le FSO)&#xA;" createdOn="2012-12-04T14:22:25.783+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpaffEjrcourtf">
+        <metadatas xmi:id="_pP1fgD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP1fgT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPAFF_EJRCOURTF"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL8hY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP1fgj4VEeKH3oFDKEyrCw" description="Montant cumulé pour la gestion en cours des EJ réels pour toutes les tranches fonctionnelles (non fourni par le FSO)" createdOn="2012-12-04T14:22:25.784+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpaffEjrcourna">
+        <metadatas xmi:id="_pP1fgz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP1fhD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPAFF_EJRCOURNA"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL8xY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP1fhT4VEeKH3oFDKEyrCw" description="Montant cumulé pour la gestion en cours des DP réelles (non fourni par le FSO)" createdOn="2012-12-04T14:22:25.784+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpaffDprcour">
+        <metadatas xmi:id="_pP1fhj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP1fhz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPAFF_DPRCOUR"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL9BY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP1fiD4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des DP en attente (non fourni par le FSO)" createdOn="2012-12-04T14:22:25.784+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpaffDpattcour">
+        <metadatas xmi:id="_pP1fiT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP1fij4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPAFF_DPATTCOUR"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL9RY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP2GkD4VEeKH3oFDKEyrCw" description="Date du flux FSO" createdOn="2012-12-04T14:22:25.785+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpaffDtfso">
+        <metadatas xmi:id="_pP2GkT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP2Gkj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPAFF_DTFSO"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pP2Gmz4VEeKH3oFDKEyrCw" description="Montants des EJ par code eOTP pour les opérations " createdOn="2012-12-04T14:22:25.785+0100" modifiedOn="2013-09-05T17:22:54.717+0200" name="PfeRfEjeotpope">
+      <metadatas xmi:id="_pP2GnD4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP2GnT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_EJEOTPOPE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP2Gnj4VEeKH3oFDKEyrCw" description="Montant cumulé depuis origine des EJ réels pour toutes les tranches fonctionnelles" createdOn="2012-12-04T14:22:25.785+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpopeEjrorigtf">
+        <metadatas xmi:id="_pP2Gnz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP2GoD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPOPE_EJRORIGTF"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL9hY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP2toD4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des EJ réels pour l'UO N/A" createdOn="2012-12-04T14:22:25.786+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpopeEjrorigna">
+        <metadatas xmi:id="_pP2toT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP2toj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPOPE_EJRORIGNA"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL9xY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP2toz4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des DP réelles" createdOn="2012-12-04T14:22:25.786+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpopeDprorig">
+        <metadatas xmi:id="_pP2tpD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP2tpT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPOPE_DPRORIG"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL-BY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP2tpj4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des DP en attente" createdOn="2012-12-04T14:22:25.786+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpopeDpattorig">
+        <metadatas xmi:id="_pP2tpz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP2tqD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPOPE_DPATTORIG"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL-RY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP2tqT4VEeKH3oFDKEyrCw" description="Montant cumulé pour la gestion en cours des EJ réels pour toutes les TF (non fourni par le FSO)&#xA;" createdOn="2012-12-04T14:22:25.786+0100" modifiedOn="2013-09-05T17:22:54.383+0200" name="RfEjeotpopeEjrcourtf">
+        <metadatas xmi:id="_pP2tqj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP2tqz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPOPE_EJRCOURTF"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL-hY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP2trD4VEeKH3oFDKEyrCw" description="Montant cumulé pour la gestion en cours des EJ réels pour toutes les tranches fonctionnelles (non fourni par le FSO)" createdOn="2012-12-04T14:22:25.786+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEjeotpopeEjrcourna">
+        <metadatas xmi:id="_pP2trT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP2trj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPOPE_EJRCOURNA"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStL-xY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP2trz4VEeKH3oFDKEyrCw" description="Montant cumulé pour la gestion en cours des DP réelles (non fourni par le FSO)" createdOn="2012-12-04T14:22:25.786+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEjeotpopeDprcour">
+        <metadatas xmi:id="_pP3UsD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP3UsT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPOPE_DPRCOUR"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStzABY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP3Usj4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des DP en attente (non fourni par le FSO)" createdOn="2012-12-04T14:22:25.787+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEjeotpopeDpattcour">
+        <metadatas xmi:id="_pP3Usz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP3UtD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPOPE_DPATTCOUR"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CStzARY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP3UtT4VEeKH3oFDKEyrCw" description="Date du flux FSO" createdOn="2012-12-04T14:22:25.787+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEjeotpopeDtfso">
+        <metadatas xmi:id="_pP3Utj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP3Utz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EJEOTPOPE_DTFSO"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pP3UwD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.787+0100" modifiedOn="2013-09-05T17:22:54.742+0200" name="PfeRfEotp">
+      <metadatas xmi:id="_pP37wD4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP37wT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_EOTP"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP37wj4VEeKH3oFDKEyrCw" description="Code de l'élément d'OTP de CHORUS." createdOn="2012-12-04T14:22:25.788+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpEwbselemnt" multiplicity="1">
+        <metadatas xmi:id="_pP37wz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP37xD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_EWBSELEMNT"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP37xT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="24"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP37xj4VEeKH3oFDKEyrCw" description="Statut systÃ¨me de l'élément d'OTP de CHORUS." createdOn="2012-12-04T14:22:25.788+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpErfSSys">
+        <metadatas xmi:id="_pP37xz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP37yD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_ERF_S_SYS"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP37yT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="5"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP37yj4VEeKH3oFDKEyrCw" description="Elément d'imputation de l'élément d'OTP de CHORUS." createdOn="2012-12-04T14:22:25.788+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpErfbolimp">
+        <metadatas xmi:id="_pP37yz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP4i0D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_ERFBOLIMP"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP4i0T4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="1"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP4i0j4VEeKH3oFDKEyrCw" description="Elément de facturation de l'élément d'OTP de CHORUS." createdOn="2012-12-04T14:22:25.789+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpErfbolfac">
+        <metadatas xmi:id="_pP4i0z4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP4i1D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_ERFBOLFAC"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP4i1T4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="1"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP4i1j4VEeKH3oFDKEyrCw" description="Description synthétique de l'élément d'OTP de CHORUS." createdOn="2012-12-04T14:22:25.789+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpTxtsh">
+        <metadatas xmi:id="_pP4i1z4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP4i2D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_TXTSH"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP4i2T4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="20"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP4i2j4VEeKH3oFDKEyrCw" description="Description longue de l'élément d'OTP de CHORUS." createdOn="2012-12-04T14:22:25.789+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpTxtlg">
+        <metadatas xmi:id="_pP5J4D4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5J4T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_TXTLG"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5J4j4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="60"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP5J4z4VEeKH3oFDKEyrCw" description="Description moyenne de l'élément d'OTP de CHORUS." createdOn="2012-12-04T14:22:25.790+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpTxtmd">
+        <metadatas xmi:id="_pP5J5D4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5J5T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_TXTMD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5J5j4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="40"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP5w8D4VEeKH3oFDKEyrCw" description="Niveau 1 de l'eOTP" createdOn="2012-12-04T14:22:25.791+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpNiv1">
+        <metadatas xmi:id="_pP5w8T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5w8j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_NIV1"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5w8z4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP5w9D4VEeKH3oFDKEyrCw" description="Niveau 2 de l'eOTP" createdOn="2012-12-04T14:22:25.791+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpNiv2">
+        <metadatas xmi:id="_pP5w9T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5w9j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_NIV2"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5w9z4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP5w-D4VEeKH3oFDKEyrCw" description="Niveau 3 de l'eOTP" createdOn="2012-12-04T14:22:25.791+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpNiv3">
+        <metadatas xmi:id="_pP5w-T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5w-j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_NIV3"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5w-z4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP5w_D4VEeKH3oFDKEyrCw" description="Niveau 4 de l'eOTP" createdOn="2012-12-04T14:22:25.791+0100" modifiedOn="2013-09-05T17:22:54.384+0200" name="RfEotpNiv4">
+        <metadatas xmi:id="_pP5w_T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5w_j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_NIV4"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5w_z4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP5xAD4VEeKH3oFDKEyrCw" description="Niveau 5 de l'eOTP" createdOn="2012-12-04T14:22:25.791+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEotpNiv5">
+        <metadatas xmi:id="_pP5xAT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP5xAj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_NIV5"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6YAD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP6YAT4VEeKH3oFDKEyrCw" description="Niveau 6 de l'eOTP" createdOn="2012-12-04T14:22:25.792+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEotpNiv6">
+        <metadatas xmi:id="_pP6YAj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6YAz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_NIV6"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6YBD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP6YBT4VEeKH3oFDKEyrCw" description="Niveau 7 de l'eOTP" createdOn="2012-12-04T14:22:25.792+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEotpNiv7">
+        <metadatas xmi:id="_pP6YBj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6YBz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_NIV7"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6YCD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP6YCT4VEeKH3oFDKEyrCw" description="Niveau 8 de l'eOTP" createdOn="2012-12-04T14:22:25.792+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEotpNiv8">
+        <metadatas xmi:id="_pP6YCj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6YCz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_NIV8"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6YDD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP6YDT4VEeKH3oFDKEyrCw" description="Niveau 9 de l'eOTP" createdOn="2012-12-04T14:22:25.792+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEotpNiv9">
+        <metadatas xmi:id="_pP6YDj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6YDz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_NIV9"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6YED4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP6YET4VEeKH3oFDKEyrCw" description="Niveau 10 de l'eOTP" createdOn="2012-12-04T14:22:25.792+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEotpNiv10">
+        <metadatas xmi:id="_pP6YEj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6YEz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_EOTP_NIV10"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6_ED4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQdxrz4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_EJEOTPAFF" createdOn="2012-12-04T14:22:25.850+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="montantejeotpaffEotpsFk_A_CONSERVER" multiplicity="0..*" type="_pP0RZT4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQdxsD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdxsT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="MONTANTEJEOTPAFF_EOTPS_FK"/>
+        </metadatas>
+      </ownedReferences>
+      <ownedReferences xmi:id="_pQeYsD4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_EJEOTPOPE" createdOn="2012-12-04T14:22:25.851+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="montantejeotpEotpsFk" multiplicity="0..*" type="_pP2Gmz4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQeYsT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQeYsj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="MONTANTEJEOTP_EOTPS_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pP6_ET4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.793+0100" modifiedOn="2013-09-05T17:22:54.758+0200" name="PfeRfEtataff">
+      <metadatas xmi:id="_pP6_Ej4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6_Ez4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ETATAFF"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP6_FD4VEeKH3oFDKEyrCw" description="Code d'état d'affaire" createdOn="2012-12-04T14:22:25.793+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEtataffCod" multiplicity="1">
+        <metadatas xmi:id="_pP6_FT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6_Fj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ETATAFF_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6_Fz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP6_GD4VEeKH3oFDKEyrCw" description="Libellé d'état d'affaire" createdOn="2012-12-04T14:22:25.793+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEtataffLib" multiplicity="1">
+        <metadatas xmi:id="_pP6_GT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6_Gj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ETATAFF_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP6_Gz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pP6_JD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.793+0100" modifiedOn="2013-09-05T17:22:54.774+0200" name="PfeRfEtatope">
+      <metadatas xmi:id="_pP7mID4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP7mIT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ETATOPE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP7mIj4VEeKH3oFDKEyrCw" description="Code d'état d'opération" createdOn="2012-12-04T14:22:25.794+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEtatopeCod" multiplicity="1">
+        <metadatas xmi:id="_pP7mIz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP7mJD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ETATOPE_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP7mJT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP7mJj4VEeKH3oFDKEyrCw" description="Libellé d'état d'opération" createdOn="2012-12-04T14:22:25.794+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEtatopeLib" multiplicity="1">
+        <metadatas xmi:id="_pP7mJz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP7mKD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ETATOPE_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP7mKT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pP7mMj4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.794+0100" modifiedOn="2013-09-05T17:22:54.787+0200" name="PfeRfEtatplng">
+      <metadatas xmi:id="_pP7mMz4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP7mND4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ETATPLNG"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP8NMD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.795+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEtatplngCod" multiplicity="1">
+        <metadatas xmi:id="_pP8NMT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP8NMj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ETATPLNG_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP8NMz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP8NND4VEeKH3oFDKEyrCw" description="Libellé de l'état des opérations" createdOn="2012-12-04T14:22:25.795+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEtatplngLib" multiplicity="1">
+        <metadatas xmi:id="_pP8NNT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP8NNj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ETATPLNG_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP8NNz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <subblocks xmi:id="_KzFMsD4WEeKH3oFDKEyrCw" createdOn="2012-12-04T14:26:15.135+0100" modifiedOn="2012-12-04T15:12:28.901+0100" name="subblock1">
+      <entities xmi:id="_pPndGj4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.761+0100" modifiedOn="2013-09-05T17:22:54.814+0200" name="PfeRfAre">
+        <metadatas xmi:id="_pPoEID4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPoEIT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ARE"/>
+        </metadatas>
+        <ownedAttributes xmi:id="_pPoEIj4VEeKH3oFDKEyrCw" description="Code attrributaire" createdOn="2012-12-04T14:22:25.762+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfAreCod" multiplicity="1">
+          <metadatas xmi:id="_pPoEIz4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPoEJD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ARE_COD"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPoEJT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="5"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPoEJj4VEeKH3oFDKEyrCw" description="Libellé attributaire" createdOn="2012-12-04T14:22:25.762+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfAreLib" multiplicity="1">
+          <metadatas xmi:id="_pPoEJz4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPoEKD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ARE_LIB"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPoEKT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="200"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPoEKj4VEeKH3oFDKEyrCw" description="Libellé abrégé attributaire" createdOn="2012-12-04T14:22:25.762+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfAreLiba">
+          <metadatas xmi:id="_pPoEKz4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPoELD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ARE_LIBA"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPorMD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPorMT4VEeKH3oFDKEyrCw" description="Type attributaire" createdOn="2012-12-04T14:22:25.763+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfAreType">
+          <metadatas xmi:id="_pPorMj4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPorMz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ARE_TYPE"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPorND4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="5"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPorNT4VEeKH3oFDKEyrCw" description="Code MPA" createdOn="2012-12-04T14:22:25.763+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfAreMpa">
+          <metadatas xmi:id="_pPorNj4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPorNz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ARE_MPA"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPorOD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_pQcjlD4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_AD_IMMARE" createdOn="2012-12-04T14:22:25.848+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="immeubleattriAttributaireFk" multiplicity="0..*" type="_pPgIUj4VEeKH3oFDKEyrCw">
+          <metadatas xmi:id="_pQcjlT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pQcjlj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="IMMEUBLEATTRI_ATTRIBUTAIRE_FK"/>
+          </metadatas>
+        </ownedReferences>
+      </entities>
+      <entities xmi:id="_pPpSRj4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.764+0100" modifiedOn="2013-09-05T17:22:54.826+0200" name="PfeRfBdd">
+        <metadatas xmi:id="_pPpSRz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPpSSD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_BDD"/>
+        </metadatas>
+        <ownedAttributes xmi:id="_pPpSST4VEeKH3oFDKEyrCw" description="Code de la Base De Défense" createdOn="2012-12-04T14:22:25.764+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfBddCod" multiplicity="1">
+          <metadatas xmi:id="_pPpSSj4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPpSSz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_BDD_COD"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPp5UD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="10"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPp5UT4VEeKH3oFDKEyrCw" description="Libellé de la Base De Défense" createdOn="2012-12-04T14:22:25.765+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfBddLib" multiplicity="1">
+          <metadatas xmi:id="_pPp5Uj4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPp5Uz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_BDD_LIB"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPp5VD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="150"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPp5VT4VEeKH3oFDKEyrCw" description="Niveau hierarchique" createdOn="2012-12-04T14:22:25.765+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfBddNiveau">
+          <metadatas xmi:id="_pPp5Vj4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPp5Vz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_BDD_NIVEAU"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_CSkCARY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="38"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_pQdKlj4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_ANT" createdOn="2012-12-04T14:22:25.849+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="antenneBasededefenseFk" multiplicity="0..*" type="_WZ6s8D4WEeKH3oFDKEyrCw">
+          <metadatas xmi:id="_pQdKlz4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdKmD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="ANTENNE_BASEDEDEFENSE_FK"/>
+          </metadatas>
+        </ownedReferences>
+      </entities>
+      <entities xmi:id="_pPqgZD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.766+0100" modifiedOn="2013-09-05T17:22:54.839+0200" name="PfeRfBopCh">
+        <metadatas xmi:id="_pPqgZT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPqgZj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_BOP_CH"/>
+        </metadatas>
+        <ownedAttributes xmi:id="_pPqgZz4VEeKH3oFDKEyrCw" description="Code Budget Opération Programme" createdOn="2012-12-04T14:22:25.766+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfBopCod" multiplicity="1">
+          <metadatas xmi:id="_pPqgaD4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPqgaT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_BOP_COD"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPqgaj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPqgaz4VEeKH3oFDKEyrCw" description="Libellé  Budget Opération Programme" createdOn="2012-12-04T14:22:25.766+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfBopLib">
+          <metadatas xmi:id="_pPqgbD4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPqgbT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_BOP_LIB"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPqgbj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="300"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_pQdxoD4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_CFIN" createdOn="2012-12-04T14:22:25.850+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="centrefinanciBopFk" multiplicity="0..*" type="_pPsVlT4VEeKH3oFDKEyrCw">
+          <metadatas xmi:id="_pQdxoT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdxoj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="CENTREFINANCI_BOP_FK"/>
+          </metadatas>
+        </ownedReferences>
+      </entities>
+      <entities xmi:id="_pPrHdD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.767+0100" modifiedOn="2013-09-05T17:22:54.851+0200" name="PfeRfCapa">
+        <metadatas xmi:id="_pPrHdT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPrHdj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_CAPA"/>
+        </metadatas>
+        <ownedAttributes xmi:id="_pPrHdz4VEeKH3oFDKEyrCw" description="Code de la référence capacitaire" createdOn="2012-12-04T14:22:25.767+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCapaCod" multiplicity="1">
+          <metadatas xmi:id="_pPrHeD4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPrHeT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CAPA_COD"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPrHej4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPrHez4VEeKH3oFDKEyrCw" description="Libellé de la référence capacitaire" createdOn="2012-12-04T14:22:25.767+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCapaLib" multiplicity="1">
+          <metadatas xmi:id="_pPrHfD4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPrHfT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CAPA_LIB"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPrHfj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </entities>
+      <entities xmi:id="_pPruhD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.768+0100" modifiedOn="2013-09-05T17:22:54.864+0200" name="PfeRfCatope">
+        <metadatas xmi:id="_pPruhT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPruhj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_CATOPE"/>
+        </metadatas>
+        <ownedAttributes xmi:id="_pPruhz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.768+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCatopeCod" multiplicity="1">
+          <metadatas xmi:id="_pPruiD4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPruiT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CATOPE_COD"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPruij4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPruiz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.768+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCatopeLib" multiplicity="1">
+          <metadatas xmi:id="_pPrujD4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPrujT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CATOPE_LIB"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPrujj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </entities>
+      <entities xmi:id="_pPsVlT4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.769+0100" modifiedOn="2013-09-05T17:22:54.877+0200" name="PfeRfCfin">
+        <metadatas xmi:id="_pPsVlj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPsVlz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_CFIN"/>
+        </metadatas>
+        <ownedAttributes xmi:id="_pPsVmD4VEeKH3oFDKEyrCw" description="PérimÃ¨tre financier Centre financier CHORUS." createdOn="2012-12-04T14:22:25.769+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCfinFmArea" multiplicity="1">
+          <metadatas xmi:id="_pPsVmT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPsVmj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CFIN_FM_AREA"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPsVmz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPsVnD4VEeKH3oFDKEyrCw" description="Centre financier." createdOn="2012-12-04T14:22:25.769+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCfinCentrefi" multiplicity="1">
+          <metadatas xmi:id="_pPsVnT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPsVnj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CFIN_CENTREFI"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPsVnz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="16"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPsVoD4VEeKH3oFDKEyrCw" description="Fin de validité Centre financier CHORUS." createdOn="2012-12-04T14:22:25.769+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCfinDateto" multiplicity="1">
+          <metadatas xmi:id="_pPsVoT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPsVoj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CFIN_DATETO"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPs8oD4VEeKH3oFDKEyrCw" description="Code Centre financier CHORUS." createdOn="2012-12-04T14:22:25.770+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCfinCod">
+          <metadatas xmi:id="_pPs8oT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPs8oj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CFIN_COD"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPs8oz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPs8pD4VEeKH3oFDKEyrCw" description="Désignation longue Centre financier CHORUS." createdOn="2012-12-04T14:22:25.770+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCfinLib">
+          <metadatas xmi:id="_pPs8pT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPs8pj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CFIN_LIB"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPs8pz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="300"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPs8qD4VEeKH3oFDKEyrCw" description="Désignation courte Centre financier CHORUS." createdOn="2012-12-04T14:22:25.770+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCfinLiba">
+          <metadatas xmi:id="_pPs8qT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPs8qj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CFIN_LIBA"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPs8qz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPs8rD4VEeKH3oFDKEyrCw" description="Début de validité Centre financier CHORUS." createdOn="2012-12-04T14:22:25.770+0100" modifiedOn="2013-09-05T17:22:54.369+0200" name="RfCfinDatefrom">
+          <metadatas xmi:id="_pPs8rT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPs8rj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CFIN_DATEFROM"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_pQeYuT4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_MNTAE" createdOn="2012-12-04T14:22:25.851+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="montantaeCentrefinanciFk" multiplicity="0..*" type="_pP-CbD4VEeKH3oFDKEyrCw">
+          <metadatas xmi:id="_pQeYuj4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pQeYuz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="MONTANTAE_CENTREFINANCI_FK"/>
+          </metadatas>
+        </ownedReferences>
+        <ownedReferences xmi:id="_pQe_xT4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_ORPHELIN" createdOn="2012-12-04T14:22:25.852+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="orphelinatCentrefinanciFk" multiplicity="0..*" type="_pQEJDD4VEeKH3oFDKEyrCw">
+          <metadatas xmi:id="_pQe_xj4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pQe_xz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="ORPHELINAT_CENTREFINANCI_FK"/>
+          </metadatas>
+        </ownedReferences>
+        <ownedReferences xmi:id="_pQe_zj4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_TFON" createdOn="2012-12-04T14:22:25.852+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="tranchefonctiCentrefinanciFk" multiplicity="0..*" type="_pQK2vj4VEeKH3oFDKEyrCw">
+          <metadatas xmi:id="_pQe_zz4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pQe_0D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="TRANCHEFONCTI_CENTREFINANCI_FK"/>
+          </metadatas>
+        </ownedReferences>
+      </entities>
+      <entities xmi:id="_pPtjtT4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.771+0100" modifiedOn="2013-09-05T17:22:54.889+0200" name="PfeRfClasrisq">
+        <metadatas xmi:id="_pPtjtj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPtjtz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_CLASRISQ"/>
+        </metadatas>
+        <ownedAttributes xmi:id="_pPtjuD4VEeKH3oFDKEyrCw" description="Code de la classe de risques" createdOn="2012-12-04T14:22:25.771+0100" modifiedOn="2013-09-05T17:22:54.370+0200" name="RfClasrisqCod" multiplicity="1">
+          <metadatas xmi:id="_pPtjuT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPtjuj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CLASRISQ_COD"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPtjuz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPtjvD4VEeKH3oFDKEyrCw" description="Libellé de la classe de risques" createdOn="2012-12-04T14:22:25.771+0100" modifiedOn="2013-09-05T17:22:54.370+0200" name="RfClasrisqLib" multiplicity="1">
+          <metadatas xmi:id="_pPtjvT4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPtjvj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CLASRISQ_LIB"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPtjvz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </entities>
+      <entities xmi:id="_pPuKxz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.772+0100" modifiedOn="2013-09-05T17:22:54.901+0200" name="PfeRfClinv">
+        <metadatas xmi:id="_pPuKyD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPuKyT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_CLINV"/>
+        </metadatas>
+        <ownedAttributes xmi:id="_pPuKyj4VEeKH3oFDKEyrCw" description="Code de la classe d'investissement" createdOn="2012-12-04T14:22:25.772+0100" modifiedOn="2013-09-05T17:22:54.370+0200" name="RfClinvCod" multiplicity="1">
+          <metadatas xmi:id="_pPuKyz4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPuKzD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CLINV_COD"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPuKzT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="10"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPuKzj4VEeKH3oFDKEyrCw" description="Libellé de la classe d'investissement" createdOn="2012-12-04T14:22:25.772+0100" modifiedOn="2013-09-05T17:22:54.370+0200" name="RfClinvLib" multiplicity="1">
+          <metadatas xmi:id="_pPuKzz4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPuK0D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_CLINV_LIB"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPuK0T4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+      </entities>
+      <entities xmi:id="_pPux1z4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.773+0100" modifiedOn="2013-09-05T17:22:54.913+0200" name="PfeRfComm">
+        <metadatas xmi:id="_pPux2D4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPux2T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_COMM"/>
+        </metadatas>
+        <ownedAttributes xmi:id="_pPux2j4VEeKH3oFDKEyrCw" description="Code de la commune" createdOn="2012-12-04T14:22:25.773+0100" modifiedOn="2013-09-05T17:22:54.370+0200" name="RfCommCod" multiplicity="1">
+          <metadatas xmi:id="_pPux2z4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPux3D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_COMM_COD"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPux3T4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="3"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPux3j4VEeKH3oFDKEyrCw" description="Libellé de la commune" createdOn="2012-12-04T14:22:25.773+0100" modifiedOn="2013-09-05T17:22:54.370+0200" name="RfCommLib">
+          <metadatas xmi:id="_pPux3z4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPux4D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_COMM_LIB"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPvY4D4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPvY4T4VEeKH3oFDKEyrCw" description="Code INSEE de la commune" createdOn="2012-12-04T14:22:25.774+0100" modifiedOn="2013-09-05T17:22:54.370+0200" name="RfCommInseeCod">
+          <metadatas xmi:id="_pPvY4j4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPvY4z4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_COMM_INSEE_COD"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPvY5D4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="6"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedAttributes xmi:id="_pPvY5T4VEeKH3oFDKEyrCw" description="Libellé INSEE de la commune" createdOn="2012-12-04T14:22:25.774+0100" modifiedOn="2013-09-05T17:22:54.370+0200" name="RfCommInseeLib">
+          <metadatas xmi:id="_pPvY5j4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPvY5z4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_COMM_INSEE_LIB"/>
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pPvY6D4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+          </metadatas>
+          <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+        </ownedAttributes>
+        <ownedReferences xmi:id="_pQcjhT4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_AD_IMM" createdOn="2012-12-04T14:22:25.848+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="immeubleCommuneFk" multiplicity="0..*" type="_pPeTLD4VEeKH3oFDKEyrCw">
+          <metadatas xmi:id="_pQcjhj4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pQcjhz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="IMMEUBLE_COMMUNE_FK"/>
+          </metadatas>
+        </ownedReferences>
+        <ownedReferences xmi:id="_pQdxqT4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_COMMCP" createdOn="2012-12-04T14:22:25.850+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="codepostalcomCommunederattFk" multiplicity="0..*" type="_pPv_8D4VEeKH3oFDKEyrCw">
+          <metadatas xmi:id="_pQdxqj4VEeKH3oFDKEyrCw">
+            <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdxqz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="CODEPOSTALCOM_COMMUNEDERATT_FK"/>
+          </metadatas>
+        </ownedReferences>
+      </entities>
+    </subblocks>
+  </blocks>
+  <blocks xmi:id="_c5nskT4cEeK6-dc-bah3pw" createdOn="2012-12-04T15:11:20.776+0100" modifiedOn="2012-12-04T18:28:14.515+0100" name="block1">
+    <entities xmi:id="_pP8NQD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.795+0100" modifiedOn="2013-09-05T17:22:54.932+0200" name="PfeRfEtatproj">
+      <metadatas xmi:id="_pP8NQT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP8NQj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ETATPROJ"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP8NQz4VEeKH3oFDKEyrCw" description="Code de l'état du projet" createdOn="2012-12-04T14:22:25.795+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEtatprojCod" multiplicity="1">
+        <metadatas xmi:id="_pP8NRD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP8NRT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ETATPROJ_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP80QD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP80QT4VEeKH3oFDKEyrCw" description="Libellé de l'état du projet" createdOn="2012-12-04T14:22:25.796+0100" modifiedOn="2013-09-05T17:22:54.385+0200" name="RfEtatprojLib" multiplicity="1">
+        <metadatas xmi:id="_pP80Qj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP80Qz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ETATPROJ_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP80RD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pP80TT4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.796+0100" modifiedOn="2013-09-05T17:22:54.945+0200" name="PfeRfFonctmetier">
+      <metadatas xmi:id="_pP80Tj4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP80Tz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_FONCTMETIER"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP80UD4VEeKH3oFDKEyrCw" description="Le libellé de la fonction" createdOn="2012-12-04T14:22:25.796+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfFonctmetierLib" multiplicity="1">
+        <metadatas xmi:id="_pP80UT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP80Uj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_FONCTMETIER_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP80Uz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP9bUD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.797+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfFonctmetierComment">
+        <metadatas xmi:id="_pP9bUT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP9bUj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_FONCTMETIER_COMMENT"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP9bUz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="500"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP9bVD4VEeKH3oFDKEyrCw" description="Le code de la fonction" createdOn="2012-12-04T14:22:25.797+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfFonctmetierCod" multiplicity="1">
+        <metadatas xmi:id="_pP9bVT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP9bVj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_FONCTMETIER_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP9bVz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences description="Contrainte FK avec la table PFE_RF_FONCTMETIER" createdOn="2012-12-04T14:22:25.851+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="fonctionmetieFonctionmereFk_DOIT_ETRE_DEPLACEE_ET_TYPE_MODIFIE" multiplicity="0..*" type="_pP80TT4VEeKH3oFDKEyrCw">
+        <metadatas>
+          <metadatas xsi:type="oenv:Annotation" title="PHYSICAL_NAME" body="FONCTIONMETIE_FONCTIONMERE_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pP9bYD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.797+0100" modifiedOn="2013-09-05T17:22:54.957+0200" name="PfeRfImmind">
+      <metadatas xmi:id="_pP9bYT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP9bYj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_IMMIND"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP9bYz4VEeKH3oFDKEyrCw" description="Code indicateur de recensement" createdOn="2012-12-04T14:22:25.797+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfImmindCod" multiplicity="1">
+        <metadatas xmi:id="_pP9bZD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP9bZT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_IMMIND_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSvBIBY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP-CYD4VEeKH3oFDKEyrCw" description="Dénomination indicateur de recensement" createdOn="2012-12-04T14:22:25.798+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfImmindLib" multiplicity="1">
+        <metadatas xmi:id="_pP-CYT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP-CYj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_IMMIND_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP-CYz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQcjiD4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_AD_IMM" createdOn="2012-12-04T14:22:25.848+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="immeubleIndicateurimmFk" multiplicity="0..*" type="_pPeTLD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQcjiT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQcjij4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="IMMEUBLE_INDICATEURIMM_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pP-CbD4VEeKH3oFDKEyrCw" description="Table des AE par TF et UO" createdOn="2012-12-04T14:22:25.798+0100" modifiedOn="2013-09-05T17:22:54.968+0200" name="PfeRfMntae">
+      <metadatas xmi:id="_pP-CbT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP-Cbj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_MNTAE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP-Cbz4VEeKH3oFDKEyrCw" description="Montant des AE affectées Chorus par TF et UO" createdOn="2012-12-04T14:22:25.798+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfMntaeAffect">
+        <metadatas xmi:id="_pP-CcD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP-CcT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_MNTAE_AFFECT"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSvBIRY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP-Ccj4VEeKH3oFDKEyrCw" description="Montant des AE disponibles par TF et UO" createdOn="2012-12-04T14:22:25.798+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfMntaeDispo">
+        <metadatas xmi:id="_pP-pcD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP-pcT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_MNTAE_DISPO"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSvBIhY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP-pcj4VEeKH3oFDKEyrCw" description="Montant des AE consommées par TF et UO" createdOn="2012-12-04T14:22:25.799+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfMntaeConso">
+        <metadatas xmi:id="_pP-pcz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP-pdD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_MNTAE_CONSO"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSvBIxY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP-pdT4VEeKH3oFDKEyrCw" description="Année de gestion" createdOn="2012-12-04T14:22:25.799+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfMntaeAngest">
+        <metadatas xmi:id="_pP-pdj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP-pdz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_MNTAE_ANGEST"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSvBJBY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pP_QgD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.800+0100" modifiedOn="2013-09-05T17:22:54.980+0200" name="PfeRfNat">
+      <metadatas xmi:id="_pP_QgT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_Qgj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_NAT"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP_Qgz4VEeKH3oFDKEyrCw" description="Code de la nature d'operation" createdOn="2012-12-04T14:22:25.800+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfNatCod" multiplicity="1">
+        <metadatas xmi:id="_pP_QhD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_QhT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NAT_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_Qhj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP_Qhz4VEeKH3oFDKEyrCw" description="Libelle de la nature d'operation" createdOn="2012-12-04T14:22:25.800+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfNatLib" multiplicity="1">
+        <metadatas xmi:id="_pP_QiD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_QiT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NAT_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_Qij4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="40"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP_Qiz4VEeKH3oFDKEyrCw" description="Definition de la nature d'operation" createdOn="2012-12-04T14:22:25.800+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfNatDef">
+        <metadatas xmi:id="_pP_QjD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_QjT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NAT_DEF"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_Qjj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="200"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP_Qjz4VEeKH3oFDKEyrCw" description="Observations concernant la nature d'operation" createdOn="2012-12-04T14:22:25.800+0100" modifiedOn="2013-09-05T17:22:54.386+0200" name="RfNatObs">
+        <metadatas xmi:id="_pP_QkD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_QkT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NAT_OBS"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_Qkj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="200"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP_Qkz4VEeKH3oFDKEyrCw" description="Categorie Bercy a laquelle appartient la nature d'operation" createdOn="2012-12-04T14:22:25.800+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfNatCategBercy">
+        <metadatas xmi:id="_pP_QlD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_3kD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NAT_CATEG_BERCY"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_3kT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="20"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pP_3mj4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.801+0100" modifiedOn="2013-09-05T17:22:54.993+0200" name="PfeRfNatctrcal">
+      <metadatas xmi:id="_pP_3mz4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_3nD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_NATCTRCAL"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pP_3nT4VEeKH3oFDKEyrCw" description="Code de la nature de la contrainte calendaire" createdOn="2012-12-04T14:22:25.801+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfNatctrcalCod" multiplicity="1">
+        <metadatas xmi:id="_pP_3nj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_3nz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NATCTRCAL_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_3oD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pP_3oT4VEeKH3oFDKEyrCw" description="Libellé de la nature de la contrainte calendaire" createdOn="2012-12-04T14:22:25.801+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfNatctrcalLib" multiplicity="1">
+        <metadatas xmi:id="_pP_3oj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_3oz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NATCTRCAL_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pP_3pD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQAeqD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.802+0100" modifiedOn="2013-09-05T17:22:55.004+0200" name="PfeRfNatlisttrav">
+      <metadatas xmi:id="_pQAeqT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQAeqj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_NATLISTTRAV"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQAeqz4VEeKH3oFDKEyrCw" description="Code d'une liste de travail" createdOn="2012-12-04T14:22:25.802+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfNatlisttravCod" multiplicity="1">
+        <metadatas xmi:id="_pQAerD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQAerT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NATLISTTRAV_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQAerj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQAerz4VEeKH3oFDKEyrCw" description="Libellé d'une liste de travail" createdOn="2012-12-04T14:22:25.802+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfNatlisttravLib" multiplicity="1">
+        <metadatas xmi:id="_pQAesD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQAesT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NATLISTTRAV_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQAesj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQBFtD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.803+0100" modifiedOn="2013-09-05T17:22:55.015+0200" name="PfeRfNatpha">
+      <metadatas xmi:id="_pQBFtT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQBFtj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_NATPHA"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQBFtz4VEeKH3oFDKEyrCw" description="code de nature de phase" createdOn="2012-12-04T14:22:25.803+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfNatphaCod" multiplicity="1">
+        <metadatas xmi:id="_pQBFuD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQBFuT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NATPHA_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQBFuj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="15"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQBFuz4VEeKH3oFDKEyrCw" description="Libellé de nature de phase" createdOn="2012-12-04T14:22:25.803+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfNatphaLib" multiplicity="1">
+        <metadatas xmi:id="_pQBFvD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQBFvT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NATPHA_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQBFvj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQBswz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.804+0100" modifiedOn="2013-09-05T17:22:55.026+0200" name="PfeRfNatvoi">
+      <metadatas xmi:id="_pQBsxD4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQBsxT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_NATVOI"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQBsxj4VEeKH3oFDKEyrCw" description="Code de la nature de la voie" createdOn="2012-12-04T14:22:25.804+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfNatvoiCod" multiplicity="1">
+        <metadatas xmi:id="_pQBsxz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQBsyD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NATVOI_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQBsyT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQBsyj4VEeKH3oFDKEyrCw" description="Libellé de la nature de la voie" createdOn="2012-12-04T14:22:25.804+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfNatvoiLib" multiplicity="1">
+        <metadatas xmi:id="_pQBsyz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQBszD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_NATVOI_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQBszT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQcjiz4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_AD_IMM" createdOn="2012-12-04T14:22:25.848+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="immeubleNaturevoieFk" multiplicity="0..*" type="_pPeTLD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQcjjD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQcjjT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="IMMEUBLE_NATUREVOIE_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pQCT0j4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.805+0100" modifiedOn="2013-09-05T17:22:55.036+0200" name="PfeRfOcc">
+      <metadatas xmi:id="_pQCT0z4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQCT1D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_OCC"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQCT1T4VEeKH3oFDKEyrCw" description="Code CREDO de l'occupant" createdOn="2012-12-04T14:22:25.805+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfOccCod" multiplicity="1">
+        <metadatas xmi:id="_pQCT1j4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQCT1z4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_OCC_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQCT2D4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="7"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQCT2T4VEeKH3oFDKEyrCw" description="Libellé de l'occupant" createdOn="2012-12-04T14:22:25.805+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfOccLib" multiplicity="1">
+        <metadatas xmi:id="_pQCT2j4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQCT2z4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_OCC_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQCT3D4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQC64D4VEeKH3oFDKEyrCw" description="Provenance de l'Occupant" createdOn="2012-12-04T14:22:25.806+0100" modifiedOn="2013-09-05T17:22:54.387+0200" name="RfOccProvenance" multiplicity="1">
+        <metadatas xmi:id="_pQC64T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQC64j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_OCC_PROVENANCE"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQC64z4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQC65D4VEeKH3oFDKEyrCw" description="Ville de l'occupant" createdOn="2012-12-04T14:22:25.806+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOccVille">
+        <metadatas xmi:id="_pQC65T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQC65j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_OCC_VILLE"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQC65z4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQDh8D4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.807+0100" modifiedOn="2013-09-05T17:22:55.048+0200" name="PfeRfOrganisme">
+      <metadatas xmi:id="_pQDh8T4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQDh8j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ORGANISME"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQDh8z4VEeKH3oFDKEyrCw" description="Code de l'organisme" createdOn="2012-12-04T14:22:25.807+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrganismeCod" multiplicity="1">
+        <metadatas xmi:id="_pQDh9D4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQDh9T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORGANISME_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQDh9j4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQDh9z4VEeKH3oFDKEyrCw" description="Libellé de l'organisme" createdOn="2012-12-04T14:22:25.807+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrganismeLib" multiplicity="1">
+        <metadatas xmi:id="_pQDh-D4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQDh-T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORGANISME_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQDh-j4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="80"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQDh-z4VEeKH3oFDKEyrCw" description="Libellé abrégé de l'organisme" createdOn="2012-12-04T14:22:25.807+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrganismeLiba">
+        <metadatas xmi:id="_pQDh_D4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQDh_T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORGANISME_LIBA"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQDh_j4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="30"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQDh_z4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.807+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrganismeAbrev">
+        <metadatas xmi:id="_pQDiAD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQDiAT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORGANISME_ABREV"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQEJAD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="9"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQEJAT4VEeKH3oFDKEyrCw" description="Niveau hierarchique" createdOn="2012-12-04T14:22:25.808+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrganismeNiveau">
+        <metadatas xmi:id="_pQEJAj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQEJAz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORGANISME_NIVEAU"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSwPQBY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="38"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQcjjj4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_AD_IMM" createdOn="2012-12-04T14:22:25.848+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="immeubleServicemiseajFk" multiplicity="0..*" type="_pPeTLD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQcjjz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQcjkD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="IMMEUBLE_SERVICEMISEAJ_FK"/>
+        </metadatas>
+      </ownedReferences>
+      <ownedReferences xmi:id="_pQdKkD4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_PL_OPE" createdOn="2012-12-04T14:22:25.849+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="operationplimOrganismelocaFk" multiplicity="0..*" type="_pPh9gD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQdKkT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdKkj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="OPERATIONPLIM_ORGANISMELOCA_FK"/>
+        </metadatas>
+      </ownedReferences>
+      <ownedReferences xmi:id="_pQdKkz4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_PL_OPE" createdOn="2012-12-04T14:22:25.849+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="operationplimOrganismeregiFk" multiplicity="0..*" type="_pPh9gD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQdKlD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdKlT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="OPERATIONPLIM_ORGANISMEREGI_FK"/>
+        </metadatas>
+      </ownedReferences>
+      <ownedReferences xmi:id="_pQdKnD4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_BDD" createdOn="2012-12-04T14:22:25.849+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="basededefenseOrganismesperFk" multiplicity="0..*" type="_pPpSRj4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQdKnT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdKnj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="BASEDEDEFENSE_ORGANISMESPER_FK"/>
+        </metadatas>
+      </ownedReferences>
+      <ownedReferences xmi:id="_pQeYxT4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_ORGANISME" createdOn="2012-12-04T14:22:25.851+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="organismeOrganismepereFk" multiplicity="0..*" type="_pQDh8D4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQe_wD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQe_wT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="ORGANISME_ORGANISMEPERE_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pQEJDD4VEeKH3oFDKEyrCw" description="Montants des EJ orphelins par UO et TF" createdOn="2012-12-04T14:22:25.808+0100" modifiedOn="2013-09-05T17:22:55.062+0200" name="PfeRfOrphelin">
+      <metadatas xmi:id="_pQEJDT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQEJDj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ORPHELIN"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQEwED4VEeKH3oFDKEyrCw" description="Numéro de l'EJ" createdOn="2012-12-04T14:22:25.809+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrphelinNumej">
+        <metadatas xmi:id="_pQEwET4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQEwEj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_NUMEJ"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQEwEz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQEwFD4VEeKH3oFDKEyrCw" description="Libellé de l'EJ (= numéro long de l'EJ)" createdOn="2012-12-04T14:22:25.809+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrphelinLibej">
+        <metadatas xmi:id="_pQEwFT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQEwFj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_LIBEJ"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQEwFz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="40"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQEwGD4VEeKH3oFDKEyrCw" description="Montant cumulé depuis origine des EJ réels pour toutes les tranches fonctionnelles" createdOn="2012-12-04T14:22:25.809+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrphelinEjrorigtf">
+        <metadatas xmi:id="_pQEwGT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQEwGj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_EJRORIGTF"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSwPQRY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQEwGz4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des EJ réels pour l'UO N/A" createdOn="2012-12-04T14:22:25.809+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrphelinEjrorigna">
+        <metadatas xmi:id="_pQEwHD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQEwHT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_EJRORIGNA"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSwPQhY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQEwHj4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des DP réelles" createdOn="2012-12-04T14:22:25.809+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrphelinDprorig">
+        <metadatas xmi:id="_pQEwHz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQEwID4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_DPRORIG"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSwPQxY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQEwIT4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des DP en attente" createdOn="2012-12-04T14:22:25.809+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrphelinDpattorig">
+        <metadatas xmi:id="_pQFXID4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQFXIT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_DPATTORIG"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSwPRBY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQFXIj4VEeKH3oFDKEyrCw" description="Montant cumulé pour la gestion en cours des EJ réels pour toutes les TF (non fourni par le FSO)&#xA;" createdOn="2012-12-04T14:22:25.810+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrphelinEjrcourtf">
+        <metadatas xmi:id="_pQFXIz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQFXJD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_EJRCOURTF"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSwPRRY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQFXJT4VEeKH3oFDKEyrCw" description="Montant cumulé pour la gestion en cours des EJ réels pour toutes les tranches fonctionnelles (non fourni par le FSO)" createdOn="2012-12-04T14:22:25.810+0100" modifiedOn="2013-09-05T17:22:54.388+0200" name="RfOrphelinEjrcourna">
+        <metadatas xmi:id="_pQFXJj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQFXJz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_EJRCOURNA"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSwPRhY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQFXKD4VEeKH3oFDKEyrCw" description="Montant cumulé pour la gestion en cours des DP réelles (non fourni par le FSO)" createdOn="2012-12-04T14:22:25.810+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfOrphelinDprcour">
+        <metadatas xmi:id="_pQFXKT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQFXKj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_DPRCOUR"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSw2UBY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQFXKz4VEeKH3oFDKEyrCw" description="Montant cumulé depuis l'origine des DP en attente (non fourni par le FSO)" createdOn="2012-12-04T14:22:25.810+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfOrphelinDpattcour">
+        <metadatas xmi:id="_pQFXLD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQFXLT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_DPATTCOUR"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSw2URY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQFXLj4VEeKH3oFDKEyrCw" description="Date du flux FSO" createdOn="2012-12-04T14:22:25.810+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfOrphelinDtfso">
+        <metadatas xmi:id="_pQFXLz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQFXMD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ORPHELIN_DTFSO"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQF-OD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.811+0100" modifiedOn="2013-09-05T17:22:55.073+0200" name="PfeRfProg">
+      <metadatas xmi:id="_pQF-OT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQF-Oj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_PROG"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQF-Oz4VEeKH3oFDKEyrCw" description="Code du programme" createdOn="2012-12-04T14:22:25.811+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfProgCod" multiplicity="1">
+        <metadatas xmi:id="_pQF-PD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQF-PT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_PROG_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQGlQD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQGlQT4VEeKH3oFDKEyrCw" description="Libellé du programme" createdOn="2012-12-04T14:22:25.812+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfProgLib" multiplicity="1">
+        <metadatas xmi:id="_pQGlQj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQGlQz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_PROG_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQGlRD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="300"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQdxoz4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_CFIN" createdOn="2012-12-04T14:22:25.850+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="centrefinanciProgrammeFk" multiplicity="0..*" type="_pPsVlT4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQdxpD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdxpT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="CENTREFINANCI_PROGRAMME_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pQHMUD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.813+0100" modifiedOn="2013-09-05T17:22:55.085+0200" name="PfeRfRoleope">
+      <metadatas xmi:id="_pQHMUT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQHMUj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ROLEOPE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQHMUz4VEeKH3oFDKEyrCw" description="Ordre dans lequel il faut afficher le rÃ´le indispensable. NULL si le rÃ´le est complémentaire." createdOn="2012-12-04T14:22:25.813+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfRoleopeOrdre">
+        <metadatas xmi:id="_pQHMVD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQHMVT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ROLEOPE_ORDRE"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSw2UhY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQHMVj4VEeKH3oFDKEyrCw" description="Libellé du role" createdOn="2012-12-04T14:22:25.813+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfRoleopeLib" multiplicity="1">
+        <metadatas xmi:id="_pQHMVz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQHMWD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ROLEOPE_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQHMWT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQHzZD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.814+0100" modifiedOn="2013-09-05T17:22:55.096+0200" name="PfeRfSfct">
+      <metadatas xmi:id="_pQHzZT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQHzZj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_SFCT"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQHzZz4VEeKH3oFDKEyrCw" description="Code de la sous-fonction" createdOn="2012-12-04T14:22:25.814+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfSfctCod" multiplicity="1">
+        <metadatas xmi:id="_pQHzaD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQHzaT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_SFCT_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQHzaj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQHzaz4VEeKH3oFDKEyrCw" description="Libelle de la sous-fonction" createdOn="2012-12-04T14:22:25.814+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfSfctLib" multiplicity="1">
+        <metadatas xmi:id="_pQHzbD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQHzbT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_SFCT_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQHzbj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQe_1D4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_TOUV" createdOn="2012-12-04T14:22:25.852+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="typeouvrageSousfonctionFk" multiplicity="0..*" type="_pQTZmD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQe_1T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQe_1j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="TYPEOUVRAGE_SOUSFONCTION_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pQIadT4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.815+0100" modifiedOn="2013-09-05T17:22:55.108+0200" name="PfeRfTaffaire">
+      <metadatas xmi:id="_pQIadj4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQIadz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TAFFAIRE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQIaeD4VEeKH3oFDKEyrCw" description="Code du type d'affaire" createdOn="2012-12-04T14:22:25.815+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfTaffaireCod" multiplicity="1">
+        <metadatas xmi:id="_pQIaeT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQIaej4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TAFFAIRE_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQIaez4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQIafD4VEeKH3oFDKEyrCw" description="Libellé du type d'affaire" createdOn="2012-12-04T14:22:25.815+0100" modifiedOn="2013-09-05T17:22:54.389+0200" name="RfTaffaireLib" multiplicity="1">
+        <metadatas xmi:id="_pQIafT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQIafj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TAFFAIRE_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQIafz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQJBhD4VEeKH3oFDKEyrCw" description="Type de cible de gestion" createdOn="2012-12-04T14:22:25.816+0100" modifiedOn="2013-09-05T17:22:55.119+0200" name="PfeRfTcible">
+      <metadatas xmi:id="_pQJBhT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQJBhj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TCIBLE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQJBhz4VEeKH3oFDKEyrCw" description="code du type de cible de gestion" createdOn="2012-12-04T14:22:25.816+0100" modifiedOn="2013-09-05T17:22:54.400+0200" name="RfTcibleCod" multiplicity="1">
+        <metadatas xmi:id="_pQJBiD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQJBiT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TCIBLE_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQJBij4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CTJ34BY_EeOSDrYWINMwpA" title="PHYSICAL_UNIQUE" body="ASC"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQJBiz4VEeKH3oFDKEyrCw" description="libellé du type de cible de gestion" createdOn="2012-12-04T14:22:25.816+0100" modifiedOn="2013-09-05T17:22:54.400+0200" name="RfTcibleLib" multiplicity="1">
+        <metadatas xmi:id="_pQJBjD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQJBjT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TCIBLE_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQJBjj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQJolT4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.817+0100" modifiedOn="2013-09-05T17:22:55.130+0200" name="PfeRfTcompo">
+      <metadatas xmi:id="_pQJolj4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQJolz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TCOMPO"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQJomD4VEeKH3oFDKEyrCw" description="Code du type de composant" createdOn="2012-12-04T14:22:25.817+0100" modifiedOn="2013-09-05T17:22:54.400+0200" name="RfTcompoCod" multiplicity="1">
+        <metadatas xmi:id="_pQJomT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQJomj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TCOMPO_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQJomz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQJonD4VEeKH3oFDKEyrCw" description="Libellé du type de composant" createdOn="2012-12-04T14:22:25.817+0100" modifiedOn="2013-09-05T17:22:54.400+0200" name="RfTcompoLib" multiplicity="1">
+        <metadatas xmi:id="_pQJonT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQJonj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TCOMPO_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQJonz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQcjgj4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_AD_CPT" createdOn="2012-12-04T14:22:25.848+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="composantTypecomposantFk" multiplicity="0..*" type="_pPaowD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQcjgz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQcjhD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="COMPOSANT_TYPECOMPOSANT_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pQKPqD4VEeKH3oFDKEyrCw" description="Type de division d'une cible de gestion" createdOn="2012-12-04T14:22:25.818+0100" modifiedOn="2013-09-05T17:22:55.141+0200" name="PfeRfTdiv">
+      <metadatas xmi:id="_pQKPqT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQKPqj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TDIV"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQKPqz4VEeKH3oFDKEyrCw" description="code du type de division d'une cible de gestion" createdOn="2012-12-04T14:22:25.818+0100" modifiedOn="2013-09-05T17:22:54.412+0200" name="RfTdivCod" multiplicity="1">
+        <metadatas xmi:id="_pQKPrD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQKPrT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TDIV_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQK2sD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="7"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CTJ34RY_EeOSDrYWINMwpA" title="PHYSICAL_UNIQUE" body="ASC"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQK2sT4VEeKH3oFDKEyrCw" description="libellé du type de division d'une cible de gestion" createdOn="2012-12-04T14:22:25.819+0100" modifiedOn="2013-09-05T17:22:54.412+0200" name="RfTdivLib" multiplicity="1">
+        <metadatas xmi:id="_pQK2sj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQK2sz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TDIV_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQK2tD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="20"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQK2vj4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.820+0100" modifiedOn="2013-09-05T17:22:55.152+0200" name="PfeRfTfon">
+      <metadatas xmi:id="_pQLdwD4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQLdwT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TFON"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQLdwj4VEeKH3oFDKEyrCw" description="PérimÃ¨tre financier de la tranche fonctionnelle de CHORUS." createdOn="2012-12-04T14:22:25.820+0100" modifiedOn="2013-09-05T17:22:54.412+0200" name="RfTfonArea">
+        <metadatas xmi:id="_pQLdwz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQLdxD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TFON_AREA"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQLdxT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQLdxj4VEeKH3oFDKEyrCw" description="Code de la tranche fonctionnelle de CHORUS." createdOn="2012-12-04T14:22:25.820+0100" modifiedOn="2013-09-05T17:22:54.412+0200" name="RfTfonTrfonc">
+        <metadatas xmi:id="_pQLdxz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQLdyD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TFON_TRFONC"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQLdyT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="24"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQLdyj4VEeKH3oFDKEyrCw" description="Début de validité de la tranche fonctionnelle de CHORUS." createdOn="2012-12-04T14:22:25.820+0100" modifiedOn="2013-09-05T17:22:54.412+0200" name="RfTfonDatefrom">
+        <metadatas xmi:id="_pQLdyz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQLdzD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TFON_DATEFROM"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQME0D4VEeKH3oFDKEyrCw" description="Fin de validité de la tranche fonctionnelle de CHORUS." createdOn="2012-12-04T14:22:25.821+0100" modifiedOn="2013-09-05T17:22:54.412+0200" name="RfTfonDateto">
+        <metadatas xmi:id="_pQME0T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQME0j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TFON_DATETO"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQME0z4VEeKH3oFDKEyrCw" description="Date d'expiration de la tranche fonctionnelle de CHORUS." createdOn="2012-12-04T14:22:25.821+0100" modifiedOn="2013-09-05T17:22:54.412+0200" name="RfTfonDatex">
+        <metadatas xmi:id="_pQME1D4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQME1T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TFON_DATEX"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQME1j4VEeKH3oFDKEyrCw" description="Description courte de la tranche fonctionnelle de CHORUS." createdOn="2012-12-04T14:22:25.821+0100" modifiedOn="2013-09-05T17:22:54.412+0200" name="RfTfonEtxtsh">
+        <metadatas xmi:id="_pQME1z4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQME2D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TFON_ETXTSH"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQME2T4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="20"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQME2j4VEeKH3oFDKEyrCw" description="Description longue de la tranche fonctionnelle de CHORUS." createdOn="2012-12-04T14:22:25.821+0100" modifiedOn="2013-09-05T17:22:54.412+0200" name="RfTfonEtxtlg">
+        <metadatas xmi:id="_pQME2z4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQMr4D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TFON_ETXTLG"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQMr4T4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="60"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQeYvD4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_MNTAE" createdOn="2012-12-04T14:22:25.851+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="montantaeTranchefonctiFk" multiplicity="0..*" type="_pP-CbD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQeYvT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQeYvj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="MONTANTAE_TRANCHEFONCTI_FK"/>
+        </metadatas>
+      </ownedReferences>
+      <ownedReferences xmi:id="_pQe_yD4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_ORPHELIN" createdOn="2012-12-04T14:22:25.852+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="orphelinatTranchefonctiFk" multiplicity="0..*" type="_pQEJDD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQe_yT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQe_yj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="ORPHELINAT_TRANCHEFONCTI_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pQMr6j4VEeKH3oFDKEyrCw" description="Le type de la GP datée" createdOn="2012-12-04T14:22:25.822+0100" modifiedOn="2013-09-05T17:22:55.164+0200" name="PfeRfTgpdat">
+      <metadatas xmi:id="_pQMr6z4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQMr7D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TGPDAT"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQMr7T4VEeKH3oFDKEyrCw" description="Code du type de la GP datée" createdOn="2012-12-04T14:22:25.822+0100" modifiedOn="2013-09-05T17:22:54.413+0200" name="RfTgpdatCod" multiplicity="1">
+        <metadatas xmi:id="_pQNS8D4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQNS8T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TGPDAT_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQNS8j4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQNS8z4VEeKH3oFDKEyrCw" description="Libellé du type de la GP datée" createdOn="2012-12-04T14:22:25.823+0100" modifiedOn="2013-09-05T17:22:54.413+0200" name="RfTgpdatLib" multiplicity="1">
+        <metadatas xmi:id="_pQNS9D4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQNS9T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TGPDAT_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQNS9j4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="20"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+  </blocks>
+  <blocks xmi:id="_dZF20D4cEeK6-dc-bah3pw" createdOn="2012-12-04T15:11:24.936+0100" modifiedOn="2012-12-04T15:12:15.570+0100" name="block2">
+    <entities xmi:id="_pQN6AD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.824+0100" modifiedOn="2013-09-05T17:22:55.174+0200" name="PfeRfTlienjal">
+      <metadatas xmi:id="_pQN6AT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQN6Aj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TLIENJAL"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQN6Az4VEeKH3oFDKEyrCw" description="Code de type de lien jalon" createdOn="2012-12-04T14:22:25.824+0100" modifiedOn="2013-09-05T17:22:54.413+0200" name="RfTlienjalCod" multiplicity="1">
+        <metadatas xmi:id="_pQN6BD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQN6BT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TLIENJAL_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQN6Bj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQN6Bz4VEeKH3oFDKEyrCw" description="Libellé de lien jalon" createdOn="2012-12-04T14:22:25.824+0100" modifiedOn="2013-09-05T17:22:54.413+0200" name="RfTlienjalLib" multiplicity="1">
+        <metadatas xmi:id="_pQN6CD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQN6CT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TLIENJAL_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQN6Cj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQOhFz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.825+0100" modifiedOn="2013-09-05T17:22:55.195+0200" name="PfeRfTlisttrav">
+      <metadatas xmi:id="_pQOhGD4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQOhGT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TLISTTRAV"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQOhGj4VEeKH3oFDKEyrCw" description="Code de type de liste de travail" createdOn="2012-12-04T14:22:25.825+0100" modifiedOn="2013-09-05T17:22:54.413+0200" name="RfTlisttravCod" multiplicity="1">
+        <metadatas xmi:id="_pQOhGz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQOhHD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TLISTTRAV_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQPIID4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQPIIT4VEeKH3oFDKEyrCw" description="Libellé de liste de travail" createdOn="2012-12-04T14:22:25.826+0100" modifiedOn="2013-09-05T17:22:54.413+0200" name="RfTlisttravLib" multiplicity="1">
+        <metadatas xmi:id="_pQPIIj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQPIIz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TLISTTRAV_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQPIJD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="20"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQPILT4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.826+0100" modifiedOn="2013-09-05T17:22:55.204+0200" name="PfeRfTmemo">
+      <metadatas xmi:id="_pQPvMD4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQPvMT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TMEMO"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQPvMj4VEeKH3oFDKEyrCw" description="Code du type de Mémo" createdOn="2012-12-04T14:22:25.827+0100" modifiedOn="2013-09-05T17:22:54.413+0200" name="RfTmemoCod" multiplicity="1">
+        <metadatas xmi:id="_pQPvMz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQPvND4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TMEMO_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQPvNT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="5"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQPvNj4VEeKH3oFDKEyrCw" description="Libellé du type de Mémos" createdOn="2012-12-04T14:22:25.827+0100" modifiedOn="2013-09-05T17:22:54.413+0200" name="RfTmemoLib" multiplicity="1">
+        <metadatas xmi:id="_pQPvNz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQPvOD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TMEMO_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQPvOT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQQWQz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.828+0100" modifiedOn="2013-09-05T17:22:55.213+0200" name="PfeRfTmoe">
+      <metadatas xmi:id="_pQQWRD4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQQWRT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TMOE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQQWRj4VEeKH3oFDKEyrCw" description="Code du type de MOE" createdOn="2012-12-04T14:22:25.828+0100" modifiedOn="2013-09-05T17:22:54.413+0200" name="RfTmoeCod" multiplicity="1">
+        <metadatas xmi:id="_pQQWRz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQQWSD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TMOE_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQQWST4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="5"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQQWSj4VEeKH3oFDKEyrCw" description="Libellé du type de MOE" createdOn="2012-12-04T14:22:25.828+0100" modifiedOn="2013-09-05T17:22:54.413+0200" name="RfTmoeLib" multiplicity="1">
+        <metadatas xmi:id="_pQQWSz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQQWTD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TMOE_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQQWTT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQQ9Vj4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.829+0100" modifiedOn="2013-09-05T17:22:55.222+0200" name="PfeRfTmontant">
+      <metadatas xmi:id="_pQQ9Vz4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQQ9WD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TMONTANT"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQQ9WT4VEeKH3oFDKEyrCw" description="code du type de montant" createdOn="2012-12-04T14:22:25.829+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTmontantCod" multiplicity="1">
+        <metadatas xmi:id="_pQQ9Wj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQQ9Wz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TMONTANT_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQQ9XD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQQ9XT4VEeKH3oFDKEyrCw" description="libellé du type de montant" createdOn="2012-12-04T14:22:25.829+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTmontantLib" multiplicity="1">
+        <metadatas xmi:id="_pQQ9Xj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQRkYD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TMONTANT_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQRkYT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQRkaj4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.830+0100" modifiedOn="2013-09-05T17:22:55.231+0200" name="PfeRfTope">
+      <metadatas xmi:id="_pQRkaz4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQRkbD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TOPE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQRkbT4VEeKH3oFDKEyrCw" description="Code du type d'opération" createdOn="2012-12-04T14:22:25.830+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTopeCod" multiplicity="1">
+        <metadatas xmi:id="_pQSLcD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQSLcT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TOPE_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQSLcj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="1"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQSLcz4VEeKH3oFDKEyrCw" description="Libellé du type d'opération" createdOn="2012-12-04T14:22:25.831+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTopeLib" multiplicity="1">
+        <metadatas xmi:id="_pQSLdD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQSLdT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TOPE_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQSLdj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQSygD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.832+0100" modifiedOn="2013-09-05T17:22:55.239+0200" name="PfeRfTorg">
+      <metadatas xmi:id="_pQSygT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQSygj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TORG"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQSygz4VEeKH3oFDKEyrCw" description="Code du type d'organisme" createdOn="2012-12-04T14:22:25.832+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTorgCod" multiplicity="1">
+        <metadatas xmi:id="_pQSyhD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQSyhT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TORG_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQSyhj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="1"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQSyhz4VEeKH3oFDKEyrCw" description="Libellé du type d'organisme" createdOn="2012-12-04T14:22:25.832+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTorgLib" multiplicity="1">
+        <metadatas xmi:id="_pQSyiD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQSyiT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TORG_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQSyij4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="25"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQTZlD4VEeKH3oFDKEyrCw" description="Le libellé abrégé" createdOn="2012-12-04T14:22:25.833+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTorgLiba">
+        <metadatas xmi:id="_pQTZlT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQTZlj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TORG_LIBA"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQTZlz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="15"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQe_wj4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_ORGANISME" createdOn="2012-12-04T14:22:25.852+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="organismeTypeorganismeFk" multiplicity="0..*" type="_pQDh8D4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQe_wz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQe_xD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="ORGANISME_TYPEORGANISME_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pQTZmD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.833+0100" modifiedOn="2013-09-05T17:22:55.248+0200" name="PfeRfTouv">
+      <metadatas xmi:id="_pQTZmT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQTZmj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TOUV"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQTZmz4VEeKH3oFDKEyrCw" description="Code du type d'ouvrage" createdOn="2012-12-04T14:22:25.833+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTouvCod" multiplicity="1">
+        <metadatas xmi:id="_pQTZnD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQTZnT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TOUV_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQTZnj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="3"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQUAoD4VEeKH3oFDKEyrCw" description="Libelle du type d'ouvrage" createdOn="2012-12-04T14:22:25.834+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTouvLib" multiplicity="1">
+        <metadatas xmi:id="_pQUAoT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQUAoj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TOUV_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQUAoz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQUArD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.834+0100" modifiedOn="2013-09-05T17:22:55.258+0200" name="PfeRfTphase">
+      <metadatas xmi:id="_pQUArT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQUnsD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TPHASE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQUnsT4VEeKH3oFDKEyrCw" description="code de type de phase" createdOn="2012-12-04T14:22:25.835+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTphaseCod" multiplicity="1">
+        <metadatas xmi:id="_pQUnsj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQUnsz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TPHASE_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQUntD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="4"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQUntT4VEeKH3oFDKEyrCw" description="Libellé de type de phase" createdOn="2012-12-04T14:22:25.835+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTphaseLib" multiplicity="1">
+        <metadatas xmi:id="_pQUntj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQUntz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TPHASE_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQUnuD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="20"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQeYvz4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_NATPHA" createdOn="2012-12-04T14:22:25.851+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="naturephaseTypephaseFk" multiplicity="0..*" type="_pQBFtD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQeYwD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQeYwT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="NATUREPHASE_TYPEPHASE_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pQVOwT4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.836+0100" modifiedOn="2013-09-05T17:22:55.266+0200" name="PfeRfTreinitgp">
+      <metadatas xmi:id="_pQVOwj4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQVOwz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TREINITGP"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQVOxD4VEeKH3oFDKEyrCw" description="Code du type de réinitialisation choisi pour la GP" createdOn="2012-12-04T14:22:25.836+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTreinitgpCod" multiplicity="1">
+        <metadatas xmi:id="_pQVOxT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQVOxj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TREINITGP_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQVOxz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQVOyD4VEeKH3oFDKEyrCw" description="Libellé du type de réinitialisation choisi pour la GP" createdOn="2012-12-04T14:22:25.836+0100" modifiedOn="2013-09-05T17:22:54.414+0200" name="RfTreinitgpLib" multiplicity="1">
+        <metadatas xmi:id="_pQVOyT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQVOyj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TREINITGP_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQVOyz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQV11T4VEeKH3oFDKEyrCw" description="Defini le type d'action lors d'un archivage (insert/update/delete)" createdOn="2012-12-04T14:22:25.837+0100" modifiedOn="2013-09-05T17:22:55.275+0200" name="PfeRfTypactionarch">
+      <metadatas xmi:id="_pQV11j4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQV11z4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TYPACTIONARCH"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQV12D4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.837+0100" modifiedOn="2013-09-05T17:22:54.426+0200" name="RfTypactionarchCod" multiplicity="1">
+        <metadatas xmi:id="_pQV12T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQV12j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TYPACTIONARCH_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQV12z4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CTJ34hY_EeOSDrYWINMwpA" title="PHYSICAL_UNIQUE" body="ASC"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQV13D4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.837+0100" modifiedOn="2013-09-05T17:22:54.426+0200" name="RfTypactionarchLib" multiplicity="1">
+        <metadatas xmi:id="_pQWc4D4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQWc4T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TYPACTIONARCH_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQWc4j4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQWc7D4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.838+0100" modifiedOn="2013-09-05T17:22:55.283+0200" name="PfeRfTypfonctmetier">
+      <metadatas xmi:id="_pQWc7T4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQWc7j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TYPFONCTMETIER"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQXD8D4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.839+0100" modifiedOn="2013-09-05T17:22:54.426+0200" name="RfTypfonctmetierLib" multiplicity="1">
+        <metadatas xmi:id="_pQXD8T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQXD8j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TYPFONCTMETIER_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQXD8z4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQeYtj4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_FONCTMETIER" createdOn="2012-12-04T14:22:25.851+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="fonctionmetieTypefonctionmFk" multiplicity="0..*" type="_pP80TT4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQeYtz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQeYuD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="FONCTIONMETIE_TYPEFONCTIONM_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pQXD_D4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.839+0100" modifiedOn="2013-09-05T17:22:55.292+0200" name="PfeRfTypoloinfra">
+      <metadatas xmi:id="_pQXD_T4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQXD_j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_TYPOLOINFRA"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQXrAD4VEeKH3oFDKEyrCw" description="Code de la typologie d'infrastructure" createdOn="2012-12-04T14:22:25.840+0100" modifiedOn="2013-09-05T17:22:54.426+0200" name="RfTypoloinfraCod" multiplicity="1">
+        <metadatas xmi:id="_pQXrAT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQXrAj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TYPOLOINFRA_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQXrAz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQXrBD4VEeKH3oFDKEyrCw" description="Libellé de la typologie d'infrastructure" createdOn="2012-12-04T14:22:25.840+0100" modifiedOn="2013-09-05T17:22:54.426+0200" name="RfTypoloinfraLib" multiplicity="1">
+        <metadatas xmi:id="_pQXrBT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQXrBj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_TYPOLOINFRA_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQXrBz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQYSEj4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.841+0100" modifiedOn="2013-09-05T17:22:55.303+0200" name="PfeRfUfonc">
+      <metadatas xmi:id="_pQYSEz4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQYSFD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_UFONC"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQYSFT4VEeKH3oFDKEyrCw" description="Code de l'unité fonctionnelle" createdOn="2012-12-04T14:22:25.841+0100" modifiedOn="2013-09-05T17:22:54.426+0200" name="RfUfoncCod" multiplicity="1">
+        <metadatas xmi:id="_pQYSFj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQYSFz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_UFONC_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQYSGD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQYSGT4VEeKH3oFDKEyrCw" description="Libellé de l'unité fonctionnelle" createdOn="2012-12-04T14:22:25.841+0100" modifiedOn="2013-09-05T17:22:54.426+0200" name="RfUfoncLib" multiplicity="1">
+        <metadatas xmi:id="_pQYSGj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQYSGz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_UFONC_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQYSHD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQY5Jz4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.842+0100" modifiedOn="2013-09-05T17:22:55.312+0200" name="PfeRfUnitetps">
+      <metadatas xmi:id="_pQY5KD4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQY5KT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_UNITETPS"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQY5Kj4VEeKH3oFDKEyrCw" description="Code de l'unité de temps (m pour mois par exemple)" createdOn="2012-12-04T14:22:25.842+0100" modifiedOn="2013-09-05T17:22:54.426+0200" name="RfUnitetpsCod" multiplicity="1">
+        <metadatas xmi:id="_pQY5Kz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQY5LD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_UNITETPS_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQY5LT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="1"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQY5Lj4VEeKH3oFDKEyrCw" description="Libelle de l'unité de temps (exemple : mois)" createdOn="2012-12-04T14:22:25.842+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="RfUnitetpsLib" multiplicity="1">
+        <metadatas xmi:id="_pQY5Lz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQZgMD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_UNITETPS_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQZgMT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQZgMj4VEeKH3oFDKEyrCw" description="Valeur en nombre de jours (si unité en mois alors vaut 30 par exemple)" createdOn="2012-12-04T14:22:25.843+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="RfUnitetpsValnbjours" multiplicity="1">
+        <metadatas xmi:id="_pQZgMz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQZgND4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_UNITETPS_VALNBJOURS"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CTICsBY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="14"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pQZgPT4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.843+0100" modifiedOn="2013-09-05T17:22:55.321+0200" name="PfeRfZd">
+      <metadatas xmi:id="_pQaHQD4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQaHQT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ZD"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQaHQj4VEeKH3oFDKEyrCw" description="Code de la ZD" createdOn="2012-12-04T14:22:25.844+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="RfZdCod">
+        <metadatas xmi:id="_pQaHQz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQaHRD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ZD_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQaHRT4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="3"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQaHRj4VEeKH3oFDKEyrCw" description="Libellé de la ZD" createdOn="2012-12-04T14:22:25.844+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="RfZdLib" multiplicity="1">
+        <metadatas xmi:id="_pQaHRz4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQaHSD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ZD_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQaHST4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="150"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQdKnz4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_BDD" createdOn="2012-12-04T14:22:25.849+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="basededefenseZonededefenseFk" multiplicity="0..*" type="_pPpSRj4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQdKoD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdKoT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="BASEDEDEFENSE_ZONEDEDEFENSE_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pQauUT4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.845+0100" modifiedOn="2013-09-05T17:22:55.331+0200" name="PfeRfZfct">
+      <metadatas xmi:id="_pQauUj4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pQauUz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ZFCT"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pQauVD4VEeKH3oFDKEyrCw" description="Code de la zone fonctionnelle" createdOn="2012-12-04T14:22:25.845+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="RfZfctCod">
+        <metadatas xmi:id="_pQauVT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQauVj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ZFCT_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQauVz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="3"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pQauWD4VEeKH3oFDKEyrCw" description="Libelle de la zone fonctionnelle" createdOn="2012-12-04T14:22:25.845+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="RfZfctLib" multiplicity="1">
+        <metadatas xmi:id="_pQauWT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQauWj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ZFCT_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQauWz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="50"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQe_yz4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_SFCT" createdOn="2012-12-04T14:22:25.852+0100" modifiedOn="2013-09-05T17:22:54.429+0200" name="sousfonctionZonefonctionnFk" multiplicity="0..*" type="_pQHzZD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQe_zD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQe_zT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="SOUSFONCTION_ZONEFONCTIONN_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+  </blocks>
+  <blocks xmi:id="_drspwD4cEeK6-dc-bah3pw" createdOn="2012-12-04T15:11:29.404+0100" modifiedOn="2012-12-04T15:12:09.154+0100" name="block3">
+    <entities xmi:id="_pPaowD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.740+0100" modifiedOn="2013-09-05T17:22:55.341+0200" name="PfeAdCptjklmjk">
+      <metadatas xmi:id="_pPb24D4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pPb24T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_AD_CPT"/>
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_CRo08BY_EeOSDrYWINMwpA" title="PHYSICAL_CHECK" body="CONSTRAINT1_EXPRESSION"/>
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_CTJQ0BY_EeOSDrYWINMwpA" title="PHYSICAL_UNIQUE" body="PE_XDMAJ:ASC,PE_XTOPSUP:DESC"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPb24j4VEeKH3oFDKEyrCw" description="Code composant" createdOn="2012-12-04T14:22:25.742+0100" modifiedOn="2013-09-05T17:22:54.270+0200" name="AdCptCod" multiplicity="1">
+        <metadatas xmi:id="_pPb24z4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPb25D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_CPT_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CRoN4BY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPdsED4VEeKH3oFDKEyrCw" description="Dénomination composant" createdOn="2012-12-04T14:22:25.745+0100" modifiedOn="2013-09-05T17:22:54.271+0200" name="AdCptDen" multiplicity="1">
+        <metadatas xmi:id="_pPdsET4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPdsEj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_CPT_DEN"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPdsEz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPeTID4VEeKH3oFDKEyrCw" description="NÂ° composant  CHORUS" createdOn="2012-12-04T14:22:25.746+0100" modifiedOn="2013-09-05T17:22:54.271+0200" name="AdCptNumChorus">
+        <metadatas xmi:id="_pPeTIT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPeTIj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_CPT_NUM_CHORUS"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPeTIz4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pPeTLD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.746+0100" modifiedOn="2013-09-05T17:22:55.350+0200" name="PfeAdImm">
+      <metadatas xmi:id="_pPeTLT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pPeTLj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_AD_IMM"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPeTLz4VEeKH3oFDKEyrCw" description="Code immeuble" createdOn="2012-12-04T14:22:25.747+0100" modifiedOn="2013-09-05T17:22:54.305+0200" name="AdImmCod" multiplicity="1">
+        <metadatas xmi:id="_pPe6MD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPe6MT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_IMM_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPe6Mj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="10"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CTJQ0RY_EeOSDrYWINMwpA" title="PHYSICAL_UNIQUE" body="ASC"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPe6Mz4VEeKH3oFDKEyrCw" description="Dénomination immeuble" createdOn="2012-12-04T14:22:25.747+0100" modifiedOn="2013-09-05T17:22:54.330+0200" name="AdImmDen" multiplicity="1">
+        <metadatas xmi:id="_pPe6ND4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPe6NT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_IMM_DEN"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPe6Nj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="40"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPe6Nz4VEeKH3oFDKEyrCw" description="Numéro site Chorus" createdOn="2012-12-04T14:22:25.747+0100" modifiedOn="2013-09-05T17:22:54.330+0200" name="AdImmSitechorus">
+        <metadatas xmi:id="_pPe6OD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPe6OT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_IMM_SITECHORUS"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPe6Oj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="6"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPe6Oz4VEeKH3oFDKEyrCw" description="Lettre inférieur" createdOn="2012-12-04T14:22:25.747+0100" modifiedOn="2013-09-05T17:22:54.330+0200" name="AdImmInfl">
+        <metadatas xmi:id="_pPe6PD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPe6PT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_IMM_INFL"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPe6Pj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="5"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPe6Pz4VEeKH3oFDKEyrCw" description="Numéro inférieur" createdOn="2012-12-04T14:22:25.747+0100" modifiedOn="2013-09-05T17:22:54.330+0200" name="AdImmInfn">
+        <metadatas xmi:id="_pPe6QD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPe6QT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_IMM_INFN"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSM1oBY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPfhQD4VEeKH3oFDKEyrCw" description="Numéro supérieur" createdOn="2012-12-04T14:22:25.748+0100" modifiedOn="2013-09-05T17:22:54.331+0200" name="AdImmSupn">
+        <metadatas xmi:id="_pPfhQT4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPfhQj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_IMM_SUPN"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSNcsBY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPfhQz4VEeKH3oFDKEyrCw" description="Lettre supérieure" createdOn="2012-12-04T14:22:25.748+0100" modifiedOn="2013-09-05T17:22:54.331+0200" name="AdImmSupl">
+        <metadatas xmi:id="_pPfhRD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPfhRT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_IMM_SUPL"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPfhRj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="5"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPfhRz4VEeKH3oFDKEyrCw" description="Désignation voie ou lieu dit" createdOn="2012-12-04T14:22:25.748+0100" modifiedOn="2013-09-05T17:22:54.331+0200" name="AdImmDes" multiplicity="1">
+        <metadatas xmi:id="_pPfhSD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPfhST4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_IMM_DES"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPfhSj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="200"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQb8cD4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_AD_CPT" createdOn="2012-12-04T14:22:25.847+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="composantImmeubleFk" multiplicity="0..*" type="_pPaowD4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQcjgD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQcjgT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="COMPOSANT_IMMEUBLE_FK"/>
+        </metadatas>
+      </ownedReferences>
+      <ownedReferences xmi:id="_pQcjkT4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_AD_IMMARE" createdOn="2012-12-04T14:22:25.848+0100" modifiedOn="2013-09-05T17:22:54.427+0200" name="immeubleattriImmeubleFk" multiplicity="0..*" type="_pPgIUj4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQcjkj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQcjkz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="IMMEUBLEATTRI_IMMEUBLE_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_pPgIUj4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.749+0100" modifiedOn="2013-09-05T17:22:55.358+0200" name="PfeAdImmare">
+      <metadatas xmi:id="_pPgIUz4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pPgIVD4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_AD_IMMARE"/>
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_XvpFUD68EeK-3dMFiRhqrw" title="PHYSICAL_DEFAULT" body="PEUT ETRE CONSERVEE MEME SI PAS DE SENS POUR ENTITY"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPgIVT4VEeKH3oFDKEyrCw" description="Emprise de l'attributaire sur immeuble" createdOn="2012-12-04T14:22:25.749+0100" modifiedOn="2013-09-05T17:22:54.350+0200" name="AdImmareStot" multiplicity="1">
+        <metadatas xmi:id="_pPgIVj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPgIVz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="AD_IMMARE_STOT"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSZC4BY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="19"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pPgvZD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.750+0100" modifiedOn="2013-09-05T17:22:55.367+0200" name="PfeOsOpe">
+      <metadatas xmi:id="_pPgvZT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pPgvZj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_OS_OPE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPgvZz4VEeKH3oFDKEyrCw" description="Code de l'opération Osiris" createdOn="2012-12-04T14:22:25.750+0100" modifiedOn="2013-09-05T17:22:54.367+0200" name="OsOpeCod" multiplicity="1">
+        <metadatas xmi:id="_pPgvaD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPgvaT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="OS_OPE_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPhWcD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPhWcT4VEeKH3oFDKEyrCw" description="Libellé de l'opération Osiris" createdOn="2012-12-04T14:22:25.751+0100" modifiedOn="2013-09-05T17:22:54.367+0200" name="OsOpeLib" multiplicity="1">
+        <metadatas xmi:id="_pPhWcj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPhWcz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="OS_OPE_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPhWdD4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="500"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pPh9gD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.752+0100" modifiedOn="2013-09-05T17:22:55.376+0200" name="PfePlOpe">
+      <metadatas xmi:id="_pPh9gT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pPh9gj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_PL_OPE"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPh9gz4VEeKH3oFDKEyrCw" description="Code de l'opération Plimat" createdOn="2012-12-04T14:22:25.752+0100" modifiedOn="2013-09-05T17:22:54.367+0200" name="PlOpeCod" multiplicity="1">
+        <metadatas xmi:id="_pPh9hD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPh9hT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PL_OPE_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPh9hj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="24"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPh9hz4VEeKH3oFDKEyrCw" description="Libellé de l'opération Plimat" createdOn="2012-12-04T14:22:25.752+0100" modifiedOn="2013-09-05T17:22:54.367+0200" name="PlOpeLib" multiplicity="1">
+        <metadatas xmi:id="_pPh9iD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPh9iT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PL_OPE_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPh9ij4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="200"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pPikmD4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.753+0100" modifiedOn="2013-09-05T17:22:55.385+0200" name="PfeRfAccesmemo">
+      <metadatas xmi:id="_pPikmT4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pPikmj4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ACCESMEMO"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPikmz4VEeKH3oFDKEyrCw" description="Code de l'accessibilité du mémo" createdOn="2012-12-04T14:22:25.754+0100" modifiedOn="2013-09-05T17:22:54.367+0200" name="RfAccesmemoCod" multiplicity="1">
+        <metadatas xmi:id="_pPjLoD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPjLoT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ACCESMEMO_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPjLoj4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPjLoz4VEeKH3oFDKEyrCw" description="Libellé de l'accessibilité du mémo" createdOn="2012-12-04T14:22:25.754+0100" modifiedOn="2013-09-05T17:22:54.367+0200" name="RfAccesmemoLib" multiplicity="1">
+        <metadatas xmi:id="_pPjLpD4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPjLpT4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ACCESMEMO_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPlA0D4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+    <entities xmi:id="_pPln4z4VEeKH3oFDKEyrCw" createdOn="2012-12-04T14:22:25.758+0100" modifiedOn="2013-09-05T17:22:55.393+0200" name="PfeRfAffect">
+      <metadatas xmi:id="_pPln5D4VEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_pPln5T4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_AFFECT"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_pPln5j4VEeKH3oFDKEyrCw" description="Code affectataire" createdOn="2012-12-04T14:22:25.758+0100" modifiedOn="2013-09-05T17:22:54.367+0200" name="RfAffectCod" multiplicity="1">
+        <metadatas xmi:id="_pPln5z4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPln6D4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_AFFECT_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPln6T4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="2"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_pPmO8D4VEeKH3oFDKEyrCw" description="Libellé affectataire" createdOn="2012-12-04T14:22:25.759+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfAffectLib">
+        <metadatas xmi:id="_pPmO8T4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPmO8j4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_AFFECT_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pPmO8z4VEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="100"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_pQdKmT4VEeKH3oFDKEyrCw" description="Contrainte FK avec la table PFE_RF_ARE" createdOn="2012-12-04T14:22:25.849+0100" modifiedOn="2013-09-05T17:22:54.428+0200" name="attributaireAffectataireFk" multiplicity="0..*" type="_pPndGj4VEeKH3oFDKEyrCw">
+        <metadatas xmi:id="_pQdKmj4VEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_pQdKmz4VEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="ATTRIBUTAIRE_AFFECTATAIRE_FK"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+    <entities xmi:id="_WZ6s8D4WEeKH3oFDKEyrCw" createdOn="2012-12-04T14:27:28.831+0100" modifiedOn="2013-09-05T17:22:55.401+0200" name="PfeRfAnt">
+      <metadatas xmi:id="_WZ6s8T4WEeKH3oFDKEyrCw">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_WZ6s8j4WEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="PFE_RF_ANT"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_WZ6s8z4WEeKH3oFDKEyrCw" description="Code de l'antenne" createdOn="2012-12-04T14:27:28.831+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfAntCod" multiplicity="1">
+        <metadatas xmi:id="_WZ6s9D4WEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_WZ6s9T4WEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ANT_COD"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_WZ6s9j4WEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_WZ6s9z4WEeKH3oFDKEyrCw" description="Libelle de l'antenne" createdOn="2012-12-04T14:27:28.831+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfAntLib" multiplicity="1">
+        <metadatas xmi:id="_WZ6s-D4WEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_WZ6s-T4WEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ANT_LIB"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_WZ6s-j4WEeKH3oFDKEyrCw" title="PHYSICAL_SIZE" body="150"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_WZ6s-z4WEeKH3oFDKEyrCw" description="Niveau hierarchique de l'antenne" createdOn="2012-12-04T14:27:28.831+0100" modifiedOn="2013-09-05T17:22:54.368+0200" name="RfAntNiveau">
+        <metadatas xmi:id="_WZ6s_D4WEeKH3oFDKEyrCw">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_WZ6s_T4WEeKH3oFDKEyrCw" title="PHYSICAL_NAME" body="RF_ANT_NIVEAU"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_CSkCABY_EeOSDrYWINMwpA" title="PHYSICAL_SIZE" body="10"/>
+        </metadatas>
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+  </blocks>
+</oent:Root>

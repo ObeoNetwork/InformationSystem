@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="fr.gouv.mindef.safran.database.scaffold.feature"
+      label="Scaffold Model Feature"
+      version="1.0.0.qualifier"
+      provider-name="www.obeo.fr">
+
+   <description>
+      Safr@n - Scaffold traceability model
+   </description>
+
+   <copyright url="http://www.obeo.fr">
+      Copyright (c) 2012 Obeo
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="fr.gouv.mindef.safran.database.scaffold"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.gouv.mindef.safran.database.scaffold.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.gouv.mindef.safran.database.scaffold.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

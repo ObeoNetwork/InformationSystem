@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_HhuMADloEeKBAr0by_Z50A" name="2-input-mld">
+  <tables xsi:type="database:Table" xmi:id="_NW52sDloEeKBAr0by_Z50A" name="PERSONNE">
+    <columns xmi:id="_XVQWMDloEeKBAr0by_Z50A" name="PERSONNE_ID" indexElements="_G-vkUTl0EeKuO7eSc6nNWw" primaryKey="_XVRkUDloEeKBAr0by_Z50A">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_XVQWMTloEeKBAr0by_Z50A">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_DEa5QTlzEeKuO7eSc6nNWw" name="SOCIETE_ID" nullable="true" foreignKeyElements="_HA_cgDlzEeKuO7eSc6nNWw">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_DEa5QjlzEeKuO7eSc6nNWw">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <primaryKey xmi:id="_XVRkUDloEeKBAr0by_Z50A" name="PERSONNE_PK" columns="_XVQWMDloEeKBAr0by_Z50A"/>
+    <foreignKeys xmi:id="_HA7LEDlzEeKuO7eSc6nNWw" name="EST_EMPLOYEE_PAR" target="_MnEVMDloEeKBAr0by_Z50A">
+      <elements xmi:id="_HA_cgDlzEeKuO7eSc6nNWw" fkColumn="_DEa5QTlzEeKuO7eSc6nNWw" pkColumn="_UEyrADloEeKBAr0by_Z50A"/>
+    </foreignKeys>
+    <indexes xmi:id="_G-vkUDl0EeKuO7eSc6nNWw" name="PERSONNE_UN_1" unique="true">
+      <elements xmi:id="_G-vkUTl0EeKuO7eSc6nNWw" column="_XVQWMDloEeKBAr0by_Z50A" asc="true"/>
+    </indexes>
+  </tables>
+  <tables xsi:type="database:Table" xmi:id="_MnEVMDloEeKBAr0by_Z50A" name="SOCIETE">
+    <columns xmi:id="_UEyrADloEeKBAr0by_Z50A" name="SOCIETE_ID" indexElements="_GRFNETl0EeKuO7eSc6nNWw" primaryKey="_UE1HQDloEeKBAr0by_Z50A">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_UEyrATloEeKBAr0by_Z50A">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <primaryKey xmi:id="_UE1HQDloEeKBAr0by_Z50A" name="SOCIETE_PK" columns="_UEyrADloEeKBAr0by_Z50A"/>
+    <indexes xmi:id="_GRFNEDl0EeKuO7eSc6nNWw" name="SOCIETE_UN_1" unique="true">
+      <elements xmi:id="_GRFNETl0EeKuO7eSc6nNWw" column="_UEyrADloEeKBAr0by_Z50A" asc="true"/>
+    </indexes>
+  </tables>
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+</database:DataBase>

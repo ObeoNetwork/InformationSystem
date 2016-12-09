@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/2.0.0" xmi:id="_nF_ggDlnEeKBAr0by_Z50A" createdOn="2012-11-28T15:26:34.247+0100" modifiedOn="2012-12-03T14:46:26.272+0100">
+  <blocks xmi:id="_rWlzADlnEeKBAr0by_Z50A" createdOn="2012-11-28T15:27:02.837+0100" modifiedOn="2013-09-05T17:22:02.381+0200" name="2-input-mld">
+    <entities xmi:id="_6ixr0BY-EeOSDrYWINMwpA" createdOn="2013-09-05T17:22:02.381+0200" modifiedOn="2013-09-05T17:22:02.381+0200" name="Personne">
+      <metadatas xmi:id="_6ixr0RY-EeOSDrYWINMwpA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_6ixr0hY-EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="PERSONNE"/>
+      </metadatas>
+    </entities>
+    <entities xmi:id="_6ixr0xY-EeOSDrYWINMwpA" createdOn="2013-09-05T17:22:02.381+0200" modifiedOn="2013-09-05T17:22:02.381+0200" name="Societe">
+      <metadatas xmi:id="_6ixr1BY-EeOSDrYWINMwpA">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_6ixr1RY-EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="SOCIETE"/>
+      </metadatas>
+      <ownedReferences xmi:id="_6ixr1hY-EeOSDrYWINMwpA" description="Contrainte FK avec la table PERSONNE" createdOn="2013-09-05T17:22:02.381+0200" modifiedOn="2013-09-05T17:22:02.382+0200" name="estEmployeePar" multiplicity="0..*" type="_6ixr0BY-EeOSDrYWINMwpA">
+        <metadatas xmi:id="_6iyS4BY-EeOSDrYWINMwpA">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_6iyS4RY-EeOSDrYWINMwpA" title="PHYSICAL_NAME" body="EST_EMPLOYEE_PAR"/>
+        </metadatas>
+      </ownedReferences>
+    </entities>
+  </blocks>
+</oent:Root>

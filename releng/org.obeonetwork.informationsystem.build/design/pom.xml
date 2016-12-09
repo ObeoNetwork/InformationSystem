@@ -251,7 +251,8 @@
 		*********************************************************************************************
 		-->
 		<module>../../org.obeonetwork.informationsystem.design.repository</module>
-				<!-- 
+		
+		<!-- 
 		*********************************************************************************************
 		* M2Doc Services
 		*********************************************************************************************
@@ -261,8 +262,24 @@
 		<module>../../../m2doc/database/features/org.obeonetwork.database.m2doc.feature</module>		
 		<module>../../../m2doc/requirement/plugins/org.obeonetwork.dsl.requirement.m2doc.services</module>		
 		<module>../../../m2doc/requirement/plugins/org.obeonetwork.dsl.requirement.m2doc.services.test</module>
-		<module>../../../m2doc/requirement/features/org.obeonetwork.dsl.requirement.m2doc.feature</module>		
-		<module>../../../m2doc/graal/plugins/org.obeonetwork.dsl.graal.m2doc.services</module>		
-		<module>../../../m2doc/graal/features/org.obeonetwork.dsl.graal.m2doc.feature</module>		
+		<module>../../../m2doc/requirement/features/org.obeonetwork.dsl.requirement.m2doc.feature</module>
+		<module>../../../m2doc/graal/plugins/org.obeonetwork.dsl.graal.m2doc.services</module>
+		<module>../../../m2doc/graal/features/org.obeonetwork.dsl.graal.m2doc.feature</module>
+		
+		<!-- 
+		*********************************************************************************************
+		* Scaffolding
+		*********************************************************************************************
+		-->
+		<module>../../../database/features/fr.gouv.mindef.safran.database.scaffold.feature</module>
+		<module>../../../database/plugins/fr.gouv.mindef.safran.database.scaffold</module>
+		<module>../../../database/plugins/fr.gouv.mindef.safran.database.scaffold.edit</module>
+		<module>../../../database/plugins/fr.gouv.mindef.safran.database.scaffold.editor</module>
+		<module>../../../database/features/fr.gouv.mindef.safran.database.ui.feature</module>
+		<module>../../../database/plugins/fr.gouv.mindef.safran.database</module>
+		<module>../../../database/plugins/fr.gouv.mindef.safran.database.doc</module>
+		<module>../../../database/plugins/fr.gouv.mindef.safran.database.ui</module>
+		<module>../../../database/plugins/fr.gouv.mindef.safran.database.tests</module>		
+
 	</modules>
 </project>

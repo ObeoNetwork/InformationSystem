@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Safr@n Database-Entity Scaffolding
+Bundle-SymbolicName: fr.gouv.mindef.safran.database;singleton:=true
+Bundle-Version: 3.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ fr.gouv.mindef.safran.database.scaffold,
+ org.obeonetwork.dsl.overview,
+ org.eclipse.sirius,
+ com.google.guava,
+ org.eclipse.sirius.ecore.extender,
+ org.eclipse.sirius.ext.emf,
+ org.obeonetwork.dsl.environment;bundle-version="3.0.0",
+ org.obeonetwork.dsl.entity;bundle-version="3.0.0",
+ org.obeonetwork.dsl.database;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: fr.gouv.mindef.safran.database.transfo,
+ fr.gouv.mindef.safran.database.transfo.impl,
+ fr.gouv.mindef.safran.database.transfo.util
+Bundle-Vendor: Obeo.fr
+Bundle-Activator: fr.gouv.mindef.safran.database.Activator

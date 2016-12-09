@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_e9mIsD7bEeKDHrNCTHVx7A" techID="_24gxMJaYEea3rZOTd3d7bg" name="affaire">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_q6TEcGPsEeKrnPwWmZ20XQ" techID="_24gxMZaYEea3rZOTd3d7bg" name="AFFAIRE">
+    <tables xsi:type="database:Table" xmi:id="_kJkeUD7bEeKDHrNCTHVx7A" comments="Table des affaires" techID="_24gxMpaYEea3rZOTd3d7bg" name="CS_AFF">
+      <primaryKey xmi:id="_o4MJkD7bEeKDHrNCTHVx7A" comments="Contrainte PK pour la colonne CS_AFF_ID" techID="_24gxO5aYEea3rZOTd3d7bg" name="CS_AFF_PK" columns="_ng4YYD7bEeKDHrNCTHVx7A"/>
+      <constraints xmi:id="_s9RSUGOrEeKrnPwWmZ20XQ" comments="Liste des valeurs possibles pour AFFAIRE_XTOPSUP" techID="_24gxPJaYEea3rZOTd3d7bg" name="CS_AFF_CK1_1" expression="AFFAIRE_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_vMupwD7bEeKDHrNCTHVx7A" comments="Index d'unicité pour CS_AFF_NUM" techID="_24gxPZaYEea3rZOTd3d7bg" name="CS_AFF_UN1_1" unique="true">
+        <elements xmi:id="_vMupwT7bEeKDHrNCTHVx7A" techID="_24gxPpaYEea3rZOTd3d7bg" column="_s4evMD7bEeKDHrNCTHVx7A" asc="true"/>
+      </indexes>
+      <columns xmi:id="_s4evMD7bEeKDHrNCTHVx7A" comments="Numéro de l'affaire" techID="_24gxM5aYEea3rZOTd3d7bg" name="CS_AFF_NUM" indexElements="_vMupwT7bEeKDHrNCTHVx7A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_s4evMT7bEeKDHrNCTHVx7A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_ng4YYD7bEeKDHrNCTHVx7A" comments="PK de la table CS_AFF" techID="_24gxNZaYEea3rZOTd3d7bg" name="CS_AFF_ID" primaryKey="_o4MJkD7bEeKDHrNCTHVx7A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ng4YYT7bEeKDHrNCTHVx7A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_jqzocGOrEeKrnPwWmZ20XQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_24gxN5aYEea3rZOTd3d7bg" name="AFFAIRE_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_jqzocWOrEeKrnPwWmZ20XQ" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_p1bXoGOrEeKrnPwWmZ20XQ" comments="Date de mise à jour de la ligne" techID="_24gxOZaYEea3rZOTd3d7bg" name="AFFAIRE_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_p1bXoWOrEeKrnPwWmZ20XQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kZES4D7bEeKDHrNCTHVx7A" comments="Table des GPA" techID="_24gxP5aYEea3rZOTd3d7bg" name="CS_GPA">
+      <primaryKey xmi:id="_zouT8j7bEeKDHrNCTHVx7A" comments="Contrainte PK pour la colonne CS_GPA_ID" techID="_24gxSpaYEea3rZOTd3d7bg" name="CS_GPA_PK" columns="_zouT8D7bEeKDHrNCTHVx7A"/>
+      <foreignKeys xmi:id="_xyhx4D7cEeKDHrNCTHVx7A" comments="Affaire sur laquelle porte la GPA" techID="_24gxS5aYEea3rZOTd3d7bg" name="CS_AFF_ID" target="_kJkeUD7bEeKDHrNCTHVx7A">
+        <elements xmi:id="_xyhx5D7cEeKDHrNCTHVx7A" techID="_24gxTJaYEea3rZOTd3d7bg" fkColumn="_xyhx4T7cEeKDHrNCTHVx7A" pkColumn="_ng4YYD7bEeKDHrNCTHVx7A"/>
+      </foreignKeys>
+      <constraints xmi:id="_w_wQUGOrEeKrnPwWmZ20XQ" comments="Liste des valeurs possibles pour AFFAIRE_XTOPSUP" techID="_24gxTZaYEea3rZOTd3d7bg" name="CS_GPA_CK1_1" expression="AFFAIRE_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_k1bakD7iEeKDHrNCTHVx7A" comments="Index d'unicité pour CS_GPA_ANNEE" techID="_24gxTpaYEea3rZOTd3d7bg" name="CS_GPA_UN1_1" unique="true">
+        <elements xmi:id="_pgCIgD7iEeKDHrNCTHVx7A" techID="_24gxT5aYEea3rZOTd3d7bg" column="_6_H5wD7bEeKDHrNCTHVx7A" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_pWYboGPhEeKrnPwWmZ20XQ" comments="Index sur la FK (CS_AFF_ID) de la table CS_GPA" techID="_24gxUJaYEea3rZOTd3d7bg" name="CS_AFF_ID" unique="true">
+        <elements xmi:id="_pWYboWPhEeKrnPwWmZ20XQ" techID="_24gxUZaYEea3rZOTd3d7bg" column="_xyhx4T7cEeKDHrNCTHVx7A" asc="true"/>
+      </indexes>
+      <columns xmi:id="_6_H5wD7bEeKDHrNCTHVx7A" comments="Année de la GPA" techID="_24gxQJaYEea3rZOTd3d7bg" name="CS_GPA_ANNEE" indexElements="_pgCIgD7iEeKDHrNCTHVx7A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_6_H5wT7bEeKDHrNCTHVx7A" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_zouT8D7bEeKDHrNCTHVx7A" comments="PK de la table CS_GPA" techID="_24gxQpaYEea3rZOTd3d7bg" name="CS_GPA_ID" primaryKey="_zouT8j7bEeKDHrNCTHVx7A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_zouT8T7bEeKDHrNCTHVx7A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_xyhx4T7cEeKDHrNCTHVx7A" comments="Affaire sur laquelle porte la GPA" techID="_24gxRJaYEea3rZOTd3d7bg" name="CS_AFF_ID" indexElements="_pWYboWPhEeKrnPwWmZ20XQ" foreignKeyElements="_xyhx5D7cEeKDHrNCTHVx7A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_xyhx4z7cEeKDHrNCTHVx7A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_w_tNAGOrEeKrnPwWmZ20XQ" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_24gxRpaYEea3rZOTd3d7bg" name="AFFAIRE_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_w_tNAWOrEeKrnPwWmZ20XQ" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_w_tNAmOrEeKrnPwWmZ20XQ" comments="Date de mise à jour de la ligne" techID="_24gxSJaYEea3rZOTd3d7bg" name="AFFAIRE_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_w_tNA2OrEeKrnPwWmZ20XQ">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

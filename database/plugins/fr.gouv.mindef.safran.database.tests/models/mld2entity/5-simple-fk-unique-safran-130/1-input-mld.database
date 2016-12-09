@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_e9mIsD7bEeKDHrNCTHVx7A" name="affaire">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_iW18cD7bEeKDHrNCTHVx7A" name="affaire">
+    <tables xsi:type="database:Table" xmi:id="_kJkeUD7bEeKDHrNCTHVx7A" comments="Table des affaires" name="CS_AFF">
+      <columns xmi:id="_ng4YYD7bEeKDHrNCTHVx7A" comments="Identifiant de la table" name="CS_AFF_ID" primaryKey="_o4MJkD7bEeKDHrNCTHVx7A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_ng4YYT7bEeKDHrNCTHVx7A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_s4evMD7bEeKDHrNCTHVx7A" comments="Numéro de l'affaire" name="CS_AFF_NUM" indexElements="_vMupwT7bEeKDHrNCTHVx7A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_s4evMT7bEeKDHrNCTHVx7A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_o4MJkD7bEeKDHrNCTHVx7A" name="CS_AFF_PK" columns="_ng4YYD7bEeKDHrNCTHVx7A"/>
+      <indexes xmi:id="_vMupwD7bEeKDHrNCTHVx7A" name="CS_AFF_UN1_1" unique="true">
+        <elements xmi:id="_vMupwT7bEeKDHrNCTHVx7A" column="_s4evMD7bEeKDHrNCTHVx7A" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kZES4D7bEeKDHrNCTHVx7A" comments="Table des GPA" name="CS_GPA">
+      <columns xmi:id="_zouT8D7bEeKDHrNCTHVx7A" comments="Identifiat de la table" name="CS_GPA_ID" primaryKey="_zouT8j7bEeKDHrNCTHVx7A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_zouT8T7bEeKDHrNCTHVx7A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_6_H5wD7bEeKDHrNCTHVx7A" comments="Année de la GPA" name="CS_GPA_ANNEE" indexElements="_pgCIgD7iEeKDHrNCTHVx7A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_6_H5wT7bEeKDHrNCTHVx7A" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_xyhx4T7cEeKDHrNCTHVx7A" comments="Affaire sur laquelle porte la GPA" name="CS_AFF_ID" indexElements="_6U7QwT7cEeKDHrNCTHVx7A" foreignKeyElements="_xyhx5D7cEeKDHrNCTHVx7A">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_xyhx4z7cEeKDHrNCTHVx7A">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4hEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_zouT8j7bEeKDHrNCTHVx7A" name="CS_GPA_PK" columns="_zouT8D7bEeKDHrNCTHVx7A"/>
+      <foreignKeys xmi:id="_xyhx4D7cEeKDHrNCTHVx7A" comments="Affaire sur laquelle porte la GPA" name="CS_AFF_ID" target="_kJkeUD7bEeKDHrNCTHVx7A">
+        <elements xmi:id="_xyhx5D7cEeKDHrNCTHVx7A" fkColumn="_xyhx4T7cEeKDHrNCTHVx7A" pkColumn="_ng4YYD7bEeKDHrNCTHVx7A"/>
+      </foreignKeys>
+      <indexes xmi:id="_6U7QwD7cEeKDHrNCTHVx7A" name="CS_GPA_UN1_1" unique="true">
+        <elements xmi:id="_6U7QwT7cEeKDHrNCTHVx7A" column="_xyhx4T7cEeKDHrNCTHVx7A" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_k1bakD7iEeKDHrNCTHVx7A" name="CS_GPA_UN1_2" unique="true">
+        <elements xmi:id="_pgCIgD7iEeKDHrNCTHVx7A" column="_6_H5wD7bEeKDHrNCTHVx7A" asc="true"/>
+      </indexes>
+    </tables>
+  </schemas>
+</database:DataBase>

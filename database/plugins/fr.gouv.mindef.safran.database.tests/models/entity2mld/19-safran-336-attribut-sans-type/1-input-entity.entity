@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_T-lFoZRuEeaZEo7p_B9KuA" technicalid="_T-lFoJRuEeaZEo7p_B9KuA" createdOn="2016-10-17T15:33:38.938+0200" modifiedOn="2016-10-17T15:33:59.690+0200">
+  <ownedNamespaces xmi:id="_XEfGoZRuEeaZEo7p_B9KuA" technicalid="_XEfGoJRuEeaZEo7p_B9KuA" createdOn="2016-10-17T15:33:59.690+0200" modifiedOn="2016-10-21T15:29:10.286+0200" name="namespace_1">
+    <metadatas xmi:id="_d-kj4ZRuEeaZEo7p_B9KuA" technicalid="_d-kj4JRuEeaZEo7p_B9KuA">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_d-kj45RuEeaZEo7p_B9KuA" technicalid="_d-kj4pRuEeaZEo7p_B9KuA" title="PHYSICAL_NAME" body=""/>
+    </metadatas>
+    <types xsi:type="oent:Entity" xmi:id="_X63VAZRuEeaZEo7p_B9KuA" technicalid="_X63VAJRuEeaZEo7p_B9KuA" createdOn="2016-10-17T15:34:05.392+0200" modifiedOn="2016-10-21T15:31:56.981+0200" name="Entity1">
+      <ownedAttributes xmi:id="_XdVUIZeSEeas8pX9p1wkag" technicalid="_XdVUIJeSEeas8pX9p1wkag" createdOn="2016-10-21T15:29:17.666+0200" modifiedOn="2016-10-21T15:29:32.751+0200" name="attribute1" type="_WW864JeSEeas8pX9p1wkag"/>
+      <ownedAttributes xmi:id="_vMreUJeSEeas8pX9p1wkag" technicalid="_vMq3QJeSEeas8pX9p1wkag" createdOn="2016-10-21T15:31:56.981+0200" modifiedOn="2016-10-21T15:32:00.455+0200" name="attribute2"/>
+    </types>
+    <types xsi:type="oenv:Enumeration" xmi:id="_WW864JeSEeas8pX9p1wkag" technicalid="_WW8T0JeSEeas8pX9p1wkag" createdOn="2016-10-21T15:29:10.286+0200" modifiedOn="2016-10-21T15:29:11.728+0200" name="Enum2">
+      <literals xmi:id="_WktDAJeSEeas8pX9p1wkag" technicalid="_Wksb8JeSEeas8pX9p1wkag" createdOn="2016-10-21T15:29:11.766+0200" modifiedOn="2016-10-21T15:29:11.766+0200" name="literal1"/>
+    </types>
+  </ownedNamespaces>
+</oent:Root>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="scaffold"
+    nsURI="http://mindef.gouv.fr/dsl/scaffold/1.0.0" nsPrefix="scaffold">
+  <eClassifiers xsi:type="ecore:EClass" name="ScaffoldInfo">
+    <eOperations name="getLeftToRightTransformationType" lowerBound="1" eType="#//ScaffoldType"/>
+    <eOperations name="getRightToLeftTransformationType" lowerBound="1" eType="#//ScaffoldType"/>
+    <eOperations name="getStartingObjectForTransformation" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eParameters name="scaffoldType" lowerBound="1" eType="#//ScaffoldType"/>
+    </eOperations>
+    <eOperations name="getEndingObjectForTransformation" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eParameters name="scaffoldType" lowerBound="1" eType="#//ScaffoldType"/>
+    </eOperations>
+    <eOperations name="getAdditionalObjectsForTransformation" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eParameters name="scaffoldType" lowerBound="1" eType="#//ScaffoldType"/>
+    </eOperations>
+    <eOperations name="setStartingObjectForTransformation">
+      <eParameters name="object" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eParameters name="scaffoldType" lowerBound="1" eType="#//ScaffoldType"/>
+    </eOperations>
+    <eOperations name="setEndingObjectForTransformation">
+      <eParameters name="object" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eParameters name="scaffoldType" lowerBound="1" eType="#//ScaffoldType"/>
+    </eOperations>
+    <eOperations name="clearAdditionalObjectsForTransformation">
+      <eParameters name="scaffoldType" lowerBound="1" eType="#//ScaffoldType"/>
+    </eOperations>
+    <eOperations name="addAdditionalObjectsForTransformation">
+      <eParameters name="object" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eParameters name="scaffoldType" lowerBound="1" eType="#//ScaffoldType"/>
+    </eOperations>
+    <eOperations name="getTraceabilityMap" upperBound="-1" eType="#//EObjectToEObjectMap">
+      <eParameters name="scaffoldType" lowerBound="1" eType="#//ScaffoldType"/>
+    </eOperations>
+    <eOperations name="replaceTraceabilityInfos">
+      <eParameters name="scaffoldType" lowerBound="1" eType="#//ScaffoldType"/>
+      <eParameters name="infos" upperBound="-1" eType="#//EObjectToEObjectMap"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftObject" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightObject" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftToRightAdditionalObjects"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightToLeftAdditionalObjects"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceabilityInfos" upperBound="-1"
+        eType="#//TraceabilityInfo" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="ti"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ScaffoldType">
+    <eLiterals name="EntityToMld" literal="0"/>
+    <eLiterals name="MldToEntity" value="1" literal="1"/>
+    <eLiterals name="MpdToMld" value="2" literal="2"/>
+    <eLiterals name="MldToMpd" value="3" literal="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TraceabilityInfo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EObjectToEObjectMap" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+</ecore:EPackage>
