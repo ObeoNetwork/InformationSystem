@@ -37,30 +37,6 @@
          version="0.0.0"/>
 
    <includes
-         id="fr.obeo.dsl.viewpoint.collab.doc.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.obeo.dsl.viewpoint.runtime.cdonative"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.obeo.dsl.viewpoint.runtime.collab"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.obeo.dsl.viewpoint.runtime.collab.ide.eef"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.obeo.dsl.viewpoint.runtime.collab.ide.ui"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.obeo.dsl.viewpoint.runtime.ide.ui.cdonative"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.nebula.treemapper.feature"
          version="0.0.0"/>
 
@@ -221,23 +197,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.emf.cdo.feature.patch"
-         version="0.0.0"
-         search-location="both"/>
-
-   <includes
-         id="org.eclipse.emf.cdo.server.feature.patch"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.gmf.runtime.notation.feature.patch"
-         version="0.0.0"/>
-
-   <includes
-         id="org.eclipse.emf.cdo.server"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.gmf.runtime.notation"
          version="0.0.0"/>
 
@@ -246,15 +205,7 @@
          version="0.0.0"/>
 
    <includes
-         id="org.obeonetwork.tools.snapshot.viewer.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.acceleo.query"
-         version="0.0.0"/>
-
-   <includes
-         id="fr.obeo.mda.license"
          version="0.0.0"/>
 
    <includes
@@ -278,15 +229,11 @@
          version="0.0.0"/>
 
    <includes
-         id="fr.obeo.dsl.viewpoint.collab.doc.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.sirius.doc.feature"
          version="0.0.0"/>
 
    <includes
-         id="fr.obeo.dsl.designer.te.feature"
+         id="fr.obeo.dsl.designer.ce.feature"
          version="0.0.0"/>
          
    <includes

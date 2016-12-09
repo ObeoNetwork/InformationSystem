@@ -40,7 +40,7 @@ location "http://update.obeo.fr/integration/informationsystem/5.0/design/reposit
 	fr.gouv.mindef.safran.database.ui.feature.feature.group lazy
 }
 
-location "http://update.obeo.fr/release/designer/8.1/team/latest/repository/" {
+location "http://update.obeo.fr/release/designer/8.1/community/latest/repository/" {
 	org.eclipse.e4.rcp.feature.group
 	org.eclipse.platform.feature.group
 	org.eclipse.jdt.feature.group
@@ -59,47 +59,26 @@ location "http://update.obeo.fr/release/designer/8.1/team/latest/repository/" {
 	org.eclipse.emf.compare.ide.ui.feature.group
 	org.eclipse.emf.compare.rcp
 	org.eclipse.emf.compare.rcp.ui
-	org.eclipse.emf.cdo.common
 	org.eclipse.acceleo.feature.group
 	org.eclipse.acceleo.query.feature.group
 	org.eclipse.sirius.runtime.feature.group
 	org.eclipse.sirius.runtime.ide.ui.feature.group
 	fr.obeo.dsl.designer.gen.html.feature.feature.group
-	fr.obeo.dsl.viewpoint.runtime.collab.feature.group
-	org.eclipse.net4j.util.feature.group
-	org.eclipse.emf.cdo.net4j
-	org.eclipse.net4j.feature.group
-	org.eclipse.net4j.feature.patch.feature.group
 	org.eclipse.emf.eef.runtime-feature.feature.group
 	org.eclipse.gmf.feature.group
-	fr.obeo.oo15oo.oo339oo.feature.group
 	org.eclipse.draw2d.feature.group
 	org.eclipse.gef.feature.group
 	org.eclipse.gmf.runtime.notation.feature.group
-	org.eclipse.gmf.runtime.notation.feature.patch.feature.group
 	org.eclipse.sirius.runtime.acceleo.feature.group
 	org.eclipse.sirius.runtime.ide.eef.feature.group
 	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group
-	fr.obeo.dsl.viewpoint.collab.doc.feature.feature.group
-	fr.obeo.dsl.viewpoint.runtime.cdonative.feature.group
-	fr.obeo.dsl.viewpoint.runtime.collab.ide.eef.feature.group
-	fr.obeo.dsl.viewpoint.runtime.collab.ide.ui.feature.group
-	fr.obeo.dsl.viewpoint.runtime.ide.ui.cdonative.feature.group
-	org.eclipse.ecf.core.feature.feature.group
 	org.eclipse.emf.eef.edt-feature.feature.group
 	org.eclipse.emf.eef.extended-feature.feature.group
 	org.eclipse.sdk.feature.group
 	org.eclipse.egit.feature.group
 	org.eclipse.jgit.feature.group
 	org.apache.commons.lang
-	org.eclipse.emf.cdo.feature.patch.feature.group
-	org.eclipse.emf.cdo.feature.group
 	org.eclipse.equinox.concurrent
-	org.eclipse.emf.cdo.server.feature.patch.feature.group
-	org.eclipse.emf.cdo.server.feature.group
-	org.eclipse.net4j.db.feature.group
-	org.eclipse.emf.cdo.server.db.feature.group
-	org.eclipse.net4j.ui.feature.group
 	org.eclipse.emf.eef.codegen.ecore-feature.feature.group
 	org.eclipse.emf.common.source.feature.group
 	org.eclipse.emf.ecore.source.feature.group
@@ -114,7 +93,6 @@ location "http://update.obeo.fr/release/designer/8.1/team/latest/repository/" {
 	org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group
 	org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group
 	org.eclipse.ecf.filetransfer.ssl.feature.feature.group
-	org.eclipse.emf.eef.collab.runtime-feature.feature.group
 	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group
 	org.eclipse.sirius.runtime.ocl.feature.group
 	org.eclipse.ocl.feature.group
@@ -123,17 +101,15 @@ location "http://update.obeo.fr/release/designer/8.1/team/latest/repository/" {
 	org.eclipse.equinox.p2.discovery.feature.feature.group
 	org.eclipse.sirius.doc.feature.feature.group
 	fr.obeo.dsl.designer.ce.feature.feature.group
-	fr.obeo.dsl.designer.te.feature.feature.group
-	fr.obeo.dsl.viewpoint.collab.doc.javadoc.feature.feature.group
 }
 
 location "http://download.eclipse.org/releases/mars/" {
 	org.eclipse.equinox.executable.feature.group
 	org.apache.commons.io
-}
-
-location "http://update.obeo.fr/licensesComptes/Mindef/Paris/users/mindef-all/enterprise-license-od/update/" {
-	fr.obeo.mda.license.feature.group
+	org.eclipse.emf.cdo.feature.group
+	org.eclipse.net4j.feature.group
+	org.eclipse.ecf.core.feature.feature.group
+	
 }
 
 location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.6/repository" {
