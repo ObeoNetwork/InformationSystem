@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_ZjtiIZRuEeaZEo7p_B9KuA" techID="_ZjtiIJRuEeaZEo7p_B9KuA" name="My">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_bjtD-pRuEeaZEo7p_B9KuA" techID="_bjtD-ZRuEeaZEo7p_B9KuA" name="NAMESPACE_1">
+    <tables xsi:type="database:Table" xmi:id="_LWawOZeTEeas8pX9p1wkag" techID="_LWawOJeTEeas8pX9p1wkag" name="ENTITY1">
+      <primaryKey xmi:id="_LWb-V5eTEeas8pX9p1wkag" comments="Contrainte PK pour la colonne ENTITY1_ID" techID="_LWb-VpeTEeas8pX9p1wkag" name="ENTITY1_PK" columns="_LWb-VJeTEeas8pX9p1wkag"/>
+      <constraints xmi:id="_LWbXRZeTEeas8pX9p1wkag" comments="Liste des valeurs possibles pour ATTRIBUTE1" techID="_LWbXRJeTEeas8pX9p1wkag" name="ENTITY1_CK1_1" expression="ATTRIBUTE1 in (''literal1'')"/>
+      <constraints xmi:id="_LWclZJeTEeas8pX9p1wkag" comments="Liste des valeurs possibles pour NAMESPACE_1_XTOPSUP" techID="_LWclY5eTEeas8pX9p1wkag" name="ENTITY1_CK1_2" expression="NAMESPACE_1_XTOPSUP in ('0','1','3','9')"/>
+      <columns xmi:id="_LWbXQZeTEeas8pX9p1wkag" techID="_LWbXQJeTEeas8pX9p1wkag" name="ATTRIBUTE1" nullable="true" defaultValue="literal1">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_LWbXQ5eTEeas8pX9p1wkag" length="8">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_LWb-UZeTEeas8pX9p1wkag" techID="_LWb-UJeTEeas8pX9p1wkag" name="ATTRIBUTE2" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_OFflkZeTEeas8pX9p1wkag"/>
+      </columns>
+      <columns xmi:id="_LWb-VJeTEeas8pX9p1wkag" comments="PK de la table ENTITY1" techID="_LWb-U5eTEeas8pX9p1wkag" name="ENTITY1_ID" primaryKey="_LWb-V5eTEeas8pX9p1wkag">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_LWb-WJeTEeas8pX9p1wkag">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_LWclYJeTEeas8pX9p1wkag" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_LWb-WZeTEeas8pX9p1wkag" name="NAMESPACE_1_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_LWclYpeTEeas8pX9p1wkag" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_LWclZpeTEeas8pX9p1wkag" comments="Date de mise à jour de la ligne" techID="_LWclZZeTEeas8pX9p1wkag" name="NAMESPACE_1_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_LWclaJeTEeas8pX9p1wkag">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

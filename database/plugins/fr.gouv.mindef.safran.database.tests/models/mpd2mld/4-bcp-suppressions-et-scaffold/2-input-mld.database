@@ -1,0 +1,2815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_GqhwcDPlEeKyr4EGGyIgaw" name="Mydsqd">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_MK1XUDPlEeKyr4EGGyIgaw" name="PE">
+    <tables xsi:type="database:Table" xmi:id="_S77IMEg_EeKZwIRNGDfcmA" name="PFE_AD_CPT">
+      <columns xmi:id="_S77vQEg_EeKZwIRNGDfcmA" name="AD_CPT_ID" defaultValue="" indexElements="_S77vWkg_EeKZwIRNGDfcmA" primaryKey="_S77vWEg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vQkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vQ0g_EeKZwIRNGDfcmA" comments="Code composant" name="AD_CPT_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vRUg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vRkg_EeKZwIRNGDfcmA" comments="Dénomination composant" name="AD_CPT_DEN" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vSEg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vSUg_EeKZwIRNGDfcmA" comments="NÂ° composant  CHORUS" name="AD_CPT_NUM_CHORUS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vS0g_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vTEg_EeKZwIRNGDfcmA" name="RF_TCOMPO_ID" defaultValue="" indexElements="_S77vXkg_EeKZwIRNGDfcmA" foreignKeyElements="_S8Fgj0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vTkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vT0g_EeKZwIRNGDfcmA" name="AD_IMM_ID" nullable="true" defaultValue="" indexElements="_S77vXEg_EeKZwIRNGDfcmA" foreignKeyElements="_S8FgjUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vUUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vUkg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vVEg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vVUg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vV0g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S77vWEg_EeKZwIRNGDfcmA" name="PFE_AD_CPT_PK" columns="_S77vQEg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8FgjEg_EeKZwIRNGDfcmA" name="COMPOSANT_IMMEUBLE_FK" target="_S77vX0g_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8FgjUg_EeKZwIRNGDfcmA" fkColumn="_S77vT0g_EeKZwIRNGDfcmA" pkColumn="_S77vYEg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8Fgjkg_EeKZwIRNGDfcmA" name="COMPOSANT_TYPECOMPOSANT_FK" target="_S8DEKEg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8Fgj0g_EeKZwIRNGDfcmA" fkColumn="_S77vTEg_EeKZwIRNGDfcmA" pkColumn="_S8DEKUg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S77vWUg_EeKZwIRNGDfcmA" name="PFE_AD_CPT_PK" unique="true">
+        <elements xmi:id="_S77vWkg_EeKZwIRNGDfcmA" column="_S77vQEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S77vW0g_EeKZwIRNGDfcmA" name="PFE_AD_CPT_IMMEUBLE_IDX">
+        <elements xmi:id="_S77vXEg_EeKZwIRNGDfcmA" column="_S77vT0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S77vXUg_EeKZwIRNGDfcmA" name="PFE_AD_CPT_TYPECOMPOSAN_IDX">
+        <elements xmi:id="_S77vXkg_EeKZwIRNGDfcmA" column="_S77vTEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S77vX0g_EeKZwIRNGDfcmA" name="PFE_AD_IMM">
+      <columns xmi:id="_S77vYEg_EeKZwIRNGDfcmA" name="AD_IMM_ID" defaultValue="" indexElements="_S77vkUg_EeKZwIRNGDfcmA" primaryKey="_S77vjUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vYkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vY0g_EeKZwIRNGDfcmA" comments="Code immeuble" name="AD_IMM_COD" defaultValue="" indexElements="_S77vj0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vZUg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vZkg_EeKZwIRNGDfcmA" comments="Dénomination immeuble" name="AD_IMM_DEN" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vaEg_EeKZwIRNGDfcmA" length="40">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vaUg_EeKZwIRNGDfcmA" comments="Numéro site Chorus" name="AD_IMM_SITECHORUS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77va0g_EeKZwIRNGDfcmA" length="6">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vbEg_EeKZwIRNGDfcmA" comments="Lettre inférieur" name="AD_IMM_INFL" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vbkg_EeKZwIRNGDfcmA" length="5">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vb0g_EeKZwIRNGDfcmA" comments="Numéro inférieur" name="AD_IMM_INFN" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vcUg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vckg_EeKZwIRNGDfcmA" comments="Numéro supérieur" name="AD_IMM_SUPN" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vdEg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vdUg_EeKZwIRNGDfcmA" comments="Lettre supérieure" name="AD_IMM_SUPL" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vd0g_EeKZwIRNGDfcmA" length="5">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77veEg_EeKZwIRNGDfcmA" comments="Désignation voie ou lieu dit" name="AD_IMM_DES" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vekg_EeKZwIRNGDfcmA" length="200">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77ve0g_EeKZwIRNGDfcmA" name="RF_COMM_ID" defaultValue="" indexElements="_S77vk0g_EeKZwIRNGDfcmA" foreignKeyElements="_S8FgkUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vfUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vfkg_EeKZwIRNGDfcmA" name="RF_IMMIND_ID" defaultValue="" indexElements="_S77vlUg_EeKZwIRNGDfcmA" foreignKeyElements="_S8Fgk0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vgEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vgUg_EeKZwIRNGDfcmA" name="RF_NATVOI_ID" defaultValue="" indexElements="_S78WUEg_EeKZwIRNGDfcmA" foreignKeyElements="_S8FglUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vg0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vhEg_EeKZwIRNGDfcmA" name="AD_SMAJ_ID" defaultValue="" indexElements="_S78WUkg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHUUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vhkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vh0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77viUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S77vikg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S77vjEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S77vjUg_EeKZwIRNGDfcmA" name="PFE_AD_IMM_PK" columns="_S77vYEg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8FgkEg_EeKZwIRNGDfcmA" name="IMMEUBLE_COMMUNE_FK" target="_S7-Lt0g_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8FgkUg_EeKZwIRNGDfcmA" fkColumn="_S77ve0g_EeKZwIRNGDfcmA" pkColumn="_S7-LuEg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8Fgkkg_EeKZwIRNGDfcmA" name="IMMEUBLE_INDICATEURIMM_FK" target="_S8An6kg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8Fgk0g_EeKZwIRNGDfcmA" fkColumn="_S77vfkg_EeKZwIRNGDfcmA" pkColumn="_S8An60g_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8FglEg_EeKZwIRNGDfcmA" name="IMMEUBLE_NATUREVOIE_FK" target="_S8B14Ug_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8FglUg_EeKZwIRNGDfcmA" fkColumn="_S77vgUg_EeKZwIRNGDfcmA" pkColumn="_S8B14kg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHUEg_EeKZwIRNGDfcmA" name="IMMEUBLE_SERVICEMISEAJ_FK" target="_S8B2DUg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHUUg_EeKZwIRNGDfcmA" fkColumn="_S77vhEg_EeKZwIRNGDfcmA" pkColumn="_S8B2Dkg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S77vjkg_EeKZwIRNGDfcmA" name="AD_IMM_COD_UN1_1" unique="true">
+        <elements xmi:id="_S77vj0g_EeKZwIRNGDfcmA" column="_S77vY0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S77vkEg_EeKZwIRNGDfcmA" name="PFE_AD_IMM_PK" unique="true">
+        <elements xmi:id="_S77vkUg_EeKZwIRNGDfcmA" column="_S77vYEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S77vkkg_EeKZwIRNGDfcmA" name="PFE_AD_IMM_COMMUNE_IDX">
+        <elements xmi:id="_S77vk0g_EeKZwIRNGDfcmA" column="_S77ve0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S77vlEg_EeKZwIRNGDfcmA" name="PFE_AD_IMM_INDICATEURIM_IDX">
+        <elements xmi:id="_S77vlUg_EeKZwIRNGDfcmA" column="_S77vfkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S77vlkg_EeKZwIRNGDfcmA" name="PFE_AD_IMM_NATUREVOIE_IDX">
+        <elements xmi:id="_S78WUEg_EeKZwIRNGDfcmA" column="_S77vgUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S78WUUg_EeKZwIRNGDfcmA" name="PFE_AD_IMM_SERVICEMISEA_IDX">
+        <elements xmi:id="_S78WUkg_EeKZwIRNGDfcmA" column="_S77vhEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S78WU0g_EeKZwIRNGDfcmA" name="PFE_AD_IMMARE">
+      <columns xmi:id="_S78WVEg_EeKZwIRNGDfcmA" name="AD_IMMARE_ID" defaultValue="" indexElements="_S78WaEg_EeKZwIRNGDfcmA" primaryKey="_S78WZkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WVkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WV0g_EeKZwIRNGDfcmA" comments="Emprise de l'attributaire sur immeuble" name="AD_IMMARE_STOT" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WWUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WWkg_EeKZwIRNGDfcmA" name="RF_ARE_ID" defaultValue="" indexElements="_S78Wakg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHVUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WXEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WXUg_EeKZwIRNGDfcmA" name="AD_IMM_ID" defaultValue="" indexElements="_S78WbEg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHU0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WX0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WYEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WYkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WY0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WZUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S78WZkg_EeKZwIRNGDfcmA" name="PFE_AD_IMMARE_PK" columns="_S78WVEg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHUkg_EeKZwIRNGDfcmA" name="IMMEUBLEATTRI_IMMEUBLE_FK" target="_S77vX0g_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHU0g_EeKZwIRNGDfcmA" fkColumn="_S78WXUg_EeKZwIRNGDfcmA" pkColumn="_S77vYEg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHVEg_EeKZwIRNGDfcmA" name="IMMEUBLEATTRI_ATTRIBUTAIRE_FK" target="_S789i0g_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHVUg_EeKZwIRNGDfcmA" fkColumn="_S78WWkg_EeKZwIRNGDfcmA" pkColumn="_S789jEg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S78WZ0g_EeKZwIRNGDfcmA" name="PFE_AD_IMMARE_PK" unique="true">
+        <elements xmi:id="_S78WaEg_EeKZwIRNGDfcmA" column="_S78WVEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S78WaUg_EeKZwIRNGDfcmA" name="PFE_AD_IMMARE_ATTRIBUTAIRE_IDX">
+        <elements xmi:id="_S78Wakg_EeKZwIRNGDfcmA" column="_S78WWkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S78Wa0g_EeKZwIRNGDfcmA" name="PFE_AD_IMMARE_IMMEUBLE_IDX">
+        <elements xmi:id="_S78WbEg_EeKZwIRNGDfcmA" column="_S78WXUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S78WbUg_EeKZwIRNGDfcmA" name="PFE_OS_OPE">
+      <columns xmi:id="_S78Wbkg_EeKZwIRNGDfcmA" name="OS_OPE_ID" defaultValue="" indexElements="_S78Wf0g_EeKZwIRNGDfcmA" primaryKey="_S78WfUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WcEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WcUg_EeKZwIRNGDfcmA" comments="Code de l'opération Osiris" name="OS_OPE_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78Wc0g_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WdEg_EeKZwIRNGDfcmA" comments="Libellé de l'opération Osiris" name="OS_OPE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78Wdkg_EeKZwIRNGDfcmA" length="500">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78Wd0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WeUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78Wekg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WfEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S78WfUg_EeKZwIRNGDfcmA" name="PFE_OS_OPE_PK" columns="_S78Wbkg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S78Wfkg_EeKZwIRNGDfcmA" name="PFE_OS_OPE_PK" unique="true">
+        <elements xmi:id="_S78Wf0g_EeKZwIRNGDfcmA" column="_S78Wbkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S78WgEg_EeKZwIRNGDfcmA" name="PFE_PL_OPE">
+      <columns xmi:id="_S78WgUg_EeKZwIRNGDfcmA" comments="l'identifiant PLIMAT" name="PL_OPE_ID" defaultValue="" indexElements="_S78WmEg_EeKZwIRNGDfcmA" primaryKey="_S78Wlkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78Wg0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WhEg_EeKZwIRNGDfcmA" comments="Code de l'opération Plimat" name="PL_OPE_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78Whkg_EeKZwIRNGDfcmA" length="24">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78Wh0g_EeKZwIRNGDfcmA" comments="Libellé de l'opération Plimat" name="PL_OPE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WiUg_EeKZwIRNGDfcmA" length="200">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78Wikg_EeKZwIRNGDfcmA" name="RF_ORGANISME_LOC_ID" defaultValue="" indexElements="_S78Wmkg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHV0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WjEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WjUg_EeKZwIRNGDfcmA" name="RF_ORGANISME_REG_ID" defaultValue="" indexElements="_S78WnEg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHWUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78Wj0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WkEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78Wkkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78Wk0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WlUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S78Wlkg_EeKZwIRNGDfcmA" name="PFE_PL_OPE_PK" columns="_S78WgUg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHVkg_EeKZwIRNGDfcmA" name="OPERATIONPLIM_ORGANISMELOCA_FK" target="_S8B2DUg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHV0g_EeKZwIRNGDfcmA" fkColumn="_S78Wikg_EeKZwIRNGDfcmA" pkColumn="_S8B2Dkg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHWEg_EeKZwIRNGDfcmA" name="OPERATIONPLIM_ORGANISMEREGI_FK" target="_S8B2DUg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHWUg_EeKZwIRNGDfcmA" fkColumn="_S78WjUg_EeKZwIRNGDfcmA" pkColumn="_S8B2Dkg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S78Wl0g_EeKZwIRNGDfcmA" name="PFE_PL_OPE_PK" unique="true">
+        <elements xmi:id="_S78WmEg_EeKZwIRNGDfcmA" column="_S78WgUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S78WmUg_EeKZwIRNGDfcmA" name="PFE_PL_OPE_ORGANISMELOC_IDX">
+        <elements xmi:id="_S78Wmkg_EeKZwIRNGDfcmA" column="_S78Wikg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S78Wm0g_EeKZwIRNGDfcmA" name="PFE_PL_OPE_ORGANISMEREG_IDX">
+        <elements xmi:id="_S78WnEg_EeKZwIRNGDfcmA" column="_S78WjUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S78WnUg_EeKZwIRNGDfcmA" name="PFE_RF_ACCESMEMO">
+      <columns xmi:id="_S78Wnkg_EeKZwIRNGDfcmA" name="RF_ACCESMEMO_ID" defaultValue="" indexElements="_S78Wr0g_EeKZwIRNGDfcmA" primaryKey="_S78WrUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WoEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WoUg_EeKZwIRNGDfcmA" comments="Code de l'accessibilité du mémo" name="RF_ACCESMEMO_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78Wo0g_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78WpEg_EeKZwIRNGDfcmA" comments="Libellé de l'accessibilité du mémo" name="RF_ACCESMEMO_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78Wpkg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78Wp0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WqUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S78Wqkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S78WrEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S78WrUg_EeKZwIRNGDfcmA" name="PFE_RF_ACCESMEMO_PK" columns="_S78Wnkg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S78Wrkg_EeKZwIRNGDfcmA" name="PFE_RF_ACCESMEMO_PK" unique="true">
+        <elements xmi:id="_S78Wr0g_EeKZwIRNGDfcmA" column="_S78Wnkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S78WsEg_EeKZwIRNGDfcmA" name="PFE_RF_AFFECT">
+      <columns xmi:id="_S78WsUg_EeKZwIRNGDfcmA" name="RF_AFFECT_ID" defaultValue="" indexElements="_S789b0g_EeKZwIRNGDfcmA" primaryKey="_S789bUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789YEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789YUg_EeKZwIRNGDfcmA" comments="Code affectataire" name="RF_AFFECT_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789Y0g_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789ZEg_EeKZwIRNGDfcmA" comments="Libellé affectataire" name="RF_AFFECT_LIB" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789Zkg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789Z0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789aUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789akg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789bEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S789bUg_EeKZwIRNGDfcmA" name="PFE_RF_AFFECT_PK" columns="_S78WsUg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S789bkg_EeKZwIRNGDfcmA" name="PFE_RF_AFFECT_PK" unique="true">
+        <elements xmi:id="_S789b0g_EeKZwIRNGDfcmA" column="_S78WsUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S789cEg_EeKZwIRNGDfcmA" name="PFE_RF_ANT">
+      <columns xmi:id="_S789cUg_EeKZwIRNGDfcmA" name="RF_ANT_ID" defaultValue="" indexElements="_S789iEg_EeKZwIRNGDfcmA" primaryKey="_S789hkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789c0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789dEg_EeKZwIRNGDfcmA" comments="Code de l'antenne" name="RF_ANT_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789dkg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789d0g_EeKZwIRNGDfcmA" comments="Libelle de l'antenne" name="RF_ANT_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789eUg_EeKZwIRNGDfcmA" length="150">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789ekg_EeKZwIRNGDfcmA" comments="Niveau hierarchique de l'antenne" name="RF_ANT_NIVEAU" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789fEg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789fUg_EeKZwIRNGDfcmA" comments="Base de défense pÃ¨re" name="RF_BDD_ID" defaultValue="" indexElements="_S789ikg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHW0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789f0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789gEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789gkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789g0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789hUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S789hkg_EeKZwIRNGDfcmA" name="PFE_RF_ANT_PK" columns="_S789cUg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHWkg_EeKZwIRNGDfcmA" name="ANTENNE_BASEDEDEFENSE_FK" target="_S789rEg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHW0g_EeKZwIRNGDfcmA" fkColumn="_S789fUg_EeKZwIRNGDfcmA" pkColumn="_S789rUg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S789h0g_EeKZwIRNGDfcmA" name="PFE_RF_ANT_PK" unique="true">
+        <elements xmi:id="_S789iEg_EeKZwIRNGDfcmA" column="_S789cUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S789iUg_EeKZwIRNGDfcmA" name="PFE_RF_ANT_BASEDEDEFENS_IDX">
+        <elements xmi:id="_S789ikg_EeKZwIRNGDfcmA" column="_S789fUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S789i0g_EeKZwIRNGDfcmA" name="PFE_RF_ARE">
+      <columns xmi:id="_S789jEg_EeKZwIRNGDfcmA" name="RF_ARE_ID" defaultValue="" indexElements="_S789qUg_EeKZwIRNGDfcmA" primaryKey="_S789p0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789jkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789j0g_EeKZwIRNGDfcmA" comments="Code attrributaire" name="RF_ARE_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789kUg_EeKZwIRNGDfcmA" length="5">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789kkg_EeKZwIRNGDfcmA" comments="Libellé attributaire" name="RF_ARE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789lEg_EeKZwIRNGDfcmA" length="200">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789lUg_EeKZwIRNGDfcmA" comments="Libellé abrégé attributaire" name="RF_ARE_LIBA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789l0g_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789mEg_EeKZwIRNGDfcmA" comments="Type attributaire" name="RF_ARE_TYPE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789mkg_EeKZwIRNGDfcmA" length="5">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789m0g_EeKZwIRNGDfcmA" comments="Code MPA" name="RF_ARE_MPA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789nUg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789nkg_EeKZwIRNGDfcmA" name="RF_AFFECT_ID" defaultValue="" indexElements="_S789q0g_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHXUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789oEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789oUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789o0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789pEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789pkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S789p0g_EeKZwIRNGDfcmA" name="PFE_RF_ARE_PK" columns="_S789jEg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHXEg_EeKZwIRNGDfcmA" name="ATTRIBUTAIRE_AFFECTATAIRE_FK" target="_S78WsEg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHXUg_EeKZwIRNGDfcmA" fkColumn="_S789nkg_EeKZwIRNGDfcmA" pkColumn="_S78WsUg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S789qEg_EeKZwIRNGDfcmA" name="PFE_RF_ARE_PK" unique="true">
+        <elements xmi:id="_S789qUg_EeKZwIRNGDfcmA" column="_S789jEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S789qkg_EeKZwIRNGDfcmA" name="PFE_RF_ARE_AFFECTATAIRE_IDX">
+        <elements xmi:id="_S789q0g_EeKZwIRNGDfcmA" column="_S789nkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S789rEg_EeKZwIRNGDfcmA" name="PFE_RF_BDD">
+      <columns xmi:id="_S789rUg_EeKZwIRNGDfcmA" name="RF_BDD_ID" defaultValue="" indexElements="_S79kckg_EeKZwIRNGDfcmA" primaryKey="_S79kcEg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789r0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789sEg_EeKZwIRNGDfcmA" comments="Code de la Base De Défense" name="RF_BDD_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789skg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789s0g_EeKZwIRNGDfcmA" comments="Libellé de la Base De Défense" name="RF_BDD_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789tUg_EeKZwIRNGDfcmA" length="150">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789tkg_EeKZwIRNGDfcmA" name="RF_ZD_ID" defaultValue="" indexElements="_S79kdkg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHYUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789uEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789uUg_EeKZwIRNGDfcmA" comments="Niveau hierarchique" name="RF_BDD_NIVEAU" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789u0g_EeKZwIRNGDfcmA" length="38">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789vEg_EeKZwIRNGDfcmA" name="RF_ORGANISME_ID" nullable="true" defaultValue="" indexElements="_S79kdEg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHX0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789vkg_EeKZwIRNGDfcmA" length="38">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789v0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789wUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S789wkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S789xEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S79kcEg_EeKZwIRNGDfcmA" name="PFE_RF_BDD_PK" columns="_S789rUg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHXkg_EeKZwIRNGDfcmA" name="BASEDEDEFENSE_ORGANISMESPER_FK" target="_S8B2DUg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHX0g_EeKZwIRNGDfcmA" fkColumn="_S789vEg_EeKZwIRNGDfcmA" pkColumn="_S8B2Dkg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHYEg_EeKZwIRNGDfcmA" name="BASEDEDEFENSE_ZONEDEDEFENSE_FK" target="_S8FgZkg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHYUg_EeKZwIRNGDfcmA" fkColumn="_S789tkg_EeKZwIRNGDfcmA" pkColumn="_S8FgZ0g_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S79kcUg_EeKZwIRNGDfcmA" name="PFE_RF_BDD_PK" unique="true">
+        <elements xmi:id="_S79kckg_EeKZwIRNGDfcmA" column="_S789rUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S79kc0g_EeKZwIRNGDfcmA" name="PFE_RF_BDD_ORGANISMESPE_IDX">
+        <elements xmi:id="_S79kdEg_EeKZwIRNGDfcmA" column="_S789vEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S79kdUg_EeKZwIRNGDfcmA" name="PFE_RF_BDD_ZONEDEDEFENS_IDX">
+        <elements xmi:id="_S79kdkg_EeKZwIRNGDfcmA" column="_S789tkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S79kd0g_EeKZwIRNGDfcmA" name="PFE_RF_BOP_CH">
+      <columns xmi:id="_S79keEg_EeKZwIRNGDfcmA" name="RF_BOP_CH_ID" defaultValue="" indexElements="_S79kiUg_EeKZwIRNGDfcmA" primaryKey="_S79kh0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kekg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79ke0g_EeKZwIRNGDfcmA" comments="Code Budget Opération Programme" name="RF_BOP_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kfUg_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kfkg_EeKZwIRNGDfcmA" comments="Libellé  Budget Opération Programme" name="RF_BOP_LIB" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kgEg_EeKZwIRNGDfcmA" length="300">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kgUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kg0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79khEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79khkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S79kh0g_EeKZwIRNGDfcmA" name="PFE_RF_BOP_CH_PK" columns="_S79keEg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S79kiEg_EeKZwIRNGDfcmA" name="PFE_RF_BOP_CH_PK" unique="true">
+        <elements xmi:id="_S79kiUg_EeKZwIRNGDfcmA" column="_S79keEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S79kikg_EeKZwIRNGDfcmA" name="PFE_RF_CAPA">
+      <columns xmi:id="_S79ki0g_EeKZwIRNGDfcmA" name="RF_CAPA_ID" defaultValue="" indexElements="_S79knEg_EeKZwIRNGDfcmA" primaryKey="_S79kmkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kjUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kjkg_EeKZwIRNGDfcmA" comments="Code de la référence capacitaire" name="RF_CAPA_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kkEg_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kkUg_EeKZwIRNGDfcmA" comments="Libellé de la référence capacitaire" name="RF_CAPA_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kk0g_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79klEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79klkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kl0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kmUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S79kmkg_EeKZwIRNGDfcmA" name="PFE_RF_CAPA_PK" columns="_S79ki0g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S79km0g_EeKZwIRNGDfcmA" name="PFE_RF_CAPA_PK" unique="true">
+        <elements xmi:id="_S79knEg_EeKZwIRNGDfcmA" column="_S79ki0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S79knUg_EeKZwIRNGDfcmA" name="PFE_RF_CATOPE">
+      <columns xmi:id="_S79knkg_EeKZwIRNGDfcmA" name="RF_CATOPE_ID" defaultValue="" indexElements="_S79kr0g_EeKZwIRNGDfcmA" primaryKey="_S79krUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79koEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79koUg_EeKZwIRNGDfcmA" name="RF_CATOPE_COD" defaultValue="" indexElements="_S79ksEg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79ko0g_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kpEg_EeKZwIRNGDfcmA" name="RF_CATOPE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kpkg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kp0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kqUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kqkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79krEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S79krUg_EeKZwIRNGDfcmA" name="PFE_RF_CATOPE_PK" columns="_S79knkg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S79krkg_EeKZwIRNGDfcmA" name="PFE_RF_CATOPE_PK" unique="true">
+        <elements xmi:id="_S79kr0g_EeKZwIRNGDfcmA" column="_S79knkg_EeKZwIRNGDfcmA" asc="true"/>
+        <elements xmi:id="_S79ksEg_EeKZwIRNGDfcmA" column="_S79koUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S79ksUg_EeKZwIRNGDfcmA" name="PFE_RF_CFIN">
+      <columns xmi:id="_S79kskg_EeKZwIRNGDfcmA" name="RF_CFIN_ID" defaultValue="" indexElements="_S7-LjEg_EeKZwIRNGDfcmA" primaryKey="_S7-Likg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79ktEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79ktUg_EeKZwIRNGDfcmA" comments="PérimÃ¨tre financier Centre financier CHORUS." name="RF_CFIN_FM_AREA" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kt0g_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kuEg_EeKZwIRNGDfcmA" comments="Centre financier." name="RF_CFIN_CENTREFI" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kukg_EeKZwIRNGDfcmA" length="16">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79ku0g_EeKZwIRNGDfcmA" comments="Fin de validité Centre financier CHORUS." name="RF_CFIN_DATETO" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kvUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kvkg_EeKZwIRNGDfcmA" comments="Code Centre financier CHORUS." name="RF_CFIN_COD" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kwEg_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kwUg_EeKZwIRNGDfcmA" comments="Désignation longue Centre financier CHORUS." name="RF_CFIN_LIB" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kw0g_EeKZwIRNGDfcmA" length="300">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kxEg_EeKZwIRNGDfcmA" comments="Désignation courte Centre financier CHORUS." name="RF_CFIN_LIBA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kxkg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kx0g_EeKZwIRNGDfcmA" comments="Début de validité Centre financier CHORUS." name="RF_CFIN_DATEFROM" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S79kyUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S79kykg_EeKZwIRNGDfcmA" name="RF_PROG_ID" defaultValue="" indexElements="_S7-LkEg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHZUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LgEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-LgUg_EeKZwIRNGDfcmA" name="RF_BOP_ID" defaultValue="" indexElements="_S7-Ljkg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHY0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Lg0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-LhEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Lhkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-Lh0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LiUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7-Likg_EeKZwIRNGDfcmA" name="PFE_RF_CFIN_PK" columns="_S79kskg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHYkg_EeKZwIRNGDfcmA" name="CENTREFINANCI_BOP_FK" target="_S79kd0g_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHY0g_EeKZwIRNGDfcmA" fkColumn="_S7-LgUg_EeKZwIRNGDfcmA" pkColumn="_S79keEg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHZEg_EeKZwIRNGDfcmA" name="CENTREFINANCI_PROGRAMME_FK" target="_S8CdGUg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHZUg_EeKZwIRNGDfcmA" fkColumn="_S79kykg_EeKZwIRNGDfcmA" pkColumn="_S8CdGkg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S7-Li0g_EeKZwIRNGDfcmA" name="PFE_RF_CFIN_PK" unique="true">
+        <elements xmi:id="_S7-LjEg_EeKZwIRNGDfcmA" column="_S79kskg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S7-LjUg_EeKZwIRNGDfcmA" name="PFE_RF_CFIN_BOP_IDX">
+        <elements xmi:id="_S7-Ljkg_EeKZwIRNGDfcmA" column="_S7-LgUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S7-Lj0g_EeKZwIRNGDfcmA" name="PFE_RF_CFIN_PROGRAMME_IDX">
+        <elements xmi:id="_S7-LkEg_EeKZwIRNGDfcmA" column="_S79kykg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7-LkUg_EeKZwIRNGDfcmA" name="PFE_RF_CLASRISQ">
+      <columns xmi:id="_S7-Lkkg_EeKZwIRNGDfcmA" name="RF_CLASRISQ_ID" defaultValue="" indexElements="_S7-Lo0g_EeKZwIRNGDfcmA" primaryKey="_S7-LoUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LlEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-LlUg_EeKZwIRNGDfcmA" comments="Code de la classe de risques" name="RF_CLASRISQ_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Ll0g_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-LmEg_EeKZwIRNGDfcmA" comments="Libellé de la classe de risques" name="RF_CLASRISQ_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Lmkg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-Lm0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LnUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-Lnkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LoEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7-LoUg_EeKZwIRNGDfcmA" name="PFE_RF_CLASRISQ_PK" columns="_S7-Lkkg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S7-Lokg_EeKZwIRNGDfcmA" name="PFE_RF_CLASRISQ_PK" unique="true">
+        <elements xmi:id="_S7-Lo0g_EeKZwIRNGDfcmA" column="_S7-Lkkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7-LpEg_EeKZwIRNGDfcmA" name="PFE_RF_CLINV">
+      <columns xmi:id="_S7-LpUg_EeKZwIRNGDfcmA" name="RF_CLINV_ID" defaultValue="" indexElements="_S7-Ltkg_EeKZwIRNGDfcmA" primaryKey="_S7-LtEg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Lp0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-LqEg_EeKZwIRNGDfcmA" comments="Code de la classe d'investissement" name="RF_CLINV_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Lqkg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-Lq0g_EeKZwIRNGDfcmA" comments="Libellé de la classe d'investissement" name="RF_CLINV_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LrUg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-Lrkg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LsEg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-LsUg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Ls0g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7-LtEg_EeKZwIRNGDfcmA" name="PFE_RF_CLINV_PK" columns="_S7-LpUg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S7-LtUg_EeKZwIRNGDfcmA" name="PFE_RF_CLINV_PK" unique="true">
+        <elements xmi:id="_S7-Ltkg_EeKZwIRNGDfcmA" column="_S7-LpUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7-Lt0g_EeKZwIRNGDfcmA" name="PFE_RF_COMM">
+      <columns xmi:id="_S7-LuEg_EeKZwIRNGDfcmA" name="RF_COMM_ID" defaultValue="" indexElements="_S7-L0kg_EeKZwIRNGDfcmA" primaryKey="_S7-L0Eg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Lukg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-Lu0g_EeKZwIRNGDfcmA" comments="Code de la commune" name="RF_COMM_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LvUg_EeKZwIRNGDfcmA" length="3">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-Lvkg_EeKZwIRNGDfcmA" comments="Libellé de la commune" name="RF_COMM_LIB" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LwEg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-LwUg_EeKZwIRNGDfcmA" comments="Code INSEE de la commune" name="RF_COMM_INSEE_COD" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Lw0g_EeKZwIRNGDfcmA" length="6">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-LxEg_EeKZwIRNGDfcmA" comments="Libellé INSEE de la commune" name="RF_COMM_INSEE_LIB" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Lxkg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-Lx0g_EeKZwIRNGDfcmA" name="RF_DEPT_ID" defaultValue="" indexElements="_S7-L1Eg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHZ0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LyUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-Lykg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-LzEg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-LzUg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-Lz0g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7-L0Eg_EeKZwIRNGDfcmA" name="PFE_RF_COMM_PK" columns="_S7-LuEg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHZkg_EeKZwIRNGDfcmA" name="COMMUNE_DEPARTEMENTDE_FK" target="_S7-yvEg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHZ0g_EeKZwIRNGDfcmA" fkColumn="_S7-Lx0g_EeKZwIRNGDfcmA" pkColumn="_S7-yvUg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S7-L0Ug_EeKZwIRNGDfcmA" name="PFE_RF_COMM_PK" unique="true">
+        <elements xmi:id="_S7-L0kg_EeKZwIRNGDfcmA" column="_S7-LuEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S7-L00g_EeKZwIRNGDfcmA" name="PFE_RF_COMM_DEPARTEMENTD_IDX">
+        <elements xmi:id="_S7-L1Eg_EeKZwIRNGDfcmA" column="_S7-Lx0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7-L1Ug_EeKZwIRNGDfcmA" name="PFE_RF_COMMCP">
+      <columns xmi:id="_S7-L1kg_EeKZwIRNGDfcmA" name="RF_COMMCP_ID" defaultValue="" indexElements="_S7-ykUg_EeKZwIRNGDfcmA" primaryKey="_S7-L5Ug_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-L2Eg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-L2Ug_EeKZwIRNGDfcmA" name="RF_CP_ID" defaultValue="" indexElements="_S7-yk0g_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHa0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-L20g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-L3Eg_EeKZwIRNGDfcmA" name="RF_COM_ID" defaultValue="" indexElements="_S7-ylUg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHaUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-L3kg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-L30g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-L4Ug_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-L4kg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-L5Eg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7-L5Ug_EeKZwIRNGDfcmA" name="PFE_RF_COMMCP_PK" columns="_S7-L1kg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHaEg_EeKZwIRNGDfcmA" name="CODEPOSTALCOM_COMMUNEDERATT_FK" target="_S7-Lt0g_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHaUg_EeKZwIRNGDfcmA" fkColumn="_S7-L3Eg_EeKZwIRNGDfcmA" pkColumn="_S7-LuEg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHakg_EeKZwIRNGDfcmA" name="CODEPOSTALCOM_CODEPOSTAL_FK" target="_S7-ylkg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHa0g_EeKZwIRNGDfcmA" fkColumn="_S7-L2Ug_EeKZwIRNGDfcmA" pkColumn="_S7-yl0g_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S7-ykEg_EeKZwIRNGDfcmA" name="PFE_RF_COMMCP_PK" unique="true">
+        <elements xmi:id="_S7-ykUg_EeKZwIRNGDfcmA" column="_S7-L1kg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S7-ykkg_EeKZwIRNGDfcmA" name="PFE_RF_COMMCP_CODEPOSTAL_IDX">
+        <elements xmi:id="_S7-yk0g_EeKZwIRNGDfcmA" column="_S7-L2Ug_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S7-ylEg_EeKZwIRNGDfcmA" name="PFE_RF_COMMCP_COMMUNEDERAT_IDX">
+        <elements xmi:id="_S7-ylUg_EeKZwIRNGDfcmA" column="_S7-L3Eg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7-ylkg_EeKZwIRNGDfcmA" name="PFE_RF_CP">
+      <columns xmi:id="_S7-yl0g_EeKZwIRNGDfcmA" name="RF_CP_ID" defaultValue="" indexElements="_S7-ypUg_EeKZwIRNGDfcmA" primaryKey="_S7-yo0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-ymUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-ymkg_EeKZwIRNGDfcmA" comments="Code postal" name="RF_CP_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-ynEg_EeKZwIRNGDfcmA" length="5">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-ynUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yn0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-yoEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yokg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7-yo0g_EeKZwIRNGDfcmA" name="PFE_RF_CP_PK" columns="_S7-yl0g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S7-ypEg_EeKZwIRNGDfcmA" name="PFE_RF_CP_PK" unique="true">
+        <elements xmi:id="_S7-ypUg_EeKZwIRNGDfcmA" column="_S7-yl0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7-ypkg_EeKZwIRNGDfcmA" name="PFE_RF_CPTCLAUTIL">
+      <columns xmi:id="_S7-yp0g_EeKZwIRNGDfcmA" name="RF_CPTCLAUTIL_ID" defaultValue="" indexElements="_S7-yu0g_EeKZwIRNGDfcmA" primaryKey="_S7-yuUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yqUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-yqkg_EeKZwIRNGDfcmA" name="RF_CPTCLAUTIL_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yrEg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-yrUg_EeKZwIRNGDfcmA" name="RF_CPTCLAUTIL_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yr0g_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-ysEg_EeKZwIRNGDfcmA" name="RF_CPTCLAUTIL_LIBA" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yskg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-ys0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-ytUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-ytkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yuEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7-yuUg_EeKZwIRNGDfcmA" name="PFE_RF_CPTCLAUTIL_PK" columns="_S7-yp0g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S7-yukg_EeKZwIRNGDfcmA" name="PFE_RF_CPTCLAUTIL_PK" unique="true">
+        <elements xmi:id="_S7-yu0g_EeKZwIRNGDfcmA" column="_S7-yp0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7-yvEg_EeKZwIRNGDfcmA" name="PFE_RF_DEPT">
+      <columns xmi:id="_S7-yvUg_EeKZwIRNGDfcmA" name="RF_DEPT_ID" defaultValue="" indexElements="_S7-y0Ug_EeKZwIRNGDfcmA" primaryKey="_S7-yz0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yv0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-ywEg_EeKZwIRNGDfcmA" comments="Code du département" name="RF_DEPT_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-ywkg_EeKZwIRNGDfcmA" length="3">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-yw0g_EeKZwIRNGDfcmA" comments="Libellé du département" name="RF_DEPT_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yxUg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-yxkg_EeKZwIRNGDfcmA" comments="Zone du département" name="RF_DEPT_ZONE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yyEg_EeKZwIRNGDfcmA" length="15">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-yyUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yy0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-yzEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-yzkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7-yz0g_EeKZwIRNGDfcmA" name="PFE_RF_DEPT_PK" columns="_S7-yvUg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S7-y0Eg_EeKZwIRNGDfcmA" name="PFE_RF_DEPT_PK" unique="true">
+        <elements xmi:id="_S7-y0Ug_EeKZwIRNGDfcmA" column="_S7-yvUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7-y0kg_EeKZwIRNGDfcmA" name="PFE_RF_DOM">
+      <columns xmi:id="_S7-y00g_EeKZwIRNGDfcmA" name="RF_DOM_ID" defaultValue="" indexElements="_S7-y50g_EeKZwIRNGDfcmA" primaryKey="_S7-y5Ug_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-y1Ug_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-y1kg_EeKZwIRNGDfcmA" comments="Code du domaine d'investissement" name="RF_DOM_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-y2Eg_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-y2Ug_EeKZwIRNGDfcmA" comments="Libellé du domaine d'investissement" name="RF_DOM_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-y20g_EeKZwIRNGDfcmA" length="60">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-y3Eg_EeKZwIRNGDfcmA" comments="Exemples de domaine d'investissement" name="RF_DOM_EXPLES" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-y3kg_EeKZwIRNGDfcmA" length="200">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-y30g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-y4Ug_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-y4kg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-y5Eg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7-y5Ug_EeKZwIRNGDfcmA" name="PFE_RF_DOM_PK" columns="_S7-y00g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S7-y5kg_EeKZwIRNGDfcmA" name="PFE_RF_DOM_PK" unique="true">
+        <elements xmi:id="_S7-y50g_EeKZwIRNGDfcmA" column="_S7-y00g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7-y6Eg_EeKZwIRNGDfcmA" comments="Montants des EJ par code eOTP pour les affaires" name="PFE_RF_EJEOTPAFF">
+      <columns xmi:id="_S7-y6Ug_EeKZwIRNGDfcmA" name="RF_EJEOTPAFF_ID" defaultValue="" indexElements="_S7_ZvUg_EeKZwIRNGDfcmA" primaryKey="_S7_Zu0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-y60g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-y7Eg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis origine des EJ réels pour toutes les tranches fonctionnelles" name="RF_EJEOTPAFF_EJRORIGTF" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-y7kg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-y70g_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des EJ réels pour l'UO N/A" name="RF_EJEOTPAFF_EJRORIGNA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-y8Ug_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7-y8kg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des DP réelles" name="RF_EJEOTPAFF_DPRORIG" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7-y9Eg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_ZoEg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des DP en attente" name="RF_EJEOTPAFF_DPATTORIG" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Zokg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Zo0g_EeKZwIRNGDfcmA" comments="Montant cumulé pour la gestion en cours des EJ réels pour toutes les TF (non fourni par le FSO)&#xA;" name="RF_EJEOTPAFF_EJRCOURTF" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_ZpUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Zpkg_EeKZwIRNGDfcmA" comments="Montant cumulé pour la gestion en cours des EJ réels pour toutes les tranches fonctionnelles (non fourni par le FSO)" name="RF_EJEOTPAFF_EJRCOURNA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_ZqEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_ZqUg_EeKZwIRNGDfcmA" comments="Montant cumulé pour la gestion en cours des DP réelles (non fourni par le FSO)" name="RF_EJEOTPAFF_DPRCOUR" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Zq0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_ZrEg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des DP en attente (non fourni par le FSO)" name="RF_EJEOTPAFF_DPATTCOUR" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Zrkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Zr0g_EeKZwIRNGDfcmA" comments="Date du flux FSO" name="RF_EJEOTPAFF_DTFSO" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_ZsUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Zskg_EeKZwIRNGDfcmA" name="RF_EOTP_ID" defaultValue="" indexElements="_S7_Zv0g_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHbUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_ZtEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_ZtUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Zt0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_ZuEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Zukg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7_Zu0g_EeKZwIRNGDfcmA" name="PFE_RF_EJEOTPAFF_PK" columns="_S7-y6Ug_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHbEg_EeKZwIRNGDfcmA" name="MONTANTEJEOTPAFF_EOTPS_FK" target="_S7_Z7Ug_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHbUg_EeKZwIRNGDfcmA" fkColumn="_S7_Zskg_EeKZwIRNGDfcmA" pkColumn="_S7_Z7kg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S7_ZvEg_EeKZwIRNGDfcmA" name="PFE_RF_EJEOTPAFF_PK" unique="true">
+        <elements xmi:id="_S7_ZvUg_EeKZwIRNGDfcmA" column="_S7-y6Ug_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S7_Zvkg_EeKZwIRNGDfcmA" name="PFE_RF_EJEOTPAFF_EOTPS_IDX">
+        <elements xmi:id="_S7_Zv0g_EeKZwIRNGDfcmA" column="_S7_Zskg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7_ZwEg_EeKZwIRNGDfcmA" comments="Montants des EJ par code eOTP pour les opérations " name="PFE_RF_EJEOTPOPE">
+      <columns xmi:id="_S7_ZwUg_EeKZwIRNGDfcmA" name="RF_EJEOTPOPE_ID" defaultValue="" indexElements="_S7_Z6kg_EeKZwIRNGDfcmA" primaryKey="_S7_Z6Eg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Zw0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_ZxEg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis origine des EJ réels pour toutes les tranches fonctionnelles" name="RF_EJEOTPOPE_EJRORIGTF" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Zxkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Zx0g_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des EJ réels pour l'UO N/A" name="RF_EJEOTPOPE_EJRORIGNA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_ZyUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Zykg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des DP réelles" name="RF_EJEOTPOPE_DPRORIG" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_ZzEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_ZzUg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des DP en attente" name="RF_EJEOTPOPE_DPATTORIG" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Zz0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z0Eg_EeKZwIRNGDfcmA" comments="Montant cumulé pour la gestion en cours des EJ réels pour toutes les TF (non fourni par le FSO)&#xA;" name="RF_EJEOTPOPE_EJRCOURTF" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z0kg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z00g_EeKZwIRNGDfcmA" comments="Montant cumulé pour la gestion en cours des EJ réels pour toutes les tranches fonctionnelles (non fourni par le FSO)" name="RF_EJEOTPOPE_EJRCOURNA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z1Ug_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z1kg_EeKZwIRNGDfcmA" comments="Montant cumulé pour la gestion en cours des DP réelles (non fourni par le FSO)" name="RF_EJEOTPOPE_DPRCOUR" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z2Eg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z2Ug_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des DP en attente (non fourni par le FSO)" name="RF_EJEOTPOPE_DPATTCOUR" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z20g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z3Eg_EeKZwIRNGDfcmA" comments="Date du flux FSO" name="RF_EJEOTPOPE_DTFSO" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z3kg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z30g_EeKZwIRNGDfcmA" name="RF_EOTP_ID" defaultValue="" indexElements="_S7_Z7Eg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHb0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z4Ug_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z4kg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z5Eg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z5Ug_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z50g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S7_Z6Eg_EeKZwIRNGDfcmA" name="PFE_RF_EJEOTPOPE_PK" columns="_S7_ZwUg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHbkg_EeKZwIRNGDfcmA" name="MONTANTEJEOTP_EOTPS_FK" target="_S7_Z7Ug_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHb0g_EeKZwIRNGDfcmA" fkColumn="_S7_Z30g_EeKZwIRNGDfcmA" pkColumn="_S7_Z7kg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S7_Z6Ug_EeKZwIRNGDfcmA" name="PFE_RF_EJEOTPOPE_PK" unique="true">
+        <elements xmi:id="_S7_Z6kg_EeKZwIRNGDfcmA" column="_S7_ZwUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S7_Z60g_EeKZwIRNGDfcmA" name="PFE_RF_EJEOTP_EOTPS_IDX">
+        <elements xmi:id="_S7_Z7Eg_EeKZwIRNGDfcmA" column="_S7_Z30g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S7_Z7Ug_EeKZwIRNGDfcmA" name="PFE_RF_EOTP">
+      <columns xmi:id="_S7_Z7kg_EeKZwIRNGDfcmA" name="RF_EOTP_ID" defaultValue="" indexElements="_S8AA00g_EeKZwIRNGDfcmA" primaryKey="_S8AA0Ug_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z8Eg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z8Ug_EeKZwIRNGDfcmA" comments="Code de l'élément d'OTP de CHORUS." name="RF_EOTP_EWBSELEMNT" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z80g_EeKZwIRNGDfcmA" length="24">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z9Eg_EeKZwIRNGDfcmA" comments="Statut systÃ¨me de l'élément d'OTP de CHORUS." name="RF_EOTP_ERF_S_SYS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z9kg_EeKZwIRNGDfcmA" length="5">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z90g_EeKZwIRNGDfcmA" comments="Elément d'imputation de l'élément d'OTP de CHORUS." name="RF_EOTP_ERFBOLIMP" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z-Ug_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z-kg_EeKZwIRNGDfcmA" comments="Elément de facturation de l'élément d'OTP de CHORUS." name="RF_EOTP_ERFBOLFAC" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z_Eg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_Z_Ug_EeKZwIRNGDfcmA" comments="Description synthétique de l'élément d'OTP de CHORUS." name="RF_EOTP_TXTSH" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_Z_0g_EeKZwIRNGDfcmA" length="20">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_aAEg_EeKZwIRNGDfcmA" comments="Description longue de l'élément d'OTP de CHORUS." name="RF_EOTP_TXTLG" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_aAkg_EeKZwIRNGDfcmA" length="60">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_aA0g_EeKZwIRNGDfcmA" comments="Description moyenne de l'élément d'OTP de CHORUS." name="RF_EOTP_TXTMD" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_aBUg_EeKZwIRNGDfcmA" length="40">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S7_aBkg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S7_aCEg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAsEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AAskg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAs0g_EeKZwIRNGDfcmA" comments="Niveau 1 de l'eOTP" name="RF_EOTP_NIV1" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AAtUg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAtkg_EeKZwIRNGDfcmA" comments="Niveau 2 de l'eOTP" name="RF_EOTP_NIV2" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AAuEg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAuUg_EeKZwIRNGDfcmA" comments="Niveau 3 de l'eOTP" name="RF_EOTP_NIV3" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AAu0g_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAvEg_EeKZwIRNGDfcmA" comments="Niveau 4 de l'eOTP" name="RF_EOTP_NIV4" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AAvkg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAv0g_EeKZwIRNGDfcmA" comments="Niveau 5 de l'eOTP" name="RF_EOTP_NIV5" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AAwUg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAwkg_EeKZwIRNGDfcmA" comments="Niveau 6 de l'eOTP" name="RF_EOTP_NIV6" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AAxEg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAxUg_EeKZwIRNGDfcmA" comments="Niveau 7 de l'eOTP" name="RF_EOTP_NIV7" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AAx0g_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAyEg_EeKZwIRNGDfcmA" comments="Niveau 8 de l'eOTP" name="RF_EOTP_NIV8" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AAykg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAy0g_EeKZwIRNGDfcmA" comments="Niveau 9 de l'eOTP" name="RF_EOTP_NIV9" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AAzUg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AAzkg_EeKZwIRNGDfcmA" comments="Niveau 10 de l'eOTP" name="RF_EOTP_NIV10" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA0Eg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8AA0Ug_EeKZwIRNGDfcmA" name="PFE_RF_EOTP_PK" columns="_S7_Z7kg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8AA0kg_EeKZwIRNGDfcmA" name="PFE_RF_EOTP_PK" unique="true">
+        <elements xmi:id="_S8AA00g_EeKZwIRNGDfcmA" column="_S7_Z7kg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8AA1Eg_EeKZwIRNGDfcmA" name="PFE_RF_ETATAFF">
+      <columns xmi:id="_S8AA1Ug_EeKZwIRNGDfcmA" name="RF_ETATAFF_ID" defaultValue="" indexElements="_S8AA5kg_EeKZwIRNGDfcmA" primaryKey="_S8AA5Eg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA10g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AA2Eg_EeKZwIRNGDfcmA" comments="Code d'état d'affaire" name="RF_ETATAFF_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA2kg_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AA20g_EeKZwIRNGDfcmA" comments="Libellé d'état d'affaire" name="RF_ETATAFF_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA3Ug_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AA3kg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA4Eg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AA4Ug_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA40g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8AA5Eg_EeKZwIRNGDfcmA" name="PFE_RF_ETATAFF_PK" columns="_S8AA1Ug_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8AA5Ug_EeKZwIRNGDfcmA" name="PFE_RF_ETATAFF_PK" unique="true">
+        <elements xmi:id="_S8AA5kg_EeKZwIRNGDfcmA" column="_S8AA1Ug_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8AA50g_EeKZwIRNGDfcmA" name="PFE_RF_ETATOPE">
+      <columns xmi:id="_S8AA6Eg_EeKZwIRNGDfcmA" name="RF_ETATOPE_ID" defaultValue="" indexElements="_S8AA-Ug_EeKZwIRNGDfcmA" primaryKey="_S8AA90g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA6kg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AA60g_EeKZwIRNGDfcmA" comments="Code d'état d'opération" name="RF_ETATOPE_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA7Ug_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AA7kg_EeKZwIRNGDfcmA" comments="Libellé d'état d'opération" name="RF_ETATOPE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA8Eg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AA8Ug_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA80g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AA9Eg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA9kg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8AA90g_EeKZwIRNGDfcmA" name="PFE_RF_ETATOPE_PK" columns="_S8AA6Eg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8AA-Eg_EeKZwIRNGDfcmA" name="PFE_RF_ETATOPE_PK" unique="true">
+        <elements xmi:id="_S8AA-Ug_EeKZwIRNGDfcmA" column="_S8AA6Eg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8AA-kg_EeKZwIRNGDfcmA" name="PFE_RF_ETATPLNG">
+      <columns xmi:id="_S8AA-0g_EeKZwIRNGDfcmA" name="RF_ETATPLNG_ID" defaultValue="" indexElements="_S8ABDEg_EeKZwIRNGDfcmA" primaryKey="_S8ABCkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AA_Ug_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AA_kg_EeKZwIRNGDfcmA" name="RF_ETATPLNG_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ABAEg_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ABAUg_EeKZwIRNGDfcmA" comments="Libellé de l'état des opérations" name="RF_ETATPLNG_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ABA0g_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ABBEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ABBkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ABB0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ABCUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8ABCkg_EeKZwIRNGDfcmA" name="PFE_RF_ETATPLNG_PK" columns="_S8AA-0g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8ABC0g_EeKZwIRNGDfcmA" name="PFE_RF_ETATPLNG_PK" unique="true">
+        <elements xmi:id="_S8ABDEg_EeKZwIRNGDfcmA" column="_S8AA-0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8ABDUg_EeKZwIRNGDfcmA" name="PFE_RF_ETATPROJ">
+      <columns xmi:id="_S8ABDkg_EeKZwIRNGDfcmA" name="RF_ETATPROJ_ID" defaultValue="" indexElements="_S8AnyUg_EeKZwIRNGDfcmA" primaryKey="_S8Anx0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ABEEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ABEUg_EeKZwIRNGDfcmA" comments="Code de l'état du projet" name="RF_ETATPROJ_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ABE0g_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ABFEg_EeKZwIRNGDfcmA" comments="Libellé de l'état du projet" name="RF_ETATPROJ_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AnwEg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AnwUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Anw0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AnxEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Anxkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8Anx0g_EeKZwIRNGDfcmA" name="PFE_RF_ETATPROJ_PK" columns="_S8ABDkg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8AnyEg_EeKZwIRNGDfcmA" name="PFE_RF_ETATPROJ_PK" unique="true">
+        <elements xmi:id="_S8AnyUg_EeKZwIRNGDfcmA" column="_S8ABDkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8Anykg_EeKZwIRNGDfcmA" name="PFE_RF_FONCTMETIER">
+      <columns xmi:id="_S8Any0g_EeKZwIRNGDfcmA" name="RF_FONCTMETIER_ID" defaultValue="" indexElements="_S8An5Ug_EeKZwIRNGDfcmA" primaryKey="_S8An40g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AnzUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Anzkg_EeKZwIRNGDfcmA" comments="Le libellé de la fonction" name="RF_FONCTMETIER_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An0Eg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8An0Ug_EeKZwIRNGDfcmA" name="RF_FONCTMETIER_COMMENT" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An00g_EeKZwIRNGDfcmA" length="500">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8An1Eg_EeKZwIRNGDfcmA" comments="Le code de la fonction" name="RF_FONCTMETIER_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An1kg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8An10g_EeKZwIRNGDfcmA" comments="La fonction dont dépent l'occurence courante" name="RF_FONCTMETIER_MERE_ID" nullable="true" defaultValue="" indexElements="_S8An50g_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHcUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An2Ug_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8An2kg_EeKZwIRNGDfcmA" name="RF_TYPFONCTMETIER_ID" defaultValue="" indexElements="_S8An6Ug_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHc0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An3Eg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8An3Ug_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An30g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8An4Eg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An4kg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8An40g_EeKZwIRNGDfcmA" name="PFE_RF_FONCTMETIER_PK" columns="_S8Any0g_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHcEg_EeKZwIRNGDfcmA" name="FONCTIONMETIE_FONCTIONMERE_FK" target="_S8Anykg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHcUg_EeKZwIRNGDfcmA" fkColumn="_S8An10g_EeKZwIRNGDfcmA" pkColumn="_S8Any0g_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHckg_EeKZwIRNGDfcmA" name="FONCTIONMETIE_TYPEFONCTIONM_FK" target="_S8E5bkg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHc0g_EeKZwIRNGDfcmA" fkColumn="_S8An2kg_EeKZwIRNGDfcmA" pkColumn="_S8E5b0g_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S8An5Eg_EeKZwIRNGDfcmA" name="PFE_RF_FONCTMETIER_PK" unique="true">
+        <elements xmi:id="_S8An5Ug_EeKZwIRNGDfcmA" column="_S8Any0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8An5kg_EeKZwIRNGDfcmA" name="PFE_RF_FONCTM_FONCTIONMERE_IDX">
+        <elements xmi:id="_S8An50g_EeKZwIRNGDfcmA" column="_S8An10g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8An6Eg_EeKZwIRNGDfcmA" name="PFE_RF_FONCTM_TYPEFONCTION_IDX">
+        <elements xmi:id="_S8An6Ug_EeKZwIRNGDfcmA" column="_S8An2kg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8An6kg_EeKZwIRNGDfcmA" name="PFE_RF_IMMIND">
+      <columns xmi:id="_S8An60g_EeKZwIRNGDfcmA" name="RF_IMMIND_ID" defaultValue="" indexElements="_S8An_Eg_EeKZwIRNGDfcmA" primaryKey="_S8An-kg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An7Ug_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8An7kg_EeKZwIRNGDfcmA" comments="Code indicateur de recensement" name="RF_IMMIND_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An8Eg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8An8Ug_EeKZwIRNGDfcmA" comments="Dénomination indicateur de recensement" name="RF_IMMIND_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An80g_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8An9Eg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An9kg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8An90g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8An-Ug_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8An-kg_EeKZwIRNGDfcmA" name="PFE_RF_IMMIND_PK" columns="_S8An60g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8An-0g_EeKZwIRNGDfcmA" name="PFE_RF_IMMIND_PK" unique="true">
+        <elements xmi:id="_S8An_Eg_EeKZwIRNGDfcmA" column="_S8An60g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8An_Ug_EeKZwIRNGDfcmA" comments="Table des AE par TF et UO" name="PFE_RF_MNTAE">
+      <columns xmi:id="_S8An_kg_EeKZwIRNGDfcmA" name="RF_MNTAE_ID" defaultValue="" indexElements="_S8AoG0g_EeKZwIRNGDfcmA" primaryKey="_S8AoGUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AoAEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AoAUg_EeKZwIRNGDfcmA" comments="Montant des AE affectées Chorus par TF et UO" name="RF_MNTAE_AFFECT" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AoA0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AoBEg_EeKZwIRNGDfcmA" comments="Montant des AE disponibles par TF et UO" name="RF_MNTAE_DISPO" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AoBkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AoB0g_EeKZwIRNGDfcmA" comments="Montant des AE consommées par TF et UO" name="RF_MNTAE_CONSO" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AoCUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AoCkg_EeKZwIRNGDfcmA" comments="Année de gestion" name="RF_MNTAE_ANGEST" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AoDEg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AoDUg_EeKZwIRNGDfcmA" name="RF_CFIN_ID" defaultValue="" indexElements="_S8BO0Ug_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHdUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AoD0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AoEEg_EeKZwIRNGDfcmA" name="RF_TFON_ID" defaultValue="" indexElements="_S8BO00g_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHd0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AoEkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AoE0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AoFUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8AoFkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8AoGEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8AoGUg_EeKZwIRNGDfcmA" name="PFE_RF_MNTAE_PK" columns="_S8An_kg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHdEg_EeKZwIRNGDfcmA" name="MONTANTAE_CENTREFINANCI_FK" target="_S79ksUg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHdUg_EeKZwIRNGDfcmA" fkColumn="_S8AoDUg_EeKZwIRNGDfcmA" pkColumn="_S79kskg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHdkg_EeKZwIRNGDfcmA" name="MONTANTAE_TRANCHEFONCTI_FK" target="_S8DEUEg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHd0g_EeKZwIRNGDfcmA" fkColumn="_S8AoEEg_EeKZwIRNGDfcmA" pkColumn="_S8DEUUg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S8AoGkg_EeKZwIRNGDfcmA" name="PFE_RF_MNTAE_PK" unique="true">
+        <elements xmi:id="_S8AoG0g_EeKZwIRNGDfcmA" column="_S8An_kg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8BO0Eg_EeKZwIRNGDfcmA" name="PFE_RF_MNTAE_CENTREFINANC_IDX">
+        <elements xmi:id="_S8BO0Ug_EeKZwIRNGDfcmA" column="_S8AoDUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8BO0kg_EeKZwIRNGDfcmA" name="PFE_RF_MNTAE_TRANCHEFONCT_IDX">
+        <elements xmi:id="_S8BO00g_EeKZwIRNGDfcmA" column="_S8AoEEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8BO1Eg_EeKZwIRNGDfcmA" name="PFE_RF_NAT">
+      <columns xmi:id="_S8BO1Ug_EeKZwIRNGDfcmA" name="RF_NAT_ID" defaultValue="" indexElements="_S8BO70g_EeKZwIRNGDfcmA" primaryKey="_S8BO7Ug_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO10g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO2Eg_EeKZwIRNGDfcmA" comments="Code de la nature d'operation" name="RF_NAT_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO2kg_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO20g_EeKZwIRNGDfcmA" comments="Libelle de la nature d'operation" name="RF_NAT_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO3Ug_EeKZwIRNGDfcmA" length="40">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO3kg_EeKZwIRNGDfcmA" comments="Definition de la nature d'operation" name="RF_NAT_DEF" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO4Eg_EeKZwIRNGDfcmA" length="200">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO4Ug_EeKZwIRNGDfcmA" comments="Observations concernant la nature d'operation" name="RF_NAT_OBS" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO40g_EeKZwIRNGDfcmA" length="200">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO5Eg_EeKZwIRNGDfcmA" comments="Categorie Bercy a laquelle appartient la nature d'operation" name="RF_NAT_CATEG_BERCY" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO5kg_EeKZwIRNGDfcmA" length="20">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO50g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO6Ug_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO6kg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO7Eg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8BO7Ug_EeKZwIRNGDfcmA" name="PFE_RF_NAT_PK" columns="_S8BO1Ug_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8BO7kg_EeKZwIRNGDfcmA" name="PFE_RF_NAT_PK" unique="true">
+        <elements xmi:id="_S8BO70g_EeKZwIRNGDfcmA" column="_S8BO1Ug_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8BO8Eg_EeKZwIRNGDfcmA" name="PFE_RF_NATCTRCAL">
+      <columns xmi:id="_S8BO8Ug_EeKZwIRNGDfcmA" name="RF_NATCTRCAL_ID" defaultValue="" indexElements="_S8BPAkg_EeKZwIRNGDfcmA" primaryKey="_S8BPAEg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO80g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO9Eg_EeKZwIRNGDfcmA" comments="Code de la nature de la contrainte calendaire" name="RF_NATCTRCAL_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO9kg_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO90g_EeKZwIRNGDfcmA" comments="Libellé de la nature de la contrainte calendaire" name="RF_NATCTRCAL_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO-Ug_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO-kg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO_Eg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BO_Ug_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BO_0g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8BPAEg_EeKZwIRNGDfcmA" name="PFE_RF_NATCTRCAL_PK" columns="_S8BO8Ug_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8BPAUg_EeKZwIRNGDfcmA" name="PFE_RF_NATCTRCAL_PK" unique="true">
+        <elements xmi:id="_S8BPAkg_EeKZwIRNGDfcmA" column="_S8BO8Ug_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8BPA0g_EeKZwIRNGDfcmA" name="PFE_RF_NATLISTTRAV">
+      <columns xmi:id="_S8BPBEg_EeKZwIRNGDfcmA" name="RF_NATLISTTRAV_ID" defaultValue="" indexElements="_S8BPFUg_EeKZwIRNGDfcmA" primaryKey="_S8BPE0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPBkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BPB0g_EeKZwIRNGDfcmA" comments="Code d'une liste de travail" name="RF_NATLISTTRAV_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPCUg_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BPCkg_EeKZwIRNGDfcmA" comments="Libellé d'une liste de travail" name="RF_NATLISTTRAV_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPDEg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BPDUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPD0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BPEEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPEkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8BPE0g_EeKZwIRNGDfcmA" name="PFE_RF_NATLISTTRAV_PK" columns="_S8BPBEg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8BPFEg_EeKZwIRNGDfcmA" name="PFE_RF_NATLISTTRAV_PK" unique="true">
+        <elements xmi:id="_S8BPFUg_EeKZwIRNGDfcmA" column="_S8BPBEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8BPFkg_EeKZwIRNGDfcmA" name="PFE_RF_NATPHA">
+      <columns xmi:id="_S8BPF0g_EeKZwIRNGDfcmA" comments="Identifiant de nature de phase" name="RF_NATPHA_ID" defaultValue="" indexElements="_S8BPK0g_EeKZwIRNGDfcmA" primaryKey="_S8BPKUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPGUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BPGkg_EeKZwIRNGDfcmA" comments="code de nature de phase" name="RF_NATPHA_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPHEg_EeKZwIRNGDfcmA" length="15">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BPHUg_EeKZwIRNGDfcmA" comments="Libellé de nature de phase" name="RF_NATPHA_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPH0g_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BPIEg_EeKZwIRNGDfcmA" comments="Type de phase" name="RF_TPHASE_ID" defaultValue="" indexElements="_S8B14Eg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHeUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPIkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BPI0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPJUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8BPJkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8BPKEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8BPKUg_EeKZwIRNGDfcmA" name="PFE_RF_NATPHA_PK" columns="_S8BPF0g_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHeEg_EeKZwIRNGDfcmA" name="NATUREPHASE_TYPEPHASE_FK" target="_S8E5M0g_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHeUg_EeKZwIRNGDfcmA" fkColumn="_S8BPIEg_EeKZwIRNGDfcmA" pkColumn="_S8E5NEg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S8BPKkg_EeKZwIRNGDfcmA" name="PFE_RF_NATPHA_PK" unique="true">
+        <elements xmi:id="_S8BPK0g_EeKZwIRNGDfcmA" column="_S8BPF0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8BPLEg_EeKZwIRNGDfcmA" name="PFE_RF_NATPHA_TYPEPHASE_IDX">
+        <elements xmi:id="_S8B14Eg_EeKZwIRNGDfcmA" column="_S8BPIEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8B14Ug_EeKZwIRNGDfcmA" name="PFE_RF_NATVOI">
+      <columns xmi:id="_S8B14kg_EeKZwIRNGDfcmA" name="RF_NATVOI_ID" defaultValue="" indexElements="_S8B180g_EeKZwIRNGDfcmA" primaryKey="_S8B18Ug_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B15Eg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B15Ug_EeKZwIRNGDfcmA" comments="Code de la nature de la voie" name="RF_NATVOI_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B150g_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B16Eg_EeKZwIRNGDfcmA" comments="Libellé de la nature de la voie" name="RF_NATVOI_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B16kg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B160g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B17Ug_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B17kg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B18Eg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8B18Ug_EeKZwIRNGDfcmA" name="PFE_RF_NATVOI_PK" columns="_S8B14kg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8B18kg_EeKZwIRNGDfcmA" name="PFE_RF_NATVOI_PK" unique="true">
+        <elements xmi:id="_S8B180g_EeKZwIRNGDfcmA" column="_S8B14kg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8B19Eg_EeKZwIRNGDfcmA" name="PFE_RF_OCC">
+      <columns xmi:id="_S8B19Ug_EeKZwIRNGDfcmA" name="RF_OCC_ID" defaultValue="" indexElements="_S8B2DEg_EeKZwIRNGDfcmA" primaryKey="_S8B2Ckg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B190g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B1-Eg_EeKZwIRNGDfcmA" comments="Code CREDO de l'occupant" name="RF_OCC_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B1-kg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B1-0g_EeKZwIRNGDfcmA" comments="Libellé de l'occupant" name="RF_OCC_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B1_Ug_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B1_kg_EeKZwIRNGDfcmA" comments="Provenance de l'Occupant" name="RF_OCC_PROVENANCE" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2AEg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2AUg_EeKZwIRNGDfcmA" comments="Ville de l'occupant" name="RF_OCC_VILLE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2A0g_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2BEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2Bkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2B0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2CUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8B2Ckg_EeKZwIRNGDfcmA" name="PFE_RF_OCC_PK" columns="_S8B19Ug_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8B2C0g_EeKZwIRNGDfcmA" name="PFE_RF_OCC_PK" unique="true">
+        <elements xmi:id="_S8B2DEg_EeKZwIRNGDfcmA" column="_S8B19Ug_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8B2DUg_EeKZwIRNGDfcmA" name="PFE_RF_ORGANISME">
+      <columns xmi:id="_S8B2Dkg_EeKZwIRNGDfcmA" name="RF_ORGANISME_ID" defaultValue="" indexElements="_S8B2MUg_EeKZwIRNGDfcmA" primaryKey="_S8B2L0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2EEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2EUg_EeKZwIRNGDfcmA" comments="Code de l'organisme" name="RF_ORGANISME_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2E0g_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2FEg_EeKZwIRNGDfcmA" comments="Libellé de l'organisme" name="RF_ORGANISME_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2Fkg_EeKZwIRNGDfcmA" length="80">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2F0g_EeKZwIRNGDfcmA" comments="Libellé abrégé de l'organisme" name="RF_ORGANISME_LIBA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2GUg_EeKZwIRNGDfcmA" length="30">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2Gkg_EeKZwIRNGDfcmA" name="RF_ORGANISME_ABREV" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2HEg_EeKZwIRNGDfcmA" length="9">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2HUg_EeKZwIRNGDfcmA" name="RF_TORG_ID" defaultValue="" indexElements="_S8B2N0g_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHf0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2H0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2IEg_EeKZwIRNGDfcmA" name="RF_COMMCP_ID" nullable="true" defaultValue="" indexElements="_S8B2M0g_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHe0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2Ikg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2I0g_EeKZwIRNGDfcmA" name="RF_ORGANISME_PERE_ID" defaultValue="" indexElements="_S8B2NUg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHfUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2JUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2Jkg_EeKZwIRNGDfcmA" comments="Niveau hierarchique" name="RF_ORGANISME_NIVEAU" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2KEg_EeKZwIRNGDfcmA" length="38">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2KUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2K0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2LEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2Lkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8B2L0g_EeKZwIRNGDfcmA" name="PFE_RF_ORGANISME_PK" columns="_S8B2Dkg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHekg_EeKZwIRNGDfcmA" name="ORGANISME_CODEPOSTALCOM_FK" target="_S7-L1Ug_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHe0g_EeKZwIRNGDfcmA" fkColumn="_S8B2IEg_EeKZwIRNGDfcmA" pkColumn="_S7-L1kg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHfEg_EeKZwIRNGDfcmA" name="ORGANISME_ORGANISMEPERE_FK" target="_S8B2DUg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHfUg_EeKZwIRNGDfcmA" fkColumn="_S8B2I0g_EeKZwIRNGDfcmA" pkColumn="_S8B2Dkg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHfkg_EeKZwIRNGDfcmA" name="ORGANISME_TYPEORGANISME_FK" target="_S8ESU0g_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHf0g_EeKZwIRNGDfcmA" fkColumn="_S8B2HUg_EeKZwIRNGDfcmA" pkColumn="_S8ESVEg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S8B2MEg_EeKZwIRNGDfcmA" name="PFE_RF_ORGANISME_PK" unique="true">
+        <elements xmi:id="_S8B2MUg_EeKZwIRNGDfcmA" column="_S8B2Dkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8B2Mkg_EeKZwIRNGDfcmA" name="PFE_RF_ORGANI_CODEPOSTALCO_IDX">
+        <elements xmi:id="_S8B2M0g_EeKZwIRNGDfcmA" column="_S8B2IEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8B2NEg_EeKZwIRNGDfcmA" name="PFE_RF_ORGANI_ORGANISMEPER_IDX">
+        <elements xmi:id="_S8B2NUg_EeKZwIRNGDfcmA" column="_S8B2I0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8B2Nkg_EeKZwIRNGDfcmA" name="PFE_RF_ORGANI_TYPEORGANISM_IDX">
+        <elements xmi:id="_S8B2N0g_EeKZwIRNGDfcmA" column="_S8B2HUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8B2OEg_EeKZwIRNGDfcmA" comments="Montants des EJ orphelins par UO et TF" name="PFE_RF_ORPHELIN">
+      <columns xmi:id="_S8B2OUg_EeKZwIRNGDfcmA" name="RF_ORPHELIN_ID" defaultValue="" indexElements="_S8CdFEg_EeKZwIRNGDfcmA" primaryKey="_S8CdEkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2O0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2PEg_EeKZwIRNGDfcmA" comments="Numéro de l'EJ" name="RF_ORPHELIN_NUMEJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2Pkg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2P0g_EeKZwIRNGDfcmA" comments="Libellé de l'EJ (= numéro long de l'EJ)" name="RF_ORPHELIN_LIBEJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2QUg_EeKZwIRNGDfcmA" length="40">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2Qkg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis origine des EJ réels pour toutes les tranches fonctionnelles" name="RF_ORPHELIN_EJRORIGTF" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8B2REg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8B2RUg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des EJ réels pour l'UO N/A" name="RF_ORPHELIN_EJRORIGNA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Cc8Eg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Cc8Ug_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des DP réelles" name="RF_ORPHELIN_DPRORIG" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Cc80g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Cc9Eg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des DP en attente" name="RF_ORPHELIN_DPATTORIG" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Cc9kg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Cc90g_EeKZwIRNGDfcmA" comments="Montant cumulé pour la gestion en cours des EJ réels pour toutes les TF (non fourni par le FSO)&#xA;" name="RF_ORPHELIN_EJRCOURTF" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Cc-Ug_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Cc-kg_EeKZwIRNGDfcmA" comments="Montant cumulé pour la gestion en cours des EJ réels pour toutes les tranches fonctionnelles (non fourni par le FSO)" name="RF_ORPHELIN_EJRCOURNA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Cc_Eg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Cc_Ug_EeKZwIRNGDfcmA" comments="Montant cumulé pour la gestion en cours des DP réelles (non fourni par le FSO)" name="RF_ORPHELIN_DPRCOUR" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Cc_0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdAEg_EeKZwIRNGDfcmA" comments="Montant cumulé depuis l'origine des DP en attente (non fourni par le FSO)" name="RF_ORPHELIN_DPATTCOUR" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdAkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdA0g_EeKZwIRNGDfcmA" comments="Date du flux FSO" name="RF_ORPHELIN_DTFSO" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdBUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdBkg_EeKZwIRNGDfcmA" name="RF_CFIN_ID" defaultValue="" indexElements="_S8CdFkg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHgUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdCEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdCUg_EeKZwIRNGDfcmA" name="RF_TFON_ID" defaultValue="" indexElements="_S8CdGEg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHg0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdC0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdDEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdDkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdD0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdEUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8CdEkg_EeKZwIRNGDfcmA" name="PFE_RF_ORPHELIN_PK" columns="_S8B2OUg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHgEg_EeKZwIRNGDfcmA" name="ORPHELINAT_CENTREFINANCI_FK" target="_S79ksUg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHgUg_EeKZwIRNGDfcmA" fkColumn="_S8CdBkg_EeKZwIRNGDfcmA" pkColumn="_S79kskg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHgkg_EeKZwIRNGDfcmA" name="ORPHELINAT_TRANCHEFONCTI_FK" target="_S8DEUEg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHg0g_EeKZwIRNGDfcmA" fkColumn="_S8CdCUg_EeKZwIRNGDfcmA" pkColumn="_S8DEUUg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S8CdE0g_EeKZwIRNGDfcmA" name="PFE_RF_ORPHELIN_PK" unique="true">
+        <elements xmi:id="_S8CdFEg_EeKZwIRNGDfcmA" column="_S8B2OUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8CdFUg_EeKZwIRNGDfcmA" name="PFE_RF_ORPHEL_CENTREFINANC_IDX">
+        <elements xmi:id="_S8CdFkg_EeKZwIRNGDfcmA" column="_S8CdBkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8CdF0g_EeKZwIRNGDfcmA" name="PFE_RF_ORPHEL_TRANCHEFONCT_IDX">
+        <elements xmi:id="_S8CdGEg_EeKZwIRNGDfcmA" column="_S8CdCUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8CdGUg_EeKZwIRNGDfcmA" name="PFE_RF_PROG">
+      <columns xmi:id="_S8CdGkg_EeKZwIRNGDfcmA" name="RF_PROG_ID" defaultValue="" indexElements="_S8CdK0g_EeKZwIRNGDfcmA" primaryKey="_S8CdKUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdHEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdHUg_EeKZwIRNGDfcmA" comments="Code du programme" name="RF_PROG_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdH0g_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdIEg_EeKZwIRNGDfcmA" comments="Libellé du programme" name="RF_PROG_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdIkg_EeKZwIRNGDfcmA" length="300">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdI0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdJUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdJkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdKEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8CdKUg_EeKZwIRNGDfcmA" name="PFE_RF_PROG_PK" columns="_S8CdGkg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8CdKkg_EeKZwIRNGDfcmA" name="PFE_RF_PROG_PK" unique="true">
+        <elements xmi:id="_S8CdK0g_EeKZwIRNGDfcmA" column="_S8CdGkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8CdLEg_EeKZwIRNGDfcmA" name="PFE_RF_ROLEOPE">
+      <columns xmi:id="_S8CdLUg_EeKZwIRNGDfcmA" name="RF_ROLEOPE_ID" defaultValue="" indexElements="_S8CdPkg_EeKZwIRNGDfcmA" primaryKey="_S8CdPEg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdL0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdMEg_EeKZwIRNGDfcmA" comments="Ordre dans lequel il faut afficher le rÃ´le indispensable. NULL si le rÃ´le est complémentaire." name="RF_ROLEOPE_ORDRE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdMkg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdM0g_EeKZwIRNGDfcmA" comments="Libellé du role" name="RF_ROLEOPE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdNUg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdNkg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdOEg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdOUg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdO0g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8CdPEg_EeKZwIRNGDfcmA" name="PFE_RF_ROLEOPE_PK" columns="_S8CdLUg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8CdPUg_EeKZwIRNGDfcmA" name="PFE_RF_ROLEOPE_PK" unique="true">
+        <elements xmi:id="_S8CdPkg_EeKZwIRNGDfcmA" column="_S8CdLUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8CdP0g_EeKZwIRNGDfcmA" name="PFE_RF_SFCT">
+      <columns xmi:id="_S8CdQEg_EeKZwIRNGDfcmA" name="RF_SFCT_ID" defaultValue="" indexElements="_S8CdVEg_EeKZwIRNGDfcmA" primaryKey="_S8CdUkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdQkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdQ0g_EeKZwIRNGDfcmA" comments="Code de la sous-fonction" name="RF_SFCT_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdRUg_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdRkg_EeKZwIRNGDfcmA" comments="Libelle de la sous-fonction" name="RF_SFCT_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdSEg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdSUg_EeKZwIRNGDfcmA" name="RF_ZFCT_ID" defaultValue="" indexElements="_S8CdVkg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHhUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdS0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdTEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdTkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8CdT0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8CdUUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8CdUkg_EeKZwIRNGDfcmA" name="PFE_RF_SFCT_PK" columns="_S8CdQEg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHhEg_EeKZwIRNGDfcmA" name="SOUSFONCTION_ZONEFONCTIONN_FK" target="_S8FgeUg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHhUg_EeKZwIRNGDfcmA" fkColumn="_S8CdSUg_EeKZwIRNGDfcmA" pkColumn="_S8Fgekg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S8CdU0g_EeKZwIRNGDfcmA" name="PFE_RF_SFCT_PK" unique="true">
+        <elements xmi:id="_S8CdVEg_EeKZwIRNGDfcmA" column="_S8CdQEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8CdVUg_EeKZwIRNGDfcmA" name="PFE_RF_SFCT_ZONEFONCTION_IDX">
+        <elements xmi:id="_S8CdVkg_EeKZwIRNGDfcmA" column="_S8CdSUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8DEAEg_EeKZwIRNGDfcmA" name="PFE_RF_TAFFAIRE">
+      <columns xmi:id="_S8DEAUg_EeKZwIRNGDfcmA" name="RF_TAFFAIRE_ID" defaultValue="" indexElements="_S8DEEkg_EeKZwIRNGDfcmA" primaryKey="_S8DEEEg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEA0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEBEg_EeKZwIRNGDfcmA" comments="Code du type d'affaire" name="RF_TAFFAIRE_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEBkg_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEB0g_EeKZwIRNGDfcmA" comments="Libellé du type d'affaire" name="RF_TAFFAIRE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DECUg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DECkg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEDEg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEDUg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DED0g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8DEEEg_EeKZwIRNGDfcmA" name="PFE_RF_TAFFAIRE_PK" columns="_S8DEAUg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8DEEUg_EeKZwIRNGDfcmA" name="PFE_RF_TAFFAIRE_PK" unique="true">
+        <elements xmi:id="_S8DEEkg_EeKZwIRNGDfcmA" column="_S8DEAUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8DEE0g_EeKZwIRNGDfcmA" comments="Type de cible de gestion" name="PFE_RF_TCIBLE">
+      <columns xmi:id="_S8DEFEg_EeKZwIRNGDfcmA" name="RF_TCIBLE_ID" defaultValue="" indexElements="_S8DEJUg_EeKZwIRNGDfcmA" primaryKey="_S8DEI0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEFkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEF0g_EeKZwIRNGDfcmA" comments="code du type de cible de gestion" name="RF_TCIBLE_COD" defaultValue="" indexElements="_S8DEJ0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEGUg_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEGkg_EeKZwIRNGDfcmA" comments="libellé du type de cible de gestion" name="RF_TCIBLE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEHEg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEHUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEH0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEIEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEIkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8DEI0g_EeKZwIRNGDfcmA" name="PFE_RF_TCIBLE_PK" columns="_S8DEFEg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8DEJEg_EeKZwIRNGDfcmA" name="PFE_RF_TCIBLE_PK" unique="true">
+        <elements xmi:id="_S8DEJUg_EeKZwIRNGDfcmA" column="_S8DEFEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8DEJkg_EeKZwIRNGDfcmA" name="RF_TCIBLE_UN1_1" unique="true">
+        <elements xmi:id="_S8DEJ0g_EeKZwIRNGDfcmA" column="_S8DEF0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8DEKEg_EeKZwIRNGDfcmA" name="PFE_RF_TCOMPO">
+      <columns xmi:id="_S8DEKUg_EeKZwIRNGDfcmA" name="RF_TCOMPO_ID" defaultValue="" indexElements="_S8DEOkg_EeKZwIRNGDfcmA" primaryKey="_S8DEOEg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEK0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DELEg_EeKZwIRNGDfcmA" comments="Code du type de composant" name="RF_TCOMPO_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DELkg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEL0g_EeKZwIRNGDfcmA" comments="Libellé du type de composant" name="RF_TCOMPO_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEMUg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEMkg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DENEg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DENUg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEN0g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8DEOEg_EeKZwIRNGDfcmA" name="PFE_RF_TCOMPO_PK" columns="_S8DEKUg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8DEOUg_EeKZwIRNGDfcmA" name="PFE_RF_TCOMPO_PK" unique="true">
+        <elements xmi:id="_S8DEOkg_EeKZwIRNGDfcmA" column="_S8DEKUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8DEO0g_EeKZwIRNGDfcmA" comments="Type de division d'une cible de gestion" name="PFE_RF_TDIV">
+      <columns xmi:id="_S8DEPEg_EeKZwIRNGDfcmA" name="RF_TDIV_ID" defaultValue="" indexElements="_S8DETUg_EeKZwIRNGDfcmA" primaryKey="_S8DES0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEPkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEP0g_EeKZwIRNGDfcmA" comments="code du type de division d'une cible de gestion" name="RF_TDIV_COD" defaultValue="" indexElements="_S8DET0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEQUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEQkg_EeKZwIRNGDfcmA" comments="libellé du type de division d'une cible de gestion" name="RF_TDIV_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEREg_EeKZwIRNGDfcmA" length="20">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DERUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DER0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DESEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DESkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8DES0g_EeKZwIRNGDfcmA" name="PFE_RF_TDIV_PK" columns="_S8DEPEg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8DETEg_EeKZwIRNGDfcmA" name="PFE_RF_TDIV_PK" unique="true">
+        <elements xmi:id="_S8DETUg_EeKZwIRNGDfcmA" column="_S8DEPEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8DETkg_EeKZwIRNGDfcmA" name="RF_TDIV_UN1_1" unique="true">
+        <elements xmi:id="_S8DET0g_EeKZwIRNGDfcmA" column="_S8DEP0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8DEUEg_EeKZwIRNGDfcmA" name="PFE_RF_TFON">
+      <columns xmi:id="_S8DEUUg_EeKZwIRNGDfcmA" name="RF_TFON_ID" defaultValue="" indexElements="_S8DrH0g_EeKZwIRNGDfcmA" primaryKey="_S8DrHUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEU0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEVEg_EeKZwIRNGDfcmA" comments="PérimÃ¨tre financier de la tranche fonctionnelle de CHORUS." name="RF_TFON_AREA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEVkg_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEV0g_EeKZwIRNGDfcmA" comments="Code de la tranche fonctionnelle de CHORUS." name="RF_TFON_TRFONC" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEWUg_EeKZwIRNGDfcmA" length="24">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEWkg_EeKZwIRNGDfcmA" comments="Début de validité de la tranche fonctionnelle de CHORUS." name="RF_TFON_DATEFROM" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEXEg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEXUg_EeKZwIRNGDfcmA" comments="Fin de validité de la tranche fonctionnelle de CHORUS." name="RF_TFON_DATETO" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEX0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEYEg_EeKZwIRNGDfcmA" comments="Date d'expiration de la tranche fonctionnelle de CHORUS." name="RF_TFON_DATEX" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DEYkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DEY0g_EeKZwIRNGDfcmA" comments="Description courte de la tranche fonctionnelle de CHORUS." name="RF_TFON_ETXTSH" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrEEg_EeKZwIRNGDfcmA" length="20">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrEUg_EeKZwIRNGDfcmA" comments="Description longue de la tranche fonctionnelle de CHORUS." name="RF_TFON_ETXTLG" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrE0g_EeKZwIRNGDfcmA" length="60">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrFEg_EeKZwIRNGDfcmA" name="RF_CFIN_ID" defaultValue="" indexElements="_S8DrIUg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHh0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrFkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrF0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrGUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrGkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrHEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8DrHUg_EeKZwIRNGDfcmA" name="PFE_RF_TFON_PK" columns="_S8DEUUg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHhkg_EeKZwIRNGDfcmA" name="TRANCHEFONCTI_CENTREFINANCI_FK" target="_S79ksUg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHh0g_EeKZwIRNGDfcmA" fkColumn="_S8DrFEg_EeKZwIRNGDfcmA" pkColumn="_S79kskg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S8DrHkg_EeKZwIRNGDfcmA" name="PFE_RF_TFON_PK" unique="true">
+        <elements xmi:id="_S8DrH0g_EeKZwIRNGDfcmA" column="_S8DEUUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8DrIEg_EeKZwIRNGDfcmA" name="PFE_RF_TFON_CENTREFINANC_IDX">
+        <elements xmi:id="_S8DrIUg_EeKZwIRNGDfcmA" column="_S8DrFEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8DrIkg_EeKZwIRNGDfcmA" comments="Le type de la GP datée" name="PFE_RF_TGPDAT">
+      <columns xmi:id="_S8DrI0g_EeKZwIRNGDfcmA" name="RF_TGPDAT_ID" defaultValue="" indexElements="_S8DrNEg_EeKZwIRNGDfcmA" primaryKey="_S8DrMkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrJUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrJkg_EeKZwIRNGDfcmA" comments="Code du type de la GP datée" name="RF_TGPDAT_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrKEg_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrKUg_EeKZwIRNGDfcmA" comments="Libellé du type de la GP datée" name="RF_TGPDAT_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrK0g_EeKZwIRNGDfcmA" length="20">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrLEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrLkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrL0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrMUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8DrMkg_EeKZwIRNGDfcmA" name="PFE_RF_TGPDAT_PK" columns="_S8DrI0g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8DrM0g_EeKZwIRNGDfcmA" name="PFE_RF_TGPDAT_PK" unique="true">
+        <elements xmi:id="_S8DrNEg_EeKZwIRNGDfcmA" column="_S8DrI0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8DrNUg_EeKZwIRNGDfcmA" name="PFE_RF_TLIENJAL">
+      <columns xmi:id="_S8DrNkg_EeKZwIRNGDfcmA" name="RF_TLIENJAL_ID" defaultValue="" indexElements="_S8DrR0g_EeKZwIRNGDfcmA" primaryKey="_S8DrRUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrOEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrOUg_EeKZwIRNGDfcmA" comments="Code de type de lien jalon" name="RF_TLIENJAL_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrO0g_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrPEg_EeKZwIRNGDfcmA" comments="Libellé de lien jalon" name="RF_TLIENJAL_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrPkg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrP0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrQUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrQkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrREg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8DrRUg_EeKZwIRNGDfcmA" name="PFE_RF_TLIENJAL_PK" columns="_S8DrNkg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8DrRkg_EeKZwIRNGDfcmA" name="PFE_RF_TLIENJAL_PK" unique="true">
+        <elements xmi:id="_S8DrR0g_EeKZwIRNGDfcmA" column="_S8DrNkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8DrSEg_EeKZwIRNGDfcmA" name="PFE_RF_TLISTTRAV">
+      <columns xmi:id="_S8DrSUg_EeKZwIRNGDfcmA" name="RF_TLISTTRAV_ID" defaultValue="" indexElements="_S8DrWkg_EeKZwIRNGDfcmA" primaryKey="_S8DrWEg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrS0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrTEg_EeKZwIRNGDfcmA" comments="Code de type de liste de travail" name="RF_TLISTTRAV_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrTkg_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrT0g_EeKZwIRNGDfcmA" comments="Libellé de liste de travail" name="RF_TLISTTRAV_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrUUg_EeKZwIRNGDfcmA" length="20">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrUkg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrVEg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrVUg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrV0g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8DrWEg_EeKZwIRNGDfcmA" name="PFE_RF_TLISTTRAV_PK" columns="_S8DrSUg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8DrWUg_EeKZwIRNGDfcmA" name="PFE_RF_TLISTTRAV_PK" unique="true">
+        <elements xmi:id="_S8DrWkg_EeKZwIRNGDfcmA" column="_S8DrSUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8DrW0g_EeKZwIRNGDfcmA" name="PFE_RF_TMEMO">
+      <columns xmi:id="_S8DrXEg_EeKZwIRNGDfcmA" name="RF_TMEMO_ID" defaultValue="" indexElements="_S8DrbUg_EeKZwIRNGDfcmA" primaryKey="_S8Dra0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrXkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrX0g_EeKZwIRNGDfcmA" comments="Code du type de Mémo" name="RF_TMEMO_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrYUg_EeKZwIRNGDfcmA" length="5">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrYkg_EeKZwIRNGDfcmA" comments="Libellé du type de Mémos" name="RF_TMEMO_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrZEg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DrZUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrZ0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8DraEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Drakg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8Dra0g_EeKZwIRNGDfcmA" name="PFE_RF_TMEMO_PK" columns="_S8DrXEg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8DrbEg_EeKZwIRNGDfcmA" name="PFE_RF_TMEMO_PK" unique="true">
+        <elements xmi:id="_S8DrbUg_EeKZwIRNGDfcmA" column="_S8DrXEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8Drbkg_EeKZwIRNGDfcmA" name="PFE_RF_TMOE">
+      <columns xmi:id="_S8Drb0g_EeKZwIRNGDfcmA" name="RF_TMOE_ID" defaultValue="" indexElements="_S8ESLEg_EeKZwIRNGDfcmA" primaryKey="_S8ESKkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8DrcUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Drckg_EeKZwIRNGDfcmA" comments="Code du type de MOE" name="RF_TMOE_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESIEg_EeKZwIRNGDfcmA" length="5">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESIUg_EeKZwIRNGDfcmA" comments="Libellé du type de MOE" name="RF_TMOE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESI0g_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESJEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESJkg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESJ0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESKUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8ESKkg_EeKZwIRNGDfcmA" name="PFE_RF_TMOE_PK" columns="_S8Drb0g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8ESK0g_EeKZwIRNGDfcmA" name="PFE_RF_TMOE_PK" unique="true">
+        <elements xmi:id="_S8ESLEg_EeKZwIRNGDfcmA" column="_S8Drb0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8ESLUg_EeKZwIRNGDfcmA" name="PFE_RF_TMONTANT">
+      <columns xmi:id="_S8ESLkg_EeKZwIRNGDfcmA" name="RF_TMONTANT_ID" defaultValue="" indexElements="_S8ESP0g_EeKZwIRNGDfcmA" primaryKey="_S8ESPUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESMEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESMUg_EeKZwIRNGDfcmA" comments="code du type de montant" name="RF_TMONTANT_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESM0g_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESNEg_EeKZwIRNGDfcmA" comments="libellé du type de montant" name="RF_TMONTANT_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESNkg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESN0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESOUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESOkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESPEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8ESPUg_EeKZwIRNGDfcmA" name="PFE_RF_TMONTANT_PK" columns="_S8ESLkg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8ESPkg_EeKZwIRNGDfcmA" name="PFE_RF_TMONTANT_PK" unique="true">
+        <elements xmi:id="_S8ESP0g_EeKZwIRNGDfcmA" column="_S8ESLkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8ESQEg_EeKZwIRNGDfcmA" name="PFE_RF_TOPE">
+      <columns xmi:id="_S8ESQUg_EeKZwIRNGDfcmA" name="RF_TOPE_ID" defaultValue="" indexElements="_S8ESUkg_EeKZwIRNGDfcmA" primaryKey="_S8ESUEg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESQ0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESREg_EeKZwIRNGDfcmA" comments="Code du type d'opération" name="RF_TOPE_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESRkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESR0g_EeKZwIRNGDfcmA" comments="Libellé du type d'opération" name="RF_TOPE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESSUg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESSkg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESTEg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESTUg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8EST0g_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8ESUEg_EeKZwIRNGDfcmA" name="PFE_RF_TOPE_PK" columns="_S8ESQUg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8ESUUg_EeKZwIRNGDfcmA" name="PFE_RF_TOPE_PK" unique="true">
+        <elements xmi:id="_S8ESUkg_EeKZwIRNGDfcmA" column="_S8ESQUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8ESU0g_EeKZwIRNGDfcmA" name="PFE_RF_TORG">
+      <columns xmi:id="_S8ESVEg_EeKZwIRNGDfcmA" name="RF_TORG_ID" defaultValue="" indexElements="_S8ESaEg_EeKZwIRNGDfcmA" primaryKey="_S8ESZkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESVkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESV0g_EeKZwIRNGDfcmA" comments="Code du type d'organisme" name="RF_TORG_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESWUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESWkg_EeKZwIRNGDfcmA" comments="Libellé du type d'organisme" name="RF_TORG_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESXEg_EeKZwIRNGDfcmA" length="25">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESXUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESX0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESYEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESYkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESY0g_EeKZwIRNGDfcmA" comments="Le libellé abrégé" name="RF_TORG_LIBA" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESZUg_EeKZwIRNGDfcmA" length="15">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8ESZkg_EeKZwIRNGDfcmA" name="PFE_RF_TORG_PK" columns="_S8ESVEg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8ESZ0g_EeKZwIRNGDfcmA" name="PFE_RF_TORG_PK" unique="true">
+        <elements xmi:id="_S8ESaEg_EeKZwIRNGDfcmA" column="_S8ESVEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8ESaUg_EeKZwIRNGDfcmA" name="PFE_RF_TOUV">
+      <columns xmi:id="_S8ESakg_EeKZwIRNGDfcmA" name="RF_TOUV_ID" defaultValue="" indexElements="_S8ESgUg_EeKZwIRNGDfcmA" primaryKey="_S8ESf0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESbEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESbUg_EeKZwIRNGDfcmA" comments="Code du type d'ouvrage" name="RF_TOUV_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESb0g_EeKZwIRNGDfcmA" length="3">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8EScEg_EeKZwIRNGDfcmA" comments="Libelle du type d'ouvrage" name="RF_TOUV_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESckg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESc0g_EeKZwIRNGDfcmA" name="RF_SFCT_ID" defaultValue="" indexElements="_S8E5Mkg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHi0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESdUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESdkg_EeKZwIRNGDfcmA" name="RF_CPTCLAUTIL_ID" defaultValue="" indexElements="_S8E5MEg_EeKZwIRNGDfcmA" foreignKeyElements="_S8GHiUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESeEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESeUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESe0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8ESfEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8ESfkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8ESf0g_EeKZwIRNGDfcmA" name="PFE_RF_TOUV_PK" columns="_S8ESakg_EeKZwIRNGDfcmA"/>
+      <foreignKeys xmi:id="_S8GHiEg_EeKZwIRNGDfcmA" name="TYPEOUVRAGE_CLASSEUTILISA_FK" target="_S7-ypkg_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHiUg_EeKZwIRNGDfcmA" fkColumn="_S8ESdkg_EeKZwIRNGDfcmA" pkColumn="_S7-yp0g_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_S8GHikg_EeKZwIRNGDfcmA" name="TYPEOUVRAGE_SOUSFONCTION_FK" target="_S8CdP0g_EeKZwIRNGDfcmA">
+        <elements xmi:id="_S8GHi0g_EeKZwIRNGDfcmA" fkColumn="_S8ESc0g_EeKZwIRNGDfcmA" pkColumn="_S8CdQEg_EeKZwIRNGDfcmA"/>
+      </foreignKeys>
+      <indexes xmi:id="_S8ESgEg_EeKZwIRNGDfcmA" name="PFE_RF_TOUV_PK" unique="true">
+        <elements xmi:id="_S8ESgUg_EeKZwIRNGDfcmA" column="_S8ESakg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8ESgkg_EeKZwIRNGDfcmA" name="PFE_RF_TOUV_CLASSEUTILIS_IDX">
+        <elements xmi:id="_S8E5MEg_EeKZwIRNGDfcmA" column="_S8ESdkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8E5MUg_EeKZwIRNGDfcmA" name="PFE_RF_TOUV_SOUSFONCTION_IDX">
+        <elements xmi:id="_S8E5Mkg_EeKZwIRNGDfcmA" column="_S8ESc0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8E5M0g_EeKZwIRNGDfcmA" name="PFE_RF_TPHASE">
+      <columns xmi:id="_S8E5NEg_EeKZwIRNGDfcmA" comments="Identifiant de type de phase" name="RF_TPHASE_ID" defaultValue="" indexElements="_S8E5RUg_EeKZwIRNGDfcmA" primaryKey="_S8E5Q0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5Nkg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5N0g_EeKZwIRNGDfcmA" comments="code de type de phase" name="RF_TPHASE_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5OUg_EeKZwIRNGDfcmA" length="4">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5Okg_EeKZwIRNGDfcmA" comments="Libellé de type de phase" name="RF_TPHASE_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5PEg_EeKZwIRNGDfcmA" length="20">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5PUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5P0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5QEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5Qkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8E5Q0g_EeKZwIRNGDfcmA" name="PFE_RF_TPHASE_PK" columns="_S8E5NEg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8E5REg_EeKZwIRNGDfcmA" name="PFE_RF_TPHASE_PK" unique="true">
+        <elements xmi:id="_S8E5RUg_EeKZwIRNGDfcmA" column="_S8E5NEg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8E5Rkg_EeKZwIRNGDfcmA" name="PFE_RF_TREINITGP">
+      <columns xmi:id="_S8E5R0g_EeKZwIRNGDfcmA" name="RF_TREINITGP_ID" defaultValue="" indexElements="_S8E5WEg_EeKZwIRNGDfcmA" primaryKey="_S8E5Vkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5SUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5Skg_EeKZwIRNGDfcmA" comments="Code du type de réinitialisation choisi pour la GP" name="RF_TREINITGP_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5TEg_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5TUg_EeKZwIRNGDfcmA" comments="Libellé du type de réinitialisation choisi pour la GP" name="RF_TREINITGP_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5T0g_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5UEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5Ukg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5U0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5VUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8E5Vkg_EeKZwIRNGDfcmA" name="PFE_RF_TREINITGP_PK" columns="_S8E5R0g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8E5V0g_EeKZwIRNGDfcmA" name="PFE_RF_TREINITGP_PK" unique="true">
+        <elements xmi:id="_S8E5WEg_EeKZwIRNGDfcmA" column="_S8E5R0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8E5WUg_EeKZwIRNGDfcmA" comments="Defini le type d'action lors d'un archivage (insert/update/delete)" name="PFE_RF_TYPACTIONARCH">
+      <columns xmi:id="_S8E5Wkg_EeKZwIRNGDfcmA" name="RF_TYPACTIONARCH_ID" defaultValue="" indexElements="_S8E5a0g_EeKZwIRNGDfcmA" primaryKey="_S8E5aUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5XEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5XUg_EeKZwIRNGDfcmA" name="RF_TYPACTIONARCH_COD" defaultValue="" indexElements="_S8E5bUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5X0g_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5YEg_EeKZwIRNGDfcmA" name="RF_TYPACTIONARCH_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5Ykg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5Y0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5ZUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5Zkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5aEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8E5aUg_EeKZwIRNGDfcmA" name="PFE_RF_TYPACTIONARCH_PK" columns="_S8E5Wkg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8E5akg_EeKZwIRNGDfcmA" name="PFE_RF_TYPACTIONARCH_PK" unique="true">
+        <elements xmi:id="_S8E5a0g_EeKZwIRNGDfcmA" column="_S8E5Wkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_S8E5bEg_EeKZwIRNGDfcmA" name="RF_TYPACTIONARCH_UN1_1" unique="true">
+        <elements xmi:id="_S8E5bUg_EeKZwIRNGDfcmA" column="_S8E5XUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8E5bkg_EeKZwIRNGDfcmA" name="PFE_RF_TYPFONCTMETIER">
+      <columns xmi:id="_S8E5b0g_EeKZwIRNGDfcmA" name="RF_TYPFONCTMETIER_ID" defaultValue="" indexElements="_S8E5fUg_EeKZwIRNGDfcmA" primaryKey="_S8E5e0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5cUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5ckg_EeKZwIRNGDfcmA" name="RF_TYPFONCTMETIER_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5dEg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5dUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5d0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5eEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5ekg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8E5e0g_EeKZwIRNGDfcmA" name="PFE_RF_TYPFONCTMETIER_PK" columns="_S8E5b0g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8E5fEg_EeKZwIRNGDfcmA" name="PFE_RF_TYPFONCTMETIER_PK" unique="true">
+        <elements xmi:id="_S8E5fUg_EeKZwIRNGDfcmA" column="_S8E5b0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8E5fkg_EeKZwIRNGDfcmA" name="PFE_RF_TYPOLOINFRA">
+      <columns xmi:id="_S8E5f0g_EeKZwIRNGDfcmA" name="RF_TYPOLOINFRA_ID" defaultValue="" indexElements="_S8E5kEg_EeKZwIRNGDfcmA" primaryKey="_S8E5jkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5gUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5gkg_EeKZwIRNGDfcmA" comments="Code de la typologie d'infrastructure" name="RF_TYPOLOINFRA_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5hEg_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5hUg_EeKZwIRNGDfcmA" comments="Libellé de la typologie d'infrastructure" name="RF_TYPOLOINFRA_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5h0g_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5iEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5ikg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8E5i0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8E5jUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8E5jkg_EeKZwIRNGDfcmA" name="PFE_RF_TYPOLOINFRA_PK" columns="_S8E5f0g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8E5j0g_EeKZwIRNGDfcmA" name="PFE_RF_TYPOLOINFRA_PK" unique="true">
+        <elements xmi:id="_S8E5kEg_EeKZwIRNGDfcmA" column="_S8E5f0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8E5kUg_EeKZwIRNGDfcmA" name="PFE_RF_UFONC">
+      <columns xmi:id="_S8E5kkg_EeKZwIRNGDfcmA" name="RF_UFONC_ID" defaultValue="" indexElements="_S8FgT0g_EeKZwIRNGDfcmA" primaryKey="_S8FgTUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgQEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgQUg_EeKZwIRNGDfcmA" comments="Code de l'unité fonctionnelle" name="RF_UFONC_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgQ0g_EeKZwIRNGDfcmA" length="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgREg_EeKZwIRNGDfcmA" comments="Libellé de l'unité fonctionnelle" name="RF_UFONC_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgRkg_EeKZwIRNGDfcmA" length="100">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgR0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgSUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgSkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgTEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8FgTUg_EeKZwIRNGDfcmA" name="PFE_RF_UFONC_PK" columns="_S8E5kkg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8FgTkg_EeKZwIRNGDfcmA" name="PFE_RF_UFONC_PK" unique="true">
+        <elements xmi:id="_S8FgT0g_EeKZwIRNGDfcmA" column="_S8E5kkg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8FgUEg_EeKZwIRNGDfcmA" name="PFE_RF_UNITETPS">
+      <columns xmi:id="_S8FgUUg_EeKZwIRNGDfcmA" name="RF_UNITETPS_ID" defaultValue="" indexElements="_S8FgZUg_EeKZwIRNGDfcmA" primaryKey="_S8FgY0g_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgU0g_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgVEg_EeKZwIRNGDfcmA" comments="Code de l'unité de temps (m pour mois par exemple)" name="RF_UNITETPS_COD" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgVkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgV0g_EeKZwIRNGDfcmA" comments="Libelle de l'unité de temps (exemple : mois)" name="RF_UNITETPS_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgWUg_EeKZwIRNGDfcmA" length="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgWkg_EeKZwIRNGDfcmA" comments="Valeur en nombre de jours (si unité en mois alors vaut 30 par exemple)" name="RF_UNITETPS_VALNBJOURS" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgXEg_EeKZwIRNGDfcmA" length="14" precision="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgXUg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgX0g_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgYEg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgYkg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8FgY0g_EeKZwIRNGDfcmA" name="PFE_RF_UNITETPS_PK" columns="_S8FgUUg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8FgZEg_EeKZwIRNGDfcmA" name="PFE_RF_UNITETPS_PK" unique="true">
+        <elements xmi:id="_S8FgZUg_EeKZwIRNGDfcmA" column="_S8FgUUg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8FgZkg_EeKZwIRNGDfcmA" name="PFE_RF_ZD">
+      <columns xmi:id="_S8FgZ0g_EeKZwIRNGDfcmA" name="RF_ZD_ID" defaultValue="" indexElements="_S8FgeEg_EeKZwIRNGDfcmA" primaryKey="_S8Fgdkg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgaUg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Fgakg_EeKZwIRNGDfcmA" comments="Code de la ZD" name="RF_ZD_COD" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgbEg_EeKZwIRNGDfcmA" length="3">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgbUg_EeKZwIRNGDfcmA" comments="Libellé de la ZD" name="RF_ZD_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Fgb0g_EeKZwIRNGDfcmA" length="150">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgcEg_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Fgckg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Fgc0g_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgdUg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8Fgdkg_EeKZwIRNGDfcmA" name="PFE_RF_ZD_PK" columns="_S8FgZ0g_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8Fgd0g_EeKZwIRNGDfcmA" name="PFE_RF_ZD_PK" unique="true">
+        <elements xmi:id="_S8FgeEg_EeKZwIRNGDfcmA" column="_S8FgZ0g_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_S8FgeUg_EeKZwIRNGDfcmA" name="PFE_RF_ZFCT">
+      <columns xmi:id="_S8Fgekg_EeKZwIRNGDfcmA" name="RF_ZFCT_ID" defaultValue="" indexElements="_S8Fgi0g_EeKZwIRNGDfcmA" primaryKey="_S8FgiUg_EeKZwIRNGDfcmA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgfEg_EeKZwIRNGDfcmA" length="19">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FgfUg_EeKZwIRNGDfcmA" comments="Code de la zone fonctionnelle" name="RF_ZFCT_COD" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Fgf0g_EeKZwIRNGDfcmA" length="3">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8FggEg_EeKZwIRNGDfcmA" comments="Libelle de la zone fonctionnelle" name="RF_ZFCT_LIB" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8Fggkg_EeKZwIRNGDfcmA" length="50">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Fgg0g_EeKZwIRNGDfcmA" name="PE_XDMAJ" defaultValue="sysdate">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FghUg_EeKZwIRNGDfcmA" length="7">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_S8Fghkg_EeKZwIRNGDfcmA" name="PE_XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_S8FgiEg_EeKZwIRNGDfcmA" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_S8FgiUg_EeKZwIRNGDfcmA" name="PFE_RF_ZFCT_PK" columns="_S8Fgekg_EeKZwIRNGDfcmA"/>
+      <indexes xmi:id="_S8Fgikg_EeKZwIRNGDfcmA" name="PFE_RF_ZFCT_PK" unique="true">
+        <elements xmi:id="_S8Fgi0g_EeKZwIRNGDfcmA" column="_S8Fgekg_EeKZwIRNGDfcmA" asc="true"/>
+      </indexes>
+    </tables>
+  </schemas>
+</database:DataBase>

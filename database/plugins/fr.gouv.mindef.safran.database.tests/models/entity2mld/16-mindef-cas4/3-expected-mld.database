@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_5bsbgRD6EeOnlKnLOxE0Ww" techID="_zU3hkBGGEeOmiPWXJEa9Nw" name="safran-mld">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_-1ejpBD6EeOnlKnLOxE0Ww" techID="_zU594xGGEeOmiPWXJEa9Nw" name="TD">
+    <tables xsi:type="database:Table" xmi:id="_-1ejpRD6EeOnlKnLOxE0Ww" techID="_zU595BGGEeOmiPWXJEa9Nw" name="TD_D1D">
+      <columns xmi:id="_-1ejphD6EeOnlKnLOxE0Ww" comments="PK de la table TD_D1D" techID="_zU595RGGEeOmiPWXJEa9Nw" name="TD_D1D_ID" primaryKey="_-1ejqBD6EeOnlKnLOxE0Ww">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1ejqRD6EeOnlKnLOxE0Ww">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-1lRWhD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_zU595hGGEeOmiPWXJEa9Nw" name="TD_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1lRXBD6EeOnlKnLOxE0Ww" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-1lRXhD6EeOnlKnLOxE0Ww" comments="Date de mise à jour de la ligne" techID="_zU595xGGEeOmiPWXJEa9Nw" name="TD_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1lRYBD6EeOnlKnLOxE0Ww">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_-1ejqBD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TD_D1D_ID" techID="_zU596BGGEeOmiPWXJEa9Nw" name="TD_D1D_PK" columns="_-1ejphD6EeOnlKnLOxE0Ww"/>
+      <constraints xmi:id="_-1lRXRD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TD_XTOPSUP" techID="_zU596RGGEeOmiPWXJEa9Nw" name="TD_D1D_CK1_1" expression="TD_XTOPSUP in ('0','1','3','9')"/>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_-1ejqhD6EeOnlKnLOxE0Ww" techID="_zU596hGGEeOmiPWXJEa9Nw" name="TD_D1A">
+      <columns xmi:id="_-1ejqxD6EeOnlKnLOxE0Ww" comments="PK de la table TD_D1A" techID="_zU596xGGEeOmiPWXJEa9Nw" name="TD_D1A_ID" primaryKey="_-1ejrRD6EeOnlKnLOxE0Ww">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1ejrhD6EeOnlKnLOxE0Ww">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-1g_4RD6EeOnlKnLOxE0Ww" techID="_zU6k4BGGEeOmiPWXJEa9Nw" name="TD_D1D_ID" indexElements="_-1iODxD6EeOnlKnLOxE0Ww" foreignKeyElements="_-1g_5BD6EeOnlKnLOxE0Ww">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1g_4xD6EeOnlKnLOxE0Ww">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-1lRYRD6EeOnlKnLOxE0Ww" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_zU6k4RGGEeOmiPWXJEa9Nw" name="TD_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1lRYxD6EeOnlKnLOxE0Ww" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_-1lRZRD6EeOnlKnLOxE0Ww" comments="Date de mise à jour de la ligne" techID="_zU6k4hGGEeOmiPWXJEa9Nw" name="TD_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_-1lRZxD6EeOnlKnLOxE0Ww">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <primaryKey xmi:id="_-1ejrRD6EeOnlKnLOxE0Ww" comments="Contrainte PK pour la colonne TD_D1A_ID" techID="_zU6k4xGGEeOmiPWXJEa9Nw" name="TD_D1A_PK" columns="_-1ejqxD6EeOnlKnLOxE0Ww"/>
+      <foreignKeys xmi:id="_-1g_4BD6EeOnlKnLOxE0Ww" comments="Contrainte FK avec la table TD_D1D" techID="_zU6k5BGGEeOmiPWXJEa9Nw" name="TD_D1A_FK1_1" target="_-1ejpRD6EeOnlKnLOxE0Ww">
+        <elements xmi:id="_-1g_5BD6EeOnlKnLOxE0Ww" techID="_zU6k5RGGEeOmiPWXJEa9Nw" fkColumn="_-1g_4RD6EeOnlKnLOxE0Ww" pkColumn="_-1ejphD6EeOnlKnLOxE0Ww"/>
+      </foreignKeys>
+      <constraints xmi:id="_-1lRZBD6EeOnlKnLOxE0Ww" comments="Liste des valeurs possibles pour TD_XTOPSUP" techID="_zU6k5hGGEeOmiPWXJEa9Nw" name="TD_D1A_CK1_1" expression="TD_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_-1iODhD6EeOnlKnLOxE0Ww" comments="Index sur la FK (TD_D1D_ID) de la table TD_D1A" techID="_zU6k5xGGEeOmiPWXJEa9Nw" name="TD_D1A_FK1_1">
+        <elements xmi:id="_-1iODxD6EeOnlKnLOxE0Ww" techID="_zU6k6BGGEeOmiPWXJEa9Nw" column="_-1g_4RD6EeOnlKnLOxE0Ww" asc="true"/>
+      </indexes>
+    </tables>
+  </schemas>
+</database:DataBase>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_HhuMADloEeKBAr0by_Z50A" name="BLOCK1">
+  <tables xsi:type="database:Table" xmi:id="_NW52sDloEeKBAr0by_Z50A" name="PERSONNE">
+    <columns xmi:id="_XVQWMDloEeKBAr0by_Z50A" comments="PK de la table PERSONNE" name="PERSONNE_ID" primaryKey="_XVRkUDloEeKBAr0by_Z50A">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_XVQWMTloEeKBAr0by_Z50A">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_IEdXgGOrEeKrnPwWmZ20XQ" comments="Indicateur pour savoir si l'enregistrement est valide" name="BLOCK1_XTOPSUP" defaultValue="'0'">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_IEdXgWOrEeKrnPwWmZ20XQ" length="1">
+        <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_MtHksGOrEeKrnPwWmZ20XQ" comments="Date de mise à jour de la ligne" name="BLOCK1_XDMAJ">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_MtHksWOrEeKrnPwWmZ20XQ">
+        <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <primaryKey xmi:id="_XVRkUDloEeKBAr0by_Z50A" comments="Contrainte PK pour la colonne PERSONNE_ID" name="PERSONNE_PK" columns="_XVQWMDloEeKBAr0by_Z50A"/>
+    <constraints xmi:id="_R1E9AGOrEeKrnPwWmZ20XQ" comments="Liste des valeurs possibles pour BLOCK1_XTOPSUP" name="PERSONNE_CK1_1" expression="BLOCK1_XTOPSUP in ('0','1','3','9')"/>
+  </tables>
+  <tables xsi:type="database:Table" xmi:id="_nXQzAERlEeK5BJUIbsTWpg" name="SOCIETE">
+    <columns xmi:id="_oaw3YERlEeK5BJUIbsTWpg" comments="PK de la table SOCIETE" name="SOCIETE_ID" primaryKey="_oazToERlEeK5BJUIbsTWpg">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_oaw3YURlEeK5BJUIbsTWpg">
+        <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_YZZloGOrEeKrnPwWmZ20XQ" comments="Indicateur pour savoir si l'enregistrement est valide" name="BLOCK1_XTOPSUP" defaultValue="'0'">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_YZZloWOrEeKrnPwWmZ20XQ" length="1">
+        <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <columns xmi:id="_YZZlomOrEeKrnPwWmZ20XQ" comments="Date de mise à jour de la ligne" name="BLOCK1_XDMAJ">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_YZZlo2OrEeKrnPwWmZ20XQ">
+        <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+    <primaryKey xmi:id="_oazToERlEeK5BJUIbsTWpg" comments="Contrainte PK pour la colonne SOCIETE_ID" name="SOCIETE_PK" columns="_oaw3YERlEeK5BJUIbsTWpg"/>
+    <constraints xmi:id="_Y1PNEGOrEeKrnPwWmZ20XQ" comments="Liste des valeurs possibles pour BLOCK1_XTOPSUP" name="SOCIETE_CK1_1" expression="BLOCK1_XTOPSUP in ('0','1','3','9')"/>
+  </tables>
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+</database:DataBase>

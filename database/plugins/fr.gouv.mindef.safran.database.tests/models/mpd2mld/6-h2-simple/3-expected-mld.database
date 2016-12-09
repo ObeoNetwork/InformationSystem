@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_atrc4W8HEeSfI4W73AkhtA" techID="_atrc4G8HEeSfI4W73AkhtA" name="Mydsqd">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_kY2hsJbJEea3rZOTd3d7bg" techID="_h-614JbJEeaDlsI4Be2IgQ" name="PUBLIC">
+    <tables xsi:type="database:Table" xmi:id="_kY2hsZbJEea3rZOTd3d7bg" comments="une adresse de personne" techID="_h-614pbJEeaDlsI4Be2IgQ" name="AW_ADRESSE">
+      <primaryKey xmi:id="_kY2hspbJEea3rZOTd3d7bg" techID="_h-7dC5bJEeaDlsI4Be2IgQ" name="AW_ADRESSE_PK" columns="_kY2huZbJEea3rZOTd3d7bg"/>
+      <foreignKeys xmi:id="_kY2hs5bJEea3rZOTd3d7bg" techID="_h_CKr5bJEeaDlsI4Be2IgQ" name="ADRESSE_PERSONNE_ID_FK" target="_kY2iEJbJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2htJbJEea3rZOTd3d7bg" techID="_h_CKsZbJEeaDlsI4Be2IgQ" fkColumn="_kY2hwZbJEea3rZOTd3d7bg" pkColumn="_kY2iGJbJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <indexes xmi:id="_kY2htZbJEea3rZOTd3d7bg" techID="_h-7dDZbJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_D" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2htpbJEea3rZOTd3d7bg" techID="_h-7dD5bJEeaDlsI4Be2IgQ" column="_kY2huZbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2ht5bJEea3rZOTd3d7bg" techID="_h-7dEZbJEeaDlsI4Be2IgQ" name="AW_ADRESSE_PERSONNE_ID_IDX" qualifier="INPUT">
+        <elements xmi:id="_kY2huJbJEea3rZOTd3d7bg" techID="_h-7dE5bJEeaDlsI4Be2IgQ" column="_kY2hwZbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2huZbJEea3rZOTd3d7bg" techID="_h-615JbJEeaDlsI4Be2IgQ" name="ADRESSE_ID" defaultValue="" indexElements="_kY2htpbJEea3rZOTd3d7bg" primaryKey="_kY2hspbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2hupbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2hu5bJEea3rZOTd3d7bg" comments="la rue de l'adresse" techID="_h-7c85bJEeaDlsI4Be2IgQ" name="RUE" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2hvJbJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2hvZbJEea3rZOTd3d7bg" techID="_h-7c95bJEeaDlsI4Be2IgQ" name="CODEPOSTAL" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2hvpbJEea3rZOTd3d7bg" length="5" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2hv5bJEea3rZOTd3d7bg" comments="la ville de l'adresse" techID="_h-7c-5bJEeaDlsI4Be2IgQ" name="VILLE" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2hwJbJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2hwZbJEea3rZOTd3d7bg" techID="_h-7c_5bJEeaDlsI4Be2IgQ" name="PERSONNE_ID" defaultValue="" indexElements="_kY2huJbJEea3rZOTd3d7bg" foreignKeyElements="_kY2htJbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2hwpbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2hw5bJEea3rZOTd3d7bg" techID="_h-7dA5bJEeaDlsI4Be2IgQ" name="XDMAJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2hxJbJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2hxZbJEea3rZOTd3d7bg" techID="_h-7dB5bJEeaDlsI4Be2IgQ" name="XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2hxpbJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2hx5bJEea3rZOTd3d7bg" comments="une compétence" techID="_h-7dFZbJEeaDlsI4Be2IgQ" name="AW_COMPETENCE">
+      <primaryKey xmi:id="_kY2hyJbJEea3rZOTd3d7bg" techID="_h-8EBZbJEeaDlsI4Be2IgQ" name="AW_COMPETENCE_PK" columns="_kY2hy5bJEea3rZOTd3d7bg"/>
+      <indexes xmi:id="_kY2hyZbJEea3rZOTd3d7bg" techID="_h-8EB5bJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_5" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2hypbJEea3rZOTd3d7bg" techID="_h-8ECZbJEeaDlsI4Be2IgQ" column="_kY2hy5bJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2hy5bJEea3rZOTd3d7bg" techID="_h-7dF5bJEeaDlsI4Be2IgQ" name="COMPETENCE_ID" defaultValue="" indexElements="_kY2hypbJEea3rZOTd3d7bg" primaryKey="_kY2hyJbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2hzJbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2hzZbJEea3rZOTd3d7bg" comments="le libellé de la compétence" techID="_h-7dG5bJEeaDlsI4Be2IgQ" name="LIBELLE" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2hzpbJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2hz5bJEea3rZOTd3d7bg" techID="_h-7dH5bJEeaDlsI4Be2IgQ" name="XDMAJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h0JbJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2h0ZbJEea3rZOTd3d7bg" techID="_h-8EAZbJEeaDlsI4Be2IgQ" name="XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h0pbJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2h05bJEea3rZOTd3d7bg" techID="_h-8EC5bJEeaDlsI4Be2IgQ" name="AW_COMPETENCE_ID">
+      <primaryKey xmi:id="_kY2h1JbJEea3rZOTd3d7bg" techID="_h-8EFZbJEeaDlsI4Be2IgQ" name="AW_COMPETENCE_ID_PK" columns="_kY2h4pbJEea3rZOTd3d7bg _kY2h4JbJEea3rZOTd3d7bg"/>
+      <foreignKeys xmi:id="_kY2h1ZbJEea3rZOTd3d7bg" techID="_h_CKs5bJEeaDlsI4Be2IgQ" name="COMPETENCE_ID_COMPETENCE_FK" target="_kY2hx5bJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2h1pbJEea3rZOTd3d7bg" techID="_h_CKtZbJEeaDlsI4Be2IgQ" fkColumn="_kY2h4pbJEea3rZOTd3d7bg" pkColumn="_kY2hy5bJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_kY2h15bJEea3rZOTd3d7bg" techID="_h_CKt5bJEeaDlsI4Be2IgQ" name="COMPETENCE_ID_PERSONNE_FK" target="_kY2iEJbJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2h2JbJEea3rZOTd3d7bg" techID="_h_CKuZbJEeaDlsI4Be2IgQ" fkColumn="_kY2h4JbJEea3rZOTd3d7bg" pkColumn="_kY2iGJbJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <indexes xmi:id="_kY2h2ZbJEea3rZOTd3d7bg" techID="_h-8EF5bJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_6" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2h2pbJEea3rZOTd3d7bg" techID="_h-8EGZbJEeaDlsI4Be2IgQ" column="_kY2h4JbJEea3rZOTd3d7bg" asc="true"/>
+        <elements xmi:id="_kY2h25bJEea3rZOTd3d7bg" techID="_h-8EG5bJEeaDlsI4Be2IgQ" column="_kY2h4pbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2h3JbJEea3rZOTd3d7bg" techID="_h-8EHZbJEeaDlsI4Be2IgQ" name="COMPETENCE_ID_COMPETENCE_FK_INDEX_6" qualifier="INPUT">
+        <elements xmi:id="_kY2h3ZbJEea3rZOTd3d7bg" techID="_h-8EH5bJEeaDlsI4Be2IgQ" column="_kY2h4pbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2h3pbJEea3rZOTd3d7bg" techID="_h-8EIZbJEeaDlsI4Be2IgQ" name="COMPETENCE_ID_PERSONNE_FK_INDEX_6" qualifier="INPUT">
+        <elements xmi:id="_kY2h35bJEea3rZOTd3d7bg" techID="_h-8EI5bJEeaDlsI4Be2IgQ" column="_kY2h4JbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2h4JbJEea3rZOTd3d7bg" techID="_h-8EDZbJEeaDlsI4Be2IgQ" name="PERSONNE_ID" defaultValue="" indexElements="_kY2h2pbJEea3rZOTd3d7bg _kY2h35bJEea3rZOTd3d7bg" primaryKey="_kY2h1JbJEea3rZOTd3d7bg" foreignKeyElements="_kY2h2JbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h4ZbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2h4pbJEea3rZOTd3d7bg" techID="_h-8EEZbJEeaDlsI4Be2IgQ" name="COMPETENCE_ID" defaultValue="" indexElements="_kY2h25bJEea3rZOTd3d7bg _kY2h3ZbJEea3rZOTd3d7bg" primaryKey="_kY2h1JbJEea3rZOTd3d7bg" foreignKeyElements="_kY2h1pbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h45bJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2h5JbJEea3rZOTd3d7bg" techID="_h-8EJZbJEeaDlsI4Be2IgQ" name="AW_COMPETENCE_PERSO">
+      <primaryKey xmi:id="_kY2h5ZbJEea3rZOTd3d7bg" techID="_h-8rFZbJEeaDlsI4Be2IgQ" name="AW_COMPETENCE_PERSO_PK" columns="_kY2h6JbJEea3rZOTd3d7bg"/>
+      <indexes xmi:id="_kY2h5pbJEea3rZOTd3d7bg" techID="_h-8rF5bJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_3" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2h55bJEea3rZOTd3d7bg" techID="_h-8rGZbJEeaDlsI4Be2IgQ" column="_kY2h6JbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2h6JbJEea3rZOTd3d7bg" techID="_h-8EJ5bJEeaDlsI4Be2IgQ" name="COMPETENCE_PERSO_ID" defaultValue="" indexElements="_kY2h55bJEea3rZOTd3d7bg" primaryKey="_kY2h5ZbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h6ZbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2h6pbJEea3rZOTd3d7bg" techID="_h-8EK5bJEeaDlsI4Be2IgQ" name="LIBELLE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h65bJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2h7JbJEea3rZOTd3d7bg" techID="_h-8EL5bJEeaDlsI4Be2IgQ" name="XDMAJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h7ZbJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2h7pbJEea3rZOTd3d7bg" techID="_h-8rEZbJEeaDlsI4Be2IgQ" name="XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h75bJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2h8JbJEea3rZOTd3d7bg" techID="_h-8rG5bJEeaDlsI4Be2IgQ" name="AW_MAIL">
+      <primaryKey xmi:id="_kY2h8ZbJEea3rZOTd3d7bg" techID="_h-8rNZbJEeaDlsI4Be2IgQ" name="AW_MAIL_PK" columns="_kY2h-JbJEea3rZOTd3d7bg"/>
+      <foreignKeys xmi:id="_kY2h8pbJEea3rZOTd3d7bg" techID="_h_CxsJbJEeaDlsI4Be2IgQ" name="MAIL_PERSONNE_FK" target="_kY2iEJbJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2h85bJEea3rZOTd3d7bg" techID="_h_CxspbJEeaDlsI4Be2IgQ" fkColumn="_kY2h_pbJEea3rZOTd3d7bg" pkColumn="_kY2iGJbJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <indexes xmi:id="_kY2h9JbJEea3rZOTd3d7bg" techID="_h-9SIJbJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_8" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2h9ZbJEea3rZOTd3d7bg" techID="_h-9SIpbJEeaDlsI4Be2IgQ" column="_kY2h-JbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2h9pbJEea3rZOTd3d7bg" techID="_h-9SJJbJEeaDlsI4Be2IgQ" name="AW_MAIL_PERSONNE_IDX" qualifier="INPUT">
+        <elements xmi:id="_kY2h95bJEea3rZOTd3d7bg" techID="_h-9SJpbJEeaDlsI4Be2IgQ" column="_kY2h_pbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2h-JbJEea3rZOTd3d7bg" techID="_h-8rHZbJEeaDlsI4Be2IgQ" name="MAIL_ID" defaultValue="" indexElements="_kY2h9ZbJEea3rZOTd3d7bg" primaryKey="_kY2h8ZbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h-ZbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2h-pbJEea3rZOTd3d7bg" techID="_h-8rIZbJEeaDlsI4Be2IgQ" name="PRO" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h-5bJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2h_JbJEea3rZOTd3d7bg" techID="_h-8rJZbJEeaDlsI4Be2IgQ" name="MAIL" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h_ZbJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2h_pbJEea3rZOTd3d7bg" techID="_h-8rKZbJEeaDlsI4Be2IgQ" name="PERSONNE_ID" defaultValue="" indexElements="_kY2h95bJEea3rZOTd3d7bg" foreignKeyElements="_kY2h85bJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2h_5bJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iAJbJEea3rZOTd3d7bg" techID="_h-8rLZbJEeaDlsI4Be2IgQ" name="XDMAJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iAZbJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iApbJEea3rZOTd3d7bg" techID="_h-8rMZbJEeaDlsI4Be2IgQ" name="XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iA5bJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2iBJbJEea3rZOTd3d7bg" techID="_h-9SKJbJEeaDlsI4Be2IgQ" name="AW_PERMISSION">
+      <primaryKey xmi:id="_kY2iBZbJEea3rZOTd3d7bg" techID="_h-9SOpbJEeaDlsI4Be2IgQ" name="AW_PERMISSION_PK" columns="_kY2iCJbJEea3rZOTd3d7bg"/>
+      <indexes xmi:id="_kY2iBpbJEea3rZOTd3d7bg" techID="_h-9SPJbJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_6B" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2iB5bJEea3rZOTd3d7bg" techID="_h-9SPpbJEeaDlsI4Be2IgQ" column="_kY2iCJbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2iCJbJEea3rZOTd3d7bg" techID="_h-9SKpbJEeaDlsI4Be2IgQ" name="PERMISSION_ID" defaultValue="" indexElements="_kY2iB5bJEea3rZOTd3d7bg" primaryKey="_kY2iBZbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iCZbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iCpbJEea3rZOTd3d7bg" comments="le nom de la permission" techID="_h-9SLpbJEeaDlsI4Be2IgQ" name="NOMPERMISSION" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iC5bJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iDJbJEea3rZOTd3d7bg" techID="_h-9SMpbJEeaDlsI4Be2IgQ" name="XDMAJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iDZbJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iDpbJEea3rZOTd3d7bg" techID="_h-9SNpbJEeaDlsI4Be2IgQ" name="XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iD5bJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2iEJbJEea3rZOTd3d7bg" comments="Une personne" techID="_h-9SQJbJEeaDlsI4Be2IgQ" name="AW_PERSONNE">
+      <primaryKey xmi:id="_kY2iEZbJEea3rZOTd3d7bg" techID="_h-95SJbJEeaDlsI4Be2IgQ" name="AW_PERSONNE_PK" columns="_kY2iGJbJEea3rZOTd3d7bg"/>
+      <indexes xmi:id="_kY2iEpbJEea3rZOTd3d7bg" techID="_h-95SpbJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_2" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2iE5bJEea3rZOTd3d7bg" techID="_h-95TJbJEeaDlsI4Be2IgQ" column="_kY2iGJbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2iFJbJEea3rZOTd3d7bg" techID="_h-95TpbJEeaDlsI4Be2IgQ" name="AW_PERSONNE_GRADE_IDX" qualifier="INPUT">
+        <elements xmi:id="_kY2iFZbJEea3rZOTd3d7bg" techID="_h-95UJbJEeaDlsI4Be2IgQ" column="_kY2iJpbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2iFpbJEea3rZOTd3d7bg" techID="_h-95UpbJEeaDlsI4Be2IgQ" name="AW_PERSONNE_NOM_IDX" qualifier="INPUT">
+        <elements xmi:id="_kY2iF5bJEea3rZOTd3d7bg" techID="_h-95VJbJEeaDlsI4Be2IgQ" column="_kY2iGpbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2iGJbJEea3rZOTd3d7bg" techID="_h-9SQpbJEeaDlsI4Be2IgQ" name="PERSONNE_ID" defaultValue="" indexElements="_kY2iE5bJEea3rZOTd3d7bg" primaryKey="_kY2iEZbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iGZbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iGpbJEea3rZOTd3d7bg" comments="le nom de la personne" techID="_h-9SRpbJEeaDlsI4Be2IgQ" name="NOM" defaultValue="" indexElements="_kY2iF5bJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iG5bJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iHJbJEea3rZOTd3d7bg" comments="le prénom de la personne" techID="_h-9SSpbJEeaDlsI4Be2IgQ" name="PRENOM" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iHZbJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iHpbJEea3rZOTd3d7bg" comments="indicateur si la personne est civile ou non" techID="_h-9STpbJEeaDlsI4Be2IgQ" name="CIVIL" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iH5bJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iIJbJEea3rZOTd3d7bg" comments="la date de naissance de la personne" techID="_h-95MJbJEeaDlsI4Be2IgQ" name="DATE_NAISSANCE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iIZbJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iIpbJEea3rZOTd3d7bg" techID="_h-95NJbJEeaDlsI4Be2IgQ" name="SALAIRE" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iI5bJEea3rZOTd3d7bg" length="14" precision="2">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iJJbJEea3rZOTd3d7bg" techID="_h-95OJbJEeaDlsI4Be2IgQ" name="VERSION" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iJZbJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iJpbJEea3rZOTd3d7bg" techID="_h-95PJbJEeaDlsI4Be2IgQ" name="GRADE_ID" nullable="true" defaultValue="" indexElements="_kY2iFZbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iJ5bJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iKJbJEea3rZOTd3d7bg" techID="_h-95QJbJEeaDlsI4Be2IgQ" name="XDMAJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iKZbJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iKpbJEea3rZOTd3d7bg" techID="_h-95RJbJEeaDlsI4Be2IgQ" name="XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iK5bJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2iLJbJEea3rZOTd3d7bg" techID="_h-95VpbJEeaDlsI4Be2IgQ" name="AW_PERSONNE_N_COMPETENCE_PERSO">
+      <primaryKey xmi:id="_kY2iLZbJEea3rZOTd3d7bg" techID="_h--gSZbJEeaDlsI4Be2IgQ" name="AW_PERSONNE_N_COMPETENCE_PE_PK" columns="_kY2iOJbJEea3rZOTd3d7bg"/>
+      <foreignKeys xmi:id="_kY2iLpbJEea3rZOTd3d7bg" techID="_h_CxtJbJEeaDlsI4Be2IgQ" name="PERSONNE_N_CO_COMPETENCEPER_FK" target="_kY2h5JbJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2iL5bJEea3rZOTd3d7bg" techID="_h_CxtpbJEeaDlsI4Be2IgQ" fkColumn="_kY2iOpbJEea3rZOTd3d7bg" pkColumn="_kY2h6JbJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_kY2iMJbJEea3rZOTd3d7bg" techID="_h_CxuJbJEeaDlsI4Be2IgQ" name="PERSONNE_N_CO_PERSONNE_FK" target="_kY2iEJbJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2iMZbJEea3rZOTd3d7bg" techID="_h_CxupbJEeaDlsI4Be2IgQ" fkColumn="_kY2iPJbJEea3rZOTd3d7bg" pkColumn="_kY2iGJbJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <indexes xmi:id="_kY2iMpbJEea3rZOTd3d7bg" techID="_h--gS5bJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_9" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2iM5bJEea3rZOTd3d7bg" techID="_h--gTZbJEeaDlsI4Be2IgQ" column="_kY2iOJbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2iNJbJEea3rZOTd3d7bg" techID="_h--gT5bJEeaDlsI4Be2IgQ" name="AW_PERSONNE_N_COMPETENCEPE_IDX" qualifier="INPUT">
+        <elements xmi:id="_kY2iNZbJEea3rZOTd3d7bg" techID="_h--gUZbJEeaDlsI4Be2IgQ" column="_kY2iOpbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2iNpbJEea3rZOTd3d7bg" techID="_h--gU5bJEeaDlsI4Be2IgQ" name="AW_PERSONNE_N_PERSONNE_IDX" qualifier="INPUT">
+        <elements xmi:id="_kY2iN5bJEea3rZOTd3d7bg" techID="_h--gVZbJEeaDlsI4Be2IgQ" column="_kY2iPJbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2iOJbJEea3rZOTd3d7bg" techID="_h-95WJbJEeaDlsI4Be2IgQ" name="PERSONNE_N_COMPETENCE_PERSO_ID" defaultValue="" indexElements="_kY2iM5bJEea3rZOTd3d7bg" primaryKey="_kY2iLZbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iOZbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iOpbJEea3rZOTd3d7bg" techID="_h-95XJbJEeaDlsI4Be2IgQ" name="COMPETENCEPERSO_ID" defaultValue="" indexElements="_kY2iNZbJEea3rZOTd3d7bg" foreignKeyElements="_kY2iL5bJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iO5bJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iPJbJEea3rZOTd3d7bg" techID="_h-95YJbJEeaDlsI4Be2IgQ" name="PERSONNE_ID" defaultValue="" indexElements="_kY2iN5bJEea3rZOTd3d7bg" foreignKeyElements="_kY2iMZbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iPZbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iPpbJEea3rZOTd3d7bg" techID="_h--gQZbJEeaDlsI4Be2IgQ" name="XDMAJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iP5bJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iQJbJEea3rZOTd3d7bg" techID="_h--gRZbJEeaDlsI4Be2IgQ" name="XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iQZbJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2iQpbJEea3rZOTd3d7bg" techID="_h--gV5bJEeaDlsI4Be2IgQ" name="AW_ROLE">
+      <primaryKey xmi:id="_kY2iQ5bJEea3rZOTd3d7bg" techID="_h-_HXZbJEeaDlsI4Be2IgQ" name="AW_ROLE_PK" columns="_kY2iRpbJEea3rZOTd3d7bg"/>
+      <indexes xmi:id="_kY2iRJbJEea3rZOTd3d7bg" techID="_h-_HX5bJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_84" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2iRZbJEea3rZOTd3d7bg" techID="_h-_HYZbJEeaDlsI4Be2IgQ" column="_kY2iRpbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2iRpbJEea3rZOTd3d7bg" techID="_h--gWZbJEeaDlsI4Be2IgQ" name="ROLE_ID" defaultValue="" indexElements="_kY2iRZbJEea3rZOTd3d7bg" primaryKey="_kY2iQ5bJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iR5bJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iSJbJEea3rZOTd3d7bg" comments="le nom du rôle" techID="_h-_HUZbJEeaDlsI4Be2IgQ" name="NOM_ROLE" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iSZbJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iSpbJEea3rZOTd3d7bg" techID="_h-_HVZbJEeaDlsI4Be2IgQ" name="XDMAJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iS5bJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iTJbJEea3rZOTd3d7bg" techID="_h-_HWZbJEeaDlsI4Be2IgQ" name="XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iTZbJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2iTpbJEea3rZOTd3d7bg" techID="_h-_HY5bJEeaDlsI4Be2IgQ" name="AW_ROLEPERMISSION">
+      <primaryKey xmi:id="_kY2iT5bJEea3rZOTd3d7bg" techID="_h-_uYZbJEeaDlsI4Be2IgQ" name="AW_ROLEPERMISSION_PK" columns="_kY2iXZbJEea3rZOTd3d7bg _kY2iW5bJEea3rZOTd3d7bg"/>
+      <foreignKeys xmi:id="_kY2iUJbJEea3rZOTd3d7bg" techID="_h_CxvJbJEeaDlsI4Be2IgQ" name="ROLEPERMISSIO_PERMISSION_FK" target="_kY2iBJbJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2iUZbJEea3rZOTd3d7bg" techID="_h_CxvpbJEeaDlsI4Be2IgQ" fkColumn="_kY2iXZbJEea3rZOTd3d7bg" pkColumn="_kY2iCJbJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_kY2iUpbJEea3rZOTd3d7bg" techID="_h_CxwJbJEeaDlsI4Be2IgQ" name="ROLEPERMISSIO_ROLE_FK" target="_kY2iQpbJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2iU5bJEea3rZOTd3d7bg" techID="_h_CxwpbJEeaDlsI4Be2IgQ" fkColumn="_kY2iW5bJEea3rZOTd3d7bg" pkColumn="_kY2iRpbJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <indexes xmi:id="_kY2iVJbJEea3rZOTd3d7bg" techID="_h-_uY5bJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_D8" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2iVZbJEea3rZOTd3d7bg" techID="_h-_uZZbJEeaDlsI4Be2IgQ" column="_kY2iW5bJEea3rZOTd3d7bg" asc="true"/>
+        <elements xmi:id="_kY2iVpbJEea3rZOTd3d7bg" techID="_h-_uZ5bJEeaDlsI4Be2IgQ" column="_kY2iXZbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2iV5bJEea3rZOTd3d7bg" techID="_h-_uaZbJEeaDlsI4Be2IgQ" name="ROLEPERMISSIO_PERMISSION_FK_INDEX_D" qualifier="INPUT">
+        <elements xmi:id="_kY2iWJbJEea3rZOTd3d7bg" techID="_h-_ua5bJEeaDlsI4Be2IgQ" column="_kY2iXZbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2iWZbJEea3rZOTd3d7bg" techID="_h-_ubZbJEeaDlsI4Be2IgQ" name="ROLEPERMISSIO_ROLE_FK_INDEX_D" qualifier="INPUT">
+        <elements xmi:id="_kY2iWpbJEea3rZOTd3d7bg" techID="_h-_ub5bJEeaDlsI4Be2IgQ" column="_kY2iW5bJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2iW5bJEea3rZOTd3d7bg" techID="_h-_HZZbJEeaDlsI4Be2IgQ" name="ROLE_ID" defaultValue="" indexElements="_kY2iVZbJEea3rZOTd3d7bg _kY2iWpbJEea3rZOTd3d7bg" primaryKey="_kY2iT5bJEea3rZOTd3d7bg" foreignKeyElements="_kY2iU5bJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iXJbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iXZbJEea3rZOTd3d7bg" techID="_h-_HaZbJEeaDlsI4Be2IgQ" name="PERMISSION_ID" defaultValue="" indexElements="_kY2iVpbJEea3rZOTd3d7bg _kY2iWJbJEea3rZOTd3d7bg" primaryKey="_kY2iT5bJEea3rZOTd3d7bg" foreignKeyElements="_kY2iUZbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iXpbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2iX5bJEea3rZOTd3d7bg" techID="_h-_ucZbJEeaDlsI4Be2IgQ" name="AW_ROLE_UTILISATEUR">
+      <primaryKey xmi:id="_kY2iYJbJEea3rZOTd3d7bg" techID="_h_AVdJbJEeaDlsI4Be2IgQ" name="AW_ROLE_UTILISATEUR_PK" columns="_kY2ibpbJEea3rZOTd3d7bg _kY2ibJbJEea3rZOTd3d7bg"/>
+      <foreignKeys xmi:id="_kY2iYZbJEea3rZOTd3d7bg" techID="_h_CxxJbJEeaDlsI4Be2IgQ" name="ROLE_UTILISAT_ROLE_FK" target="_kY2iQpbJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2iYpbJEea3rZOTd3d7bg" techID="_h_CxxpbJEeaDlsI4Be2IgQ" fkColumn="_kY2ibpbJEea3rZOTd3d7bg" pkColumn="_kY2iRpbJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <foreignKeys xmi:id="_kY2iY5bJEea3rZOTd3d7bg" techID="_h_CxyJbJEeaDlsI4Be2IgQ" name="ROLE_UTILISAT_UTILISATEUR_FK" target="_kY2ihJbJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2iZJbJEea3rZOTd3d7bg" techID="_h_CxypbJEeaDlsI4Be2IgQ" fkColumn="_kY2ibJbJEea3rZOTd3d7bg" pkColumn="_kY2iiJbJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <indexes xmi:id="_kY2iZZbJEea3rZOTd3d7bg" techID="_h_AVdpbJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_7" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2iZpbJEea3rZOTd3d7bg" techID="_h_AVeJbJEeaDlsI4Be2IgQ" column="_kY2ibJbJEea3rZOTd3d7bg" asc="true"/>
+        <elements xmi:id="_kY2iZ5bJEea3rZOTd3d7bg" techID="_h_AVepbJEeaDlsI4Be2IgQ" column="_kY2ibpbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2iaJbJEea3rZOTd3d7bg" techID="_h_AVfJbJEeaDlsI4Be2IgQ" name="ROLE_UTILISAT_ROLE_FK_INDEX_7" qualifier="INPUT">
+        <elements xmi:id="_kY2iaZbJEea3rZOTd3d7bg" techID="_h_AVfpbJEeaDlsI4Be2IgQ" column="_kY2ibpbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2iapbJEea3rZOTd3d7bg" techID="_h_AVgJbJEeaDlsI4Be2IgQ" name="ROLE_UTILISAT_UTILISATEUR_FK_INDEX_7" qualifier="INPUT">
+        <elements xmi:id="_kY2ia5bJEea3rZOTd3d7bg" techID="_h_AVgpbJEeaDlsI4Be2IgQ" column="_kY2ibJbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2ibJbJEea3rZOTd3d7bg" techID="_h-_uc5bJEeaDlsI4Be2IgQ" name="UTILISATEUR_ID" defaultValue="" indexElements="_kY2iZpbJEea3rZOTd3d7bg _kY2ia5bJEea3rZOTd3d7bg" primaryKey="_kY2iYJbJEea3rZOTd3d7bg" foreignKeyElements="_kY2iZJbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ibZbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2ibpbJEea3rZOTd3d7bg" techID="_h_AVcJbJEeaDlsI4Be2IgQ" name="ROLE_ID" defaultValue="" indexElements="_kY2iZ5bJEea3rZOTd3d7bg _kY2iaZbJEea3rZOTd3d7bg" primaryKey="_kY2iYJbJEea3rZOTd3d7bg" foreignKeyElements="_kY2iYpbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ib5bJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2icJbJEea3rZOTd3d7bg" comments="Contact téléphonique" techID="_h_AVhJbJEeaDlsI4Be2IgQ" name="AW_TELEPHONE">
+      <primaryKey xmi:id="_kY2icZbJEea3rZOTd3d7bg" techID="_h_A8lZbJEeaDlsI4Be2IgQ" name="AW_TELEPHONE_PK" columns="_kY2ieJbJEea3rZOTd3d7bg"/>
+      <foreignKeys xmi:id="_kY2icpbJEea3rZOTd3d7bg" techID="_h_CxzJbJEeaDlsI4Be2IgQ" name="TELEPHONE_PERSONNE_FK" target="_kY2iEJbJEea3rZOTd3d7bg">
+        <elements xmi:id="_kY2ic5bJEea3rZOTd3d7bg" techID="_h_CxzpbJEeaDlsI4Be2IgQ" fkColumn="_kY2ifpbJEea3rZOTd3d7bg" pkColumn="_kY2iGJbJEea3rZOTd3d7bg"/>
+      </foreignKeys>
+      <indexes xmi:id="_kY2idJbJEea3rZOTd3d7bg" techID="_h_A8l5bJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_9D" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2idZbJEea3rZOTd3d7bg" techID="_h_A8mZbJEeaDlsI4Be2IgQ" column="_kY2ieJbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_kY2idpbJEea3rZOTd3d7bg" techID="_h_A8m5bJEeaDlsI4Be2IgQ" name="AW_TELEPHONE_PERSONNE_IDX" qualifier="INPUT">
+        <elements xmi:id="_kY2id5bJEea3rZOTd3d7bg" techID="_h_BjkJbJEeaDlsI4Be2IgQ" column="_kY2ifpbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2ieJbJEea3rZOTd3d7bg" techID="_h_AVhpbJEeaDlsI4Be2IgQ" name="TELEPHONE_ID" defaultValue="" indexElements="_kY2idZbJEea3rZOTd3d7bg" primaryKey="_kY2icZbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ieZbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iepbJEea3rZOTd3d7bg" techID="_h_A8gZbJEeaDlsI4Be2IgQ" name="PRO" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ie5bJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2ifJbJEea3rZOTd3d7bg" techID="_h_A8hZbJEeaDlsI4Be2IgQ" name="NUMERO" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ifZbJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2ifpbJEea3rZOTd3d7bg" techID="_h_A8iZbJEeaDlsI4Be2IgQ" name="PERSONNE_ID" defaultValue="" indexElements="_kY2id5bJEea3rZOTd3d7bg" foreignKeyElements="_kY2ic5bJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2if5bJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2igJbJEea3rZOTd3d7bg" techID="_h_A8jZbJEeaDlsI4Be2IgQ" name="XDMAJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2igZbJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2igpbJEea3rZOTd3d7bg" techID="_h_A8kZbJEeaDlsI4Be2IgQ" name="XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ig5bJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_kY2ihJbJEea3rZOTd3d7bg" techID="_h_BjkpbJEeaDlsI4Be2IgQ" name="AW_UTILISATEUR">
+      <primaryKey xmi:id="_kY2ihZbJEea3rZOTd3d7bg" techID="_h_CKqZbJEeaDlsI4Be2IgQ" name="AW_UTILISATEUR_PK" columns="_kY2iiJbJEea3rZOTd3d7bg"/>
+      <indexes xmi:id="_kY2ihpbJEea3rZOTd3d7bg" techID="_h_CKq5bJEeaDlsI4Be2IgQ" name="PRIMARY_KEY_A" qualifier="INPUT" unique="true">
+        <elements xmi:id="_kY2ih5bJEea3rZOTd3d7bg" techID="_h_CKrZbJEeaDlsI4Be2IgQ" column="_kY2iiJbJEea3rZOTd3d7bg" asc="true"/>
+      </indexes>
+      <columns xmi:id="_kY2iiJbJEea3rZOTd3d7bg" techID="_h_BjlJbJEeaDlsI4Be2IgQ" name="UTILISATEUR_ID" defaultValue="" indexElements="_kY2ih5bJEea3rZOTd3d7bg" primaryKey="_kY2ihZbJEea3rZOTd3d7bg">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2iiZbJEea3rZOTd3d7bg" length="19" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2iipbJEea3rZOTd3d7bg" comments="l'identifiant de connexion de l'utilisateur" techID="_h_BjmJbJEeaDlsI4Be2IgQ" name="IDENTIFIANT" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ii5bJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2ijJbJEea3rZOTd3d7bg" comments="le mot de passe de connexion de l'utilisateur" techID="_h_BjnJbJEeaDlsI4Be2IgQ" name="MDP" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ijZbJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2ijpbJEea3rZOTd3d7bg" comments="le nom de l'utilisateur" techID="_h_BjoJbJEeaDlsI4Be2IgQ" name="NOM" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ij5bJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2ikJbJEea3rZOTd3d7bg" comments="le prénom de l'utilisateur" techID="_h_BjpJbJEeaDlsI4Be2IgQ" name="PRENOM" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ikZbJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2ikpbJEea3rZOTd3d7bg" comments="l'adresse email de l'utilisateur" techID="_h_BjqJbJEeaDlsI4Be2IgQ" name="EMAIL" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ik5bJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2ilJbJEea3rZOTd3d7bg" techID="_h_BjrJbJEeaDlsI4Be2IgQ" name="MDPH" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2ilZbJEea3rZOTd3d7bg" length="100" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2ilpbJEea3rZOTd3d7bg" techID="_h_CKoZbJEeaDlsI4Be2IgQ" name="XDMAJ" nullable="true" defaultValue="">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2il5bJEea3rZOTd3d7bg" length="23" precision="10">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_kY2imJbJEea3rZOTd3d7bg" techID="_h_CKpZbJEeaDlsI4Be2IgQ" name="XTOPSUP" defaultValue="0">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_kY2imZbJEea3rZOTd3d7bg" length="1" precision="0">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

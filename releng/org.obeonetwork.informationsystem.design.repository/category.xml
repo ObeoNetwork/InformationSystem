@@ -109,9 +109,16 @@
    <feature url="features/org.obeonetwork.database.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.database.m2doc.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.m2doc"/>
    </feature>
+   <feature url="features/fr.gouv.mindef.safran.database.scaffold.feature_1.0.0.qualifier.jar" id="fr.gouv.mindef.safran.database.scaffold.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.scaffolding"/>
+   </feature>
+   <feature url="features/fr.gouv.mindef.safran.database.ui.feature_1.0.0.qualifier.jar" id="fr.gouv.mindef.safran.database.ui.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.scaffolding"/>
+   </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>
    <category-def name="org.obeonetwork.informationsystem.reversers" label="Information System - Reversers"/>
    <category-def name="org.obeonetwork.informationsystem.m2doc" label="Information System - M2Doc"/>
+   <category-def name="org.obeonetwork.informationsystem.scaffolding" label="Information System - Scaffolding"/>
 </site>

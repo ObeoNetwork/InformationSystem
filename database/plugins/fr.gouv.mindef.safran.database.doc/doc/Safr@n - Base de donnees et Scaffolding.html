@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>&#169; Obeo 2012, 2016 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Stéphane Thibaudeau
+			<br/>
+			<code>Contact</code> stephane.thibaudeau@obeo.fr
+		</p>
+		<h1 id="SafrnBasededonnesetScaffolding">Safr@n &#8211; Base de données et Scaffolding</h1>
+		<h2 id="Vuedensemble">Vue d&#8217;ensemble</h2>
+		<p>Le 
+			<em>Scaffolding</em> est une technique popularisée par le socle de développement 
+			<em>Ruby on Rails</em> qui vise à produire des livrables (code, modèle, documentation) à partir des informations structurelles d&#8217;une base de données.
+			<br/>En l’occurrence, l&#8217;outillage de scaffolding Safr@n propose les fonctionnalités suivantes : 
+		</p>
+		<ul>
+			<li>un module capable d&#8217;extraire les informations structurelles d&#8217;une base de données relationnelles existantes (MySQL, Oracle, PostgreSQL, SQL Server ou H2) et de produire un modèle EMF conforme au méta-modèle 
+				<em>Database</em> hébergé par Obeo Network : https://github.com/ObeoNetwork/InformationSystem
+			</li>
+			<li>un modeleur de base de données, basé sur Obeo Designer, permettant de réaliser des Modèles Physique et Logique de Données.</li>
+			<li>un module de comparaison de deux modèles 
+				<em>Database</em> et un générateur de scripts SQL capable de déduire les instructions SQL permettant la mise à jour de la base de données.
+			</li>
+			<li>un ensemble de transformationq permettant d&#8217;automatiser le passage d&#8217;un modèle physique à logique, puis d&#8217;un modèle logique à un modèle d&#8217;entités. Ces transformations sont aussi proposées dans le sens inverse (modèle entité jusqu&#8217;au modèle physique).</li>
+		</ul>
+		<h2 id="Basededonnes">Base de données</h2>
+		<h3 id="Rtroingnierie">Rétro-ingénierie</h3>
+		<p>Cet outil permet d&#8217;initialiser un MPD à partir d&#8217;une base de donnée existante. Un assistant est accessible via le menu 
+			<code>File &gt; Import … &gt; Database &gt; Import Database</code>. Voici un exemple permettant d&#8217;extraire les informations du schéma Oracle 
+			<em>RF</em> :
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_Retro_01.png"/>
+		</p>
+		<p>Il est à noter qu&#8217;il est possible de référencer (à l&#8217;aide de la zone 
+			<em>Referenced file</em>) des MPD existants. Ce référencement est utile lorsque vous souhaitez charger un schéma qui comporte des clés étrangères pointant sur des tables appartenant à une autre schéma.
+			<br/>Le résultat obtenu est le suivant :
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_Retro_02.png"/>
+		</p>
+		<h3 id="Modlisation">Modélisation</h3>
+		<h4 id="Vuedensemble2">Vue d&#8217;ensemble</h4>
+		<p>Pour manipuler graphiquement le contenu d&#8217;un fichier 
+			<em>.database</em>, vous devez glisser-déposer votre fichier dans la vue 
+			<em>Model Explorer</em> d&#8217;Obeo Designer afin de créer une session de travail.
+			<br/>Vous devez ensuite sélectionner le point de vue 
+			<em>Database</em> dans la boite de dialogue qui vous est proposée.
+			<br/>Ensuite ouvrez le diagramme 
+			<em>Database Diagram</em> pour visualiser le contenu de votre fichier. Le résultat obtenu est le suivant :
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_Modelisation_01.png"/>
+		</p>
+		<p>L'éditeur ci-dessus propose :</p>
+		<ul>
+			<li>un environnement de modélisation graphique,</li>
+			<li>une palette d&#8217;outils permettant d&#8217;ajouter de nouvelles tables, colonnes, index, contraintes, ...</li>
+			<li>un ensemble de filtres pour afficher ou masquer les contraintes, index et tables externes,</li>
+			<li>une vue propriétés dédiée.</li>
+		</ul>
+		<h4 id="ModlePhysiquedeDonnes">Modèle Physique de Données</h4>
+		<p>L'édition de Modèle Physique de Données se fait à l&#8217;aide du modeleur présenté précédemment. Un MPD est caractérisé par l&#8217;utilisation d&#8217;une librairie de type spécifique à un moteur de base de données : Oracle ou MySQL. Cette librairie est spécifiée à l&#8217;aide de la propriété suivante disponible sur l'élément 
+			<em>Database</em>  :
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_ModelePhysique_01.png"/>
+		</p>
+		<h4 id="ModleLogiquedeDonnes">Modèle Logique de Données</h4>
+		<p>L'édition de Modèle Logique de Données se fait à l&#8217;aide du modeleur présenté précédemment. Un MLD est caractérisé par l&#8217;utilisation d&#8217;une librairie de type logique indépendante de tout moteur de base de données. Cette librairie est spécifiée à l&#8217;aide de la propriété suivante disponible sur l'élément 
+			<em>Database</em>  :
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_ModeleLogique_01.png"/>
+		</p>
+		<p>La sélection de cette librairie de types est également proposée dans l&#8217;assistant de création de modèle 
+			<em>database</em>, cf. capture ci-dessous :
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_ModeleLogique_02.png"/>
+		</p>
+		<p>Il est a noter que la liste des types proposés dans chacune des librairies de types est paramétrable.</p>
+		<h3 id="ComparaisongnrationdesscriptsSQL">Comparaison &amp; génération des scripts SQL</h3>
+		<h4 id="Comparaisonetfusion">Comparaison et fusion</h4>
+		<p>L&#8217;outillage de comparaison permet de comparer deux versions de MPD, soit deux fichiers stockés localement, soit une version locale avec une autre version stockée dans un référentiel de type subversion. L&#8217;outillage se base sur EMF Compare et fournit une extension permettant d&#8217;améliorer la pertinence de la comparaison sur ce type particulier de modèle.
+			<br/>	Pour comparer deux versions de MPD, sélectionnez les deux fichiers à comparer et utiliser le menu 
+			<em>Compare With &gt; Each Other</em> proposé dans le menu contextuel.  Lorsque vous utilisez la comparaison de fichiers locaux (par opposition à la comparaison via l&#8217;outillage subversion) EMF Compare utilise les fichiers dans l&#8217;ordre alphabétique. Par conséquent, vous devez les nommer de manière à ce que la version la plus récente de votre MPD se trouve en première position. Cf. l&#8217;exemple ci-dessous : 
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_SQL_01.png"/>
+		</p>
+		<h4 id="GnrationdesscriptsSQL">Génération des scripts SQL</h4>
+		<p>
+			<strong>Génération des scripts de modification</strong>
+		</p>
+		<p>Il est possible de générer les scripts SQL permettant de passer d&#8217;une version d&#8217;une base de données à une suivante. Pour cela il faut commencer par comparer les 2 modèles de bases de données en s&#8217;assurant que le plus récent est en première position (cf. paragraphe précédent). </p>
+		<p>Une fois la comparaison effectuée, vous pouvez demander la génération du script SQL en cliquant sur le bouton 
+			<em>Generate SQL Scripts</em> présent dans la barre d&#8217;outils. Ainsi le script généré vous permettra de mettre à jour le schéma correspondant au MPD le plus ancien :
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_GenSQL_01.png"/>
+		</p>
+		<p>Un répertoire 
+			<em>sql</em>, contenant l&#8217;ensemble des scripts, sera créé à la racine du projet.
+		</p>
+		<p>
+			<strong>Génération complète</strong>
+		</p>
+		<p>Il est possible de générer les scripts SQL pour générer complètement une base de données. Pour cela il suffit d&#8217;utiliser le menu clic droit sur le modèle et sélectionner 
+			<em>Safr@n &gt; Generate SQL Scripts</em> 
+		</p>
+		<p>
+			<img border="0" src="pics/BDD_GenSQL_02.png"/>
+		</p>
+		<h2 id="Transformations">Transformations</h2>
+		<p>Les transformations suivantes sont proposées afin d&#8217;initialiser un modèle à partir d&#8217;un autre :</p>
+		<ul>
+			<li>transformation d&#8217;un MPD en MLD,</li>
+			<li>transformation d&#8217;un MLD en modèle d&#8217;entités,</li>
+			<li>transformation d&#8217;un modèle d&#8217;entités en MLD,</li>
+			<li>transformation d&#8217;un MLD en MPD.</li>
+		</ul>
+		<p>Le mode opératoire est le même pour chacune des transformations.</p>
+		<h3 id="Transformationdepuislesmodlessourceetcible">Transformation depuis les modèles source et cible</h3>
+		<p>Pour lancer une transformation, le modèle cible doit exister. Pour une transformation d&#8217;un MPD en MLD par exemple il vous faudra commencer par créer un MLD vide avant toute chose.</p>
+		<p>Vous devez ensuite sélectionner un objet source et un objet cible en dépliant les modèles dans la vue 
+			<em>Model Explorer</em>. Si vous sélectionnez les fichiers le traitement ne pourra pas être lancé.
+		</p>
+		<p>Pour un MPD ou un MLD, les objets source ou cible doivent être des 
+			<em>Data Base</em> ou des 
+			<em>Schema</em>.
+			<br/>Pour un modèle d&#8217;entités,  les objets source ou cible doivent être des 
+			<em>Entities</em> ou des 
+			<em>Namespace</em>.
+		</p>
+		<ul>
+			<li>A l&#8217;aide du menu contextuel 
+				<em>Safr@n &gt; Scaffolding</em> sélectionnez le type de transformation à effectuer. Seules les transformations possibles selon les objets sélectionnés seront activées. :
+			</li>
+		</ul>
+		<p>
+			<img border="0" src="pics/BDD_Transfo_05.png"/>!
+		</p>
+		<ul>
+			<li>Un assistant s&#8217;ouvre. Il permet de sélectionner les ressources permettant la résolution des dépendances externes. En effet, lorsque vous effectuez par exemple une transformation d&#8217;un MLD vers un MPD, il est possible que votre MLD contiennent des tables référençant des tables issues dans un autre MLD. Par conséquent vous devrez référencer le MPD correspondant à ce MLD externe afin que les clés étrangères référencent correctement les tables externes :</li>
+		</ul>
+		<p>
+			<img border="0" src="pics/BDD_Transfo_06.png"/>
+		</p>
+		<p>Une fois le traitement exécuté, un message de confirmation s&#8217;affiche. Un modèle contenant les informations de scaffolding est créé dans le répertoire 
+			<em>scaffold</em>. Ce modèle peut être utilisé pour lancer un nouveau traitement de scaffolding sur les mêmes éléments. 
+		</p>
+		<h3 id="Transformationdepuisunmodledescaffold">Transformation depuis un modèle de scaffold</h3>
+		<p>Une transformation peut être lancée directement depuis un modèle de scaffold :</p>
+		<ul>
+			<li>Sélectionnez le modèle</li>
+			<li>Utilisez le menu contextuel _Safr@n &gt; Scaffolding _</li>
+		</ul>
+		<p>Les transformations proposées dépendent des objets source et cible utilisés par le modèle de scaffolding.
+			<br/>Un menu permet également d&#8217;ajouter des ressources pour résoudre les dépendances externes comme lorsque l&#8217;assistant est utilisé.
+		</p>
+		<p>A noter que lorsque vous lancez une transformation en sélectionnant des objets source et cible pour lesquels un modèle de scaffold existe déjà, il vous est proposé d&#8217;utiliser le modèle existant ou d&#8217;en créer un nouveau.  </p>
+		<h2 id="Notes">Notes</h2>
+		<p>Les équivalences entre les types logiques et physiques, etc … ainsi que les règles de nommage sont  paramétrables.</p>
+		<p>Aussi, dans le cas où vous disposez déjà d&#8217;une version du modèle cible nous vous conseillons d&#8217;effectuer la transformation vers un nouveau modèle puis d&#8217;utiliser l&#8217;outillage de comparaison/fusion afin de gérer l’incrémentalité des modifications. Prenons un exemple pour illustrer ce scénario :</p>
+		<ul>
+			<li>l'équipe de développement fait évoluer le modèle d&#8217;entités et le livre à l'équipe DBA,</li>
+			<li>l'équipe DBA peut ainsi lancer une transformation du modèle d&#8217;entités vers un nouveau MLD V2,</li>
+			<li>l'équipe DBA peut ensuite comparer et fusionner le MLD V1 (incluant des modifications ajouter préalablement par l'équipe DBA) et le MLD V2,</li>
+			<li>l'équipe DBA peut ensuite effectuer une transformation MLD V2 fusionné vers un MPD Oracle par exemple. Elle peut ensuite demander la comparaison et génération du script SQL par rapport à un version plus ancienne du MPD.</li>
+		</ul>
+	</body>
+</html>

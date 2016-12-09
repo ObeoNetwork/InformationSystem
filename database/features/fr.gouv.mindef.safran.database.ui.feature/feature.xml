@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="fr.gouv.mindef.safran.database.ui.feature"
+      label="Safr@n Database"
+      version="1.0.0.qualifier"
+      provider-name="www.obeo.fr">
+
+   <description url="http://www.obeonetwork.org">
+      Safr@n - Database integration
+   </description>
+
+   <copyright url="http://www.obeo.fr">
+      Copyright (c) 2012 Obeo
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="fr.gouv.mindef.safran.database.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.gouv.mindef.safran.database"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.gouv.mindef.safran.database.doc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
