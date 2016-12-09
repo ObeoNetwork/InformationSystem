@@ -3775,3 +3775,527 @@ Command-line arguments:  -eclipse.keyring C:\Users\STHIBA~1\AppData\Local\Temp\t
 
 !ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:01:30.880
 !MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
+!SESSION 2016-12-09 16:42:26.388 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  -eclipse.keyring C:\Users\STHIBA~1\AppData\Local\Temp\tycho6826586933099189723secure_storage
+Command-line arguments:  -eclipse.keyring C:\Users\STHIBA~1\AppData\Local\Temp\tycho6826586933099189723secure_storage
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.389
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\eclipse\acceleo\maven\3.2.1\maven-3.2.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.390
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-api\2.0\maven-plugin-api-2.0.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.391
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-project\2.0.8\maven-project-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.392
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-settings\2.0.8\maven-settings-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.393
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-model\2.0.8\maven-model-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.394
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-utils\1.4.6\plexus-utils-1.4.6.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.395
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-container-default\1.0-alpha-9-stable-1\plexus-container-default-1.0-alpha-9-stable-1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.397
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.398
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\classworlds\classworlds\1.1-alpha-2\classworlds-1.1-alpha-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.399
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-profile\2.0.8\maven-profile-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.400
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.8\maven-artifact-manager-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.402
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.8\maven-repository-metadata-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.403
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact\2.0.8\maven-artifact-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.404
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.405
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.8\maven-plugin-registry-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.461
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\guava\guava\10.0.1\guava-10.0.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:26.462
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.682
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\eclipse\acceleo\maven\3.2.1\maven-3.2.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.683
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-api\2.0\maven-plugin-api-2.0.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.684
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-project\2.0.8\maven-project-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.685
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-settings\2.0.8\maven-settings-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.686
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-model\2.0.8\maven-model-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.687
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-utils\1.4.6\plexus-utils-1.4.6.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.688
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-container-default\1.0-alpha-9-stable-1\plexus-container-default-1.0-alpha-9-stable-1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.688
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.689
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\classworlds\classworlds\1.1-alpha-2\classworlds-1.1-alpha-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.690
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-profile\2.0.8\maven-profile-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.690
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.8\maven-artifact-manager-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.691
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.8\maven-repository-metadata-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.692
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact\2.0.8\maven-artifact-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.693
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.694
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.8\maven-plugin-registry-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.728
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\guava\guava\10.0.1\guava-10.0.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:35.729
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.094
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\eclipse\acceleo\maven\3.2.1\maven-3.2.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.095
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-api\2.0\maven-plugin-api-2.0.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.097
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-project\2.0.8\maven-project-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.099
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-settings\2.0.8\maven-settings-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.100
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-model\2.0.8\maven-model-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.101
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-utils\1.4.6\plexus-utils-1.4.6.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.102
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-container-default\1.0-alpha-9-stable-1\plexus-container-default-1.0-alpha-9-stable-1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.103
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.105
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\classworlds\classworlds\1.1-alpha-2\classworlds-1.1-alpha-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.106
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-profile\2.0.8\maven-profile-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.107
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.8\maven-artifact-manager-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.109
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.8\maven-repository-metadata-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.110
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact\2.0.8\maven-artifact-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.111
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.112
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.8\maven-plugin-registry-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.153
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\guava\guava\10.0.1\guava-10.0.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.154
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.446
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\eclipse\acceleo\maven\3.2.1\maven-3.2.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.447
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-api\2.0\maven-plugin-api-2.0.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.448
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-project\2.0.8\maven-project-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.449
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-settings\2.0.8\maven-settings-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.450
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-model\2.0.8\maven-model-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.451
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-utils\1.4.6\plexus-utils-1.4.6.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.452
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-container-default\1.0-alpha-9-stable-1\plexus-container-default-1.0-alpha-9-stable-1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.453
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.454
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\classworlds\classworlds\1.1-alpha-2\classworlds-1.1-alpha-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.455
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-profile\2.0.8\maven-profile-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.456
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.8\maven-artifact-manager-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.457
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.8\maven-repository-metadata-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.458
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact\2.0.8\maven-artifact-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.459
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.460
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.8\maven-plugin-registry-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.498
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\guava\guava\10.0.1\guava-10.0.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:36.500
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.624
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\eclipse\acceleo\maven\3.2.1\maven-3.2.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.628
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-api\2.0\maven-plugin-api-2.0.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.629
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-project\2.0.8\maven-project-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.630
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-settings\2.0.8\maven-settings-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.631
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-model\2.0.8\maven-model-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.632
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-utils\1.4.6\plexus-utils-1.4.6.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.633
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-container-default\1.0-alpha-9-stable-1\plexus-container-default-1.0-alpha-9-stable-1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.634
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.635
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\classworlds\classworlds\1.1-alpha-2\classworlds-1.1-alpha-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.636
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-profile\2.0.8\maven-profile-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.637
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.8\maven-artifact-manager-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.638
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.8\maven-repository-metadata-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.639
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact\2.0.8\maven-artifact-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.640
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.641
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.8\maven-plugin-registry-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.679
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\guava\guava\10.0.1\guava-10.0.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:42:37.680
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
+!SESSION 2016-12-09 16:46:25.621 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
+Framework arguments:  -eclipse.keyring C:\Users\STHIBA~1\AppData\Local\Temp\tycho5291411704721080406secure_storage
+Command-line arguments:  -eclipse.keyring C:\Users\STHIBA~1\AppData\Local\Temp\tycho5291411704721080406secure_storage
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.621
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\eclipse\acceleo\maven\3.2.1\maven-3.2.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.622
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-api\2.0\maven-plugin-api-2.0.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.623
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-project\2.0.8\maven-project-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.624
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-settings\2.0.8\maven-settings-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.625
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-model\2.0.8\maven-model-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.625
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-utils\1.4.6\plexus-utils-1.4.6.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.626
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-container-default\1.0-alpha-9-stable-1\plexus-container-default-1.0-alpha-9-stable-1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.627
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.629
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\classworlds\classworlds\1.1-alpha-2\classworlds-1.1-alpha-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.630
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-profile\2.0.8\maven-profile-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.630
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.8\maven-artifact-manager-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.631
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.8\maven-repository-metadata-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.633
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact\2.0.8\maven-artifact-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.634
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.635
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.8\maven-plugin-registry-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.687
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\guava\guava\10.0.1\guava-10.0.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:25.688
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.068
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\eclipse\acceleo\maven\3.2.1\maven-3.2.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.069
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-api\2.0\maven-plugin-api-2.0.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.070
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-project\2.0.8\maven-project-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.071
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-settings\2.0.8\maven-settings-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.072
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-model\2.0.8\maven-model-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.073
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-utils\1.4.6\plexus-utils-1.4.6.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.073
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-container-default\1.0-alpha-9-stable-1\plexus-container-default-1.0-alpha-9-stable-1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.074
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.075
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\classworlds\classworlds\1.1-alpha-2\classworlds-1.1-alpha-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.075
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-profile\2.0.8\maven-profile-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.076
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.8\maven-artifact-manager-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.077
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.8\maven-repository-metadata-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.078
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact\2.0.8\maven-artifact-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.079
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.079
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.8\maven-plugin-registry-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.113
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\guava\guava\10.0.1\guava-10.0.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.114
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.457
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\eclipse\acceleo\maven\3.2.1\maven-3.2.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.458
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-api\2.0\maven-plugin-api-2.0.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.459
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-project\2.0.8\maven-project-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.460
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-settings\2.0.8\maven-settings-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.462
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-model\2.0.8\maven-model-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.463
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-utils\1.4.6\plexus-utils-1.4.6.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.464
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-container-default\1.0-alpha-9-stable-1\plexus-container-default-1.0-alpha-9-stable-1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.465
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.465
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\classworlds\classworlds\1.1-alpha-2\classworlds-1.1-alpha-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.466
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-profile\2.0.8\maven-profile-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.467
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.8\maven-artifact-manager-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.468
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.8\maven-repository-metadata-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.468
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact\2.0.8\maven-artifact-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.469
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.470
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.8\maven-plugin-registry-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.503
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\guava\guava\10.0.1\guava-10.0.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.504
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.786
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\eclipse\acceleo\maven\3.2.1\maven-3.2.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.788
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-api\2.0\maven-plugin-api-2.0.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.789
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-project\2.0.8\maven-project-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.790
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-settings\2.0.8\maven-settings-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.792
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-model\2.0.8\maven-model-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.793
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-utils\1.4.6\plexus-utils-1.4.6.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.794
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-container-default\1.0-alpha-9-stable-1\plexus-container-default-1.0-alpha-9-stable-1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.795
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.797
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\classworlds\classworlds\1.1-alpha-2\classworlds-1.1-alpha-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.798
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-profile\2.0.8\maven-profile-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.799
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.8\maven-artifact-manager-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.800
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.8\maven-repository-metadata-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.801
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact\2.0.8\maven-artifact-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.802
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.803
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.8\maven-plugin-registry-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.835
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\guava\guava\10.0.1\guava-10.0.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:35.836
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.731
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\eclipse\acceleo\maven\3.2.1\maven-3.2.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.733
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-api\2.0\maven-plugin-api-2.0.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.734
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-project\2.0.8\maven-project-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.735
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-settings\2.0.8\maven-settings-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.736
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-model\2.0.8\maven-model-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.737
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-utils\1.4.6\plexus-utils-1.4.6.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.738
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\codehaus\plexus\plexus-container-default\1.0-alpha-9-stable-1\plexus-container-default-1.0-alpha-9-stable-1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.739
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\junit\junit\3.8.1\junit-3.8.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.740
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\classworlds\classworlds\1.1-alpha-2\classworlds-1.1-alpha-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.741
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-profile\2.0.8\maven-profile-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.742
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.8\maven-artifact-manager-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.744
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.8\maven-repository-metadata-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.746
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-artifact\2.0.8\maven-artifact-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.747
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.747
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.8\maven-plugin-registry-2.0.8.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.785
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\guava\guava\10.0.1\guava-10.0.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-09 16:46:36.786
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\Users\sthibaudeau\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar.
