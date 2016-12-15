@@ -15,6 +15,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.obeonetwork.dsl.interaction.Interaction;
 
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
@@ -42,11 +43,11 @@ public class DeleteInteractionHandler extends AbstractHandler {
 				@Override
 				protected void doExecute() {
 					// Retrieve associated representations
-					Collection<DRepresentation> representations = DialectManager.INSTANCE.getRepresentations(interaction, session);
+					Collection<DRepresentationDescriptor> representationDescriptors = DialectManager.INSTANCE.getRepresentationDescriptors(interaction, session);
 					// Delete representations
-					for (DRepresentation representation : representations) {
-						closeEditor(session, representation);
-						DialectManager.INSTANCE.deleteRepresentation(representation, session);
+					for (DRepresentationDescriptor representationDescriptor : representationDescriptors) {
+						closeEditor(session, representationDescriptor.getRepresentation());
+						DialectManager.INSTANCE.deleteRepresentation(representationDescriptor, session);
 					}
 					// Delete interaction
 					modelAccessor.eDelete(interaction, semanticCrossReferencer);

@@ -54,6 +54,7 @@ import fr.obeo.dsl.viewpoint.collab.api.CDOExporter;
 import fr.obeo.dsl.viewpoint.collab.api.CDORepositoryManager;
 import fr.obeo.dsl.viewpoint.collab.api.CDORepositoryManagerRegistry;
 import fr.obeo.dsl.viewpoint.collab.api.RepositoryConnectionException;
+import fr.obeo.dsl.viewpoint.collab.model.cdoconfig.ConnectionType;
 
 /**
  * Embedded CDO server used to load a XML file (exported from CDO).
@@ -322,7 +323,7 @@ public class EmbeddedCDOServer {
 
 	private CDORepositoryManager getRepositoryManager() {
 		return CDORepositoryManagerRegistry.getRepositoryManager(getHost(), Integer.toString(getPort()),
-				getRepositoryName());
+				getRepositoryName(), ConnectionType.TCP);
 	}
 
 }

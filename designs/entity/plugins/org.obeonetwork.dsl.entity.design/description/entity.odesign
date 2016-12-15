@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="Entity" version="10.1.3.201511131800">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="Entity" version="11.1.1.201610211630">
   <ownedViewpoints name="Entity Views" modelFileExtension="entity ois">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Entity%20Views']/@ownedRepresentations[name='Entities%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="Entities Namespaces Hierarchy" label="Entities Namespaces Hierarchy" titleExpression="Entities Namespaces Hierarchy" domainClass="entity.Root">
       <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
@@ -638,8 +638,8 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Entity Table" domainClass="entity.Root">
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
-      <metamodel href="../../../plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
+      <metamodel href="platform:/plugin/org.obeonetwork.dsl.entity/model/entity.ecore#/"/>
       <ownedLineMappings name="EntityLine" domainClass="entity.Entity" headerLabelExpression="feature:name"/>
       <ownedColumnMappings name="NB Attributes" headerLabelExpression="NB Attributes" canEdit="false" featureName="ownedAttributes" labelExpression="[ownedAttributes->size()/]"/>
       <ownedColumnMappings name="estimatedVolumetry" headerLabelExpression="Estimated Volumetry" canEdit="true" featureName="estimatedVolumetry" labelExpression="feature:estimatedVolumetry">

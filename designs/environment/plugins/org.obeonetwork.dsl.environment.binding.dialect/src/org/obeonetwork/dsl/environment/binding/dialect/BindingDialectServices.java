@@ -17,6 +17,7 @@ import org.obeonetwork.dsl.environment.bindingdialect.BindingdialectFactory;
 import org.obeonetwork.dsl.environment.bindingdialect.DBindingEditor;
 import org.obeonetwork.dsl.environment.bindingdialect.description.DBindingEditorDescription;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.business.api.dialect.AbstractRepresentationDialectServices;
 import org.eclipse.sirius.business.api.dialect.description.IInterpretedExpressionQuery;
 import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
@@ -53,6 +54,14 @@ public class BindingDialectServices extends AbstractRepresentationDialectService
 	
 	protected boolean isSupported(RepresentationExtensionDescription representationDesc){
 		return representationDesc instanceof DBindingEditorDescription;
+	}
+	
+	/*  {@inheritDoc}
+	 * @see org.eclipse.sirius.business.api.dialect.AbstractRepresentationDialectServices#isSupported(org.eclipse.sirius.viewpoint.DRepresentationDescriptor)
+	 */
+	@Override
+	protected boolean isSupported(DRepresentationDescriptor representationDescriptor) {
+		return representationDescriptor.getDescription() instanceof DBindingEditor;
 	}
 	
 	/**

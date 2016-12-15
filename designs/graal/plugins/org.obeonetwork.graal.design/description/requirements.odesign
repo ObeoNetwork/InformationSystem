@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" name="requirements graal" version="10.1.3.201511131800">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" name="requirements graal" version="11.1.1.201610211630">
   <ownedViewpoints name="Requirements (Graal consolidated view)" label="Requirements (Graal consolidated view)" modelFileExtension="*.requirement">
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="Req_CTab_Task" label="Requirements - Task traceability matrix" titleExpression="[name + ' Requirements Task Traceability Matrix'/]" domainClass="requirement.Repository">
       <metamodel href="http://www.obeonetwork.org/dsl/requirement/1.0#/"/>

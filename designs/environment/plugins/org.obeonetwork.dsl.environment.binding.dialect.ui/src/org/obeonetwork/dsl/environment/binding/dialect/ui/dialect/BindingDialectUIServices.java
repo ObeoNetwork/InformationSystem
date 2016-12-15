@@ -37,6 +37,7 @@ import org.eclipse.sirius.ui.business.api.dialect.DialectUIServices;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
@@ -79,6 +80,14 @@ public class BindingDialectUIServices implements DialectUIServices {
 	@Override
 	public boolean canHandleEditor(IEditorPart editor) {
 		return editor instanceof BindingTreeEditor;
+	}
+	
+	/** {@inheritDoc}
+	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#canHandle(org.eclipse.sirius.viewpoint.DRepresentationDescriptor)
+	 */
+	@Override
+	public boolean canHandle(DRepresentationDescriptor representationDescriptor) {
+		return representationDescriptor.getRepresentation() instanceof DBindingEditor;
 	}
 
 	/**
