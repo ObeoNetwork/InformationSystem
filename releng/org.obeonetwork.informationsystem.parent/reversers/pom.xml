@@ -75,7 +75,7 @@
         <plugin>
          <groupId>org.eclipse.acceleo</groupId>
         <artifactId>org.eclipse.acceleo.maven</artifactId>
-        <version>3.5.0-SNAPSHOT</version>
+        <version>3.6.0-SNAPSHOT</version>
          <executions>
            <execution>
              <id>acceleo-compile</id>
@@ -108,12 +108,12 @@
      <dependency>
        <groupId>org.eclipse.acceleo</groupId>
        <artifactId>org.eclipse.acceleo.maven</artifactId>
-       <version>3.5.0-SNAPSHOT</version>
+       <version>3.6.0-SNAPSHOT</version>
      </dependency>
      <dependency>
        <groupId>org.eclipse.acceleo</groupId>
        <artifactId>org.eclipse.acceleo.engine</artifactId>
-       <version>3.5.0-SNAPSHOT</version>
+       <version>3.6.0-SNAPSHOT</version>
      </dependency>
      <dependency>
        <groupId>org.slf4j</groupId>
