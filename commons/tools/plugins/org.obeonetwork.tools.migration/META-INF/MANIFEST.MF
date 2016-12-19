@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Obeonetwork Metamodel Migration Helper
 Bundle-SymbolicName: org.obeonetwork.tools.migration
-Bundle-Version: 5.0.0.qualifier
+Bundle-Version: 9.0.0.qualifier
 Bundle-Vendor: Obeo
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.emf.ecore,

@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>commons.parent</artifactId>
-		<version>5.0.0-SNAPSHOT</version>
+		<version>9.0.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/commons/pom.xml</relativePath>
 	</parent>
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.tools.requirement</artifactId>
-	<version>5.0.0-SNAPSHOT</version>
+	<version>9.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>Requirement Tools</name>
 </project>

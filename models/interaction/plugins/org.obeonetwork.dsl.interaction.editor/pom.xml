@@ -4,13 +4,13 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>models.parent</artifactId>
-		<version>5.0.0-SNAPSHOT</version>
+		<version>9.0.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/models/pom.xml
 		</relativePath>
 	</parent>
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.dsl.interaction.editor</artifactId>
-	<version>5.0.0-SNAPSHOT</version>
+	<version>9.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>Interaction Editor</name>
 </project>

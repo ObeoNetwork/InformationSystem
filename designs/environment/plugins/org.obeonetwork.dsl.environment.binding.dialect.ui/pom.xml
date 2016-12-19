@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.obeonetwork</groupId>
 		<artifactId>designs.parent</artifactId>
-		<version>5.0.0-SNAPSHOT</version>
+		<version>9.0.0-SNAPSHOT</version>
 		<relativePath>../../../../releng/org.obeonetwork.informationsystem.parent/designs/pom.xml</relativePath>
 	</parent>
 	<groupId>org.obeonetwork</groupId>
 	<artifactId>org.obeonetwork.dsl.environment.binding.dialect.ui</artifactId>
-	<version>5.0.0-SNAPSHOT</version>
+	<version>9.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 	<name>Environment Binding Dialect UI</name>
 </project>

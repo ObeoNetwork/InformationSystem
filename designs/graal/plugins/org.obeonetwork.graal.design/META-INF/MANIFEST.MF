@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Name: Graal Viewpoint
 Bundle-SymbolicName: org.obeonetwork.graal.design;singleton:=true
-Bundle-Version: 5.0.0.qualifier
+Bundle-Version: 9.0.0.qualifier
 Bundle-Activator: org.obeonetwork.graal.design.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -23,7 +23,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.ext.emf;bundle-version="2.0.0",
  org.eclipse.sirius.diagram.ui;bundle-version="2.0.0",
  org.eclipse.sirius.ext.draw2d;bundle-version="2.0.0",
- org.obeonetwork.dsl.environment.design.services;bundle-version="5.0.0"
+ org.obeonetwork.dsl.environment.design.services;bundle-version="9.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: www.obeo.fr

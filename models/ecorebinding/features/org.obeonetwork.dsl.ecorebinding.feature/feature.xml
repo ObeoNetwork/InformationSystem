@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.dsl.ecorebinding.feature"
       label="Ecore Binding"
-      version="5.0.0.qualifier"
+      version="9.0.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://marketplace.obeonetwork.com/">
@@ -216,7 +216,7 @@ Each party waives its rights to a jury trial in any resulting
 litigation.
    </license>
    <requires>
-      <import feature="org.obeonetwork.dsl.feature.environment" version="5.0.0.qualifier"/>
+      <import feature="org.obeonetwork.dsl.feature.environment" version="9.0.0.qualifier"/>
    </requires>
 
    <plugin

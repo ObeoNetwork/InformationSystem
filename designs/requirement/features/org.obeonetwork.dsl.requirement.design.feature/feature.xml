@@ -2,7 +2,7 @@
 <feature
       id="org.obeonetwork.dsl.requirement.design.feature"
       label="Requirement Designer"
-      version="5.0.0.qualifier"
+      version="9.0.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://marketplace.obeonetwork.com/">
@@ -218,7 +218,7 @@ litigation.
 
    <requires>
       <import feature="org.obeonetwork.dsl.feature.requirement" version="4.0.0" match="greaterOrEqual"/>
-      <import feature="org.obeonetwork.tools.linker.feature" version="5.0.0.qualifier"/>
+      <import feature="org.obeonetwork.tools.linker.feature" version="9.0.0.qualifier"/>
       <import feature="org.eclipse.sirius.runtime" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.acceleo" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.runtime.ide.ui" version="2.0.0.201410241344"/>
