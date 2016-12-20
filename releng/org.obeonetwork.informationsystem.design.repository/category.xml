@@ -115,6 +115,12 @@
    <feature url="features/org.obeonetwork.database.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.database.m2doc.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.m2doc"/>
    </feature>
+   <feature url="features/org.obeonetwork.dsl.graal.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.graal.m2doc.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.m2doc"/>
+   </feature>
+   <feature url="features/org.obeonetwork.dsl.requirement.m2doc.feature_1.0.0.qualifier.jar" id="org.obeonetwork.dsl.requirement.m2doc.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.m2doc"/>
+   </feature>
    <feature url="features/fr.gouv.mindef.safran.database.scaffold.feature_1.0.0.qualifier.jar" id="fr.gouv.mindef.safran.database.scaffold.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.scaffolding"/>
    </feature>
