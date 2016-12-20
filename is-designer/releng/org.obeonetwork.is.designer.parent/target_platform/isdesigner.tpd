@@ -1,6 +1,6 @@
 target "IS Designer Target Definition"
 
-location "http://update.obeo.fr/integration/informationsystem/5.0/design/repository/" {
+location "http://update.obeo.fr/integration/informationsystem/9.0/design/repository/" {
 	org.obeonetwork.dsl.feature.environment.feature.group lazy
 	org.obeonetwork.dsl.feature.entity.feature.group lazy
 	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
@@ -40,7 +40,7 @@ location "http://update.obeo.fr/integration/informationsystem/5.0/design/reposit
 	fr.gouv.mindef.safran.database.ui.feature.feature.group lazy
 }
 
-location "http://update.obeo.fr/release/designer/8.1/community/latest/repository/" {
+location "http://update.obeo.fr/integration/designer/9.1/team/9.1.1/repository/" {
 	org.eclipse.e4.rcp.feature.group
 	org.eclipse.platform.feature.group
 	org.eclipse.jdt.feature.group
@@ -103,13 +103,13 @@ location "http://update.obeo.fr/release/designer/8.1/community/latest/repository
 	fr.obeo.dsl.designer.ce.feature.feature.group
 }
 
-location "http://download.eclipse.org/releases/mars/" {
+location "http://download.eclipse.org/releases/neon/" {
 	org.eclipse.equinox.executable.feature.group
 	org.apache.commons.io
 	org.eclipse.emf.cdo.feature.group
 	org.eclipse.net4j.feature.group
 	org.eclipse.ecf.core.feature.feature.group
-	
+	org.eclipse.oomph.setup.sdk.feature.group
 }
 
 location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.6/repository" {
