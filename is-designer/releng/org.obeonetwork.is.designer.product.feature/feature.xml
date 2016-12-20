@@ -227,7 +227,14 @@
    <includes
          id="org.obeonetwork.database.m2doc.feature"
          version="0.0.0"/>
-
+         
+   <includes
+         id="org.obeonetwork.dsl.graal.m2doc.feature"
+         version="0.0.0"/>
+         
+   <includes
+         id="org.obeonetwork.dsl.requirement.m2doc.feature"
+         version="0.0.0"/>
    <includes
          id="org.eclipse.sirius.doc.feature"
          version="0.0.0"/>
