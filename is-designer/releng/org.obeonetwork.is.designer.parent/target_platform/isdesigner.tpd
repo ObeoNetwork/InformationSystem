@@ -36,6 +36,8 @@ location "http://update.obeo.fr/integration/informationsystem/9.0/design/reposit
 	org.obeonetwork.dsl.environment.design.feature.feature.group lazy
 	org.obeonetwork.tools.snapshot.viewer.feature.feature.group lazy
 	org.obeonetwork.database.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.requirement.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.graal.m2doc.feature.feature.group lazy
 	fr.gouv.mindef.safran.database.scaffold.feature.feature.group lazy
 	fr.gouv.mindef.safran.database.ui.feature.feature.group lazy
 }
