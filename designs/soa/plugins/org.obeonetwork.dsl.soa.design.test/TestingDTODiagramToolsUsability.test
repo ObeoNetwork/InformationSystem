@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _a-5JUJtWEeaMB4JvYD9iTg
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 10/26/16 3:44 PM
+Save-Time: 12/16/16 2:54 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -53,7 +53,7 @@ with [get-window "Viewpoints Selection"] {
 }
 get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.soa/Components/Namespace main" 
     | get-menu "New Representation/main - DTO diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New DTO Diagram" | get-button OK | click
    
 with [get-editor "main - DTO diagram"] {
     with [get-palette] {
@@ -104,7 +104,7 @@ with [get-window "Viewpoints Selection"] {
 }
 get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities" 
     | get-menu "New Representation/Entities Namespaces Hierarchy" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Entities Namespaces Hierarchy" | get-button OK | click
 with [get-editor "Entities Namespaces Hierarchy"] {
     get-diagram -index 1 | get-edit-part -name "Entities Namespaces Hierarchy" | mouse-move 1124 118 -height 520 
         -width 1130
@@ -131,7 +131,7 @@ with [get-editor "Entities Namespaces Hierarchy"] {
 }
 get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities/Namespace namespace_1" 
     | get-menu "New Representation/namespace_1 - Entities diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Entities Diagram" | get-button OK | click
 with [get-editor "namespace_1 - Entities diagram"] {
     get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1127 110 -height 520 
         -width 1130
@@ -191,7 +191,7 @@ with [get-editor "namespace_1 - Entities diagram"] {
         }
     }
 }
-get-window "New Representation" | get-button OK | click
+get-window "New namespace_1 - Entities diagram" | get-button OK | click
 with [get-editor "namespace_1 - Entities diagram" -index 1] {
     get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1127 128 -height 520 
         -width 1130
@@ -931,7 +931,7 @@ with [get-editor "main - DTO diagram"] {
 get-view "Model Explorer" | get-tree 
     | select "E-BookStore/E-BookStore.soa/Components/Namespace main/Namespace namespace_1" 
     | get-menu "New Representation/namespace_1 - DTO diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New DTO Diagram" | get-button OK | click
 with [get-editor "namespace_1 - DTO diagram"] {
     get-diagram -index 1 | get-edit-part -name "namespace_1 - DTO diagram" | mouse-move 1106 239 -height 520 -width 1130
     with [get-palette] {       

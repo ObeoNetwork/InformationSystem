@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _C6kucGNeEeSg_dTG4Ei-uQ
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 10/25/16 11:16 AM
+Save-Time: 12/16/16 2:06 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -42,7 +42,7 @@ with [get-window "Viewpoints Selection"] {
 }
 get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities" 
     | get-menu "New Representation/Entities Namespaces Hierarchy" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Entities Namespaces Hierarchy" | get-button OK | click
 with [get-editor "Entities Namespaces Hierarchy"] {
     get-diagram -index 1 | get-edit-part -name "Entities Namespaces Hierarchy" | mouse-move 1120 151 -height 520 
         -width 1130
@@ -76,7 +76,7 @@ with [get-editor "Entities Namespaces Hierarchy"] {
 }
 get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities/Namespace namespace_1" 
     | get-menu "New Representation/namespace_1 - Entities diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Entities Diagram" | get-button OK | click
 with [get-editor "namespace_1 - Entities diagram"] {
     get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1122 143 -height 520 
         -width 1130
@@ -167,7 +167,7 @@ with [get-editor "namespace_1 - Entities diagram"] {
 }
 get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities" 
     | get-menu "New Representation/new Entity Table" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Entity Table" | get-button OK | click
 get-editor "new Entity Table" | get-control Any -index 3 | key-type "M1+s"
 with [get-editor "new Entity Table" | get-tree] {
     get-item Entity1 | get-property "getData().getCells().DCellSpec[0].getLine().getCells().DCellSpec[0].getLabel()" 

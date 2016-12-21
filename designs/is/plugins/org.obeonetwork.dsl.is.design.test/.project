@@ -4,6 +4,14 @@
 	<comment></comment>
 	<projects>
 		<project>Testing_OD4IS</project>
+		<project>org.obeonetwork.dsl.cinematic.design.test</project>
+		<project>org.obeonetwork.dsl.database.design.test</project>
+		<project>org.obeonetwork.dsl.entity.design.test</project>
+		<project>org.obeonetwork.dsl.entityrelation.design.test</project>
+		<project>org.obeonetwork.dsl.requirement.design.test</project>
+		<project>org.obeonetwork.dsl.statemachine.design.test</project>
+		<project>org.obeonetwork.graal.design.test</project>
+		<project>org.obeonetwork.dsl.soa.design.test</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

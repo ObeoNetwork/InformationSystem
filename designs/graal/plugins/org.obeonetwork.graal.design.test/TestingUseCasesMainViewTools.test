@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _6SSqAGNdEeSg_dTG4Ei-uQ
-Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/21/14 4:16 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 12/19/16 2:35 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -134,7 +134,7 @@ with [get-editor "Use Cases Main View" | get-diagram -index 1 | get-edit-part -n
         mouse-double-click 83 30 button1 -height 54 -width 160
     }
 }
-get-window "New Representation" | get-button OK | click
+get-window "New UC - Use Case 5 Use Case Diagram" | get-button OK | click
 get-editor "UC - Use Case 5 Use Case Diagram" | get-diagram -index 1 | get-edit-part 
     -name "UC - Use Case 5 Use Case Diagram" | mouse-move 129 0 -height 309 -width 728
 with [get-editor "Use Cases Main View" | get-diagram -index 1] {
@@ -149,7 +149,7 @@ with [get-editor "Use Cases Main View" | get-diagram -index 1] {
     // Check Tool Create Use Case Diagram
     get-menu "New/Create Use Case Diagram" | click
 }
-get-window "New Representation" | get-button OK | click
+get-window "New Use Case Diagram" | get-button OK | click
 get-editor "UC - Use Case 5 Use Case Diagram" -index 1 | get-diagram -index 1 | get-edit-part 
     -name "UC - Use Case 5 Use Case Diagram" | mouse-move 176 4 -height 309 -width 728
 with [get-editor "Use Cases Main View" | get-diagram -index 1] {
@@ -173,7 +173,6 @@ with [get-editor "Use Cases Main View" | get-diagram -index 1] {
             mouse-move 31 0 button1 -height 13 -width 70
             mouse-press 31 0 button1 -height 13 -width 70
             mouse-release 31 0 button1 524288 -height 13 -width 70
-            get-handle MoveHandle -index 1 | mouse-hover 32 1 -height 15 -width 72
         }
     }
     // Check Tool UCM_Delete_Extend

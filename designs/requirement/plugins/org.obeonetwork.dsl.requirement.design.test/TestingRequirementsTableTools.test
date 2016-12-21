@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _b8ZCkGNdEeSg_dTG4Ei-uQ
-Runtime-Version: 2.0.0.201505200325
-Save-Time: 9/1/15 4:31 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 12/16/16 2:23 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -26,7 +26,7 @@ Entry-Name: .content
 
 get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.requirement/Repository E-BookStore" 
     | get-menu "New Representation/E-BookStore Requirements Table" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Requirements Table" | get-button OK | click
 with [get-editor "E-BookStore Requirements Table" | get-tree] {
     get-cell 0 0 | mouse down Right -count 1
     get-cell 0 0 | mouse up Right -count 1

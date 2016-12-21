@@ -5,8 +5,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _B-H_MGNcEeSg_dTG4Ei-uQ
-Runtime-Version: 1.5.2.201408180747
-Save-Time: 11/17/14 4:59 PM
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 12/16/16 12:07 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -183,8 +183,8 @@ with [get-editor "E-BookStore Package Diagram"] {
         get-menu "New/Package Diagram" | click
     }
 }
-with [get-window "New Representation"] {
-    get-editbox -after [get-label "Representation name:"] | click-text 25
+with [get-window "New Package Diagram"] {
+    get-editbox -after [get-label "Name:"] | click-text 25
     get-button OK | click
 }
 with [get-editor "Package2 Package Diagram" | get-diagram -index 1 | get-edit-part -name "Package2 Package Diagram"] {
@@ -281,7 +281,7 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1] {
     // Check Tool CRE_UI_Structure
     get-menu "New/UI Structure" | click
 }
-get-window "New Representation" | get-button OK | click
+get-window "New UI Structure" | get-button OK | click
 with [get-editor "E-BookStore Package Diagram"] {
     click
     with [get-diagram -index 1 | get-edit-part -name "E-BookStore Package Diagram" | get-edit-part -name Package3 
@@ -295,7 +295,7 @@ with [get-editor "E-BookStore Package Diagram"] {
         mouse-double-click 47 39 button1 -height 68 -width 148
     }
 }
-get-window "New Representation" | get-button Cancel | click
+get-window "New Package3 Package Diagram" | get-button Cancel | click
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
     -name "E-BookStore Package Diagram"] {
     with [get-edit-part -name Package3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {
@@ -318,7 +318,7 @@ with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit
         mouse-double-click 25 38 button1 -height 68 -width 148
     }
 }
-get-window "New Representation" | get-button Cancel | click
+get-window "New Package3 Package Diagram" | get-button Cancel | click
 with [get-editor "E-BookStore Package Diagram" | get-diagram -index 1 | get-edit-part 
     -name "E-BookStore Package Diagram"] {
     with [get-edit-part -name Package3 | get-edit-part -className DNodeContainerViewNodeContainerCompartmentEditPart] {

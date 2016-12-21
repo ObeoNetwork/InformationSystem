@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _pUfhkGNcEeSg_dTG4Ei-uQ
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 10/20/16 6:03 PM
+Save-Time: 12/16/16 12:20 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -48,7 +48,7 @@ with [get-window "Viewpoints Selection"] {
 }
 get-view "Model Explorer" | get-tree | select "E-BookStore/My.database/Data Base My" 
     | get-menu "New Representation/My Database" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Database Diagram" | get-button OK | click
 with [get-editor "My Database"] {
     get-diagram -index 1 | get-edit-part -name "My Database" | mouse-move 278 286 -height 349 -width 596
     with [get-palette | get-palette-entry Table] {

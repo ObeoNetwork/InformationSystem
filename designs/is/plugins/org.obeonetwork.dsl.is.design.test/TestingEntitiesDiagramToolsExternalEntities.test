@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _OpE2wJdyEeaIPby-Y4VoBg
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 10/25/16 9:59 AM
+Save-Time: 12/16/16 2:10 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -45,7 +45,7 @@ with [get-window "Viewpoints Selection"] {
 
 get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities" 
     | get-menu "New Representation/Entities Namespaces Hierarchy" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Entities Namespaces Hierarchy" | get-button OK | click
 with [get-editor "Entities Namespaces Hierarchy"] {
     get-diagram -index 1 | get-edit-part -name "Entities Namespaces Hierarchy" | mouse-move 557 129 -height 348 
         -width 567
@@ -68,7 +68,7 @@ with [get-editor "Entities Namespaces Hierarchy"] {
 }
 get-view "Model Explorer" | get-tree | select "E-BookStore/My.entity/Entities/Namespace namespace_1" 
     | get-menu "New Representation/namespace_1 - Entities diagram" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Entities Diagram" | get-button OK | click
 with [get-editor "namespace_1 - Entities diagram"] {
     get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 149 2 -height 348 
         -width 567
@@ -132,7 +132,7 @@ with [get-editor "namespace_1 - Entities diagram"] {
         }
     }
 }
-get-window "New Representation" | get-button OK | click
+get-window "New namespace_1 - Entities diagram" | get-button OK | click
 with [get-editor "namespace_1 - Entities diagram" -index 1] {
     get-diagram -index 1 | get-edit-part -name "namespace_1 - Entities diagram" | mouse-move 1042 114 -height 520 
         -width 1047

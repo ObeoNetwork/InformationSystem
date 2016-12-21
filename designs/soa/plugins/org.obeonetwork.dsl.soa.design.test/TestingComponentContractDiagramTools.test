@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _MGTiAFRnEeSWd5v-LaxGtw
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 10/25/16 4:06 PM
+Save-Time: 12/16/16 2:25 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -41,7 +41,7 @@ with [get-window "Viewpoints Selection"] {
 }
 get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.soa/Components/Component BookStore" 
     | get-menu "New Representation/BookStore Component Contract" | click
-get-window "New Representation" | get-button OK | click
+get-window "New Component Contract Diagram" | get-button OK | click
 with [get-editor "BookStore Component Contract"] {
     with [get-diagram -index 1 | get-edit-part -name "BookStore Component Contract"] {
         mouse-move 434 146 -height 309 -width 722
