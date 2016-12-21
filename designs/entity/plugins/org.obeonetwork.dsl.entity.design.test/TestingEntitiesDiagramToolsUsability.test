@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _GSSi8KKfEeatIdXAOWS3IQ
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 12/21/16 11:21 AM
+Save-Time: 12/21/16 11:35 AM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -807,6 +807,7 @@ with [get-editor "namespace_1 - Entities diagram"] {
         set-text Rename
         key-type Enter
     }
+    
     with [get-diagram -index 1] {
         commit-direct-edit
         key-type Enter
@@ -814,12 +815,10 @@ with [get-editor "namespace_1 - Entities diagram"] {
         with [get-edit-part -name "namespace_1 - Entities diagram"] {
             mouse-move 688 187 -height 520 -width 1121
             with [get-edit-part -name Entity6 | get-target-connection 0 | get-edit-part -className ""] {
-                with [get-handle MoveHandle] {
-                    mouse-move 20 1 button1 -height 15 -width 68
-                    mouse-press 20 1 button1 -height 15 -width 68
-                }
-                get-handle MoveHandle -index 1 | mouse-release 20 1 button1 524288 -height 15 -width 68
-                mouse-hover 24 4 -height 13 -width 66
+                mouse-move 33 3 button1 -height 13 -width 66
+                mouse-press 33 3 button1 -height 13 -width 66
+                mouse-release 33 3 button1 524288 -height 13 -width 66
+                mouse-hover 33 3 -height 13 -width 66
             }
         }
         key-type F2

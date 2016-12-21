@@ -5,7 +5,7 @@ Element-Type: testsuite
 Element-Version: 2.0
 Id: _C31jgGNeEeSg_dTG4Ei-uQ
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 12/19/16 3:55 PM
+Save-Time: 12/21/16 11:41 AM
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8
 Content-Type: text/testcase
@@ -21,12 +21,5 @@ _OpMykJdyEeaIPby-Y4VoBg	// kind: 'test' name: 'TestingEntitiesDiagramToolsExtern
 _OpUuYJdyEeaIPby-Y4VoBg	// kind: 'test' name: 'TestingEntitiesDiagramToolsNamespace' path: 'TestingEntitiesDiagramToolsNamespace.test'
 _OpdRQJdyEeaIPby-Y4VoBg	// kind: 'test' name: 'TestingEntitiesDiagramToolsRelation' path: 'TestingEntitiesDiagramToolsRelation.test'
 _77ej0JegEeaIPby-Y4VoBg	// kind: 'test' name: 'TestingEntitiesDiagramToolsUsability' path: 'TestingEntitiesDiagramToolsUsability.test'
-_B7808GNcEeSg_dTG4Ei-uQ	// kind: 'suite' name: 'LaunchAllCinematicTest' path: '../org.obeonetwork.dsl.cinematic.design.test/LaunchAllCinematicTest.suite'
-_tKNiAGEDEeSZmbakWxhueg	// kind: 'suite' name: 'LaunchAllEntityTests' path: '../org.obeonetwork.dsl.entity.design.test/LaunchAllEntityTests.suite'
-_b7nmgGNdEeSg_dTG4Ei-uQ	// kind: 'suite' name: 'LaunchAllRequirementTools' path: '../org.obeonetwork.dsl.requirement.design.test/LaunchAllRequirementTools.suite'
-_6Kzh8GNdEeSg_dTG4Ei-uQ	// kind: 'suite' name: 'LaunchAllGraalTests' path: '../org.obeonetwork.graal.design.test/LaunchAllGraalTests.suite'
-_s8ftkGNdEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingStateMachineDiagramTools' path: '../org.obeonetwork.dsl.statemachine.design.test/TestingStateMachineDiagramTools.test'
-_0wTusGEZEeSZmbakWxhueg	// kind: 'suite' name: 'LaunchAllSOATests' path: '../org.obeonetwork.dsl.soa.design.test/LaunchAllSOATests.suite'
-_pUfhkGNcEeSg_dTG4Ei-uQ	// kind: 'test' name: 'TestingDatabaseDiagramCreationTool' path: '../org.obeonetwork.dsl.database.design.test/TestingDatabaseDiagramCreationTool.test'
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--
