@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Services
-Bundle-SymbolicName: org.obeonetwork.dsl.graal.m2doc.services
+Bundle-SymbolicName: org.obeonetwork.dsl.graal.m2doc.services;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.graal.m2doc.services.Activator
 Require-Bundle: org.eclipse.core.runtime
