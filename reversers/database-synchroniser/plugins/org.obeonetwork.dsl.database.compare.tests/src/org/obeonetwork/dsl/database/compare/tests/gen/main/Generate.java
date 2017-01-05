@@ -349,9 +349,6 @@ public class Generate extends AbstractAcceleoGenerator {
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        if (!isInWorkspace(org.eclipse.emf.compare.ComparePackage.class)) {
-            resourceSet.getPackageRegistry().put(org.eclipse.emf.compare.ComparePackage.eINSTANCE.getNsURI(), org.eclipse.emf.compare.ComparePackage.eINSTANCE);
-        }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
