@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="IS Designer Target Definition" sequenceNumber="1482315895">
+<target name="IS Designer Target Definition" sequenceNumber="1483622158">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -46,9 +46,9 @@
       <repository location="http://update.obeo.fr/integration/informationsystem/9.0/design/repository/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.e4.rcp.feature.group" version="1.5.1.v20160907-0248"/>
-      <unit id="org.eclipse.platform.feature.group" version="4.6.1.v20160907-1200"/>
-      <unit id="org.eclipse.jdt.feature.group" version="3.12.1.v20160907-1200"/>
+      <unit id="org.eclipse.e4.rcp.feature.group" version="1.5.2.v20161122-1740"/>
+      <unit id="org.eclipse.platform.feature.group" version="4.6.2.v20161124-1529"/>
+      <unit id="org.eclipse.jdt.feature.group" version="3.12.2.v20161124-1400"/>
       <unit id="org.eclipse.emf.feature.group" version="2.12.0.v20160526-0356"/>
       <unit id="org.eclipse.emf.ecore.feature.group" version="2.12.0.v20160420-0247"/>
       <unit id="org.eclipse.emf.common.feature.group" version="2.12.0.v20160420-0247"/>
@@ -66,20 +66,20 @@
       <unit id="org.eclipse.emf.compare.rcp.ui" version="4.2.1.201608311750"/>
       <unit id="org.eclipse.acceleo.feature.group" version="3.6.6.201610060831"/>
       <unit id="org.eclipse.acceleo.query.feature.group" version="5.0.2.201610060831"/>
-      <unit id="org.eclipse.sirius.runtime.feature.group" version="4.1.3.201612161704"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="4.1.3.201612161704"/>
-      <unit id="fr.obeo.dsl.designer.gen.html.feature.feature.group" version="9.1.1.201612191538"/>
+      <unit id="org.eclipse.sirius.runtime.feature.group" version="4.1.3.201701031601"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="4.1.3.201701031601"/>
+      <unit id="fr.obeo.dsl.designer.gen.html.feature.feature.group" version="9.1.1.201701051013"/>
       <unit id="org.eclipse.emf.eef.runtime-feature.feature.group" version="1.5.1.201601141612"/>
       <unit id="org.eclipse.gmf.feature.group" version="1.10.0.201606071959"/>
       <unit id="org.eclipse.draw2d.feature.group" version="3.10.100.201606061308"/>
       <unit id="org.eclipse.gef.feature.group" version="3.11.0.201606061308"/>
       <unit id="org.eclipse.gmf.runtime.notation.feature.group" version="1.10.0.201606071631"/>
-      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="4.1.3.201612161704"/>
-      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="4.1.3.201612161704"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="4.1.3.201612161704"/>
+      <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="4.1.3.201701031601"/>
+      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="4.1.3.201701031601"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="4.1.3.201701031601"/>
       <unit id="org.eclipse.emf.eef.edt-feature.feature.group" version="1.5.1.201601141612"/>
       <unit id="org.eclipse.emf.eef.extended-feature.feature.group" version="1.5.1.201601141612"/>
-      <unit id="org.eclipse.sdk.feature.group" version="4.6.1.v20160907-1200"/>
+      <unit id="org.eclipse.sdk.feature.group" version="4.6.2.v20161124-1529"/>
       <unit id="org.eclipse.egit.feature.group" version="4.4.1.201607150455-r"/>
       <unit id="org.eclipse.jgit.feature.group" version="4.4.1.201607150455-r"/>
       <unit id="org.apache.commons.lang" version="2.6.0.v201404270220"/>
@@ -98,23 +98,23 @@
       <unit id="org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group" version="3.13.2.v20160823-2221"/>
       <unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group" version="1.1.0.v20160823-2221"/>
       <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="1.1.0.v20160823-2221"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="4.1.3.201612161704"/>
-      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="4.1.3.201612161704"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group" version="4.1.3.201701031601"/>
+      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="4.1.3.201701031601"/>
       <unit id="org.eclipse.ocl.feature.group" version="3.6.0.v20160523-1914"/>
-      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="4.1.3.201612161704"/>
-      <unit id="org.eclipse.epp.mpc.feature.group" version="1.5.2.v20161005-1414"/>
+      <unit id="org.eclipse.sirius.specifier.ide.ui.feature.group" version="4.1.3.201701031601"/>
+      <unit id="org.eclipse.epp.mpc.feature.group" version="1.5.3.v20161116-1851"/>
       <unit id="org.eclipse.equinox.p2.discovery.feature.feature.group" version="1.0.401.v20160901-1335"/>
-      <unit id="org.eclipse.sirius.doc.feature.feature.group" version="4.1.3.201612161704"/>
-      <unit id="fr.obeo.dsl.designer.ce.feature.feature.group" version="9.1.1.201612191538"/>
+      <unit id="org.eclipse.sirius.doc.feature.feature.group" version="4.1.3.201701031601"/>
+      <unit id="fr.obeo.dsl.designer.ce.feature.feature.group" version="9.1.1.201701051013"/>
       <repository location="http://update.obeo.fr/integration/designer/9.1/team/9.1.1/repository/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.equinox.executable.feature.group" version="3.6.300.v20160525-1303"/>
+      <unit id="org.eclipse.equinox.executable.feature.group" version="3.6.300.v20161122-1740"/>
       <unit id="org.apache.commons.io" version="2.2.0.v201405211200"/>
       <unit id="org.eclipse.emf.cdo.feature.group" version="4.5.0.v20160607-1254"/>
       <unit id="org.eclipse.net4j.feature.group" version="4.5.0.v20160607-1254"/>
       <unit id="org.eclipse.ecf.core.feature.feature.group" version="1.3.0.v20160823-2221"/>
-      <unit id="org.eclipse.oomph.setup.sdk.feature.group" version="1.5.0.v20160914-0644"/>
+      <unit id="org.eclipse.oomph.setup.sdk.feature.group" version="1.6.0.v20161128-0928"/>
       <repository location="http://download.eclipse.org/releases/neon/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
