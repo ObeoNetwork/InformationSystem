@@ -13,6 +13,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.common.ui;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Bundle-Vendor: www.obeo.fr
+Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.dsl.cinematic.design.services,org.obeonetwork.dsl.cinematic.design.services.label
 Bundle-ManifestVersion: 2

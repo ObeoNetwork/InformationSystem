@@ -26,6 +26,6 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment.design.services;bundle-version="9.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Bundle-Vendor: www.obeo.fr
+Bundle-Vendor: Obeo Network
 Export-Package: org.obeonetwork.graal.design.services.actor,org.obeonetwork.graal.design.services.configuration,org.obeonetwork.graal.design.services.group,org.obeonetwork.graal.design.services.task,org.obeonetwork.graal.design.services.usability,org.obeonetwork.graal.design.services.use,org.obeonetwork.graal.design.services.usecase,org.obeonetwork.graal.design.services.util,org.obeonetwork.graal.design.ui.eef
 Bundle-ManifestVersion: 2
