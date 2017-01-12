@@ -85,7 +85,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__TECHNICALID = EnvironmentPackage.TYPES_DEFINITION__TECHNICALID;
+	int SYSTEM__TECHNICALID = EnvironmentPackage.NAMESPACE__TECHNICALID;
 
 	/**
 	 * The feature id for the '<em><b>Metadatas</b></em>' containment reference.
@@ -94,7 +94,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__METADATAS = EnvironmentPackage.TYPES_DEFINITION__METADATAS;
+	int SYSTEM__METADATAS = EnvironmentPackage.NAMESPACE__METADATAS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -103,7 +103,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__DESCRIPTION = EnvironmentPackage.TYPES_DEFINITION__DESCRIPTION;
+	int SYSTEM__DESCRIPTION = EnvironmentPackage.NAMESPACE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
@@ -112,7 +112,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__KEYWORDS = EnvironmentPackage.TYPES_DEFINITION__KEYWORDS;
+	int SYSTEM__KEYWORDS = EnvironmentPackage.NAMESPACE__KEYWORDS;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -121,7 +121,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__BEHAVIOURS = EnvironmentPackage.TYPES_DEFINITION__BEHAVIOURS;
+	int SYSTEM__BEHAVIOURS = EnvironmentPackage.NAMESPACE__BEHAVIOURS;
 
 	/**
 	 * The feature id for the '<em><b>Binding Registries</b></em>' reference list.
@@ -130,7 +130,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__BINDING_REGISTRIES = EnvironmentPackage.TYPES_DEFINITION__BINDING_REGISTRIES;
+	int SYSTEM__BINDING_REGISTRIES = EnvironmentPackage.NAMESPACE__BINDING_REGISTRIES;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -139,7 +139,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__VERSION = EnvironmentPackage.TYPES_DEFINITION__VERSION;
+	int SYSTEM__VERSION = EnvironmentPackage.NAMESPACE__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Created On</b></em>' attribute.
@@ -148,7 +148,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__CREATED_ON = EnvironmentPackage.TYPES_DEFINITION__CREATED_ON;
+	int SYSTEM__CREATED_ON = EnvironmentPackage.NAMESPACE__CREATED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Modified On</b></em>' attribute.
@@ -157,7 +157,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__MODIFIED_ON = EnvironmentPackage.TYPES_DEFINITION__MODIFIED_ON;
+	int SYSTEM__MODIFIED_ON = EnvironmentPackage.NAMESPACE__MODIFIED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -166,7 +166,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__TYPES = EnvironmentPackage.TYPES_DEFINITION__TYPES;
+	int SYSTEM__TYPES = EnvironmentPackage.NAMESPACE__TYPES;
 
 	/**
 	 * The feature id for the '<em><b>Owned Namespaces</b></em>' containment reference list.
@@ -175,7 +175,16 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_NAMESPACES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 0;
+	int SYSTEM__OWNED_NAMESPACES = EnvironmentPackage.NAMESPACE__OWNED_NAMESPACES;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__OWNER = EnvironmentPackage.NAMESPACE__OWNER;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -184,7 +193,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__NAME = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 1;
+	int SYSTEM__NAME = EnvironmentPackage.NAMESPACE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Owned Components</b></em>' containment reference list.
@@ -193,7 +202,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_COMPONENTS = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 2;
+	int SYSTEM__OWNED_COMPONENTS = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Owned Wires</b></em>' containment reference list.
@@ -202,7 +211,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__OWNED_WIRES = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 3;
+	int SYSTEM__OWNED_WIRES = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>System</em>' class.
@@ -211,7 +220,7 @@ public interface SoaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = EnvironmentPackage.TYPES_DEFINITION_FEATURE_COUNT + 4;
+	int SYSTEM_FEATURE_COUNT = EnvironmentPackage.NAMESPACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.obeonetwork.dsl.soa.impl.ComponentImpl <em>Component</em>}' class.
@@ -1352,17 +1361,6 @@ public interface SoaPackage extends EPackage {
 	EClass getSystem();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.obeonetwork.dsl.soa.System#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.obeonetwork.dsl.soa.System#getName()
-	 * @see #getSystem()
-	 * @generated
-	 */
-	EAttribute getSystem_Name();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.obeonetwork.dsl.soa.System#getOwnedComponents <em>Owned Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1876,14 +1874,6 @@ public interface SoaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SYSTEM = eINSTANCE.getSystem();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYSTEM__NAME = eINSTANCE.getSystem_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Owned Components</b></em>' containment reference list feature.
