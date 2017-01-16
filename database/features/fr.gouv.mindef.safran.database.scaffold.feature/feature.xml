@@ -9,24 +9,17 @@
     Contributors:
         Obeo - initial API and implementation
  -->
-
 <feature
       id="fr.gouv.mindef.safran.database.scaffold.feature"
       label="Scaffold Model Feature"
       version="1.0.0.qualifier"
-      provider-name="Obeo Network">
+      provider-name="Obeo Network"
+      license-feature="org.obeonetwork.is.license"
+      license-feature-version="1.0.0.qualifier">
 
    <description>
       Obeonetwork - Scaffold traceability model
    </description>
-
-   <copyright url="http://www.obeo.fr">
-      Copyright (c) 2012, 2017 Obeo
-   </copyright>
-
-   <license url="%licenseURL">
-      %license
-   </license>
 
    <plugin
          id="fr.gouv.mindef.safran.database.scaffold"

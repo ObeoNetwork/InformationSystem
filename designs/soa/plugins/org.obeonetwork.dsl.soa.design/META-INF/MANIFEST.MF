@@ -19,3 +19,4 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ManifestVersion: 2
 Export-Package: org.obeonetwork.dsl.soa.design,
  org.obeonetwork.dsl.soa.design.services
+Bundle-Vendor: Obeo Network

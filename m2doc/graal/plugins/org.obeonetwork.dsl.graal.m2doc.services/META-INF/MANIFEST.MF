@@ -7,3 +7,4 @@ Bundle-Activator: org.obeonetwork.dsl.graal.m2doc.services.Activator
 Require-Bundle: org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Obeo Network

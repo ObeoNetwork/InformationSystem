@@ -290,7 +290,14 @@
 		<module>../../../database/plugins/fr.gouv.mindef.safran.database</module>
 		<module>../../../database/plugins/fr.gouv.mindef.safran.database.doc</module>
 		<module>../../../database/plugins/fr.gouv.mindef.safran.database.ui</module>
-		<module>../../../database/plugins/fr.gouv.mindef.safran.database.tests</module>		
+		<module>../../../database/plugins/fr.gouv.mindef.safran.database.tests</module>	
+		
+		<!-- 
+		*********************************************************************************************
+		* License
+		*********************************************************************************************
+		-->
+		<module>../../org.obeonetwork.is.license</module>	
 
 	</modules>
 </project>

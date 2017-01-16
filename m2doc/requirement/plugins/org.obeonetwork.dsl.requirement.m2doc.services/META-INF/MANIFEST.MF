@@ -12,3 +12,4 @@ Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.ecore,
  org.obeonetwork.dsl.requirement
 Export-Package: org.obeonetwork.requirement.m2doc.services
+Bundle-Vendor: Obeo Network

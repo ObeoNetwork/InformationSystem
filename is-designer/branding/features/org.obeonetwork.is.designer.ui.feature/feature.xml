@@ -13,7 +13,9 @@
       id="org.obeonetwork.is.designer.ui.feature"
       label="IS Designer UI Contributions Feature"
       version="1.0.0.qualifier"
-      provider-name="%providerName">
+      provider-name="%providerName"
+      license-feature="org.obeonetwork.is.license"
+      license-feature-version="1.0.0.qualifier">
 
    <description url="http://www.obeo.fr">
       Information Designer UI
@@ -23,9 +25,6 @@
       Copyright (c) 2010 Obeo
    </copyright>
 
-   <license url="%licenseURL">
-      %license
-   </license>
 
    <plugin
          id="org.obeonetwork.is.designer.ui"
