@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.cinematic"
+            id="fr.gouv.mindef.safran.cinematic.gen.html.ui.popupMenus.contribution.IFile">
+         <action
+               class="fr.gouv.mindef.safran.cinematic.gen.html.ui.popupMenus.AcceleoGenerateHtmlAction"
+               enablesFor="+"
+               id="fr.gouv.mindef.safran.cinematic.gen.html.ui.popupMenus.acceleoGenerateHtmlAction"
+               label="Generate Html"
+               menubarPath="fr.gouv.mindef.safran.menu/additions"/>
+      </objectContribution>
+   </extension>
+</plugin>

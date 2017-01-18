@@ -1,0 +1,55 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module htmlActionStateFile.
+ */]
+[module htmlActionStateFile('http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+
+[import fr::gouv::mindef::safran::cinematic::gen::html::common::common /]
+[import fr::gouv::mindef::safran::cinematic::gen::html::services::cinematicServices /]
+
+[**
+ * The documentation of the template genHtmlActionStateFile.
+ * @param aActionState
+ */]
+[template public genHtmlActionStateFile(aActionState : ActionState)]
+[file (aActionState.genFullQualifiedFileName(), false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[aActionState.name/]</title>
+</head>
+<!-- This Script is from www.htmlfreecodes.com, Coded by: Krishna Eydat-->
+<center>
+<font face="Arial"><b>Simulation de l'action [aActionState.name/]<br><br>
+<form>
+<input type="text" size="3" id="timer" name="redirect2" value="3">
+</form>secondes</b></font>
+</center>
+
+<script>
+<!--
+
+var targetURL="[aActionState.getRootContainerPath()/][aActionState.getNextStates(null)->asOrderedSet()->first().genFullQualifiedFileName()/]"
+
+var currentsecond=3;
+function countredirect(){
+if (currentsecond!=1){
+currentsecond-=1
+document.getElementById('timer').value=currentsecond;
+}
+else{
+window.location=targetURL;
+return
+}
+setTimeout("countredirect()",1000)
+}
+
+countredirect();
+//-->
+</script>
+</body>
+</html>
+[/file]
+[/template]
+
