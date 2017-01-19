@@ -37,7 +37,7 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 		if ("ServiceDTO".equals(name)) {
 			return EnvironmentPackage.Literals.DTO;
 		}
-		if ("Cateogry".equals(name)) {
+		if ("Category".equals(name)) {
 			return EnvironmentPackage.Literals.NAMESPACE;
 		}
 		return null;
@@ -46,13 +46,7 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 	@Override
 	public EObject createObject(EFactory eFactory, EClassifier type, MigrationXMLHelper parentHelper) {
 		if (type == EnvironmentPackage.Literals.REFERENCE) {
-			// In old Environment metamodel, Reference.navigable was false by default
-			// In new Environment metamodel, Reference.navigable is true by default
-			EObject createdObject = parentHelper.originalCreateObject(eFactory, type);
-			if (createdObject instanceof Reference) {
-				((Reference)createdObject).setNavigable(false);
-			}
-			return createdObject;
+			return parentHelper.originalCreateObject(eFactory, type);
 		}
 		if (type == EnvironmentPackage.Literals.DTO) {
 			return parentHelper.originalCreateObject(EnvironmentFactory.eINSTANCE, type);
