@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package fr.gouv.mindef.safran.project.lifecycle;
 
 import java.io.IOException;
@@ -10,14 +20,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.emf.cdo.eresource.CDOResource;
-import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -32,11 +39,9 @@ import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.business.api.session.ViewpointSelector;
-import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
-import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.OpenRepresentationsFileJob;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationContainer;
 import org.eclipse.sirius.viewpoint.DView;
@@ -50,10 +55,6 @@ import org.obeonetwork.graal.GraalPackage;
 
 import com.google.common.base.Joiner;
 
-import fr.obeo.dsl.viewpoint.collab.api.RepositoryConnectionException;
-import fr.obeo.dsl.viewpoint.collab.api.remotesession.CollaborativeSession;
-
-@SuppressWarnings("restriction")
 public class BusinessProjectImporter {
 	
 	private static final List<EClass> ROOT_ECLASSES = Arrays.asList(
@@ -69,7 +70,6 @@ public class BusinessProjectImporter {
 	private Session sourceSession;
 	private Session targetSession;
 	private ImportData importData = null;
-	private boolean isRemoteTargetSession;
 
 	public BusinessProjectImporter(ModelingProject sourceProject, ModelingProject targetProject) {
 		super();
@@ -77,37 +77,19 @@ public class BusinessProjectImporter {
 		this.targetProject = targetProject;
 	}
 	
-	private void initializeImportData() {
-		sourceSession = getSession(sourceProject);
-		targetSession = getSession(targetProject);
-		
-		isRemoteTargetSession = ImporterUtil.isRemoteSession(targetSession);
+	protected void initializeImportData() {
+		sourceSession = ImporterUtil.getSession(getSourceProject());
+		targetSession = ImporterUtil.getSession(getTargetProject());
 		
 		// Initialize import data
 		importData = new ImportData(sourceSession, ROOT_ECLASSES);
-	}
-	
-	private Session getSession(ModelingProject project) {
-		Session session = project.getSession();
-		if (session == null) {
-			final Option<URI> optionalMainSessionFileURI = project.getMainRepresentationsFileURI(new NullProgressMonitor(), false, false);
-			if (optionalMainSessionFileURI.some()) {
-				URI representationsFileURI = optionalMainSessionFileURI.get();
-				OpenRepresentationsFileJob job = new OpenRepresentationsFileJob(representationsFileURI);
-				Set<Session> sessions = job.performOpenSession(representationsFileURI, new NullProgressMonitor());
-				if (!sessions.isEmpty()) {
-					return sessions.iterator().next();
-				}
-			}
-		}
-		return session;
 	}
 	
 	private void saveAndCloseEditorsOnTargetProject(IProgressMonitor parentMonitor) throws CoreException {
 		SubMonitor monitor = SubMonitor.convert(parentMonitor, 3);
 		if (shouldSaveAndCloseEditorsOnTargetProject()) {
 			// Save session if needed
-			Session session = getSession(targetProject);
+			Session session = ImporterUtil.getSession(getTargetProject());
 			if (session.getStatus().equals(SessionStatus.DIRTY)) {
 				session.save(monitor.newChild(1));
 			}
@@ -175,7 +157,7 @@ public class BusinessProjectImporter {
 	}
 	
 	public boolean shouldSaveAndCloseEditorsOnTargetProject() {
-		Session session = targetProject.getSession();
+		Session session = getTargetProject().getSession();
 		if (session == null) {
 			return false;
 		}
@@ -319,26 +301,7 @@ public class BusinessProjectImporter {
 		return null;
 	}
 
-	private void addToSemanticResource(final EObject copyObject, final String targetPath) {
-		if (isRemoteTargetSession) {
-			addToRemoteSemanticResource(copyObject, targetPath);
-		} else {
-			addToLocalSemanticResource(copyObject, targetPath);
-		}
-	}
-	
-	private void addToRemoteSemanticResource(final EObject copyObject, final String targetPath) {
-		CDOTransaction transaction = getTransactionOnSession(targetSession);
-		if (transaction != null) {
-			CDOResource targetResource = transaction.getOrCreateResource(targetPath);
-			targetResource.getContents().add(copyObject);
-			if (!existsTargetSemanticResource(targetResource.getURI())) {
-				addToSemanticResources(targetSession, targetResource.getURI(), new NullProgressMonitor());
-			}
-		}
-	}
-	
-	private void addToLocalSemanticResource(final EObject copyObject, final String targetPath) {
+	protected void addToSemanticResource(final EObject copyObject, final String targetPath) {
 		final URI targetURI = URI.createPlatformResourceURI(targetPath, true);
 		boolean resourceExists = existsTargetSemanticResource(targetURI);
 		ResourceSet resourceSet = targetSession.getTransactionalEditingDomain().getResourceSet();
@@ -356,16 +319,6 @@ public class BusinessProjectImporter {
 		if (!resourceExists) {
 			addToSemanticResources(targetSession, targetURI, new NullProgressMonitor());
 		}
-	}
-	
-	private CDOTransaction getTransactionOnSession(Session session) {
-		CDOTransaction transaction = null;
-		try {
-			transaction = ((CollaborativeSession)targetSession).getRepositoryManager().getOrCreateTransaction(targetSession);
-		} catch (RepositoryConnectionException e) {
-			return null;
-		}
-		return transaction;
 	}
 	
 	private Resource addToSemanticResources(Session session, URI uri, IProgressMonitor monitor) {
@@ -412,21 +365,11 @@ public class BusinessProjectImporter {
 		return segments;
 	}
 	
-	private String getTargetProjectName() {
-		if (isRemoteTargetSession) {
-			for (Resource referencedSessionResource : targetSession.getReferencedSessionResources()) {
-				if (referencedSessionResource instanceof CDOResource) {
-					return referencedSessionResource.getURI().segment(0);
-				}
-			}
-			return null;
-		} else {
-			return targetProject.getProject().getName();
-		}
+	protected String getTargetProjectName() {
+		return getTargetProject().getProject().getName();
 	}
 
-
-	private boolean existsTargetSemanticResource(final URI targetURI) {
+	protected boolean existsTargetSemanticResource(final URI targetURI) {
 		for (Resource semanticResource : targetSession.getSemanticResources()) {
 			if (targetURI.equals(semanticResource.getURI())) {
 				return true;
@@ -489,15 +432,7 @@ public class BusinessProjectImporter {
 		return result;
 	}
 	
-	private Resource getTargetResource(String targetResourcePath) {
-		if (isRemoteTargetSession) {
-			return getTargetRemoteResource(targetResourcePath);
-		} else {
-			return getTargetLocalResource(targetResourcePath);
-		}
-	}
-	
-	private Resource getTargetLocalResource(String targetResourcePath) {
+	protected Resource getTargetResource(String targetResourcePath) {
 		URI targetURI = URI.createPlatformResourceURI(targetResourcePath, true);
 		for (Resource semanticResource : targetSession.getSemanticResources()) {
 			if (targetURI.equals(semanticResource.getURI())) {
@@ -506,19 +441,21 @@ public class BusinessProjectImporter {
 		}
 		return null;
 	}
-	
-	private CDOResource getTargetRemoteResource(String targetResourcePath) {
-		CDOResource targetResource = null;
-		
-		CDOTransaction transaction = getTransactionOnSession(targetSession);
-		if (transaction != null && transaction.hasResource(targetResourcePath)) {
-			try {
-				targetResource = transaction.getResource(targetResourcePath);
-			} catch (Exception e) {
-				// unable to get resource, it probably doesn't exist
-			}
-		}
-		return targetResource;
+
+	public ModelingProject getSourceProject() {
+		return sourceProject;
+	}
+
+	public ModelingProject getTargetProject() {
+		return targetProject;
+	}
+
+	public Session getSourceSession() {
+		return sourceSession;
+	}
+
+	public Session getTargetSession() {
+		return targetSession;
 	}
 	
 }

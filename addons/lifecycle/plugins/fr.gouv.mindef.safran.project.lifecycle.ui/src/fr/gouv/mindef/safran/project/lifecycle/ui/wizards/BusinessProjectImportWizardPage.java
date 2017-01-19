@@ -41,6 +41,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 
 import fr.gouv.mindef.safran.project.lifecycle.BusinessProjectImporter;
+import fr.gouv.mindef.safran.project.lifecycle.BusinessProjectImporterFactory;
 import fr.gouv.mindef.safran.project.lifecycle.ReferenceData;
 import fr.gouv.mindef.safran.project.lifecycle.ui.Activator;
 import fr.gouv.mindef.safran.project.lifecycle.ui.dialogs.ReferencingElementsDialog;
@@ -74,8 +75,8 @@ public class BusinessProjectImportWizardPage extends WizardPage {
 		
 		final ModelingProject sourceModelingProject = ModelingProject.asModelingProject(sourceProject).get();
 		final ModelingProject targetModelingProject = ModelingProject.asModelingProject(targetProject).get();
-		final BusinessProjectImporter importer = new BusinessProjectImporter(sourceModelingProject, targetModelingProject);
-		
+		final BusinessProjectImporter importer = BusinessProjectImporterFactory.getBusinessProjectImporter(sourceModelingProject, targetModelingProject);
+
 		try {
 			getContainer().run(false, false, new IRunnableWithProgress() {
 				@Override

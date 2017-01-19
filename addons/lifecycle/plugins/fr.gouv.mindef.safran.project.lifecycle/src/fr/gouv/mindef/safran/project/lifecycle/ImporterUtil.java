@@ -1,23 +1,53 @@
+/*******************************************************************************
+ * Copyright (c) 2016-2017 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package fr.gouv.mindef.safran.project.lifecycle;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
+import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.OpenRepresentationsFileJob;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 
-import fr.obeo.dsl.viewpoint.collab.api.RepositoryConnectionException;
-import fr.obeo.dsl.viewpoint.collab.api.remotesession.CollaborativeSession;
-
+@SuppressWarnings("restriction")
 public class ImporterUtil {
+	
+	public static Session getSession(ModelingProject project) {
+		Session session = project.getSession();
+		if (session == null) {
+			final Option<URI> optionalMainSessionFileURI = project.getMainRepresentationsFileURI(new NullProgressMonitor(), false, false);
+			if (optionalMainSessionFileURI.some()) {
+				URI representationsFileURI = optionalMainSessionFileURI.get();
+				OpenRepresentationsFileJob job = new OpenRepresentationsFileJob(representationsFileURI);
+				Set<Session> sessions = job.performOpenSession(representationsFileURI, new NullProgressMonitor());
+				if (!sessions.isEmpty()) {
+					return sessions.iterator().next();
+				}
+			}
+		}
+		return session;
+	}
 	
 	public static boolean isOfAnyClass(EObject object, Collection<EClass> eClasses) {
 		for (EClass eClass : eClasses) {
@@ -36,17 +66,6 @@ public class ImporterUtil {
 			representations.addAll(DialectManager.INSTANCE.getRepresentations(semanticElement, session));
 		}
 		return representations;
-	}
-	
-	public static boolean isRemoteSession(Session session) {
-		if (session instanceof CollaborativeSession) {
-			try {
-				return ((CollaborativeSession) session).getRepositoryManager() != null;
-			} catch (RepositoryConnectionException e) {
-				return false;
-			}
-		}
-		return false;
 	}
 	
 	public static Collection<ReferenceData> getReferencingElements(Collection<EObject> elements, Session session) {
