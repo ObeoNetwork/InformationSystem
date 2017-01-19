@@ -46,7 +46,13 @@ public class SoaMigrationHelper extends BasicMigrationHelper {
 	@Override
 	public EObject createObject(EFactory eFactory, EClassifier type, MigrationXMLHelper parentHelper) {
 		if (type == EnvironmentPackage.Literals.REFERENCE) {
-			return parentHelper.originalCreateObject(eFactory, type);
+			// In old Environment metamodel, Reference.navigable was false by default
+			// In new Environment metamodel, Reference.navigable is true by default
+			EObject createdObject = parentHelper.originalCreateObject(eFactory, type);
+			if (createdObject instanceof Reference) {
+				((Reference)createdObject).setNavigable(false);
+			}
+			return createdObject;
 		}
 		if (type == EnvironmentPackage.Literals.DTO) {
 			return parentHelper.originalCreateObject(EnvironmentFactory.eINSTANCE, type);
