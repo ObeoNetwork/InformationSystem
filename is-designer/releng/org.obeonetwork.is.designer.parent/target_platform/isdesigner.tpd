@@ -40,6 +40,10 @@ location "http://update.obeo.fr/integration/informationsystem/5.0/design/reposit
 	org.obeonetwork.dsl.graal.m2doc.feature.feature.group lazy
 	fr.gouv.mindef.safran.database.scaffold.feature.feature.group lazy
 	fr.gouv.mindef.safran.database.ui.feature.feature.group lazy
+	fr.gouv.mindef.safran.graal.extensions.feature.feature.group lazy
+	fr.gouv.mindef.safran.feature.is.feature.group lazy
+	fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group lazy
+	fr.gouv.mindef.safran.project.lifecycle.feature.feature.group lazy
 }
 
 location "http://update.obeo.fr/release/designer/8.1/community/latest/repository/" {
