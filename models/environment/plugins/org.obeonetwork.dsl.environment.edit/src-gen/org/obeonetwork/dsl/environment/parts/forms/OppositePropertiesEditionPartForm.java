@@ -797,8 +797,13 @@ public class OppositePropertiesEditionPartForm extends SectionPropertiesEditingP
 		if (current != null) {
 			oppositeOf.setSelection(new StructuredSelection(settings.getValue()));
 		}
-		oppositeOf.setEnabled(false);
-		oppositeOf.setToolTipText(EnvironmentMessages.Opposite_ReadOnly);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Opposite.Properties.oppositeOf, ((ReferenceOppositePropertiesEditionComponent) propertiesEditionComponent).getOppositeOppositeOfSettings().getOrCreateSignificantObject());
+		if (eefElementEditorReadOnlyState && oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(false);
+			oppositeOf.setToolTipText(EnvironmentMessages.Opposite_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(true);
+		}	
 		
 	}
 
@@ -814,8 +819,13 @@ public class OppositePropertiesEditionPartForm extends SectionPropertiesEditingP
 		} else {
 			oppositeOf.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
-		oppositeOf.setEnabled(false);
-		oppositeOf.setToolTipText(EnvironmentMessages.Opposite_ReadOnly);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Opposite.Properties.oppositeOf, ((ReferenceOppositePropertiesEditionComponent) propertiesEditionComponent).getOppositeOppositeOfSettings().getOrCreateSignificantObject());
+		if (eefElementEditorReadOnlyState && oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(false);
+			oppositeOf.setToolTipText(EnvironmentMessages.Opposite_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(true);
+		}	
 		
 	}
 

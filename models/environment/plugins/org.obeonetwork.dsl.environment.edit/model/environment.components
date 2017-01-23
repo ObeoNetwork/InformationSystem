@@ -438,7 +438,7 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_agQLUFrDEeSp8I2rNbfleQ" name="identifier">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM5mhCEeWzJNeOb-C5fg" name="oppositeOf" readOnly="true">
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM5mhCEeWzJNeOb-C5fg" name="oppositeOf">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_Z4_4CHCzEeCNPbrYssPTmA" name="description">
@@ -467,7 +467,7 @@
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM52hCEeWzJNeOb-C5fg" name="identifier">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
           </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_D46QgGhNEeW4asV9UXiN2g" name="oppositeOf" readOnly="true">
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_D46QgGhNEeW4asV9UXiN2g" name="oppositeOf">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM6GhCEeWzJNeOb-C5fg" name="description">

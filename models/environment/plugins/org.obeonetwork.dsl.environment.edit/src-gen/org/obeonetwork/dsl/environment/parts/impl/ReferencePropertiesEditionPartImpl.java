@@ -707,8 +707,13 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		if (current != null) {
 			oppositeOf.setSelection(new StructuredSelection(settings.getValue()));
 		}
-		oppositeOf.setEnabled(false);
-		oppositeOf.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.oppositeOf);
+		if (eefElementEditorReadOnlyState && oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(false);
+			oppositeOf.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(true);
+		}	
 		
 	}
 
@@ -724,8 +729,13 @@ public class ReferencePropertiesEditionPartImpl extends CompositePropertiesEditi
 		} else {
 			oppositeOf.setSelection(new StructuredSelection()); //$NON-NLS-1$
 		}
-		oppositeOf.setEnabled(false);
-		oppositeOf.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
+		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Reference.Properties.oppositeOf);
+		if (eefElementEditorReadOnlyState && oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(false);
+			oppositeOf.setToolTipText(EnvironmentMessages.Reference_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !oppositeOf.isEnabled()) {
+			oppositeOf.setEnabled(true);
+		}	
 		
 	}
 

@@ -272,6 +272,9 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 		if (EnvironmentViewsRepository.Opposite.Properties.description == event.getAffectedEditor()) {
 			oppositeDescriptionSettings.setValue((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
+		if (EnvironmentViewsRepository.Opposite.Properties.oppositeOf == event.getAffectedEditor()) {
+			// FIXME INVALID CASE you must override the template 'declareEObjectUpdater' for the case : oppositeOppositeOf, Opposite, reference.
+		}
 	}
 
 	/**

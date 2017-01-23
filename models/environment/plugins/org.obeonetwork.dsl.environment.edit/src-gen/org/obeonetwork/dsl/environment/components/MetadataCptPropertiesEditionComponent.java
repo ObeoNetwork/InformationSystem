@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.WrappedException;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -18,6 +19,7 @@ import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
+import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext.InstanciableTypeFilter;
 import org.eclipse.emf.eef.runtime.context.impl.TypedEReferencePropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
@@ -146,17 +148,12 @@ public class MetadataCptPropertiesEditionComponent extends SinglePartPropertiesE
 		ObeoDSMObject obeoDSMObject = (ObeoDSMObject)semanticObject;
 		if (EnvironmentViewsRepository.Metadatas.Properties.metadata == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
-				EReferencePropertiesEditionContext context = new TypedEReferencePropertiesEditingContext(editingContext, this, metadataSettings, EnvironmentPackage.Literals.ANNOTATION, editingContext.getAdapterFactory());
-				/*
-				 * Generated code below, but it leads to NPE when clickong on the add button
-				 * 
 				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, metadataSettings, editingContext.getAdapterFactory());
 				context.addInstanciableTypeFilter(new InstanciableTypeFilter() {
 					public boolean select(EClass instanciableType) {
 						return EnvironmentPackage.Literals.ANNOTATION == instanciableType;
 					}
 				});
-				*/
 				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(semanticObject, PropertiesEditingProvider.class);
 				if (provider != null) {
 					PropertiesEditingPolicy policy = provider.getPolicy(context);
