@@ -8,4 +8,15 @@
             primary="true">
       </toc>
    </extension>
+   <extension
+         point="org.obeonetwork.m2doc.services.register">
+      <service
+            serviceClass="org.obeonetwork.dsl.graal.m2doc.services.DomainClassServiceHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.dsl.graal.m2doc.services.UseCaseServicesHolder"
+            serviceToken="default">
+      </service>
+   </extension>
 </plugin>
