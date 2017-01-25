@@ -10,7 +10,9 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.environment.design.services;
 
+import org.eclipse.emf.ecore.EObject;
 import org.obeonetwork.dsl.environment.Attribute;
+import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.StructuredType;
@@ -23,8 +25,11 @@ public class EnvironmentLabelServices extends EnvironmentSwitch<String> {
 	}
 	
 	public String getEnvironmentQualifiedName(ObeoDSMObject object) {
-		if (object.eContainer() instanceof Namespace) {
-			return getEnvironmentQualifiedName((Namespace)object.eContainer()) + ":" + getEnvironmentLabel(object);
+		// We previously used "instanceof Namespace" but since soa.System now inherits from Namespace
+		// we have to consider pure Namespace instances only 
+		EObject eContainer = object.eContainer();
+		if (eContainer != null && EnvironmentPackage.Literals.NAMESPACE.equals(eContainer.eClass())) {
+			return getEnvironmentQualifiedName((Namespace)eContainer) + ":" + getEnvironmentLabel(object);
 		} else {
 			return getEnvironmentLabel(object);
 		}
@@ -32,7 +37,8 @@ public class EnvironmentLabelServices extends EnvironmentSwitch<String> {
 	
 	@Override
 	public String caseNamespace(Namespace object) {
-		return object.getName();
+		String name = object.getName();
+		return name != null ? name : "";
 	}
 	
 
