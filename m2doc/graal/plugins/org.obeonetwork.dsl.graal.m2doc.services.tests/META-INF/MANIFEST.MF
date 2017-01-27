@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: M2Doc Graal Services Tests
+Bundle-SymbolicName: org.obeonetwork.dsl.graal.m2doc.services.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Obeo
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.obeonetwork.dsl.graal.m2doc.services,
+ org.junit,
+ org.eclipse.emf.ecore,
+ org.obeonetwork.graal,
+ org.obeonetwork.tools.migration,
+ org.obeonetwork.dsl.soa,
+ org.obeonetwork.dsl.entity

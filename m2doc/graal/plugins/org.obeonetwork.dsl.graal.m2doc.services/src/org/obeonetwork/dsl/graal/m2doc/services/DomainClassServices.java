@@ -2,29 +2,32 @@ package org.obeonetwork.dsl.graal.m2doc.services;
 
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.MetaData;
+import org.obeonetwork.dsl.environment.MetaDataContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 
 public class DomainClassServices {
 
 	/**
-	 * m:attr.metadatas.metadatas->filter(environment::Annotation)->select(a|a.
-	 * title='PHYSICAL_SIZE')->asSequence().body->sep(' ')
+	 * Return first annotation with the specified title
 	 */
-	String annotation(ObeoDSMObject object, String title) {
+	public String annotation(ObeoDSMObject object, String title) {
 		if (title == null) {
 			return "";
 		}
-		for (MetaData data : object.getMetadatas().getMetadatas()) {
-			if (data instanceof Annotation) {
-				Annotation annotation = (Annotation) data;
-				if (title.equals(annotation.getTitle())) {
-					String result = annotation.getBody();
-					if (result == null) {
-						result = "";
+		MetaDataContainer metadataContainer = object.getMetadatas();
+		if (metadataContainer != null) {
+			for (MetaData data : metadataContainer.getMetadatas()) {
+				if (data instanceof Annotation) {
+					Annotation annotation = (Annotation) data;
+					if (title.equals(annotation.getTitle())) {
+						String result = annotation.getBody();
+						if (result == null) {
+							result = "";
+						}
+						return result;
 					}
-					return result;
 				}
-			}
+			}			
 		}
 		return "";
 	}
