@@ -38,7 +38,7 @@ public class DatabaseServicesTest extends AbstractTest {
 
 	@Test
 	public void sequencesTest() {
-		List<Sequence> sequences = new DataBaseServices().sequences(dataBase);
+		List<Sequence> sequences = new DataBaseServices().localSequences(dataBase);
 		assertEquals(8, sequences.size());
 	}
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graal:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graal="http://www.obeonetwork.org/dsl/graal/2.0.0" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_8eyp4OMbEeaArOT-XMBQaQ" technicalid="_8eyC0OMbEeaArOT-XMBQaQ" createdOn="2017-01-25T17:33:04.381+0100" modifiedOn="2017-01-27T00:06:31.922+0100" name="EmptyAnnotation">
+  <ownedNamespaces xmi:id="__nAYAOMbEeaArOT-XMBQaQ" technicalid="_9uzgQ-MbEeaArOT-XMBQaQ" createdOn="2017-01-25T17:33:25.376+0100" modifiedOn="2017-01-27T00:02:52.921+0100" name="ns2">
+    <types xsi:type="graal:DomainClass" xmi:id="_HvkakOMcEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T00:01:18.158+0100" name="DomainClass4"/>
+    <types xsi:type="graal:DomainClass" xmi:id="_SfYKVOQbEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T00:01:08.092+0100" name="DomainClass2">
+      <metadatas xmi:id="_SfYKVeQbEeaArOT-XMBQaQ" technicalid="_4DCTYOPjEeaArOT-XMBQaQ">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_SfYKVuQbEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN1" body="annotation 1"/>
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_SfYKV-QbEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN2" body="annotation 2"/>
+      </metadatas>
+    </types>
+    <types xsi:type="graal:DomainClass" xmi:id="_XniW8OQbEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T00:01:31.100+0100" name="DomainClass1">
+      <metadatas xmi:id="_XniW8eQbEeaArOT-XMBQaQ" technicalid="_4DCTYOPjEeaArOT-XMBQaQ">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_XniW8uQbEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN1" body="annotation 1"/>
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_XniW8-QbEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN2" body="annotation 2"/>
+      </metadatas>
+    </types>
+  </ownedNamespaces>
+  <ownedNamespaces xmi:id="_hE0JsOQbEeaArOT-XMBQaQ" technicalid="_9uzgQ-MbEeaArOT-XMBQaQ" createdOn="2017-01-25T17:33:25.376+0100" modifiedOn="2017-01-27T00:06:31.922+0100" name="ns1">
+    <types xsi:type="graal:DomainClass" xmi:id="_hE0JtuQbEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T00:01:25.215+0100" name="DomainClass3">
+      <metadatas xmi:id="_hE0Jt-QbEeaArOT-XMBQaQ" technicalid="_4DCTYOPjEeaArOT-XMBQaQ">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_hE0JuOQbEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN1" body="annotation 1"/>
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_hE0JueQbEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN2" body="annotation 2"/>
+      </metadatas>
+    </types>
+    <types xsi:type="graal:DomainClass" xmi:id="_hE0JuuQbEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T00:03:03.033+0100" name="DomainClass5">
+      <metadatas xmi:id="_hE0Ju-QbEeaArOT-XMBQaQ" technicalid="_4DCTYOPjEeaArOT-XMBQaQ">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_hE0JvOQbEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN1" body="annotation 1"/>
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_hE0JveQbEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN2" body="annotation 2"/>
+      </metadatas>
+    </types>
+    <ownedNamespaces xmi:id="_D94aWeQcEeaArOT-XMBQaQ" technicalid="_9uzgQ-MbEeaArOT-XMBQaQ" createdOn="2017-01-25T17:33:25.376+0100" modifiedOn="2017-01-27T00:06:37.857+0100" name="ns3">
+      <types xsi:type="graal:DomainClass" xmi:id="_D94aWuQcEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T00:06:45.241+0100" name="DomainClass7">
+        <metadatas xmi:id="_D94aW-QcEeaArOT-XMBQaQ" technicalid="_4DCTYOPjEeaArOT-XMBQaQ">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_D94aXOQcEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN1" body="annotation 1"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_D94aXeQcEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN2" body="annotation 2"/>
+        </metadatas>
+      </types>
+      <types xsi:type="graal:DomainClass" xmi:id="_D94aXuQcEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T00:06:49.812+0100" name="DomainClass6">
+        <metadatas xmi:id="_D94aX-QcEeaArOT-XMBQaQ" technicalid="_4DCTYOPjEeaArOT-XMBQaQ">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_D94aYOQcEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN1" body="annotation 1"/>
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_D94aYeQcEeaArOT-XMBQaQ" technicalid="_jpkDYOPkEeaArOT-XMBQaQ" title="ANN2" body="annotation 2"/>
+        </metadatas>
+      </types>
+    </ownedNamespaces>
+  </ownedNamespaces>
+  <useCases xmi:id="_RzswEOQbEeaArOT-XMBQaQ" technicalid="_RGsgJuQbEeaArOT-XMBQaQ" createdOn="2017-01-27T00:05:45.159+0100" modifiedOn="2017-01-27T00:41:30.661+0100">
+    <types xsi:type="graal:DomainClass" href="#_XniW8OQbEeaArOT-XMBQaQ"/>
+    <types xsi:type="oent:Entity" href="Entities.entity#_5c5VkOQgEeaArOT-XMBQaQ"/>
+    <types xsi:type="graal:DomainClass" href="#_D94aWuQcEeaArOT-XMBQaQ"/>
+  </useCases>
+</graal:System>

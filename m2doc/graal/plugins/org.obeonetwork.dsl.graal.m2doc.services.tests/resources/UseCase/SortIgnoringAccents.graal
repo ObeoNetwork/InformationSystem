@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graal:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:graal="http://www.obeonetwork.org/dsl/graal/2.0.0" xmi:id="_8eyp4OMbEeaArOT-XMBQaQ" technicalid="_8eyC0OMbEeaArOT-XMBQaQ" createdOn="2017-01-25T17:33:04.381+0100" modifiedOn="2017-01-27T10:10:13.420+0100" name="EmptyAnnotation">
+  <ownedNamespaces xmi:id="_hE0JsOQbEeaArOT-XMBQaQ" technicalid="_9uzgQ-MbEeaArOT-XMBQaQ" createdOn="2017-01-25T17:33:25.376+0100" modifiedOn="2017-01-27T10:14:17.098+0100" name="ns1">
+    <types xsi:type="graal:DomainClass" xmi:id="_hE0JtuQbEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T10:11:34.181+0100" name="bbShouldBe2"/>
+    <types xsi:type="graal:DomainClass" xmi:id="_iJf5MORwEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T10:14:15.091+0100" name="éaShouldBe3"/>
+    <types xsi:type="graal:DomainClass" xmi:id="_k3ctMeRwEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T10:11:24.291+0100" name="BaShouldBe1"/>
+    <types xsi:type="graal:DomainClass" xmi:id="_-nduoeRwEeaArOT-XMBQaQ" technicalid="_HvjzgOMcEeaArOT-XMBQaQ" createdOn="2017-01-25T17:34:19.961+0100" modifiedOn="2017-01-27T10:15:10.939+0100" name="EBShouldBe4"/>
+  </ownedNamespaces>
+  <useCases xmi:id="_RzswEOQbEeaArOT-XMBQaQ" technicalid="_RGsgJuQbEeaArOT-XMBQaQ" createdOn="2017-01-27T00:05:45.159+0100" modifiedOn="2017-01-27T10:14:38.748+0100" namespaces="_hE0JsOQbEeaArOT-XMBQaQ"/>
+</graal:System>
