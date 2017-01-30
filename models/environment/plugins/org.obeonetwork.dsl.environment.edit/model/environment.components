@@ -208,12 +208,6 @@
             <feature href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
           </navigation>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_HjhhEGhNEeW4asV9UXiN2g" name="oppositeOppositeOf" views="_D46QgGhNEeW4asV9UXiN2g">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
-          <navigation xsi:type="eef-mapping-navigation:SimpleModelNavigation" xmi:id="_J9paIGhNEeW4asV9UXiN2g">
-            <feature href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference/oppositeOf"/>
-          </navigation>
-        </properties>
         <referencedBinding xmi:id="_Q2PLgHC1EeCNPbrYssPTmA" binding="_65K3QHC0EeCNPbrYssPTmA"/>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//Reference"/>
       </bindings>
@@ -466,9 +460,6 @@
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM52hCEeWzJNeOb-C5fg" name="identifier">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_D46QgGhNEeW4asV9UXiN2g" name="oppositeOf">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZouM6GhCEeWzJNeOb-C5fg" name="description">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>

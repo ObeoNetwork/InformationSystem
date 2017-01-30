@@ -119,14 +119,6 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 	.build();
 	
 	/**
-	 * Settings for oppositeOppositeOf editor
-	 */
-	protected EEFEditorSettingsImpl oppositeOppositeOfSettings = (EEFEditorSettingsImpl) EEFEditorSettingsBuilder.create(semanticObject, EnvironmentPackage.eINSTANCE.getReference_OppositeOf())
-	.nextStep(NavigationStepBuilder.create(EnvironmentPackage.eINSTANCE.getReference_OppositeOf())
-	.index(0).build())
-	.build();
-	
-	/**
 	 * Default constructor
 	 * 
 	 */
@@ -156,7 +148,6 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 				((CompositePropertiesEditionPart) editingPart).getSettings().add(oppositeNavigableSettings);
 				((CompositePropertiesEditionPart) editingPart).getSettings().add(oppositeIdentifierSettings);
 				((CompositePropertiesEditionPart) editingPart).getSettings().add(oppositeDescriptionSettings);
-				((CompositePropertiesEditionPart) editingPart).getSettings().add(oppositeOppositeOfSettings);
 			}
 			final Reference reference = (Reference)elt;
 			final OppositePropertiesEditionPart oppositePart = (OppositePropertiesEditionPart)editingPart;
@@ -179,7 +170,6 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 			}
 			if (oppositeDescriptionSettings.getValue() != null && isAccessible(EnvironmentViewsRepository.Opposite.Properties.description))
 				oppositePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, oppositeDescriptionSettings.getValue()));
-			// FIXME NO VALID CASE INTO template public updater(editionElement : PropertiesEditionElement, view : View, pec : PropertiesEditionComponent) in widgetControl.mtl module, with the values : oppositeOppositeOf, Opposite, reference.
 			// init filters
 			
 			// FIXME NO VALID CASE INTO template public filterUpdater(editionElement : PropertiesEditionElement, view : View, pec : PropertiesEditionComponent) in widgetControl.mtl module, with the values : oppositeReferencedType, Opposite, reference.
@@ -188,7 +178,6 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 			
 			
 			
-			// FIXME NO VALID CASE INTO template public filterUpdater(editionElement : PropertiesEditionElement, view : View, pec : PropertiesEditionComponent) in widgetControl.mtl module, with the values : oppositeOppositeOf, Opposite, reference.
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -196,7 +185,6 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 		}
 		setInitializing(false);
 	}
-
 
 
 
@@ -233,9 +221,6 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 		if (event.getAffectedEditor() == EnvironmentViewsRepository.Opposite.Properties.description) {
 			return (oppositeDescriptionSettings.getValue() == null) ? (event.getNewValue() != null) : (!oppositeDescriptionSettings.getValue().equals(event.getNewValue()));
 		}
-		if (event.getAffectedEditor() == EnvironmentViewsRepository.Opposite.Properties.oppositeOf) {
-			return (oppositeOppositeOfSettings.getValue() == null) ? (event.getNewValue() != null) : (!oppositeOppositeOfSettings.getValue().equals(event.getNewValue()));
-		}
 		return super.shouldProcess(event);
 	}	
 
@@ -271,9 +256,6 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 		}
 		if (EnvironmentViewsRepository.Opposite.Properties.description == event.getAffectedEditor()) {
 			oppositeDescriptionSettings.setValue((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
-		}
-		if (EnvironmentViewsRepository.Opposite.Properties.oppositeOf == event.getAffectedEditor()) {
-			// FIXME INVALID CASE you must override the template 'declareEObjectUpdater' for the case : oppositeOppositeOf, Opposite, reference.
 		}
 	}
 
@@ -312,7 +294,6 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 					oppositePart.setDescription("");
 				}
 			}
-			// FIXME INVALID CASE INTO template public liveUpdater(editionElement : PropertiesEditionElement, view : View, pec : PropertiesEditionComponent) in widgetControl.mtl module, with the values : oppositeOppositeOf, Opposite, reference.
 			
 		}
 	}
@@ -338,8 +319,6 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 			EnvironmentPackage.eINSTANCE.getProperty_IsIdentifier()
 			,
 			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()
-			,
-			EnvironmentPackage.eINSTANCE.getReference_OppositeOf()
 					);
 		return new NotificationFilter[] {filter,};
 	}
@@ -459,12 +438,6 @@ public class ReferenceOppositePropertiesEditionComponent extends SinglePartPrope
 	 */
 	public EEFEditorSettingsImpl getOppositeDescriptionSettings() {
 			return oppositeDescriptionSettings;
-	}
-	/**
-	 * @ return settings for oppositeOppositeOf editor
-	 */
-	public EEFEditorSettingsImpl getOppositeOppositeOfSettings() {
-			return oppositeOppositeOfSettings;
 	}
 
 	

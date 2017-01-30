@@ -88,7 +88,6 @@ public class OppositePropertiesEditionPartForm extends SectionPropertiesEditingP
 	protected Button isComposite;
 	protected Button navigable;
 	protected Button identifier;
-	protected EObjectFlatComboViewer oppositeOf;
 	protected Text description;
 
 
@@ -141,7 +140,6 @@ public class OppositePropertiesEditionPartForm extends SectionPropertiesEditingP
 		propertiesStep.addStep(EnvironmentViewsRepository.Opposite.Properties.isComposite);
 		propertiesStep.addStep(EnvironmentViewsRepository.Opposite.Properties.navigable);
 		propertiesStep.addStep(EnvironmentViewsRepository.Opposite.Properties.identifier);
-		propertiesStep.addStep(EnvironmentViewsRepository.Opposite.Properties.oppositeOf);
 		propertiesStep.addStep(EnvironmentViewsRepository.Opposite.Properties.description);
 		
 		
@@ -169,9 +167,6 @@ public class OppositePropertiesEditionPartForm extends SectionPropertiesEditingP
 				}
 				if (key == EnvironmentViewsRepository.Opposite.Properties.identifier) {
 					return createIdentifierCheckbox(widgetFactory, parent);
-				}
-				if (key == EnvironmentViewsRepository.Opposite.Properties.oppositeOf) {
-					return createOppositeOfFlatComboViewer(parent, widgetFactory);
 				}
 				if (key == EnvironmentViewsRepository.Opposite.Properties.description) {
 					return createDescriptionTextarea(widgetFactory, parent);
@@ -411,39 +406,6 @@ public class OppositePropertiesEditionPartForm extends SectionPropertiesEditingP
 		EditingUtils.setEEFtype(identifier, "eef::Checkbox"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Opposite.Properties.identifier, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
 		// Start of user code for createIdentifierCheckbox
-
-		// End of user code
-		return parent;
-	}
-
-	/**
-	 * @param parent the parent composite
-	 * @param widgetFactory factory to use to instanciante widget of the form
-	 * 
-	 */
-	protected Composite createOppositeOfFlatComboViewer(Composite parent, FormToolkit widgetFactory) {
-		createDescription(parent, EnvironmentViewsRepository.Opposite.Properties.oppositeOf, EnvironmentMessages.OppositePropertiesEditionPart_OppositeOfLabel);
-		oppositeOf = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(EnvironmentViewsRepository.Opposite.Properties.oppositeOf, EnvironmentViewsRepository.FORM_KIND));
-		widgetFactory.adapt(oppositeOf);
-		oppositeOf.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		GridData oppositeOfData = new GridData(GridData.FILL_HORIZONTAL);
-		oppositeOf.setLayoutData(oppositeOfData);
-		oppositeOf.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
-			 */
-			public void selectionChanged(SelectionChangedEvent event) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(OppositePropertiesEditionPartForm.this, EnvironmentViewsRepository.Opposite.Properties.oppositeOf, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getOppositeOf()));
-			}
-
-		});
-		oppositeOf.setID(EnvironmentViewsRepository.Opposite.Properties.oppositeOf);
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(EnvironmentViewsRepository.Opposite.Properties.oppositeOf, EnvironmentViewsRepository.FORM_KIND), null); //$NON-NLS-1$
-		// Start of user code for createOppositeOfFlatComboViewer
 
 		// End of user code
 		return parent;
@@ -770,92 +732,6 @@ public class OppositePropertiesEditionPartForm extends SectionPropertiesEditingP
 			identifier.setEnabled(true);
 		}	
 		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.OppositePropertiesEditionPart#getOppositeOf()
-	 * 
-	 */
-	public EObject getOppositeOf() {
-		if (oppositeOf.getSelection() instanceof StructuredSelection) {
-			Object firstElement = ((StructuredSelection) oppositeOf.getSelection()).getFirstElement();
-			if (firstElement instanceof EObject)
-				return (EObject) firstElement;
-		}
-		return null;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.OppositePropertiesEditionPart#initOppositeOf(EObjectFlatComboSettings)
-	 */
-	public void initOppositeOf(EObjectFlatComboSettings settings) {
-		oppositeOf.setInput(settings);
-		if (current != null) {
-			oppositeOf.setSelection(new StructuredSelection(settings.getValue()));
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Opposite.Properties.oppositeOf, ((ReferenceOppositePropertiesEditionComponent) propertiesEditionComponent).getOppositeOppositeOfSettings().getOrCreateSignificantObject());
-		if (eefElementEditorReadOnlyState && oppositeOf.isEnabled()) {
-			oppositeOf.setEnabled(false);
-			oppositeOf.setToolTipText(EnvironmentMessages.Opposite_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !oppositeOf.isEnabled()) {
-			oppositeOf.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.OppositePropertiesEditionPart#setOppositeOf(EObject newValue)
-	 * 
-	 */
-	public void setOppositeOf(EObject newValue) {
-		if (newValue != null) {
-			oppositeOf.setSelection(new StructuredSelection(newValue));
-		} else {
-			oppositeOf.setSelection(new StructuredSelection()); //$NON-NLS-1$
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Opposite.Properties.oppositeOf, ((ReferenceOppositePropertiesEditionComponent) propertiesEditionComponent).getOppositeOppositeOfSettings().getOrCreateSignificantObject());
-		if (eefElementEditorReadOnlyState && oppositeOf.isEnabled()) {
-			oppositeOf.setEnabled(false);
-			oppositeOf.setToolTipText(EnvironmentMessages.Opposite_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !oppositeOf.isEnabled()) {
-			oppositeOf.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.OppositePropertiesEditionPart#setOppositeOfButtonMode(ButtonsModeEnum newValue)
-	 */
-	public void setOppositeOfButtonMode(ButtonsModeEnum newValue) {
-		oppositeOf.setButtonMode(newValue);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.OppositePropertiesEditionPart#addFilterOppositeOf(ViewerFilter filter)
-	 * 
-	 */
-	public void addFilterToOppositeOf(ViewerFilter filter) {
-		oppositeOf.addFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see org.obeonetwork.dsl.environment.parts.OppositePropertiesEditionPart#addBusinessFilterOppositeOf(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToOppositeOf(ViewerFilter filter) {
-		oppositeOf.addBusinessRuleFilter(filter);
 	}
 
 	/**

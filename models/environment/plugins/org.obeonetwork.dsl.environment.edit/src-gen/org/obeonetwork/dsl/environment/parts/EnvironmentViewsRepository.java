@@ -298,9 +298,6 @@ public class EnvironmentViewsRepository {
 			public static String identifier = "environment::Opposite::properties::identifier";
 			
 			
-			public static String oppositeOf = "environment::Opposite::properties::oppositeOf";
-			
-			
 			public static String description = "environment::Opposite::properties::description";
 			
 	
