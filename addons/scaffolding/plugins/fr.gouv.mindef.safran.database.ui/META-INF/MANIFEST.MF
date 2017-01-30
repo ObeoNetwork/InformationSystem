@@ -36,7 +36,9 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.database.sqlgen,
  org.eclipse.emf.transaction,
  org.obeonetwork.dsl.database.reverse,
- org.eclipse.sirius
+ org.eclipse.sirius,
+ org.eclipse.team.svn.ui,
+ org.eclipse.team.svn.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: fr.gouv.mindef.safran.database.ui,

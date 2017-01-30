@@ -12,11 +12,13 @@ package fr.gouv.mindef.safran.database.ui.actions;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 
 import org.eclipse.compare.CompareConfiguration;
 import org.eclipse.compare.CompareEditorInput;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -44,11 +46,14 @@ import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.team.svn.core.resource.ILocalResource;
+import org.eclipse.team.svn.ui.compare.ThreeWayResourceCompareInput;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
 
@@ -77,9 +82,16 @@ public class ExportAsSQLScriptsAction extends Action implements IEditorActionDel
 	 * The database comparison result.
 	 */
 	private Comparison comparison;
+
+	private IEditorPart activeEditor = null;
 	
 	public void exportComparison(final Comparison comparison) {
 		final IResource containingFolder = getContainingFolder(comparison);
+		if(containingFolder == null) {
+			// No containing folder means the user aborted the export action
+			return;
+		}
+		
 		final File targetFolder = getTargetfolder(containingFolder);
 		if (targetFolder == null) {
 			return;
@@ -128,11 +140,42 @@ public class ExportAsSQLScriptsAction extends Action implements IEditorActionDel
 			Resource resource = match.getLeft().eResource();
 			if (resource instanceof CDOResource) {
 				return getModelingProject(resource);
-			} else {
+			} else if(resource.getURI().isPlatformResource()) {
 				String uri = resource.getURI().toPlatformString(true);
 				Path path = new Path(uri);
 				return ResourcesPlugin.getWorkspace().getRoot().getFile(path).getParent();
+			} else if(activeEditor.getEditorInput() instanceof ThreeWayResourceCompareInput) {
+				// The resource is a SVN resource
+				try {
+					IEditorInput editorInput = activeEditor.getEditorInput();
+					Field localField = editorInput.getClass().getDeclaredField("local");
+					localField.setAccessible(true);
+					ILocalResource local = (ILocalResource) localField.get(editorInput);
+					return local.getResource().getParent();
+				} catch (ReflectiveOperationException e) {
+					// The fallback case below will apply
+				} catch (SecurityException e) {
+					// The fallback case below will apply
+				} catch (IllegalArgumentException e) {
+					// The fallback case below will apply
+				}
 			}
+			
+			// Fallback case
+			
+			ContainerSelectionDialog projectSelectionDialog = new ContainerSelectionDialog(
+					activeEditor.getSite().getShell(), null, false, "Séléctionner le projet de destination :");
+			
+			projectSelectionDialog.setTitle("Séléction de projet");
+
+			if(projectSelectionDialog.open() == ContainerSelectionDialog.OK && projectSelectionDialog.getResult().length == 1) {
+				Path projectPath = (Path) projectSelectionDialog.getResult()[0];
+				IResource selectedResource = ResourcesPlugin.getWorkspace().getRoot().findMember(projectPath);
+				if(selectedResource instanceof IProject) {
+					return selectedResource;
+				}
+			}
+			
 		}
 		return null; 
 	}
@@ -183,13 +226,14 @@ public class ExportAsSQLScriptsAction extends Action implements IEditorActionDel
 	public void selectionChanged(IAction action, ISelection selection) {
 		
 	}
-
+	
 	@Override
-	public void setActiveEditor(final IAction action, final IEditorPart targetEditor) {
+	public void setActiveEditor(final IAction action, final IEditorPart activeEditor) {
+		this.activeEditor = activeEditor;
 		editorPluginAction = action;
 		action.setEnabled(false);
-		if (targetEditor != null && targetEditor.getEditorSite() != null && COMPARE_EDITOR_ID.equals(targetEditor.getEditorSite().getId())) {
-			final IEditorInput editorInput = targetEditor.getEditorInput();
+		if (activeEditor != null && activeEditor.getEditorSite() != null && COMPARE_EDITOR_ID.equals(activeEditor.getEditorSite().getId())) {
+			final IEditorInput editorInput = activeEditor.getEditorInput();
 			if (editorInput instanceof CompareEditorInput) {
 				final CompareConfiguration config = ((CompareEditorInput)editorInput).getCompareConfiguration();
 				if (propertyChangeListener == null) {
