@@ -7,28 +7,28 @@ h2. Create a modeling project
 * make sure you are in the Modeling perspective
 * then click on "New / Modeling Project"
 
-!images/database/NewModelingProject.png!
+!images/NewModelingProject.png!
 
 h2. Create a database model
 
 * right click on the modeling project and select the menu "New / Other..."
 * select "Other / Database Model"
 
-!images/database/NewDatabaseModel.png!
+!images/NewDatabaseModel.png!
 
 h2. Activate the "database" viewpoint
 
 * right click on the modeling project and select the menu "Viewpoint selection"
 * select database in the dialog
 
-!images/database/ViewpointSelection.png!
+!images/ViewpointSelection.png!
 
 h2. Create a diagram
 
 * right-click on the database object from your database model
 * select the menu "New representation / XXX database"
 
-!images/database/CreateDatabaseDiagram.png!
+!images/CreateDatabaseDiagram.png!
 
 h2. Use the palette to populate the diagram
 
