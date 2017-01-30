@@ -17,7 +17,7 @@ You can define:
 * Primary and Foreign Keys
 * Etc.
 
-!images/database1.png!
+!doc/images/database1.png!
 
 "Database Designer Getting Started":
 
@@ -29,7 +29,7 @@ This module uses a dedicated Entity metamodel and implements the following diagr
 * Block Hierarchy
 * Entity Diagam
 
-!images/entity1.png!
+!doc/images/entity1.png!
 
 "Entity Designer Reference Documentation (french)":https://github.com/ObeoNetwork/InformationSystem/blob/master/designs/entity/plugins/org.obeonetwork.dsl.entity.doc/doc/Obeo%20Network%20-%20Entity%20Designer.textile
 
@@ -46,7 +46,7 @@ This module uses a dedicated Graal metamodel and implements the following diagra
 * User stories
 * Layers to indentify tasks related to selected user stories
 
-!images/graal1.png!
+!doc/images/graal1.png!
 
 "Graal Designer Reference Documentation (french)":https://github.com/ObeoNetwork/InformationSystem/blob/master/models/graal/plugins/org.obeonetwork.graal.doc/doc/Obeo%20Network%20-%20Graal%20tooling.textile
 
@@ -59,7 +59,7 @@ This module uses a dedicated Cinematic metamodel and implements the following di
 * UI Structure
 * Layers to activate View Containers or Flow Events
 
-!images/cinematic1.jpg!
+!doc/images/cinematic1.jpg!
 
 "Cinematic Designer Reference Documentation (french)":https://github.com/ObeoNetwork/InformationSystem/blob/master/models/cinematic/plugins/org.obeonetwork.dsl.cinematic.doc/doc/Obeo%20Network%20-%20Cinematic%20tooling.textile
 
@@ -72,7 +72,7 @@ This module uses a dedicated SOA metamodel and implements the following diagrams
 * DTO View
 * DTO / Entity Binding
 
-!images/soa1.png!
+!doc/images/soa1.png!
 
 "SOA Designer Reference Documentation (french)":https://github.com/ObeoNetwork/InformationSystem/blob/master/designs/soa/plugins/org.obeonetwork.dsl.soa.doc/doc/Obeo%20Network%20-%20SOA%20Designer.textile
 
@@ -80,6 +80,6 @@ h2. Requirement Designer
 
 Requirement Designer allows you to manage your requirements thanks to a graphical language. These requirements can be linked to any EMF Object.
 
-!images/requirement1.png!
+!doc/images/requirement1.png!
 
 "Requirement Designer Reference Documentation (french)":https://github.com/ObeoNetwork/InformationSystem/blob/master/models/requirement/plugins/org.obeonetwork.dsl.requirement.doc/doc/Obeo%20Network%20-%20Requirements%20tooling.textile
