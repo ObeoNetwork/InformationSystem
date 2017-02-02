@@ -24,7 +24,6 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
-import org.obeonetwork.dsl.requirement.Requirement;
 
 public class RequirementsRepositoriesContentProvider extends AdapterFactoryContentProvider implements ITreeContentProvider{
 
@@ -55,14 +54,18 @@ public class RequirementsRepositoriesContentProvider extends AdapterFactoryConte
 		} else if (object instanceof Repository) {
 			Repository repository = (Repository) object;
 			// Get categories
-			List<Object> children = new ArrayList<Object>(); 
+			List<Object> children = new ArrayList<Object>();
 			children.addAll(repository.getOwnedCategories());
 			// Get requirements
 			children.addAll(repository.getOwnedRequirements());
 			return children.toArray();
 		} else if (object instanceof Category) {
-			List<Requirement> requirements = ((Category) object).getOwnedRequirements();
-			return requirements.toArray();
+			Category category = (Category) object;
+			
+			List<Object> children = new ArrayList<Object>();
+			children.addAll(category.getOwnedCategories());
+			children.addAll(category.getOwnedRequirements());
+			return children.toArray();
 		}
 		return new Object[]{};
 	}
