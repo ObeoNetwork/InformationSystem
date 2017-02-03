@@ -118,9 +118,19 @@ location "http://download.eclipse.org/releases/mars/" {
 	
 }
 
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.6/repository" {
+location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.7/repository" {
 	org.apache.poi.feature.feature.group lazy
 	org.obeonetwork.m2doc.feature.feature.group lazy
 	org.obeonetwork.m2doc.sirius.feature.feature.group lazy
 	org.obeonetwork.m2doc.sirius.addon.feature.feature.group lazy
+}
+
+location "http://download.eclipse.org/technology/subversive/3.0/update-site/" {
+	org.eclipse.team.svn.resource.ignore.rules.jdt.feature.group
+	org.eclipse.team.svn.feature.group
+}
+
+location "http://community.polarion.com/projects/subversive/download/eclipse/5.0/update-site/" {
+	org.polarion.eclipse.team.svn.connector.feature.group
+	org.polarion.eclipse.team.svn.connector.svnkit18.feature.group
 }

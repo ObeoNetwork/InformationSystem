@@ -268,4 +268,20 @@
          id="fr.gouv.mindef.safran.project.lifecycle.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.team.svn.resource.ignore.rules.jdt"
+         version="0.0.0"/>
+
+   <includes
+         id="org.polarion.eclipse.team.svn.connector"
+         version="0.0.0"/>
+
+   <includes
+         id="org.polarion.eclipse.team.svn.connector.svnkit18"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.team.svn"
+         version="0.0.0"/>
+
 </feature>
