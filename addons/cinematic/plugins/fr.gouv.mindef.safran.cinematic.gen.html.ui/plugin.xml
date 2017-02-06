@@ -12,7 +12,7 @@
                enablesFor="+"
                id="fr.gouv.mindef.safran.cinematic.gen.html.ui.popupMenus.acceleoGenerateHtmlAction"
                label="Generate Html"
-               menubarPath="fr.gouv.mindef.safran.menu/additions"/>
+               menubarPath="org.obeonetwork.is.designer.menu/additions"/>
       </objectContribution>
    </extension>
 </plugin>
