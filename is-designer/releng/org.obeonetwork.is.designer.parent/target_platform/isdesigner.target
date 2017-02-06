@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="IS Designer Target Definition" sequenceNumber="1486131468">
+<target name="IS Designer Target Definition" sequenceNumber="1486401033">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -110,6 +110,7 @@
       <unit id="org.eclipse.equinox.p2.discovery.feature.feature.group" version="1.0.300.v20150430-1836"/>
       <unit id="org.eclipse.sirius.doc.feature.feature.group" version="3.1.7.201611021249"/>
       <unit id="fr.obeo.dsl.designer.ce.feature.feature.group" version="8.1.3.201611041030"/>
+      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="3.1.7.201611021249"/>
       <repository location="http://update.obeo.fr/release/designer/8.1/community/latest/repository/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">

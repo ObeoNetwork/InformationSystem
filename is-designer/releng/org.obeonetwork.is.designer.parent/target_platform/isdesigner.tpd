@@ -107,6 +107,7 @@ location "http://update.obeo.fr/release/designer/8.1/community/latest/repository
 	org.eclipse.equinox.p2.discovery.feature.feature.group
 	org.eclipse.sirius.doc.feature.feature.group
 	fr.obeo.dsl.designer.ce.feature.feature.group
+	org.eclipse.sirius.runtime.aql.feature.group
 }
 
 location "http://download.eclipse.org/releases/mars/" {

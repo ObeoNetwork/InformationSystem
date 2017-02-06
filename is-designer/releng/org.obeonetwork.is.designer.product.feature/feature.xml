@@ -284,4 +284,8 @@
          id="org.eclipse.team.svn"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.sirius.runtime.aql"
+         version="0.0.0"/>
+
 </feature>
