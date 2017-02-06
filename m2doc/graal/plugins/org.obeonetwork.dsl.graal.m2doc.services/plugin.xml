@@ -18,5 +18,9 @@
             serviceClass="org.obeonetwork.dsl.graal.m2doc.services.UseCaseServicesHolder"
             serviceToken="default">
       </service>
+      <service
+            serviceClass="org.obeonetwork.dsl.graal.m2doc.services.TaskServicesHolder"
+            serviceToken="default">
+      </service>
    </extension>
 </plugin>
