@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<!--
+ Copyright (c) 2011 Obeo.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     Obeo - initial API and implementation
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            name="Database"
+            id="fr.gouv.mindef.safran.database.ui.category">
+      </category>
+      <wizard
+            name="Import Database"
+            icon="icons/DataBase.gif"
+            category="fr.gouv.mindef.safran.database.ui.category"
+            class="fr.gouv.mindef.safran.database.ui.wizards.imports.DatabaseImportWizard"
+            id="fr.gouv.mindef.safran.database.ui.wizards.DatabaseImportWizard.wizards.DatabaseImportWizard">
+         <description>Import the contents of a database into a database model.</description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.obeonetwork.is.designer.menu?after=additions">
+         <command
+               commandId="fr.gouv.mindef.safran.database.ui.command.GenerateSQL"
+               icon="icons/SqlFile.gif"
+               label="Generate SQL Scripts"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with variable="selection">
+				  <iterate ifEmpty="false">
+        <test
+              args="database"
+              forcePluginActivation="true"
+              property="fr.gouv.mindef.safran.database.ui.propertyTester.testFileExtension"
+              value="true">
+        </test>
+				  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <menu
+               id="fr.gouv.mindef.safran.ui.menu.scaffolding"
+               label="Scaffolding">
+            <command
+                  commandId="fr.gouv.mindef.safran.ui.command.scaffold.entityToMld"
+                  label="Entity to Logical database"
+                  style="push">
+            </command>
+            <command
+                  commandId="fr.gouv.mindef.safran.ui.command.scaffold.mldToEntity"
+                  label="Logical database to Entity"
+                  style="push">
+            </command>
+            <command
+                  commandId="fr.gouv.mindef.safran.ui.command.scaffold.mldToMpd"
+                  label="Logical database to Physical database"
+                  style="push">
+            </command>
+            <command
+                  commandId="fr.gouv.mindef.safran.ui.command.scaffold.mpdToMld"
+                  label="Physical database to Logical database"
+                  style="push">
+            </command>
+            <command
+                  commandId="fr.gouv.mindef.safran.ui.command.scaffold.addAdditionalObjects"
+                  label="Add additional objects..."
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="fr.gouv.mindef.safran.ui.command.scaffold.entityToMld"
+            name="Entity to Logical database">
+      </command>
+      <command
+            id="fr.gouv.mindef.safran.ui.command.scaffold.mldToEntity"
+            name="Logical database to Entity">
+      </command>
+      <command
+            id="fr.gouv.mindef.safran.ui.command.scaffold.mldToMpd"
+            name="Logical database to Physical database">
+      </command>
+      <command
+            id="fr.gouv.mindef.safran.ui.command.scaffold.mpdToMld"
+            name="Physical database to Logical database">
+      </command>
+      <command
+            id="fr.gouv.mindef.safran.database.ui.command.GenerateSQL"
+            name="Generate SQL Scripts">
+      </command>
+      <command
+            id="fr.gouv.mindef.safran.ui.command.scaffold.addAdditionalObjects"
+            name="Add additional objects">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="fr.gouv.mindef.safran.database.ui.actions.ScaffoldEntityToLogicalDatabaseHandler"
+            commandId="fr.gouv.mindef.safran.ui.command.scaffold.entityToMld">            
+         <enabledWhen>
+             <with variable="selection">
+                <or>
+                   <and>
+                      <count
+                            value="1">
+                      </count>
+                      <test
+                            args="ENTITY_TO_LOGICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+                            value="true">
+                      </test>
+                   </and>
+                   <and>
+                      <count
+                            value="2">
+                      </count>
+                      <test
+                            args="ENTITY_TO_LOGICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
+                            value="true">
+                      </test>
+                   </and></or>
+		    </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="fr.gouv.mindef.safran.database.ui.actions.ScaffoldLogicalDatabaseToEntityHandler"
+            commandId="fr.gouv.mindef.safran.ui.command.scaffold.mldToEntity">
+         <enabledWhen>
+             <with variable="selection">
+                <or>
+                   <and>
+                      <count
+                            value="1">
+                      </count>
+                      <test
+                            args="LOGICAL_DATABASE_TO_ENTITY"
+                            forcePluginActivation="true"
+                            property="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+                            value="true">
+                      </test>
+                   </and>
+                   <and>
+                      <count
+                            value="2">
+                      </count>
+                      <test
+                            args="LOGICAL_DATABASE_TO_ENTITY"
+                            forcePluginActivation="true"
+                            property="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
+                            value="true">
+                      </test>
+                   </and>
+                </or>
+		    </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="fr.gouv.mindef.safran.database.ui.actions.ScaffoldLogicalDatabaseToPhysicalDatabaseHandler"
+            commandId="fr.gouv.mindef.safran.ui.command.scaffold.mldToMpd">
+         <enabledWhen>
+             <with variable="selection">
+                <or>
+                   <and>
+                      <count
+                            value="1">
+                      </count>
+                      <test
+                            args="LOGICAL_DATABASE_TO_PHYSICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+                            value="true">
+                      </test>
+                   </and>
+                   <and>
+                      <count
+                            value="2">
+                      </count>
+                      <test
+                            args="LOGICAL_DATABASE_TO_PHYSICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
+                            value="true">
+                      </test>
+                   </and>
+                </or>
+		    </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="fr.gouv.mindef.safran.database.ui.actions.ScaffoldPhysicalDatabaseToLogicalDatabaseHandler"
+            commandId="fr.gouv.mindef.safran.ui.command.scaffold.mpdToMld">
+         <enabledWhen>
+             <with variable="selection">
+                <or>
+                   <and>
+                      <count
+                            value="1">
+                      </count>
+                      <test
+                            args="PHYSICAL_DATABASE_TO_LOGICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+                            value="true">
+                      </test>
+                   </and>
+                   <and>
+                      <count
+                            value="2">
+                      </count>
+                      <test
+                            args="PHYSICAL_DATABASE_TO_LOGICAL_DATABASE"
+                            forcePluginActivation="true"
+                            property="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
+                            value="true">
+                      </test>
+                   </and>
+                </or>
+		    </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="fr.gouv.mindef.safran.database.ui.actions.GenerateSQLFromDatabaseHandler"
+            commandId="fr.gouv.mindef.safran.database.ui.command.GenerateSQL">
+         <!--<enabledWhen>
+            <with
+                  variable="selection">
+               <test
+                     args="PHYSICAL_DATABASE_TO_LOGICAL_DATABASE"
+                     forcePluginActivation="true"
+                     property="fr.gouv.mindef.safran.database.ui.propertyTester.testScaffoldingInput"
+                     value="true">
+               </test>
+            </with></enabledWhen>-->
+      </handler>
+      <handler
+            class="fr.gouv.mindef.safran.database.ui.actions.AddAdditionalObjectsHandler"
+            commandId="fr.gouv.mindef.safran.ui.command.scaffold.addAdditionalObjects">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <and>
+                  <count
+                        value="1">
+                  </count>
+                  <test
+                        args="ANY"
+                        forcePluginActivation="true"
+                        property="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+                        value="true">
+                  </test>
+               </and>
+            </with>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="fr.gouv.mindef.safran.database.ui.actions.testers.TestFileExtension"
+            id="fr.gouv.mindef.safran.database.ui.propertyTester.testFileExtension"
+            namespace="fr.gouv.mindef.safran.database.ui.propertyTester"
+            properties="testFileExtension"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="fr.gouv.mindef.safran.database.ui.actions.testers.TestInputIsScaffoldModel"
+            id="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testInputIsScaffoldModel"
+            namespace="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold"
+            properties="testInputIsScaffoldModel"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="fr.gouv.mindef.safran.database.ui.actions.testers.TestMultipleInputIsValid"
+            id="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
+            namespace="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold"
+            properties="testMultipleInputIsValid"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="fr.gouv.mindef.safran.database.ui.compareEditorContribution"
+            targetID="org.eclipse.compare.CompareEditor">
+         <action
+               class="fr.gouv.mindef.safran.database.ui.actions.ExportAsSQLScriptsAction"
+               disabledIcon="icons/SqlFileDisabled.gif"
+               icon="icons/SqlFile.gif"
+               id="fr.gouv.mindef.safran.database.ui.action1"
+               label="Generate SQL Scripts"
+               style="push"
+               toolbarPath="Normal/navigation">
+         </action>
+      </editorContribution>
+   </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.ui.filters">
+      <filter
+            activeByDefault="true"
+            class="fr.gouv.mindef.safran.database.ui.compare.viewer.filters.SQLDifferencesFilter"
+            label="Différences SQL">
+      </filter>
+   </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.ui.differenceGroupExtender">
+      <differenceGroupExtender
+            class="fr.gouv.mindef.safran.database.ui.compare.viewer.extenders.DBDiffGroupExtender">
+      </differenceGroupExtender>
+   </extension>
+   <extension
+         point="org.eclipse.emf.compare.rcp.ui.accessorFactory">
+      <factory
+            class="fr.gouv.mindef.safran.database.ui.compare.viewer.content.DBDiffAccessorFactory"
+            ranking="20">
+      </factory>
+   </extension>
+
+</plugin>

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<p>
+			<i>&#169; Obeo 2016 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0</i>
+		</p>
+		<p>
+			<code>Authors</code> Stéphane Thibaudeau
+			<br/>
+			<code>Contact</code> stephane.thibaudeau@obeo.fr
+		</p>
+		<h1 id="SafrnEntitySafrnconsolidatedview">Safr@n &#8211; Entity (Safr@n consolidated view)</h1>
+		<p>Le point de vue 
+			<em>Entity (Safr@n consolidated view)</em> fournit une table permettant de faciliter la saisie d&#8217;informations sur le stockage physique des entités.
+			<br/>Les informations sont stockées sous la forme d&#8217;annotations.
+		</p>
+		<h2 id="CrationdunetableEntitiesPhysicalNames">Création d&#8217;une table 
+			<em>Entities Physical Names</em>
+		</h2>
+		<p>Pour pouvoir créer une table 
+			<em>Entities Physical Names</em> il faut activer le point de vue 
+			<em>Entity (Safr@n consolidated view)</em> sur le projet via le menu contextuel 
+			<em>Viewpoints Selection</em> sur le projet ou sur le fichier 
+			<em>aird</em>.
+		</p>
+		<p>Une fois le point de vue activé, il est possible de créer une nouvelle table sur un objet 
+			<em>Entities</em>.
+			<br/>A noter qu'à la première activation du point de vue, une table est créée automatiquement pour chaque objet 
+			<em>Entities</em> dans le projet. 
+		</p>
+		<p>
+			<img border="0" src="pics/entities/New table.png"/>
+		</p>
+		<h2 id="Elmentsaffichsetoutils">Eléments affichés et outils</h2>
+		<p>
+			<img border="0" src="pics/entities/Table.png"/>
+		</p>
+		<p>Chaque package, entité, attribut et référence est affiché dans la colonne de gauche sous une forme arborescente.</p>
+		<p>Cinq colonnes 
+			<em>Name</em>, 
+			<em>Size</em>, 
+			<em>Check</em>, 
+			<em>Unique</em> et 
+			<em>Default</em> :
+		</p>
+		<ul>
+			<li>
+				<em>Name</em> : spécifie le nom physique du package, de l&#8217;entité, de l&#8217;attribut ou de la référence
+			</li>
+			<li>
+				<em>Size</em> : spécifie une contrainte de taille. Utilisée pour un attribut généralement en donnant une valeur numérique.
+			</li>
+			<li>
+				<em>Check</em> : spécifie une contrainte. Texte libre.
+			</li>
+			<li>
+				<em>Unique</em> : spécifie si un attribut fait partie d&#8217;un index d&#8217;unicité. Une valeur vide signifie que l&#8217;attribut ne fait pas partie d&#8217;un index, la valeur 
+				<em>ASC</em> indique que l&#8217;attribut fait partie d&#8217;un index et que les valeurs sont triées en ordre ascendant, la valeur 
+				<em>DESC</em> indique que l&#8217;attribut fait partie d&#8217;un index et que les valeurs sont triées en ordre descendant
+			</li>
+			<li>
+				<em>Default</em> : spécifie une valeur par défaut. Texte libre.
+			</li>
+		</ul>
+		<p>La modification des valeur se fait par édition directe des cellules du tableau.</p>
+	</body>
+</html>

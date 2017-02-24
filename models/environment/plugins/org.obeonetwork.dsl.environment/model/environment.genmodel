@@ -152,3 +152,157 @@
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2008-2009 Obeo.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    Obeo - initial API and implementation"
+    modelDirectory="/org.obeonetwork.dsl.environment/src" creationIcons="false" editDirectory="/org.obeonetwork.dsl.environment.edit/src"
+    editorDirectory="/org.obeonetwork.dsl.environment.editor/src" modelPluginID="org.obeonetwork.dsl.environment"
+    modelName="Environment" editPluginClass="org.obeonetwork.dsl.environment.provider.EnvironmentEditPlugin"
+    editorPluginClass="org.obeonetwork.dsl.environment.presentation.EnvironmentEditorPlugin"
+    rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.cdo" featureDelegation="Dynamic"
+    containmentProxies="true" complianceLevel="5.0" runtimeVersion="2.7" usedGenPackages="../../org.obeonetwork.dsl.technicalid/model/technicalid.genmodel#//technicalid"
+    interfaceNamePattern="" classNamePattern="">
+  <foreignModel>environment.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <genPackages prefix="Environment" basePackage="org.obeonetwork.dsl" resource="XMI"
+      disposableProviderFactory="true" extensibleProviderFactory="true" ecorePackage="environment.ecore#/">
+    <genEnums ecoreEnum="environment.ecore#//MultiplicityKind">
+      <genEnumLiterals ecoreEnumLiteral="environment.ecore#//MultiplicityKind/ZERO_ONE"/>
+      <genEnumLiterals ecoreEnumLiteral="environment.ecore#//MultiplicityKind/ONE"/>
+      <genEnumLiterals ecoreEnumLiteral="environment.ecore#//MultiplicityKind/ZERO_STAR"/>
+      <genEnumLiterals ecoreEnumLiteral="environment.ecore#//MultiplicityKind/ONE_STAR"/>
+    </genEnums>
+    <genClasses ecoreClass="environment.ecore#//Environment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Environment/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Environment/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Environment/links"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Environment/priorityDefinitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Environment/typesDefinition"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Type/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//Type/typeDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//PrimitiveType"/>
+    <genClasses ecoreClass="environment.ecore#//Enumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//Enumeration/literals"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//Literal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Literal/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Action/name"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//InterDSMLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//InterDSMLink/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//InterDSMLink/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//ObeoDSMObject" labelFeature="#//environment/ObeoDSMObject/description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//ObeoDSMObject/metadatas"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/keywords"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//ObeoDSMObject/behaviours"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//ObeoDSMObject/bindingRegistries"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/version"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/createdOn"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//ObeoDSMObject/modifiedOn"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//MetaDataContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//MetaDataContainer/metadatas"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//Annotation" labelFeature="#//environment/Annotation/title">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Annotation/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Annotation/body"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//PriorityDefinition" labelFeature="#//environment/ObeoDSMObject/description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//PriorityDefinition/priorities"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//Priority">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Priority/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//MetaData"/>
+    <genClasses ecoreClass="environment.ecore#//TypesDefinition" labelFeature="#//environment/ObeoDSMObject/description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//TypesDefinition/types"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//Behaviour" labelFeature="#//environment/ObeoDSMObject/description"/>
+    <genClasses image="false" ecoreClass="environment.ecore#//StructuredType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/supertype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/associatedTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/ownedAttributes"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/ownedReferences"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/references"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//StructuredType/properties"/>
+      <genOperations ecoreOperation="environment.ecore#//StructuredType/isSubtypeOf">
+        <genParameters ecoreParameter="environment.ecore#//StructuredType/isSubtypeOf/type"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//DTO">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//DTO/ownedContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//FilterContainer" labelFeature="#//environment/ObeoDSMObject/description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//FilterContainer/ownedFilters"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//Filter" labelFeature="#//environment/ObeoDSMObject/description"/>
+    <genClasses ecoreClass="environment.ecore#//Namespace">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//Namespace/owner"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Namespace/name"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//Attribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//Attribute/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//Attribute/containingType"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//Reference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Reference/isComposite"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Reference/navigable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//Reference/oppositeOf"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//Reference/containingType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//Reference/referencedType"/>
+      <genOperations ecoreOperation="environment.ecore#//Reference/canBeOppositeOf">
+        <genParameters ecoreParameter="environment.ecore#//Reference/canBeOppositeOf/opposite"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Property/multiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//Property/isIdentifier"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//BindingInfo" labelFeature="#//environment/ObeoDSMObject/description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//BindingInfo/references"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingInfo/left"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingInfo/right"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingInfo/subBindingInfos"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//BindingInfo/targets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//BindingInfo/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//BindingReference" labelFeature="#//environment/ObeoDSMObject/description">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingReference/left"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingReference/right"/>
+      <genOperations ecoreOperation="environment.ecore#//BindingReference/getOppositeBindingElement">
+        <genParameters ecoreParameter="environment.ecore#//BindingReference/getOppositeBindingElement/bindingElement"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//BindingElement" labelFeature="#//environment/ObeoDSMObject/description">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingElement/boundElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute environment.ecore#//BindingElement/bindingExpression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingElement/referencedByAsLeft"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingElement/referencedByAsRight"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference environment.ecore#//BindingElement/referencedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference environment.ecore#//BindingElement/pathReferences"/>
+    </genClasses>
+    <genClasses ecoreClass="environment.ecore#//BindingRegistry" labelFeature="#//environment/ObeoDSMObject/description">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//BindingRegistry/bindingInfos"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//BoundableElement">
+      <genOperations ecoreOperation="environment.ecore#//BoundableElement/isPathValid">
+        <genParameters ecoreParameter="environment.ecore#//BoundableElement/isPathValid/root"/>
+        <genParameters ecoreParameter="environment.ecore#//BoundableElement/isPathValid/path"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="environment.ecore#//DataType"/>
+    <genClasses image="false" ecoreClass="environment.ecore#//NamespacesContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference environment.ecore#//NamespacesContainer/ownedNamespaces"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

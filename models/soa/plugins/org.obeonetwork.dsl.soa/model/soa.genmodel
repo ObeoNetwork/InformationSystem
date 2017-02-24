@@ -29,7 +29,6 @@
       <genEnumLiterals ecoreEnumLiteral="soa.ecore#//OperationKind/ONE_WAY"/>
     </genEnums>
     <genClasses ecoreClass="soa.ecore#//System">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute soa.ecore#//System/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedComponents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference soa.ecore#//System/ownedWires"/>
     </genClasses>

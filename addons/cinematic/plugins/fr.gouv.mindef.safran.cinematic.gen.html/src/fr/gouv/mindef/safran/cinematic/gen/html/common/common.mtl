@@ -1,0 +1,75 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module generate.
+ */]
+[module common('http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+
+[template public genFullQualifiedFileName(aFS : FlowState)]
+//TODO handle [aFS.eClass().name/]
+[/template]
+
+[**
+ * The documentation of the template genFullQualifiedFileName.
+ * @param aViewState
+ */]
+[template public genFullQualifiedFileName(aViewState : ViewState)]
+[getProperty('src.folder.pages')/]/[aViewState.eContainer(CinematicRoot).name/]/[aViewState.ancestors(Package)->reverse().name->sep('/')/][if (aViewState.ancestors(Package)->notEmpty())]/[/if][aViewState.eContainer(Flow).name/]/[aViewState.name/].html
+[/template]
+
+[**
+ * The documentation of the template genFullQualifiedFileName.
+ * @param aViewState
+ * @param aEvent
+ */]
+[template public genFullQualifiedFileName(aViewState : ViewState, aEvent : Event)]
+[getProperty('src.folder.pages')/]/[aViewState.eContainer(CinematicRoot).name/]/[aViewState.ancestors(Package)->reverse().name->sep('/')/][if (aViewState.ancestors(Package)->notEmpty())]/[/if][aViewState.eContainer(Flow).name/]/MultipleTransitions/[aViewState.name/][aEvent.name/].html
+[/template]
+
+[**
+ * The documentation of the template genFullQualifiedFileName.
+ * @param aViewState
+ */]
+[template public genFullQualifiedFileName(aActionState : ActionState)]
+[getProperty('src.folder.pages')/]/[aActionState.eContainer(CinematicRoot).name/]/[aActionState.ancestors(Package)->reverse().name->sep('/')/][if (aActionState.ancestors(Package)->notEmpty())]/[/if][aActionState.eContainer(Flow).name/]/ActionStates/[aActionState.name/].html
+[/template]
+
+[**
+ * The documentation of the template genRelativeName.
+ * @param aViewState
+ */]
+[template public getRootContainerPath(aFS : FlowState)]
+//TODO handle [aFS.eClass().name/]
+[/template]
+
+[template public getRootContainerPath(aViewState : ViewState)]
+['../../' + aViewState.genPackageRelativePath() + '../'/]
+[/template]
+
+[template public getRootContainerPath(aViewState : ViewState, aEvent : Event)]
+['../../' + aViewState.genPackageRelativePath() + '../../'/]
+[/template]
+
+[template public getRootContainerPath(aActionState : ActionState)]
+['../../' + aActionState.genPackageRelativePath() + '../../'/]
+[/template]
+
+[template public genPackageRelativePath(aNFS : NamedFlowState)]
+[for (it : Package | aNFS.ancestors(Package))]../[/for]
+[/template]
+
+[template public getLabel(anAVE : AbstractViewElement) post(trim())]
+[if (not(anAVE.label.oclIsUndefined()) and anAVE.label.size() > 0)][anAVE.label/][else][anAVE.name/][/if]
+[/template]
+
+[template public getName(aFS : FlowState) post(trim())]
+//TODO handle [aFS.eClass().name/]
+[/template]
+
+[template public getName(aViewState : ViewState) post(trim())]
+[aViewState.name/]
+[/template]
+
+[template public getName(aActionState : ActionState) post(trim())]
+[aActionState.name/]
+[/template]
+

@@ -586,6 +586,8 @@ public class DtoPropertiesEditionPartForm extends SectionPropertiesEditingPart i
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		associatedTypes.setContentProvider(contentProvider);
 		associatedTypes.setInput(settings);
+		associatedTypesBusinessFilters.clear();
+		associatedTypesFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(EnvironmentViewsRepository.Dto.Properties.associatedTypes);
 		if (eefElementEditorReadOnlyState && associatedTypes.getTable().isEnabled()) {
 			associatedTypes.setEnabled(false);

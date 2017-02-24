@@ -1,0 +1,38 @@
+[comment encoding = UTF-8 /]
+[module main('http://www.obeonetwork.org/dsl/cinematic/3.0.0')]
+
+[import fr::gouv::mindef::safran::cinematic::gen::html::files::index /]
+[import fr::gouv::mindef::safran::cinematic::gen::html::files::htmlViewStateFile /]
+[import fr::gouv::mindef::safran::cinematic::gen::html::files::htmlActionStateFile /]
+[import fr::gouv::mindef::safran::cinematic::gen::html::files::htmlMultipleTransitionsFile /]
+[import fr::gouv::mindef::safran::cinematic::gen::html::requests::requests /]
+
+[template public main(aCinematicRoot : CinematicRoot)]
+[comment @main/]
+	[aCinematicRoot.index()/]
+	[aCinematicRoot.genHtmlFiles()/]
+[/template]
+
+[**
+ * The documentation of the template genHtmlFiles.
+ * @param aCinematicRoot
+ */]
+[template public genHtmlFiles(aCinematicRoot : CinematicRoot)]
+	[for (aViewState : ViewState | aCinematicRoot.eAllContents(ViewState))]
+[aViewState.genHtmlViewStateFile()/]
+		[for (aEvent : FlowEvent | aViewState.eContainer(Flow).events)]
+			[if (aViewState.hasMultipleTransitionsForEvent(aEvent))]
+[aViewState.genHtmlMultipleTransitionsFile(aEvent)/]
+			[/if]
+		[/for]
+		[for (aEvent : ViewEvent | aViewState.eContainer(CinematicRoot).eAllContents(ViewEvent))]
+			[if (aViewState.hasMultipleTransitionsForEvent(aEvent))]
+[aViewState.genHtmlMultipleTransitionsFile(aEvent)/]
+			[/if]
+		[/for]
+	[/for]
+	[for (aActionState : ActionState | aCinematicRoot.eAllContents(ActionState))]
+[aActionState.genHtmlActionStateFile()/]
+	[/for]
+[/template]
+

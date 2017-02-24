@@ -150,7 +150,7 @@ public class MetadataCptPropertiesEditionComponent extends SinglePartPropertiesE
 	/**
 	 * {@inheritDoc}
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updateSemanticModel(org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent)
-	 * 
+	 * @generated NOT
 	 */
 	public void updateSemanticModel(final IPropertiesEditionEvent event) {
 		ObeoDSMObject obeoDSMObject = (ObeoDSMObject)semanticObject;
@@ -158,7 +158,7 @@ public class MetadataCptPropertiesEditionComponent extends SinglePartPropertiesE
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
 				EReferencePropertiesEditionContext context = new TypedEReferencePropertiesEditingContext(editingContext, this, metadataSettings, EnvironmentPackage.Literals.ANNOTATION, editingContext.getAdapterFactory());
 				/*
-				 * Generated code below, but it leads to NPE when clickong on the add button
+				 * Generated code below, but it leads to NPE when clicking on the add button
 				 * 
 				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, metadataSettings, editingContext.getAdapterFactory());
 				context.addInstanciableTypeFilter(new InstanciableTypeFilter() {

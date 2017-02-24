@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="fr.gouv.mindef.safran.project.lifecycle.ui.wizards.category"
+            name="Safr@n">
+      </category>
+      <wizard
+            category="fr.gouv.mindef.safran.project.lifecycle.ui.wizards.category"
+            class="fr.gouv.mindef.safran.project.lifecycle.ui.wizards.BusinessProjectImportWizard"
+            icon="icons/ModelingProject.gif"
+            id="fr.gouv.mindef.safran.project.lifecycle.ui.wizards.BusinessProjectImportWizard"
+            name="Import business project">
+         <description>
+            Import a business project into the selected one.
+         </description>
+         <selection
+               class="org.eclipse.core.resources.IProject">
+         </selection>
+      </wizard>
+   </extension>
+
+</plugin>

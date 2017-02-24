@@ -10,13 +10,11 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.soa.util;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.obeonetwork.dsl.environment.Action;
+import org.obeonetwork.dsl.environment.Namespace;
 import org.obeonetwork.dsl.environment.NamespacesContainer;
 import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.TypesDefinition;
@@ -97,6 +95,7 @@ public class SoaSwitch<T> extends Switch<T> {
 			case SoaPackage.SYSTEM: {
 				org.obeonetwork.dsl.soa.System system = (org.obeonetwork.dsl.soa.System)theEObject;
 				T result = caseSystem(system);
+				if (result == null) result = caseNamespace(system);
 				if (result == null) result = caseTypesDefinition(system);
 				if (result == null) result = caseNamespacesContainer(system);
 				if (result == null) result = caseObeoDSMObject(system);
@@ -380,6 +379,21 @@ public class SoaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamespacesContainer(NamespacesContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamespace(Namespace object) {
 		return null;
 	}
 

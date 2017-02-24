@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Copyright (c) 2008, 2017 Obeo.
-    All rights reserved. This program and the accompanying materials
-    are made available under the terms of the Eclipse Public License v1.0
-    which accompanies this distribution, and is available at
-    http://www.eclipse.org/legal/epl-v10.html
-   
-    Contributors:
-        Obeo - initial API and implementation
- -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -275,6 +264,7 @@
 		<module>../../../m2doc/requirement/plugins/org.obeonetwork.dsl.requirement.m2doc.services.test</module>
 		<module>../../../m2doc/requirement/features/org.obeonetwork.dsl.requirement.m2doc.feature</module>
 		<module>../../../m2doc/graal/plugins/org.obeonetwork.dsl.graal.m2doc.services</module>
+		<module>../../../m2doc/graal/plugins/org.obeonetwork.dsl.graal.m2doc.services.tests</module>
 		<module>../../../m2doc/graal/features/org.obeonetwork.dsl.graal.m2doc.feature</module>
 		
 		<!-- 
@@ -282,15 +272,15 @@
 		* Scaffolding
 		*********************************************************************************************
 		-->
-		<module>../../../database/features/fr.gouv.mindef.safran.database.scaffold.feature</module>
-		<module>../../../database/plugins/fr.gouv.mindef.safran.database.scaffold</module>
-		<module>../../../database/plugins/fr.gouv.mindef.safran.database.scaffold.edit</module>
-		<module>../../../database/plugins/fr.gouv.mindef.safran.database.scaffold.editor</module>
-		<module>../../../database/features/fr.gouv.mindef.safran.database.ui.feature</module>
-		<module>../../../database/plugins/fr.gouv.mindef.safran.database</module>
-		<module>../../../database/plugins/fr.gouv.mindef.safran.database.doc</module>
-		<module>../../../database/plugins/fr.gouv.mindef.safran.database.ui</module>
-		<module>../../../database/plugins/fr.gouv.mindef.safran.database.tests</module>	
+		<module>../../../addons/scaffolding/features/fr.gouv.mindef.safran.database.scaffold.feature</module>
+		<module>../../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.scaffold</module>
+		<module>../../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.scaffold.edit</module>
+		<module>../../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.scaffold.editor</module>
+		<module>../../../addons/scaffolding/features/fr.gouv.mindef.safran.database.ui.feature</module>
+		<module>../../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database</module>
+		<module>../../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.doc</module>
+		<module>../../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.ui</module>
+		<module>../../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.tests</module>
 		
 		<!-- 
 		*********************************************************************************************
@@ -298,6 +288,43 @@
 		*********************************************************************************************
 		-->
 		<module>../../org.obeonetwork.is.license</module>	
+		
+		<!-- 
+		*********************************************************************************************
+		* Lifecycle
+		*********************************************************************************************
+		-->
+		<module>../../../addons/lifecycle/features/fr.gouv.mindef.safran.project.lifecycle.feature</module>
+		<module>../../../addons/lifecycle/plugins/fr.gouv.mindef.safran.project.lifecycle</module>
+		<module>../../../addons/lifecycle/plugins/fr.gouv.mindef.safran.project.lifecycle.ui</module>
+		<module>../../../addons/lifecycle/plugins/fr.gouv.mindef.safran.project.lifecycle.doc</module>
+		
+		<!-- 
+		*********************************************************************************************
+		* Cinematic HTML Generator
+		*********************************************************************************************
+		-->
+		<module>../../../addons/cinematic/features/fr.gouv.mindef.safran.cinematic.gen.html.feature</module>
+		<module>../../../addons/cinematic/plugins/fr.gouv.mindef.safran.cinematic.gen.html</module>
+		<module>../../../addons/cinematic/plugins/fr.gouv.mindef.safran.cinematic.gen.html.ui</module>
+
+		<!-- 
+		*********************************************************************************************
+		* Structured types tables
+		*********************************************************************************************
+		-->
+		<module>../../../addons/structuredtypes/features/fr.gouv.mindef.safran.feature.is</module>
+		<module>../../../addons/structuredtypes/plugins/fr.gouv.mindef.safran.is.design</module>
+		<module>../../../addons/structuredtypes/plugins/fr.gouv.mindef.safran.is.design.doc</module>
+		
+		<!-- 
+		*********************************************************************************************
+		* Graal Extensions
+		*********************************************************************************************
+		-->
+		<module>../../../addons/graalextensions/features/fr.gouv.mindef.safran.graal.extensions.feature</module>
+		<module>../../../addons/graalextensions/plugins/fr.gouv.mindef.safran.graal.extensions</module>
+		<module>../../../addons/graalextensions/plugins/fr.gouv.mindef.safran.graal.extensions.edit</module>
 
 	</modules>
 </project>

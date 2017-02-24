@@ -52,11 +52,25 @@ public class OverviewResourceFactoryImpl extends ResourceFactoryImpl {
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Resource createResource(URI uri) {
-		Resource result = new OverviewResourceImpl(uri);
+		XMIResourceWithMigrationSupportImpl result = new OverviewResourceImpl(uri);
+
+		Map<Object, Object> saveOptions = result.getDefaultSaveOptions();
+		saveOptions.put(XMLResource.OPTION_URI_HANDLER, new URIHandlerImpl.PlatformSchemeAware());
+		saveOptions.put(XMLResource.OPTION_CONFIGURATION_CACHE, Boolean.TRUE);
+		saveOptions.put(XMLResource.OPTION_USE_CACHED_LOOKUP_TABLE, lookupTable);
+
+		Map<Object, Object> loadOptions = result.getDefaultLoadOptions();
+		loadOptions.put(XMLResource.OPTION_DEFER_ATTACHMENT, Boolean.TRUE);
+		loadOptions.put(XMLResource.OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
+		loadOptions.put(XMLResource.OPTION_USE_DEPRECATED_METHODS, Boolean.FALSE);
+		loadOptions.put(XMLResource.OPTION_USE_PARSER_POOL, parserPool);
+		loadOptions.put(XMLResource.OPTION_USE_XML_NAME_TO_FEATURE_MAP, nameToFeatureMap);
+
+		result.attachMigrationHelper(new OverviewMigrationHelper());
 		return result;
 	}
 

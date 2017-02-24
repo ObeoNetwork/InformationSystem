@@ -158,53 +158,6 @@ public interface OppositePropertiesEditionPart {
 
 
 	/**
-	 * @return the oppositeOf
-	 * 
-	 */
-	public EObject getOppositeOf();
-
-	/**
-	 * Init the oppositeOf
-	 * @param settings the combo setting
-	 */
-	public void initOppositeOf(EObjectFlatComboSettings settings);
-
-	/**
-	 * Defines a new oppositeOf
-	 * @param newValue the new oppositeOf to set
-	 * 
-	 */
-	public void setOppositeOf(EObject newValue);
-
-	/**
-	 * Defines the button mode
-	 * @param newValue the new mode to set
-	 * 
-	 */
-	public void setOppositeOfButtonMode(ButtonsModeEnum newValue);
-
-	/**
-	 * Adds the given filter to the oppositeOf edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addFilterToOppositeOf(ViewerFilter filter);
-
-	/**
-	 * Adds the given filter to the oppositeOf edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addBusinessFilterToOppositeOf(ViewerFilter filter);
-
-
-	/**
 	 * @return the description
 	 * 
 	 */

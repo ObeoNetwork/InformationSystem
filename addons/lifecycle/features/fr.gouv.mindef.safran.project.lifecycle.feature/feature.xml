@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="fr.gouv.mindef.safran.project.lifecycle.feature"
+      label="Safr@n Project Lifecycle Feature"
+      version="1.0.0.qualifier"
+      provider-name="Obeo">
+
+   <description>
+      Safr@n - Project lifecycle
+   </description>
+
+   <copyright url="http://www.obeo.fr">
+      Copyright (c) 2015 Obeo
+   </copyright>
+
+   <license url="%licenseURL">
+      %licenseURL
+   </license>
+
+   <plugin
+         id="fr.gouv.mindef.safran.project.lifecycle"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.gouv.mindef.safran.project.lifecycle.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.gouv.mindef.safran.project.lifecycle.doc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

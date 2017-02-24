@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="doc/toc.xml"
+            primary="true">
+      </toc>
+   </extension>
+   <extension
+         point="org.obeonetwork.m2doc.services.register">
+      <service
+            serviceClass="org.obeonetwork.dsl.graal.m2doc.services.DomainClassServiceHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.dsl.graal.m2doc.services.UseCaseServicesHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.dsl.graal.m2doc.services.TaskServicesHolder"
+            serviceToken="default">
+      </service>
+   </extension>
+</plugin>

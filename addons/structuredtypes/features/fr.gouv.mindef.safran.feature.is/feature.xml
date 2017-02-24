@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="fr.gouv.mindef.safran.feature.is"
+      label="Safran OD4IS extensions"
+      version="1.0.0.qualifier"
+      provider-name="Obeo.fr">
+
+   <description url="http://www.obeo.fr">
+      Obeo - Safran - Extension to OD4IS
+   </description>
+
+   <copyright url="http://www.obeo.fr">
+      Copyright (c) 2011 Obeo
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="fr.gouv.mindef.safran.is.design"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="fr.gouv.mindef.safran.is.design.doc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

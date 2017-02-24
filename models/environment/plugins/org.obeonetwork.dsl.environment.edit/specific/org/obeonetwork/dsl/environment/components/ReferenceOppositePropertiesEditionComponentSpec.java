@@ -49,7 +49,6 @@ public class ReferenceOppositePropertiesEditionComponentSpec extends ReferenceOp
 				((CompositePropertiesEditionPart) editingPart).getSettings().add(oppositeNavigableSettings);
 				((CompositePropertiesEditionPart) editingPart).getSettings().add(oppositeIdentifierSettings);
 				((CompositePropertiesEditionPart) editingPart).getSettings().add(oppositeDescriptionSettings);
-				((CompositePropertiesEditionPart) editingPart).getSettings().add(oppositeOppositeOfSettings);
 			}
 			final OppositePropertiesEditionPart oppositePart = (OppositePropertiesEditionPart) editingPart;
 
@@ -80,10 +79,6 @@ public class ReferenceOppositePropertiesEditionComponentSpec extends ReferenceOp
 						&& isAccessible(EnvironmentViewsRepository.Opposite.Properties.description))
 					oppositePart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING,
 							oppositeDescriptionSettings.getValue()));
-				if (this.oppositeOppositeOfSettings.getSignificantObject() != null
-						&& isAccessible(EnvironmentViewsRepository.Opposite.Properties.oppositeOf)) {
-					oppositePart.setOppositeOf((EObject) this.oppositeOppositeOfSettings.getValue());
-				}
 				if (this.oppositeReferencedTypeSettings.getSignificantObject() != null
 						&& isAccessible(EnvironmentViewsRepository.Opposite.Properties.referencedType)) {
 					oppositePart.setReferencedType((EObject) this.oppositeReferencedTypeSettings.getValue());

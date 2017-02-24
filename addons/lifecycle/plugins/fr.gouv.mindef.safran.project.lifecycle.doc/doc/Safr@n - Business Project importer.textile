@@ -1,0 +1,75 @@
+__(c) Obeo 2016 -  All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0__
+
+@Authors@ Stéphane Thibaudeau
+@Contact@ stephane.thibaudeau@obeo.fr
+
+h1. Safr@n - Business Project importer
+
+h2. Principe
+
+Dans le cadre de Safr@n, les équipes MOA et MOE travaillent sur des projets différents et des modèles différents.
+L'équipe MOE a néanmoins besoin des modèles réalisés par l'équipe MOA pour travailler.
+Les cycles de vie des projets MOA et MOE pouvant être décalés, il est intéressant de bénéficier d'une fonctionnalité permettant d'importer le contenu d'un projet MOA dans un projet MOE. Ainsi l'équipe MOE peut travailler sur une version stable des spécifications.
+
+La fonctionnalité _Business project import_ permet justement d'importer, dans un projet, les modèles réalisés dans un projet MOA. Les modèles qui seront importés sont les modèles de type :
+* Graal
+* Entity
+* Requirement
+
+Les modèles MOA sont importés au sein d'un répertoire _analysis_ créé dans le projet MOE. Les modèles précédemment importés sont écrasés et remplacés par la nouvelle version.
+
+L'équipe MOA n'a pas vocation à modifier les modèles inclus dans le répertoire _analysis_. Si des modifications ont été faites elles seront supprimées au prochain import.
+Il existe néanmoins une exception à cette règle : les exigences provenant de l'équipe MOA peuvent être rattachées à des éléments modélisés par l'équipe MOE. L'équipe MOE peut donc ajouter des liens de ces exigences vers ses propres modèles, ces liens seront conservés lors de l'import suivant.
+
+h2. Lancement de l'import métier
+
+h3. Situation de départ
+
+Supposons un projet MOA contenant un modèle Graal et un modèle Requirement et un projet MOE vide pour l'instant?
+
+!pics/import1.png!
+
+h3. Lancement de l'import
+
+L'import métier se lance au moyen d'un _Import wizard_ spécifique accessible par le menu contextuel d'un projet
+
+!pics/import2.png!
+
+L'assistant se nomme _Import business project_ et est disponible dans la catégorie _Safr@n_
+
+!pics/import3.png!
+
+L'assistant permet de choisir le projet MOA (_Import project_) et le projet MOE (_into project_) en utilisant les boutons _Choose_.
+Quand l'import a été lancé en ayant sélectionné le projet MOE, celui-ci est déjà pré-renseigné dans l'assistant.
+
+!pics/import4.png!
+
+!pics/import5.png!
+
+Une fois que les deux projets ont été spécifiés, il est possible de lancer l'import en cliquant sur _Finish_. 
+Un message d'avertissement prévient l'utilisateur que les modèles qu'il avait précédemment importés vont être complètement remplacés par les nouvelles versions. Il est encore possible d'annuler l'import à ce moment.
+
+!pics/import6.png!
+
+Un message avertit l'utilisateur que l'import a été correctement réalisé.
+
+!pics/import7.png!
+
+h3. Résultat de l'import
+
+Les modèles du projet MOA sont importés dans un répertoire _analysis_ (modèles Graal, Requirement et Entity).
+Les diagrammes sont également importés et les points de vue correspondant sont automatiquement activés sur le projet MOE.
+
+!pics/import8.png!
+
+h3. Imports suivants
+
+Les imports suivants peuvent être lancés de la même manière.
+
+Pour que l'import s'exécute, le projet MOE doit être sauvegardé et toutes les représentations (diagrammes, tableaux et arbres) doivent être fermées. Si ce n'est pas le cas, un message avertit l'utilisateur que le projet MOE va être sauvegardé et les éditeurs fermés.
+
+!pics/import9.png!
+
+Les modèles provenant du projet MOA ne doivent pas être modifiés par l'équipe MOE. La seule exception concerne les exigences qu'il est possible d'associer à des éléments de l'équipe MOE. Ces liens ajoutés seront conservés au prochain import. Dans le cas où des éléments des modèles MOE référencent des éléments des modèles MOA une boîte de dialogue affiche les références concernées, ces références seront supprimées au moment de l'import. L'utilisateur peut encore annuler l'import à ce moment.
+
+!pics/import10.png!

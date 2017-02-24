@@ -42,7 +42,13 @@ public class RequirementService {
 		for (Setting setting : crossReferenceAdapter.getInverseReferences(eObject)) {
 			if (setting.getEObject() instanceof Requirement) {
 				Requirement requirement = (Requirement) setting.getEObject();
-				linkedRequirements.add(requirement);
+				
+				// Check if requirement really references the object
+				// Workaround to avoid a problem with CrossReferencer containing duplicates
+				if (requirement.getReferencedObject().contains(eObject)) {
+					linkedRequirements.add(requirement);
+				}
+				
 			}
 		}
 		return linkedRequirements;

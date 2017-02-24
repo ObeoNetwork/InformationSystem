@@ -19,5 +19,12 @@
             primary="true">
       </toc>
    </extension>
+   <extension
+         point="org.obeonetwork.m2doc.services.register">
+      <service
+            serviceClass="org.obeonetwork.requirement.m2doc.services.RequirementServicesHolder"
+            serviceToken="default">
+      </service>
+   </extension>
 
 </plugin>

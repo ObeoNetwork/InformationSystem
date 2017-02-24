@@ -317,9 +317,6 @@ public class EnvironmentMessages extends NLS {
 	public static String OppositePropertiesEditionPart_IdentifierLabel;
 
 	
-	public static String OppositePropertiesEditionPart_OppositeOfLabel;
-
-	
 	public static String OppositePropertiesEditionPart_DescriptionLabel;
 
 	

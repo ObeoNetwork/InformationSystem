@@ -17,10 +17,11 @@ import java.util.List;
 
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.ui.ISharedImages;
 import org.obeonetwork.tools.linker.EObjectLink;
 import org.obeonetwork.tools.linker.ui.view.EObjectLinksView;
@@ -59,18 +60,21 @@ public class UnlinkRequirementAction extends EObjectLinksViewAction {
 					IDialogConstants.CANCEL_LABEL }, 1);
 		boolean openConfirm = dialog.open() == Window.OK;
 		if (openConfirm) {
-			TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(linksView.getInput());
-			RecordingCommand cmd = new RecordingCommand(editingDomain, "UnLink Requirements") { //$NON-NLS-1$
-				protected void doExecute() {
-					for (EObjectLink link : linksView.getSelectedEntries()) {
-						if (link instanceof RequirementLink) {
-							RequirementLink reqLink = (RequirementLink) link;
-							reqLink.getRequirement().getReferencedObject().remove(linksView.getInput());						
+			Session session = new EObjectQuery(linksView.getInput()).getSession();
+			if (session != null) {
+				TransactionalEditingDomain editingDomain = session.getTransactionalEditingDomain();
+				RecordingCommand cmd = new RecordingCommand(editingDomain, "UnLink Requirements") { //$NON-NLS-1$
+					protected void doExecute() {
+						for (EObjectLink link : linksView.getSelectedEntries()) {
+							if (link instanceof RequirementLink) {
+								RequirementLink reqLink = (RequirementLink) link;
+								reqLink.getRequirement().getReferencedObject().remove(linksView.getInput());						
+							}
 						}
 					}
-				}
-			};
-			editingDomain.getCommandStack().execute(cmd);
+				};
+				editingDomain.getCommandStack().execute(cmd);
+			}
 			linksView.refresh();
 		}
 	}

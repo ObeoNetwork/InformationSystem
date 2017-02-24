@@ -18,21 +18,10 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.obeonetwork.dsl.environment.Enumeration;
-import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
-import org.obeonetwork.dsl.environment.PrimitiveType;
-import org.obeonetwork.dsl.environment.provider.TypesDefinitionItemProvider;
+import org.obeonetwork.dsl.environment.provider.NamespaceItemProvider;
 import org.obeonetwork.dsl.soa.SoaFactory;
 import org.obeonetwork.dsl.soa.SoaPackage;
 import org.obeonetwork.dsl.soa.System;
@@ -44,7 +33,7 @@ import org.obeonetwork.dsl.soa.System;
  * @generated
  */
 public class SystemItemProvider
-	extends TypesDefinitionItemProvider {
+	extends NamespaceItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,31 +62,8 @@ public class SystemItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_System_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_System_name_feature", "_UI_System_type"),
-				 SoaPackage.Literals.SYSTEM__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -112,7 +78,6 @@ public class SystemItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES);
 			childrenFeatures.add(SoaPackage.Literals.SYSTEM__OWNED_COMPONENTS);
 			childrenFeatures.add(SoaPackage.Literals.SYSTEM__OWNED_WIRES);
 		}
@@ -180,10 +145,6 @@ public class SystemItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(org.obeonetwork.dsl.soa.System.class)) {
-			case SoaPackage.SYSTEM__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case SoaPackage.SYSTEM__OWNED_NAMESPACES:
 			case SoaPackage.SYSTEM__OWNED_COMPONENTS:
 			case SoaPackage.SYSTEM__OWNED_WIRES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -206,7 +167,7 @@ public class SystemItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EnvironmentPackage.Literals.NAMESPACES_CONTAINER__OWNED_NAMESPACES,
-				 EnvironmentFactory.eINSTANCE.createNamespace()));
+				 SoaFactory.eINSTANCE.createSystem()));
 
 		newChildDescriptors.add
 			(createChildParameter

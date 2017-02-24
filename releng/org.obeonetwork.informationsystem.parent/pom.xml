@@ -23,7 +23,7 @@
   <name>Information System Parent</name>
 
   <properties>
-    <tycho-version>0.20.0</tycho-version>
+    <tycho-version>0.21.0</tycho-version>
     <platform-version-name>neon</platform-version-name>
     <od-site>http://update.obeo.fr/integration/designer/9.1/team/9.1.1/repository/</od-site>
     <od-site2>http://update.obeo.fr/integration/designer/9.1/community/9.1.1/repository/</od-site2>
@@ -31,7 +31,7 @@
 <!--    <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site>  -->
     <eclipse-site>http://download.eclipse.org/releases/neon/</eclipse-site>
     <orbit-site>http://mirror.update.eclipse.obeo.fr/orbit-R20120526062928/</orbit-site>
- 	<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/0.9.5/</m2doc-site>
+ 	<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.9/repository</m2doc-site>
   </properties>
 
   <repositories>

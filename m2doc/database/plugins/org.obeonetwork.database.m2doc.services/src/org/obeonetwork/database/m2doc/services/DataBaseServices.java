@@ -150,7 +150,7 @@ public class DataBaseServices {
      *            the database
      * @return the list of local sequences.
      */
-    public List<Sequence> sequences(DataBase db) {
+    public List<Sequence> localSequences(DataBase db) {
         List<Sequence> result = new ArrayList<Sequence>();
         for (Sequence seq : db.getSequences()) {
             result.add(seq);

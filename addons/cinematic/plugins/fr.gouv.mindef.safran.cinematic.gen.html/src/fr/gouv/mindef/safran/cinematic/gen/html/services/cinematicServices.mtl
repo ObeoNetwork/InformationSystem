@@ -1,0 +1,8 @@
+[comment encoding = UTF-8 /]
+[module cinematicServices('http://www.obeonetwork.org/dsl/cinematic/3.0.0', 'http://www.eclipse.org/emf/2002/Ecore')/]
+
+[query public getNextStates(arg0 : FlowState, arg1 : Event) : Set(FlowState)
+	= invoke('fr.gouv.mindef.safran.cinematic.gen.html.services.CinematicServices', 'getNextStates(org.obeonetwork.dsl.cinematic.flow.FlowState, org.obeonetwork.dsl.cinematic.Event)', Sequence{arg0, arg1}) /]
+
+[query public getID(object : OclAny) : String
+	= invoke('fr.gouv.mindef.safran.cinematic.gen.html.services.CinematicServices', 'getId()', Sequence{}) /]
