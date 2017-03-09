@@ -297,4 +297,8 @@
          id="org.eclipse.sirius.runtime.aql"
          version="0.0.0"/>
 
+   <includes
+         id="org.obeonetwork.is.samples.feature"
+         version="0.0.0"/>
+
 </feature>

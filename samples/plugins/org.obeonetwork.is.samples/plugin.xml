@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.common.ui.examples">
+      <example
+            wizardID="org.obeonetwork.is.samples.EBookStoreWizard">
+         <projectDescriptor
+               contentURI="contents/E-BookStore/"
+               description="Modeling Project containing the E-Book Store example."
+               name="org.obeonetwork.is.sample.ebookstore">
+         </projectDescriptor>
+      </example>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.obeonetwork.is.samples.category"
+            name="Information System"
+            parentCategory="org.eclipse.ui.Examples">
+      </category>
+      <wizard
+            canFinishEarly="true"
+            category="org.eclipse.ui.Examples/org.obeonetwork.is.samples.category"
+            class="org.obeonetwork.is.samples.InformationSystemExampleWizard"
+            finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
+            id="org.obeonetwork.is.samples.EBookStoreWizard"
+            name="E-Book Store"
+            preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling"
+            project="true">
+         <description>
+            An Information System example modelling an E-Book Store.
+            
+            
+         </description>
+      </wizard>
+   </extension>
+</plugin>

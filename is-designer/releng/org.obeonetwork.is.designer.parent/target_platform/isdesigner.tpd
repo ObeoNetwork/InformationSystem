@@ -1,6 +1,6 @@
 target "IS Designer Target Definition"
 
-location "http://update.obeo.fr/release/designer/9.1/team/9.1.1/repository/" {
+location "http://update.obeo.fr/release/designer/9.1/team/latest/repository/" {
 	org.eclipse.e4.rcp.feature.group lazy
 	org.eclipse.platform.feature.group lazy
 	org.eclipse.jdt.feature.group lazy

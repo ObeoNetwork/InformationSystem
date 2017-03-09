@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="IS Designer Target Definition" sequenceNumber="1487944372">
+<target name="IS Designer Target Definition" sequenceNumber="1489072609">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.e4.rcp.feature.group" version="0.0.0"/>
@@ -65,7 +65,7 @@
       <unit id="org.eclipse.sirius.doc.feature.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.designer.ce.feature.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.viewpoint.runtime.collab.feature.group" version="0.0.0"/>
-      <repository location="http://update.obeo.fr/release/designer/9.1/team/9.1.1/repository/"/>
+      <repository location="http://update.obeo.fr/release/designer/9.1/team/latest/repository/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>

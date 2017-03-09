@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Copyright (c) 2008, 2017 Obeo.
-    All rights reserved. This program and the accompanying materials
-    are made available under the terms of the Eclipse Public License v1.0
-    which accompanies this distribution, and is available at
-    http://www.eclipse.org/legal/epl-v10.html
-   
-    Contributors:
-        Obeo - initial API and implementation
- -->
-
 <site>
    <feature url="features/org.obeonetwork.dsl.database.feature_9.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.feature" version="9.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
@@ -152,10 +141,14 @@
    <feature url="features/fr.gouv.mindef.safran.graal.extensions.feature_1.0.0.qualifier.jar" id="fr.gouv.mindef.safran.graal.extensions.feature" version="1.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.addons"/>
    </feature>
+   <feature url="features/org.obeonetwork.is.samples.feature_9.0.0.qualifier.jar" id="org.obeonetwork.is.samples.feature" version="9.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.samples"/>
+   </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>
    <category-def name="org.obeonetwork.informationsystem.commons" label="Information System - Commons"/>
    <category-def name="org.obeonetwork.informationsystem.reversers" label="Information System - Reversers"/>
    <category-def name="org.obeonetwork.informationsystem.m2doc" label="Information System - M2Doc"/>
    <category-def name="org.obeonetwork.informationsystem.addons" label="Add-ons"/>
+   <category-def name="org.obeonetwork.informationsystem.samples" label="Information System - Samples"/>
 </site>
