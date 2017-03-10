@@ -1,5 +1,52 @@
 target "IS Designer Target Definition"
 
+location "http://update.obeo.fr/integration/informationsystem/9.0/design/repository/" {
+	org.obeonetwork.dsl.feature.environment.feature.group lazy
+	org.obeonetwork.dsl.feature.entity.feature.group lazy
+	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
+	org.obeonetwork.dsl.feature.soa.feature.group lazy
+	org.obeonetwork.graal.feature.feature.group lazy
+	org.obeonetwork.dsl.feature.requirement.feature.group lazy
+	org.obeonetwork.dsl.feature.is.feature.group lazy
+	org.obeonetwork.dsl.feature.overview.feature.group lazy
+	org.obeonetwork.dsl.feature.interaction.feature.group lazy
+	org.obeonetwork.dsl.feature.statemachine.feature.group lazy
+	org.obeonetwork.dsl.database.feature.feature.group lazy
+	org.obeonetwork.dsl.typelibrary.feature.feature.group lazy
+	org.obeonetwork.dsl.database.synchronizer.feature.group lazy
+	org.obeonetwork.dsl.database.reverse.feature.feature.group lazy
+	org.obeonetwork.tools.migration.feature.feature.group lazy
+	org.eclipse.nebula.treemapper.feature.feature.group lazy
+	org.obeonetwork.dsl.cinematic.design.feature.feature.group lazy
+	org.obeonetwork.dsl.database.design.feature.feature.group lazy
+	org.obeonetwork.dsl.entity.design.feature.feature.group lazy
+	org.obeonetwork.dsl.interaction.design.feature.feature.group lazy
+	org.obeonetwork.dsl.statemachine.design.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.design.services.feature.feature.group lazy
+	org.obeonetwork.dsl.feature.is.design.feature.group lazy
+	org.obeonetwork.dsl.requirement.design.feature.feature.group lazy
+	org.obeonetwork.dsl.soa.design.feature.feature.group lazy
+	org.obeonetwork.graal.design.feature.feature.group lazy
+	org.obeonetwork.tools.doc.feature.feature.group lazy
+	org.obeonetwork.tools.linker.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.design.migration.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.binding.design.feature.feature.group lazy
+	org.obeonetwork.dsl.environment.binding.dialect.feature.feature.group lazy
+	org.obeonetwork.dsl.feature.technicalid.feature.group lazy
+	org.obeonetwork.dsl.environment.design.feature.feature.group lazy
+	org.obeonetwork.tools.snapshot.viewer.feature.feature.group lazy
+	org.obeonetwork.database.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.requirement.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.graal.m2doc.feature.feature.group lazy
+	fr.gouv.mindef.safran.database.scaffold.feature.feature.group lazy
+	fr.gouv.mindef.safran.database.ui.feature.feature.group lazy
+	fr.gouv.mindef.safran.graal.extensions.feature.feature.group lazy
+	fr.gouv.mindef.safran.feature.is.feature.group lazy
+	fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group lazy
+	fr.gouv.mindef.safran.project.lifecycle.feature.feature.group lazy
+	org.obeonetwork.is.samples.feature.feature.group lazy
+}
+
 location "http://update.obeo.fr/release/designer/9.1/team/latest/repository/" {
 	org.eclipse.e4.rcp.feature.group lazy
 	org.eclipse.platform.feature.group lazy
@@ -62,6 +109,7 @@ location "http://update.obeo.fr/release/designer/9.1/team/latest/repository/" {
 	org.eclipse.sirius.doc.feature.feature.group lazy
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
 	fr.obeo.dsl.viewpoint.runtime.collab.feature.group lazy
+	org.eclipse.sirius.runtime.aql.feature.group lazy
 }
 
 location "http://download.eclipse.org/releases/neon/" {

@@ -1,8 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="IS Designer Target Definition" sequenceNumber="1489072609">
+<target name="IS Designer Target Definition" sequenceNumber="1489161322">
   <locations>
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.entity.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.cinematic.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.soa.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.graal.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.requirement.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.is.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.overview.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.interaction.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.statemachine.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.database.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.typelibrary.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.database.synchronizer.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.database.reverse.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.tools.migration.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.nebula.treemapper.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.cinematic.design.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.database.design.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.entity.design.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.interaction.design.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.statemachine.design.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.environment.design.services.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.is.design.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.requirement.design.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.soa.design.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.graal.design.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.tools.doc.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.tools.linker.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.environment.design.migration.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.environment.binding.design.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.environment.binding.dialect.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.feature.technicalid.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.environment.design.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.tools.snapshot.viewer.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.database.m2doc.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.requirement.m2doc.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.graal.m2doc.feature.feature.group" version="0.0.0"/>
+      <unit id="fr.gouv.mindef.safran.database.scaffold.feature.feature.group" version="0.0.0"/>
+      <unit id="fr.gouv.mindef.safran.database.ui.feature.feature.group" version="0.0.0"/>
+      <unit id="fr.gouv.mindef.safran.graal.extensions.feature.feature.group" version="0.0.0"/>
+      <unit id="fr.gouv.mindef.safran.feature.is.feature.group" version="0.0.0"/>
+      <unit id="fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group" version="0.0.0"/>
+      <unit id="fr.gouv.mindef.safran.project.lifecycle.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.is.samples.feature.feature.group" version="0.0.0"/>
+      <repository location="http://update.obeo.fr/integration/informationsystem/9.0/design/repository/"/>
+    </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.e4.rcp.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
@@ -65,6 +112,7 @@
       <unit id="org.eclipse.sirius.doc.feature.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.designer.ce.feature.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.viewpoint.runtime.collab.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="0.0.0"/>
       <repository location="http://update.obeo.fr/release/designer/9.1/team/latest/repository/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">

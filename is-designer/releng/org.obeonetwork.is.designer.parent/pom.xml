@@ -28,6 +28,7 @@
 		<module>../../branding/features/org.obeonetwork.is.designer.ui.feature</module>
 		<module>../../branding/plugins/org.obeonetwork.is.designer.branding</module>
 		<module>../../branding/plugins/org.obeonetwork.is.designer.ui</module>
+		<module>../../../releng/org.obeonetwork.is.license</module>
 <!-- A mettre sur ObeoNetwork -->
 <!--
 		<module>../../database/features/fr.gouv.mindef.safran.database.scaffold.feature</module>
@@ -47,7 +48,7 @@
 
 
 	<properties>
-		<tycho-version>0.22.0</tycho-version>
+		<tycho-version>0.21.0</tycho-version>
 		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
 	</properties>
 
