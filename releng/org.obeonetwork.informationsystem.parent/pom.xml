@@ -26,22 +26,298 @@
 		<eclipse-site>http://download.eclipse.org/releases/neon/</eclipse-site>
 		<orbit-site>http://mirror.update.eclipse.obeo.fr/orbit-R20120526062928/</orbit-site>
 		<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.9/repository</m2doc-site>
-<!-- 		<acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
-<!-- 		<acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site> -->
+		<!-- <acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
+		<!-- <acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site> -->
 	</properties>
 
+	<modules>
+		<!-- ********************************************************************************************* 
+			* Models ********************************************************************************************* -->
+		<!-- models/technicalid/ -->
+		<module>../../models/technicalid/plugins/org.obeonetwork.dsl.technicalid</module>
+		<module>../../models/technicalid/plugins/org.obeonetwork.dsl.technicalid.edit</module>
+		<module>../../models/technicalid/features/org.obeonetwork.dsl.feature.technicalid</module>
+
+		<!-- models/environment/ -->
+		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment</module>
+		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.edit</module>
+		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.editor</module>
+		<module>../../models/environment/plugins/org.obeonetwork.dsl.environment.common</module>
+
+		<module>../../models/environment/features/org.obeonetwork.dsl.feature.environment</module>
+
+		<!-- models/entity/ -->
+		<module>../../models/entity/plugins/org.obeonetwork.dsl.entity</module>
+		<module>../../models/entity/plugins/org.obeonetwork.dsl.entity.edit</module>
+		<module>../../models/entity/plugins/org.obeonetwork.dsl.entity.editor</module>
+
+		<module>../../models/entity/features/org.obeonetwork.dsl.feature.entity</module>
+
+		<!-- models/database/ -->
+		<module>../../models/database/plugins/org.obeonetwork.dsl.database</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.database.edit</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.database.editor</module>
+		<module>../../models/database/features/org.obeonetwork.dsl.database.feature</module>
+
+		<module>../../models/database/plugins/org.obeonetwork.dsl.entityrelation</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.entityrelation.edit</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.entityrelation.editor</module>
+		<module>../../models/database/features/org.obeonetwork.dsl.entityrelation.feature</module>
+
+		<module>../../models/database/plugins/org.obeonetwork.dsl.typeslibrary</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.typeslibrary.edit</module>
+		<module>../../models/database/plugins/org.obeonetwork.dsl.typeslibrary.editor</module>
+		<module>../../models/database/features/org.obeonetwork.dsl.typelibrary.feature</module>
+
+		<!-- models/soa/ -->
+		<module>../../models/soa/plugins/org.obeonetwork.dsl.soa</module>
+		<module>../../models/soa/plugins/org.obeonetwork.dsl.soa.edit</module>
+		<module>../../models/soa/plugins/org.obeonetwork.dsl.soa.editor</module>
+
+		<module>../../models/soa/features/org.obeonetwork.dsl.feature.soa</module>
+
+		<!-- models/cinematic/ -->
+		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic</module>
+		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.edit</module>
+		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.editor</module>
+		<module>../../models/cinematic/plugins/org.obeonetwork.dsl.cinematic.doc</module>
+
+		<module>../../models/cinematic/features/org.obeonetwork.dsl.feature.cinematic</module>
+
+		<!-- models/graal/ -->
+		<module>../../models/graal/plugins/org.obeonetwork.graal</module>
+		<module>../../models/graal/plugins/org.obeonetwork.graal.edit</module>
+		<module>../../models/graal/plugins/org.obeonetwork.graal.editor</module>
+		<module>../../models/graal/plugins/org.obeonetwork.graal.doc</module>
+
+		<module>../../models/graal/features/org.obeonetwork.graal.feature</module>
+
+
+		<!-- models/requirement/ -->
+		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement</module>
+		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement.edit</module>
+		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement.editor</module>
+		<module>../../models/requirement/plugins/org.obeonetwork.dsl.requirement.doc</module>
+
+		<module>../../models/requirement/features/org.obeonetwork.dsl.feature.requirement</module>
+
+		<!-- models/statemachine/ -->
+		<module>../../models/statemachine/plugins/org.obeonetwork.dsl.statemachine</module>
+		<module>../../models/statemachine/plugins/org.obeonetwork.dsl.statemachine.edit</module>
+		<module>../../models/statemachine/plugins/org.obeonetwork.dsl.statemachine.editor</module>
+
+		<module>../../models/statemachine/features/org.obeonetwork.dsl.feature.statemachine</module>
+
+		<!-- models/overview/ -->
+		<module>../../models/overview/plugins/org.obeonetwork.dsl.overview</module>
+		<module>../../models/overview/plugins/org.obeonetwork.dsl.overview.edit</module>
+		<module>../../models/overview/plugins/org.obeonetwork.dsl.overview.editor</module>
+
+		<module>../../models/overview/features/org.obeonetwork.dsl.feature.overview</module>
+
+		<!-- models/interaction/ -->
+		<module>../../models/interaction/plugins/org.obeonetwork.dsl.interaction</module>
+		<module>../../models/interaction/plugins/org.obeonetwork.dsl.interaction.edit</module>
+		<module>../../models/interaction/plugins/org.obeonetwork.dsl.interaction.editor</module>
+
+		<module>../../models/interaction/features/org.obeonetwork.dsl.feature.interaction</module>
+
+		<!-- models/ecoreBinding/ -->
+		<module>../../models/ecorebinding/plugins/org.obeonetwork.dsl.ecorebinding</module>
+		<module>../../models/ecorebinding/plugins/org.obeonetwork.dsl.ecorebinding.edit</module>
+		<module>../../models/ecorebinding/plugins/org.obeonetwork.dsl.ecorebinding.editor</module>
+
+		<module>../../models/ecorebinding/features/org.obeonetwork.dsl.ecorebinding.feature</module>
+
+		<!-- models/application/ -->
+		<module>../../models/application/plugins/org.obeonetwork.dsl.application</module>
+		<module>../../models/application/plugins/org.obeonetwork.dsl.application.edit</module>
+		<module>../../models/application/plugins/org.obeonetwork.dsl.application.editor</module>
+
+		<module>../../models/application/features/org.obeonetwork.dsl.application.feature</module>
+
+		<!-- ********************************************************************************************* 
+			* Tools & Commons ********************************************************************************************* -->
+		<!-- commons/nebula/ -->
+		<module>../../commons/nebula/plugins/org.eclipse.nebula.treemapper</module>
+		<module>../../commons/nebula/features/org.eclipse.nebula.treemapper.feature</module>
+
+		<!-- commons/is/ -->
+		<module>../../commons/is/plugins/org.obeonetwork.dsl.is</module>
+		<module>../../commons/is/features/org.obeonetwork.dsl.feature.is</module>
+
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.doc</module>
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.doc.doc</module>
+		<module>../../commons/tools/features/org.obeonetwork.tools.doc.feature</module>
+
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.linker</module>
+		<module>../../commons/tools/features/org.obeonetwork.tools.linker.feature</module>
+
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.requirement</module>
+
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.migration</module>
+		<module>../../commons/tools/features/org.obeonetwork.tools.migration.feature</module>
+
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.snapshot.viewer</module>
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.snapshot.viewer.doc</module>
+		<module>../../commons/tools/features/org.obeonetwork.tools.snapshot.viewer.feature</module>
+
+		<!-- ********************************************************************************************* 
+			* Designs ********************************************************************************************* -->
+		<!-- designs/environment/ -->
+
+		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.dialect</module>
+		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.dialect.ui</module>
+
+		<module>../../designs/environment/features/org.obeonetwork.dsl.environment.binding.dialect.feature</module>
+
+		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.design</module>
+		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.binding.design.doc</module>
+
+		<module>../../designs/environment/features/org.obeonetwork.dsl.environment.binding.design.feature</module>
+
+		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.design.services</module>
+
+		<module>../../designs/environment/features/org.obeonetwork.dsl.environment.design.services.feature</module>
+
+		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.design.migration</module>
+
+		<module>../../designs/environment/features/org.obeonetwork.dsl.environment.design.migration.feature</module>
+
+		<module>../../designs/environment/plugins/org.obeonetwork.dsl.environment.design</module>
+
+		<module>../../designs/environment/features/org.obeonetwork.dsl.environment.design.feature</module>
+
+		<!-- designs/cinematic/ -->
+		<module>../../designs/cinematic/plugins/org.obeonetwork.dsl.cinematic.design</module>
+
+		<module>../../designs/cinematic/features/org.obeonetwork.dsl.cinematic.design.feature</module>
+
+		<!-- designs/database/ -->
+		<module>../../designs/database/plugins/org.obeonetwork.dsl.entityrelation.design</module>
+		<module>../../designs/database/plugins/org.obeonetwork.dsl.database.design</module>
+
+		<module>../../designs/database/features/org.obeonetwork.dsl.entityrelation.design.feature</module>
+		<module>../../designs/database/features/org.obeonetwork.dsl.database.design.feature</module>
+
+		<!-- designs/graal/ -->
+		<module>../../designs/graal/plugins/org.obeonetwork.graal.design</module>
+
+		<module>../../designs/graal/features/org.obeonetwork.graal.design.feature</module>
+
+		<!-- designs/interaction/ -->
+		<module>../../designs/interaction/plugins/org.obeonetwork.dsl.interaction.design</module>
+		<module>../../designs/interaction/plugins/org.obeonetwork.dsl.interaction.doc</module>
+
+		<module>../../designs/interaction/features/org.obeonetwork.dsl.interaction.design.feature</module>
+
+		<!-- designs/requirement/ -->
+		<module>../../designs/requirement/plugins/org.obeonetwork.dsl.requirement.validation</module>
+		<module>../../designs/requirement/plugins/org.obeonetwork.dsl.requirement.design</module>
+
+		<module>../../designs/requirement/features/org.obeonetwork.dsl.requirement.design.feature</module>
+
+		<!-- designs/statemachine/ -->
+		<module>../../designs/statemachine/plugins/org.obeonetwork.dsl.statemachine.design</module>
+		<module>../../designs/statemachine/plugins/org.obeonetwork.dsl.statemachine.doc</module>
+
+		<module>../../designs/statemachine/features/org.obeonetwork.dsl.statemachine.design.feature</module>
+
+		<!-- designs/entity/ -->
+		<module>../../designs/entity/plugins/org.obeonetwork.dsl.entity.design</module>
+		<module>../../designs/entity/plugins/org.obeonetwork.dsl.entity.doc</module>
+
+		<module>../../designs/entity/features/org.obeonetwork.dsl.entity.design.feature</module>
+
+		<!-- designs/soa/ -->
+		<module>../../designs/soa/plugins/org.obeonetwork.dsl.soa.design</module>
+		<module>../../designs/soa/plugins/org.obeonetwork.dsl.soa.doc</module>
+		<module>../../designs/soa/features/org.obeonetwork.dsl.soa.design.feature</module>
+
+		<!-- designs/is/ -->
+		<module>../../designs/is/plugins/org.obeonetwork.dsl.is.design</module>
+		<module>../../designs/is/features/org.obeonetwork.dsl.feature.is.design</module>
+
+		<!-- ********************************************************************************************* 
+			* Reversers ********************************************************************************************* -->
+
+		<!-- reversers/database/ -->
+		<module>../../reversers/database/features/org.obeonetwork.dsl.database.reverse.feature</module>
+		<module>../../reversers/database/plugins/org.obeonetwork.dsl.database.reverse</module>
+
+		<!-- reversers/database-synchroniser/ -->
+		<module>../../reversers/database-synchroniser/features/org.obeonetwork.dsl.database.synchronizer</module>
+		<module>../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.compare</module>
+		<module>../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.compare.edit</module>
+		<module>../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.sqlgen</module>
+		<module>../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.sqlgen.tests</module>
+		<module>../../reversers/database-synchroniser/plugins/org.obeonetwork.dsl.database.sqlgen.ui</module>
+
+		<!-- ********************************************************************************************* 
+			* Repository Information System Design ********************************************************************************************* -->
+		<module>../org.obeonetwork.informationsystem.design.repository</module>
+
+		<!-- ********************************************************************************************* 
+			* M2Doc Services ********************************************************************************************* -->
+		<module>../../m2doc/database/plugins/org.obeonetwork.database.m2doc.services</module>
+		<module>../../m2doc/database/plugins/org.obeonetwork.database.m2doc.services.test</module>
+		<module>../../m2doc/database/features/org.obeonetwork.database.m2doc.feature</module>
+		<module>../../m2doc/requirement/plugins/org.obeonetwork.dsl.requirement.m2doc.services</module>
+		<module>../../m2doc/requirement/plugins/org.obeonetwork.dsl.requirement.m2doc.services.test</module>
+		<module>../../m2doc/requirement/features/org.obeonetwork.dsl.requirement.m2doc.feature</module>
+		<module>../../m2doc/graal/plugins/org.obeonetwork.dsl.graal.m2doc.services</module>
+		<module>../../m2doc/graal/plugins/org.obeonetwork.dsl.graal.m2doc.services.tests</module>
+		<module>../../m2doc/graal/features/org.obeonetwork.dsl.graal.m2doc.feature</module>
+
+		<!-- ********************************************************************************************* 
+			* Scaffolding ********************************************************************************************* -->
+		<module>../../addons/scaffolding/features/fr.gouv.mindef.safran.database.scaffold.feature</module>
+		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.scaffold</module>
+		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.scaffold.edit</module>
+		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.scaffold.editor</module>
+		<module>../../addons/scaffolding/features/fr.gouv.mindef.safran.database.ui.feature</module>
+		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database</module>
+		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.doc</module>
+		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.ui</module>
+		<module>../../addons/scaffolding/plugins/fr.gouv.mindef.safran.database.tests</module>
+
+		<!-- ********************************************************************************************* 
+			* Samples ********************************************************************************************* -->
+		<module>../../samples/plugins/org.obeonetwork.is.samples</module>
+		<module>../../samples/features/org.obeonetwork.is.samples.feature</module>
+
+		<!-- ********************************************************************************************* 
+			* License ********************************************************************************************* -->
+		<module>../org.obeonetwork.is.license</module>
+
+		<!-- ********************************************************************************************* 
+			* Lifecycle ********************************************************************************************* -->
+		<module>../../addons/lifecycle/features/fr.gouv.mindef.safran.project.lifecycle.feature</module>
+		<module>../../addons/lifecycle/plugins/fr.gouv.mindef.safran.project.lifecycle</module>
+		<module>../../addons/lifecycle/plugins/fr.gouv.mindef.safran.project.lifecycle.ui</module>
+		<module>../../addons/lifecycle/plugins/fr.gouv.mindef.safran.project.lifecycle.doc</module>
+
+		<!-- ********************************************************************************************* 
+			* Cinematic HTML Generator ********************************************************************************************* -->
+		<module>../../addons/cinematic/features/fr.gouv.mindef.safran.cinematic.gen.html.feature</module>
+		<module>../../addons/cinematic/plugins/fr.gouv.mindef.safran.cinematic.gen.html</module>
+		<module>../../addons/cinematic/plugins/fr.gouv.mindef.safran.cinematic.gen.html.ui</module>
+
+		<!-- ********************************************************************************************* 
+			* Structured types tables ********************************************************************************************* -->
+		<module>../../addons/structuredtypes/features/fr.gouv.mindef.safran.feature.is</module>
+		<module>../../addons/structuredtypes/plugins/fr.gouv.mindef.safran.is.design</module>
+		<module>../../addons/structuredtypes/plugins/fr.gouv.mindef.safran.is.design.doc</module>
+
+		<!-- ********************************************************************************************* 
+			* Graal Extensions ********************************************************************************************* -->
+		<module>../../addons/graalextensions/features/fr.gouv.mindef.safran.graal.extensions.feature</module>
+		<module>../../addons/graalextensions/plugins/fr.gouv.mindef.safran.graal.extensions</module>
+		<module>../../addons/graalextensions/plugins/fr.gouv.mindef.safran.graal.extensions.edit</module>
+
+	</modules>
 
 	<repositories>
-<!-- 		<repository> -->
-<!-- 			<id>acceleo-snapshots</id> -->
-<!-- 			<layout>p2</layout> -->
-<!-- 			<url>${acceleo-snapshots-site}</url> -->
-<!-- 		</repository> -->
-<!-- 		<repository> -->
-<!-- 			<id>acceleo-releases</id> -->
-<!-- 			<layout>p2</layout> -->
-<!-- 			<url>${acceleo-releases-site}</url> -->
-<!-- 		</repository> -->
 		<repository>
 			<id>od</id>
 			<layout>p2</layout>
@@ -67,14 +343,43 @@
 			<layout>p2</layout>
 			<url>${eef-site}</url>
 		</repository>
-		<!-- <repository> <id>acceleo</id> <layout>p2</layout> <url>${acceleo-site}</url> 
-			</repository> -->
 		<repository>
 			<id>orbit</id>
 			<layout>p2</layout>
 			<url>${orbit-site}</url>
 		</repository>
 	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>Eclipse - Acceleo Snapshots</id>
+			<!--<url>http://www.obeo.fr/download/acceleo/maven/snapshots</url> -->
+			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>Eclipse - Acceleo Releases</id>
+			<!--<url>http://www.obeo.fr/download/acceleo/maven/releases/indigo</url> -->
+			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.acceleo</groupId>
+			<artifactId>org.eclipse.acceleo.maven</artifactId>
+			<version>3.5.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.acceleo</groupId>
+			<artifactId>org.eclipse.acceleo.engine</artifactId>
+			<version>3.5.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -197,37 +502,6 @@
 		</pluginManagement>
 	</build>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>Eclipse - Acceleo Snapshots</id>
-			<!--<url>http://www.obeo.fr/download/acceleo/maven/snapshots</url> -->
-			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>Eclipse - Acceleo Releases</id>
-			<!--<url>http://www.obeo.fr/download/acceleo/maven/releases/indigo</url> -->
-			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
-		</pluginRepository>
-	</pluginRepositories>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.eclipse.acceleo</groupId>
-			<artifactId>org.eclipse.acceleo.maven</artifactId>
-			<version>3.5.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.acceleo</groupId>
-			<artifactId>org.eclipse.acceleo.engine</artifactId>
-			<version>3.5.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>1.6.4</version>
-		</dependency>
-	</dependencies>
-
 	<profiles>
 		<profile>
 			<id>platform-mars</id>
@@ -241,6 +515,7 @@
 				<eclipse-site>>http://download.eclipse.org/releases/neon</eclipse-site>
 				<platform-version>[4.4,4.5)</platform-version>
 				<swtbot-site>http://download.eclipse.org/technology/swtbot/indigo/dev-build/update-site</swtbot-site>
+				<!-- Update to this? http://download.eclipse.org/technology/swtbot/releases/latest/ -->
 			</properties>
 		</profile>
 		<profile>
