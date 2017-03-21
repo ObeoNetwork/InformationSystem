@@ -38,6 +38,31 @@
 
 	</modules>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>Eclipse - Acceleo Snapshots</id>
+			<!--<url>http://www.obeo.fr/download/acceleo/maven/snapshots</url> -->
+			<url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>Eclipse - Acceleo Releases</id>
+			<!--<url>http://www.obeo.fr/download/acceleo/maven/releases/indigo</url> -->
+			<url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.acceleo</groupId>
+			<artifactId>org.eclipse.acceleo.maven</artifactId>
+			<version>3.5.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.acceleo</groupId>
+			<artifactId>org.eclipse.acceleo.engine</artifactId>
+			<version>3.5.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 
 	<properties>
 		<tycho-version>0.21.0</tycho-version>
