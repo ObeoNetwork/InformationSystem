@@ -217,7 +217,7 @@
          id="org.apache.poi.feature"
          version="0.0.0"/>
 
-   <includes
+   <!--<includes
          id="org.obeonetwork.database.m2doc.feature"
          version="0.0.0"
          optional="true"/>
@@ -230,7 +230,7 @@
    <includes
          id="org.obeonetwork.dsl.requirement.m2doc.feature"
          version="0.0.0"
-         optional="true"/>
+         optional="true"/>-->
 
    <includes
          id="org.eclipse.sirius.doc.feature"
