@@ -9,7 +9,7 @@
       </toc>
    </extension>
    <extension
-         point="org.obeonetwork.m2doc.services.register">
+         point="org.obeonetwork.m2doc.ide.services.register">
       <service
             serviceClass="org.obeonetwork.dsl.graal.m2doc.services.DomainClassServiceHolder"
             serviceToken="default">

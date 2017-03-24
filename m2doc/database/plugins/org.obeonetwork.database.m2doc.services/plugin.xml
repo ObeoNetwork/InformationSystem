@@ -13,7 +13,7 @@
 
 <plugin>
    <extension
-         point="org.obeonetwork.m2doc.services.register">
+         point="org.obeonetwork.m2doc.ide.services.register">
       <service
             serviceClass="org.obeonetwork.database.m2doc.services.ColumnServiceHolder"
             serviceToken="default">
