@@ -70,9 +70,9 @@
 				<configuration>
 					<resolver>p2</resolver>
 					<resolveWithExecutionEnvironmentConstraints>false</resolveWithExecutionEnvironmentConstraints>
-					<dependency-resolution>
-						<optionalDependencies>ignore</optionalDependencies>
-					</dependency-resolution>
+<!-- 					<dependency-resolution> -->
+<!-- 						<optionalDependencies></optionalDependencies> -->
+<!-- 					</dependency-resolution> -->
 					<target>
 						<artifact>
 							<groupId>org.obeonetwork.is.designer</groupId>

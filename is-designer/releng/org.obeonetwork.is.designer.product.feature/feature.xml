@@ -218,21 +218,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.obeonetwork.database.m2doc.feature"
-         version="0.0.0"
-         optional="true"/>
-
-   <includes
-         id="org.obeonetwork.dsl.graal.m2doc.feature"
-         version="0.0.0"
-         optional="true"/>
-
-   <includes
-         id="org.obeonetwork.dsl.requirement.m2doc.feature"
-         version="0.0.0"
-         optional="true"/>
-
-   <includes
          id="org.eclipse.sirius.doc.feature"
          version="0.0.0"/>
 
@@ -304,6 +289,21 @@
 
    <includes
          id="org.obeonetwork.m2doc.sirius.feature"
+         version="0.0.0"
+         optional="true"/>
+         
+   <includes
+         id="org.obeonetwork.database.m2doc.feature"
+         version="0.0.0"
+         optional="true"/>
+
+   <includes
+         id="org.obeonetwork.dsl.graal.m2doc.feature"
+         version="0.0.0"
+         optional="true"/>
+
+   <includes
+         id="org.obeonetwork.dsl.requirement.m2doc.feature"
          version="0.0.0"
          optional="true"/>
 

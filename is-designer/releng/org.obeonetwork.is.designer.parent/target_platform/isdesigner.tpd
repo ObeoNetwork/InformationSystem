@@ -66,8 +66,6 @@ location "http://update.obeo.fr/release/designer/9.1/team/latest/repository/" {
 	org.eclipse.emf.compare.ide.ui.feature.group lazy
 	org.eclipse.emf.compare.rcp lazy
 	org.eclipse.emf.compare.rcp.ui lazy
-	org.eclipse.acceleo.feature.group lazy
-	org.eclipse.acceleo.query.feature.group lazy
 	org.eclipse.sirius.runtime.feature.group lazy
 	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
 	fr.obeo.dsl.designer.gen.html.feature.feature.group lazy
@@ -112,6 +110,11 @@ location "http://update.obeo.fr/release/designer/9.1/team/latest/repository/" {
 	org.eclipse.sirius.runtime.aql.feature.group lazy
 }
 
+location "http://download.eclipse.org/acceleo/updates/releases/"{
+	org.eclipse.acceleo.feature.group lazy
+	org.eclipse.acceleo.query.feature.group lazy
+}
+
 location "http://download.eclipse.org/releases/neon/" {
 	org.eclipse.equinox.executable.feature.group lazy
 	org.apache.commons.io lazy
@@ -122,7 +125,7 @@ location "http://download.eclipse.org/releases/neon/" {
 	org.eclipse.oomph.setup.sdk.feature.group lazy
 }
 
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.11.0_alpha/repository" {
+location "http://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.11.0_alpha/repository" {
 	org.apache.poi.feature.feature.group lazy
 	org.obeonetwork.m2doc.feature.feature.group lazy
 	org.obeonetwork.m2doc.sirius.feature.feature.group lazy
