@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="IS Designer Target Definition" sequenceNumber="1490181969">
+<target name="IS Designer Target Definition" sequenceNumber="1490347950">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -38,6 +38,9 @@
       <unit id="org.obeonetwork.dsl.feature.technicalid.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.dsl.environment.design.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.tools.snapshot.viewer.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.database.m2doc.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.requirement.m2doc.feature.feature.group" version="0.0.0"/>
+      <unit id="org.obeonetwork.dsl.graal.m2doc.feature.feature.group" version="0.0.0"/>
       <unit id="fr.gouv.mindef.safran.database.scaffold.feature.feature.group" version="0.0.0"/>
       <unit id="fr.gouv.mindef.safran.database.ui.feature.feature.group" version="0.0.0"/>
       <unit id="fr.gouv.mindef.safran.graal.extensions.feature.feature.group" version="0.0.0"/>
@@ -127,7 +130,7 @@
       <unit id="org.obeonetwork.m2doc.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.sirius.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.m2doc.sirius.addon.feature.feature.group" version="0.0.0"/>
-      <repository location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.7/repository"/>
+      <repository location="https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.11.0_alpha/repository"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.team.svn.resource.ignore.rules.jdt.feature.group" version="3.0.0.I20150529-1700"/>

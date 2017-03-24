@@ -35,9 +35,9 @@ location "http://update.obeo.fr/integration/informationsystem/9.0/design/reposit
 	org.obeonetwork.dsl.feature.technicalid.feature.group lazy
 	org.obeonetwork.dsl.environment.design.feature.feature.group lazy
 	org.obeonetwork.tools.snapshot.viewer.feature.feature.group lazy
-//	org.obeonetwork.database.m2doc.feature.feature.group lazy
-//	org.obeonetwork.dsl.requirement.m2doc.feature.feature.group lazy
-//	org.obeonetwork.dsl.graal.m2doc.feature.feature.group lazy
+	org.obeonetwork.database.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.requirement.m2doc.feature.feature.group lazy
+	org.obeonetwork.dsl.graal.m2doc.feature.feature.group lazy
 	fr.gouv.mindef.safran.database.scaffold.feature.feature.group lazy
 	fr.gouv.mindef.safran.database.ui.feature.feature.group lazy
 	fr.gouv.mindef.safran.graal.extensions.feature.feature.group lazy
@@ -122,7 +122,7 @@ location "http://download.eclipse.org/releases/neon/" {
 	org.eclipse.oomph.setup.sdk.feature.group lazy
 }
 
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.7/repository" {
+location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.11.0_alpha/repository" {
 	org.apache.poi.feature.feature.group lazy
 	org.obeonetwork.m2doc.feature.feature.group lazy
 	org.obeonetwork.m2doc.sirius.feature.feature.group lazy

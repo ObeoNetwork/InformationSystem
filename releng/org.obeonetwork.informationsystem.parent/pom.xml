@@ -25,7 +25,7 @@
 		<!-- <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site> -->
 		<eclipse-site>http://download.eclipse.org/releases/neon/</eclipse-site>
 		<orbit-site>http://mirror.update.eclipse.obeo.fr/orbit-R20120526062928/</orbit-site>
-		<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.9/repository</m2doc-site>
+		<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.11.0_alpha/repository</m2doc-site>
 		<!-- <acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
 		<!-- <acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site> -->
 	</properties>
