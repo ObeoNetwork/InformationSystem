@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genconf:Generation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genconf="http://www.obeonetwork.org/m2doc/genconf/1.0" name="E-BookStore_template" templateFileName="E-BookStore_template.docx" resultFileName="../E-BookStore_documentation.docx">
+  <definitions xsi:type="genconf:ModelDefinition" key="system">
+    <value href="../../E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
+    <type xsi:type="ecore:EClass" href="http://www.obeonetwork.org/dsl/graal/2.0.0#//System"/>
+  </definitions>
+  <definitions xsi:type="genconf:ModelDefinition" key="repository">
+    <value href="../../E-BookStore.requirement#_UIbdoIjLEeGrHN3Vq969QA"/>
+    <type xsi:type="ecore:EClass" href="http://www.obeonetwork.org/dsl/requirement/1.0#//Repository"/>
+  </definitions>
+  <definitions xsi:type="genconf:StringDefinition" key="nomProjet" value="E-BookStore"/>
+</genconf:Generation>
