@@ -3,14 +3,16 @@
       id="fr.gouv.mindef.safran.feature.is"
       label="Safran OD4IS extensions"
       version="1.0.0.qualifier"
-      provider-name="Obeo.fr">
+      provider-name="%providerName"
+      license-feature="org.obeonetwork.is.license"
+      license-feature-version="1.0.0.qualifier">
 
-   <description url="http://www.obeo.fr">
+   <description url="https://www.obeo.fr">
       Obeo - Safran - Extension to OD4IS
    </description>
 
-   <copyright url="http://www.obeo.fr">
-      Copyright (c) 2011 Obeo
+   <copyright url="https://www.obeo.fr">
+      %copyright
    </copyright>
 
    <license url="%licenseURL">

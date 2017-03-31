@@ -13,13 +13,17 @@
       id="org.obeonetwork.dsl.requirement.m2doc.feature"
       label="Requirement M2Doc Services"
       version="1.0.0.qualifier"
-      provider-name="ObeoNetwork"
+      provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
       license-feature-version="1.0.0.qualifier">
 
-   <description url="http://www.obeo.fr">
+   <description url="https://www.obeo.fr">
       Obeo - Requirement Model Service implementations and documentation
    </description>
+
+   <copyright url="https://www.obeo.fr">
+      %copyright
+   </copyright>
 
    <plugin
          id="org.obeonetwork.dsl.requirement.m2doc.services"

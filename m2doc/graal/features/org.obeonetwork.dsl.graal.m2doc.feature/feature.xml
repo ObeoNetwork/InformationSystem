@@ -12,14 +12,17 @@
 <feature
       id="org.obeonetwork.dsl.graal.m2doc.feature"
       label="Feature"
-      version="1.0.0.qualifier">
+      version="1.0.0.qualifier"
+      provider-name="%providerName"
+      license-feature="org.obeonetwork.is.license"
+      license-feature-version="1.0.0.qualifier">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+   <description url="https://www.obeo.fr">
+      M2Doc for Graal.
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
+   <copyright url="https://www.obeo.fr">
+      %copyright
    </copyright>
 
    <license url="http://www.example.com/license">

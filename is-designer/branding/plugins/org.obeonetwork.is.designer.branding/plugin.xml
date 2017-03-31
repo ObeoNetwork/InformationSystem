@@ -57,16 +57,27 @@ categoryId= "org.obeonetwork.dsl.designer.Category"
 </extension>
 
 <extension point="org.eclipse.core.runtime.products" id="product">
-	<product name="%productName" application="org.eclipse.ui.ide.workbench">
-		<property name="windowImages" value="icons/logo_16.gif,icons/logo_32.gif,icons/logo_64.gif"/>
-        <property name="appName" value="%productName"/>
+	<product name="Information System Designer" application="org.eclipse.ui.ide.workbench">
+		<property name="windowImages" value="icons/logo_16.png,icons/logo_32.png,icons/logo_48.png,icons/logo_64.png,icons/logo_128.png"/>
+        <property name="appName" value="Information System Designer"/>
 		<property name="aboutImage" value="icons/about.gif"/>
-		<property name="aboutText" value="%aboutText"/>
+		<property name="aboutText" value="Information System Designer
+
+Version  1.7.0
+
+
+Copyright (c) 2005, 2017 Obeo. All Rights Reserved.
+Viewpoint Specification : Copyright (c) 2005-2015 Thales.
+
+Visit http://www.obeo.fr"/>
 		<property name="startupForegroundColor" value="000000"/>
-		<property name="startupMessageRect" value="7,303,441,15"/>
-		<property name="startupProgressRect" value="3,320,446,15"/>
-		<property name="preferenceCustomization" value="plugin_customization.ini"></property>
+		<property name="startupMessageRect" value="7,308,458,18"/>
+		<property name="startupProgressRect" value="0,328,458,18"/>
 		<property name="cssTheme" value="net.jeeeyul.eclipse.themes.custom"></property>
+  <property
+        name="preferenceCustomization"
+        value="plugin_customization.ini">
+  </property>
 	</product>
 </extension>
 

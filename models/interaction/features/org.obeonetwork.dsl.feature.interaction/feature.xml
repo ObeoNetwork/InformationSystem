@@ -17,9 +17,13 @@
       license-feature="org.obeonetwork.is.license"
       license-feature-version="1.0.0.qualifier">
 
-   <description url="http://marketplace.obeonetwork.com/">
+   <description url="https://www.obeo.fr">
       ObeoNetwork - Interaction Designer
    </description>
+
+   <copyright url="https://www.obeo.fr">
+      %copyright
+   </copyright>
 
    <requires>
       <import feature="org.obeonetwork.dsl.feature.environment" version="2.1.0" match="greaterOrEqual"/>

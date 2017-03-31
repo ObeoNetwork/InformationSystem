@@ -17,9 +17,13 @@
       license-feature="org.obeonetwork.is.license"
       license-feature-version="1.0.0.qualifier">
 
-   <description url="http://marketplace.obeonetwork.com/">
-      ObeoNetwork - IS Product
+   <description url="https://www.obeo.fr">
+      ObeoNetwork - IS Product Feature
    </description>
+
+   <copyright url="https://www.obeo.fr">
+      %copyright
+   </copyright>
 
    <includes
          id="org.eclipse.sirius.runtime"
@@ -291,7 +295,7 @@
          id="org.obeonetwork.m2doc.sirius.feature"
          version="0.0.0"
          optional="true"/>
-         
+
    <includes
          id="org.obeonetwork.database.m2doc.feature"
          version="0.0.0"

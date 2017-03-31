@@ -13,13 +13,17 @@
       id="org.obeonetwork.dsl.database.feature"
       label="Database"
       version="9.0.0.qualifier"
-      provider-name="Obeo Network"
+      provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
       license-feature-version="1.0.0.qualifier">
 
    <description url="http://www.obeo.fr">
       Obeo - Database
    </description>
+
+   <copyright url="https://www.obeo.fr">
+      %copyright
+   </copyright>
 
    <requires>
       <import feature="org.obeonetwork.dsl.typelibrary.feature" version="1.0.0" match="greaterOrEqual"/>

@@ -14,7 +14,7 @@ Version  1.7.0
 Copyright (c) 2005, 2017 Obeo. All Rights Reserved.
 Viewpoint Specification : Copyright (c) 2005-2015 Thales.
 
-Visit http://www.obeo.fr
+Visit https://www.obeo.fr
       </text>
    </aboutInfo>
 
@@ -48,6 +48,7 @@ Visit http://www.obeo.fr
          <bmp/>
       </win>
    </launcher>
+
 
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</linux>
@@ -134,5 +135,12 @@ The user is not authorized to install or make a technical means to hide within t
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="3" />
    </configurations>
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
 
 </product>

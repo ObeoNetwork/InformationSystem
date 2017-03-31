@@ -3,14 +3,16 @@
       id="fr.gouv.mindef.safran.project.lifecycle.feature"
       label="Safr@n Project Lifecycle Feature"
       version="1.0.0.qualifier"
-      provider-name="Obeo">
+      provider-name="%providerName"
+      license-feature="org.obeonetwork.is.license"
+      license-feature-version="1.0.0.qualifier">
 
-   <description>
+   <description url="https://www.obeo.fr">
       Safr@n - Project lifecycle
    </description>
 
-   <copyright url="http://www.obeo.fr">
-      Copyright (c) 2015 Obeo
+   <copyright url="https://www.obeo.fr">
+      %copyright
    </copyright>
 
    <license url="%licenseURL">

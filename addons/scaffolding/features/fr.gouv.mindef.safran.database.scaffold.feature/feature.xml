@@ -3,14 +3,16 @@
       id="fr.gouv.mindef.safran.database.scaffold.feature"
       label="Scaffold Model Feature"
       version="1.0.0.qualifier"
-      provider-name="www.obeo.fr">
+      provider-name="%providerName"
+      license-feature="org.obeonetwork.is.license"
+      license-feature-version="1.0.0.qualifier">
 
-   <description>
+   <description url="https://www.obeo.fr">
       Obeonetwork - Scaffold traceability model
    </description>
 
-   <copyright url="http://www.obeo.fr">
-      Copyright (c) 2012 Obeo
+   <copyright url="https://www.obeo.fr">
+      %copyright
    </copyright>
 
    <license url="%licenseURL">
