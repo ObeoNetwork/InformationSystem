@@ -4,7 +4,7 @@ Bundle-Name: Acceleo Cinematic to Html Module IDE Plug-in
 Bundle-SymbolicName: fr.gouv.mindef.safran.cinematic.gen.html.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: fr.gouv.mindef.safran.cinematic.gen.html.ui.Activator
-Bundle-Vendor: Eclipse Modeling Project
+Bundle-Vendor: Obeo Network
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,

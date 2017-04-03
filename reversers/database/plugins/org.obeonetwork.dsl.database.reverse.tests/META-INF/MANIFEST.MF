@@ -13,3 +13,4 @@ Require-Bundle: org.junit,
 Import-Package: com.google.common.collect
 Bundle-ClassPath: .
 Export-Package: org.obeonetwork.dsl.database.reverse.tests
+Bundle-Vendor: Obeo Network

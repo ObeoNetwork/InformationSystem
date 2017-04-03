@@ -22,5 +22,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: fr.gouv.mindef.safran.database.transfo,
  fr.gouv.mindef.safran.database.transfo.impl,
  fr.gouv.mindef.safran.database.transfo.util
-Bundle-Vendor: Obeo.fr
+Bundle-Vendor: Obeo Network
 Bundle-Activator: fr.gouv.mindef.safran.database.Activator

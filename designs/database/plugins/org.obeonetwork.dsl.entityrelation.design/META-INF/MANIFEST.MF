@@ -12,3 +12,4 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Provide-Package: org.obeonetwork.dsl.entityrelation.design.services
+Bundle-Vendor: Obeo Network

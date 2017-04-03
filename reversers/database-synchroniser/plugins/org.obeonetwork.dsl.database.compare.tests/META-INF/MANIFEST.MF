@@ -18,3 +18,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.obeonetwork.dsl.database.compare.tests.gen.files,
  org.obeonetwork.dsl.database.compare.tests.gen.main,
  org.obeonetwork.dsl.database.compare.tests.gen.services
+Bundle-Vendor: Obeo Network
