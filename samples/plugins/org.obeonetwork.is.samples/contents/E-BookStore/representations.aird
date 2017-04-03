@@ -18,6 +18,7 @@
     <semanticResources>documentation/template/E-BookStore_template.genconf</semanticResources>
     <semanticResources>http://www.obeonetwork.org/dsl/graal/2.0.0</semanticResources>
     <semanticResources>http://www.obeonetwork.org/dsl/requirement/1.0</semanticResources>
+    <semanticResources>My.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_7lGdoB_GEeW_TuSj9xLcNQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_AiYAGcLbEeaKX_JUX0UT5w" name="E-BookStore Package Diagram" representation="_9WPEEB_GEeW_TuSj9xLcNQ">

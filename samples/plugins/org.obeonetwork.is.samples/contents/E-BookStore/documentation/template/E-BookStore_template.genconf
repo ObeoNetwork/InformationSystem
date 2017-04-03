@@ -9,4 +9,16 @@
     <type xsi:type="ecore:EClass" href="http://www.obeonetwork.org/dsl/requirement/1.0#//Repository"/>
   </definitions>
   <definitions xsi:type="genconf:StringDefinition" key="nomProjet" value="E-BookStore"/>
+  <definitions xsi:type="genconf:ModelDefinition" key="toto">
+    <value href="../../E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
+    <type xsi:type="ecore:EClass" href="http://www.obeonetwork.org/dsl/graal/2.0.0#//System"/>
+  </definitions>
+  <definitions xsi:type="genconf:ModelDefinition" key="toto2">
+    <value href="../../E-BookStore.graal#_MEgzUEjJEeGbkNJePX2AYQ"/>
+    <type xsi:type="ecore:EClass" href="http://www.obeonetwork.org/dsl/graal/2.0.0#//Task"/>
+  </definitions>
+  <definitions xsi:type="genconf:ModelDefinition" key="toto3">
+    <value href="../../My.ecore#/"/>
+    <type xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+  </definitions>
 </genconf:Generation>
