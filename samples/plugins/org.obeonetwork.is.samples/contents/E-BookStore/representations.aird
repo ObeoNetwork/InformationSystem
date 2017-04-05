@@ -15,9 +15,14 @@
     <semanticResources>pathmap://NativeDBTypes/Oracle-11g</semanticResources>
     <semanticResources>scaffold/MldToMpd_E-BookStore-MLD_E-BookStore-Oracle.scaffold</semanticResources>
     <semanticResources>pathmap://LogicalDBTypes</semanticResources>
-    <semanticResources>documentation/template/E-BookStore_template.genconf</semanticResources>
     <semanticResources>http://www.obeonetwork.org/dsl/graal/2.0.0</semanticResources>
     <semanticResources>http://www.obeonetwork.org/dsl/requirement/1.0</semanticResources>
+    <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+    <semanticResources>http://www.obeonetwork.org/dsl/environment/3.0.0</semanticResources>
+    <semanticResources>http://www.obeonetwork.org/dsl/technicalid/2.0.0</semanticResources>
+    <semanticResources>documentation/doc-src/E-BookStore_GraalSystemAndRequirements_template.genconf</semanticResources>
+    <semanticResources>documentation/doc-src/E-BookStore_DataBase_template.genconf</semanticResources>
+    <semanticResources>documentation/doc-src/Test_template.genconf</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_7lGdoB_GEeW_TuSj9xLcNQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.cinematic.design/description/cinematic.odesign#//@ownedViewpoints[name='Cinematic%20Views']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_AiYAGcLbEeaKX_JUX0UT5w" name="E-BookStore Package Diagram" representation="_9WPEEB_GEeW_TuSj9xLcNQ">
@@ -94,6 +99,14 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']"/>
         <target xmi:type="graal:UseCase" href="E-BookStore.graal#_PzXNMEjVEeGbkNJePX2AYQ"/>
       </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_viFMMBrcEee4oac7c6IUFQ" name="Search books Actions Plan" representation="_viSAgBrcEee4oac7c6IUFQ">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']"/>
+        <target xmi:type="graal:Task" href="E-BookStore.graal#_MsicoEjJEeGbkNJePX2AYQ"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_Zzrz0BrhEee4oac7c6IUFQ" name="Domain Classes Namespaces Hierarchy" representation="_Zzrz0RrhEee4oac7c6IUFQ">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']"/>
+        <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
+      </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_7l-nYB_GEeW_TuSj9xLcNQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.soa.design/description/soa.odesign#//@ownedViewpoints[name='SOA%20Views']"/>
@@ -133,6 +146,10 @@
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_AiYAGMLbEeaKX_JUX0UT5w" name="main Schema" representation="_UpF2kJEeEeauDets12NBwQ">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Schema%20Diagram']"/>
         <target xmi:type="database:Schema" href="E-BookStore-Oracle.database#_PZ84MZEeEeauDets12NBwQ"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_r52mgBoGEeeI54xxyz7jFA" name="E-BookStore-Oracle Database" representation="_r52mgRoGEeeI54xxyz7jFA">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']"/>
+        <target xmi:type="database:DataBase" href="E-BookStore-Oracle.database#_MX0j8ZEeEeauDets12NBwQ"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
@@ -1436,7 +1453,7 @@
       <target xmi:type="requirement:Repository" href="E-BookStore.requirement#_UIbdoIjLEeGrHN3Vq969QA"/>
       <lines xmi:type="table:DLine" xmi:id="_A8hlcMLbEeaKX_JUX0UT5w" label="core - Core Requirements">
         <target xmi:type="requirement:Category" href="E-BookStore.requirement#_VzSesIlUEeGBksR6VpbZgA"/>
-        <lines xmi:type="table:DLine" xmi:id="_A8jaoMLbEeaKX_JUX0UT5w" label="null - null">
+        <lines xmi:type="table:DLine" xmi:id="_A8jaoMLbEeaKX_JUX0UT5w" label=" - null">
           <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_koA3QIlUEeGBksR6VpbZgA"/>
           <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_koA3QIlUEeGBksR6VpbZgA"/>
           <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/org.obeonetwork.dsl.requirement.design/description/requirement.odesign#//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Requirement']"/>
@@ -1467,39 +1484,6 @@
           <cells xmi:type="table:DCell" xmi:id="_BHHE08LbEeaKX_JUX0UT5w" label="1" column="_GH-mpB_HEeW_TuSj9xLcNQ">
             <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_koA3QIlUEeGBksR6VpbZgA"/>
             <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_koA3QIlUEeGBksR6VpbZgA"/>
-          </cells>
-        </lines>
-        <lines xmi:type="table:DLine" xmi:id="_A8jaocLbEeaKX_JUX0UT5w" label="R1 - null">
-          <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-          <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-          <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/org.obeonetwork.dsl.requirement.design/description/requirement.odesign#//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Requirement']"/>
-          <cells xmi:type="table:DCell" xmi:id="_BHHE1MLbEeaKX_JUX0UT5w" label="R1" column="_GH-mnh_HEeW_TuSj9xLcNQ">
-            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-          </cells>
-          <cells xmi:type="table:DCell" xmi:id="_BHHE1cLbEeaKX_JUX0UT5w" column="_GH-mnx_HEeW_TuSj9xLcNQ">
-            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-          </cells>
-          <cells xmi:type="table:DCell" xmi:id="_BHIS8MLbEeaKX_JUX0UT5w" label="functional" column="_GH-moB_HEeW_TuSj9xLcNQ">
-            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-          </cells>
-          <cells xmi:type="table:DCell" xmi:id="_BHIS8cLbEeaKX_JUX0UT5w" label="" column="_GH-moR_HEeW_TuSj9xLcNQ">
-            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-          </cells>
-          <cells xmi:type="table:DCell" xmi:id="_BHIS8sLbEeaKX_JUX0UT5w" label="" column="_GH-moh_HEeW_TuSj9xLcNQ">
-            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-          </cells>
-          <cells xmi:type="table:DCell" xmi:id="_BHIS88LbEeaKX_JUX0UT5w" label="" column="_GH-mox_HEeW_TuSj9xLcNQ">
-            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-          </cells>
-          <cells xmi:type="table:DCell" xmi:id="_BHI6AMLbEeaKX_JUX0UT5w" label="1" column="_GH-mpB_HEeW_TuSj9xLcNQ">
-            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
-            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
           </cells>
         </lines>
         <lines xmi:type="table:DLine" xmi:id="_A8jaosLbEeaKX_JUX0UT5w" label="R1 - Req1">
@@ -1533,6 +1517,39 @@
           <cells xmi:type="table:DCell" xmi:id="_BHKII8LbEeaKX_JUX0UT5w" label="2" column="_GH-mpB_HEeW_TuSj9xLcNQ">
             <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_POjmYIlUEeGBksR6VpbZgA"/>
             <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_POjmYIlUEeGBksR6VpbZgA"/>
+          </cells>
+        </lines>
+        <lines xmi:type="table:DLine" xmi:id="_A8jaocLbEeaKX_JUX0UT5w" label="R2 - null">
+          <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+          <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+          <originMapping xmi:type="description_3:LineMapping" href="platform:/plugin/org.obeonetwork.dsl.requirement.design/description/requirement.odesign#//@ownedViewpoints[name='Requirements']/@ownedRepresentations[name='Requirements%20Table']/@ownedLineMappings[name='REQ_CategoriesContainer']/@ownedSubLines[name='REQ_Requirement']"/>
+          <cells xmi:type="table:DCell" xmi:id="_BHHE1MLbEeaKX_JUX0UT5w" label="R2" column="_GH-mnh_HEeW_TuSj9xLcNQ">
+            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_BHHE1cLbEeaKX_JUX0UT5w" column="_GH-mnx_HEeW_TuSj9xLcNQ">
+            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_BHIS8MLbEeaKX_JUX0UT5w" label="functional" column="_GH-moB_HEeW_TuSj9xLcNQ">
+            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_BHIS8cLbEeaKX_JUX0UT5w" label="" column="_GH-moR_HEeW_TuSj9xLcNQ">
+            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_BHIS8sLbEeaKX_JUX0UT5w" label="" column="_GH-moh_HEeW_TuSj9xLcNQ">
+            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_BHIS88LbEeaKX_JUX0UT5w" label="" column="_GH-mox_HEeW_TuSj9xLcNQ">
+            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+          </cells>
+          <cells xmi:type="table:DCell" xmi:id="_BHI6AMLbEeaKX_JUX0UT5w" label="1" column="_GH-mpB_HEeW_TuSj9xLcNQ">
+            <target xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
+            <semanticElements xmi:type="requirement:Requirement" href="E-BookStore.requirement#_DBUn0IrxEeGWvox4N_yxtg"/>
           </cells>
         </lines>
         <semanticElements xmi:type="requirement:Category" href="E-BookStore.requirement#_VzSesIlUEeGBksR6VpbZgA"/>
@@ -2085,7 +2102,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_UpZYkpEeEeauDets12NBwQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_UpXjZJEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpXjZZEeEeauDets12NBwQ" x="240" y="438"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpXjZZEeEeauDets12NBwQ" x="20" y="506"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_UpZ_oJEeEeauDets12NBwQ" type="2003" element="_CM0vsMLbEeaKX_JUX0UT5w">
           <children xmi:type="notation:Node" xmi:id="_UpamsJEeEeauDets12NBwQ" type="5007"/>
@@ -2130,7 +2147,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_Upams5EeEeauDets12NBwQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_UpZ_oZEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpZ_opEeEeauDets12NBwQ" x="240" y="204"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpZ_opEeEeauDets12NBwQ" x="20" y="224"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_UpamtJEeEeauDets12NBwQ" type="2003" element="_CM1WwcLbEeaKX_JUX0UT5w">
           <children xmi:type="notation:Node" xmi:id="_Upb00JEeEeauDets12NBwQ" type="5007"/>
@@ -2179,7 +2196,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_Upb005EeEeauDets12NBwQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_UpamtZEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpamtpEeEeauDets12NBwQ" x="890" y="438"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpamtpEeEeauDets12NBwQ" x="540" y="458"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_Upcb4JEeEeauDets12NBwQ" type="2003" element="_CM2k4MLbEeaKX_JUX0UT5w">
           <children xmi:type="notation:Node" xmi:id="_UpdC8JEeEeauDets12NBwQ" type="5007"/>
@@ -2224,7 +2241,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_UpdqApEeEeauDets12NBwQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_Upcb4ZEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upcb4pEeEeauDets12NBwQ" x="558" y="438"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upcb4pEeEeauDets12NBwQ" x="267" y="474"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_UpdqA5EeEeauDets12NBwQ" type="2003" element="_CM6PQMLbEeaKX_JUX0UT5w">
           <children xmi:type="notation:Node" xmi:id="_UpeREJEeEeauDets12NBwQ" type="5007"/>
@@ -2261,7 +2278,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_UpeRE5EeEeauDets12NBwQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_UpdqBJEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpdqBZEeEeauDets12NBwQ" x="672" y="204"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpdqBZEeEeauDets12NBwQ" x="294" y="224"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_Upe4IJEeEeauDets12NBwQ" type="2003" element="_CM8EcMLbEeaKX_JUX0UT5w">
           <children xmi:type="notation:Node" xmi:id="_Upe4I5EeEeauDets12NBwQ" type="5007"/>
@@ -2298,7 +2315,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_UpgGQJEeEeauDets12NBwQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_Upe4IZEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upe4IpEeEeauDets12NBwQ" x="910"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upe4IpEeEeauDets12NBwQ" x="580" y="36"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_UpgGQZEeEeauDets12NBwQ" type="2003" element="_CW54wMLbEeaKX_JUX0UT5w">
           <children xmi:type="notation:Node" xmi:id="_UpgGRJEeEeauDets12NBwQ" type="5007"/>
@@ -2331,120 +2348,120 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_UpgtUpEeEeauDets12NBwQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_UpgGQpEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpgGQ5EeEeauDets12NBwQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpgGQ5EeEeauDets12NBwQ" x="20" y="36"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_UpXjYpEeEeauDets12NBwQ"/>
         <edges xmi:type="notation:Edge" xmi:id="_Ups6kJEeEeauDets12NBwQ" type="4001" element="_CYVcIMLbEeaKX_JUX0UT5w" source="_UpXjY5EeEeauDets12NBwQ" target="_UpZ_oJEeEeauDets12NBwQ">
           <children xmi:type="notation:Node" xmi:id="_UpthoJEeEeauDets12NBwQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpthoZEeEeauDets12NBwQ" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpthoZEeEeauDets12NBwQ" x="29" y="1"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_UpthopEeEeauDets12NBwQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Uptho5EeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Uptho5EeEeauDets12NBwQ" x="-10" y="-2"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_UpthpJEeEeauDets12NBwQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpthpZEeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpthpZEeEeauDets12NBwQ" x="-11" y="5"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ups6kZEeEeauDets12NBwQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_Ups6kpEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ups6k5EeEeauDets12NBwQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpuIsJEeEeauDets12NBwQ" id="(0.4978165938864629,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpuIsZEeEeauDets12NBwQ" id="(0.4978165938864629,1.0)"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ups6k5EeEeauDets12NBwQ" points="[0, -5, -55, 272]$[0, -61, -55, 216]$[13, -113, -42, 164]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpuIsJEeEeauDets12NBwQ" id="(0.12121212121212122,0.041666666666666664)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpuIsZEeEeauDets12NBwQ" id="(0.42857142857142855,0.0625)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_UpuvwJEeEeauDets12NBwQ" type="4001" element="_CYWDMsLbEeaKX_JUX0UT5w" source="_UpZ_oJEeEeauDets12NBwQ" target="_UpXjY5EeEeauDets12NBwQ">
           <children xmi:type="notation:Node" xmi:id="_UpuvxJEeEeauDets12NBwQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpuvxZEeEeauDets12NBwQ" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wU0H8BqgEee4oac7c6IUFQ" x="27" y="-41"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_UpuvxpEeEeauDets12NBwQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upuvx5EeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wU0vABqgEee4oac7c6IUFQ" x="-1" y="9"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_UpvW0JEeEeauDets12NBwQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpvW0ZEeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wU0vARqgEee4oac7c6IUFQ" y="12"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_UpuvwZEeEeauDets12NBwQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_UpuvwpEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Upuvw5EeEeauDets12NBwQ" points="[0, 0, 0, -60]$[0, 60, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Upuvw5EeEeauDets12NBwQ" points="[0, 0, -16, -108]$[22, 51, 6, -57]$[16, 108, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpvW0pEeEeauDets12NBwQ" id="(0.4978165938864629,1.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpvW05EeEeauDets12NBwQ" id="(0.4978165938864629,0.0)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_UpvW1JEeEeauDets12NBwQ" type="4001" element="_CYWqQsLbEeaKX_JUX0UT5w" source="_UpamtJEeEeauDets12NBwQ" target="_UpdqA5EeEeauDets12NBwQ">
           <children xmi:type="notation:Node" xmi:id="_Upv94JEeEeauDets12NBwQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upv94ZEeEeauDets12NBwQ" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upv94ZEeEeauDets12NBwQ" x="18" y="23"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Upv94pEeEeauDets12NBwQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upv945EeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upv945EeEeauDets12NBwQ" x="6" y="8"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Upv95JEeEeauDets12NBwQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upv95ZEeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Upv95ZEeEeauDets12NBwQ" x="7" y="7"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_UpvW1ZEeEeauDets12NBwQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_UpvW1pEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UpvW15EeEeauDets12NBwQ" points="[0, 0, 235, 60]$[-235, -60, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Upwk8JEeEeauDets12NBwQ" id="(0.4981684981684982,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Upwk8ZEeEeauDets12NBwQ" id="(0.5,1.0)"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UpvW15EeEeauDets12NBwQ" points="[0, -4, 39, 95]$[-38, -96, 1, 3]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Upwk8JEeEeauDets12NBwQ" id="(0.05166051660516605,0.026041666666666668)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Upwk8ZEeEeauDets12NBwQ" id="(0.961038961038961,0.9791666666666666)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_Upwk8pEeEeauDets12NBwQ" type="4001" element="_CYXRUsLbEeaKX_JUX0UT5w" source="_UpamtJEeEeauDets12NBwQ" target="_Upe4IJEeEeauDets12NBwQ">
           <children xmi:type="notation:Node" xmi:id="_UpxMAJEeEeauDets12NBwQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpxMAZEeEeauDets12NBwQ" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpxMAZEeEeauDets12NBwQ" x="118" y="22"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_UpxMApEeEeauDets12NBwQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpxMA5EeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpxMA5EeEeauDets12NBwQ" x="2" y="7"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_UpxMBJEeEeauDets12NBwQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpxMBZEeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpxMBZEeEeauDets12NBwQ" x="3" y="7"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_Upwk85EeEeauDets12NBwQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_Upwk9JEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Upwk9ZEeEeauDets12NBwQ" points="[0, 0, 0, 296]$[0, -296, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpxzEJEeEeauDets12NBwQ" id="(0.4981684981684982,0.0)"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Upwk9ZEeEeauDets12NBwQ" points="[5, 0, 0, 280]$[5, -280, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpxzEJEeEeauDets12NBwQ" id="(0.5571955719557196,0.005208333333333333)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpxzEZEeEeauDets12NBwQ" id="(0.4978165938864629,1.0)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_UpxzEpEeEeauDets12NBwQ" type="4001" element="_CYX4YMLbEeaKX_JUX0UT5w" source="_Upcb4JEeEeauDets12NBwQ" target="_UpZ_oJEeEeauDets12NBwQ">
           <children xmi:type="notation:Node" xmi:id="_UpyaIJEeEeauDets12NBwQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpyaIZEeEeauDets12NBwQ" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpyaIZEeEeauDets12NBwQ" x="24" y="-5"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_UpyaIpEeEeauDets12NBwQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpyaI5EeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpyaI5EeEeauDets12NBwQ" x="10" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_UpyaJJEeEeauDets12NBwQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpyaJZEeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpyaJZEeEeauDets12NBwQ" x="8" y="7"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_UpxzE5EeEeauDets12NBwQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_UpxzFJEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UpxzFZEeEeauDets12NBwQ" points="[0, 0, 309, 60]$[-309, -60, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpzBMJEeEeauDets12NBwQ" id="(0.49814126394052044,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpzBMZEeEeauDets12NBwQ" id="(0.4978165938864629,1.0)"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UpxzFZEeEeauDets12NBwQ" points="[-1, -3, 46, 83]$[-44, -79, 3, 7]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpzBMJEeEeauDets12NBwQ" id="(0.05426356589147287,0.022727272727272728)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UpzBMZEeEeauDets12NBwQ" id="(0.9307359307359307,0.9602272727272727)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_UpzBMpEeEeauDets12NBwQ" type="4001" element="_CYYfcMLbEeaKX_JUX0UT5w" source="_Upcb4JEeEeauDets12NBwQ" target="_UpdqA5EeEeauDets12NBwQ">
           <children xmi:type="notation:Node" xmi:id="_UpzoQ5EeEeauDets12NBwQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpzoRJEeEeauDets12NBwQ" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpzoRJEeEeauDets12NBwQ" x="31" y="-29"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Up0PUJEeEeauDets12NBwQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Up0PUZEeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Up0PUZEeEeauDets12NBwQ" x="2" y="4"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Up0PUpEeEeauDets12NBwQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Up0PU5EeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Up0PU5EeEeauDets12NBwQ" y="3"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_UpzoQJEeEeauDets12NBwQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_UpzoQZEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UpzoQpEeEeauDets12NBwQ" points="[0, 0, -96, 60]$[96, -60, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UpzoQpEeEeauDets12NBwQ" points="[2, 0, 0, 109]$[2, -106, 0, 3]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Up0PVJEeEeauDets12NBwQ" id="(0.49814126394052044,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Up0PVZEeEeauDets12NBwQ" id="(0.5,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Up0PVZEeEeauDets12NBwQ" id="(0.4458874458874459,0.9930555555555556)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_Up02YJEeEeauDets12NBwQ" type="4001" element="_CYYfc8LbEeaKX_JUX0UT5w" source="_UpdqA5EeEeauDets12NBwQ" target="_Upe4IJEeEeauDets12NBwQ">
           <children xmi:type="notation:Node" xmi:id="_Up02ZJEeEeauDets12NBwQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Up1dcJEeEeauDets12NBwQ" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Up1dcJEeEeauDets12NBwQ" x="-1" y="-3"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Up1dcZEeEeauDets12NBwQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Up1dcpEeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Up1dcpEeEeauDets12NBwQ" x="-3" y="3"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Up1dc5EeEeauDets12NBwQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Up1ddJEeEeauDets12NBwQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Up1ddJEeEeauDets12NBwQ" x="-1" y="2"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_Up02YZEeEeauDets12NBwQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_Up02YpEeEeauDets12NBwQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Up02Y5EeEeauDets12NBwQ" points="[0, 0, -235, 60]$[235, -60, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Up1ddZEeEeauDets12NBwQ" id="(0.5,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Up1ddpEeEeauDets12NBwQ" id="(0.4978165938864629,1.0)"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Up02Y5EeEeauDets12NBwQ" points="[2, 0, -59, 52]$[58, -49, -3, 3]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Up1ddZEeEeauDets12NBwQ" id="(0.9913419913419913,0.027777777777777776)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Up1ddpEeEeauDets12NBwQ" id="(0.012987012987012988,0.9791666666666666)"/>
         </edges>
       </data>
     </ownedAnnotationEntries>
@@ -2454,6 +2471,9 @@
       <decorations xmi:type="viewpoint:Decoration" xmi:id="_CXbdMMLbEeaKX_JUX0UT5w">
         <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Schema%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='DEC_Table_HasConstraints']"/>
       </decorations>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_CMv3MMLbEeaKX_JUX0UT5w" borderSize="1" borderSizeComputationExpression="1" borderColor="39,76,114" foregroundColor="114,159,207">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@style"/>
       </ownedStyle>
@@ -2468,8 +2488,8 @@
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_CVx3YcLbEeaKX_JUX0UT5w" name="AUTHOR_ID : INTEGER">
         <target xmi:type="database:Column" href="E-BookStore-Oracle.database#_PZ-tYpEeEeauDets12NBwQ"/>
-        <semanticElements xmi:type="database:Sequence" href="E-BookStore-Oracle.database#_PaEM8ZEeEeauDets12NBwQ"/>
         <semanticElements xmi:type="database:Column" href="E-BookStore-Oracle.database#_PZ-tYpEeEeauDets12NBwQ"/>
+        <semanticElements xmi:type="database:Sequence" href="E-BookStore-Oracle.database#_PaEM8ZEeEeauDets12NBwQ"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_CV0ToMLbEeaKX_JUX0UT5w" labelAlignment="LEFT" description="_UpF2k5EeEeauDets12NBwQ">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
@@ -2606,6 +2626,9 @@
       <decorations xmi:type="viewpoint:Decoration" xmi:id="_CXcrUMLbEeaKX_JUX0UT5w">
         <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Schema%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='DEC_Table_HasConstraints']"/>
       </decorations>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_CM190MLbEeaKX_JUX0UT5w" borderSize="1" borderSizeComputationExpression="1" borderColor="39,76,114" foregroundColor="114,159,207">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@style"/>
       </ownedStyle>
@@ -2692,12 +2715,15 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']/@containerMappings[name='DB_TableWithIndex']/@subNodeMappings[name='DB_Index']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_CM2k4MLbEeaKX_JUX0UT5w" name="SHOOPING_CART_LINE" outgoingEdges="_CYX4YMLbEeaKX_JUX0UT5w _CYYfcMLbEeaKX_JUX0UT5w">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_CM2k4MLbEeaKX_JUX0UT5w" name="SHOPPING_CART_LINE" outgoingEdges="_CYX4YMLbEeaKX_JUX0UT5w _CYYfcMLbEeaKX_JUX0UT5w">
       <target xmi:type="database:Table" href="E-BookStore-Oracle.database#_PaAipZEeEeauDets12NBwQ"/>
       <semanticElements xmi:type="database:Table" href="E-BookStore-Oracle.database#_PaAipZEeEeauDets12NBwQ"/>
       <decorations xmi:type="viewpoint:Decoration" xmi:id="_CXcrUcLbEeaKX_JUX0UT5w">
         <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Schema%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='DEC_Table_HasConstraints']"/>
       </decorations>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_CM2k4cLbEeaKX_JUX0UT5w" borderSize="1" borderSizeComputationExpression="1" borderColor="39,76,114" foregroundColor="114,159,207">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@style"/>
       </ownedStyle>
@@ -2712,8 +2738,8 @@
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_CWawkMLbEeaKX_JUX0UT5w" name="SHOOPING_CART_LINE_ID : INTEGER">
         <target xmi:type="database:Column" href="E-BookStore-Oracle.database#_PaAiq5EeEeauDets12NBwQ"/>
-        <semanticElements xmi:type="database:Column" href="E-BookStore-Oracle.database#_PaAiq5EeEeauDets12NBwQ"/>
         <semanticElements xmi:type="database:Sequence" href="E-BookStore-Oracle.database#_PaEM95EeEeauDets12NBwQ"/>
+        <semanticElements xmi:type="database:Column" href="E-BookStore-Oracle.database#_PaAiq5EeEeauDets12NBwQ"/>
         <ownedStyle xmi:type="diagram:Square" xmi:id="_CWb-sMLbEeaKX_JUX0UT5w" labelAlignment="LEFT" description="_UpF2k5EeEeauDets12NBwQ">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
@@ -2782,6 +2808,9 @@
       <decorations xmi:type="viewpoint:Decoration" xmi:id="_CXdSYMLbEeaKX_JUX0UT5w">
         <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Schema%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='DEC_Table_HasConstraints']"/>
       </decorations>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_CM6PQcLbEeaKX_JUX0UT5w" borderSize="1" borderSizeComputationExpression="1" borderColor="39,76,114" foregroundColor="114,159,207">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@style"/>
       </ownedStyle>
@@ -2850,6 +2879,9 @@
       <decorations xmi:type="viewpoint:Decoration" xmi:id="_CXdSYcLbEeaKX_JUX0UT5w">
         <description xmi:type="description_1:MappingBasedDecoration" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Schema%20Diagram']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='DEC_Table_HasConstraints']"/>
       </decorations>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_CM8rgMLbEeaKX_JUX0UT5w" borderSize="1" borderSizeComputationExpression="1" borderColor="39,76,114" foregroundColor="114,159,207">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Table']/@style"/>
       </ownedStyle>
@@ -2915,6 +2947,9 @@
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_CW54wMLbEeaKX_JUX0UT5w" name="Sequences">
       <target xmi:type="database:Schema" href="E-BookStore-Oracle.database#_PZ84MZEeEeauDets12NBwQ"/>
       <semanticElements xmi:type="database:Schema" href="E-BookStore-Oracle.database#_PZ84MZEeEeauDets12NBwQ"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_CW54wcLbEeaKX_JUX0UT5w" iconPath="/org.obeonetwork.dsl.database.edit/icons/full/obj16/Sequence.gif" borderSize="1" borderSizeComputationExpression="1" foregroundColor="194,239,255">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer/@containerMappings[name='DB_Sequence']/@style"/>
       </ownedStyle>
@@ -5148,7 +5183,7 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.soa.design/description/soa.odesign#//@ownedViewpoints[name='SOA%20Views']/@ownedRepresentations[name='DTO%20Diagram']/@additionalLayers[name='{Classdiagram.ExternalTypesLayer.id}']"/>
     <target xmi:type="oenv:Namespace" href="E-BookStore.soa#_JVvEMIjYEeGlA5e_Ze9-Rg"/>
   </diagram:DSemanticDiagram>
-  <table:DTable xmi:id="_Ttw3IBLNEeesAc7mKQrh4A" name="Actors list">
+  <table:DTable xmi:id="_Ttw3IBLNEeesAc7mKQrh4A" name="Actors list" headerColumnWidth="15">
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#_LFIHAEjWEeGbkNJePX2AYQ"/>
     <description xmi:type="description_3:CrossTableDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actors%20list']"/>
   </table:DTable>
@@ -5952,5 +5987,554 @@
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@defaultLayer"/>
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Use%20Case%20Diagram']/@additionalLayers[name='Actors']"/>
     <target xmi:type="graal:UseCase" href="E-BookStore.graal#_PzXNMEjVEeGbkNJePX2AYQ"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_r52mgRoGEeeI54xxyz7jFA" name="E-BookStore-Oracle Database">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_r52mghoGEeeI54xxyz7jFA" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_r52mgxoGEeeI54xxyz7jFA"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_r6HFMBoGEeeI54xxyz7jFA" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_r6HFMRoGEeeI54xxyz7jFA" type="Sirius" element="_r52mgRoGEeeI54xxyz7jFA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_r6KvkBoGEeeI54xxyz7jFA" type="2002" element="_r52mhBoGEeeI54xxyz7jFA">
+          <children xmi:type="notation:Node" xmi:id="_r6Q2MBoGEeeI54xxyz7jFA" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_r6Q2MRoGEeeI54xxyz7jFA" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_r6Q2MhoGEeeI54xxyz7jFA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_r6Q2MxoGEeeI54xxyz7jFA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_r6KvkRoGEeeI54xxyz7jFA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r6KvkhoGEeeI54xxyz7jFA" x="534" y="234"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_r6HFMhoGEeeI54xxyz7jFA"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_r52mhBoGEeeI54xxyz7jFA" name="main">
+      <target xmi:type="database:Schema" href="E-BookStore-Oracle.database#_PZ84MZEeEeauDets12NBwQ"/>
+      <semanticElements xmi:type="database:Schema" href="E-BookStore-Oracle.database#_PZ84MZEeEeauDets12NBwQ"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_r52mhRoGEeeI54xxyz7jFA" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']/@containerMappings[name='DB_Schema']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']/@containerMappings[name='DB_Schema']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_r52mhhoGEeeI54xxyz7jFA"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Schemas']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='External%20Tables']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.obeonetwork.dsl.database.design/description/database.odesign#//@ownedViewpoints[name='Database']/@ownedRepresentations[name='Database%20Diagram']/@additionalLayers[name='Index']"/>
+    <target xmi:type="database:DataBase" href="E-BookStore-Oracle.database#_MX0j8ZEeEeauDets12NBwQ"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_viSAgBrcEee4oac7c6IUFQ" name="Search books Actions Plan">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_viSAgRrcEee4oac7c6IUFQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_viSAghrcEee4oac7c6IUFQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_vimJkBrcEee4oac7c6IUFQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_vimJkRrcEee4oac7c6IUFQ" type="Sirius" element="_viSAgBrcEee4oac7c6IUFQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_viol0BrcEee4oac7c6IUFQ" type="2001" element="_viSAgxrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_visQMBrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_visQMRrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjIVEBrcEee4oac7c6IUFQ" type="3005" element="_viSAhBrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjIVERrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjIVEhrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_viol0RrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_viol0hrcEee4oac7c6IUFQ" y="78" width="20" height="20"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vjBAUBrcEee4oac7c6IUFQ" type="2001" element="_viSAhRrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjBnYBrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_vjBnYRrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjIVExrcEee4oac7c6IUFQ" type="3005" element="_viSAhhrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjIVFBrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjIVFRrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjBAURrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjBAUhrcEee4oac7c6IUFQ" x="948" y="132" width="20" height="19"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vjCOcBrcEee4oac7c6IUFQ" type="2001" element="_viSAhxrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjC1gBrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_vjC1gRrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjI8IBrcEee4oac7c6IUFQ" type="3005" element="_viSAiBrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjI8IRrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjI8IhrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjCOcRrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjCOchrcEee4oac7c6IUFQ" x="48" y="48" width="150" height="74"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vjDckBrcEee4oac7c6IUFQ" type="2001" element="_viSAiRrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjDckxrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_vjDclBrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjI8IxrcEee4oac7c6IUFQ" type="3005" element="_viSAihrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjI8JBrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjI8JRrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjDckRrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjDckhrcEee4oac7c6IUFQ" x="588" y="102" width="150" height="74"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vjEDoBrcEee4oac7c6IUFQ" type="2001" element="_viSAixrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjEDoxrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_vjEDpBrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjJjMBrcEee4oac7c6IUFQ" type="3005" element="_viSAjBrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjJjMRrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjJjMhrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjEDoRrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjEDohrcEee4oac7c6IUFQ" x="228" y="156" width="150" height="73"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vjEqsBrcEee4oac7c6IUFQ" type="2001" element="_viSAjRrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjFRwBrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_vjFRwRrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjKKQBrcEee4oac7c6IUFQ" type="3005" element="_viSAjhrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjKKQRrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjKKQhrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjEqsRrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjEqshrcEee4oac7c6IUFQ" x="768" y="102" width="150" height="73"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vjFRwhrcEee4oac7c6IUFQ" type="2001" element="_viSAjxrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjFRxRrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_vjFRxhrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjKKQxrcEee4oac7c6IUFQ" type="3005" element="_viSAkBrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjKKRBrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjKKRRrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjFRwxrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjFRxBrcEee4oac7c6IUFQ" x="48" y="156" width="150" height="73"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vjGf4BrcEee4oac7c6IUFQ" type="2001" element="_viSAkRrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjGf4xrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_vjGf5BrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjKKRhrcEee4oac7c6IUFQ" type="3005" element="_viSAkhrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjKKRxrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjKKSBrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjGf4RrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjGf4hrcEee4oac7c6IUFQ" x="408" width="150" height="73"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vjGf5RrcEee4oac7c6IUFQ" type="2001" element="_viSAkxrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjHG8BrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_vjHG8RrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjKxUBrcEee4oac7c6IUFQ" type="3005" element="_viSAlBrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjKxURrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjKxUhrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjGf5hrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjGf5xrcEee4oac7c6IUFQ" x="408" y="204" width="150" height="73"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vjHG8hrcEee4oac7c6IUFQ" type="2001" element="_viSAlRrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjHG9RrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_vjHG9hrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjKxUxrcEee4oac7c6IUFQ" type="3005" element="_viSAlhrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjKxVBrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjKxVRrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjHG8xrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjHG9BrcEee4oac7c6IUFQ" x="408" y="312" width="150" height="73"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_vjHuABrcEee4oac7c6IUFQ" type="2001" element="_viSAlxrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjHuAxrcEee4oac7c6IUFQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_vjHuBBrcEee4oac7c6IUFQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjKxVhrcEee4oac7c6IUFQ" type="3005" element="_viSAmBrcEee4oac7c6IUFQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_vjKxVxrcEee4oac7c6IUFQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjKxWBrcEee4oac7c6IUFQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjHuARrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjHuAhrcEee4oac7c6IUFQ" x="408" y="102" width="150" height="73"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_vimJkhrcEee4oac7c6IUFQ"/>
+        <edges xmi:type="notation:Edge" xmi:id="_vjNNkBrcEee4oac7c6IUFQ" type="4001" element="_viSAmRrcEee4oac7c6IUFQ" source="_viol0BrcEee4oac7c6IUFQ" target="_vjCOcBrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjObsBrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjObsRrcEee4oac7c6IUFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjPCwBrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjPCwRrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjPp0BrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjPp0RrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjNNkRrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjNNkhrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjNNkxrcEee4oac7c6IUFQ" points="[0, 0, -30, 0]$[30, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjTUMBrcEee4oac7c6IUFQ" id="(1.0,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjTUMRrcEee4oac7c6IUFQ" id="(0.0,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_vjT7QBrcEee4oac7c6IUFQ" type="4001" element="_viSAnBrcEee4oac7c6IUFQ" source="_vjCOcBrcEee4oac7c6IUFQ" target="_vjEDoBrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjUiUBrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjUiURrcEee4oac7c6IUFQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjUiUhrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjUiUxrcEee4oac7c6IUFQ" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjUiVBrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjUiVRrcEee4oac7c6IUFQ" y="1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjT7QRrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjT7QhrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjT7QxrcEee4oac7c6IUFQ" points="[0, 0, -30, -103]$[30, 103, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjUiVhrcEee4oac7c6IUFQ" id="(1.0,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjUiVxrcEee4oac7c6IUFQ" id="(0.0,0.4931506849315068)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_vjUiWBrcEee4oac7c6IUFQ" type="4001" element="_viSAnxrcEee4oac7c6IUFQ" source="_vjEDoBrcEee4oac7c6IUFQ" target="_vjFRwhrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjVJYBrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjVJYRrcEee4oac7c6IUFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjVJYhrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjVJYxrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjVJZBrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjVJZRrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjUiWRrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjUiWhrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjUiWxrcEee4oac7c6IUFQ" points="[0, 0, 30, 0]$[-30, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjVJZhrcEee4oac7c6IUFQ" id="(0.0,0.4931506849315068)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjVJZxrcEee4oac7c6IUFQ" id="(1.0,0.4931506849315068)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_vjVJaBrcEee4oac7c6IUFQ" type="4001" element="_viSAohrcEee4oac7c6IUFQ" source="_vjEDoBrcEee4oac7c6IUFQ" target="_vjGf4BrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjVJbBrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjVJbRrcEee4oac7c6IUFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjVJbhrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjVJbxrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjVwcBrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjVwcRrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjVJaRrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjVJahrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjVJaxrcEee4oac7c6IUFQ" points="[0, 0, -30, 154]$[30, -154, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjVwchrcEee4oac7c6IUFQ" id="(1.0,0.4931506849315068)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjVwcxrcEee4oac7c6IUFQ" id="(0.0,0.4931506849315068)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_vjVwdBrcEee4oac7c6IUFQ" type="4001" element="_viSApRrcEee4oac7c6IUFQ" source="_vjEDoBrcEee4oac7c6IUFQ" target="_vjGf5RrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjVweBrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjVweRrcEee4oac7c6IUFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjVwehrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjVwexrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjVwfBrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjVwfRrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjVwdRrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjVwdhrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjVwdxrcEee4oac7c6IUFQ" points="[0, 0, -30, -52]$[30, 52, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjWXgBrcEee4oac7c6IUFQ" id="(1.0,0.4931506849315068)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjWXgRrcEee4oac7c6IUFQ" id="(0.0,0.4931506849315068)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_vjWXghrcEee4oac7c6IUFQ" type="4001" element="_viSAqBrcEee4oac7c6IUFQ" source="_vjEDoBrcEee4oac7c6IUFQ" target="_vjHG8hrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjWXhhrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjWXhxrcEee4oac7c6IUFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjWXiBrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjWXiRrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjWXihrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjWXixrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjWXgxrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjWXhBrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjWXhRrcEee4oac7c6IUFQ" points="[0, 0, -30, -155]$[30, 155, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjW-kBrcEee4oac7c6IUFQ" id="(1.0,0.4931506849315068)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjW-kRrcEee4oac7c6IUFQ" id="(0.0,0.4931506849315068)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_vjW-khrcEee4oac7c6IUFQ" type="4001" element="_viSAqxrcEee4oac7c6IUFQ" source="_vjEDoBrcEee4oac7c6IUFQ" target="_vjHuABrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjW-lhrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjW-lxrcEee4oac7c6IUFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjW-mBrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjW-mRrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjW-mhrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjW-mxrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjW-kxrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjW-lBrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjW-lRrcEee4oac7c6IUFQ" points="[0, 0, -30, 51]$[30, -51, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjW-nBrcEee4oac7c6IUFQ" id="(1.0,0.4931506849315068)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjW-nRrcEee4oac7c6IUFQ" id="(0.0,0.4931506849315068)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_vjW-nhrcEee4oac7c6IUFQ" type="4001" element="_viSArhrcEee4oac7c6IUFQ" source="_vjHuABrcEee4oac7c6IUFQ" target="_vjDckBrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjXloBrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjXloRrcEee4oac7c6IUFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjXlohrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjXloxrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjXlpBrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjXlpRrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjW-nxrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjW-oBrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjW-oRrcEee4oac7c6IUFQ" points="[0, 0, -30, 0]$[30, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjXlphrcEee4oac7c6IUFQ" id="(1.0,0.4931506849315068)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjXlpxrcEee4oac7c6IUFQ" id="(0.0,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_vjXlqBrcEee4oac7c6IUFQ" type="4001" element="_viSAsRrcEee4oac7c6IUFQ" source="_vjDckBrcEee4oac7c6IUFQ" target="_vjEqsBrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjXlrBrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjXlrRrcEee4oac7c6IUFQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjXlrhrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjXlrxrcEee4oac7c6IUFQ" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjXlsBrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjXlsRrcEee4oac7c6IUFQ" y="1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjXlqRrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjXlqhrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjXlqxrcEee4oac7c6IUFQ" points="[0, 0, -30, 0]$[30, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjYMsBrcEee4oac7c6IUFQ" id="(1.0,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjYMsRrcEee4oac7c6IUFQ" id="(0.0,0.4931506849315068)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_vjYMshrcEee4oac7c6IUFQ" type="4001" element="_viSAtBrcEee4oac7c6IUFQ" source="_vjEqsBrcEee4oac7c6IUFQ" target="_vjBAUBrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjYMthrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjYMtxrcEee4oac7c6IUFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjYMuBrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjYMuRrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjYMuhrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjYMuxrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjYMsxrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjYMtBrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjYMtRrcEee4oac7c6IUFQ" points="[0, 0, -30, 0]$[30, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjYMvBrcEee4oac7c6IUFQ" id="(1.0,0.4931506849315068)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjYMvRrcEee4oac7c6IUFQ" id="(0.0,0.47368421052631576)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_vjYzwBrcEee4oac7c6IUFQ" type="4001" element="_viSAtxrcEee4oac7c6IUFQ" source="_vjFRwhrcEee4oac7c6IUFQ" target="_vjEDoBrcEee4oac7c6IUFQ">
+          <children xmi:type="notation:Node" xmi:id="_vjYzxBrcEee4oac7c6IUFQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjYzxRrcEee4oac7c6IUFQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjYzxhrcEee4oac7c6IUFQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjYzxxrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vjYzyBrcEee4oac7c6IUFQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjYzyRrcEee4oac7c6IUFQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_vjYzwRrcEee4oac7c6IUFQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_vjYzwhrcEee4oac7c6IUFQ" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vjYzwxrcEee4oac7c6IUFQ" points="[0, 0, -30, 0]$[30, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjZa0BrcEee4oac7c6IUFQ" id="(1.0,0.4931506849315068)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vjZa0RrcEee4oac7c6IUFQ" id="(0.0,0.4931506849315068)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAgxrcEee4oac7c6IUFQ" outgoingEdges="_viSAmRrcEee4oac7c6IUFQ" width="2" height="2">
+      <target xmi:type="graal:InitialNode" href="E-BookStore.graal#_aZzHwEjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:InitialNode" href="E-BookStore.graal#_aZzHwEjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAhBrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/initial_node.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_InitialNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_InitialNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAhRrcEee4oac7c6IUFQ" incomingEdges="_viSAtBrcEee4oac7c6IUFQ" width="2" height="2">
+      <target xmi:type="graal:FinalNode" href="E-BookStore.graal#_ccyTMEjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:FinalNode" href="E-BookStore.graal#_ccyTMEjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAhhrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/final_node.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_FinalNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_FinalNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAhxrcEee4oac7c6IUFQ" name="Get authors&#xD;&#xA;and book types" outgoingEdges="_viSAnBrcEee4oac7c6IUFQ" incomingEdges="_viSAmRrcEee4oac7c6IUFQ" width="15" height="15" resizeKind="NSEW">
+      <target xmi:type="graal:AppliAction" href="E-BookStore.graal#_bdJbIEjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:AppliAction" href="E-BookStore.graal#_bdJbIEjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAiBrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/appli_action.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_AppliAction']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_AppliAction']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAiRrcEee4oac7c6IUFQ" name="Search books" outgoingEdges="_viSAsRrcEee4oac7c6IUFQ" incomingEdges="_viSArhrcEee4oac7c6IUFQ" width="15" height="15" resizeKind="NSEW">
+      <target xmi:type="graal:AppliAction" href="E-BookStore.graal#_bpDwMEjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:AppliAction" href="E-BookStore.graal#_bpDwMEjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAihrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/appli_action.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_AppliAction']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_AppliAction']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAixrcEee4oac7c6IUFQ" name="Display&#xD;&#xA;search screen" outgoingEdges="_viSAnxrcEee4oac7c6IUFQ _viSAohrcEee4oac7c6IUFQ _viSApRrcEee4oac7c6IUFQ _viSAqBrcEee4oac7c6IUFQ _viSAqxrcEee4oac7c6IUFQ" incomingEdges="_viSAnBrcEee4oac7c6IUFQ _viSAtxrcEee4oac7c6IUFQ" width="15" height="15" resizeKind="NSEW">
+      <target xmi:type="graal:UserView" href="E-BookStore.graal#_b_kLsEjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:UserView" href="E-BookStore.graal#_b_kLsEjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAjBrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/user_view.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserView']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserView']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAjRrcEee4oac7c6IUFQ" name="Refesh books list" outgoingEdges="_viSAtBrcEee4oac7c6IUFQ" incomingEdges="_viSAsRrcEee4oac7c6IUFQ" width="15" height="15" resizeKind="NSEW">
+      <target xmi:type="graal:UserView" href="E-BookStore.graal#_cKtrwEjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:UserView" href="E-BookStore.graal#_cKtrwEjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAjhrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/user_view.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserView']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserView']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAjxrcEee4oac7c6IUFQ" name="Reinit search" outgoingEdges="_viSAtxrcEee4oac7c6IUFQ" incomingEdges="_viSAnxrcEee4oac7c6IUFQ" width="15" height="15" resizeKind="NSEW">
+      <target xmi:type="graal:UserAction" href="E-BookStore.graal#_dG_GwEjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:UserAction" href="E-BookStore.graal#_dG_GwEjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAkBrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/user_action.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAkRrcEee4oac7c6IUFQ" name="Choose author" incomingEdges="_viSAohrcEee4oac7c6IUFQ" width="15" height="15" resizeKind="NSEW">
+      <target xmi:type="graal:UserAction" href="E-BookStore.graal#_dMBXwEjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:UserAction" href="E-BookStore.graal#_dMBXwEjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAkhrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/user_action.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAkxrcEee4oac7c6IUFQ" name="Choose book kind" incomingEdges="_viSApRrcEee4oac7c6IUFQ" width="15" height="15" resizeKind="NSEW">
+      <target xmi:type="graal:UserAction" href="E-BookStore.graal#_dShBUEjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:UserAction" href="E-BookStore.graal#_dShBUEjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAlBrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/user_action.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAlRrcEee4oac7c6IUFQ" name="Choose keyword" incomingEdges="_viSAqBrcEee4oac7c6IUFQ" width="15" height="15" resizeKind="NSEW">
+      <target xmi:type="graal:UserAction" href="E-BookStore.graal#_dZrZQEjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:UserAction" href="E-BookStore.graal#_dZrZQEjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAlhrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/user_action.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_viSAlxrcEee4oac7c6IUFQ" name="Launch search" outgoingEdges="_viSArhrcEee4oac7c6IUFQ" incomingEdges="_viSAqxrcEee4oac7c6IUFQ" width="15" height="15" resizeKind="NSEW">
+      <target xmi:type="graal:UserAction" href="E-BookStore.graal#_dhss0EjSEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:UserAction" href="E-BookStore.graal#_dhss0EjSEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_viSAmBrcEee4oac7c6IUFQ" showIcon="false" labelPosition="node" workspacePath="/org.obeonetwork.graal.design/images/user_action.png">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@nodeMappings[name='AP_UserAction']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSAmRrcEee4oac7c6IUFQ" sourceNode="_viSAgxrcEee4oac7c6IUFQ" targetNode="_viSAhxrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_DbGsgEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_DbGsgEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSAmhrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSAmxrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSAnBrcEee4oac7c6IUFQ" sourceNode="_viSAhxrcEee4oac7c6IUFQ" targetNode="_viSAixrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_Dj8fcEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_Dj8fcEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSAnRrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSAnhrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSAnxrcEee4oac7c6IUFQ" sourceNode="_viSAixrcEee4oac7c6IUFQ" targetNode="_viSAjxrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_D0IQgEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_D0IQgEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSAoBrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSAoRrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSAohrcEee4oac7c6IUFQ" sourceNode="_viSAixrcEee4oac7c6IUFQ" targetNode="_viSAkRrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_D90YAEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_D90YAEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSAoxrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSApBrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSApRrcEee4oac7c6IUFQ" sourceNode="_viSAixrcEee4oac7c6IUFQ" targetNode="_viSAkxrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_EHl_EEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_EHl_EEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSAphrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSApxrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSAqBrcEee4oac7c6IUFQ" sourceNode="_viSAixrcEee4oac7c6IUFQ" targetNode="_viSAlRrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_ETj-gEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_ETj-gEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSAqRrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSAqhrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSAqxrcEee4oac7c6IUFQ" sourceNode="_viSAixrcEee4oac7c6IUFQ" targetNode="_viSAlxrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_EjuhcEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_EjuhcEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSArBrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSArRrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSArhrcEee4oac7c6IUFQ" sourceNode="_viSAlxrcEee4oac7c6IUFQ" targetNode="_viSAiRrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_E7BnIEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_E7BnIEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSArxrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSAsBrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSAsRrcEee4oac7c6IUFQ" sourceNode="_viSAiRrcEee4oac7c6IUFQ" targetNode="_viSAjRrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_FPn-IEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_FPn-IEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSAshrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSAsxrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSAtBrcEee4oac7c6IUFQ" sourceNode="_viSAjRrcEee4oac7c6IUFQ" targetNode="_viSAhRrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_FhslkEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_FhslkEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSAtRrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSAthrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_viSAtxrcEee4oac7c6IUFQ" sourceNode="_viSAjxrcEee4oac7c6IUFQ" targetNode="_viSAixrcEee4oac7c6IUFQ">
+      <target xmi:type="graal:Transition" href="E-BookStore.graal#_HTO0oEjUEeGbkNJePX2AYQ"/>
+      <semanticElements xmi:type="graal:Transition" href="E-BookStore.graal#_HTO0oEjUEeGbkNJePX2AYQ"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_viSAuBrcEee4oac7c6IUFQ" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_viSAuRrcEee4oac7c6IUFQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer/@edgeMappings[name='AP_Transition']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_viSAuhrcEee4oac7c6IUFQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Actions%20Plan']/@defaultLayer"/>
+    <target xmi:type="graal:Task" href="E-BookStore.graal#_MsicoEjJEeGbkNJePX2AYQ"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_Zzrz0RrhEee4oac7c6IUFQ" name="Domain Classes Namespaces Hierarchy">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Zzrz0hrhEee4oac7c6IUFQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_Zzrz0xrhEee4oac7c6IUFQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_Zzsa4BrhEee4oac7c6IUFQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_Zzsa4RrhEee4oac7c6IUFQ" type="Sirius" element="_Zzrz0RrhEee4oac7c6IUFQ" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_Zzsa4hrhEee4oac7c6IUFQ"/>
+      </data>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_Zzrz1BrhEee4oac7c6IUFQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.obeonetwork.graal.design/description/graal.odesign#//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer"/>
+    <target xmi:type="graal:System" href="E-BookStore.graal#_rynOsEjHEeGbkNJePX2AYQ"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>

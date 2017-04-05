@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_MX0j8ZEeEeauDets12NBwQ" techID="_MX0j8JEeEeauDets12NBwQ" name="E-BookStore-Oracle">
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_MX0j8ZEeEeauDets12NBwQ" comments="Some comments about the E-BookStore Oracle Database...&#xD;&#xA;" techID="_MX0j8JEeEeauDets12NBwQ" name="E-BookStore-Oracle">
   <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Oracle-11g#_cUvfIBEnEeGTa_JlZYBw1A"/>
-  <schemas xmi:id="_PZ84MZEeEeauDets12NBwQ" techID="_PZ84MJEeEeauDets12NBwQ" name="main">
-    <tables xsi:type="database:Table" xmi:id="_PZ9fQZEeEeauDets12NBwQ" techID="_PZ9fQJEeEeauDets12NBwQ" name="AUTHOR">
+  <schemas xmi:id="_PZ84MZEeEeauDets12NBwQ" comments="Some comments about the main schema." techID="_PZ84MJEeEeauDets12NBwQ" name="main">
+    <tables xsi:type="database:Table" xmi:id="_PZ9fQZEeEeauDets12NBwQ" comments="Some comments about the table of authors..." techID="_PZ9fQJEeEeauDets12NBwQ" name="AUTHOR">
       <primaryKey xmi:id="_PZ-tcpEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne AUTHOR_ID" techID="_PZ-tcZEeEeauDets12NBwQ" name="AUTHOR_PK" columns="_PZ-tYpEeEeauDets12NBwQ"/>
       <foreignKeys xmi:id="_PaCX0ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table BOOK" techID="_PaCX0JEeEeauDets12NBwQ" name="AUTHOR_FK1_1" target="_PZ_Ud5EeEeauDets12NBwQ">
         <elements xmi:id="_PaCX05EeEeauDets12NBwQ" techID="_PaCX0pEeEeauDets12NBwQ" fkColumn="_PZ-tZpEeEeauDets12NBwQ" pkColumn="_PZ_UhZEeEeauDets12NBwQ"/>
@@ -37,7 +37,7 @@
         </type>
       </columns>
     </tables>
-    <tables xsi:type="database:Table" xmi:id="_PZ_Ud5EeEeauDets12NBwQ" techID="_PZ_UdpEeEeauDets12NBwQ" name="BOOK">
+    <tables xsi:type="database:Table" xmi:id="_PZ_Ud5EeEeauDets12NBwQ" comments="Some comments about the table of books..." techID="_PZ_UdpEeEeauDets12NBwQ" name="BOOK">
       <primaryKey xmi:id="_PZ_7iZEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne BOOK_ID" techID="_PZ_7iJEeEeauDets12NBwQ" name="BOOK_PK" columns="_PZ_UhZEeEeauDets12NBwQ"/>
       <foreignKeys xmi:id="_PaCX1ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table AUTHOR" techID="_PaCX1JEeEeauDets12NBwQ" name="BOOK_FK1_1" target="_PZ9fQZEeEeauDets12NBwQ">
         <elements xmi:id="_PaCX15EeEeauDets12NBwQ" techID="_PaCX1pEeEeauDets12NBwQ" fkColumn="_PZ_UiZEeEeauDets12NBwQ" pkColumn="_PZ-tYpEeEeauDets12NBwQ"/>
@@ -82,7 +82,7 @@
         </type>
       </columns>
     </tables>
-    <tables xsi:type="database:Table" xmi:id="_PZ_7kZEeEeauDets12NBwQ" techID="_PZ_7kJEeEeauDets12NBwQ" name="PURCHASE_ORDER">
+    <tables xsi:type="database:Table" xmi:id="_PZ_7kZEeEeauDets12NBwQ" comments="Some comments about the table of purchase orders..." techID="_PZ_7kJEeEeauDets12NBwQ" name="PURCHASE_ORDER">
       <primaryKey xmi:id="_PaAimZEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne PURCHASE_ORDER_ID" techID="_PaAimJEeEeauDets12NBwQ" name="PURCHASE_ORDER_PK" columns="_PZ_7m5EeEeauDets12NBwQ"/>
       <foreignKeys xmi:id="_PaCX2ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table SHOPPING_CART" techID="_PaCX2JEeEeauDets12NBwQ" name="PURCHASE_ORDER_FK1_1" target="_PaBJtpEeEeauDets12NBwQ">
         <elements xmi:id="_PaCX25EeEeauDets12NBwQ" techID="_PaCX2pEeEeauDets12NBwQ" fkColumn="_PZ_7n5EeEeauDets12NBwQ" pkColumn="_PaBJvJEeEeauDets12NBwQ"/>
@@ -133,7 +133,7 @@
         </type>
       </columns>
     </tables>
-    <tables xsi:type="database:Table" xmi:id="_PaAipZEeEeauDets12NBwQ" techID="_PaAipJEeEeauDets12NBwQ" name="SHOOPING_CART_LINE">
+    <tables xsi:type="database:Table" xmi:id="_PaAipZEeEeauDets12NBwQ" comments="Some comments about the table of shopping cart lines..." techID="_PaAipJEeEeauDets12NBwQ" name="SHOPPING_CART_LINE">
       <primaryKey xmi:id="_PaBJqpEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne SHOOPING_CART_LINE_ID" techID="_PaBJqZEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_PK" columns="_PaAiq5EeEeauDets12NBwQ"/>
       <foreignKeys xmi:id="_PaCX4ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table BOOK" techID="_PaCX4JEeEeauDets12NBwQ" name="SHOOPING_CART_LINE_FK1_1" target="_PZ_Ud5EeEeauDets12NBwQ">
         <elements xmi:id="_PaCX45EeEeauDets12NBwQ" techID="_PaCX4pEeEeauDets12NBwQ" fkColumn="_PaAir5EeEeauDets12NBwQ" pkColumn="_PZ_UhZEeEeauDets12NBwQ"/>
@@ -179,7 +179,7 @@
         </type>
       </columns>
     </tables>
-    <tables xsi:type="database:Table" xmi:id="_PaBJtpEeEeauDets12NBwQ" techID="_PaBJtZEeEeauDets12NBwQ" name="SHOPPING_CART">
+    <tables xsi:type="database:Table" xmi:id="_PaBJtpEeEeauDets12NBwQ" comments="Some comments about the table of shopping carts..." techID="_PaBJtZEeEeauDets12NBwQ" name="SHOPPING_CART">
       <primaryKey xmi:id="_PaBwvJEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne SHOPPING_CART_ID" techID="_PaBwu5EeEeauDets12NBwQ" name="SHOPPING_CART_PK" columns="_PaBJvJEeEeauDets12NBwQ"/>
       <foreignKeys xmi:id="_PaC-1ZEeEeauDets12NBwQ" comments="Contrainte FK avec la table USER" techID="_PaC-1JEeEeauDets12NBwQ" name="SHOPPING_CART_FK1_1" target="_PaBwxJEeEeauDets12NBwQ">
         <elements xmi:id="_PaC-15EeEeauDets12NBwQ" techID="_PaC-1pEeEeauDets12NBwQ" fkColumn="_PaBwsJEeEeauDets12NBwQ" pkColumn="_PaCXwZEeEeauDets12NBwQ"/>
@@ -214,7 +214,7 @@
         </type>
       </columns>
     </tables>
-    <tables xsi:type="database:Table" xmi:id="_PaBwxJEeEeauDets12NBwQ" techID="_PaBww5EeEeauDets12NBwQ" name="USER">
+    <tables xsi:type="database:Table" xmi:id="_PaBwxJEeEeauDets12NBwQ" comments="Some comments about the table of users..." techID="_PaBww5EeEeauDets12NBwQ" name="USER">
       <primaryKey xmi:id="_PaCXzZEeEeauDets12NBwQ" comments="Contrainte PK pour la colonne USER_ID" techID="_PaCXzJEeEeauDets12NBwQ" name="USER_PK" columns="_PaCXwZEeEeauDets12NBwQ"/>
       <constraints xmi:id="_PaCXz5EeEeauDets12NBwQ" comments="Liste des valeurs possibles pour main_XTOPSUP" techID="_PaCXzpEeEeauDets12NBwQ" name="USER_CK1_1" expression="main_XTOPSUP in ('0','1','3','9')"/>
       <columns xmi:id="_PaBwxpEeEeauDets12NBwQ" techID="_PaBwxZEeEeauDets12NBwQ" name="NAME">
