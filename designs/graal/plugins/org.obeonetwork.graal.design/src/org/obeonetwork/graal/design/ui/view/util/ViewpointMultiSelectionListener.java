@@ -17,17 +17,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.ui.ISelectionListener;
-import org.eclipse.ui.IWorkbenchPart;
-
-import org.eclipse.sirius.viewpoint.DAnalysis;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IWorkbenchPart;
 
 /**
  * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
@@ -46,12 +45,14 @@ public abstract class ViewpointMultiSelectionListener implements ISelectionListe
 
 	/**
 	 * {@inheritDoc}
-	 * @see org.eclipse.ui.ISelectionListener#selectionChanged(org.eclipse.ui.IWorkbenchPart, org.eclipse.jface.viewers.ISelection)
+	 * 
+	 * @see org.eclipse.ui.ISelectionListener#selectionChanged(org.eclipse.ui.IWorkbenchPart,
+	 *      org.eclipse.jface.viewers.ISelection)
 	 */
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		if (part != owningPart) {
 			List<EObject> selectedEObjects = new ArrayList<EObject>();
-			DAnalysis analysis = null;
+			Session session = null;
 			if (!selection.isEmpty() && selection instanceof StructuredSelection) {
 				for (Object selectedObject : ((StructuredSelection) selection).toList()) {
 					if (selectedObject instanceof GraphicalEditPart) {
@@ -60,31 +61,32 @@ public abstract class ViewpointMultiSelectionListener implements ISelectionListe
 							View node = (View) graphicalEditPart.getModel();
 							if (node.getElement() instanceof DSemanticDecorator) {
 								DSemanticDecorator semanticDecorator = (DSemanticDecorator) node.getElement();
-								if (analysis == null) {
-									EObject rootContainer = EcoreUtil.getRootContainer(semanticDecorator);
-									if (rootContainer instanceof DAnalysis) {
-										analysis = (DAnalysis) rootContainer;
-									}
+								if (session == null) {
+									session = new EObjectQuery(semanticDecorator.getTarget()).getSession();
 								}
 								selectedEObjects.add(semanticDecorator.getTarget());
 							}
-						} 
-					} else if (selectedObject instanceof EObject) {
-						if (!ViewpointPackage.eINSTANCE.getDRepresentation().isInstance(selectedObject)) {
-							selectedEObjects.add((EObject)selectedObject);
 						}
-					} 
-				}			
-			} 
+					} else if (selectedObject instanceof EObject) {
+						EObject selectedEObject = (EObject) selectedObject;
+						session = new EObjectQuery(selectedEObject).getSession();
+						if (!ViewpointPackage.eINSTANCE.getDRepresentation().isInstance(selectedObject)) {
+							selectedEObjects.add(selectedEObject);
+						}
+					}
+				}
+			}
 
-			eObjectSelected(analysis, selectedEObjects);
+			eObjectSelected(session, selectedEObjects);
 		}
 	}
 
 	/**
-	 * @param analysis the active diagram.
-	 * @param selectedEObject the new selection
+	 * @param session
+	 *            the {@link Session} owning the selected semantic element.
+	 * @param selectedEObject
+	 *            the new selection
 	 */
-	protected abstract void eObjectSelected(DAnalysis analysis, List<EObject> selectedEObject);
+	protected abstract void eObjectSelected(Session session, List<EObject> selectedEObject);
 
 }
