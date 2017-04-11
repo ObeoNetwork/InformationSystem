@@ -33,5 +33,13 @@
             serviceClass="org.obeonetwork.dsl.graal.m2doc.services.TaskServicesHolder"
             serviceToken="default">
       </service>
+      <service
+            serviceClass="org.obeonetwork.dsl.graal.m2doc.services.UserStoryElementServicesHolder"
+            serviceToken="default">
+      </service>
+      <service
+            serviceClass="org.obeonetwork.dsl.graal.m2doc.services.TransitionServicesHolder"
+            serviceToken="default">
+      </service>
    </extension>
 </plugin>

@@ -672,17 +672,17 @@
         <styles xmi:type="notation:DiagramStyle" xmi:id="_BrWqMh_HEeW_TuSj9xLcNQ"/>
         <edges xmi:type="notation:Edge" xmi:id="_BrcJwB_HEeW_TuSj9xLcNQ" type="4001" element="_BTEdMcLbEeaKX_JUX0UT5w" source="_BrWqMx_HEeW_TuSj9xLcNQ" target="_BrZtgB_HEeW_TuSj9xLcNQ">
           <children xmi:type="notation:Node" xmi:id="_Brcw0B_HEeW_TuSj9xLcNQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Brcw0R_HEeW_TuSj9xLcNQ" x="3" y="-4"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Brcw0R_HEeW_TuSj9xLcNQ" x="-16" y="-9"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Brcw0h_HEeW_TuSj9xLcNQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Brcw0x_HEeW_TuSj9xLcNQ" x="13" y="-2"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Brcw0x_HEeW_TuSj9xLcNQ" x="-9" y="9"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Brcw1B_HEeW_TuSj9xLcNQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Brcw1R_HEeW_TuSj9xLcNQ" x="12"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Brcw1R_HEeW_TuSj9xLcNQ" x="-2" y="6"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_BrcJwR_HEeW_TuSj9xLcNQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_BrcJwh_HEeW_TuSj9xLcNQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BrcJwx_HEeW_TuSj9xLcNQ" points="[0, 0, -252, 0]$[237, 0, -15, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BrcJwx_HEeW_TuSj9xLcNQ" points="[9, -11, -243, -11]$[129, -95, -123, -95]$[243, -12, -9, -12]"/>
         </edges>
       </data>
     </ownedAnnotationEntries>

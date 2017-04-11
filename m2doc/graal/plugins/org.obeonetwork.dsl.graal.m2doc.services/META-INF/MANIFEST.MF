@@ -7,7 +7,9 @@ Bundle-Activator: org.obeonetwork.dsl.graal.m2doc.services.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.graal;bundle-version="5.0.0",
  org.obeonetwork.m2doc;bundle-version="0.9.7",
- org.obeonetwork.tools.doc
+ org.obeonetwork.tools.doc,
+ org.eclipse.emf.edit.ui,
+ org.obeonetwork.graal.edit
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Obeo Network

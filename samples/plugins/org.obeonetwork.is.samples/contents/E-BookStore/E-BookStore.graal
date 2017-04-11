@@ -94,11 +94,7 @@
     <nodes xsi:type="graal:InitialNode" xmi:id="_aZzHwEjSEeGbkNJePX2AYQ" technicalid="_k4WJRRLMEeesAc7mKQrh4A" outgoingTransitions="_DbGsgEjUEeGbkNJePX2AYQ"/>
     <nodes xsi:type="graal:AppliAction" xmi:id="_bdJbIEjSEeGbkNJePX2AYQ" technicalid="_k4WJRhLMEeesAc7mKQrh4A" outgoingTransitions="_Dj8fcEjUEeGbkNJePX2AYQ" incomingTransitions="_DbGsgEjUEeGbkNJePX2AYQ" name="Get authors&#xD;&#xA;and book types"/>
     <nodes xsi:type="graal:AppliAction" xmi:id="_bpDwMEjSEeGbkNJePX2AYQ" technicalid="_k4WJRxLMEeesAc7mKQrh4A" outgoingTransitions="_FPn-IEjUEeGbkNJePX2AYQ" incomingTransitions="_E7BnIEjUEeGbkNJePX2AYQ" name="Search books"/>
-    <nodes xsi:type="graal:UserView" xmi:id="_b_kLsEjSEeGbkNJePX2AYQ" technicalid="_k4WJSBLMEeesAc7mKQrh4A" outgoingTransitions="_D0IQgEjUEeGbkNJePX2AYQ _D90YAEjUEeGbkNJePX2AYQ _EHl_EEjUEeGbkNJePX2AYQ _ETj-gEjUEeGbkNJePX2AYQ _EjuhcEjUEeGbkNJePX2AYQ" incomingTransitions="_Dj8fcEjUEeGbkNJePX2AYQ _HTO0oEjUEeGbkNJePX2AYQ" name="Display&#xD;&#xA;search screen">
-      <metadatas xmi:id="_rHr3MYiVEeGquNVoF94-OQ" technicalid="_k4WJSRLMEeesAc7mKQrh4A">
-        <metadatas xsi:type="oenv:Annotation" xmi:id="_rHr3MoiVEeGquNVoF94-OQ" technicalid="_k4WJShLMEeesAc7mKQrh4A" title="DocumentationLink - sqdqsd" body="http://google.com"/>
-      </metadatas>
-    </nodes>
+    <nodes xsi:type="graal:UserView" xmi:id="_b_kLsEjSEeGbkNJePX2AYQ" technicalid="_k4WJSBLMEeesAc7mKQrh4A" createdOn="2017-04-12T09:40:52.161+0200" modifiedOn="2017-04-12T09:40:52.161+0200" outgoingTransitions="_D0IQgEjUEeGbkNJePX2AYQ _D90YAEjUEeGbkNJePX2AYQ _EHl_EEjUEeGbkNJePX2AYQ _ETj-gEjUEeGbkNJePX2AYQ _EjuhcEjUEeGbkNJePX2AYQ" incomingTransitions="_Dj8fcEjUEeGbkNJePX2AYQ _HTO0oEjUEeGbkNJePX2AYQ" name="Display&#xD;&#xA;search screen"/>
     <nodes xsi:type="graal:UserView" xmi:id="_cKtrwEjSEeGbkNJePX2AYQ" technicalid="_k4WJSxLMEeesAc7mKQrh4A" outgoingTransitions="_FhslkEjUEeGbkNJePX2AYQ" incomingTransitions="_FPn-IEjUEeGbkNJePX2AYQ" name="Refesh books list"/>
     <nodes xsi:type="graal:FinalNode" xmi:id="_ccyTMEjSEeGbkNJePX2AYQ" technicalid="_k4WJTBLMEeesAc7mKQrh4A" incomingTransitions="_FhslkEjUEeGbkNJePX2AYQ"/>
     <nodes xsi:type="graal:UserAction" xmi:id="_dG_GwEjSEeGbkNJePX2AYQ" technicalid="_k4WJTRLMEeesAc7mKQrh4A" outgoingTransitions="_HTO0oEjUEeGbkNJePX2AYQ" incomingTransitions="_D0IQgEjUEeGbkNJePX2AYQ" name="Reinit search"/>

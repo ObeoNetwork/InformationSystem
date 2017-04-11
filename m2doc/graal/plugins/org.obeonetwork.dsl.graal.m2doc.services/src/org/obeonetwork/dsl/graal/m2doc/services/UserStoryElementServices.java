@@ -10,34 +10,26 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.graal.m2doc.services;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.obeonetwork.graal.Node;
-import org.obeonetwork.graal.Task;
+import org.obeonetwork.graal.Transition;
+import org.obeonetwork.graal.UserStoryElement;
 import org.obeonetwork.graal.provider.GraalItemProviderAdapterFactory;
 
-public class TaskServices {
-	
+public class UserStoryElementServices {
+
 	/**
-	 * Return a list containing a task and all its contained children
+	 * 
+	 * @param element
+	 * @return the label for {@code element}.
 	 */
-	public List<EObject> allChildrenAndTask(Task task) {
-		List<EObject> result = new ArrayList<>();
-		result.add(task);
-		
-		TreeIterator<Object> iterator = EcoreUtil.getAllContents(task, true);
-		while (iterator.hasNext()) {
-			Object element = iterator.next();
-			if (element instanceof EObject) {
-				result.add((EObject)element);
-			}
+	public String getLabel(UserStoryElement element) {
+		if (element instanceof Transition) {
+			return new TransitionServices().getLabel((Transition) element);
+		} else {
+			AdapterFactoryLabelProvider adapterFactory = new AdapterFactoryLabelProvider(
+					new GraalItemProviderAdapterFactory());
+			return adapterFactory.getText(element);
 		}
-		return result;
 	}
 
 }
