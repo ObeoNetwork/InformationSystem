@@ -12,8 +12,6 @@ package org.obeonetwork.dsl.graal.m2doc.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.MetaData;
@@ -56,15 +54,17 @@ public class DomainClassServices {
 	 * @return
 	 */
 	public List<Annotation> getDocumentationLinks(ObeoDSMObject object) {
-		if (object.getMetadatas() != null) { 
-			Stream<Annotation> annotations = object.getMetadatas().getMetadatas().stream()
-					.filter(metadata -> metadata instanceof Annotation).map(metadata -> (Annotation) metadata);
-
-			return annotations.filter(
-					annotation -> annotation.getTitle().startsWith(DocumentationLink.DOCUMENTATION_ANNOTATION_TITLE))
-					.collect(Collectors.toList());
-		} else {
-			return new ArrayList<>();
+		List<Annotation> documentationLinks = new ArrayList<>();
+		if (object.getMetadatas() != null) {
+			for (MetaData metadata : object.getMetadatas().getMetadatas()) {
+				if (metadata instanceof Annotation) {
+					Annotation annotation = (Annotation) metadata;
+					if (annotation.getTitle().startsWith(DocumentationLink.DOCUMENTATION_ANNOTATION_TITLE)) {
+						documentationLinks.add(annotation);
+					}
+				}
+			}
 		}
+		return documentationLinks;
 	}
 }
