@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2015, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="binding" version="11.1.1.201610211630">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_1.0.0="http://www.obeonetwork.org/dsl/environment/binding/dialect/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2015, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="binding" version="11.1.1.201610211630">
   <ownedViewpoints name="IS Databinding" modelFileExtension="ois soa entity environment">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Databinding diagram" titleExpression="[name + ' Databinding'/]" domainClass="environment.Namespace">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
       <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
-      <metamodel href="../../org.obeonetwork.dsl.environment.binding.dialect/model/bindingdialect.ecore#/"/>
-      <metamodel href="../../org.obeonetwork.dsl.environment.binding.dialect/model/bindingdialect.ecore#//description"/>
       <defaultLayer name="Default">
         <nodeMappings name="DBI_BindingInfo" semanticCandidatesExpression="service:getRelatedBindingInfos()" doubleClickDescription="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='DBL_OpenBindingEditor']" domainClass="environment.BindingInfo">
           <style xsi:type="style:WorkspaceImageDescription" labelExpression="" sizeComputationExpression="-1" resizeKind="NSEW" arcWidth="1" arcHeight="1" workspacePath="/org.obeonetwork.dsl.environment.binding.design/icons/BindingInfo.gif">
@@ -32,7 +30,7 @@
         <toolSections name="Binding">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CRE_BindingInfo" label="New binding" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Databinding%20diagram']/@defaultLayer/@nodeMappings[name='DBI_BindingInfo']">
             <variable name="container">
-              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="left" candidatesExpression="feature:types" message="Choose the first element"/>
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="left" candidatesExpression="aql:container.eAllContents(environment::Type)" message="Choose the first element"/>
               <subVariables xsi:type="tool_1:AcceleoVariable" name="bindableElements" computationExpression="service:containerView.getAllBindableElements(left)"/>
               <subVariables xsi:type="tool_1:SelectModelElementVariable" name="right" candidatesExpression="[bindableElements.ancestors()->asSet()->addAll(bindableElements->asSet())/]" tree="true" rootExpression="service:allRootsForBinding()" childrenExpression="feature:eContents" message="Choose the second element"/>
             </variable>
@@ -92,9 +90,11 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="description_1.0.0:DBindingEditorCreationDescription" name="CRE_BindingEditor" label="Binding Details" description="//@ownedViewpoints[name='IS%20Databinding']/@ownedRepresentations[name='Binding%20Details']"/>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.binding.design.service.BindingService"/>
-  </ownedViewpoints>
+    <ownedRepresentations xsi:type="description_1.0.0:DBindingEditorDescription" name="Binding Details" titleExpression="service:computeBindingEditorName()"/>
+</ownedViewpoints>
 </description:Group>
