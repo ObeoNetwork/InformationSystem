@@ -287,16 +287,6 @@
          optional="true"/>
 
    <includes
-         id="org.obeonetwork.m2doc.sirius.addon.feature"
-         version="0.0.0"
-         optional="true"/>
-
-   <includes
-         id="org.obeonetwork.m2doc.sirius.feature"
-         version="0.0.0"
-         optional="true"/>
-
-   <includes
          id="org.obeonetwork.database.m2doc.feature"
          version="0.0.0"
          optional="true"/>
@@ -310,5 +300,17 @@
          id="org.obeonetwork.dsl.requirement.m2doc.feature"
          version="0.0.0"
          optional="true"/>
+
+   <includes
+         id="org.eclipse.acceleo"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.m2doc.sirius.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.obeonetwork.m2doc.ui.feature"
+         version="0.0.0"/>
 
 </feature>
