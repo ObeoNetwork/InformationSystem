@@ -54,7 +54,7 @@
 [let table : Table = removeTable.table.oclAsType(Table)]
 [table.genTableDoc()/]
 [table.genDropSynonym()/]
-DROP TABLE [table.fullname()/];
+DROP TABLE [table.fullname()/] CASCADE;
 [/let]
 [/template]
 
