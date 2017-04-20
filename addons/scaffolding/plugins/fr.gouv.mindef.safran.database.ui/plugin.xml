@@ -243,6 +243,22 @@
       <handler
             class="fr.gouv.mindef.safran.database.ui.actions.GenerateSQLFromDatabaseHandler"
             commandId="fr.gouv.mindef.safran.database.ui.command.GenerateSQL">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <and>
+                  <count
+                        value="1">
+                  </count>
+                  <not>
+                     <test
+                           forcePluginActivation="true"
+                           property="fr.gouv.mindef.safran.database.ui.propertyTester.testIsLogical">
+                     </test>
+                  </not>
+               </and>
+            </with>
+         </enabledWhen>
          <!--<enabledWhen>
             <with
                   variable="selection">
@@ -296,6 +312,13 @@
             id="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold.testMultipleInputIsValid"
             namespace="fr.gouv.mindef.safran.database.ui.propertyTester.scaffold"
             properties="testMultipleInputIsValid"
+            type="java.lang.Object">
+      </propertyTester>
+      <propertyTester
+            class="fr.gouv.mindef.safran.database.ui.actions.testers.TestIsLogical"
+            id="fr.gouv.mindef.safran.database.ui.propertyTester.testIsLogical"
+            namespace="fr.gouv.mindef.safran.database.ui.propertyTester"
+            properties="testIsLogical"
             type="java.lang.Object">
       </propertyTester>
    </extension>
