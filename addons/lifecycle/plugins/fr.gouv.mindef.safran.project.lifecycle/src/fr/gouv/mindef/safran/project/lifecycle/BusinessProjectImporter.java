@@ -36,11 +36,13 @@ import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.helper.SiriusUtil;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.business.api.session.ViewpointSelector;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
+import org.eclipse.sirius.ui.business.api.session.UserSession;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.DView;
@@ -49,6 +51,7 @@ import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
+import org.obeonetwork.dsl.requirement.RequirementFactory;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
 import org.obeonetwork.graal.GraalPackage;
 
@@ -182,7 +185,7 @@ public class BusinessProjectImporter {
 	}
 	
 	public void importElementsIntoTargetProject(IProgressMonitor parentMonitor) throws CoreException {
-		SubMonitor monitor = SubMonitor.convert(parentMonitor, 5);
+		final SubMonitor monitor = SubMonitor.convert(parentMonitor, 5);
 		// Ensure project is closed
 		saveAndCloseEditorsOnTargetProject(monitor.newChild(1));
 		
@@ -235,6 +238,17 @@ public class BusinessProjectImporter {
 				
 				// Restore the local requirement references
 				restoreRequirementReferences(requirementReferencesCache);
+				
+
+				// If there is no "requirement.Repository" object in the target MOE project, then create one named after the MOE project.
+				Boolean repositoryExists = false;
+				for(Resource semanticResource : SessionManager.INSTANCE.getExistingSession(targetProject.getMainRepresentationsFileURI(monitor).get()).getSemanticResources()){
+					repositoryExists = EcoreUtil.getObjectByType(semanticResource.getContents(), RequirementPackage.Literals.REPOSITORY) != null;
+				}
+				if(!repositoryExists){
+					Repository requirementsRepository = RequirementFactory.eINSTANCE.createRepository();
+					addToSemanticResource(requirementsRepository, targetProject.getProject().getName() + "/" + targetProject.getProject().getName() + ".requirement");
+				}				
 			}
 		};
 		
