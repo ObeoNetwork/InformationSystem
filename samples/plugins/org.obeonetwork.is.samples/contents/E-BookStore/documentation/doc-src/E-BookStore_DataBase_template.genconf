@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genconf:Generation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genconf="http://www.obeonetwork.org/m2doc/genconf/1.0" name="DataBaseDocumentation" templateFileName="./E-BookStore_DataBase_template.docx" resultFileName="../doc-gen/E-BookStore_DataBase.docx" representationsFileName="../../representations.aird">
+<genconf:Generation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:genconf="http://www.obeonetwork.org/m2doc/genconf/1.0" name="DataBaseDocumentation" templateFileName="./E-BookStore_DataBase_template.docx" resultFileName="../doc-gen/E-BookStore_DataBase.docx" representationsFileName="../../representations.aird">
   <definitions xsi:type="genconf:StringDefinition" key="author" value="John Doe"/>
   <definitions xsi:type="genconf:StringDefinition" key="projectVersion" value="0.0.0"/>
   <definitions xsi:type="genconf:StringDefinition" key="projectName" value="E-BookStore"/>
   <definitions xsi:type="genconf:ModelDefinition" key="db">
     <value href="../../E-BookStore-Oracle.database#_MX0j8ZEeEeauDets12NBwQ"/>
-    <type xsi:type="ecore:EClass" href="http://www.obeonetwork.org/dsl/database/1.0#//DataBase"/>
   </definitions>
 </genconf:Generation>
