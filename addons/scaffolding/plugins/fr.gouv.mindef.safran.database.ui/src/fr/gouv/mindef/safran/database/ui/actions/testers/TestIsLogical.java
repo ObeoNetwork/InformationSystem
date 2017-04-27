@@ -30,10 +30,12 @@ public class TestIsLogical extends AbstractScaffoldingPropertyTester {
 				Object element = selection.getFirstElement();
 				Resource resource = (element instanceof Resource) ? ((Resource) element)
 						: getResourceFromSession(getModelURI(element));
-				if (resource.getContents() != null && resource.getContents().isEmpty() == false) {
-					EObject root = resource.getContents().get(0);
-					if (root instanceof TypesLibraryUser) {
-						return ScaffoldingUtils.isValidInputForMld(root);
+				if (resource != null) {
+					if (resource.getContents() != null && resource.getContents().isEmpty() == false) {
+						EObject root = resource.getContents().get(0);
+						if (root instanceof TypesLibraryUser) {
+							return ScaffoldingUtils.isValidInputForMld(root);
+						}
 					}
 				}
 			}
@@ -43,16 +45,18 @@ public class TestIsLogical extends AbstractScaffoldingPropertyTester {
 	}
 
 	private static Resource getResourceFromSession(URI semanticResourceURI) {
-		for (Session session : SessionManager.INSTANCE.getSessions()) {
-			for (Resource semanticResource : session.getSemanticResources()) {
-				if (semanticResourceURI.equals(semanticResource.getURI())) {
-					return semanticResource;
+		if (semanticResourceURI != null) {
+			for (Session session : SessionManager.INSTANCE.getSessions()) {
+				for (Resource semanticResource : session.getSemanticResources()) {
+					if (semanticResourceURI.equals(semanticResource.getURI())) {
+						return semanticResource;
+					}
 				}
-			}
-			if (session instanceof DAnalysisSessionEObject) {
-				for (Resource controlledResource : ((DAnalysisSessionEObject) session).getControlledResources()) {
-					if (semanticResourceURI.equals(controlledResource.getURI())) {
-						return controlledResource;
+				if (session instanceof DAnalysisSessionEObject) {
+					for (Resource controlledResource : ((DAnalysisSessionEObject) session).getControlledResources()) {
+						if (semanticResourceURI.equals(controlledResource.getURI())) {
+							return controlledResource;
+						}
 					}
 				}
 			}
