@@ -13,12 +13,17 @@
       id="org.obeonetwork.dsl.database.synchronizer"
       label="Database Synchronizer"
       version="9.0.0.qualifier"
+      provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
       license-feature-version="1.0.0.qualifier">
 
    <description url="http://marketplace.obeonetwork.com/">
       ObeoNetwork - Database Synchronizer
    </description>
+
+   <copyright url="https://www.obeo.fr">
+      %copyright
+   </copyright>
 
    <plugin
          id="org.obeonetwork.dsl.database.compare"

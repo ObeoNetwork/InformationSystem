@@ -5,6 +5,7 @@ Bundle-SymbolicName: fr.gouv.mindef.safran.database.ui; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: fr.gouv.mindef.safran.database.ui.Activator
 Bundle-Vendor: %providerName
+Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.ide,
