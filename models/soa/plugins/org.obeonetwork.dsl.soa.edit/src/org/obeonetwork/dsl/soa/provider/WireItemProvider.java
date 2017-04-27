@@ -141,11 +141,12 @@ public class WireItemProvider
 	 * This adds a property descriptor for the Dest feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addDestPropertyDescriptor(Object object) {
+		final System system = getContainingSystem((EObject) object);
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+		(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_Wire_dest_feature"),
@@ -156,7 +157,16 @@ public class WireItemProvider
 				 true,
 				 null,
 				 null,
-				 null));
+				 null)
+			{
+				public java.util.Collection<?>getChoiceOfValues(Object object){
+					Collection<Object> choiceOfValues=new ArrayList<Object>();
+					List<org.obeonetwork.dsl.soa.Service>services = getProvidedServices(system);
+					choiceOfValues.addAll(services);
+					return choiceOfValues;
+				}
+			}
+		);
 	}
 	/**
 	 * Return the required services in a System.
