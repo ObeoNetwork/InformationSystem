@@ -129,7 +129,7 @@ location "http://download.eclipse.org/releases/neon/" {
 	org.eclipse.oomph.setup.sdk.feature.group lazy
 }
 
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/master/nightly/repository" {
+location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/0.11.0_beta/repository" {
 	org.apache.poi.feature.feature.group lazy
 	org.obeonetwork.m2doc.feature.feature.group lazy
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy

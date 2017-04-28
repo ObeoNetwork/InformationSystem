@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.obeonetwork.dsl.graal.m2doc.services.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.graal;bundle-version="5.0.0",
- org.obeonetwork.m2doc;bundle-version="0.9.7",
+ org.obeonetwork.m2doc;bundle-version="[0.11.0,0.12.0)",
  org.obeonetwork.tools.doc,
  org.eclipse.emf.edit.ui,
  org.obeonetwork.graal.edit
