@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _6ONbQGNdEeSg_dTG4Ei-uQ
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 10/27/16 5:11 PM
+Save-Time: 12/2/16 1:05 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -30,9 +30,9 @@ with [get-window "Viewpoints Selection"] {
     get-button OK | click
 }
 get-view "Model Explorer" | get-tree | select "E-BookStore/E-BookStore.requirement/Repository E-BookStore" 
-    | get-menu "New Representation/new Requirements - Task tracability matrix" | click
+    | get-menu "New Representation/E-BookStore Requirements Use Case Traceability Matrix" | click
 get-window "New Representation" | get-button OK | click
-with [get-editor "new Requirements - Task tracability matrix" | get-tree] {
+with [get-editor "E-BookStore Requirements Use Case Traceability Matrix" | get-tree] {
     get-item "E-BookStore" | get-property "getText()" | equals "E-BookStore" | verify-true
     get-item "E-BookStore" | get-property "getItems().TreeItem[0].getText()" | equals "- NewCategory" | verify-true
     get-item "E-BookStore" | get-property "getItems().TreeItem[0].getItems().TreeItem[0].getText()" 
