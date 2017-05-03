@@ -59,11 +59,6 @@
 		<module>../../models/database/plugins/org.obeonetwork.dsl.database.editor</module>
 		<module>../../models/database/features/org.obeonetwork.dsl.database.feature</module>
 
-		<module>../../models/database/plugins/org.obeonetwork.dsl.entityrelation</module>
-		<module>../../models/database/plugins/org.obeonetwork.dsl.entityrelation.edit</module>
-		<module>../../models/database/plugins/org.obeonetwork.dsl.entityrelation.editor</module>
-		<module>../../models/database/features/org.obeonetwork.dsl.entityrelation.feature</module>
-
 		<module>../../models/database/plugins/org.obeonetwork.dsl.typeslibrary</module>
 		<module>../../models/database/plugins/org.obeonetwork.dsl.typeslibrary.edit</module>
 		<module>../../models/database/plugins/org.obeonetwork.dsl.typeslibrary.editor</module>
@@ -194,10 +189,8 @@
 		<module>../../designs/cinematic/features/org.obeonetwork.dsl.cinematic.design.feature</module>
 
 		<!-- designs/database/ -->
-		<module>../../designs/database/plugins/org.obeonetwork.dsl.entityrelation.design</module>
 		<module>../../designs/database/plugins/org.obeonetwork.dsl.database.design</module>
 
-		<module>../../designs/database/features/org.obeonetwork.dsl.entityrelation.design.feature</module>
 		<module>../../designs/database/features/org.obeonetwork.dsl.database.design.feature</module>
 
 		<!-- designs/graal/ -->
