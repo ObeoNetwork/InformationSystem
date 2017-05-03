@@ -35,6 +35,7 @@
             category="org.eclipse.ui.Examples/org.obeonetwork.is.samples.category"
             class="org.obeonetwork.is.samples.InformationSystemExampleWizard"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
+            icon="icons/E-BookStore.gif"
             id="org.obeonetwork.is.samples.EBookStoreWizard"
             name="E-Book Store"
             preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling"
