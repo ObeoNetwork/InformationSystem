@@ -6,7 +6,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _SOwo4FO1EeSMo_G57BtJfQ
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 12/16/16 3:05 PM
+Save-Time: 5/3/17 2:15 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -1501,7 +1501,7 @@ get-editor "SOA Diagram" | get-diagram -index 1 | get-edit-part -name "SOA Diagr
     | equals BookStore | verify-true
 get-view "Model Explorer" | get-tree | select "E-BookStore" | get-menu "New/Other..." | click
 with [get-window New] {
-    get-tree | select "Obeo Designer For IS/Soa Model"
+    get-tree | select "Information System Designer/Soa Model"
     get-button "Next >" | click
     get-button Finish | click
 }
