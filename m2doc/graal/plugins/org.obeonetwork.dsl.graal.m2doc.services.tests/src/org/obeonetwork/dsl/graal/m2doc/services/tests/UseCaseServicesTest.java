@@ -157,7 +157,7 @@ public class UseCaseServicesTest extends AbstractTest {
 		
 		verifyAllDomainClasses(useCase, new String[]{	"ns1.BaShouldBe1",
 														"ns1.bbShouldBe2",
-														"ns1.Ã©aShouldBe3",
+														"ns1.éaShouldBe3",
 														"ns1.EBShouldBe4"});
 	}
 	
