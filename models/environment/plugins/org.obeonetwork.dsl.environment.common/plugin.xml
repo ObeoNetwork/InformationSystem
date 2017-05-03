@@ -15,7 +15,7 @@
    <extension
          point="org.eclipse.ui.views">
      <category
-            name="Obeo Designer for IS"
+            name="Information System Designer"
             id="org.obeonetwork.od4is">
       </category>
     </extension>

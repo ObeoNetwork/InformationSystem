@@ -19,7 +19,7 @@
    
 	<!-- contribute new IS Model wizard  -->
 	<extension point = "org.eclipse.ui.newWizards">
-    	<category id = "org.obeonetwork.dsl.is.ui.categoryID" name="Obeo Designer For IS"/>    
+    	<category id = "org.obeonetwork.dsl.is.ui.categoryID" name="Information System Designer"/>    
     	<wizard
 			id = "org.obeonetwork.dsl.is.ui.wizards.ISModelWizardID"
 			name = "IS Model"
