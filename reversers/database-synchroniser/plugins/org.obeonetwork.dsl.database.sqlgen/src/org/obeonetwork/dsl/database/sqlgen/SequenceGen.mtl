@@ -109,5 +109,5 @@ CREATE SEQUENCE [sequence.fullname()/][sequence.genIncrementBy()/][sequence.genM
 [/template]
 
 [template private genSequenceComment(sequence : Sequence) ? (sequence.comments<>null and sequence.comments.size()>0) post(trim())]
-COMMENT ON TABLE [sequence.fullname()/] IS '[sequence.comments.replaceAll('\'','\'\'')/]';
+COMMENT ON SEQUENCE [sequence.fullname()/] IS '[sequence.comments.replaceAll('\'','\'\'')/]';
 [/template]
