@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Copyright (c) 2017 Obeo.
-    All rights reserved. This program and the accompanying materials
-    are made available under the terms of the Eclipse Public License v1.0
-    which accompanies this distribution, and is available at
-    http://www.eclipse.org/legal/epl-v10.html
-   
-    Contributors:
-        Obeo - initial API and implementation
- -->
-
 <site>
    <feature url="features/org.obeonetwork.dsl.database.feature_9.0.0.qualifier.jar" id="org.obeonetwork.dsl.database.feature" version="9.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
@@ -154,6 +143,9 @@
    </feature>
    <feature url="features/org.obeonetwork.is.samples.feature_9.0.0.qualifier.jar" id="org.obeonetwork.is.samples.feature" version="9.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.samples"/>
+   </feature>
+   <feature url="features/org.obeonetwork.is.designer.ui.feature_1.0.0.qualifier.jar" id="org.obeonetwork.is.designer.ui.feature" version="1.0.0.qualifier">
+      <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
    <category-def name="org.obeonetwork.informationsystem.designs" label="Information System - Designs"/>

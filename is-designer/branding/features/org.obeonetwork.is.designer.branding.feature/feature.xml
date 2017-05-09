@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright (c) 2016, 2017 Obeo.
+    Copyright (c) 2017 Obeo.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
@@ -10,26 +10,29 @@
         Obeo - initial API and implementation
  -->
 <feature
-      id="org.obeonetwork.is.designer.ui.feature"
-      label="IS Designer UI Contributions Feature"
+      id="org.obeonetwork.is.designer.branding.feature"
+      label="IS Designer Branding Feature"
       version="1.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
       license-feature-version="1.0.0.qualifier">
 
    <description url="https://www.obeo.fr">
-      Information Designer UI
+      Information System Designer Branding
    </description>
 
    <copyright url="https://www.obeo.fr">
       %copyright
    </copyright>
 
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
    <plugin
-         id="org.obeonetwork.is.designer.ui"
+         id="org.obeonetwork.is.designer.branding"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+         version="0.0.0"/>
 
 </feature>
