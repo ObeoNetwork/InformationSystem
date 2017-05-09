@@ -317,4 +317,8 @@
          id="org.obeonetwork.is.designer.branding.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.obeonetwork.is.designer.ui.feature"
+         version="0.0.0"/>
+
 </feature>
