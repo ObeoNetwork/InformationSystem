@@ -57,10 +57,16 @@
 				<em>Check</em> : spécifie une contrainte. Texte libre.
 			</li>
 			<li>
-				<em>Unique</em> : spécifie si un attribut fait partie d&#8217;un index d&#8217;unicité. Une valeur vide signifie que l&#8217;attribut ne fait pas partie d&#8217;un index, la valeur 
-				<em>ASC</em> indique que l&#8217;attribut fait partie d&#8217;un index et que les valeurs sont triées en ordre ascendant, la valeur 
-				<em>DESC</em> indique que l&#8217;attribut fait partie d&#8217;un index et que les valeurs sont triées en ordre descendant
+				<em>Unique</em> : spécifie si un attribut fait partie d&#8217;un index d&#8217;unicité. Une valeur vide signifie que l&#8217;attribut ne fait pas partie d&#8217;un index. Une valeur non vide doit avoir la syntaxe suivante :
 			</li>
+		</ul>
+		<p><pre><code>&lt;nom de colonne1&gt;:&lt;asc ou desc&gt;, &lt;nom de colonne2&gt;:&lt;asc ou desc&gt;, ... | ...</code></pre>
+			<br/>où le nom d&#8217;une colonne est son nom 
+			<em>physique</em> (dans la base de données) ; 
+			<em>asc</em> indique que l&#8217;index a un ordre ascendant ; 
+			<em>desc</em> que l&#8217;index a un ordre descendant ; une virgule (&#8249;,&#8250;) sépare les colonnes utilisées pour un même index ; et un pipe (&#8249;|&#8250;) est utilisé pour séparer les différents index à générer.
+		</p>
+		<ul>
 			<li>
 				<em>Default</em> : spécifie une valeur par défaut. Texte libre.
 			</li>
