@@ -129,4 +129,11 @@ public class EntityToMldTest extends AbstractTransformationTest {
 	public void mindefSafran429() {
 		testEntityToMld("21-safran-429-namespace-description");
 	}
+	
+	@Test
+	public void mindefSafran496(){
+		testEntityToMld("22.1-safran-496-multiple-indexes-per-entity---initial");
+		testEntityToMld("22.2-safran-496-multiple-indexes-per-entity---create");
+		testEntityToMld("22.3-safran-496-multiple-indexes-per-entity---update");
+	}
 }

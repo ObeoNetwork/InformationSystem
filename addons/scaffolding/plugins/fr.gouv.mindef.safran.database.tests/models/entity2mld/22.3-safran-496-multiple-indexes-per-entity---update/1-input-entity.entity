@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_nF_ggDlnEeKBAr0by_Z50A" technicalid="_rFF18KaQEeae1o8seRTvvw" createdOn="2012-11-28T15:26:34.247+0100" modifiedOn="2013-01-18T14:47:17.914+0100">
+  <ownedNamespaces xmi:id="_rWlzADlnEeKBAr0by_Z50A" technicalid="_rFF18aaQEeae1o8seRTvvw" description="This comment should be used for the corresponding schema" createdOn="2012-11-28T15:27:02.837+0100" modifiedOn="2017-05-10T14:44:36.186+0200" name="MyNamespace">
+    <types xsi:type="oent:Entity" xmi:id="_afbJADV7EeeS-tSpkXM_5Q" technicalid="_Z_rR9TV7EeeS-tSpkXM_5Q" createdOn="2017-05-10T14:23:03.312+0200" modifiedOn="2017-05-10T14:26:16.998+0200" name="MyEntityWithFourAttributes">
+      <metadatas xmi:id="_3WjsYDV7EeeS-tSpkXM_5Q" technicalid="_3FLogDV7EeeS-tSpkXM_5Q">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_3msaIDV7EeeS-tSpkXM_5Q" technicalid="_3XI7MDV7EeeS-tSpkXM_5Q" title="PHYSICAL_UNIQUE" body="MY_FIRST_ATTRIBUTE:asc, MY_THIRD_ATTRIBUTE:desc | MY_SECOND_ATTRIBUTE:desc, MY_FOURTH_ATTRIBUTE:asc | MY_FIRST_ATTRIBUTE:asc, MY_SECOND_ATTRIBUTE:desc, MY_THIRD_ATTRIBUTE:asc, MY_FOURTH_ATTRIBUTE:desc"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_upG0EDV7EeeS-tSpkXM_5Q" technicalid="_q-SIITV7EeeS-tSpkXM_5Q" createdOn="2017-05-10T14:25:18.545+0200" modifiedOn="2017-05-10T14:44:05.062+0200" name="MyFirstAttribute"/>
+      <ownedAttributes xmi:id="_vU3G0DV7EeeS-tSpkXM_5Q" technicalid="_vD7H0TV7EeeS-tSpkXM_5Q" createdOn="2017-05-10T14:25:23.133+0200" modifiedOn="2017-05-10T14:44:09.087+0200" name="MySecondAttribute"/>
+      <ownedAttributes xmi:id="_vlQTQDV7EeeS-tSpkXM_5Q" technicalid="_vaspETV7EeeS-tSpkXM_5Q" createdOn="2017-05-10T14:25:24.852+0200" modifiedOn="2017-05-10T14:44:11.378+0200" name="MyThirdAttribute"/>
+      <ownedAttributes xmi:id="_v0dz8DV7EeeS-tSpkXM_5Q" technicalid="_vrA9ATV7EeeS-tSpkXM_5Q" createdOn="2017-05-10T14:25:26.447+0200" modifiedOn="2017-05-10T14:44:14.011+0200" name="MyFourthAttribute"/>
+    </types>
+  </ownedNamespaces>
+</oent:Root>

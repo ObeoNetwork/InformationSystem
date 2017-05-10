@@ -904,22 +904,35 @@ public class EntityToMLD extends AbstractTransformation {
 		return !"DESC".equalsIgnoreCase(cleanOrder);
 	}
 	
-	private Map<String, Boolean> getInfosFromTableUnicity(String tableUnicity) {
-		Map<String, Boolean> infos = new LinkedHashMap<String, Boolean>();
+	/**
+	 * Each term of the unicity expression separated by '|' will lead to the creation of an {@link Index}.
+	 * @param tableUnicity the "PHYSICAL_UNIQUE" meta-data of an Entity.
+	 * @return the list of maps (one map per index to create) mapping the column names that must be indexed with whether they should be indexed in an <i>ascending</i> or <i>descending</i> order.
+	 */
+	private List<Map<String, Boolean>> getInfosFromTableUnicity(String tableUnicity) {
+		List<Map<String, Boolean>> infos = new ArrayList<Map<String, Boolean>>();
 		String unicity = tableUnicity.replaceAll(" ", "");
-		StringTokenizer tokenizer = new StringTokenizer(unicity, ",");
-		while(tokenizer.hasMoreTokens()){
-			String columnDef = tokenizer.nextToken();				
-			int separatorPos = columnDef.indexOf(":");
-			
-			String columnName = columnDef;
-			String columnSort = "";
-			if (separatorPos != -1) {
-				columnName = columnDef.substring(0, separatorPos);
-				columnSort = columnDef.substring(separatorPos+1);
+
+		// SAFRAN-496: multiple indexes can be created, using the '|' symbol to separate the different sets of columns.
+		StringTokenizer termTokenizer = new StringTokenizer(unicity, "|");
+		while(termTokenizer.hasMoreTokens()){
+			String term = termTokenizer.nextToken();
+			Map<String, Boolean> termInfos = new LinkedHashMap<String, Boolean>();
+			StringTokenizer indexSpecificationTokenizer = new StringTokenizer(term, ",");
+			while(indexSpecificationTokenizer.hasMoreTokens()){
+				String columnDef = indexSpecificationTokenizer.nextToken();				
+				int separatorPos = columnDef.indexOf(":");
+				
+				String columnName = columnDef;
+				String columnSort = "";
+				if (separatorPos != -1) {
+					columnName = columnDef.substring(0, separatorPos);
+					columnSort = columnDef.substring(separatorPos+1);
+				}
+				boolean asc = !columnSort.equalsIgnoreCase("DESC");
+				termInfos.put(columnName.toUpperCase(), asc);
 			}
-			boolean asc = !columnSort.equalsIgnoreCase("DESC");
-			infos.put(columnName.toUpperCase(), asc);
+			infos.add(termInfos);
 		}
 		return infos;
 	}
@@ -969,47 +982,50 @@ public class EntityToMLD extends AbstractTransformation {
 		// Handle indexes on entity
 		String tableUnicity = AnnotationHelper.getPhysicalUnique(entity);
 		if (tableUnicity != null) {
-			List<Column> columns = new ArrayList<Column>();
 			
-			Map<String, Boolean> indexInfos = getInfosFromTableUnicity(tableUnicity);
-			for (String columnName : indexInfos.keySet()) {
-				for (Column column : table.getColumns()) {
-					if (column.getName().equalsIgnoreCase(columnName)) {
-						columns.add(column);
-						break;
+			List<Map<String, Boolean>> listOfIndexInfos = getInfosFromTableUnicity(tableUnicity);
+			for(Map<String, Boolean> indexInfos : listOfIndexInfos){
+				List<Column> columns = new ArrayList<Column>();
+				for (String columnName : indexInfos.keySet()) {
+					for (Column column : table.getColumns()) {
+						if (column.getName().equalsIgnoreCase(columnName)) {
+							columns.add(column);
+							break;
+						}
 					}
 				}
-			}
-			// Check if all columns were found
-			if (columns.size() != indexInfos.size()) {
-				String msg = "Could not understand PHYSICAL_UNIQUE annotation for Entity: " + entity.getName()+ " - annotation: "+ tableUnicity;
-				Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, msg));
-			}
-			
-			// Try to retrieve an existing index on these columns
-			Index index = findIndex(existingUniqueIndices, columns);
-			if (index != null) {
-				// Reuse existing index
-				// Update sort orders
-				for (IndexElement element : index.getElements()) {
-					element.setAsc(indexInfos.get(element.getColumn().getName().toUpperCase()));
+				// Check if all columns were found
+				if (columns.size() != indexInfos.size()) {
+					String msg = "Could not understand PHYSICAL_UNIQUE annotation for Entity: " + entity.getName()+ " - annotation: \""+ tableUnicity + "\"";
+					Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, msg));
 				}
-			} else {
-				// We have to create a new index
-				index = DatabaseFactory.eINSTANCE.createIndex();
-				table.getIndexes().add(index);
-				existingUniqueIndices.add(index);
-				index.setUnique(true);
-				for (Column targetColumn : columns) {
-					IndexElement indexElement = DatabaseFactory.eINSTANCE.createIndexElement();
-					index.getElements().add(indexElement);		
-					indexElement.setAsc(indexInfos.get(targetColumn.getName().toUpperCase()));					
-					indexElement.setColumn(targetColumn);
+				
+				// Try to retrieve an existing index on these columns
+				Index index = findIndex(existingUniqueIndices, columns);
+				if (index != null) {
+					// Reuse existing index
+					// Update sort orders
+					for (IndexElement element : index.getElements()) {
+						element.setAsc(indexInfos.get(element.getColumn().getName().toUpperCase()));
+					}
+				} else {
+					// We have to create a new index
+					index = DatabaseFactory.eINSTANCE.createIndex();
+					table.getIndexes().add(index);
+					existingUniqueIndices.add(index);
+					index.setUnique(true);
+					for (Column targetColumn : columns) {
+						IndexElement indexElement = DatabaseFactory.eINSTANCE.createIndexElement();
+						index.getElements().add(indexElement);
+						String s = targetColumn.getName();
+						indexElement.setAsc(indexInfos.get(targetColumn.getName().toUpperCase()));					
+						indexElement.setColumn(targetColumn);
+					}
 				}
+				index.setName(getUniqueIndexName(index));
+				index.setComments(getUniqueIndexComments(index));
+				addToObjectsToBeKept(index);
 			}
-			index.setName(getUniqueIndexName(index));
-			index.setComments(getUniqueIndexComments(index));
-			addToObjectsToBeKept(index);
 		}
 		
 		// Handle indexes on references

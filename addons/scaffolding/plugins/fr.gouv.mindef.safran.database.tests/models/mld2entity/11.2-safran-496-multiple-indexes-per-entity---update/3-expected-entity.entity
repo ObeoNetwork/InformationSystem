@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_nF_ggDlnEeKBAr0by_Z50A" technicalid="_rFF18KaQEeae1o8seRTvvw" createdOn="2012-11-28T15:26:34.247+0100" modifiedOn="2013-01-18T14:47:17.914+0100">
+  <ownedNamespaces xmi:id="_rWlzADlnEeKBAr0by_Z50A" technicalid="_rFF18aaQEeae1o8seRTvvw" description="This comment should be used for the corresponding schema" createdOn="2012-11-28T15:27:02.837+0100" modifiedOn="2017-05-10T14:44:36.186+0200" name="MyNamespace">
+    <metadatas xmi:id="_j2EmvTYoEeeeGZ0pIXzp3w" technicalid="_j2D_oTYoEeeeGZ0pIXzp3w">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_j2EmvjYoEeeeGZ0pIXzp3w" technicalid="_j2D_ojYoEeeeGZ0pIXzp3w" title="PHYSICAL_NAME" body="MY_NAMESPACE"/>
+    </metadatas>
+    <types xsi:type="oent:Entity" xmi:id="_j2EmvzYoEeeeGZ0pIXzp3w" technicalid="_j2D_ozYoEeeeGZ0pIXzp3w" name="MyEntityWithFourAttributes">
+      <metadatas xmi:id="_j2EmwDYoEeeeGZ0pIXzp3w" technicalid="_j2D_pDYoEeeeGZ0pIXzp3w">
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_j2EmwTYoEeeeGZ0pIXzp3w" technicalid="_j2D_pTYoEeeeGZ0pIXzp3w" title="PHYSICAL_NAME" body="MY_ENTITY_WITH_FOUR_ATTRIBUTES"/>
+        <metadatas xsi:type="oenv:Annotation" xmi:id="_j2EmwjYoEeeeGZ0pIXzp3w" technicalid="_j2EmsDYoEeeeGZ0pIXzp3w" title="PHYSICAL_UNIQUE" body="MY_FIRST_ATTRIBUTE:ASC,MY_SECOND_ATTRIBUTE:DESC | MY_THIRD_ATTRIBUTE:DESC,MY_FOURTH_ATTRIBUTE:ASC"/>
+      </metadatas>
+      <ownedAttributes xmi:id="_j2EmwzYoEeeeGZ0pIXzp3w" technicalid="_j2EmsTYoEeeeGZ0pIXzp3w" name="MyFirstAttribute">
+        <metadatas xmi:id="_j2EmxDYoEeeeGZ0pIXzp3w" technicalid="_j2EmsjYoEeeeGZ0pIXzp3w">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_j2EmxTYoEeeeGZ0pIXzp3w" technicalid="_j2EmszYoEeeeGZ0pIXzp3w" title="PHYSICAL_NAME" body="MY_FIRST_ATTRIBUTE"/>
+        </metadatas>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_j2EmxjYoEeeeGZ0pIXzp3w" technicalid="_j2EmtDYoEeeeGZ0pIXzp3w" name="MySecondAttribute">
+        <metadatas xmi:id="_j2EmxzYoEeeeGZ0pIXzp3w" technicalid="_j2EmtTYoEeeeGZ0pIXzp3w">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_j2EmyDYoEeeeGZ0pIXzp3w" technicalid="_j2EmtjYoEeeeGZ0pIXzp3w" title="PHYSICAL_NAME" body="MY_SECOND_ATTRIBUTE"/>
+        </metadatas>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_j2EmyTYoEeeeGZ0pIXzp3w" technicalid="_j2EmtzYoEeeeGZ0pIXzp3w" name="MyThirdAttribute">
+        <metadatas xmi:id="_j2EmyjYoEeeeGZ0pIXzp3w" technicalid="_j2EmuDYoEeeeGZ0pIXzp3w">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_j2EmyzYoEeeeGZ0pIXzp3w" technicalid="_j2EmuTYoEeeeGZ0pIXzp3w" title="PHYSICAL_NAME" body="MY_THIRD_ATTRIBUTE"/>
+        </metadatas>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_j2EmzDYoEeeeGZ0pIXzp3w" technicalid="_j2EmujYoEeeeGZ0pIXzp3w" name="MyFourthAttribute">
+        <metadatas xmi:id="_j2EmzTYoEeeeGZ0pIXzp3w" technicalid="_j2EmuzYoEeeeGZ0pIXzp3w">
+          <metadatas xsi:type="oenv:Annotation" xmi:id="_j2EmzjYoEeeeGZ0pIXzp3w" technicalid="_j2EmvDYoEeeeGZ0pIXzp3w" title="PHYSICAL_NAME" body="MY_FOURTH_ATTRIBUTE"/>
+        </metadatas>
+      </ownedAttributes>
+    </types>
+  </ownedNamespaces>
+</oent:Root>

@@ -243,10 +243,17 @@ public class MLDToEntity extends AbstractTransformation {
 		}
 	}
 	
+	/**
+	 * For each {@link Index}, a corresponding term in the "PHYSICAL_UNIQUE" annotation is created.
+	 * @param source
+	 */
 	private void createIndexes(TableContainer source) {
 		// Create indexes
 		for (AbstractTable t : source.getTables()) {
 			if (t instanceof Table) {
+				// Clear the PHYSICAL_UNIQUE annotation first, its value will be entirely computed based on the indexes.
+				Entity entity = getFromOutputTraceabilityMap(t, EntityPackage.Literals.ENTITY);
+//				AnnotationHelper.setPhysicalUniqueAnnotation(entity, "");
 				for (Index index : ((Table)t).getIndexes()){
 					if(index.isUnique()){
 						addPhysicalUnique(index);
@@ -472,20 +479,31 @@ public class MLDToEntity extends AbstractTransformation {
 			} else {
 				//Add annotation on Table
 				Entity entity = getFromOutputTraceabilityMap(index.getOwner(), EntityPackage.Literals.ENTITY);
-				String annotationValue = "";
+				// Retrieve the current value of the annotation.
+				String annotationValue = AnnotationHelper.getPhysicalUnique(entity);
+				
+				// Construct the term corresponding to the index being considered.
+				String annotationTerm = "";
 				int i=0;
 				for(IndexElement indexElement:index.getElements()){					
 					if(i>0){
-						annotationValue += ",";
+						annotationTerm += ",";
 					}
-					annotationValue+=indexElement.getColumn().getName()+":";
+					annotationTerm+=indexElement.getColumn().getName()+":";
 					if(indexElement.isAsc()){
-						annotationValue += "ASC";
+						annotationTerm += "ASC";
 					}else{
-						annotationValue += "DESC";
+						annotationTerm += "DESC";
 					}
 					i++;
 				}
+
+				if(annotationValue != null && !annotationValue.isEmpty()){
+					annotationValue += " | ";
+				} else if(annotationValue == null){
+					annotationValue = "";
+				}
+				annotationValue += annotationTerm;
 				AnnotationHelper.setPhysicalUniqueAnnotation(entity, annotationValue);
 			}
 		}

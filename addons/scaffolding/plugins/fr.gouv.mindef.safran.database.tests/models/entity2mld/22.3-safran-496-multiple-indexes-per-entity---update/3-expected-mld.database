@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_HhuMADloEeKBAr0by_Z50A" techID="_JUkB8BPKEeOi_fZS1qC04A" name="MyDataBase">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_9kZzIGPsEeKrnPwWmZ20XQ" comments="This comment should be used for the corresponding schema" techID="_JUkB8RPKEeOi_fZS1qC04A" name="MY_NAMESPACE">
+    <tables xsi:type="database:Table" xmi:id="_E6q6gF5lEeKinNJDr2XYMw" techID="_JUkB8hPKEeOi_fZS1qC04A" name="MY_ENTITY_WITH_FOUR_ATTRIBUTES">
+      <primaryKey xmi:id="_mqU4QDV-EeeS-tSpkXM_5Q" comments="Contrainte PK pour la colonne MY_ENTITY_WITH_FOUR_ATTRIBUTES_ID" techID="_l2gOoDV-EeeS-tSpkXM_5Q" name="MY_ENTITY_WITH_FOUR_ATTRIBUTES_PK" columns="_p_rqgTV-EeeS-tSpkXM_5Q"/>
+      <constraints xmi:id="_nGeBsDV-EeeS-tSpkXM_5Q" comments="Liste des valeurs possibles pour MY_NAMESPACE_XTOPSUP" techID="_m631sjV-EeeS-tSpkXM_5Q" name="MY_ENTITY_WITH_FOUR_ATTRIBUTES_CK1_1" expression="MY_NAMESPACE_XTOPSUP in ('0','1','3','9')"/>
+      <indexes xmi:id="_nrsOoDV-EeeS-tSpkXM_5Q" comments="Index d'unicité pour MY_FIRST_ATTRIBUTE, MY_THIRD_ATTRIBUTE" techID="_neVIEzV-EeeS-tSpkXM_5Q" name="MY_ENTITY_WITH_FOUR_ATTRIBUTES_UN2_1" unique="true">
+        <elements xmi:id="_2XbqUTV-EeeS-tSpkXM_5Q" techID="_2XbqUDV-EeeS-tSpkXM_5Q" column="_obi-QDV-EeeS-tSpkXM_5Q" asc="true"/>
+        <elements xmi:id="_4R7BETV-EeeS-tSpkXM_5Q" techID="_4R7BEDV-EeeS-tSpkXM_5Q" column="_p0ZAgTV-EeeS-tSpkXM_5Q"/>
+      </indexes>
+      <indexes xmi:id="_3rSFkDWDEeeS-tSpkXM_5Q" comments="Index d'unicité pour MY_SECOND_ATTRIBUTE, MY_FOURTH_ATTRIBUTE" techID="_3BFSAzWDEeeS-tSpkXM_5Q" name="MY_ENTITY_WITH_FOUR_ATTRIBUTES_UN2_2" unique="true">
+        <elements xmi:id="_6p-rUTWDEeeS-tSpkXM_5Q" techID="_6p-rUDWDEeeS-tSpkXM_5Q" column="_pvM-gTV-EeeS-tSpkXM_5Q"/>
+        <elements xmi:id="_7pdLUTWDEeeS-tSpkXM_5Q" techID="_7pdLUDWDEeeS-tSpkXM_5Q" column="_p6H1EDV-EeeS-tSpkXM_5Q" asc="true"/>
+      </indexes>
+      <indexes xmi:id="_Opzj4DWREeeS-tSpkXM_5Q" comments="Index d'unicité pour MY_FIRST_ATTRIBUTE, MY_SECOND_ATTRIBUTE, MY_THIRD_ATTRIBUTE, MY_FOURTH_ATTRIBUTE" techID="_OZt5czWREeeS-tSpkXM_5Q" name="MY_ENTITY_WITH_FOUR_ATTRIBUTES_UN4_3" unique="true">
+        <elements xmi:id="_QnGXATWREeeS-tSpkXM_5Q" techID="_QnGXADWREeeS-tSpkXM_5Q" column="_obi-QDV-EeeS-tSpkXM_5Q" asc="true"/>
+        <elements xmi:id="_R25yATWREeeS-tSpkXM_5Q" techID="_R25yADWREeeS-tSpkXM_5Q" column="_pvM-gTV-EeeS-tSpkXM_5Q"/>
+        <elements xmi:id="_SnRfATWREeeS-tSpkXM_5Q" techID="_SnRfADWREeeS-tSpkXM_5Q" column="_p0ZAgTV-EeeS-tSpkXM_5Q" asc="true"/>
+        <elements xmi:id="_TUqwgTWREeeS-tSpkXM_5Q" techID="_TUqwgDWREeeS-tSpkXM_5Q" column="_p6H1EDV-EeeS-tSpkXM_5Q"/>
+      </indexes>
+      <columns xmi:id="_obi-QDV-EeeS-tSpkXM_5Q" techID="_n9FgpDV-EeeS-tSpkXM_5Q" name="MY_FIRST_ATTRIBUTE" nullable="true" indexElements="_2XbqUTV-EeeS-tSpkXM_5Q _QnGXATWREeeS-tSpkXM_5Q">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_obi-QTV-EeeS-tSpkXM_5Q"/>
+      </columns>
+      <columns xmi:id="_pvM-gTV-EeeS-tSpkXM_5Q" techID="_n9FgpDV-EeeS-tSpkXM_5Q" name="MY_SECOND_ATTRIBUTE" nullable="true" indexElements="_6p-rUTWDEeeS-tSpkXM_5Q _R25yATWREeeS-tSpkXM_5Q">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_pvM-gjV-EeeS-tSpkXM_5Q"/>
+      </columns>
+      <columns xmi:id="_p0ZAgTV-EeeS-tSpkXM_5Q" techID="_n9FgpDV-EeeS-tSpkXM_5Q" name="MY_THIRD_ATTRIBUTE" nullable="true" indexElements="_4R7BETV-EeeS-tSpkXM_5Q _SnRfATWREeeS-tSpkXM_5Q">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_p0ZAgjV-EeeS-tSpkXM_5Q"/>
+      </columns>
+      <columns xmi:id="_p6H1EDV-EeeS-tSpkXM_5Q" techID="_n9FgpDV-EeeS-tSpkXM_5Q" name="MY_FOURTH_ATTRIBUTE" nullable="true" indexElements="_7pdLUTWDEeeS-tSpkXM_5Q _TUqwgTWREeeS-tSpkXM_5Q">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_p6H1ETV-EeeS-tSpkXM_5Q"/>
+      </columns>
+      <columns xmi:id="_p_rqgTV-EeeS-tSpkXM_5Q" comments="PK de la table MY_ENTITY_WITH_FOUR_ATTRIBUTES" techID="_n9FgpDV-EeeS-tSpkXM_5Q" name="MY_ENTITY_WITH_FOUR_ATTRIBUTES_ID" primaryKey="_mqU4QDV-EeeS-tSpkXM_5Q">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_p_rqgjV-EeeS-tSpkXM_5Q">
+          <nativeType href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_qF3LATV-EeeS-tSpkXM_5Q" comments="Indicateur pour savoir si l'enregistrement est valide" techID="_n9FgpDV-EeeS-tSpkXM_5Q" name="MY_NAMESPACE_XTOPSUP" defaultValue="'0'">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_qF3LAjV-EeeS-tSpkXM_5Q" length="1">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+      <columns xmi:id="_qLlYgTV-EeeS-tSpkXM_5Q" comments="Date de mise à jour de la ligne" techID="_n9FgpDV-EeeS-tSpkXM_5Q" name="MY_NAMESPACE_XDMAJ">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_qLlYgjV-EeeS-tSpkXM_5Q">
+          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>
