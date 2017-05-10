@@ -243,7 +243,7 @@ public class BusinessProjectImporter {
 				// If there is no "requirement.Repository" object in the target MOE project, then create one named after the MOE project.
 				Boolean repositoryExists = false;
 				for(Resource semanticResource : SessionManager.INSTANCE.getExistingSession(targetProject.getMainRepresentationsFileURI(monitor).get()).getSemanticResources()){
-					repositoryExists = EcoreUtil.getObjectByType(semanticResource.getContents(), RequirementPackage.Literals.REPOSITORY) != null;
+					repositoryExists = repositoryExists || EcoreUtil.getObjectByType(semanticResource.getContents(), RequirementPackage.Literals.REPOSITORY) != null;
 				}
 				if(!repositoryExists){
 					Repository requirementsRepository = RequirementFactory.eINSTANCE.createRepository();
