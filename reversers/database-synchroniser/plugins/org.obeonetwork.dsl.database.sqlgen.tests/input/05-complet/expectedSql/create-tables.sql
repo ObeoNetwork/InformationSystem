@@ -2,7 +2,7 @@
 --  Table : NOUVELLE                                    
 -- ==============================================================
 
-DROP TABLE NOUVELLE;
+DROP TABLE NOUVELLE CASCADE;
 CREATE TABLE NOUVELLE(
     id Décimal(20, 2) NOT NULL,
     FK_column Décimal(10, 0) NOT NULL

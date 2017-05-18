@@ -51,11 +51,13 @@
 [/template]
 
 [template private genDropTable(removeTable : RemoveTable) post(trim())]
-[let table : Table = removeTable.table.oclAsType(Table)]
+[removeTable.table.oclAsType(Table).genDropTableAndSynonym()/]
+[/template]
+
+[template private genDropTableAndSynonym(table : Table)]
 [table.genTableDoc()/]
 [table.genDropSynonym()/]
 DROP TABLE [table.fullname()/] CASCADE;
-[/let]
 [/template]
 
 [template private getSchemaName(table : Table) post(trim())]
@@ -72,9 +74,7 @@ CREATE PUBLIC SYNONYM [table.name()/] FOR [table.fullname()/];
 
 [template private genCreateTable(addTable : AddTable) post(trim())]
 [let table : Table = addTable.table.oclAsType(Table)]
-[table.genTableDoc()/]
-[table.genDropSynonym()/]
-DROP TABLE [table.fullname()/];
+[table.genDropTableAndSynonym()/]
 CREATE TABLE [table.fullname()/](
 [table.columnsDef()/]
 );

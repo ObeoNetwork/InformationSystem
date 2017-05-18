@@ -2,7 +2,7 @@
 --  Table : T1                                    
 -- ==============================================================
 DROP PUBLIC SYNONYM T1;
-DROP TABLE S1.T1;
+DROP TABLE S1.T1 CASCADE;
 CREATE TABLE S1.T1(
 
 );

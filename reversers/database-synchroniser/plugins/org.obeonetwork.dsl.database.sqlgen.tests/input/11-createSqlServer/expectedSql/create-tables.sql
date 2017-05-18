@@ -2,7 +2,7 @@
 --  Table : CATEGORIES                                    
 -- ==============================================================
 
-DROP TABLE CATEGORIES;
+DROP TABLE CATEGORIES CASCADE;
 CREATE TABLE CATEGORIES(
     CategoryID int(10) IDENTITY (1, 1) NOT NULL,
     CategoryName nvarchar(15) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE CATEGORIES(
 --  Table : CUSTOMERCUSTOMERDEMO                                    
 -- ==============================================================
 
-DROP TABLE CUSTOMERCUSTOMERDEMO;
+DROP TABLE CUSTOMERCUSTOMERDEMO CASCADE;
 CREATE TABLE CUSTOMERCUSTOMERDEMO(
     CustomerID nchar(5) NOT NULL,
     CustomerTypeID nchar(10) NOT NULL
@@ -24,7 +24,7 @@ CREATE TABLE CUSTOMERCUSTOMERDEMO(
 --  Table : CUSTOMERDEMOGRAPHICS                                    
 -- ==============================================================
 
-DROP TABLE CUSTOMERDEMOGRAPHICS;
+DROP TABLE CUSTOMERDEMOGRAPHICS CASCADE;
 CREATE TABLE CUSTOMERDEMOGRAPHICS(
     CustomerTypeID nchar(10) NOT NULL,
     CustomerDesc ntext NULL
@@ -34,7 +34,7 @@ CREATE TABLE CUSTOMERDEMOGRAPHICS(
 --  Table : CUSTOMERS                                    
 -- ==============================================================
 
-DROP TABLE CUSTOMERS;
+DROP TABLE CUSTOMERS CASCADE;
 CREATE TABLE CUSTOMERS(
     CustomerID nchar(5) NOT NULL,
     CompanyName nvarchar(40) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE CUSTOMERS(
 --  Table : EMPLOYEETERRITORIES                                    
 -- ==============================================================
 
-DROP TABLE EMPLOYEETERRITORIES;
+DROP TABLE EMPLOYEETERRITORIES CASCADE;
 CREATE TABLE EMPLOYEETERRITORIES(
     EmployeeID int(10) NOT NULL,
     TerritoryID nvarchar(20) NOT NULL
@@ -63,7 +63,7 @@ CREATE TABLE EMPLOYEETERRITORIES(
 --  Table : EMPLOYEES                                    
 -- ==============================================================
 
-DROP TABLE EMPLOYEES;
+DROP TABLE EMPLOYEES CASCADE;
 CREATE TABLE EMPLOYEES(
     EmployeeID int(10) IDENTITY (1, 1) NOT NULL,
     LastName nvarchar(20) NOT NULL,
@@ -89,7 +89,7 @@ CREATE TABLE EMPLOYEES(
 --  Table : ORDER DETAILS                                    
 -- ==============================================================
 
-DROP TABLE ORDER DETAILS;
+DROP TABLE ORDER DETAILS CASCADE;
 CREATE TABLE ORDER DETAILS(
     OrderID int(10) NOT NULL,
     ProductID int(10) NOT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE ORDER DETAILS(
 --  Table : ORDERS                                    
 -- ==============================================================
 
-DROP TABLE ORDERS;
+DROP TABLE ORDERS CASCADE;
 CREATE TABLE ORDERS(
     OrderID int(10) IDENTITY (1, 1) NOT NULL,
     CustomerID nchar(5) NULL,
@@ -124,7 +124,7 @@ CREATE TABLE ORDERS(
 --  Table : PRODUCTS                                    
 -- ==============================================================
 
-DROP TABLE PRODUCTS;
+DROP TABLE PRODUCTS CASCADE;
 CREATE TABLE PRODUCTS(
     ProductID int(10) IDENTITY (1, 1) NOT NULL,
     ProductName nvarchar(40) NOT NULL,
@@ -142,7 +142,7 @@ CREATE TABLE PRODUCTS(
 --  Table : REGION                                    
 -- ==============================================================
 
-DROP TABLE REGION;
+DROP TABLE REGION CASCADE;
 CREATE TABLE REGION(
     RegionID int(10) NOT NULL,
     RegionDescription nchar(50) NOT NULL
@@ -152,7 +152,7 @@ CREATE TABLE REGION(
 --  Table : SHIPPERS                                    
 -- ==============================================================
 
-DROP TABLE SHIPPERS;
+DROP TABLE SHIPPERS CASCADE;
 CREATE TABLE SHIPPERS(
     ShipperID int(10) IDENTITY (1, 1) NOT NULL,
     CompanyName nvarchar(40) NOT NULL,
@@ -163,7 +163,7 @@ CREATE TABLE SHIPPERS(
 --  Table : SUPPLIERS                                    
 -- ==============================================================
 
-DROP TABLE SUPPLIERS;
+DROP TABLE SUPPLIERS CASCADE;
 CREATE TABLE SUPPLIERS(
     SupplierID int(10) IDENTITY (1, 1) NOT NULL,
     CompanyName nvarchar(40) NOT NULL,
@@ -183,7 +183,7 @@ CREATE TABLE SUPPLIERS(
 --  Table : TERRITORIES                                    
 -- ==============================================================
 
-DROP TABLE TERRITORIES;
+DROP TABLE TERRITORIES CASCADE;
 CREATE TABLE TERRITORIES(
     TerritoryID nvarchar(20) NOT NULL,
     TerritoryDescription nchar(50) NOT NULL,
