@@ -13,6 +13,9 @@
  */
 package org.obeonetwork.dsl.database.parts.forms;
 
+import java.awt.Color;
+import java.util.Scanner;
+
 // Start of user code for imports
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -110,9 +113,12 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 	 * 
 	 * @see org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart#
 	 *  createFigure(org.eclipse.swt.widgets.Composite, org.eclipse.ui.forms.widgets.FormToolkit)
+	 *  
+	 * @generated NOT
 	 * 
 	 */
-	public Composite createFigure(final Composite parent, final FormToolkit widgetFactory) {
+	public Composite createFigure(final Composite parent, final FormToolkit widgetFactory) {		
+		patchFormToolkitInitialization(widgetFactory);
 		ScrolledForm scrolledForm = widgetFactory.createScrolledForm(parent);
 		Form form = scrolledForm.getForm();
 		view = form.getBody();
@@ -121,6 +127,48 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		view.setLayout(layout);
 		createControls(widgetFactory, view);
 		return scrolledForm;
+	}
+	
+	/**
+	 * Manually apply a fix for borders to be drawn in the Properties view even on Windows 10.
+	 * @param widgetFactory
+	 * @generated NOT
+	 */
+	private void patchFormToolkitInitialization(final FormToolkit widgetFactory){
+		// Manually fix the initialization of the FormToolkit for Windows 10 and newer. cf. https://bugs.eclipse.org/bugs/show_bug.cgi?id=483072
+ 		String osname = System.getProperty("os.name"); //$NON-NLS-1$
+ 		String osversion = System.getProperty("os.version"); //$NON-NLS-1$
+ 		if (osname.startsWith("Windows") //$NON-NLS-1$
+ 			&& compareVersion(osversion, 5, 1) >= 0) {
+ 			widgetFactory.setBorderStyle(SWT.BORDER);
+ 		}
+	}
+	
+	/**
+	 * cf. https://git.eclipse.org/c/platform/eclipse.platform.ui.git/commit/?id=74e3bc995d586ae4b428a107c4457993b3eb86e8
+	 * @param version
+	 * @param numbers
+	 * @return
+	 */
+	private int compareVersion(String version, int... numbers) {
+		try (Scanner scanner = new Scanner(version)) {
+			scanner.useDelimiter("\\."); //$NON-NLS-1$
+			for (int number : numbers) {
+				if (!scanner.hasNextInt()){
+					return -1;
+				}
+				int result = Integer.compare(scanner.nextInt(), number);
+				if (result != 0){
+					return result;
+				}
+			}
+			while (scanner.hasNextInt()){
+				if (scanner.nextInt() > 0){
+					return 1;
+				}
+			}
+		}
+		return 0;
 	}
 
 	/**
@@ -1343,9 +1391,9 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 
 	// Start of user code additional methods
 	
-	private static final int LENGHT_LABEL_INDEX = 0;
-	private static final int LENGHT_TEXT_INDEX = 1;
-	private static final int LENGHT_HELP_INDEX = 2;
+	private static final int LENGTH_LABEL_INDEX = 0;
+	private static final int LENGTH_TEXT_INDEX = 1;
+	private static final int LENGTH_HELP_INDEX = 2;
 	private static final int PRECISION_LABEL_INDEX = 3;
 	private static final int PRECISION_TEXT_INDEX = 4;
 	private static final int PRECISION_HELP_INDEX = 5;
@@ -1358,9 +1406,9 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		Composite lengthAndPrecisionComposite = (Composite)composite.getChildren()[LENGHT_AND_PRECISION_COMPOSITE_INDEX];
 		HorizontalBox lengthAndPrecisionHBox = (HorizontalBox)lengthAndPrecisionComposite.getChildren()[0];
 		
-		Control lengthText = lengthAndPrecisionHBox.getChildren()[LENGHT_TEXT_INDEX];
-		Control lengthLabel = lengthAndPrecisionHBox.getChildren()[LENGHT_LABEL_INDEX];
-		Control lengthHelp = lengthAndPrecisionHBox.getChildren()[LENGHT_HELP_INDEX];
+		Control lengthText = lengthAndPrecisionHBox.getChildren()[LENGTH_TEXT_INDEX];
+		Control lengthLabel = lengthAndPrecisionHBox.getChildren()[LENGTH_LABEL_INDEX];
+		Control lengthHelp = lengthAndPrecisionHBox.getChildren()[LENGTH_HELP_INDEX];
 		setVisibilityOnWidget(lengthText, lengthVisible);
 		setVisibilityOnWidget(lengthLabel, lengthVisible);
 		setVisibilityOnWidget(lengthHelp, lengthVisible);
