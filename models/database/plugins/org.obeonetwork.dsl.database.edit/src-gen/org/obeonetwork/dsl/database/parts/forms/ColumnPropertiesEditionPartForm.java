@@ -151,9 +151,7 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 	 * @return
 	 */
 	private int compareVersion(String version, int... numbers) {
-		Scanner scanner = null;
-		try {
-			scanner = new Scanner(version);
+		try (Scanner scanner = new Scanner(version)) {
 			scanner.useDelimiter("\\."); //$NON-NLS-1$
 			for (int number : numbers) {
 				if (!scanner.hasNextInt()){
@@ -168,10 +166,6 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 				if (scanner.nextInt() > 0){
 					return 1;
 				}
-			}
-		} finally {
-			if(scanner != null){
-				scanner.close();
 			}
 		}
 		return 0;
