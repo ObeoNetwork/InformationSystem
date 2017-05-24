@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_0hLQwGuPEeK15tgGdM8cCw" techID="_0hKpsGuPEeK15tgGdM8cCw" name="Demo">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Postgres-9#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_2dksAGuPEeK15tgGdM8cCw" techID="_2JKiQ2uPEeK15tgGdM8cCw" name="Demo">
+    <tables xsi:type="database:Table" xmi:id="_24c8ETx2EeeUOqG6hsUaqQ" techID="_24c8EDx2EeeUOqG6hsUaqQ" name="Table1">
+      <columns xmi:id="_6rlPcTx2EeeUOqG6hsUaqQ" techID="_6rlPcDx2EeeUOqG6hsUaqQ" name="column1_Inchangee">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_6rlPcjx2EeeUOqG6hsUaqQ" length="12" precision="10">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_B_1gMTx3EeeUOqG6hsUaqQ" techID="_B_1gMDx3EeeUOqG6hsUaqQ" name="column2_type_change">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_B_1gMjx3EeeUOqG6hsUaqQ" length="5" precision="2">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_LqP9kGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Fd1RETx3EeeUOqG6hsUaqQ" techID="_Fd1REDx3EeeUOqG6hsUaqQ" name="column3_renommee_new_name">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Fd1REjx3EeeUOqG6hsUaqQ">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_bykd4G5CEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+      <columns xmi:id="_HgnoMTx3EeeUOqG6hsUaqQ" techID="_HgnoMDx3EeeUOqG6hsUaqQ" name="column4_null_to_not_null">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_HgnoMjx3EeeUOqG6hsUaqQ">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_bykd4G5CEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+      <columns xmi:id="_JxuvMTx3EeeUOqG6hsUaqQ" techID="_JxuvMDx3EeeUOqG6hsUaqQ" name="column5_not_null_to_null" nullable="true">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_JxuvMjx3EeeUOqG6hsUaqQ">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_bykd4G5CEeS0qO0NdvQESw"/>
+        </type>
+      </columns>
+      <columns xmi:id="_MtPeETx3EeeUOqG6hsUaqQ" techID="_MtPeEDx3EeeUOqG6hsUaqQ" name="column6_no_default_to_default" defaultValue="NEW_VALUE">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_MtPeEjx3EeeUOqG6hsUaqQ">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_Pz_MkTx3EeeUOqG6hsUaqQ" techID="_Pz_MkDx3EeeUOqG6hsUaqQ" name="column7_default_to_other_default" defaultValue="VALUE2">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_Pz_Mkjx3EeeUOqG6hsUaqQ">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+      <columns xmi:id="_VFZb0Tx3EeeUOqG6hsUaqQ" techID="_VFZb0Dx3EeeUOqG6hsUaqQ" name="column8_default_to_no_default">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_VFZb0jx3EeeUOqG6hsUaqQ">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_hn9LAGTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>

@@ -93,4 +93,9 @@ public class SQLGenerationTest extends AbstractSQLGenerationTest {
 	public void test13() {
 		assertGenerationEquals("13-update-view-query2");
 	}
+	
+	@Test
+	public void test14() {
+		assertGenerationEquals("14-updatecolumn-pgsql");
+	}
 }
