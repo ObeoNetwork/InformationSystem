@@ -139,7 +139,7 @@
 
 		<!-- commons/is/ -->
 		<module>../../is-designer/branding/plugins/org.obeonetwork.is.designer.ui</module>
-		<module>../../is-designer/branding/features/org.obeonetwork.is.designer.ui.feature</module>
+		
 		<module>../../commons/is/plugins/org.obeonetwork.dsl.is</module>
 		<module>../../commons/is/features/org.obeonetwork.dsl.feature.is</module>
 
