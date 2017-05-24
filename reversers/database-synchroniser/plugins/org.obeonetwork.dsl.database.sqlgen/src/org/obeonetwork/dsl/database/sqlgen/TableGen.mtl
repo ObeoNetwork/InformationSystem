@@ -94,7 +94,7 @@ CREATE TABLE [table.fullname()/](
 		[/let]
 	[elseif (diff.oclIsTypeOf(UpdateTableCommentChange))]
 [diff.oclAsType(UpdateTableCommentChange).newTable.genUpdateTableComment()/]
-	
+
 	[elseif (diff.oclIsTypeOf(AddColumnChange))]
 [diff.oclAsType(AddColumnChange).column.genAddColumn()/]
 
@@ -146,6 +146,12 @@ ALTER TABLE [column.owner.oclAsType(Table).fullname()/] ADD [column.columnDef()/
 ALTER TABLE [column.owner.oclAsType(Table).fullname()/] DROP COLUMN [column.name()/];
 [/template]
 
+[template private genUpdateColumn(column : Column) ? (column.isTargetPostgreSQL()) post(trim())]
+ALTER TABLE [column.owner.oclAsType(Table).fullname()/] alter column [column.name()/] set data type [column.dataType()/];
+ALTER TABLE [column.owner.oclAsType(Table).fullname()/] alter column [column.name()/][if (column.nullable)] drop[else] set[/if] not null;
+ALTER TABLE [column.owner.oclAsType(Table).fullname()/] alter column [column.name()/][column.defaultForPostgreSQL()/];
+[/template]
+
 [template private genUpdateColumn(column : Column) post(trim())]
 ALTER TABLE [column.owner.oclAsType(Table).fullname()/] MODIFY [column.columnDef()/];
 [/template]
@@ -185,6 +191,11 @@ COMMENT ON COLUMN [column.owner.oclAsType(Table).fullname()/].[column.name()/] I
 
 [template private default(column : Column)]
 [if (column.defaultValue<>null and column.defaultValue.size()>0)] default [column.defaultValue()/][/if]
+[/template]
+
+[template private defaultForPostgreSQL(column : Column)]
+[if (column.defaultValue<>null and column.defaultValue.size()>0)] set default [column.defaultValue()/]
+[else] drop default[/if]
 [/template]
 
 [comment TODO support '' quoted defaultValue with several template with guard /]
