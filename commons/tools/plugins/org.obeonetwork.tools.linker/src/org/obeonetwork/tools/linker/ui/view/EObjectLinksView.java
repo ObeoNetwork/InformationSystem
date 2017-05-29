@@ -209,7 +209,7 @@ public class EObjectLinksView extends ViewPart {
 	/**
 	 * @param selectedEObject
 	 */
-	private void update(EObject selectedEObject) {
+	protected void update(EObject selectedEObject) {
 		viewer.setInput(selectedEObject);
 		refresh();
 	}

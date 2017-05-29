@@ -18,11 +18,10 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.ui.ISelectionListener;
-import org.eclipse.ui.IWorkbenchPart;
-
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IWorkbenchPart;
 
 /**
  * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
@@ -41,6 +40,7 @@ public abstract class ViewpointSelectionListener implements ISelectionListener {
 			if (sSelection.size() == 1) {
 				Object selectedObject = sSelection.getFirstElement();
 				if (selectedObject instanceof GraphicalEditPart) {
+					// Sirius diagrams
 					GraphicalEditPart graphicalEditPart = (GraphicalEditPart) selectedObject;
 					if (graphicalEditPart.getModel() instanceof View) {
 						View node = (View) graphicalEditPart.getModel();
@@ -48,18 +48,20 @@ public abstract class ViewpointSelectionListener implements ISelectionListener {
 							DSemanticDecorator semanticDecorator = (DSemanticDecorator) node.getElement();
 							selectedEObject = semanticDecorator.getTarget();
 						}
-					} 
+					}
+				} else if (selectedObject instanceof DSemanticDecorator) {
+					// Sirius trees and tables
+					selectedEObject = ((DSemanticDecorator) selectedObject).getTarget();					
 				} else if (selectedObject instanceof EObject) {
 					if (!ViewpointPackage.eINSTANCE.getDRepresentation().isInstance(selectedObject)) {
 						selectedEObject = (EObject) selectedObject;
-					} else {
-						selectedEObject = null;
 					}
 				}
 			}
 		} else {
 			selectedEObject = null;
 		}
+		
 		eObjectSelected(selectedEObject);
 
 	}

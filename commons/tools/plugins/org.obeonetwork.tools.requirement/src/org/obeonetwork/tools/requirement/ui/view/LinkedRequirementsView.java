@@ -18,6 +18,7 @@ import java.util.List;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.eef.runtime.EEFRuntimePlugin;
 import org.eclipse.emf.eef.runtime.context.impl.DomainPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.operation.WizardEditingOperation;
@@ -27,6 +28,7 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
+import org.obeonetwork.dsl.requirement.RequirementPackage;
 import org.obeonetwork.tools.linker.ui.view.EObjectLinksView;
 import org.obeonetwork.tools.linker.ui.view.util.EObjectLinkContentProvider;
 import org.obeonetwork.tools.requirement.RequirementLinkerPlugin;
@@ -46,6 +48,16 @@ import org.obeonetwork.tools.requirement.wizard.operation.RequirementEditingOper
 public class LinkedRequirementsView extends EObjectLinksView {
 
 	public static final String ID = "org.obeonetwork.tools.requirement.views.LinkedRequirementsView"; //$NON-NLS-1$
+	
+	@Override
+	protected void update(EObject selectedEObject) {
+		// Requirement and categories should not be used to attrach requirements to them
+		if (selectedEObject != null && selectedEObject.eClass().getEPackage() == RequirementPackage.eINSTANCE) {
+			super.update(null);
+		} else {
+			super.update(selectedEObject);			
+		}
+	}
 
 	/**
 	 * {@inheritDoc}
