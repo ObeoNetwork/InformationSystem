@@ -44,7 +44,9 @@ import org.obeonetwork.dsl.database.Schema;
 import org.obeonetwork.dsl.database.Table;
 import org.obeonetwork.dsl.database.TableContainer;
 import org.obeonetwork.dsl.entity.Entity;
+import org.obeonetwork.dsl.entity.EntityPackage;
 import org.obeonetwork.dsl.entity.Root;
+import org.obeonetwork.dsl.environment.Annotation;
 import org.obeonetwork.dsl.environment.Attribute;
 import org.obeonetwork.dsl.environment.DataType;
 import org.obeonetwork.dsl.environment.Enumeration;
@@ -52,6 +54,7 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.Literal;
 import org.obeonetwork.dsl.environment.MultiplicityKind;
 import org.obeonetwork.dsl.environment.Namespace;
+import org.obeonetwork.dsl.environment.ObeoDSMObject;
 import org.obeonetwork.dsl.environment.Property;
 import org.obeonetwork.dsl.environment.Reference;
 import org.obeonetwork.dsl.environment.StructuredType;
@@ -72,6 +75,9 @@ import fr.gouv.mindef.safran.database.transfo.util.LabelProvider;
 import fr.gouv.mindef.safran.database.transfo.util.StringUtils;
 
 public class EntityToMLD extends AbstractTransformation {
+	
+	private static final String DISABLE_ADDITIONAL_FIELDS_KEY = "DISABLE_ADDITIONAL_FIELDS_KEY";
+	
 	private static final String VALIDITY_COLUMN_COMMENTS = "Indicateur pour savoir si l'enregistrement est valide";
 	private static final String VALIDITY_COLUMN_TYPE = "Texte";
 	
@@ -656,22 +662,77 @@ public class EntityToMLD extends AbstractTransformation {
 		// Create constraints
 		createConstraints(entity, table);
 	}
+	
+	private boolean shouldCreateAdditionalFields(Table table) {
+		// We want to retrieve the Entity/Reference object corresponding to the table
+		// we have to use the outputTraceabilityMap for this but in reverse order
+		ObeoDSMObject fromObject = null;
+		for (Entry<EObject, EObject> entry : getOutputTraceabilityMap().entrySet()) {
+			if (table.equals(entry.getValue())) {
+				EObject key = entry.getKey();
+				if (key instanceof ObeoDSMObject) {
+					fromObject = (ObeoDSMObject)key;
+				}
+			}
+		}
+		
+		if (fromObject != null) {
+			return ! getDisableAdditionalFieldsFlag(fromObject);
+		}
+		return true;
+	}
+	
+	private boolean getDisableAdditionalFieldsFlag(ObeoDSMObject object) {
+		Annotation annotation = AnnotationHelper.getAnnotation(object, DISABLE_ADDITIONAL_FIELDS_KEY);
+		if (annotation != null && annotation.getBody() != null && "true".equals(annotation.getBody().trim().toLowerCase())) {
+			return true;
+		} else {
+			// Check in parents tree
+			EObject container = object.eContainer();
+			if (container instanceof ObeoDSMObject) {
+				return getDisableAdditionalFieldsFlag((ObeoDSMObject)container);
+			} else {				
+				return false;
+			}
+		}
+	}
 
 	private void createAdditionalFields(Table table) {
-		// Validity column
-		String validityColumnName = AdditionalFieldsUtils.getValidityColumnName(table);
-		Column validityColumn = createValidityColumn(table, validityColumnName);
-		addToObjectsToBeKept(validityColumn);
+		// TODO Replace this quick fix with a more general solution allowing one to customize the additional fiels 
 		
-		// Add constraint on this column
-		Constraint validityConstraint = findOrCreateConstraint(table, AdditionalFieldsUtils.getValidityColumnConstraint(table));
-		validityConstraint.setName(getConstraintName(validityConstraint));
-		validityConstraint.setComments(MessageFormat.format(VALIDITY_CONSTRAINT_COMMENTS, validityColumnName));
-		addToObjectsToBeKept(validityConstraint);
+		/*
+		 * 1st part : Quick fix for Ministère de l'Education Nationale needs
+		 * a metadata DISABLE_ADDITIONAL_FIELDS_KEY = true can be set on an entity, a namespace or entity root
+		 * if it is set then the additional fields won't be created
+		 */
+		if (shouldCreateAdditionalFields(table)) {
+		/*
+		 * End of 1st part : Quick fix for Ministère de l'Education Nationale needs
+		 */
+					
+			// Validity column
+			String validityColumnName = AdditionalFieldsUtils.getValidityColumnName(table);
+			Column validityColumn = createValidityColumn(table, validityColumnName);
+			addToObjectsToBeKept(validityColumn);
+			
+			// Add constraint on this column
+			Constraint validityConstraint = findOrCreateConstraint(table, AdditionalFieldsUtils.getValidityColumnConstraint(table));
+			validityConstraint.setName(getConstraintName(validityConstraint));
+			validityConstraint.setComments(MessageFormat.format(VALIDITY_CONSTRAINT_COMMENTS, validityColumnName));
+			addToObjectsToBeKept(validityConstraint);
+			
+			// Date column
+			Column dateColumn = createDateColumn(table, AdditionalFieldsUtils.getDateColumnName(table));
+			addToObjectsToBeKept(dateColumn);
+			
 		
-		// Date column
-		Column dateColumn = createDateColumn(table, AdditionalFieldsUtils.getDateColumnName(table));
-		addToObjectsToBeKept(dateColumn);
+		/*
+		 * 2nd part : Quick fix for Ministère de l'Education Nationale needs
+		 */
+		}
+		/*
+		 * End of 2nd part : Quick fix for Ministère de l'Education Nationale needs
+		 */
 	}
 	
 	private Column createValidityColumn(Table table, String columnName) {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oent="http://www.obeonetwork.org/dsl/entity/3.0.0" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_nF_ggDlnEeKBAr0by_Z50A" technicalid="_mC-8AEVDEeearcvooEfGdQ" createdOn="2012-11-28T15:26:34.247+0100" modifiedOn="2013-01-18T14:47:17.914+0100">
+  <ownedNamespaces xmi:id="_rWlzADlnEeKBAr0by_Z50A" technicalid="_mDAKIEVDEeearcvooEfGdQ" createdOn="2012-11-28T15:27:02.837+0100" modifiedOn="2013-01-18T14:47:17.914+0100" name="Block 1">
+    <metadatas xmi:id="_kvUXoWF1EeKwFa3NAflCQw" technicalid="_mDAxMEVDEeearcvooEfGdQ">
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_k_hW0GF1EeKwFa3NAflCQw" technicalid="_mDAxMUVDEeearcvooEfGdQ" title="PHYSICAL_NAME" body="TEST"/>
+      <metadatas xsi:type="oenv:Annotation" xmi:id="_oc2WYEVDEeearcvooEfGdQ" technicalid="_oc1vUEVDEeearcvooEfGdQ" title="DISABLE_ADDITIONAL_FIELDS_KEY" body="  trUE   "/>
+    </metadatas>
+    <types xsi:type="oent:Entity" xmi:id="_tXX_ADlnEeKBAr0by_Z50A" technicalid="_mDCmYEVDEeearcvooEfGdQ" createdOn="2012-11-28T15:27:16.336+0100" modifiedOn="2012-11-28T15:28:18.468+0100" name="Personne"/>
+    <types xsi:type="oent:Entity" xmi:id="_t_pf8DlnEeKBAr0by_Z50A" technicalid="_mDDNcEVDEeearcvooEfGdQ" createdOn="2012-11-28T15:27:20.559+0100" modifiedOn="2012-11-28T15:28:36.533+0100" name="Societe">
+      <ownedReferences xmi:id="_4rrk0DlnEeKBAr0by_Z50A" technicalid="_mDEbkEVDEeearcvooEfGdQ" createdOn="2012-11-28T15:28:32.285+0100" modifiedOn="2012-11-28T15:28:36.533+0100" name="emploie" multiplicity="0..*" isComposite="true" referencedType="_tXX_ADlnEeKBAr0by_Z50A"/>
+    </types>
+  </ownedNamespaces>
+</oent:Root>

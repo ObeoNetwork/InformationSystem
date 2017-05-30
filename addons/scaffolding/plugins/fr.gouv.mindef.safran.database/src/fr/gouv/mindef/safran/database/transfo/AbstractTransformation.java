@@ -161,6 +161,14 @@ abstract public class AbstractTransformation implements Transformation {
 		return getFromTraceabilityMap(from, expectedClass, outputTraceabilityMap);
 	}
 	
+	protected Map<EObject, EObject> getOutputTraceabilityMap() {
+		return outputTraceabilityMap;
+	}
+
+	protected void setOutputTraceabilityMap(Map<EObject, EObject> outputTraceabilityMap) {
+		this.outputTraceabilityMap = outputTraceabilityMap;
+	}
+
 	@SuppressWarnings("unchecked")
 	private <T> T getFromTraceabilityMap(EObject from, EClass expectedClass, Map<EObject, EObject> traceabilityMap) {
 		EObject object = traceabilityMap.get(from);

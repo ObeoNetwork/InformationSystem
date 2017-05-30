@@ -36,6 +36,11 @@ public class EntityToMldTest extends AbstractTransformationTest {
 	}
 	
 	@Test
+	public void sansCreationchampsTechniques() {
+		testEntityToMld("23-sans-champs-techniques");
+	}
+	
+	@Test
 	public void referenceSupprimee() {
 		testEntityToMldWithScaffoldModel("3-reference-supprimee");
 	}
