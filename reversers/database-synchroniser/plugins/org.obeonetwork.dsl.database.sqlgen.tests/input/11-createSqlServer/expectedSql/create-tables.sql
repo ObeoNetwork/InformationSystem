@@ -93,9 +93,9 @@ DROP TABLE ORDER DETAILS CASCADE;
 CREATE TABLE ORDER DETAILS(
     OrderID int(10) NOT NULL,
     ProductID int(10) NOT NULL,
-    UnitPrice money default (0) NOT NULL,
-    Quantity smallint default (1) NOT NULL,
-    Discount real default (0) NOT NULL
+    UnitPrice money DEFAULT (0) NOT NULL,
+    Quantity smallint DEFAULT (1) NOT NULL,
+    Discount real DEFAULT (0) NOT NULL
 );
 
 -- ==============================================================
@@ -111,7 +111,7 @@ CREATE TABLE ORDERS(
     RequiredDate datetime NULL,
     ShippedDate datetime NULL,
     ShipVia int(10) NULL,
-    Freight money default (0) NULL,
+    Freight money DEFAULT (0) NULL,
     ShipName nvarchar(40) NULL,
     ShipAddress nvarchar(60) NULL,
     ShipCity nvarchar(15) NULL,
@@ -131,11 +131,11 @@ CREATE TABLE PRODUCTS(
     SupplierID int(10) NULL,
     CategoryID int(10) NULL,
     QuantityPerUnit nvarchar(20) NULL,
-    UnitPrice money default (0) NULL,
-    UnitsInStock smallint default (0) NULL,
-    UnitsOnOrder smallint default (0) NULL,
-    ReorderLevel smallint default (0) NULL,
-    Discontinued bit default (0) NOT NULL
+    UnitPrice money DEFAULT (0) NULL,
+    UnitsInStock smallint DEFAULT (0) NULL,
+    UnitsOnOrder smallint DEFAULT (0) NULL,
+    ReorderLevel smallint DEFAULT (0) NULL,
+    Discontinued bit DEFAULT (0) NOT NULL
 );
 
 -- ==============================================================

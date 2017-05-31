@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.compare.extensions.builders;
 
+import java.util.HashMap;
+import java.util.Map;
+
 //import org.eclipse.emf.compare.diff.metamodel.DiffElement;
 //import org.eclipse.emf.compare.diff.metamodel.DiffGroup;
 //import org.eclipse.emf.compare.diff.metamodel.ModelElementChangeLeftTarget;
@@ -31,6 +34,8 @@ import org.obeonetwork.dsl.database.dbevolution.UpdateColumnChange;
 import org.obeonetwork.dsl.database.dbevolution.UpdateColumnCommentChange;
 
 public class ColumnChangeBuilder extends ChangeBuilder {
+
+	private Map<Column, UpdateColumnChange> columnsToUpdate = new HashMap<Column, UpdateColumnChange>();
 
 	public ColumnChangeBuilder() {
 		super(DatabasePackage.eINSTANCE.getColumn());
@@ -58,10 +63,16 @@ public class ColumnChangeBuilder extends ChangeBuilder {
 
 	@Override
 	protected Diff handleAlterChange(Match change) {
-		UpdateColumnChange updateColumn = DbevolutionFactory.eINSTANCE.createUpdateColumnChange();
-		updateColumn.setColumn((Column) change.getLeft());
-		updateColumn.setTarget(change.getRight());
-		return updateColumn;
+		Column column = (Column) change.getLeft();
+//		if (!alreadyCreatedUpdateColumnChange(column)) {
+			UpdateColumnChange updateColumn = DbevolutionFactory.eINSTANCE.createUpdateColumnChange();
+			columnsToUpdate.put(column, updateColumn);
+			updateColumn.setColumn(column);
+			updateColumn.setTarget(change.getRight());
+			return updateColumn;
+//		} else {
+//			return null;
+//		}
 	}
 
 	@Override
@@ -74,9 +85,24 @@ public class ColumnChangeBuilder extends ChangeBuilder {
 		}
 		if (DatabasePackage.eINSTANCE.getColumn_Nullable().equals(change.getAttribute())
 				|| DatabasePackage.eINSTANCE.getColumn_DefaultValue().equals(change.getAttribute())) {
-			return createUpdateColumnChange(change);
+//			Column column = (Column) change.getMatch().getLeft();
+//			if (!alreadyCreatedUpdateColumnChange(column)) {
+				// When changing one of 'nullable', 'length', 'default value',
+				// etc. all changes are already included in the generated
+				// script. So just add one UpdateColumnChange as long as one of
+				// them has changed.
+				UpdateColumnChange updateColumnChange = createUpdateColumnChange(change);
+//				columnsToUpdate.put(column, updateColumnChange);
+				return updateColumnChange;
+//			} else {
+//				return null;
+//			}
 		}
 		return null;
+	}
+
+	private boolean alreadyCreatedUpdateColumnChange(Column column) {
+		return columnsToUpdate.get(column) != null;
 	}
 
 	@Override

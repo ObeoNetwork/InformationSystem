@@ -13,9 +13,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.obeonetwork.dsl.database.compare,
  org.eclipse.acceleo.engine,
  org.eclipse.emf.compare.edit,
- org.obeonetwork.dsl.database.compare.edit
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+ org.obeonetwork.dsl.database.compare.edit,
+ org.obeonetwork.dsl.database.sqlgen
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.obeonetwork.dsl.database.compare.tests.gen.files,
  org.obeonetwork.dsl.database.compare.tests.gen.main,
  org.obeonetwork.dsl.database.compare.tests.gen.services
 Bundle-Vendor: Obeo Network
+Import-Package: org.apache.log4j;version="1.2.15"

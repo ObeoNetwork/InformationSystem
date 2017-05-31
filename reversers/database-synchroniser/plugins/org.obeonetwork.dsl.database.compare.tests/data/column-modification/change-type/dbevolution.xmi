@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<compare:Comparison xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:compare="http://www.eclipse.org/emf/compare" xmlns:dbevolution="http://www.obeonetwork.org/dsl/database/evolution/1.0">
+  <matchedResources leftURI="left.database" rightURI="right.database"/>
+  <matches>
+    <submatches>
+      <submatches>
+        <submatches>
+          <differences xsi:type="compare:ReferenceChange" kind="CHANGE">
+            <reference href="http://www.obeonetwork.org/dsl/typeslibrary/1.0#//TypeInstance/nativeType"/>
+            <value href="pathmap://LogicalDBTypes#_WWew8xEnEeGTa_JlZYBw1A"/>
+          </differences>
+          <left href="left.database#_l3Gf8UdjEeeDf7KVSiIl2A"/>
+          <right href="right.database#_l3Gf8UdjEeeDf7KVSiIl2A"/>
+        </submatches>
+        <left href="left.database#_l3Gf8EdjEeeDf7KVSiIl2A"/>
+        <right href="right.database#_l3Gf8EdjEeeDf7KVSiIl2A"/>
+      </submatches>
+      <differences xsi:type="dbevolution:UpdateColumnChange">
+        <target href="right.database#_l3Gf8EdjEeeDf7KVSiIl2A"/>
+        <column href="left.database#_l3Gf8EdjEeeDf7KVSiIl2A"/>
+      </differences>
+      <left href="left.database#_Zs4l0EdjEeeDf7KVSiIl2A"/>
+      <right href="right.database#_Zs4l0EdjEeeDf7KVSiIl2A"/>
+    </submatches>
+    <differences xsi:type="dbevolution:AlterTable">
+      <target href="right.database#_Zs4l0EdjEeeDf7KVSiIl2A"/>
+      <table href="right.database#_Zs4l0EdjEeeDf7KVSiIl2A"/>
+    </differences>
+    <left href="left.database#_CbXAEUdjEeeDf7KVSiIl2A"/>
+    <right href="right.database#_CbXAEUdjEeeDf7KVSiIl2A"/>
+  </matches>
+</compare:Comparison>

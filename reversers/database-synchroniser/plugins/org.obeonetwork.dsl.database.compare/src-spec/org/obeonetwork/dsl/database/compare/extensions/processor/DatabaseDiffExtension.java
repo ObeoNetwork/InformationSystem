@@ -48,11 +48,11 @@ public class DatabaseDiffExtension {
 			}
 		}
 		
-		protected Diff handleElement(EObject diffElement) {
+		protected Diff handleElement(EObject comparisonElement) {
 			Diff result = null;
 			for (ChangeBuilder builder : builders) {
-				if (builder.canHandle(diffElement)) {
-					result = builder.handle(diffElement);	
+				if (builder.canHandle(comparisonElement)) {
+					result = builder.handle(comparisonElement);	
 					//handled = true;
 					break;
 				}

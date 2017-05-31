@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ASCII"?>
+<compare:Comparison xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:compare="http://www.eclipse.org/emf/compare">
+  <matchedResources leftURI="left.database" rightURI="right.database"/>
+  <matches>
+    <submatches>
+      <submatches>
+        <submatches>
+          <left href="left.database#_j87xxDojEeev8uwz_LnlUA"/>
+          <right href="right.database#_j87xxDojEeev8uwz_LnlUA"/>
+        </submatches>
+        <submatches>
+          <submatches>
+            <left href="left.database#_j87xxjojEeev8uwz_LnlUA"/>
+            <right href="right.database#_j87xxjojEeev8uwz_LnlUA"/>
+          </submatches>
+          <left href="left.database#_j87xxTojEeev8uwz_LnlUA"/>
+          <right href="right.database#_j87xxTojEeev8uwz_LnlUA"/>
+        </submatches>
+        <submatches>
+          <submatches>
+            <left href="left.database#_j87xyDojEeev8uwz_LnlUA"/>
+            <right href="right.database#_j87xyDojEeev8uwz_LnlUA"/>
+          </submatches>
+          <left href="left.database#_j87xxzojEeev8uwz_LnlUA"/>
+          <right href="right.database#_j87xxzojEeev8uwz_LnlUA"/>
+        </submatches>
+        <submatches>
+          <submatches>
+            <differences xsi:type="compare:ReferenceChange" kind="CHANGE">
+              <reference href="http://www.obeonetwork.org/dsl/typeslibrary/1.0#//TypeInstance/nativeType"/>
+              <value href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+            </differences>
+            <left href="left.database#_j87xyjojEeev8uwz_LnlUA"/>
+            <right href="right.database#_j87xyjojEeev8uwz_LnlUA"/>
+          </submatches>
+          <left href="left.database#_j87xyTojEeev8uwz_LnlUA"/>
+          <right href="right.database#_j87xyTojEeev8uwz_LnlUA"/>
+        </submatches>
+        <left href="left.database#_j87xwzojEeev8uwz_LnlUA"/>
+        <right href="right.database#_j87xwzojEeev8uwz_LnlUA"/>
+      </submatches>
+      <submatches>
+        <submatches>
+          <left href="left.database#_j87xzDojEeev8uwz_LnlUA"/>
+          <right href="right.database#_j87xzDojEeev8uwz_LnlUA"/>
+        </submatches>
+        <submatches>
+          <submatches>
+            <left href="left.database#_j87xzjojEeev8uwz_LnlUA"/>
+            <right href="right.database#_j87xzjojEeev8uwz_LnlUA"/>
+          </submatches>
+          <left href="left.database#_j87xzTojEeev8uwz_LnlUA"/>
+          <right href="right.database#_j87xzTojEeev8uwz_LnlUA"/>
+        </submatches>
+        <submatches>
+          <submatches>
+            <left href="left.database#_j87x0DojEeev8uwz_LnlUA"/>
+            <right href="right.database#_j87x0DojEeev8uwz_LnlUA"/>
+          </submatches>
+          <submatches>
+            <left href="left.database#_j87x0TojEeev8uwz_LnlUA"/>
+            <right href="right.database#_j87x0TojEeev8uwz_LnlUA"/>
+          </submatches>
+          <left href="left.database#_j87xzzojEeev8uwz_LnlUA"/>
+          <right href="right.database#_j87xzzojEeev8uwz_LnlUA"/>
+        </submatches>
+        <submatches>
+          <submatches>
+            <left href="left.database#_j87x0zojEeev8uwz_LnlUA"/>
+            <right href="right.database#_j87x0zojEeev8uwz_LnlUA"/>
+          </submatches>
+          <left href="left.database#_j87x0jojEeev8uwz_LnlUA"/>
+          <right href="right.database#_j87x0jojEeev8uwz_LnlUA"/>
+        </submatches>
+        <submatches>
+          <submatches>
+            <left href="left.database#_j87x1TojEeev8uwz_LnlUA"/>
+            <right href="right.database#_j87x1TojEeev8uwz_LnlUA"/>
+          </submatches>
+          <left href="left.database#_j87x1DojEeev8uwz_LnlUA"/>
+          <right href="right.database#_j87x1DojEeev8uwz_LnlUA"/>
+        </submatches>
+        <submatches>
+          <submatches>
+            <left href="left.database#_j87x1zojEeev8uwz_LnlUA"/>
+            <right href="right.database#_j87x1zojEeev8uwz_LnlUA"/>
+          </submatches>
+          <left href="left.database#_j87x1jojEeev8uwz_LnlUA"/>
+          <right href="right.database#_j87x1jojEeev8uwz_LnlUA"/>
+        </submatches>
+        <left href="left.database#_j87xyzojEeev8uwz_LnlUA"/>
+        <right href="right.database#_j87xyzojEeev8uwz_LnlUA"/>
+      </submatches>
+      <left href="left.database#_j87xwjojEeev8uwz_LnlUA"/>
+      <right href="right.database#_j87xwjojEeev8uwz_LnlUA"/>
+    </submatches>
+    <left href="left.database#_dgf5sTojEeev8uwz_LnlUA"/>
+    <right href="right.database#_dgf5sTojEeev8uwz_LnlUA"/>
+  </matches>
+</compare:Comparison>

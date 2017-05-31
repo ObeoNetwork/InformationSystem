@@ -52,8 +52,9 @@ public class TableChangeBuilder extends ChangeBuilder {
 
 	@Override
 	protected Diff handleAlterChange(Match change) {
+		// This Match of Tables has differences (or one of the contents of the Tables has) so we mark it with an AlterTable diff.
 		AlterTable alterTable = DbevolutionFactory.eINSTANCE.createAlterTable();
-		alterTable.setTable((Table)change.getRight());
+		alterTable.setTable((Table) change.getRight());
 		alterTable.setTarget(change.getRight());
 		return alterTable;
 	}

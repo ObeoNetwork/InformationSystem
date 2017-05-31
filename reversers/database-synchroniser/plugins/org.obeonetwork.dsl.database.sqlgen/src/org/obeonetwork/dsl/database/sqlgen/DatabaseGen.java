@@ -245,7 +245,7 @@ public class DatabaseGen extends SQLGenerator {
         mergeSQLFiles(getTargetFolder());
     }
     
-    private static final String[] SQL_FILES = new String[] {
+    public static final String[] SQL_FILES = new String[] {
     		"drop-tables.sql",
     		"drop-index.sql",
     		"drop-constraint.sql",

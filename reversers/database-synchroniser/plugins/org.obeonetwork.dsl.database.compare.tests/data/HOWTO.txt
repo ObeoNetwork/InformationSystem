@@ -1,0 +1,8 @@
+* Create the 'right' database model in IS Designer/Safr@n Studio
+* Copy it as the 'left' database model and modify it
+* Compare it in the development environment  => This is the 'expected' for comparison and input for transformation
+* Compare it in IS Designer/Safr@n Studio    => This is the 'expected' for transformation
+* URIs in (at least) compare.xmi should be related and not in platform:/resource
+* Sometimes matches are not reproduced exactly so what was expected to be a single change is actually a deletion, 
+creation and change so you may need to manually modify comparison.xmi to replace it with what is obtained at runtime.
+Same afterwards for dbevolution.xmi.

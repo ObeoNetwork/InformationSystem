@@ -28,6 +28,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.common.util.BasicMonitor;
+import org.eclipse.emf.compare.ComparePackage;
 import org.eclipse.emf.compare.Comparison;
 import org.eclipse.emf.compare.Diff;
 import org.eclipse.emf.compare.Match;
@@ -54,6 +55,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
+import org.obeonetwork.dsl.database.DataBase;
 import org.obeonetwork.dsl.database.DatabasePackage;
 import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
 
@@ -63,6 +65,10 @@ import com.google.common.eventbus.Subscribe;
 import fr.gouv.mindef.safran.database.ui.Activator;
 
 @SuppressWarnings("restriction")
+/**
+ * Action made available when comparing two database models to generate the SQL scripts to corresponding to the EMFCompare comparison.
+ * 
+ */
 public class ExportAsSQLScriptsAction extends Action implements IEditorActionDelegate {
 	
 	private static final String ACTION_TEXT = "Generate SQL";
@@ -164,9 +170,9 @@ public class ExportAsSQLScriptsAction extends Action implements IEditorActionDel
 			// Fallback case
 			
 			ContainerSelectionDialog projectSelectionDialog = new ContainerSelectionDialog(
-					activeEditor.getSite().getShell(), null, false, "Séléctionner le projet de destination :");
+					activeEditor.getSite().getShell(), null, false, "Sélectionner le projet de destination :");
 			
-			projectSelectionDialog.setTitle("Séléction de projet");
+			projectSelectionDialog.setTitle("Sélection de projet");
 
 			if(projectSelectionDialog.open() == ContainerSelectionDialog.OK && projectSelectionDialog.getResult().length == 1) {
 				Path projectPath = (Path) projectSelectionDialog.getResult()[0];
@@ -275,11 +281,19 @@ public class ExportAsSQLScriptsAction extends Action implements IEditorActionDel
 		  }
 	}
 	
+	/**
+	 * Checks whether the given {@link Comparison} is between two {@link DataBase}.
+	 * @param comparison
+	 * @return
+	 */
 	private boolean areDatabaseDifferences(Comparison comparison) {
 		for (Diff diff : comparison.getDifferences()) {
-			Match match = diff.getMatch();
-			EObject left = match.getLeft();
-			EObject right = match.getRight();
+			Match parentMatch = diff.getMatch();
+			while(ComparePackage.Literals.MATCH.isInstance(parentMatch.eContainer())){
+				parentMatch = (Match) parentMatch.eContainer();
+			}
+			EObject left = parentMatch.getLeft(); // Should be DataBase
+			EObject right = parentMatch.getRight(); // Should be DataBase
 			if (left != null && left.eClass().getEPackage() == DatabasePackage.eINSTANCE
 					|| right != null && right.eClass().getEPackage() == DatabasePackage.eINSTANCE) {
 				return true;

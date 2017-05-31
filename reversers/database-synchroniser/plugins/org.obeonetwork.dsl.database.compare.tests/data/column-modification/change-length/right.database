@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_CbXAEUdjEeeDf7KVSiIl2A" techID="_CbXAEEdjEeeDf7KVSiIl2A" name="MyDataBaseWithATableWithAColumn-ChangeLength">
+  <tables xsi:type="database:Table" xmi:id="_Zs4l0EdjEeeDf7KVSiIl2A" techID="_Zs3-wEdjEeeDf7KVSiIl2A" name="MyTable">
+    <columns xmi:id="_l3Gf8EdjEeeDf7KVSiIl2A" techID="_l3F44EdjEeeDf7KVSiIl2A" name="MyColumn">
+      <type xsi:type="typeslibrary:TypeInstance" xmi:id="_l3Gf8UdjEeeDf7KVSiIl2A" length="50">
+        <nativeType href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
+      </type>
+    </columns>
+  </tables>
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://LogicalDBTypes#_WWbGkREnEeGTa_JlZYBw1A"/>
+</database:DataBase>

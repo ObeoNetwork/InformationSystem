@@ -63,20 +63,20 @@ public abstract class ChangeBuilder {
 		return null;
 	}
 	
-	protected boolean isAdd(Diff diff) {
+	protected boolean isReferenceAdd(Diff diff) {
 		return diff instanceof ReferenceChange && diff.getKind() == DifferenceKind.ADD;
 	}
 	
-	protected boolean isDelete(Diff diff) {
+	protected boolean isReferenceDelete(Diff diff) {
 		return diff instanceof ReferenceChange && diff.getKind() == DifferenceKind.DELETE;
 	}
 	
 	public boolean canHandle(EObject obj) {
 		if (obj instanceof Diff) {
 			Diff diff = (Diff) obj;
-			if (isAdd(diff)) {	
+			if (isReferenceAdd(diff)) {	
 				return semanticType.isInstance(((ReferenceChange) diff).getValue());				
-			} else if (isDelete(diff)) {				
+			} else if (isReferenceDelete(diff)) {				
 				return semanticType.isInstance(((ReferenceChange) diff).getValue());				
 			} else if (diff.getKind() == DifferenceKind.CHANGE) {
 				if (diff instanceof AttributeChange) {
@@ -95,57 +95,55 @@ public abstract class ChangeBuilder {
 		return false;
 	}
 	
-	public Diff handle(EObject obj) {
-		Diff newElement = null;
+	public Diff handle(EObject comparisonElement) {
+		Diff createdDiffElement = null;
 		
-		if (obj instanceof Diff) {
-			Diff diff = (Diff)obj;
+		if (comparisonElement instanceof Diff) {
+			Diff diff = (Diff) comparisonElement;
 			
-			if (isAdd(diff)) {				
-				newElement = handleAddChange((ReferenceChange) diff);				
-			} else if (isDelete(diff)) {
-				newElement = handleRemoveChange((ReferenceChange) diff);
+			if (isReferenceAdd(diff)) {				
+				createdDiffElement = handleAddChange((ReferenceChange) diff);				
+			} else if (isReferenceDelete(diff)) {
+				createdDiffElement = handleRemoveChange((ReferenceChange) diff);
 			} else if (diff.getKind() == DifferenceKind.CHANGE) {
 				if (diff instanceof AttributeChange) {
-					// Do not take care of tech Id
-					AttributeChange attributeChange = (AttributeChange)diff;
+					AttributeChange attributeChange = (AttributeChange) diff;
+					// Ignore TechID
 					if (DatabasePackage.eINSTANCE.getDatabaseElement_TechID() != attributeChange.getAttribute()) {
-						newElement = handleAlterChange(attributeChange);						
+						createdDiffElement = handleAlterChange(attributeChange);
 					}
 				}
 				if (diff instanceof ReferenceChange) {
-					newElement = handleAlterChange((ReferenceChange)diff);
+					createdDiffElement = handleAlterChange((ReferenceChange) diff);
 				}
 			}
 			
 			// Attach newly created element to its parent
-			if (newElement != null) {
-				newElement.getRefinedBy().add(diff);
-				diff.getMatch().getDifferences().add(newElement);
+			if (createdDiffElement != null) {
+				createdDiffElement.getRefinedBy().add(diff);
+				diff.getMatch().getDifferences().add(createdDiffElement);
 			}	
 			
-		} else if (obj instanceof Match) {
-			
-			if (((Match)obj).getAllDifferences().iterator().hasNext()) {
-				newElement = handleAlterChange((Match)obj);
+		} else if (comparisonElement instanceof Match) {
+			Match match = (Match) comparisonElement;
+			if (match.getAllDifferences().iterator().hasNext()) {
+				// There is at least one Diff in this match or one of its submatches,
+				// thus we created a Diff that marks that there is some update to perform inside the match's contents.
+				createdDiffElement = handleAlterChange((Match) comparisonElement);
 			}
 			
-			if (newElement != null) {	
-				
+			if (createdDiffElement != null) {	
 				Match parent = null;
-				EObject container = ((Match) obj).eContainer();
+				EObject container = match.eContainer();
 				if (container instanceof Match) {
 					parent = (Match) container;
 				} else {
-					parent = ((Match) obj);
+					parent = (Match) comparisonElement;
 				}
-				
-				parent.getDifferences().add(newElement);			
+				parent.getDifferences().add(createdDiffElement);			
 			}	
-			
 		}
-		
-		return newElement;
+		return createdDiffElement;
 	}
 	
 	protected void fillDBDiff(DBDiff newChange, ReferenceChange change) {

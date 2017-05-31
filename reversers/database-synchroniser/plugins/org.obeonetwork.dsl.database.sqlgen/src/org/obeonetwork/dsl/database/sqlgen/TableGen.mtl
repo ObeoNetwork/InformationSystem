@@ -147,9 +147,9 @@ ALTER TABLE [column.owner.oclAsType(Table).fullname()/] DROP COLUMN [column.name
 [/template]
 
 [template private genUpdateColumn(column : Column) ? (column.isTargetPostgreSQL()) post(trim())]
-ALTER TABLE [column.owner.oclAsType(Table).fullname()/] alter column [column.name()/] set data type [column.dataType()/];
-ALTER TABLE [column.owner.oclAsType(Table).fullname()/] alter column [column.name()/][if (column.nullable)] drop[else] set[/if] not null;
-ALTER TABLE [column.owner.oclAsType(Table).fullname()/] alter column [column.name()/][column.defaultForPostgreSQL()/];
+ALTER TABLE [column.owner.oclAsType(Table).fullname()/] ALTER COLUMN [column.name()/] SET DATA TYPE [column.dataType()/];
+ALTER TABLE [column.owner.oclAsType(Table).fullname()/] ALTER COLUMN [column.name()/][if (column.nullable)] DROP[else] SET[/if] NOT NULL;
+ALTER TABLE [column.owner.oclAsType(Table).fullname()/] ALTER COLUMN [column.name()/][column.defaultForPostgreSQL()/];
 [/template]
 
 [template private genUpdateColumn(column : Column) post(trim())]
@@ -190,12 +190,12 @@ COMMENT ON COLUMN [column.owner.oclAsType(Table).fullname()/].[column.name()/] I
 [/template]
 
 [template private default(column : Column)]
-[if (column.defaultValue<>null and column.defaultValue.size()>0)] default [column.defaultValue()/][/if]
+[if (column.defaultValue<>null and column.defaultValue.size()>0)] DEFAULT [column.defaultValue()/][/if]
 [/template]
 
 [template private defaultForPostgreSQL(column : Column)]
-[if (column.defaultValue<>null and column.defaultValue.size()>0)] set default [column.defaultValue()/]
-[else] drop default[/if]
+[if (column.defaultValue<>null and column.defaultValue.size()>0)] SET DEFAULT [column.defaultValue()/]
+[else] DROP DEFAULT[/if]
 [/template]
 
 [comment TODO support '' quoted defaultValue with several template with guard /]

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<compare:Comparison xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:compare="http://www.eclipse.org/emf/compare">
+  <matchedResources leftURI="left.database" rightURI="right.database"/>
+  <matches>
+    <submatches>
+      <submatches>
+        <submatches>
+          <left href="left.database#_Aq4ZwUUaEeexieJyCgKM4w"/>
+          <right href="right.database#_Aq4ZwUUaEeexieJyCgKM4w"/>
+        </submatches>
+        <left href="left.database#_Aq4ZwEUaEeexieJyCgKM4w"/>
+        <right href="right.database#_Aq4ZwEUaEeexieJyCgKM4w"/>
+      </submatches>
+      <submatches>
+        <left href="left.database#_ECQlQEUaEeexieJyCgKM4w"/>
+        <right href="right.database#_ECQlQEUaEeexieJyCgKM4w"/>
+      </submatches>
+      <submatches>
+        <left href="left.database#_ILnAQEUaEeexieJyCgKM4w"/>
+        <right href="right.database#_ILnAQEUaEeexieJyCgKM4w"/>
+      </submatches>
+      <submatches>
+        <left href="left.database#_FNvg8UUaEeexieJyCgKM4w"/>
+        <right href="right.database#_FNvg8UUaEeexieJyCgKM4w"/>
+      </submatches>
+      <left href="left.database#_7i0TwUUZEeexieJyCgKM4w"/>
+      <right href="right.database#_7i0TwUUZEeexieJyCgKM4w"/>
+    </submatches>
+    <submatches>
+      <left href="left.database#_6lizMUUZEeexieJyCgKM4w"/>
+      <right href="right.database#_6lizMUUZEeexieJyCgKM4w"/>
+    </submatches>
+    <submatches>
+      <left href="left.database#_-qKfMUUZEeexieJyCgKM4w"/>
+      <right href="right.database#_-qKfMUUZEeexieJyCgKM4w"/>
+    </submatches>
+    <left href="left.database#_4kkZ8EUZEeexieJyCgKM4w"/>
+    <right href="right.database#_4kkZ8EUZEeexieJyCgKM4w"/>
+  </matches>
+</compare:Comparison>

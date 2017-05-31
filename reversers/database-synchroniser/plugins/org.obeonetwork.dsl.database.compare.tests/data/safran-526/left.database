@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database:DataBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:database="http://www.obeonetwork.org/dsl/database/1.0" xmlns:typeslibrary="http://www.obeonetwork.org/dsl/typeslibrary/1.0" xmi:id="_dgf5sTojEeev8uwz_LnlUA" techID="_dgf5sDojEeev8uwz_LnlUA" name="DataBaseSafran526">
+  <usedLibraries xsi:type="typeslibrary:NativeTypesLibrary" href="pathmap://NativeDBTypes/Postgres-9#_Zj69UBEnEeGTa_JlZYBw1A"/>
+  <schemas xmi:id="_j87xwjojEeev8uwz_LnlUA" comments="Schéma pour application séries" techID="_S1lroDoiEeev8uwz_LnlUA" name="GS">
+    <tables xsi:type="database:Table" xmi:id="_j87xwzojEeev8uwz_LnlUA" techID="_WasKEDoiEeev8uwz_LnlUA" name="GS_SERIE">
+      <primaryKey xmi:id="_j87xxDojEeev8uwz_LnlUA" comments="Contrainte de lacolonne PK" techID="_YMamYzoiEeev8uwz_LnlUA" name="GS_SERIE_PK" columns="_j87xxzojEeev8uwz_LnlUA"/>
+      <indexes xmi:id="_j87xxTojEeev8uwz_LnlUA" techID="_kGX28DoiEeev8uwz_LnlUA" name="GS_SERIE_UN1_1" unique="true">
+        <elements xmi:id="_j87xxjojEeev8uwz_LnlUA" techID="_kGX28joiEeev8uwz_LnlUA" column="_j87xyTojEeev8uwz_LnlUA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_j87xxzojEeev8uwz_LnlUA" comments="La PK de la table" techID="_YMamYDoiEeev8uwz_LnlUA" name="GS_SERIE_ID" primaryKey="_j87xxDojEeev8uwz_LnlUA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_j87xyDojEeev8uwz_LnlUA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_j87xyTojEeev8uwz_LnlUA" techID="_g0UQUDoiEeev8uwz_LnlUA" name="GS_SERIE_TITRE" indexElements="_j87xxjojEeev8uwz_LnlUA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_j87xyjojEeev8uwz_LnlUA" length="50">
+          <nativeType href="pathmap://NativeDBTypes/Postgres-9#_X2UR0GTNEeSmq67_vSAzgg"/>
+        </type>
+      </columns>
+    </tables>
+    <tables xsi:type="database:Table" xmi:id="_j87xyzojEeev8uwz_LnlUA" comments="Table des saisons" techID="_nztrYDoiEeev8uwz_LnlUA" name="GS_SAISON">
+      <primaryKey xmi:id="_j87xzDojEeev8uwz_LnlUA" comments="Contrainte sur la PK de la table" techID="_rleFwzoiEeev8uwz_LnlUA" name="GS_SAISON_PK" columns="_j87x0jojEeev8uwz_LnlUA"/>
+      <foreignKeys xmi:id="_j87xzTojEeev8uwz_LnlUA" comments="Foreign Key entre serie et saison" techID="_2bo-EDoiEeev8uwz_LnlUA" name="GS_SAISON_FK1_1" target="_j87xwzojEeev8uwz_LnlUA">
+        <elements xmi:id="_j87xzjojEeev8uwz_LnlUA" techID="_2byIAToiEeev8uwz_LnlUA" fkColumn="_j87x1DojEeev8uwz_LnlUA" pkColumn="_j87xxzojEeev8uwz_LnlUA"/>
+      </foreignKeys>
+      <indexes xmi:id="_j87xzzojEeev8uwz_LnlUA" techID="__Ut3kDoiEeev8uwz_LnlUA" name="GS_SAISON_UN2_1">
+        <elements xmi:id="_j87x0DojEeev8uwz_LnlUA" techID="_BuUzQDojEeev8uwz_LnlUA" column="_j87x1DojEeev8uwz_LnlUA" asc="true"/>
+        <elements xmi:id="_j87x0TojEeev8uwz_LnlUA" techID="_DGxz8DojEeev8uwz_LnlUA" column="_j87x1jojEeev8uwz_LnlUA" asc="true"/>
+      </indexes>
+      <columns xmi:id="_j87x0jojEeev8uwz_LnlUA" comments="PK de la table" techID="_rleFwDoiEeev8uwz_LnlUA" name="GS_SAISON_ID" primaryKey="_j87xzDojEeev8uwz_LnlUA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_j87x0zojEeev8uwz_LnlUA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_j87x1DojEeev8uwz_LnlUA" techID="_2bo-EjoiEeev8uwz_LnlUA" name="GS_SERIE_ID" indexElements="_j87x0DojEeev8uwz_LnlUA" foreignKeyElements="_j87xzjojEeev8uwz_LnlUA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_j87x1TojEeev8uwz_LnlUA" technicalid="_2bo-FToiEeev8uwz_LnlUA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+      <columns xmi:id="_j87x1jojEeev8uwz_LnlUA" comments="Numéro de la saison" techID="_x0fz0DoiEeev8uwz_LnlUA" name="GS_SAISON_NUM" indexElements="_j87x0TojEeev8uwz_LnlUA">
+        <type xsi:type="typeslibrary:TypeInstance" xmi:id="_j87x1zojEeev8uwz_LnlUA">
+          <nativeType href="pathmap://NativeDBTypes/Oracle-11g#_EwGJQD77EeaWN4f5B3n2lA"/>
+        </type>
+      </columns>
+    </tables>
+  </schemas>
+</database:DataBase>
