@@ -72,6 +72,9 @@ public class ColumnChangeBuilder extends ChangeBuilder {
 		if (DatabasePackage.eINSTANCE.getNamedElement_Name().equals(change.getAttribute())) {
 			return createRenameColumnChange(change);
 		}
+		if (DatabasePackage.eINSTANCE.getColumn_Nullable().equals(change.getAttribute())){
+			return createUpdateColumnChange(change);
+		}
 		return null;
 	}
 	
@@ -114,6 +117,13 @@ public class ColumnChangeBuilder extends ChangeBuilder {
 		fillDBDiff(removeColumnChange, change);
 		
 		return removeColumnChange;
+	}
+	
+	protected UpdateColumnChange createUpdateColumnChange(AttributeChange change){
+		UpdateColumnChange updateColumnChange = DbevolutionFactory.eINSTANCE.createUpdateColumnChange();
+		updateColumnChange.setColumn((Column) change.getMatch().getLeft());
+		updateColumnChange.setTarget(change.getMatch().getRight());
+		return updateColumnChange;
 	}
 
 	protected UpdateColumnCommentChange createUpdateColumnCommentChange(AttributeChange change) {

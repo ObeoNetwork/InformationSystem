@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<compare:Comparison xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:compare="http://www.eclipse.org/emf/compare">
+  <matchedResources leftURI="left.database" rightURI="right.database"/>
+  <matches>
+    <submatches>
+      <left href="left.database#_6lizMUUZEeexieJyCgKM4w"/>
+      <right href="right.database#_6lizMUUZEeexieJyCgKM4w"/>
+    </submatches>
+    <submatches>
+      <left href="left.database#_O4ItMUUbEeexieJyCgKM4w"/>
+    </submatches>
+    <differences xsi:type="compare:ReferenceChange">
+      <reference href="http://www.obeonetwork.org/dsl/database/1.0#//DataBase/schemas"/>
+      <value href="left.database#_O4ItMUUbEeexieJyCgKM4w"/>
+    </differences>
+    <differences xsi:type="compare:AttributeChange" kind="CHANGE" value="ACED0005740020426173696344617461426173655769746853696D706C654164646974696F6E73">
+      <attribute href="http://www.obeonetwork.org/dsl/database/1.0#//NamedElement/name"/>
+    </differences>
+    <left href="left.database#_4kkZ8EUZEeexieJyCgKM4w"/>
+    <right href="right.database#_4kkZ8EUZEeexieJyCgKM4w"/>
+  </matches>
+</compare:Comparison>
