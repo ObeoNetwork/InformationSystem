@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.obeonetwork.is.designer.parent</name>
+	<name>org.obeonetwork.is.designer.ui.feature</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>org.eclipse.xtext.ui.shared.xtextBuilder</name>
+			<name>org.eclipse.pde.FeatureBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
+		<nature>org.eclipse.pde.FeatureNature</nature>
 	</natures>
 </projectDescription>

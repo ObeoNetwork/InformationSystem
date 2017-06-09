@@ -21,7 +21,9 @@
 
 	<modules>
 		<module>../../branding/features/org.obeonetwork.is.designer.branding.feature</module>
+		<module>../../branding/features/org.obeonetwork.is.designer.ui.feature</module>
 		<module>../../branding/plugins/org.obeonetwork.is.designer.branding</module>
+		<module>../../branding/plugins/org.obeonetwork.is.designer.ui</module>
 		<module>../../../releng/org.obeonetwork.is.license</module>
 		<!-- A mettre sur ObeoNetwork -->
 		<!-- <module>../../database/features/fr.gouv.mindef.safran.database.scaffold.feature</module> 
