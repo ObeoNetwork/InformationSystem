@@ -1,30 +1,31 @@
+/*******************************************************************************
+ * Copyright (c) 2017 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
 package org.obeonetwork.dsl.database.compare.tests.generation;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.compare.Comparison;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
-import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.compare.tests.DatabaseCompareAbstractTestSuite;
 import org.obeonetwork.dsl.database.compare.tests.transformation.DatabaseTransformationTestSuite;
-import org.obeonetwork.dsl.database.dbevolution.ColumnChange;
 import org.obeonetwork.dsl.database.sqlgen.DatabaseGen;
-import org.obeonetwork.dsl.typeslibrary.NativeType;
-import org.obeonetwork.dsl.typeslibrary.Type;
-import org.obeonetwork.dsl.typeslibrary.TypeInstance;
 
 @RunWith(Suite.class)
 @SuiteClasses({ DatabaseEvolutionScriptGenerationTest.class })
@@ -45,7 +46,7 @@ public class DatabaseEvolutionScriptGenerationTestSuite extends DatabaseCompareA
 
 	public List<File> loadAndProcessInputs(List<URI> inputURIs, List<String> expectedFileNames) {
 		// Load input data for the test
-		final Resource dbevolutionResource = DatabaseCompareAbstractTestSuite.loadResource(inputURIs.get(0));		
+		final Resource dbevolutionResource = DatabaseCompareAbstractTestSuite.loadResource(inputURIs.get(0));
 
 		List<File> generatedFiles = generateEvolutionScripts((Comparison) dbevolutionResource.getContents().get(0));
 
