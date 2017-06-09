@@ -69,7 +69,6 @@ location "http://update.obeo.fr/release/designer/9.1/team/latest/repository/" {
 	org.eclipse.sirius.runtime.feature.group lazy
 	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
 	fr.obeo.dsl.designer.gen.html.feature.feature.group lazy
-	org.eclipse.emf.eef.runtime-feature.feature.group lazy
 	org.eclipse.gmf.feature.group lazy
 	org.eclipse.draw2d.feature.group lazy
 	org.eclipse.gef.feature.group lazy
@@ -77,14 +76,11 @@ location "http://update.obeo.fr/release/designer/9.1/team/latest/repository/" {
 	org.eclipse.sirius.runtime.acceleo.feature.group lazy
 	org.eclipse.sirius.runtime.ide.eef.feature.group lazy
 	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group lazy
-	org.eclipse.emf.eef.edt-feature.feature.group lazy
-	org.eclipse.emf.eef.extended-feature.feature.group lazy
 	org.eclipse.sdk.feature.group lazy
 	org.eclipse.egit.feature.group lazy
 	org.eclipse.jgit.feature.group lazy
 	org.apache.commons.lang lazy
 	org.eclipse.equinox.concurrent lazy
-	org.eclipse.emf.eef.codegen.ecore-feature.feature.group lazy
 	org.eclipse.emf.common.source.feature.group lazy
 	org.eclipse.emf.ecore.source.feature.group lazy
 	org.eclipse.ecf.core.source.feature.feature.group lazy
@@ -113,6 +109,13 @@ location "http://update.obeo.fr/release/designer/9.1/team/latest/repository/" {
 
 	// Include this in the TP but *not* in the product as "lifecycle" optionnally depends on it.
 	fr.obeo.dsl.viewpoint.runtime.collab.feature.group lazy
+}
+
+location "http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201705310956" {
+	org.eclipse.emf.eef.runtime-feature.feature.group lazy
+	org.eclipse.emf.eef.edt-feature.feature.group lazy
+	org.eclipse.emf.eef.extended-feature.feature.group lazy
+	org.eclipse.emf.eef.codegen.ecore-feature.feature.group lazy
 }
 
 //location "http://download.eclipse.org/acceleo/updates/releases/" {

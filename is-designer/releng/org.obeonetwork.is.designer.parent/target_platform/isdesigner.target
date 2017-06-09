@@ -72,7 +72,6 @@
       <unit id="org.eclipse.sirius.runtime.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.designer.gen.html.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.emf.eef.runtime-feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.gmf.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.draw2d.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.gef.feature.group" version="0.0.0"/>
@@ -80,14 +79,11 @@
       <unit id="org.eclipse.sirius.runtime.acceleo.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.emf.eef.edt-feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.emf.eef.extended-feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.egit.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.jgit.feature.group" version="0.0.0"/>
       <unit id="org.apache.commons.lang" version="0.0.0"/>
       <unit id="org.eclipse.equinox.concurrent" version="0.0.0"/>
-      <unit id="org.eclipse.emf.eef.codegen.ecore-feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.common.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.ecore.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.ecf.core.source.feature.feature.group" version="0.0.0"/>
@@ -115,6 +111,13 @@
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.viewpoint.runtime.collab.feature.group" version="0.0.0"/>
       <repository location="http://update.obeo.fr/release/designer/9.1/team/latest/repository/"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.emf.eef.runtime-feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.eef.edt-feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.eef.extended-feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.eef.codegen.ecore-feature.feature.group" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201705310956"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
