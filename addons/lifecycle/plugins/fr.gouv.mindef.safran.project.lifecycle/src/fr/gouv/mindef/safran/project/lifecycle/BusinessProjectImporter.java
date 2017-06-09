@@ -199,6 +199,13 @@ public class BusinessProjectImporter {
 
 			@Override
 			protected void doExecute() {
+				// At the end of the import, if there is no "requirement.Repository" object in the target MOE project, then create one named after the MOE project.
+				// This verification is done *before* importing models from the MOA otherwise they get added onto the session.
+				boolean repositoryExistsBeforeImporting = false;
+				for(Resource semanticResource : SessionManager.INSTANCE.getExistingSession(targetProject.getMainRepresentationsFileURI(monitor).get()).getSemanticResources()){
+					repositoryExistsBeforeImporting = repositoryExistsBeforeImporting || EcoreUtil.getObjectByType(semanticResource.getContents(), RequirementPackage.Literals.REPOSITORY) != null;
+				}
+				
 				// Delete the content of the impacted resources and the related representations
 				final Collection<EObject> existingTargetSemanticRoots = getAllImpactedTargetSemanticRoots();
 				if (!existingTargetSemanticRoots.isEmpty()) {
@@ -240,12 +247,11 @@ public class BusinessProjectImporter {
 				restoreRequirementReferences(requirementReferencesCache);
 				
 
-				// If there is no "requirement.Repository" object in the target MOE project, then create one named after the MOE project.
-				Boolean repositoryExists = false;
-				for(Resource semanticResource : SessionManager.INSTANCE.getExistingSession(targetProject.getMainRepresentationsFileURI(monitor).get()).getSemanticResources()){
-					repositoryExists = repositoryExists || EcoreUtil.getObjectByType(semanticResource.getContents(), RequirementPackage.Literals.REPOSITORY) != null;
-				}
-				if(!repositoryExists){
+//				Boolean repositoryExists = false;
+//				for(Resource semanticResource : SessionManager.INSTANCE.getExistingSession(targetProject.getMainRepresentationsFileURI(monitor).get()).getSemanticResources()){
+//					repositoryExists = repositoryExists || EcoreUtil.getObjectByType(semanticResource.getContents(), RequirementPackage.Literals.REPOSITORY) != null;
+//				}
+				if(!repositoryExistsBeforeImporting){
 					Repository requirementsRepository = RequirementFactory.eINSTANCE.createRepository();
 					addToSemanticResource(requirementsRepository, targetProject.getProject().getName() + "/" + targetProject.getProject().getName() + ".requirement");
 				}				
