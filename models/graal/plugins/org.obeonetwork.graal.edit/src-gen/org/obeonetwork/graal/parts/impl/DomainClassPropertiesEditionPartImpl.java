@@ -8,61 +8,55 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-/**
- * Generated with Acceleo
- */
 package org.obeonetwork.graal.parts.impl;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 // Start of user code for imports
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
-
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
+import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
-
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
+import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
+import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
-
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
-
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.AbstractAdvancedEObjectFlatComboViewer.EObjectFlatComboViewerListener;
-
 import org.eclipse.emf.eef.runtime.ui.widgets.AdvancedEObjectFlatComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
+import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
+import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
+import org.eclipse.emf.eef.runtime.ui.widgets.TabElementTreeSelectionDialog;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-
 import org.obeonetwork.graal.parts.DomainClassPropertiesEditionPart;
 import org.obeonetwork.graal.parts.GraalViewsRepository;
-
 import org.obeonetwork.graal.providers.GraalMessages;
 
 // End of user code
@@ -74,8 +68,11 @@ import org.obeonetwork.graal.providers.GraalMessages;
 public class DomainClassPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, DomainClassPropertiesEditionPart {
 
 	protected Text name;
-	private AdvancedEObjectFlatComboViewer superType;
+	protected AdvancedEObjectFlatComboViewer superType;
 	protected ViewerFilter superTypeFilter;
+	protected ReferencesTable associatedTypes;
+	protected List<ViewerFilter> associatedTypesBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> associatedTypesFilters = new ArrayList<ViewerFilter>();
 	protected Text description;
 
 
@@ -117,6 +114,7 @@ public class DomainClassPropertiesEditionPartImpl extends CompositePropertiesEdi
 		CompositionStep propertiesStep = domainClassStep.addStep(GraalViewsRepository.DomainClass.Properties.class);
 		propertiesStep.addStep(GraalViewsRepository.DomainClass.Properties.name);
 		propertiesStep.addStep(GraalViewsRepository.DomainClass.Properties.superType);
+		propertiesStep.addStep(GraalViewsRepository.DomainClass.Properties.associatedTypes);
 		propertiesStep.addStep(GraalViewsRepository.DomainClass.Properties.description);
 		
 		
@@ -132,6 +130,9 @@ public class DomainClassPropertiesEditionPartImpl extends CompositePropertiesEdi
 				}
 				if (key == GraalViewsRepository.DomainClass.Properties.superType) {
 					return createSuperTypeAdvancedFlatComboViewer(parent);
+				}
+				if (key == GraalViewsRepository.DomainClass.Properties.associatedTypes) {
+					return createAssociatedTypesAdvancedReferencesTable(parent);
 				}
 				if (key == GraalViewsRepository.DomainClass.Properties.description) {
 					return createDescriptionTextarea(parent);
@@ -239,6 +240,88 @@ public class DomainClassPropertiesEditionPartImpl extends CompositePropertiesEdi
 
 		// End of user code
 		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected Composite createAssociatedTypesAdvancedReferencesTable(Composite parent) {
+		String label = getDescription(GraalViewsRepository.DomainClass.Properties.associatedTypes, GraalMessages.DomainClassPropertiesEditionPart_AssociatedTypesLabel);		 
+		this.associatedTypes = new ReferencesTable(label, new ReferencesTableListener() {
+			public void handleAdd() { addAssociatedTypes(); }
+			public void handleEdit(EObject element) { editAssociatedTypes(element); }
+			public void handleMove(EObject element, int oldIndex, int newIndex) { moveAssociatedTypes(element, oldIndex, newIndex); }
+			public void handleRemove(EObject element) { removeFromAssociatedTypes(element); }
+			public void navigateTo(EObject element) { }
+		});
+		this.associatedTypes.setHelpText(propertiesEditionComponent.getHelpContent(GraalViewsRepository.DomainClass.Properties.associatedTypes, GraalViewsRepository.SWT_KIND));
+		this.associatedTypes.createControls(parent);
+		this.associatedTypes.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item != null && e.item.getData() instanceof EObject) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DomainClassPropertiesEditionPartImpl.this, GraalViewsRepository.DomainClass.Properties.associatedTypes, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+				}
+			}
+			
+		});
+		GridData associatedTypesData = new GridData(GridData.FILL_HORIZONTAL);
+		associatedTypesData.horizontalSpan = 3;
+		this.associatedTypes.setLayoutData(associatedTypesData);
+		this.associatedTypes.disableMove();
+		associatedTypes.setID(GraalViewsRepository.DomainClass.Properties.associatedTypes);
+		associatedTypes.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected void addAssociatedTypes() {
+		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(associatedTypes.getInput(), associatedTypesFilters, associatedTypesBusinessFilters,
+		"associatedTypes", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
+			@Override
+			public void process(IStructuredSelection selection) {
+				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
+					EObject elem = (EObject) iter.next();
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DomainClassPropertiesEditionPartImpl.this, GraalViewsRepository.DomainClass.Properties.associatedTypes,
+						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
+				}
+				associatedTypes.refresh();
+			}
+		};
+		dialog.open();
+	}
+
+	/**
+	 * 
+	 */
+	protected void moveAssociatedTypes(EObject element, int oldIndex, int newIndex) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DomainClassPropertiesEditionPartImpl.this, GraalViewsRepository.DomainClass.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		associatedTypes.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void removeFromAssociatedTypes(EObject element) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(DomainClassPropertiesEditionPartImpl.this, GraalViewsRepository.DomainClass.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		associatedTypes.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void editAssociatedTypes(EObject element) {
+		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
+		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
+		if (provider != null) {
+			PropertiesEditingPolicy policy = provider.getPolicy(context);
+			if (policy != null) {
+				policy.execute();
+				associatedTypes.refresh();
+			}
+		}
 	}
 
 	
@@ -400,6 +483,71 @@ public class DomainClassPropertiesEditionPartImpl extends CompositePropertiesEdi
 	 */
 	public void addBusinessFilterToSuperType(ViewerFilter filter) {
 		superType.addBusinessRuleFilter(filter);
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.graal.parts.DomainClassPropertiesEditionPart#initAssociatedTypes(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
+	 */
+	public void initAssociatedTypes(ReferencesTableSettings settings) {
+		if (current.eResource() != null && current.eResource().getResourceSet() != null)
+			this.resourceSet = current.eResource().getResourceSet();
+		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
+		associatedTypes.setContentProvider(contentProvider);
+		associatedTypes.setInput(settings);
+		associatedTypesBusinessFilters.clear();
+		associatedTypesFilters.clear();
+		boolean eefElementEditorReadOnlyState = isReadOnly(GraalViewsRepository.DomainClass.Properties.associatedTypes);
+		if (eefElementEditorReadOnlyState && associatedTypes.getTable().isEnabled()) {
+			associatedTypes.setEnabled(false);
+			associatedTypes.setToolTipText(GraalMessages.DomainClass_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !associatedTypes.getTable().isEnabled()) {
+			associatedTypes.setEnabled(true);
+		}
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.graal.parts.DomainClassPropertiesEditionPart#updateAssociatedTypes()
+	 * 
+	 */
+	public void updateAssociatedTypes() {
+	associatedTypes.refresh();
+}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.graal.parts.DomainClassPropertiesEditionPart#addFilterAssociatedTypes(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToAssociatedTypes(ViewerFilter filter) {
+		associatedTypesFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.graal.parts.DomainClassPropertiesEditionPart#addBusinessFilterAssociatedTypes(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToAssociatedTypes(ViewerFilter filter) {
+		associatedTypesBusinessFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.graal.parts.DomainClassPropertiesEditionPart#isContainedInAssociatedTypesTable(EObject element)
+	 * 
+	 */
+	public boolean isContainedInAssociatedTypesTable(EObject element) {
+		return ((ReferencesTableSettings)associatedTypes.getInput()).contains(element);
 	}
 
 	/**

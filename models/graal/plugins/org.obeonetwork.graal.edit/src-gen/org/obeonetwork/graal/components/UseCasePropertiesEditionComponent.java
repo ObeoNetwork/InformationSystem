@@ -8,9 +8,6 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-/**
- * Generated with Acceleo
- */
 package org.obeonetwork.graal.components;
 
 // Start of user code for imports

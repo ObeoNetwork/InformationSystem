@@ -8,9 +8,6 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-/**
- * Generated with Acceleo
- */
 package org.obeonetwork.graal.parts;
 
 /**
@@ -438,6 +435,9 @@ public class GraalViewsRepository {
 			
 			
 			public static String superType = "graal::DomainClass::properties::superType";
+			
+			
+			public static String associatedTypes = "graal::DomainClass::properties::associatedTypes";
 			
 			
 			public static String description = "graal::DomainClass::properties::description";

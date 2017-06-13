@@ -8,9 +8,6 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-/**
- * Generated with Acceleo
- */
 package org.obeonetwork.graal.providers;
 
 import org.eclipse.osgi.util.NLS;
@@ -399,6 +396,9 @@ public class GraalMessages extends NLS {
 
 	
 	public static String DomainClassPropertiesEditionPart_SuperTypeLabel;
+
+	
+	public static String DomainClassPropertiesEditionPart_AssociatedTypesLabel;
 
 	
 	public static String DomainClassPropertiesEditionPart_DescriptionLabel;

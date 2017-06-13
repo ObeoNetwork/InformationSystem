@@ -318,6 +318,9 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_suDNcKEOEeaqPJJw57BpkA" name="description" views="_D3FbBKEOEeaqPJJw57BpkA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//ObeoDSMObject/description"/>
         </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_F0PSMFA8EeeGuNIOG-GFFg" name="associatedTypes" views="_APID0FA8EeeGuNIOG-GFFg">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.obeonetwork.dsl.environment/model/environment.ecore#//StructuredType/associatedTypes"/>
+        </properties>
         <referencedBinding xmi:id="_NgVXwKEPEeaqPJJw57BpkA">
           <binding xsi:type="eef-components:PropertiesEditionComponent" href="platform:/resource/org.obeonetwork.dsl.environment.edit/model/environment.components#_65K3QHC0EeCNPbrYssPTmA"/>
         </referencedBinding>
@@ -621,6 +624,9 @@
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_D3FbA6EOEeaqPJJw57BpkA" name="superType">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.9"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_APID0FA8EeeGuNIOG-GFFg" name="associatedTypes">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_D3FbBKEOEeaqPJJw57BpkA" name="description">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>

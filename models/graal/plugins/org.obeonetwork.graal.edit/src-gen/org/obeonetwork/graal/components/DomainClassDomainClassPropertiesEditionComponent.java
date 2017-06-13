@@ -8,9 +8,6 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-/**
- * Generated with Acceleo
- */
 package org.obeonetwork.graal.components;
 
 // Start of user code for imports
@@ -30,6 +27,7 @@ import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
+import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
@@ -37,6 +35,7 @@ import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 import org.obeonetwork.dsl.environment.StructuredType;
 import org.obeonetwork.graal.DomainClass;
@@ -60,6 +59,11 @@ public class DomainClassDomainClassPropertiesEditionComponent extends SinglePart
 	 * Settings for superType EObjectFlatComboViewer
 	 */
 	private EObjectFlatComboSettings superTypeSettings;
+	
+	/**
+	 * Settings for associatedTypes ReferencesTable
+	 */
+	private ReferencesTableSettings associatedTypesSettings;
 	
 	
 	/**
@@ -100,10 +104,19 @@ public class DomainClassDomainClassPropertiesEditionComponent extends SinglePart
 			}
 			if (isAccessible(GraalViewsRepository.DomainClass.Properties.description))
 				domainClassPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, domainClass.getDescription()));
+			if (isAccessible(GraalViewsRepository.DomainClass.Properties.associatedTypes)) {
+				associatedTypesSettings = new ReferencesTableSettings(domainClass, EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes());
+				domainClassPart.initAssociatedTypes(associatedTypesSettings);
+			}
 			// init filters
 			
 			
 			
+			if (isAccessible(GraalViewsRepository.DomainClass.Properties.associatedTypes)) {
+				domainClassPart.addFilterToAssociatedTypes(new EObjectFilter(EnvironmentPackage.Literals.STRUCTURED_TYPE));
+				// Start of user code for additional businessfilters for associatedTypes
+				// End of user code
+			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -111,6 +124,7 @@ public class DomainClassDomainClassPropertiesEditionComponent extends SinglePart
 		}
 		setInitializing(false);
 	}
+
 
 
 
@@ -130,6 +144,9 @@ public class DomainClassDomainClassPropertiesEditionComponent extends SinglePart
 		}
 		if (editorKey == GraalViewsRepository.DomainClass.Properties.description) {
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
+		}
+		if (editorKey == GraalViewsRepository.DomainClass.Properties.associatedTypes) {
+			return EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -161,6 +178,17 @@ public class DomainClassDomainClassPropertiesEditionComponent extends SinglePart
 		if (GraalViewsRepository.DomainClass.Properties.description == event.getAffectedEditor()) {
 			domainClass.setDescription((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
+		if (GraalViewsRepository.DomainClass.Properties.associatedTypes == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.ADD) {
+				if (event.getNewValue() instanceof StructuredType) {
+					associatedTypesSettings.addToReference((EObject) event.getNewValue());
+				}
+			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
+				associatedTypesSettings.removeFromReference((EObject) event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
+				associatedTypesSettings.move(event.getNewIndex(), (StructuredType) event.getNewValue());
+			}
+		}
 	}
 
 	/**
@@ -187,6 +215,8 @@ public class DomainClassDomainClassPropertiesEditionComponent extends SinglePart
 					domainClassPart.setDescription("");
 				}
 			}
+			if (EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes().equals(msg.getFeature())  && isAccessible(GraalViewsRepository.DomainClass.Properties.associatedTypes))
+				domainClassPart.updateAssociatedTypes();
 			
 		}
 	}
@@ -201,7 +231,8 @@ public class DomainClassDomainClassPropertiesEditionComponent extends SinglePart
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EnvironmentPackage.eINSTANCE.getType_Name(),
 			EnvironmentPackage.eINSTANCE.getStructuredType_Supertype(),
-			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes()		);
 		return new NotificationFilter[] {filter,};
 	}
 

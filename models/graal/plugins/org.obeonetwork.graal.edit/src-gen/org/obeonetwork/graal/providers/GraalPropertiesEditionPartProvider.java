@@ -8,9 +8,6 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-/**
- * Generated with Acceleo
- */
 package org.obeonetwork.graal.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
