@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
@@ -53,7 +53,7 @@ import org.obeonetwork.dsl.entity.providers.EntityMessages;
 public class ExternalCriterionPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, ExternalCriterionPropertiesEditionPart {
 
 	protected Text name;
-	private AdvancedEObjectFlatComboViewer type;
+	protected AdvancedEObjectFlatComboViewer type;
 	protected ViewerFilter typeFilter;
 	protected Text description;
 

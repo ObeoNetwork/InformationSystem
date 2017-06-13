@@ -4,22 +4,26 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
 package org.obeonetwork.dsl.entity.parts.forms;
 
 // Start of user code for imports
-import org.eclipse.emf.common.util.Enumerator;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.eef.runtime.EEFRuntimePlugin;
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
+import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
+import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
+import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionSequence;
@@ -28,12 +32,14 @@ import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
 import org.eclipse.emf.eef.runtime.ui.widgets.AdvancedEObjectFlatComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.AdvancedEObjectFlatComboViewer.EObjectFlatComboViewerListener;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
-import org.eclipse.emf.eef.runtime.ui.widgets.EMFComboViewer;
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
+import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
+import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
+import org.eclipse.emf.eef.runtime.ui.widgets.TabElementTreeSelectionDialog;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
@@ -45,7 +51,6 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
@@ -69,6 +74,9 @@ public class EntityPropertiesEditionPartForm extends SectionPropertiesEditingPar
 	protected Text name;
 	protected AdvancedEObjectFlatComboViewer superType;
 	protected ViewerFilter superTypeFilter;
+	protected ReferencesTable associatedTypes;
+	protected List<ViewerFilter> associatedTypesBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> associatedTypesFilters = new ArrayList<ViewerFilter>();
 	protected Text description;
 
 
@@ -117,6 +125,7 @@ public class EntityPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		CompositionStep propertiesStep = entity_Step.addStep(EntityViewsRepository.Entity_.Properties.class);
 		propertiesStep.addStep(EntityViewsRepository.Entity_.Properties.name);
 		propertiesStep.addStep(EntityViewsRepository.Entity_.Properties.superType);
+		propertiesStep.addStep(EntityViewsRepository.Entity_.Properties.associatedTypes);
 		propertiesStep.addStep(EntityViewsRepository.Entity_.Properties.description);
 		
 		
@@ -132,6 +141,9 @@ public class EntityPropertiesEditionPartForm extends SectionPropertiesEditingPar
 				}
 				if (key == EntityViewsRepository.Entity_.Properties.superType) {
 					return createSuperTypeFlatComboViewer(parent, widgetFactory);
+				}
+				if (key == EntityViewsRepository.Entity_.Properties.associatedTypes) {
+					return createAssociatedTypesReferencesTable(widgetFactory, parent);
 				}
 				if (key == EntityViewsRepository.Entity_.Properties.description) {
 					return createDescriptionTextarea(widgetFactory, parent);
@@ -263,6 +275,90 @@ public class EntityPropertiesEditionPartForm extends SectionPropertiesEditingPar
 		return parent;
 	}
 
+
+	/**
+	 * 
+	 */
+	protected Composite createAssociatedTypesReferencesTable(FormToolkit widgetFactory, Composite parent) {
+		this.associatedTypes = new ReferencesTable(getDescription(EntityViewsRepository.Entity_.Properties.associatedTypes, EntityMessages.EntityPropertiesEditionPart_AssociatedTypesLabel), new ReferencesTableListener	() {
+			public void handleAdd() { addAssociatedTypes(); }
+			public void handleEdit(EObject element) { editAssociatedTypes(element); }
+			public void handleMove(EObject element, int oldIndex, int newIndex) { moveAssociatedTypes(element, oldIndex, newIndex); }
+			public void handleRemove(EObject element) { removeFromAssociatedTypes(element); }
+			public void navigateTo(EObject element) { }
+		});
+		this.associatedTypes.setHelpText(propertiesEditionComponent.getHelpContent(EntityViewsRepository.Entity_.Properties.associatedTypes, EntityViewsRepository.FORM_KIND));
+		this.associatedTypes.createControls(parent, widgetFactory);
+		this.associatedTypes.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item != null && e.item.getData() instanceof EObject) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EntityPropertiesEditionPartForm.this, EntityViewsRepository.Entity_.Properties.associatedTypes, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+				}
+			}
+			
+		});
+		GridData associatedTypesData = new GridData(GridData.FILL_HORIZONTAL);
+		associatedTypesData.horizontalSpan = 3;
+		this.associatedTypes.setLayoutData(associatedTypesData);
+		this.associatedTypes.disableMove();
+		associatedTypes.setID(EntityViewsRepository.Entity_.Properties.associatedTypes);
+		associatedTypes.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createAssociatedTypesReferencesTable
+
+		// End of user code
+		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected void addAssociatedTypes() {
+		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(associatedTypes.getInput(), associatedTypesFilters, associatedTypesBusinessFilters,
+		"associatedTypes", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
+			@Override
+			public void process(IStructuredSelection selection) {
+				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
+					EObject elem = (EObject) iter.next();
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EntityPropertiesEditionPartForm.this, EntityViewsRepository.Entity_.Properties.associatedTypes,
+						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
+				}
+				associatedTypes.refresh();
+			}
+		};
+		dialog.open();
+	}
+
+	/**
+	 * 
+	 */
+	protected void moveAssociatedTypes(EObject element, int oldIndex, int newIndex) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EntityPropertiesEditionPartForm.this, EntityViewsRepository.Entity_.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		associatedTypes.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void removeFromAssociatedTypes(EObject element) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(EntityPropertiesEditionPartForm.this, EntityViewsRepository.Entity_.Properties.associatedTypes, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		associatedTypes.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void editAssociatedTypes(EObject element) {
+		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
+		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
+		if (provider != null) {
+			PropertiesEditingPolicy policy = provider.getPolicy(context);
+			if (policy != null) {
+				policy.execute();
+				associatedTypes.refresh();
+			}
+		}
+	}
 
 	
 	protected Composite createDescriptionTextarea(FormToolkit widgetFactory, Composite parent) {
@@ -447,6 +543,71 @@ public class EntityPropertiesEditionPartForm extends SectionPropertiesEditingPar
 	 */
 	public void addBusinessFilterToSuperType(ViewerFilter filter) {
 		superType.addBusinessRuleFilter(filter);
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.entity.parts.EntityPropertiesEditionPart#initAssociatedTypes(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
+	 */
+	public void initAssociatedTypes(ReferencesTableSettings settings) {
+		if (current.eResource() != null && current.eResource().getResourceSet() != null)
+			this.resourceSet = current.eResource().getResourceSet();
+		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
+		associatedTypes.setContentProvider(contentProvider);
+		associatedTypes.setInput(settings);
+		associatedTypesBusinessFilters.clear();
+		associatedTypesFilters.clear();
+		boolean eefElementEditorReadOnlyState = isReadOnly(EntityViewsRepository.Entity_.Properties.associatedTypes);
+		if (eefElementEditorReadOnlyState && associatedTypes.getTable().isEnabled()) {
+			associatedTypes.setEnabled(false);
+			associatedTypes.setToolTipText(EntityMessages.Entity_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !associatedTypes.getTable().isEnabled()) {
+			associatedTypes.setEnabled(true);
+		}
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.entity.parts.EntityPropertiesEditionPart#updateAssociatedTypes()
+	 * 
+	 */
+	public void updateAssociatedTypes() {
+	associatedTypes.refresh();
+}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.entity.parts.EntityPropertiesEditionPart#addFilterAssociatedTypes(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToAssociatedTypes(ViewerFilter filter) {
+		associatedTypesFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.entity.parts.EntityPropertiesEditionPart#addBusinessFilterAssociatedTypes(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToAssociatedTypes(ViewerFilter filter) {
+		associatedTypesBusinessFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see org.obeonetwork.dsl.entity.parts.EntityPropertiesEditionPart#isContainedInAssociatedTypesTable(EObject element)
+	 * 
+	 */
+	public boolean isContainedInAssociatedTypesTable(EObject element) {
+		return ((ReferencesTableSettings)associatedTypes.getInput()).contains(element);
 	}
 
 	/**

@@ -4,17 +4,17 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
 package org.obeonetwork.dsl.entity.parts;
 
 // Start of user code for imports
-import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 
@@ -85,6 +85,48 @@ public interface EntityPropertiesEditionPart {
 	 * 
 	 */
 	public void addBusinessFilterToSuperType(ViewerFilter filter);
+
+
+
+
+	/**
+	 * Init the associatedTypes
+	 * @param settings settings for the associatedTypes ReferencesTable 
+	 */
+	public void initAssociatedTypes(ReferencesTableSettings settings);
+
+	/**
+	 * Update the associatedTypes
+	 * @param newValue the associatedTypes to update
+	 * 
+	 */
+	public void updateAssociatedTypes();
+
+	/**
+	 * Adds the given filter to the associatedTypes edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addFilterToAssociatedTypes(ViewerFilter filter);
+
+	/**
+	 * Adds the given filter to the associatedTypes edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addBusinessFilterToAssociatedTypes(ViewerFilter filter);
+
+	/**
+	 * @return true if the given element is contained inside the associatedTypes table
+	 * 
+	 */
+	public boolean isContainedInAssociatedTypesTable(EObject element);
 
 
 	/**

@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
@@ -27,17 +27,16 @@ import org.eclipse.emf.eef.runtime.api.notify.NotificationFilter;
 import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.components.SinglePartPropertiesEditingComponent;
+import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
-import org.eclipse.emf.eef.runtime.impl.utils.EEFUtils;
 import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
 import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.ButtonsModeEnum;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.obeonetwork.dsl.entity.Entity;
-import org.obeonetwork.dsl.entity.EntityPackage;
-import org.obeonetwork.dsl.entity.InheritanceKind;
 import org.obeonetwork.dsl.entity.parts.EntityPropertiesEditionPart;
 import org.obeonetwork.dsl.entity.parts.EntityViewsRepository;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
@@ -60,6 +59,11 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 	 * Settings for superType EObjectFlatComboViewer
 	 */
 	private EObjectFlatComboSettings superTypeSettings;
+	
+	/**
+	 * Settings for associatedTypes ReferencesTable
+	 */
+	private ReferencesTableSettings associatedTypesSettings;
 	
 	
 	/**
@@ -100,10 +104,19 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 			}
 			if (isAccessible(EntityViewsRepository.Entity_.Properties.description))
 				entityPart.setDescription(EcoreUtil.convertToString(EcorePackage.Literals.ESTRING, entity.getDescription()));
+			if (isAccessible(EntityViewsRepository.Entity_.Properties.associatedTypes)) {
+				associatedTypesSettings = new ReferencesTableSettings(entity, EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes());
+				entityPart.initAssociatedTypes(associatedTypesSettings);
+			}
 			// init filters
 			
 			
 			
+			if (isAccessible(EntityViewsRepository.Entity_.Properties.associatedTypes)) {
+				entityPart.addFilterToAssociatedTypes(new EObjectFilter(EnvironmentPackage.Literals.STRUCTURED_TYPE));
+				// Start of user code for additional businessfilters for associatedTypes
+				// End of user code
+			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -111,6 +124,7 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 		}
 		setInitializing(false);
 	}
+
 
 
 
@@ -130,6 +144,9 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 		}
 		if (editorKey == EntityViewsRepository.Entity_.Properties.description) {
 			return EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description();
+		}
+		if (editorKey == EntityViewsRepository.Entity_.Properties.associatedTypes) {
+			return EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -161,6 +178,17 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 		if (EntityViewsRepository.Entity_.Properties.description == event.getAffectedEditor()) {
 			entity.setDescription((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
+		if (EntityViewsRepository.Entity_.Properties.associatedTypes == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.ADD) {
+				if (event.getNewValue() instanceof StructuredType) {
+					associatedTypesSettings.addToReference((EObject) event.getNewValue());
+				}
+			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
+				associatedTypesSettings.removeFromReference((EObject) event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
+				associatedTypesSettings.move(event.getNewIndex(), (StructuredType) event.getNewValue());
+			}
+		}
 	}
 
 	/**
@@ -187,6 +215,8 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 					entityPart.setDescription("");
 				}
 			}
+			if (EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes().equals(msg.getFeature())  && isAccessible(EntityViewsRepository.Entity_.Properties.associatedTypes))
+				entityPart.updateAssociatedTypes();
 			
 		}
 	}
@@ -201,7 +231,8 @@ public class EntityEntityPropertiesEditionComponent extends SinglePartProperties
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			EnvironmentPackage.eINSTANCE.getType_Name(),
 			EnvironmentPackage.eINSTANCE.getStructuredType_Supertype(),
-			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description()		);
+			EnvironmentPackage.eINSTANCE.getObeoDSMObject_Description(),
+			EnvironmentPackage.eINSTANCE.getStructuredType_AssociatedTypes()		);
 		return new NotificationFilter[] {filter,};
 	}
 
