@@ -111,7 +111,7 @@ location "http://update.obeo.fr/release/designer/9.1/team/latest/repository/" {
 	fr.obeo.dsl.viewpoint.runtime.collab.feature.group lazy
 }
 
-location "http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201705310956" {
+location "http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201707060903" {
 	org.eclipse.emf.eef.runtime-feature.feature.group lazy
 	org.eclipse.emf.eef.edt-feature.feature.group lazy
 	org.eclipse.emf.eef.extended-feature.feature.group lazy
