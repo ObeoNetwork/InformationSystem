@@ -1,5 +1,6 @@
 package fr.gouv.mindef.safran.database.transfo.impl;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -183,8 +184,8 @@ public abstract class MpdToMldBidiRules extends AbstractTransformation {
 							// Create a new sequence
 							Sequence newSequence = DatabaseFactory.eINSTANCE.createSequence();
 							newSequence.setName(sequenceName);
-							newSequence.setIncrement(1);
-							newSequence.setStart(1);
+							newSequence.setIncrement(new BigInteger("1"));
+							newSequence.setStart(new BigInteger("1"));
 							newSequence.setComments(String.format(SEQUENCE_INITIAL_COMMENTS, targetTable.getName()));
 							targetTable.getOwner().getSequences().add(newSequence);
 							

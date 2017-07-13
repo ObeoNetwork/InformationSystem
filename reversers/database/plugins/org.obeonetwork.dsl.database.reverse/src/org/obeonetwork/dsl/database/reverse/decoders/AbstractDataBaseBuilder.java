@@ -1,8 +1,11 @@
 package org.obeonetwork.dsl.database.reverse.decoders;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.eclipse.emf.common.EMFPlugin;
@@ -122,6 +125,17 @@ public abstract class AbstractDataBaseBuilder implements DataBaseBuilder {
 				dataBase.getUsedLibraries().add(nativeTypesLibrary);
 			}
 		}
+	}
+	
+	protected BigInteger getBigIntValueForColumn(ResultSet rs, int columnId) {
+		BigInteger result = null;
+		try {
+			BigDecimal inc = rs.getBigDecimal(columnId);
+			result = inc.toBigInteger();
+		} catch (Exception e) {
+			// Do nothing.
+		}
+		return result;
 	}
 	
 	protected abstract String getTypesLibraryUriPathmap();

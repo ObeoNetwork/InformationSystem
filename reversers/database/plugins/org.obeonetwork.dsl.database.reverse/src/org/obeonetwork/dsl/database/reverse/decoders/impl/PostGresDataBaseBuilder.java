@@ -92,29 +92,21 @@ public class PostGresDataBaseBuilder extends DefaultDataBaseBuilder {
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				String name = rs.getString(1);
-				int increment = rs.getInt(2);
-				int minValue = rs.getInt(3);
-				BigInteger maxValueAsBigInt = new BigInteger(rs.getString(4));
-				BigInteger maxIntValue = new BigInteger(
-						Integer.toString(Integer.MAX_VALUE));
-				Integer maxValue = null;
-				if (maxValueAsBigInt.compareTo(maxIntValue) < 0) {
-					maxValue = maxValueAsBigInt.intValue();
-				} else {
-					maxValue = -1;
-				}
-				int start = rs.getInt(5);
+				BigInteger increment = getBigIntValueForColumn(rs, 2);
+				BigInteger minValue = getBigIntValueForColumn(rs, 3);
+				BigInteger maxValue = getBigIntValueForColumn(rs, 4);
+				BigInteger start = getBigIntValueForColumn(rs, 5);
 				String cycleAsString = rs.getString(6);
 				boolean cycle = "YES".equals(cycleAsString);
 				
 				String comment = rs.getString(7);
 				
 				// Retrieve CACHE value
-				Integer cacheValue = null;
+				BigInteger cacheValue = null;
 				PreparedStatement psmtCache = metaData.getConnection().prepareStatement("SELECT CACHE_VALUE FROM " + schemaName + "." + name);
 				ResultSet rsCache = psmtCache.executeQuery();
 				if (rsCache.next()) {
-					cacheValue = rsCache.getInt(1);
+					cacheValue = getBigIntValueForColumn(rsCache, 1);
 				}
 				
 				Sequence sequence = CreationUtils.createSequence(owner, name,

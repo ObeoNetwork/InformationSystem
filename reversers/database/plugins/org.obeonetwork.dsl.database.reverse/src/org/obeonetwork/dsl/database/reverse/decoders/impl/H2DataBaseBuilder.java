@@ -78,17 +78,10 @@ public class H2DataBaseBuilder extends DefaultDataBaseBuilder {
             rs = psmt.executeQuery();
             while( rs.next() ) {
             	String name = rs.getString(1);
-            	int increment = rs.getInt(2);
-            	int minValue = rs.getInt(3);
-            	BigInteger maxValueAsBigInt = new BigInteger(rs.getString(4));
-            	BigInteger maxIntValue = new BigInteger(Integer.toString(Integer.MAX_VALUE));
-            	Integer maxValue = null;
-            	if (maxValueAsBigInt.compareTo(maxIntValue) < 0) {                		
-            		maxValue = maxValueAsBigInt.intValue();
-            	} else {
-            		maxValue = -1;
-            	}
-            	int start = rs.getInt(5);
+            	BigInteger increment = getBigIntValueForColumn(rs, 2);
+            	BigInteger minValue =getBigIntValueForColumn(rs, 3);
+            	BigInteger maxValue = getBigIntValueForColumn(rs, 4);
+            	BigInteger start = getBigIntValueForColumn(rs, 5);
             	Sequence sequence = CreationUtils.createSequence(owner, name, increment, minValue, maxValue, start, false, null);
             	// Look for a table that could correspond to the sequence
             	if (name.endsWith("_SEQ")) {

@@ -189,7 +189,11 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<Index> getIndexes() {
-		return (EList<Index>)eDynamicGet(DatabasePackage.COLUMN__INDEXES, DatabasePackage.Literals.COLUMN__INDEXES, true, true);
+		// TODO: implement this method to return the 'Indexes' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -246,7 +250,11 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 	 */
 	@SuppressWarnings("unchecked")
 	public EList<ForeignKey> getForeignKeys() {
-		return (EList<ForeignKey>)eDynamicGet(DatabasePackage.COLUMN__FOREIGN_KEYS, DatabasePackage.Literals.COLUMN__FOREIGN_KEYS, true, true);
+		// TODO: implement this method to return the 'Foreign Keys' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -376,7 +384,9 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 	 * @generated
 	 */
 	public boolean isInPrimaryKey() {
-		return (Boolean)eDynamicGet(DatabasePackage.COLUMN__IN_PRIMARY_KEY, DatabasePackage.Literals.COLUMN__IN_PRIMARY_KEY, true, true);
+		// TODO: implement this method to return the 'In Primary Key' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -385,7 +395,9 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 	 * @generated
 	 */
 	public boolean isInForeignKey() {
-		return (Boolean)eDynamicGet(DatabasePackage.COLUMN__IN_FOREIGN_KEY, DatabasePackage.Literals.COLUMN__IN_FOREIGN_KEY, true, true);
+		// TODO: implement this method to return the 'In Foreign Key' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -394,7 +406,9 @@ public class ColumnImpl extends NamedElementImpl implements Column {
 	 * @generated
 	 */
 	public boolean isUnique() {
-		return (Boolean)eDynamicGet(DatabasePackage.COLUMN__UNIQUE, DatabasePackage.Literals.COLUMN__UNIQUE, true, true);
+		// TODO: implement this method to return the 'Unique' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

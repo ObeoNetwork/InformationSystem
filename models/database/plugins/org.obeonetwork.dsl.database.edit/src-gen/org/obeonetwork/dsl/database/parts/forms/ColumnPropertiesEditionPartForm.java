@@ -70,7 +70,7 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 	protected Text precision;
 	protected Text literals;
 	protected Button editLiterals;
-	private EList literalsList;
+	protected EList literalsList;
 	protected Button nullable;
 	protected Button primaryKey;
 	protected Button unique;
