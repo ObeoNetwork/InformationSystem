@@ -13,7 +13,6 @@
  */
 package org.obeonetwork.dsl.database.parts.forms;
 
-import java.awt.Color;
 import java.util.Scanner;
 
 // Start of user code for imports
@@ -83,7 +82,7 @@ public class ColumnPropertiesEditionPartForm extends SectionPropertiesEditingPar
 	protected Text precision;
 	protected Text literals;
 	protected Button editLiterals;
-	private EList literalsList;
+	protected EList literalsList;
 	protected Button nullable;
 	protected Button primaryKey;
 	protected Button unique;

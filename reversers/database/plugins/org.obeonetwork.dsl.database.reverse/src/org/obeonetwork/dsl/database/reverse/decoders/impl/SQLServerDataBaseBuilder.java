@@ -167,15 +167,15 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
             rs = pstmt.executeQuery();
             while( rs.next() ) {
             	String name = rs.getString(1);
-            	int increment = rs.getInt(2);
+            	BigInteger increment = getBigIntValueForColumn(rs, 2);
             	
-            	Integer minValue = getIntegerValueFromString(rs.getString(3));
-            	Integer maxValue = getIntegerValueFromString(rs.getString(4));
+            	BigInteger minValue = getBigIntValueForColumn(rs, 3);
+            	BigInteger maxValue = getBigIntValueForColumn(rs, 4);
             	
-            	Integer start = getIntegerValueFromString(rs.getString(5));
+            	BigInteger start = getBigIntValueForColumn(rs, 5);
             	
             	boolean cycle = rs.getBoolean(6);
-            	Integer cacheSize  = rs.getInt(7);
+            	BigInteger cacheSize  = getBigIntValueForColumn(rs, 7);
             	Sequence sequence = CreationUtils.createSequence(owner, name, increment, minValue, maxValue, start, cycle, cacheSize);
             	// Look for a table that could correspond to the sequence
             	if (name.endsWith("_SEQ")) {
@@ -197,22 +197,6 @@ public class SQLServerDataBaseBuilder extends DefaultDataBaseBuilder {
                 JdbcUtils.closeResultSet(rs);
         }
 
-	}
-	
-	
-	private Integer getIntegerValueFromString(String valueAsString) {
-		Integer value = null;
-		
-		BigInteger valueAsBigInt = new BigInteger(valueAsString);
-		
-		BigInteger minIntValue = new BigInteger(Integer.toString(Integer.MIN_VALUE));
-		BigInteger maxLongValue = new BigInteger(Integer.toString(Integer.MAX_VALUE));
-
-		if (valueAsBigInt.compareTo(minIntValue) > 0 && valueAsBigInt.compareTo(maxLongValue) < 0) {                		
-    		value = valueAsBigInt.intValue();
-    	}
-    	
-		return value;
 	}
 	
 	private static Identity getIdentity(String columnType) {

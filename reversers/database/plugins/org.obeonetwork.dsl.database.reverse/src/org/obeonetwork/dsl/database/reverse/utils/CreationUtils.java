@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database.reverse.utils;
 
+import java.math.BigInteger;
+
 import org.obeonetwork.dsl.database.AbstractTable;
 import org.obeonetwork.dsl.database.Column;
 import org.obeonetwork.dsl.database.Constraint;
@@ -111,7 +113,7 @@ public class CreationUtils {
 		return constraint;
 	}
 	
-	public static Sequence createSequence(TableContainer owner, String name, Integer increment, Integer minValue, Integer maxValue, Integer start, boolean cycle, Integer cache) {
+	public static Sequence createSequence(TableContainer owner, String name, BigInteger increment, BigInteger minValue, BigInteger maxValue, BigInteger start, boolean cycle, BigInteger cache) {
 		Sequence sequence = DatabaseFactory.eINSTANCE.createSequence();
 		sequence.setName(name);
 		sequence.setIncrement(increment);

@@ -467,6 +467,8 @@ public class PrimaryKeyPropertiesEditionPartImpl extends CompositePropertiesEdit
 		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
 		columns.setContentProvider(contentProvider);
 		columns.setInput(settings);
+		columnsBusinessFilters.clear();
+		columnsFilters.clear();
 		boolean eefElementEditorReadOnlyState = isReadOnly(DatabaseViewsRepository.PrimaryKey.Properties.columns);
 		if (eefElementEditorReadOnlyState && columns.getTable().isEnabled()) {
 			columns.getTable().setEnabled(false);

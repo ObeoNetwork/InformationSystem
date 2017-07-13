@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.obeonetwork.dsl.database;
 
+import java.math.BigInteger;
 import org.eclipse.emf.common.util.EList;
 
 
@@ -52,12 +53,12 @@ public interface Sequence extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start</em>' attribute.
-	 * @see #setStart(Integer)
+	 * @see #setStart(BigInteger)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_Start()
 	 * @model
 	 * @generated
 	 */
-	Integer getStart();
+	BigInteger getStart();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Sequence#getStart <em>Start</em>}' attribute.
@@ -67,7 +68,7 @@ public interface Sequence extends NamedElement {
 	 * @see #getStart()
 	 * @generated
 	 */
-	void setStart(Integer value);
+	void setStart(BigInteger value);
 
 	/**
 	 * Returns the value of the '<em><b>Increment</b></em>' attribute.
@@ -78,12 +79,12 @@ public interface Sequence extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Increment</em>' attribute.
-	 * @see #setIncrement(Integer)
+	 * @see #setIncrement(BigInteger)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_Increment()
 	 * @model
 	 * @generated
 	 */
-	Integer getIncrement();
+	BigInteger getIncrement();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Sequence#getIncrement <em>Increment</em>}' attribute.
@@ -93,7 +94,7 @@ public interface Sequence extends NamedElement {
 	 * @see #getIncrement()
 	 * @generated
 	 */
-	void setIncrement(Integer value);
+	void setIncrement(BigInteger value);
 
 	/**
 	 * Returns the value of the '<em><b>Min Value</b></em>' attribute.
@@ -104,12 +105,12 @@ public interface Sequence extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Min Value</em>' attribute.
-	 * @see #setMinValue(Integer)
+	 * @see #setMinValue(BigInteger)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_MinValue()
 	 * @model
 	 * @generated
 	 */
-	Integer getMinValue();
+	BigInteger getMinValue();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Sequence#getMinValue <em>Min Value</em>}' attribute.
@@ -119,7 +120,7 @@ public interface Sequence extends NamedElement {
 	 * @see #getMinValue()
 	 * @generated
 	 */
-	void setMinValue(Integer value);
+	void setMinValue(BigInteger value);
 
 	/**
 	 * Returns the value of the '<em><b>Max Value</b></em>' attribute.
@@ -130,12 +131,12 @@ public interface Sequence extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Max Value</em>' attribute.
-	 * @see #setMaxValue(Integer)
+	 * @see #setMaxValue(BigInteger)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_MaxValue()
 	 * @model
 	 * @generated
 	 */
-	Integer getMaxValue();
+	BigInteger getMaxValue();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Sequence#getMaxValue <em>Max Value</em>}' attribute.
@@ -145,7 +146,7 @@ public interface Sequence extends NamedElement {
 	 * @see #getMaxValue()
 	 * @generated
 	 */
-	void setMaxValue(Integer value);
+	void setMaxValue(BigInteger value);
 
 	/**
 	 * Returns the value of the '<em><b>Cache Size</b></em>' attribute.
@@ -156,12 +157,12 @@ public interface Sequence extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cache Size</em>' attribute.
-	 * @see #setCacheSize(Integer)
+	 * @see #setCacheSize(BigInteger)
 	 * @see org.obeonetwork.dsl.database.DatabasePackage#getSequence_CacheSize()
 	 * @model
 	 * @generated
 	 */
-	Integer getCacheSize();
+	BigInteger getCacheSize();
 
 	/**
 	 * Sets the value of the '{@link org.obeonetwork.dsl.database.Sequence#getCacheSize <em>Cache Size</em>}' attribute.
@@ -171,7 +172,7 @@ public interface Sequence extends NamedElement {
 	 * @see #getCacheSize()
 	 * @generated
 	 */
-	void setCacheSize(Integer value);
+	void setCacheSize(BigInteger value);
 
 	/**
 	 * Returns the value of the '<em><b>Cycle</b></em>' attribute.
