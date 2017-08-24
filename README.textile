@@ -5,6 +5,8 @@ Information System Designer provides a set of tools to help you in the design an
 Each of these modelers provides ready-to-use diagram editors that allow you to create, edit and visualize model elements.
 You can easily modify these editors with Obeo Designer to adapt each diagram to your needs or combine it to your own DSL. 
 
+This solution is provided as ready-to-use Eclipse packages available here: https://github.com/ObeoNetwork/InformationSystem/releases
+
 h2. Database Designer
 
 Database Designer is a graphical modeler to define or edit relational tables and relations. It's a simplified version of the Merise language.
