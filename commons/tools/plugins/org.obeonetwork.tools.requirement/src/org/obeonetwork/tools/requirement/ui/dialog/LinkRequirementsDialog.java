@@ -11,7 +11,11 @@
 package org.obeonetwork.tools.requirement.ui.dialog;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -26,6 +30,9 @@ import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
@@ -38,8 +45,6 @@ import org.obeonetwork.dsl.requirement.Requirement;
 import org.obeonetwork.tools.requirement.RequirementLinkerPlugin;
 import org.obeonetwork.tools.requirement.core.util.RequirementService;
 import org.obeonetwork.tools.requirement.wizard.util.RequirementsRepositoriesContentProvider;
-
-import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
 
 public class LinkRequirementsDialog extends TitleAreaDialog {
 
@@ -113,7 +118,38 @@ public class LinkRequirementsDialog extends TitleAreaDialog {
 		setInput(checkboxTreeViewer);
 		setCheckedElements(checkboxTreeViewer);
 		setGrayedElements(checkboxTreeViewer);
-		this.checkboxTreeViewer.expandToLevel(4);
+
+		// Expands the tree viewer up to all the checked elements. This way the
+		// user can easily add or remove requirement links with requirements
+		// which are located alongside already-checked requirements.
+		expandTreeViewerUpToCheckedElements(this.checkboxTreeViewer,
+				Arrays.asList(RequirementService.getLinkedRequirements(selectedObject)));
+	}
+
+	/**
+	 * Expands a {@link TreeViewer} up to all the given elements.
+	 * 
+	 * @param treeViewer
+	 * @param checkedElements
+	 */
+	private static void expandTreeViewerUpToCheckedElements(TreeViewer treeViewer, List<Requirement> checkedElements) {
+		ITreeContentProvider contentProvider = (ITreeContentProvider) treeViewer.getContentProvider();
+
+		// We need the unicity because there may be common ancestors in the tree
+		// of several checked elements. We also need the insertion order because
+		// we need to expand the higher nodes first.
+		LinkedHashSet<Object> treeOfElements = new LinkedHashSet<Object>();
+		for (Requirement checkedElement : checkedElements) {
+			Object element = checkedElement;
+			while (contentProvider.getParent(element) != null) {
+				treeOfElements.add(element);
+				element = contentProvider.getParent(element);
+			}
+		}
+		// Reverse the order to start with the root element (the EMF Resource).
+		List<Object> elementsToExpand = new ArrayList<Object>(treeOfElements);
+		Collections.reverse(elementsToExpand);
+		treeViewer.setExpandedElements(elementsToExpand.toArray());
 	}
 
 	private void setInput(CheckboxTreeViewer viewer) {
