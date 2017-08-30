@@ -56,7 +56,7 @@ public class LinkRequirementsDialog extends TitleAreaDialog {
 	 */
 	public LinkRequirementsDialog(Shell parentShell, EObject selectedObject) {
 		super(parentShell);
-		setShellStyle(SWT.TITLE | SWT.APPLICATION_MODAL);
+		setShellStyle(SWT.TITLE | SWT.APPLICATION_MODAL | SWT.RESIZE);
 		this.selectedObject = selectedObject;
 		this.adapterFactory = ViewHelper.INSTANCE.createAdapterFactory();
 	}
