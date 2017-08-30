@@ -28,16 +28,17 @@ import org.obeonetwork.dsl.requirement.RequirementFactory;
  */
 public class RequirementCreationPropertiesEditingContext extends DomainPropertiesEditionContext {
 
-
-	public RequirementCreationPropertiesEditingContext(PropertiesEditingContext parentContext, IPropertiesEditionComponent editionComponent, EditingDomain domain, AdapterFactory adapterFactory, EObject selectedEObject) {
+	public RequirementCreationPropertiesEditingContext(PropertiesEditingContext parentContext,
+			IPropertiesEditionComponent editionComponent, EditingDomain domain, AdapterFactory adapterFactory,
+			EObject selectedEObject) {
 		super(parentContext, editionComponent, domain, adapterFactory, selectedEObject);
 	}
-	
+
 	public void preProcess() {
 		EObject selectedEObject = this.eObject;
 		this.eObject = RequirementFactory.eINSTANCE.createRequirement();
 		selectedEObject.eResource().getContents().add(eObject);
-		((Requirement)eObject).getReferencedObject().add(selectedEObject);
-	}	
-	
+		((Requirement) eObject).getReferencedObject().add(selectedEObject);
+	}
+
 }

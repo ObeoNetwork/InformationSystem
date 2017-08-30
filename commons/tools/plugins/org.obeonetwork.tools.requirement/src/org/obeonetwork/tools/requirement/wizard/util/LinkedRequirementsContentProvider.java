@@ -29,7 +29,7 @@ public class LinkedRequirementsContentProvider extends AdapterFactoryContentProv
 	public Object[] getElements(Object object) {
 		if (object instanceof EObject) {
 			EObject eObject = (EObject) object;
-			return RequirementService.getLinkedRequirements(eObject);			
+			return RequirementService.getLinkedRequirements(eObject);
 		}
 		return new Object[0];
 	}

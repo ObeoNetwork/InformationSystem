@@ -23,21 +23,22 @@ import org.eclipse.jface.viewers.Viewer;
 import org.obeonetwork.dsl.requirement.Category;
 import org.obeonetwork.dsl.requirement.Repository;
 
-public class RequirementsRepositoriesContentProvider extends AdapterFactoryContentProvider implements ITreeContentProvider{
+public class RequirementsRepositoriesContentProvider extends AdapterFactoryContentProvider
+		implements ITreeContentProvider {
 
 	public RequirementsRepositoriesContentProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-	
+
 	public Object[] getElements(Object object) {
-		if(object instanceof Collection<?>){
+		if (object instanceof Collection<?>) {
 			@SuppressWarnings("unchecked")
-			Collection<Resource> requirementsRepositories = (Collection<Resource>)object;
+			Collection<Resource> requirementsRepositories = (Collection<Resource>) object;
 			return requirementsRepositories.toArray(new Resource[requirementsRepositories.size()]);
-		}		
+		}
 		return super.getElements(object);
 	}
-	
+
 	@Override
 	public Object[] getChildren(Object object) {
 		if (object instanceof Resource) {
@@ -45,7 +46,7 @@ public class RequirementsRepositoriesContentProvider extends AdapterFactoryConte
 			// Get Repository instances
 			for (EObject child : ((Resource) object).getContents()) {
 				if (child instanceof Repository) {
-					repositories.add((Repository)child);
+					repositories.add((Repository) child);
 				}
 			}
 			return repositories.toArray();
@@ -59,17 +60,17 @@ public class RequirementsRepositoriesContentProvider extends AdapterFactoryConte
 			return children.toArray();
 		} else if (object instanceof Category) {
 			Category category = (Category) object;
-			
+
 			List<Object> children = new ArrayList<Object>();
 			children.addAll(category.getOwnedCategories());
 			children.addAll(category.getOwnedRequirements());
 			return children.toArray();
 		}
-		return new Object[]{};
+		return new Object[] {};
 	}
 
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		super.inputChanged(viewer, oldInput, newInput);
 	}
-	
+
 }

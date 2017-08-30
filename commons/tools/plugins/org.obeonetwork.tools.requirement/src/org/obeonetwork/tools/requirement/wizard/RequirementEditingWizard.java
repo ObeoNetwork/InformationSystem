@@ -29,14 +29,16 @@ public class RequirementEditingWizard extends PropertiesEditionWizard {
 
 	private CategorySelectionPage page;
 
-	public RequirementEditingWizard(PropertiesEditingContext editionContext, AdapterFactory adapterFactory, EObject eObject) {
+	public RequirementEditingWizard(PropertiesEditingContext editionContext, AdapterFactory adapterFactory,
+			EObject eObject) {
 		super(editionContext, adapterFactory, eObject);
 	}
 
-	public RequirementEditingWizard(PropertiesEditingContext editingContext, AdapterFactory adapterFactory, EReference eReference) {
+	public RequirementEditingWizard(PropertiesEditingContext editingContext, AdapterFactory adapterFactory,
+			EReference eReference) {
 		super(editingContext, adapterFactory, eReference);
 	}
-	
+
 	@Override
 	public void addPages() {
 		page = new CategorySelectionPage();
@@ -45,7 +47,6 @@ public class RequirementEditingWizard extends PropertiesEditionWizard {
 		addPage(page);
 	}
 
-	
 	public Category getOwningCategory() {
 		return (Category) page.getSelection();
 	}

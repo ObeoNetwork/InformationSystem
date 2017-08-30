@@ -27,6 +27,4 @@ public interface RequirementLink extends EObjectLink {
 	 */
 	public abstract Requirement getRequirement();
 
-	
-	
 }

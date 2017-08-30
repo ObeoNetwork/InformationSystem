@@ -43,12 +43,15 @@ public class RequirementEditingOperation extends WizardEditingOperation {
 
 	/**
 	 * {@inheritDoc}
-	 * @see org.eclipse.emf.eef.runtime.impl.operation.WizardEditingOperation#doExecute(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.operation.WizardEditingOperation#doExecute(org.eclipse.core.runtime.IProgressMonitor,
+	 *      org.eclipse.core.runtime.IAdaptable)
 	 */
 	@Override
 	protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		editingContext.initializeRecorder();
-		RequirementEditingWizard wizard = new RequirementEditingWizard(editingContext, editingContext.getAdapterFactory(), editingContext.getEObject());
+		RequirementEditingWizard wizard = new RequirementEditingWizard(editingContext,
+				editingContext.getAdapterFactory(), editingContext.getEObject());
 		EEFWizardDialog wDialog = new EEFWizardDialog(EditingUtils.getShell(), wizard);
 		int open = wDialog.open();
 		ChangeDescription description = editingContext.getChangeRecorder().endRecording();
@@ -65,7 +68,5 @@ public class RequirementEditingOperation extends WizardEditingOperation {
 			return Status.CANCEL_STATUS;
 		}
 	}
-	
-	
 
 }

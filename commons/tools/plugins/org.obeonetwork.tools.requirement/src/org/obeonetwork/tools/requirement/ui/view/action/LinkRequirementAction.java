@@ -37,14 +37,15 @@ public class LinkRequirementAction extends EObjectLinksViewAction {
 		this.setImageDescriptor(RequirementLinkerPlugin.getInstance().getImageDescriptor(RequirementLinkerPlugin.LINK));
 		this.setEnabled(false);
 	}
-	
+
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.eclipse.jface.action.Action#run()
 	 */
 	@Override
 	public void run() {
-		if (linksView.getInput() != null){
+		if (linksView.getInput() != null) {
 			Shell shell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
 			LinkRequirementsDialog linkRequirementsDialog = new LinkRequirementsDialog(shell, linksView.getInput());
 			linkRequirementsDialog.open();
@@ -54,11 +55,12 @@ public class LinkRequirementAction extends EObjectLinksViewAction {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.ui.view.EObjectLinksViewAction#fireInputChanged(org.eclipse.emf.ecore.EObject)
 	 */
 	@Override
 	public void fireInputChanged(EObject newInput) {
 		setEnabled(newInput != null);
 	}
-	
+
 }

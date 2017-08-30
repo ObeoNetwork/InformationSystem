@@ -29,7 +29,6 @@ import org.obeonetwork.tools.linker.ui.view.EObjectLinksViewAction;
 import org.obeonetwork.tools.requirement.RequirementLinkerPlugin;
 import org.obeonetwork.tools.requirement.core.RequirementLink;
 
-
 /**
  * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
  *
@@ -43,21 +42,25 @@ public class UnlinkRequirementAction extends EObjectLinksViewAction {
 		super(linksView);
 		this.setText(RequirementLinkerPlugin.getInstance().getString("UnlinkRequirementAction_title")); //$NON-NLS-1$
 		this.setToolTipText(RequirementLinkerPlugin.getInstance().getString("UnlinkRequirementAction_description")); //$NON-NLS-1$
-		this.setImageDescriptor(RequirementLinkerPlugin.getInstance().getWorkbench().getSharedImages().getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
+		this.setImageDescriptor(RequirementLinkerPlugin.getInstance().getWorkbench().getSharedImages()
+				.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
 		this.setEnabled(false);
 	}
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.eclipse.jface.action.Action#run()
 	 */
 	@Override
 	public void run() {
-		MessageDialog dialog = new MessageDialog(
-				linksView.getSite().getShell(), 
-				RequirementLinkerPlugin.getInstance().getString("DeleteRequirementLinkAction_ConfirmDialog_title"), null,  //$NON-NLS-1$
-				RequirementLinkerPlugin.getInstance().getString("DeleteRequirementLinkAction_ConfirmDialog_msg"), MessageDialog.CONFIRM, new String[] { IDialogConstants.OK_LABEL, //$NON-NLS-1$
-					IDialogConstants.CANCEL_LABEL }, 1);
+		MessageDialog dialog = new MessageDialog(linksView.getSite().getShell(),
+				RequirementLinkerPlugin.getInstance().getString("DeleteRequirementLinkAction_ConfirmDialog_title"), //$NON-NLS-1$
+				null,
+				RequirementLinkerPlugin.getInstance().getString("DeleteRequirementLinkAction_ConfirmDialog_msg"), //$NON-NLS-1$
+				MessageDialog.CONFIRM, new String[] { IDialogConstants.OK_LABEL,
+						IDialogConstants.CANCEL_LABEL },
+				1);
 		boolean openConfirm = dialog.open() == Window.OK;
 		if (openConfirm) {
 			Session session = new EObjectQuery(linksView.getInput()).getSession();
@@ -68,7 +71,7 @@ public class UnlinkRequirementAction extends EObjectLinksViewAction {
 						for (EObjectLink link : linksView.getSelectedEntries()) {
 							if (link instanceof RequirementLink) {
 								RequirementLink reqLink = (RequirementLink) link;
-								reqLink.getRequirement().getReferencedObject().remove(linksView.getInput());						
+								reqLink.getRequirement().getReferencedObject().remove(linksView.getInput());
 							}
 						}
 					}
@@ -81,6 +84,7 @@ public class UnlinkRequirementAction extends EObjectLinksViewAction {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.ui.view.EObjectLinksViewAction#fireSelectionChanged(java.util.List)
 	 */
 	@Override

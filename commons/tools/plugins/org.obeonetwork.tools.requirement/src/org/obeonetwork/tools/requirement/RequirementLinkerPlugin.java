@@ -31,7 +31,7 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 
 	private static final String ICONS_EXTENSION = ".gif"; //$NON-NLS-1$
 	private static final String ICONS_FOLDER = "icons/"; //$NON-NLS-1$
-	
+
 	public static final String LINK = "Link"; //$NON-NLS-1$
 	public static final String EDIT = "Edit"; //$NON-NLS-1$
 
@@ -40,7 +40,7 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 
 	// The shared instance
 	private static RequirementLinkerPlugin plugin;
-	
+
 	private ImageRegistry registry;
 
 	/**
@@ -52,7 +52,9 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+	 * 
+	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.
+	 * BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
@@ -61,7 +63,9 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+	 * 
+	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.
+	 * BundleContext)
 	 */
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
@@ -76,13 +80,15 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 	public static RequirementLinkerPlugin getInstance() {
 		return plugin;
 	}
-	
+
 	/**
-	 * Returns the Platform UI workbench.  
-	 * <p> 
-	 * This method exists as a convenience for plugin implementors.  The
-	 * workbench can also be accessed by invoking <code>PlatformUI.getWorkbench()</code>.
+	 * Returns the Platform UI workbench.
+	 * <p>
+	 * This method exists as a convenience for plugin implementors. The
+	 * workbench can also be accessed by invoking
+	 * <code>PlatformUI.getWorkbench()</code>.
 	 * </p>
+	 * 
 	 * @return IWorkbench the workbench for this plug-in
 	 */
 	public IWorkbench getWorkbench() {
@@ -90,10 +96,11 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 	}
 
 	/**
-	 * Returns an image descriptor for the image file at the given
-	 * plug-in relative path
+	 * Returns an image descriptor for the image file at the given plug-in
+	 * relative path
 	 *
-	 * @param path the path
+	 * @param path
+	 *            the path
 	 * @return the image descriptor
 	 */
 	public ImageDescriptor getImageDescriptor(String imageID) {

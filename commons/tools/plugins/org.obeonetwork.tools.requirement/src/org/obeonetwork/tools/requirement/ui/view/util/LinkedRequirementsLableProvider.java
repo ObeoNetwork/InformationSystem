@@ -45,8 +45,8 @@ public class LinkedRequirementsLableProvider extends EObjectLinkLabelProvider {
 	public String getColumnText(Object element, int columnIndex) {
 		String text = ""; //$NON-NLS-1$
 		if (element instanceof RequirementLink) {
-			Requirement requirement = (Requirement) ((RequirementLink)element).getRequirement();
-			
+			Requirement requirement = (Requirement) ((RequirementLink) element).getRequirement();
+
 			if (columnIndex == ID) {
 				text = requirement.getId();
 			} else if (columnIndex == NAME) {
@@ -54,8 +54,8 @@ public class LinkedRequirementsLableProvider extends EObjectLinkLabelProvider {
 			} else if (columnIndex == CATEGORY) {
 				text = requirement.getCategory() != null ? requirement.getCategory().getName() : ""; //$NON-NLS-1$
 			}
-		} 
-		return text == null?"":text; //$NON-NLS-1$
+		}
+		return text == null ? "" : text; //$NON-NLS-1$
 	}
 
 }

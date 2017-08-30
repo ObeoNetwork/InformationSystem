@@ -46,7 +46,7 @@ public class LinkRequirementsDialog extends TitleAreaDialog {
 	private AdapterFactory adapterFactory;
 
 	private CheckboxTreeViewer checkboxTreeViewer;
-	
+
 	private EObject selectedObject;
 
 	/**
@@ -56,8 +56,8 @@ public class LinkRequirementsDialog extends TitleAreaDialog {
 	 */
 	public LinkRequirementsDialog(Shell parentShell, EObject selectedObject) {
 		super(parentShell);
-		setShellStyle(SWT.TITLE|SWT.APPLICATION_MODAL);
-		this.selectedObject=selectedObject;
+		setShellStyle(SWT.TITLE | SWT.APPLICATION_MODAL);
+		this.selectedObject = selectedObject;
 		this.adapterFactory = ViewHelper.INSTANCE.createAdapterFactory();
 	}
 
@@ -76,7 +76,6 @@ public class LinkRequirementsDialog extends TitleAreaDialog {
 
 		createRequirementsTreeViewer(container);
 
-		
 		return container;
 	}
 
@@ -84,15 +83,15 @@ public class LinkRequirementsDialog extends TitleAreaDialog {
 		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(selectedObject);
 		RecordingCommand cmd = new RecordingCommand(editingDomain, "Link Requirements") { //$NON-NLS-1$
 			protected void doExecute() {
-				//clear all requirements links
-				for(Requirement requirement : RequirementService.getLinkedRequirements(selectedObject)){
+				// clear all requirements links
+				for (Requirement requirement : RequirementService.getLinkedRequirements(selectedObject)) {
 					requirement.getReferencedObject().remove(selectedObject);
 				}
-				
-				//add new requirements links
-				for(Object o : checkboxTreeViewer.getCheckedElements()){
-					if(o instanceof Requirement){
-						Requirement requirement = (Requirement)o;
+
+				// add new requirements links
+				for (Object o : checkboxTreeViewer.getCheckedElements()) {
+					if (o instanceof Requirement) {
+						Requirement requirement = (Requirement) o;
 						requirement.getReferencedObject().add(selectedObject);
 					}
 				}
@@ -101,48 +100,49 @@ public class LinkRequirementsDialog extends TitleAreaDialog {
 		editingDomain.getCommandStack().execute(cmd);
 		super.okPressed();
 	}
-	
+
 	private void createRequirementsTreeViewer(Composite parent) {
-		this.checkboxTreeViewer = new CheckboxTreeViewer(parent, /* SWT.BORDER */SWT.MULTI);
+		this.checkboxTreeViewer = new CheckboxTreeViewer(parent,
+				/* SWT.BORDER */SWT.MULTI);
 		Tree tree = checkboxTreeViewer.getTree();
 		GridData gd_tree = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
 		gd_tree.heightHint = 208;
 		tree.setLayoutData(gd_tree);
 		this.checkboxTreeViewer.setLabelProvider(getLabelProvider());
 		this.checkboxTreeViewer.setContentProvider(getContentProvider());
-		setInput(checkboxTreeViewer);		
+		setInput(checkboxTreeViewer);
 		setCheckedElements(checkboxTreeViewer);
 		setGrayedElements(checkboxTreeViewer);
 		this.checkboxTreeViewer.expandToLevel(4);
 	}
-	
-	private void setInput(CheckboxTreeViewer viewer){
+
+	private void setInput(CheckboxTreeViewer viewer) {
 		Collection<Resource> requirementsRepositories = RequirementService.findRequirementsRepositories(selectedObject);
-		viewer.setInput(requirementsRepositories);		
+		viewer.setInput(requirementsRepositories);
 	}
 
-	private void setCheckedElements(CheckboxTreeViewer viewer){		
+	private void setCheckedElements(CheckboxTreeViewer viewer) {
 		Requirement[] linkedRequirements = RequirementService.getLinkedRequirements(selectedObject);
 		viewer.setCheckedElements(linkedRequirements);
 	}
-	
-	private void setGrayedElements(CheckboxTreeViewer viewer){
+
+	private void setGrayedElements(CheckboxTreeViewer viewer) {
 		Collection<Resource> requirementsRepositories = RequirementService.findRequirementsRepositories(selectedObject);
 		ArrayList<Object> grayedElements = new ArrayList<Object>();
-		for(Resource resource : requirementsRepositories){
+		for (Resource resource : requirementsRepositories) {
 			grayedElements.add(resource);
 			TreeIterator<EObject> it = resource.getAllContents();
-			while(it.hasNext()){
+			while (it.hasNext()) {
 				EObject eObject = it.next();
-				if(!(eObject instanceof Requirement)){
-					grayedElements.add(eObject);		
+				if (!(eObject instanceof Requirement)) {
+					grayedElements.add(eObject);
 				}
-			}			
-		}		
-		Object[] grayedElementsArray = grayedElements.toArray(new Object[grayedElements.size()]);	
-		viewer.setGrayedElements(grayedElementsArray);		
+			}
+		}
+		Object[] grayedElementsArray = grayedElements.toArray(new Object[grayedElements.size()]);
+		viewer.setGrayedElements(grayedElementsArray);
 	}
-	
+
 	private ILabelProvider labelProvider;
 
 	private ILabelProvider getLabelProvider() {

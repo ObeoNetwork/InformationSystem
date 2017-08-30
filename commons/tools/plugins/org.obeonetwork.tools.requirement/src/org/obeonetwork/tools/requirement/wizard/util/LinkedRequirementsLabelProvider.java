@@ -17,34 +17,33 @@ import org.eclipse.swt.graphics.Image;
 import org.obeonetwork.dsl.requirement.Requirement;
 
 public class LinkedRequirementsLabelProvider extends AdapterFactoryLabelProvider implements ITableLabelProvider {
-	private final static int ID=0;
-	private final static int NAME=1;
-	private final static int CATEGORY=2;
-	
+	private final static int ID = 0;
+	private final static int NAME = 1;
+	private final static int CATEGORY = 2;
+
 	public LinkedRequirementsLabelProvider(final AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	public String getColumnText(Object object, int columnIndex) {
-		String text=null;
-		if(object instanceof Requirement){
-			Requirement requirement = (Requirement)object;
-			if(columnIndex==ID){
-				text=requirement.getId();
-			}else if (columnIndex==NAME) {
-				text=requirement.getName();
-			}else if (columnIndex==CATEGORY) {
-				text=requirement.getCategory()!=null ? requirement.getCategory().getName():"";				 //$NON-NLS-1$
+		String text = null;
+		if (object instanceof Requirement) {
+			Requirement requirement = (Requirement) object;
+			if (columnIndex == ID) {
+				text = requirement.getId();
+			} else if (columnIndex == NAME) {
+				text = requirement.getName();
+			} else if (columnIndex == CATEGORY) {
+				text = requirement.getCategory() != null ? requirement.getCategory().getName() : ""; //$NON-NLS-1$
 			}
-		}else{
+		} else {
 			text = super.getColumnText(object, columnIndex);
 		}
 		return text;
 	}
 
-	public Image getColumnImage(Object object, int columnIndex) {		
+	public Image getColumnImage(Object object, int columnIndex) {
 		return null;
 	}
-	
-	
+
 }

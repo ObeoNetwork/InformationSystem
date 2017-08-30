@@ -27,11 +27,12 @@ import org.obeonetwork.tools.requirement.core.util.RequirementService;
  *
  */
 public class RequirementLinkType implements LinkType {
-	
+
 	public static final String REQUIREMENT_LINK_TYPE = "org.obeonetwork.tools.requirement.linktype"; //$NON-NLS-1$
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.LinkType#getId()
 	 */
 	public String getId() {
@@ -40,6 +41,7 @@ public class RequirementLinkType implements LinkType {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.LinkType#loadLinks(org.eclipse.emf.ecore.EObject)
 	 */
 	public List<EObjectLink> loadLinks(EObject source) {
@@ -55,6 +57,7 @@ public class RequirementLinkType implements LinkType {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.LinkType#createLink(org.eclipse.emf.ecore.EObject)
 	 */
 	public EObjectLink createLink(EObject source) {
@@ -63,6 +66,7 @@ public class RequirementLinkType implements LinkType {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.LinkType#delete(org.obeonetwork.tools.linker.EObjectLink)
 	 */
 	public void delete(EObjectLink link) {

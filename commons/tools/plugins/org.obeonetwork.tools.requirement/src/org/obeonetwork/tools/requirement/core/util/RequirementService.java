@@ -26,8 +26,8 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 
 public class RequirementService {
-	
-	public static Requirement[] getLinkedRequirements(EObject eObject){
+
+	public static Requirement[] getLinkedRequirements(EObject eObject) {
 		final Session session = SessionManager.INSTANCE.getSession(eObject);
 		if (session != null) {
 			Set<Requirement> linkedRequirements = getLinkedRequirements(session, eObject);
@@ -42,13 +42,14 @@ public class RequirementService {
 		for (Setting setting : crossReferenceAdapter.getInverseReferences(eObject)) {
 			if (setting.getEObject() instanceof Requirement) {
 				Requirement requirement = (Requirement) setting.getEObject();
-				
+
 				// Check if requirement really references the object
-				// Workaround to avoid a problem with CrossReferencer containing duplicates
+				// Workaround to avoid a problem with CrossReferencer containing
+				// duplicates
 				if (requirement.getReferencedObject().contains(eObject)) {
 					linkedRequirements.add(requirement);
 				}
-				
+
 			}
 		}
 		return linkedRequirements;
@@ -56,7 +57,7 @@ public class RequirementService {
 
 	public static Collection<Resource> findRequirementsRepositories(EObject context) {
 		final ArrayList<Resource> repositories = new ArrayList<Resource>();
-		
+
 		Session session = SessionManager.INSTANCE.getSession(context);
 		if (session != null) {
 			// Test resources containing requirements repositories

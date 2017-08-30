@@ -9,6 +9,7 @@
  *     Obeo - initial API and implementation
  *******************************************************************************/
 package org.obeonetwork.tools.requirement.wizard.operation;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -47,8 +48,9 @@ public class RequirementCreationOperation extends AbstractEMFOperation {
 	 *      org.eclipse.core.runtime.IAdaptable)
 	 */
 	protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-		((RequirementCreationPropertiesEditingContext)this.editingContext).preProcess();
-		RequirementEditingWizard wizard = new RequirementEditingWizard(editingContext, editingContext.getAdapterFactory(), editingContext.getEObject());
+		((RequirementCreationPropertiesEditingContext) this.editingContext).preProcess();
+		RequirementEditingWizard wizard = new RequirementEditingWizard(editingContext,
+				editingContext.getAdapterFactory(), editingContext.getEObject());
 		WizardDialog wDialog = new WizardDialog(EditingUtils.getShell(), wizard) {
 
 			/**
@@ -59,10 +61,10 @@ public class RequirementCreationOperation extends AbstractEMFOperation {
 			@Override
 			protected Point getInitialSize() {
 				Point initialSize = super.getInitialSize();
-				return new Point(Math.min(UIConstants.INITIAL_WIZARD_SIZE.x, initialSize.x), Math.min(UIConstants.INITIAL_WIZARD_SIZE.y, initialSize.y));
+				return new Point(Math.min(UIConstants.INITIAL_WIZARD_SIZE.x, initialSize.x),
+						Math.min(UIConstants.INITIAL_WIZARD_SIZE.y, initialSize.y));
 			}
 
-			
 		};
 		int open = wDialog.open();
 		ChangeDescription description = editingContext.getChangeRecorder().endRecording();

@@ -27,14 +27,17 @@ public class LinkedRequirementsContentProvider extends EObjectLinkContentProvide
 
 	/**
 	 * {@inheritDoc}
-	 * @see org.obeonetwork.tools.linker.ui.view.util.EObjectLinkContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+	 * 
+	 * @see org.obeonetwork.tools.linker.ui.view.util.EObjectLinkContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer,
+	 *      java.lang.Object, java.lang.Object)
 	 */
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		if (newInput instanceof EObject && (((EObject) newInput).eResource() != null) && ((EObject)newInput).eResource().getResourceSet() != null) {
-			ResourceSet resourceSet = ((EObject)newInput).eResource().getResourceSet();
+		if (newInput instanceof EObject && (((EObject) newInput).eResource() != null)
+				&& ((EObject) newInput).eResource().getResourceSet() != null) {
+			ResourceSet resourceSet = ((EObject) newInput).eResource().getResourceSet();
 			if (linker == null || !linker.getResourceSet().equals(resourceSet)) {
-				linker = RequirementLinkHelper.getRequirementLinker((EObject)newInput);		
+				linker = RequirementLinkHelper.getRequirementLinker((EObject) newInput);
 			}
 		}
 	}

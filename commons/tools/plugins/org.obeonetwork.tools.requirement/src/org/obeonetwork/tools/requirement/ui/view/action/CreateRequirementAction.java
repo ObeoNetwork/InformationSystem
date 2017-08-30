@@ -39,18 +39,21 @@ public class CreateRequirementAction extends EObjectLinksViewAction {
 		super(linksView);
 		this.setText(RequirementLinkerPlugin.getInstance().getString("CreateRequirementAction_title")); //$NON-NLS-1$
 		this.setToolTipText(RequirementLinkerPlugin.getInstance().getString("CreateRequirementAction_description")); //$NON-NLS-1$
-		this.setImageDescriptor(RequirementLinkerPlugin.getInstance().getWorkbench().getSharedImages().getImageDescriptor(ISharedImages.IMG_OBJ_ADD));
+		this.setImageDescriptor(RequirementLinkerPlugin.getInstance().getWorkbench().getSharedImages()
+				.getImageDescriptor(ISharedImages.IMG_OBJ_ADD));
 		this.setEnabled(false);
 	}
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.eclipse.jface.action.Action#run()
 	 */
 	@Override
 	public void run() {
 		EditingDomain editingDomain = TransactionUtil.getEditingDomain(linksView.getInput());
-		RequirementCreationPropertiesEditingContext propertiesEditionContext = new RequirementCreationPropertiesEditingContext(null, null, editingDomain, linksView.getAdapterFactory(), linksView.getInput());
+		RequirementCreationPropertiesEditingContext propertiesEditionContext = new RequirementCreationPropertiesEditingContext(
+				null, null, editingDomain, linksView.getAdapterFactory(), linksView.getInput());
 		RequirementCreationOperation operation = new RequirementCreationOperation(propertiesEditionContext);
 		try {
 			operation.execute(new NullProgressMonitor(), null);
@@ -62,6 +65,7 @@ public class CreateRequirementAction extends EObjectLinksViewAction {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.ui.view.EObjectLinksViewAction#fireInputChanged(org.eclipse.emf.ecore.EObject)
 	 */
 	@Override
@@ -69,6 +73,4 @@ public class CreateRequirementAction extends EObjectLinksViewAction {
 		setEnabled(newInput != null);
 	}
 
-	
-	
 }

@@ -25,7 +25,7 @@ public class RequirementLinkImpl implements RequirementLink {
 
 	private Requirement requirement;
 	protected EObject source;
-	
+
 	/**
 	 * @param source
 	 */
@@ -36,6 +36,7 @@ public class RequirementLinkImpl implements RequirementLink {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.EObjectLink#getType()
 	 */
 	public String getType() {
@@ -44,6 +45,7 @@ public class RequirementLinkImpl implements RequirementLink {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.EObjectLink#getSource()
 	 */
 	public EObject getSource() {
@@ -52,6 +54,7 @@ public class RequirementLinkImpl implements RequirementLink {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.EObjectLink#delete()
 	 */
 	public void delete() {
@@ -61,11 +64,11 @@ public class RequirementLinkImpl implements RequirementLink {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.requirement.core.RequirementLink#getRequirement()
 	 */
 	public Requirement getRequirement() {
 		return requirement;
 	}
 
-	
 }

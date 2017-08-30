@@ -48,19 +48,21 @@ import org.obeonetwork.tools.requirement.wizard.operation.RequirementEditingOper
 public class LinkedRequirementsView extends EObjectLinksView {
 
 	public static final String ID = "org.obeonetwork.tools.requirement.views.LinkedRequirementsView"; //$NON-NLS-1$
-	
+
 	@Override
 	protected void update(EObject selectedEObject) {
-		// Requirement and categories should not be used to attrach requirements to them
+		// Requirement and categories should not be used to attrach requirements
+		// to them
 		if (selectedEObject != null && selectedEObject.eClass().getEPackage() == RequirementPackage.eINSTANCE) {
 			super.update(null);
 		} else {
-			super.update(selectedEObject);			
+			super.update(selectedEObject);
 		}
 	}
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.ui.view.EObjectLinksView#addColumns()
 	 */
 	@Override
@@ -72,6 +74,7 @@ public class LinkedRequirementsView extends EObjectLinksView {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.ui.view.EObjectLinksView#createContentProvider()
 	 */
 	@Override
@@ -81,6 +84,7 @@ public class LinkedRequirementsView extends EObjectLinksView {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.ui.view.EObjectLinksView#createLabelProvider()
 	 */
 	@Override
@@ -90,6 +94,7 @@ public class LinkedRequirementsView extends EObjectLinksView {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.ui.view.EObjectLinksView#createFilters()
 	 */
 	@Override
@@ -107,6 +112,7 @@ public class LinkedRequirementsView extends EObjectLinksView {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.ui.view.EObjectLinksView#fillLocalActionBar()
 	 */
 	@Override
@@ -119,6 +125,7 @@ public class LinkedRequirementsView extends EObjectLinksView {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.ui.view.EObjectLinksView#createDoubleClickAction()
 	 */
 	@Override
@@ -127,23 +134,24 @@ public class LinkedRequirementsView extends EObjectLinksView {
 
 			/**
 			 * {@inheritDoc}
+			 * 
 			 * @see org.eclipse.jface.action.Action#run()
 			 */
 			@Override
 			public void run() {
 				if (getSelectedEntries().size() > 0) {
 					RequirementLink eObjectLink = (RequirementLink) getSelectedEntries().get(0);
-					
+
 					TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(getInput());
-					DomainPropertiesEditionContext propertiesEditionContext = new DomainPropertiesEditionContext(
-							null, null, editingDomain, adapterFactory, eObjectLink.getRequirement());
+					DomainPropertiesEditionContext propertiesEditionContext = new DomainPropertiesEditionContext(null,
+							null, editingDomain, adapterFactory, eObjectLink.getRequirement());
 					WizardEditingOperation operation = new RequirementEditingOperation(propertiesEditionContext);
 					try {
 						operation.execute(new NullProgressMonitor(), null);
 						refresh();
 					} catch (ExecutionException e) {
 						EEFRuntimePlugin.getDefault().logError("An error occured during wizard editing.", e); //$NON-NLS-1$
-					} 
+					}
 				}
 			}
 

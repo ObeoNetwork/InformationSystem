@@ -48,34 +48,51 @@ public class EditRequirementAction extends EObjectLinksViewAction {
 
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.eclipse.jface.action.Action#run()
 	 */
 	@Override
 	public void run() {
 		RequirementLink eObjectLink = (RequirementLink) linksView.getSelectedEntries().get(0);
-		
+
 		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(linksView.getInput());
-		DomainPropertiesEditionContext propertiesEditionContext = new DomainPropertiesEditionContext(
-				null, null, editingDomain, linksView.getAdapterFactory(), eObjectLink.getRequirement());
+		DomainPropertiesEditionContext propertiesEditionContext = new DomainPropertiesEditionContext(null, null,
+				editingDomain, linksView.getAdapterFactory(), eObjectLink.getRequirement());
 		WizardEditingOperation operation = new RequirementEditingOperation(propertiesEditionContext);
 		try {
 			operation.execute(new NullProgressMonitor(), null);
 			linksView.refresh();
 		} catch (ExecutionException e) {
 			EEFRuntimePlugin.getDefault().logError("An error occured during wizard editing.", e); //$NON-NLS-1$
-		} 
+		}
 	}
+
 	/**
 	 * {@inheritDoc}
+	 * 
 	 * @see org.obeonetwork.tools.linker.ui.view.EObjectLinksViewAction#fireSelectionChanged(java.util.List)
 	 */
 	@Override
 	public void fireSelectionChanged(List<EObjectLink> newSelection) {
-		boolean enabled = 
-			newSelection.size() == 1 &&										// Action enabled if one (and only one) entry is selected
-				newSelection.get(0).getSource() == linksView.getInput();	// The selected entry is an entry of the current selection and not a children entry
+		boolean enabled = newSelection.size() == 1 && // Action enabled if one
+														// (and only one) entry
+														// is selected
+				newSelection.get(0).getSource() == linksView.getInput(); // The
+																			// selected
+																			// entry
+																			// is
+																			// an
+																			// entry
+																			// of
+																			// the
+																			// current
+																			// selection
+																			// and
+																			// not
+																			// a
+																			// children
+																			// entry
 		this.setEnabled(enabled);
 	}
-	
-	
+
 }
