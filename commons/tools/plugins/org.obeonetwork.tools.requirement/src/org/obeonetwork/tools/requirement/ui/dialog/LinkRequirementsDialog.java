@@ -211,7 +211,7 @@ public class LinkRequirementsDialog extends TitleAreaDialog {
 	 * Return the initial size of the dialog.
 	 */
 	protected Point getInitialSize() {
-		return new Point(486, 469);
+		return new Point(900, 700);
 	}
 
 }
