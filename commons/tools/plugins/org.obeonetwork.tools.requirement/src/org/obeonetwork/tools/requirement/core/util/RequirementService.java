@@ -19,21 +19,45 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.obeonetwork.dsl.requirement.Repository;
 import org.obeonetwork.dsl.requirement.Requirement;
 
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
-
+/**
+ * Utilities for {@link Requirement Requirements}.
+ */
 public class RequirementService {
 
+	/**
+	 * Retrieves the {@link Requirement Requirements} linked to the given
+	 * {@link EObject}.
+	 * 
+	 * @param eObject
+	 *            the {@link EObject}.
+	 * @return the {@link Requirement Requirements} within the {@link Session}
+	 *         of {@code eObject} which are linked to {@code eObject}.
+	 */
 	public static Requirement[] getLinkedRequirements(EObject eObject) {
+		Set<Requirement> linkedRequirements = getLinkedRequirementsSet(eObject);
+		return linkedRequirements.toArray(new Requirement[linkedRequirements.size()]);
+	}
+
+	/**
+	 * Retrieves the {@link Requirement Requirements} linked to the given
+	 * {@link EObject}.
+	 * 
+	 * @param eObject
+	 *            the {@link EObject}.
+	 * @return the {@link Requirement Requirements} within the {@link Session}
+	 *         of {@code eObject} which are linked to {@code eObject}.
+	 */
+	public static Set<Requirement> getLinkedRequirementsSet(EObject eObject) {
 		final Session session = SessionManager.INSTANCE.getSession(eObject);
 		if (session != null) {
-			Set<Requirement> linkedRequirements = getLinkedRequirements(session, eObject);
-			return linkedRequirements.toArray(new Requirement[linkedRequirements.size()]);
+			return getLinkedRequirements(session, eObject);
 		}
-		return new Requirement[0];
+		return new HashSet<Requirement>();
 	}
 
 	private static Set<Requirement> getLinkedRequirements(Session session, EObject eObject) {
@@ -55,8 +79,14 @@ public class RequirementService {
 		return linkedRequirements;
 	}
 
+	/**
+	 * 
+	 * @param context
+	 * @return the {@link Resource Resources} within the {@link Session} of
+	 *         {@code context} whose contents is a {@link Repository}.
+	 */
 	public static Collection<Resource> findRequirementsRepositories(EObject context) {
-		final ArrayList<Resource> repositories = new ArrayList<Resource>();
+		final Collection<Resource> repositories = new ArrayList<Resource>();
 
 		Session session = SessionManager.INSTANCE.getSession(context);
 		if (session != null) {
