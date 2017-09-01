@@ -23,7 +23,7 @@ Cet assistant vous permet de définir le nom du modèle que vous souhaitez crée
 
 Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre afin de commencer l'édition.
 
-!pics/SOA editor.png!
+!pics/SOA%20editor.png!
 
 L'éditeur permet de visualiser le contenu d'un modèle SOA sous forme arborescente. Pour modifier les propriétés d'un élément il faut utiliser la vue _Properties_ (partie basse sur la capture d'écran précédente). Si cette vue n'est pas visible, il est possible de l'ouvrir par un clic droit sur un élément de l'arbre et sélection de _Show Properties View_.
 
@@ -51,7 +51,7 @@ bq. Viewpoint Selection
 
 Choisir le point de vue _SOA Views_ :
 
-!pics/SOA Views Viewpoint Selection.png!
+!pics/SOA%20Views%20Viewpoint%20Selection.png!
 
 Une fois le point de vue activé, il devient possible de créer ou visualiser les diagrammes SOA Views.
 
@@ -67,7 +67,7 @@ puis renseigner le nom du diagramme et, enfin, valider.
 
 Par exemple sur un objet racine _Components_, deux types de représentation peuvent être créés comme présenté sur la capture d'écran suivante :
  
-!pics/SOA representations on Components.png!
+!pics/SOA%20representations%20on%20Components.png!
 
 Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue _Model Explorer_. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Explorer_. 
 
@@ -77,7 +77,7 @@ Le _SOA Diagram_ permet de modéliser les composants métiers, les services qu'i
 Ce diagramme permet aussi de relier les composants entre eux pour indiquer qu'un service fourni par un composant permet de répondre à un besoin de service requis exprimé par un autre composant.
 Ce diagramme peut être créé sur un objet racine _Components_.
 
-!pics/soa/Soa diagram.png!
+!pics/soa/Soa%20diagram.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -90,11 +90,11 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/soa/Create component.png! | Création d'un composant métier. |
-| !pics/soa/Create provided.png! | Création d'un service métier fourni par un composant. |
-| !pics/soa/Create required.png! | Création d'un service métier requis par un composant. |
-| !pics/soa/Create wire.png! | Création d'un lien depuis un service requis vers un service fourni. Permet d'indiquer quel composant fournit les services nécessaires au fonctionnement d'un autre composant. |
-| !pics/soa/Create external.png! | Ajout d'un composant externe sur le diagramme. Cet outil permet de faire apparaitre un composant défini dans un autre modèle SOA pour créer des relations avec les composants affichés. Cet outil est activable via le calque _External Components |
+| !pics/soa/Create%20component.png! | Création d'un composant métier. |
+| !pics/soa/Create%20provided.png! | Création d'un service métier fourni par un composant. |
+| !pics/soa/Create%20required.png! | Création d'un service métier requis par un composant. |
+| !pics/soa/Create%20wire.png! | Création d'un lien depuis un service requis vers un service fourni. Permet d'indiquer quel composant fournit les services nécessaires au fonctionnement d'un autre composant. |
+| !pics/soa/Create%20external.png! | Ajout d'un composant externe sur le diagramme. Cet outil permet de faire apparaitre un composant défini dans un autre modèle SOA pour créer des relations avec les composants affichés. Cet outil est activable via le calque _External Components |
 
 h4. Navigation vers d'autres diagrammes
 
@@ -110,7 +110,7 @@ Pour chaque opération, les paramètres d'entrée, les paramètres de sortie et 
 
 Ce diagramme peut être créé sur les objets de type _Component_.
 
-!pics/contract/Component contract diagram.png!
+!pics/contract/Component%20contract%20diagram.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -125,12 +125,12 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/contract/Create provided.png! | Création d'un service métier fourni par un composant. |
-| !pics/contract/Create required.png! | Création d'un service métier requis par un composant. |
-| !pics/contract/Create operation.png! | Création d'une opération dans un service. |
-| !pics/contract/Create input.png! | Création d'un paramètre d'entrée. |
-| !pics/contract/Create output.png! | Création d'un paramètre de sortie. |
-| !pics/contract/Create fault.png! | Création d'un cas d'erreur. |
+| !pics/contract/Create%20provided.png! | Création d'un service métier fourni par un composant. |
+| !pics/contract/Create%20required.png! | Création d'un service métier requis par un composant. |
+| !pics/contract/Create%20operation.png! | Création d'une opération dans un service. |
+| !pics/contract/Create%20input.png! | Création d'un paramètre d'entrée. |
+| !pics/contract/Create%20output.png! | Création d'un paramètre de sortie. |
+| !pics/contract/Create%20fault.png! | Création d'un cas d'erreur. |
 
 h3. DTO Namespaces Hierarchy (pour l'objet racine _Components_)
 
@@ -150,7 +150,7 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/hierarchy/Create namespace.png! | Création d'un package. Un package peut être créé sur le fond du diagramme ou à l'intérieur d'un autre package. |
+| !pics/hierarchy/Create%20namespace.png! | Création d'un package. Un package peut être créé sur le fond du diagramme ou à l'intérieur d'un autre package. |
 
 h4. Navigation vers d'autres diagrammes
 
@@ -162,7 +162,7 @@ h3. Diagramme des DTOs
 
 Un diagramme des DTOs (_DTO Diagram_) est associé à un package (_Namespace_). Il permet de gérer les DTOs du package.
 
-!pics/dto/DTO diagram.png!
+!pics/dto/DTO%20diagram.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -177,22 +177,22 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/dto/Create namespace.png! | Création d'un sous-package. |
-| !pics/dto/Create dto.png! | Création d'une entité. |
-| !pics/dto/Create dto from entity.png! | Création de DTOs à partir d'entités. |
-| !pics/dto/Create attribute.png! | Création d'un attribut de DTO. |
-| !pics/dto/Create enumeration.png! | Création d'une énumération. |
-| !pics/dto/Create literal.png! | Création d'une valeur d'énumération. |
-| !pics/dto/Create relation.png! | Création d'une relation simple. |
-| !pics/dto/Create composition.png! | Création d'une relation de composition. |
-| !pics/dto/Create inheritance.png! | Création d'un lien d'héritage. |
-| !pics/dto/Create bidi relation.png! | Création d'une relation simple bidirectionnelle. |
-| !pics/dto/Create bidi composition.png! | Création d'une relation de contenance bidirectionnelle. |
-| !pics/dto/Create external.png! | Ajout d'un DTO externe. Cet outil permet de faire apparaitre un DTO défini dans un autre package pour créer des relations avec les DTOs du package courant. Cet outil est activable via le calque _External DTOs |
+| !pics/dto/Create%20namespace.png! | Création d'un sous-package. |
+| !pics/dto/Create%20dto.png! | Création d'une entité. |
+| !pics/dto/Create%20dto%20from%20entity.png! | Création de DTOs à partir d'entités. |
+| !pics/dto/Create%20attribute.png! | Création d'un attribut de DTO. |
+| !pics/dto/Create%20enumeration.png! | Création d'une énumération. |
+| !pics/dto/Create%20literal.png! | Création d'une valeur d'énumération. |
+| !pics/dto/Create%20relation.png! | Création d'une relation simple. |
+| !pics/dto/Create%20composition.png! | Création d'une relation de composition. |
+| !pics/dto/Create%20inheritance.png! | Création d'un lien d'héritage. |
+| !pics/dto/Create%20bidi%20relation.png! | Création d'une relation simple bidirectionnelle. |
+| !pics/dto/Create%20bidi%20composition.png! | Création d'une relation de contenance bidirectionnelle. |
+| !pics/dto/Create%20external.png! | Ajout d'un DTO externe. Cet outil permet de faire apparaitre un DTO défini dans un autre package pour créer des relations avec les DTOs du package courant. Cet outil est activable via le calque _External DTOs |
 
 L'outil de création de DTOs à partir d'entités permet de sélectionner des entités (cf. documentation sur *Entity Designer*) et des références entre ces entités. Des DTOs et des relations sont créés pour chaque entité et chaque référence sélectionnée.
 
-!pics/dto/Dlg dto from entity.png!
+!pics/dto/Dlg%20dto%20from%20entity.png!
 
 h2. Gestion des exigences
 

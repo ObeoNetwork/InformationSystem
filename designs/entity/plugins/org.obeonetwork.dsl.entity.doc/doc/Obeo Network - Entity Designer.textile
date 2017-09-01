@@ -21,7 +21,7 @@ Cet assistant vous permet de définir le nom du modèle que vous souhaitez crée
 
 Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre afin de commencer l'édition.
 
-!pics/Entity editor.png!
+!pics/Entity%20editor.png!
 
 L'éditeur permet de visualiser le contenu d'un modèle Entity sous forme arborescente. Pour modifier les propriétés d'un élément il faut utiliser la vue _Properties_ (partie basse sur la capture d'écran précédente). Si cette vue n'est pas visible, il est possible de l'ouvrir par un clic droit sur un élément de l'arbre et sélection de _Show Properties View_.
 
@@ -49,7 +49,7 @@ bq. Viewpoint Selection
 
 Choisir le point de vue _Entity Views_ :
 
-!pics/Entity Views Viewpoint Selection.png!
+!pics/Entity%20Views%20Viewpoint%20Selection.png!
 
 Une fois le point de vue activé, il devient possible de créer ou visualiser les diagrammes Entity Views.
 
@@ -65,7 +65,7 @@ puis renseigner le nom du diagramme et, enfin, valider.
 
 Par exemple sur un objet racine _Entities_, deux types de représentation peuvent être créés comme présenté sur la capture d'écran suivante :
  
-!pics/Entity representations on Entities.png!
+!pics/Entity%20representations%20on%20Entities.png!
 
 Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue _Model Explorer_. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Explorer_. 
 
@@ -87,7 +87,7 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/hierarchy/Create namespace.png! | Création d'un package. Un package peut être créé sur le fond du diagramme ou à l'intérieur d'un autre package. |
+| !pics/hierarchy/Create%20namespace.png! | Création d'un package. Un package peut être créé sur le fond du diagramme ou à l'intérieur d'un autre package. |
 
 h4. Navigation vers d'autres diagrammes
 
@@ -99,7 +99,7 @@ h3. Diagramme des entités
 
 Un diagramme des entités (_Entities Diagram_) est associé à un package (_Namespace_). Il permet de gérer les entités du package.
 
-!pics/entities/Entities diagram.png!
+!pics/entities/Entities%20diagram.png!
 
 Les éléments suivants sont affichés sur le diagramme :
 
@@ -112,22 +112,22 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/entities/Create namespace.png! | Création d'un sous-package. |
-| !pics/entities/Create entity.png! | Création d'une entité. |
-| !pics/entities/Create entity from dto.png! | Création d'entités à partir de DTO. |
-| !pics/entities/Create attribute.png! | Création d'un attribut d'entité. |
-| !pics/entities/Create enumeration.png! | Création d'une énumération. |
-| !pics/entities/Create literal.png! | Création d'une valeur d'énumération. |
-| !pics/entities/Create relation.png! | Création d'une relation simple. |
-| !pics/entities/Create composition.png! | Création d'une relation de composition. |
-| !pics/entities/Create inheritance.png! | Création d'un lien d'héritage. |
-| !pics/entities/Create bidi relation.png! | Création d'une relation simple bidirectionnelle. |
-| !pics/entities/Create bidi composition.png! | Création d'une relation de contenance bidirectionnelle. |
-| !pics/entities/Create external.png! | Ajout d'une entité externe. Cet outil permet de faire apparaitre une entité définie dans un autre package pour créer des relations avec les entités du package courant. Cet outil est activable via le calque _External Entities_ |
+| !pics/entities/Create%20namespace.png! | Création d'un sous-package. |
+| !pics/entities/Create%20entity.png! | Création d'une entité. |
+| !pics/entities/Create%20entity%20from%20dto.png! | Création d'entités à partir de DTO. |
+| !pics/entities/Create%20attribute.png! | Création d'un attribut d'entité. |
+| !pics/entities/Create%20enumeration.png! | Création d'une énumération. |
+| !pics/entities/Create%20literal.png! | Création d'une valeur d'énumération. |
+| !pics/entities/Create%20relation.png! | Création d'une relation simple. |
+| !pics/entities/Create%20composition.png! | Création d'une relation de composition. |
+| !pics/entities/Create%20inheritance.png! | Création d'un lien d'héritage. |
+| !pics/entities/Create%20bidi%20relation.png! | Création d'une relation simple bidirectionnelle. |
+| !pics/entities/Create%20bidi%20composition.png! | Création d'une relation de contenance bidirectionnelle. |
+| !pics/entities/Create%20external.png! | Ajout d'une entité externe. Cet outil permet de faire apparaitre une entité définie dans un autre package pour créer des relations avec les entités du package courant. Cet outil est activable via le calque _External Entities_ |
 
 L'outil de création d'entités à partir de DTOs permet de sélectionner des DTOs (cf. documentation sur *SOA Designer*) et des références entre ces DTOs. Des entités et des relations sont créées pour chaque DTO et chaque référence sélectionné.
 
-!pics/entities/Dlg entity from dto.png!
+!pics/entities/Dlg%20entity%20from%20dto.png!
 
 h3. Table des entités
 
@@ -138,7 +138,7 @@ La table des entités permet de lister les entités existantes et d'afficher les
 * Volumétrie estimée. Cette valeur est modifiable en éditant directement la cellule.
 * Historisation (oui/non). Cette valeur est modifiable en éditant directement la cellule.
 
-!pics/table/Entity table.png!
+!pics/table/Entity%20table.png!
 
 h2. Gestion des exigences
 

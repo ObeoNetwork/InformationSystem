@@ -22,7 +22,7 @@ Cet assistant vous permet de définir le nom du modèle que vous souhaitez crée
 
 Une fois l'assistant validé, le modèle est créé et un éditeur s'ouvre afin de commencer l'édition.
 
-!pics/Graal Editor.png!
+!pics/Graal%20Editor.png!
 
 L'éditeur permet de visualiser le contenu d'un modèle Graal sous forme arborescente. Pour modifier les propriétés d'un élément il faut utiliser la vue _Properties_ (partie basse sur la capture d'écran précédente). Si cette vue n'est pas visible, il est possible de l'ouvrir par un clic droit sur un élément de l'arbre et sélection de _Show Properties View_.
 
@@ -50,7 +50,7 @@ bq. Viewpoint Selection
 
 Choisir le point de vue _Graal Methodology_ :
 
-!pics/Graal Viewpoint Selection.png!
+!pics/Graal%20Viewpoint%20Selection.png!
 
 Une fois le point de vue activé, il devient possible de créer ou visualiser les diagrammes Graal.
 
@@ -66,7 +66,7 @@ puis renseigner le nom du diagramme et, enfin, valider.
 
 Par exemple sur un _System_, trois types de diagrammes peuvent être créés comme présenté sur la capture d'écran suivante :
  
-!pics/Graal Graphs on System.png!
+!pics/Graal%20Graphs%20on%20System.png!
 
 Pour ouvrir un diagramme il suffit de double-cliquer sur le diagramme dans la vue _Model Explorer_. Attention seuls les diagrammes correspondants aux points de vue sélectionnés sur la session sont affichés dans la vue _Model Explorer_. 
 
@@ -75,7 +75,7 @@ h3. Graphe de tâches (pour un _System_)
 Un graphe de tâches (ou _Tasks Graph_) peut être associé à un _System_.
 Pour chaque _System_ un seul graphe de tâches peut être créé au maximum.
 
-!pics/diagrams/tasksgraph/Tasks Graph.png!
+!pics/diagrams/tasksgraph/Tasks%20Graph.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -86,16 +86,16 @@ Les éléments suivants sont affichés sur le diagramme :
 * lien _Use_ : les liens d'utilisation entre tâches sont affichés. Des liens sont affichés également entre tâches, groupes et systèmes en fonction des liens d'utilisation entre tâches contenues dans les groupes et systèmes.
 * _Actor_ : chaque acteur associé à une tâche ou à un groupe de tâches du système est affiché. Les acteurs et les outils associés sont affichés uniquement quand le calque _Actors_ est activé.
 
-!pics/diagrams/tasksgraph/Tasks Graph Actors layer.png!
+!pics/diagrams/tasksgraph/Tasks%20Graph%20Actors%20layer.png!
 
 Les outils fournis par la palette sont :
 
-| !pics/diagrams/tasksgraph/Create task.png! | Création d'une tâche. |
-| !pics/diagrams/tasksgraph/Create group.png! | Création d'un groupe. |
-| !pics/diagrams/tasksgraph/Create system.png! | Création d'un système. |
-| !pics/diagrams/tasksgraph/Create use.png! | Création de lien d'utilisation entre tâches, groupes et systèmes. Les liens d'utilisation se font normalement entre tâches, l'outil de création peut néanmoins être utilisé avec un système ou un groupe comme extrémité : dans ce cas une boîte de dialogue s'ouvre pour permettre de choisir la tâche du système ou du groupe sur laquelle le lien d'utilisation sera réellement créé. |
-| !pics/diagrams/tasksgraph/Attach actor.png! | Association entre une tâche et un acteur. Cet outil s'utilise lorsque l'acteur voulu n'est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l'acteur, une boîte de dialogue s'ouvre et permet de sélectionner un acteur. L'acteur apparaît alors sur le diagramme ainsi qu'un lien de rattachement avec la tâche. *Disponible uniquement si le calque _Actors_ est activé* |
-| !pics/diagrams/tasksgraph/Attach actor2.png! | Création d'une association entre une tâche et un acteur déjà visible sur le diagramme. *Disponible uniquement si le calque _Actors_ est activé* |
+| !pics/diagrams/tasksgraph/Create%20task.png! | Création d'une tâche. |
+| !pics/diagrams/tasksgraph/Create%20group.png! | Création d'un groupe. |
+| !pics/diagrams/tasksgraph/Create%20system.png! | Création d'un système. |
+| !pics/diagrams/tasksgraph/Create%20use.png! | Création de lien d'utilisation entre tâches, groupes et systèmes. Les liens d'utilisation se font normalement entre tâches, l'outil de création peut néanmoins être utilisé avec un système ou un groupe comme extrémité : dans ce cas une boîte de dialogue s'ouvre pour permettre de choisir la tâche du système ou du groupe sur laquelle le lien d'utilisation sera réellement créé. |
+| !pics/diagrams/tasksgraph/Attach%20actor.png! | Association entre une tâche et un acteur. Cet outil s'utilise lorsque l'acteur voulu n'est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l'acteur, une boîte de dialogue s'ouvre et permet de sélectionner un acteur. L'acteur apparaît alors sur le diagramme ainsi qu'un lien de rattachement avec la tâche. *Disponible uniquement si le calque _Actors_ est activé* |
+| !pics/diagrams/tasksgraph/Attach%20actor2.png! | Création d'une association entre une tâche et un acteur déjà visible sur le diagramme. *Disponible uniquement si le calque _Actors_ est activé* |
 
 h4. Menu contextuel
 
@@ -117,7 +117,7 @@ h3. Graphe de tâches (pour un _TasksGroup_)
 Un graphe de tâches (ou _Tasks Graph_) peut être associé à un _TasksGroup_.
 Pour chaque _TasksGroup_ un seul graphe de tâches peut être créé au maximum.
 
-!pics/diagrams/grouptasksgraph/Group Tasks Graph.png!
+!pics/diagrams/grouptasksgraph/Group%20Tasks%20Graph.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -129,12 +129,12 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/diagrams/grouptasksgraph/Import existing task.png! | Import d'une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent. |
-| !pics/diagrams/tasksgraph/Create task.png! | Création d'une nouvelle tâche. |
-| !pics/diagrams/tasksgraph/Create group.png! | Création d'un groupe. |
-| !pics/diagrams/tasksgraph/Create use.png! | Création de lien d'utilisation entre tâches, groupes. Les liens d'utilisation se font normalement entre tâches, l'outil de création peut néanmoins être utilisé avec un groupe comme extrémité : dans ce cas une boîte de dialogue s'ouvre pour permettre de choisir la tâche du groupe sur laquelle le lien d'utilisation sera réellement créé. |
-| !pics/diagrams/tasksgraph/Attach actor.png! | Association entre une tâche et un acteur. Cet outil s'utilise lorsque l'acteur voulu n'est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l'acteur, une boîte de dialogue s'ouvre et permet de sélectionner un acteur. L'acteur apparaît alors sur le diagramme ainsi qu'un lien de rattachement avec la tâche. *Disponible uniquement si le calque _Actors_ est activé* |
-| !pics/diagrams/tasksgraph/Attach actor2.png! | Création d'une association entre une tâche et un acteur déjà visible sur le diagramme. *Disponible uniquement si le calque _Actors_ est activé* |
+| !pics/diagrams/grouptasksgraph/Import%20existing%20task.png! | Import d'une tâche existante. Une boîte de dialogue permet de choisir une tâche existante. La tâche est importée dans le groupe actuel et détachée de son conteneur précédent. |
+| !pics/diagrams/tasksgraph/Create%20task.png! | Création d'une nouvelle tâche. |
+| !pics/diagrams/tasksgraph/Create%20group.png! | Création d'un groupe. |
+| !pics/diagrams/tasksgraph/Create%20use.png! | Création de lien d'utilisation entre tâches, groupes. Les liens d'utilisation se font normalement entre tâches, l'outil de création peut néanmoins être utilisé avec un groupe comme extrémité : dans ce cas une boîte de dialogue s'ouvre pour permettre de choisir la tâche du groupe sur laquelle le lien d'utilisation sera réellement créé. |
+| !pics/diagrams/tasksgraph/Attach%20actor.png! | Association entre une tâche et un acteur. Cet outil s'utilise lorsque l'acteur voulu n'est pas déjà visible sur le diagramme. Choisir la tâche à laquelle on souhaite associer l'acteur, une boîte de dialogue s'ouvre et permet de sélectionner un acteur. L'acteur apparaît alors sur le diagramme ainsi qu'un lien de rattachement avec la tâche. *Disponible uniquement si le calque _Actors_ est activé* |
+| !pics/diagrams/tasksgraph/Attach%20actor2.png! | Création d'une association entre une tâche et un acteur déjà visible sur le diagramme. *Disponible uniquement si le calque _Actors_ est activé* |
 
 h4. Menu contextuel
 
@@ -155,7 +155,7 @@ h3. Plan d'action
 Un plan d'action (ou _Actions Plan_) est associé à une _Task_.
 Pour chaque _Task_ un seul plan d'action peut être créé au maximum.
 
-!pics/diagrams/actionsplan/Actions Plan.png!
+!pics/diagrams/actionsplan/Actions%20Plan.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -201,7 +201,7 @@ h3. Graphe des acteurs (pour un _System_)
 Un graphe des acteurs (ou _Actors Graph_) peut être associé à un _System_. Ce graphe permet de créer/modifier les acteurs du système.
 Pour chaque _System_ un seul graphe des acteurs peut être créé au maximum.
 
-!pics/diagrams/actorsgraph/Actors Graph.png!
+!pics/diagrams/actorsgraph/Actors%20Graph.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -219,7 +219,7 @@ h3. Graphe global des Use Cases (pour un _System_)
 Un graphe global des Use Cases (ou _Use Cases Main View_) peut être associé à un _System_. Ce graphe permet de visualiser, créer, modifier les _Use Cases_ du système.
 Pour chaque _System_ un seul graphe global des Use Cases peut être créé au maximum.
 
-!pics/diagrams/usecasesmainview/Use Cases Main View.png!
+!pics/diagrams/usecasesmainview/Use%20Cases%20Main%20View.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -246,7 +246,7 @@ Un diagramme de Use Case (ou _Use Case Diagram_) peut être associé à un _Use 
 Le graphe global des Use Cases d'un _System_ est normalement créé automatiquement à la création d'une session.
 Pour chaque _System_ un seul graphe global des Use Cases peut être créé au maximum.
 
-!pics/diagrams/usecasediagram/Use Case Diagram.png!
+!pics/diagrams/usecasediagram/Use%20Case%20Diagram.png!
 
 h4. Eléments affichés et palette d'outils
 
@@ -294,7 +294,7 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/diagrams/domainclasses/Create namespace.png! | Création d'un package. Un package peut être créé sur le fond du diagramme ou à l'intérieur d'un autre package. |
+| !pics/diagrams/domainclasses/Create%20namespace.png! | Création d'un package. Un package peut être créé sur le fond du diagramme ou à l'intérieur d'un autre package. |
 
 h4. Navigation vers d'autres diagrammes
 
@@ -306,7 +306,7 @@ h3. Diagramme de classes participantes
 
 Un diagramme de classes participantes est associé à un package (_Namespace_). Il permet de gérer les classes participantes du package.
 
-!pics/diagrams/domainclasses/Domain classes diagram.png!
+!pics/diagrams/domainclasses/Domain%20classes%20diagram.png!
 
 Les éléments suivants sont affichés sur le diagramme :
 
@@ -319,17 +319,17 @@ Les éléments suivants sont affichés sur le diagramme :
 
 Les outils fournis par la palette sont :
 
-| !pics/diagrams/domainclasses/Create namespace.png! | Création d'un sous-package. |
-| !pics/diagrams/domainclasses/Create domain class.png! | Création d'une classe participante. |
-| !pics/diagrams/domainclasses/Create attribute.png! | Création d'un attribut de classe participante. |
-| !pics/diagrams/domainclasses/Create enumeration.png! | Création d'une énumération. |
-| !pics/diagrams/domainclasses/Create literal.png! | Création d'une valeur d'énumération. |
-| !pics/diagrams/domainclasses/Create relation.png! | Création d'une relation simple. |
-| !pics/diagrams/domainclasses/Create composition.png! | Création d'une relation de composition. |
-| !pics/diagrams/domainclasses/Create inheritance.png! | Création d'un lien d'héritage. |
-| !pics/diagrams/domainclasses/Create bidi relation.png! | Création d'une relation simple bidirectionnelle. |
-| !pics/diagrams/domainclasses/Create bidi composition.png! | Création d'une relation de contenance bidirectionnelle. |
-| !pics/diagrams/domainclasses/Create external.png! | Ajout d'une classe participante externe. Cet outil permet de faire apparaitre une classe participante définie dans un autre package pour créer des relations avec les classes du package courant. Cet outil est activable via le calque _External Domain Classes_ |
+| !pics/diagrams/domainclasses/Create%20namespace.png! | Création d'un sous-package. |
+| !pics/diagrams/domainclasses/Create%20domain%20class.png! | Création d'une classe participante. |
+| !pics/diagrams/domainclasses/Create%20attribute.png! | Création d'un attribut de classe participante. |
+| !pics/diagrams/domainclasses/Create%20enumeration.png! | Création d'une énumération. |
+| !pics/diagrams/domainclasses/Create%20literal.png! | Création d'une valeur d'énumération. |
+| !pics/diagrams/domainclasses/Create%20relation.png! | Création d'une relation simple. |
+| !pics/diagrams/domainclasses/Create%20composition.png! | Création d'une relation de composition. |
+| !pics/diagrams/domainclasses/Create%20inheritance.png! | Création d'un lien d'héritage. |
+| !pics/diagrams/domainclasses/Create%20bidi%20relation.png! | Création d'une relation simple bidirectionnelle. |
+| !pics/diagrams/domainclasses/Create%20bidi%20composition.png! | Création d'une relation de contenance bidirectionnelle. |
+| !pics/diagrams/domainclasses/Create%20external.png! | Ajout d'une classe participante externe. Cet outil permet de faire apparaitre une classe participante définie dans un autre package pour créer des relations avec les classes du package courant. Cet outil est activable via le calque _External Domain Classes_ |
 
 
 h3. Gestion des User Stories
@@ -395,7 +395,7 @@ L'outillage Graal ajoute néanmoins 2 matrices de traçabilité des exigences sp
 
 Une fois le point de vue _Requirements (Graal consolidated view)_ activé, 2 nouvelles matrices de traçabilité peuvent être créées sur un objet _Repository_
 
-!pics/requirements/New task traceability.png!
+!pics/requirements/New%20task%20traceability.png!
 
 h3. Task traceability matrix
 
@@ -404,7 +404,7 @@ Dans la colonne de gauche, les catégories et exigences sont affichées sous for
 Ensuite, pour chaque tâche Graal concernée par une exigence, une colonne est affichée et des "X" apparaissent pour indiquer les exigences rattachées.
 La vue est consolidée au niveau tâche, si par exemple une exigence est rattachée au niveau d'une _AppliAction_ d'une tâche l'exigence apparaîtra rattachée à cette tâche sur la matrice. C'est pour cela que les liens de rattachement ne sont pas éditables à partir de cette matrice.
 
-!pics/requirements/Task traceability matrix.png!
+!pics/requirements/Task%20traceability%20matrix.png!
 
 
 h3. Use Case traceability matrix
@@ -414,7 +414,7 @@ Dans la colonne de gauche, les catégories et exigences sont affichées sous for
 Ensuite, pour chaque use case Graal concerné par une exigence, une colonne est affichée et des "X" apparaissent pour indiquer les exigences rattachées.
 La vue est consolidée au niveau use case, si par exemple une exigence est rattachée au niveau d'une _AppliAction_ d'une tâche ou au niveau d'une tâche,  l'exigence apparaîtra rattachée aux use cases concernés par la tâche. C'est pour cela que les liens de rattachement ne sont pas éditables à partir de cette matrice.
 
-!pics/requirements/Use case traceability matrix.png!
+!pics/requirements/Use%20case%20traceability%20matrix.png!
 
 h2. Gestion de la documentation liée
 

@@ -44,7 +44,7 @@ bq. Viewpoint Selection
 
 Choisir le point de vue _Requirement_.
 
-!pics/Requirement Viewpoint Selection.png!
+!pics/Requirement%20Viewpoint%20Selection.png!
 
 h3. Requirements table
 
@@ -75,11 +75,11 @@ Le point de vue permet de créer une matrice de traçabilité d'exigence sur un 
 
 bq. New > new Requirements Traceability Matrix
 
-!pics/Requirements matrix creation.png! 
+!pics/Requirements%20matrix%20creation.png! 
 
 Une matrice de traçabilité présente les éléments d'exigences du modèle en ligne et les éléments référencés en colonnes. Une croix est présente si l'exigence de la ligne référence l'objet de la colonne.
 
-!pics/Requirement Viewpoint.png!
+!pics/Requirement%20Viewpoint.png!
 
 Il est possible d'éditer les cellules. Si une cellule est vidée, la référence entre l'exigence et l'objet est supprimée.
 
@@ -89,24 +89,24 @@ La vue _Linked Requirements_ permet de lier les exigences aux éléments des mod
 
 bq. Window > Show View > Other ... > Linked Requirement (Catégorie Obeo Designer For IS)
 
-!pics/Linked Requirements View.png! 
+!pics/Linked%20Requirements%20View.png! 
 
 Cette vue est synchronisée avec l'éditeur actif dans Obeo Designer. Quand un élément de modèle est sélectionné, la vue se met à jour et présente tous les exigences qui ont été liées à cet élément.
 
 Cette vue porte quatre actions permettant de manipuler rapidement les exigences sans avoir à passer par l'éditeur décrit dans la partie précédente.
 
-!pics/Linked Requirements View - Actions.png!
+!pics/Linked Requirements%20View%20-%20Actions.png!
 
 
 h3. Création d'exigence
 
 La première action permet de créer et directement lier une nouvelle exigence à la sélection courante.
 
-!pics/Linked Requirements View - Create Action.png!
+!pics/Linked%20Requirements%20View%20-%20Create%20Action.png!
 
 Au lancement de l'action, un assistant s'ouvre permettant de créer une nouvelle exigence. Toutes les propriétés de l'exigence peuvent être renseignée sur la première page. La seconde page permet de choisir la catégorie dans laquelle l'exigence va être positionnée. Dans le cas où celle-ci n'existe pas, il est possible d'utiliser le bouton _New Category..._  pour en créer une nouvelle.
 
-!pics/Create Requirement Wizard - Page1.png! - !pics/Create Requirement Wizard - Page2.png! 
+!pics/Create%20Requirement%20Wizard%20-%20Page1.png! - !pics/Create%20Requirement%20Wizard%20-%20Page2.png! 
 
 Une fois l'assistant validé, l'exigence est créée à l'endroit spécifié et est liée à l'objet actuellement sélectionnée. La vue _Linked Requirements_ est mise à jour.
 
@@ -114,7 +114,7 @@ h3. Édition d'exigence
 
 La seconde action de la vue permet d'éditer une exigence présente dans la vue.
 
-!pics/Linked Requirements View - Edit Action.png!
+!pics/Linked%20Requirements%20View%20-%20Edit%20Action.png!
 
 Elle s'active en sélectionnant une exigence dans la liste des exigences liées et son lancement ouvre l'assistant d'édition de façon à pouvoir modifier les propriétés de cet objet.
 
@@ -122,17 +122,17 @@ h3. Association d'exigence
 
 La troisième action permet de gérer l'association entre les éléments de modèle et les exigences.
 
-!pics/Linked Requirements View - Link Action.png!
+!pics/Linked%20Requirements%20View%20-%20Link%20Action.png!
 
 Le lancement de l'action ouvre une boîte de dialogue pour le choix des exigences à associer à l'élément actuellement sélectionné. 
 
-!pics/Link Requirements Dialog.png! 
+!pics/Link%20Requirements%20Dialog.png! 
 
 h3. Dissociation d'exigence
 
 Finalement la dernière action permet de supprimer l'association entre une ou plusieurs exigences et l'élément actuellement sélectionné.
 
-!pics/Linked Requirements View - Unlink Action.png! 
+!pics/Linked%20Requirements%20View%20-%20Unlink%20Action.png! 
 
 Cette action s'active lorsqu'une ou plusieurs exigences sont sélectionnées parmi les exigences liées de la vue. En la lançant, tous les liens entre ces exigences et l'élément sélectionné.
 
