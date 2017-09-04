@@ -11,12 +11,19 @@
 package org.obeonetwork.dsl.database.provider;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CopyCommand.Helper;
+import org.eclipse.emf.edit.command.InitializeCopyCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -61,6 +68,29 @@ public class DatabaseElementItemProvider
 		super(adapterFactory);
 	}
 
+	/**
+	 * 'techID' must be unique even across copies.
+	 * We never copy its value
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	protected Command createInitializeCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
+		return new InitializeCopyCommand(domain, owner, helper) {
+			@Override
+			protected Collection<? extends EAttribute> getAttributesToCopy() {
+				Collection<? extends EAttribute> allAttributes = super.getAttributesToCopy();
+				Collection<EAttribute> attributesToCopy = new ArrayList<EAttribute>();
+				for (EAttribute eAttribute : allAttributes) {
+					if (! DatabasePackage.Literals.DATABASE_ELEMENT__TECH_ID.equals(eAttribute)) {
+						attributesToCopy.add(eAttribute);
+					}
+				}
+				return attributesToCopy;
+			}
+		};
+	}
+	
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
