@@ -244,7 +244,11 @@ public class ColumnServices {
             TypeInstance instance = (TypeInstance) type;
             switch (instance.getNativeType().getSpec()) {
                 case LENGTH:
-                    res = instance.getLength().toString();
+                    if (instance.getLength() == null) {
+                        res = "";
+                    } else {
+                        res = instance.getLength().toString();
+                    }
                     break;
                 case LENGTH_AND_PRECISION:
                     res = instance.getLength() + "," + instance.getPrecision();
