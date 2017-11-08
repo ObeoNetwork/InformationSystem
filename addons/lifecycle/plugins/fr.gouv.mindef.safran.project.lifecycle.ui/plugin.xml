@@ -14,12 +14,8 @@
 <plugin>
    <extension
          point="org.eclipse.ui.importWizards">
-      <category
-            id="fr.gouv.mindef.safran.project.lifecycle.ui.wizards.category"
-            name="Safr@n">
-      </category>
       <wizard
-            category="fr.gouv.mindef.safran.project.lifecycle.ui.wizards.category"
+            category="org.obeonetwork.is.designer.ui.wizards.category"
             class="fr.gouv.mindef.safran.project.lifecycle.ui.wizards.BusinessProjectImportWizard"
             icon="icons/ModelingProject.gif"
             id="fr.gouv.mindef.safran.project.lifecycle.ui.wizards.BusinessProjectImportWizard"
