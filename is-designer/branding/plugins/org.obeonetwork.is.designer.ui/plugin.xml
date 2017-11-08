@@ -41,4 +41,18 @@
          </menu>
       </menuContribution>
    </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+	<category
+            id="org.obeonetwork.is.designer.ui.wizards.category"
+            name="IS Designer">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+	<category
+            id="org.obeonetwork.is.designer.ui.wizards.category"
+            name="IS Designer">
+      </category>
+   </extension>
 </plugin>

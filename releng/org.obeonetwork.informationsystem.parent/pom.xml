@@ -158,6 +158,11 @@
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.snapshot.viewer</module>
 		<module>../../commons/tools/plugins/org.obeonetwork.tools.snapshot.viewer.doc</module>
 		<module>../../commons/tools/features/org.obeonetwork.tools.snapshot.viewer.feature</module>
+		
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary</module>
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.ui</module>
+		<module>../../commons/tools/plugins/org.obeonetwork.tools.projectlibrary.doc</module>
+		<module>../../commons/tools/features/org.obeonetwork.tools.projectlibrary.feature</module>
 
 		<!-- ********************************************************************************************* 
 			* Designs ********************************************************************************************* -->

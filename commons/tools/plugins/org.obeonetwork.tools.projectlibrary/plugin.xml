@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated manifest -->
+      <package
+            uri="http://www.obeonetwork.org/dsl/manifest/1.0.0"
+            class="org.obeonetwork.dsl.manifest.ManifestPackage"
+            genModel="model/manifest.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated manifest -->
+      <parser
+            type="manifest"
+            class="org.obeonetwork.dsl.manifest.util.ManifestResourceFactoryImpl"/>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.featureExtensions">
+      <feature
+            class="org.obeonetwork.tools.projectlibrary.extension.ManifestFeatureExtension"></feature>
+   </extension>
+</plugin>
