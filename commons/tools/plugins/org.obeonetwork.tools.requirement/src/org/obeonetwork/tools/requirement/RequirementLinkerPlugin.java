@@ -47,7 +47,6 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 	 * The constructor
 	 */
 	public RequirementLinkerPlugin() {
-		registry = new ImageRegistry();
 	}
 
 	/*
@@ -104,6 +103,7 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 	 * @return the image descriptor
 	 */
 	public ImageDescriptor getImageDescriptor(String imageID) {
+		ImageRegistry registry = getImageRegistry();
 		if (registry.get(imageID) == null) {
 			Bundle bundle = Platform.getBundle(PLUGIN_ID);
 			IPath path = new Path(ICONS_FOLDER + imageID + ICONS_EXTENSION);
@@ -112,6 +112,13 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 			registry.put(imageID, desc);
 		}
 		return ImageDescriptor.createFromImage(registry.get(imageID));
+	}
+	
+	private ImageRegistry getImageRegistry() {
+		if (registry == null) {
+			registry = new ImageRegistry();
+		}
+		return registry;
 	}
 
 }
