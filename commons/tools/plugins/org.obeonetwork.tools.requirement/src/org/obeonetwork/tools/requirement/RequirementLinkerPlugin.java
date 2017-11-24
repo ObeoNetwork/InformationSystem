@@ -17,10 +17,24 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.EMFPlugin.EclipsePlugin;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.transaction.NotificationFilter;
+import org.eclipse.emf.transaction.ResourceSetChangeEvent;
+import org.eclipse.emf.transaction.ResourceSetListenerImpl;
+import org.eclipse.emf.transaction.RollbackException;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.business.api.session.SessionManagerListener;
+import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.ui.IDecoratorManager;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
+import org.obeonetwork.dsl.requirement.RequirementPackage;
+import org.obeonetwork.tools.requirement.ui.decorators.ObjectWithRequirement;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
@@ -58,6 +72,7 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		installAllDecoratorListeners();
 	}
 
 	/*
@@ -120,5 +135,62 @@ public class RequirementLinkerPlugin extends EclipsePlugin {
 		}
 		return registry;
 	}
+	
+	private void installDecoratorListenerOnSession(Session session) {
+		TransactionalEditingDomain ted = session.getTransactionalEditingDomain();
+		if (ted != null) {
+			NotificationFilter notificationFilter = NotificationFilter.createFeatureFilter(RequirementPackage.Literals.REQUIREMENT__REFERENCED_OBJECT);
+			ted.addResourceSetListener(new ResourceSetListenerImpl(notificationFilter) {
+				@Override
+				public boolean isPostcommitOnly() {
+					return true;
+				}
+				
+				@Override
+				public void resourceSetChanged(ResourceSetChangeEvent event) {
+					PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+						public void run() {
+							IDecoratorManager decoratorManager = PlatformUI.getWorkbench().getDecoratorManager();
+							decoratorManager.update(ObjectWithRequirement.DECORATOR_ID);
+						}
+					});
+				}
+				
+			});
+		}
+	}
 
+	/**
+	 * Installs a Session listener to refresh decorators for objects with requirements on all sessions
+	 */
+	private void installAllDecoratorListeners() {
+		// Install the listener to already opened sessions
+		// it could happen depending on the plugin starting order
+		for (Session session : SessionManager.INSTANCE.getSessions()) {
+			installDecoratorListenerOnSession(session);
+		}
+		
+		SessionManager.INSTANCE.addSessionsListener(new SessionManagerListener() {
+
+			public void notifyAddSession(Session newSession) {
+				installDecoratorListenerOnSession(newSession);
+			}
+			
+			public void viewpointSelected(Viewpoint selectedSirius) {
+				// Do nothing
+			}
+			
+			public void viewpointDeselected(Viewpoint deselectedSirius) {
+				// Do nothing				
+			}
+			
+			public void notifyRemoveSession(Session removedSession) {
+				// Do nothing
+			}
+			
+			public void notify(Session updated, int notification) {
+				// Do nothing
+			}
+		});
+	}
 }

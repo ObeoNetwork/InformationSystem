@@ -22,5 +22,21 @@
             name="Linked Requirements">
       </view>
    </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="true"
+            class="org.obeonetwork.tools.requirement.ui.decorators.ObjectWithRequirement"
+            id="org.obeonetwork.tools.requirement.ui.decorators.ObjectWithRequirement"
+            label="Object with requirements"
+            lightweight="true"
+            state="true">
+         <enablement>
+               <objectClass
+                     name="java.lang.Object">
+               </objectClass>
+         </enablement>
+      </decorator>
+   </extension>
 
 </plugin>
