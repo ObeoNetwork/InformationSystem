@@ -1,6 +1,6 @@
 target "IS Designer Target Definition"
 
-location "http://update.obeo.fr/integration/informationsystem/9.0/design/repository/" {
+location "http://update.obeo.fr/integration/informationsystem/10.1/design/repository/" {
 	org.obeonetwork.dsl.feature.environment.feature.group lazy
 	org.obeonetwork.dsl.feature.entity.feature.group lazy
 	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
