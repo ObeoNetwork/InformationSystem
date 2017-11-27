@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="IS Designer Target Definition" sequenceNumber="1511805543">
+<target name="IS Designer Target Definition" sequenceNumber="1511807319">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -48,7 +48,7 @@
       <unit id="fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group" version="0.0.0"/>
       <unit id="fr.gouv.mindef.safran.project.lifecycle.feature.feature.group" version="0.0.0"/>
       <unit id="org.obeonetwork.is.samples.feature.feature.group" version="0.0.0"/>
-      <repository location="http://update.obeo.fr/integration/informationsystem/10.1/design/repository/"/>
+      <repository location="http://update.obeo.fr/integration/informationsystem/10.0/design/repository/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.e4.rcp.feature.group" version="0.0.0"/>
@@ -110,6 +110,7 @@
       <unit id="org.eclipse.acceleo.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.common.acceleo.aql.ide" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
+      <unit id="com.sun.jna" version="0.0.0"/>
       <unit id="fr.obeo.dsl.viewpoint.runtime.collab.feature.group" version="0.0.0"/>
       <repository location="http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/repository/"/>
     </location>

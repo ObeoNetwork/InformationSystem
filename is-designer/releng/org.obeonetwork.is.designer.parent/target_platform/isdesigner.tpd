@@ -1,6 +1,6 @@
 target "IS Designer Target Definition"
 
-location "http://update.obeo.fr/integration/informationsystem/10.1/design/repository/" {
+location "http://update.obeo.fr/integration/informationsystem/10.0/design/repository/" {
 	org.obeonetwork.dsl.feature.environment.feature.group lazy
 	org.obeonetwork.dsl.feature.entity.feature.group lazy
 	org.obeonetwork.dsl.feature.cinematic.feature.group lazy
@@ -107,6 +107,7 @@ location "http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/r
 	org.eclipse.acceleo.feature.group lazy
 	org.eclipse.sirius.common.acceleo.aql.ide lazy
 	org.eclipse.acceleo.query.feature.group lazy
+	com.sun.jna lazy
 
 	// Include this in the TP but *not* in the product as "lifecycle" optionnally depends on it.
 	fr.obeo.dsl.viewpoint.runtime.collab.feature.group lazy
