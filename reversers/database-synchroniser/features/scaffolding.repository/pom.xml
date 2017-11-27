@@ -5,7 +5,7 @@
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
     http://www.eclipse.org/legal/epl-v10.html
-   
+
     Contributors:
         Obeo - initial API and implementation
  -->
@@ -15,11 +15,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
 	<groupId>Database-Synchronizer</groupId>
-        <artifactId>database.synchronizer</artifactId>        
-        <version>9.0.0-SNAPSHOT</version>
+        <artifactId>database.synchronizer</artifactId>
+        <version>10.0.0-SNAPSHOT</version>
         <relativePath>../..</relativePath>
   </parent>
-  
+
   <artifactId>scaffolding.repository</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>eclipse-repository</packaging>

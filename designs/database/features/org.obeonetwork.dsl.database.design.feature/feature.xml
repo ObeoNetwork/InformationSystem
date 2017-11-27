@@ -5,14 +5,14 @@
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
     http://www.eclipse.org/legal/epl-v10.html
-   
+
     Contributors:
         Obeo - initial API and implementation
  -->
 <feature
       id="org.obeonetwork.dsl.database.design.feature"
       label="Database Designer"
-      version="9.0.0.qualifier"
+      version="10.0.0.qualifier"
       provider-name="%providerName"
       license-feature="org.obeonetwork.is.license"
       license-feature-version="1.0.0.qualifier">
@@ -33,7 +33,7 @@
       <import feature="org.eclipse.sirius.runtime.ocl" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.specifier.ide.ui" version="2.0.0.201410241344"/>
       <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="2.0.0.201410241344"/>
-      <import feature="org.obeonetwork.dsl.database.feature" version="9.0.0.qualifier"/>
+      <import feature="org.obeonetwork.dsl.database.feature" version="10.0.0.qualifier"/>
    </requires>
 
    <plugin

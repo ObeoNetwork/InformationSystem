@@ -5,7 +5,7 @@
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
     http://www.eclipse.org/legal/epl-v10.html
-   
+
     Contributors:
         Obeo - initial API and implementation
  -->
@@ -24,7 +24,7 @@
 	<groupId>org.obeonetwork.is.designer</groupId>
 	<artifactId>org.obeonetwork.is.designer.product</artifactId>
 	<name>org.obeonetwork.is.designer.product</name>
-	<version>1.7.0-SNAPSHOT</version>
+	<version>1.8.0-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 
   <properties>
@@ -47,7 +47,7 @@
         <version>${tycho-version}</version>
         <executions>
           <execution>
-            <!-- install the product for all configured os/ws/arch environments 
+            <!-- install the product for all configured os/ws/arch environments
               using p2 director -->
             <id>materialize-products</id>
             <goals>
