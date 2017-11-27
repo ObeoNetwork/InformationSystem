@@ -83,6 +83,12 @@ location "http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/r
 	org.eclipse.equinox.concurrent lazy
 	org.eclipse.emf.common.source.feature.group lazy
 	org.eclipse.emf.ecore.source.feature.group lazy
+	org.eclipse.ecf.core.feature.source.feature.group lazy
+	org.eclipse.ecf.core.ssl.feature.source.feature.group lazy
+	org.eclipse.ecf.filetransfer.feature.source.feature.group lazy
+	org.eclipse.ecf.filetransfer.httpclient4.feature.source.feature.group lazy
+	org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.source.feature.group lazy
+	org.eclipse.ecf.filetransfer.ssl.feature.source.feature.group lazy
 	org.eclipse.ecf.core.ssl.feature.feature.group lazy
 	org.eclipse.ecf.filetransfer.feature.feature.group lazy
 	org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group lazy
