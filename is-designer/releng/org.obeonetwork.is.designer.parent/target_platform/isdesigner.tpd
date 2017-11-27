@@ -47,7 +47,7 @@ location "http://update.obeo.fr/integration/informationsystem/9.0/design/reposit
 	org.obeonetwork.is.samples.feature.feature.group lazy
 }
 
-location "http://update.obeo.fr/release/designer/9.1/team/latest/repository/" {
+location "http://update.obeo.fr/stable/designer/10.1.0_beta_safran/" {
 	org.eclipse.e4.rcp.feature.group lazy
 	org.eclipse.platform.feature.group lazy
 	org.eclipse.jdt.feature.group lazy
@@ -122,7 +122,7 @@ location "http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S
 //	org.eclipse.acceleo.query.feature.group lazy
 //}
 
-location "http://download.eclipse.org/releases/neon/" {
+location "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.equinox.executable.feature.group lazy
 	org.apache.commons.io lazy
 	org.eclipse.emf.cdo.feature.group lazy
@@ -132,7 +132,7 @@ location "http://download.eclipse.org/releases/neon/" {
 	org.eclipse.oomph.setup.sdk.feature.group lazy
 }
 
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/0.11.0_beta/repository" {
+location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/1.0.0/repository" {
 	org.apache.poi.feature.feature.group lazy
 	org.obeonetwork.m2doc.feature.feature.group lazy
 	org.obeonetwork.m2doc.ui.feature.feature.group lazy

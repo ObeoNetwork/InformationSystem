@@ -1,6 +1,6 @@
 target "Information System Designer Target Definition"
 
-location "http://update.obeo.fr/integration/designer/9.1/community/9.1.1/repository/" {
+location "http://update.obeo.fr/integration/designer/10.1/community/10.1.0/repository/" {
 	org.eclipse.e4.rcp.feature.group
 	org.eclipse.platform.feature.group
 	org.eclipse.jdt.feature.group
@@ -64,7 +64,7 @@ location "http://update.obeo.fr/integration/designer/9.1/community/9.1.1/reposit
 	fr.obeo.dsl.designer.ce.feature.feature.group
 }
 
-location "http://download.eclipse.org/releases/neon/" {
+location "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.equinox.executable.feature.group
 	org.apache.commons.io
 	org.eclipse.emf.cdo.feature.group
@@ -73,7 +73,7 @@ location "http://download.eclipse.org/releases/neon/" {
 	org.eclipse.oomph.setup.sdk.feature.group
 }
 
-location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/M2Doc_0.9.6/repository" {
+location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/1.0.0/repository" {
 	org.apache.poi.feature.feature.group
 	org.obeonetwork.m2doc.feature.feature.group
 	org.obeonetwork.m2doc.sirius.feature.feature.group

@@ -6,7 +6,7 @@
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
     http://www.eclipse.org/legal/epl-v10.html
-   
+
     Contributors:
         Obeo - initial API and implementation
  -->
@@ -21,10 +21,12 @@
    </extension>
    <extension
          point="org.obeonetwork.m2doc.ide.services.register">
-      <service
-            serviceClass="org.obeonetwork.requirement.m2doc.services.RequirementServicesHolder"
-            serviceToken="default">
-      </service>
+      <token
+            name="default">
+         <service
+               class="org.obeonetwork.requirement.m2doc.services.RequirementServices">
+         </service>
+      </token>
    </extension>
 
 </plugin>

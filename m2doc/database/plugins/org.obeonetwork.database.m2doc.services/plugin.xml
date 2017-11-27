@@ -6,7 +6,7 @@
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
     http://www.eclipse.org/legal/epl-v10.html
-   
+
     Contributors:
         Obeo - initial API and implementation
  -->
@@ -14,38 +14,33 @@
 <plugin>
    <extension
          point="org.obeonetwork.m2doc.ide.services.register">
-      <service
-            serviceClass="org.obeonetwork.database.m2doc.services.ColumnServiceHolder"
-            serviceToken="default">
-      </service>
-      <service
-            serviceClass="org.obeonetwork.database.m2doc.services.DataBaseServiceHolder"
-            serviceToken="default">
-      </service>
-      <service
-            serviceClass="org.obeonetwork.database.m2doc.services.ForeignKeyElementServiceHolder"
-            serviceToken="default">
-      </service>
-      <service
-            serviceClass="org.obeonetwork.database.m2doc.services.IndexElementServiceHolder"
-            serviceToken="default">
-      </service>
-      <service
-            serviceClass="org.obeonetwork.database.m2doc.services.IndexServiceHolder"
-            serviceToken="default">
-      </service>
-      <service
-            serviceClass="org.obeonetwork.database.m2doc.services.SequenceServiceHolder"
-            serviceToken="default">
-      </service>
-      <service
-            serviceClass="org.obeonetwork.database.m2doc.services.TableContainerServiceHolder"
-            serviceToken="default">
-      </service>
-      <service
-            serviceClass="org.obeonetwork.database.m2doc.services.TableServiceHolder"
-            serviceToken="default">
-      </service>
+      <token
+            name="default">
+         <service
+               class="org.obeonetwork.database.m2doc.services.ColumnServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.DataBaseServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.ForeignKeyElementServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.IndexElementServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.IndexServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.SequenceServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.TableContainerServices">
+         </service>
+         <service
+               class="org.obeonetwork.database.m2doc.services.TableServices">
+         </service>
+      </token>
    </extension>
    <extension
          point="org.eclipse.help.toc">

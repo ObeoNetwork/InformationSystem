@@ -35,7 +35,9 @@ import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIServices;
 import org.eclipse.sirius.ui.business.api.dialect.ExportFormat;
+import org.eclipse.sirius.ui.business.api.dialect.ExportResult;
 import org.eclipse.sirius.ui.business.api.session.SessionEditorInput;
+import org.eclipse.sirius.ui.tools.api.actions.export.SizeTooLargeException;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
@@ -64,7 +66,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#canHandle(org.eclipse.sirius.viewpoint.DRepresentation)
 	 */
 	@Override
@@ -74,14 +76,14 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#canHandleEditor(org.eclipse.ui.IEditorPart)
 	 */
 	@Override
 	public boolean canHandleEditor(IEditorPart editor) {
 		return editor instanceof BindingTreeEditor;
 	}
-	
+
 	/** {@inheritDoc}
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#canHandle(org.eclipse.sirius.viewpoint.DRepresentationDescriptor)
 	 */
@@ -92,7 +94,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#getEditorName(org.eclipse.sirius.viewpoint.DRepresentation)
 	 */
 	@Override
@@ -102,7 +104,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#closeEditor(org.eclipse.ui.IEditorPart,
 	 *      boolean)
 	 */
@@ -124,7 +126,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#createAdapterFactory()
 	 */
 	@Override
@@ -138,7 +140,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#isRepresentationManagedByEditor(org.eclipse.sirius.viewpoint.DRepresentation,
 	 *      org.eclipse.ui.IEditorPart)
 	 */
@@ -153,7 +155,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#isRepresentationDescriptionManagedByEditor(org.eclipse.sirius.viewpoint.description.RepresentationDescription,
 	 *      org.eclipse.ui.IEditorPart)
 	 */
@@ -170,7 +172,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#openEditor(org.eclipse.sirius.business.api.session.Session,
 	 *      org.eclipse.sirius.viewpoint.DRepresentation)
 	 */
@@ -227,7 +229,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#provideNewChildDescriptors()
 	 */
 	@Override
@@ -241,7 +243,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#provideRepresentationCreationToolDescriptors(java.lang.Object)
 	 */
 	@Override
@@ -255,7 +257,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#provideRepresentationNavigationToolDescriptors(java.lang.Object)
 	 */
 	@Override
@@ -266,7 +268,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#provideTools(org.eclipse.emf.ecore.EObject)
 	 */
 	@Override
@@ -276,7 +278,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#provideAdditionalMappings(org.eclipse.emf.ecore.EObject)
 	 */
 	@Override
@@ -286,7 +288,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#canExport(org.eclipse.sirius.ui.business.api.dialect.ExportFormat)
 	 */
 	@Override
@@ -296,7 +298,7 @@ public class BindingDialectUIServices implements DialectUIServices {
 
 	/**
 	 * {@inheritDoc}
-	 * 
+	 *
 	 * @see org.eclipse.sirius.ui.business.api.dialect.DialectUIServices#export(org.eclipse.sirius.viewpoint.DRepresentation,
 	 *      org.eclipse.sirius.business.api.session.Session,
 	 *      org.eclipse.core.runtime.IPath,
@@ -307,6 +309,13 @@ public class BindingDialectUIServices implements DialectUIServices {
 	public void export(DRepresentation representation, Session session, IPath path, ExportFormat format,
 			IProgressMonitor monitor) {
 		// Nothing to do for binding trees
+	}
+
+	@Override
+	public ExportResult exportWithResult(DRepresentation representation, Session session, IPath path, ExportFormat format,
+			IProgressMonitor monitor) throws SizeTooLargeException {
+		// Nothing to do for binding trees
+		return null;
 	}
 
 	@Override
@@ -351,4 +360,10 @@ public class BindingDialectUIServices implements DialectUIServices {
 	// added for compatibility between sirius 3.0 & 3.1
 	public void selectAndReveal(DialectEditor dialectEditor, List<DRepresentationElement> selection) {
 	}
+
+	@Override
+	public void refreshEditor(DialectEditor dialectEditor, IProgressMonitor monitor) {
+		// nothing to do.
+	}
+
 }

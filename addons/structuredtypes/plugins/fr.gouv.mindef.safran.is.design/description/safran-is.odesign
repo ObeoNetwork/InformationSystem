@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="safran-is" version="10.1.3.201511131800">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="safran-is" version="12.0.0.2017041100">
   <ownedViewpoints name="Entity (Safr@n consolidated view)" label="Entity (Safr@n consolidated view)" modelFileExtension="entity ois">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="EV_Entities_PhysicalNames" label="Entities Physical Names" initialisation="true" domainClass="entity.Root" initialHeaderColumnWidth="80">
       <metamodel href="platform:/plugin/org.obeonetwork.dsl.environment/model/environment.ecore#/"/>
@@ -14,6 +14,8 @@
       </ownedLineMappings>
       <ownedColumnMappings name="EPN_PhysicalName" headerLabelExpression="Name" initialWidth="120" featureName="name" labelExpression="service:lineSemantic.getPhysicalName()">
         <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="root" documentation="The semantic element of the table."/>
@@ -23,6 +25,8 @@
       </ownedColumnMappings>
       <ownedColumnMappings name="EPN_Size" headerLabelExpression="Size" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalSize()">
         <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="root" documentation="The semantic element of the table."/>
@@ -32,6 +36,8 @@
       </ownedColumnMappings>
       <ownedColumnMappings name="EPN_Check" headerLabelExpression="Check" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalCheck()">
         <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="root" documentation="The semantic element of the table."/>
@@ -41,6 +47,8 @@
       </ownedColumnMappings>
       <ownedColumnMappings name="EPN_Unique" headerLabelExpression="Unique" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalUnique()">
         <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="root" documentation="The semantic element of the table."/>
@@ -50,6 +58,8 @@
       </ownedColumnMappings>
       <ownedColumnMappings name="EPN_Default" headerLabelExpression="Default" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalDefault()">
         <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="root" documentation="The semantic element of the table."/>
@@ -74,6 +84,8 @@
       </ownedLineMappings>
       <ownedColumnMappings name="EPN_Size" headerLabelExpression="Size" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalSize()">
         <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="root" documentation="The semantic element of the table."/>
@@ -83,6 +95,8 @@
       </ownedColumnMappings>
       <ownedColumnMappings name="EPN_Check" headerLabelExpression="Check" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalCheck()">
         <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="root" documentation="The semantic element of the table."/>
@@ -92,6 +106,8 @@
       </ownedColumnMappings>
       <ownedColumnMappings name="EPN_Unique" headerLabelExpression="Unique" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalUnique()">
         <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="root" documentation="The semantic element of the table."/>
@@ -101,6 +117,8 @@
       </ownedColumnMappings>
       <ownedColumnMappings name="EPN_Default" headerLabelExpression="Default" initialWidth="80" featureName="name" labelExpression="service:lineSemantic.getPhysicalDefault()">
         <directEdit>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
           <variables name="element" documentation="The currently edited element."/>
           <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
           <variables name="root" documentation="The semantic element of the table."/>

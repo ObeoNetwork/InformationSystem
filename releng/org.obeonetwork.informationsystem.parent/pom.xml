@@ -18,14 +18,14 @@
 
 	<properties>
 		<tycho-version>0.21.0</tycho-version>
-		<platform-version-name>neon</platform-version-name>
-		<od-site>http://update.obeo.fr/release/designer/9.1/team/latest/repository/</od-site>
-		<od-site2>http://update.obeo.fr/release/designer/9.1/community/latest/repository/</od-site2>
+		<platform-version-name>oxygen</platform-version-name>
+		<od-site>http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/repository/</od-site>
+		<od-site2>http://update.obeo.fr/release/designer/10.1/community/latest/repository/</od-site2>
 		<eef-site>http://download.eclipse.org/modeling/emft/eef/updates/milestones/1.5/S201705310956</eef-site>
 		<!-- <acceleo-site>http://mirror.update.eclipse.obeo.fr/releases-acceleo-3.4/</acceleo-site> -->
-		<eclipse-site>http://download.eclipse.org/releases/neon/</eclipse-site>
+		<eclipse-site>http://download.eclipse.org/releases/oxygen/</eclipse-site>
 		<orbit-site>http://mirror.update.eclipse.obeo.fr/orbit-R20120526062928/</orbit-site>
-		<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/0.11.0_beta/repository</m2doc-site>
+		<m2doc-site>https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/1.0.0/repository</m2doc-site>
 		<!-- <acceleo-snapshots-site>https://repo.eclipse.org/content/repositories/acceleo-snapshots</acceleo-snapshots-site> -->
 		<!-- <acceleo-releases-site>https://repo.eclipse.org/content/repositories/acceleo-releases</acceleo-releases-site> -->
 	</properties>
@@ -328,7 +328,7 @@
 			<url>${od-site2}</url>
 		</repository>
 		<repository>
-			<id>neon</id>
+			<id>oxygen</id>
 			<layout>p2</layout>
 			<url>${eclipse-site}</url>
 		</repository>
@@ -371,24 +371,6 @@
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<resolver>p2</resolver>
-					<dependency-resolution>
-						<!--optionalDependencies>ignore</optionalDependencies -->
-						<extraRequirements>
-							<requirement>
-								<type>eclipse-plugin</type>
-								<id>org.eclipse.emf.cdo.ecore.retrofit</id>
-								<versionRange>0.0.0</versionRange>
-							</requirement>
-						</extraRequirements>
-					</dependency-resolution>
-				</configuration>
 			</plugin>
 		</plugins>
 		<pluginManagement>
