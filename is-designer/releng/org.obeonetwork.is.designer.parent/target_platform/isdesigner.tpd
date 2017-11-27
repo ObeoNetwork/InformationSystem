@@ -99,6 +99,7 @@ location "http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/r
 	org.eclipse.ocl.feature.group lazy
 	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
 	org.eclipse.epp.mpc.feature.group lazy
+	org.eclipse.userstorage.feature.group lazy
 	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
 	org.eclipse.sirius.doc.feature.feature.group lazy
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
