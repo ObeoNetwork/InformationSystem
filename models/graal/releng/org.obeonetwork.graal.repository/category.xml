@@ -5,13 +5,13 @@
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
     http://www.eclipse.org/legal/epl-v10.html
-   
+
     Contributors:
         Obeo - initial API and implementation
  -->
 
 <site>
-   <feature url="features/org.obeonetwork.graal.feature_9.0.0.qualifier.jar" id="org.obeonetwork.graal.feature" version="9.0.0.qualifier">
+   <feature url="features/org.obeonetwork.graal.feature_10.0.0.qualifier.jar" id="org.obeonetwork.graal.feature" version="10.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.models"/>
    </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
