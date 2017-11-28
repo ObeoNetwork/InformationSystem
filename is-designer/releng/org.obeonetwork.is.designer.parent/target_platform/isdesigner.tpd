@@ -50,6 +50,7 @@ location "http://update.obeo.fr/integration/informationsystem/10.0/design/reposi
 location "http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/repository/" {
 	org.eclipse.e4.rcp.feature.group lazy
 	org.eclipse.platform.feature.group lazy
+	org.eclipse.pde.feature.group lazy
 	org.eclipse.jdt.feature.group lazy
 	org.eclipse.emf.feature.group lazy
 	org.eclipse.emf.ecore.feature.group lazy
@@ -99,7 +100,6 @@ location "http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/r
 	org.eclipse.ocl.feature.group lazy
 	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
 	org.eclipse.epp.mpc.feature.group lazy
-	org.eclipse.userstorage.feature.group lazy
 	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
 	org.eclipse.sirius.doc.feature.feature.group lazy
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
@@ -107,7 +107,6 @@ location "http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/r
 	org.eclipse.acceleo.feature.group lazy
 	org.eclipse.sirius.common.acceleo.aql.ide lazy
 	org.eclipse.acceleo.query.feature.group lazy
-	com.sun.jna lazy
 
 	// Include this in the TP but *not* in the product as "lifecycle" optionnally depends on it.
 	fr.obeo.dsl.viewpoint.runtime.collab.feature.group lazy
@@ -132,6 +131,8 @@ location "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.net4j.feature.group lazy
 	org.eclipse.ecf.core.feature.feature.group lazy
 	org.eclipse.oomph.setup.sdk.feature.group lazy
+	org.eclipse.platform.sdk lazy
+	org.eclipse.core.runtime.feature.feature.group lazy
 }
 
 location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/1.0.0/repository" {
