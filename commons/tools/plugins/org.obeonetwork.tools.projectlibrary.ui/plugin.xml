@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+    Copyright (c) 2017 Obeo.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Obeo - initial API and implementation
+ -->
+ 
+<plugin>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <wizard
+            category="org.obeonetwork.is.designer.ui.wizards.category"
+            class="org.obeonetwork.tools.projectlibrary.ui.wizard.exp.ExportProjectAsLibraryWizard"
+            icon="icons/export_mar.png"
+            id="org.obeonetwork.tools.projectlibrary.ui.wizard.export"
+            name="Export modeling project as library">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            category="org.obeonetwork.is.designer.ui.wizards.category"
+            class="org.obeonetwork.tools.projectlibrary.ui.wizard.imp.ImportLibraryIntoProjectWizard"
+            icon="icons/import_mar.png"
+            id="org.obeonetwork.tools.projectlibrary.ui.wizard.import"
+            name="Import library into project">
+      </wizard>
+   </extension>
+
+</plugin>

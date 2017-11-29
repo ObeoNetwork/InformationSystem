@@ -22,7 +22,7 @@ import org.obeonetwork.tools.requirement.core.RequirementLink;
  * @author <a href="goulwen.lefur@obeo.fr">Goulwen Le Fur</a>
  * 
  */
-public class LinkedRequirementsLableProvider extends EObjectLinkLabelProvider {
+public class LinkedRequirementsLabelProvider extends EObjectLinkLabelProvider {
 
 	private final static int ID = 0;
 	private final static int NAME = 1;
@@ -31,7 +31,7 @@ public class LinkedRequirementsLableProvider extends EObjectLinkLabelProvider {
 	/**
 	 * @param adapterFactory
 	 */
-	public LinkedRequirementsLableProvider(AdapterFactory adapterFactory) {
+	public LinkedRequirementsLabelProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 

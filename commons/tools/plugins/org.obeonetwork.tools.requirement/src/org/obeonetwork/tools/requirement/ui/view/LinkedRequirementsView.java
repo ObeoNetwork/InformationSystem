@@ -38,7 +38,7 @@ import org.obeonetwork.tools.requirement.ui.view.action.EditRequirementAction;
 import org.obeonetwork.tools.requirement.ui.view.action.LinkRequirementAction;
 import org.obeonetwork.tools.requirement.ui.view.action.UnlinkRequirementAction;
 import org.obeonetwork.tools.requirement.ui.view.util.LinkedRequirementsContentProvider;
-import org.obeonetwork.tools.requirement.ui.view.util.LinkedRequirementsLableProvider;
+import org.obeonetwork.tools.requirement.ui.view.util.LinkedRequirementsLabelProvider;
 import org.obeonetwork.tools.requirement.wizard.operation.RequirementEditingOperation;
 
 /**
@@ -51,7 +51,7 @@ public class LinkedRequirementsView extends EObjectLinksView {
 
 	@Override
 	protected void update(EObject selectedEObject) {
-		// Requirement and categories should not be used to attrach requirements
+		// Requirement and categories should not be used to attach requirements
 		// to them
 		if (selectedEObject != null && selectedEObject.eClass().getEPackage() == RequirementPackage.eINSTANCE) {
 			super.update(null);
@@ -89,7 +89,7 @@ public class LinkedRequirementsView extends EObjectLinksView {
 	 */
 	@Override
 	protected CellLabelProvider createLabelProvider() {
-		return new LinkedRequirementsLableProvider(adapterFactory);
+		return new LinkedRequirementsLabelProvider(adapterFactory);
 	}
 
 	/**
