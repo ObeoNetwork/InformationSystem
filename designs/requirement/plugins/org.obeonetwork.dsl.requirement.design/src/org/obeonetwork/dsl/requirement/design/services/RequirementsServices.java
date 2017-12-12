@@ -13,6 +13,7 @@ package org.obeonetwork.dsl.requirement.design.services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,9 +22,15 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.diagram.DEdge;
+import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.business.api.query.EObjectQuery;
+import org.eclipse.sirius.diagram.ui.business.api.query.NodeQuery;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
@@ -36,6 +43,7 @@ import org.obeonetwork.dsl.requirement.design.comparators.CategoryComparator;
 import org.obeonetwork.dsl.requirement.design.comparators.RequirementComparator;
 import org.obeonetwork.dsl.requirement.design.provider.RequirementLabelProvider;
 import org.obeonetwork.dsl.requirement.design.selection.CategorySelectionDialog;
+import org.obeonetwork.tools.requirement.ui.decorators.ObjectWithRequirement;
 
 /**
  * @author sthibaudeau
@@ -280,6 +288,57 @@ public class RequirementsServices {
 				newContainer.getRequirements().add(requirement);
 			}
 		};
+	}
+	
+	/**
+	 * Checks whether a graphical element should be decorated for linked requirements
+	 * @param semanticDecorator
+	 * @return
+	 */
+	public boolean shouldDecorateForLinkedRequirement(DSemanticDecorator semanticDecorator) {
+		// If the decorator is disabled we do not decorate diagrams
+		if (!ObjectWithRequirement.isDecoratorEnabled()) {
+			return false;
+		}
+		
+		// We do not decorate bordered nodes and edges
+		if (isBorderedNode(semanticDecorator)) {
+			return false;
+		} else if (semanticDecorator instanceof DEdge) {
+			return false;
+		}
+		
+		// We check if we can compute an image for the decorator
+		boolean result = getImagePathForLinkedRequirementDecorator(semanticDecorator.getTarget()) != null;
+		return result;
+	}
+	
+	/**
+	 * Checks whether a DNode is a bordered node
+	 * @param semanticDecorator
+	 * @return
+	 */
+	private boolean isBorderedNode(DSemanticDecorator semanticDecorator) {
+		if (semanticDecorator instanceof DNode) {
+			Collection<EObject> inverseReferences = new EObjectQuery((DNode)semanticDecorator).getInverseReferences(org.eclipse.gmf.runtime.notation.NotationPackage.Literals.VIEW__ELEMENT);
+			Iterator<EObject> iterator = inverseReferences.iterator();
+			if (iterator.hasNext()) {
+				EObject next = iterator.next();
+				if (next instanceof Node) {
+					return new NodeQuery((Node)next).isBorderedNode();
+				}
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Returns image path to decorate an object with a linked requirement
+	 * @param element
+	 * @return
+	 */
+	public String getImagePathForLinkedRequirementDecorator(EObject element) {
+		return ObjectWithRequirement.getImagePathForDecorator(element);
 	}
 	
 	private Shell getShell() {

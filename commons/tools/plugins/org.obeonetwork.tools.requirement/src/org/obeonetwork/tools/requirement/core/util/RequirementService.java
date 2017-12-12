@@ -13,6 +13,7 @@ package org.obeonetwork.tools.requirement.core.util;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
@@ -28,6 +29,40 @@ import org.obeonetwork.dsl.requirement.Requirement;
  * Utilities for {@link Requirement Requirements}.
  */
 public class RequirementService {
+	
+	/**
+	 * Checks whether the object has at least one linked requirement
+	 * @param eObject
+	 * @return true if there is at least one linked requirement
+	 */
+	public static boolean hasLinkedRequirement(EObject eObject) {
+		return getLinkedRequirements(eObject).length > 0;
+	}
+	
+	/**
+	 * Checks whether one of the object's descendant has a linked requirement
+	 * @param eObject
+	 * @return
+	 */
+	public static boolean hasDescendantWithLinkedRequirement(EObject eObject) {
+		return hasLinkedRequirementOrDescendantWithLinkedRequirement(eObject.eContents());
+	}
+	
+	public static boolean hasLinkedRequirementOrDescendantWithLinkedRequirement(List<EObject> children) {
+		// Check if one of the children has a requirement
+		for (EObject child : children) {
+			if (hasLinkedRequirement(child)) {
+				return true;
+			}
+		}
+		// if not, let's check descendants
+		for (EObject child : children) {
+			if (hasDescendantWithLinkedRequirement(child)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * Retrieves the {@link Requirement Requirements} linked to the given
