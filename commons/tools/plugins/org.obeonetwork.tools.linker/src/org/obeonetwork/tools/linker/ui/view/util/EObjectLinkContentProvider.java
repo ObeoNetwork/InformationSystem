@@ -18,6 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
@@ -45,10 +46,13 @@ public class EObjectLinkContentProvider implements IStructuredContentProvider {
 	 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
 	 */
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		if (newInput instanceof EObject && (((EObject) newInput).eResource() != null) && ((EObject)newInput).eResource().getResourceSet() != null) {
-			ResourceSet resourceSet = ((EObject)newInput).eResource().getResourceSet();
-			if (linker == null || !linker.getResourceSet().equals(resourceSet)) {
-				linker = EObjectLinker.getLinker((EObject)newInput);		
+		// Add this test to prevent a NullPointerException when selecting CDO resource
+		if (!(newInput instanceof Resource)) {
+			if (newInput instanceof EObject && (((EObject) newInput).eResource() != null) && ((EObject)newInput).eResource().getResourceSet() != null) {
+				ResourceSet resourceSet = ((EObject)newInput).eResource().getResourceSet();
+				if (linker == null || !linker.getResourceSet().equals(resourceSet)) {
+					linker = EObjectLinker.getLinker((EObject)newInput);		
+				}
 			}
 		}
 	}
@@ -58,15 +62,18 @@ public class EObjectLinkContentProvider implements IStructuredContentProvider {
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
 	public Object[] getElements(Object inputElement) {
-		if (inputElement instanceof EObject) {
-			List<EObjectLink> links = linker.getLinks((EObject) inputElement);
-			if (childrenVisibility) {
-				List<EObjectLink> result = new ArrayList<EObjectLink>();
-				result.addAll(links);
-				result.addAll(getChildrenEntries((EObject) inputElement));
-				return result.toArray();
-			} else {
-				return links.toArray();
+		// Add this test to prevent a NullPointerException when selecting CDO resource
+		if (!(inputElement instanceof Resource)) {
+			if (inputElement instanceof EObject) {
+				List<EObjectLink> links = linker.getLinks((EObject) inputElement);
+				if (childrenVisibility) {
+					List<EObjectLink> result = new ArrayList<EObjectLink>();
+					result.addAll(links);
+					result.addAll(getChildrenEntries((EObject) inputElement));
+					return result.toArray();
+				} else {
+					return links.toArray();
+				}
 			}
 		}
 		return null;

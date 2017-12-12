@@ -14,6 +14,7 @@
 package org.obeonetwork.tools.linker.ui.view.util;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ISelection;
@@ -62,7 +63,10 @@ public abstract class ViewpointSelectionListener implements ISelectionListener {
 			selectedEObject = null;
 		}
 		
-		eObjectSelected(selectedEObject);
+		// Add this test to prevent a NullPointerException when selecting CDO resource
+		if (!(selectedEObject instanceof Resource)) {
+			eObjectSelected(selectedEObject);
+		}
 
 	}
 
