@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="StructuredTypesDiagram" version="11.1.1.201610211630">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" documentation="Copyright (c) 2008, 2017 Obeo.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;   Obeo - initial API and implementation" name="StructuredTypesDiagram" version="12.0.0.2017041100">
   <ownedViewpoints name="StructuredTypesDiagramTemplate">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="{Hierarchy.id}" label="{Hierarchy.label}" titleExpression="{Hierarchy.titleExpression}" domainClass="{Hierarchy.domainClass}">
-      <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
+      <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
       <defaultLayer name="Default">
         <containerMappings name="ND_Namespace" detailDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='Namespace%20Name%20Direct%20Edit']" semanticCandidatesExpression="{Hierarchy.namespaceContainer.semanticCandidates}" doubleClickDescription="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace" dropDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" reusedContainerMappings="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_border']" labelColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Class%20Diagram']/@entries[name='Namespace_foreground']"/>
@@ -71,6 +71,29 @@
           </ownedTools>
         </toolSections>
       </defaultLayer>
+      <additionalLayers name="Dependencies" activeByDefault="true">
+        <edgeMappings name="ND_Dependency" sourceMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetFinderExpression="aql:self.getDependenciesToNamespaces(diagram)">
+          <style targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <endLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.isDependencyBeginDecorated()">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style/@beginLabelStyleDescription" attributeName="labelExpression" value="aql:view.getDependencyBeginLabel()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style" attributeName="sourceArrow" value="InputArrow"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.isDependencyEndDecorated()">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style/@endLabelStyleDescription" attributeName="labelExpression" value="aql:view.getDependencyEndLabel()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{Hierarchy.id}']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style" attributeName="targetArrow" value="InputArrow"/>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='{ClassDiagram.section.usability.dragdrop.structuredtype.id}'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='StructuredTypesDiagramTemplate']/@ownedRepresentations[name='{ClassDiagram.id}']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="{ClassDiagram.id}" label="{ClassDiagram.label}" titleExpression="{ClassDiagram.titleExpression}" domainClass="environment.Namespace" preconditionExpression="{ClassDiagram.precondition}">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
@@ -642,6 +665,7 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DeleteServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.UIServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="Class Diagram">
     <entries xsi:type="description:UserFixedColor" red="209" green="209" blue="209" name="Namespace_background"/>

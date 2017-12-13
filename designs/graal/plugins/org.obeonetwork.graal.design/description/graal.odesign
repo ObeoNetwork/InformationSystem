@@ -1133,8 +1133,9 @@
       <intersection name="UST_UserStoryReferencesTask" canEdit="false" lineMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedLineMappings[name='UST_UserStory']" columnMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='User%20Stories%20Table']/@ownedColumnMappings.0" labelExpression="X" columnFinderExpression="feature:elements"/>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" name="Domain Classes Namespaces Hierarchy" label="Domain Classes Namespaces Hierarchy" titleExpression="Domain Classes Namespaces Hierarchy" domainClass="graal.System">
-      <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
+      <metamodel href="http://www.eclipse.org/sirius/diagram/1.1.0#/"/>
+      <metamodel href="http://www.obeonetwork.org/dsl/entity/3.0.0#/"/>
       <defaultLayer name="Default">
         <containerMappings name="ND_Namespace" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Diagram']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DEL_Generic']" labelDirectEdit="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Namespace%20Name%20Direct%20Edit']" semanticCandidatesExpression="feature:ownedNamespaces" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='Go%20to%20Class%20Diagram']" domainClass="environment.Namespace" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@toolSections.1/@ownedTools[name='DAD_Namespace']" reusedContainerMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_border']" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_color']" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='Namespace_foreground']"/>
@@ -1202,6 +1203,29 @@
           </ownedTools>
         </toolSections>
       </defaultLayer>
+      <additionalLayers name="Dependencies" activeByDefault="true">
+        <edgeMappings name="ND_Dependency" sourceMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetMapping="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@defaultLayer/@containerMappings[name='ND_Namespace']" targetFinderExpression="aql:self.getDependenciesToNamespaces(diagram)">
+          <style targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <beginLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <endLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.isDependencyBeginDecorated()">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style/@beginLabelStyleDescription" attributeName="labelExpression" value="aql:view.getDependencyBeginLabel()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style" attributeName="sourceArrow" value="InputArrow"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:view.isDependencyEndDecorated()">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style/@endLabelStyleDescription" attributeName="labelExpression" value="aql:view.getDependencyEndLabel()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Domain%20Classes%20Namespaces%20Hierarchy']/@additionalLayers[name='Dependencies']/@edgeMappings[name='ND_Dependency']/@style" attributeName="targetArrow" value="InputArrow"/>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_DomainClass'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.5/@ownedTools[name='DAD_ED_Enumeration'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ED_Namespace']" name="Entities Diagram" label="Domain Classes Diagram" titleExpression="[name + ' - Domain Classes diagram'/]" domainClass="environment.Namespace" preconditionExpression="[ancestors()->filter(graal::System)->notEmpty()/]">
       <metamodel href="http://www.obeonetwork.org/dsl/environment/3.0.0#/"/>
@@ -1709,7 +1733,7 @@
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']"/>
         </containerMappings>
-        <containerMappings name="ED_ExternalStructuredType_NotReferenced" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@toolSections.1/@ownedTools[name='DEL_ED_ExternalEntity_NotReferenced']" semanticCandidatesExpression="service:self.getAllNotReferencedStructuredTypes(diagram)" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="graal.DomainClass" reusedNodeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass']/@subNodeMappings[name='ED_Attribute'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass']/@subNodeMappings[name='ED_AssociatedAttribute']" childrenPresentation="List">
+        <containerMappings name="ED_ExternalStructuredType_NotReferenced" detailDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@toolSections.1/@ownedTools[name='New%20external%20Entities%20diagram']" navigationDescriptions="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@toolSections.1/@ownedTools[name='Go%20to%20external%20Entities%20diagram']" deletionDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@toolSections.1/@ownedTools[name='DEL_ED_ExternalStructuredType_NotReferenced']" semanticCandidatesExpression="service:self.getAllNotReferencedStructuredTypes(diagram)" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@additionalLayers[name='External%20Domain%20Classes']/@toolSections.1/@ownedTools[name='DBL_Go%20to%20external%20class%20diagram']" domainClass="graal.DomainClass" reusedNodeMappings="//@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass']/@subNodeMappings[name='ED_Attribute'] //@ownedViewpoints[name='Graal%20Methodology']/@ownedRepresentations[name='Entities%20Diagram']/@defaultLayer/@containerMappings[name='ED_DomainClass']/@subNodeMappings[name='ED_AssociatedAttribute']" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_border']" showIcon="false" labelExpression="service:getEnvironmentQualifiedName()" labelColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_color']" backgroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_background']" foregroundColor="//@userColorsPalettes[name='Palette']/@entries[name='ExternalType_foreground']"/>
         </containerMappings>
         <toolSections name="External Domain Classes">
@@ -1727,7 +1751,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Usability tools">
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalEntity_NotReferenced" forceRefresh="true">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DEL_ED_ExternalStructuredType_NotReferenced" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -1787,6 +1811,7 @@
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.PropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DeleteServices"/>
     <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.UIServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.obeonetwork.dsl.environment.design.services.DesignServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="Palette">
     <entries xsi:type="description:UserFixedColor" red="209" green="209" blue="209" name="Namespace_background"/>
