@@ -45,6 +45,7 @@ location "http://update.obeo.fr/integration/informationsystem/10.0/design/reposi
 	fr.gouv.mindef.safran.cinematic.gen.html.feature.feature.group lazy
 	fr.gouv.mindef.safran.project.lifecycle.feature.feature.group lazy
 	org.obeonetwork.is.samples.feature.feature.group lazy
+	org.obeonetwork.tools.projectlibrary.feature.feature.group lazy
 }
 
 location "http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/repository/" {
