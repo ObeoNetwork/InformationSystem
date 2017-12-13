@@ -187,5 +187,32 @@
 		<p>
 			<cite>L&#8217;utilisation de cette action ne supprime pas l&#8217;exigence du modèle. Seul le lien entre l&#8217;exigence et l'élément est supprimé, il est tout à fait possible de créer un lien entre l&#8217;exigence et un autre élément</cite> 
 		</p>
+		<h2 id="Visualisationdeslmentsrattachsuneexigence">Visualisation des éléments rattachés à une exigence</h2>
+		<p>Des décorateurs permettent de visualiser rapidement les éléments ayant au moins une exigence rattachée sans avoir à sélectionner l'élément et consulter le contenu de la vue 
+			<em>Linked Requirements</em>.
+		</p>
+		<p>Ces décorateurs sont affichés dans la vue Model Explorer et sur les diagrammes.</p>
+		<p>
+			<img border="0" src="pics/Decorators model explorer.png"/>
+			<br/>Vue Model Explorer
+		</p>
+		<p>
+			<img border="0" src="pics/Decorators diagram.png"/>
+			<br/>Diagramme
+		</p>
+		<p>Les décorateurs peuvent être de 3 couleurs différentes :</p>
+		<ul>
+			<li>Gris : l'élément n&#8217;a pas d&#8217;exigence rattachée mais au moins un de ses enfants a une exigence rattachée</li>
+			<li>Orange : l'élément a au moins une exigence rattachée ainsi qu&#8217;au moins un de ses enfants</li>
+			<li>Jaune : l'élément a au moins une exigence rattachée mais aucun de ses enfants n&#8217;est dans ce cas.</li>
+		</ul>
+		<p>Les décorateurs peuvent être globalement activés ou désactivés via le menu 
+			<em>Window &gt; Preferences</em> puis dans la rubrique 
+			<em>General &gt; Appearance &gt; Label decorations</em> il faut cocher ou décocher 
+			<em>Object with requirements</em>
+		</p>
+		<p>
+			<img border="0" src="pics/Decorators preferences.png"/>
+		</p>
 	</body>
 </html>

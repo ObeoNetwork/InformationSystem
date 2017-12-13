@@ -140,3 +140,26 @@ Une boîte de confirmation s'ouvre au lancement de l'action de façon à garanti
 
 ??L'utilisation de cette action ne supprime pas l'exigence du modèle. Seul le lien entre l'exigence et l'élément est supprimé, il est tout à fait possible de créer un lien entre l'exigence et un autre élément?? 
 
+h2. Visualisation des éléments rattachés à une exigence
+
+Des décorateurs permettent de visualiser rapidement les éléments ayant au moins une exigence rattachée sans avoir à sélectionner l'élément et consulter le contenu de la vue _Linked Requirements_.
+
+Ces décorateurs sont affichés dans la vue Model Explorer et sur les diagrammes.
+
+!pics/Decorators model explorer.png!
+Vue Model Explorer
+
+!pics/Decorators diagram.png!
+Diagramme
+
+Les décorateurs peuvent être de 3 couleurs différentes :
+* Gris : l'élément n'a pas d'exigence rattachée mais au moins un de ses enfants a une exigence rattachée
+* Orange : l'élément a au moins une exigence rattachée ainsi qu'au moins un de ses enfants
+* Jaune : l'élément a au moins une exigence rattachée mais aucun de ses enfants n'est dans ce cas.
+
+Les décorateurs peuvent être globalement activés ou désactivés via le menu _Window > Preferences_ puis dans la rubrique _General > Appearance > Label decorations_ il faut cocher ou décocher _Object with requirements_
+
+!pics/Decorators preferences.png!
+
+
+
