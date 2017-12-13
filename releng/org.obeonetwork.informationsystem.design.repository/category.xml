@@ -144,7 +144,7 @@
    <feature url="features/org.obeonetwork.is.samples.feature_10.0.0.qualifier.jar" id="org.obeonetwork.is.samples.feature" version="10.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.samples"/>
    </feature>
-   <feature url="features/org.obeonetwork.tools.projectlibrary.feature_9.0.0.qualifier.jar" id="org.obeonetwork.tools.projectlibrary.feature" version="9.0.0.qualifier">
+   <feature url="features/org.obeonetwork.tools.projectlibrary.feature_10.0.0.qualifier.jar" id="org.obeonetwork.tools.projectlibrary.feature" version="10.0.0.qualifier">
       <category name="org.obeonetwork.informationsystem.commons"/>
    </feature>
    <category-def name="org.obeonetwork.informationsystem.models" label="Information System - Models"/>
