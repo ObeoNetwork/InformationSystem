@@ -291,6 +291,7 @@ h4. Eléments affichés et palette d'outils
 Les éléments suivants sont affichés sur le diagramme :
 
 * _Namespace_ : chaque package contenu dans le System est affiché. Si un package est contenu par un autre package il apparaît à l'intérieur de son package parent. L'icône d'un package apparaît blanche ou grisée selon si le package est respectivement vide ou non.
+* _Dépendance_ : les dépendances entre packages sont représentées par des liens. Ces dépendances sont consolidées à partir du contenu de chacun des packages.Une dépendance consiste en un lien d'héritage, une référence ou l'utilisation d'une _Enumération_ pour typer un attribut. Le nombre d'éléments considérés dans la relation de dépendance est indiqué sur chaque extrémité. Les dépendances entre un package et un de ses sous-packages ne sont pas affichées. L'affichage des dépendances peut être activé ou désactivé via le layer _Dependencies_.
 
 Les outils fournis par la palette sont :
 
