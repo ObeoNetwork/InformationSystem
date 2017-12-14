@@ -1,6 +1,6 @@
 instructions.configure=\
-addRepository(type:0,location:http${#58}//download.eclipse.org/releases/mars/,name:Eclipse Mars);\
-addRepository(type:1,location:http${#58}download.eclipse.org/releases/mars/,name:Eclipse Mars);\
+addRepository(type:0,location:http${#58}//download.eclipse.org/releases/oxygen/,name:Eclipse Oxygen);\
+addRepository(type:1,location:http${#58}download.eclipse.org/releases/oxygen/,name:Eclipse Oxygen);\
   mkdir(path:${installFolder}/dropins);
 
 requires.1.namespace=org.eclipse.equinox.p2.iu

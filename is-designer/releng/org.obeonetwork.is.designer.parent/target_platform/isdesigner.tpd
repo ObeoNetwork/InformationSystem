@@ -100,8 +100,6 @@ location "http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/r
 	org.eclipse.sirius.runtime.ocl.feature.group lazy
 	org.eclipse.ocl.feature.group lazy
 	org.eclipse.sirius.specifier.ide.ui.feature.group lazy
-	org.eclipse.epp.mpc.feature.group lazy
-	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
 	org.eclipse.sirius.doc.feature.feature.group lazy
 	fr.obeo.dsl.designer.ce.feature.feature.group lazy
 	org.eclipse.sirius.runtime.aql.feature.group lazy
@@ -134,6 +132,7 @@ location "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.oomph.setup.sdk.feature.group lazy
 	org.eclipse.platform.sdk lazy
 	org.eclipse.core.runtime.feature.feature.group lazy
+	org.eclipse.equinox.p2.discovery.feature.feature.group lazy
 }
 
 location "https://s3-eu-west-1.amazonaws.com/obeo-m2doc-releases/1.0.0/repository" {

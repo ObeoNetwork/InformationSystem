@@ -121,7 +121,6 @@ The user is not authorized to install or make a technical means to hide within t
    <features>
       <feature id="org.obeonetwork.is.designer.product.feature" installMode="root"/>
       <feature id="org.eclipse.platform" installMode="root"/>
-      <feature id="org.eclipse.epp.mpc" installMode="root"/>
    </features>
 
    <configurations>
