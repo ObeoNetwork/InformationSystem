@@ -68,7 +68,7 @@
             <product>
               <id>${product-id}</id>
               <rootFolder>ISDesigner</rootFolder>
-              <archiveFileName>ISDesigner-1.7.0-${maven.build.timestamp}</archiveFileName>
+              <archiveFileName>ISDesigner-1.8.0-${maven.build.timestamp}</archiveFileName>
             </product>
           </products>
         </configuration>
