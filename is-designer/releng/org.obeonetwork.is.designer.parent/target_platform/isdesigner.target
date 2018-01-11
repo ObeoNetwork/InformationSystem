@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="IS Designer Target Definition" sequenceNumber="1513243467">
+<target name="IS Designer Target Definition" sequenceNumber="1515679869">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.obeonetwork.dsl.feature.environment.feature.group" version="0.0.0"/>
@@ -110,7 +110,7 @@
       <unit id="org.eclipse.sirius.common.acceleo.aql.ide" version="0.0.0"/>
       <unit id="org.eclipse.acceleo.query.feature.group" version="0.0.0"/>
       <unit id="fr.obeo.dsl.viewpoint.runtime.collab.feature.group" version="0.0.0"/>
-      <repository location="http://update.obeo.fr/stable/designer/10.1.0_beta_safran/team/10.1.0/repository/"/>
+      <repository location="http://update.obeo.fr/integration/designer/10.1/team/latest/repository/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.eef.runtime-feature.feature.group" version="0.0.0"/>
