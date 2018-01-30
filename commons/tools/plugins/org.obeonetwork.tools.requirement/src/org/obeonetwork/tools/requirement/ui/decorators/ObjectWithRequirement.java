@@ -32,9 +32,7 @@ import org.obeonetwork.tools.requirement.RequirementLinkerPlugin;
 import org.obeonetwork.tools.requirement.core.util.RequirementService;
 
 /**
- * An example showing how to control when an element is decorated. This example
- * decorates only elements that are instances of IResource and whose attribute
- * is 'Read-only'.
+ * Decorate objects having requirements
  * 
  * @see ILightweightLabelDecorator
  */
