@@ -23,6 +23,8 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.viewers.ILabelProviderListener;
+import org.eclipse.jface.viewers.LabelProviderChangedEvent;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
@@ -39,6 +41,7 @@ import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.Decoration;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.ui.IDecoratorManager;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.obeonetwork.dsl.requirement.RequirementPackage;
@@ -60,6 +63,9 @@ public class Activator extends AbstractUIPlugin {
 	private static Activator plugin;
 
 	private static Set<Viewpoint> viewpoints; 
+
+	// Cache value for decorator enablement
+	private boolean requirementsDecoratorEnabled = ObjectWithRequirement.isDecoratorEnabled();
 	
 	/**
 	 * The constructor
@@ -119,7 +125,7 @@ public class Activator extends AbstractUIPlugin {
 				public void resourceSetChanged(ResourceSetChangeEvent event) {
 					PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 						public void run() {
-							refreshDecorationsOnSession(session);
+							refreshDecorationsOnSession(session, false);
 						}
 					});
 				}
@@ -128,10 +134,20 @@ public class Activator extends AbstractUIPlugin {
 		}
 	}
 	
-	private void refreshDecorationsOnSession(final Session session) {
-		// Fail fast the decoration is disabled
-		if (!ObjectWithRequirement.isDecoratorEnabled()) {
-			return;
+	private void refreshDecorationsOnAllSessions() {
+		for (Session session : SessionManager.INSTANCE.getSessions()) {
+			if (session.isOpen()) {
+				refreshDecorationsOnSession(session, true);
+			}
+		}
+	}
+	
+	private void refreshDecorationsOnSession(final Session session, boolean forceRefresh) {
+		if (!forceRefresh) {
+			// Fail fast the decoration is disabled
+			if (!ObjectWithRequirement.isDecoratorEnabled()) {
+				return;
+			}
 		}
 		
 		IEditingSession uiSession = SessionUIManager.INSTANCE.getUISession(session);
@@ -212,6 +228,19 @@ public class Activator extends AbstractUIPlugin {
 			
 			public void notify(Session updated, int notification) {
 				// Do nothing
+			}
+		});
+		
+		IDecoratorManager decoratorManager = PlatformUI.getWorkbench().getDecoratorManager();
+		decoratorManager.addListener(new ILabelProviderListener() {
+			
+			public void labelProviderChanged(LabelProviderChangedEvent event) {
+				boolean decoratorEnabled = ObjectWithRequirement.isDecoratorEnabled();
+				if (requirementsDecoratorEnabled != decoratorEnabled) {
+					// Value changed, we have to refresh diagrams
+					refreshDecorationsOnAllSessions();
+					requirementsDecoratorEnabled = decoratorEnabled;
+				}
 			}
 		});
 	}
