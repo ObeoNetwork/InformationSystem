@@ -27,6 +27,8 @@ import org.eclipse.jface.viewers.ILightweightLabelDecorator;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ext.base.Option;
+import org.eclipse.ui.IDecoratorManager;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 import org.obeonetwork.tools.requirement.RequirementLinkerPlugin;
 import org.obeonetwork.tools.requirement.core.util.RequirementService;
@@ -76,7 +78,14 @@ public class ObjectWithRequirement implements ILightweightLabelDecorator {
 	}
 	
 	public static boolean isDecoratorEnabled() {
-		return PlatformUI.getWorkbench().getDecoratorManager().getEnabled(ObjectWithRequirement.DECORATOR_ID);
+		IWorkbench workbench = PlatformUI.getWorkbench();
+		if (workbench != null) {
+			IDecoratorManager decoratorManager = workbench.getDecoratorManager();
+			if (decoratorManager != null) {
+				return decoratorManager.getEnabled(ObjectWithRequirement.DECORATOR_ID);
+			}
+		}
+		return false;
 	}
 	
 	/**
