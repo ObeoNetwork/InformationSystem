@@ -37,7 +37,7 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_q_R9wGBOEeS9uKH-UlSsiQ" technicalid="_E0B3xJn4EeaqGJZ6nXNZAQ" name="DATETIME">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_-ERuIWBNEeS9uKH-UlSsiQ" technicalid="_E0B3xpn4EeaqGJZ6nXNZAQ" name="DEC" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
@@ -138,7 +138,7 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_uh_PgGBOEeS9uKH-UlSsiQ" technicalid="_E0CeyJn4EeaqGJZ6nXNZAQ" name="SMALLDATETIME">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_PFisMGBNEeS9uKH-UlSsiQ" technicalid="_E0Ceypn4EeaqGJZ6nXNZAQ" name="SMALLINT">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
@@ -147,10 +147,10 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_keM2YGBOEeS9uKH-UlSsiQ" technicalid="_E0Cezpn4EeaqGJZ6nXNZAQ" name="TIME">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_aaRWMDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_pVGT4GBOEeS9uKH-UlSsiQ" technicalid="_E0Ce0Jn4EeaqGJZ6nXNZAQ" name="TIMESTAMP">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8n8WBREeS9uKH-UlSsiQ" technicalid="_E0Ce0pn4EeaqGJZ6nXNZAQ" name="TINYBLOB" spec="Length">
     <mapsTo href="pathmap://LogicalDBTypes#_7wjKAPsPEeWC2u5kehASiQ"/>

@@ -25,7 +25,7 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj7kZhEnEeGTa_JlZYBw1A" technicalid="_FCl4MJn4EeaqGJZ6nXNZAQ" name="datetime">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj7kZxEnEeGTa_JlZYBw1A" technicalid="_FCl4Mpn4EeaqGJZ6nXNZAQ" name="dec" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
@@ -79,10 +79,10 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yhBEnEeGTa_JlZYBw1A" technicalid="_FCmfRJn4EeaqGJZ6nXNZAQ" name="time">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_aaRWMDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yhREnEeGTa_JlZYBw1A" technicalid="_FCmfRpn4EeaqGJZ6nXNZAQ" name="timestamp" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yhhEnEeGTa_JlZYBw1A" technicalid="_FCmfSJn4EeaqGJZ6nXNZAQ" name="tinyblob">
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
@@ -100,12 +100,12 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_f22m0PsxEeW_y8hebIGfNw" technicalid="_FCmfUpn4EeaqGJZ6nXNZAQ" name="year">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yjBEnEeGTa_JlZYBw1A" technicalid="_FCmfVJn4EeaqGJZ6nXNZAQ" name="year(2)">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Zj8yjREnEeGTa_JlZYBw1A" technicalid="_FCmfVpn4EeaqGJZ6nXNZAQ" name="year(4)">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
 </typeslibrary:NativeTypesLibrary>

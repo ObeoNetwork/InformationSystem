@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<oenv:Environment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_s5Ev8KwKEd2XLNOhkJIazw" description="" createdOn="2015-03-19T11:11:09.842+0100" modifiedOn="2015-03-19T11:11:15.440+0100" name="Obeo">
-  <priorityDefinitions xmi:id="_s5GlIawKEd2XLNOhkJIazw">
-    <priorities xmi:id="_s5GlIqwKEd2XLNOhkJIazw" name="Highest"/>
-    <priorities xmi:id="_s5GlI6wKEd2XLNOhkJIazw" name="High"/>
-    <priorities xmi:id="_s5HMMKwKEd2XLNOhkJIazw" name="Normal"/>
-    <priorities xmi:id="_s5HMMawKEd2XLNOhkJIazw" name="Low"/>
-    <priorities xmi:id="_s5HMMqwKEd2XLNOhkJIazw" name="Lowest"/>
+<oenv:Environment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oenv="http://www.obeonetwork.org/dsl/environment/3.0.0" xmi:id="_s5Ev8KwKEd2XLNOhkJIazw" technicalid="_qCIGwDwHEeiOd8zmfAzmGQ" description="" createdOn="2015-03-19T11:11:09.842+0100" modifiedOn="2015-03-19T11:11:15.440+0100" name="Obeo">
+  <priorityDefinitions xmi:id="_s5GlIawKEd2XLNOhkJIazw" technicalid="_qCJU4DwHEeiOd8zmfAzmGQ">
+    <priorities xmi:id="_s5GlIqwKEd2XLNOhkJIazw" technicalid="_qCJ78DwHEeiOd8zmfAzmGQ" name="Highest"/>
+    <priorities xmi:id="_s5GlI6wKEd2XLNOhkJIazw" technicalid="_qCJ78TwHEeiOd8zmfAzmGQ" name="High"/>
+    <priorities xmi:id="_s5HMMKwKEd2XLNOhkJIazw" technicalid="_qCKjADwHEeiOd8zmfAzmGQ" name="Normal"/>
+    <priorities xmi:id="_s5HMMawKEd2XLNOhkJIazw" technicalid="_qCKjATwHEeiOd8zmfAzmGQ" name="Low"/>
+    <priorities xmi:id="_s5HMMqwKEd2XLNOhkJIazw" technicalid="_qCKjAjwHEeiOd8zmfAzmGQ" name="Lowest"/>
   </priorityDefinitions>
-  <typesDefinition xmi:id="_s5FXAKwKEd2XLNOhkJIazw" createdOn="2015-05-21T16:33:04.543+0200" modifiedOn="2016-04-05T11:32:40.700+0200">
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_SKJz0PsREeWC2u5kehASiQ" createdOn="2016-04-05T11:32:15.630+0200" modifiedOn="2016-04-05T11:32:18.956+0200" name="Binary"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAqwKEd2XLNOhkJIazw" name="Boolean"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-E6wKEd2XLNOhkJIazw" name="Date"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EawKEd2XLNOhkJIazw" name="Double"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5GlIKwKEd2XLNOhkJIazw" name="Float"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAawKEd2XLNOhkJIazw" name="Integer"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_9dnH8bGqEd2SRpTkL4GntA" name="Long"/>
-    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EKwKEd2XLNOhkJIazw" name="String"/>
+  <typesDefinition xmi:id="_s5FXAKwKEd2XLNOhkJIazw" technicalid="_qCKjAzwHEeiOd8zmfAzmGQ" createdOn="2015-05-21T16:33:04.543+0200" modifiedOn="2018-04-09T17:08:33.999+0200">
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_SKJz0PsREeWC2u5kehASiQ" technicalid="_qCKjBDwHEeiOd8zmfAzmGQ" createdOn="2016-04-05T11:32:15.630+0200" modifiedOn="2016-04-05T11:32:18.956+0200" name="Binary"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAqwKEd2XLNOhkJIazw" technicalid="_qCKjBTwHEeiOd8zmfAzmGQ" name="Boolean"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-E6wKEd2XLNOhkJIazw" technicalid="_qCKjBjwHEeiOd8zmfAzmGQ" name="Date"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EawKEd2XLNOhkJIazw" technicalid="_qCKjBzwHEeiOd8zmfAzmGQ" name="Double"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5GlIKwKEd2XLNOhkJIazw" technicalid="_qCKjCDwHEeiOd8zmfAzmGQ" name="Float"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5FXAawKEd2XLNOhkJIazw" technicalid="_qCKjCTwHEeiOd8zmfAzmGQ" name="Integer"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_9dnH8bGqEd2SRpTkL4GntA" technicalid="_qCKjCjwHEeiOd8zmfAzmGQ" name="Long"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_s5F-EKwKEd2XLNOhkJIazw" technicalid="_qCKjCzwHEeiOd8zmfAzmGQ" name="String"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_rWTrcTwHEeiOd8zmfAzmGQ" technicalid="_rGWj4DwHEeiOd8zmfAzmGQ" name="Time"/>
+    <types xsi:type="oenv:PrimitiveType" xmi:id="_rGXK8DwHEeiOd8zmfAzmGQ" technicalid="_q9qh8DwHEeiOd8zmfAzmGQ" name="Timestamp"/>
   </typesDefinition>
 </oenv:Environment>

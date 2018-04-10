@@ -31,13 +31,13 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Xlo_YGW7EeSGPOrcarGX5w" technicalid="_FVp-JJn4EeaqGJZ6nXNZAQ" name="datetime">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_Z98TgGW7EeSGPOrcarGX5w" technicalid="_FVp-Jpn4EeaqGJZ6nXNZAQ" name="datetime2" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_ivS0YGW7EeSGPOrcarGX5w" technicalid="_FVp-KJn4EeaqGJZ6nXNZAQ" name="datetimeoffset" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_uxQxcGW7EeSGPOrcarGX5w" technicalid="_FVp-Kpn4EeaqGJZ6nXNZAQ" name="dec" spec="LengthAndPrecision">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5REnEeGTa_JlZYBw1A"/>
@@ -99,7 +99,7 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ5hEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_ZcLi4GW-EeSGPOrcarGX5w" technicalid="_FVp-Upn4EeaqGJZ6nXNZAQ" name="smalldatetime">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_dv-6YGW-EeSGPOrcarGX5w" technicalid="_FVp-VJn4EeaqGJZ6nXNZAQ" name="smallint">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
@@ -112,10 +112,10 @@
     <mapsTo href="pathmap://LogicalDBTypes#_WWew-BEnEeGTa_JlZYBw1A"/>
   </nativeTypes>
   <nativeTypes xmi:id="_u7N3UGW-EeSGPOrcarGX5w" technicalid="_FVp-W5n4EeaqGJZ6nXNZAQ" name="time" spec="Length">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_aaRWMDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_w9fREGW-EeSGPOrcarGX5w" technicalid="_FVp-XZn4EeaqGJZ6nXNZAQ" name="timestamp">
-    <mapsTo href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+    <mapsTo href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
   </nativeTypes>
   <nativeTypes xmi:id="_y-I6MGW-EeSGPOrcarGX5w" technicalid="_FVp-X5n4EeaqGJZ6nXNZAQ" name="tinyint">
     <mapsTo href="pathmap://LogicalDBTypes#_WWeJ4BEnEeGTa_JlZYBw1A"/>
