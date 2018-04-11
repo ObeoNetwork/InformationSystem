@@ -184,12 +184,12 @@
       </columns>
       <columns xmi:id="_v0eNmpbFEea3rZOTd3d7bg" techID="_tTXieZbFEeaDlsI4Be2IgQ" name="BirthDate" nullable="true" defaultValue="">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_v0eNm5bFEea3rZOTd3d7bg" length="23" precision="3">
-          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+          <nativeType href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
         </type>
       </columns>
       <columns xmi:id="_v0eNnJbFEea3rZOTd3d7bg" techID="_tTXifZbFEeaDlsI4Be2IgQ" name="HireDate" nullable="true" defaultValue="">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_v0eNnZbFEea3rZOTd3d7bg" length="23" precision="3">
-          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+          <nativeType href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
         </type>
       </columns>
       <columns xmi:id="_v0eNnpbFEea3rZOTd3d7bg" techID="_tTXigZbFEeaDlsI4Be2IgQ" name="Address" nullable="true" defaultValue="">
@@ -376,17 +376,17 @@
       </columns>
       <columns xmi:id="_v0eN_JbFEea3rZOTd3d7bg" techID="_tTca-ZbFEeaDlsI4Be2IgQ" name="OrderDate" nullable="true" defaultValue="" indexElements="_v0eN75bFEea3rZOTd3d7bg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_v0eN_ZbFEea3rZOTd3d7bg" length="23" precision="3">
-          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+          <nativeType href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
         </type>
       </columns>
       <columns xmi:id="_v0eN_pbFEea3rZOTd3d7bg" techID="_tTca_ZbFEeaDlsI4Be2IgQ" name="RequiredDate" nullable="true" defaultValue="">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_v0eN_5bFEea3rZOTd3d7bg" length="23" precision="3">
-          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+          <nativeType href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
         </type>
       </columns>
       <columns xmi:id="_v0eOAJbFEea3rZOTd3d7bg" techID="_tTcbAZbFEeaDlsI4Be2IgQ" name="ShippedDate" nullable="true" defaultValue="" indexElements="_v0eN8ZbFEea3rZOTd3d7bg">
         <type xsi:type="typeslibrary:TypeInstance" xmi:id="_v0eOAZbFEea3rZOTd3d7bg" length="23" precision="3">
-          <nativeType href="pathmap://LogicalDBTypes#_WWew-xEnEeGTa_JlZYBw1A"/>
+          <nativeType href="pathmap://LogicalDBTypes#_drqOcDwJEeiOd8zmfAzmGQ"/>
         </type>
       </columns>
       <columns xmi:id="_v0eOApbFEea3rZOTd3d7bg" techID="_tTdCAZbFEeaDlsI4Be2IgQ" name="ShipVia" nullable="true" defaultValue="" indexElements="_v0eN85bFEea3rZOTd3d7bg" foreignKeyElements="_v0eN45bFEea3rZOTd3d7bg">
