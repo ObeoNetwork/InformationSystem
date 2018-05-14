@@ -48,6 +48,7 @@ import org.obeonetwork.dsl.environment.Namespace;
 import fr.gouv.mindef.safran.database.scaffold.ScaffoldFactory;
 import fr.gouv.mindef.safran.database.scaffold.ScaffoldInfo;
 import fr.gouv.mindef.safran.database.scaffold.ScaffoldType;
+import fr.gouv.mindef.safran.database.transfo.InitializerException;
 import fr.gouv.mindef.safran.database.transfo.Transformation;
 import fr.gouv.mindef.safran.database.transfo.impl.EntityToMLD;
 import fr.gouv.mindef.safran.database.transfo.impl.MLDToEntity;
@@ -64,6 +65,7 @@ public class ScaffoldingOperation extends WorkspaceModifyOperation {
 	private static final String SCAFFOLD_FOLDER = "scaffold";
 
 	private boolean success = false;
+	private boolean canceled = false;
 	
 	private Session session = null;
 	
@@ -273,6 +275,9 @@ public class ScaffoldingOperation extends WorkspaceModifyOperation {
 				}
 			};
 			session.getTransactionalEditingDomain().getCommandStack().execute(transformCommand);
+		} catch (InitializerException e) {
+			logCancel("Error during initialization", e);
+			return;
 		} catch (RuntimeException e) {
 			logError("An error occured during the transformation", e);
 			return;
@@ -299,10 +304,21 @@ public class ScaffoldingOperation extends WorkspaceModifyOperation {
 		return transformation;
 	}
 	
+	private void logCancel(String message, Exception e) {
+		success = false;
+		canceled = true;
+		IStatus status = new Status(IStatus.WARNING, Activator.PLUGIN_ID, message, e);
+		StatusManager.getManager().handle(status, StatusManager.LOG | StatusManager.BLOCK);
+	}
+	
 	private void logError(String message, Exception e) {
 		success = false;
 		IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, message, e);
 		StatusManager.getManager().handle(status, StatusManager.LOG);
+	}
+	
+	public boolean isCanceled() {
+		return canceled;
 	}
 	
 	public boolean isSuccess() {

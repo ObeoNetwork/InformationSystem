@@ -97,7 +97,9 @@ public class ScaffoldingUtils {
 		}
 
 		// If the transformation worked correctly
-		if (op.isSuccess() == false) {
+		if (op.isCanceled() == true) {
+			// Do nothing
+		} else if (op.isSuccess() == false) {
 			logError("The scaffolding process failed. See Error Log view for details.", null);
 		} else {
 			URI scaffoldModelURI = op.getScaffoldInfo().eResource().getURI();

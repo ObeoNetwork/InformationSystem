@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.obeonetwork.dsl.database.Column;
@@ -43,6 +44,7 @@ import org.obeonetwork.dsl.environment.Reference;
 import fr.gouv.mindef.safran.database.Activator;
 import fr.gouv.mindef.safran.database.scaffold.ScaffoldInfo;
 import fr.gouv.mindef.safran.database.scaffold.ScaffoldType;
+import fr.gouv.mindef.safran.database.transfo.collab.CollabTransformationInitializer;
 import fr.gouv.mindef.safran.database.transfo.util.DeleteUtils;
 import fr.gouv.mindef.safran.database.transfo.util.ModelUtils;
 
@@ -57,7 +59,6 @@ abstract public class AbstractTransformation implements Transformation {
 	private Map<EObject, EObject> inputTraceabilityMap = new HashMap<EObject, EObject>();
 	private Map<EObject, EObject> outputTraceabilityMap = new HashMap<EObject, EObject>();
 	private List<EObject> objectsToBeKept = new ArrayList<EObject>();
-
 	private Properties typePropertiesFile;
 	
 	public boolean transform(URI scaffoldInfoURI, ScaffoldType scaffoldType) {
@@ -76,6 +77,17 @@ abstract public class AbstractTransformation implements Transformation {
 		return success;
 	}
 	
+	private boolean isCollaborativeSession(Session session) {
+		// Check if we are on a collaborative Sirius or not
+		boolean collaborativeSession = false;
+		try {
+			collaborativeSession = Class.forName("fr.obeo.dsl.viewpoint.collab.api.remotesession.CollaborativeSession").isInstance(session);
+		} catch (ClassNotFoundException e) {
+			collaborativeSession = false;
+		}
+		return collaborativeSession;
+	}
+	
 	public boolean doTransformationFirstStep(ScaffoldInfo scaffoldInfo, ScaffoldType scaffoldType) {
 		this.scaffoldInfo = scaffoldInfo;
 		this.scaffoldType = scaffoldType;
@@ -83,6 +95,13 @@ abstract public class AbstractTransformation implements Transformation {
 		EObject targetObject = scaffoldInfo.getEndingObjectForTransformation(scaffoldType);
 		Iterable<EObject> references = scaffoldInfo.getAdditionalObjectsForTransformation(scaffoldType);
 		Map<EObject, EObject> traceabilityMap = scaffoldInfo.getTraceabilityMap(scaffoldType).map();
+		
+		Session session = new EObjectQuery(targetObject).getSession();
+		if (isCollaborativeSession(session)) {
+			// We have to do special initialization due to collaborative mode
+			new CollabTransformationInitializer().initialize(scaffoldInfo, scaffoldType, sourceObject, targetObject, references, traceabilityMap);
+		}
+		
 		return doTransformationFirstStep(sourceObject, targetObject, references, traceabilityMap);
 	}
 	
@@ -222,4 +241,5 @@ abstract public class AbstractTransformation implements Transformation {
 		}
 		return typePropertiesFile;
 	}
+	
 }
