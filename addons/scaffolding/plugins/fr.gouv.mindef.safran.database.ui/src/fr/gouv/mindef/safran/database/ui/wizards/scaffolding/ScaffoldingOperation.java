@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Obeo.
+ * Copyright (c) 2017, 2018 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -36,9 +36,14 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.sirius.business.api.query.AirDResouceQuery;
+import org.eclipse.sirius.business.api.query.URIQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.business.api.session.resource.AirdResource;
+import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
+import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.obeonetwork.dsl.database.NamedElement;
@@ -215,11 +220,18 @@ public class ScaffoldingOperation extends WorkspaceModifyOperation {
 	}
 	
 	private Resource createScaffoldResourceForSharedProject(CDOView cdoView) {
+		String projectName = getRemoteProjectName(session);
+		
 		CDOTransaction transaction = (CDOTransaction)cdoView;
 		String name = getScaffoldModelName();
 		int count = 0;
 		while (count < 10) {
-			String path = SCAFFOLD_FOLDER + "/" + getFilenameForScaffoldModel(name, count);
+			String path = "";
+			if (projectName != null) {
+				path = projectName + "/";
+			}
+			path += SCAFFOLD_FOLDER + "/" + getFilenameForScaffoldModel(name, count);				
+			
 			// Create resource
 			CDOResource resource = transaction.getOrCreateResource(path);
 			// Check if it is empty
@@ -229,6 +241,36 @@ public class ScaffoldingOperation extends WorkspaceModifyOperation {
 			} else {
 				// try with another name
 				count++;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Returns the name of the remote "project" when in collaborative mode
+	 * @param session
+	 * @return
+	 */
+	private String getRemoteProjectName(Session session) {
+		if (session != null) {
+			Resource airdResource = session.getSessionResource();
+			if (airdResource instanceof AirdResource) {
+				Option<DAnalysis> optionAnalysis = new AirDResouceQuery((AirdResource)airdResource).getDAnalysis();
+				if (optionAnalysis.some()) {
+					// This is the DAnalysis contained in the local AIRD resource
+					DAnalysis analysis = optionAnalysis.get();
+					
+					// We need the remote DAnalysis
+					for (DAnalysis referencedAnalysis : analysis.getReferencedAnalysis()) {
+						Resource referencedAirdResource = referencedAnalysis.eResource();
+						URI remoteUri = referencedAirdResource.getURI();
+						if (referencedAirdResource != null && new URIQuery(remoteUri).isCDOURI()) {
+							if (remoteUri.segmentCount() >= 1) {
+								return remoteUri.segment(0);
+							}
+						}
+					}
+				}
 			}
 		}
 		return null;

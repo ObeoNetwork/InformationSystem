@@ -106,7 +106,7 @@ public class ScaffoldingUtils {
 			String scaffoldModelLocation = scaffoldModelURI.toPlatformString(true);
 			if (scaffoldModelLocation == null) {
 				// Maybe it's a CDO URI
-				scaffoldModelLocation = scaffoldModelURI.toString();
+ 				scaffoldModelLocation = scaffoldModelURI.toString();
 			}
 			MessageDialog.openInformation(shell, "Scaffolding", "The scaffolding process has been successfully executed.\n\n"
 					+ "Scaffold model located at : " + scaffoldModelLocation);
