@@ -42,18 +42,11 @@ public class CollabTransformationInitializer {
 		if (targetObject instanceof CDOObject) {
 			elementsToLock.add((CDOObject)targetObject);
 		}
-		Collection<CDOObject> lockedElements = null;
 		try {
-			lockedElements = CDOLockManager.INSTANCE.acquireLock(elementsToLock, false, true);			
+			Collection<CDOObject> lockedElements = CDOLockManager.INSTANCE.acquireLock(elementsToLock, false, true);			
 		} catch (LockedInstanceException e) {
 			throw new InitializerException("Transformation can not be executed : some elements are locked by other users");
 		}
 		
-		// Check if all elements where locked
-		for (CDOObject elementToLock : elementsToLock) {
-			if (!lockedElements.contains(elementToLock)) {
-				throw new InitializerException("Transformation can not be executed : some elements are locked by other users");
-			}
-		}
 	}
 }
