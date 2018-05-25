@@ -12,7 +12,6 @@ package fr.gouv.mindef.safran.database.transfo.collab;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;
 
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.ecore.EObject;
@@ -35,10 +34,14 @@ public class CollabTransformationInitializer {
 	 * @param scaffoldInfo 
 	 * @throws InitializerException Exception thrown if a problem occured during initialization
 	 */
-	public void initialize(ScaffoldInfo scaffoldInfo, ScaffoldType scaffoldType, EObject sourceObject, EObject targetObject, Iterable<EObject> references, Map<EObject, EObject> traceabilityMap) throws InitializerException {
+	public void initialize(ScaffoldInfo scaffoldInfo, ScaffoldType scaffoldType) throws InitializerException {
+		EObject targetObject = scaffoldInfo.getEndingObjectForTransformation(scaffoldType);
+		
 		// We have to acquire locks on target objects
 		Collection<CDOObject> elementsToLock = new ArrayList<CDOObject>();
-		elementsToLock.add(scaffoldInfo);
+		if (scaffoldInfo.eResource() != null) {
+			elementsToLock.add(scaffoldInfo);
+		}
 		if (targetObject instanceof CDOObject) {
 			elementsToLock.add((CDOObject)targetObject);
 		}

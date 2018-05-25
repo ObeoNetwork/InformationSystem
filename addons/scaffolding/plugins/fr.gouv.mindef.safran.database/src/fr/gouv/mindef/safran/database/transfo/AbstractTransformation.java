@@ -77,17 +77,6 @@ abstract public class AbstractTransformation implements Transformation {
 		return success;
 	}
 	
-	private boolean isCollaborativeSession(Session session) {
-		// Check if we are on a collaborative Sirius or not
-		boolean collaborativeSession = false;
-		try {
-			collaborativeSession = Class.forName("fr.obeo.dsl.viewpoint.collab.api.remotesession.CollaborativeSession").isInstance(session);
-		} catch (ClassNotFoundException e) {
-			collaborativeSession = false;
-		}
-		return collaborativeSession;
-	}
-	
 	public boolean doTransformationFirstStep(ScaffoldInfo scaffoldInfo, ScaffoldType scaffoldType) {
 		this.scaffoldInfo = scaffoldInfo;
 		this.scaffoldType = scaffoldType;
@@ -95,12 +84,6 @@ abstract public class AbstractTransformation implements Transformation {
 		EObject targetObject = scaffoldInfo.getEndingObjectForTransformation(scaffoldType);
 		Iterable<EObject> references = scaffoldInfo.getAdditionalObjectsForTransformation(scaffoldType);
 		Map<EObject, EObject> traceabilityMap = scaffoldInfo.getTraceabilityMap(scaffoldType).map();
-		
-		Session session = new EObjectQuery(targetObject).getSession();
-		if (isCollaborativeSession(session)) {
-			// We have to do special initialization due to collaborative mode
-			new CollabTransformationInitializer().initialize(scaffoldInfo, scaffoldType, sourceObject, targetObject, references, traceabilityMap);
-		}
 		
 		return doTransformationFirstStep(sourceObject, targetObject, references, traceabilityMap);
 	}

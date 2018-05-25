@@ -55,6 +55,7 @@ import fr.gouv.mindef.safran.database.scaffold.ScaffoldInfo;
 import fr.gouv.mindef.safran.database.scaffold.ScaffoldType;
 import fr.gouv.mindef.safran.database.transfo.InitializerException;
 import fr.gouv.mindef.safran.database.transfo.Transformation;
+import fr.gouv.mindef.safran.database.transfo.collab.CollabTransformationInitializer;
 import fr.gouv.mindef.safran.database.transfo.impl.EntityToMLD;
 import fr.gouv.mindef.safran.database.transfo.impl.MLDToEntity;
 import fr.gouv.mindef.safran.database.transfo.impl.MLDToMPD;
@@ -299,6 +300,16 @@ public class ScaffoldingOperation extends WorkspaceModifyOperation {
 
 	@Override
 	protected void execute(IProgressMonitor monitor) throws CoreException, InvocationTargetException, InterruptedException {
+		if (isCollaborativeSession(session)) {
+			// Check locks
+			try {
+				new CollabTransformationInitializer().initialize(scaffoldInfo, scaffoldType);			
+			} catch (InitializerException e) {
+				logCancel("Error during initialization", e);
+				return;
+			}
+		}
+		
 		if (scaffoldInfo.eResource() == null) {
 			// We have to create a scaffold model
 			Resource scaffoldResource = createScaffoldResource();
@@ -325,6 +336,17 @@ public class ScaffoldingOperation extends WorkspaceModifyOperation {
 			return;
 		}
 		
+	}
+	
+	private boolean isCollaborativeSession(Session session) {
+		// Check if we are on a collaborative Sirius or not
+		boolean collaborativeSession = false;
+		try {
+			collaborativeSession = Class.forName("fr.obeo.dsl.viewpoint.collab.api.remotesession.CollaborativeSession").isInstance(session);
+		} catch (ClassNotFoundException e) {
+			collaborativeSession = false;
+		}
+		return collaborativeSession;
 	}
 	
 	private Transformation createTransformation() {

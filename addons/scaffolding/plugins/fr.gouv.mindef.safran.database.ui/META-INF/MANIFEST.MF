@@ -39,7 +39,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius,
  org.eclipse.team.svn.ui,
  org.eclipse.team.svn.core,
- org.eclipse.sirius.ext.base
+ org.eclipse.sirius.ext.base,
+ fr.obeo.dsl.viewpoint.collab
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: fr.gouv.mindef.safran.database.ui,

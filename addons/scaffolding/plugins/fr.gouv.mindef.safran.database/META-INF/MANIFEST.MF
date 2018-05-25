@@ -17,10 +17,11 @@ Require-Bundle: org.eclipse.ui,
  org.obeonetwork.dsl.environment;bundle-version="3.0.0",
  org.obeonetwork.dsl.entity;bundle-version="3.0.0",
  org.obeonetwork.dsl.database;bundle-version="1.0.0",
- fr.obeo.dsl.viewpoint.collab;resolution:=optional
+ fr.obeo.dsl.viewpoint.collab
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: fr.gouv.mindef.safran.database.transfo,
+ fr.gouv.mindef.safran.database.transfo.collab,
  fr.gouv.mindef.safran.database.transfo.impl,
  fr.gouv.mindef.safran.database.transfo.util
 Bundle-Vendor: Obeo Network
