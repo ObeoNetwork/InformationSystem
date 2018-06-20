@@ -17,11 +17,11 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.obeonetwork.dsl.environment.BindingElement;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 
@@ -33,14 +33,14 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  */
 public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 
-	final private AdapterFactoryLabelProvider labelProvider;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2008, 2017 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
+
+	private ComposedAdapterFactory composedAdapterFactory;
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -50,9 +50,8 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	public BindingElementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-		ComposedAdapterFactory af = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-		af.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-		labelProvider = new AdapterFactoryLabelProvider(af);
+		composedAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		composedAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 	}
 
 	/**
@@ -203,11 +202,19 @@ public class BindingElementItemProvider extends ObeoDSMObjectItemProvider {
 		String label = " ";
 		BindingElement bindingElement = (BindingElement) object;
 		if (bindingElement.getBoundElement() != null) {
-			label += labelProvider.getText(bindingElement.getBoundElement());
+			label += getLabelFromProvider(bindingElement.getBoundElement());
 		}
 
 		return " ".equals(label) ? getString("_UI_BindingElement_type")
 				: getString("_UI_BindingElement_type") + " " + label;
+	}
+	
+	private String getLabelFromProvider(Object object) {
+		IItemLabelProvider labelProvider = (IItemLabelProvider)composedAdapterFactory.adapt(object, IItemLabelProvider.class);
+		if (labelProvider != null) {
+			return labelProvider.getText(object);
+		}
+		return null;
 	}
 
 	/**

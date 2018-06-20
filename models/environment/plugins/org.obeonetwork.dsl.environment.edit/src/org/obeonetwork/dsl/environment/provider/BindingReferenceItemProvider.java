@@ -17,9 +17,9 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.obeonetwork.dsl.environment.BindingReference;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
 
@@ -31,8 +31,6 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  */
 public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 
-	final private AdapterFactoryLabelProvider labelProvider;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,6 +38,8 @@ public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	public static final String copyright = "Copyright (c) 2008, 2017 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
+	private ComposedAdapterFactory composedAdapterFactory;
+	
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -48,9 +48,8 @@ public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	public BindingReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-		ComposedAdapterFactory af = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-		af.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-		labelProvider = new AdapterFactoryLabelProvider(af);
+		composedAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		composedAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 	}
 
 	/**
@@ -132,13 +131,13 @@ public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 		String label = " ";
 		BindingReference bindingReference = (BindingReference) object;
 		if (bindingReference.getLeft() != null && bindingReference.getLeft().getBoundElement() != null) {
-			label += labelProvider.getText(bindingReference.getLeft().getBoundElement());
+			label += getLabelFromProvider(bindingReference.getLeft().getBoundElement());
 		} else {
 			label += "undefined";
 		}
 		label += " - ";
 		if (bindingReference.getRight() != null && bindingReference.getRight().getBoundElement() != null) {
-			label += labelProvider.getText(bindingReference.getRight().getBoundElement());
+			label += getLabelFromProvider(bindingReference.getRight().getBoundElement());
 		} else {
 			label += "undefined";
 		}
@@ -146,7 +145,15 @@ public class BindingReferenceItemProvider extends ObeoDSMObjectItemProvider {
 		return " ".equals(label) ? getString("_UI_BindingReference_type")
 				: getString("_UI_BindingReference_type") + " " + label;
 	}
-
+	
+	private String getLabelFromProvider(Object object) {
+		IItemLabelProvider labelProvider = (IItemLabelProvider)composedAdapterFactory.adapt(object, IItemLabelProvider.class);
+		if (labelProvider != null) {
+			return labelProvider.getText(object);
+		}
+		return null;
+	}
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.

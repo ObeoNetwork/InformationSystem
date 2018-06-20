@@ -18,10 +18,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.obeonetwork.dsl.environment.BindingInfo;
 import org.obeonetwork.dsl.environment.EnvironmentFactory;
 import org.obeonetwork.dsl.environment.EnvironmentPackage;
@@ -34,8 +34,6 @@ import org.obeonetwork.dsl.environment.EnvironmentPackage;
  */
 public class BindingInfoItemProvider extends ObeoDSMObjectItemProvider {
 
-	final private AdapterFactoryLabelProvider labelProvider;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -43,6 +41,8 @@ public class BindingInfoItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	public static final String copyright = "Copyright (c) 2008, 2017 Obeo.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Obeo - initial API and implementation";
 
+	private ComposedAdapterFactory composedAdapterFactory;
+	
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -51,9 +51,8 @@ public class BindingInfoItemProvider extends ObeoDSMObjectItemProvider {
 	 */
 	public BindingInfoItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-		ComposedAdapterFactory af = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-		af.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-		labelProvider = new AdapterFactoryLabelProvider(af);
+		composedAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		composedAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 	}
 
 	/**
@@ -199,18 +198,26 @@ public class BindingInfoItemProvider extends ObeoDSMObjectItemProvider {
 		String label = " ";
 		BindingInfo bindingInfo = (BindingInfo) object;
 		if (bindingInfo.getLeft() != null) {
-			label += labelProvider.getText(bindingInfo.getLeft());
+			label += getLabelFromProvider(bindingInfo.getLeft());
 		} else {
 			label += "undefined";
 		}
 		label += " - ";
 		if (bindingInfo.getRight() != null) {
-			label += labelProvider.getText(bindingInfo.getRight());
+			label += getLabelFromProvider(bindingInfo.getRight());
 		} else {
 			label += "undefined";
 		}
 
 		return " ".equals(label) ? getString("_UI_BindingInfo_type") : getString("_UI_BindingInfo_type") + " " + label;
+	}
+	
+	private String getLabelFromProvider(Object object) {
+		IItemLabelProvider labelProvider = (IItemLabelProvider)composedAdapterFactory.adapt(object, IItemLabelProvider.class);
+		if (labelProvider != null) {
+			return labelProvider.getText(object);
+		}
+		return null;
 	}
 
 	/**
